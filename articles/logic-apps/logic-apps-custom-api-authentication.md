@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656231"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas para APIs personalizadas de aplicativos lógicos do Azure
@@ -51,7 +50,7 @@ Seu aplicativo lógico usa essa identidade do aplicativo do Azure AD para autent
 2. Confirme que você está no mesmo diretório que o aplicativo Web ou aplicativo de API.
 
    > [!TIP]
-   > Para mudar de diretório, selecione seu perfil e selecione outro diretório. Ou escolha **visão geral** > **alternar diretório**.
+   > Para mudar de diretório, selecione seu perfil e selecione outro diretório. Ou escolha **visão geral**  >  **alternar diretório**.
 
 3. No menu de diretório, em **Gerenciar**, escolha **Registros do aplicativo** > **Novo registro do aplicativo**.
 
@@ -203,7 +202,7 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 | audiência | Sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
 | clientId | Sim | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
 | segredo | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
-| type | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| tipo | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por exemplo:
@@ -250,14 +249,14 @@ Na seção **autorização** , inclua estas propriedades:
 
 | Propriedade | Obrigatório | Descrição |
 | -------- | -------- | ----------- |
-| `type` | Sim | O tipo de autenticação. Para certificados de cliente TLS/SSL, o valor deve `ClientCertificate`ser. |
+| `type` | Sim | O tipo de autenticação. Para certificados de cliente TLS/SSL, o valor deve ser `ClientCertificate` . |
 | `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
 | `pfx` | Sim | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) |
 ||||
 
 <a name="basic"></a>
 
-#### <a name="basic-authentication"></a>Autenticação básica
+#### <a name="basic-authentication"></a>Autenticação Básica
 
 Para validar solicitações de entrada de seu aplicativo lógico para o aplicativo Web ou aplicativo de API, você pode usar a autenticação básica, como um nome de usuário e senha. A autenticação básica é um padrão comum e você pode usar essa autenticação em qualquer linguagem usada para compilar seu aplicativo Web ou aplicativo de API.
 
@@ -274,7 +273,7 @@ Na seção **autorização** , inclua estas propriedades:
 | Propriedade | Obrigatório | Descrição | 
 | -------- | -------- | ----------- | 
 | type | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
-| username | Sim | O nome de usuário que você deseja usar para autenticação | 
+| Nome de Usuário | Sim | O nome de usuário que você deseja usar para autenticação | 
 | password | Sim | A senha que você deseja usar para autenticação | 
 |||| 
 

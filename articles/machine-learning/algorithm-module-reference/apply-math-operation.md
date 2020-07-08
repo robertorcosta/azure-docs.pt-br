@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456736"
 ---
 # <a name="apply-math-operation"></a>Aplicar operação matemática
@@ -72,7 +71,7 @@ Cada instância desse módulo pode executar apenas um tipo de operação de cada
 1.  Selecione uma ou mais colunas de origem nas quais executar o cálculo.   
   
     - Qualquer coluna escolhida deve ser um tipo de dados numérico. 
-    - O intervalo de dados deve ser válido para a operação matemática selecionada. Caso contrário, poderá ocorrer um erro ou o resultado NaN (não um número). Por exemplo, ln (-1,0) é uma operação inválida e resulta em um valor `NaN`de.
+    - O intervalo de dados deve ser válido para a operação matemática selecionada. Caso contrário, poderá ocorrer um erro ou o resultado NaN (não um número). Por exemplo, ln (-1,0) é uma operação inválida e resulta em um valor de `NaN` .
   
 1.  Clique em **categoria** para selecionar o **tipo** de operação matemática a ser executada.
     
@@ -86,7 +85,7 @@ Cada instância desse módulo pode executar apenas um tipo de operação de cada
     - **Inplace**. Os valores nas colunas usadas como entradas são substituídos pelos novos valores calculados. 
     - **ResultOnly**. Uma única coluna é retornada contendo os resultados da operação matemática.
   
-1.  Envie o pipeline.  
+1.  Enviar o pipeline.  
   
 ## <a name="results"></a>Resultados
 
@@ -258,7 +257,7 @@ Operação|Núm1|Núm2|Coluna de resultado|Valor do resultado|
 |Subtração|1|5|Subtrair (Num2_Num1)|4|
 |Subtração|0|1|Subtrair (Num2_Num1)|0|
 |Divisão|1|5|Dividir (Num2_Num1)|5|
-|Divisão|0|1|Dividir (Num2_Num1)|Infinito|
+|Divisão|0|1|Dividir (Num2_Num1)|Infinity|
 
 ### <a name="add"></a>Adicionar
 
@@ -584,10 +583,10 @@ Se você precisar executar cálculos mais complexos, poderá encadear várias in
   
 Como alternativa, use um dos seguintes módulos para fazer todos os cálculos de uma só vez, usando o script SQL, R ou Python:
  
-+ [Executar script R](execute-r-script.md)
++ [Executar Script R](execute-r-script.md)
 + [Executar Script do Python](execute-python-script.md)
-+ [Aplicar transformação de SQL](apply-sql-transformation.md)   
++ [Aplicar Transformação SQL](apply-sql-transformation.md)   
   
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

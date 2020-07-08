@@ -7,10 +7,9 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
 ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480871"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
@@ -92,7 +91,7 @@ O Monitor de Desempenho de Rede usa transações sintéticas para monitorar o de
     > O script configura apenas o firewall do windows localmente. Se tiver um firewall de rede, certifique-se que ele permite o tráfego destinado à porta TCP usada pelo Monitor de Desempenho de Rede.
 
     >[!NOTE]
-    > Você não precisa executar o script do PowerShell [EnableRules. ps1](https://aka.ms/npmpowershellscript ) para o monitor de conectividade de serviço.
+    > Você não precisa executar o script [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell para o monitor de conectividade de serviço.
 
     
 
@@ -134,7 +133,7 @@ O Monitor de Desempenho de Rede usa transações sintéticas para monitorar o de
 
    ![Configuração do Monitor de Desempenho de Rede](media/network-performance-monitor/npm-private-peerings.png)
     
-O monitoramento para esses circuitos e emparelhamentos está inicialmente em um estado desabilitado. Selecione cada recurso que você deseja monitorar e configure o monitoramento para eles no modo de exibição de detalhes à direita. Selecione **Salvar** para salvar a configuração. Para saber mais, consulte o artigo “Configurar monitoramento do ExpressRoute”. 
+O monitoramento para esses circuitos e emparelhamentos está inicialmente em um estado desabilitado. Selecione cada recurso que você deseja monitorar e configure o monitoramento para eles no modo de exibição de detalhes à direita. Selecione **salvar** para salvar a configuração. Para saber mais, consulte o artigo “Configurar monitoramento do ExpressRoute”. 
 
 Quando a instalação estiver concluída, demora entre 30 minutos e uma hora para que os dados sejam preenchidos. Enquanto a solução agrega os dados de sua rede, você verá a mensagem *A solução requer configuração adicional* no bloco de **visão geral** do Monitor de Desempenho de Rede. Depois que os dados são coletados e indexados, o bloco de **Visão geral** muda e informa o resumo da integridade de sua rede. Em seguida, você pode editar o monitoramento dos nós nos quais os agentes do Log Analytics estão instalados, bem como as sub-redes descobertas em seu ambiente.
 
@@ -147,7 +146,7 @@ Para habilitar ou desabilitar o monitoramento de sub-redes específicas:
 
 1. Marque ou desmarque a caixa de seleção ao lado do **ID da sub-rede**. Em seguida, certifique-se de que **usar para monitoramento** está marcado ou desmarcado, conforme apropriado. Você pode marcar ou desmarcar várias sub-redes. Quando desabilitado, as sub-redes não são monitoradas e os agentes serão atualizados para parar de executar o ping para outros agentes. 
 2. Escolha os nós que você deseja monitorar em uma sub-rede específica. Selecione a sub-rede na lista e mova os nós necessários entre as listas que contêm nós não monitorados e monitorados. Você pode adicionar uma descrição personalizada à sub-rede.
-3. Selecione **Salvar** para salvar a configuração. 
+3. Selecione **salvar** para salvar a configuração. 
 
 #### <a name="choose-nodes-to-monitor"></a>Escolher nós para monitorar
 
@@ -280,7 +279,7 @@ As notificações são cobradas separadamente de acordo com as [notificações d
 
 Informações sobre preços estão disponíveis [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Envie comentários 
+## <a name="provide-feedback"></a>Fornecer comentários 
 
 * **UserVoice** - Você pode postar suas ideias para recursos do Monitor de Desempenho de Rede nas quais você deseja trabalhar. Visite a [página UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

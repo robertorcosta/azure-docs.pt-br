@@ -14,10 +14,9 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79478793"
 ---
 # <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
@@ -27,7 +26,7 @@ Para iniciar a criptografia, codificação, analise, gerenciamento e streaming d
 > [!NOTE]
 > A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. É altamente recomendável usar contas de armazenamento na mesma localização da conta de Serviços de Mídia para evitar custos de saída de dados e latência adicionais.
 
-Este artigo descreve as etapas para criar uma nova conta dos serviços de mídia do Azure. Escolha entre as guias a seguir.
+Este artigo descreve as etapas para criar uma nova conta dos serviços de mídia do Azure. Escolha entre as seguintes guias.
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
@@ -48,15 +47,15 @@ Este artigo mostra como criar uma conta dos Serviços de Mídia usando o portal 
 ### <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
-1. Clique em **+ criar um recurso** > **Media** > Media**Services**.
+1. Clique em **+ criar um recurso**  >  **Media**Media  >  **Services**.
 1. Na seção **criar uma conta dos serviços de mídia** , insira os valores necessários.
     
-    | Name | Descrição |
+    | Nome | Descrição |
     | ---|---|
     |**Nome da Conta**|Insira o nome da nova conta dos serviços de mídia. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3 a 24 caracteres de comprimento.|
     |**Assinatura**|Se você tiver mais de uma assinatura, selecione uma na lista de assinaturas do Azure às quais você tem acesso.|
     |**Grupo de recursos**|Selecione o recurso novo ou existente. Um grupo de recursos é uma coleção de recursos que compartilham o ciclo de vida, as permissões e as políticas. Saiba mais [aqui](../../azure-resource-manager/management/overview.md#resource-groups).|
-    |**Local**|Selecione a região geográfica que será usada para armazenar os registros de mídia e de metadados para sua conta de serviços de mídia. Essa região será usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa. |
+    |**Localidade**|Selecione a região geográfica que será usada para armazenar os registros de mídia e de metadados para sua conta de serviços de mídia. Essa região será usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa. |
     |**Conta de armazenamento**|Selecione uma conta de armazenamento para fornecer o armazenamento de BLOBs do conteúdo de mídia da sua conta de serviços de mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma nova conta de armazenamento. É criada uma nova conta de armazenamento na mesma região. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.<br/><br/>Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Você pode usar o portal do Azure para adicionar contas de armazenamento secundárias. Para obter mais informações, consulte [contas de armazenamento do Azure com contas dos serviços de mídia do Azure](storage-account-concept.md).<br/><br/>A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. É altamente recomendável usar contas de armazenamento na mesma localização da conta de Serviços de Mídia para evitar custos de saída de dados e latência adicionais.|
     
 1. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
@@ -106,7 +105,7 @@ az storage account create --name storageaccountforams \
 
 ### <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
 
-O comando da CLI do Azure a seguir cria uma nova conta dos Serviços de Mídia. Você pode substituir os seguintes valores: `amsaccount` `storageaccountforams` (deve corresponder ao valor que você forneceu para sua conta de armazenamento `amsResourceGroup` ) e (deve corresponder ao valor que você deu para o grupo de recursos).  
+O comando da CLI do Azure a seguir cria uma nova conta dos Serviços de Mídia. Você pode substituir os seguintes valores: `amsaccount` `storageaccountforams` (deve corresponder ao valor que você forneceu para sua conta de armazenamento) e `amsResourceGroup` (deve corresponder ao valor que você deu para o grupo de recursos).  
 
 ```azurecli
 az ams account create --name amsaccount \
@@ -114,7 +113,7 @@ az ams account create --name amsaccount \
    -l westus2 
 ```
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Consulte também
 
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [Anexar um armazenamento secundário a uma conta dos serviços de mídia](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

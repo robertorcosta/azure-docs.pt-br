@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477656"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em valores de indicador
@@ -39,7 +38,7 @@ Esse módulo também gera uma definição da transformação usada para converte
     > [!TIP]
     >  Se você escolher a opção de substituir, a coluna de origem não será realmente excluída nem modificada. Em vez disso, as novas colunas são geradas e apresentadas no conjunto de resultados de saída, e a coluna de origem permanece disponível no espaço de trabalho. Se você precisar ver os dados originais, poderá usar o módulo [adicionar colunas](add-columns.md) a qualquer momento para adicionar a coluna de origem novamente.
 
-1. Envie o pipeline.
+1. Enviar o pipeline.
 
 ## <a name="results"></a>Resultados
 
@@ -63,7 +62,7 @@ Veja como a conversão funciona:
 
 -   Na coluna **Pontuação de falha** que descreve o risco, há apenas três valores possíveis (alto, médio e baixo) e nenhum valor ausente. Portanto, exatamente três novas colunas são criadas.  
 
--   As novas colunas de indicador são nomeadas com base nos títulos de coluna e valores da coluna de origem, usando esse padrão: * \<a coluna \<de origem> valor de dados>*.  
+-   As novas colunas de indicador são nomeadas com base nos títulos de coluna e valores da coluna de origem, usando esse padrão: *\<source column>- \<data value>* .  
 
 -   Deve haver uma coluna de indicador 1 em exatamente uma e 0 em todas as outras colunas de indicador, já que cada servidor pode ter apenas uma classificação de risco.  
 
@@ -98,13 +97,13 @@ Esta seção contém detalhes de implementação, dicas e respostas para pergunt
 
 -   Somente as colunas que são marcadas como categóricas podem ser convertidas em colunas de indicador. Se você vir o erro a seguir, é provável que uma das colunas selecionadas não seja categórica:  
 
-     Erro 0056: a coluna com \<nome de coluna de nome> não está em uma categoria permitida.  
+     Erro 0056: a coluna com \<column name> o nome não está em uma categoria permitida.  
 
      Por padrão, a maioria das colunas de cadeia de caracteres são tratadas como recursos de cadeia de caracteres, portanto, você deve marcá-las explicitamente como categóricos usando [Editar metadados](edit-metadata.md).  
 
 -   Não há limite para o número de colunas que você pode converter em colunas de indicador. No entanto, como cada coluna de valores pode produzir várias colunas de indicador, talvez você queira converter e examinar apenas algumas colunas de cada vez.  
 
--   Se a coluna contiver valores ausentes, uma coluna de indicador separada será criada para a categoria ausente, com este nome: * \<coluna de origem>-ausente*  
+-   Se a coluna contiver valores ausentes, uma coluna de indicador separada será criada para a categoria ausente, com este nome: * \<source column> -ausente*  
 
 -   Se a coluna que você converter em valores de indicador contiver números, elas deverão ser marcadas como categóricas como qualquer outra coluna de recurso. Depois de fazer isso, os números são tratados como valores discretos. Por exemplo, se você tiver uma coluna numérica com valores MPG variando de 25 a 30, uma nova coluna de indicador será criada para cada valor discreto:  
 
@@ -117,4 +116,4 @@ Esta seção contém detalhes de implementação, dicas e respostas para pergunt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

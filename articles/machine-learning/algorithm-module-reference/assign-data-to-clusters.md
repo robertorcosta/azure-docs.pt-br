@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 207172f10277589af2b22ae2f41b07234a0925b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477707"
 ---
 # <a name="module-assign-data-to-clusters"></a>Módulo: atribuir dados a clusters
@@ -43,7 +42,7 @@ O módulo atribuir dados a clusters retorna um DataSet que contém as atribuiç�
   
     Se você desmarcar essa caixa de seleção, somente os resultados serão retornados. Essa opção pode ser útil quando você cria previsões como parte de um serviço Web.
   
-5.  Envie o pipeline.  
+5.  Enviar o pipeline.  
   
 ### <a name="results"></a>Resultados
 

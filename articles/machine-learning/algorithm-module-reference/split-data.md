@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 9eba6f2c47629b708dde4a5a2888b76dbd24b4e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79455886"
 ---
 # <a name="split-data-module"></a>Módulo dividir dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use o módulo dividir dados para dividir um conjunto de dado em dois conjuntos distintos.
 
@@ -87,7 +86,7 @@ Os exemplos a seguir demonstram como dividir um conjunto de um DataSet usando a 
 
 ### <a name="single-whole-word"></a>Única palavra inteira 
 
-Este exemplo coloca no primeiro conjunto de todos os linhas que contêm o `Gryphon` texto na coluna `Text`. Ele coloca outras linhas na segunda saída de **dados divididos**.
+Este exemplo coloca no primeiro conjunto de todos os linhas que contêm o texto `Gryphon` na coluna `Text` . Ele coloca outras linhas na segunda saída de **dados divididos**.
 
 ```text
     \"Text" Gryphon  
@@ -101,7 +100,7 @@ Este exemplo procura a cadeia de caracteres especificada em qualquer posição d
 (\1) ^[a-f]
 ```
 
-O primeiro conjunto de resultados contém todas as linhas em que a coluna de índice começa com um `a`destes `b`caracteres `c`: `d`, `e`, `f`,,,. Todas as outras linhas são direcionadas para a segunda saída.
+O primeiro conjunto de resultados contém todas as linhas em que a coluna de índice começa com um destes caracteres:,,,, `a` `b` `c` `d` `e` , `f` . Todas as outras linhas são direcionadas para a segunda saída.
 
 ## <a name="select-a-relative-expression"></a>Selecionar uma expressão relativa
 
@@ -114,12 +113,12 @@ O primeiro conjunto de resultados contém todas as linhas em que a coluna de ín
    Para **coluna numérica**:
    - A coluna contém números de qualquer tipo de dados numéricos, incluindo tipos de dados de data e hora.
    - A expressão pode fazer referência a um máximo de um nome de coluna.
-   - Use o caractere de e `&`comercial,, para a operação e. Use o caractere de pipe `|`,, para a operação ou.
-   - Há suporte para os seguintes operadores `<`: `>`, `<=` `>=`,, `==`, `!=`,.
-   - Não é possível agrupar operações usando `(` o `)`e o.
+   - Use o caractere de e comercial, `&` , para a operação e. Use o caractere de pipe, `|` , para a operação ou.
+   - Há suporte para os seguintes operadores:,,,, `<` `>` `<=` `>=` `==` , `!=` .
+   - Não é possível agrupar operações usando o `(` e o `)` .
    
    Para **coluna de cadeia de caracteres**:
-   - Há suporte para os seguintes operadores `==`: `!=`,.
+   - Há suporte para os seguintes operadores: `==` , `!=` .
 
 1. Envie o pipeline.
 
@@ -129,7 +128,7 @@ Os exemplos a seguir demonstram como dividir um DataSet usando a opção de **ex
 
 ### <a name="calendar-year"></a>Ano calendário
 
-Um cenário comum é dividir um conjunto de dados por anos. A expressão a seguir seleciona todas as linhas em que os valores `Year` na coluna são `2010`maiores que.
+Um cenário comum é dividir um conjunto de dados por anos. A expressão a seguir seleciona todas as linhas em que os valores na coluna `Year` são maiores que `2010` .
 
 ```text
 \"Year" > 2010
@@ -137,7 +136,7 @@ Um cenário comum é dividir um conjunto de dados por anos. A expressão a segui
 
 A expressão de data deve considerar todas as partes de data incluídas na coluna de dados. O formato das datas na coluna de dados deve ser consistente. 
 
-Por exemplo, em uma coluna de data que usa o `mmddyyyy`formato, a expressão deve ser algo assim:
+Por exemplo, em uma coluna de data que usa o formato `mmddyyyy` , a expressão deve ser algo assim:
 
 ```text
 \"Date" > 1/1/2010
@@ -154,4 +153,4 @@ A expressão a seguir demonstra como você pode usar o índice da coluna para se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

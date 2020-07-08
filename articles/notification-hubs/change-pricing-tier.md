@@ -14,10 +14,9 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656478"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Alterar tipo de preço de um namespace de hubs de notificações do Microsoft Azure
@@ -42,7 +41,7 @@ O procedimento a seguir mostra como alterar o tipo de preço para um namespace n
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** no menu à esquerda.
-3. Selecione **Namespaces do Hub de Notificação** na seção **Internet das Coisas**. Se você selecionar o asterisco (`*`) ao lado do texto, ele será adicionado à barra de navegação à esquerda em **favoritos**. Ele ajuda a acessar a página de namespaces mais rápido no futuro. Depois de adicioná-lo aos favoritos, selecione **namespaces do hub de notificação**.
+3. Selecione **Namespaces do Hub de Notificação** na seção **Internet das Coisas**. Se você selecionar o asterisco ( `*` ) ao lado do texto, ele será adicionado à barra de navegação à esquerda em **favoritos**. Ele ajuda a acessar a página de namespaces mais rápido no futuro. Depois de adicioná-lo aos favoritos, selecione **namespaces do hub de notificação**.
 
     ![Todos os serviços -> Namespaces do Hub de Notificação](./media/change-pricing-tier/all-services-nhub.png)
 
@@ -58,7 +57,7 @@ O procedimento a seguir mostra como alterar o tipo de preço para um namespace n
 7. Altere o tipo de preço e, em seguida, clique no botão **selecionar** .
 8. Você pode ver o status da ação de alteração de camada nos **alertas**.
 9. Alterne para a página **Visão geral**. Confirme que a nova camada é mostrada no campo **Tipo de Preço** na seção **Essentials**.
-10. Essa etapa é opcional. Selecione qualquer hub no namespace. Confirme que você vê o mesmo tipo de preço na seção **Essentials**. Você deve ver o mesmo tipo de preço para todos os hubs no namespace.
+10. Esta etapa é opcional. Selecione qualquer hub no namespace. Confirme que você vê o mesmo tipo de preço na seção **Essentials**. Você deve ver o mesmo tipo de preço para todos os hubs no namespace.
 
 ### <a name="change-tier-on-the-hub-page"></a>Alterar o tipo na página do hub
 

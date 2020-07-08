@@ -7,10 +7,9 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637516"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Conectar computadores Linux ao Azure Monitor
@@ -29,9 +28,9 @@ Para entender a configuração com suporte, revise [suporte para sistemas operac
 
 ## <a name="agent-install-package"></a>Pacote de instalação do agente
 
-O agente do Log Analytics para Linux é composto por vários pacotes. O arquivo de versão contém os seguintes pacotes, que estão disponíveis ao executar o pacote de shell `--extract` com o parâmetro:
+O agente do Log Analytics para Linux é composto por vários pacotes. O arquivo de versão contém os seguintes pacotes, que estão disponíveis ao executar o pacote de shell com o `--extract` parâmetro:
 
-**Pacote** | **Versão** | **Descrição**
+**Package** | **Versão** | **Descrição**
 ----------- | ----------- | --------------
 omsagent | 1.12.15 | O agente de Log Analytics para Linux
 omsconfig | 1.1.1 | Agente de configuração para o agente de Log Analytics
@@ -46,10 +45,10 @@ docker-cimprov | 1.0.0 | Provedor do Docker para OMI. Instalado somente se o Doc
 Depois de instalar o agente de Log Analytics para pacotes do Linux, as seguintes alterações de configuração adicionais em todo o sistema são aplicadas. Esses artefatos serão removidos quando o pacote omsagent for desinstalado.
 
 * Um usuário sem privilégios chamado: `omsagent` é criado. O daemon é executado nessa credencial. 
-* Um arquivo de *inclusão* do sudors é `/etc/sudoers.d/omsagent`criado no. Isso autoriza `omsagent` a reiniciar os daemons syslog e omsagent. Se o sudo *incluir* diretivas não tiver suporte na versão instalada do sudo, essas entradas serão gravadas no `/etc/sudoers`.
+* Um arquivo de *inclusão* do sudors é criado no `/etc/sudoers.d/omsagent` . Isso autoriza `omsagent` a reiniciar os daemons syslog e omsagent. Se o sudo *incluir* diretivas não tiver suporte na versão instalada do sudo, essas entradas serão gravadas no `/etc/sudoers` .
 * A configuração de syslog é modificada para encaminhar um subconjunto de eventos para o agente. Para obter mais informações, consulte [Configure syslog Data Collection](data-sources-syslog.md).
 
-Em um computador Linux monitorado, o agente é listado `omsagent`como. `omsconfig`é o agente de configuração do Log Analytics Agent para Linux que procura a nova configuração do lado do portal a cada 5 minutos. A configuração nova e atualizada é aplicada aos arquivos de configuração do agente localizados `/etc/opt/microsoft/omsagent/conf/omsagent.conf`em.
+Em um computador Linux monitorado, o agente é listado como `omsagent` . `omsconfig`é o agente de configuração do Log Analytics Agent para Linux que procura a nova configuração do lado do portal a cada 5 minutos. A configuração nova e atualizada é aplicada aos arquivos de configuração do agente localizados em `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID do workspace e a chave
 
@@ -57,7 +56,7 @@ Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do e
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. No canto superior esquerdo do portal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira **Log Analytics**. A lista filtra com base em sua entrada, à medida que você digita. Selecione **log Analytics espaços de trabalho**.
+1. No canto superior esquerdo do portal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, insira **Log Analytics**. A lista filtra com base em sua entrada, à medida que você digita. Escolha **workspaces do Log Analytics**.
 
 2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho criado anteriormente. Você deve ter atribuído a ele o nome de **DefaultLAWorkspace**.
 
@@ -78,16 +77,16 @@ O agente de Log Analytics para Linux é fornecido em um pacote de script de Shel
 
 1. [Baixe](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) e transfira o pacote apropriado (x64 ou x86) para sua VM do Linux ou computador físico, usando o SCP/SFTP.
 
-2. Instale o pacote usando o `--install` argumento. Para carregar um espaço de trabalho do Log Analytics durante a instalação, `-w <WorkspaceID>` forneça `-s <workspaceKey>` os parâmetros e copiados anteriormente.
+2. Instale o pacote usando o `--install` argumento. Para carregar um espaço de trabalho do Log Analytics durante a instalação, forneça os `-w <WorkspaceID>` `-s <workspaceKey>` parâmetros e copiados anteriormente.
 
     >[!NOTE]
-    >Você precisará usar o `--upgrade` argumento se algum pacote dependente, como OMI, SCX, programa omsconfig ou suas versões mais antigas forem instalados, como seria o caso se o agente do system Center Operations Manager para Linux já estiver instalado. 
+    >Você precisará usar o `--upgrade` argumento se algum pacote dependente, como OMI, SCX, programa omsconfig ou suas versões mais antigas forem instalados, como seria o caso se o agente do System Center Operations Manager para Linux já estiver instalado. 
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
     ```
 
-3. Para configurar o agente do Linux para instalar e conectar-se a um Log Analytics espaço de trabalho por meio de um gateway de Log Analytics, execute o comando a seguir fornecendo os parâmetros proxy, ID do espaço de trabalho e chave do espaço de trabalho. Essa configuração pode ser especificada na linha de comando, incluindo `-p [protocol://][user:password@]proxyhost[:port]`. A propriedade *proxyHost* aceita um nome de domínio totalmente qualificado ou endereço IP do servidor de gateway de log Analytics.  
+3. Para configurar o agente do Linux para instalar e conectar-se a um Log Analytics espaço de trabalho por meio de um gateway de Log Analytics, execute o comando a seguir fornecendo os parâmetros proxy, ID do espaço de trabalho e chave do espaço de trabalho. Essa configuração pode ser especificada na linha de comando, incluindo `-p [protocol://][user:password@]proxyhost[:port]` . A propriedade *proxyHost* aceita um nome de domínio totalmente qualificado ou endereço IP do servidor de gateway de log Analytics.  
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -121,7 +120,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 As etapas a seguir configuram a instalação do agente para Log Analytics no Azure e na nuvem do Azure governamental usando o script de wrapper para computadores Linux que podem se comunicar diretamente ou por meio de um servidor proxy para baixar o agente hospedado no GitHub e instalar o agente.  
 
-Se o seu computador Linux precisar se comunicar por meio de um servidor proxy para Log Analytics, essa configuração poderá ser especificada na linha de `-p [protocol://][user:password@]proxyhost[:port]`comando, incluindo. A propriedade *Protocol* aceita `http` ou `https`, e a propriedade *proxyHost* aceita um nome de domínio totalmente qualificado ou um endereço IP do servidor proxy. 
+Se o seu computador Linux precisar se comunicar por meio de um servidor proxy para Log Analytics, essa configuração poderá ser especificada na linha de comando, incluindo `-p [protocol://][user:password@]proxyhost[:port]` . A propriedade *Protocol* aceita `http` ou `https` , e a propriedade *proxyHost* aceita um nome de domínio totalmente qualificado ou um endereço IP do servidor proxy. 
 
 Por exemplo: `https://proxy01.contoso.com:30443`
 
@@ -162,6 +161,6 @@ A atualização de uma versão anterior, começando com a versão 1.0.0-47, tem 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine [o gerenciamento e a manutenção do agente de log Analytics para Windows e Linux](agent-manage.md) para saber mais sobre como reconfigurar, atualizar ou remover o agente da máquina virtual.
+- Examinar [Gerenciar e manter o agente de Log Analytics para o Windows e Linux](agent-manage.md) para aprender sobre como reconfigurar, atualizar ou remover o agente da máquina virtual.
 
 - Consulte [Solução de problemas do agente do Linux](agent-linux-troubleshoot.md) se você encontrar problemas ao instalar ou gerenciar o agente.

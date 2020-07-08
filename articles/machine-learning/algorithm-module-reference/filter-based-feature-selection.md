@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477588"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de recursos baseada em filtro
@@ -120,7 +119,7 @@ Se você usar a correlação de Pearson em um recurso numérico e um rótulo cat
 
 -   Se você tentar usar um método de pontuação com uma coluna de um tipo de dados ao qual o método não dá suporte, o módulo gerará um erro. Ou, uma pontuação zero será atribuída à coluna.  
 
--   Se uma coluna contiver valores lógicos (true/false), eles serão `True = 1` processados como e `False = 0`.  
+-   Se uma coluna contiver valores lógicos (true/false), eles serão processados como `True = 1` e `False = 0` .  
 
 -   Uma coluna não poderá ser um recurso se tiver sido designada como um **rótulo** ou uma **Pontuação**.  
 
@@ -135,5 +134,5 @@ Se você usar a correlação de Pearson em um recurso numérico e um rótulo cat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
 

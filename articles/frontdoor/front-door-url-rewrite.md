@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471465"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Regeneração de URL (caminho personalizado de encaminhamento)
@@ -42,12 +41,12 @@ Por exemplo, se lermos na segunda linha, veremos que para a solicitação de ent
 
 | Solicitação de entrada       | Caminho de correspondência mais específica | /          | /fwd/          | /foo/          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
-| contoso.com/\.www            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
-| sub\.contoso.com/**sub** da Web     | /\*                      | /**projeto**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
-| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
-| contoso.com/foo\.www         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
-| contoso.com/foo/\.www        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
-| barra\.de**bar** contoso.com/foo/da Web | /foo/\*                  | /**ênfase**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+| \.contoso.com/www            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
+| \.**sub** contoso.com/da Web     | /\*                      | /**projeto**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
+| www \. contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
+| \.contoso.com/foo www         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
+| \.contoso.com/foo/www        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
+| \.**barra** de contoso.com/foo/da Web | /foo/\*                  | /**ênfase**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
 
 
 ## <a name="optional-settings"></a>Configurações opcionais

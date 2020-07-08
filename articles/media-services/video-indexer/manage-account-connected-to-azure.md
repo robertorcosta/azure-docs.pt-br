@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499658"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerenciar uma conta do Video Indexer conectada ao Azure
@@ -54,12 +53,12 @@ Se sua conta precisar de alguns ajustes, você verá erros relevantes e avisos s
 
 Na caixa de diálogo **atualizar conexão com os serviços de mídia do Azure** da página [Video indexer](https://www.videoindexer.ai/) , você será solicitado a fornecer valores para as seguintes configurações:
 
-|Configuração|Descrição|
+|Setting|Descrição|
 |---|---|
 |ID de assinatura do Azure|O ID da assinatura pode ser recuperado no portal do Azure. Clique em **todos os serviços** no painel esquerdo e pesquise por "assinaturas". Selecione **Assinaturas** e escolha a ID desejada na lista das assinaturas.|
 |Nome do grupo de recursos dos Serviços de Mídia do Azur.|O nome do grupo de recursos no qual você criou a conta de Serviços de Mídia.|
-|ID do aplicativo|A ID do aplicativo do Azure AD (com permissões para a conta de serviços de mídia especificada) que você criou para esta Video Indexer conta. <br/><br/>Para obter a ID do aplicativo, navegue até portal do Azure. Na conta dos serviços de mídia, escolha sua conta e acesse **acesso à API**.  -> Selecione **conectar-se à API dos serviços de mídia com a entidade de serviço****aplicativo Azure ad**. Copie os parâmetros relevantes.|
-|Chave do aplicativo|A chave de aplicativo do Azure AD associada à sua conta dos serviços de mídia especificada acima. <br/><br/>Para obter a chave do aplicativo, navegue até portal do Azure. Na conta dos serviços de mídia, escolha sua conta e acesse **acesso à API**.  -> Selecione **conectar-se à API dos serviços de mídia com entidade de serviço**gerenciar certificados de**aplicativo** -> **& segredos**. Copie os parâmetros relevantes.|
+|ID do aplicativo|A ID do aplicativo do Azure AD (com permissões para a conta de serviços de mídia especificada) que você criou para esta Video Indexer conta. <br/><br/>Para obter a ID do aplicativo, navegue até portal do Azure. Na conta dos serviços de mídia, escolha sua conta e acesse **acesso à API**. Selecione **conectar-se à API dos serviços de mídia com a entidade de serviço**  ->  **aplicativo Azure ad**. Copie os parâmetros relevantes.|
+|Chave do aplicativo|A chave de aplicativo do Azure AD associada à sua conta dos serviços de mídia especificada acima. <br/><br/>Para obter a chave do aplicativo, navegue até portal do Azure. Na conta dos serviços de mídia, escolha sua conta e acesse **acesso à API**. Selecione **conectar-se à API dos serviços de mídia com entidade de serviço**  ->  **gerenciar certificados de aplicativo**  ->  **& segredos**. Copie os parâmetros relevantes.|
 
 ## <a name="autoscale-reserved-units"></a>Unidades reservadas de dimensionamento automático
 
@@ -75,7 +74,7 @@ Se sua conta precisar de alguns ajustes, você verá avisos e erros relevantes s
 
 * EventGrid
 
-    Você precisa registrar o provedor de recursos do EventGrid usando o portal do Azure. No [portal do Azure](https://portal.azure.com/), acesse **assinaturas** > [Subscription] > **ResourceProviders** > **Microsoft. EventGrid**. Se não estiver no estado **registrado** , selecione **registrar**. Demora alguns minutos para se registrar.
+    Você precisa registrar o provedor de recursos do EventGrid usando o portal do Azure. No [portal do Azure](https://portal.azure.com/), acesse **assinaturas** > [Subscription] > **ResourceProviders**  >  **Microsoft. EventGrid**. Se não estiver no estado **registrado** , selecione **registrar**. Demora alguns minutos para se registrar.
 
 * ponto de extremidade de streaming
 

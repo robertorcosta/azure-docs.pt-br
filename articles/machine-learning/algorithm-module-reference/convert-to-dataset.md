@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456583"
 ---
 # <a name="convert-to-dataset"></a>Converter em conjunto de dados
@@ -46,12 +45,12 @@ Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para p
     - **ReplaceValues**: Use essa opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Você pode substituir valores ausentes ou personalizados definindo o método **replace** :
 
       - **Ausente**: escolha esta opção para substituir os valores ausentes no conjunto de dados de entrada. Para **novo valor**, insira o valor com o qual substituir os valores ausentes.
-      - **Personalizado**: escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado**, insira o valor que você deseja localizar. Por exemplo, se seus dados contiverem `obs` a cadeia de caracteres usada como um espaço reservado para `obs`valores ausentes, insira. Para **novo valor**, insira o novo valor com o qual substituir a cadeia de caracteres original.
+      - **Personalizado**: escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado**, insira o valor que você deseja localizar. Por exemplo, se seus dados contiverem a cadeia de caracteres `obs` usada como um espaço reservado para valores ausentes, insira `obs` . Para **novo valor**, insira o novo valor com o qual substituir a cadeia de caracteres original.
   
-    Observe que a operação **ReplaceValues** se aplica somente a correspondências exatas. Por exemplo, essas cadeias de caracteres não seriam `obs.`afetadas:, `obsolete`.  
+    Observe que a operação **ReplaceValues** se aplica somente a correspondências exatas. Por exemplo, essas cadeias de caracteres não seriam afetadas: `obs.` , `obsolete` .  
  
   
-5.  Envie o pipeline.  
+5.  Enviar o pipeline.  
 
 ## <a name="results"></a>Resultados
 
@@ -70,4 +69,4 @@ Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para p
   
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

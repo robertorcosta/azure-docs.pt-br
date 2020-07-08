@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
 ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79464454"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funções de agregação no Azure Cosmos DB
 
-As funções de agregação executam um cálculo em um conjunto `SELECT` de valores na cláusula e retornam um único valor. Por exemplo, a consulta a seguir retorna a contagem de itens dentro `Families` do contêiner:
+As funções de agregação executam um cálculo em um conjunto de valores na `SELECT` cláusula e retornam um único valor. Por exemplo, a consulta a seguir retorna a contagem de itens dentro do `Families` contêiner:
 
 ## <a name="examples"></a>Exemplos
 
@@ -45,7 +44,7 @@ Os resultados são:
     [ 2 ]
 ```
 
-Você também pode combinar agregações com filtros. Por exemplo, a consulta a seguir retorna a contagem de itens com o estado de `WA`endereço de.
+Você também pode combinar agregações com filtros. Por exemplo, a consulta a seguir retorna a contagem de itens com o estado de endereço de `WA` .
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -61,7 +60,7 @@ Os resultados são:
 
 ## <a name="types-of-aggregate-functions"></a>Tipos de funções de agregação
 
-A API do SQL dá suporte às funções de agregação a seguir. `SUM`e `AVG` operar em valores numéricos, `COUNT`e `MIN`, e `MAX` trabalhar em números, cadeias de caracteres, Boolianos e nulos.
+A API do SQL dá suporte às funções de agregação a seguir. `SUM`e `AVG` operar em valores numéricos, e `COUNT` , `MIN` e `MAX` trabalhar em números, cadeias de caracteres, Boolianos e nulos.
 
 | Função | Descrição |
 |-------|-------------|
@@ -78,7 +77,7 @@ Você também pode agregar os resultados de uma iteração de matriz.
 
 ## <a name="remarks"></a>Comentários
 
-Essas funções de sistema agregadas se beneficiarão de um [índice de intervalo](index-policy.md#includeexclude-strategy). Se você pretende fazer um `COUNT`, `SUM`, `MIN` `MAX`, ou `AVG` em uma propriedade, deve [incluir o caminho relevante na política de indexação](index-policy.md#includeexclude-strategy).
+Essas funções de sistema agregadas se beneficiarão de um [índice de intervalo](index-policy.md#includeexclude-strategy). Se você pretende fazer um `COUNT` , `SUM` ,, `MIN` `MAX` ou `AVG` em uma propriedade, deve [incluir o caminho relevante na política de indexação](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656292"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho baseados em eventos automatizados usando WebHooks HTTP em aplicativos lógicos do Azure
@@ -36,7 +35,7 @@ Uma ação de webhook HTTP também é baseada em evento e *assina* um serviço o
 Por exemplo, a ação [**Enviar email de aprovação**](connectors-create-api-office365-outlook.md) do conector do Outlook do Office 365 é um exemplo de ação de webhook que segue esse padrão. Você pode estender esse padrão para qualquer serviço usando a ação de webhook.
 
 > [!NOTE]
-> Os aplicativos lógicos imponham o protocolo TLS 1,2 ao receber a chamada de volta para o gatilho ou ação de webhook HTTP. Se você vir erros de handshake de TLS, certifique-se de usar o TLS 1,2. Para chamadas de entrada, aqui estão os conjuntos de codificação com suporte:
+> Os aplicativos lógicos imponham o protocolo TLS 1,2 ao receber a chamada de volta para o gatilho ou ação de webhook HTTP. Se você vir erros de handshake de TLS, certifique-se de usar o TLS 1,2. Para chamadas de entrada, estes estão os conjuntos de criptografia com suporte:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -59,7 +58,7 @@ Para saber mais, consulte esses tópicos:
 
 * A URL de um ponto de extremidade ou API já implantado que dá suporte ao padrão de assinatura e cancelamento de assinante para [gatilhos de webhook em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) ou [ações de webhook em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-actions) , conforme apropriado
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 * O aplicativo lógico em que você deseja aguardar eventos específicos no ponto de extremidade de destino. Para começar com o gatilho de webhook HTTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar a ação de webhook HTTP, inicie seu aplicativo lógico com qualquer gatilho desejado. Este exemplo usa o gatilho HTTP como a primeira etapa.
 
@@ -67,13 +66,13 @@ Para saber mais, consulte esses tópicos:
 
 Esse gatilho interno chama o ponto de extremidade de assinatura no serviço de destino e registra uma URL de retorno de chamada com o serviço de destino. Em seguida, seu aplicativo lógico aguarda o serviço de destino enviar uma `HTTP POST` solicitação para a URL de retorno de chamada. Quando esse evento acontece, o gatilho é acionado e passa todos os dados na solicitação ao fluxo de trabalho.
 
-1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
+1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no Designer de Aplicativos Lógicos.
 
 1. Na caixa de pesquisa do designer, insira `http webhook` como seu filtro. Na lista de **gatilhos** , selecione o gatilho de **webhook http** .
 
    ![Selecionar gatilho de webhook HTTP](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-   Este exemplo renomeia o gatilho para `HTTP Webhook trigger` para que a etapa tenha um nome mais descritivo. Além disso, o exemplo posteriormente adiciona uma ação de webhook HTTP e ambos os nomes devem ser exclusivos.
+   Este exemplo renomeia o gatilho para para `HTTP Webhook trigger` que a etapa tenha um nome mais descritivo. Além disso, o exemplo posteriormente adiciona uma ação de webhook HTTP e ambos os nomes devem ser exclusivos.
 
 1. Forneça os valores para os [parâmetros de gatilho de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que você deseja usar para as chamadas assinar e cancelar assinatura.
 
@@ -85,10 +84,10 @@ Esse gatilho interno chama o ponto de extremidade de assinatura no serviço de d
    |----------|----------|-------------|
    | **Assinatura-método** | Sim | O método a ser usado ao assinar o ponto de extremidade de destino |
    | **Assinatura-URI** | Sim | A URL a ser usada para assinar o ponto de extremidade de destino |
-   | **Assinatura-corpo** | Não | Qualquer corpo de mensagem para incluir na solicitação de assinatura. Este exemplo inclui a URL de retorno de chamada que identifica exclusivamente o Assinante, que é seu aplicativo lógico, `@listCallbackUrl()` usando a expressão para recuperar a URL de retorno de chamada do aplicativo lógico. |
+   | **Assinatura-corpo** | Não | Qualquer corpo de mensagem para incluir na solicitação de assinatura. Este exemplo inclui a URL de retorno de chamada que identifica exclusivamente o Assinante, que é seu aplicativo lógico, usando a `@listCallbackUrl()` expressão para recuperar a URL de retorno de chamada do aplicativo lógico. |
    | **Cancelar assinatura – método** | Não | O método a ser usado ao cancelar a do ponto de extremidade de destino |
    | **Cancelar assinatura-URI** | Não | A URL a ser usada para cancelar a cancelamento do ponto de extremidade de destino |
-   | **Cancelar assinatura-corpo** | Não | Um corpo de mensagem opcional para incluir na solicitação de cancelamento de assinatura <p><p>**Observação**: essa propriedade não dá suporte ao `listCallbackUrl()` uso da função. No entanto, o gatilho inclui automaticamente e envia os `x-ms-client-tracking-id` cabeçalhos `x-ms-workflow-operation-name`e, que o serviço de destino pode usar para identificar exclusivamente o Assinante. |
+   | **Cancelar assinatura-corpo** | Não | Um corpo de mensagem opcional para incluir na solicitação de cancelamento de assinatura <p><p>**Observação**: essa propriedade não dá suporte ao uso da `listCallbackUrl()` função. No entanto, o gatilho inclui automaticamente e envia os cabeçalhos `x-ms-client-tracking-id` e `x-ms-workflow-operation-name` , que o serviço de destino pode usar para identificar exclusivamente o Assinante. |
    ||||
 
 1. Para adicionar outras propriedades do disparador, abra a lista **Adicionar novo parâmetro** .
@@ -105,7 +104,7 @@ Esse gatilho interno chama o ponto de extremidade de assinatura no serviço de d
 
 ## <a name="add-an-http-webhook-action"></a>Adicionar uma ação de webhook HTTP
 
-Essa ação interna chama o ponto de extremidade de assinatura no serviço de destino e registra uma URL de retorno de chamada com o serviço de destino. O aplicativo lógico, em seguida, pausa e aguarda o serviço de destino enviar `HTTP POST` uma solicitação para a URL de retorno de chamada. Quando esse evento acontece, a ação passa todos os dados na solicitação ao fluxo de trabalho. Se a operação for concluída com êxito, a ação cancelará a assinatura do ponto de extremidade e seu aplicativo lógico continuará executando o fluxo de trabalho restante.
+Essa ação interna chama o ponto de extremidade de assinatura no serviço de destino e registra uma URL de retorno de chamada com o serviço de destino. O aplicativo lógico, em seguida, pausa e aguarda o serviço de destino enviar uma `HTTP POST` solicitação para a URL de retorno de chamada. Quando esse evento acontece, a ação passa todos os dados na solicitação ao fluxo de trabalho. Se a operação for concluída com êxito, a ação cancelará a assinatura do ponto de extremidade e seu aplicativo lógico continuará executando o fluxo de trabalho restante.
 
 1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no Logic App Designer.
 
@@ -113,7 +112,7 @@ Essa ação interna chama o ponto de extremidade de assinatura no serviço de de
 
 1. Na etapa em que você deseja adicionar a ação de webhook HTTP, selecione **nova etapa**.
 
-   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa do designer, insira `http webhook` como seu filtro. Na lista **ações** , selecione a ação **webhook http** .
 
@@ -131,10 +130,10 @@ Essa ação interna chama o ponto de extremidade de assinatura no serviço de de
    |----------|----------|-------------|
    | **Assinatura-método** | Sim | O método a ser usado ao assinar o ponto de extremidade de destino |
    | **Assinatura-URI** | Sim | A URL a ser usada para assinar o ponto de extremidade de destino |
-   | **Assinatura-corpo** | Não | Qualquer corpo de mensagem para incluir na solicitação de assinatura. Este exemplo inclui a URL de retorno de chamada que identifica exclusivamente o Assinante, que é seu aplicativo lógico, `@listCallbackUrl()` usando a expressão para recuperar a URL de retorno de chamada do aplicativo lógico. |
+   | **Assinatura-corpo** | Não | Qualquer corpo de mensagem para incluir na solicitação de assinatura. Este exemplo inclui a URL de retorno de chamada que identifica exclusivamente o Assinante, que é seu aplicativo lógico, usando a `@listCallbackUrl()` expressão para recuperar a URL de retorno de chamada do aplicativo lógico. |
    | **Cancelar assinatura – método** | Não | O método a ser usado ao cancelar a do ponto de extremidade de destino |
    | **Cancelar assinatura-URI** | Não | A URL a ser usada para cancelar a cancelamento do ponto de extremidade de destino |
-   | **Cancelar assinatura-corpo** | Não | Um corpo de mensagem opcional para incluir na solicitação de cancelamento de assinatura <p><p>**Observação**: essa propriedade não dá suporte ao `listCallbackUrl()` uso da função. No entanto, a ação inclui automaticamente e envia os `x-ms-client-tracking-id` cabeçalhos `x-ms-workflow-operation-name`e, que o serviço de destino pode usar para identificar exclusivamente o Assinante. |
+   | **Cancelar assinatura-corpo** | Não | Um corpo de mensagem opcional para incluir na solicitação de cancelamento de assinatura <p><p>**Observação**: essa propriedade não dá suporte ao uso da `listCallbackUrl()` função. No entanto, a ação inclui automaticamente e envia os cabeçalhos `x-ms-client-tracking-id` e `x-ms-workflow-operation-name` , que o serviço de destino pode usar para identificar exclusivamente o Assinante. |
    ||||
 
 1. Para adicionar outras propriedades de ação, abra a lista **Adicionar novo parâmetro** .
@@ -145,7 +144,7 @@ Essa ação interna chama o ponto de extremidade de assinatura no serviço de de
 
 1. Quando tiver terminado, lembre-se de salvar seu aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer.
 
-   Agora, quando essa ação é executada, seu aplicativo lógico chama o ponto de extremidade de assinatura no serviço de destino e registra a URL de retorno de chamada. Em seguida, o aplicativo lógico pausa o fluxo de trabalho e aguarda o serviço de destino enviar `HTTP POST` uma solicitação para a URL de retorno de chamada. Quando esse evento acontece, a ação passa todos os dados na solicitação ao fluxo de trabalho. Se a operação for concluída com êxito, a ação cancelará a assinatura do ponto de extremidade e seu aplicativo lógico continuará executando o fluxo de trabalho restante.
+   Agora, quando essa ação é executada, seu aplicativo lógico chama o ponto de extremidade de assinatura no serviço de destino e registra a URL de retorno de chamada. Em seguida, o aplicativo lógico pausa o fluxo de trabalho e aguarda o serviço de destino enviar uma `HTTP POST` solicitação para a URL de retorno de chamada. Quando esse evento acontece, a ação passa todos os dados na solicitação ao fluxo de trabalho. Se a operação for concluída com êxito, a ação cancelará a assinatura do ponto de extremidade e seu aplicativo lógico continuará executando o fluxo de trabalho restante.
 
 ## <a name="connector-reference"></a>Referência de conector
 

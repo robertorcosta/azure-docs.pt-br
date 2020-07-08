@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480446"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com pastas de trabalho
@@ -46,7 +45,7 @@ Uma pasta de trabalho composta por seções consiste em gráficos editáveis de 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **Máquinas Virtuais do Microsoft Azure**.
+2. Selecione **máquinas virtuais**.
 
 3. Na lista, selecione uma VM.
 
@@ -100,7 +99,7 @@ Para incluir dados de outros espaços de trabalho do Log Analytics ou de um apli
 
 ### <a name="advanced-analytic-query-settings"></a>Configurações avançadas de consulta analítica
 
-Cada seção tem suas próprias configurações avançadas, que podem ser acessadas ![por meio da seção configurações](media/vminsights-workbooks/006-settings.png) pastas de trabalho ícone de controles de edição localizadas à direita do botão **adicionar parâmetros** .
+Cada seção tem suas próprias configurações avançadas, que podem ser acessadas por meio da ![ seção Configurações pastas de trabalho ícone de controles ](media/vminsights-workbooks/006-settings.png) de edição localizadas à direita do botão **adicionar parâmetros** .
 
 ![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/007-settings-expanded.png)
 
@@ -244,4 +243,4 @@ Para fixar um link em uma pasta de trabalho em um Painel do Azure:
 
 - Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
 
-- Para saber mais sobre dependências de aplicativo descobertas, consulte [exibir mapa de Azure monitor para VMs](vminsights-maps.md).
+- Para saber mais sobre as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).

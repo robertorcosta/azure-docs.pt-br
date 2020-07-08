@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656340"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
@@ -23,7 +22,7 @@ Com o conector FTP e dos Aplicativos Lógicos do Azure, você pode criar tarefas
 * Obter conteúdo e metadados do arquivo.
 * Extrair o arquivo para pastas.
 
-Você pode usar gatilhos que obtêm respostas de seu servidor FTP e disponibilizar a saída para outras ações. Use ações de execução nos aplicativos lógicos para gerenciar arquivos no servidor FTP. Você também pode ter outro uso de ações para usar a saída das ações do FTP. Por exemplo, se você obter arquivos regularmente do servidor FTP, poderá enviar um email sobre esses arquivos e seu conteúdo usando o conector do Outlook do Office 365 ou do Outlook.com. Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md).
+Você pode usar gatilhos que obtêm respostas de seu servidor FTP e disponibilizar a saída para outras ações. Use ações de execução nos aplicativos lógicos para gerenciar arquivos no servidor FTP. Você também pode ter outro uso de ações para usar a saída das ações do FTP. Por exemplo, se você obter arquivos regularmente do servidor FTP, poderá enviar um email sobre esses arquivos e seu conteúdo usando o conector do Outlook do Office 365 ou do Outlook.com. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="limitations"></a>Limitações
 
@@ -45,8 +44,8 @@ Os gatilhos de FTP funcionam sondando o sistema de arquivos FTP e procurando qua
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| WinSCP | Vá para **Opções** > **preferências** > **transferir** > **Edit**editar > **preservar carimbo de data/hora** > **desabilitar** |
-| FileZilla | Ir para **transferir** > **preservar carimbos de data/hora dos arquivos** > transferidos**desabilitar** |
+| WinSCP | Vá para **Opções**  >  **preferências**  >  **transferir**  >  **Editar**  >  **preservar carimbo de data/hora**  >  **desabilitar** |
+| FileZilla | Ir para **transferir**  >  **preservar carimbos de data/hora dos arquivos transferidos**  >  **desabilitar** |
 |||
 
 Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está concluído e não gravado parcialmente. Por exemplo, um arquivo pode ter alterações em andamento quando o gatilho verifica o servidor de arquivos. Para evitar o retorno de um arquivo gravado parcialmente, o gatilho observa o carimbo de data/hora do arquivo que tem alterações recentes, mas não retorna o arquivo imediatamente. O gatilho retorna o arquivo apenas ao executar a sondagem do servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o intervalo de sondagem do gatilho.
@@ -69,13 +68,13 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico.
 
-1. Para aplicativos lógicos em branco, na caixa de pesquisa `ftp` , insira como seu filtro. Na lista de **gatilhos** , selecione o gatilho desejado.
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira `ftp` como seu filtro. Na lista de **gatilhos** , selecione o gatilho desejado.
 
    -ou-
 
    Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, selecione **nova etapa**e, em seguida, selecione **Adicionar uma ação**. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista **ações** , selecione a ação desejada.
 
-   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Forneça suas informações de conexão e selecione **criar**.
 
@@ -95,7 +94,7 @@ Aqui está um exemplo que mostra como usar o gatilho **quando um arquivo é adic
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Para aplicativos lógicos em branco, na caixa de pesquisa `ftp` , insira como seu filtro. Na lista de gatilhos, selecione este gatilho: **quando um arquivado é adicionado ou modificado (somente Propriedades)**
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira `ftp` como seu filtro. Na lista de gatilhos, selecione este gatilho: **quando um arquivado é adicionado ou modificado (somente Propriedades)**
 
    ![Localizar e selecionar o gatilho de FTP](./media/connectors-create-api-ftp/select-ftp-trigger-logic-app.png)
 
@@ -105,7 +104,7 @@ Aqui está um exemplo que mostra como usar o gatilho **quando um arquivo é adic
 
    ![Criar conexão com o servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. Na caixa **pasta** , selecione o ícone de pasta para que uma lista seja exibida. Para localizar a pasta que você deseja monitorar para arquivos novos ou editados, selecione a seta de ângulo**>** à direita (), navegue até essa pasta e, em seguida, selecione a pasta.
+1. Na caixa **pasta** , selecione o ícone de pasta para que uma lista seja exibida. Para localizar a pasta que você deseja monitorar para arquivos novos ou editados, selecione a seta de ângulo à direita ( **>** ), navegue até essa pasta e, em seguida, selecione a pasta.
 
    ![Localize e selecione a pasta a ser monitorada](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 

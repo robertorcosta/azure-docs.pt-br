@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653626"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
@@ -78,7 +77,7 @@ Ativações (tentativas de ativar uma conta no aplicativo móvel Microsoft Authe
 - Resultado do status de ativação
 - Nome do dispositivo
 - Tipo de dispositivo
-- Versão do aplicativo
+- Versão de Aplicativo
 - Token OATH habilitado
 
 Blocos (usados para determinar o estado bloqueado e para relatório):
@@ -138,7 +137,7 @@ Para Servidor MFA versão 8.0 ou superior, o processo a seguir permite que os ad
 - Faça logon no Servidor MFA, navegue até a guia **Usuários** selecione o usuário em questão e clique no botão **Editar**. Faça capturas de tela (Alt-PrtScn) de cada guia para fornecer ao usuário as configurações do MFA atuais.
 - Na linha de comando do Servidor MFA, execute o comando a seguir alterando o caminho de acordo com a instalação `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` para produzir um arquivo no formato JSON.
 - Os administradores também podem usar a operação GetUserGdpr do SDK de Serviço Web como uma opção para exportar todas as informações de serviço de nuvem do MFA coletadas para um determinado usuário ou incorporar em uma solução de relatório maior.
-- Pesquise `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer backups de\<"username>" (inclua as aspas na pesquisa) para localizar todas as instâncias do registro de usuário que estão sendo adicionadas ou alteradas.
+- Pesquise `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e todos os backups de " \<username> " (inclua as aspas na pesquisa) para localizar todas as instâncias do registro de usuário que estão sendo adicionadas ou alteradas.
    - Esses registros podem ser limitados (mas não eliminados) ao desmarcar **"registrar alterações de usuário"** no UX do servidor MFA, na seção log, na guia arquivos de log.
    - Se o syslog estiver configurado e **"registrar alterações de usuário"** estiver marcada na UX do servidor MFA, na seção log, na guia syslog, as entradas de log poderão ser coletadas do syslog.
 - Outras ocorrências do nome de usuário no MultiFactorAuthSvc.log e outros arquivos de log do Servidor MFA referentes a tentativas de autenticação são consideradas operacionais e duplicadas para as informações fornecidas usando a exportação de MultiFactorAuthGdpr.exe ou GetUserGdpr do SDK de Serviço Web.

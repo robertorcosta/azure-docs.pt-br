@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479552"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
@@ -124,9 +123,9 @@ Execute as etapas a seguir em uma instância de Cloud Shell usando o ambiente do
 
 4. O script solicita as três entradas a seguir:
 
-    - **Nome do site FarmBeats**: Este é o prefixo de URL exclusivo para seu aplicativo Web FarmBeats. Caso o prefixo já esteja em uso, o script será retirado. Uma vez instalado, sua implantação do FarmBeats estará acessível em\<https://FarmBeats-site-Name>. azurewebsites.net e as APIs do Swagger estarão em\<https://FarmBeats-website-Name>-API.azurewebsites.net
+    - **Nome do site FarmBeats**: Este é o prefixo de URL exclusivo para seu aplicativo Web FarmBeats. Caso o prefixo já esteja em uso, o script será retirado. Uma vez instalado, sua implantação do FarmBeats estará acessível em https:// \<FarmBeats-website-name> . azurewebsites.net e as APIs do Swagger estarão em https:// \<FarmBeats-website-name> -API.azurewebsites.net
 
-    - **ID de logon do Azure**: forneça a ID de logon do Azure para o usuário que você deseja adicionar como administrador de FarmBeats. Esse usuário pode, então, conceder acesso para acessar o aplicativo Web FarmBeats para outros usuários. A ID de logon é geralmente do formulário john.doe@domain.com. O UPN do Azure também tem suporte.
+    - **ID de logon do Azure**: forneça a ID de logon do Azure para o usuário que você deseja adicionar como administrador de FarmBeats. Esse usuário pode, então, conceder acesso para acessar o aplicativo Web FarmBeats para outros usuários. A ID de logon é geralmente do formulário john.doe@domain.com . O UPN do Azure também tem suporte.
 
     - **ID da assinatura**: é a ID da assinatura na qual você deseja instalar o Azure FarmBeats
 
@@ -168,9 +167,9 @@ Agora você está pronto para instalar o FarmBeats. Siga as etapas abaixo para i
 
 8. Depois que os detalhes inseridos forem validados, selecione **OK**. A página de Termos de uso aparece. Examine os termos e selecione **criar** para iniciar a instalação. Você será redirecionado para a página em que você pode seguir o progresso da instalação.
 
-Depois que a instalação for concluída, você poderá verificar a instalação e começar a usar o portal do FarmBeats navegando até o nome do site fornecido\<durante a instalação: https://FarmBeats-site-Name>. azurewebsites.net. Você deve ver a interface do usuário do FarmBeats com uma opção para criar farms.
+Depois que a instalação for concluída, você poderá verificar a instalação e começar a usar o portal do FarmBeats navegando até o nome do site fornecido durante a instalação: https:// \<FarmBeats-website-name> . azurewebsites.net. Você deve ver a interface do usuário do FarmBeats com uma opção para criar farms.
 
-**Datahub** pode ser encontrado em https://\<FarmBeats-site-Name>-API.azurewebsites.net/Swagger. Aqui, você verá os diferentes objetos da API FarmBeats e executará operações REST nas APIs.
+**Datahub** pode ser encontrado em https:// \<FarmBeats-website-name> -API.azurewebsites.net/Swagger. Aqui, você verá os diferentes objetos da API FarmBeats e executará operações REST nas APIs.
 
 ## <a name="upgrade"></a>Atualizar
 
@@ -196,7 +195,7 @@ Os usuários de primeira hora receberão uma solicitação para selecionar uma a
         ./upgrade-farmbeats.ps1 -InputFilePath [Path to input.json file]
     ```
 
-O caminho para o arquivo Input. JSON é opcional. Se não for especificado, o script solicitará todas as entradas necessárias. A atualização deve ser concluída em cerca de 30 minutos.
+O caminho para input.jsno arquivo é opcional. Se não for especificado, o script solicitará todas as entradas necessárias. A atualização deve ser concluída em cerca de 30 minutos.
 
 ## <a name="uninstall"></a>Desinstalar
 

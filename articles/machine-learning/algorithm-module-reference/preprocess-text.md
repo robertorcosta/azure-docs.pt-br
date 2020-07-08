@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
 ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477486"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use o módulo de **texto pré-processar** para limpar e simplificar o texto. Ele dá suporte a essas operações comuns de processamento de texto:
 
@@ -51,7 +50,7 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
 
 1. **Detectar sentenças**: Selecione esta opção se desejar que o módulo Insira uma marca de limite de frase ao executar a análise.
 
-    Esse módulo usa uma série de três caracteres `|||` de pipe para representar o terminador de frase.
+    Esse módulo usa uma série de três caracteres de pipe `|||` para representar o terminador de frase.
 
 1. Execute operações de localização e substituição opcionais usando expressões regulares.
 
@@ -70,21 +69,21 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
     
     * **Remover caracteres duplicados**: Selecione esta opção para remover caracteres extras em qualquer sequência que se repita para mais de duas vezes. Por exemplo, uma sequência como "AAAAA" seria reduzida para "AA".
     
-    * **Remover endereços de email**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>`.  
-    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de `http`URL `https`: `ftp`,,,`www`
+    * **Remover endereços de email**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>` .  
+    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http` ,, `https` `ftp` ,`www`
     
 1. **Expandir contratações de verbo**: essa opção se aplica somente a idiomas que usam contratações de verbo; Atualmente, somente em inglês. 
 
     Por exemplo, ao selecionar essa opção, você pode substituir a frase *"não estaria lá"* com *"não permaneceria lá"*.
 
-1. **Normalizar barras invertidas para barras**: Selecione esta opção para mapear todas `\\` as `/`instâncias de para.
+1. **Normalizar barras invertidas para barras**: Selecione esta opção para mapear todas as instâncias de `\\` para `/` .
 
-1. **Dividir tokens em caracteres especiais**: Selecione esta opção se desejar quebrar palavras em caracteres como `&`, `-`e assim por diante. Essa opção também pode reduzir os caracteres especiais quando ele se repetir mais de duas vezes. 
+1. **Dividir tokens em caracteres especiais**: Selecione esta opção se desejar quebrar palavras em caracteres como `&` , `-` e assim por diante. Essa opção também pode reduzir os caracteres especiais quando ele se repetir mais de duas vezes. 
 
-    Por exemplo, a cadeia `MS---WORD` de caracteres seria separada em três `MS`tokens `-`,, `WORD`e.
+    Por exemplo, a cadeia de caracteres `MS---WORD` seria separada em três tokens, `MS` , `-` e `WORD` .
 
 1. Envie o pipeline.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

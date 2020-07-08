@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652628"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Habilitar o local Azure Active Directory proteção por senha
@@ -32,7 +31,7 @@ Este artigo mostra como habilitar a proteção de senha do Azure AD para seu amb
 
 ## <a name="enable-on-premises-password-protection"></a>Habilitar a proteção de senha local
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory** > **Security** > **métodos** > de autenticação de segurança**proteção de senha**.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**  >  métodos de autenticação de**segurança**  >  **Authentication methods**  >  **proteção de senha**.
 1. Defina a opção para **habilitar a proteção por senha no Windows Server Active Directory** como *Sim*.
 
     Quando essa configuração é definida como *não*, todos os agentes de DC de proteção de senha do Azure ad implantados entram em um modo inativo onde todas as senhas são aceitas no estado em que se encontram. Nenhuma atividade de validação é executada e eventos de auditoria não são gerados.

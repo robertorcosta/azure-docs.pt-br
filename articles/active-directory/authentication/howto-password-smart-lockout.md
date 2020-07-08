@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61ae942ed189dc4245a9a0b282daf4cad5323536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652573"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
@@ -56,7 +55,7 @@ Use as instruções a seguir para verificar suas políticas de bloqueio de conta
 
 1. Abra a ferramenta de Gerenciamento de Política de Grupo.
 2. Editar a política de grupo que inclui a diretiva de bloqueio de conta da sua organização, por exemplo, o **Default Domain Policy**.
-3. Navegue até **configuração** > do computador**políticas** > **configurações** > do Windows configuração de**segurança** > **políticas** > de conta**política de bloqueio de conta**.
+3. Navegue até **configuração do computador**  >  **políticas**  >  **configurações do Windows**configuração de  >  **segurança**  >  **políticas de conta**  >  **política de bloqueio de conta**.
 4. Verifique seu **limite de bloqueio de conta** e **redefina o contador de bloqueios de conta após** os valores.
 
 ![Modificar a política de bloqueio de conta Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -68,7 +67,7 @@ Baseado nos seus requisitos organizacionais, os valores de bloqueio inteligente 
 Para verificar ou modificar os valores de bloqueio inteligente para a sua organização, use os seguintes passos:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Pesquise *Azure Active Directory* e selecione-o. Selecione **Security** > **Authentication Methods** > **proteção por senha**.
+1. Pesquise *Azure Active Directory* e selecione-o. Selecione **Security**  >  **Authentication Methods**  >  **proteção por senha**.
 1. Coloque o **limite de bloqueio**, baseado em quantas vezes de logins falhados é permitido em uma conta antes do primeiro bloqueio. O padrão é 10.
 1. Coloque a **duração do bloqueio em segundos**, para a duração em segundos de cada bloqueio. O padrão é 60 segundos (um minuto).
 

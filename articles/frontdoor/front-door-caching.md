@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471737"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
@@ -92,17 +91,17 @@ O Front Door armazenará em cache os ativos até a TTL (vida útil) do ativo exp
 </br>A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é verter os ativos para cada atualização e publicá-los como novas URLs. O Front Door recuperará imediatamente os novos ativos para as próximas solicitações do cliente. Às vezes, convém limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados. Isso pode ocorrer devido a atualizações do aplicativo Web ou para atualizar rapidamente ativos que contenham informações incorretas.
 
 </br>Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, clique na caixa de seleção Limpar todos. Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto Caminho. Veja abaixo os formatos com suporte no caminho.
-1. **Limpeza de caminho único**: Limpe ativos individuais especificando o caminho completo do ativo (sem o protocolo e o domínio), com a extensão de arquivo, por exemplo,/Pictures/Strasbourg.png;
-2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todas as pastas, subpastas e arquivos em um ponto de extremidade\* com/no caminho ou limpe todas as subpastas e arquivos em uma pasta específica, especificando a pasta seguida\*por/, por exemplo\*,/Pictures/.
+1. **Limpeza de caminho único**: Limpe ativos individuais especificando o caminho completo do ativo (sem o protocolo e o domínio), com a extensão de arquivo, por exemplo,/Pictures/strasbourg.png;
+2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todas as pastas, subpastas e arquivos em um ponto de extremidade com/ \* no caminho ou limpe todas as subpastas e arquivos em uma pasta específica, especificando a pasta seguida por/ \* , por exemplo,/Pictures/ \* .
 3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
 
 As limpezas de cache do Front Door diferenciam maiúsculas de minúsculas. Além disso, as limpezas são independentes da cadeia de caracteres de consulta, significando que a limpeza de uma URL apagará todas as variações da cadeia de caracteres de consulta dessa URL. 
 
 ## <a name="cache-expiration"></a>Expiração do cache
 A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um item será armazenado em nosso cache:</br>
-1. Cache-Control: s-maxage =\<segundos>
-2. Cache-Control: Max-age =\<segundos>
-3. Expira em: \<http-Date>
+1. Cache-Control: s-maxage=\<seconds>
+2. Cache-Control: Max-age =\<seconds>
+3. Expira\<http-date>
 
 Cabeçalhos de resposta de controle de cache que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se nenhum controle de cache estiver presente, o comportamento padrão é que AFD armazenará em cache o recurso por X quantidade de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 8c1afac834fb9abb2cbf82f16f046a1624b251f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79481126"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Criar e gerenciar o emparelhamento público do ExpressRoute
@@ -42,7 +41,7 @@ Depois que o emparelhamento público estiver habilitado, você poderá se conect
 
 Esta seção mostra os serviços disponíveis em emparelhamento público. Como o emparelhamento público é preterido, não há nenhum plano para adicionar serviços novos ou adicionais ao emparelhamento público. Se você usar o emparelhamento público e o serviço que deseja usar for compatível apenas com o emparelhamento da Microsoft, será necessário alternar para o emparelhamento da Microsoft. Consulte [emparelhamento da Microsoft](expressroute-faqs.md#microsoft-peering) para obter uma lista de serviços com suporte.
 
-**Porta**
+**Com suporte:**
 
 * Power BI
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente com o serviço que você deseja usar para verificar o suporte.
@@ -50,10 +49,10 @@ Esta seção mostra os serviços disponíveis em emparelhamento público. Como o
 **Sem suporte:**
   * CDN
   * Porta da frente do Azure
-  * Servidor de autenticação multifator (Herdado)
+  * Servidor de Autenticação Multifator (herdado)
   * Gerenciador de Tráfego
 
-Para validar a disponibilidade de um serviço específico, você pode verificar a documentação desse serviço para ver se há um intervalo reservado publicado para esse serviço. Em seguida, você pode pesquisar os intervalos de IP do serviço de destino e comparar com os intervalos listados nas [marcas de serviço e intervalos de IP do Azure – arquivo XML de nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, você pode abrir um tíquete de suporte para o serviço em questão para fins de esclarecimento.
+Para validar a disponibilidade de um serviço específico, você pode verificar a documentação desse serviço para ver se há um intervalo reservado publicado para esse serviço. Em seguida, você pode pesquisar os intervalos de IP do serviço de destino e comparar com os intervalos listados nas [marcas de serviço e intervalos de IP do Azure – arquivo XML de nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, é possível abrir um tíquete de suporte para o serviço em questão para fins de esclarecimento.
 
 ## <a name="peering-comparison"></a><a name="compare"></a>Comparação de emparelhamento
 

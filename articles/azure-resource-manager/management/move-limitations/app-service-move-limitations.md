@@ -4,10 +4,9 @@ description: Use Azure Resource Manager para mover os recursos do serviço de ap
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80655781"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Mover diretrizes para recursos do serviço de aplicativo

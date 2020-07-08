@@ -7,10 +7,9 @@ ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637919"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Diretrizes sobre a implantação de aplicativos Web usando modelos do Azure Resource Manager
@@ -38,7 +37,7 @@ Os recursos são implantados na seguinte ordem:
 * Aplicativo Web - depende do plano do Serviço de Aplicativo.
 * Instância do Application Insights que direciona o farm de servidores - depende do plano do Serviço de Aplicativo.
 
-**Camada 3**
+**Nível 3**
 * Controle do código-fonte - depende do aplicativo Web.
 * Extensão de site do MSDeploy - depende do aplicativo Web.
 * Aplicativo Azure instância do insights que se destina ao aplicativo Web – depende do aplicativo Web.

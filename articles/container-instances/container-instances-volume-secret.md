@@ -4,10 +4,9 @@ description: Saiba como montar um volume secreto para armazenar informações co
 ms.topic: article
 ms.date: 04/03/2020
 ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657147"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montar um volume secreto em Instâncias de Contêiner do Azure
@@ -22,7 +21,7 @@ Use um volume *secreto* para fornecer informações confidenciais aos contêiner
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montar um volume secreto - CLI do Azure
 
-Para implantar um contêiner com um ou mais segredos usando a CLI do Azure, inclua os parâmetros `--secrets` e `--secrets-mount-path` no comando [az container create][az-container-create]. Este exemplo monta um volume *secreto* que consiste em dois arquivos contendo segredos, "mysecret1" e "mysecret2", em `/mnt/secrets`:
+Para implantar um contêiner com um ou mais segredos usando a CLI do Azure, inclua os parâmetros `--secrets` e `--secrets-mount-path` no comando [az container create][az-container-create]. Este exemplo monta um volume *secreto* que consiste em dois arquivos contendo segredos, "mysecret1" e "mysecret2", em `/mnt/secrets` :
 
 ```azurecli-interactive
 az container create \
@@ -112,7 +111,7 @@ O seguinte modelo do Resource Manager define um grupo de contêineres com um con
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arquivo `deploy-aci.json`chamado e execute o comando [AZ Deployment Group Create][az-deployment-group-create] com o `--template-file` parâmetro:
+Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arquivo chamado `deploy-aci.json` e execute o comando [AZ Deployment Group Create][az-deployment-group-create] com o `--template-file` parâmetro:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

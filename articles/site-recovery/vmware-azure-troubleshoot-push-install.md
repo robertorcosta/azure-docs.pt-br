@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656319"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solucionar problemas de instalação por push do serviço de mobilidade
@@ -41,7 +40,7 @@ Para Windows (**erro 95107**), verifique se a conta de usuário tem acesso admin
 * Para adicionar manualmente uma chave do registro que desabilita o controle de acesso de usuário remoto:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Adicione um novo `DWORD`:`LocalAccountTokenFilterPolicy`
+  * Adicione um novo `DWORD` :`LocalAccountTokenFilterPolicy`
   * Defina o valor como`1`
 
 * Para adicionar a chave do registro, em um prompt de comando, execute o seguinte comando:
@@ -51,9 +50,9 @@ Para Windows (**erro 95107**), verifique se a conta de usuário tem acesso admin
 Para o Linux (**erro 95108**), você deve escolher a conta **raiz** para a instalação bem-sucedida do agente de serviço de mobilidade. Além disso, os serviços de protocolo FTP do SSH (SFTP) devem estar em execução. Para habilitar o subsistema SFTP e a autenticação de senha no arquivo _sshd_config_ :
 
 1. Entre como **raiz**.
-1. Vá para _/etc/ssh/sshd_config arquivo_, localize a linha que começa com `PasswordAuthentication`.
-1. Remova a marca de comentário da linha e altere o `yes`valor para.
-1. Localize a linha que começa com `Subsystem`e remova a marca de comentário da linha.
+1. Vá para _/etc/ssh/sshd_config arquivo_, localize a linha que começa com `PasswordAuthentication` .
+1. Remova a marca de comentário da linha e altere o valor para `yes` .
+1. Localize a linha que começa com `Subsystem` e remova a marca de comentário da linha.
 1. Reinicie o serviço `sshd` .
 
 Se você quiser modificar as credenciais da conta de usuário escolhida, siga [estas instruções](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
@@ -97,8 +96,8 @@ Esse erro ocorre quando os servidores de logon não estão disponíveis no compu
 
 O serviço de logon não está em execução no computador de origem e causou falha na solicitação de logon. Não é possível instalar o agente de mobilidade. Para resolver o erro, use um dos seguintes métodos para iniciar o `Netlogon` serviço no computador de origem:
 
-* Para iniciar o `Netlogon` serviço a partir de um prompt de comando, `net start Netlogon`execute o comando.
-* No Gerenciador de tarefas, inicie `Netlogon` o serviço.
+* Para iniciar o `Netlogon` serviço a partir de um prompt de comando, execute o comando `net start Netlogon` .
+* No Gerenciador de tarefas, inicie o `Netlogon` serviço.
 
 ## <a name="connectivity-failure-errorid-95117--97118"></a>Falha de conectividade (errorID: 95117 & 97118)
 
@@ -108,7 +107,7 @@ Para resolver o erro:
 
 * Verifique se você pode executar o ping no computador de origem do servidor de configuração. Se você tiver escolhido o servidor de processo de expansão durante a habilitação da replicação, verifique se você pode executar o ping do computador de origem no servidor de processo.
 
-* Na linha de comando do computador do servidor de `Telnet` origem, use para executar o ping no servidor de configuração ou no servidor de processo de expansão na porta https 135, conforme mostrado no comando a seguir. Esse comando verifica se há problemas de conectividade de rede ou de bloqueio de porta de firewall.
+* Na linha de comando do computador do servidor de origem, use `Telnet` para executar o ping no servidor de configuração ou no servidor de processo de expansão na porta HTTPS 135, conforme mostrado no comando a seguir. Esse comando verifica se há problemas de conectividade de rede ou de bloqueio de porta de firewall.
 
   `telnet <CS/ scale-out PS IP address> <135>`
 
@@ -118,9 +117,9 @@ Para resolver o erro:
   * Serviços SFTP devem estar em execução. Para habilitar a autenticação de subsistema e senha do SFTP no arquivo de _sshd_config_ :
 
     1. Entre como **raiz**.
-    1. Vá para _/etc/ssh/sshd_config_ arquivo, localize a linha que começa com `PasswordAuthentication`.
-    1. Remova a marca de comentário da linha e altere o `yes`valor para.
-    1. Localize a linha que começa com `Subsystem`e remova a marca de comentário da linha
+    1. Vá para _/etc/ssh/sshd_config_ arquivo, localize a linha que começa com `PasswordAuthentication` .
+    1. Remova a marca de comentário da linha e altere o valor para `yes` .
+    1. Localize a linha que começa com `Subsystem` e remova a marca de comentário da linha
     1. Reinicie o serviço `sshd` .
 
 * Uma tentativa de conexão pode ter falhado se não houver nenhuma resposta adequada após um período de tempo ou uma conexão estabelecida falhou porque um host conectado falhou ao responder.
@@ -137,13 +136,13 @@ Após uma verificação de conectividade, verifique se o serviço de compartilha
 Para **Windows 2008 R2 e versões anteriores**:
 
 * Para habilitar o compartilhamento de arquivo e impressão através do Firewall do Windows,
-  1. Abra sistema do **painel** > **de controle e segurança** > **Firewall do Windows**. No painel esquerdo, selecione **configurações** > avançadas regras de**entrada** na árvore de console.
+  1. Abra sistema do **painel**  >  **de controle e segurança**  >  **Firewall do Windows**. No painel esquerdo, selecione **Configurações avançadas**  >  **regras de entrada** na árvore de console.
   1. Localize as regras de compartilhamento de arquivos e compartilhamento de impressora (NB-Sessão-entrada) e arquivo e impressora (SMB-entrada).
   1. Para cada regra, clique com botão direito na regra e, em seguida, clique em **Habilitar regra**.
 
 * Para habilitar o compartilhamento de arquivos com o Política de Grupo:
   1. Vá para **Iniciar**, digite `gpmc.msc` e pesquise.
-  1. No painel de navegação, abra as seguintes pastas:**configuração** > **Administrative Templates** > de usuário da **política** > de computador local modelos administrativos**componentes** > do Windows**compartilhamento de rede**.
+  1. No painel de navegação, abra as seguintes pastas: configuração de usuário da **política de computador local**  >  **User Configuration**  >  **modelos administrativos**  >  **componentes do Windows**  >  **compartilhamento de rede**.
   1. No painel de detalhes, clique duas vezes **Impedir os usuários de compartilhamento de arquivos em seus perfis**.
 
      Para desabilitar a configuração de Política de Grupo e habilitar a capacidade do usuário de compartilhar arquivos, selecione **desabilitado**.
@@ -160,7 +159,7 @@ Após a verificação dos serviços de arquivo e impressora, habilite o serviço
 
 Para habilitar o WMI:
 
-1. Vá para **Control Panel** > **segurança** do painel de controle e selecione **Firewall do Windows**.
+1. Vá para segurança do **painel de controle**  >  **Security** e selecione **Firewall do Windows**.
 1. Selecione **alterar configurações** e, em seguida, selecione a guia **exceções** .
 1. Na janela **exceções** , marque a caixa de seleção Instrumentação de gerenciamento do Windows (WMI) para habilitar o tráfego WMI por meio do firewall.
 
@@ -221,7 +220,7 @@ Por exemplo:
 
 os nomes de dispositivo devem ser substituídos pelo UUID correspondente.
 
-1. Localize o UUID do dispositivo executando o comando `blkid \<device name>`.
+1. Localize o UUID do dispositivo executando o comando `blkid \<device name>` .
 
    Por exemplo:
 
@@ -232,7 +231,7 @@ os nomes de dispositivo devem ser substituídos pelo UUID correspondente.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Agora, substitua o nome do dispositivo pelo UUID no formato como `root=UUID=\<UUID>`. Por exemplo, se substituirmos os nomes de dispositivo com UUID para o parâmetro root e resume mencionado nos arquivos _/boot/Grub2/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_ , as linhas nos arquivos se parecerão com a seguinte linha:
+1. Agora, substitua o nome do dispositivo pelo UUID no formato como `root=UUID=\<UUID>` . Por exemplo, se substituirmos os nomes de dispositivo com UUID para o parâmetro root e resume mencionado nos arquivos _/boot/Grub2/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_ , as linhas nos arquivos se parecerão com a seguinte linha:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -291,7 +290,7 @@ Quando houver uma falha, verifique se algum programa antivírus ou outros servi�
 
 ### <a name="vss-exit-code-806"></a>Código de saída do VSS 806
 
-Esse erro ocorre quando a conta de usuário usada para instalação não tem permissões para executar `CSScript` o comando. Forneça as permissões necessárias à conta do usuário para executar o script e repita a operação.
+Esse erro ocorre quando a conta de usuário usada para instalação não tem permissões para executar o `CSScript` comando. Forneça as permissões necessárias à conta do usuário para executar o script e repita a operação.
 
 ### <a name="other-vss-errors"></a>Outros erros do VSS
 
@@ -362,7 +361,7 @@ Esse problema faz com que a instalação do agente de mobilidade do Azure Site R
 
 ### <a name="to-identify-the-issue"></a>Para identificar o problema
 
-No log localizado no servidor de configuração em _C:\ProgramData\ASRSetupLogs\UploadedLogs\<data/hora>UA_InstallLogFile. log_ , você encontrará a seguinte exceção:
+No log localizado no servidor de configuração em _C:\ProgramData\ASRSetupLogs\UploadedLogs \<date-time> UA_InstallLogFile. log_ , você encontrará a seguinte exceção:
 
 ```plaintext
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)
@@ -379,7 +378,7 @@ Se a instalação do agente de mobilidade falhar, examine os logs em _C:\Program
 
 Como resolver o problema:
 
-1. Usando um editor de registro como `regedit.msc`, abra o registro.
+1. Usando um editor de registro como `regedit.msc` , abra o registro.
 1. Abra o `HKEY_LOCAL_MACHINE\SYSTEM` nó.
 1. No `SYSTEM` nó, localize os conjuntos de controles.
 1. Abra cada conjunto de controle e verifique se os seguintes drivers do Windows estão presentes:

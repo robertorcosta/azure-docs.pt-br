@@ -7,10 +7,9 @@ description: Revisar e testar alterações de uma solicitação pull diretamente
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ações do GitHub, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
 ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637942"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
@@ -29,7 +28,7 @@ Neste guia, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](https://azure.microsoft.com/free).
+* Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 * A [CLI do Azure][azure-cli-installed] instalada.
 * [Helm 3 instalado][helm-installed].
 * Uma conta do GitHub com [ações do GitHub habilitadas][github-actions-beta-signup].
@@ -116,7 +115,7 @@ cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
-Editar [bicicletas/Server. js][bikes-server-js] para remover as linhas 232 e 233:
+Edite [bicicletas/server.js][bikes-server-js] para remover as linhas 232 e 233:
 
 ```javascript
     // Hard code image url *FIX ME*
@@ -131,7 +130,7 @@ A seção agora deve ser semelhante a:
     delete theBike._id;
 ```
 
-Salve o arquivo e, `git add` em `git commit` seguida, use e para preparar as alterações.
+Salve o arquivo e, em seguida, use `git add` e `git commit` para preparar as alterações.
 
 ```cmd
 git add Bikes/server.js 

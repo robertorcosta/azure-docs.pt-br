@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480276"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log do Azure Monitor
@@ -229,7 +228,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contar eventos de segurança por ID da atividade
 
 
-Este exemplo se baseia na estrutura fixa da coluna **atividade** : \<nome\>-\<\>da ID.
+Este exemplo se baseia na estrutura fixa da coluna **atividade** : \<ID\> - \<Name\> .
 Ele analisa o valor de **Activity** em duas novas colunas e conta a ocorrência de cada **activityID**.
 
 ```Kusto
@@ -270,7 +269,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Analisar a ID e o nome da atividade
-Os dois exemplos abaixo dependem da estrutura fixa da coluna **atividade** : \<nome\>-\<\>da ID. O primeiro exemplo usa o operador **parse** para atribuir valores a duas novas colunas: **activityID** e **activityDesc**.
+Os dois exemplos abaixo dependem da estrutura fixa da coluna **atividade** : \<ID\> - \<Name\> . O primeiro exemplo usa o operador **parse** para atribuir valores a duas novas colunas: **activityID** e **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -379,7 +378,7 @@ O `Usage` tipo de dados pode ser usado para acompanhar o volume de dados ingerid
 
 #### <a name="data-volume-by-solution"></a>Volume de dados por solução
 
-A consulta usada para exibir o volume de dados faturáveis por solução no último mês (exceto o último dia parcial) é:
+A consulta usada para exibir o volume de dados faturáveis por solução ao longo do último mês (exceto o último dia parcial) é:
 
 ```kusto
 Usage 
@@ -389,11 +388,11 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Observe que a cláusula `where IsBillable = true` filtra os tipos de dados de determinadas soluções para as quais não há nenhum encargo de ingestão.  Além disso, a `TimeGenerated` cláusula WITH é apenas para garantir que a experiência de consulta no portal do Azure pareçará além do padrão de 24 horas. Ao usar o tipo de dados de `StartTime` uso `EndTime` e representar os buckets de tempo para os quais os resultados são apresentados. 
+Observe que a cláusula `where IsBillable = true` filtra os tipos de dados de determinadas soluções para o qual não há nenhuma taxa de ingestão.  Além disso, a cláusula WITH `TimeGenerated` é apenas para garantir que a experiência de consulta no portal do Azure pareçará além do padrão de 24 horas. Ao usar o tipo de dados Uso, `StartTime` e `EndTime` representam os buckets de tempo para os quais os resultados são apresentados. 
 
 #### <a name="data-volume-by-type"></a>Volume de dados por tipo
 
-Você pode analisar mais detalhadamente para ver as tendências de dados por tipo de dados:
+Você pode fazer uma análise mais detalhada para ver as tendências de dados por tipo de dados:
 
 ```kusto
 Usage 
@@ -403,7 +402,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-Ou para ver uma tabela por solução e tipo para o último mês,
+Ou para ver uma tabela por solução e por tipo em relação ao último mês:
 
 ```kusto
 Usage 

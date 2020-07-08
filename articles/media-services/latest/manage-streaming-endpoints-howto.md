@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
 ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461037"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerenciar pontos de extremidade de streaming com os serviços de mídia v3
@@ -32,7 +31,7 @@ Este artigo mostra como executar o comando [Iniciar](https://docs.microsoft.com/
     
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Revê 
+Examine: 
 
 * [Conceitos dos Serviços de Mídia](concepts-overview.md)
 * [Conceito de ponto de extremidade de streaming](streaming-endpoint-concept.md)

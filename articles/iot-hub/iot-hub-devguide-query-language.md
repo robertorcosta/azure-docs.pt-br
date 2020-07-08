@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80632941"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
@@ -450,7 +449,7 @@ Há suporte para os seguintes operadores:
 | Família | Operadores |
 | --- | --- |
 | Aritmético |+, -, *, /, % |
-| Lógico |AND, OR, NOT |
+| Logical |AND, OR, NOT |
 | Comparação |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funções
@@ -481,7 +480,7 @@ Em condições de rotas, há suporte para as seguintes funções de verificaçã
 | AS_NUMBER | Converte a cadeia de caracteres de entrada em um número. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
 | IS_ARRAY | Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz. |
 | IS_BOOL | Retorna um valor booliano que indica se o tipo da expressão especificada é um booliano. |
-| IS_DEFINED | Retorna um valor booliano que indica se um valor foi atribuído à propriedade. Isso só tem suporte quando o valor é um tipo primitivo. Tipos primitivos incluem cadeia de caracteres, booliano `null`, numérico ou. Não há suporte para DateTime, tipos de objeto e matrizes. |
+| IS_DEFINED | Retorna um valor booliano que indica se um valor foi atribuído à propriedade. Isso só tem suporte quando o valor é um tipo primitivo. Tipos primitivos incluem cadeia de caracteres, booliano, numérico ou `null` . Não há suporte para DateTime, tipos de objeto e matrizes. |
 | IS_NULL | Retorna um valor booliano que indica se o tipo da expressão especificada é nulo. |
 | IS_NUMBER | Retorna um valor booliano que indica se o tipo da expressão especificada é um número. |
 | IS_OBJECT | Retorna um valor booliano que indica se o tipo da expressão especificada é um objeto JSON. |

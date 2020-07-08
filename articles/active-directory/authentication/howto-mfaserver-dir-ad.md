@@ -13,10 +13,9 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480973"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
@@ -24,7 +23,7 @@ ms.locfileid: "79480973"
 Use a seção Integração de Diretórios do Servidor do Azure MFA para se integrar com o Active Directory ou com outro diretório LDAP. Você pode configurar atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Os novos clientes que desejarem exigir a autenticação multifator de seus usuários devem usar a Autenticação Multifator do Microsoft Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 ## <a name="settings"></a>Configurações
 
@@ -47,7 +46,7 @@ A tabela a seguir descreve as definições de configuração de LDAP.
 
 | Recurso | Descrição |
 | --- | --- |
-| Server (Servidor) |Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP.  Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Observação: quando o tipo de associação é SSL (TLS), um nome de host totalmente qualificado é necessário. |
+| Servidor |Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP.  Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Observação: quando o tipo de associação é SSL (TLS), um nome de host totalmente qualificado é necessário. |
 | DN base |Insira o nome diferenciado do objeto de diretório base do qual todas as consultas de diretório são iniciadas.  Por exemplo, d=abc,dc=com. |
 | Tipo de associação – Consultas |Selecione o tipo de associação apropriado a ser usado na associação do diretório LDAP à pesquisa.  Isso é usado para importações, sincronização e resolução de nome de usuário. <br><br>  Anônimo: uma associação anônima será executada.  O DN e associar senha não são usados.  Isso só funciona se o diretório LDAP permitir a associação anônima e as permissões autorizarem a consulta dos registros e atributos adequados.  <br><br> Simples: Associar DN e Associar Senha são passados como texto sem formatação para associar ao diretório LDAP.  Isso serve para testes, a fim de verificar se o servidor pode ser acessado e se a conta de associação tem o acesso apropriado. Depois que o certificado apropriado tiver sido instalado, use o SSL.  <br><br> SSL: Associar DN e Associar Senha são criptografados usando SSL para associar ao diretório LDAP.  Instale um certificado localmente confiança do diretório LDAP.  <br><br> Windows: Associar Nome de Usuário e Associar Senha são usados para se conectar com segurança a um controlador de domínio do Active Directory ou diretório ADAM.  Se Associar Nome de Usuário for deixado em branco, a conta do usuário conectado será usada na associação. |
 | Tipo de associação – Autenticações |Selecione o tipo de associação apropriado para usar ao executar a autenticação de associação LDAP.  Veja as descrições de tipo de associação em Tipo de associação: consultas.  Por exemplo, isso permite que a associação anônima seja utilizada para consultas enquanto associação SSL seja usada para proteger as autenticações de associação LDAP. |
@@ -80,7 +79,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | --- | --- |
 | Identificador exclusivo |Digite o nome do atributo que serve como o identificador exclusivo do contêiner, do grupo de segurança e dos registros de usuário.  No Active Directory, isso geralmente é objectGUID. Outras implementações LDAP podem usar entryUUID ou algo semelhante.  O padrão é objectGUID. |
 | Tipo de identificador exclusivo |Selecione o tipo de atributo de identificador exclusivo.  No Active Directory, o atributo objectGUID é do tipo GUID. Outras implementações LDAP podem usar o tipo Cadeia de Caracteres ou Matriz de Bytes ASCII.  O padrão é GUID. <br><br>É importante definir esse tipo corretamente, já que os itens de sincronização são referenciados por seu identificador exclusivo. O tipo de identificador exclusivo é usado para localizar o objeto diretamente no diretório.  Definir esse tipo como Cadeia de Caracteres quando o diretório realmente armazena o valor como uma matriz de bytes de caracteres ASCII e impede que a sincronização funcione corretamente. |
-| Nome distinto |Digite o nome do atributo que contém o nome distinto para cada registro.  No Active Directory, isso geralmente é distinguishedName. Outras implementações LDAP podem usar entryDN ou algo semelhante.  O padrão é distinguishedName. <br><br>Se um atributo que contém apenas o nome distinto não existir, o atributo de caminho ADs poderá ser usado.  A parte do caminho "LDAP://\<servidor\>/" é removida automaticamente, deixando apenas o nome distinto do objeto. |
+| Nome distinto |Digite o nome do atributo que contém o nome distinto para cada registro.  No Active Directory, isso geralmente é distinguishedName. Outras implementações LDAP podem usar entryDN ou algo semelhante.  O padrão é distinguishedName. <br><br>Se um atributo que contém apenas o nome distinto não existir, o atributo de caminho ADs poderá ser usado.  A parte "LDAP:// \<server\> /" do caminho é removida automaticamente, deixando apenas o nome distinto do objeto. |
 | Nome do contêiner |Insira o nome do atributo que contém o nome em um registro de contêiner.  O valor desse atributo é exibido na hierarquia do contêiner ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. <br><br>Se contêineres diferentes usarem atributos diferentes para seus nomes, use ponto-e-vírgula para separar vários atributos de nome de contêiner.  O primeiro atributo de nome de contêiner encontrado em um objeto de contêiner é usado para exibir seu nome. |
 | Nome do grupo de segurança |Insira o nome do atributo que contém o nome em um registro de grupo de segurança.  O valor desse atributo é exibido na lista Grupo de segurança ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. |
 | Nome de Usuário |Digite o nome do atributo que contém o nome de usuário em um registro de usuário.  O valor deste atributo é usado como o nome de usuário do servidor de Autenticação Multifator.  Um segundo atributo pode ser especificado como um backup do primeiro.  O segundo atributo só será usado se o primeiro atributo não contiver um valor para o usuário.  Os padrões são userPrincipalName e sAMAccountName. |
@@ -107,7 +106,7 @@ Para editar atributos, clique em **Editar** na guia atributos.  Isso abre uma ja
 
 ![Editar mapeamento de atributo de diretório no servidor MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
-## <a name="synchronization"></a>Synchronization
+## <a name="synchronization"></a>Sincronização
 
 A sincronização mantém o banco de dados do usuário do Azure MFA sincronizado com os usuários no Active Directory ou outro diretório LDAP. O processo é semelhante à importação manual de usuários do Active Directory, mas faz sondagens para processar alterações do grupo de segurança e de usuário do Active Directory.  Ela também desativa ou remove usuários que foram removidos de um contêiner, o grupo de segurança ou o Active Directory.
 

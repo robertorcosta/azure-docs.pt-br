@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471023"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurar um ambiente de preparo no Azure Spring Cloud
@@ -67,10 +66,10 @@ Vá para sua instância de serviço no portal do Azure e selecione **Gerenciamen
 
 >[!TIP]
 > * Confirme se o ponto de extremidade de teste termina com uma barra (/) para garantir que o arquivo CSS seja carregado corretamente.  
-> * Se o navegador exigir que você insira as credenciais de logon para exibir a página, use [Decodificação de URL](https://www.urldecoder.org/) para decodificar o ponto de extremidade de teste. A decodificação de URL retorna uma URL no formato "https://\<nome-de-usuário>:\<senha>@\<nome-do-cluster>.test.azureapps.io/gateway/green".  Use este formulário para acessar seu ponto de extremidade.
+> * Se o navegador exigir que você insira as credenciais de logon para exibir a página, use [Decodificação de URL](https://www.urldecoder.org/) para decodificar o ponto de extremidade de teste. A decodificação de URL retorna uma URL no formato "https:// \<username> : \<password> @ \<cluster-name> . Test.azureapps.Io/gateway/Green".  Use este formulário para acessar seu ponto de extremidade.
 
 >[!NOTE]    
-> As configurações do servidor de configuração se aplicam tanto ao ambiente de preparo quanto à produção. Por exemplo, se você definir o caminho do contexto`server.servlet.context-path`() para o gateway de aplicativo no servidor de configuração como *somepath*, o caminho para a implantação verde será\<alterado para "\<https://username>\<: Password> @ cluster-Name>. Test.azureapps.Io/gateway/Green/somepath/...".
+> As configurações do servidor de configuração se aplicam tanto ao ambiente de preparo quanto à produção. Por exemplo, se você definir o caminho do contexto ( `server.servlet.context-path` ) para o gateway de aplicativo no servidor de configuração como *somepath*, o caminho para a implantação verde será alterado para "https:// \<username> : \<password> @ \<cluster-name> . Test.azureapps.Io/gateway/Green/somepath/...".
  
  Se você visitar seu gateway de aplicativo voltado para o público neste ponto, verá a página antiga sem a nova alteração.
     

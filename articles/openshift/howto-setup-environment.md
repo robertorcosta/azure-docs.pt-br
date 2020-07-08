@@ -8,10 +8,9 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: e7396ce9fbed46688d59b582f246e5454d063fb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477027"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar seu ambiente de desenvolvimento do Red Hat OpenShift no Azure
@@ -19,7 +18,7 @@ ms.locfileid: "79477027"
 Para compilar e executar Microsoft Azure aplicativos Red Hat OpenShift, você precisará:
 
 * Instale a versão 2.0.65 (ou superior) do CLI do Azure (ou use o Azure Cloud Shell).
-* Registre-se `AROGA` para o recurso e provedores de recursos associados.
+* Registre-se para o `AROGA` recurso e provedores de recursos associados.
 * Crie um locatário do Azure Active Directory (AD do Azure).
 * Crie um objeto de aplicativo do Azure AD.
 * Crie um usuário do Azure AD.
@@ -34,7 +33,7 @@ O Azure Red Hat OpenShift requer a versão 2.0.65 ou superior do CLI do Azure. S
 az --version
 ```
 
-A primeira linha de saída terá a versão da CLI, por exemplo `azure-cli (2.0.65)`.
+A primeira linha de saída terá a versão da CLI, por exemplo `azure-cli (2.0.65)` .
 
 Aqui estão as instruções para [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se você precisar de uma nova instalação ou uma atualização.
 
@@ -42,7 +41,7 @@ Como alternativa, você pode usar o [Azure cloud Shell](https://docs.microsoft.c
 
 ## <a name="register-providers-and-features"></a>Registrar provedores e recursos
 
-O `Microsoft.ContainerService AROGA` recurso, `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage` `Microsoft.KeyVault` e `Microsoft.Network` os provedores devem ser registrados para sua assinatura manualmente antes de implantar seu primeiro cluster do Azure Red Hat OpenShift.
+O `Microsoft.ContainerService AROGA` recurso, `Microsoft.Solutions` , `Microsoft.Compute` , `Microsoft.Storage` `Microsoft.KeyVault` e os `Microsoft.Network` provedores devem ser registrados para sua assinatura manualmente antes de implantar seu primeiro cluster do Azure Red Hat OpenShift.
 
 Para registrar esses provedores e recursos manualmente, use as seguintes instruções de um shell bash se você instalou a CLI ou da sessão Azure Cloud Shell (bash) em seu portal do Azure:
 

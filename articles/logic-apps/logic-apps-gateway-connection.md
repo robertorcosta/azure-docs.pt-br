@@ -7,10 +7,9 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657130"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
@@ -26,7 +25,7 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
 
 * [Gateway de dados local do Microsoft Power Automate](/power-automate/gateway-reference)
 * [Gateway de dados local do Microsoft Power BI](/power-bi/service-gateway-onprem)
-* [Gateway de dados local do Microsoft Power apps](/powerapps/maker/canvas-apps/gateway-reference)
+* [Gateway de dados local do Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Gateway de dados local do Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -48,7 +47,7 @@ Nos aplicativos lógicos do Azure, o gateway de dados local dá suporte aos [con
 * SQL Server
 * Teradata
 
-O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway de dados. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Embora o próprio gateway não incorra em custos adicionais, o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) se aplica a esses conectores e a outras operações nos aplicativos lógicos do Azure.
+O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway de dados. No entanto, essas operações têm [limites no tamanho da carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Embora o próprio gateway não incorra em custos adicionais, o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) se aplica a esses conectores e a outras operações nos aplicativos lógicos do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +57,7 @@ O aplicativo lógico do Azure dá suporte a operações de leitura e gravação 
 
 * A instalação do gateway ainda não está registrada e reivindicada por outro recurso de gateway do Azure.
 
-  Ao criar um recurso de gateway no portal do Azure, você seleciona uma instalação de gateway, que vincula o recurso de gateway e apenas esse recurso de gateway. Em aplicativos lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais. Nesses gatilhos e ações, você seleciona sua assinatura do Azure e o recurso de gateway associado que deseja usar. Cada recurso de gateway vincula-se a apenas uma instalação de gateway, que é vinculada a apenas uma conta do Azure.
+  Ao criar um recurso de gateway no portal do Azure, você seleciona uma instalação de gateway, que vincula o recurso de gateway e apenas esse recurso de gateway. Em Aplicativos Lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais. Nesses gatilhos e ações, você seleciona sua assinatura do Azure e o recurso de gateway associado que deseja usar. Cada recurso de gateway vincula-se a apenas uma instalação de gateway, que é vinculada a apenas uma conta do Azure.
 
   > [!NOTE]
   > Somente o administrador de gateway pode criar o recurso de gateway no portal do Azure. Atualmente, as entidades de serviço não têm suporte. 
@@ -81,12 +80,12 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
 1. Em **criar gateway de conexão**, forneça essas informações para o recurso de gateway. Quando terminar, selecione **Criar**.
 
-   | Propriedade | Descrição |
+   | Property | Descrição |
    |----------|-------------|
-   | **Nome do recurso** | Forneça um nome para o recurso de gateway que contém apenas letras, números, hifens`-`(), sublinhados`_`(), parênteses`(`( `)`,) ou pontos (`.`). |
+   | **Nome do recurso** | Forneça um nome para o recurso de gateway que contém apenas letras, números, hifens ( `-` ), sublinhados ( `_` ), parênteses ( `(` , `)` ) ou pontos ( `.` ). |
    | **Assinatura** | Selecione a assinatura do Azure para a conta do Azure que foi usada para a instalação do gateway. A assinatura padrão baseia-se na conta do Azure utilizada para entrar. |
    | **Grupo de recursos** | O [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) que você deseja usar |
-   | **Local** | A mesma região ou local que foi selecionado para o serviço de nuvem do gateway durante a [instalação do gateway](../logic-apps/logic-apps-gateway-install.md). Caso contrário, a instalação do gateway não aparecerá na lista **nome da instalação** . O local do aplicativo lógico pode ser diferente do local do recurso do gateway. |
+   | **Localidade** | A mesma região ou local que foi selecionado para o serviço de nuvem do gateway durante a [instalação do gateway](../logic-apps/logic-apps-gateway-install.md). Caso contrário, a instalação do gateway não aparecerá na lista **nome da instalação** . O local do aplicativo lógico pode ser diferente do local do recurso do gateway. |
    | **Nome de Instalação** | Selecione uma instalação de gateway, que aparece na lista somente quando essas condições são atendidas: <p><p>-A instalação do gateway usa a mesma região que o recurso de gateway que você deseja criar. <br>-A instalação do gateway não está vinculada a outro recurso de gateway do Azure. <br>-A instalação do gateway está vinculada à mesma conta do Azure que você está usando para criar o recurso de gateway. <br>-Sua conta do Azure pertence a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) e é a mesma conta que foi usada para a instalação do gateway. <p><p>Para obter mais informações, consulte a seção [perguntas](#faq) frequentes. |
    |||
 
@@ -140,7 +139,7 @@ Para atualizar as configurações de uma conexão de gateway, você pode editar 
 
 Para localizar todas as conexões de API associadas à assinatura do Azure:
 
-* No menu portal do Azure, selecione **todos os serviços** > **conexões de API****da Web** > .
+* No menu portal do Azure, selecione **todos os serviços**  >  conexões de API**da Web**  >  **API Connections**.
 * Ou, no menu portal do Azure, selecione **todos os recursos**. Defina o filtro de **tipo** como **conexão de API**.
 
 <a name="change-delete-gateway-resource"></a>
@@ -174,5 +173,5 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Proteja seus aplicativos lógicos](./logic-apps-securing-a-logic-app.md)
+* [Assegurar seus aplicativos lógicos](./logic-apps-securing-a-logic-app.md)
 * [Exemplos comuns e cenários de aplicativos lógicos](./logic-apps-examples-and-scenarios.md)

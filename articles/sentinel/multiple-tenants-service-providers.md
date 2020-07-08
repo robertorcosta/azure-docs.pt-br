@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: fdb58686fcdd18a8e2861aab533717dbc91e8893
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79476008"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Trabalhar com vários locatários no Azure Sentinel 
@@ -27,7 +26,7 @@ Se você for um MSSP (provedor de serviços de segurança gerenciado) e estiver 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - [Integração do Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
-- Para que isso funcione corretamente, seu locatário deve ser registrado no provedor de recursos do Azure Sentinel em pelo menos uma assinatura. Se você tiver um Sentinela do Azure registrado em seu locatário, você estará pronto para começar. Caso contrário, selecione **assinaturas** na portal do Azure, seguidas pelos provedores de **recursos**.  Em seguida, na tela **SOC – provedores de recursos** , pesquise e selecione `Microsoft.OperationalInsights` e `Microsoft.SecurityInsights`selecione **registrar**.
+- Para que isso funcione corretamente, seu locatário deve ser registrado no provedor de recursos do Azure Sentinel em pelo menos uma assinatura. Se você tiver um Sentinela do Azure registrado em seu locatário, você estará pronto para começar. Caso contrário, selecione **assinaturas** na portal do Azure, seguidas pelos provedores de **recursos**.  Em seguida, na tela **SOC – provedores de recursos** , pesquise e selecione `Microsoft.OperationalInsights` e `Microsoft.SecurityInsights` selecione **registrar**.
    ![Verificar provedores de recursos](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Como acessar o Azure Sentinel de outros locatários
 1. Em **diretório + assinatura**, selecione os diretórios delegados e as assinaturas nas quais os espaços de trabalho do Azure Sentinel do seu cliente estão localizados.

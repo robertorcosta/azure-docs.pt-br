@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477401"
 ---
 # <a name="train-svd-recommender"></a>Treinar o sistema de recomendação SVD
@@ -40,7 +39,7 @@ Para obter mais informações sobre o recomendador SVD, consulte o documento de 
 
 ## <a name="how-to-configure-train-svd-recommender"></a>Como configurar o Recomendador SVD de treinamento  
 
-### <a name="prepare-data"></a>Preparar dados
+### <a name="prepare-data"></a>Preparar os dados
 
 Antes de usar o módulo, os dados de entrada devem estar no formato esperado pelo modelo de recomendação. Um conjunto de dados de treinamento de percurso de classificação de usuário-item é necessário.
 
@@ -73,4 +72,4 @@ Neste exemplo, você pode ver que um único usuário classificou vários filmes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

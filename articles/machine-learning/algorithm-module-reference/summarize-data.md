@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477435"
 ---
 # <a name="summarize-data"></a>Resumir dados
@@ -40,7 +39,7 @@ O módulo calcula as pontuações importantes para cada coluna e retorna uma lin
 
 1. Nenhum parâmetro adicional é necessário. Por padrão, o módulo analisa todas as colunas fornecidas como entrada e, dependendo do tipo de valores nas colunas, gera um conjunto de estatísticas relevante, conforme descrito na seção [resultados](#results) .
 
-1. Envie o pipeline.
+1. Enviar o pipeline.
 
 ## <a name="results"></a>Resultados
 
@@ -54,13 +53,13 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 |**Contagem de valor ausente**|Número de valores exclusivos na coluna|
 |**Min**|Valor mais baixo na coluna|  
 |**Maximizar**|Valor mais alto na coluna|
-|**Média**|Média de todos os valores de coluna|
+|**Significa**|Média de todos os valores de coluna|
 |**Desvio médio**|Desvio médio de valores de coluna|
 |**Primeiro quartil**|Valor no primeiro quartil|
-|**Median**|Valor da coluna mediana|
+|**Cuja**|Valor da coluna mediana|
 |**Terceiro quartil**|Valor no terceiro quartil|
 |**Modo**|Modo de valores de coluna|
-|**Amplitude**|Inteiro que representa o número de valores entre os valores máximo e mínimo|
+|**Range**|Inteiro que representa o número de valores entre os valores máximo e mínimo|
 |**Variação de amostra**|Variação para a coluna; consulte a observação|
 |**Desvio padrão de exemplo**|Desvio padrão para a coluna; consulte a observação|
 |**Distorção de exemplo**|Distorção para a coluna; consulte a observação|
@@ -87,4 +86,4 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.  
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.  

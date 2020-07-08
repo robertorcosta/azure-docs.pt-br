@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471669"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Suporte de protocolo para cabeçalhos HTTP na porta frontal do Azure
@@ -33,7 +32,7 @@ A porta frontal aceita a maioria dos cabeçalhos da solicitação de entrada sem
 
 A porta frontal inclui cabeçalhos de uma solicitação de entrada, a menos que sejam removidas devido a restrições. A porta frontal também adiciona os seguintes cabeçalhos:
 
-| Cabeçalho  | Exemplo e descrição |
+| parâmetro  | Exemplo e descrição |
 | ------------- | ------------- |
 | Através de |  Via: 1,1 Azure </br> Porta frontal adiciona a versão HTTP do cliente seguida pelo *Azure* como o valor para o cabeçalho via. Esse cabeçalho indica a versão HTTP do cliente e essa porta frontal era um destinatário intermediário da solicitação entre o cliente e o back-end.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representa o endereço IP do cliente associado à solicitação que está sendo processada. Por exemplo, uma solicitação proveniente de um proxy pode adicionar o cabeçalho X-Forwardd-for para indicar o endereço IP do chamador original. |
@@ -49,13 +48,13 @@ A porta frontal inclui cabeçalhos de uma solicitação de entrada, a menos que 
 
 Todos os cabeçalhos enviados para a porta de front-end também são passados para o cliente. Os cabeçalhos a seguir são enviados da porta frontal para os clientes.
 
-| Cabeçalho  | Exemplo |
+| parâmetro  | Exemplo |
 | ------------- | ------------- |
 | X-Azure-ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esse é uma cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pelo Front Door. Isso é essencial para a solução de problemas, pois é usado para pesquisar logs de acesso.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma porta frontal](quickstart-create-front-door.md)
+- [Criar um Front Door](quickstart-create-front-door.md)
 - [Como funciona a porta frontal](front-door-routing-architecture.md)
 
 <!--Image references-->

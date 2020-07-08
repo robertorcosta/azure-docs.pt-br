@@ -13,13 +13,12 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
 ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499827"
 ---
-# <a name="azure-storage-accounts"></a>Contas de armazenamento do Azure
+# <a name="azure-storage-accounts"></a>Contas de Armazenamento do Microsoft Azure
 
 Para iniciar o gerenciamento, a criptografia, a codificação, a análise e a transmissão de conteúdo de mídia no Azure, você precisa criar uma conta nos Serviços de Mídia. Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia.
 
@@ -27,12 +26,12 @@ A conta dos Serviços de Mídia e todas as contas de armazenamento associadas pr
 
 Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Os Serviços de Mídia oferecem suporte a contas **v2 para fins gerais** (GPv2) ou contas **v1 para fins gerais** (GPv1). As contas somente BLOB não são permitidas como **primárias**.
 
-Recomendamos que você use o GPv2, para que você possa aproveitar os recursos e o desempenho mais recentes. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md).
+Recomendamos que você use o GPv2, para que você possa aproveitar os recursos e o desempenho mais recentes. Para saber mais sobre contas de armazenamento, confira [visão geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
 
 > [!NOTE]
 > Somente a camada de acesso quente tem suporte para uso com os serviços de mídia do Azure, embora as outras camadas de acesso possam ser usadas para reduzir os custos de armazenamento no conteúdo que não está sendo usado ativamente.
 
-Há SKUs diferentes que você pode escolher para sua conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher uma SKU para produção, você `--sku Standard_RAGRS`deve considerar, que fornece replicação geográfica para continuidade dos negócios.
+Há SKUs diferentes que você pode escolher para sua conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher uma SKU para produção, você deve considerar `--sku Standard_RAGRS` , que fornece replicação geográfica para continuidade dos negócios.
 
 ## <a name="assets-in-a-storage-account"></a>Ativos em uma conta de armazenamento
 
@@ -48,8 +47,8 @@ Para proteger seus ativos em repouso, os ativos devem ser criptografados pela cr
 |Opção de criptografia|Descrição|Serviços de Mídia v3|
 |---|---|---|
 |Criptografia de armazenamento dos serviços de mídia| Criptografia AES-256, chave gerenciada pelos serviços de mídia. |Sem suporte. <sup>(1)</sup>|
-|[Criptografia do serviço de armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.| Com suporte.|
-|[Criptografia do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Não há suporte.|
+|[Criptografia do serviço de armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte.|
+|[Criptografia do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Sem suporte.|
 
 <sup>1</sup> no Media Services V3, a criptografia de armazenamento (criptografia AES-256) tem suporte apenas para compatibilidade com versões anteriores quando seus ativos foram criados com os serviços de mídia v2, o que significa que o V3 funciona com ativos criptografados de armazenamento existentes, mas não permitirá a criação de novos.
 

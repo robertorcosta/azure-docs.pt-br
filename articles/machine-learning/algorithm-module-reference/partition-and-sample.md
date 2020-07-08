@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477503"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e exemplo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use o módulo partição e exemplo para executar a amostragem em um conjunto de um ou para criar partições do conjunto de seus.
 
@@ -75,7 +74,7 @@ Essa opção dá suporte à amostragem aleatória simples ou à amostragem aleat
 
 1. **Taxa de amostragem**: Insira um valor entre 0 e 1. Esse valor especifica a porcentagem de linhas do conjunto de registros de origem que devem ser incluídas no conjunto de resultados de saída.
 
-   Por exemplo, se você quiser apenas metade do conjunto de conjuntos original, `0.5` insira para indicar que a taxa de amostragem deve ser de 50%.
+   Por exemplo, se você quiser apenas metade do conjunto de conjuntos original, insira `0.5` para indicar que a taxa de amostragem deve ser de 50%.
 
    As linhas do conjunto de dados de entrada são embaralhadas e colocadas seletivamente no conjunto de dados de saída, de acordo com a razão especificada.
 
@@ -167,4 +166,4 @@ Use esta opção quando você tiver dividido um conjunto de informações em vá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

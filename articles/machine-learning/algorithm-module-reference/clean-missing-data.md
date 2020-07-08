@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477690"
 ---
 # <a name="clean-missing-data-module"></a>Limpar módulo de dados ausentes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para remover, substituir ou inferir valores ausentes. 
 
@@ -110,7 +109,7 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
   
 7. **Gerar coluna de indicador de valor ausente**: Selecione esta opção se desejar gerar uma indicação de que os valores na coluna atendem aos critérios de limpeza de valor ausente. Essa opção é particularmente útil quando você está configurando uma nova operação de limpeza e deseja certificar-se de que ela funciona como projetado.
   
-8. Envie o pipeline.
+8. Enviar o pipeline.
 
 ### <a name="results"></a>Resultados
 
@@ -142,4 +141,4 @@ Se você precisar repetir as operações de limpeza com frequência, recomendamo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

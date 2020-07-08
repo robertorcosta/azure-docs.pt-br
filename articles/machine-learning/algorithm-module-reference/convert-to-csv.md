@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477673"
 ---
 # <a name="convert-to-csv-module"></a>Converter em módulo CSV
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
 
@@ -41,7 +40,7 @@ Quando você converte um conjunto de um em CSV, o CSV é salvo em seu espaço de
 
 2. Conecte-o a qualquer módulo que produza um conjunto de um DataSet.   
   
-3.  Envie o pipeline.
+3.  Enviar o pipeline.
 
 ### <a name="results"></a>Resultados
   
@@ -50,8 +49,8 @@ Selecione a guia **saídas** no painel direito de **converter em CSV**e selecion
 
 + **Registrar conjunto de registros**: selecione o ícone e salve o arquivo CSV de volta no espaço de trabalho do Azure ml como um conjunto de uma separado. Você pode encontrar o conjunto de módulos como um módulo na árvore de módulo na seção **meus conjuntos de valores** .
 
- + **Exibir saída**: selecione o ícone de olho e siga a instrução para procurar a pasta **Results_dataset** e baixe o arquivo data. csv.
+ + **Exibir saída**: selecione o ícone de olho e siga a instrução para procurar a pasta **Results_dataset** e baixe o arquivo de data.csv.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

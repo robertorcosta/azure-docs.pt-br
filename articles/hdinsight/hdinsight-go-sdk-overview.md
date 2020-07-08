@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479579"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>SDK do HDInsight para go (visualização)
@@ -36,7 +35,7 @@ Na sua localização do GOPATH, execute `go get github.com/Azure/azure-sdk-for-g
 
 ## <a name="authentication"></a>Autenticação
 
-O SDK precisa primeiro ser autenticado com a assinatura do Azure.  Siga o exemplo abaixo para criar uma entidade de serviço e use-a para a autenticação. Depois que isso for feito, você terá uma instância de a `ClustersClient`, que contém muitas funções (descritas nas seções abaixo) que podem ser usadas para executar operações de gerenciamento.
+O SDK precisa primeiro ser autenticado com a assinatura do Azure.  Siga o exemplo abaixo para criar uma entidade de serviço e use-a para a autenticação. Depois que isso for feito, você terá uma instância de a `ClustersClient` , que contém muitas funções (descritas nas seções abaixo) que podem ser usadas para executar operações de gerenciamento.
 
 > [!NOTE]  
 > Existem outras formas de autenticar além do exemplo abaixo que talvez sejam mais adequadas às suas necessidades. Todas as funções são descritas aqui: [Funções de autenticação no SDK do Azure para linguagem Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
@@ -352,7 +351,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 O SDK de gerenciamento do HDInsight também pode ser usado para gerenciar o monitoramento dos seus clusters através do Operations Management Suite (OMS).
 
-Da mesma forma que você criou `ClusterClient` para ser usado para as operações de gerenciamento, é necessário criar um `ExtensionClient` para ser usado para as operações de monitoramento. Depois de concluir a seção de autenticação acima, você pode criar uma `ExtensionClient` da seguinte maneira:
+Da mesma forma que você criou `ClusterClient` para ser usado para as operações de gerenciamento, é necessário criar um `ExtensionClient` para ser usado para as operações de monitoramento. Depois de concluir a seção de autenticação acima, você pode criar uma da `ExtensionClient` seguinte maneira:
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
