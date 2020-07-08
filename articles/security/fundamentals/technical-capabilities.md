@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
 ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76845353"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
@@ -73,7 +72,7 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Logon único
 
-- Autenticação Multifator
+- Autenticação multifator
 
 - Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 
@@ -83,7 +82,7 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Privileged Identity Management
 
-- Identity Protection
+- Proteção de identidade
 
 #### <a name="single-sign-on"></a>Logon único
 
@@ -95,7 +94,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço) como 
 
 Os usuários não precisam gerenciar vários conjuntos de nomes de usuário e senhas, o acesso a aplicativos pode ser provisionado ou desconfigurado automaticamente com base em grupos organizacionais e seu status como funcionário. O [Azure ad introduz controles de governança de segurança e acesso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) que permitem que você gerencie centralmente o acesso dos usuários em aplicativos SaaS.
 
-#### <a name="multi-factor-authentication"></a>Autenticação Multifator
+#### <a name="multi-factor-authentication"></a>Autenticação multifator
 
 A [autenticação multifator do Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. O [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
 
@@ -145,7 +144,7 @@ O Gerenciamento de identidades com privilégios do AD do Azure:
 
 - Receber alertas sobre o acesso a uma função com privilégios
 
-#### <a name="identity-protection"></a>Identity Protection
+#### <a name="identity-protection"></a>Proteção de identidade
 
 [Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A proteção de identidade usa os recursos de detecção de anomalias de Azure Active Directory existentes (disponíveis por meio dos relatórios de atividade anômala do Azure AD) e introduz novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
@@ -406,7 +405,7 @@ Esse método permite consolidar dados de várias fontes para que você possa com
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança do Azure](../../security-center/security-center-intro.md) ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
+A [central de segurança do Azure](../../security-center/security-center-intro.md) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 A Central de Segurança analisa o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades na segurança. Uma lista de recomendações orienta você no processo de configuração dos controles necessários.
 
@@ -513,7 +512,7 @@ Saiba mais sobre a segurança lendo alguns dos tópicos detalhados sobre seguran
 
 - [Criptografia](https://www.microsoft.com/en-us/trustcenter/security/encryption)
 
-- [Gerenciamento de identidade e de acesso](https://www.microsoft.com/en-us/trustcenter/security/identity)
+- [Gerenciamento de identidade e acesso](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
 - [Segurança de rede](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 

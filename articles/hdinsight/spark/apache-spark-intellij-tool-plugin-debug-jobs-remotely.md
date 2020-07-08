@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.openlocfilehash: 393356bd8604f6e7622acd778817681aad31f1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76935016"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar o Azure Toolkit for IntelliJ para depurar aplicativos Apache Spark remotamente no HDInsight por meio de VPN
@@ -35,7 +34,7 @@ Este artigo oferece diretrizes passo a passo sobre como usar as Ferramentas do H
 * **INTELLIJ ideia**. Este artigo usa a versão 2017.1. É possível instalá-lo do [site da JetBrains](https://www.jetbrains.com/idea/download/).
 * **Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ**. As ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Kit de Ferramentas do Azure para IntelliJ. Para obter instruções sobre como instalar o Kit de Ferramentas do Azure, consulte [Instalar o Kit de Ferramentas do Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Entre em sua assinatura do Azure no IntelliJ IDEA**. Siga as instruções em [Usar Azure Toolkit for IntelliJ para criar aplicativos Spark para um cluster HDInsight](apache-spark-intellij-tool-plugin.md).
-* **Solução alternativa de exceção**. Durante a execução do aplicativo Scala Spark para depuração remota em um computador Windows, você pode receber uma exceção. Essa exceção é explicada em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils.exe ausente no Windows. Para contornar esse erro, você deve baixar o [Winutils. exe](https://github.com/steveloughran/winutils) em um local como **C:\WinUtils\bin**. Adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável como **C\WinUtils**.
+* **Solução alternativa de exceção**. Durante a execução do aplicativo Scala Spark para depuração remota em um computador Windows, você pode receber uma exceção. Essa exceção é explicada em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils.exe ausente no Windows. Para contornar esse erro, você deve baixar [Winutils.exe](https://github.com/steveloughran/winutils) em um local como **C:\WinUtils\bin**. Adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável como **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Etapa 1: Criar uma rede virtual do Azure
 
@@ -98,7 +97,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
     ![Selecione o novo modelo de projeto no IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
 
-    a. Selecione **hdinsight** > **Spark no hdinsight (escala)**.
+    a. Selecione **HDInsight** > **Spark no HDInsight (Scala)** .
 
     b. Selecione **Avançar**.
 1. Na caixa de diálogo **Novo Projeto** a seguir, faça o seguinte e, depois, selecione **Concluir**:
@@ -281,7 +280,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
     ![IntelliJ IDEA exibir a guia depurador](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
 
-1. Para adicionar uma inspeção, selecione o ícone**+**().
+1. Para adicionar uma inspeção, selecione o **+** ícone ().
 
     ![IntelliJ Debug-Add-Watch-variável](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 

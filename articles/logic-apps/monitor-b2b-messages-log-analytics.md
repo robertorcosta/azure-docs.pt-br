@@ -7,10 +7,9 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76907975"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para mensagens B2B em aplicativos lógicos do Azure
@@ -44,7 +43,7 @@ Este artigo mostra como habilitar o log de Azure Monitor para sua conta de integ
 
 Antes que os logs de Azure Monitor possam rastrear as mensagens B2B para seu aplicativo lógico, adicione a solução **aplicativos lógicos B2B** ao seu espaço de trabalho log Analytics.
 
-1. Na caixa de pesquisa do [portal do Azure](https://portal.azure.com), digite `log analytics workspaces`e, em seguida, selecione **log Analytics espaços de trabalho**.
+1. Na caixa de pesquisa do [portal do Azure](https://portal.azure.com), digite `log analytics workspaces` e, em seguida, selecione **log Analytics espaços de trabalho**.
 
    ![Selecione "espaços de trabalho do Log Analytics"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
@@ -52,7 +51,7 @@ Antes que os logs de Azure Monitor possam rastrear as mensagens B2B para seu apl
 
    ![Selecionar o espaço de trabalho do Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. No painel Visão geral, em introdução **ao log Analytics** > **configurar soluções de monitoramento**, selecione **Exibir soluções**.
+1. No painel Visão geral, em introdução **ao log Analytics**  >  **configurar soluções de monitoramento**, selecione **Exibir soluções**.
 
    ![No painel Visão geral, selecione "Exibir soluções"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
@@ -60,7 +59,7 @@ Antes que os logs de Azure Monitor possam rastrear as mensagens B2B para seu apl
 
    ![No painel Visão geral, Adicionar nova solução](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. Depois que o **Marketplace** for aberto, na caixa de pesquisa `logic apps b2b`, insira e selecione **aplicativos lógicos B2B**.
+1. Depois que o **Marketplace** for aberto, na caixa de pesquisa, insira `logic apps b2b` e selecione **aplicativos lógicos B2B**.
 
    ![No Marketplace, selecione "gerenciamento de aplicativos lógicos"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
@@ -116,7 +115,7 @@ Depois que o aplicativo lógico for executado, você poderá exibir o status e o
 
 1. Na caixa de pesquisa [portal do Azure](https://portal.azure.com) , localize e abra seu espaço de trabalho do log Analytics.
 
-1. No menu do seu espaço de trabalho, selecione **Resumo** > do espaço de trabalho**aplicativos lógicos B2B**.
+1. No menu do seu espaço de trabalho, selecione **Resumo do espaço de trabalho**  >  **aplicativos lógicos B2B**.
 
    ![Painel de resumo do espaço de trabalho](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
@@ -180,9 +179,9 @@ Para cada tipo de mensagem, estas são as descrições de propriedade e os forma
 
 Estas são as descrições das propriedades de cada mensagem AS2.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |----------|-------------|
-| **Sender** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do AS2 |
+| **Remetente** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do AS2 |
 | **Distância** | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado em **Configurações de Envio** de um contrato do AS2 |
 | **Aplicativo lógico** | O aplicativo lógico no qual as ações do AS2 são configuradas |
 | **Status** | O status da mensagem AS2 <br>Êxito = recebimento ou envio de uma mensagem AS2 válida. Nenhum MDN está configurado. <br>Êxito = recebimento ou envio de uma mensagem AS2 válida. O MDN está configurado e é recebido ou o MDN é enviado. <br>Com Falha = recebimento de uma mensagem AS2 inválida. Nenhum MDN está configurado. <br>Pendente = recebimento ou envio de uma mensagem AS2 válida. O MDN está configurado e o MDN é esperado. |
@@ -190,7 +189,7 @@ Estas são as descrições das propriedades de cada mensagem AS2.
 | **Direção** | A direção da mensagem AS2 |
 | **ID de rastreamento** | A ID que correlaciona todos os gatilhos e todas as ações em um aplicativo lógico |
 | **ID da Mensagem** | ID da mensagem AS2 dos cabeçalhos da mensagem AS2 |
-| **Estampa** | A hora em que a ação do AS2 processou a mensagem |
+| **Timestamp** | A hora em que a ação do AS2 processou a mensagem |
 |||
 
 <!--
@@ -213,9 +212,9 @@ Here are the name formats for each downloaded AS2 message folder and files.
 
 Estas são as descrições das propriedades de cada mensagem X12.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |----------|-------------|
-| **Sender** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do X12 |
+| **Remetente** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do X12 |
 | **Distância** | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do X12 |
 | **Aplicativo lógico** | O aplicativo lógico no qual as ações do X12 são configuradas |
 | **Status** | O status da mensagem X12 <br>Êxito = recebimento ou envio de uma mensagem X12 válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebimento ou envio de uma mensagem X12 válida. Uma confirmação funcional está configurada e é recebida ou uma confirmação funcional é enviada. <br>Com Falha = recebimento ou envio de uma mensagem X12 inválida. <br>Pendente = recebimento ou envio de uma mensagem X12 válida. Uma confirmação funcional está configurada e uma confirmação funcional é esperada. |
@@ -225,7 +224,7 @@ Estas são as descrições das propriedades de cada mensagem X12.
 | **Tipo de mensagem** | O tipo de mensagem EDI X12 |
 | **ICN** | O Número de Controle de Intercâmbio da mensagem X12 |
 | **TSCN** | O Número de Controle do Conjunto de Transações da mensagem X12 |
-| **Estampa** | A hora em que a ação do X12 processou a mensagem |
+| **Timestamp** | A hora em que a ação do X12 processou a mensagem |
 |||
 
 <!--
@@ -248,9 +247,9 @@ Here are the name formats for each downloaded X12 message folder and files.
 
 Estas são as descrições das propriedades de cada mensagem EDIFACT.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |----------|-------------|
-| **Sender** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do EDIFACT |
+| **Remetente** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do EDIFACT |
 | **Distância** | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do EDIFACT |
 | **Aplicativo lógico** | O aplicativo lógico no qual as ações do EDIFACT são configuradas |
 | **Status** | O status da mensagem EDIFACT <br>Êxito = recebimento ou envio de uma mensagem EDIFACT válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebimento ou envio de uma mensagem EDIFACT válida. Uma confirmação funcional está configurada e é recebida ou uma confirmação funcional é enviada. <br>Com Falha = recebimento ou envio de uma mensagem EDIFACT inválida <br>Pendente = recebimento ou envio de uma mensagem EDIFACT válida. Uma confirmação funcional está configurada e uma confirmação funcional é esperada. |
@@ -260,7 +259,7 @@ Estas são as descrições das propriedades de cada mensagem EDIFACT.
 | **Tipo de mensagem** | O tipo da mensagem EDIFACT |
 | **ICN** | O Número de Controle de Intercâmbio da mensagem EDIFACT |
 | **TSCN** | O Número de Controle do Conjunto de Transações da mensagem EDIFACT |
-| **Estampa** | A hora em que a ação do EDIFACT processou a mensagem |
+| **Timestamp** | A hora em que a ação do EDIFACT processou a mensagem |
 |||
 
 <!--

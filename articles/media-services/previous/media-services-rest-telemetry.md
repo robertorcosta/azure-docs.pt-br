@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774875"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurando a telemetria dos Serviços de Mídia do Azure com REST
@@ -34,7 +33,7 @@ As etapas descritas neste tópico são:
 - Obter os Pontos de extremidade de notificação
 - Criar um Ponto de extremidade de notificação para monitoramento. 
 
-    Para criar um ponto de extremidade de notificação, defina o EndpointType como Azuretable (2) e endPontAddress definido como a tabela de armazenamento (por exemplo\/, https:/telemetryvalidationstore.Table.Core.Windows.net/).
+    Para criar um ponto de extremidade de notificação, defina o EndpointType como Azuretable (2) e endPontAddress definido como a tabela de armazenamento (por exemplo, https: \/ /telemetryvalidationstore.Table.Core.Windows.net/).
   
 - Obter as configurações de monitoramento
 
@@ -126,7 +125,7 @@ As etapas descritas neste tópico são:
     }
 
 > [!NOTE]
-> Não se esqueça de alterar o valor "\/https:/telemetryvalidationstore.Table.Core.Windows.net" para sua conta de armazenamento.
+> Não se esqueça de alterar o valor "https: \/ /telemetryvalidationstore.Table.Core.Windows.net" para sua conta de armazenamento.
 
 ### <a name="response"></a>Resposta
 
@@ -241,6 +240,6 @@ Para saber mais sobre o consumo de telemetria, consulte [este](media-services-te
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

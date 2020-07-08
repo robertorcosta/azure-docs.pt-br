@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906004"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
@@ -21,7 +20,7 @@ Obter e excluir recursos de rede da malha.
 | --- | --- |
 | excluir | Exclui o recurso de rede. |
 | list | Lista todos os recursos de rede. |
-| show | Obtém o recurso de rede com o nome fornecido. |
+| mostrar | Obtém o recurso de rede com o nome fornecido. |
 
 ## <a name="sfctl-mesh-network-delete"></a>sfctl mesh network delete
 Exclui o recurso de rede.

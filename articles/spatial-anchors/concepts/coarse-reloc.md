@@ -9,10 +9,9 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844387"
 ---
 # <a name="coarse-relocalization"></a>Relocalização grosseira
@@ -91,7 +90,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -123,8 +122,8 @@ Em seguida, você precisará decidir quais sensores deseja usar para a relocaliz
 
 |             | Inportações | Externas |
 |-------------|---------|----------|
-| GPS         | Desativado | Por |
-| WiFi        | Por | Ativado (opcional) |
+| GPS         | Desativado | Ativado |
+| WiFi        | Ativado | Ativado (opcional) |
 | Beacons BLE | Em (opcional com advertências, veja abaixo) | Desativado |
 
 
@@ -159,7 +158,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -272,7 +271,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -345,7 +344,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -403,7 +402,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
@@ -467,7 +466,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -559,7 +558,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -592,9 +591,9 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-O `DistanceInMeters` parâmetro controla até onde vamos explorar o gráfico de âncora para recuperar o conteúdo. Suponha que, por exemplo, você tenha preenchido algum espaço com âncoras em uma densidade constante de 2 todos os medidores. Além disso, a câmera em seu dispositivo está observando uma única âncora e o serviço a localizou com êxito. Provavelmente, você está interessado em recuperar todas as âncoras que colocou perto, em vez da âncora única que está observando no momento. Supondo que as âncoras que você colocou estão conectadas em um grafo, o serviço pode recuperar todas as âncoras próximas para você seguindo as bordas no grafo. A quantidade de percurso de grafo feita é controlada por `DistanceInMeters`; Você receberá todas as âncoras conectadas às que você localizou, que estão mais próximas que `DistanceInMeters`.
+O `DistanceInMeters` parâmetro controla até onde vamos explorar o gráfico de âncora para recuperar o conteúdo. Suponha que, por exemplo, você tenha preenchido algum espaço com âncoras em uma densidade constante de 2 todos os medidores. Além disso, a câmera em seu dispositivo está observando uma única âncora e o serviço a localizou com êxito. Provavelmente, você está interessado em recuperar todas as âncoras que colocou perto, em vez da âncora única que está observando no momento. Supondo que as âncoras que você colocou estão conectadas em um grafo, o serviço pode recuperar todas as âncoras próximas para você seguindo as bordas no grafo. A quantidade de percurso de grafo feita é controlada pelo `DistanceInMeters` ; você receberá todas as âncoras conectadas àquelas que você localizou, que estão mais próximas que `DistanceInMeters` .
 
-Tenha em mente que valores grandes para `MaxResultCount` o podem afetar negativamente o desempenho. Defina-o como um valor sensato para seu aplicativo.
+Tenha em mente que valores grandes para o `MaxResultCount` podem afetar negativamente o desempenho. Defina-o como um valor sensato para seu aplicativo.
 
 Por fim, você precisará dizer à sessão para usar a pesquisa baseada em sensor:
 
@@ -622,7 +621,7 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
@@ -662,7 +661,7 @@ A tabela a seguir resume os dados do sensor coletados em cada uma das plataforma
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | N/D | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
-| WiFi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos |  Com suporte. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
+| WiFi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Com suporte. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
 | Beacons BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
 ## <a name="next-steps"></a>Próximas etapas

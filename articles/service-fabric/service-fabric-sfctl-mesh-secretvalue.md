@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905969"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
@@ -21,7 +20,7 @@ Obtém e exclui recursos de valor secreto da malha.
 | --- | --- |
 | excluir | Exclui o valor especificado do recurso de segredo nomeado. |
 | list | Lista os nomes de todos os valores do recurso de segredo especificado. |
-| show | Lista o valor especificado do recurso secreto. |
+| mostrar | Lista o valor especificado do recurso secreto. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
 Exclui o valor especificado do recurso de segredo nomeado.

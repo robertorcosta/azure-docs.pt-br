@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76964882"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para o SQL Instância Gerenciada
@@ -25,7 +24,7 @@ Crie um Instância Gerenciada SQL com a opção **habilitar ponto de extremidade
    ![Habilitar o ponto de extremidade público](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Habilitar o ponto de extremidade público")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Habilitar o ponto de extremidade público do Azure SQL Instância Gerenciada
-Você também pode habilitar o ponto de extremidade público em um instância gerenciada SQL existente no**ponto de extremidade** > público da**rede** > virtual de **segurança** > **habilitar**.
+Você também pode habilitar o ponto de extremidade público em um instância gerenciada **Security**SQL existente no  >  ponto de extremidade público da**rede virtual**de segurança  >  **Public endpoint**  >  **habilitar**.
 
    ![Habilitar o ponto de extremidade público](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Habilitar o ponto de extremidade público")
 
@@ -36,13 +35,13 @@ Verifique se o grupo de segurança de rede tem as **regras de segurança de entr
 
 > [!NOTE]
 > Os indexadores ainda exigem que o SQL Instância Gerenciada seja configurado com um ponto de extremidade público para ler os dados.
-> No entanto, você pode optar por restringir o acesso de entrada para esse ponto de extremidade público substituindo`public_endpoint_inbound`a regra atual () pelas duas regras a seguir:
+> No entanto, você pode optar por restringir o acesso de entrada para esse ponto de extremidade público substituindo a regra atual ( `public_endpoint_inbound` ) pelas duas regras a seguir:
 >
-> * Permitindo o `AzureCognitiveSearch` acesso de entrada da [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("Source" `AzureCognitiveSearch`=, "Name" `cognitive_search_inbound`=)
+> * Permitindo o acesso de entrada da `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("Source" = `AzureCognitiveSearch` , "Name" = `cognitive_search_inbound` )
 >
-> * Permitir o acesso de entrada do endereço IP do serviço de pesquisa, que pode ser obtido por meio do ping de seu nome de domínio totalmente qualificado ( `<your-search-service-name>.search.windows.net`por exemplo,). ("SOURCE" = `IP address`, "Name" = `search_service_inbound`)
+> * Permitir o acesso de entrada do endereço IP do serviço de pesquisa, que pode ser obtido por meio do ping de seu nome de domínio totalmente qualificado (por exemplo, `<your-search-service-name>.search.windows.net` ). ("SOURCE" = `IP address` , "Name" = `search_service_inbound` )
 >
-> Para cada uma dessas duas regras, defina "porta" = `3342`, "protocolo" = `TCP`, "destino" = `Any`, "ação" =`Allow`
+> Para cada uma dessas duas regras, defina "porta" = `3342` , "protocolo" = `TCP` , "destino" = `Any` , "ação" =`Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Obter cadeia de conexão de ponto de extremidade público
 Certifique-se de usar a cadeia de conexão para o **ponto de extremidade público** (porta 3342, não porta 1433).

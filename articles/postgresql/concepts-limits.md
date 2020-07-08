@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76836449"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados do Azure para PostgreSQL-servidor único
@@ -43,7 +42,7 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > [!IMPORTANT]
 > Para obter a melhor experiência, recomendamos que você use um pool de conexões como o pgBouncer para gerenciar conexões com eficiência.
 
-Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. Além disso, a criação de novas conexões leva tempo. A maioria dos aplicativos solicita muitas conexões de curta duração, o que aumenta essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, levando a um desempenho reduzido. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais, visite nossa [postagem no blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. Além disso, a criação de novas conexões leva tempo. A maioria dos aplicativos solicita muitas conexões de curta duração, o que agrega a essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, o que leva à redução do desempenho. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais, visite nossa [postagem no blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
 ## <a name="functional-limitations"></a>Limitações funcionais
 ### <a name="scale-operations"></a>Operações de dimensionamento

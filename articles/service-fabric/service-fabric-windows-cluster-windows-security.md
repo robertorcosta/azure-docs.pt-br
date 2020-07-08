@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
 ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774440"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autônomo no Windows usando a Segurança do Windows
@@ -21,7 +20,7 @@ Para evitar acesso não autorizado a um cluster do Service Fabric, você deve pr
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Configurar a segurança do Windows usando gMSA  
-O arquivo de configuração *ClusterConfig. gMSA. Windows. Multimachine. JSON* de exemplo baixado com o [Microsoft. Azure. perfabric.\< WindowsServer. a versão>. zip](https://go.microsoft.com/fwlink/?LinkId=730690) pacote de cluster autônomo contém um modelo para configurar a segurança do Windows usando a [conta de serviço gerenciado de grupo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+O arquivo de configuração *ClusterConfig.gMSA.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows usando [Conta de Serviço Gerenciado por Grupo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -52,7 +51,7 @@ O arquivo de configuração *ClusterConfig. gMSA. Windows. Multimachine. JSON* d
 | IsAdmin |Defina como true para especificar que o usuário de domínio tem acesso de cliente de administrador ou false para acesso de cliente de usuário. |
 
 > [!NOTE]
-> O valor de ClustergMSAIdentity deve estar nomysfgmsa@mydomainformato "".
+> O valor de ClustergMSAIdentity deve estar no formato " mysfgmsa@mydomain ".
 
 [A segurança de nó para nó](service-fabric-cluster-security.md#node-to-node-security) é configurada definindo **ClustergMSAIdentity** quando o Service Fabric precisa ser executado em gMSA. Para criar as relações de confiança entre os nós, eles deverão estar cientes uns dos outros. Isso pode ser feito de duas maneiras diferentes: especifique a conta de serviço gerenciada por grupo que inclui todos os nós no cluster, ou especifique o grupo de máquina de domínio que inclui todos os nós no cluster. É altamente recomendável usar a abordagem de [gMSA (Conta de Serviço Gerenciado de Grupo)](https://technet.microsoft.com/library/hh831782.aspx) , especialmente para clusters maiores (com mais de 10 nós) ou para clusters com probabilidade de aumentar ou reduzir.  
 Essa abordagem não exige a criação de um grupo de domínios para o qual os administradores de cluster receberam direitos de acesso para adicionar e remover membros. Essas contas também são úteis para gerenciamento automático de senha. Para obter mais informações, confira [Introdução a contas de serviços gerenciados de grupo](https://technet.microsoft.com/library/jj128431.aspx).  
@@ -77,7 +76,7 @@ A seção de **segurança** do exemplo a seguir configura a segurança do Window
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configurar a segurança do Windows usando um grupo de máquinas  
-Esse modelo está sendo preterido. Recomenda-se usar o gMSA conforme descrito acima. O arquivo de configuração *ClusterConfig. Windows. Multimachine. JSON* de exemplo baixado com o [Microsoft. Azure. perfabric.\< WindowsServer. a versão>](https://go.microsoft.com/fwlink/?LinkId=730690) pacote de cluster autônomo. zip contém um modelo para configurar a segurança do Windows.  A segurança do Windows é configurada na seção **Propriedades** : 
+Esse modelo está sendo preterido. Recomenda-se usar o gMSA conforme descrito acima. O arquivo de configuração *ClusterConfig.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows.  A segurança do Windows é configurada na seção **Propriedades** : 
 
 ```
 "security": {

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76963845"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup de serviços de recuperação do Azure usando a API REST
@@ -29,9 +28,9 @@ O `{policyName}` e `{vaultName}` são fornecidas no URI. Informações adicionai
 
 Por exemplo, para criar uma política para o backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Name  |Obrigatório  |Type  |Descrição  |
+|Nome  |Obrigatório  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|properties     |   verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
 |marcas     |         | Objeto        |  Marcações de recursos       |
 
 Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](/rest/api/backup/protectionpolicies/createorupdate).
@@ -137,10 +136,10 @@ A criação/atualização de política de backup é um [operação assíncrona](
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [Proteção PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
-|202 Aceito     |         |     Aceita    |
+|202 Aceito     |         |     Aceito    |
 
 ### <a name="example-responses"></a>Respostas de exemplo
 

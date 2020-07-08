@@ -9,10 +9,9 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 66461b23432a3e8b7ae4ad1fdc078fba9ca05646
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76960757"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
@@ -25,7 +24,7 @@ Ao tentar enviar uma mensagem da nuvem para o dispositivo, a solicitação falha
 
 ## <a name="cause"></a>Causa
 
-Quando um dispositivo recebe uma mensagem da nuvem para o dispositivo da fila (por exemplo, usando [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)), a mensagem é bloqueada pelo Hub IOT por uma duração de tempo limite de bloqueio de um minuto. Se o dispositivo tentar concluir a mensagem depois que o tempo limite de bloqueio expirar, o Hub IoT lançará essa exceção.
+Quando um dispositivo recebe uma mensagem da nuvem para o dispositivo da fila (por exemplo, usando [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) ), a mensagem é bloqueada pelo Hub IOT por uma duração de tempo limite de bloqueio de um minuto. Se o dispositivo tentar concluir a mensagem depois que o tempo limite de bloqueio expirar, o Hub IoT lançará essa exceção.
 
 ## <a name="solution"></a>Solução
 

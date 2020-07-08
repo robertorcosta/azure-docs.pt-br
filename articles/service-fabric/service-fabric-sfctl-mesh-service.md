@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 2b9f16062b02d7a1a3403d396643a7989b8976b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905931"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
@@ -20,7 +19,7 @@ Obter detalhes do serviço e listar os serviços de um recurso de aplicativo.
 |Comando|Descrição|
 | --- | --- |
 | list | Lista todos os recursos de serviço. |
-| show | Obtém o recurso de serviço com o nome fornecido. |
+| mostrar | Obtém o recurso de serviço com o nome fornecido. |
 
 ## <a name="sfctl-mesh-service-list"></a>sfctl mesh service list
 Lista todos os recursos de serviço.

@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844710"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: encaminhar eventos para a nuvem da grade de eventos
@@ -34,7 +33,7 @@ Para concluir este tutorial, você precisará de:
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Criar tópico e assinatura da grade de eventos na nuvem
 
-Crie um tópico e uma assinatura da grade de eventos na nuvem seguindo [este tutorial](../custom-event-quickstart-portal.md). Anote `topicURL`, `sasKey`e `topicName` do tópico recém-criado que você usará posteriormente no tutorial.
+Crie um tópico e uma assinatura da grade de eventos na nuvem seguindo [este tutorial](../custom-event-quickstart-portal.md). Anote `topicURL` , `sasKey` e `topicName` do tópico recém-criado que você usará posteriormente no tutorial.
 
 Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos EUA, os valores teriam uma aparência semelhante a:
 
@@ -44,7 +43,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Criar tópico de grade de eventos na borda
 
-1. Crie topic3. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie topic3.jscom o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
     ```json
         {
@@ -85,7 +84,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Crie subscription3. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie subscription3.jscom o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
    ```json
         {
@@ -157,7 +156,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
 
 ## <a name="publish-an-event-at-the-edge"></a>Publicar um evento na borda
 
-1. Crie event3. JSON com o conteúdo a seguir. Consulte a [documentação da API](api.md) para obter detalhes sobre a carga.
+1. Crie event3.jscom o conteúdo a seguir. Consulte a [documentação da API](api.md) para obter detalhes sobre a carga.
 
     ```json
         [
@@ -175,7 +174,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
         ]
     ```
 
-1. Execute o seguinte comando:
+1. Execute o comando a seguir:
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/events?api-version=2019-01-01-preview
@@ -185,7 +184,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
 
 Para obter informações sobre como exibir eventos entregues pelo tópico de nuvem, consulte o [tutorial](../custom-event-quickstart-portal.md).
 
-## <a name="cleanup-resources"></a>Recursos de limpeza
+## <a name="cleanup-resources"></a>Limpar os recursos
 
 * Execute o seguinte comando para excluir o tópico e todas as suas assinaturas
 

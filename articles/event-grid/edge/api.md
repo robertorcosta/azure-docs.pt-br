@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841822"
 ---
 # <a name="rest-api"></a>API REST
@@ -164,7 +163,7 @@ Todas as APIs retornam um erro com a seguinte carga:
 **Resposta**: http 200, carga vazia
 
 ## <a name="manage-event-subscriptions"></a>Gerenciar assinaturas de evento
-Os exemplos nesta seção usam `EndpointType=Webhook;`o. Os exemplos de JSON `EndpointType=EdgeHub / EndpointType=EventGrid` para estão na próxima seção. 
+Os exemplos nesta seção usam o `EndpointType=Webhook;` . Os exemplos de JSON para `EndpointType=EdgeHub / EndpointType=EventGrid` estão na próxima seção. 
 
 ### <a name="put-event-subscription-create--update"></a>Inserir assinatura de evento (criar/atualizar)
 
@@ -527,7 +526,7 @@ Os exemplos nesta seção usam `EndpointType=Webhook;`o. Os exemplos de JSON `En
 
 
 **Descrições de campos de carga**
-- ```Id```é obrigatório. Pode ser qualquer valor de cadeia de caracteres que é preenchido pelo chamador. A grade de eventos não realiza nenhuma detecção de duplicidades nem impõe semânticas nesse campo.
+- ```Id``` é obrigatório. Pode ser qualquer valor de cadeia de caracteres que é preenchido pelo chamador. A grade de eventos não realiza nenhuma detecção de duplicidades nem impõe semânticas nesse campo.
 - ```Topic```é opcional, mas se especificado deve corresponder ao topic_name da URL de solicitação
 - ```Subject```é obrigatório, pode ser qualquer valor de cadeia de caracteres
 - ```EventType```é obrigatório, pode ser qualquer valor de cadeia de caracteres
@@ -572,7 +571,7 @@ Configura um tópico para exigir que os eventos sejam publicados em **eventgrids
 ```
 
 ### <a name="set-up-topic-with-custom-schema"></a>Configurar o tópico com esquema personalizado
-Configura um tópico para exigir que os eventos sejam publicados no `customschema`.
+Configura um tópico para exigir que os eventos sejam publicados no `customschema` .
 
 ```json
     {
@@ -585,7 +584,7 @@ Configura um tópico para exigir que os eventos sejam publicados no `customschem
 ```
 
 ### <a name="set-up-topic-with-cloud-event-schema"></a>Configurar o tópico com o esquema de evento de nuvem
-Configura um tópico para exigir que os eventos sejam publicados no `cloudeventschema`.
+Configura um tópico para exigir que os eventos sejam publicados no `cloudeventschema` .
 
 ```json
     {
@@ -712,7 +711,7 @@ Para publicar em um hub de eventos, defina `endpointType` como `eventHub` e forn
 
 ## <a name="set-up-service-bus-queues-as-a-destination"></a>Configurar filas do barramento de serviço como um destino
 
-Para publicar em uma fila do barramento de serviço, `endpointType` defina `serviceBusQueue` como e forneça:
+Para publicar em uma fila do barramento de serviço, defina `endpointType` como `serviceBusQueue` e forneça:
 
 * connectionString: cadeia de conexão para a fila específica do barramento de serviço que você está direcionando gerada por meio de uma política de acesso compartilhado.
 
@@ -734,7 +733,7 @@ Para publicar em uma fila do barramento de serviço, `endpointType` defina `serv
 
 ## <a name="set-up-service-bus-topics-as-a-destination"></a>Configurar tópicos do barramento de serviço como um destino
 
-Para publicar em um tópico do `endpointType` barramento de serviço, defina `serviceBusTopic` como e forneça:
+Para publicar em um tópico do barramento de serviço, defina `endpointType` como `serviceBusTopic` e forneça:
 
 * connectionString: cadeia de conexão para o tópico específico do barramento de serviço que você está direcionando gerado por uma política de acesso compartilhado.
 

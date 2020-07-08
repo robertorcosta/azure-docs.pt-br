@@ -1,5 +1,5 @@
 ---
-title: Histórico de lançamento de versões
+title: Histórico de lançamento de versão
 titleSuffix: Microsoft Genomics
 description: O histórico de lançamento das atualizações para o cliente Python Microsoft Genomics para correções e novas funcionalidades.
 services: genomics
@@ -10,13 +10,12 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76991075"
 ---
-# <a name="version-release-history"></a>Histórico de lançamento de versões
+# <a name="version-release-history"></a>Histórico de lançamento de versão
 A equipe do Microsoft Genomics atualiza regularmente o cliente Microsoft Genomics Python para correções e novas funcionalidades. 
 
 ## <a name="latest-release"></a>Versão mais recente
@@ -27,7 +26,7 @@ O cliente Python atual é a versão 0.9.0. Ele foi lançado em fevereiro de 6 20
 Novas versões do cliente Microsoft Genomics Python são lançadas uma vez por ano. Quando são lançadas novas versões do cliente Microsoft Genomics Python, uma lista de correções e recursos é atualizada aqui. Quando novas versões são lançadas, as versões anteriores devem continuar a ter suporte pelo menos por 90 dias. Quando não há suporte para versões anteriores, será indicado nesta página. 
 
 ### <a name="version-090"></a>0.9.0 da versão
-A versão 0.9.0 inclui suporte para compactação de saída. Isso é equivalente a executar `-bgzip` seguido de `-tabix` na saída vcf ou gvcf. Para obter mais informações, consulte [perguntas](frequently-asked-questions-genomics.md)frequentes. 
+A versão 0.9.0 inclui suporte para compactação de saída. Isso é equivalente a executar `-bgzip` seguido de `-tabix` na saída vcf ou gvcf. Confira mais informações nas [Perguntas frequentes](frequently-asked-questions-genomics.md). 
 
 ### <a name="version-081"></a>Versão 0.8.1
 A versão 0.8.1 inclui correções de bugs secundários.  

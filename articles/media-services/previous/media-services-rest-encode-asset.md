@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 6854400f2152a5952a7b24dbd860d7ad4bfc943d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774929"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
@@ -46,7 +45,7 @@ Se o ativo de saída tiver o armazenamento criptografado, você deverá configur
 
 ## <a name="considerations"></a>Considerações
 
-Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
+Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
 Antes de começar a fazer referência a processadores de mídia, verifique se você tem a ID do processador de mídia correta. Para obter mais informações, consulte [Obter processadores de mídia](media-services-rest-get-media-processor.md).
 
@@ -59,7 +58,7 @@ Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Se
 > [!NOTE]
 > Ao trabalhar com a API REST dos Serviços de Mídia, as seguintes considerações se aplicam:
 >
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
 >
 > Ao usar o JSON e especificar o uso da palavra-chave **__metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), é necessário definir o cabeçalho **Accept** como [formato JSON Detalhado](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
@@ -273,11 +272,11 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você sabe como criar um trabalho para codificar um ativo, consulte [Como verificar o andamento do trabalho com os Serviços de Mídia](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [Obter processadores de mídia](media-services-rest-get-media-processor.md)

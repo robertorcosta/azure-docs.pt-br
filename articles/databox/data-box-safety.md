@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68985941"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar o Azure Data Box com segurança
@@ -24,16 +23,16 @@ Leia todas as informações de segurança neste artigo antes de usar o Azure Dat
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança observadas ao configurar e executar seu Data Box.
 
-| ícone | Descrição |
+| Ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/data-box-safety/warning_icon.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
-| ![Aviso de](./media/data-box-safety/warning_icon.png) ícone de aviso **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
+| ![Aviso de ícone de aviso ](./media/data-box-safety/warning_icon.png) **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
 | ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
 | ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
 | ![Ícone de choque elétrico](./media/data-box-safety/electrical_shock_hazard_icon.png) **Risco de choque elétrico** |Alta tensão. |
 | ![Ícone de peso pesado](./media/data-box-safety/heavy_weight_hazard_icon.png) **Peso pesado** | |
 | ![Ícone de nenhuma peça operada pelo usuário](./media/data-box-safety/no_user_serviceable_parts_icon.png) **Nenhuma peça é operada pelo usuário** |Não acesse a menos que seja devidamente treinado. |
-| ![Ler o ícone](./media/data-box-safety/read_safety_and_health_information_icon.png) de aviso de segurança **Leia todas as instruções primeiro** | |
+| ![Ler o ícone de aviso de segurança ](./media/data-box-safety/read_safety_and_health_information_icon.png) **Leia todas as instruções primeiro** | |
 | ![Ícone de risco de tombamento](./media/data-box-safety/tip_hazard_icon.png) **Risco de tombamento** | |
 
 ## <a name="handling-precautions"></a>Precauções de manuseio
@@ -54,7 +53,7 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 * Coloque o dispositivo em uma superfície plana, estável e rígida para evitar o risco de inclinação.
 * Não use equipamentos montados em rack, como prateleiras ou espaços de trabalho. Não coloque o Data Box em cima de equipamentos montados em rack. Adicionar qualquer tipo de carga a uma unidade montada em rack estendida pode gerar o risco de inclinação, podendo causar lesões, morte ou danos ao produto.
 
-![Aviso de](./media/data-box-safety/warning_icon.png) ícone de aviso **!**
+![Aviso de ícone de aviso ](./media/data-box-safety/warning_icon.png) **!**
 
 * Configure o dispositivo em uma área de trabalho, permitindo uma circulação de ar adequada em torno dele.
 * Instale o dispositivo em uma área interna com temperatura controlada e sem contaminantes condutivos, e permita uma circulação de ar adequada em torno dele.
@@ -81,7 +80,7 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
     - Corrente: 6 A, máximo
     - Frequência: 50 Hz a 60 Hz
 
-![Cuidado com](./media/data-box-safety/warning_icon.png) o ícone de aviso **:**
+![Cuidado com o ícone de aviso ](./media/data-box-safety/warning_icon.png) **:**
 
 * este dispositivo contém baterias em forma de moeda. Não tente reparar o dispositivo. As baterias no dispositivo não são peças operadas pelo usuário. 
 * **Somente para a equipe de manutenção**: haverá risco de explosão se a bateria for substituída por um tipo incorreto. Descarte as baterias usadas de acordo com as instruções.
@@ -120,7 +119,7 @@ Este equipamento foi testado e considerado em conformidade com os limites de um 
 
 O dispositivo está em conformidade com a parte 15 das Regras da FCC e normas RSS isentas de licença do Canadá. A operação está sujeita a estas duas condições: (1) o dispositivo não pode causar interferência prejudicial e (2) o dispositivo deve aceitar todas as interferências recebidas, inclusive interferências que possam causar uma operação indesejada do dispositivo.
 
-![Canada](./media/data-box-safety/canada.png)
+![Canadá](./media/data-box-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 
@@ -142,7 +141,7 @@ Canadá: (800) 933-4750
 
 ![Ícone de descarte da bateria](./media/data-box-safety/battery_disposal_icon.png)
 
-Este símbolo no produto, nas baterias ou embalagem significa que o produto e as baterias contidas não devem ser descartadas no lixo comum. É sua responsabilidade levá-los a um ponto de coleta para reciclagem de baterias e equipamentos eletroeletrônicos. Essa coleta e reciclagem separadas ajudarão a conservar os recursos naturais e impedir possíveis consequências negativas para a saúde humana e o meio ambiente devido à possível existência de substâncias perigosas nas baterias e equipamentos eletroeletrônicos, que podem ser causadas pelo descarte inadequado. Para obter mais informações sobre onde entregar suas baterias e equipamentos eletroeletrônicos, entre em contato com a Prefeitura, com o serviço de coleta seletiva ou a loja que vendeu o produto. Entre em contato com *erecycle\@Microsoft.com* para obter informações adicionais sobre a WEEE.
+Este símbolo no produto, nas baterias ou embalagem significa que o produto e as baterias contidas não devem ser descartadas no lixo comum. É sua responsabilidade levá-los a um ponto de coleta para reciclagem de baterias e equipamentos eletroeletrônicos. Essa coleta e reciclagem separadas ajudarão a conservar os recursos naturais e impedir possíveis consequências negativas para a saúde humana e o meio ambiente devido à possível existência de substâncias perigosas nas baterias e equipamentos eletroeletrônicos, que podem ser causadas pelo descarte inadequado. Para obter mais informações sobre onde entregar suas baterias e equipamentos eletroeletrônicos, entre em contato com a Prefeitura, com o serviço de coleta seletiva ou a loja que vendeu o produto. Entre em contato com *erecycle \@ Microsoft.com* para obter informações adicionais sobre a WEEE.
 
 Este produto contém baterias em forma de moeda.
 

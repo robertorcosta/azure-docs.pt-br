@@ -7,10 +7,9 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908066"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Exibir e criar consultas para monitoramento e acompanhamento em logs de Azure Monitor para aplicativos lógicos do Azure
@@ -53,7 +52,7 @@ Para localizar ou filtrar resultados com base em Propriedades ou valores especí
 
 1. Inicie de uma consulta vazia ou de quaisquer consultas existentes disponíveis.
 
-   * Para verificar se alguma consulta existente está disponível, na barra de ferramentas de consulta, selecione o**histórico**de **consultas** > de exemplos, que mostra consultas de execuções de consulta anteriores ou selecione **Gerenciador**de consultas, que mostra consultas predefinidas.
+   * Para verificar se alguma consulta existente está disponível, na barra de ferramentas de consulta, **Samples queries**selecione o  >  **histórico**de consultas de exemplos, que mostra consultas de execuções de consulta anteriores ou selecione **Gerenciador**de consultas, que mostra consultas predefinidas.
 
      Por exemplo, a solução Aplicativos Lógicos B2B fornece essas consultas predefinidas:
 

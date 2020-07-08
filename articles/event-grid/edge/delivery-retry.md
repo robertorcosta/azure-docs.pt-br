@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841705"
 ---
 # <a name="delivery-and-retry"></a>Entregar e tentar novamente
@@ -29,12 +28,12 @@ A grade de eventos aguarda até 60 segundos por uma resposta depois de entregar 
 
 Há duas filas de back-configure pré-configuradas que determinam o agendamento no qual uma nova tentativa será tentada. Eles são:
 
-| Agendamento | Descrição |
+| Agenda | Descrição |
 | ---------| ------------ |
 | 1 minuto | As mensagens que acabam aqui são tentadas a cada minuto.
 | 10 minutos | As mensagens que terminam aqui são tentadas a cada 10 minutos.
 
-### <a name="how-it-works"></a>Como isso funciona
+### <a name="how-it-works"></a>Como funciona
 
 1. A mensagem chega ao módulo de grade de eventos. É feita uma tentativa de entregá-la imediatamente.
 1. Se a entrega falhar, a mensagem será enfileirada em uma fila de 1 minuto e repetida após um minuto.

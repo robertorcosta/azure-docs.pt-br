@@ -4,10 +4,9 @@ description: Saiba como configurar uma investigação para garantir que os cont�
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76935691"
 ---
 # <a name="configure-readiness-probes"></a>Configurar investigações de preparação
@@ -23,7 +22,7 @@ As instâncias de contêiner do Azure também dão suporte a [testes de vida](co
 
 ## <a name="yaml-configuration"></a>Configuração do YAML
 
-Por exemplo, crie um `readiness-probe.yaml` arquivo com o trecho a seguir que inclui uma investigação de preparação. Esse arquivo define um grupo de contêineres que consiste em um contêiner que executa um pequeno aplicativo Web. O aplicativo é implantado a `mcr.microsoft.com/azuredocs/aci-helloworld` partir da imagem pública. Esse aplicativo em contêiner também é demonstrado em [implantar uma instância de contêiner no Azure usando o CLI do Azure](container-instances-quickstart.md) e outros guias de início rápido.
+Por exemplo, crie um `readiness-probe.yaml` arquivo com o trecho a seguir que inclui uma investigação de preparação. Esse arquivo define um grupo de contêineres que consiste em um contêiner que executa um pequeno aplicativo Web. O aplicativo é implantado a partir da `mcr.microsoft.com/azuredocs/aci-helloworld` imagem pública. Esse aplicativo em contêiner também é demonstrado em [implantar uma instância de contêiner no Azure usando o CLI do Azure](container-instances-quickstart.md) e outros guias de início rápido.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -65,7 +64,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 A implantação inclui uma `command` propriedade que define um comando inicial que é executado quando o contêiner começa a ser executado pela primeira vez. Essa propriedade aceita uma matriz de cadeias de caracteres. Este comando simula uma hora em que o aplicativo Web é executado, mas o contêiner não está pronto. 
 
-Primeiro, ele inicia uma sessão do Shell e executa `node` um comando para iniciar o aplicativo Web. Ele também inicia um comando para dormir por 240 segundos, após o qual ele cria um arquivo `ready` chamado dentro `/tmp` do diretório:
+Primeiro, ele inicia uma sessão do Shell e executa um `node` comando para iniciar o aplicativo Web. Ele também inicia um comando para dormir por 240 segundos, após o qual ele cria um arquivo chamado `ready` dentro do `/tmp` diretório:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
@@ -91,7 +90,7 @@ az container create --resource-group myResourceGroup --file readiness-probe.yaml
 
 Neste exemplo, durante os primeiros 240 segundos, o comando de preparação falha quando verifica a `ready` existência do arquivo. O código de status retornado sinaliza que o contêiner não está pronto.
 
-Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure. Por exemplo, o portal mostra que os eventos `Unhealthy` do tipo são disparados na falha do comando de preparação. 
+Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure. Por exemplo, o portal mostra que os eventos do tipo `Unhealthy` são disparados na falha do comando de preparação. 
 
 ![Evento não íntegro no portal][portal-unhealthy]
 

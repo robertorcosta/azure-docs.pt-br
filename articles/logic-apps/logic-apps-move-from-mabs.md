@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905441"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre seus aplicativos e soluções dos serviços BizTalk para os aplicativos lógicos do Azure
@@ -34,7 +33,7 @@ Esta tabela mapeia os recursos de Serviços BizTalk para Aplicativos Lógicos.
 
 | Serviços do BizTalk   | Aplicativos Lógicos            | Finalidade                      |
 | ------------------ | --------------------- | ---------------------------- |
-| Connector          | Connector             | Enviar e receber dados   |
+| Conector          | Conector             | Enviar e receber dados   |
 | Ponte             | Aplicativo Lógico             | Processador de pipeline           |
 | Estágio de validação     | Ação de Validação de XML | Validar um documento XML em relação a um esquema | 
 | Estágio de enriquecimento       | Tokens de Dados           | Promover propriedades em mensagens ou para decisões de encaminhamento |

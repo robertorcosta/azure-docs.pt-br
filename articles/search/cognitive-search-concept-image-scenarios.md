@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76838251"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informações de imagens em cenários de enriquecimento de ia
@@ -213,7 +212,7 @@ Como um auxiliar, se você precisar transformar coordenadas normalizadas no espa
         }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Habilidade Análise de Imagens](cognitive-search-skill-image-analysis.md)
 + [Habilidade OCR](cognitive-search-skill-ocr.md)

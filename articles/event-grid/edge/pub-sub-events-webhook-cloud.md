@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844575"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: publicar, assinar eventos na nuvem
@@ -67,7 +66,7 @@ Em sua nova função, selecione **obter URL da função** no canto superior dire
 
 Como um editor de um evento, você precisa criar um tópico de grade de eventos. O tópico refere-se a um ponto de extremidade para o qual os Publicadores podem enviar eventos.
 
-1. Crie topic2. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie topic2.jscom o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
     ```json
          {
@@ -110,7 +109,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Crie subscription2. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie subscription2.jscom o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
     ```json
         {
@@ -159,7 +158,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 ## <a name="publish-an-event"></a>Publicar um evento
 
-1. Crie event2. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie event2.jscom o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
     ```json
         [
@@ -186,7 +185,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 Você pode exibir o evento entregue no portal do Azure na opção **monitorar** da sua função.
 
-## <a name="cleanup-resources"></a>Recursos de limpeza
+## <a name="cleanup-resources"></a>Limpar os recursos
 
 * Execute o seguinte comando para excluir o tópico e todas as suas assinaturas
 

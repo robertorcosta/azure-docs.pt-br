@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908157"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Mover um aplicativo de malha Service Fabric para outra região do Azure
@@ -22,7 +21,7 @@ Este artigo descreve como mover seu Service Fabric aplicativo de malha e seus re
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Controlador de entrada (como o [Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/)) para servir como um intermediário para roteamento de tráfego entre clientes e seu aplicativo de malha de Service Fabric
-* Disponibilidade de malha de Service Fabric (versão prévia) na região do`westus`Azure `eastus`de destino `westeurope`(, ou)
+* Disponibilidade de malha de Service Fabric (versão prévia) na região do Azure de destino ( `westus` , `eastus` ou `westeurope` )
 
 ## <a name="prepare"></a>Preparar
 

@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906230"
 ---
 # <a name="sfctl-service"></a>Serviço sfctl
@@ -25,7 +24,7 @@ Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviç
 | excluir | Exclui um serviço existente do Service Fabric. |
 | deployed-type | Obtém as informações sobre um tipo de serviço especificado do aplicativo implantado em um nó em um cluster do Service Fabric. |
 | deployed-type-list | Obtém a lista que contém as informações sobre os tipos de serviço dos aplicativos implantados em um nó em um cluster do Service Fabric. |
-| description | Obtém a descrição de um serviço do Service Fabric existente. |
+| descrição | Obtém a descrição de um serviço do Service Fabric existente. |
 | get-container-logs | Obtém os logs de contêiner para um contêiner implantado em um nó do Service Fabric. |
 | integridade | Obtém a integridade do serviço do Service Fabric especificado. |
 | informações | Obtém as informações sobre o serviço específico pertencentes ao aplicativo do Service Fabric. |
@@ -110,11 +109,11 @@ Cria o serviço de malha do serviço especificado.
 | --int-scheme-low | O final do intervalo de chaves de inteiros, se estiver usando um esquema de partição de inteiros uniforme. |
 | --load-metrics | Lista de métricas codificada em JSON, usada ao balancear as cargas de serviços entre nós. |
 | --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
-| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis\: são ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
+| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são \: ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
 | --named-scheme | Indica que o serviço deve ter várias partições nomeadas. |
 | --named-scheme-list | Lista de nomes codificada em JSON para particionar o serviço, se estiver usando o esquema de partição nomeada. |
 | --no-persisted-state | Se verdadeiro, indica que o serviço não tem um estado persistente armazenado no disco local, ou só armazena o estado na memória. |
-| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser um ou mais\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
+| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser um ou mais \: `NonPartiallyPlaceService` , `PreferPrimaryDomain` , `RequireDomain` , `RequireDomainDistribution` . |
 | --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Aplica-se apenas a serviços com estado. |
 | --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Aplica-se apenas a serviços com estado. |
 | -políticas de dimensionamento | Lista de políticas para esse serviço de dimensionamento codificados para JSON. |
@@ -511,7 +510,7 @@ Resolve uma partição de serviço do Service Fabric, para obter os pontos de ex
 |Argumento|Descrição|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
-| --partition-key-type | Tipo de chave para a partição. Esse parâmetro é necessário se o esquema de partição para o serviço for Int64Range ou Nomeado. Os valores possíveis são os seguintes. -None (1) - Indica que o parâmetro PartitionKeyValue não foi especificado. Isso é válido para as partições com o esquema de particionamento como Singleton. Este é o valor padrão. O valor é 1. -Int64Range (2)- Indica que o parâmetro PartitionKeyValue é uma chave de partição int64. Isso é válido para as partições com o esquema de particionamento como Int64Range. O valor é 2. -Named (3) - Indica que o parâmetro PartitionKeyValue é um nome da partição. Isso é válido para as partições com o esquema de particionamento como Named. O valor é 3. |
+| --partition-key-type | Tipo de chave para a partição. Esse parâmetro é necessário se o esquema de partição para o serviço for Int64Range ou Nomeado. Os valores possíveis são os seguintes. -None (1) - Indica que o parâmetro PartitionKeyValue não foi especificado. Isso é válido para as partições com o esquema de particionamento como Singleton. Esse é o valor padrão. O valor é 1. -Int64Range (2)- Indica que o parâmetro PartitionKeyValue é uma chave de partição int64. Isso é válido para as partições com o esquema de particionamento como Int64Range. O valor é 2. -Named (3) - Indica que o parâmetro PartitionKeyValue é um nome da partição. Isso é válido para as partições com o esquema de particionamento como Named. O valor é 3. |
 | --partition-key-value | Chave de partição. Isso é necessário se o esquema de partição para o serviço for Int64Range ou Named. Essa não é a ID da partição, mas em vez disso, o valor inteiro da chave ou o nome da ID da partição. Por exemplo, se o serviço estiver usando partições de intervalos de 0 a 10, o PartitionKeyValue dele seria um número inteiro nesse intervalo. Consulte a descrição do serviço para ver o intervalo ou o nome. |
 | --previous-rsp-version | O valor no campo Versão da resposta recebida anteriormente. Isso será necessário se o usuário souber que o resultado obtido anteriormente está obsoleto. |
 | --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
@@ -563,8 +562,8 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 | --instance-count | A contagem de instâncias. Aplica-se apenas a serviços sem estado. |
 | --load-metrics | Lista de métricas codificadas em JSON usadas ao balancear as cargas entre os nós. |
 | --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
-| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis\: são ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
-| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser um ou mais\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
+| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são \: ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
+| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser um ou mais \: `NonPartiallyPlaceService` , `PreferPrimaryDomain` , `RequireDomain` , `RequireDomainDistribution` . |
 | --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Aplica-se apenas a serviços com estado. |
 | --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Aplica-se apenas a serviços com estado. |
 | -políticas de dimensionamento | Lista de políticas para esse serviço de dimensionamento codificados para JSON. |

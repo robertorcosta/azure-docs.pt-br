@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68987949"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de logs de auditoria do Microsoft Azure Active Directory no Azure Monitor (visualização)
@@ -161,7 +160,7 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | callerIpAddress | Endereço IP do cliente que fez a solicitação. | 
 | correlationId | GUID opcional passado pelo cliente. Isso pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil ao rastrear logs que abrangem os serviços. |
 | identidade | A identidade do token que foi apresentada ao fazer a solicitação. A identidade pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
-| level | O tipo de mensagem. Para logs de auditoria, o nível será sempre *informativo*. |
+| nível | O tipo de mensagem. Para logs de auditoria, o nível será sempre *informativo*. |
 | local | Local do datacenter. |
 | properties | Lista as propriedades suportadas relacionadas a um log de auditoria. Para obter mais informações, confira a próxima seção. | 
 

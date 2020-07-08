@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76840801"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacote de varáveis no Observador de Rede do Azure
@@ -31,7 +30,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 
 **Configuração da captura**
 
-|Propriedade|Descrição|
+|Property|Descrição|
 |---|---|
 |**Máximo de bytes por pacote (bytes)** | O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. Se você precisar apenas do cabeçalho IPv4 – indique 34 aqui |
 |**Máximo de bytes por sessão (bytes)** | Número total de bytes capturados, quando o valor for atingido, a sessão terminará.|
@@ -39,7 +38,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 
 **Filtragem (opcional)**
 
-|Propriedade|Descrição|
+|Property|Descrição|
 |---|---|
 |**Protocolo** | O protocolo de filtragem da captura de pacote. Os valores disponíveis são TCP, UDP e Todos.|
 |**Endereço IP local** | Esse valor filtra a captura de pacotes para os pacotes cujo endereço IP local corresponde ao valor do filtro.|

@@ -5,10 +5,9 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76989562"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
@@ -23,14 +22,14 @@ Navegue até o espaço de trabalho de LA que você configurou, navegue até o it
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual é a frequência de envio de dados por push para um espaço de trabalho da LA?
 
-Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log Analytics com algum retardo. Cada evento chega no espaço de trabalho de Log Analytics de 20 a 30 minutos após ser enviado por push do cofre dos serviços de recuperação. Aqui estão mais detalhes sobre o retardo:
+Os dados de diagnóstico do cofre são enviados para o workspace do Log Analytics com um pouco de atraso. Cada evento chega ao workspace do Log Analytics de 20 a 30 minutos após ele ser enviado por push do cofre dos Serviços de Recuperação. Aqui estão mais detalhes sobre o atraso:
 
-* Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no espaço de trabalho Log Analytics após 20 a 30 minutos.
-* Em todas as soluções, trabalhos de backup sob demanda e trabalhos de restauração são enviados por push assim que forem concluídos.
-* Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendados são enviados assim que forem concluídos.
-* Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas a cada 6 horas.
-* Em todas as soluções, outras informações, como o item de backup, a política, os pontos de recuperação, o armazenamento e assim por diante, são enviadas pelo menos uma vez por dia.
-* Uma alteração na configuração de backup (como alteração de política ou política de edição) dispara um envio por push de todas as informações de backup relacionadas.
+* Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no workspace do Log Analytics após 20 a 30 minutos.
+* Em todas as soluções, os trabalhos de backup sob demanda e os trabalhos de restauração são enviados por push assim que são concluídos.
+* Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendados são enviados por push assim que são concluídos.
+* Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas por push a cada 6 horas.
+* Em todas as soluções, outras informações, como o item de backup, a política, os pontos de recuperação, o armazenamento e assim por diante, são enviadas por push pelo menos uma vez por dia.
+* Uma alteração na configuração de backup (como alteração de política ou edição de política) dispara um envio por push de todas as informações de backup relacionadas.
 
 ### <a name="how-long-can-i-retain-reporting-data"></a>Por quanto tempo posso manter os dados de relatórios?
 

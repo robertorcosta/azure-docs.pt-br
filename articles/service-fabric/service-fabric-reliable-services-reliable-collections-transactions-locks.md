@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938921"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
@@ -28,7 +27,7 @@ Nível de isolamento define o grau no qual a transação deve ser isolada de mod
 Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 
 * **Leitura repetida**: especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída.
-* **Instantâneo**: especifica que os dados lidos por qualquer instrução em uma transação são a versão transacionalmente consistente dos dados que existiam no início da transação.
+* **Instantâneo**: Especifica que os dados lidos por qualquer instrução em uma transação são a versão transacionalmente consistente dos dados que existiam no início da transação.
   A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação.
   Modificações de dados efetuadas por outras transações após o início da transação atual não são visíveis para as instruções em execução na transação atual.
   O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação.
@@ -37,7 +36,7 @@ Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 As Coleções Confiáveis escolhem automaticamente o nível de isolamento a ser usado para uma determinada operação de leitura dependendo da operação e da função da réplica no momento da criação da transação.
 A seguir está a tabela que descreve os padrões de nível de isolamento para operações de Dicionário Confiável e Fila.
 
-| Operação\função | Primária | Secundário |
+| Operação\função | Primário | Secundário |
 | --- |:--- |:--- |
 | Leitura de entidade única |Leitura repetida |Instantâneo |
 | Enumeração, Contagem |Instantâneo |Instantâneo |
@@ -55,7 +54,7 @@ Nas Coleções Confiáveis, todas as transações implementam um bloqueio de dua
 
 O dicionário confiável usa o bloqueio em nível de linha para todas as operações de entidade única.
 Fila Confiável compensa simultaneidade para propriedade PEPS transacional estrita.
-A fila confiável usa bloqueios em nível de operação, `TryPeekAsync` permitindo que uma `TryDequeueAsync` transação com e/ `EnqueueAsync` ou e uma transação seja por vez.
+A fila confiável usa bloqueios em nível de operação, permitindo que uma transação com `TryPeekAsync` e/ou `TryDequeueAsync` e uma transação seja por `EnqueueAsync` vez.
 Observe que, para preservar PEPS, se um `TryPeekAsync` ou `TryDequeueAsync` nunca observarem que a Fila Confiável está vazia, também bloquearão `EnqueueAsync`.
 
 Operações de gravação sempre utilizam bloqueios exclusivos.

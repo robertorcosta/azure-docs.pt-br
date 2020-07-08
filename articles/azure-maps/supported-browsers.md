@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988780"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navegadores compatíveis com o SDK Web
@@ -29,7 +28,7 @@ if (!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>Área de Trabalho
+## <a name="desktop"></a>Desktop
 
 O SDK da Web do Azure Maps dá suporte aos seguintes navegadores da área de trabalho:
 
@@ -40,7 +39,7 @@ O SDK da Web do Azure Maps dá suporte aos seguintes navegadores da área de tra
 
 Consulte também [direcionar navegadores herdados](#Target-Legacy-Browsers) mais adiante neste artigo.
 
-## <a name="mobile"></a>Móvel
+## <a name="mobile"></a>Dispositivos móveis
 
 O SDK da Web do Azure Maps dá suporte aos seguintes navegadores móveis:
 
@@ -57,9 +56,9 @@ O SDK da Web do Azure Maps dá suporte aos seguintes navegadores móveis:
 
 ## <a name="nodejs"></a>Node.js
 
-Os seguintes módulos do SDK da Web também têm suporte no node. js:
+Os seguintes módulos do SDK da Web também têm suporte no Node.js:
 
-- Módulo de serviços ([módulo NPM](https://www.npmjs.com/package/azure-maps-rest)de[documentação](how-to-use-services-module.md) | )
+- Módulo de serviços[documentation](how-to-use-services-module.md)(  |  [módulo NPM](https://www.npmjs.com/package/azure-maps-rest)de documentação)
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Direcionar navegadores herdados
 
@@ -68,7 +67,7 @@ Talvez você queira direcionar para navegadores mais antigos que não dão supor
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mapas do Azure + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -77,7 +76,7 @@ Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps 
 Saiba mais sobre o SDK da Web do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Controle de mapa](how-to-use-map-control.md)
+> [Controle de mapeamento](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"]
 > [Módulo de serviços](how-to-use-services-module.md)

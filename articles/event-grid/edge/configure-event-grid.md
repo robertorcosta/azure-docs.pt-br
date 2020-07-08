@@ -10,17 +10,16 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 841b5092775353bbe3340dbbd55610026f998a15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76846477"
 ---
 # <a name="event-grid-configuration"></a>Configuração da grade de eventos
 
 A grade de eventos fornece muitas configurações que podem ser modificadas por ambiente. A seção a seguir é uma referência a todas as opções disponíveis e seus padrões.
 
-## <a name="tls-configuration"></a>Configuração de TLS
+## <a name="tls-configuration"></a>Configuração TLS
 
 Para saber mais sobre a autenticação de cliente em geral, consulte [segurança e autenticação](security-authentication.md). Exemplos de uso podem ser encontrados neste [artigo](configure-api-protocol.md).
 
@@ -77,8 +76,8 @@ Para saber mais sobre esse recurso em geral, confira [envio e envio em lote de s
 | ---------------- | ------------ |
 | `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Valor máximo permitido para o `ApproxBatchSizeInBytes` botão. O valor padrão é `1_058_576`.
 | `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para o `MaxEventsPerBatch` botão. O valor padrão é `50`.
-| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo da solicitação de entrega `MaxEventsPerBatch` quando apenas é especificado. O valor padrão é `1_058_576`.
-| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a serem adicionados a um lote somente `MaxBatchSizeInBytes` quando for especificado. O valor padrão é `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo da solicitação de entrega quando apenas `MaxEventsPerBatch` é especificado. O valor padrão é `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a serem adicionados a um lote somente quando `MaxBatchSizeInBytes` for especificado. O valor padrão é `10`.
 
 ## <a name="metrics"></a>Métricas
 
@@ -86,4 +85,4 @@ Para saber mais sobre como usar as métricas com a grade de eventos em IoT Edge,
 
 | Nome da propriedade | Descrição |
 | ---------------- | ------------ |
-| `metrics__reporterType` | O tipo de reporter para as métricas aponta. O padrão `none` é e desabilita as métricas. Configuração para `prometheus` habilita as métricas no formato Prometheus exposição.
+| `metrics__reporterType` | O tipo de reporter para as métricas aponta. O padrão é `none` e desabilita as métricas. Configuração para `prometheus` habilita as métricas no formato Prometheus exposição.

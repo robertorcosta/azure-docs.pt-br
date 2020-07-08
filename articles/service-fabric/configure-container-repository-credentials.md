@@ -5,15 +5,14 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934985"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurar credenciais de repositório para seu aplicativo para baixar imagens de contêiner
 
-Configure a autenticação do registro de `RepositoryCredentials` contêiner adicionando `ContainerHostPolicies` à seção do manifesto do aplicativo. Adicione a conta e a senha para o registro de contêiner (*myregistry.azurecr.Io* no exemplo abaixo), que permite que o serviço Baixe a imagem de contêiner do repositório.
+Configure a autenticação do registro de contêiner adicionando `RepositoryCredentials` à `ContainerHostPolicies` seção do manifesto do aplicativo. Adicione a conta e a senha para o registro de contêiner (*myregistry.azurecr.Io* no exemplo abaixo), que permite que o serviço Baixe a imagem de contêiner do repositório.
 
 ```xml
 <ServiceManifestImport>
@@ -35,7 +34,7 @@ Consulte [Gerenciamento de segredos](service-fabric-application-secret-managemen
 
 Service Fabric permite que você configure credenciais em todo o cluster que podem ser usadas como credenciais de repositório padrão por aplicativos.
 
-Esse recurso pode ser habilitado ou desabilitado adicionando o `UseDefaultRepositoryCredentials` atributo a `ContainerHostPolicies` em ApplicationManifest. XML com um `true` valor `false` ou.
+Esse recurso pode ser habilitado ou desabilitado adicionando o `UseDefaultRepositoryCredentials` atributo a `ContainerHostPolicies` em ApplicationManifest.xml com um `true` `false` valor ou.
 
 ```xml
 <ServiceManifestImport>
@@ -49,14 +48,14 @@ Esse recurso pode ser habilitado ou desabilitado adicionando o `UseDefaultReposi
 </ServiceManifestImport>
 ```
 
-Em seguida, Service Fabric usa as credenciais de repositório padrão que podem ser especificadas no ClusterManifest `Hosting` na seção.  Se `UseDefaultRepositoryCredentials` for `true`, o Service Fabric lerá os seguintes valores de ClusterManifest:
+Em seguida, Service Fabric usa as credenciais de repositório padrão que podem ser especificadas no ClusterManifest na `Hosting` seção.  Se `UseDefaultRepositoryCredentials` for `true`, o Service Fabric lerá os seguintes valores de ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (cadeia de caracteres)
 * DefaultContainerRepositoryPassword (cadeia de caracteres)
 * IsDefaultContainerRepositoryPasswordEncrypted (booliano)
 * DefaultContainerRepositoryPasswordType (cadeia de caracteres)
 
-Aqui está um exemplo do que pode ser adicionado dentro da `Hosting` seção no arquivo ClusterManifestTemplate. JSON. A `Hosting` seção pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. Para obter mais informações, consulte [Alterar configurações de cluster do Azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gerenciar segredos de aplicativo do Azure Service Fabric](service-fabric-application-secret-management.md)
+Aqui está um exemplo do que pode ser adicionado dentro da `Hosting` seção na ClusterManifestTemplate.jsno arquivo. A `Hosting` seção pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. Para obter mais informações, consulte [Alterar configurações de cluster do Azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gerenciar segredos de aplicativo do Azure Service Fabric](service-fabric-application-secret-management.md)
 
 ```json
 "fabricSettings": [
@@ -101,7 +100,7 @@ O Service Fabric dá suporte ao uso de tokens como credenciais para baixar image
 
     ![Adicionar entidade de segurança de VM ao ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3. Em seguida, modifique o manifesto do aplicativo. Na `ContainerHostPolicies` seção, adicione o atributo `‘UseTokenAuthenticationCredentials=”true”`.
+3. Em seguida, modifique o manifesto do aplicativo. Na `ContainerHostPolicies` seção, adicione o atributo `‘UseTokenAuthenticationCredentials=”true”` .
 
     ```xml
       <ServiceManifestImport>

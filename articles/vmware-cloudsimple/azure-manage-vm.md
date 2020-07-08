@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77014990"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gerenciar suas máquinas virtuais de nuvem privada do CloudSimple no Azure
@@ -49,7 +48,7 @@ Os gráficos a seguir são exibidos.
 
 ## <a name="manage-vm-disks"></a>Gerenciar discos de VM
 
-Para adicionar um disco de VM, abra a página **discos** da VM selecionada. Para adicionar um disco, clique em **adicionar disco**. Defina cada uma das configurações a seguir inserindo ou selecionando uma opção embutida. Clique em **Salvar**.
+Para adicionar um disco de VM, abra a página **discos** da VM selecionada. Para adicionar um disco, clique em **adicionar disco**. Defina cada uma das configurações a seguir inserindo ou selecionando uma opção embutida. Clique em **Save** (Salvar).
 
    | Item | Descrição |
    | ------------ | ------------- |
@@ -72,7 +71,7 @@ Para alterar a capacidade da VM, abra a página **tamanho** da VM selecionada. E
 
 ## <a name="manage-network-interfaces"></a>Gerenciar interfaces de rede
 
-Para adicionar uma interface, clique em **Adicionar interface de rede**. Defina cada uma das configurações a seguir inserindo ou selecionou uma opção embutida. Clique em **Salvar**.
+Para adicionar uma interface, clique em **Adicionar interface de rede**. Defina cada uma das configurações a seguir inserindo ou selecionou uma opção embutida. Clique em **Save** (Salvar).
 
    | Control | Descrição |
    | ------------ | ------------- |

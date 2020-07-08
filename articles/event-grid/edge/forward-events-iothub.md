@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844693"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: encaminhar eventos para IoTHub
@@ -40,7 +39,7 @@ Para concluir este tutorial, você precisará de:
 
 Como um editor de um evento, você precisa criar um tópico de grade de eventos. O tópico refere-se a um ponto de extremidade em que os editores podem enviar eventos para o.
 
-1. Crie topic4. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie topic4.jscom o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
    ```json
     {
@@ -84,7 +83,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Crie subscription4. JSON com o conteúdo abaixo. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie subscription4.jscom o conteúdo abaixo. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
    ```json
     {
@@ -100,7 +99,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
    ```
 
    >[!NOTE]
-   > O `endpointType` especifica que o assinante `edgeHub`é. O `outputName` especifica a saída na qual o módulo de grade de eventos encaminhará eventos que correspondam a essa assinatura para edgeHub. Por exemplo, os eventos que correspondem à assinatura acima serão gravados `/messages/modules/eventgridmodule/outputs/sampleSub4`.
+   > O `endpointType` especifica que o assinante é `edgeHub` . O `outputName` especifica a saída na qual o módulo de grade de eventos encaminhará eventos que correspondam a essa assinatura para edgeHub. Por exemplo, os eventos que correspondem à assinatura acima serão gravados `/messages/modules/eventgridmodule/outputs/sampleSub4` .
 2. Execute o comando a seguir para criar a assinatura. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
@@ -168,7 +167,7 @@ Consulte o [tutorial de roteamento do Hub IOT](../../iot-hub/tutorial-routing.md
 
 ## <a name="publish-an-event"></a>Publicar um evento
 
-1. Crie event4. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie event4.jscom o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
     ```json
         [
@@ -196,7 +195,7 @@ Consulte o [tutorial de roteamento do Hub IOT](../../iot-hub/tutorial-routing.md
 
 Consulte o tutorial de [Roteamento](../../iot-hub/tutorial-routing.md) do Hub IOT para ver as etapas para exibir os eventos.
 
-## <a name="cleanup-resources"></a>Recursos de limpeza
+## <a name="cleanup-resources"></a>Limpar os recursos
 
 * Execute o seguinte comando para excluir o tópico e todas as suas assinaturas na borda:
 

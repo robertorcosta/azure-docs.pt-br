@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 007ad6f59f0ce304db579f4faa1bb95611a93a37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906144"
 ---
 # <a name="sfctl-cluster"></a>cluster sfctl
@@ -110,7 +109,7 @@ Use EventsHealthStateFilter para filtrar o conjunto de eventos de integridade re
 ## <a name="sfctl-cluster-manifest"></a>Manifesto do cluster sfctl
 Obter o manifesto do cluster do Service Fabric.
 
-Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém as propriedades do cluster que incluem diferentes tipos de nó no cluster, configurações de segurança, topologias de domínio de atualização e de falha, etc. Essas propriedades são especificadas como parte do arquivo ClusterConfig. JSON durante a implantação de um cluster autônomo. No entanto, a maioria das informações no manifesto do cluster é gerada internamente pela malha do serviço durante a implantação de cluster em outros cenários de implantação (por exemplo, ao usar o portal do Azure). O conteúdo do manifesto do cluster é apenas para fins informativos e os usuários não devem depender do formato do conteúdo do arquivo ou sua interpretação.
+Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém as propriedades do cluster que incluem diferentes tipos de nó no cluster, configurações de segurança, topologias de domínio de atualização e de falha, etc. Essas propriedades são especificadas como parte do ClusterConfig.JSno arquivo durante a implantação de um cluster autônomo. No entanto, a maioria das informações no manifesto do cluster é gerada internamente pela malha do serviço durante a implantação de cluster em outros cenários de implantação (por exemplo, ao usar o portal do Azure). O conteúdo do manifesto do cluster é apenas para fins informativos e os usuários não devem depender do formato do conteúdo do arquivo ou sua interpretação.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -131,7 +130,7 @@ Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém a
 ## <a name="sfctl-cluster-operation-cancel"></a>operação de cluster sfctl cancelamento
 Cancela uma operação com falha induzida pelo usuário.
 
-As APIs a seguir iniciam as operações de falha que podem ser\: canceladas usando CancelOperation StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzido pelo usuário será normalmente interrompida e limpos.  Se forçar for true, o comando será anulado e algum estado interno pode ser deixado para trás.  Especificar force como verdadeiro deve ser usada com cuidado. Não é permitido chamar essa API com force definido como verdadeiro, até que essa API já foi chamada no mesmo comando de teste com force definido como false, ou a menos que o comando de teste já tem um OperationState de OperationState.RollingBack. Esclarecimento\: significa OperationState.RollingBack que o sistema será/está limpando interno do sistema de estado causado pela execução do comando.  Ele não irá restaurar os dados se o comando de teste foi causar perda de dados.  Por exemplo, se você chamar StartDataLoss chamar esta API, o sistema só limpará o estado interno da execução do comando. Ele não irá restaurar os dados da partição de destino, se o comando progrediu distante o suficiente para causar perda de dados. Observação\: importante se essa API for chamada com Force = = true, o estado interno poderá ser deixado para trás.
+As APIs a seguir iniciam as operações de falha que podem ser canceladas usando CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzido pelo usuário será normalmente interrompida e limpos.  Se forçar for true, o comando será anulado e algum estado interno pode ser deixado para trás.  Especificar force como verdadeiro deve ser usada com cuidado. Não é permitido chamar essa API com force definido como verdadeiro, até que essa API já foi chamada no mesmo comando de teste com force definido como false, ou a menos que o comando de teste já tem um OperationState de OperationState.RollingBack. Esclarecimento\: significa OperationState.RollingBack que o sistema será/está limpando interno do sistema de estado causado pela execução do comando.  Ele não irá restaurar os dados se o comando de teste foi causar perda de dados.  Por exemplo, se você chamar StartDataLoss chamar esta API, o sistema só limpará o estado interno da execução do comando. Ele não irá restaurar os dados da partição de destino, se o comando progrediu distante o suficiente para causar perda de dados. Observação importante \: se essa API for chamada com Force = = true, o estado interno poderá ser deixado para trás.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -259,7 +258,7 @@ Se estiver se conectando ao cluster seguro, especifique um caminho absoluto para
 | --aad | Usar o Azure Active Directory para autenticação. |
 | --ca | Caminho absoluto para o diretório de certificados de autoridade de certificação para tratar como válido ou o arquivo de pacote de autoridade de certificação. Ao usar um diretório de certificados de autoridade de certificação, o `c_rehash <directory>` fornecido pelo OpenSSL deve ser executado pela primeira vez para computar os hashes do certificado e criar os links simbólicos apropriados. Isso é usado para verificar se o certificado retornado pelo cluster é válido. |
 | --cert | Caminho absoluto para um arquivo de certificado de cliente. |
-| --ponto de extremidade | URL do ponto de extremidade, incluindo o prefixo HTTPS ou HTTPS e porta do cluster. Normalmente, o ponto de extremidade será semelhante a\:https//<sua url>\:19080. Se nenhum ponto de extremidade for fornecido, ele usará\:como\:padrão http//localhost 19080.  Http\: \://localhost\:19080 padrão. |
+| --ponto de extremidade | URL do ponto de extremidade, incluindo o prefixo HTTPS ou HTTPS e porta do cluster. Normalmente, o ponto de extremidade será semelhante a https \: //<sua url>\: 19080. Se nenhum ponto de extremidade for fornecido, ele usará como padrão http \: //localhost \: 19080.  \:Http \: //localhost 19080 padrão \: . |
 | --chave | Caminho absoluto para o arquivo de chave de certificado de cliente. |
 | --sem verificação | Desativar a verificação de certificados ao usar HTTPS, observe\:: essa é uma opção insegura e não deve ser usada para ambientes de produção. |
 | --pem | Caminho absoluto para o certificado de cliente, como um arquivo. PEM. |

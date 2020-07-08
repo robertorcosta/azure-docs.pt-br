@@ -4,10 +4,9 @@ description: Saiba como configurar investigações de atividade para reiniciar c
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934159"
 ---
 # <a name="configure-liveness-probes"></a>Configurar investigações de atividade
@@ -65,7 +64,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 A implantação inclui uma `command` propriedade que define um comando inicial que é executado quando o contêiner começa a ser executado pela primeira vez. Essa propriedade aceita uma matriz de cadeias de caracteres. Esse comando simula o contêiner entrando em um estado não íntegro.
 
-Primeiro, ele inicia uma sessão de bash e cria um arquivo `healthy` chamado dentro `/tmp` do diretório. Em seguida, ele é suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entra em uma suspensão de 10 minutos:
+Primeiro, ele inicia uma sessão de bash e cria um arquivo chamado `healthy` dentro do `/tmp` diretório. Em seguida, ele é suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entra em uma suspensão de 10 minutos:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
@@ -79,7 +78,7 @@ A propriedade `periodSeconds` indica que o comando deve ser executado a cada cin
 
 ## <a name="verify-liveness-output"></a>Verificar a saída da atividade
 
-Nos 30 primeiros segundos, o arquivo `healthy` criado pelo comando inicial existe. Quando o comando de tempo de vida verifica `healthy` a existência do arquivo, o código de status retorna 0, sinalizando êxito, portanto, não ocorrerá nenhuma reinicialização.
+Nos 30 primeiros segundos, o arquivo `healthy` criado pelo comando inicial existe. Quando o comando de tempo de vida verifica a `healthy` existência do arquivo, o código de status retorna 0, sinalizando êxito, portanto, não ocorrerá nenhuma reinicialização.
 
 Após 30 segundos, o `cat /tmp/healthy` comando começa a falhar, causando a ocorrência de eventos não íntegros e de eliminação.
 
@@ -87,7 +86,7 @@ Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure.
 
 ![Evento não íntegro no portal][portal-unhealthy]
 
-Exibindo os eventos no portal do Azure, os eventos do tipo `Unhealthy` são disparados após a falha do comando de vida. O evento subsequente é do tipo `Killing`, significando uma exclusão de contêiner para que uma reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
+Exibindo os eventos no portal do Azure, os eventos do tipo `Unhealthy` são disparados após a falha do comando de vida. O evento subsequente é do tipo `Killing` , significando uma exclusão de contêiner para que uma reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
 
 As reinicializações são concluídas no local para que os recursos como endereços IP públicos e conteúdos específicos do nó sejam preservados.
 
@@ -97,7 +96,7 @@ Se a investigação de tempo de vida falhar continuamente e disparar muitas rein
 
 ## <a name="liveness-probes-and-restart-policies"></a>Políticas de investigação de atividade e reinicialização
 
-As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. O grupo de contêineres está em conformidade com a política de reinicialização do grupo de contêineres do `Never`.
+As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. O grupo de contêineres está em conformidade com a política de reinicialização do grupo de contêineres do `Never` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

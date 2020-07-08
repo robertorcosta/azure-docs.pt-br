@@ -8,10 +8,9 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76902691"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
@@ -118,7 +117,7 @@ Devemos registrar a origem (solicitação) do registro do paciente do portal do 
 > [!NOTE]
 > Os exemplos a seguir são apenas amostras. Como este tutorial se baseia em uma implementação atualmente em produção, o valor de um **Nó de Origem** pode não exibir as propriedades relacionadas ao agendamento de um compromisso.> 
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
 O exemplo de código de aplicativo lógico a seguir mostra como lidar com registros em log.
 
@@ -482,4 +481,4 @@ O código-fonte para o aplicativo de API de gerenciamento de exceções de aplic
 
 * [Exibir mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Monitorar aplicativos lógicos](../logic-apps/monitor-logic-apps.md)
-* [Automatizar implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatizar a implantação de aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

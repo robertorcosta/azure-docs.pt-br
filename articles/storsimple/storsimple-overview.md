@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68965109"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
@@ -208,7 +207,7 @@ A eliminação de duplicação reduz a quantidade geral de dados armazenados, el
 ## <a name="storsimple-workload-summary"></a>Resumo de carga de trabalho do StorSimple
 Confira na tabela abaixo um resumo das cargas de trabalho do StorSimple com suporte.
 
-| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
 | Colaboração |Compartilhamento de arquivos |Sim | |Todas as versões |
 | Colaboração |Compartilhamento de arquivos distribuído |Sim | |Todas as versões |
@@ -235,7 +234,7 @@ As cargas de trabalho a seguir não têm suporte de dispositivos da série StorS
 
 Veja a seguir uma lista dos componentes da infraestrutura com suporte do StorSimple.
 
-| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
 | Geral |ExpressRoute |Sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suporte com DataCore SANsymphony |Todas as versões |

@@ -7,15 +7,14 @@ ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
 ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988389"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Executar um serviço como uma Conta de Serviço Gerenciado de grupo
 
-Em um cluster autônomo do Windows Server, você pode executar um serviço como uma *conta de serviço gerenciado de grupo* (gMSA) usando uma política *runas* .  Por padrão, Service Fabric aplicativos são executados sob a conta sob `Fabric.exe` a qual o processo é executado. Executar os aplicativos em contas diferentes, mesmo em um ambiente hospedado compartilhado, torna-os mais protegidos uns dos outros. Ao usar uma gMSA, a senha ou senha criptografada não será armazenada no manifesto do aplicativo.  Você também pode executar um serviço como [Grupo ou usuário do Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
+Em um cluster autônomo do Windows Server, você pode executar um serviço como uma *conta de serviço gerenciado de grupo* (gMSA) usando uma política *runas* .  Por padrão, Service Fabric aplicativos são executados sob a conta sob a qual o `Fabric.exe` processo é executado. Executar os aplicativos em contas diferentes, mesmo em um ambiente hospedado compartilhado, torna-os mais protegidos uns dos outros. Ao usar uma gMSA, a senha ou senha criptografada não será armazenada no manifesto do aplicativo.  Você também pode executar um serviço como [Grupo ou usuário do Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
 
 O exemplo a seguir mostra como criar uma conta do gMSA chamada *svc-Test $*, como implantar essa conta de serviço gerenciado nos nós do cluster e como configurar a entidade de usuário.
 
@@ -27,7 +26,7 @@ Pré-requisitos:
 - O domínio precisa de uma chave raiz KDS.
 - Deve haver pelo menos um DC do Windows Server 2012 (ou R2) no domínio.
 
-1. Faça com que um administrador de domínio Active Directory crie uma conta de serviço gerenciado `New-ADServiceAccount` por grupo usando o cmdlet `PrincipalsAllowedToRetrieveManagedPassword` e verifique se o inclui todos os nós de Cluster Service Fabric. `AccountName`, `DnsHostName`, e `ServicePrincipalName` deve ser exclusivo.
+1. Faça com que um administrador de domínio Active Directory crie uma conta de serviço gerenciado por grupo usando o `New-ADServiceAccount` cmdlet e verifique se o `PrincipalsAllowedToRetrieveManagedPassword` inclui todos os nós de Cluster Service Fabric. `AccountName`, `DnsHostName`, e `ServicePrincipalName` deve ser exclusivo.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$

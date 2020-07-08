@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905885"
 ---
 # <a name="sfctl-node"></a>Nó sfctl
@@ -241,7 +240,7 @@ Essa API permite remover todas as substituições de configuração existentes n
 ## <a name="sfctl-node-remove-state"></a>remover nó sfctl - estado
 Notifica o Service Fabric que o estado persistente em um nó foi permanentemente removido ou perdido.
 
-Isso significa que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo ou se um disco rígido falhar. O nó deve ser para baixo para que essa operação seja bem-sucedida. Esta operação permite que o Service Fabric saiba que as réplicas no nó deixarão de existir e esse Service Fabric deve parar de esperar que essas réplicas retornem. Não execute esse cmdlet se o estado no nó foi removido e se o nó pode retornar com seu estado intacto. A partir do Service Fabric 6,5, para usar esta API para nós de semente, altere os nós de semente para nós regulares (não semente) e, em seguida, invoque essa API para remover o estado do nó. Se o cluster estiver em execução no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós não semente no tipo de nó primário não é menor que o número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para o cluster autônomo, se o nó semente inoperante não se espera retornar com seu estado intacto, remova o nó do cluster, consulte https\://docs.Microsoft.com/en-US/Azure/Service-Fabric/Service-Fabric-cluster-Windows-Server-Add-Remove-Nodes.
+Isso significa que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo ou se um disco rígido falhar. O nó deve ser para baixo para que essa operação seja bem-sucedida. Esta operação permite que o Service Fabric saiba que as réplicas no nó deixarão de existir e esse Service Fabric deve parar de esperar que essas réplicas retornem. Não execute esse cmdlet se o estado no nó foi removido e se o nó pode retornar com seu estado intacto. A partir do Service Fabric 6,5, para usar esta API para nós de semente, altere os nós de semente para nós regulares (não semente) e, em seguida, invoque essa API para remover o estado do nó. Se o cluster estiver em execução no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós não semente no tipo de nó primário não é menor que o número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para o cluster autônomo, se o nó semente inoperante não se espera retornar com seu estado intacto, remova o nó do cluster, consulte https \: //docs.Microsoft.com/en-US/Azure/Service-Fabric/Service-Fabric-cluster-Windows-Server-Add-Remove-Nodes.
 
 ### <a name="arguments"></a>Argumentos
 

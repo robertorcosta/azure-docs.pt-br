@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844506"
 ---
 # <a name="security-and-authentication"></a>Segurança e autenticação
@@ -22,7 +21,7 @@ Segurança e autenticação é um conceito avançado e requer familiaridade com 
 
 As seções a seguir descrevem detalhadamente como essas configurações são protegidas e autenticadas:
 
-* Configuração de TLS
+* Configuração TLS
 * Autenticação de cliente de entrada
 * Autenticação de servidor de saída
 * Autenticação de cliente de saída
@@ -42,7 +41,7 @@ Por padrão, somente a comunicação HTTPS é permitida. Você pode substituir e
 | Valores possíveis | Descrição |
 | ---------------- | ------------ |
 | Rigoroso | Padrão. Habilita somente HTTPS
-| habilitado | Habilita HTTP e HTTPS
+| Habilitada | Habilita HTTP e HTTPS
 | Desabilitado | Habilita somente HTTP
 
 ## <a name="inbound-client-authentication"></a>Autenticação de cliente de entrada
@@ -54,7 +53,7 @@ O módulo de grade de eventos dá suporte a dois tipos de autenticação de clie
 * Baseada em chave de SAS (assinatura de acesso compartilhado)
 * com base em certificado
 
-Por padrão, o módulo de grade de eventos é configurado para aceitar somente a autenticação baseada em certificado. Na inicialização, o módulo de grade de eventos recupera "TrustBundle" do daemon de segurança IoT Edge e o usa para validar qualquer certificado de cliente. Os certificados de cliente que não são resolvidos para esta cadeia serão `UnAuthorized`rejeitados com o.
+Por padrão, o módulo de grade de eventos é configurado para aceitar somente a autenticação baseada em certificado. Na inicialização, o módulo de grade de eventos recupera "TrustBundle" do daemon de segurança IoT Edge e o usa para validar qualquer certificado de cliente. Os certificados de cliente que não são resolvidos para esta cadeia serão rejeitados com o `UnAuthorized` .
 
 ### <a name="certificate-based-client-authentication"></a>Autenticação de cliente baseada em certificado
 
@@ -83,7 +82,7 @@ Se um cliente apresentar uma assinatura automática, por padrão, o módulo de g
 
 ### <a name="sas-key-based-client-authentication"></a>Autenticação de cliente baseada em chave SAS
 
-Além da autenticação baseada em certificado, o módulo de grade de eventos também pode fazer a autenticação baseada em chave SAS. A chave SAS é como um segredo configurado no módulo de grade de eventos que ele deve usar para validar todas as chamadas de entrada. Os clientes precisam especificar o segredo no cabeçalho HTTP ' AEG-SAS-Key '. A solicitação será rejeitada `UnAuthorized` com se não corresponder.
+Além da autenticação baseada em certificado, o módulo de grade de eventos também pode fazer a autenticação baseada em chave SAS. A chave SAS é como um segredo configurado no módulo de grade de eventos que ele deve usar para validar todas as chamadas de entrada. Os clientes precisam especificar o segredo no cabeçalho HTTP ' AEG-SAS-Key '. A solicitação será rejeitada com `UnAuthorized` se não corresponder.
 
 A configuração para controlar a autenticação baseada em chave SAS é **inbound__clientAuth__sasKeys__enabled**.
 

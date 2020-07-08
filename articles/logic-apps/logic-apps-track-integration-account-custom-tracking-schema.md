@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76903056"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Criar esquemas de acompanhamento personalizados que monitorem fluxos de trabalho de ponta a ponta na lógica A do Azure
@@ -53,16 +52,16 @@ Os aplicativos lógicos do Azure têm rastreamento interno que você pode habili
 
 | Propriedade | Obrigatório | Type | Descrição |
 |----------|----------|------|-------------|
-| sourceType | Sim | String | Tipo de fonte de execução com estes valores permitidos: `Microsoft.Logic/workflows`,`custom` |
-| source | Sim | Cadeia de caracteres ou JToken | Se o tipo de origem `Microsoft.Logic/workflows`for, as informações de origem precisarão seguir este esquema. Se o tipo de origem `custom`for, o esquema será um JToken. |
+| sourceType | Sim | String | Tipo de fonte de execução com estes valores permitidos: `Microsoft.Logic/workflows` ,`custom` |
+| source | Sim | Cadeia de caracteres ou JToken | Se o tipo de origem for `Microsoft.Logic/workflows` , as informações de origem precisarão seguir este esquema. Se o tipo de origem for `custom` , o esquema será um JToken. |
 | systemId | Sim | String | ID do sistema do aplicativo lógico |
 | runId | Sim | String | ID de execução do aplicativo lógico |
 | operationName | Sim | String | Nome da operação, por exemplo, ação ou gatilho |
-| repeatItemScopeName | Sim | String | Repita o nome do item se a ação estiver `foreach`dentro `until` de um loop ou |
+| repeatItemScopeName | Sim | String | Repita o nome do item se a ação estiver dentro de um `foreach` `until` loop ou |
 | repeatItemIndex | Sim | Integer | Indica que a ação está dentro de `foreach` um `until` loop ou e é o número de índice de item repetido. |
-| trackingId | Não | Cadeia de caracteres | ID de rastreamento para correlacionar as mensagens |
-| correlationId | Não | Cadeia de caracteres | ID de correlação para correlacionar as mensagens |
-| clientRequestId | Não | Cadeia de caracteres | O cliente pode popular essa propriedade para correlacionar mensagens |
+| trackingId | Não | String | ID de rastreamento para correlacionar as mensagens |
+| correlationId | Não | String | ID de correlação para correlacionar as mensagens |
+| clientRequestId | Não | String | O cliente pode popular essa propriedade para correlacionar mensagens |
 | eventLevel | Sim | String | Nível do evento |
 | eventTime | Sim | Datetime | Hora do evento no formato UTC: *yyyy-mm-ddThh: mm: SS. 00000Z* |
 | recordType | Sim | String | Tipo de registro de faixa com este valor permitido apenas:`custom` |

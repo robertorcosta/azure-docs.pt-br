@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906065"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
@@ -21,7 +20,7 @@ Obter e excluir os recursos do aplicativo.
 | --- | --- |
 | excluir | Exclui o recurso de aplicativo. |
 | list | Lista todos os recursos do aplicativo. |
-| show | Obtém o recurso do aplicativo com o nome fornecido. |
+| mostrar | Obtém o recurso do aplicativo com o nome fornecido. |
 
 ## <a name="sfctl-mesh-app-delete"></a>sfctl mesh app delete
 Exclui o recurso de aplicativo.

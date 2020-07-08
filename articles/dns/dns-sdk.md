@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938854"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registros usando o SDK do .NET
@@ -43,7 +42,7 @@ Normalmente, o acesso programático aos recursos do Azure é concedido por meio 
 Para usar o SDK do .NET de DNS, você precisa instalar o pacote NuGet da **Biblioteca de Gerenciamento de DNS do Azure** e outros pacotes do Azure requeridos.
 
 1. No **Visual Studio**, abra um projeto ou um novo projeto.
-2. Vá para **ferramentas** **>** **Gerenciador** **>** **de pacotes NuGet gerenciar pacotes NuGet para solução...**.
+2. Vá para **ferramentas** **>** **Gerenciador de pacotes NuGet** **>** **gerenciar pacotes NuGet para solução...**.
 3. Clique em **Procurar**, marque a caixa de seleção **Incluir pré-lançamento** e digite **Microsoft.Azure.Management.Dns** na caixa de pesquisa.
 4. Selecione o pacote e clique em **Instalar** adicioná-lo a seu projeto do Visual Studio.
 5. Repita o processo acima para também instalar os seguintes pacotes: **Microsoft.Rest.ClientRuntime.Azure.Authentication** e **Microsoft.Azure.Management.ResourceManager**.
