@@ -4,19 +4,18 @@ description: Saiba como configurar a política de registro de autenticação mul
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84464327"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Como configurar a política de registro da autenticação multifator do Azure
 
@@ -36,13 +35,13 @@ Para obter mais informações sobre a autenticação multifator do Azure, consul
 ## <a name="policy-configuration"></a>Configuração de política
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **política de registro do MFA**da proteção > de**identidade**de**segurança** > .
+1. Navegue até **Azure Active Directory**  >  **Security**  >  política de registro do MFA da**proteção de identidade**de segurança  >  **MFA registration policy**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
    1. Em **controles**
       1. Certifique-se de que a caixa de seleção **exigir registro de MFA do Azure** esteja marcada e escolha **selecionar**.
-   1. **Impor política** - **em**
+   1. **Impor política**  -  **Em**
    1. **Salvar**
 
 ## <a name="user-experience"></a>Experiência do usuário
@@ -55,8 +54,8 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar as políticas de entrada e de risco do usuário](howto-identity-protection-configure-risk-policies.md)
+- [Habilitar as políticas de risco com usuários e entradas](howto-identity-protection-configure-risk-policies.md)
 
-- [Habilitar redefinição de senha de autoatendimento do Azure AD](../authentication/howto-sspr-deployment.md)
+- [Habilitar a redefinição de senha self-service do Azure AD](../authentication/howto-sspr-deployment.md)
 
 - [Habilitar a Autenticação Multifator do Microsoft Azure](../authentication/howto-mfa-getstarted.md)

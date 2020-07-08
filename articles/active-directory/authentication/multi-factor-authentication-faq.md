@@ -11,23 +11,22 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d28f93f316ac2a63be6b3a8eb0b80678bd7607f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84483795"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
 Estas perguntas frequentes respondem a perguntas comuns sobre a Autenticação Multifator do Azure e sobre o uso do serviço de Autenticação Multifator. Ele é dividido em perguntas sobre o serviço em geral, modelos, experiências do usuário, de cobrança e solução de problemas.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Os novos clientes que desejarem exigir a autenticação multifator de seus usuários devem usar a Autenticação Multifator do Microsoft Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 >
 > As informações compartilhadas abaixo em relação à Servidor de Autenticação Multifator do Azure só são aplicáveis a usuários que já têm o servidor MFA em execução.
 >
-> O licenciamento baseado em consumo não estará mais disponível para novos clientes a partir de 1º de setembro de 2018.
+> O licenciamento baseado em consumo não está mais disponível para novos clientes em vigor em 1 de setembro de 2018.
 > A partir de 1º de setembro de 2018, novos provedores de autenticação podem não ser mais criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados. A Autenticação Multifator continuará sendo um recurso disponível nas licenças do Azure AD Premium.
 
 ## <a name="general"></a>Geral
@@ -70,7 +69,7 @@ No Canadá, usamos os seguintes códigos curtos do SMS:
 * *759731*
 * *673801*
 
-Não há nenhuma garantia de entrega de prompt de autenticação multifator baseada em voz ou SMS consistente pelo mesmo número. Ao interesse de nossos usuários, podemos adicionar ou remover códigos curtos a qualquer momento à medida que fizermos ajustes de rota para melhorar a entrega do SMS. Não há suporte para códigos curtos para países ou regiões além do Estados Unidos e do Canadá.
+Não há nenhuma garantia de entrega de prompt de autenticação multifator baseada em voz ou SMS consistente pelo mesmo número. Pensando no melhor para nossos usuários, nós podemos adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. Não há suporte para códigos curtos para países ou regiões além do Estados Unidos e do Canadá.
 
 ## <a name="billing"></a>Cobrança
 
@@ -163,7 +162,7 @@ Para evitar acesso não autorizado, exclua as senhas do todos os usuários aplic
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>E se um usuário não conseguir entrar em aplicativos que não são acessados por navegador?
 
-Se sua organização usa ainda clientes herdados e você [permitido o uso de senhas de aplicativo](howto-mfa-mfasettings.md#app-passwords), em seguida, os usuários não conseguem entrar nesses clientes herdados com seu nome de usuário e senha. Em vez disso, eles precisam [configurar senhas de aplicativo](../user-help/multi-factor-authentication-end-user-app-passwords.md). Os usuários devem limpar (excluir) suas informações de logon, reinicie o aplicativo e entre com seu nome de usuário e *senha de aplicativo* em vez de regulares de senha.
+Se sua organização usa ainda clientes herdados e você [permitido o uso de senhas de aplicativo](howto-mfa-app-passwords.md), em seguida, os usuários não conseguem entrar nesses clientes herdados com seu nome de usuário e senha. Em vez disso, eles precisam [configurar senhas de aplicativo](../user-help/multi-factor-authentication-end-user-app-passwords.md). Os usuários devem limpar (excluir) suas informações de logon, reinicie o aplicativo e entre com seu nome de usuário e *senha de aplicativo* em vez de regulares de senha.
 
 Se sua organização não tiver clientes herdados, você não deverá permitir que os usuários criem senhas de aplicativo.
 
@@ -230,7 +229,7 @@ Há vários motivos que os usuários podem ser solicitados para registrar as inf
 - A organização criou e ativado uma diretiva de registro de MFA que foi aplicada ao usuário.
 - O usuário registrado para MFA anteriormente, mas escolher um método de verificação que um administrador como desabilitado. O usuário, portanto, deve passar pelo registro MFA novamente para selecionar um novo método de verificação padrão.
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Erros
 
 * [O que os usuários devem fazer se receberem uma mensagem de erro "a solicitação de autenticação não é para uma conta ativada" ao usar notificações de aplicativo móvel?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
 * [O que os usuários devem fazer se receberem uma mensagem de erro 0x800434D4L ao entrar em um aplicativo sem navegador?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)
@@ -240,7 +239,7 @@ Há vários motivos que os usuários podem ser solicitados para registrar as inf
 Peça ao usuário para concluir o procedimento a seguir para remover sua conta da Microsoft Authenticator e, em seguida, adicioná-la novamente:
 
 1. Acesse [seu perfil de portal do Azure](https://account.activedirectory.windowsazure.com/profile/) e entre com uma conta institucional.
-2. Escolha **Verificação de Segurança Adicional**.
+2. Selecione **verificação de segurança adicional**.
 3. Remova a conta existente do aplicativo Microsoft Authenticator.
 4. Clique em **Configurar**e siga as instruções para reconfigurar o Microsoft Authenticator.
 
@@ -257,4 +256,4 @@ Se sua pergunta não for respondida aqui, as seguintes opções de suporte estar
 * Pesquise a [Base de Dados de Conhecimento de Suporte da Microsoft](https://support.microsoft.com) para obter soluções para problemas técnicos comuns.
 * Pesquise e procure perguntas e respostas técnicas da Comunidade ou faça sua própria pergunta no [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 * Entre em contato com o suporte do Microsoft Professional por meio [do Azure servidor de autenticação multifator](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao entrar em contato conosco, é útil incluir o máximo possível de informações sobre o problema. As informações que você pode fornecer incluem a página em que viu o erro, o código de erro específico, a ID da sessão específica e a ID do usuário que viu o erro.
-* Se você for um cliente herdado do PhoneFactor e tiver dúvidas ou precisar de ajuda para redefinir uma senha, use [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) o endereço de email para abrir um caso de suporte.
+* Se você for um cliente herdado do PhoneFactor e tiver dúvidas ou precisar de ajuda para redefinir uma senha, use o [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) endereço de email para abrir um caso de suporte.

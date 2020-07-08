@@ -3,15 +3,14 @@ title: Criar e gerenciar grupos de ações no portal do Azure
 description: Este artigo mostra como criar e gerenciar grupos de ações no portal do Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738811"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465245"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -118,7 +117,7 @@ A ação de webhook dos grupos de ações permite que você aproveite o Azure Ac
     > Você deve ser membro da [função Administrador do aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) para executar esse script.
     
     - Modifique a chamada Connect-AzureAD do script do PowerShell para usar sua ID de locatário do Azure AD.
-    - Modifique a variável do script do PowerShell $myAzureADApplicationObjectId para usar a ID de objeto do seu aplicativo Azure AD
+    - Modifique a variável do script do PowerShell $myAzureADApplicationObjectId para usar a ID de objeto do seu aplicativo do Azure AD.
     - Execute o script modificado.
     
 1. Configure a ação de webhook segura do grupo de ações.
@@ -217,7 +216,12 @@ Confira o artigo sobre [informações de limitação de taxa](./../../azure-moni
 Os preços de países/regiões com suporte são listados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
-Os webhooks são repetidos usando as regras a seguir. A chamada de webhook é repetida no máximo duas vezes quando os seguintes códigos de status HTTP são retornados: 408, 429, 503, 504 ou quando o ponto de extremidade HTTP não responder. A primeira nova tentativa ocorre após 10 segundos. A segunda tentativa ocorre após 100 segundos. Após duas falhas, nenhum grupo de ações chamará o ponto de extremidade por 30 minutos. 
+WebHooks são processados usando as seguintes regras
+- Uma chamada de webhook é tentada no máximo três vezes.
+- A chamada será repetida se uma resposta não for recebida dentro do período de tempo limite ou se um dos seguintes códigos de status HTTP for retornado: 408, 429, 503 ou 504.
+- A primeira chamada aguardará 10 segundos por uma resposta.
+- A segunda e terceira tentativas aguardarão 30 segundos por uma resposta.
+- Depois que as 3 tentativas de chamar o webhook falharam, nenhum grupo de ação chamará o ponto de extremidade por 15 minutos.
 
 Intervalos de endereços IP de fonte
  - 13.72.19.232
@@ -245,7 +249,7 @@ Para receber atualizações sobre as alterações para esses endereços IP, é r
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Saiba mais sobre o [Conector de ITSM](../../azure-monitor/platform/itsmc-overview.md)
+* Saiba mais sobre [conector ITSM](../../azure-monitor/platform/itsmc-overview.md).
 * Saiba mais sobre a [limitação de taxa](../../azure-monitor/platform/alerts-rate-limiting.md) para alertas.
 * Obtenha uma [visão geral dos alertas do log de atividades](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

@@ -3,12 +3,11 @@ title: Automatizar o Azure Application Insights com o PowerShell | Microsoft Doc
 description: Automatize a criação e gerenciamento de recursos, alertas e testes de disponibilidade no PowerShell usando um modelo do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: a6653582a990b97775976b757198f11b2a46c46b
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: c4e7c4fe14d829338e98a4b7e73726b1e605707c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485413"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerenciar recursos do Application Insights usando o PowerShell
 
@@ -473,5 +472,4 @@ Outros artigos sobre automação:
 * [Configurar alertas](powershell-alerts.md)
 * [Criar testes na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Enviar o Diagnóstico do Azure para o Application Insights](powershell-azure-diagnostics.md)
-* [Implantar no Azure pelo GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

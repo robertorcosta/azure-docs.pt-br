@@ -5,29 +5,28 @@ author: normesta
 ms.service: storage
 ms.date: 03/20/2020
 ms.author: normesta
-ms.topic: article
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b83d0d2d765b60585832f1a3e7c610f05eac075c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fc2013a3875c74a1371196cacb0096356cf3ffdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466112"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o .NET para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
 Este artigo mostra como usar o .NET para criar e gerenciar diretórios, arquivos e permissões em contas de armazenamento que têm o namespace hierárquico (HNS) habilitado. 
 
-[Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [de referência](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake) | da API[Gen1 para o mapeamento](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | Gen2[fornecer comentários](https://github.com/Azure/azure-sdk-for-net/issues)
+[Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)  |  [Exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)  |  [Referência](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)  |  de API Mapeamento de Gen1 [para Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)  |  [Enviar comentários](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento que tem o namespace hierárquico (HNS) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
+> * Uma conta de armazenamento precisa ter o HNS (namespace hierárquico) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar um.
 
-## <a name="set-up-your-project"></a>Configurar o seu projeto
+## <a name="set-up-your-project"></a>Configurar o projeto
 
 Para começar, instale o pacote NuGet [do Azure. Storage. files. datalake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) .
 
@@ -43,7 +42,7 @@ using System.IO;
 using Azure;
 ```
 
-## <a name="connect-to-the-account"></a>Conectar-se à conta
+## <a name="connect-to-the-account"></a>Conectar à conta
 
 Para usar os trechos de código neste artigo, você precisará criar uma instância de [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) que representa a conta de armazenamento. 
 
@@ -95,7 +94,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 Um sistema de arquivos atua como um contêiner para seus arquivos. Você pode criar um chamando o método [DataLakeServiceClient. createfilesystem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync) .
 
-Este exemplo cria um sistema de arquivos `my-file-system`chamado. 
+Este exemplo cria um sistema de arquivos chamado `my-file-system`. 
 
 ```cs
 public async Task<DataLakeFileSystemClient> CreateFileSystem
@@ -109,7 +108,7 @@ public async Task<DataLakeFileSystemClient> CreateFileSystem
 
 Crie uma referência de diretório chamando o método [DataLakeFileSystemClient. CreateDirectoryAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync) .
 
-Este exemplo adiciona um diretório chamado `my-directory` a um sistema de arquivos e, em seguida, adiciona um subdiretório chamado `my-subdirectory`. 
+Este exemplo adiciona um diretório chamado `my-directory` a um sistema de arquivos e, em seguida, adiciona um subdiretório chamado `my-subdirectory` . 
 
 ```cs
 public async Task<DataLakeDirectoryClient> CreateDirectory
@@ -129,7 +128,7 @@ public async Task<DataLakeDirectoryClient> CreateDirectory
 
 Renomeie ou mova um diretório chamando o método [DataLakeDirectoryClient. RenameAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync) . Passe o caminho do diretório desejado de um parâmetro. 
 
-Este exemplo renomeia um subdiretório para o nome `my-subdirectory-renamed`.
+Este exemplo renomeia um subdiretório para o nome `my-subdirectory-renamed` .
 
 ```cs
 public async Task<DataLakeDirectoryClient> 
@@ -142,7 +141,7 @@ public async Task<DataLakeDirectoryClient>
 }
 ```
 
-Este exemplo move um diretório chamado `my-subdirectory-renamed` para um subdiretório de um diretório chamado `my-directory-2`. 
+Este exemplo move um diretório chamado `my-subdirectory-renamed` para um subdiretório de um diretório chamado `my-directory-2` . 
 
 ```cs
 public async Task<DataLakeDirectoryClient> MoveDirectory
@@ -176,9 +175,9 @@ public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient)
 Obtenha a ACL (lista de controle de acesso) de um diretório chamando o método [DataLakeDirectoryClient. GetAccessControlAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.getaccesscontrolasync) e defina a ACL chamando o método [DataLakeDirectoryClient. setaccesscontrollist](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.setaccesscontrollist) .
 
 > [!NOTE]
-> Se seu aplicativo autorizar o acesso usando Azure Active Directory (Azure AD), verifique se a entidade de segurança que seu aplicativo usa para autorizar o acesso recebeu a [função de proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões de ACL são aplicadas e os efeitos de alterá-las, consulte [controle de acesso em Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+> Se seu aplicativo autorizar o acesso usando Azure Active Directory (Azure AD), verifique se a entidade de segurança que seu aplicativo usa para autorizar o acesso recebeu a [função de proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões de ACL são aplicadas e os efeitos por alterá-las, confira [Controle de acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
-Este exemplo obtém e define a ACL de um diretório chamado `my-directory`. A cadeia `user::rwx,group::r-x,other::rw-` de caracteres fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros permissões de leitura e gravação.
+Este exemplo obtém e define a ACL de um diretório chamado `my-directory` . A cadeia de caracteres `user::rwx,group::r-x,other::rw-` fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros permissões de leitura e gravação.
 
 ```cs
 public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
@@ -205,7 +204,7 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 
 Primeiro, crie uma referência de arquivo no diretório de destino criando uma instância da classe [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) . Carregue um arquivo chamando o método [DataLakeFileClient. AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) . Certifique-se de concluir o carregamento chamando o método [DataLakeFileClient. FlushAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) .
 
-Este exemplo carrega um arquivo de texto em um diretório chamado `my-directory`.    
+Este exemplo carrega um arquivo de texto em um diretório chamado `my-directory` .    
 
 ```cs
 public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
@@ -258,9 +257,9 @@ public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 Obtenha a ACL (lista de controle de acesso) de um arquivo chamando o método [DataLakeFileClient. GetAccessControlAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.getaccesscontrolasync) e defina a ACL chamando o método [DataLakeFileClient. setaccesscontrollist](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.setaccesscontrollist) .
 
 > [!NOTE]
-> Se seu aplicativo autorizar o acesso usando Azure Active Directory (Azure AD), verifique se a entidade de segurança que seu aplicativo usa para autorizar o acesso recebeu a [função de proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões de ACL são aplicadas e os efeitos de alterá-las, consulte [controle de acesso em Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+> Se seu aplicativo autorizar o acesso usando Azure Active Directory (Azure AD), verifique se a entidade de segurança que seu aplicativo usa para autorizar o acesso recebeu a [função de proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões de ACL são aplicadas e os efeitos por alterá-las, confira [Controle de acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
-Este exemplo obtém e define a ACL de um arquivo chamado `my-file.txt`. A cadeia `user::rwx,group::r-x,other::rw-` de caracteres fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros permissões de leitura e gravação.
+Este exemplo obtém e define a ACL de um arquivo chamado `my-file.txt` . A cadeia de caracteres `user::rwx,group::r-x,other::rw-` fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros permissões de leitura e gravação.
 
 ```cs
 public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
@@ -327,7 +326,7 @@ public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 Liste o conteúdo do diretório chamando o método [FileSystemClient. GetPathsAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getpathsasync) e, em seguida, enumerando pelos resultados.
 
-Este exemplo, imprime os nomes de cada arquivo localizado em um diretório chamado `my-directory`.
+Este exemplo, imprime os nomes de cada arquivo localizado em um diretório chamado `my-directory` .
 
 ```cs
 public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient)
@@ -354,9 +353,9 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
-* [Documentação da referência de API](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
+* [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)
 * [Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 * [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)

@@ -5,16 +5,15 @@ services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a70b8112af201a49e7eece8b689e75102ec55880
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b28765c9ac4fa664b84c456c31ee10e0e9e19003
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465923"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: Spark, HDInsight & Azure Data Lake Storage Gen2
 
@@ -46,7 +45,7 @@ Ao executar os trabalhos do Spark, aqui estão as configurações mais important
 
 Por padrão, dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Esse número fornece um bom equilíbrio entre a simultaneidade e a quantidade de trocas de contexto de vários threads.  
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Diretrizes
 
 Ao executar as cargas de trabalho analíticas do Spark para trabalhar com dados no Data Lake Storage Gen2, é recomendável usar a versão mais recente do HDInsight para obter o melhor desempenho com Data Lake Storage Gen2. Quando o trabalho faz uso mais intensivo de E/S, determinados parâmetros podem ser configurados para melhorar o desempenho.  O Data Lake Storage Gen2 é uma plataforma de armazenamento altamente escalonável que pode manipular taxa de transferência.  Se o trabalho consistir principalmente em leitura ou gravação, então, aumentar a simultaneidade para E/S de e para o Data Lake Storage Gen2 poderá aumentar o desempenho.
 

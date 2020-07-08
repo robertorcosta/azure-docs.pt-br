@@ -4,12 +4,11 @@ description: Saiba como configurar um dispositivo de migrações para Azure para
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6d9cc071ad5d81a09a14b12fe2acdf564c2ea6c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84331773"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
@@ -47,24 +46,23 @@ Baixe o arquivo compactado para o dispositivo.
 Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
-2. Execute o seguinte comando para gerar o hash para o arquivo compactado:
+2. Execute o seguinte comando para gerar o hash para o arquivo zip:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo de uso para a nuvem pública:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Exemplo de uso para a nuvem governamental:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verificar valores de hash:
+    - Exemplo de uso da nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Exemplo de uso da nuvem governamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Verifique a versão mais recente do dispositivo e os valores de hash:
  
-    - Para a nuvem pública (para a versão mais recente do dispositivo):
+    - Para a nuvem pública:
 
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **Cenário** | **Baixar*** | **Valor de hash**
+        --- | --- | ---
+        Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - Para o Azure governamental (para a versão mais recente do dispositivo):
+    - Para o Azure Government:
 
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **Cenário** | **Baixar*** | **Valor de hash**
+        --- | --- | ---
+        Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
@@ -75,28 +73,28 @@ O script do instalador faz o seguinte:
 - Baixa e instala um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
 - Atualiza uma chave do registro (HKLM) com detalhes de configuração persistente para Migrações para Azure.
 - Cria os seguintes arquivos sob o caminho:
-    - **Arquivos de configuração**:%ProgramData%\Microsoft Azure\Config
-    - **Arquivos de log**:%ProgramData%\Microsoft Azure\Logs
+    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Config
+    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Logs
 
 Crie o script da seguinte maneira:
 
-1. Extraia o arquivo compactado para uma pasta no servidor que hospedará o dispositivo.  Certifique-se de não executar o script em um computador em um dispositivo de migrações para Azure existente.
+1. Extraia o arquivo compactado para uma pasta no servidor que hospedará o dispositivo.  Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no servidor acima com privilégio administrativo (elevado).
 3. Altere o diretório do PowerShell para a pasta em que o conteúdo foi extraído do arquivo compactado baixado.
 4. Execute o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
 
-    - Para a nuvem pública:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
-    - Para o Azure governamental:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+    - Para a nuvem pública: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Para o Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
     O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito.
 
-Se você tiver problemas, poderá acessar os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log para solucionar problemas.
+Se você encontrar algum problema, poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
 
 
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar a URLs do Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls) .
+Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
 ## <a name="configure-the-appliance"></a>Configurar o dispositivo
 
@@ -131,7 +129,7 @@ Configure o dispositivo pela primeira vez.
 Conecte-se do dispositivo a servidores físicos e inicie a descoberta.
 
 1. Em **Adicionar credenciais**, especifique as credenciais de conta que o dispositivo usará para descobriros servidores.  
-2. Especifique o **sistema operacional**, um nome amigável para as credenciais e o nome de usuário e a senha. Em seguida, clique em **Adicionar**.
+2. Especifique o **Sistema operacional**, um nome amigável para as credenciais, o nome de usuário e a senha. Clique em **Adicionar**.
 Você pode adicionar um conjunto de credenciais para servidores Windows e Linux.
 4. Clique em **Adicionar servidor**e especifique detalhes do servidor – endereço FQDN/IP e nome amigável das credenciais (uma entrada por linha) para se conectar ao servidor.
 3. Clique em **Validar**. Após a validação, a lista de servidores que podem ser descobertos é mostrada.

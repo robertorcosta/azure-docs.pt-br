@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: cb7f11f184ba8e19eb8786817da58edf8ddee44e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84448624"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um Ensemble de árvores de regressão usando o aumento. O *aumento* significa que cada árvore depende de árvores anteriores. O algoritmo aprende ajustando o resíduo das árvores que o precedem. Assim, impulsionada em um ensemble de árvore de decisão tende a aumentar a precisão com um pequeno risco de menos cobertura.  
   
@@ -93,16 +92,16 @@ O método de impulsionamento de gradiente também pode ser usado para problemas 
     > Se você selecionar a opção **intervalo de parâmetros** e inserir um único valor para qualquer parâmetro, esse valor único especificado será usado em toda a varredura, mesmo que outros parâmetros sejam alterados em um intervalo de valores.
     
 
-10. Envie o pipeline.  
+10. Enviar o pipeline.  
   
 ## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
 
-+ Para usar o modelo de pontuação, conecte-o ao [modelo de Pontuação](./score-model.md)para prever valores para novos exemplos de entrada.
++ Para usar o modelo de pontuação, conecte o [modelo de treinamento](train-model.md) ao modelo de [Pontuação](./score-model.md)para prever valores para novos exemplos de entrada.
 
 + Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do **modelo treinado** e clique no ícone **registrar conjunto de registros** . A cópia do modelo treinado será salva como um módulo na árvore de módulo e não será atualizada em execuções sucessivas do pipeline.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

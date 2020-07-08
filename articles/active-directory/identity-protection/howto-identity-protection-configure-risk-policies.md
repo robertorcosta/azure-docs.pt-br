@@ -4,19 +4,18 @@ description: Habilitar e configurar políticas de risco no Azure Active Director
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 01/06/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75706998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84464157"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como configurar e habilitar políticas de risco
 
@@ -45,7 +44,7 @@ Escolher um limite **Alto** reduz o número de vezes que uma política é dispar
 
 ## <a name="exclusions"></a>Exclusões
 
-Todas as políticas permitem a exclusão de usuários, como [contas de administrador de acesso de emergência ou](../users-groups-roles/directory-emergency-access.md)de usuário de vidro. As organizações podem determinar que precisam excluir outras contas de políticas específicas com base na maneira como as contas são usadas. Todas as exclusões devem ser revisadas regularmente para ver se elas ainda são aplicáveis.
+Todas as políticas permitem a exclusão de usuários, como suas [contas de administrador de interrupção ou de acesso de emergência](../users-groups-roles/directory-emergency-access.md). As organizações podem determinar que precisam excluir outras contas de políticas específicas com base na maneira como as contas são usadas. Todas as exclusões devem ser revisadas regularmente para ver se elas ainda são aplicáveis.
 
 Os [locais de rede](../conditional-access/location-condition.md) confiáveis configurados são usados pela proteção de identidade em algumas detecções de risco para reduzir os falsos positivos.
 
@@ -54,29 +53,29 @@ Os [locais de rede](../conditional-access/location-condition.md) confiáveis con
 Para habilitar o risco do usuário e as políticas de risco de entrada, conclua as etapas a seguir.
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **visão geral**da**proteção** > de identidade de**segurança** > .
+1. Navegue até **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **visão geral**da proteção de identidade de segurança.
 1. Selecione **Configurar política de risco do usuário**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
-      1. **Condições** - de**risco do usuário** a recomendação da Microsoft é definir essa opção como **alta**.
+      1. **Condições**  -  do **Risco do usuário** A recomendação da Microsoft é definir essa opção como **alta**.
    1. Em **controles**
       1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir alteração de senha**.
-   1. **Impor política** - **em**
+   1. **Impor política**  -  **Em**
    1. **Salvar** – esta ação retornará à página **visão geral** .
 1. Selecione **Configurar política de risco de entrada**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
-      1. **Conditions** - **Risco de entrada** de condições a recomendação da Microsoft é definir essa opção como **média e posterior**.
+      1. **Condições**  -  do **Risco de entrada** A recomendação da Microsoft é definir essa opção como **média e posterior**.
    1. Em **controles**
       1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir a autenticação multifator**.
-   1. **Impor política** - **em**
+   1. **Impor política**  -  **Em**
    1. **Salvar**
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar a política de registro da autenticação multifator do Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Habilitar a política de registro da Autenticação Multifator do Azure](howto-identity-protection-configure-mfa-policy.md)
 
 - [O que é risco](concept-identity-protection-risks.md)
 

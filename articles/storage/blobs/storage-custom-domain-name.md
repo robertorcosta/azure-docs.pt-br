@@ -1,31 +1,30 @@
 ---
-title: Mapear um domínio personalizado para um ponto de extremidade do Armazenamento de Blobs do Azure
+title: Mapear um domínio personalizado para um ponto de extremidade do armazenamento de BLOBs do Azure
 titleSuffix: Azure Storage
 description: Mapeie um domínio personalizado para um armazenamento de BLOBs ou ponto de extremidade da Web em uma conta de armazenamento do Azure.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465517"
 ---
-# <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto de extremidade do Armazenamento de Blobs do Azure
+# <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto de extremidade do armazenamento de BLOBs do Azure
 
 Você pode mapear um domínio personalizado para um ponto de extremidade de serviço BLOB ou um ponto de extremidade de [site estático](storage-blob-static-website.md) . 
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> Esse mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com`). Se desejar que o ponto de extremidade da Web esteja disponível no domínio raiz (por exemplo `contoso.com`:), você precisará usar a CDN do Azure. Para obter diretrizes, consulte a seção [mapear um domínio personalizado com https habilitado](#enable-https) deste artigo. Como você vai para essa seção deste artigo para habilitar o domínio raiz do seu domínio personalizado, a etapa dentro dessa seção para habilitar HTTPS é opcional. 
+> Esse mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com` ). Se desejar que o ponto de extremidade da Web esteja disponível no domínio raiz (por exemplo: `contoso.com` ), você precisará usar a CDN do Azure. Para obter diretrizes, consulte a seção [mapear um domínio personalizado com https habilitado](#enable-https) deste artigo. Como você vai para essa seção deste artigo para habilitar o domínio raiz do seu domínio personalizado, a etapa dentro dessa seção para habilitar HTTPS é opcional. 
 
-<a id="enable-http" />
+<a id="enable-http"></a>
 
 ## <a name="map-a-custom-domain-with-only-http-enabled"></a>Mapear um domínio personalizado somente com HTTP habilitado
 
@@ -33,7 +32,7 @@ Essa abordagem é mais fácil, mas só permite o acesso HTTP. Se a conta de arma
 
 Para habilitar o acesso HTTPS, consulte a seção [mapear um domínio personalizado com https habilitado](#enable-https) deste artigo. 
 
-<a id="map-a-domain" />
+<a id="map-a-domain"></a>
 
 ### <a name="map-a-custom-domain"></a>Mapear um domínio personalizado
 
@@ -50,7 +49,7 @@ Se você não tiver dúvidas de que o domínio está indisponível brevemente pa
 
 : heavy_check_mark: etapa 4: testar seu domínio personalizado.
 
-<a id="endpoint" />
+<a id="endpoint"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Etapa 1: obter o nome do host do seu ponto de extremidade de armazenamento 
 
@@ -71,7 +70,7 @@ O nome do host é a URL do ponto de extremidade de armazenamento sem o identific
   
    Defina esse valor para mais tarde.
 
-<a id="create-cname-record" />
+<a id="create-cname-record"></a>
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Etapa 2: criar um registro de nome canônico (CNAME) com seu provedor de domínio
 
@@ -87,11 +86,11 @@ Crie um registro CNAME para apontar para o nome do host. Um registro CNAME é um
 
 3. Crie um registro CNAME. Como parte desse registro, forneça os seguintes itens: 
 
-   - O alias de subdomínio, `www` como `photos`ou. O subdomínio é necessário, não há suporte para domínios raiz. 
+   - O alias de subdomínio, como `www` ou `photos` . O subdomínio é necessário, não há suporte para domínios raiz. 
       
    - O nome do host que você obteve na seção [obter o nome de host do ponto de extremidade de armazenamento](#endpoint) anteriormente neste artigo. 
 
-<a id="register" />
+<a id="register"></a>
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Etapa 3: registrar seu domínio personalizado com o Azure
 
@@ -105,7 +104,7 @@ Crie um registro CNAME para apontar para o nome do host. Um registro CNAME é um
 
 3. Na caixa de texto **nome de domínio** , digite o nome do seu domínio personalizado, incluindo o subdomínio  
    
-   Por exemplo, se seu domínio for *contoso.com* e o alias de subdomínio for *www*, `www.contoso.com`digite. Se o subdomínio for *photos*, `photos.contoso.com`digite.
+   Por exemplo, se seu domínio for *contoso.com* e o alias de subdomínio for *www*, digite `www.contoso.com` . Se o subdomínio for *photos*, digite `photos.contoso.com` .
 
 4. Para registrar o domínio personalizado, escolha o botão **salvar** .
 
@@ -117,7 +116,7 @@ Para confirmar que seu domínio personalizado está mapeado para o ponto de extr
 
 Por exemplo, para acessar um formulário da web no contêiner *myforms* no subdomínio personalizado *photos.contoso.com*, você pode usar o seguinte URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
-<a id="zero-down-time" />
+<a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Mapear um domínio personalizado com tempo de inatividade zero
 
@@ -136,7 +135,7 @@ Se o seu domínio atualmente dá suporte a um aplicativo com um SLA (contrato de
 
 : heavy_check_mark: etapa 5: testar seu domínio personalizado.
 
-<a id="endpoint-2" />
+<a id="endpoint-2"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Etapa 1: obter o nome do host do seu ponto de extremidade de armazenamento 
 
@@ -171,7 +170,7 @@ Crie um registro CNAME temporário para apontar para o nome do host. Um registro
 
 3. Crie um registro CNAME. Como parte desse registro, forneça os seguintes itens: 
 
-   - O alias de subdomínio, `www` como `photos`ou. O subdomínio é necessário, não há suporte para domínios raiz.
+   - O alias de subdomínio, como `www` ou `photos` . O subdomínio é necessário, não há suporte para domínios raiz.
 
      Adicione o `asverify` subdomínio ao alias. Por exemplo: `asverify.www` ou `asverify.photos`.
        
@@ -197,7 +196,7 @@ Ao registrar previamente seu domínio personalizado com o Azure, você permite q
 
 3. Na caixa de texto **nome de domínio** , digite o nome do seu domínio personalizado, incluindo o subdomínio  
    
-   Por exemplo, se seu domínio for *contoso.com* e o alias de subdomínio for *www*, `www.contoso.com`digite. Se o subdomínio for *photos*, `photos.contoso.com`digite.
+   Por exemplo, se seu domínio for *contoso.com* e o alias de subdomínio for *www*, digite `www.contoso.com` . Se o subdomínio for *photos*, digite `photos.contoso.com` .
 
 4. Selecione a caixa de seleção **Usar validação de CNAME indireta**.
 
@@ -219,7 +218,7 @@ Crie um registro CNAME temporário para apontar para o nome do host.
 
 3. Crie um registro CNAME. Como parte desse registro, forneça os seguintes itens: 
 
-   - O alias de subdomínio, `www` como `photos`ou. O subdomínio é necessário, não há suporte para domínios raiz.
+   - O alias de subdomínio, como `www` ou `photos` . O subdomínio é necessário, não há suporte para domínios raiz.
       
    - O nome do host que você obteve na seção [obter o nome de host do ponto de extremidade de armazenamento](#endpoint-2) anteriormente neste artigo. 
 
@@ -295,7 +294,7 @@ Para remover um registro de domínio personalizado, use o cmdlet [Set-AzStorageA
   ```
 ---
 
-<a id="enable-https" />
+<a id="enable-https"></a>
 
 ## <a name="map-a-custom-domain-with-https-enabled"></a>Mapear um domínio personalizado com HTTPS habilitado
 

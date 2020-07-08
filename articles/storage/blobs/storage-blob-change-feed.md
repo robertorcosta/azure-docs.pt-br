@@ -4,18 +4,17 @@ description: Saiba mais sobre os logs do feed de alterações no armazenamento d
 author: normesta
 ms.author: normesta
 ms.date: 11/04/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465177"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Suporte ao feed de alterações no armazenamento de BLOBs do Azure (visualização)
+# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Suporte ao feed de alterações no Armazenamento de Blobs do Azure (versão prévia)
 
 A finalidade do feed de alterações é fornecer logs de transação de todas as alterações que ocorrem nos BLOBs e nos metadados de BLOB em sua conta de armazenamento. O feed de alterações fornece o log **ordenado**, **garantido**, **durável**, **imutável**e **somente leitura** dessas alterações. Os aplicativos cliente podem ler esses logs a qualquer momento, seja no streaming ou no modo de lote. O feed de alterações permite que você crie soluções eficientes e escalonáveis que processam eventos de alteração que ocorrem em sua conta de armazenamento de BLOBs a um custo baixo.
 
@@ -37,7 +36,7 @@ O suporte ao feed de alterações é bem adequado para cenários que processam d
 
   - Crie pipelines de aplicativo conectados que reajam a eventos de alteração ou agende execuções com base no objeto criado ou alterado.
   
-O feed de alterações é um recurso de pré-requisito para a [restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md).
+O feed de alterações é um recurso de pré-requisito para a [replicação de objeto](object-replication-overview.md) e a [restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > O feed de alterações fornece um modelo de log durável e ordenado das alterações que ocorrem em um blob. As alterações são gravadas e disponibilizadas no log do feed de alterações em uma ordem de alguns minutos da alteração. Se seu aplicativo tiver que reagir a eventos muito mais rápido do que isso, considere usar [eventos de armazenamento de BLOBs](storage-blob-event-overview.md) em vez disso. Os [eventos de armazenamento de BLOBs](storage-blob-event-overview.md) fornecem eventos one-time em tempo real que permitem que seus Azure Functions ou aplicativos reajam rapidamente às alterações que ocorrem em um blob. 
@@ -63,9 +62,9 @@ Aqui estão algumas coisas para ter em mente quando você habilita o feed de alt
 
 Habilite o feed de alterações em sua conta de armazenamento usando portal do Azure:
 
-1. Na [portal do Azure](https://portal.azure.com/), selecione sua conta de armazenamento.
+1. No [portal do Azure](https://portal.azure.com/), selecione a conta de armazenamento.
 
-2. Navegue até a opção **proteção de dados** em **serviço blob**.
+2. Navegue até a opção **Proteção de dados** em **Serviço do blob**.
 
 3. Clique em **habilitado** no **feed de alterações de blob**.
 
@@ -108,7 +107,7 @@ Use um modelo de Azure Resource Manager para habilitar o feed de alterações em
 
 1. Na portal do Azure, escolha **criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **ENTER**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
 
 3. Escolha **[implantar um modelo personalizado](https://portal.azure.com/#create/Microsoft.Template)** e, em seguida, escolha **criar seu próprio modelo no editor**.
 
@@ -323,7 +322,7 @@ Esta seção descreve os problemas e condições conhecidos na visualização p�
 - Alterar registros de eventos para qualquer alteração única pode aparecer mais de uma vez em seu feed de alterações.
 - Você ainda não pode gerenciar o tempo de vida dos arquivos de log do feed de alterações definindo a política de retenção baseada em tempo neles e não pode excluir os BLOBs.
 - A `url` Propriedade do arquivo de log está sempre vazia.
-- A `LastConsumable` Propriedade do arquivo Segments. JSON não lista o primeiro segmento que o feed de alterações finaliza. Esse problema ocorre somente depois que o primeiro segmento é finalizado. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na `LastConsumable` propriedade.
+- A `LastConsumable` propriedade da segments.jsno arquivo não lista o primeiro segmento que o feed de alterações finaliza. Esse problema ocorre somente depois que o primeiro segmento é finalizado. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na `LastConsumable` propriedade.
 - No momento, você não pode ver o contêiner **$blobchangefeed** ao chamar a API ListContainers e o contêiner não aparece em portal do Azure ou Gerenciador de armazenamento. Você pode exibir o conteúdo chamando a API ListBlobs no contêiner $blobchangefeed diretamente.
 - As contas de armazenamento que iniciaram previamente um [failover de conta](../common/storage-disaster-recovery-guidance.md) podem ter problemas com o arquivo de log não aparecendo. Qualquer failover de conta futuro também pode afetar o arquivo de log durante a visualização.
 

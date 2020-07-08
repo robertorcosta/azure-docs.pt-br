@@ -4,15 +4,14 @@ description: Saiba como armazenar em cache o conteúdo de site estático de uma 
 author: normesta
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465211"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrar um site estático com a CDN do Azure
 
@@ -41,7 +40,7 @@ Você pode habilitar a CDN do Azure para seu site estático diretamente da sua c
    Para encontrar o ponto de extremidade do site estático, navegue até as configurações de **Site estático** de sua conta de armazenamento.  Copie o ponto de extremidade primário e cole-o na configuração da CDN.
 
    > [!IMPORTANT]
-   > Certifique-se de remover o identificador de protocolo (*por exemplo*, HTTPS) e a barra à direita na URL. Por exemplo, se o ponto de extremidade do `https://mystorageaccount.z5.web.core.windows.net/`site estático for, você `mystorageaccount.z5.web.core.windows.net` especificaria no campo **nome do host de origem** .
+   > Certifique-se de remover o identificador de protocolo (*por exemplo*, HTTPS) e a barra à direita na URL. Por exemplo, se o ponto de extremidade do site estático for `https://mystorageaccount.z5.web.core.windows.net/` , você especificaria `mystorageaccount.z5.web.core.windows.net` no campo **nome do host de origem** .
 
    A seguinte imagem mostra uma configuração de ponto de extremidade de exemplo:
 
@@ -53,7 +52,7 @@ Você pode habilitar a CDN do Azure para seu site estático diretamente da sua c
 
     ![Captura de tela mostrando uma visão geral do ponto de extremidade CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-1. Depois que o ponto de extremidade da CDN for provisionado, navegar até o ponto de extremidade da CDN exibirá o conteúdo do arquivo index. html que você carregou anteriormente em seu site estático.
+1. Depois que o ponto de extremidade da CDN for provisionado, navegar até o ponto de extremidade da CDN exibirá o conteúdo do arquivo index.html que você carregou anteriormente em seu site estático.
 
 1. Para examinar as configurações de origem do ponto de extremidade CDN, navegue até **Origem** na seção **Configurações** do ponto de extremidade CDN. Você verá que o campo **Tipo de origem** é definido como *Origem Personalizada* e que o campo **Nome do host de origem** exibe o ponto de extremidade do site estático.
 

@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 7d4618382c31f0b1f2efa42fe87a6efe4bc85319
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 04708a307cd0eedfbe0510324930eb2327adf06e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449729"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB
 
@@ -32,7 +31,7 @@ Este artigo descreve as diferenças de funcionalidade entre o Apache Cassandra e
 
 ### <a name="what-protocol-version-does-the-cassandra-api-support"></a>A qual versão de protocolo o API do Cassandra dá suporte?
 
-O API do Cassandra para Azure Cosmos DB dá suporte ao CQL versão 3. x. Sua compatibilidade com o CQL é baseada no [repositório GitHub público do Apache Cassandra](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile). Se você tiver comentários sobre como dar suporte a outros protocolos, avise-nos por meio [dos comentários](https://feedback.azure.com/forums/263030-azure-cosmos-db) de [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)voz do usuário ou envie um email para.
+O API do Cassandra para Azure Cosmos DB dá suporte ao CQL versão 3. x. Sua compatibilidade com o CQL é baseada no [repositório GitHub público do Apache Cassandra](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile). Se você tiver comentários sobre como dar suporte a outros protocolos, avise-nos por meio [dos comentários de voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db) ou envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="why-is-choosing-throughput-for-a-table-a-requirement"></a>Por que escolher a taxa de transferência para uma tabela é um requisito?
 
@@ -85,7 +84,7 @@ Sim, a chave de partição é usada para posicionar a entidade no local certo. N
 
 Azure Cosmos DB é um sistema baseado no SLA (contrato de nível de serviço). Ele fornece escala ilimitada, com garantias de latência, taxa de transferência, disponibilidade e consistência. Esse armazenamento ilimitado é baseado na escala horizontal dos dados, usando o particionamento como o conceito-chave. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partition-data.md).
 
-Você deve aderir ao limite de 10 GB no número de entidades ou itens por partição lógica. Para garantir que seu aplicativo dimensiona bem, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-a. Esse erro pode vir somente se os dados estiverem distorcidos: ou seja, você tem muitos dados para uma chave de partição (mais de&nbsp;10 GB). Você pode encontrar a distribuição de dados usando o portal de armazenamento. A maneira de corrigir esse erro é recriar a tabela e escolher uma primária granular (chave de partição), o que permite uma melhor distribuição dos dados.
+Você deve aderir ao limite de 10 GB no número de entidades ou itens por partição lógica. Para garantir que seu aplicativo dimensiona bem, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-a. Esse erro pode vir somente se os dados estiverem distorcidos: ou seja, você tem muitos dados para uma chave de partição (mais de 10 &nbsp; GB). Você pode encontrar a distribuição de dados usando o portal de armazenamento. A maneira de corrigir esse erro é recriar a tabela e escolher uma primária granular (chave de partição), o que permite uma melhor distribuição dos dados.
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>Posso usar o API do Cassandra como um repositório de valor de chave com milhões ou bilhões de chaves de partição?
 
@@ -101,11 +100,11 @@ Azure Cosmos DB é o sistema controlado por recursos para atividades de plano de
 
 ### <a name="what-is-the-maximum-number-of-tables-that-i-can-create"></a>Qual é o número máximo de tabelas que posso criar?
 
-Não há nenhum limite físico no número de tabelas. Se você tiver um grande número de tabelas (em que o tamanho constante total vai mais de 10 TB de dados) que precisam ser criados, não os dezenas ou centenas usuais, envie um [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)email para.
+Não há nenhum limite físico no número de tabelas. Se você tiver um grande número de tabelas (em que o tamanho constante total vai mais de 10 TB de dados) que precisam ser criados, não os dezenas ou centenas usuais, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="what-is-the-maximum-number-of-keyspaces-that-i-can-create"></a>Qual é o número máximo de keyspaces que posso criar?
 
-Não há nenhum limite físico para o número de keyspaces porque eles são contêineres de metadados. Se você tiver um grande número de keyspaces, envie um email [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)para.
+Não há nenhum limite físico para o número de keyspaces porque eles são contêineres de metadados. Se você tiver um grande número de keyspaces, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="can-i-bring-in-a-lot-of-data-after-starting-from-a-normal-table"></a>Posso colocar muitos dados depois de iniciar a partir de uma tabela normal?
 
@@ -141,7 +140,7 @@ O Azure Cosmos DB é um serviço de plataforma que ajuda a aumentar a produtivid
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Quais SDKs de cliente podem trabalhar com o API do Cassandra?
 
-Os drivers de cliente do SDK do Apache Cassandra que usam CQLv3 foram usados para programas cliente. Se você tiver outros drivers que você usa ou se estiver enfrentando problemas, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+Os drivers de cliente do SDK do Apache Cassandra que usam CQLv3 foram usados para programas cliente. Se você tiver outros drivers que você usa ou se estiver enfrentando problemas, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) .
 
 ### <a name="are-composite-partition-keys-supported"></a>Há suporte para chaves de partição compostas?
 
@@ -153,13 +152,13 @@ Não, não há suporte para sstableloader.
 
 ### <a name="can-i-pair-an-on-premises-apache-cassandra-cluster-with-the-cassandra-api"></a>Posso emparelhar um cluster apache Cassandra local com o API do Cassandra?
 
-No momento, Azure Cosmos DB tem uma experiência otimizada para um ambiente de nuvem sem a sobrecarga das operações. Se você precisar de emparelhamento, envie um email [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) para com uma descrição do seu cenário. Estamos trabalhando em uma oferta para ajudar a emparelhar o cluster local ou de nuvem Cassandra com o API do Cassandra para Azure Cosmos DB.
+No momento, Azure Cosmos DB tem uma experiência otimizada para um ambiente de nuvem sem a sobrecarga das operações. Se você precisar de emparelhamento, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) com uma descrição do seu cenário. Estamos trabalhando em uma oferta para ajudar a emparelhar o cluster local ou de nuvem Cassandra com o API do Cassandra para Azure Cosmos DB.
 
 ### <a name="does-the-cassandra-api-provide-full-backups"></a>O API do Cassandra fornece backups completos?
 
 O Azure Cosmos DB fornece dois backups completos gratuitos feitos em intervalos de quatro horas em todas as APIs. Portanto, você não precisa configurar um agendamento de backup. 
 
-Se você quiser modificar a retenção e a frequência, envie um [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) email para ou gere um caso de suporte. As informações sobre a funcionalidade de backup são fornecidas no artigo [Backup e restauração online automáticos com o Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Se você quiser modificar a retenção e a frequência, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) ou gere um caso de suporte. As informações sobre a funcionalidade de backup são fornecidas no artigo [Backup e restauração online automáticos com o Azure Cosmos DB](online-backup-and-restore.md).
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>Como uma conta da API Cassandra lida com o failover caso uma região fique inativa?
 

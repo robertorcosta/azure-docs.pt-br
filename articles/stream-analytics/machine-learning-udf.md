@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83874078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488742"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrar o Azure Stream Analytics com o Azure Machine Learning (versão prévia)
 
@@ -24,7 +23,7 @@ Conclua as etapas a seguir antes de adicionar um modelo de machine learning como
 
 1. Use o Azure Machine Learning para [implantar seu modelo como um serviço Web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Seu script de pontuação deve ter [entradas e saídas de exemplos](../machine-learning/how-to-deploy-and-where.md#example-entry-script) que são usadas pelo Azure Machine Learning para gerar uma especificação de esquema. O Stream Analytics usa o esquema para entender a assinatura de função do serviço Web.
+2. Seu script de pontuação deve ter [entradas e saídas de exemplos](../machine-learning/how-to-deploy-and-where.md#example-entry-script) que são usadas pelo Azure Machine Learning para gerar uma especificação de esquema. O Stream Analytics usa o esquema para entender a assinatura de função do serviço Web. Você pode usar esta [definição de Swagger de exemplo](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) como uma referência para garantir que você a configurou corretamente.
 
 3. Verifique se o serviço Web aceita e retorna dados serializados JSON.
 

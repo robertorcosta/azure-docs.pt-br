@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84310378"
 ---
-# <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
 
 Encontre respostas para perguntas comuns sobre o HSM Dedicado do Azure da Microsoft.
 
@@ -115,7 +114,7 @@ Sim, se você tiver HSMs da Gemalto SafeNet no local. Existem vários métodos. 
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>P: Quais sistemas operacionais são suportados pelo software cliente de HSM Dedicado?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtual: VMware, hyperv, Xen, KVM
+* Virtual: VMware, Hyper-V, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>P: Como configuro meu aplicativo cliente para criar uma configuração de alta disponibilidade com várias partições de vários HSMs?
 
@@ -242,7 +241,7 @@ A Microsoft não tem a capacidade de se conectar a HSMs alocados a clientes. Os 
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P: e se eu precisar reinicializar meu HSM?
 
-O HSM tem uma opção de reinicialização de linha de comando. no entanto, estamos enfrentando problemas de reinicialização intermitente e, por esse motivo, é recomendado para a reinicialização mais segura que você gera uma solicitação de suporte com a Microsoft para que o dispositivo tenha reinicializado fisicamente. 
+O HSM tem uma opção de reinicialização de linha de comando. no entanto, estamos enfrentando problemas em que a reinicialização para de responder intermitentemente e, por esse motivo, é recomendável para a reinicialização mais segura que você gera uma solicitação de suporte com a Microsoft para que o dispositivo seja reinicializado fisicamente. 
 
 ## <a name="cryptography-and-standards"></a>Criptografia e Padrões
 

@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: fd7582877a74aa998de3a6d0a0f38e56c3c3af91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a007fe80c7c95305d65819eaa7081a8ff69e1cfc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463681"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
 
@@ -40,7 +39,7 @@ A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. En
 
 5. Selecione **[Fórum da comunidade de parceiros do Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder suas perguntas, aproveitando o conhecimento de outros publicadores da Microsoft. 
 
-6. Selecione **[ajuda adicional](https://partner.microsoft.com/support/v2/?stage=1)** para abrir um **novo** tíquete de solicitação de suporte.  
+6. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um **novo** tíquete de solicitação de suporte.  
 
 ## <a name="how-to-open-a-support-ticket"></a>Como abrir um tíquete de suporte
 

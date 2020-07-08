@@ -7,25 +7,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/06/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1a7cb964064e229ee29591ca14aa8ef33e393a7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484180"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Políticas personalizadas são arquivos de configuração que definem o comportamento do seu locatário Azure Active Directory B2C (Azure AD B2C). Fluxos de usuário são predefinidos no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidades para concluir várias tarefas diferentes.
+As políticas personalizadas são arquivos de configuração que definem o comportamento do locatário do Azure AD B2C (Azure Active Directory B2C). Fluxos de usuário são predefinidos no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidades para concluir várias tarefas diferentes.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparando fluxos dos usuários e as políticas personalizadas
 
-| | Fluxos de usuário | Políticas personalizadas |
+| Contexto | Fluxos de usuário | Políticas personalizadas |
 |-|-------------------|-----------------|
 | Usuários de destino | Todos os desenvolvedores de aplicativos, com ou sem experiência em identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipes internas de identidade. Eles se sentem confortáveis com os fluxos do OpenID Connect e entendem os provedores de identidade e a autenticação baseada em declarações. |
 | Método de configuração | Portal do Azure com uma UI (interface do usuário) amigável ao usuário. | Editando arquivos XML diretamente e carregando-os no portal do Azure. |

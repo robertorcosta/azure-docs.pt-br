@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84307921"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilar e implantar o serviço de gerenciamento de certificados do compartimento OPC
 
@@ -51,7 +50,7 @@ Como alternativa, você pode clonar o repositório diretamente no Visual Studio 
 Um script do PowerShell fornece uma maneira fácil de implantar o microserviço do cofre OPC e o aplicativo.
 
 1. Abra uma janela do PowerShell na raiz do repositório. 
-3. Vá para a pasta `cd deploy`implantar.
+3. Vá para a pasta implantar `cd deploy` .
 3. Escolha um nome `myResourceGroup` que seja improvável de causar um conflito com outras páginas da Web implantadas. Consulte a seção "nome do site já em uso" mais adiante neste artigo.
 5. Inicie a implantação com `.\deploy.ps1` para instalação interativa ou insira uma linha de comando completa:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
@@ -76,26 +75,26 @@ Um script do PowerShell fornece uma maneira fácil de implantar o microserviço 
    > Em caso de problemas, consulte a seção "Solucionando problemas de falhas de implantação" mais adiante neste artigo.
 
 8. Abra seu navegador favorito e abra a página do aplicativo:`https://myResourceGroup.azurewebsites.net`
-8. Dê ao aplicativo Web e ao microserviço do compartimento OPC alguns minutos para fazer o aquecimento após a implantação. O home page da Web pode travar no primeiro uso, por até um minuto, até que você obtenha as primeiras respostas.
+8. Dê ao aplicativo Web e ao microserviço do compartimento OPC alguns minutos para fazer o aquecimento após a implantação. O home page da Web pode parar de responder no primeiro uso, por até um minuto, até que você obtenha as primeiras respostas.
 11. Para dar uma olhada na API do Swagger, abra:`https://myResourceGroup-service.azurewebsites.net`
-13. Para iniciar um servidor GDS local com dotnet, inicie `.\myResourceGroup-gds.cmd`. Com o Docker, `.\myResourceGroup-dockergds.cmd`inicie.
+13. Para iniciar um servidor GDS local com dotnet, inicie `.\myResourceGroup-gds.cmd` . Com o Docker, inicie `.\myResourceGroup-dockergds.cmd` .
 
 É possível reimplantar uma compilação com exatamente as mesmas configurações. Lembre-se de que essa operação renova todos os segredos do aplicativo e pode redefinir algumas configurações nos registros do aplicativo Azure Active Directory (AD do Azure).
 
-Também é possível reimplantar apenas os binários do aplicativo Web. Com o parâmetro `-onlyBuild 1`, novos pacotes zip do serviço e o aplicativo são implantados nos aplicativos Web.
+Também é possível reimplantar apenas os binários do aplicativo Web. Com o parâmetro `-onlyBuild 1` , novos pacotes zip do serviço e o aplicativo são implantados nos aplicativos Web.
 
 Após a implantação bem-sucedida, você pode começar a usar os serviços. Consulte [gerenciar o serviço de gerenciamento de certificados do cofre do OPC](howto-opc-vault-manage.md).
 
 ## <a name="delete-the-services-from-the-subscription"></a>Excluir os serviços da assinatura
 
-Veja como:
+Aqui está como:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Vá para o grupo de recursos no qual o serviço foi implantado.
 3. Selecione **Excluir grupo de recursos** e confirme.
 4. Após alguns instantes, todos os componentes de serviço implantados são excluídos.
-5. Vá para **Azure Active Directory** > **registros de aplicativo**.
-6. Deve haver três registros listados para cada grupo de recursos implantado. Os registros têm os seguintes nomes: `resourcegroup-client`, `resourcegroup-module`,. `resourcegroup-service` Exclua cada registro separadamente.
+5. Vá para **Azure Active Directory**  >  **registros de aplicativo**.
+6. Deve haver três registros listados para cada grupo de recursos implantado. Os registros têm os seguintes nomes: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Exclua cada registro separadamente.
 
 Agora todos os componentes implantados são removidos.
 
@@ -107,7 +106,7 @@ Use um nome de grupo de recursos curto e simples. O nome também é usado para n
 
 ### <a name="website-name-already-in-use"></a>O nome do site já está em uso
 
-É possível que o nome do site já esteja em uso. Você precisa usar um nome de grupo de recursos diferente. Os nomes de host em uso pelo script de implantação são: https\/:/resourcegroupname.azurewebsites.net e HTTPS\/:/resourgroupname-Service.azurewebsites.net.
+É possível que o nome do site já esteja em uso. Você precisa usar um nome de grupo de recursos diferente. Os nomes de host em uso pelo script de implantação são: https: \/ /resourcegroupname.azurewebsites.net e https: \/ /resourgroupname-Service.azurewebsites.net.
 Outros nomes de serviços são criados pela combinação de hashes de nome curtos e são pouco prováveis de entrar em conflito com outros serviços.
 
 ### <a name="azure-ad-registration"></a>Registro do Azure AD 

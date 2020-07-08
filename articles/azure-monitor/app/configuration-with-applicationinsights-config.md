@@ -4,17 +4,16 @@ description: Habilitar ou desabilitar módulos de coleta de dados e adicionar co
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 3375c24739da8663aa6a40deeb53e02e65d1f9bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dde2cbf227f085b751f6ad22e1f2fa95f38c5915
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485125"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou.xml
 O SDK .NET do Application Insights consiste em vários pacotes NuGet. O [pacote principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria ao Application Insights. Os [pacotes adicionais](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecem *módulos* e *inicializadores* de telemetria para rastreamento automático de telemetria do seu aplicativo e respectivo contexto. Ao ajustar o arquivo de configuração, você pode habilitar ou desabilitar módulos e inicializadores de telemetria e definir parâmetros para alguns deles.
 
-O arquivo de configuração é chamado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo do seu aplicativo. Ele é adicionado automaticamente ao seu projeto quando você [instala a maioria das versões do SDK][start]. Por padrão, ao usar a experiência automatizada dos projetos de modelo do Visual Studio que dão suporte à **adição de > Application insights Telemetry**, o arquivo ApplicationInsights. config é criado na pasta raiz do projeto e, quando compatível, é copiado para a pasta bin. Ele também é adicionado a um aplicativo Web por [status monitor em um servidor IIS][redfield]. O arquivo de configuração será ignorado se a [extensão para o site](azure-web-apps.md) ou [a extensão do Azure para a VM do Azure e o conjunto de dimensionamento de máquinas virtuais](azure-vm-vmss-apps.md) for usado.
+O arquivo de configuração é chamado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo do seu aplicativo. Ele é adicionado automaticamente ao seu projeto quando você [instala a maioria das versões do SDK][start]. Por padrão, ao usar a experiência automatizada dos projetos de modelo do Visual Studio que dão suporte à **adição de > Application insights Telemetry**, o arquivo de ApplicationInsights.config é criado na pasta raiz do projeto e, quando compatível, é copiado para a pasta bin. Ele também é adicionado a um aplicativo Web por [status monitor em um servidor IIS][redfield]. O arquivo de configuração será ignorado se a [extensão para o site](azure-web-apps.md) ou [a extensão do Azure para a VM do Azure e o conjunto de dimensionamento de máquinas virtuais](azure-vm-vmss-apps.md) for usado.
 
 Não há um arquivo equivalente para controlar o [SDK em uma página da Web][client].
 
@@ -52,7 +51,7 @@ Os erros de `DiagnosticsTelemetryModule` relatórios na instrumentação do Appl
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
 ```
 
-### <a name="developer-mode"></a>Modo de desenvolvedor
+### <a name="developer-mode"></a>Modo de Desenvolvedor
 `DeveloperModeWithDebuggerAttachedTelemetryModule` força `TelemetryChannel` do Application Insights a enviar dados imediatamente, um item de telemetria por vez, quando um depurador é conectado ao processo de aplicativo. Isso reduz a quantidade de tempo entre o momento em que seu aplicativo rastreia a telemetria e quando ele aparece no portal do Application Insights. Faz com uma sobrecarga significativa na largura de banda de CPU e rede.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
@@ -69,7 +68,7 @@ Relatórios do [código de tempo e o resultado da resposta](../../azure-monitor/
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) .
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` -rastreia [exceções de tarefa não observada](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule`-rastreia exceções de tarefas não observadas
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` -rastreia as exceções sem tratamento para funções de trabalho, serviços do Windows e aplicativos de console.
 * [Application insights o Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) Pacote NuGet.
 

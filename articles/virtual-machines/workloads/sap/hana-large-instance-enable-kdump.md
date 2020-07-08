@@ -13,12 +13,11 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16dc15b4369904643d0138a4b8e5b94c47868d31
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488878"
 ---
 # <a name="enable-kdump-service"></a>Habilitar serviço kdump
 
@@ -30,18 +29,34 @@ Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azu
 |-----------------------------|--------------|-----------------------|-------------|
 |   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Tipo I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
+|   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S72        |
 |   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S72m       |
 |   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S72m       |
 |   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S96        |
 |   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S96        |
+|   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S192       |
+|   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S192       |
+|   Tipo I                    |  SuSE        |   SLES 12 SP4         |  S192       |
+|   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S192m      |
+|   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S192m      |
+|   Tipo I                    |  SuSE        |   SLES 12 SP4         |  S192m      |
+|   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S144       |
+|   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S144       |
+|   Tipo I                    |  SuSE        |   SLES 12 SP2         |  S144m      |
+|   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S144m      |
+|   Tipo II                   |  SuSE        |   SLES 12 SP2         |  S384       |
 |   Tipo II                   |  SuSE        |   SLES 12 SP3         |  S384       |
-|   Tipo II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
+|   Tipo II                   |  SuSE        |   SLES 12 SP4         |  S384       |
+|   Tipo II                   |  SuSE        |   SLES 12 SP2         |  S384xm     |
 |   Tipo II                   |  SuSE        |   SLES 12 SP3         |  S384xm     |
 |   Tipo II                   |  SuSE        |   SLES 12 SP4         |  S384xm     |
+|   Tipo II                   |  SuSE        |   SLES 12 SP2         |  S576m      |
+|   Tipo II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
+|   Tipo II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O serviço kdump `/var/crash` usa o diretório para gravar despejos, verifique se a partição correspondente a esse diretório tem espaço suficiente para acomodar despejos.
+- O serviço kdump usa `/var/crash` o diretório para gravar despejos, verifique se a partição correspondente a esse diretório tem espaço suficiente para acomodar despejos.
 
 ## <a name="setup-details"></a>Detalhes de configuração
 
@@ -68,11 +83,10 @@ Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azu
 - Disparar uma falha de kernel
 
     ```bash
-    echo 1 > /proc/sys/kernel/sysrq
     echo c > /proc/sysrq-trigger
     ```
 
-- Depois que o sistema for reinicializado com êxito, `/var/crash` Verifique o diretório para os logs de falhas do kernel.
+- Depois que o sistema for reinicializado com êxito, verifique o `/var/crash` diretório para os logs de falhas do kernel.
 
 - Se o `/var/crash` diretório tiver a data atual, o kdump será habilitado com êxito.
 

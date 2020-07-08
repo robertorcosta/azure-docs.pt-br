@@ -1,14 +1,13 @@
 ---
 title: Configurar link privado
-description: Configurar um ponto de extremidade privado em um registro de contêiner e habilitar o acesso em um link privado em uma rede virtual local
+description: Configure um ponto de extremidade privado em um registro de contêiner e habilite o acesso em um link privado em uma rede virtual local. O acesso ao link privado é um recurso da camada de serviço Premium.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509331"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configurar o Link Privado do Azure para um registro de contêiner do Azure 
 
@@ -210,7 +209,7 @@ Configure um link privado ao criar um registro, ou adicione um link privado a um
 1. Em **Conectividade de rede**, selecione **Ponto de extremidade privado** >  **+ Adicionar**.
 1. Insira ou selecione as seguintes informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Insira o nome de um grupo existente ou crie um novo.|
@@ -246,7 +245,7 @@ Configure um link privado ao criar um registro, ou adicione um link privado a um
 5. Selecione **Avançar: Recurso**.
 6. Insira ou selecione as seguintes informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione **Conectar-se a um recurso do Azure em meu diretório**.|
     | Subscription| Selecione sua assinatura. |

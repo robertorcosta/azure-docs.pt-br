@@ -5,12 +5,11 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437518"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488028"
 ---
 # <a name="references"></a>Referências
 
@@ -38,13 +37,13 @@ A tabela a seguir resume todos os objetos e recursos no FarmBeats Datahub:
 Farm | O farm corresponde a um local físico de interesse no sistema FarmBeats. Cada Farm tem um nome de farm e uma ID de farm exclusiva. |
 Dispositivo  | O dispositivo corresponde a um dispositivo físico presente no farm. Cada dispositivo tem uma ID de dispositivo exclusiva. Um dispositivo é normalmente provisionado em um farm com uma ID de farm.
 DeviceModel  | DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é o gateway ou o nó.
-Sensor  | O sensor corresponde a um sensor físico que registra valores. Um sensor normalmente é conectado a um dispositivo com uma ID de dispositivo.
+Sensor  | O sensor corresponde a um sensor físico que registra valores. Um sensor geralmente está conectado a um dispositivo com uma ID de dispositivo.
 SensorModel  | SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
 Telemetria  | A telemetria fornece a capacidade de ler mensagens de telemetria para um determinado sensor e intervalo de tempo.
 Trabalho  | O trabalho corresponde a qualquer Workflow de atividades executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho é associado a uma ID de trabalho e tipo de trabalho.
 JobType  | JobType corresponde a diferentes tipos de trabalho com suporte no sistema. Os tipos de trabalho definidos pelo sistema e definidos pelo usuário estão incluídos.
 ExtendedType  | O extendetype corresponde à lista de tipos definidos pelo usuário e pelo sistema no sistema. O Extended ajuda a configurar um novo tipo de arquivo de sensor, cena ou cena no sistema FarmBeats.
-Parceiro  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
+Partner (parceiro)  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
 Cena  | A cena corresponde a qualquer saída gerada no contexto de um farm. Cada cena tem uma ID de cena, origem da cena, tipo de cena e ID de farm associada a ela. Cada ID de cena pode ter vários arquivos de cena associados a ela.
 Scenefile |O scenefile corresponde a todos os arquivos que são gerados para uma única cena. Uma única ID de cena pode ter várias IDs de Scenefile associadas a ela.
 Regra  |A regra corresponde a uma condição para que os dados relacionados ao farm disparem um alerta. Cada regra está no contexto dos dados de um farm.
@@ -54,7 +53,7 @@ RoleAssignment  |RoleAssignment corresponde à atribuição de uma função a um
 
 ### <a name="data-format"></a>Formato de dados
 
-JSON é um formato de dados comum independente de linguagem que fornece uma representação de texto simples de estruturas de dados arbitrárias. Para obter mais informações, consulte o [site JSON](https://www.json.org/).
+O JSON é um formato de dados comum independente de linguagem que fornece uma representação de texto simples de estruturas de dados arbitrárias. Para obter mais informações, consulte o [site JSON](https://www.json.org/).
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
 
@@ -72,19 +71,19 @@ headers = {"Authorization": "Bearer " + **access_token**}
 Aqui estão os cabeçalhos de solicitação mais comuns que você deve especificar ao fazer uma chamada à API para o Azure FarmBeats Datahub.
 
 
-**Verga** | **Descrição e exemplo**
+**Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Tipo de conteúdo  | O formato da solicitação (Content-Type: Application<format>/). Para APIs do Azure FarmBeats Datahub, o formato é JSON. Content-Type: application/json
-Autorização  | Especifica o token de acesso necessário para fazer uma chamada à API. Autorização: portador de acesso <token>
-Aceitar | O formato da resposta. Para APIs do Azure FarmBeats Datahub, o formato é JSON. Aceitar: aplicativo/JSON
+Tipo de conteúdo  | O formato da solicitação (Content-Type: application/<format>). Para APIs do Azure FarmBeats Datahub, o formato é JSON. Content-Type: application/json
+Autorização  | Especifica o token de acesso necessário para fazer uma chamada à API. Autorização: Bearer <token-de-acesso>
+Aceitar | O formato da resposta. Para APIs do Azure FarmBeats Datahub, o formato é JSON. Aceitar: application/json
 
-### <a name="api-requests"></a>Solicitações de API
+### <a name="api-requests"></a>Solicitações da API
 
 Para fazer uma solicitação de API REST, você combina o método HTTP (GET, POST, PUT ou DELETE), a URL para o serviço de API, o URI para um recurso para consultar, enviar dados para, atualizar ou excluir e, em seguida, adicionar um ou mais cabeçalhos de solicitação HTTP.
 
-A URL para o serviço de API é a URL do Datahub, por exemplo\<, https://yourdatahub-site-Name>. azurewebsites.net.
+A URL para o serviço de API é a URL do Datahub, por exemplo, https:// \<yourdatahub-website-name> . azurewebsites.net.
 
-Opcionalmente, você pode incluir parâmetros de consulta em GET calls para filtrar, limitar o tamanho e classificar os dados nas respostas.
+Opcionalmente, você pode incluir parâmetros de consulta nas chamadas GET para filtrar, limitar o tamanho e classificar os dados nas respostas.
 
 A seguinte solicitação de exemplo é usada para obter a lista de dispositivos:
 
@@ -113,7 +112,7 @@ As APIs do Azure FarmBeats Datahub retornam os erros HTTP padrão. Os códigos d
 
  |Código do erro             | Descrição |
  |---                    | --- |
- |200                    | Êxito |
+ |200                    | Sucesso |
  |201                    | Criar (post) êxito |
  |400                    | Solicitação inválida. Há um erro na solicitação. |
  |401                    | Não autorizado. O chamador da API não está autorizado a acessar o recurso. |
@@ -147,7 +146,7 @@ Neste exemplo, quando um farm foi criado, o campo obrigatório "Name" não foi e
 
 As APIs FarmBeats do Azure podem ser acessadas por um usuário ou um registro de aplicativo no Azure Active Directory. Para criar um registro de aplicativo no Azure Active Directory, siga estas etapas:
 
-1. Vá para a [portal do Azure](https://portal.azure.com)e selecione **Azure Active Directory** > **registros de aplicativo** > **novo registro**. Como alternativa, você pode usar uma conta existente.
+1. Vá para a [portal do Azure](https://portal.azure.com)e selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**. Como alternativa, você pode usar uma conta existente.
 2. Para uma nova conta, faça o seguinte:
 
     - Insira um nome.
@@ -162,9 +161,18 @@ As APIs FarmBeats do Azure podem ser acessadas por um usuário ou um registro de
     - Volte para **visão geral**e selecione o link ao lado de **gerenciar aplicativo no diretório local**.
     - Vá para **Propriedades** para capturar a **ID do objeto**.
 
-4. Vá para o Swagger do Datahub (<yourdatahub>https://. azurewebsites.net/Swagger/index.html) e faça o seguinte:
+4. Vá para o Swagger do Datahub (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) e faça o seguinte:
     - Vá para a **API do RoleAssignment**.
     - Execute uma POSTAgem para criar um objeto **RoleAssignment** para a **ID de objeto** que você acabou de criar.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
   > Para obter mais informações sobre como adicionar usuários e Active Directory registro, consulte [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).

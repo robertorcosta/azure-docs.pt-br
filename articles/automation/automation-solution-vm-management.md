@@ -3,20 +3,22 @@ title: Visão geral do recurso Iniciar/Parar VMs fora do horário comercial da A
 description: Este artigo descreve o recurso Iniciar/Parar VMs fora do horário comercial, que inicia ou interrompe as VMs de acordo com um agendamento e as monitora proativamente a partir de logs do Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2f23f4045f0326ffea14ddeb4d588261872188f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424067"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
-O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para interrompe as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/platform/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários. 
+O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/platform/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários. 
 
-Esse recurso usa o cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar as VMs. Ele usa [Stop-AzureRmVMpara](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para interromper as VMs.
+Esse recurso usa o cmdlet [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) para iniciar as VMs. Ele usa [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar as VMs.
+
+> [!NOTE]
+> Embora os runbooks tenham sido atualizados para usar os novos cmdlets do módulo AZ do Azure, eles usam o alias de prefixo AzureRM.
 
 > [!NOTE]
 > O recurso Iniciar/Parar VMs fora do horário comercial foi atualizado para dar suporte às versões mais recentes dos módulos do Azure que estão disponíveis. A versão atualizada desse recurso, disponível no Marketplace, não dá suporte a módulos do AzureRM porque migramos do AzureRM para módulos AZ.
@@ -90,7 +92,7 @@ Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comer
 
 ## <a name="components"></a>Componentes
 
-O recurso Iniciar/Parar VMs fora do horário comercial inclui runbooks pré-configurados, agendamentos e integração com logs do Azure Monitor. Você pode usar esses elementos para personalizar a inicialização e o desligamento de suas VMs de acordo com suas necessidades de negócios.
+O recurso Iniciar/Parar VMs fora do horário comercial inclui runbooks pré-configurados, agendas e integração com logs de Azure Monitor. Você pode usar esses elementos para personalizar a inicialização e o desligamento de suas VMs de acordo com suas necessidades de negócios.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -104,7 +106,7 @@ Todos os runbooks pai incluem o parâmetro `WhatIf`. Quando definido como True, 
 |Runbook | Parâmetros | Descrição|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chamada a partir do runbook pai. Esse runbook cria alertas por recurso para o cenário Auto-Stop.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza regras de alerta do Azure em VMs nos grupos de assinatura ou de recursos de destino. <br> `VMList` é uma lista de VMs separada por vírgulas. Por exemplo, `vm1, vm2, vm3`.<br> `WhatIf` habilita a validação da lógica do runbook sem execução.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza regras de alerta do Azure em VMs nos grupos de assinatura ou de recursos de destino. <br> `VMList`é uma lista separada por vírgulas de VMs (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` habilita a validação da lógica do runbook sem execução.|
 |AutoStop_Disable | Nenhum | Desabilita os alertas de Auto-Stop e o agendamento padrão.|
 |AutoStop_VM_Child | WebHookData | Chamada a partir do runbook pai. As regras de alerta chamam esse runbook para parar uma VM clássica.|
 |AutoStop_VM_Child_ARM | WebHookData |Chamada a partir do runbook pai. As regras de alerta chamam esse runbook para interromper uma VM.  |
@@ -112,7 +114,7 @@ Todos os runbooks pai incluem o parâmetro `WhatIf`. Quando definido como True, 
 |ScheduledStartStop_Child | VMName <br> Ação: Iniciar ou parar <br> ResourceGroupName | Chamada a partir do runbook pai. Executa uma ação de iniciar ou parar para a parada agendada.|
 |ScheduledStartStop_Child_Classic | VMName<br> Ação: Iniciar ou parar<br> ResourceGroupName | Chamada a partir do runbook pai. Executa uma ação de iniciar ou parar na parada agendada para VMs clássicas. |
 |ScheduledStartStop_Parent | Ação: Iniciar ou parar <br>VMList <br> WhatIf: Verdadeiro ou Falso | Inicia ou para todas as VMs na assinatura. Edite as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` para serem executadas somente nesses grupos de recursos de destino. Você também pode excluir VMs específicas atualizando a variável `External_ExcludeVMNames`.|
-|SequencedStartStop_Parent | Ação: Iniciar ou parar <br> WhatIf: Verdadeiro ou Falso<br>VMList| Cria tags com o nome **sequencestart** e **sequencestop** em cada VM para as quais você deseja sequenciar a atividade de iniciar/parar. Os nomes das tags diferenciam maiúsculas de minúsculas. O valor da marca deve ser um inteiro positivo (1, 2, 3) que corresponde à ordem em que você deseja iniciar ou parar. <br>**Observação**: As VMs devem estar dentro dos grupos de recursos definidos nas variáveis `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` e `External_ExcludeVMNames`. Elas devem ter as marcas apropriadas para que as ações entrem em vigor.|
+|SequencedStartStop_Parent | Ação: Iniciar ou parar <br> WhatIf: Verdadeiro ou Falso<br>VMList| Cria tags com o nome **sequencestart** e **sequencestop** em cada VM para as quais você deseja sequenciar a atividade de iniciar/parar. Os nomes das tags diferenciam maiúsculas de minúsculas. O valor da marca deve ser uma lista de inteiros positivos, por exemplo,, `1,2,3` que corresponde à ordem na qual você deseja iniciar ou parar. <br>**Observação**: As VMs devem estar dentro dos grupos de recursos definidos nas variáveis `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` e `External_ExcludeVMNames`. Elas devem ter as marcas apropriadas para que as ações entrem em vigor.|
 
 ### <a name="variables"></a>Variáveis
 
@@ -132,7 +134,7 @@ A tabela a seguir lista as variáveis criadas na sua conta da Automação. Modif
 |External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo aplicado ao tamanho de janela selecionado para avaliar a condição. Os valores aceitáveis são `Average`, `Minimum`, `Maximum`, `Total` e `Last`.|
 |External_AutoStop_TimeWindow | O tamanho da janela durante o qual o Azure analisa a métrica selecionada para disparar um alerta. Esse parâmetro aceita a entrada no formato Intervalo de tempo. Os valores possíveis são de 5 minutos até 6 horas.|
 |External_EnableClassicVMs| Valor que especifica se as VMs clássicas são destinadas ao recurso. O valor padrão é True. Defina essa variável como False para assinaturas do CSP (Provedor de Soluções de Nuvem) do Azure. As VMs clássicas exigem uma [conta Executar como clássica](automation-create-standalone-account.md#create-a-classic-run-as-account).|
-|External_ExcludeVMNames | Lista separada por vírgulas de nomes de VMs a serem excluídas, limitada a 140 VMs. Se você adicionar mais de 140 VMs a essa lista, as VMs que estão definidas para serem excluídas podem ser acidentalmente iniciadas ou interrompidas.|
+|External_ExcludeVMNames | Lista separada por vírgulas de nomes de VMs a serem excluídas, limitada a 140 VMs. Se você adicionar mais de 140 VMs à lista, as VMs especificadas para exclusão poderão ser iniciadas ou interrompidas inadvertidamente.|
 |External_Start_ResourceGroupNames | Lista separada por vírgulas de um ou mais grupos de recursos que são direcionados para ações de inicialização.|
 |External_Stop_ResourceGroupNames | Lista separada por vírgulas de um ou mais grupos de recursos que são direcionados para ações de parada.|
 |External_WaitTimeForVMRetrySeconds |O tempo de espera em segundos para que as ações sejam executadas nas VMs para o runbook **SequencedStartStop_Parent**. Essa variável permite que o runbook aguarde as operações filhas por um número especificado de segundos antes de prosseguir com a próxima ação. O tempo de espera máximo é de 10800 ou três horas. O valor padrão é 2100 segundos.|
@@ -170,7 +172,7 @@ Para o uso do recurso com VMs clássicas, você precisa de uma conta Executar co
 Se você tiver mais de 20 VMs por serviço de nuvem, confira algumas recomendações:
 
 * Crie vários agendamentos com o runbook pai **ScheduledStartStop_Parent** e especifique 20 VMs por agendamento. 
-* Nas propriedades do agendamento, use o parâmetro `VMList` para especificar nomes de VMs como uma lista separada por vírgulas. 
+* Nas propriedades da agenda, use o `VMList` parâmetro para especificar nomes de VM como uma lista separada por vírgulas (sem espaços em branco). 
 
 Caso contrário, se o trabalho de Automação para esse recurso for executado por mais de três horas, ele será temporariamente descarregado ou interrompido de acordo com o limite de [compartilhamento justo](automation-runbook-execution.md#fair-share).
 

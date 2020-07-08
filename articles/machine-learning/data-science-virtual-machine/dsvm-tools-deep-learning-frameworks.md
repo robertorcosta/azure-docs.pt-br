@@ -6,16 +6,16 @@ keywords: ferramentas de ciência de dados, máquina virtual de ciência de dado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: d8a5cf428f41b130e6faf68ac87a075c15211099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557479"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Estruturas de aprendizado profundo e de ia para o Azure VM de Ciência de Dados
 Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
@@ -26,8 +26,8 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | ------------- | ------------- |
 | Versão (ões) com suporte | |
 | Edições DSVM com suporte      | Linux (Ubuntu)     |
-| Como é configurado/instalado no DSVM?  | O Caffe é instalado em `/opt/caffe`.   Os exemplos estão `/opt/caffe/examples`em.|
-| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do navegador é aberta com blocos de anotações de exemplo. Binários são instalados em /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,5, que é ativado por padrão. Para alternar para o Python 2,7, `source activate root` execute para alternar para o ambiente Anaconda.|    
+| Como é configurado/instalado no DSVM?  | O Caffe é instalado em `/opt/caffe`.   Os exemplos estão em `/opt/caffe/examples` .|
+| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do navegador é aberta com blocos de anotações de exemplo. Binários são instalados em /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,5, que é ativado por padrão. Para alternar para o Python 2,7, execute `source activate root` para alternar para o ambiente Anaconda.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
@@ -45,7 +45,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Versão (ões) com suporte | 5.2 |
 | Edições DSVM com suporte      | Linux (Ubuntu)     |
 | Como é configurado/instalado no DSVM?  | O Chainer é instalado em Python 3.5. |
-| Como executá-lo      | Terminal: Ative o ambiente Python 3,5, execute `python`e, em `import chainer`seguida. <br/> * JupyterHub: [Conecte-se ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, vá para o diretório do encadeamento para encontrar blocos de anotações de exemplo.| 
+| Como executá-lo      | Terminal: Ative o ambiente Python 3,5, execute `python` e, em seguida `import chainer` . <br/> * JupyterHub: [Conecte-se ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, vá para o diretório do encadeamento para encontrar blocos de anotações de exemplo.| 
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[CUDA, cuDNN, driver NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
@@ -89,8 +89,8 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | ------------- | ------------- |
 | Versão (ões) com suporte | 1.3.0 |
 | Edições DSVM com suporte      | Windows e Linux   |
-| Como é configurado/instalado no DSVM?  | O MXNet é instalado `C:\dsvm\tools\mxnet` no no Windows `/dsvm/tools/mxnet` e no Ubuntu. As associações do Python são instaladas no Python 3,6 no [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) e no Python 3,5 no [Linux](./dsvm-tools-languages.md#python-linux-edition)) as associações do R também estão incluídas no Ubuntu DSVM. |
-| Como executá-lo      | Terminal: Ative o ambiente Conda correto e, em `import mxnet`seguida, execute. <br/>Jupyter: Conecte-se ao [Jupyter](provision-vm.md#access-the-dsvm) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em `mxnet` seguida, abra o diretório para obter exemplos. |
+| Como é configurado/instalado no DSVM?  | O MXNet é instalado no `C:\dsvm\tools\mxnet` no Windows e `/dsvm/tools/mxnet` no Ubuntu. As associações do Python são instaladas no Python 3,6 no [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) e no Python 3,5 no [Linux](./dsvm-tools-languages.md#python-linux-edition)) as associações do R também estão incluídas no Ubuntu DSVM. |
+| Como executá-lo      | Terminal: Ative o ambiente Conda correto e, em seguida, execute `import mxnet` . <br/>Jupyter: Conecte-se ao [Jupyter](provision-vm.md#access-the-dsvm) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o `mxnet` diretório para obter exemplos. |
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
@@ -109,7 +109,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Edições DSVM com suporte      | Windows e Linux   |
 | Para que ele serve? | Ferramenta NVIDIA para consultar a atividade da GPU |
 | Como é configurado/instalado no DSVM?  | `nvidia-smi`está no caminho do sistema. |
-| Como executá-lo      | Em uma máquina virtual **com GPU**, abra um prompt de comando (no Windows) ou um terminal (no Linux) e, em seguida `nvidia-smi`, execute. |
+| Como executá-lo      | Em uma máquina virtual **com GPU**, abra um prompt de comando (no Windows) ou um terminal (no Linux) e, em seguida, execute `nvidia-smi` . |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 

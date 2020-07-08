@@ -2,16 +2,13 @@
 title: Conceitos – dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
 description: Saiba mais sobre como dimensionar no AKS (Serviço de Kubernetes do Azure), incluindo dimensionador automático de pod horizontal, dimensionador automático do cluster e conector de Instâncias de Contêiner do Azure.
 services: container-service
-author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: zarhoads
-ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465330"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções dimensionamento para aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -94,15 +91,15 @@ Para começar a dimensionar aplicativos, primeiro siga o [guia de início rápid
 
 - Dimensionar manualmente os [pods][aks-manually-scale-pods] ou os [nós][aks-manually-scale-nodes]
 - Use o [dimensionador automático de pod horizontal][aks-hpa]
-- Use o [dimensionador automático de cluster][aks-cluster-autoscaler]
+- Usar o [dimensionamento de cluster][aks-cluster-autoscaler]
 
 Para obter mais informações sobre os principais conceitos do Kubernetes e do AKS, confira os seguintes artigos:
 
-- [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
+- [Clusters e cargas de trabalho do Kubernetes/AKS][aks-concepts-clusters-workloads]
 - [Kubernetes / AKS de acesso e identidade][aks-concepts-identity]
 - [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / redes virtuais do AKS][aks-concepts-network]
-- [Kubernetes / armazenamento AKS][aks-concepts-storage]
+- [Redes virtuais do Kubernetes/AKS][aks-concepts-network]
+- [Armazenamento do Kubernetes/AKS][aks-concepts-storage]
 
 <!-- LINKS - external -->
 [virtual-kubelet]: https://virtual-kubelet.io/

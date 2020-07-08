@@ -3,12 +3,12 @@ title: Enviar muitas tarefas
 description: Como enviar com eficácia um grande número de tarefas em um único trabalho em Lotes do Azure
 ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 46ab5e8879167a1808c51d4c4cd5c7071cb67cff
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: 73d81624eea43e85b7fb2526d922a34446610d84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84553359"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Enviar muitas tarefas para um trabalho em lotes
 

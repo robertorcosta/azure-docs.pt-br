@@ -4,16 +4,15 @@ description: Diretrizes de ajuste de desempenho do Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6cf551b95de8fc7fae83941e5109dfa823213af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465976"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -53,7 +52,7 @@ Depois que você tiver resolvido os gargalos de hardware de origem e conectivida
 
 Quando os dados são armazenados no Data Lake Storage Gen2, o tamanho do arquivo, o número de arquivos e a estrutura da pasta afetam o desempenho.  A seção a seguir descreve as práticas recomendadas nessas áreas.  
 
-### <a name="file-size"></a>Tamanho de arquivo
+### <a name="file-size"></a>Tamanho do arquivo
 
 Normalmente os mecanismos de análise, tais como HDInsight e Azure Data Lake Analytics, têm uma sobrecarga por arquivo. Se você armazenar os dados como vários arquivos pequenos, isso poderá afetar negativamente o desempenho. Em geral, organize seus dados em arquivos de tamanhos maiores para melhorar o desempenho (de 256 MB a 100 GB). Alguns mecanismos e aplicativos podem ter problemas para processar com eficiência arquivos maiores que 100 GB.
 
@@ -138,5 +137,5 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

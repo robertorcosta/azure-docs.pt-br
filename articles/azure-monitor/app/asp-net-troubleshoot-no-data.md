@@ -3,12 +3,11 @@ title: Solução de problemas de ausência de dados - Application Insights para 
 description: Não consegue ver os dados no Application Insights do Azure? Tente aqui.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835131"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485162"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solução de problemas de ausência de dados – Application Insights para .NET/.NET Core
 
@@ -158,7 +157,6 @@ Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para [serviço
 * Windows Server 2008: Verifique se você instalou as atualizações a seguir: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Eu costumava ver os dados, mas eles foram interrompidos
-* Verifique o [blog de status](https://blogs.msdn.com/b/applicationinsights-status/).
 * Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu esperava

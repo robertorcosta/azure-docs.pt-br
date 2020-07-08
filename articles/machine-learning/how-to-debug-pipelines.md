@@ -5,16 +5,16 @@ description: Depure seus pipelines de Azure Machine Learning no Python. Aprenda 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557426"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a depurar e solucionar problemas de [pipelines do
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Depuração e solução de problemas no SDK do Azure Machine Learning
 As seções a seguir fornecem uma visão geral das armadilhas comuns ao criar pipelines e estratégias diferentes para depurar seu código em execução em um pipeline. Use as dicas a seguir quando estiver tendo problemas para fazer com que um pipeline seja executado conforme o esperado.
 
-### <a name="testing-scripts-locally"></a>Testando scripts localmente
+### <a name="testing-scripts-locally"></a>Testar scripts localmente
 
 Uma das falhas mais comuns em um pipeline é que um script anexado (script de limpeza de dados, script de pontuação, etc.) não está em execução como pretendido, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de Depurar em seu espaço de trabalho no Azure Machine Learning Studio. 
 
@@ -48,11 +48,11 @@ Quando você tiver uma configuração de script para ser executada no seu ambien
 > [!TIP] 
 > Depois que você puder verificar se o script está sendo executado conforme o esperado, uma boa próxima etapa é executar o script em um pipeline de etapa única antes de tentar executá-lo em um pipeline com várias etapas.
 
-### <a name="debugging-scripts-from-remote-context"></a>Depurando scripts do contexto remoto
+### <a name="debugging-scripts-from-remote-context"></a>Depurar scripts do contexto remoto
 
-O teste de scripts localmente é uma ótima maneira de depurar fragmentos de código principais e lógica complexa antes de começar a criar um pipeline, mas, em algum momento, você provavelmente precisará depurar scripts durante a execução real do pipeline, especialmente ao diagnosticar o comportamento que ocorre durante a interação entre as etapas do pipeline. É recomendável liberal o `print()` uso de instruções em seus scripts de etapa para que você possa ver o estado do objeto e os valores esperados durante a execução remota, semelhante a como você depuraria o código JavaScript.
+O teste de scripts localmente é uma ótima maneira de depurar fragmentos de código principais e lógica complexa antes de começar a criar um pipeline, mas, em algum momento, você provavelmente precisará depurar scripts durante a execução real do pipeline, especialmente ao diagnosticar o comportamento que ocorre durante a interação entre as etapas do pipeline. É recomendável liberal o uso de `print()` instruções em seus scripts de etapa para que você possa ver o estado do objeto e os valores esperados durante a execução remota, semelhante a como você depuraria o código JavaScript.
 
-O arquivo `70_driver_log.txt` de log contém: 
+O arquivo de log `70_driver_log.txt` contém: 
 
 * Todas as instruções impressas durante a execução do script
 * O rastreamento de pilha para o script 
@@ -78,17 +78,17 @@ A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline
 
 | Problema | Solução possível |
 |--|--|
-| Não é possível passar dados `PipelineData` para o diretório | Verifique se você criou um diretório no script que corresponde a onde o seu pipeline espera os dados de saída da etapa. Na maioria dos casos, um argumento de entrada definirá o diretório de saída e, em seguida, você criará o diretório explicitamente. Use `os.makedirs(args.output_dir, exist_ok=True)` para criar o diretório de saída. Consulte o [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) para obter um exemplo de script de pontuação que mostra esse padrão de design. |
+| Não é possível passar dados para o `PipelineData` diretório | Verifique se você criou um diretório no script que corresponde a onde o seu pipeline espera os dados de saída da etapa. Na maioria dos casos, um argumento de entrada definirá o diretório de saída e, em seguida, você criará o diretório explicitamente. Use `os.makedirs(args.output_dir, exist_ok=True)` para criar o diretório de saída. Consulte o [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) para obter um exemplo de script de pontuação que mostra esse padrão de design. |
 | Bugs de dependência | Se você tiver desenvolvido e testado com scripts localmente, mas encontrar problemas de dependência ao executar em uma computação remota no pipeline, verifique se as dependências e as versões do ambiente de computação correspondem ao ambiente de teste. (Consulte [criação de ambiente, Caching e reutilização](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
 | Erros ambíguos com destinos de computação | Excluir e recriar destinos de computação pode resolver determinados problemas com destinos de computação. |
-| O pipeline não está Reutilizando as etapas | A reutilização de etapa é habilitada por padrão, mas certifique-se de que você não a desabilitou em uma etapa de pipeline. Se a reutilização estiver desabilitada, o `allow_reuse` parâmetro na etapa será definido `False`como. |
-| O pipeline está sendo executado desnecessariamente | Para garantir que as etapas sejam executadas apenas novamente quando os dados ou scripts subjacentes forem alterados, desassocie os diretórios para cada etapa. Se você usar o mesmo diretório de origem para várias etapas, poderá ocorrer uma reexecutação desnecessária. Use o `source_directory` parâmetro em um objeto Step de pipeline para apontar para seu diretório isolado para essa etapa e verifique se você não está usando `source_directory` o mesmo caminho para várias etapas. |
+| O pipeline não está Reutilizando as etapas | A reutilização de etapa é habilitada por padrão, mas certifique-se de que você não a desabilitou em uma etapa de pipeline. Se a reutilização estiver desabilitada, o `allow_reuse` parâmetro na etapa será definido como `False` . |
+| O pipeline está sendo executado desnecessariamente | Para garantir que as etapas sejam executadas apenas novamente quando os dados ou scripts subjacentes forem alterados, desassocie os diretórios para cada etapa. Se você usar o mesmo diretório de origem para várias etapas, poderá ocorrer uma reexecutação desnecessária. Use o `source_directory` parâmetro em um objeto Step de pipeline para apontar para seu diretório isolado para essa etapa e verifique se você não está usando o mesmo `source_directory` caminho para várias etapas. |
 
 ### <a name="logging-options-and-behavior"></a>Opções e comportamento de log
 
 A tabela a seguir fornece informações para opções de depuração diferentes para pipelines. Não é uma lista completa, já que existem outras opções, além das Azure Machine Learning, Python e OpenCensus mostradas aqui.
 
-| Biblioteca                    | Type   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
+| Biblioteca                    | Tipo   | Exemplo                                                          | Destination                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SDK do Azure Machine Learning | Métrica | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br>[classe azureml. Core. Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Impressão/log do Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Logs de driver, designer de Azure Machine Learning | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro em log do Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
@@ -136,7 +136,7 @@ Ao enviar uma execução de pipeline e permanecer na página de criação, você
 
 1. Selecione um módulo que concluiu a execução na tela de criação.
 1. No painel direito do módulo, vá para a guia **saídas + logs** .
-1. Expanda o painel direito e selecione o **70_driver_log. txt** para exibir o arquivo no navegador. Você também pode baixar logs localmente.
+1. Expanda o painel direito e selecione o **70_driver_log.txt** para exibir o arquivo no navegador. Você também pode baixar logs localmente.
 
     ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
 
@@ -150,7 +150,7 @@ Você também pode encontrar os arquivos de log para execuções específicas na
 
 1. Selecione um módulo no painel de visualização.
 1. No painel direito do módulo, vá para a guia **saídas + logs** .
-1. Expanda o painel direito para exibir o arquivo **70_driver_log. txt** no navegador ou selecione o arquivo para baixar os logs localmente.
+1. Expanda o painel direito para exibir o arquivo de **70_driver_log.txt** no navegador ou selecione o arquivo para baixar os logs localmente.
 
 > [!IMPORTANT]
 > Para atualizar um pipeline da página de detalhes de execução do pipeline, você deve **clonar** a execução do pipeline para um novo rascunho do pipeline. Uma execução de pipeline é um instantâneo do pipeline. Ele é semelhante a um arquivo de log e não pode ser alterado. 
@@ -175,7 +175,7 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
 Para saber mais sobre como usar uma rede virtual do Azure com Azure Machine Learning, confira [trabalhos de inferência e experimentação seguros do Azure ml em uma rede virtual do Azure](how-to-enable-virtual-network.md).
 
-### <a name="how-it-works"></a>Como ele funciona
+### <a name="how-it-works"></a>Como funciona
 
 Suas etapas de pipeline ML executam scripts Python. Esses scripts são modificados para executar as seguintes ações:
     
@@ -233,7 +233,7 @@ Para habilitar a depuração, faça as seguintes alterações no (s) script (es)
         print(f'Debugger attached = {ptvsd.is_attached()}')
     ```
 
-O exemplo de Python a seguir mostra `train.py` um arquivo básico que habilita a depuração:
+O exemplo de Python a seguir mostra um `train.py` arquivo básico que habilita a depuração:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.
@@ -287,7 +287,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Configurar pipeline ML
 
-Para fornecer os pacotes do python necessários para iniciar o PTVSD e obter o contexto de execução, crie um `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`ambiente e defina. Altere a versão do SDK para corresponder à que você está usando. O trecho de código a seguir demonstra como criar um ambiente:
+Para fornecer os pacotes do python necessários para iniciar o PTVSD e obter o contexto de execução, crie um ambiente e defina `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']` . Altere a versão do SDK para corresponder à que você está usando. O trecho de código a seguir demonstra como criar um ambiente:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -312,7 +312,7 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
                                                                            pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
 ```
 
-Na seção [Configurar scripts Python](#configure-python-scripts) , dois novos argumentos foram adicionados aos scripts usados pelas etapas de pipeline do ml. O trecho de código a seguir demonstra como usar esses argumentos para habilitar a depuração para o componente e definir um tempo limite. Ele também demonstra como usar o ambiente criado anteriormente por meio da `runconfig=run_config`configuração:
+Na seção [Configurar scripts Python](#configure-python-scripts) , dois novos argumentos foram adicionados aos scripts usados pelas etapas de pipeline do ml. O trecho de código a seguir demonstra como usar esses argumentos para habilitar a depuração para o componente e definir um tempo limite. Ele também demonstra como usar o ambiente criado anteriormente por meio da configuração `runconfig=run_config` :
 
 ```python
 # Use RunConfig from a pipeline step
@@ -325,7 +325,7 @@ step1 = PythonScriptStep(name="train_step",
                          allow_reuse=False)
 ```
 
-Quando o pipeline é executado, cada etapa cria uma execução filho. Se a depuração estiver habilitada, o script modificado registrará informações semelhantes ao seguinte texto `70_driver_log.txt` no para a execução do filho:
+Quando o pipeline é executado, cada etapa cria uma execução filho. Se a depuração estiver habilitada, o script modificado registrará informações semelhantes ao seguinte texto no `70_driver_log.txt` para a execução do filho:
 
 ```text
 Timeout for debug connection: 300
@@ -345,13 +345,13 @@ Salve o `ip_address` valor. Ele é usado na próxima seção.
     python -m pip install --upgrade ptvsd
     ```
 
-    Para obter mais informações sobre como usar o PTVSD com VS Code, consulte [depuração remota](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+    Para obter mais informações sobre como usar o PTVSD com o VS Code, confira [Depuração Remota](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
 
 1. Para configurar VS Code para se comunicar com a computação Azure Machine Learning que está executando o depurador, crie uma nova configuração de depuração:
 
-    1. Em VS Code, selecione o menu __depurar__ e, em seguida, selecione __configurações abertas__. Um arquivo chamado __Launch. JSON__ é aberto.
+    1. No VS Code, selecione o menu __Depurar__ e depois selecione __Configurações abertas__. Um arquivo chamado __launch.json__ será aberto.
 
-    1. No arquivo __Launch. JSON__ , localize a linha que contém `"configurations": [`e insira o texto a seguir depois dela. Altere a `"host": "10.3.0.5"` entrada para o endereço IP retornado nos logs da seção anterior. Altere a `"localRoot": "${workspaceFolder}/code/step"` entrada para um diretório local que contenha uma cópia do script que está sendo depurado:
+    1. Na __launch.jsno__ arquivo, localize a linha que contém `"configurations": [` e insira o texto a seguir depois dela. Altere a `"host": "10.3.0.5"` entrada para o endereço IP retornado nos logs da seção anterior. Altere a `"localRoot": "${workspaceFolder}/code/step"` entrada para um diretório local que contenha uma cópia do script que está sendo depurado:
 
         ```json
         {
@@ -371,14 +371,14 @@ Salve o `ip_address` valor. Ele é usado na próxima seção.
         ```
 
         > [!IMPORTANT]
-        > Se já houver outras entradas na seção Configurações, adicione uma vírgula (,) após o código que você inseriu.
+        > Se já houver outras entradas na seção Configurações, adicione uma vírgula (,) após o código inserido.
 
         > [!TIP]
-        > A prática recomendada é manter os recursos de scripts em diretórios separados, motivo pelo qual o valor `localRoot` de exemplo faz `/code/step1`referência.
+        > A prática recomendada é manter os recursos de scripts em diretórios separados, motivo pelo qual o `localRoot` valor de exemplo faz referência `/code/step1` .
         >
         > Se você estiver Depurando vários scripts, em diretórios diferentes, crie uma seção de configuração separada para cada script.
 
-    1. Salve o arquivo __Launch. JSON__ .
+    1. Salve o arquivo __launch.json__.
 
 ### <a name="connect-the-debugger"></a>Conectar o depurador
 
@@ -386,10 +386,10 @@ Salve o `ip_address` valor. Ele é usado na próxima seção.
 2. Defina os pontos de interrupção onde você deseja que o script Pare depois de anexado.
 3. Enquanto o processo filho estiver executando o script e o `Timeout for debug connection` for exibido nos logs, use a tecla F5 ou selecione __depurar__. Quando solicitado, selecione o __Azure Machine Learning computação: configuração de depuração remota__ . Você também pode selecionar o ícone de depuração na barra lateral, a __Azure Machine Learning: entrada de depuração remota__ no menu suspenso de depuração e, em seguida, usar a seta verde para anexar o depurador.
 
-    Neste ponto, VS Code se conecta ao PTVSD no nó de computação e pára no ponto de interrupção definido anteriormente. Agora você pode percorrer o código conforme ele é executado, exibir variáveis, etc.
+    Neste ponto, VS Code se conecta ao PTVSD no nó de computação e pára no ponto de interrupção definido anteriormente. Agora você pode percorrer o código enquanto ele é executado, exibir variáveis, ​​etc.
 
     > [!NOTE]
-    > Se o log exibir uma entrada informando `Debugger attached = False`, o tempo limite expirou e o script continuou sem o depurador. Envie o pipeline novamente e conecte o depurador após a `Timeout for debug connection` mensagem e antes do tempo limite expirar.
+    > Se o log exibir uma entrada informando `Debugger attached = False` , o tempo limite expirou e o script continuou sem o depurador. Envie o pipeline novamente e conecte o depurador após a `Timeout for debug connection` mensagem e antes do tempo limite expirar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

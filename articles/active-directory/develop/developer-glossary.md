@@ -12,12 +12,11 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84308619"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário do desenvolvedor da plataforma de identidade da Microsoft
 
@@ -202,7 +201,7 @@ Uma instância de um diretório do Azure AD é chamada de locatário do Azure AD
 * autenticação de contas de usuário e aplicativos registrados
 * Pontos de extremidade REST necessários para dar suporte a vários protocolos, incluindo OAuth2 e SAML, incluindo [ponto de extremidade de autorização](#authorization-endpoint), [ponto de extremidade de token](#token-endpoint) e ponto de extremidade "comum" usado por [aplicativos de multilocação](#multi-tenant-application).
 
-Locatários do Azure AD são criados/associados com assinaturas do Azure e o Office 365 durante a inscrição, fornecendo recursos de Gerenciamento de Identidades e Acesso para a assinatura. Os administradores de assinatura do Azure também podem criar locatários do Azure AD adicionais por meio do Portal do Azure. Veja [Como obter um locatário do Azure Active Directory][AAD-How-To-Tenant] para saber mais sobre as várias maneiras de obter acesso a um locatário. Veja [Como as assinaturas do Azure são associadas ao Azure Active Directory][AAD-How-Subscriptions-Assoc] para saber mais sobre a relação entre um locatário do Azure AD e assinaturas.
+Locatários do Azure AD são criados/associados com assinaturas do Azure e o Office 365 durante a inscrição, fornecendo recursos de Gerenciamento de Identidades e Acesso para a assinatura. Os administradores de assinatura do Azure também podem criar locatários do Azure AD adicionais por meio do Portal do Azure. Veja [Como obter um locatário do Azure Active Directory][AAD-How-To-Tenant] para saber mais sobre as várias maneiras de obter acesso a um locatário. Consulte [associar ou adicionar uma assinatura do Azure ao seu locatário Azure Active Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD e para obter instruções sobre como associar ou adicionar uma assinatura a um locatário do Azure AD.
 
 ## <a name="token-endpoint"></a>ponto de extremidade de token
 

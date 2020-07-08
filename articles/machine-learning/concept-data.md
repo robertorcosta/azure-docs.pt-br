@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
-ms.openlocfilehash: e41d00a31a0065e2923259cbb0bb36986cbb2ec8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84552636"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -37,7 +37,7 @@ Quando você estiver pronto para usar os dados em sua solução de armazenamento
 3. Para usar esse conjunto de informações em seu experimento do Machine Learning, você pode
     1. Monte-o no destino de computação do experimento para o treinamento do modelo.
 
-        **OU** 
+        **OR** 
 
     1. Consuma-o diretamente em soluções de Azure Machine Learning como, execuções de experimento automatizadas do Machine Learning (ML automatizado), pipelines de aprendizado de máquina ou [Designer de Azure Machine Learning](concept-designer.md).
 

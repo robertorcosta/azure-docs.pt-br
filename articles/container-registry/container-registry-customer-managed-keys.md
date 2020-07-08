@@ -1,15 +1,14 @@
 ---
 title: Criptografia em repouso com uma chave gerenciada pelo cliente
-description: Saiba mais sobre a criptografia em repouso do Registro de Contêiner do Azure e como criptografar o Registro com uma chave gerenciada pelo cliente armazenada no Azure Key Vault
+description: Saiba mais sobre a criptografia em repouso do registro de contêiner do Azure e como criptografar seu registro Premium com uma chave gerenciada pelo cliente armazenada no Azure Key Vault
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 393e51e687e95c1ff4c6a50429dd342005aad296
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509535"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografar o Registro usando uma chave gerenciada pelo cliente
 

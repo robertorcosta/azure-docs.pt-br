@@ -6,16 +6,16 @@ keywords: ferramentas de ciência de dados, máquina virtual de ciência de dado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557464"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguagens com suporte na Máquina Virtual de Ciência de Dados 
 
@@ -27,7 +27,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 | ------------- | ------------- |
 | Versões de idioma com suporte | Python 2,7 e 3,7 |
 | Edições DSVM com suporte      | Windows Server 2016     |
-| Como é configurado/instalado no DSVM?  | Dois ambientes `conda` globais são criados: <br /> * O `root` ambiente localizado em `/anaconda/` é Python 3,7. <br/> * O `python2` ambiente localizado em `/anaconda/envs/python2` é Python 2,7.       |
+| Como é configurado/instalado no DSVM?  | Dois `conda` ambientes globais são criados: <br /> * O `root` ambiente localizado em `/anaconda/` é Python 3,7. <br/> * O `python2` ambiente localizado em `/anaconda/envs/python2` é Python 2,7.       |
 | Links para exemplos      | Os notebooks Jupyter de exemplo para Python estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | PySpark, R, Julia.      |
 
@@ -55,7 +55,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
   Use o Ferramentas Python para Visual Studio (PTVS), instalado no Visual Studio Community Edition. Por padrão, o único ambiente configurado automaticamente no PTVS é Python 3,6. 
 
     > [!NOTE]
-    > Para apontar o PTVS no Python 2,7, você deve criar um ambiente personalizado no PTVS. Para definir esse caminho de ambiente no Visual Studio Community Edition, vá para **ferramentas** -> **python** -> **ambientes Python** e selecione **+ personalizado**. Em seguida, defina o local como **c:\anaconda\envs\python2** e selecione **detecção automática**.
+    > Para apontar o PTVS no Python 2,7, você deve criar um ambiente personalizado no PTVS. Para definir esse caminho de ambiente no Visual Studio Community Edition, vá para **ferramentas**  ->  **python**  ->  **ambientes Python** e selecione **+ personalizado**. Em seguida, defina o local como **c:\anaconda\envs\python2** e selecione **detecção automática**.
 
 * Use em Jupyter:
 
@@ -63,7 +63,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 * Instalar pacotes do Python:
 
-  Os ambientes padrão do Python no DSVM são ambientes globais que podem ser lidos por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou python2 usando o `activate` comando como administrador. Em seguida, você pode usar um Gerenciador de `conda` pacotes `pip` como ou para instalar ou atualizar pacotes.
+  Os ambientes padrão do Python no DSVM são ambientes globais que podem ser lidos por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou python2 usando o `activate` comando como administrador. Em seguida, você pode usar um Gerenciador de pacotes como `conda` ou `pip` para instalar ou atualizar pacotes.
 
 ## <a name="python-linux-edition"></a>Python (edição Linux)
 
@@ -71,7 +71,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 | ------------- | ------------- |
 | Versões de idioma com suporte | Python 2,7 e 3,5 |
 | Edições DSVM com suporte      | Linux   |
-| Como é configurado/instalado no DSVM?  | Dois ambientes `conda` globais são criados: <br /> * `root`o ambiente localizado `/anaconda/` em é Python 2,7. <br/> * `py35`o ambiente localizado `/anaconda/envs/py35`em é Python 3,5.       |
+| Como é configurado/instalado no DSVM?  | Dois `conda` ambientes globais são criados: <br /> * `root`o ambiente localizado em `/anaconda/` é Python 2,7. <br/> * `py35`o ambiente localizado em `/anaconda/envs/py35` é Python 3,5.       |
 | Links para exemplos      | Os notebooks Jupyter de exemplo para Python estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
@@ -100,7 +100,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 * Instalar pacotes do Python:
 
-  Os ambientes Python padrão no DSVM são ambientes globais legíveis por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou py35 usando o `source activate` comando como administrador ou como um usuário com permissões sudo. Em seguida, você pode usar um Gerenciador de `conda` pacotes `pip` como ou para instalar ou atualizar pacotes.
+  Os ambientes Python padrão no DSVM são ambientes globais legíveis por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou py35 usando o `source activate` comando como administrador ou como um usuário com permissões sudo. Em seguida, você pode usar um Gerenciador de pacotes como `conda` ou `pip` para instalar ou atualizar pacotes.
 
 
 ## <a name="r"></a>R
@@ -130,13 +130,13 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 * Instalar pacotes do R:
 
-  O R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode executar o Gerenciador `install.packages()` de pacotes do R para instalar ou atualizar pacotes.
+  O R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode executar o Gerenciador de pacotes do R `install.packages()` para instalar ou atualizar pacotes.
 
 **Linux**:
 
 * Executar no terminal:
 
-  Abra um terminal e execute `R`.  
+  Abra um terminal e execute `R` .  
 
 * Use em um IDE:
 
@@ -148,14 +148,14 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 * Instalar pacotes do R:
 
-  O R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode executar o Gerenciador `install.packages()` de pacotes do R para instalar ou atualizar pacotes.
+  O R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode executar o Gerenciador de pacotes do R `install.packages()` para instalar ou atualizar pacotes.
 
 
 ## <a name="julia"></a>Julia
 
 |    |           |
 | ------------- | ------------- |
-| Versões de idioma com suporte | 0.6 |
+| Versões de idioma com suporte | 0,6 |
 | Edições DSVM com suporte      | Linux, Windows     |
 | Como é configurado/instalado no DSVM?  | Windows: instalado em `C:\JuliaPro-VERSION`<br /> Linux: instalado em `/opt/JuliaPro-VERSION`    |
 | Links para exemplos      | Os notebooks Jupyter de exemplo para Julia estão incluídos.     |
@@ -166,7 +166,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 * Executar em um prompt de comando
 
-  Abra um prompt de comando e `julia`execute.
+  Abra um prompt de comando e execute `julia` .
 * Use em um IDE:
 
   Use `Juno` com o IDE Julia instalado no DSVM e disponível como um atalho da área de trabalho.
@@ -177,16 +177,16 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 * Instalar pacotes Julia:
 
-  O local Julia padrão é um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar comandos do Gerenciador de `Pkg.add()` pacotes Julia como instalar ou atualizar pacotes.
+  O local Julia padrão é um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar comandos do Gerenciador de pacotes Julia como `Pkg.add()` instalar ou atualizar pacotes.
 
 
 **Linux**:
 * Executar em um terminal:
 
-  Abra um terminal e execute `julia`.
+  Abra um terminal e execute `julia` .
 * Use em um IDE:
 
-  Use `Juno`o, com o IDE Julia instalado no DSVM e disponível como um atalho de menu do **aplicativo** .
+  Use `Juno` o, com o IDE Julia instalado no DSVM e disponível como um atalho de menu do **aplicativo** .
 
 * Use em Jupyter:
 
@@ -194,14 +194,14 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 * Instalar pacotes Julia:
 
-  O local Julia padrão é um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar comandos do Gerenciador de `Pkg.add()` pacotes Julia como instalar ou atualizar pacotes.
+  O local Julia padrão é um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar comandos do Gerenciador de pacotes Julia como `Pkg.add()` instalar ou atualizar pacotes.
 
 ## <a name="other-languages"></a>Outros idiomas
 
-**C#**: disponível no Windows e acessível por meio do Visual Studio Community Edition ou no `Developer Command Prompt for Visual Studio`, onde você pode executar o `csc` comando.
+**C#**: disponível no Windows e acessível por meio do Visual Studio Community Edition ou no `Developer Command Prompt for Visual Studio` , onde você pode executar o `csc` comando.
 
 **Java**: OpenJDK está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para usar o Java, digite `javac` o `java` comando ou em um prompt de comando no Windows ou no shell bash no Linux.
 
-**Node. js**: o Node. js está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para acessar o Node. js, digite `node` o `npm` comando ou em um prompt de comando no Windows ou no Shell do bash no Linux. No Windows, a extensão do Visual Studio para as ferramentas node. js é instalada para fornecer um IDE gráfico para desenvolver seu aplicativo node. js.
+**Node.js**: Node.js está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para acessar Node.js, digite o `node` `npm` comando ou em um prompt de comando no Windows ou no shell bash no Linux. No Windows, a extensão do Visual Studio para as ferramentas de Node.js é instalada para fornecer um IDE gráfico para desenvolver seu aplicativo Node.js.
 
-**F #**: disponível no Windows e acessível por meio do Visual Studio Community Edition ou em `Developer Command Prompt for Visual Studio`um, onde você pode executar `fsc` o comando.
+**F #**: disponível no Windows e acessível por meio do Visual Studio Community Edition ou em um `Developer Command Prompt for Visual Studio` , onde você pode executar o `fsc` comando.

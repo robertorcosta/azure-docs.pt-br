@@ -11,12 +11,11 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 56d80571253d95d28c839ed81b6e1ce6dda9dc46
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 10f0079f47e5d2fd99b358fcc5cfb4c80aa9bd91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508889"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,7 +30,7 @@ Para uma introdução de dez minutos e demonstração desse recurso, assista ao 
 
 
 > [!NOTE]
-> A integração descrita neste artigo depende na [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se a assinatura está registrada no provedor de recursos da Grade de Eventos. Para obter mais informações, confira [Provedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+> A integração descrita neste artigo depende na [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se a assinatura está registrada no provedor de recursos da Grade de Eventos. Para obter mais informações, confira [Provedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). Você deve ser capaz de fazer a ação *Microsoft. EventGrid/eventSubscriptions/**. Esta ação faz parte da função interna de colaborador do EventGrid EventSubscription.
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
@@ -50,7 +49,7 @@ Esta seção mostra como criar um gatilho de evento dentro na interface do usuá
 1. Selecione sua conta de armazenamento na lista suspensa de assinatura do Azure ou manualmente usando a ID do recurso da conta de armazenamento. Escolha em qual contêiner você deseja que os eventos ocorram. A seleção de contêiner é opcional, mas lembre-se de que a seleção de todos os contêineres pode levar a um grande número de eventos.
 
    > [!NOTE]
-   > Atualmente, o gatilho de evento dá suporte apenas ao Azure Data Lake Storage Gen2 e a contas de armazenamento da versão 2 de uso geral. Devido a uma limitação da Grade de Eventos do Azure, o Azure Data Factory dá suporte apenas a no máximo de 500 gatilhos de eventos por conta de armazenamento.
+   > Atualmente, o gatilho de evento dá suporte apenas ao Azure Data Lake Storage Gen2 e a contas de armazenamento da versão 2 de uso geral. Você deve ter pelo menos acesso de *proprietário* na conta de armazenamento.  Devido a uma limitação da Grade de Eventos do Azure, o Azure Data Factory dá suporte apenas a no máximo de 500 gatilhos de eventos por conta de armazenamento.
 
 1. As propriedades **Caminho do blob começa com**  e **Caminho do blob termina com** permitem especificar os contêineres, as pastas e os nomes de blob para os quais você deseja receber eventos. Seu gatilho de evento requer que pelo menos uma dessas propriedades seja definida. É possível usar diversos padrões tanto para o **caminho do Blob que começa com** como para o **caminho do Blob que termina com propriedades**, conforme mostrado nos exemplos mais adiante neste artigo.
 

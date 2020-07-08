@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488929"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitar a recuperação de desastre de zona para zona para máquinas virtuais do Azure
 
@@ -20,7 +19,7 @@ Este artigo descreve como replicar, fazer failover e failback de máquinas virtu
 
 >[!NOTE]
 >
->- Atualmente, Site Recovery não oferece suporte a planos de recuperação para recuperação de desastre de zona para zona. 
+>- Atualmente, Site Recovery não oferece suporte a planos de recuperação para recuperação de desastre de zona para zona por meio do Portal. Use o PowerShell ou a API REST para aproveitar os planos de recuperação para a recuperação de desastre de zona para zona. 
 >- O suporte para a recuperação de desastre de zona para zona está limitado atualmente a duas regiões: Sudeste Asiático e Sul do Reino Unido.  
 
 Site Recovery serviço contribui para sua estratégia de recuperação de desastre e continuidade de negócios mantendo seus aplicativos de negócios em funcionamento, durante interrupções planejadas e não planejadas. É a opção de recuperação de desastre recomendada para manter seus aplicativos em funcionamento, se houver interrupções regionais.
@@ -88,7 +87,7 @@ Faça logon no portal do Azure.
 
 1. No menu do portal do Azure, selecione Máquinas virtuais ou pesquise e selecione Máquinas virtuais em qualquer página. Selecione a VM que você deseja replicar. Para a recuperação de desastre de zona para zona, essa VM já deve estar em uma zona de disponibilidade.
 
-2. Em operações, selecione recuperação de desastre.
+2. Em Operações, clique em Recuperação de desastre.
 
 3. Conforme mostrado abaixo, na guia noções básicas, selecione ' Sim ' para ' recuperação de desastre entre Zonas de Disponibilidade? '
 
@@ -113,10 +112,13 @@ Os preços da recuperação de desastre de zona para zona são idênticos aos pr
 O SLA do RTO é o mesmo que para Site Recovery geral. Prometemos o RTO de até 2 horas. Não há SLA definido para RPO.
 
 **3. a capacidade é garantida na zona secundária?**
-A equipe de Site Recovery e equipe de gerenciamento de capacidade do Azure planeja a capacidade de infraestrutura suficiente. Quando você inicia um failover, as equipes também ajudam a garantir que as instâncias de VM protegidas pelo Site Recovery serão implantadas na zona de destino.
+A equipe do Site Recovery e equipe de gerenciamento de capacidade do Azure planejam a capacidade de infraestrutura suficiente. Quando você inicia um failover, as equipes também ajudam a garantir que as instâncias de VM protegidas pelo Site Recovery serão implantadas na zona de destino.
 
 **4. quais sistemas operacionais têm suporte?**
 A recuperação de desastre de zona para zona dá suporte aos mesmos sistemas operacionais que a recuperação de desastre do Azure para o Azure. Consulte a matriz de suporte [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+
+**5. os grupos de recursos de origem e de destino podem ser iguais?**
+Não, você deve fazer o failover para um grupo de recursos diferente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

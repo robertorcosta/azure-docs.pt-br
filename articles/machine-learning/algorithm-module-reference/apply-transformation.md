@@ -8,17 +8,16 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
-ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/05/2020
+ms.openlocfilehash: e2b4233f8f59a26e7da532fca48aecbb41857b66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488623"
 ---
 # <a name="apply-transformation-module"></a>Aplicar o módulo de transformação
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.
 
@@ -32,13 +31,13 @@ O designer permite salvar transformações de dados como **DataSets** para que v
 
 1. Selecione a guia **saídas + logs** .
 
-1. Selecione o **ícone salvar** para salvar a **transformação resultado**.
+1. Localize a saída da transformação e selecione o **conjunto de registros** para salvá-lo como um módulo na categoria conjuntos de banco de **valores** na paleta do módulo.
 
 ## <a name="how-to-use-apply-transformation"></a>Como usar aplicar transformação  
   
 1. Adicione o módulo **aplicar transformação** ao seu pipeline. Você pode encontrar esse módulo na seção **classificação do modelo & avaliação** da paleta do módulo. 
   
-1. Localize a transformação salva que você deseja usar em **conjuntos** > de os**meus conjuntos de valores** na paleta de módulos.
+1. Localize a transformação salva que você deseja usar em **conjuntos de valores** na paleta de módulos.
 
 1. Conecte a saída da transformação salva à porta de entrada à esquerda do módulo **aplicar transformação** .
 
@@ -50,4 +49,4 @@ O designer permite salvar transformações de dados como **DataSets** para que v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

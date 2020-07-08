@@ -3,12 +3,11 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484971"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -22,7 +21,7 @@ Hoje, o Backup do Azure fornece uma solução de relatório que usa os [logs do 
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-- Há suporte para Relatórios de Backup em VMs do Azure, no SQL em VMs do Azure, no SAP HANA em VMs do Azure, no agente do MARS (Serviços de Recuperação do Microsoft Azure), no MABS (Servidor de Backup do Microsoft Azure) e no System Center DPM (Data Protection Manager). No momento, os dados do backup do compartilhamento de arquivo do Azure não estão visíveis nos Relatórios de Backup.
+- Há suporte para Relatórios de Backup em VMs do Azure, no SQL em VMs do Azure, no SAP HANA em VMs do Azure, no agente do MARS (Serviços de Recuperação do Microsoft Azure), no MABS (Servidor de Backup do Microsoft Azure) e no System Center DPM (Data Protection Manager). Para o backup do compartilhamento de arquivos do Azure, os dados são exibidos para todos os registros criados em ou após 1 de junho de 2020.
 - Para cargas de trabalho do DPM, há suporte para Relatórios de Backup no DPM versão 5.1.363.0 e superior e no Agente versão 2.0.9127.0 e superior.
 - Para cargas de trabalho do MABS, há suporte para Relatórios de Backup no MABS versão 13.0.415.0 e superior e no Agente versão 2.0.9170.0 e superior.
 - Os Relatórios de Backup podem ser exibidos em todos os itens de backup, cofres, assinaturas e regiões, desde que os dados estejam sendo enviados para um workspace do Log Analytics ao qual o usuário tenha acesso. Para exibir os relatórios de um conjunto de cofres, você só precisa ter acesso de leitor ao workspace do Log Analytics ao qual os cofres estão enviando os dados. Você não precisa ter acesso aos cofres individuais.

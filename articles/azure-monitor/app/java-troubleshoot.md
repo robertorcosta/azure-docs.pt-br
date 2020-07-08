@@ -3,12 +3,11 @@ title: Solucionar problemas do Application Insights em um projeto Web Java
 description: 'Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights.'
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 04e98938bc5dd17816ae873f122073212275a414
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657173"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484791"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
@@ -26,14 +25,13 @@ Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui est
 * Verifique se não há um nó `<DisableTelemetry>true</DisableTelemetry>` no arquivo xml.
 * Em seu firewall, talvez você precise abrir as portas TCP 80 e 443 para o tráfego de saída de dc.services.visualstudio.com. Consulte a [lista completa de exceções do firewall](../../azure-monitor/app/ip-addresses.md)
 * No painel inicial do Microsoft Azure, veja o mapa de status de serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
-* [Ative o registro em log](#debug-data-from-the-sdk) adicionando `<SDKLogger />` um elemento sob o nó raiz no arquivo ApplicationInsights. XML (na pasta recursos em seu projeto) e verifique se há entradas precedidas com ia: info/Warn/erro para quaisquer logs suspeitos. 
+* [Ative o registro em log](#debug-data-from-the-sdk) adicionando um `<SDKLogger />` elemento sob o nó raiz no arquivo de ApplicationInsights.xml (na pasta recursos em seu projeto) e verifique se há entradas precedidas com ia: info/Warn/erro para quaisquer logs suspeitos. 
 * Certifique-se de que o arquivo ApplicationInsights.xml correto foi carregado com êxito pelo SDK do Java, examinando as mensagens de saída do console para uma instrução "Arquivo de configuração foi descoberto com êxito".
 * Se não for encontrado no arquivo de configuração, verifique as mensagens de saída para ver onde o arquivo de configuração está sendo procurado e certifique-se de que o ApplicationInsights.xml seja localizado em um desses locais de pesquisa. Como regra geral, você pode colocar o arquivo de configuração perto dos JARs do SDK do Application Insights. Por exemplo: no Tomcat, isso poderia significar que a pasta WEB-INF/classes. Durante o desenvolvimento, você pode colocar ApplicationInsights.xml na pasta de recursos de seu projeto Web.
 * Também consulte a [página de problemas no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
 * Certifique-se de usar a mesma versão do Application Insights principal, web, agente e log appenders para evitar quaisquer problemas de conflito de versão.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Eu costumava ver os dados, mas eles foram interrompidos
-* Verifique o [blog de status](https://blogs.msdn.com/b/applicationinsights-status/).
 * Você atingiu sua cota mensal de pontos de dados? Abra configurações/cota e preços para descobrir. Nesse caso, você pode atualizar seu plano ou pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 * Você atualizou recentemente o SDK? Certifique-se de que apenas os jars SDK exclusivo estão presentes no diretório do projeto. Não deve haver duas versões diferentes do SDK presente.
 * Você está analisando o recurso AI correto? Corresponda a iKey do seu aplicativo para o recurso em que você está esperando telemetria. Eles devem ser iguais.
@@ -109,7 +107,7 @@ Você também pode instruir o agente para enviar a saída para um arquivo:
 
 ### <a name="spring-boot-starter"></a>Iniciador do Spring boot
 
-Para habilitar o log do SDK com aplicativos Spring boot usando o iniciador do Spring boot Application Insights, adicione o `application.properties` seguinte ao arquivo:
+Para habilitar o log do SDK com aplicativos Spring boot usando o iniciador do Spring boot Application Insights, adicione o seguinte ao `application.properties` arquivo:
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -126,7 +124,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Agente de Java
 
-Para habilitar o log do agente JVM, atualize o [arquivo ai-Agent. xml](java-agent.md):
+Para habilitar o log do agente JVM, atualize o [arquivo deAI-Agent.xml](java-agent.md):
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->

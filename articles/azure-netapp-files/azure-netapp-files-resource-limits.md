@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: ac660b20d519e49e832e979603f763fa672757a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84553466"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recursos no Azure NetApp Files
 
@@ -42,7 +41,7 @@ A tabela a seguir descreve os limites de recursos para Azure NetApp Files:
 |  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
 |  Tamanho máximo de um único volume     |    100 TiB    |    Não    |
 |  Tamanho máximo de um único arquivo     |    16 TiB    |    Não    |    
-|  Tamanho máximo de um único diretório      |    320 MB    |    Não    |    
+|  Tamanho máximo de metadados de diretório em um único diretório      |    320 MB    |    Não    |    
 |  Número máximo de arquivos ([maxfiles](#maxfiles)) por volume     |    100 milhões    |    Sim    |    
 
 Para obter mais informações, consulte [perguntas frequentes sobre gerenciamento de capacidade](azure-netapp-files-faqs.md#capacity-management-faqs).

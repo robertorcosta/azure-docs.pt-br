@@ -1,16 +1,15 @@
 ---
 title: Replicação geográfica de um registro
-description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro atenda a várias regiões com réplicas regionais de vários mestres.
+description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro atenda a várias regiões com réplicas regionais de vários mestres. A replicação geográfica é um recurso da camada de atendimento Premium.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508787"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 

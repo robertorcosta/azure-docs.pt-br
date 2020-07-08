@@ -2,18 +2,17 @@
 title: Migrar Azure Data Lake Storage de Gen1 para Gen2
 description: Migre Azure Data Lake Storage de Gen1 para Gen2.
 author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: aa4881aef9f3a9ba5d19fb0b768f13a1eb372296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131427"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466010"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrar Azure Data Lake Storage de Gen1 para Gen2
 
@@ -79,7 +78,7 @@ Migre dados, cargas de trabalho e aplicativos usando o padrão que você preferi
    
 5. Atualize os scripts para usar Data Lake Storage Gen2 [cmdlets do PowerShell](data-lake-storage-directory-file-acl-powershell.md)e [CLI do Azure comandos](data-lake-storage-directory-file-acl-cli.md).
    
-6. Pesquise referências de URI que contenham `adl://` a cadeia de caracteres em arquivos de código ou em blocos de anotações do databricks, Apache Hive arquivos HQL ou qualquer outro arquivo usado como parte de suas cargas de trabalho. Substitua essas referências pelo [URI formatado Gen2](data-lake-storage-introduction-abfs-uri.md) da sua nova conta de armazenamento. Por exemplo: o URI Gen1: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` pode se `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`tornar. 
+6. Pesquise referências de URI que contenham a cadeia `adl://` de caracteres em arquivos de código ou em blocos de anotações do databricks, Apache Hive arquivos HQL ou qualquer outro arquivo usado como parte de suas cargas de trabalho. Substitua essas referências pelo [URI formatado Gen2](data-lake-storage-introduction-abfs-uri.md) da sua nova conta de armazenamento. Por exemplo: o URI Gen1: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` pode se tornar `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
 7. Configure a segurança em sua conta para incluir [funções RBAC (controle de acesso baseado em função)](../common/storage-auth-aad-rbac-portal.md), [segurança no nível de arquivo e pasta](data-lake-storage-access-control.md)e [firewalls de armazenamento do Azure e redes virtuais](../common/storage-network-security.md).
 
@@ -87,7 +86,7 @@ Migre dados, cargas de trabalho e aplicativos usando o padrão que você preferi
 
 Depois de ter certeza de que seus aplicativos e cargas de trabalho estão estáveis no Gen2, você pode começar a usar o Gen2 para satisfazer seus cenários de negócios. Desative todos os pipelines restantes em execução no Gen1 e encerre sua conta do Gen1. 
 
-<a id="gen1-gen2-feature-comparison" />
+<a id="gen1-gen2-feature-comparison"></a>
 
 ## <a name="gen1-vs-gen2-capabilities"></a>Recursos do Gen1 vs Gen2
 
@@ -103,9 +102,9 @@ Esta tabela compara os recursos de Gen1 com o de Gen2.
 |Suporte VNET|[Integração VNET](../../data-lake-store/data-lake-store-network-security.md)|[Pontos de extremidade de serviço](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [pontos de extremidade privados](../common/storage-private-endpoints.md)|
 |Experiência do desenvolvedor|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.net](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [CLI do Azure](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Disponibilidade geral – [REST](/rest/api/storageservices/data-lake-storage-gen2), [.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>Visualização pública- [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [CLI do Azure](data-lake-storage-directory-file-acl-cli.md)|
 |Logs de recursos|Logs clássicos<br>[Azure Monitor integrado](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Logs clássicos](../common/storage-analytics-logging.md) – geralmente disponíveis<br>Integração do Azure monitor – linha do tempo TBD|
-|Ecossistema|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 e posterior)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 e superior)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Ecossistema|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 e posterior)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 e superior)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-<a id="migration-patterns" />
+<a id="migration-patterns"></a>
 
 ## <a name="gen1-to-gen2-patterns"></a>Padrões de Gen1 para Gen2
 

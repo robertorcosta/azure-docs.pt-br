@@ -5,14 +5,13 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: a4770b3ae7c52b9a05ff704915a3e9f401fd1741
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: bf02bdc4d824a47bdaad4821ffc9562b9fe2dd40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84482626"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -24,7 +23,7 @@ O gateway de aplicativo publica pontos de dados, chamados métricas, para [Azure
 
 O gateway de aplicativo fornece várias métricas de tempo internas relacionadas à solicitação e à resposta, que são todas medidas em milissegundos. 
 
-![](./media/application-gateway-metrics/application-gateway-metrics.png)
+![Diagrama de métricas de tempo para o gateway de aplicativo.](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -54,7 +53,7 @@ O gateway de aplicativo fornece várias métricas de tempo internas relacionadas
 
   Esse é o intervalo a partir do momento em que o gateway de aplicativo recebe o primeiro byte da solicitação HTTP até a hora em que o último byte de resposta foi enviado ao cliente. Isso inclui o tempo de processamento usado pelo gateway de aplicativo, o *tempo de resposta do último byte de back-end*, o tempo gasto pelo gateway de aplicativo para enviar toda a resposta e o *RTT do cliente*.
 
-- **RTT do cliente**
+- **RTT do Cliente**
 
   Tempo médio de ida e volta entre clientes e o gateway de aplicativo.
 
@@ -86,7 +85,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
 - **Unidades de capacidade atuais**
 
-   Contagem de unidades de capacidade consumidas para balancear a carga do tráfego. Há três determinantes para unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
+   Contagem de unidades de capacidade consumidas para balancear a carga do tráfego. Há três determinantes para unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2.22 Mbps.
 
 - **Unidades de computação atuais**
 
@@ -121,7 +120,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
    Número de bytes por segundo atendidos pelo Gateway de Aplicativo
 
-- **Total de solicitações**
+- **Total de Solicitações**
 
    Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 
@@ -141,7 +140,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
   O número de back-ends que são determinados não íntegros pela investigação de integridade. Você pode filtrar em uma base de pool por back-end para mostrar o número de hosts não íntegros em um pool de back-end específico.
   
-- **Solicitações por minuto por host íntegro**
+- **Solicitações por minuto por Host Íntegro**
 
   O número médio de solicitações recebidas por cada membro íntegro em um pool de back-end em um minuto. Você deve especificar o pool de back-end usando a dimensão *HttpSettings do backendpool* .  
   
@@ -172,13 +171,13 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
   Número de bytes por segundo atendidos pelo Gateway de Aplicativo
 
-- **Total de solicitações**
+- **Total de Solicitações**
 
   Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 
-- **Contagem de solicitações bloqueadas do firewall do aplicativo Web**
+- **Contagem de Solicitações Bloqueadas do Firewall do Aplicativo Web**
 - **Distribuição de solicitações bloqueadas do firewall do aplicativo Web**
-- **Distribuição da regra total do firewall do aplicativo Web**
+- **Distribuição de Regra Total do Firewall do Aplicativo Web**
 
 ### <a name="backend-metrics"></a>Métricas de back-end
 

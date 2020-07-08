@@ -2,28 +2,25 @@
 title: Integrar Azure NetApp Files com o serviço kubernetes do Azure
 description: Saiba como integrar o Azure NetApp Files com o serviço kubernetes do Azure
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
-ms.author: zarhoads
-ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465636"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar Azure NetApp Files com o serviço kubernetes do Azure
 
 [Azure NetApp files][anf] é um serviço de armazenamento de arquivos medido de alto desempenho e de classe empresarial em execução no Azure. Este artigo mostra como integrar Azure NetApp Files com o AKS (serviço kubernetes do Azure).
 
 ## <a name="before-you-begin"></a>Antes de começar
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
 > [!IMPORTANT]
 > O cluster AKS também deve estar [em uma região com suporte a Azure NetApp files][anf-regions].
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ### <a name="limitations"></a>Limitações
 
@@ -148,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` por *CreationToken* e `server` por *ipAddress* do comando anterior. Por exemplo:
+Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` por *creationToken* e `server` por *ipAddress* do comando anterior. Por exemplo:
 
 ```yaml
 ---

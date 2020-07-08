@@ -8,16 +8,17 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0945743fb2cf3e37345ff562250e48511944cee6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466163"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto de extremidade privado para uma conexão segura com o Azure Pesquisa Cognitiva
 
 Neste artigo, você usará o portal do Azure para criar uma nova instância do serviço de Pesquisa Cognitiva do Azure que não pode ser acessada pela Internet. Em seguida, você configurará uma máquina virtual do Azure na mesma rede virtual e a usará para acessar o serviço de pesquisa por meio de um ponto de extremidade privado.
+
+Pontos de extremidade privados são fornecidos pelo [link privado do Azure](../private-link/private-link-overview.md), como um serviço separado. Para obter mais informações sobre os custos, consulte a [página de preços](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
 > O suporte de ponto de extremidade privado para o Azure Pesquisa Cognitiva pode ser configurado usando o portal do Azure ou a [API REST de gerenciamento versão 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Quando o ponto de extremidade de serviço é privado, alguns recursos do portal são desabilitados. Você poderá exibir e gerenciar as informações de nível de serviço, mas o acesso ao portal para indexar dados e os vários componentes no serviço, como o índice, o indexador e as definições de qualificações, é restrito por motivos de segurança.
@@ -42,7 +43,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede para hospedar a VM 
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Subscription | Selecione sua assinatura|
+    | Subscription | Selecionar sua assinatura|
     | Resource group | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK** |
     | Nome | Insira *MyVirtualNetwork* |
     | Região | Selecione a região desejada |
@@ -58,14 +59,14 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **novos serviço de pesquisa-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
     | URL | Insira um nome exclusivo. |
-    | Local | Selecione a região desejada. |
+    | Location | Selecione a região desejada. |
     | Tipo de preço | Selecione **alterar tipo de preço** e escolha a camada de serviço desejada. (Sem suporte na camada **gratuita** . Deve ser **básico** ou superior.) |
     |||
   
@@ -79,11 +80,11 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    | Local | Selecione **Oeste dos EUA**.|
+    | Location | Selecione **Oeste dos EUA**.|
     | Nome | Insira *myPrivateEndpoint*.  |
     | Sub-recurso de destino | Deixe o **searchService**padrão. |
     | **REDE** |  |
@@ -112,7 +113,7 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -209,7 +210,7 @@ Quando o ponto de extremidade do serviço de pesquisa é privado, alguns recurso
 
 1. Para verificar se o serviço não está acessível em um ponto de extremidade público, abra o postmaster em sua estação de trabalho local e tente as várias tarefas no início rápido. Se você receber um erro informando que o servidor remoto não existe, você configurou com êxito um ponto de extremidade privado para o serviço de pesquisa.
 
-## <a name="clean-up-resources"></a>Limpar os recursos 
+## <a name="clean-up-resources"></a>Limpar recursos 
 Quando você terminar de usar o ponto de extremidade privado, o serviço de pesquisa e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa. 
 1. Selecione **Excluir grupo de recursos**. 

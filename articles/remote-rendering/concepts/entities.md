@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509195"
 ---
 # <a name="entities"></a>Entidades
 
@@ -25,6 +24,33 @@ O aspecto mais importante da entidade em si é a hierarquia e a transformação 
 Uma entidade é de propriedade exclusiva de seu pai, o que significa que, quando o pai é destruído com `Entity.Destroy()`, também são seus filhos e todos os [componentes](components.md) conectados. Deste modo, a remoção de um modelo da cena é realizada chamando `Destroy` no nó raiz de um modelo, retornado por `AzureSession.Actions.LoadModelAsync()` ou sua variante SAS `AzureSession.Actions.LoadModelFromSASAsync()`.
 
 As entidades são criadas quando o servidor carrega o conteúdo ou quando o usuário quer adicionar um objeto à cena. Por exemplo, se um usuário quiser adicionar um plano de corte para visualizar o interior de uma malha, o usuário poderá criar uma entidade em que o plano deve existir e, em seguida, adicionar o componente do plano de corte a ela.
+
+## <a name="create-an-entity"></a>Criar uma entidade
+
+Para adicionar uma nova entidade à cena, por exemplo, para passá-la como um objeto raiz para carregar modelos ou anexar componentes a ela, use o seguinte código:
+
+```cs
+Entity CreateNewEntity(AzureSession session)
+{
+    Entity entity = session.Actions.CreateEntity();
+    entity.Position = new LocalPosition(1, 2, 3);
+    return entity;
+}
+```
+
+```cpp
+ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+{
+    ApiHandle<Entity> entity(nullptr);
+    if (auto entityRes = session->Actions()->CreateEntity())
+    {
+        entity = entityRes.value();
+        entity->Position(Double3{ 1, 2, 3 });
+        return entity;
+    }
+    return entity;
+}
+```
 
 ## <a name="query-functions"></a>Funções de consulta
 

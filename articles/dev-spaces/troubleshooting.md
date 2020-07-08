@@ -5,12 +5,11 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 1242aa0e6c8255d778da55b0e574f3d12f61c381
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309638"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas do Azure Dev Spaces
 
@@ -27,6 +26,14 @@ Para o Visual Studio, defina a variável de ambiente `MS_VS_AZUREDEVSPACES_TOOLS
 Na CLI, você pode gerar mais informações durante a execução do comando usando o switch `--verbose`. Também é possível pesquisar logs mais detalhados em `%TEMP%\Azure Dev Spaces`. Em um Mac, o diretório *TEMP* pode ser encontrado executando `echo $TMPDIR` em uma janela de terminal. Em um computador Linux, o diretório *TEMP* é geralmente `/tmp`. Além disso, verifique se o registro em log está ativado no seu [arquivo de configuração da CLI do Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 O Azure Dev Spaces também funciona melhor ao depurar uma única instância ou pod. O arquivo `azds.yaml` contém uma configuração, *replicaCount*, que indica o número de pods que o Kubernetes executa para seu serviço. Se você alterar o *replicaCount* para configurar seu aplicativo para executar vários pods para um determinado serviço, o depurador será anexado ao primeiro pod, quando listados em ordem alfabética. O depurador será anexado a um pod diferente quando o pod original for reciclado, provavelmente causando um comportamento inesperado.
+
+## <a name="common-issues-when-using-local-process-with-kubernetes"></a>Problemas comuns ao usar o processo local com o kubernetes
+
+### <a name="fail-to-restore-original-configuration-of-deployment-on-cluster"></a>Falha ao restaurar a configuração original da implantação no cluster
+
+Ao usar o processo local com o kubernetes, se o processo local com o cliente do kubernetes falhar ou for encerrado abruptamente, o serviço em que o processo local com o kubernetes é redirecionamento pode não ser restaurado para seu estado original antes do processo local com kubernetes conectado a ele.
+
+Para corrigir esse problema, reimplante o serviço no cluster.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Problemas comuns ao habilitar o Azure Dev Spaces
 
@@ -97,7 +104,7 @@ Para corrigir esse problema, atualize sua instalação da [CLI do Azure](/cli/az
 
 Você poderá ver esse erro quando o Azure Dev Spaces não puder se conectar ao servidor da API do cluster AKS.
 
-Se o acesso ao servidor da API do cluster AKS estiver bloqueado ou se você tiver [intervalos de endereços IP autorizados do servidor de API](../aks/api-server-authorized-ip-ranges.md) habilitados para o cluster AKS, também deverá [criar](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) ou [atualizar](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) o cluster para [permitir intervalos adicionais com base na sua região](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+Se o acesso ao servidor de API do cluster do AKS estiver bloqueado ou se você tiver [intervalos de endereços IP autorizados do servidor de API](../aks/api-server-authorized-ip-ranges.md) habilitados para o cluster do AKs, você também deverá [criar](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) ou [Atualizar](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) seu cluster para [permitir intervalos adicionais com base na sua região](configure-networking.md#aks-cluster-network-requirements)
 
 Verifique se o servidor da API está disponível executando comandos kubectl. Se o servidor da API não estiver disponível, entre em contato com o suporte do AKS e tente novamente quando o servidor da API estiver funcionando.
 
@@ -150,7 +157,7 @@ Esse erro ocorrerá se o cliente do Helm não puder mais se comunicar com o pod 
 
 Para corrigir esse problema, reinicie os nós de agente no cluster.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Erro "Falha na versão azds-\<identificador\>-\<nomedoespaço\>-\<nomedoserviço\>: os serviços '\<NomeDoServiço\>' já existem" ou "Acesso de pull negado para \<NomeDoServiço\>, o repositório não existe ou pode exigir 'logon do docker'"
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Erro "Release azds- \<identifier\> - \<spacename\> - \<servicename\> Failed: os serviços ' \<servicename\> ' já existe" ou "acesso pull negado para \<servicename\> , o repositório não existe ou pode exigir ' Docker login"
 
 Esses erros podem ocorrer se você misturar comandos diretos do Helm em execução (como `helm install`, `helm upgrade`ou `helm delete`) com comandos do Dev Spaces (como `azds up` e `azds down`) dentro do mesmo espaço de desenvolvimento. Eles ocorrem porque o Dev Spaces tem sua própria instância de Tiller, que está em conflito com a sua instância de Tiller em execução no mesmo espaço de desenvolvimento.
 
@@ -259,7 +266,7 @@ Esse erro ocorre porque o Azure Dev Spaces atualmente não dá suporte a compila
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>O tráfego de rede não é encaminhado para o cluster AKS ao conectar seu computador de desenvolvimento
 
-Ao usar o [Azure Dev Spaces para conectar o cluster AKS ao seu computador de desenvolvimento](how-to/connect.md), você pode encontrar um problema em que o tráfego de rede não é encaminhado entre o computador de desenvolvimento e o cluster AKS.
+Ao usar o [Azure Dev Spaces para conectar o cluster AKS ao seu computador de desenvolvimento](how-to/local-process-kubernetes-vs-code.md), você pode encontrar um problema em que o tráfego de rede não é encaminhado entre o computador de desenvolvimento e o cluster AKS.
 
 Ao conectar seu computador de desenvolvimento ao cluster AKS, o Azure Dev Spaces encaminha o tráfego de rede entre o cluster AKS e o computador de desenvolvimento modificando o arquivo `hosts` do seu computador de desenvolvimento. O Azure Dev Spaces cria uma entrada no `hosts` com o endereço do serviço Kubernetes que você está substituindo como um nome de host. Essa entrada é usada com o encaminhamento de porta para direcionar o tráfego de rede entre o computador de desenvolvimento e o cluster AKS. Se um serviço em seu computador de desenvolvimento estiver em conflito com a porta do serviço kubernetes que você está substituindo, o Azure Dev Spaces não poderá encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* geralmente está associado a *0.0.0.0:80*, cujos conflitos causarão um conflito para a porta 80 em todos os IPs locais.
 
@@ -272,9 +279,9 @@ Por exemplo, para interromper e desabilitar o serviço *Windows BranchCache*:
 * Opcionalmente, você pode desabilitá-lo definindo *Tipo de inicialização* como *Desabilitado*.
 * Clique em *OK*.
 
-### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Erro "Nenhum AzureAssignedIdentity encontrado para pod:azds/azds-webhook-deployment-\<id\> no estado atribuído"
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Erro "nenhum AzureAssignedIdentity encontrado para Pod: azds/azds-webhook-implantação- \<id\> no estado atribuído"
 
-Ao executar um serviço com Azure Dev Spaces em um cluster AKS com uma [identidade gerenciada](../aks/use-managed-identity.md) e [identidades gerenciadas por pod](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) instaladas, o processo pode ser interrompido depois da etapa de *instalação de gráfico*. Se você inspecionar o *azds-injector-webhook* no namespace *azds*, poderá ver esse erro.
+Ao executar um serviço com Azure Dev Spaces em um cluster AKS com [identidade](../aks/use-managed-identity.md) gerenciada e [identidades gerenciadas Pod](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) instaladas, o processo pode parar de responder após a etapa de *instalação do gráfico* . Se você inspecionar o *azds-injector-webhook* no namespace *azds*, poderá ver esse erro.
 
 Os serviços Azure Dev Spaces executados no cluster utilizam a identidade gerenciada do cluster para se comunicar com os serviços de back-end do Azure Dev Spaces fora do cluster. Quando a identidade gerenciada por pod é instalada, as regras de rede são configuradas nos nós do cluster para redirecionar todas as chamadas para credenciais de identidade gerenciadas para um [DaemonSet NMI (Identidade Gerenciada do Nó) instalado no cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Esse DaemonSet NMI identifica o pod de chamada e garante que o pod tenha sido rotulado adequadamente para acessar a identidade gerenciada solicitada. O Azure Dev Spaces não pode detectar se um cluster tem identidade gerenciada por pod instalada e não pode executar a configuração necessária para permitir que os serviços do Azure Dev Spaces acessem a identidade gerenciada do cluster. Como os serviços do Azure Dev Spaces não foram configurados para acessar a identidade gerenciada do cluster, o DaemonSet NMI não permitirá que eles obtenham um token do AAD para a identidade gerenciada e não se comunicará com os serviços de back-end Azure Dev Spaces.
 
@@ -434,7 +441,7 @@ Uma solução alternativa temporária para esse problema é aumentar o valor de 
 
 Esse erro pode ocorrer se `azds.exe` não estiver instalado ou configurado corretamente.
 
-Para corrigir esse problema:
+Para resolver este problema:
 
 1. Verifique o local %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI for `azds.exe`. Se estiver lá, adicione o local à variável de ambiente PATH.
 2. Se `azds.exe` não estiver instalado, execute o seguinte comando:
@@ -510,7 +517,7 @@ Para atualizar a função RBAC do usuário para o controlador:
 
 Você pode configurar um ponto de extremidade de URL público para seu serviço, especificando a opção `--enable-ingress` para o comando `azds prep` ou selecionando a caixa de seleção `Publicly Accessible` no Visual Studio. O nome DNS público é registrado automaticamente quando você executa o serviço no Dev Spaces. Se esse nome DNS não estiver registrado, você verá um erro *A página não pode ser exibida* ou *O site não pode ser alcançado* no navegador da Web durante a conexão com a URL pública.
 
-Para corrigir esse problema:
+Para resolver este problema:
 
 * Verifique o status de todas as URLs associadas aos seus serviços do Dev Spaces:
 
@@ -532,7 +539,7 @@ Para corrigir esse problema:
 * O contêiner ainda está em processo de ser compilado e implantado. Esse problema poderá ocorrer se você executar `azds up` ou iniciar o depurador e, em seguida, tentar acessar o contêiner antes dele ser implantado com êxito.
 * A configuração de porta não é uniforme em todo o _Dockerfile_, Helm Chart e em qualquer código de servidor que abra uma porta.
 
-Para corrigir esse problema:
+Para resolver este problema:
 
 1. Se o contêiner estiver sendo compilado/implantado, você poderá aguardar de 2 a 3 segundos e tentar acessar o serviço novamente. 
 1. Verifique a configuração das suas portas nos seguintes ativos:
@@ -589,9 +596,10 @@ Para habilitar o Azure Dev Spaces em um cluster AKS para o qual o tráfego de sa
 | cloudflare.docker.com | HTTPS:443 | Para efetuar o pull de imagens do Linux Alpine e de outras imagens do Azure Dev Spaces |
 | gcr.io | HTTP:443 | Para efetuar o pull de imagens do Helm/tiller|
 | storage.googleapis.com | HTTP:443 | Para efetuar o pull de imagens do Helm/tiller|
-| azds-<guid>.<location>.azds.io | HTTPS:443 | Para se comunicar com os serviços de back-end do Azure Dev Spaces para seu controlador. O FQDN exato pode ser encontrado em "dataplaneFqdn" em %USERPROFILE%\.azds\settings.json|
 
-### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Erro "Não foi possível localizar o cluster \<cluster\> na assinatura \<SubscriptionId\>"
+Atualize seu firewall ou configuração de segurança para permitir o tráfego de rede de e para todos os FQDNs e [serviços de infraestrutura de Azure dev Spaces](../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations)acima.
+
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Erro "não foi possível localizar o cluster \<cluster\> na assinatura \<subscriptionId\> "
 
 Você poderá ver esse erro se o arquivo kubeconfig estiver direcionado a um cluster ou uma assinatura diferente do que você está tentando usar com as ferramentas do lado do cliente do Azure Dev Spaces. As ferramentas do lado do cliente do Azure Dev Spaces replicam o comportamento de *kubectl*, que usa [um ou mais arquivos kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) para selecionar e se comunicar com o cluster.
 

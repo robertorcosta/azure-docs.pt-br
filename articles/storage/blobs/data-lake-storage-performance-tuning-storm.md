@@ -4,16 +4,15 @@ description: Diretrizes de ajuste de desempenho do Azure Data Lake Storage Gen2 
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465908"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: o Storm, o HDInsight & Azure Data Lake Storage Gen2
 
@@ -63,7 +62,7 @@ Digamos que façamos oito threads de bolt por núcleo. Dados 64 núcleos, isso s
 Depois que tiver a topologia básica, você pode considerar se deseja ajustar qualquer um dos parâmetros:
 * **Número de JVMs por nó de trabalho.** Se você tiver uma grande estrutura de dados (por exemplo, uma tabela de pesquisa) hospedada na memória, cada JVM vai precisar de uma cópia separada. Como alternativa, você pode usar a estrutura de dados em vários threads, se tiver menos JVMs. Para E/S do bolt, o número de JVMs não faz tanta diferença quanto o número de threads adicionados entre essas JVMs. Para simplificar, é uma boa ideia ter uma JVM por trabalho. No entanto, dependendo do que o bolt esteja fazendo ou de que processamento de aplicativo você esteja precisando, talvez seja necessário alterar esse número.
 * **Número de executores de spout.** Como o exemplo anterior usa bolts para gravar no Data Lake Storage Gen2, o número de spouts não é diretamente relevante para o desempenho do bolt. No entanto, dependendo do volume de processamento ou de E/S ocorrendo no spout, é recomendável ajustar os spouts para melhor desempenho. Você precisa ter spouts suficientes para conseguir manter os bolts trabalhando. As taxas de saída dos spouts devem coincidir com a taxa de transferência dos bolts. A configuração real depende do spout.
-* **Número de tarefas.** Cada bolt é executado como um único thread. Tarefas adicionais por bolt não fornecem simultaneidade adicional. A situação em que elas são benéficas é se o processo de confirmação da tupla utilizar uma grande proporção de seu tempo de execução de bolt. É recomendável agrupar muitas tuplas em um acréscimo maior antes de enviar uma confirmação do bolt. Portanto, na maioria dos casos, várias tarefas não oferecem qualquer benefício adicional.
+* **Número de tarefas.** Cada bolt é executado como um único thread. Tarefas adicionais por bolt não fornecem simultaneidade adicional. A situação em que elas são benéficas é se o processo de confirmação da tupla utilizar uma grande proporção de seu tempo de execução de bolt. É uma boa ideia agrupar várias tuplas em um acréscimo maior antes de enviar uma confirmação do parafuso. Portanto, na maioria dos casos, várias tarefas não oferecem qualquer benefício adicional.
 * **Agrupamento local ou aleatório.** Quando essa configuração é habilitada, tuplas são enviadas a bolts dentro do mesmo processo de trabalho. Isso reduz as chamadas de rede e comunicação entre processos. Isso é recomendado para a maioria das topologias.
 
 Esse cenário básico é um bom ponto de partida. Teste com seus próprios dados para ajustar os parâmetros anteriores para obter o desempenho ideal.
@@ -72,7 +71,7 @@ Esse cenário básico é um bom ponto de partida. Teste com seus próprios dados
 
 Você pode modificar as seguintes configurações para ajustar o spout.
 
-- **Tempo limite de tupla: topology.message.timeout.secs**. Essa configuração determina quanto tempo uma mensagem leva para ser concluída e receber a confirmação antes de ser considerada com falha.
+- **Tempo limite de tupla: topology.message.timeout.secs**. Essa configuração determina a quantidade de tempo que uma mensagem leva para ser concluída e recebe a confirmação antes de ser considerada falha.
 
 - **Memória máxima por processo de trabalho: worker.childopts**. Essa configuração permite especificar parâmetros de linha de comando adicionais para os trabalhos Java. A configuração mais comumente usada aqui é XmX, que determina o máximo de memória alocado para o heap de uma JVM.
 
@@ -89,7 +88,7 @@ Enquanto a topologia estiver em execução, você pode monitorá-la na interface
 
 * **Latência total de execução do processo.** Tempo médio que uma tupla leva para ser emitida pelo spout, processada pelo bolt e confirmada.
 
-* **Latência total de processo do bolt.** Tempo médio gasto pela tupla no bolt até receber uma confirmação.
+* **Latência total de processo do bolt.** Este é o tempo médio gasto pela tupla no raio até receber uma confirmação.
 
 * **Latência total de execute do bolt.** Tempo médio gasto pelo bolt no método execute.
 
@@ -110,7 +109,7 @@ Se atingir os limites de largura de banda fornecidos pelo Data Lake Storage Gen2
 
 Para verificar se há problemas de limitação, habilite o log de depuração no lado do cliente:
 
-1. Em **Ambari** > **Storm** > **Config**config > **avançado Storm-Worker-Log4J**, altere ** &lt;raiz Level = "info"&gt; ** para ** &lt;root Level = "debug"&gt;**. Reinicie todos os nós/serviços para que a configuração entre em vigor.
+1. Em **Ambari**  >  **Storm**  >  **config**  >  **avançado Storm-Worker-Log4J**, altere ** &lt; raiz Level = "info" &gt; ** para ** &lt; root Level = "debug" &gt; **. Reinicie todos os nós/serviços para que a configuração entre em vigor.
 2. Monitore logs de topologia do Storm em nós de trabalho (em /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) para ver as exceções de limitação do Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Próximas etapas

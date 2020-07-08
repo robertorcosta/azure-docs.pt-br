@@ -6,12 +6,11 @@ ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432007"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Use Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB
 
@@ -79,21 +78,24 @@ Esses comandos geram a lista de nomes de alias de propriedade para a propriedade
 
 Você pode usar qualquer um desses nomes de alias de propriedade nas [regras de definição de política personalizada](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
 
-Veja a seguir um exemplo de definição de política que verifica se uma taxa de transferência provisionada do banco de dados SQL do Microsoft Azure Cosmos DB é maior que um limite máximo permitido de 400 RU/s. Uma definição de política personalizada inclui duas regras: uma para verificar o tipo específico de alias de propriedade e a segunda para a propriedade específica do tipo. Ambas as regras usam os nomes de alias.
+Veja a seguir um exemplo de definição de política que verifica se uma conta de Azure Cosmos DB está configurada para vários locais de gravação. A definição de política personalizada inclui duas regras: uma para verificar o tipo específico de alias de propriedade e a segunda para a propriedade específica do tipo, nesse caso, o campo que armazena a configuração de vários locais de gravação. Ambas as regras usam os nomes de alias.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
@@ -106,21 +108,26 @@ Depois que as atribuições de política são criadas, o Azure Policy avalia os 
 
 Você pode examinar os resultados de conformidade e os detalhes de correção no [portal do Azure](../governance/policy/how-to/get-compliance-data.md#portal) ou por meio da [CLI do Azure](../governance/policy/how-to/get-compliance-data.md#command-line) ou dos logs do [Azure monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
-A captura de tela a seguir mostra dois exemplos de atribuições de política. Uma atribuição é baseada em uma definição de política interna, que verifica se os recursos do Microsoft Azure Cosmos DB são implantados somente nas regiões do Azure permitidas. A outra atribuição é baseada em uma definição de política personalizada. Essa atribuição verifica se a taxa de transferência provisionada nos recursos do Microsoft Azure Cosmos DB não excede um limite máximo especificado.
+A captura de tela a seguir mostra dois exemplos de atribuições de política.
 
-Depois que as atribuições de política são implantadas, o painel de conformidade mostra os resultados da avaliação. Observe que isso pode levar até 30 minutos após a implantação de uma atribuição de política.
+Uma atribuição é baseada em uma definição de política interna, que verifica se os recursos do Microsoft Azure Cosmos DB são implantados somente nas regiões do Azure permitidas. Conformidade de recursos mostra o resultado da avaliação de política (compatível ou não compatível) para recursos no escopo.
 
-A captura de tela mostra os seguintes resultados de avaliação de conformidade:
+A outra atribuição é baseada em uma definição de política personalizada. Essa atribuição verifica se as contas do Cosmos DB estão configuradas para vários locais de gravação.
 
-- Zero de uma das contas do Microsoft Azure Cosmos DB no escopo especificado são compatíveis com a atribuição de política para verificar se os recursos foram implantados em regiões permitidas.
-- Um de dois banco de dados ou recursos de coleção do Microsoft Azure Cosmos DB no escopo especificado é compatível com a atribuição de política para verificar a taxa de transferência provisionada que excede o limite máximo especificado.
+Depois que as atribuições de política são implantadas, o painel de conformidade mostra os resultados da avaliação. Observe que isso pode levar até 30 minutos após a implantação de uma atribuição de política. Além disso, as [verificações de avaliação de política podem ser iniciadas sob demanda](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) imediatamente após a criação de atribuições de política.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Pesquisar definições de políticas internas para o Azure Cosmos DB":::
+A captura de tela mostra os seguintes resultados de avaliação de conformidade para contas de Azure Cosmos DB no escopo:
 
-Para corrigir os recursos sem conformidade, consulte o artigo [corrigido com Azure Policy](../governance/policy/how-to/remediate-resources.md).
+- Zero de duas contas são compatíveis com uma política que a filtragem de rede virtual (VNet) deve ser configurada.
+- Zero de duas contas são compatíveis com uma política que exige que a conta seja configurada para vários locais de gravação
+- Zero de duas contas são compatíveis com uma política que os recursos foram implantados para regiões do Azure permitidas.
+
+:::image type="content" source="./media/policy/compliance.png" alt-text="Resultados de conformidade para atribuições de Azure Policy listadas":::
+
+Para corrigir os recursos sem conformidade, consulte [como corrigir recursos com o Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Revisar definições de política personalizada para o Microsoft Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+- [Examine as definições de política personalizada de exemplo para Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), incluindo as políticas de filtragem de VNet e de várias local de gravação mostradas acima.
 - [Criar uma atribuição de política no portal do Azure](../governance/policy/assign-policy-portal.md)
 - [Revisar as definições de políticas internas do Azure Policy para o Microsoft Azure Cosmos DB](./policy-samples.md)

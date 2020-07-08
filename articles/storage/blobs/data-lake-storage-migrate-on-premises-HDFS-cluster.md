@@ -5,15 +5,14 @@ author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 6c5f2a041f03d53e1ea7c3f981683f4b70d3963b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465993"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrar do repositório HDFS local para o armazenamento do Azure com Azure Data Box
 
@@ -57,13 +56,13 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
 
     ![Página "conectar e copiar"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
-2. Na caixa de diálogo acessar conta de armazenamento e carregar dados, copie o **ponto de extremidade do serviço blob** e a **chave da conta de armazenamento**. No ponto de extremidade do serviço BLOB, `https://` omita o e a barra à direita.
+2. Na caixa de diálogo acessar conta de armazenamento e carregar dados, copie o **ponto de extremidade do serviço blob** e a **chave da conta de armazenamento**. No ponto de extremidade do serviço BLOB, omita o `https://` e a barra à direita.
 
-    Nesse caso, o ponto de extremidade é `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`:. A parte do host do URI que você usará é: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Para obter um exemplo, consulte como [se conectar ao REST sobre http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    Nesse caso, o ponto de extremidade é: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . A parte do host do URI que você usará é: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Para obter um exemplo, consulte como [se conectar ao REST sobre http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Caixa de diálogo "acessar conta de armazenamento e carregar dados"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Adicione o ponto de extremidade e o Data Box ou o endereço IP `/etc/hosts` do nó de data Box Heavy para em cada nó.
+3. Adicione o ponto de extremidade e o Data Box ou o endereço IP do nó de Data Box Heavy para `/etc/hosts` em cada nó.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -71,9 +70,9 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
 
     Se você estiver usando algum outro mecanismo para DNS, certifique-se de que o ponto de extremidade de Data Box possa ser resolvido.
 
-4. Defina a variável `azjars` do Shell para o local dos `hadoop-azure` arquivos `azure-storage` jar e. Você pode encontrar esses arquivos no diretório de instalação do Hadoop.
+4. Defina a variável `azjars` do Shell para o local dos `hadoop-azure` `azure-storage` arquivos jar e. Você pode encontrar esses arquivos no diretório de instalação do Hadoop.
 
-    Para determinar se esses arquivos existem, use o seguinte comando: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Substitua o `<hadoop_install_dir>` espaço reservado pelo caminho para o diretório em que você instalou o Hadoop. Certifique-se de usar caminhos totalmente qualificados.
+    Para determinar se esses arquivos existem, use o seguinte comando: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` . Substitua o `<hadoop_install_dir>` espaço reservado pelo caminho para o diretório em que você instalou o Hadoop. Certifique-se de usar caminhos totalmente qualificados.
 
     Exemplos:
 
@@ -135,9 +134,9 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
 
     * Substitua o `<destination_directory>` espaço reservado pelo nome do diretório no qual você deseja copiar os dados.
 
-    A `-libjars` opção é usada para tornar o `hadoop-azure*.jar` e os arquivos `azure-storage*.jar` dependentes disponíveis `distcp`para o. Isso pode já ocorrer em alguns clusters.
+    A `-libjars` opção é usada para tornar o `hadoop-azure*.jar` e os arquivos dependentes `azure-storage*.jar` disponíveis para o `distcp` . Isso pode já ocorrer em alguns clusters.
 
-    O exemplo a seguir mostra como `distcp` o comando é usado para copiar dados.
+    O exemplo a seguir mostra como o `distcp` comando é usado para copiar dados.
 
     ```
      hadoop distcp \
@@ -219,7 +218,7 @@ Esse comando gera uma lista de arquivos copiados com suas permissões.
 
 3. Abra o arquivo `id_map.json` em um editor de texto.
 
-4. Para cada objeto JSON que aparece no arquivo, atualize o `target` atributo de um UPN (nome principal de usuário) do AAD ou OBJECTID (OID), com a identidade mapeada apropriada. Depois de terminar, salve o arquivo. Você precisará desse arquivo na próxima etapa.
+4. Para cada objeto JSON que aparece no arquivo, atualize o `target` atributo de um UPN (nome principal de usuário) do AAD ou ObjectId (OID), com a identidade mapeada apropriada. Depois de terminar, salve o arquivo. Você precisará desse arquivo na próxima etapa.
 
 ### <a name="apply-permissions-to-copied-files-and-apply-identity-mappings"></a>Aplicar permissões a arquivos copiados e aplicar mapeamentos de identidade
 
@@ -233,13 +232,13 @@ Execute este comando para aplicar permissões aos dados que você copiou para a 
 
 * Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
 
-* Substitua os `<application-id>` espaços `<client-secret>` reservados e pela ID do aplicativo e o segredo do cliente que você coletou ao criar a entidade de serviço.
+* Substitua os `<application-id>` `<client-secret>` espaços reservados e pela ID do aplicativo e o segredo do cliente que você coletou ao criar a entidade de serviço.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Apêndice: dividir dados em vários dispositivos Data Box
 
 Antes de mover seus dados para um dispositivo Data Box, você precisará baixar alguns scripts auxiliares, garantir que seus dados sejam organizados para caber em um dispositivo de Data Box e excluir quaisquer arquivos desnecessários.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Baixar scripts auxiliares e configurar o nó de borda para executá-los
 
@@ -281,7 +280,7 @@ Se o tamanho de seus dados exceder o tamanho de um único dispositivo Data Box, 
 
 Se os dados não excederem o tamanho de um único dispositivo Data Box, você poderá prosseguir para a próxima seção.
 
-1. Com permissões elevadas, execute `generate-file-list` o script que você baixou seguindo as orientações na seção anterior.
+1. Com permissões elevadas, execute o `generate-file-list` script que você baixou seguindo as orientações na seção anterior.
 
    Aqui está uma descrição dos parâmetros de comando:
 

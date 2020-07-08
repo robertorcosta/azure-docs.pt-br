@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
-ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343013"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do Azure
 O cabeçalho da solicitação de depuração de cache `X-EC-Debug` fornece informações adicionais sobre a política de cache que é aplicada para o ativo solicitado. Esses cabeçalhos são específicos para **Premium do Azure CDN dos produtos Verizon**.
@@ -27,7 +26,7 @@ O cabeçalho da solicitação de depuração de cache `X-EC-Debug` fornece infor
 ## <a name="usage"></a>Uso
 A resposta enviada de servidores POP para um usuário inclui o `X-EC-Debug` cabeçalho somente quando as seguintes condições forem atendidas:
 
-- O [Recurso de Cabeçalhos de Resposta de Cache de Depuração](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) foi habilitado no mecanismo de regras para a solicitação especificada.
+- O [Recurso de Cabeçalhos de Resposta de Cache de Depuração](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) foi habilitado no mecanismo de regras para a solicitação especificada.
 - A solicitação especificada define o conjunto de cabeçalhos de resposta do cache de depuração que serão incluídos na resposta.
 
 ## <a name="requesting-debug-cache-information"></a>Solicitação de informações do cache de depuração
@@ -41,7 +40,7 @@ X-EC-Debug: x-ec-check-cacheable | [Cacheable](#cacheable-response-header)
 X-EC-Debug: x-ec-cache-key | [Cache-key](#cache-key-response-header)
 X-EC-Debug: x-ec-cache-state | [Estado do cache](#cache-state-response-header)
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 Cabeçalhos de resposta de cache de depuração podem ser solicitados incluindo-se o seguinte cabeçalho e as diretivas especificadas na solicitação:
 
@@ -54,7 +53,7 @@ Cabeçalhos de resposta de cache de depuração podem ser solicitados incluindo-
 ## <a name="cache-status-code-information"></a>Informações de código de status do cache
 O cabeçalho de resposta X-EC-Debug pode identificar um servidor e como ele manipulou a resposta por meio das diretivas a seguir:
 
-Cabeçalho | Descrição
+parâmetro | Descrição
 -------|------------
 X-EC-Debug: x-ec-cache | Esse cabeçalho é informado sempre que o conteúdo é encaminhado por meio da CDN. Ele identifica o servidor POP que atendeu à solicitação.
 X-EC-Debug: x-ec-cache-remote | Esse cabeçalho é relatado somente quando o conteúdo solicitado foi armazenado em cache em um servidor de proteção de origem ou de um servidor de gateway ADN.
@@ -107,7 +106,7 @@ Valor  | Descrição
 -------| --------
 YES    | Indica que o conteúdo solicitado estava elegível para cache.
 Não     | Indica que o conteúdo solicitado estava inelegível para cache. Esse status pode ser devido a um dos seguintes motivos: <br /> - Configuração Específica do cliente: uma configuração específica do cliente para a sua conta pode impedir que os servidores pop armazenem um ativo em cache. Por exemplo, mecanismo de regras pode impedir um ativo que está sendo armazenado em cache, permitindo que o recurso Ignorar Cache qualifique as solicitações.<br /> - Cabeçalhos de resposta cache: Cabeçalhos de Cache-Control e Expires do ativo podem impedir que os servidores POP sejam armazenados em cache.
-DESCONHECIDO | Indica que os servidores não foram puderam avaliar se o recurso solicitado foi armazenável em cache. Normalmente, esse status ocorre quando a solicitação for negada devido a autenticação baseada em token.
+UNKNOWN | Indica que os servidores não foram puderam avaliar se o recurso solicitado foi armazenável em cache. Normalmente, esse status ocorre quando a solicitação for negada devido a autenticação baseada em token.
 
 ### <a name="sample-response-header"></a>Exemplo de cabeçalho de resposta
 

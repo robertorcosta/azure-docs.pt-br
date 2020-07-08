@@ -6,13 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/18/2020
-ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322083"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selecionar transformação no fluxo de dados de mapeamento
 
@@ -39,7 +38,10 @@ Mapeamentos fixos podem ser usados para mapear uma subcoluna de uma coluna hier�
 
 ## <a name="rule-based-mapping"></a>mapeamento baseado em regras
 
-Se você quiser mapear várias colunas de uma vez ou passar as colunas desfeitas, use o mapeamento baseado em regras para definir seus mapeamentos usando padrões de coluna. Corresponder com base nas `name`colunas `type`, `stream`, e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+
+Se você quiser mapear várias colunas de uma vez ou passar as colunas desfeitas, use o mapeamento baseado em regras para definir seus mapeamentos usando padrões de coluna. Corresponder com base nas `name` `type` colunas,, `stream` e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
 
 Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra**.
 
@@ -49,7 +51,7 @@ Cada mapeamento baseado em regras requer duas entradas: a condição na qual cor
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-mapping.png "mapeamento baseado em regras")
 
-Use `$$` a sintaxe para fazer referência ao nome de entrada de uma coluna correspondente. Usando a imagem acima como um exemplo, digamos que um usuário queira corresponder a todas as colunas de cadeia de caracteres cujos nomes tenham menos de seis caracteres. Se uma coluna de entrada tiver `test`sido nomeada, `$$ + '_short'` a expressão renomeará a coluna `test_short`. Se esse for o único mapeamento existente, todas as colunas que não atenderem à condição serão descartadas dos dados de saída.
+Use a `$$` sintaxe para fazer referência ao nome de entrada de uma coluna correspondente. Usando a imagem acima como um exemplo, digamos que um usuário queira corresponder a todas as colunas de cadeia de caracteres cujos nomes tenham menos de seis caracteres. Se uma coluna de entrada tiver sido nomeada `test` , a expressão `$$ + '_short'` renomeará a coluna `test_short` . Se esse for o único mapeamento existente, todas as colunas que não atenderem à condição serão descartadas dos dados de saída.
 
 Padrões correspondem a colunas descompassos e definidas. Para ver quais colunas definidas são mapeadas por uma regra, clique no ícone de óculos ao lado da regra. Verifique a saída usando a visualização de dados.
 
@@ -59,9 +61,9 @@ Se você clicar no ícone de divisa inferior, poderá especificar uma condição
 
 ![mapeamento baseado em regras](media/data-flow/regex-matching.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde ao padrão `(r)` Regex ou a qualquer nome de coluna que contenha um r com letras minúsculas. Semelhante ao mapeamento baseado em regra padrão, todas as colunas correspondentes são alteradas pela condição à direita usando `$$` a sintaxe.
+O exemplo acima corresponde ao padrão Regex `(r)` ou a qualquer nome de coluna que contenha um r com letras minúsculas. Semelhante ao mapeamento baseado em regra padrão, todas as colunas correspondentes são alteradas pela condição à direita usando a `$$` sintaxe.
 
-Se você tiver várias correspondências de Regex em seu nome de coluna, poderá consultar correspondências `$n` específicas usando onde ' n' refere-se a qual correspondência. Por exemplo, ' $2 ' refere-se à segunda correspondência dentro de um nome de coluna.
+Se você tiver várias correspondências de Regex em seu nome de coluna, poderá consultar correspondências específicas usando `$n` onde ' n' refere-se a qual correspondência. Por exemplo, ' $2 ' refere-se à segunda correspondência dentro de um nome de coluna.
 
 ### <a name="rule-based-hierarchies"></a>Hierarquias baseadas em regras
 
@@ -69,11 +71,11 @@ Se a projeção definida tiver uma hierarquia, você poderá usar o mapeamento b
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde a todas as Subcolunas de coluna `a`complexa. `a`contém duas Subcolunas `b` e `c`. O esquema de saída incluirá duas `b` colunas `c` e como a condição ' nome como ' `$$`é.
+O exemplo acima corresponde a todas as Subcolunas de coluna complexa `a` . `a`contém duas Subcolunas `b` e `c` . O esquema de saída incluirá duas colunas `b` e `c` como a condição ' nome como ' é `$$` .
 
 ### <a name="parameterization"></a>Parametrização
 
-Você pode parametrizar nomes de coluna usando o mapeamento baseado em regra. Use a palavra ```name``` -chave para corresponder nomes de coluna de entrada em um parâmetro. Por exemplo, se você tiver um parâmetro ```mycolumn```de fluxo de dados, poderá criar uma regra que corresponda a qualquer nome de coluna que ```mycolumn```seja igual a. Você pode renomear a coluna correspondente para uma cadeia de caracteres embutida em código, como ' chave comercial ' e fazer referência a ela explicitamente. Neste exemplo, a condição de correspondência é ```name == $mycolumn``` e a condição de nome é ' chave comercial '. 
+Você pode parametrizar nomes de coluna usando o mapeamento baseado em regra. Use a palavra-chave ```name``` para corresponder nomes de coluna de entrada em um parâmetro. Por exemplo, se você tiver um parâmetro de fluxo de dados ```mycolumn``` , poderá criar uma regra que corresponda a qualquer nome de coluna que seja igual a ```mycolumn``` . Você pode renomear a coluna correspondente para uma cadeia de caracteres embutida em código, como ' chave comercial ' e fazer referência a ela explicitamente. Neste exemplo, a condição de correspondência é ```name == $mycolumn``` e a condição de nome é ' chave comercial '. 
 
 ## <a name="auto-mapping"></a>Mapeamento automático
 

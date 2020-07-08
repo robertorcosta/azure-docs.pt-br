@@ -4,16 +4,15 @@ description: Use o Gerenciador de Armazenamento do Azure para gerenciar diretór
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: fca9fa8a964c6c9d69ffbb3036bd4774e0d1bd34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e8b99d4a9c48692551e3aba06aba1a3db385e60
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466044"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use Gerenciador de Armazenamento do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -23,7 +22,7 @@ Este artigo mostra como usar [Gerenciador de armazenamento do Azure](https://azu
 
 > [!div class="checklist"]
 > * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento que tem o namespace hierárquico (HNS) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
+> * Uma conta de armazenamento precisa ter o HNS (namespace hierárquico) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar um.
 > * Gerenciador de Armazenamento do Azure instalado no computador local. Para instalar o Gerenciador de Armazenamento do Azure para Windows, Macintosh ou Linux, confira o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Conectar-se ao Gerenciador de Armazenamento

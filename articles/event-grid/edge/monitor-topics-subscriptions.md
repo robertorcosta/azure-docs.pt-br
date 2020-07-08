@@ -1,19 +1,18 @@
 ---
 title: Monitorar tópicos e assinaturas de evento-grade de eventos do Azure IoT Edge | Microsoft Docs
 description: Monitorar tópicos e assinaturas de evento
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84554349"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorar tópicos e assinaturas de evento
 
@@ -40,7 +39,7 @@ Configure o módulo para emitir métricas definindo a `metrics__reporterType` va
         }
  ```    
 
-As métricas estarão disponíveis em `5888/metrics` seu módulo para http e `4438/metrics` HTTPS. Por exemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto de extremidade para coletar métricas como nesta [arquitetura de exemplo](https://github.com/veyalla/ehm).
+As métricas estarão disponíveis em `5888/metrics` seu módulo para http e `4438/metrics` https. Por exemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto de extremidade para coletar métricas como nesta [arquitetura de exemplo](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 

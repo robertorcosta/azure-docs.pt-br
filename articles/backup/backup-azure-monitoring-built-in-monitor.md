@@ -4,16 +4,15 @@ description: Neste artigo, saiba mais sobre os recursos de monitoramento e notif
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485097"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
-O backup do Azure fornece várias soluções de backup com base no requisito de backup e na topologia de infraestrutura (local versus Azure). Qualquer usuário ou administrador de backup deverá ver o que está acontecendo em todas as soluções e deve ser notificado em cenários importantes. Este artigo detalha os recursos de monitoramento e notificação fornecidos pelo serviço de backup do Azure.
+O backup do Azure fornece várias soluções de backup com base no requisito de backup e na topologia de infraestrutura (local versus Azure). Qualquer usuário ou administrador de backup deve ver o que está acontecendo em todas as soluções e pode esperar ser notificado em cenários importantes. Este artigo detalha os recursos de monitoramento e notificação fornecidos pelo serviço de backup do Azure.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Trabalhos de backup no cofre dos serviços de recuperação
 
@@ -21,7 +20,7 @@ O backup do Azure fornece recursos de monitoramento e alerta criados para cargas
 
 ![Monitoramento interno do cofre RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
 
-Os trabalhos são gerados quando as operações, como configurar backup, backup, restaurar, excluir backup e assim por diante, são executadas.
+Os trabalhos são gerados quando operações como configurar backup, fazer backup, restaurar, excluir backup e assim por diante, são executadas.
 
 Os trabalhos das seguintes soluções de backup do Azure são mostrados aqui:
 
@@ -33,7 +32,7 @@ Os trabalhos das seguintes soluções de backup do Azure são mostrados aqui:
 Os trabalhos do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos.
 
 > [!NOTE]
-> As cargas de trabalho do Azure, como o SQL e os backups SAP HANA em VMs do Azure, têm um grande número de trabalhos de backup. Por exemplo, os backups de log podem ser executados a cada 15 minutos. Portanto, para essas cargas de trabalho de BD, somente as operações disparadas pelo usuário são exibidas. As operações de backup agendadas não são exibidas.
+> As cargas de trabalho do Azure, como o SQL e os backups SAP HANA em VMs do Azure, têm um grande número de trabalhos de backup. Por exemplo, os backups de log podem ser executados a cada 15 minutos. Portanto, para cargas de trabalho de BD, somente as operações disparadas pelo usuário são exibidas. As operações de backup agendadas não são exibidas.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Alertas de backup no cofre dos serviços de recuperação
 
@@ -59,7 +58,7 @@ Os cenários a seguir são definidos pelo serviço como cenários de alerta.
 
 ### <a name="consolidated-alerts"></a>Alertas consolidados
 
-Para soluções de backup de carga de trabalho do Azure, como SQL e SAP HANA, backups de log podem ser gerados com muita frequência (até a cada 15 minutos, de acordo com a política). Também é possível que as falhas de backup de log também sejam muito frequentes (até a cada 15 minutos). Nesse cenário, o usuário final será sobrecarregado se um alerta for gerado para cada ocorrência de falha. Portanto, um alerta é enviado para a primeira ocorrência e, se as falhas subsequentes ocorrerem devido à mesma causa raiz, os alertas adicionais não serão gerados. O primeiro alerta é atualizado com a contagem de falhas. Mas se o alerta for desativado pelo usuário, a próxima ocorrência disparará outro alerta e isso será tratado como o primeiro alerta para essa ocorrência. É assim que o backup do Azure executa a consolidação de alertas para backups do SQL e do SAP HANA.
+Para soluções de backup de carga de trabalho do Azure, como SQL e SAP HANA, backups de log podem ser gerados com muita frequência (até a cada 15 minutos, de acordo com a política). Também é possível que as falhas de backup de log também sejam muito frequentes (até a cada 15 minutos). Nesse cenário, o usuário final será sobrecarregado se um alerta for gerado para cada ocorrência de falha. Portanto, um alerta é enviado para a primeira ocorrência e, se as falhas posteriores ocorrerem devido à mesma causa raiz, os alertas adicionais não serão gerados. O primeiro alerta é atualizado com a contagem de falhas. Mas se o alerta for desativado pelo usuário, a próxima ocorrência disparará outro alerta e isso será tratado como o primeiro alerta para essa ocorrência. É assim que o backup do Azure executa a consolidação de alertas para backups do SQL e do SAP HANA.
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é gerado
 
@@ -77,8 +76,8 @@ As exceções acima foram projetadas desde a compreensão de que o resultado des
 Com base na severidade do alerta, os alertas podem ser definidos em três tipos:
 
 - **Crítico**: em princípio, qualquer falha de backup ou recuperação (programada ou disparada pelo usuário) levaria à geração de um alerta e seria exibida como um alerta crítico e também operações destrutivas, como excluir backup.
-- **Aviso**: se a operação de backup for bem sucedido, mas com poucos avisos, elas serão listadas como alertas de aviso.
-- **Informação**: a partir de hoje, nenhum alerta informativo é gerado pelo serviço de backup do Azure.
+- **Aviso**: se a operação de backup for bem sucedido, mas com poucos avisos, elas serão listadas como alertas de aviso. Os alertas de aviso estão disponíveis no momento apenas para backups do agente de backup do Azure.
+- **Informação**: no momento, nenhum alerta informativo é gerado pelo serviço de backup do Azure.
 
 ## <a name="notification-for-backup-alerts"></a>Notificação para alertas de backup
 
@@ -91,7 +90,7 @@ Depois que um alerta é gerado, os usuários são notificados. O backup do Azure
 
 Quando a notificação estiver configurada, você receberá um email de boas-vindas ou introdutório. Isso confirma que o backup do Azure pode enviar emails para esses endereços quando um alerta é gerado.<br>
 
-Se a frequência foi definida como um resumo por hora e um alerta foi gerado e resolvido em uma hora, ele não fará parte do próximo resumo por hora.
+Se a frequência tiver sido definida como um resumo por hora e um alerta tiver sido gerado e resolvido em uma hora, ele não fará parte do próximo Resumo de hora.
 
 > [!NOTE]
 >

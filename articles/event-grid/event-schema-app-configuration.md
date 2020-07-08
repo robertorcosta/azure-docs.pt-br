@@ -1,18 +1,17 @@
 ---
 title: Configuração de Azure App como fonte de grade de eventos
-description: Este artigo descreve como usar a configuração de Azure App como uma origem de evento de grade de eventos. Ele fornece o esquema e links para os artigos tutorial e instruções.
+description: Este artigo descreve como usar a configuração de Azure App como uma origem de evento de grade de eventos. Ele fornece o esquema e os links para os artigos do tutorial e de instruções.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: adb548ef8531698a2cb075fbc742bb20a02a434b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84553163"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração de Azure App como uma fonte de grade de eventos
 Este artigo fornece as propriedades e o esquema para Azure App eventos de configuração. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). Ele também fornece uma lista de inícios rápidos e tutoriais para usar Azure App configuração como uma fonte de eventos.
@@ -72,28 +71,28 @@ O esquema para um evento de chave-valor excluído é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| ID | cadeia de caracteres | Identificador exclusivo do evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| ID | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de evento de configuração de aplicativo. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| chave | cadeia de caracteres | A chave do valor de chave que foi modificado ou excluído. |
-| label | cadeia de caracteres | O rótulo, se houver, do valor de chave que foi modificado ou excluído. |
-| etag | cadeia de caracteres | Para `KeyValueModified` a eTag do novo valor de chave. Para `KeyValueDeleted` a eTag do valor de chave que foi excluído. |
+| chave | string | A chave do valor de chave que foi modificado ou excluído. |
+| label | string | O rótulo, se houver, do valor de chave que foi modificado ou excluído. |
+| etag | string | Para `KeyValueModified` a eTag do novo valor de chave. Para `KeyValueDeleted` a eTag do valor de chave que foi excluído. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 
-|Title | Descrição |
+|Título | Descrição |
 |---------|---------|
 | [Reagir a Azure App eventos de configuração usando a grade de eventos](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração da configuração de Azure App com a grade de eventos. |
 | [Início rápido: rotear Azure App eventos de configuração para um ponto de extremidade da Web personalizado com CLI do Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar CLI do Azure para enviar Azure App eventos de configuração para um webhook. |

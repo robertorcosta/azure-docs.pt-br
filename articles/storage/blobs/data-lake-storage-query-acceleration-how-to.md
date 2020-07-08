@@ -4,16 +4,15 @@ description: Use a aceleração de consulta (versão prévia) para recuperar um 
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465857"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrar dados usando a aceleração de consulta do Azure Data Lake Storage (versão prévia)
 
@@ -40,7 +39,7 @@ A aceleração de consulta (versão prévia) é um novo recurso para Azure Data 
 
 - Uma conta de armazenamento de **uso geral v2** . consulte [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 
-- [JDK (Java Development Kit)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior.
+- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior.
 
 - [Apache Maven](https://maven.apache.org/download.cgi). 
 
@@ -53,11 +52,11 @@ A aceleração de consulta (versão prévia) é um novo recurso para Azure Data 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-1. Baixe os pacotes de aceleração de consulta. Você pode obter um arquivo. zip compactado que contém esses pacotes usando este link: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net). 
+1. Baixe os pacotes de aceleração de consulta. Você pode obter um arquivo. zip compactado que contém esses pacotes usando este link: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net) . 
 
 2. Extraia o conteúdo desse arquivo para o diretório do projeto.
 
-3. Abra o arquivo de projeto (*. csproj*) em um editor de texto e adicione essas referências de pacote dentro \<do\> elemento Project.
+3. Abra o arquivo de projeto (*. csproj*) em um editor de texto e adicione essas referências de pacote dentro do \<Project\> elemento.
 
    ```xml
    <ItemGroup>
@@ -81,12 +80,12 @@ A aceleração de consulta (versão prévia) é um novo recurso para Azure Data 
 
 ### <a name="java"></a>[Java](#tab/java)
 
-1. Crie o diretório na raiz do seu projeto. O diretório raiz é o diretório que contém o arquivo **pom. xml** .
+1. Crie o diretório na raiz do seu projeto. O diretório raiz é o diretório que contém o arquivo de **pom.xml** .
 
    > [!NOTE]
    > Os exemplos neste artigo pressupõem que o nome do diretório é **lib**.
 
-2. Baixe os pacotes de aceleração de consulta. Você pode obter um arquivo. zip compactado que contém esses pacotes usando este link: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java). 
+2. Baixe os pacotes de aceleração de consulta. Você pode obter um arquivo. zip compactado que contém esses pacotes usando este link: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java) . 
 
 3. Extraia os arquivos nesse arquivo. zip para o diretório que você criou. Em nosso exemplo, esse diretório é denominado **lib**. 
 
@@ -190,15 +189,15 @@ import org.apache.commons.csv.*;
 
 ## <a name="retrieve-data-by-using-a-filter"></a>Recuperar dados usando um filtro
 
-Você pode usar o SQL para especificar os predicados de filtro de linha e as projeções de coluna em uma solicitação de aceleração de consulta. O código a seguir consulta um arquivo CSV no armazenamento e retorna todas as linhas de dados em que a terceira coluna `Hemingway, Ernest`corresponde ao valor. 
+Você pode usar o SQL para especificar os predicados de filtro de linha e as projeções de coluna em uma solicitação de aceleração de consulta. O código a seguir consulta um arquivo CSV no armazenamento e retorna todas as linhas de dados em que a terceira coluna corresponde ao valor `Hemingway, Ernest` . 
 
-- Na consulta SQL, a palavra- `BlobStorage` chave é usada para denotar o arquivo que está sendo consultado.
+- Na consulta SQL, a palavra-chave `BlobStorage` é usada para denotar o arquivo que está sendo consultado.
 
-- As referências de coluna são `_N` especificadas como onde a primeira `_1`coluna é. Se o arquivo de origem contiver uma linha de cabeçalho, você poderá se referir a colunas pelo nome especificado na linha de cabeçalho. 
+- As referências de coluna são especificadas como `_N` onde a primeira coluna é `_1` . Se o arquivo de origem contiver uma linha de cabeçalho, você poderá se referir a colunas pelo nome especificado na linha de cabeçalho. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-O método `BlobQuickQueryClient.QueryAsync` Async envia a consulta para a API de aceleração de consulta e, em seguida, transmite os resultados de volta para o aplicativo como um objeto [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) .
+O método Async `BlobQuickQueryClient.QueryAsync` envia a consulta para a API de aceleração de consulta e, em seguida, transmite os resultados de volta para o aplicativo como um objeto [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) .
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -260,7 +259,7 @@ class ProgressHandler : IProgress<long>
 
 ### <a name="java"></a>[Java](#tab/java)
 
-O método `BlobQuickQueryClient.openInputStream()` envia a consulta para a API de aceleração de consulta e, em seguida, transmite os resultados de `InputStream` volta para o aplicativo como um objeto que pode ser lido como qualquer outro objeto InputStream.
+O método `BlobQuickQueryClient.openInputStream()` envia a consulta para a API de aceleração de consulta e, em seguida, transmite os resultados de volta para o aplicativo como um `InputStream` objeto que pode ser lido como qualquer outro objeto InputStream.
 
 ```java
 static void QueryHemingway(BlobClient blobClient) {

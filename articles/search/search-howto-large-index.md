@@ -8,16 +8,15 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484570"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados no Azure Pesquisa Cognitiva
 
-O Azure Pesquisa Cognitiva dá suporte a [duas abordagens básicas](search-what-is-data-import.md) para importar dados em um índice de pesquisa: *Enviar* seus dados para o índice programaticamente ou apontar um [indexador de pesquisa cognitiva do Azure](search-indexer-overview.md) em uma fonte de dados com suporte para efetuar *pull* dos dados.
+O Azure Cognitive Search é compatível com [duas abordagens básicas](search-what-is-data-import.md) para importar dados para um índice de pesquisa: *enviar por push* os dados para o índice de maneira programática ou apontar um [indexador do Azure Cognitive Search](search-indexer-overview.md) em uma fonte de dados compatível para efetuar o *pull* nos dados.
 
 À medida que os volumes de dados crescem ou as necessidades de processamento mudam, você pode descobrir que as estratégias de indexação simples ou padrão não são mais práticas. Para o Azure Pesquisa Cognitiva, há várias abordagens para acomodar conjuntos de dados maiores, variando de como você estrutura uma solicitação de carregamento de dados, para usar um indexador específico de origem para cargas de trabalho agendadas e distribuídas.
 
@@ -60,7 +59,7 @@ Como o tamanho de lote ideal depende do índice e dos dados, a melhor abordagem 
 
 ### <a name="number-of-threadsworkers"></a>Número de threads/trabalhadores
 
-Para aproveitar ao máximo as velocidades de indexação do Azure Pesquisa Cognitiva, você provavelmente precisará usar vários threads para enviar solicitações de indexação do lote simultaneamente para o serviço.  
+Para aproveitar ao máximo as velocidades de indexação do Azure Cognitive Search, você provavelmente precisará usar vários threads para enviar solicitações de indexação do lote simultaneamente para o serviço.  
 
 O número ideal de threads é determinado por:
 
@@ -74,16 +73,16 @@ Você pode modificar este exemplo e testar com contagens de threads diferentes p
 > [!NOTE]
 > À medida que você aumenta a camada do serviço de pesquisa ou aumenta as partições, também deve aumentar o número de threads simultâneos.
 
-Conforme você aumenta as solicitações atingindo o serviço de pesquisa, pode encontrar [códigos de status http](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicando que a solicitação não teve sucesso total. Durante a indexação, dois códigos de status HTTP comuns são:
+Conforme você aumenta as solicitações que chegam ao serviço de pesquisa, pode encontrar [códigos de status HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicando que a solicitação não foi totalmente concluída com sucesso. Durante a indexação, dois códigos de status HTTP comuns são:
 
-+ **503 Serviço indisponível** -esse erro significa que o sistema está sob carga pesada e sua solicitação não pode ser processada no momento.
-+ **207 vários status** -esse erro significa que alguns documentos foram bem-sucedidos, mas pelo menos um falhou.
++ **503 Serviço Não Disponível** – Esse erro significa que o sistema está sob carga pesada e sua solicitação não pode ser processada no momento.
++ **207 Status Múltiplo** – esse erro significa que alguns documentos foram bem-sucedidos, mas pelo menos um deles falhou.
 
 ### <a name="retry-strategy"></a>Estratégia de repetição 
 
 Se ocorrer uma falha, as solicitações deverão ser repetidas usando uma [estratégia de repetição de retirada exponencial](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-O SDK do .NET do Pesquisa Cognitiva do Azure tenta automaticamente 503s e outras solicitações com falha, mas você precisará implementar sua própria lógica para tentar novamente o 207s. Ferramentas de código aberto, como [Polly](https://github.com/App-vNext/Polly) , também podem ser usadas para implementar uma estratégia de repetição.
+O SDK do .NET do Azure Cognitive Search tenta automaticamente 503s e outras solicitações com falha, mas você precisará implementar sua lógica para tentar novamente o 207s. Ferramentas de software livre, como [Polly](https://github.com/App-vNext/Polly), também podem ser usadas para implementar uma estratégia de repetição.
 
 ### <a name="network-data-transfer-speeds"></a>Velocidades de transferência de dados de rede
 
@@ -139,7 +138,7 @@ Para os indexadores, a capacidade de processamento geralmente é baseada em um s
 
 1. No [portal do Azure](https://portal.azure.com), na página **Visão geral** do painel do serviço de pesquisa, verifique o **Tipo de preço** para confirmar se ele permite a indexação paralela. Os níveis Básico e Standard oferecem várias réplicas.
 
-2. Em **configurações** > **escala**, [aumente as réplicas](search-capacity-planning.md) para processamento paralelo: uma réplica adicional para cada carga de trabalho do indexador. Deixe um número suficiente para o volume de consulta existente. Não é vantajoso sacrificar as cargas de trabalho de consulta para indexação.
+2. Você pode executar tantos indexadores em paralelo como o número de unidades de pesquisa em seu serviço. Em **configurações**  >  **escala**, [aumente réplicas](search-capacity-planning.md) ou partições para processamento paralelo: uma réplica ou partição adicional para cada carga de trabalho do indexador. Deixe um número suficiente para o volume de consulta existente. Não é vantajoso sacrificar as cargas de trabalho de consulta para indexação.
 
 3. Distribua dados em vários contêineres em um nível que os indexadores do Azure Pesquisa Cognitiva podem alcançar. Podem ser várias tabelas no Banco de Dados SQL do Azure, vários contêineres no Armazenamento de Blobs do Azure ou várias coleções. Defina um objeto de fonte de dados para cada tabela ou contêiner.
 
@@ -156,12 +155,12 @@ No horário agendado, todos os indexadores começam a execução, o carregamento
 > [!Note]
 > Ao aumentar réplicas, considere aumentar a contagem de partições se o tamanho do índice for projetado para aumentar significativamente. As partições armazenam fatias de conteúdo indexado. Quanto mais partições houver, menor será a fatia que cada uma precisará armazenar.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Indexando no portal](search-import-data-portal.md)
 + [Indexador do Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-+ [Indexador do Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [Indexador de Banco de dados do Azure Cosmos](search-howto-index-cosmosdb.md)
 + [Indexador de armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md)
 + [Indexador de armazenamento de tabela do Azure](search-howto-indexing-azure-tables.md)
 + [Segurança no Azure Pesquisa Cognitiva](search-security-overview.md)

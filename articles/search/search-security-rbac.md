@@ -7,13 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84462831"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções RBAC para acesso administrativo ao Azure Pesquisa Cognitiva
 
@@ -35,7 +34,22 @@ Para Pesquisa Cognitiva do Azure, as funções são associadas a níveis de perm
 
 As funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço Search, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte [Gerenciar chaves de API](search-security-api-keys.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="permissions-table"></a>Tabela de permissões
+
+A tabela a seguir resume as operações permitidas no Azure Pesquisa Cognitiva e qual chave desbloqueia o acesso a uma determinada operação.
+
+| Operação | Permissões |
+|-----------|-------------------------|
+| Criar um serviço | Titular da assinatura do Azure |
+| Dimensionar um serviço | Chave de administração, proprietário do RBAC ou colaborador no recurso  |
+| Excluir um serviço | Chave de administração, proprietário do RBAC ou colaborador no recurso |
+| Criar, modificar e excluir objetos no serviço: <br>Índices e partes de componentes (incluindo definições do analisador, perfis de pontuação, opções de CORS), indexadores, fontes de dados, sinônimos, sugestores | Chave de administração, proprietário do RBAC ou colaborador no recurso |
+| Consultar um índice | Chave de consulta ou de administrador (RBAC não aplicável) |
+| Consultar informações do sistema, como retornar estatísticas, contagens e listas de objetos | Chave de administração, RBAC no recurso (Proprietário, Colaborador, Leitor) |
+| Gerenciar chaves de administrador | Chave de administrador, Proprietário ou Colaborador RBAC no recurso |
+| Gerenciar chaves de consulta |  Chave de administrador, Proprietário ou Colaborador RBAC no recurso  |
+
+## <a name="see-also"></a>Consulte também
 
 + [Gerenciar usando o PowerShell](search-manage-powershell.md) 
 + [Desempenho e otimização no Azure Pesquisa Cognitiva](search-performance-optimization.md)

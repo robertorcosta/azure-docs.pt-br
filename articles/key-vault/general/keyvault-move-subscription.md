@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 450aa58d4ad9cbb721e621ec3db8b4ca7e914aa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 6fe25efe8f38772162c916c8d0b965267d457c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488810"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Movendo um Azure Key Vault para outra assinatura
 
@@ -61,14 +60,13 @@ Certifique-se de ir para a página Azure Policy na portal do Azure e examine as 
 ### <a name="initial-steps-moving-key-vault"></a>Etapas iniciais (movendo Key Vault)
 
 1. Faça logon no Portal do Azure
-2. Navegue até o cofre de chaves
+2. Navegue até o Key Vault
 3. Clique na guia "visão geral"
 4. Selecione o botão "mover"
 5. Selecione "mover para outra assinatura" nas opções de lista suspensa
 6. Selecione o grupo de recursos para o qual você deseja mover o cofre de chaves
-7. Selecione o grupo de recursos para o qual você deseja mover o cofre de chaves
-8. Reconhecer o aviso sobre a movimentação de recursos
-9. Selecione "OK"
+7. Reconhecer o aviso sobre a movimentação de recursos
+8. Selecione "OK"
 
 ### <a name="additional-steps-post-move"></a>Etapas adicionais (após a movimentação)
 

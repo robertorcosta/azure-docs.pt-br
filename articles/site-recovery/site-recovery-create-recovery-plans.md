@@ -3,12 +3,11 @@ title: Criar/Personalizar planos de recuperação no Azure Site Recovery
 description: Saiba como criar e personalizar planos de recuperação para recuperação de desastres usando o Azure Site Recovery.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485332"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -16,11 +15,11 @@ Este artigo descreve como criar e personalizar um plano de recuperação para fa
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
 
-1. No cofre dos serviços de recuperação, selecione **planos de recuperação (site Recovery)** > **+ plano de recuperação**.
+1. No cofre dos serviços de recuperação, selecione **planos de recuperação (site Recovery)**  >  **+ plano de recuperação**.
 2. Em **Criar plano de recuperação**, especifique um nome para o plano.
 3. Escolha uma fonte e destino com base nos computadores do plano e selecione **Gerenciador de Recursos** para o modelo de implantação. O local de origem deve ter computadores habilitados para failover e recuperação. 
 
-    **Failover** | **Fonte** | **Destino** 
+    **Failover** | **Origem** | **Destino** 
    --- | --- | ---
    Azure para o Azure | Selecione a região do Azure | Selecione a região do Azure
    VMware no Azure | Selecionar o servidor de configuração | Selecionar o Azure
@@ -29,9 +28,9 @@ Este artigo descreve como criar e personalizar um plano de recuperação para fa
    Hyper-V (gerenciado pelo VMM) para o Azure  | Selecione o servidor do VMM | Selecionar o Azure
   
     Observe o seguinte:
-    -  Você só pode usar um plano de recuperação para failover do local de origem para o Azure. Você não pode usar um plano de recuperação para failback do Azure.
-    - O local de origem deve ter computadores habilitados para failover e recuperação. 
-    - Um plano de recuperação pode conter computadores com a mesma fonte e destino. 
+    - Você pode usar um plano de recuperação para failover para o Azure e failback do Azure.
+    - O local de origem deve ter computadores habilitados para failover e recuperação.
+    - Um plano de recuperação pode conter computadores com a mesma fonte e destino.
     - Você pode incluir VMs do VMware e VMs do Hyper-V gerenciadas pelo VMM, no mesmo plano.
     - As VMs VMware e os servidores físicos podem estar no mesmo plano.
 
@@ -76,7 +75,7 @@ Você pode personalizar um plano de recuperação com a adição de um script ou
     1. Digite um nome para a ação e as instruções da ação. A pessoa que está executando o failover verá essas instruções.
     1. Especifique se deseja adicionar a ação manual para todos os tipos de failover (Teste, Failover, Failover planejado (se relevante)). Em seguida, clique em **OK**.
 4. Se você quiser adicionar um script, faça o seguinte:
-    1. Se estiver adicionando um script do VMM, selecione **Failover para script do VMM** e, em **Caminho do Script**, digite o caminho relativo para o compartilhamento. Por exemplo, se o compartilhamento estiver localizado em \\ \<VMMServerName> \msscvmmlibrary\rpscripts, especifique o caminho: \RPScripts\RPScript.ps1.
+    1. Se estiver adicionando um script do VMM, selecione **Failover para script do VMM** e, em **Caminho do Script**, digite o caminho relativo para o compartilhamento. Por exemplo, se o compartilhamento está localizado em \\\<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
     1. Se estiver adicionando um runboook da automação do Azure, especifique a **Conta de Automação do Azure** na qual o runbook está localizado e selecione o **Script de Runbook do Azure** apropriado.
 5. Execute um failover de teste do plano de recuperação para garantir que o script funciona conforme esperado.
 
@@ -89,6 +88,6 @@ Assista a um vídeo que demonstra como criar um plano de recuperação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a [execução de failovers](site-recovery-failover.md).  
+Saiba mais sobre [execução de failovers](site-recovery-failover.md).  
 
     

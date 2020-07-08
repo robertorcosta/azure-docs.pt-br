@@ -5,13 +5,12 @@ ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
-ms.date: 02/10/2020
-ms.openlocfilehash: 0608ca0e0e53acf2f19910a7f1107dacf67d4e61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/28/2020
+ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77154888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309808"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Efetuar pull de imagens de um registro de contêiner do Azure para um cluster kubernetes
 
@@ -20,7 +19,7 @@ Você pode usar um registro de contêiner do Azure como uma fonte de imagens de 
 > [!TIP]
 > Se você estiver usando o [serviço kubernetes do Azure](../aks/intro-kubernetes.md)gerenciado, também poderá [integrar seu cluster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) com um registro de contêiner de destino do Azure para pulls de imagem. 
 
-Este artigo pressupõe que você já criou um registro de contêiner do Azure privado. Você também precisa ter um cluster kubernetes em execução e acessível por meio `kubectl` da ferramenta de linha de comando.
+Este artigo pressupõe que você já criou um registro de contêiner do Azure privado. Você também precisa ter um cluster kubernetes em execução e acessível por meio da `kubectl` ferramenta de linha de comando.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -36,14 +35,14 @@ Esse comando retorna uma senha nova e válida para sua entidade de serviço.
 
 O kubernetes usa um *segredo de pull de imagem* para armazenar as informações necessárias para autenticar o registro. Para criar o segredo de pull para um registro de contêiner do Azure, você fornece a ID da entidade de serviço, a senha e a URL do registro. 
 
-Crie um segredo de pull de imagem com `kubectl` o seguinte comando:
+Crie um segredo de pull de imagem com o seguinte `kubectl` comando:
 
 ```console
 kubectl create secret docker-registry <secret-name> \
-  --namespace <namespace> \
-  --docker-server=https://<container-registry-name>.azurecr.io \
-  --docker-username=<service-principal-ID> \
-  --docker-password=<service-principal-password>
+    --namespace <namespace> \
+    --docker-server=<container-registry-name>.azurecr.io \
+    --docker-username=<service-principal-ID> \
+    --docker-password=<service-principal-password>
 ```
 onde:
 
@@ -51,7 +50,7 @@ onde:
 | :--- | :--- |
 | `secret-name` | Nome do segredo de pull da imagem, por exemplo, *ACR-Secret* |
 | `namespace` | Namespace kubernetes no qual colocar o segredo <br/> Necessário apenas se você quiser posicionar o segredo em um namespace diferente do namespace padrão |
-| `container-registry-name` | Nome do seu registro de contêiner do Azure |
+| `container-registry-name` | Nome do seu registro de contêiner do Azure, por exemplo, *myregistry*<br/><br/>O `--docker-server` é o nome totalmente qualificado do servidor de logon do registro  |
 | `service-principal-ID` | ID da entidade de serviço que será usada pelo kubernetes para acessar o registro |
 | `service-principal-password` | Senha da entidade de serviço |
 
@@ -63,18 +62,18 @@ Depois de criar o segredo de pull da imagem, você pode usá-lo para criar Kuber
 apiVersion: v1
 kind: Pod
 metadata:
-  name: your-awesome-app-pod
+  name: my-awesome-app-pod
   namespace: awesomeapps
 spec:
   containers:
     - name: main-app-container
-      image: your-awesome-app:v1
+      image: myregistry.azurecr.io/my-awesome-app:v1
       imagePullPolicy: IfNotPresent
   imagePullSecrets:
     - name: acr-secret
 ```
 
-No exemplo anterior, `your-awesome-app:v1` é o nome da imagem a ser extraída do registro de contêiner do Azure e `acr-secret` é o nome do segredo de pull que você criou para acessar o registro. Quando você implantar o Pod, o kubernetes extrairá automaticamente a imagem do registro, se ela ainda não estiver presente no cluster.
+No exemplo anterior, `my-awesome-app:v1` é o nome da imagem a ser extraída do registro de contêiner do Azure e `acr-secret` é o nome do segredo de pull que você criou para acessar o registro. Quando você implantar o Pod, o kubernetes extrairá automaticamente a imagem do registro, se ela ainda não estiver presente no cluster.
 
 
 ## <a name="next-steps"></a>Próximas etapas

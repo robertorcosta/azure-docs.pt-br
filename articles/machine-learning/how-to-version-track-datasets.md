@@ -5,18 +5,17 @@ description: Saiba como obter a melhor versão de seus conjuntos de informaçõe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
-ms.custom: ''
-ms.openlocfilehash: 5bd4436fc63fb570f052606ab557dbcf243cf5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: e0b2d7abb378a6717eb4444882ede54debdb5968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84555639"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de testes de versão e acompanhamento em experimentos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +51,7 @@ Ao registrar um conjunto de registros, você pode fazer a versão, reutilizá-lo
 
 ### <a name="register-a-dataset-version"></a>Registrar uma versão do conjunto de registros
 
-O código a seguir registra uma nova versão do `titanic_ds` conjunto de registros definindo `create_new_version` o parâmetro `True`como. Se não houver nenhum conjunto `titanic_ds` de um existente registrado com o espaço de trabalho, o código criará um `titanic_ds` novo conjunto de um com o nome e definirá sua versão como 1.
+O código a seguir registra uma nova versão do `titanic_ds` conjunto de registros definindo o `create_new_version` parâmetro como `True` . Se não houver nenhum `titanic_ds` conjunto de um existente registrado com o espaço de trabalho, o código criará um novo conjunto de um com o nome `titanic_ds` e definirá sua versão como 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -65,7 +64,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 Por padrão, o método [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) na `Dataset` classe retorna a versão mais recente do conjunto de informações registrado com o espaço de trabalho. 
 
-O código a seguir obtém a `titanic_ds` versão 1 do DataSet.
+O código a seguir obtém a versão 1 do `titanic_ds` DataSet.
 
 ```Python
 from azureml.core import Dataset
@@ -156,9 +155,9 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Acompanhar conjuntos de os testes em experimentos
 
-Para cada experimento de Machine Learning, você pode facilmente rastrear os conjuntos de dados usados como entrada por meio `Run` do objeto experimento.
+Para cada experimento de Machine Learning, você pode facilmente rastrear os conjuntos de dados usados como entrada por meio do `Run` objeto experimento.
 
-O código a seguir usa [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) o método para controlar quais conjuntos de dados de entrada foram usados com a execução do experimento:
+O código a seguir usa o [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) método para controlar quais conjuntos de dados de entrada foram usados com a execução do experimento:
 
 ```Python
 # get input datasets
@@ -169,9 +168,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Você também pode encontrar o `input_datasets` de experimentos usando https://ml.azure.com/. 
+Você também pode encontrar o `input_datasets` de experimentos usando https://ml.azure.com/ . 
 
-A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento no Azure Machine Learning Studio. Para este exemplo, vá para o painel **experimentos** e abra a guia **Propriedades** para uma execução específica de seu experimento `keras-mnist`,.
+A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento no Azure Machine Learning Studio. Para este exemplo, vá para o painel **experimentos** e abra a guia **Propriedades** para uma execução específica de seu experimento, `keras-mnist` .
 
 ![Conjuntos de dados de entrada](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -183,7 +182,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando Python ou https://ml.azure.com/ir para.
+Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando Python ou ir para https://ml.azure.com/ .
 
 A exibição a seguir é do painel **conjuntos de valores** em **ativos**. Selecione o conjunto de um e selecione a guia **modelos** para obter uma lista dos modelos registrados com o conjunto de um. 
 

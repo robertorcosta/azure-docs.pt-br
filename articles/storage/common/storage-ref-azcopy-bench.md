@@ -8,22 +8,21 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8570bce87aeea5473b4aadf9bd30bc0a648a6f0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 40ff6c6c76e255945681e678ef296ffcf9978f61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72518298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485183"
 ---
-# <a name="azcopy-bench"></a>azcopy bench
+# <a name="azcopy-benchmark"></a>parâmetro de comparação azcopy
 
 Executa um parâmetro de comparação de desempenho carregando dados de teste para um destino especificado. Os dados de teste são gerados automaticamente.
 
 O comando de parâmetro de comparação executa o mesmo processo de upload como ' Copy ', exceto pelo seguinte:
 
-  - Não há nenhum parâmetro de origem.  O comando requer apenas uma URL de destino. Na versão atual, essa URL de destino deve se referir a um contêiner de BLOB.
+  - Não há nenhum parâmetro de origem.  O comando requer apenas uma URL de destino. 
   
-  - A carga é descrita por parâmetros de linha de comando, que controlam quantos arquivos são gerados automaticamente e qual é a grande quantidade deles. O processo de geração ocorre inteiramente na memória. O disco não é usado.
+  - A carga é descrita por parâmetros de linha de comando, que controlam quantos arquivos são gerados automaticamente e seu tamanho. O processo de geração ocorre inteiramente na memória. O disco não é usado.
   
   - Há suporte apenas para alguns dos parâmetros opcionais disponíveis para o comando de cópia.
   
@@ -31,27 +30,27 @@ O comando de parâmetro de comparação executa o mesmo processo de upload como 
   
   - Por padrão, os dados transferidos são excluídos no final da execução de teste.
 
-O modo de parâmetro de comparação se ajustará automaticamente ao número de conexões TCP paralelas que fornece a taxa de transferência máxima. Ele exibirá esse número no final. Para evitar o ajuste automático, defina a variável de ambiente AZCOPY_CONCURRENCY_VALUE como um número específico de conexões.
+O modo de parâmetro de comparação se ajustará automaticamente ao número de conexões TCP paralelas que fornece a taxa de transferência máxima. Ele exibirá esse número no final. Para evitar o ajuste automática, defina a variável de ambiente AZCOPY_CONCURRENCY_VALUE como um número específico de conexões.
 
 Todos os tipos de autenticação usuais têm suporte. No entanto, a abordagem mais conveniente para o benchmarking normalmente é criar um contêiner vazio com um token SAS e usar a autenticação SAS.
 
 ## <a name="examples"></a>Exemplos
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Execute um teste de benchmark com parâmetros padrão (adequado para redes de parâmetro de comparação de até 1 Gbps): '
 
-- azcopy bancada "https://[conta]. blob. Core. Windows. net/[contêiner]? <SAS>"
+- azcopy bancada "https://[conta]. blob. Core. Windows. net/[contêiner]? <SAS> "
 
 Execute um teste de benchmark que carregue 100 arquivos, cada um com 2 GiB de tamanho: (adequado para benchmarking em uma rede rápida, por exemplo, 10 Gbps): '
 
-- azcopy bancada "https://[conta]. blob. Core. Windows. net/[contêiner]? <SAS>" --contagem de arquivos 100--tamanho-por-arquivo 2G
+- azcopy bancada "https://[conta]. blob. Core. Windows. net/[contêiner]? <SAS> " --contagem de arquivos 100--tamanho-por-arquivo 2G
 
-O mesmo que acima, mas use os arquivos 50.000, cada 8 MiB em tamanho e calcule seus hashes MD5 (da mesma forma que o sinalizador--Put-MD5 faz isso no comando de cópia). A finalidade do--Put-MD5 quando o benchmark é testar se a computação MD5 afeta a taxa de transferência para a contagem de arquivos e o tamanho selecionados:
+Execute um teste de benchmark, mas use 50.000 arquivos, cada 8 MiB em tamanho e calcule seus hashes MD5 (da mesma forma que o `--put-md5` sinalizador faz isso no comando de cópia). A finalidade de `--put-md5` quando o benchmark é testar se a computação MD5 afeta a taxa de transferência para a contagem de arquivos e o tamanho selecionados:
 
-- azcopy bancada "https://[conta]. blob. Core. Windows. net/[contêiner]? <SAS>" --contagem de arquivos 50000--tamanho-por-arquivo de 8 m--Put-MD5
+- azcopy bancada "https://[conta]. blob. Core. Windows. net/[contêiner]? <SAS> " --contagem de arquivos 50000--tamanho-por-arquivo de 8 m--Put-MD5
 
 ## <a name="options"></a>Opções
 
@@ -77,6 +76,8 @@ O mesmo que acima, mas use os arquivos 50.000, cada 8 MiB em tamanho e calcule s
 
 **--** formato da cadeia de caracteres do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto").
 
-## <a name="see-also"></a>Confira também
+**--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
+
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

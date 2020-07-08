@@ -9,12 +9,11 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465551"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -42,7 +41,7 @@ Use esta seção para verificar se o dispositivo Windows pode dar suporte ao IoT
 IoT Edge para Windows requer o Windows versão 1809/Build 17763, que é a mais recente [compilação de suporte a longo prazo do Windows](https://docs.microsoft.com/windows/release-information/). Para obter suporte ao Windows SKU, consulte o que tem suporte com base em se você está se preparando para cenários de produção ou cenários de desenvolvimento e teste:
 
 * **Produção**: para obter as informações mais recentes sobre quais sistemas operacionais têm suporte no momento para cenários de produção, consulte [Azure IOT Edge sistemas com suporte](support.md#operating-systems).
-* **Desenvolvimento e teste**: para cenários de desenvolvimento e teste, Azure IOT Edge com contêineres do Windows podem ser instalados em qualquer versão do Windows 10 ou windows Server 2019 que ofereça suporte ao recurso de contêineres.
+* **Desenvolvimento e teste**: para cenários de desenvolvimento e teste, Azure IOT Edge com contêineres do Windows podem ser instalados em qualquer SKU (Pro, Enterprise, Server etc.) do windows Build 17763 que dá suporte ao recurso de contêineres.
 
 Os dispositivos IoT Core devem incluir o recurso opcional contêineres do Windows do IoT Core para dar suporte ao tempo de execução de IoT Edge. Use o seguinte comando em uma [sessão remota do PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) para verificar se os contêineres do Windows têm suporte em seu dispositivo:
 
@@ -153,18 +152,18 @@ Você também pode usar o parâmetro caminho de instalação offline para atuali
 
 2. Localize a versão que você deseja instalar e baixe os seguintes arquivos da seção **ativos** das notas de versão para seu dispositivo IOT:
 
-   * IoTEdgeSecurityDaemon. ps1
-   * Microsoft-Azure-IoTEdge-amd64. cab de versões 1.0.9 ou mais recentes, ou Microsoft-Azure-IoTEdge. cab de versões 1.0.8 e mais antigas.
+   * IoTEdgeSecurityDaemon.ps1
+   * Microsoft-Azure-IoTEdge-amd64.cab das versões 1.0.9 ou mais recentes, ou Microsoft-Azure-IoTEdge.cab das versões 1.0.8 e mais antigas.
 
-   O Microsoft-Azure-IotEdge-arm32. cab também está disponível a partir do 1.0.9 para fins de teste. No momento, não há suporte para IoT Edge em dispositivos Windows ARM32.
+   Microsoft-Azure-IotEdge-arm32.cab também está disponível a partir do 1.0.9 apenas para fins de teste. No momento, não há suporte para IoT Edge em dispositivos Windows ARM32.
 
    É importante usar o script do PowerShell da mesma versão que o arquivo. cab que você usa porque a funcionalidade muda para dar suporte aos recursos em cada versão.
 
-3. Se o arquivo. cab baixado tiver um sufixo de arquitetura, renomeie o arquivo para apenas **Microsoft-Azure-IoTEdge. cab**.
+3. Se o arquivo. cab baixado tiver um sufixo de arquitetura, renomeie o arquivo para apenas **Microsoft-Azure-IoTEdge.cab**.
 
-4. Opcionalmente, baixe um instalador para Visual C++ redistribuível. Por exemplo, o script do PowerShell usa esta versão: [vc_redist. x64. exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Salve o instalador na mesma pasta em seu dispositivo IoT que os arquivos de IoT Edge.
+4. Opcionalmente, baixe um instalador para Visual C++ redistribuível. Por exemplo, o script do PowerShell usa esta versão: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Salve o instalador na mesma pasta em seu dispositivo IoT que os arquivos de IoT Edge.
 
-5. Para instalar com componentes offline, [dot Source](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) a cópia local do script do PowerShell. Em seguida, use `-OfflineInstallationPath` o parâmetro como parte do `Deploy-IoTEdge` comando e forneça o caminho absoluto para o diretório de arquivos. Por exemplo,
+5. Para instalar com componentes offline, [dot Source](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) a cópia local do script do PowerShell. Em seguida, use o `-OfflineInstallationPath` parâmetro como parte do `Deploy-IoTEdge` comando e forneça o caminho absoluto para o diretório de arquivos. Por exemplo,
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1
@@ -175,7 +174,7 @@ Você também pode usar o parâmetro caminho de instalação offline para atuali
 
 6. Execute o `Initialize-IoTEdge` comando para provisionar seu dispositivo com uma identidade no Hub IOT. Forneça uma cadeia de conexão de dispositivo para provisionamento manual ou escolha um dos métodos descritos na seção [provisionamento automático](#option-2-install-and-automatically-provision) anterior.
 
-   Se o dispositivo for reiniciado após a `Deploy-IoTEdge`execução, Dot a origem do script do PowerShell `Initialize-IoTEdge`novamente antes de executar.
+   Se o dispositivo for reiniciado após a execução `Deploy-IoTEdge` , Dot a origem do script do PowerShell novamente antes de executar `Initialize-IoTEdge` .
 
 Para obter mais informações sobre a opção de instalação offline, pule adiante para saber mais sobre [todos os parâmetros de instalação](#all-installation-parameters).
 
@@ -246,11 +245,11 @@ Uninstall-IoTEdge
 
 O comando Uninstall-IoTEdge não funciona no Windows IoT Core. Para remover IoT Edge de dispositivos Windows IoT Core, você precisa reimplantar sua imagem do Windows IoT Core.
 
-Para obter mais informações sobre as opções de desinstalação, use `Get-Help Uninstall-IoTEdge -full`o comando.
+Para obter mais informações sobre as opções de desinstalação, use o comando `Get-Help Uninstall-IoTEdge -full` .
 
 ## <a name="verify-installation-script"></a>Verificar o script de instalação
 
-Os comandos de instalação fornecidos neste artigo usam o cmdlet Invoke-WebRequest para solicitar o script de instalação `aka.ms/iotedge-win`do. Esse link aponta para o`IoTEdgeSecurityDaemon.ps1` script da versão mais recente do [IOT Edge](https://github.com/Azure/azure-iotedge/releases). Você também pode baixar esse script ou uma versão do script de uma versão específica, para executar os comandos de instalação em seu dispositivo IoT Edge.
+Os comandos de instalação fornecidos neste artigo usam o cmdlet Invoke-WebRequest para solicitar o script de instalação do `aka.ms/iotedge-win` . Esse link aponta para o `IoTEdgeSecurityDaemon.ps1` script da [versão](https://github.com/Azure/azure-iotedge/releases)mais recente do IOT Edge. Você também pode baixar esse script ou uma versão do script de uma versão específica, para executar os comandos de instalação em seu dispositivo IoT Edge.
 
 O script fornecido está assinado para aumentar a segurança. Você pode verificar a assinatura baixando o script em seu dispositivo e, em seguida, executando o seguinte comando do PowerShell:
 
@@ -266,7 +265,7 @@ As seções anteriores introduziram cenários comuns de instalação com exemplo
 
 ### <a name="deploy-iotedge"></a>Implantar-IoTEdge
 
-O comando Deploy-IoTEdge baixa e implanta o daemon de segurança IoT Edge e suas dependências. O comando de implantação aceita esses parâmetros comuns, entre outros. Para obter a lista completa, use o `Get-Help Deploy-IoTEdge -full`comando.  
+O comando Deploy-IoTEdge baixa e implanta o daemon de segurança IoT Edge e suas dependências. O comando de implantação aceita esses parâmetros comuns, entre outros. Para obter a lista completa, use o comando `Get-Help Deploy-IoTEdge -full` .  
 
 | Parâmetro | Valores aceitos | Comentários |
 | --------- | --------------- | -------- |
@@ -274,11 +273,11 @@ O comando Deploy-IoTEdge baixa e implanta o daemon de segurança IoT Edge e suas
 | **Proxy** | URL do Proxy | Inclua esse parâmetro se o dispositivo precisar passar por um servidor proxy para acessar a Internet. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se esse parâmetro estiver incluído, o instalador verificará o diretório listado quanto aos arquivos MSI de tempo de execução do IoT Edge cab e do VC Runtime necessários para a instalação. Todos os arquivos não encontrados no diretório são baixados. Se ambos os arquivos estiverem no diretório, você poderá instalar IoT Edge sem uma conexão com a Internet. Você também pode usar esse parâmetro para usar uma versão específica. |
 | **InvokeWebRequestParameters** | Tabela de hash de parâmetros e valores | Durante a instalação, várias solicitações da Web serão feitas. Use esse campo para definir parâmetros para essas solicitações da Web. Esse parâmetro é útil para configurar credenciais para servidores proxy. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | nenhuma | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
+| **RestartIfNeeded** | nenhum | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-O comando Initialize-IoTEdge configura IoT Edge com a cadeia de conexão do dispositivo e detalhes operacionais. Grande parte das informações geradas por esse comando é armazenada no arquivo iotedge\config.YAML. O comando de inicialização aceita esses parâmetros comuns, entre outros. Para obter a lista completa, use o `Get-Help Initialize-IoTEdge -full`comando.
+O comando Initialize-IoTEdge configura IoT Edge com a cadeia de conexão do dispositivo e detalhes operacionais. Grande parte das informações geradas por esse comando é armazenada no arquivo iotedge\config.YAML. O comando de inicialização aceita esses parâmetros comuns, entre outros. Para obter a lista completa, use o comando `Get-Help Initialize-IoTEdge -full` .
 
 | Parâmetro | Valores aceitos | Comentários |
 | --------- | --------------- | -------- |
@@ -304,14 +303,14 @@ O comando Initialize-IoTEdge configura IoT Edge com a cadeia de conexão do disp
 | **Proxy** | URL do Proxy | Inclua esse parâmetro se o dispositivo precisar passar por um servidor proxy para acessar a Internet. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Tabela de hash de parâmetros e valores | Durante a instalação, várias solicitações da Web serão feitas. Use esse campo para definir parâmetros para essas solicitações da Web. Esse parâmetro é útil para configurar credenciais para servidores proxy. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se esse parâmetro estiver incluído, o instalador verificará o diretório listado quanto aos arquivos MSI de tempo de execução do IoT Edge cab e do VC Runtime necessários para a instalação. Todos os arquivos não encontrados no diretório são baixados. Se ambos os arquivos estiverem no diretório, você poderá instalar IoT Edge sem uma conexão com a Internet. Você também pode usar esse parâmetro para usar uma versão específica. |
-| **RestartIfNeeded** | nenhuma | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
+| **RestartIfNeeded** | nenhum | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
 
 ### <a name="uninstall-iotedge"></a>Desinstalar-IoTEdge
 
 | Parâmetro | Valores aceitos | Comentários |
 | --------- | --------------- | -------- |
-| **Aplicação** | nenhuma | Esse sinalizador força a desinstalação caso a tentativa anterior de desinstalar não tenha sido bem-sucedida.
-| **RestartIfNeeded** | nenhuma | Esse sinalizador permite que o script de desinstalação reinicie o computador sem avisar, se necessário. |
+| **Force** | nenhum | Esse sinalizador força a desinstalação caso a tentativa anterior de desinstalar não tenha sido bem-sucedida.
+| **RestartIfNeeded** | nenhum | Esse sinalizador permite que o script de desinstalação reinicie o computador sem avisar, se necessário. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
