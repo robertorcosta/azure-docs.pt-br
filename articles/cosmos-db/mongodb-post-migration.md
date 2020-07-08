@@ -4,15 +4,15 @@ description: Este documento fornece as técnicas de otimização pós-migração
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: lbosq
-ms.openlocfilehash: ce33651aae64d0a90264dde6da64b4044c6ce132
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055604c399aa1641e823f24af499102bfff3ed0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263085"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de otimização após a migração ao usar a API do Azure Cosmos DB para MongoDB
 
@@ -35,7 +35,7 @@ Neste guia, você aprenderá a:
 2. No [portal do Azure](https://www.portal.azure.com/), no painel esquerdo, abra o menu **todos os recursos** e localize a conta de Azure Cosmos DB para a qual você migrou seus dados.
 3. Abra a folha **cadeia de conexão** . O painel direito contém todas as informações necessárias para conectar-se à sua conta com êxito.
 4. Use as informações de conexão na configuração do aplicativo (ou em outros locais relevantes) para refletir a API do Azure Cosmos DB para a conexão do MongoDB em seu aplicativo.
-![Cadeia de conexão](./media/mongodb-post-migration/connection-string.png)
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Cadeia de conexão":::
 
 Para obter mais detalhes, consulte a página [conectar um aplicativo MongoDB ao Azure Cosmos DB](connect-mongodb-account.md) .
 
@@ -68,4 +68,4 @@ A maioria dos usuários deixa seu nível de consistência na configuração de c
 * [Expirar os dados com a API do Azure Cosmos DB para MongoDB](mongodb-time-to-live.md)
 * [Níveis de coerência no Azure Cosmos DB](consistency-levels.md)
 * [Indexação no Azure Cosmos DB](index-overview.md)
-* [Unidades de solicitação no Azure Cosmos DB](request-units.md)
+* [Unidades de Solicitação no Azure Cosmos DB](request-units.md)

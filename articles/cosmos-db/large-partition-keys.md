@@ -3,15 +3,15 @@ title: Criar contêineres Cosmos do Azure com chave de partição grande
 description: Saiba como criar um contêiner em Azure Cosmos DB com chave de partição grande usando portal do Azure e SDKs diferentes.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3b0a3387fe34a0e1c15109aec877c0654fc1a5b0
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 853d3fa79436d9af0119aada86d283f9970d4ef2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82870000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262796"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande
 
@@ -23,7 +23,7 @@ Chaves de partição grandes têm suporte usando a funcionalidade de uma versão
 
 Para criar uma chave de partição grande, ao criar um novo contêiner usando o portal do Azure, verifique a opção **minha chave de partição é maior que 100-bytes** . Desmarque a caixa de seleção se você não precisar de chaves de partição grandes ou se tiver aplicativos em execução na versão de SDKs com mais de 1,18.
 
-![Criar chaves de partição grandes usando portal do Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+:::image type="content" source="./media/large-partition-keys/large-partition-key-with-portal.png" alt-text="Criar chaves de partição grandes usando portal do Azure":::
 
 ## <a name="create-a-large-partition-key-powershell"></a>Criar uma chave de partição grande (PowerShell)
 
@@ -33,9 +33,9 @@ Para criar um contêiner com suporte de chave de partição grande, consulte
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>Criar uma chave de partição grande (SDK do .net)
 
-Para criar um contêiner com uma chave de partição grande usando o SDK do .NET, `PartitionKeyDefinitionVersion.V2` especifique a propriedade. O exemplo a seguir mostra como especificar a Propriedade Version dentro do objeto PartitionKeyDefinition e defini-la como PartitionKeyDefinitionVersion. v2.
+Para criar um contêiner com uma chave de partição grande usando o SDK do .NET, especifique a `PartitionKeyDefinitionVersion.V2` propriedade. O exemplo a seguir mostra como especificar a Propriedade Version dentro do objeto PartitionKeyDefinition e defini-la como PartitionKeyDefinitionVersion. v2.
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 await database.CreateContainerAsync(
@@ -45,7 +45,7 @@ await database.CreateContainerAsync(
     })
 ```
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -72,14 +72,14 @@ As chaves de partição grandes têm suporte com as seguintes versões mínimas 
 |.Net     |    1,18     |
 |Sincronização de Java     |   2.4.0      |
 |Java Assíncrono   |  2.5.0        |
-| API REST | versão superior `2017-05-03` a usando o cabeçalho `x-ms-version` de solicitação.|
-| Modelo do Resource Manager | versão 2 usando a `"version":2` Propriedade dentro do `partitionKey` objeto. |
+| API REST | versão superior `2017-05-03` a usando o `x-ms-version` cabeçalho de solicitação.|
+| Modelo do Resource Manager | versão 2 usando a `"version":2` propriedade dentro do `partitionKey` objeto. |
 
 No momento, você não pode usar contêineres com chave de partição grande dentro do Power BI e aplicativos lógicos do Azure. Você pode usar contêineres sem uma chave de partição grande desses aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Particionamento no BD Cosmos do Azure](partitioning-overview.md)
-* [Unidades de solicitação no Azure Cosmos DB](request-units.md)
-* [Aprovisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
+* [Particionamento no Azure Cosmos DB](partitioning-overview.md)
+* [Unidades de Solicitação no Azure Cosmos DB](request-units.md)
+* [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
 * [Como trabalhar com a conta do Azure Cosmos](account-overview.md)

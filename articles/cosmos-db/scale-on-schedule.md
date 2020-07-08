@@ -3,15 +3,15 @@ title: Dimensionar Azure Cosmos DB em uma agenda usando o temporizador Azure Fun
 description: Saiba como dimensionar alterações na taxa de transferência em Azure Cosmos DB usando o PowerShell e o Azure Functions.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 68ba40ea212c061fa5c8bbddc47ea0dfc6d8caa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75935162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262473"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Dimensionar Azure Cosmos DB taxa de transferência usando Azure Functions gatilho de timer
 
@@ -21,7 +21,7 @@ Você pode definir a taxa de transferência por meio de [modelos de Azure Resour
 
 ## <a name="throughput-scheduler-sample-project"></a>Projeto de exemplo do Agendador de produtividade
 
-Para simplificar o processo de dimensionamento de Azure Cosmos DB em uma agenda, criamos um projeto de exemplo chamado [Agendador de produtividade Cosmos do Azure](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Este projeto é um aplicativo Azure Functions com dois gatilhos de temporizador: "ScaleUpTrigger" e "ScaleDownTrigger". Os gatilhos executam um script do PowerShell que define a taxa de transferência em cada `resources.json` recurso, conforme definido no arquivo em cada gatilho. O ScaleUpTrigger é configurado para ser executado às 8:00 UTC e o ScaleDownTrigger é configurado para ser executado às 18:00 UTC e essas horas podem ser facilmente atualizadas dentro `function.json` do arquivo para cada gatilho.
+Para simplificar o processo de dimensionamento de Azure Cosmos DB em uma agenda, criamos um projeto de exemplo chamado [Agendador de produtividade Cosmos do Azure](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Este projeto é um aplicativo Azure Functions com dois gatilhos de temporizador: "ScaleUpTrigger" e "ScaleDownTrigger". Os gatilhos executam um script do PowerShell que define a taxa de transferência em cada recurso, conforme definido no `resources.json` arquivo em cada gatilho. O ScaleUpTrigger é configurado para ser executado às 8:00 UTC e o ScaleDownTrigger é configurado para ser executado às 18:00 UTC e essas horas podem ser facilmente atualizadas dentro do `function.json` arquivo para cada gatilho.
 
 Você pode clonar esse projeto localmente, modificá-lo para especificar os Azure Cosmos DB recursos para escalar verticalmente e para baixo e a agenda para execução. Posteriormente, você pode implantá-lo em uma assinatura do Azure e protegê-lo usando a identidade de serviço gerenciada com permissões de RBAC ( [controle de acesso baseado em função](role-based-access-control.md) ) com a função "operador de Azure Cosmos DB" para definir a taxa de transferência em suas contas do Azure Cosmos.
 

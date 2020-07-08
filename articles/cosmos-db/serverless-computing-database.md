@@ -3,15 +3,15 @@ title: Computação de banco de dados sem servidor com Azure Cosmos DB e Azure F
 description: Saiba como o Azure Cosmos DB e o Azure Functions podem ser usados juntos para criar aplicativos de computação sem servidor controlados por evento.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263253"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions
 
@@ -33,7 +33,7 @@ O Azure Cosmos DB e o Azure Functions permitem integrar bancos de dados e aplica
 
 O seguinte diagrama ilustra cada uma destas três integrações: 
 
-![Como o Azure Cosmos DB e o Azure Functions são integrados](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="Como o Azure Cosmos DB e o Azure Functions são integrados" border="false":::
 
 O gatilho Azure Functions, a associação de entrada e a associação de saída para Azure Cosmos DB podem ser usados nas seguintes combinações:
 
@@ -61,7 +61,7 @@ Em implementações de IoT, você pode invocar uma função quando a luz do meca
 
 A imagem a seguir mostra o código gravado no portal do Azure para esse gatilho.
 
-![Criar um gatilho de Azure Functions para Cosmos DB no portal do Azure](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Criar um gatilho de Azure Functions para Cosmos DB no portal do Azure":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Caso de uso financeiro – Gatilho de temporizador e associação de entrada
 
@@ -75,13 +75,13 @@ Em implementações financeiras, você pode invocar uma função quando um saldo
 
 As imagens a seguir mostram o código no portal do Azure para este cenário.
 
-![Arquivo Index.js para um gatilho de Temporizador em um cenário financeiro](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Arquivo Index.js para um gatilho de Temporizador em um cenário financeiro":::
 
-![Arquivo Run.csx para um gatilho de Temporizador em um cenário financeiro](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Arquivo Run.csx para um gatilho de Temporizador em um cenário financeiro":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso de uso de jogos-Azure Functions gatilho e Associação de saída para Cosmos DB 
 
-Nos jogos, quando um novo usuário é criado, você pode procurar outros usuários que possam conhecê-los usando a [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, você pode gravar os resultados em um [banco de dados de SQL do Azure Cosmos DB] para fácil recuperação.
+Nos jogos, quando um novo usuário é criado, você pode procurar outros usuários que possam conhecê-los usando a [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, você pode gravar os resultados em um [Azure Cosmos DB ou banco de dados SQL]() para recuperação fácil.
 
 **Implementação:** Usar um gatilho Azure Functions e uma associação de saída para Cosmos DB
 

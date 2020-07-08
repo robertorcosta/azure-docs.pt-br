@@ -3,16 +3,16 @@ title: Gerenciar recursos do Azure Cosmos DB usando o Gerenciador de Armazenamen
 description: Saiba como conectar o Azure Cosmos DB e gerenciar os recursos usando o Gerenciador de Armazenamento do Azure.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 2cf1ab2b9ec7e1094a0afa34973db3441c22ee5b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a43e49ab29780e718139b677b780443e5e31e2ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262235"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com os dados usando o Gerenciador de Armazenamento do Azure
 
@@ -31,23 +31,23 @@ Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Ge
 
 1. Depois de instalar o **Gerenciador de armazenamento do Azure**, clique no ícone de **plug-in** à esquerda, conforme mostrado na imagem a seguir:
 
-   ![Ícone do plug-in](./media/storage-explorer/plug-in-icon.png)
+   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Ícone do plug-in":::
 
 2. Selecione **Adicionar uma Conta do Azure** e, em seguida, clique em **Entrar**.
 
-   ![Conectar-se a uma assinatura do Azure](./media/storage-explorer/connect-to-azure-subscription.png)
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Conectar-se a uma assinatura do Azure":::
 
 2. Na caixa de diálogo **entrar no Azure** , selecione **entrar**e insira suas credenciais do Azure.
 
-    ![Entrar](./media/storage-explorer/sign-in.png)
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Entrar":::
 
 3. Selecione sua assinatura na lista e, em seguida, clique em **Aplicar**.
 
-    ![Aplicar](./media/storage-explorer/apply-subscription.png)
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Aplicar":::
 
     O painel do Explorer atualiza e exibe as contas na assinatura selecionada.
 
-    ![Lista de contas](./media/storage-explorer/account-list.png)
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Lista de contas":::
 
     Você conectou sua **Conta do Cosmos DB** à sua assinatura do Azure com êxito.
 
@@ -57,11 +57,11 @@ Um modo alternativo de se conectar a um Azure Cosmos DB é usar uma cadeia de co
 
 1. Encontre a opção **Local e Anexo** na árvore à esquerda, clique com o botão direito do mouse em **Contas do Cosmos DB** e escolha **Conectar-se ao Cosmos DB...**
 
-    ![Conectar-se ao Cosmos DB por uma cadeia de conexão](./media/storage-explorer/connect-to-db-by-connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Conectar-se ao Cosmos DB por uma cadeia de conexão":::
 
 2. Atualmente, só há suporte para API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
 
-    ![Cadeia de conexão](./media/storage-explorer/connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Cadeia de conexão":::
 
 ## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>Conectar-se ao Azure Cosmos DB usando um emulador local
 
@@ -71,11 +71,11 @@ Use as seguintes etapas para se conectar a um Azure Cosmos DB pelo Emulador. Atu
 
 2. Encontre a opção **Local e Anexo** na árvore à esquerda, clique com o botão direito do mouse em **Contas do Cosmos DB** e escolha **Conectar-se ao Emulador Cosmos DB...**
 
-    ![Conecte-se ao Cosmos DB pelo emulador](./media/storage-explorer/emulator-entry.png)
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Conecte-se ao Cosmos DB pelo emulador":::
 
 3. Atualmente, só há suporte para API do SQL. Cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
 
-    ![Conecte-se ao Cosmos DB pelo diálogo do emulador](./media/storage-explorer/emulator-dialog.png)
+    :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Conecte-se ao Cosmos DB pelo diálogo do emulador":::
 
 
 ## <a name="azure-cosmos-db-resource-management"></a>Gerenciamento de recursos do Azure Cosmos DB
@@ -95,52 +95,52 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 * Clique com o botão direito do mouse em uma conta ou banco de dados do Azure Cosmos DB. Você pode escolher a opção **Abrir no Portal** e gerenciar o recurso no navegador do Portal do Azure.
 
-     ![Abrir no portal](./media/storage-explorer/open-in-portal.png)
+     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Abrir no portal":::
 
 * Você também pode adicionar a conta, o banco de dados e a coleção do Azure Cosmos DB no **Acesso Rápido**.
 * A opção **Pesquisar daqui** habilita a pesquisa de palavra-chave no caminho selecionado.
 
-    ![Pesquisar daqui](./media/storage-explorer/search-from-here.png)
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Pesquisar daqui":::
 
 ### <a name="database-and-collection-management"></a>Gerenciamento de banco de dados e coleção
 #### <a name="create-a-database"></a>Criar um banco de dados
 -   Clique com o botão direito do mouse na conta do Azure Cosmos DB, escolha **Criar Banco de Dados**, insira o nome do banco de dados e pressione **Enter** para concluir.
 
-    ![Criar banco de dados](./media/storage-explorer/create-database.png)
+    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Criar banco de dados":::
 
 #### <a name="delete-a-database"></a>Excluir um banco de dados
 - Clique com o botão direito do mouse no banco de dados, clique em **Excluir Banco de Dados** e em **Sim** na janela pop-up. O nó do banco de dados é excluído e a conta do Azure Cosmos DB é atualizada automaticamente.
 
-    ![Excluir database1](./media/storage-explorer/delete-database1.png)
+    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Excluir database1":::
 
-    ![Excluir database2](./media/storage-explorer/delete-database2.png)
+    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Excluir database2":::
 
 #### <a name="create-a-collection"></a>Criar uma coleção
 1. Clique com o botão direito do mouse no banco de dados, escolha **criar coleção**e forneça as informações a seguir, como **ID da coleção**, **capacidade de armazenamento**, etc. Clique em **OK** para concluir.
 
-    ![Criar collection1](./media/storage-explorer/create-collection.png)
+    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Criar collection1":::
 
-    ![Criar collection2](./media/storage-explorer/create-collection2.png)
+    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Criar collection2":::
 
 2. Selecione **Unlimited** para ser capaz de especificar a chave de partição, depois clique em **OK** para concluir.
 
     Se uma chave de partição for usada ao criar uma coleção, depois que a criação for concluída, o valor da chave de partição não poderá ser alterado na coleção.
 
-    ![Chave de partição](./media/storage-explorer/partitionkey.png)
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Chave de partição":::
 
 #### <a name="delete-a-collection"></a>Excluir uma coleção
 - Clique com o botão direito do mouse na coleção, clique em **Excluir Coleção** e, em seguida, clique em **Sim** na janela pop-up.
 
     O nó da coleção é excluído e o banco de dados é atualizado automaticamente.
 
-    ![Excluir coleção](./media/storage-explorer/delete-collection.png)
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Excluir coleção":::
 
 ### <a name="document-management"></a>Gerenciamento de documentos
 
 #### <a name="create-and-modify-documents"></a>Criar e modificar documentos
 - Para criar um novo documento, abra **Documentos** na janela esquerda, clique em **Novo Documento**, edite o conteúdo no painel direito e clique em **Salvar**. Você também pode atualizar um documento existente e, em seguida, clicar em **Salvar**. As alterações podem ser descartadas clicando em **Descartar**.
 
-    ![Document](./media/storage-explorer/document.png)
+    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Documento":::
 
 #### <a name="delete-a-document"></a>Excluir um documento
 - Clique no botão **Excluir** para excluir o documento selecionado.
@@ -148,7 +148,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 #### <a name="query-for-documents"></a>Consulta de documentos
 - Edite o filtro de documentos inserindo uma [Consulta SQL](how-to-sql-query.md) e, em seguida, clique em **Aplicar**.
 
-    ![Filtro de documentos](./media/storage-explorer/document-filter.png)
+    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Filtro de documentos":::
 
 
 
@@ -158,7 +158,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 1. Para criar um novo vértice, abra o **Gráfico** na janela esquerda, clique em **Novo vértice**, edite o conteúdo e clique em **OK**.
 2. Para modificar um vértice existente, clique no ícone de caneta no painel direito.
 
-    ![Grafo](./media/storage-explorer/vertex.png)
+    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Gráfico":::
 
 #### <a name="delete-a-graph"></a>Excluir um gráfico
 - Para excluir um vértice, clique no ícone de lixeira ao lado do nome do vértice.
@@ -166,7 +166,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 #### <a name="filter-for-graph"></a>Filtro para gráficos
 - Edite o filtro de gráficos inserindo uma [consulta gremlin](gremlin-support.md), depois clique em **Aplicar Filtro**.
 
-    ![Filtro do gráfico](./media/storage-explorer/graph-filter.png)
+    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Filtro do gráfico":::
 
 ### <a name="table-management"></a>Gerenciamento de tabela
 
@@ -174,29 +174,29 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 1. Para criar uma nova tabela, abra **Entidades** na janela esquerda, clique em **Adicionar**, edite o conteúdo na caixa de diálogo **Adicionar entidade**, adicione a propriedade clicando no botão **Adicionar Propriedade**, em seguida, clique em **Inserir**.
 2. Para modificar uma tabela, clique em **Editar**, modifique o conteúdo e clique em **Atualizar**.
 
-    ![Tabela](./media/storage-explorer/table.png)
+    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Tabela":::
 
 #### <a name="import-and-export-table"></a>Importar e exportar tabela
 1. Para importar, clique no botão **Importar** e escolha uma tabela existente.
 2. Para exportar, clique no botão **Exportar** e escolha uma tabela existente.
 
-    ![Importação e exportação de tabela](./media/storage-explorer/table-import-export.png)
+    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importação e exportação de tabela":::
 
 #### <a name="delete-entities"></a>Excluir entidades
 - Selecione as entidades e clique no botão **Excluir**.
 
-    ![Exclusão de tabela](./media/storage-explorer/table-delete.png)
+    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Exclusão de tabela":::
 
 #### <a name="query-table"></a>Tabela de consulta
 - Clique no botão **Consulta**, insira a condição de consulta e clique no botão **Executar consulta**. Feche o painel de consulta clicando no botão **Fechar consulta**.
 
-    ![Consulta de tabela](./media/storage-explorer/table-query.png)
+    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Consulta de tabela":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gerenciar procedimentos armazenados, gatilhos e UDFs
 * Para criar um procedimento armazenado, na árvore à esquerda, clique com botão direito do mouse em **Procedimento Armazenado**, escolha **Criar Procedimento Armazenado**, insira um nome à esquerda, digite os scripts do procedimento armazenado na janela à direita e, em seguida, clique em **Criar**.
 * Você também pode editar os procedimentos armazenados existentes ao clicar neles duas vezes, fazer a atualização e, em seguida, clicar em **Atualizar** para salvar ou clicar em **Descartar** para cancelar a alteração.
 
-    ![Procedimento armazenado](./media/storage-explorer/stored-procedure.png)
+    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Procedimento armazenado":::
 * As operações para **Gatilhos** e **UDF** são semelhantes aos **Procedimentos Armazenados**.
 
 ## <a name="troubleshooting"></a>Solução de problemas
@@ -228,7 +228,7 @@ Quando o Gerenciador de Armazenamento encontrar um desses "certificados autoassi
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Procurar certificados autoassinados. Se você não tiver certeza quais são autoassinados, procure onde o assunto ("s") e o emissor ("i") são os mesmos.
 5.  Depois de encontrar os certificados autoassinados, copie e cole tudo desde, e incluindo, **---BEGIN CERTIFICATE---** até **---END CERTIFICATE---** em um novo arquivo .cer para cada um.
-6.  Abra Gerenciador de armazenamento e vá para **Editar** > certificados**SSL** > **importar certificados**. Usando o seletor de arquivos, encontre, selecione e abra os arquivos .cer criados.
+6.  Abra Gerenciador de armazenamento e vá para **Editar**certificados  >  **SSL**  >  **importar certificados**. Usando o seletor de arquivos, encontre, selecione e abra os arquivos .cer criados.
 
 Se você não conseguir localizar todos os certificados autoassinados usando as etapas acima, envie comentários para obter mais ajuda.
 
@@ -246,7 +246,7 @@ Se não for possível recuperar suas assinaturas depois de entrar com êxito:
   - .extaccounts
 - Veja se aparecem mensagens de erro no console de ferramentas de desenvolvedor (F12) ao entrar
 
-![console](./media/storage-explorer/console.png)
+:::image type="content" source="./media/storage-explorer/console.png" alt-text="MMC":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação
 
@@ -279,28 +279,28 @@ Não é possível listar os nós do Azure Cosmos DB na árvore à esquerda na ho
 
 Não há nenhuma resposta depois de clicar no nó "Desenvolvimento" no nó "Local e Anexado" na árvore à esquerda.  O comportamento é esperado. O emulador de local do Azure Cosmos DB terá suporte a partir da próxima versão.
 
-![Nó de desenvolvimento](./media/storage-explorer/development.png)
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Nó de desenvolvimento":::
 
 ### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>Erro de anexação de conta do Azure Cosmos DB ao nó "Local e Anexado"
 
 Se você vir o erro abaixo depois de anexar a conta do Azure Cosmos DB ao nó "Local e Anexado", verifique se você está usando a cadeia de conexão certa.
 
-![Erro de anexação do Azure Cosmos DB a "Local e Anexado"](./media/storage-explorer/attached-error.png)
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Erro de anexação do Azure Cosmos DB a "Local e Anexado"":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Erro de expansão do nó do Azure Cosmos DB
 
 Você pode ver o erro abaixo ao tentar expandir os nós da árvore à esquerda.
 
-![Erro de expansão](./media/storage-explorer/expand-error.png)
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Erro de expansão":::
 
 Tente as seguintes sugestões:
 
 - Verifique se a conta do Azure Cosmos DB está sendo provisionada e tente novamente quando a conta for criada com êxito.
 - Se a conta estiver no nó "Acesso Rápido" ou "Local e Anexado", verifique se a conta foi excluída. Nesse caso, você precisará remover o nó manualmente.
 
-## <a name="contact-us"></a>Fale conosco
+## <a name="contact-us"></a>Entre em contato conosco
 
-Se nenhuma das soluções funcionar para você, envie um email para a equipe de ferramentas de desenvolvimento[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)Azure Cosmos dB () com detalhes sobre o problema, para corrigir os problemas.
+Se nenhuma das soluções funcionar para você, envie um email para a equipe de ferramentas de desenvolvimento Azure Cosmos DB ( [cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com) ) com detalhes sobre o problema, para corrigir os problemas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

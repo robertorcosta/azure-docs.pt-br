@@ -3,15 +3,15 @@ title: Como usar o Kubernetes do Azure com o Azure Cosmos DB
 description: Saiba como inicializar um cluster Kubernetes no Azure que usa o Azure Cosmos DB (versão prévia)
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70093720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262626"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como usar o Kubernetes do Azure com o Azure Cosmos DB (versão prévia)
 
@@ -27,7 +27,7 @@ Para saber mais sobre a API do etcd no Azure Cosmos DB, veja o artigo de [visão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Você pode baixar a CLI do Azure específica para seu sistema operacional e instalar.
+1. Instale a [versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest) da CLI do Azure. Você pode baixar a CLI do Azure específica para seu sistema operacional e instalar.
 
 1. Instale a [última versão](https://github.com/Azure/aks-engine/releases) do Mecanismo de Kubernetes do Azure. As instruções de instalação para diferentes sistemas operacionais estão disponíveis na página [Mecanismo de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Você só precisa das etapas da seção **instalar mecanismo do AKS** do documento vinculado. Após o download, extraia o arquivo zip.
 

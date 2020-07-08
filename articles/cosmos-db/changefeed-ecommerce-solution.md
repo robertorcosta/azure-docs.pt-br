@@ -4,15 +4,15 @@ description: Este artigo descreve como o feed de alterações pode ser usado por
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263000"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -28,7 +28,7 @@ Se estiver interessado em assistir a um vídeo sobre a solução antes de começ
 ## <a name="solution-components"></a>Componentes da solução
 O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na solução:
 
-![Projeto visual](./media/changefeed-ecommerce-solution/project-visual.png)
+:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="Projeto visual" border="false":::
  
 1. **Geração de dados:** o simulador de dados é usado para gerar dados de varejo que representam eventos como um usuário visualizando um item, adicionando um item ao carrinho e comprando um item. É possível gerar um grande conjunto de dados de exemplo usando o gerador de dados. Os dados de exemplo gerados contêm documentos no seguinte formato:
    
@@ -169,7 +169,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
 
 3. Adicione os nomes da **coleção** e do **banco de dados**. (Esses nomes devem ser **changefeedlabcollection** e **changefeedlabdatabase**, a menos que você escolha nomear de modo diferente.)
 
-   ![Atualizar cadeias de conexão](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Atualizar cadeias de conexão":::
  
 4. Salve as alterações em todos os arquivos editados.  
 
@@ -179,7 +179,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
 
 7. Se você navegar até [portal do Azure](https://portal.azure.com/) e, em seguida, para a conta de Cosmos DB em seu grupo de recursos, para **Data Explorer**, você verá os dados aleatórios importados em seu **changefeedlabcollection** .
  
-   ![Dados gerados no portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Dados gerados no portal":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>Configurar um trabalho do Stream Analytics
 
@@ -189,7 +189,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 
 2. Selecione **Entradas** como demonstrado abaixo.  
 
-   ![Criar entrada](./media/changefeed-ecommerce-solution/create-input.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Criar entrada":::
 
 3. Selecione **+ Adicionar entrada de fluxo**. Em seguida, selecione **Hub de Eventos** no menu suspenso.  
 
@@ -221,7 +221,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 
 8. Em seguida, volte para **streamjob1** e selecione **Editar consulta**.
 
-   ![Editar consulta](./media/changefeed-ecommerce-solution/edit-query.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Editar consulta":::
  
 9. Cole a seguinte consulta na janela de consulta. A consulta **PREÇO MÉDIO** calcula o preço médio de todos os itens visualizados pelos usuários, o preço médio de todos os itens adicionados aos carrinhos dos usuários e o preço médio de todos os itens comprados pelos usuários. Essa métrica pode ajudar as empresas de comércio eletrônico a decidir em quais preços vender itens e em qual estoque investir. Por exemplo, se o preço médio dos itens visualizados for muito maior que o preço médio dos itens comprados, uma empresa poderá optar por adicionar itens menos caros ao estoque.
 
@@ -314,7 +314,7 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
 
    Um painel de amostra é semelhante a estes gráficos:
 
-   ![visualizações](./media/changefeed-ecommerce-solution/visualizations.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualizações":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: visualizar com um site de comércio eletrônico
 
@@ -322,19 +322,19 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 1. Navegue de volta para o [portal do Azure](https://portal.azure.com/), em seguida, para sua **conta de Cosmos DB**e, em seguida, para **Data Explorer**.  
 
-   Adicione duas coleções em **changefeedlabdatabase** - **produtos** e **categorias** do changefeedlabdatabase com capacidade de armazenamento fixo.
+   Adicione duas coleções em **changefeedlabdatabase**  -  **produtos** e **categorias** do changefeedlabdatabase com capacidade de armazenamento fixo.
 
    Adicione outra coleção em **changefeedlabdatabase** chamada **topItems** e **/Item** como a chave de partição.
 
 2. Selecione a coleção **topItems** e, em **Escala e configurações**, defina a **Vida Útil** como **30 segundos** para que a coleção topItems seja atualizada a cada 30 segundos.
 
-   ![Vida útil](./media/changefeed-ecommerce-solution/time-to-live.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Vida útil":::
 
 3. Para preencher a coleção **topItems** com os itens comprados com mais frequência, navegue de volta para **streamjob1** e adicione uma nova **Saída**. Selecione **Cosmos DB**.
 
 4. Preencha os campos obrigatórios, conforme a figura abaixo.
 
-   ![Saída do Cosmos](./media/changefeed-ecommerce-solution/cosmos-output.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Saída do Cosmos":::
  
 5. Se você adicionou a consulta TOP 5 opcional na parte anterior do laboratório, prossiga para a parte 5a. Caso contrário, prossiga para a parte 5b.
 

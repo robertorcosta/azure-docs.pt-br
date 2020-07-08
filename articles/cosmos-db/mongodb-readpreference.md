@@ -6,14 +6,14 @@ ms.author: sivethe
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
-ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afdbd1c44170344be6edee8b8b2ee38c9853f81c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80409995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263068"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como configurar distribuir globalmente as leituras usando a API do Azure Cosmos DB para MongoDB
 
@@ -42,7 +42,7 @@ Execute os comandos a seguir para clonar o repositório de exemplo. Com base na 
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>Executar o aplicativo
+## <a name="run-the-application"></a>Execute o aplicativo
 
 Dependendo da plataforma utilizada, instale os pacotes necessários e inicie o aplicativo. Para instalar dependências, siga o LEIAME incluído no repositório de aplicativo de exemplo. Por exemplo, no aplicativo de exemplo do NodeJS, use os comandos a seguir para instalar os pacotes necessários e iniciar o aplicativo.
 
@@ -161,7 +161,7 @@ Consulte o repos de aplicativo de exemplo correspondente para outras plataformas
 
 Neste artigo, você aprendeu a distribuir globalmente operações de leitura usando a Preferência de Leitura com API do Azure Cosmos DB para MongoDB.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não continuar a usar esse aplicativo, exclua todos os recursos criados por este artigo no Portal do Azure com as seguintes etapas:
 

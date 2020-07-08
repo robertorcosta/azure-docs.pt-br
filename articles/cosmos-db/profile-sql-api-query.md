@@ -4,25 +4,25 @@ description: Saiba como recuperar métricas de execução de consulta SQL e perf
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
-ms.openlocfilehash: 48b9a67de5c870a187ee008bd97265760ca6c341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bec102064d6269964cb917d745af206acf948ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70998377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262541"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obter métricas de execução de consulta SQL e analisar o desempenho de consulta usando o SDK do .NET
 
-Este artigo apresenta como criar o perfil do desempenho de consulta do SQL no Azure Cosmos DB. Essa criação de perfil pode ser feita `QueryMetrics` usando o recuperado do SDK do .net e é detalhada aqui. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) é um objeto fortemente tipado com informações sobre a execução da consulta de back-end. Essas métricas são documentadas com mais detalhes no artigo [ajustar o desempenho da consulta](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
+Este artigo apresenta como criar o perfil do desempenho de consulta do SQL no Azure Cosmos DB. Essa criação de perfil pode ser feita usando `QueryMetrics` o recuperado do SDK do .net e é detalhada aqui. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) é um objeto fortemente tipado com informações sobre a execução da consulta de back-end. Essas métricas são documentadas com mais detalhes no artigo [ajustar o desempenho da consulta](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
 
 ## <a name="set-the-feedoptions-parameter"></a>Definir o parâmetro Feedoptions
 
 Todas as sobrecargas para [DocumentClient. CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) assumem um parâmetro opcional [feedoptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) . Essa opção é o que permite que a execução da consulta seja ajustada e parametrizada. 
 
-Para coletar as métricas de execução de consulta SQL, você deve definir o parâmetro [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) no [feedoptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) como `true`. Definir `PopulateQueryMetrics` como true fará com que o `FeedResponse` conterá o relevante. `QueryMetrics` 
+Para coletar as métricas de execução de consulta SQL, você deve definir o parâmetro [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) no [feedoptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) como `true` . Definir `PopulateQueryMetrics` como true fará com que o conterá `FeedResponse` o relevante `QueryMetrics` . 
 
 ## <a name="get-query-metrics-with-asdocumentquery"></a>Obter métricas de consulta com AsDocumentQuery ()
 O exemplo de código a seguir mostra como recuperar métricas ao usar o método [AsDocumentQuery ()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) :
@@ -62,7 +62,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## <a name="aggregating-querymetrics"></a>Agregando QueryMetrics
 
-Na seção anterior, observe que havia várias chamadas para o método [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) . Cada chamada retornou `FeedResponse` um objeto que tem um dicionário `QueryMetrics`de; uma para cada continuação da consulta. O exemplo a seguir mostra como agregar `QueryMetrics` esses usando LINQ:
+Na seção anterior, observe que havia várias chamadas para o método [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) . Cada chamada retornou um `FeedResponse` objeto que tem um dicionário de `QueryMetrics` ; um para cada continuação da consulta. O exemplo a seguir mostra como agregar esses `QueryMetrics` usando LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -129,7 +129,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>Consultas Dispendiosas
 
-Você pode capturar as unidades de solicitação consumidas por cada consulta para investigar consultas caras ou consultas que consomem alta taxa de transferência. Você pode obter o encargo da solicitação usando a propriedade [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) em `FeedResponse`. Para saber mais sobre como obter o encargo de solicitação usando o portal do Azure e diferentes SDKs, confira [localizar o artigo encargos de unidade de solicitação](find-request-unit-charge.md) .
+Você pode capturar as unidades de solicitação consumidas por cada consulta para investigar consultas caras ou consultas que consomem alta taxa de transferência. Você pode obter o encargo da solicitação usando a propriedade [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) em `FeedResponse` . Para saber mais sobre como obter o encargo de solicitação usando o portal do Azure e diferentes SDKs, confira [localizar o artigo encargos de unidade de solicitação](find-request-unit-charge.md) .
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -148,7 +148,7 @@ while (documentQuery.HasMoreResults)
 
 ## <a name="get-the-query-execution-time"></a>Obter o tempo de execução da consulta
 
-Ao calcular o tempo necessário para executar uma consulta do lado do cliente, certifique-se de incluir apenas o tempo para chamar `ExecuteNextAsync` o método e não outras partes da sua base de código. Apenas essas chamadas ajudam a calcular quanto tempo a execução da consulta levou, conforme mostrado no exemplo a seguir:
+Ao calcular o tempo necessário para executar uma consulta do lado do cliente, certifique-se de incluir apenas o tempo para chamar o `ExecuteNextAsync` método e não outras partes da sua base de código. Apenas essas chamadas ajudam a calcular quanto tempo a execução da consulta levou, conforme mostrado no exemplo a seguir:
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -221,7 +221,7 @@ Total Query Execution Time               :        4,500.34 milliseconds
 
 O que significa que a consulta levou 4,5 segundos para ser executada (e essa era apenas uma continuação).
 
-Para otimizar esta consulta de exemplo, evite o uso de UPPER no filtro. Em vez disso, quando documentos são criados ou atualizados `c.description` , os valores devem ser inseridos em caracteres maiúsculos. A consulta então se torna: 
+Para otimizar esta consulta de exemplo, evite o uso de UPPER no filtro. Em vez disso, quando documentos são criados ou atualizados, os `c.description` valores devem ser inseridos em caracteres maiúsculos. A consulta então se torna: 
 
 ```sql
 SELECT VALUE c.description 

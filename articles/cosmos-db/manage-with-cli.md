@@ -3,34 +3,49 @@ title: Gerenciar Microsoft Azure Cosmos DB usando a CLI do Azure
 description: Use a CLI do Azure para gerenciar sua conta, banco de dados e contêineres do Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/13/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3f86468bcafe3d7ce78827aba761bb4e1bf920fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe348c2bbd901934c6365be6efefafb44ef8d875
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262388"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerenciar Microsoft Azure Cosmos usando a CLI do Azure
 
-O guia a seguir descreve os comandos comuns para automatizar o gerenciamento de contas, os bancos de dados e os contêineres do Azure Cosmos DB usando a CLI do Azure. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB estão disponíveis na [referência de CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb). Você também pode encontrar mais exemplos em [amostras de CLI do Azure para o Azure Cosmos DB](cli-samples.md), incluindo como criar e gerenciar contas, bancos de dados e contêineres do Cosmos DB para MongoDB, Gremlin, Cassandra e API de Tabela.
+O guia a seguir descreve os comandos comuns para automatizar o gerenciamento de contas, os bancos de dados e os contêineres do Azure Cosmos DB usando a CLI do Azure. As páginas de referência de todos os comandos do Azure Cosmos DB CLI estão disponíveis na [Referência de CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb). Você também pode encontrar mais exemplos em [amostras de CLI do Azure para o Azure Cosmos DB](cli-samples.md), incluindo como criar e gerenciar contas, bancos de dados e contêineres do Cosmos DB para MongoDB, Gremlin, Cassandra e API de Tabela.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
+## <a name="azure-cosmos-accounts"></a>Contas do Azure Cosmos
+
+As seções a seguir demonstram como gerenciar a conta do Azure Cosmos, incluindo:
+
+* [Criar uma conta do Azure Cosmos](#create-an-azure-cosmos-db-account)
+* [Adicionar ou remover regiões](#add-or-remove-regions)
+* [Habilitar gravações de várias regiões](#enable-multiple-write-regions)
+* [Definir prioridade de failover regional](#set-failover-priority)
+* [Habilitar failover automático](#enable-automatic-failover)
+* [Disparar failover manual](#trigger-manual-failover)
+* [Listar chaves de conta](#list-account-keys)
+* [Listar chaves de conta somente leitura](#list-read-only-account-keys)
+* [Listar cadeias de conexão](#list-connection-strings)
+* [Regenerar a chave de conta](#regenerate-account-key)
+
+### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
 Criar uma conta de Azure Cosmos DB com a API do SQL, consistência de sessão nas regiões oeste dos EUA 2 e leste dos EUA 2:
 
 > [!IMPORTANT]
-> O nome da conta do Azure Cosmos deve ser minúsculo e ter menos de 31 caracteres.
+> O nome da conta do Azure Cosmos deve ser minúsculo e menor que 44 caracteres.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
-accountName='mycosmosaccount' #needs to be lower case and less than 31 characters
+accountName='mycosmosaccount' #needs to be lower case and less than 44 characters
 
 az cosmosdb create \
     -n $accountName \
@@ -40,7 +55,7 @@ az cosmosdb create \
     --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="add-or-remove-regions"></a>Adicionar ou remover regiões
+### <a name="add-or-remove-regions"></a>Adicionar ou remover regiões
 
 Crie uma conta do Azure cosmos com duas regiões, adicione uma região e remova uma região.
 
@@ -51,7 +66,7 @@ Crie uma conta do Azure cosmos com duas regiões, adicione uma região e remova 
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='mycosmosaccount' # must be lower case and <31 characters
+accountName='mycosmosaccount'
 
 # Create an account with 2 regions
 az cosmosdb create --name $accountName --resource-group $resourceGroupName \
@@ -70,7 +85,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
     --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="enable-multiple-write-regions"></a>Habilitar várias regiões de gravação
+### <a name="enable-multiple-write-regions"></a>Habilitar várias regiões de gravação
 
 Habilitar vários mestres para uma conta do cosmos
 
@@ -85,7 +100,7 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 ```
 
-## <a name="set-failover-priority"></a>Definir prioridade de failover
+### <a name="set-failover-priority"></a>Definir prioridade de failover
 
 Definir a prioridade de failover para uma conta do Azure Cosmos configurada para failover automático
 
@@ -99,10 +114,10 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 
 # Make South Central US the next region to fail over to instead of East US 2
 az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'West US 2'=0 'South Central US'=1 'East US 2'=2
+    --failover-policies 'West US 2=0' 'South Central US=1' 'East US 2=2'
 ```
 
-## <a name="enable-automatic-failover"></a> Habilitar failover automático
+### <a name="enable-automatic-failover"></a> Habilitar failover automático
 
 ```azurecli-interactive
 # Enable automatic failover on an existing account
@@ -115,13 +130,13 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-automatic-failover true
 ```
 
-## <a name="trigger-manual-failover"></a>Disparar failover manual
+### <a name="trigger-manual-failover"></a>Disparar failover manual
 
 > [!CAUTION]
 > A alteração da região com prioridade = 0 disparará um failover manual para uma conta do Azure Cosmos. Nenhuma outra alteração de prioridade disparará um failover.
 
 ```azurecli-interactive
-# Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
+# Assume region order is initially 'West US 2=0' 'East US 2=1' 'South Central US=2' for account
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -130,10 +145,10 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 
 # Trigger a manual failover to promote East US 2 as new write region
 az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'East US 2'=0 'South Central US'=1 'West US 2'=2
+    --failover-policies 'East US 2=0' 'South Central US=1' 'West US 2=2'
 ```
 
-## <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Listar todas as chaves de conta
+### <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Listar todas as chaves de conta
 
 Obter todas as chaves para uma conta do cosmos.
 
@@ -147,7 +162,7 @@ az cosmosdb keys list \
    -g $resourceGroupName
 ```
 
-## <a name="list-read-only-account-keys"></a>Listar chaves de conta somente leitura
+### <a name="list-read-only-account-keys"></a>Listar chaves de conta somente leitura
 
 Obter chaves somente leitura para uma conta do cosmos.
 
@@ -162,7 +177,7 @@ az cosmosdb keys list \
     --type read-only-keys
 ```
 
-## <a name="list-connection-strings"></a>Cadeias de caracteres de conexão de lista
+### <a name="list-connection-strings"></a>Cadeias de caracteres de conexão de lista
 
 Obtenha as cadeias de conexão para uma conta do cosmos.
 
@@ -177,7 +192,7 @@ az cosmosdb keys list \
     --type connection-strings
 ```
 
-## <a name="regenerate-account-key"></a>Regenerar a chave de conta
+### <a name="regenerate-account-key"></a>Regenerar a chave de conta
 
 Regenerar uma nova chave para uma conta do cosmos.
 
@@ -190,7 +205,16 @@ az cosmosdb keys regenerate \
     --key-kind secondary
 ```
 
-## <a name="create-a-database"></a>Criar um banco de dados
+## <a name="azure-cosmos-db-database"></a>Banco de dados Azure Cosmos DB
+
+As seguintes seções demonstram como gerenciar o banco de dados do Azure Cosmos DB, incluindo:
+
+* [Criar um banco de dados](#create-a-database)
+* [Criar um banco de dados com produtividade compartilhada](#create-a-database-with-shared-throughput)
+* [Alterar taxa de transferência do banco de dados](#change-database-throughput)
+* [Gerenciar bloqueios em um banco de dados](#manage-lock-on-a-database)
+
+### <a name="create-a-database"></a>Criar um banco de dados
 
 Crie um banco de dados Cosmos.
 
@@ -205,7 +229,7 @@ az cosmosdb sql database create \
     -n $databaseName
 ```
 
-## <a name="create-a-database-with-shared-throughput"></a>Criar um banco de dados com produtividade compartilhada
+### <a name="create-a-database-with-shared-throughput"></a>Criar um banco de dados com produtividade compartilhada
 
 Crie um banco de dados cosmos com taxa de transferência compartilhada.
 
@@ -222,7 +246,7 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
-## <a name="change-the-throughput-of-a-database"></a>Alterar a taxa de transferência de um banco de dados
+### <a name="change-database-throughput"></a>Alterar taxa de transferência do banco de dados
 
 Aumente a taxa de transferência de um banco de dados Cosmos de 1000 RU/s.
 
@@ -248,7 +272,48 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-## <a name="create-a-container"></a>Criar um contêiner
+### <a name="manage-lock-on-a-database"></a>Gerenciar o bloqueio em um banco de dados
+
+Colocar um bloqueio de exclusão em um banco de dados. Para saber mais sobre como habilitar isso, consulte [impedindo alterações de SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='my-cosmos-account'
+databaseName='myDatabase'
+
+lockType='CanNotDelete' # CanNotDelete or ReadOnly
+databaseParent="databaseAccounts/$accountName"
+databaseLockName="$databaseName-Lock"
+
+# Create a delete lock on database
+az lock create --name $databaseLockName \
+    --resource-group $resourceGroupName \
+    --resource-type Microsoft.DocumentDB/sqlDatabases \
+    --lock-type $lockType \
+    --parent $databaseParent \
+    --resource $databaseName
+
+# Delete lock on database
+lockid=$(az lock show --name $databaseLockName \
+        --resource-group $resourceGroupName \
+        --resource-type Microsoft.DocumentDB/sqlDatabases \
+        --resource $databaseName \
+        --parent $databaseParent \
+        --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+## <a name="azure-cosmos-db-container"></a>Contêiner de Azure Cosmos DB
+
+As seguintes seções demonstram como gerenciar o contêiner do Azure Cosmos DB, incluindo:
+
+* [Criar um contêiner](#create-a-container)
+* [Criar um contêiner com TTL habilitado](#create-a-container-with-ttl)
+* [Criar um contêiner com a política de índice personalizada](#create-a-container-with-a-custom-index-policy)
+* [Alterar a taxa de transferência do contêiner](#change-container-throughput)
+* [Gerenciar bloqueios em um contêiner](#manage-lock-on-a-container)
+
+### <a name="create-a-container"></a>Criar um contêiner
 
 Crie um contêiner cosmos com política de índice padrão, chave de partição e RU/s de 400.
 
@@ -267,7 +332,7 @@ az cosmosdb sql container create \
     -p $partitionKey --throughput $throughput
 ```
 
-## <a name="create-a-container-with-ttl"></a>Criar um contêiner com TTL
+### <a name="create-a-container-with-ttl"></a>Criar um contêiner com TTL
 
 Crie um contêiner cosmos com TTL habilitado.
 
@@ -286,7 +351,7 @@ az cosmosdb sql container update \
     --ttl=86400
 ```
 
-## <a name="create-a-container-with-a-custom-index-policy"></a>Criar um contêiner com uma política de índice personalizada
+### <a name="create-a-container-with-a-custom-index-policy"></a>Criar um contêiner com uma política de índice personalizada
 
 Crie um contêiner cosmos com uma política de índice personalizada, um índice espacial, um índice composto, uma chave de partição e RU/s de 400.
 
@@ -338,7 +403,7 @@ az cosmosdb sql container create \
 rm -f "idxpolicy-$uniqueId.json"
 ```
 
-## <a name="change-the-throughput-of-a-container"></a>Alterar o rendimento de um contêiner
+### <a name="change-container-throughput"></a>Alterar a taxa de transferência do contêiner
 
 Aumente a taxa de transferência de um contêiner Cosmos de 1000 RU/s.
 
@@ -364,6 +429,39 @@ az cosmosdb sql container throughput update \
     -d $databaseName \
     -n $containerName \
     --throughput $newRU
+```
+
+### <a name="manage-lock-on-a-container"></a>Gerenciar o bloqueio em um contêiner
+
+Colocar um bloqueio de exclusão em um contêiner. Para saber mais sobre como habilitar isso, consulte [impedindo alterações de SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='my-cosmos-account'
+databaseName='myDatabase'
+containerName='myContainer'
+
+lockType='CanNotDelete' # CanNotDelete or ReadOnly
+databaseParent="databaseAccounts/$accountName"
+containerParent="databaseAccounts/$accountName/sqlDatabases/$databaseName"
+containerLockName="$containerName-Lock"
+
+# Create a delete lock on container
+az lock create --name $containerLockName \
+    --resource-group $resourceGroupName \
+    --resource-type Microsoft.DocumentDB/containers \
+    --lock-type $lockType \
+    --parent $containerParent \
+    --resource $containerName
+
+# Delete lock on container
+lockid=$(az lock show --name $containerLockName \
+        --resource-group $resourceGroupName \
+        --resource-type Microsoft.DocumentDB/containers \
+        --resource-name $containerName \
+        --parent $containerParent \
+        --output tsv --query id)
+az lock delete --ids $lockid
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

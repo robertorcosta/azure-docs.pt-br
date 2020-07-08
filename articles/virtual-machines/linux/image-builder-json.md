@@ -1,19 +1,19 @@
 ---
 title: Criar um modelo do Construtor de Imagens do Azure (versão prévia)
 description: Saiba como criar um modelo para usar com o Construtor de Imagens do Azure.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263306"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do Construtor de Imagens do Azure 
 
@@ -29,7 +29,7 @@ Este é o formato de modelo básico:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -88,7 +88,7 @@ Por padrão, o Construtor de Imagens usará uma VM de build "Standard_D1_v2". Vo
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-Por padrão, o Construtor de Imagens não vai alterar o tamanho da imagem, ele usará o tamanho da imagem de origem. Você pode aumentar o tamanho do Disco do SO (Win e Linux). Isso é opcional, e o valor 0 significa deixar o mesmo tamanho da imagem de origem. 
+Por padrão, o Construtor de Imagens não vai alterar o tamanho da imagem, ele usará o tamanho da imagem de origem. Você **só** pode aumentar o tamanho do disco do sistema operacional (Win e Linux), isso é opcional, e o valor 0 significa deixar o mesmo tamanho da imagem de origem. Não é possível reduzir o tamanho do disco do sistema operacional para menor do que o tamanho da imagem de origem.
 
 ```json
  {
@@ -521,7 +521,7 @@ A saída da imagem será um recurso de imagem gerenciada.
  
 Propriedades de distribuição:
 - **type** – managedImage 
-- **imageId** – ID do recurso da imagem de destino. Formato esperado: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
+- **imageid** – ID de recurso da imagem de destino, formato esperado:/subscriptions/ \<subscriptionId> /resourceGroups/ \<destinationResourceGroupName> /Providers/Microsoft.Compute/images/\<imageName>
 - **local** – local da imagem gerenciada.  
 - **runOutputName** – nome exclusivo para identificar a distribuição.  
 - **artifactTags** – marcas opcionais de par de chave-valor especificadas pelo usuário.
@@ -561,7 +561,7 @@ Antes de distribuir para a Galeria de Imagens, você deve criar uma galeria e um
 Distribuir propriedades para galerias de imagens compartilhadas:
 
 - **type** – sharedImage  
-- **galleryImageId** – ID da galeria de imagens compartilhadas. O formato é: /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** – ID da galeria de imagens compartilhadas. O formato é:/subscriptions/ \<subscriptionId> /ResourceGroups/ \<resourceGroupName> /Providers/Microsoft.Compute/Galleries/ \<sharedImageGalleryName> /images/ \<imageGalleryName> .
 - **runOutputName** – nome exclusivo para identificar a distribuição.  
 - **artifactTags** – marcas opcionais de par de chave-valor especificadas pelo usuário.
 - **replicationRegions** – matriz de regiões para replicação. Uma das regiões deve ser aquela em que a galeria é implantada.
