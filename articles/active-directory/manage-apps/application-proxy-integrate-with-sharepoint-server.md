@@ -3,25 +3,24 @@ title: Habilitar o acesso remoto ao SharePoint – Azure Proxy de Aplicativo do 
 description: Aborda os conceitos básicos sobre como integrar um servidor do SharePoint local com o Proxy de Aplicativo do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 983470994c103cb25d0d2aff96ae8544080e6288
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764529"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD
 
@@ -56,7 +55,7 @@ Este artigo usa os seguintes valores:
 Nesta etapa, você cria um aplicativo em seu locatário de Azure Active Directory que usa o proxy de aplicativo. Você define a URL externa e especifica a URL interna, que são usadas posteriormente no SharePoint.
 
 1. Crie o aplicativo conforme descrito com as configurações a seguir. Para obter instruções passo a passo, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   * **URL interna**: URL interna do SharePoint que será definida mais tarde no SharePoint, como `https://sharepoint`.
+   * **URL interna**: URL interna do SharePoint que será definida mais tarde no SharePoint, como `https://sharepoint` .
    * **Pré-autenticação**: Azure Active Directory
    * **Converter URLs em cabeçalhos**: não
    * **Traduzir URLs no corpo do aplicativo**: não
@@ -66,8 +65,8 @@ Nesta etapa, você cria um aplicativo em seu locatário de Azure Active Director
 1. Depois que o aplicativo for publicado, siga estas etapas para definir as configurações de logon único:
 
    1. Na página de aplicativo no portal, selecione **Logon único**.
-   1. Para o **modo de logon único**, selecione **autenticação integrada do Windows**.
-   1. Defina **SPN do aplicativo interno** para o valor que você definiu anteriormente. Para este exemplo, o valor é `HTTP/sharepoint`.
+   1. Para o **Modo de Logon Único**, selecione **Autenticação Integrada do Windows**.
+   1. Defina **SPN do aplicativo interno** para o valor que você definiu anteriormente. Para este exemplo, o valor é `HTTP/sharepoint` .
    1. Em **identidade de logon delegada**, selecione a opção mais adequada para sua configuração de floresta Active Directory. Por exemplo, se você tiver um único domínio Active Directory em sua floresta, selecione **nome da conta Sam local** (conforme mostrado na captura de tela a seguir). Mas se os usuários não estiverem no mesmo domínio que o SharePoint e os servidores do conector do proxy de aplicativo, selecione **nome principal do usuário local** (não mostrado na captura de tela).
 
    ![Configurar a Autenticação Integrada do Windows para SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
@@ -145,7 +144,7 @@ Para identificar a conta que executa o pool de aplicativos do aplicativo Web do 
 
 ### <a name="make-sure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>Verifique se um certificado HTTPS está configurado para o site do IIS da zona da extranet
 
-Como a URL interna usa o protocolo HTTPS`https://SharePoint/`(), um certificado deve ser definido no site serviços de informações da Internet (IIS).
+Como a URL interna usa o protocolo HTTPS ( `https://SharePoint/` ), um certificado deve ser definido no site serviços de informações da Internet (IIS).
 
 1. Abra o console do Windows PowerShell.
 1. Execute o script a seguir para gerar um certificado autoassinado e adicioná-lo ao meu repositório do computador:
@@ -171,8 +170,8 @@ Os usuários serão inicialmente autenticados no Azure AD e, em seguida, no Shar
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>Definir o SPN para a conta de serviço do SharePoint
 
-Neste artigo, a URL interna é `https://sharepoint`e, portanto, o SPN (nome da entidade de serviço `HTTP/sharepoint`) é. Você deve substituir esses valores pelos valores que correspondem ao seu ambiente.
-Para registrar o `HTTP/sharepoint` SPN para a conta `Contoso\spapppool`do pool de aplicativos do SharePoint, execute o seguinte comando em um prompt de comando, como administrador do domínio:
+Neste artigo, a URL interna é `https://sharepoint` e, portanto, o SPN (nome da entidade de serviço) é `HTTP/sharepoint` . Você deve substituir esses valores pelos valores que correspondem ao seu ambiente.
+Para registrar `HTTP/sharepoint` o SPN para a conta do pool de aplicativos do SharePoint `Contoso\spapppool` , execute o seguinte comando em um prompt de comando, como administrador do domínio:
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
@@ -186,8 +185,8 @@ Para configurar o KCD, siga estas etapas para cada computador do conector:
 
 1. Entre em um controlador de domínio como um administrador de domínio e, em seguida, abra Active Directory usuários e computadores.
 1. Localize o computador que está executando o conector de proxy do Azure AD. Neste exemplo, ele é o próprio servidor do SharePoint.
-1. Clique duas vezes no computador e selecione a guia **delegação** .
-1. Verifique se as opções de delegação estão definidas para **confiar neste computador para delegação somente para os serviços especificados**. Então, selecione **Usar qualquer protocolo de autenticação**.
+1. Clique duas vezes no computador e selecione a guia **Delegação**.
+1. Verifique se as opções de delegação estão definidas para **confiar neste computador para delegação somente para os serviços especificados**. Em seguida, selecione **usar qualquer protocolo de autenticação**.
 1. Selecione o botão **Adicionar** , selecione **usuários ou computadores**e localize a conta do pool de aplicativos do SharePoint. Por exemplo: `Contoso\spapppool`.
 1. Na lista de SPNs, selecione aquele que você criou anteriormente para a conta de serviço.
 1. Selecione **OK** e, em seguida, selecione **OK** novamente para salvar as alterações.
@@ -198,9 +197,9 @@ Agora você está pronto para entrar no SharePoint usando a URL externa e para a
 
 ## <a name="troubleshoot-sign-in-errors"></a>Solucionar erros de entrada
 
-Se a entrada no site não estiver funcionando, você poderá obter mais informações sobre o problema nos logs do conector: no computador que executa o conector, abra o Visualizador de eventos, acesse logs > de **aplicativos e serviços****Microsoft** > **AadApplicationProxy** > **Connector**e inspecione o log do **administrador** .
+Se a entrada no site não estiver funcionando, você poderá obter mais informações sobre o problema nos logs do conector: no computador que executa o conector, abra o Visualizador de eventos, acesse **logs de aplicativos e serviços**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**e inspecione o log do **administrador** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Trabalhando com domínios personalizados no Proxy de Aplicativo do AD do Azure](application-proxy-configure-custom-domain.md)
-* [Entender os conectores de Proxy de Aplicativo do AD do Azure](application-proxy-connectors.md)
+* [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)

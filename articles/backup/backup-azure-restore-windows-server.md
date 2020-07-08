@@ -4,12 +4,11 @@ description: Neste artigo, aprenda a restaurar os dados armazenados no Azure em 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 446ebf563a09131b715b2e08033a7a0278a1fd95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 040ac3069500d0e52441df6f07d92645a7ae69df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764427"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar arquivos no Windows Server com o agente MARS
 
@@ -51,7 +50,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
    > A opção de restauração de arquivos e pastas individuais exige o .NET Framework 4.5.2 ou posterior. Se você não vir a opção **arquivos e pastas individuais**, você deve atualizar o .NET Framework para a versão 4.5.2 ou posterior e tente novamente.
 
    > [!TIP]
-   > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ela é adequada para a recuperação de arquivos individuais, com tamanhos totalizando não mais de 80 GB e ofertas de velocidades de transferência/cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (no máximo 60 MBps), que são ideais para a recuperação de dados grandes ou volumes inteiros.
+   > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ele é adequado para recuperação de arquivos individuais, com tamanhos que totalizam até 80 GB e oferece velocidades de transferência ou cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (até 40 MBps), que é ideal para recuperar dados de tamanho grande ou volumes inteiros.
 
 5. Na página **Selecionar Volume e Data**, selecione o volume que contém os arquivos e pastas que você deseja restaurar.
 

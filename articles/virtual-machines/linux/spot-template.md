@@ -9,10 +9,9 @@ ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 2d546e9154352ec90aa1b1a457eb5320979239d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758357"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs Spot usando um modelo do Resource Manager
@@ -21,12 +20,12 @@ O uso de [VMs pontuais](spot-vms.md) permite que você tire proveito de nossa ca
 
 Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1`, a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível. Para obter mais informações sobre como definir o preço máximo, consulte [VMs pontuais – preços](spot-vms.md#pricing).
+Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0,98765 USD por hora. Se você definir o preço máximo como `-1` , a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível. Para obter mais informações sobre como definir o preço máximo, consulte [VMs pontuais – preços](spot-vms.md#pricing).
 
 
 ## <a name="use-a-template"></a>Como usar um modelo
 
-Para implantações de modelo Spot`"apiVersion": "2019-03-01"` , use ou posterior. Adicione as `priority`propriedades `evictionPolicy` e `billingProfile` ao no seu modelo:
+Para implantações de modelo do Spot, use`"apiVersion": "2019-03-01"` ou posterior. Adicione as `priority` `evictionPolicy` Propriedades e `billingProfile` ao no seu modelo:
 
 ```json
 "priority": "Spot",
@@ -36,7 +35,7 @@ Para implantações de modelo Spot`"apiVersion": "2019-03-01"` , use ou posterio
 }
 ```
 
-Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot. Substitua os nomes de recursos pelos seus próprios `<password>` e por uma senha para a conta de administrador local na VM.
+Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot. Substitua os nomes de recursos pelos seus próprios e `<password>` por uma senha para a conta de administrador local na VM.
 
 ```json
 {

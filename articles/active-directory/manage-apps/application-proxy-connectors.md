@@ -2,22 +2,21 @@
 title: Noções básicas sobre conectores do Proxy de Aplicativo Azure AD | Microsoft Docs
 description: Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764665"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -45,11 +44,11 @@ O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Reinicie o servidor
+1. Reiniciar o servidor
 
 Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Manutenção 
+## <a name="maintenance"></a>Manutenção
 
 Os conectores e o serviço cuidam de todas as tarefas de alta disponibilidade. Eles podem ser adicionados ou removidos dinamicamente. Sempre que uma nova solicitação chega, ela é roteada para um dos conectores que está disponível no momento. Se um conector estiver temporariamente indisponível, ele não responderá a esse tráfego.
 
@@ -76,7 +75,7 @@ Poderá ocorrer tempo de inatividade quando o conector for atualizado se:
 - você possui somente um conector, recomendamos que instale um segundo conector e [crie um grupo de conectores](application-proxy-connector-groups.md). Isso evitará tempo de inatividade e oferece maior disponibilidade.  
 - Um conector estava no meio de uma transação quando a atualização foi iniciada. Embora a transação inicial seja perdida, o navegador deverá repetir a operação automaticamente ou você poderá atualizar a página. Quando a solicitação é enviada novamente, o tráfego é direcionado para um conector de backup.
 
-Para obter informações sobre as versões lançadas anteriormente e quais alterações elas incluem, confira [Proxy de Aplicativo – histórico de lançamento de versão](application-proxy-release-version-history.md).
+Para ver informações sobre versões lançadas anteriormente e quais alterações elas incluem, consulte [proxy de aplicativo – histórico de lançamento de versão](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Criando grupos de conector
 
@@ -175,9 +174,9 @@ e contadores de desempenho do Windows.
 
 ![Adicionar contadores ao conector com o Monitor de Desempenho](./media/application-proxy-connectors/performance-monitor.png)
 
-Os conectores têm logs de administrador e sessão. Os logs de administrador incluem eventos de chave e seus erros. Os logs de sessão incluem todas as transações e seus detalhes de processamento.
+Os conectores têm logs de **Administração** e de **sessão** . O log de **Administração** inclui eventos de chave e seus erros. O log de **sessão** inclui todas as transações e seus detalhes de processamento.
 
-Para ver os logs, acesse o Visualizador de Eventos, abra o menu **Exibir** e habilite **Mostrar logs analíticos e de depuração**. Em seguida, habilite-os para iniciar a coleta de eventos. Esses logs não aparecem no Proxy de Aplicativo Web no Windows Server 2012 R2, pois os conectores são baseados em uma versão mais recente.
+Para ver os logs, abra **Visualizador de eventos** e vá para **logs de aplicativos e serviços**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**. Para tornar o log de **sessão** visível, no menu **Exibir** , selecione **Mostrar logs analíticos e de depuração**. O log de **sessão** é normalmente usado para solução de problemas e é desabilitado por padrão. Habilite-o para iniciar a coleta de eventos e desabilitá-lo quando ele não for mais necessário.
 
 Você pode examinar o estado do serviço na janela Serviços. O conector é composto por dois Serviços do Windows: o conector real e o atualizador. Ambos devem ser executados o tempo todo.
 

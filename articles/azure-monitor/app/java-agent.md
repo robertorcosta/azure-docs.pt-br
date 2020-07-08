@@ -4,10 +4,9 @@ description: Desempenho e monitoramento de uso estendidos do seu site Java com o
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537535"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
@@ -16,7 +15,7 @@ ms.locfileid: "81537535"
 Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
-  * As **chamadas http de saída** feitas por meio do Apache HttpClient, `java.net.HttpURLConnection` OkHttp e são capturadas.
+  * As **chamadas http de saída** feitas por meio do Apache HttpClient, OkHttp e `java.net.HttpURLConnection` são capturadas.
   * **Chamadas Redis** feitas por meio do cliente Jedis são capturadas.
   * **Consultas JDBC** – para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente relatará o plano de consulta.
 
@@ -26,8 +25,8 @@ Se você [instrumentou seu aplicativo Web em Java com o Application Insights][ja
   * **Logback**
 
 * **Melhor nomenclatura de operação:** (usada para agregação de solicitações no Portal)
-  * **Spring** Baseado em `@RequestMapping`Spring.
-  * Baseado em **JAX-RS** em `@Path`. 
+  * Baseado em **Spring** `@RequestMapping` .
+  * Baseado em **JAX-RS** em `@Path` . 
 
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 
@@ -89,7 +88,7 @@ Chave: `JAVA_OPTS` valor:`-javaagent:D:/home/site/wwwroot/applicationinsights-ag
 Para obter a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas** > **avançadas** > **console de depuração** e examinando o conteúdo do diretório do site.    
+O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas**  >  **avançadas**  >  **console de depuração** e examinando o conteúdo do diretório do site.    
 
 * Salve as configurações e Reinicie seu aplicativo. (Essas etapas se aplicam somente aos serviços de aplicativo em execução no Windows.)
 
@@ -122,7 +121,7 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
 [Diagnosticando problemas de dependência – Saiba mais](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>Perguntas? Problemas?
+## <a name="questions-problems"></a>Dúvidas? Problemas?
 * Não há dados? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
 * [Solucionar problemas de Java](java-troubleshoot.md)
 

@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: 59faf63312bd7cc657f8b96ca3110707ea997c02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273590"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e acessar logs de consulta lentos no portal do Azure
@@ -66,7 +65,7 @@ Após o início do log, você pode exibir uma lista de logs de consultas lentas 
 
 ## <a name="set-up-diagnostic-logs"></a>Configuração dos logs de diagnóstico
 
-1. Na seção **monitoramento** na barra lateral, selecione **configurações** > de diagnóstico**Adicionar configurações de diagnóstico**.
+1. Na seção **monitoramento** na barra lateral, selecione **configurações de diagnóstico**  >  **Adicionar configurações de diagnóstico**.
 
    ![Captura de tela das opções de configurações de diagnóstico](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
 

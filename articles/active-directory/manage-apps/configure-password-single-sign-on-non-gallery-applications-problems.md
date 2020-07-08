@@ -3,24 +3,23 @@ title: Problemas ao configurar o SSO de senha para aplicativos que não são da 
 description: Problemas comuns que ocorrem quando você configura o SSO (logon único) de senha para aplicativos personalizados que não estão na Galeria de aplicativos do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 9620a6ad584f20a0956e6a29c89609d79832f4d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763441"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemas ao configurar o logon único com senha para um aplicativo inexistente na Galeria
 
@@ -63,7 +62,7 @@ Para configurar o SSO baseado em senha usando a captura automática de campo de 
 
 9. Insira a **URL de logon**, que é a URL da página em que os usuários inserem seu nome de usuário e senha para entrar. *Certifique-se de que os campos de entrada estejam visíveis na página para a URL que você fornecer*.
 
-10. Clique em **Salvar**.
+10. Selecione **Salvar**.
 
     A página é automaticamente recortada para as caixas de entrada nome de usuário e senha. Agora você pode usar o Azure AD para transmitir com segurança senhas para esse aplicativo usando a extensão do navegador do painel de acesso.
 
@@ -96,17 +95,17 @@ Para configurar o SSO baseado em senha para um aplicativo usando a captura de ca
 
 9. Insira a **URL de logon**, que é a página em que os usuários inserem seu nome de usuário e senha para entrar. *Certifique-se de que os campos de entrada estejam visíveis na página para a URL que você fornecer*.
 
-10. Selecione **definir * &lt;&gt; * as configurações de logon único de senha do AppName**.
+10. Selecione **definir as configurações de logon único de senha do * &lt; AppName &gt; * **.
 
 11. Selecione **detectar manualmente os campos de entrada**.
 
 14. Selecione **OK**.
 
-15. Clique em **Salvar**.
+15. Selecione **Salvar**.
 
 16. Siga as instruções para usar o painel de acesso.
 
-## <a name="troubleshoot-problems"></a>Solucionar problemas
+## <a name="troubleshoot-problems"></a>Solução de problemas
 
 ### <a name="i-get-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Recebo um erro "não foi possível encontrar nenhum campo de entrada na URL"
 
@@ -140,7 +139,7 @@ Se você tiver qualquer um desses problemas, faça o seguinte:
 
 - Tente o processo de captura manual novamente. Verifique se os marcadores vermelhos estão sobre os campos corretos.
 
-- Se o processo de captura manual parecer parar de responder ou a página de entrada não responder, tente o processo de captura manual novamente. Mas, desta vez, depois de concluir o processo, pressione a tecla F12 para abrir o console do desenvolvedor do navegador. Selecione a guia **console** . digite **Window. Location = "*&lt;a URL de entrada que você especificou ao configurar o aplicativo&gt;*"** e pressione Enter. Isso força um redirecionamento de página que encerra o processo de captura e armazena os campos que foram capturados.
+- Se o processo de captura manual parecer parar de responder ou a página de entrada não responder, tente o processo de captura manual novamente. Mas, desta vez, depois de concluir o processo, pressione a tecla F12 para abrir o console do desenvolvedor do navegador. Selecione a guia **console** . digite **Window. Location = "* &lt; a URL de entrada que você especificou ao configurar o aplicativo &gt; *"** e pressione Enter. Isso força um redirecionamento de página que encerra o processo de captura e armazena os campos que foram capturados.
 
 ### <a name="contact-support"></a>Contate o suporte
 
@@ -219,7 +218,7 @@ As informações a seguir explicam o que significa cada item de notificação e 
 
 - **UPN**: o usuário que executou a operação.
 
-    Exemplo: *tperkins\@f128.info*
+    Exemplo: *tperkins \@ f128.info*
 
 - **ID do locatário**: a ID exclusiva do locatário do qual o usuário que executou a operação é membro.
 
@@ -245,7 +244,7 @@ As informações a seguir explicam o que significa cada item de notificação e 
 
 - **Detalhes**: a descrição detalhada do que ocorreu como resultado da operação.
 
-    Exemplo: a *URL interna<https://bing.com/>' ' é inválida porque já está em uso.*
+    Exemplo: a *URL interna ' <https://bing.com/> ' é inválida porque já está em uso.*
 
 - **Erro de cópia**: permite que você selecione o **ícone de cópia** à direita da caixa de texto **copiar erro** para copiar os detalhes de notificação para ajudar com o suporte.
 

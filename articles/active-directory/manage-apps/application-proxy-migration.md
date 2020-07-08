@@ -3,8 +3,8 @@ title: Atualizar para o Proxy de Aplicativo do Azure AD | Microsoft Docs
 description: Escolha qual solução de proxy será a melhor se você estiver atualizando do Microsoft Forefront ou do Unified Access Gateway.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ef1ffb5ec0b39c5331afbc55d99268d9a3997e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67108418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764444"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
 
@@ -46,7 +45,7 @@ Use essa tabela para entender a comparação entre o Threat Management Gateway (
 | Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
 | Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
 | Segurança em escala de nuvem | - | - | - | Sim | 
-| Acesso condicional | - | Sim | - | Sim |
+| Acesso Condicional | - | Sim | - | Sim |
 | Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
 | Nenhuma conexão de entrada | - | - | - | Sim |
 

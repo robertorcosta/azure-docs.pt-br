@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79201018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021833"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
@@ -28,7 +27,7 @@ Para ajudar a melhorar a segurança, o banco de dados do Azure inclui uma série
 
 Elas incluem:
 
--    Um firewall que permite que você crie [regras de firewall](../../sql-database/sql-database-firewall-configure.md) limitando a conectividade por endereço IP,
+-    Um firewall que permite que você crie [regras de firewall](../../azure-sql/database/firewall-configure.md) limitando a conectividade por endereço IP,
 -    Firewall de nível de servidor acessível pelo portal do Azure
 -    Regras de firewall no nível de banco de dados acessíveis pelo SSMS
 -    Conectividade segura ao banco de dados usando cadeias de conexão segura
@@ -50,10 +49,10 @@ A computação na nuvem exige novos paradigmas de segurança que não são famil
 | <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) em TLS (Transport Layer Security).</li></ul> |
 |<br>Criptografia em repouso| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), quando dados inativos são armazenados fisicamente em qualquer formato digital.</li></ul>|
 |**Controlar acesso**||  
-|<br> Acesso a banco de dados | <ul><li>[Autenticação](../../sql-database/sql-database-manage-logins.md) (Autenticação do Azure Active Directory), a autenticação do AD usa identidades gerenciadas pelo Azure Active Directory.</li><li>[Autorização](../../sql-database/sql-database-manage-logins.md) concede aos usuários os privilégios mínimos necessários.</li></ul> |
-|<br>Acesso a aplicativos| <ul><li>[Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131) (Usando política de segurança, ao mesmo tempo restringindo o acesso em nível de linha com base na identidade, função ou contexto de execução do usuário).</li><li>[Máscara de Dados Dinâmicos](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (Usando permissão e política, limita a exposição de dados confidenciais através do mascaramento dos dados a usuários sem privilégios)</li></ul>|
+|<br> Acesso a banco de dados | <ul><li>[Autenticação](../../azure-sql/database/logins-create-manage.md) (Autenticação do Azure Active Directory), a autenticação do AD usa identidades gerenciadas pelo Azure Active Directory.</li><li>[Autorização](../../azure-sql/database/logins-create-manage.md) concede aos usuários os privilégios mínimos necessários.</li></ul> |
+|<br>Acesso a aplicativos| <ul><li>[Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131) (Usando política de segurança, ao mesmo tempo restringindo o acesso em nível de linha com base na identidade, função ou contexto de execução do usuário).</li><li>[Máscara de Dados Dinâmicos](../../azure-sql/database/dynamic-data-masking-overview.md) (Usando permissão e política, limita a exposição de dados confidenciais através do mascaramento dos dados a usuários sem privilégios)</li></ul>|
 |**Monitoramento proativo**||  
-| <br>Acompanhamento e detecção| <ul><li>[Auditoria](../../sql-database/sql-database-auditing.md) rastreia eventos do banco de dados e os grava em um log de auditoria/log de atividades em sua [conta de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md).</li><li>Acompanhe a integridade do banco de dados do Azure usando [Logs de atividades do Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Detecção de Ameaças](../../sql-database/sql-database-threat-detection.md) detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados. </li></ul> |
+| <br>Acompanhamento e detecção| <ul><li>[Auditoria](../../sql-database/sql-database-auditing.md) rastreia eventos do banco de dados e os grava em um log de auditoria/log de atividades em sua [conta de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md).</li><li>Acompanhe a integridade do banco de dados do Azure usando [Logs de atividades do Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Detecção de Ameaças](../../azure-sql/database/threat-detection-configure.md) detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados. </li></ul> |
 |<br>Central de Segurança do Azure| <ul><li>[Monitoramento de dados](../../security-center/security-center-enable-auditing-on-sql-databases.md) Use a Central de Segurança do Azure como solução de monitoramento centralizado de segurança para SQL e outros serviços do Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusão
@@ -62,7 +61,7 @@ O Banco de Dados do Azure é uma plataforma robusta de banco de dados, com uma g
 ## <a name="next-steps"></a>Próximas etapas
 Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a:
 
-- Configure as [regras de firewall](../../sql-database/sql-database-firewall-configure.md) para seu servidor e/ou banco de dados.
+- Configure as [regras de firewall](../../azure-sql/database/firewall-configure.md) para seu servidor e/ou banco de dados.
 - Proteger seus dados com [criptografia](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Habilitar a [auditoria do Banco de Dados SQL](../../sql-database/sql-database-auditing.md).
 

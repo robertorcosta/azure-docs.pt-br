@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68728380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322663"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
-| **Limite de confiança de máquina** | <ul><li>[Verifique se as ACLs apropriadas estão configuradas para restringir o acesso não autorizado aos dados no dispositivo](#acl-restricted-access)</li><li>[Garantir que os conteúdos confidenciais do usuário armazenados no aplicativo sejam armazenados no diretório do perfil do usuário](#sensitive-directory)</li><li>[Verifique se os aplicativos implantados são executados com privilégios mínimos](#deployed-privileges)</li></ul> |
+| **Limite de confiança de computador** | <ul><li>[Verifique se as ACLs apropriadas estão configuradas para restringir o acesso não autorizado aos dados no dispositivo](#acl-restricted-access)</li><li>[Garantir que os conteúdos confidenciais do usuário armazenados no aplicativo sejam armazenados no diretório do perfil do usuário](#sensitive-directory)</li><li>[Verifique se os aplicativos implantados são executados com privilégios mínimos](#deployed-privileges)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Impor ordem de etapa sequencial ao processar fluxos de lógica de negócios](#sequential-logic)</li><li>[Implementar um mecanismo de limitação de taxa para evitar a enumeração](#rate-enumeration)</li><li>[Verifique se a autorização adequada está em vigor e se o princípio de privilégios mínimos é seguido](#principle-least-privilege)</li><li>[As decisões de autorização de acesso a recursos e a lógica de negócios não devem ser baseadas em parâmetros de solicitação de entrada](#logic-request-parameters)</li><li>[Garantir que conteúdos e recursos não sejam enumeráveis ou estejam acessíveis por meio da navegação forçada](#enumerable-browsing)</li></ul> |
 | **Backup de banco de dados** | <ul><li>[Garantir que contas com privilégios mínimos sejam usadas para conexão com o servidor de banco de dados](#privileged-server)</li><li>[Implemente Segurança em Nível de Linha RLS para impedir que os locatários acessem os dados uns dos outros](#rls-tenants)</li><li>[A função sysadmin deve ter apenas usuários necessários válidos](#sysadmin-users)</li></ul> |
 | **Gateway de Nuvem IoT** | <ul><li>[Conectar ao Gateway de Nuvem usando tokens com privilégios mínimos](#cloud-least-privileged)</li></ul> |
@@ -38,13 +37,13 @@ ms.locfileid: "68728380"
 | **Armazenamento do Azure** | <ul><li>[Conceder permissões refinadas em um intervalo de entidades no Armazenamento de Tabelas do Azure](#permission-entities)</li><li>[Habilitar o controle de acesso baseado em função (RBAC) na conta de armazenamento do Azure usando o Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Cliente móvel** | <ul><li>[Implementar detecção de modificação ou desbloqueio implícito](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referência de classe fraca no WCF](#weak-class-wcf)</li><li>[Controle de autorização de implementação do WCF](#wcf-authz)</li></ul> |
-| **API Web** | <ul><li>[Implementar o mecanismo de autorização adequado no ASP.NET Web API](#authz-aspnet)</li></ul> |
+| **API da Web** | <ul><li>[Implementar o mecanismo de autorização adequado no ASP.NET Web API](#authz-aspnet)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Executar verificações de autorização no dispositivo se ele oferecer suporte a várias ações que exigem diferentes níveis de permissão](#device-permission)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Executar verificações de autorização no Gateway de Campo se ele oferecer suporte a várias ações que exigem diferentes níveis de permissão](#field-permission)</li></ul> |
 
 ## <a name="ensure-that-proper-acls-are-configured-to-restrict-unauthorized-access-to-data-on-the-device"></a><a id="acl-restricted-access"></a>Garantir que as ACLs apropriadas estejam configuradas para restringir o acesso não autorizado aos dados no dispositivo
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
@@ -55,7 +54,7 @@ ms.locfileid: "68728380"
 
 ## <a name="ensure-that-sensitive-user-specific-application-content-is-stored-in-user-profile-directory"></a><a id="sensitive-directory"></a>Garantir que os conteúdos confidenciais do usuário armazenados no aplicativo sejam armazenados no diretório do perfil do usuário
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
@@ -66,7 +65,7 @@ ms.locfileid: "68728380"
 
 ## <a name="ensure-that-the-deployed-applications-are-run-with-least-privileges"></a><a id="deployed-privileges"></a>Garantir que os aplicativos implantados sejam executados com privilégios mínimos
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
@@ -77,7 +76,7 @@ ms.locfileid: "68728380"
 
 ## <a name="enforce-sequential-step-order-when-processing-business-logic-flows"></a><a id="sequential-logic"></a>Impor uma ordem sequencial de etapas durante o processamento dos fluxos de lógica de negócios
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -88,7 +87,7 @@ ms.locfileid: "68728380"
 
 ## <a name="implement-rate-limiting-mechanism-to-prevent-enumeration"></a><a id="rate-enumeration"></a>Implementar um mecanismo de limitação de taxa para evitar a enumeração
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -99,7 +98,7 @@ ms.locfileid: "68728380"
 
 ## <a name="ensure-that-proper-authorization-is-in-place-and-principle-of-least-privileges-is-followed"></a><a id="principle-least-privilege"></a>Garantir que um sistema de autorização adequado esteja em vigor e que o princípio dos privilégios mínimos seja seguido
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -110,7 +109,7 @@ ms.locfileid: "68728380"
 
 ## <a name="business-logic-and-resource-access-authorization-decisions-should-not-be-based-on-incoming-request-parameters"></a><a id="logic-request-parameters"></a>As decisões de autorização de acesso a recursos e a lógica de negócios não devem ser baseadas em parâmetros de solicitação de entrada
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -129,7 +128,7 @@ Isso impede que invasores adulterem e modifiquem a operação do aplicativo, por
 
 ## <a name="ensure-that-content-and-resources-are-not-enumerable-or-accessible-via-forceful-browsing"></a><a id="enumerable-browsing"></a>Garantir que conteúdos e recursos não sejam enumeráveis ou estejam acessíveis por meio da navegação forçada
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -140,18 +139,18 @@ Isso impede que invasores adulterem e modifiquem a operação do aplicativo, por
 
 ## <a name="ensure-that-least-privileged-accounts-are-used-to-connect-to-database-server"></a><a id="privileged-server"></a>Garantir que contas com privilégios mínimos sejam usadas para conexão com o servidor de banco de dados
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Hierarquia de permissões de banco de dados SQL](https://msdn.microsoft.com/library/ms191465), [Protegíveis de banco de dados SQL](https://msdn.microsoft.com/library/ms190401) |
+| **Referências**              | [Hierarquia de permissões do SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [protegíveis do SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Etapas** | As contas com privilégios mínimos devem ser usadas para conexão com o banco de dados. O logon em aplicativos deve ser restrito no banco de dados, só deve executar os procedimentos armazenados selecionados e não deve conceder acesso direto à tabela. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementar a RLS (Segurança em Nível de Linha) para impedir que locatários acessem os dados uns dos outros
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados | 
 | **Fase do SDL**               | Build |  
@@ -160,22 +159,22 @@ Isso impede que invasores adulterem e modifiquem a operação do aplicativo, por
 | **Referências**              | [Segurança em Nível de Linha (RLS) do SQL Server](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Etapas** | <p>A Segurança em Nível de Linha permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário que executa uma consulta (por exemplo, uma associação de grupo ou um contexto de execução).</p><p>O RLS (nível de linha de segurança) simplifica o design e a codificação de segurança em seu aplicativo. Ela permite implementar restrições de acesso à linha de dados. Por exemplo, garantindo que os funcionários tenham acesso somente às linhas de dados relevantes aos seus respectivos departamento ou restringindo o acesso de um cliente apenas aos dados pertinentes à sua empresa.</p><p>A lógica de restrição de acesso é localizado na camada de banco de dados, em vez de longe dos dados em outra camada de aplicativo. O sistema de banco de dados aplica as restrições de acesso toda vez que há tentativa de acesso a dados a partir de qualquer camada. Isso torna o sistema de segurança mais robusto e confiável, reduzindo a área de superfície do sistema de segurança.</p><p>|
 
-Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suporte apenas a partir do SQL Server 2016 e no banco de dados SQL do Azure. Se o recurso RLS pronto para uso não for implementado, assegure que o acesso aos dados seja restringido com modos de exibição e procedimentos
+Observe que a RLS como um recurso de banco de dados pronto para uso é aplicável somente a SQL Server iniciando 2016, banco de dados SQL do Azure e SQL Instância Gerenciada. Se o recurso RLS pronto para uso não for implementado, assegure que o acesso aos dados seja restringido com modos de exibição e procedimentos
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>A função sysadmin deve ter apenas usuários necessários válidos
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Hierarquia de permissões de banco de dados SQL](https://msdn.microsoft.com/library/ms191465), [Protegíveis de banco de dados SQL](https://msdn.microsoft.com/library/ms190401) |
+| **Referências**              | [Hierarquia de permissões do SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [protegíveis do SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Etapas** | Os membros com a função de servidor fixa sysadmin devem ser muito limitados e não podem possuir contas usadas por aplicativos.  Revise a lista de usuários com essa função e remova todas as contas desnecessárias.|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Conectar ao Gateway de Nuvem usando tokens com privilégios mínimos
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Nuvem IoT | 
 | **Fase do SDL**               | Implantação |  
@@ -186,7 +185,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>Usar uma chave SAS com a permissão somente envio para gerar tokens de dispositivo
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Build |  
@@ -197,7 +196,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="do-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>Não usar tokens de acesso que fornecem acesso direto ao Hub de Eventos
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Build |  
@@ -208,7 +207,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Conectar ao Hub de Eventos usando chaves SAS que tenham as permissões mínimas necessárias
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Build |  
@@ -219,7 +218,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="use-resource-tokens-to-connect-to-cosmos-db-whenever-possible"></a><a id="resource-docdb"></a>Usar tokens de recurso para se conectar ao Cosmos DB sempre que possível
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Document DB | 
 | **Fase do SDL**               | Build |  
@@ -230,7 +229,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Habilitar o gerenciamento de acesso refinado à assinatura do Azure usando o RBAC
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de Confiança do Azure | 
 | **Fase do SDL**               | Build |  
@@ -241,7 +240,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Restringir o acesso do cliente ao cluster de operações usando o RBAC
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança do Service Fabric | 
 | **Fase do SDL**               | Implantação |  
@@ -252,7 +251,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Executar a modelagem de segurança e usar a segurança no nível do campo onde for necessário
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Build |  
@@ -263,7 +262,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="perform-security-modeling-of-portal-accounts-keeping-in-mind-that-the-security-model-for-the-portal-differs-from-the-rest-of-crm"></a><a id="portal-security"></a>Execute a modelagem de segurança das contas do portal tendo em mente que o modelo de segurança do portal é diferente do restante do CRM.
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Portal do Dynamics CRM | 
 | **Fase do SDL**               | Build |  
@@ -274,7 +273,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="grant-fine-grained-permission-on-a-range-of-entities-in-azure-table-storage"></a><a id="permission-entities"></a>Conceder permissões refinadas em um intervalo de entidades no Armazenamento de Tabelas do Azure
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Armazenamento do Azure | 
 | **Fase do SDL**               | Build |  
@@ -285,7 +284,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Habilitar o controle de acesso baseado em função (RBAC) na conta de armazenamento do Azure usando o Azure Resource Manager
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Armazenamento do Azure | 
 | **Fase do SDL**               | Build |  
@@ -296,7 +295,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementar detecção de modificação ou desbloqueio implícito
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Build |  
@@ -307,7 +306,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 
 ## <a name="weak-class-reference-in-wcf"></a><a id="weak-class-wcf"></a>Referência de classe fraca no WCF
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  
@@ -344,7 +343,7 @@ O elemento `<behaviorExtensions/>` do arquivo de configuração do WCF abaixo so
 
 ## <a name="wcf-implement-authorization-control"></a><a id="wcf-authz"></a>Controle de autorização implementado no WCF
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  
@@ -392,7 +391,7 @@ return result;
 
 ## <a name="implement-proper-authorization-mechanism-in-aspnet-web-api"></a><a id="authz-aspnet"></a>Implementar mecanismos de autorização apropriados na ASP.NET Web API
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Build |  
@@ -443,7 +442,7 @@ public class CustomController : ApiController
 
 ## <a name="perform-authorization-checks-in-the-device-if-it-supports-various-actions-that-require-different-permission-levels"></a><a id="device-permission"></a>Executar verificações de autorização no dispositivo se ele oferecer suporte a várias ações que exigem diferentes níveis de permissão
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Build |  
@@ -454,7 +453,7 @@ public class CustomController : ApiController
 
 ## <a name="perform-authorization-checks-in-the-field-gateway-if-it-supports-various-actions-that-require-different-permission-levels"></a><a id="field-permission"></a>Executar verificações de autorização no Gateway de Campo se ele oferecer suporte a várias ações que exigem diferentes níveis de permissão
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Campo de IoT | 
 | **Fase do SDL**               | Build |  

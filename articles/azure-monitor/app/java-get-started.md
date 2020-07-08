@@ -6,10 +6,9 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
 ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537501"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
@@ -38,7 +37,7 @@ Application Insights é um serviço de análise extensível para desenvolvedores
 
 # <a name="maven"></a>[Maven](#tab/maven)
 
-Se o seu projeto já estiver configurado para usar o Maven para compilação, mescle o código a seguir ao arquivo *pom. xml* .
+Se o seu projeto já estiver configurado para usar o Maven para compilação, mescle o código a seguir ao arquivo de *pom.xml* .
 
 Em seguida, atualize as dependências do projeto para obter os binários baixados.
 
@@ -75,7 +74,7 @@ Baixe a [versão mais recente](https://github.com/Microsoft/ApplicationInsights-
 ---
 
 ### <a name="questions"></a>Perguntas
-* *Qual é a relação entre os `-web-auto`componentes `-web` e `-core` ?*
+* *Qual é a relação entre os `-web-auto` `-web` componentes e `-core` ?*
   * `applicationinsights-web-auto`fornece métricas que rastreiam contagens de solicitação e tempos de resposta do servlet HTTP, registrando automaticamente o filtro de Application Insights servlet em tempo de execução.
   * `applicationinsights-web`também fornece métricas que controlam as contagens de solicitação e os tempos de resposta do servlet HTTP, mas exigem o registro manual do filtro de Application Insights servlet em seu aplicativo.
   * `applicationinsights-core`oferece apenas a API Bare, por exemplo, se seu aplicativo não for baseado em servlet.
@@ -86,8 +85,8 @@ Baixe a [versão mais recente](https://github.com/Microsoft/ApplicationInsights-
   * Se você estiver gerenciando dependências manualmente...
     * Baixe o [SDK do Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) mais recente e substitua os antigos. As alterações descritas nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-## <a name="add-an-applicationinsightsxml-file"></a>Adicionar um arquivo *ApplicationInsights. xml*
-Adicione *ApplicationInsights. xml* à pasta resources em seu projeto ou verifique se ele foi adicionado ao caminho de classe de implantação do seu projeto. Copie o XML a seguir nele.
+## <a name="add-an-applicationinsightsxml-file"></a>Adicionar um arquivo de *ApplicationInsights.xml*
+Adicione *ApplicationInsights.xml* à pasta de recursos em seu projeto ou verifique se ele foi adicionado ao caminho de classe de implantação do seu projeto. Copie o XML a seguir nele.
 
 Substitua a chave de instrumentação por aquela que você obteve da portal do Azure.
 
@@ -118,7 +117,7 @@ Substitua a chave de instrumentação por aquela que você obteve da portal do A
 </ApplicationInsights>
 ```
 
-Opcionalmente, o arquivo de configuração pode estar em qualquer local acessível ao seu aplicativo.  A propriedade `-Dapplicationinsights.configurationDirectory` System especifica o diretório que contém *ApplicationInsights. xml*. Por exemplo, um arquivo de configuração localizado em `E:\myconfigs\appinsights\ApplicationInsights.xml` seria configurado com a propriedade `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Opcionalmente, o arquivo de configuração pode estar em qualquer local acessível ao seu aplicativo.  A propriedade System `-Dapplicationinsights.configurationDirectory` especifica o diretório que contém *ApplicationInsights.xml*. Por exemplo, um arquivo de configuração localizado em `E:\myconfigs\appinsights\ApplicationInsights.xml` seria configurado com a propriedade `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * A chave de instrumentação é enviada junto com todos os itens de telemetria e orienta o Application Insights a exibi-los em seu recurso.
 * O componente de solicitação HTTP é opcional. Ele envia automaticamente a telemetria sobre solicitações e tempos de resposta para o portal.
@@ -129,7 +128,7 @@ O SDK do Application Insights procura a chave nesta ordem:
 
 1. Propriedade do sistema:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
 2. Variável de ambiente: APPINSIGHTS_INSTRUMENTATIONKEY
-3. Arquivo de configuração: *ApplicationInsights. xml*
+3. Arquivo de configuração: *ApplicationInsights.xml*
 
 Você também pode [defini-lo no código](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -194,7 +193,7 @@ Agora, publique seu aplicativo no servidor, permita que as pessoas o usem e obse
 
 ## <a name="azure-app-service-config-spring-boot"></a>Configuração do serviço de Azure App (Spring boot)
 
-Os aplicativos Spring boot em execução no Windows exigem configuração adicional para serem executados em serviços Azure Apps. Modifique **Web. config** e adicione a seguinte configuração:
+Os aplicativos Spring boot em execução no Windows exigem configuração adicional para serem executados em serviços Azure Apps. Modifique **web.config** e adicione a seguinte configuração:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -233,7 +232,7 @@ Abra **investigar**, **métricas**, para ver um intervalo de contadores de desem
 ![Captura de tela do painel de métricas com bytes particulares de processo selecionados](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Personalizar a coleta do contador de desempenho
-Para desabilitar a coleta do conjunto padrão de contadores de desempenho, adicione o seguinte código sob o nó raiz do arquivo *ApplicationInsights. xml* :
+Para desabilitar a coleta do conjunto padrão de contadores de desempenho, adicione o seguinte código sob o nó raiz do arquivo de *ApplicationInsights.xml* :
 
 ```XML
     <PerformanceCounters>
@@ -300,7 +299,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 
 [Saiba mais sobre como configurar testes da Web de disponibilidade.][availability]
 
-## <a name="questions-problems"></a>Perguntas? Problemas?
+## <a name="questions-problems"></a>Dúvidas? Problemas?
 [Solucionar problemas de Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Próximas etapas

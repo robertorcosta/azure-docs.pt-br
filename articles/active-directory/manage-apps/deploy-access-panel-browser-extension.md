@@ -3,8 +3,8 @@ title: Implantar a extensão do Painel de Acesso do Azure do IE usando um GPO | 
 description: Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67807675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763424"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implantar a extensão do painel de acesso para o Internet Explorer usando a política de grupo
 
@@ -44,7 +43,7 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 
     ![Abrir Serviços de Arquivo e Armazenamento](./media/deploy-access-panel-browser-extension/files-services.png)
 
-1. Vá para a guia **compartilhamentos** . Em seguida, clique em **tarefas** > **novo compartilhamento...**
+1. Vá para a guia **compartilhamentos** . Em seguida, clique em **tarefas**  >  **novo compartilhamento...**
 
     ![A captura de tela mostra onde encontrar o novo compartilhamento a partir das telas de tarefas](./media/deploy-access-panel-browser-extension/shares.png)
 
@@ -59,14 +58,14 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 ## <a name="step-2-create-the-group-policy-object"></a>Etapa 2: criar o objeto de política de grupo
 
 1. Entre no servidor que hospeda sua instalação do Active Directory Domain Services (AD DS).
-1. Na Gerenciador do servidor, acesse **ferramentas** > **política de grupo Gerenciamento**.
+1. Na Gerenciador do servidor, acesse **ferramentas**  >  **política de grupo Gerenciamento**.
 
     ![Vá para Ferramentas > Gerenciamento de Política de Grupo](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 
 1. No painel esquerdo da janela **Gerenciamento de Política de Grupo** , exiba sua hierarquia de UO (unidade organizacional) e determine em qual escopo você gostaria de aplicar a política de grupo. Por exemplo, você poderá optar por escolher uma UO pequena a ser implantada para alguns usuários para teste ou poderá escolher uma UO de nível superior a ser implantada em toda a sua organização.
 
    > [!NOTE]
-   > Se você quiser criar ou editar suas UOs (unidades organizacionais), volte para a Gerenciador do servidor e vá para **ferramentas** > **Active Directory usuários e computadores**.
+   > Se você quiser criar ou editar suas UOs (unidades organizacionais), volte para a Gerenciador do servidor e vá para **ferramentas**  >  **Active Directory usuários e computadores**.
 
 1. Depois de selecionar uma UO, clique com o botão direito do mouse nela e selecione **Criar um GPO neste domínio e vinculá-lo aqui...**
 

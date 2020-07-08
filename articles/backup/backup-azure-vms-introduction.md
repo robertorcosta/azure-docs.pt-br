@@ -3,12 +3,11 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322902"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -51,7 +50,7 @@ Quando você faz backup de VMs do Azure com o Backup do Azure, máquinas virtuai
 
 **Criptografia** | **Detalhes** | **Suporte**
 --- | --- | ---
-**Azure Disk Encryption** | O Azure Disk Encryption criptografa tanto o sistema operacional quanto os discos de dados para VMs do Azure.<br/><br/> O Azure Disk Encryption se integra com as chaves de criptografia do BitLocker (BEKs), que são protegidas em um cofre de chaves como segredos. O Azure Disk Encryption também se integra com Azure Key Vault chaves de criptografia de chave (KEKs). | O backup do Azure dá suporte ao backup de VMs do Azure gerenciadas e não gerenciadas criptografadas somente com o BEKs ou com o BEKs junto com KEKs.<br/><br/> É feito backup e criptografia de BEKs e KEKs.<br/><br/> Como o backup de KEKs e BEKs é feito, os usuários com as permissões necessárias podem restaurar chaves e segredos de volta para o cofre de chaves, se necessário. Esses usuários também podem recuperar a VM criptografada.<br/><br/> Chaves e segredos criptografados não podem ser lidos por usuários não autorizados ou pelo Azure.
+**Criptografia de Disco do Azure** | O Azure Disk Encryption criptografa tanto o sistema operacional quanto os discos de dados para VMs do Azure.<br/><br/> O Azure Disk Encryption se integra com as chaves de criptografia do BitLocker (BEKs), que são protegidas em um cofre de chaves como segredos. O Azure Disk Encryption também se integra com Azure Key Vault chaves de criptografia de chave (KEKs). | O backup do Azure dá suporte ao backup de VMs do Azure gerenciadas e não gerenciadas criptografadas somente com o BEKs ou com o BEKs junto com KEKs.<br/><br/> É feito backup e criptografia de BEKs e KEKs.<br/><br/> Como o backup de KEKs e BEKs é feito, os usuários com as permissões necessárias podem restaurar chaves e segredos de volta para o cofre de chaves, se necessário. Esses usuários também podem recuperar a VM criptografada.<br/><br/> Chaves e segredos criptografados não podem ser lidos por usuários não autorizados ou pelo Azure.
 **SSE** | Com o SSE, o armazenamento do Azure fornece criptografia em repouso criptografando automaticamente os dados antes de armazená-los. O armazenamento do Azure também descriptografa os dados antes de recuperá-los. | O backup do Azure usa SSE para criptografia em repouso de VMs do Azure.
 
 Para VMs do Azure gerenciadas e não gerenciadas, o backup dá suporte a ambas as VMs criptografadas com BEKs somente ou VMs criptografadas com BEKs junto com KEKs.
@@ -88,9 +87,9 @@ A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 --- | ---
 **Disco** | O backup de discos de VM é paralelo. Por exemplo, se uma VM tiver quatro discos, o serviço de backup tentará fazer backup de todos os quatro discos em paralelo. O backup é incremental (somente dados alterados).
 **Agendamento** |  Para reduzir o tráfego de backup, faça backup de VMs diferentes em diferentes momentos do dia e certifique-se de que os horários não se sobreponham. Fazer backup de VMs ao mesmo tempo provoca congestionamentos de tráfego.
-**Preparando backups** | Tenha em mente o tempo necessário para preparar o backup. O tempo de preparação inclui a instalação ou atualização da extensão de backup e o disparo de um instantâneo de acordo com o agendamento de backup.
-**Transferência de dados** | Considere o tempo necessário para o backup do Azure identificar as alterações incrementais do backup anterior.<br/><br/> Em um backup incremental, o backup do Azure determina as alterações calculando a soma de verificação do bloco. Se um bloco for alterado, ele será marcado para transferência para o cofre. O serviço analisa os blocos identificados para tentar minimizar ainda mais a quantidade de dados a serem transferidos. Depois de avaliar todos os blocos alterados, o backup do Azure transfere as alterações para o cofre.<br/><br/> Pode haver um retardo entre a captura do instantâneo e a sua cópia para o cofre.<br/><br/> Em horários de pico, pode levar até oito horas para que os backups sejam processados. O tempo de backup para uma VM será menor que 24 horas para o backup diário.
-**Backup inicial** | Embora o tempo total de backup para backups incrementais seja menor que 24 horas, esse pode não ser o caso para o primeiro backup. O tempo necessário para o backup inicial dependerá do tamanho dos dados e do processamento do backup.
+**Preparando backups** | Tenha em mente o tempo necessário para preparar o backup. O tempo de preparação inclui instalar ou atualizar a extensão do backup e disparar um instantâneo de acordo com o agendamento do backup.
+**Transferência de dados** | Considere o tempo necessário para o backup do Azure identificar as alterações incrementais do backup anterior.<br/><br/> Em um backup incremental, o Azure Backup determina as mudanças calculando a soma de verificação do bloco. Se um bloco for modificado, ele ficará marcado para transferência para o cofre. O serviço analisa os blocos identificados para tentar minimizar ainda mais a quantidade de dados a serem transferidos. Após avaliar todos os blocos modificados, o Azure Backup transfere as alterações para o cofre.<br/><br/> Pode haver um retardo entre a captura do instantâneo e a sua cópia para o cofre. Em horários de pico, pode levar até oito horas para que os instantâneos sejam transferidos para o cofre. O tempo de backup para uma VM será menor que 24 horas para o backup diário.
+**Backup inicial** | Embora o tempo de backup total para backups de aumento seja menos de 24 horas, esse pode não ser o caso para o primeiro backup. O tempo necessário para o backup inicial dependerá do tamanho dos dados quando o backup for processado.
 **Restaurar a fila** | Os processos de backup do Azure restauram trabalhos de várias contas de armazenamento ao mesmo tempo e colocam solicitações de restauração em uma fila.
 **Restaurar a cópia** | Durante o processo de restauração, os dados são copiados do cofre para a conta de armazenamento.<br/><br/> O tempo total de restauração depende das operações de e/s por segundo (IOPS) e da taxa de transferência da conta de armazenamento.<br/><br/> Para reduzir o tempo de cópia, selecione uma conta de armazenamento que não esteja carregada com outras leituras e gravações de aplicativo.
 
@@ -105,12 +104,12 @@ Esses cenários comuns podem afetar o tempo total de backup:
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-Quando você estiver configurando backups de VM, sugerimos seguir estas práticas:
+Quando você está configurando backups da VM, sugerimos seguir estas práticas:
 
-- Modifique os horários de agendamento padrão que são definidos em uma política. Por exemplo, se o tempo padrão na política for 12:00, aumente o tempo em vários minutos para que os recursos sejam usados de forma ideal.
+- Modifique os horários padrão de backup configurados em uma política. Por exemplo, se o horário padrão na política for 12:00 AM, aumente o tempo em vários minutos para que os recursos sejam otimamente usados.
 - Se você estiver restaurando VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2 de finalidade geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restauradas, use 10 contas de armazenamento diferentes.
-- Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup
-- O limite no número de discos por conta de armazenamento é relativo ao nível de acesso dos discos por aplicativos em execução em uma VM de IaaS (infraestrutura como serviço). Como uma prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, equilibre a carga movendo alguns discos para separar as contas de armazenamento.
+- Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é requisito para backups após o primeiro backup ser concluído
+- O limite no número de discos por conta de armazenamento é relativo ao número de acessos nos discos por aplicativos em execução em uma VM de infraestrutura como serviço (IaaS). Como prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, equilibre a carga movendo alguns discos para contas de armazenamento separadas.
 
 ## <a name="backup-costs"></a>Custos de backup
 

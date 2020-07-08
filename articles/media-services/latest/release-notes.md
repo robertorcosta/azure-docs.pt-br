@@ -9,14 +9,13 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983371"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -32,9 +31,17 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 ## <a name="known-issues"></a>Problemas conhecidos
 
 > [!NOTE]
-> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [Eventos ao Vivo](live-events-outputs-concept.md) v3, exibir [Ativos](assets-concept.md) v3, obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, Transformações e Trabalhos), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
+> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md)v3, exibir [ativos](assets-concept.md) e trabalhos v3, obter informações sobre como acessar APIs, criptografar conteúdo. Para todas as outras tarefas de gerenciamento (por exemplo, gerenciar transformações e trabalhos), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
+>
+> Para obter detalhes, consulte: [as limitações de portal do Azure para os serviços de mídia v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
-Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+## <a name="june-2020"></a>Junho de 2020
+
+### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Análise de vídeo ao vivo na versão de visualização IoT Edge
+
+A visualização da análise de vídeo ao vivo em IoT Edge ficou pública. Para obter mais informações, consulte [notas de versão](../live-video-analytics-edge/release-notes.md).
+
+A análise de vídeo ao vivo no IoT Edge é uma expansão para a família de serviços de mídia. Ele permite que você analise vídeos ao vivo com modelos de ia de sua escolha em seus próprios dispositivos de borda e, opcionalmente, Capture e grave esse vídeo. Agora você pode criar aplicativos com análise de vídeo em tempo real na borda sem se preocupar com a complexidade de criar e operar um pipeline de vídeo ao vivo.
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -199,7 +206,7 @@ Atualizações adicionadas que incluem melhorias de desempenho dos Serviços de 
 
 ## <a name="march-2019"></a>Março de 2019
 
-O Empacotamento Dinâmico agora é compatível com o Dolby Atmos. Para obter mais informações, consulte [Codecs de áudio com suporte do Empacotamento Dinâmico](dynamic-packaging-overview.md#audio-codecs).
+O Empacotamento Dinâmico agora é compatível com o Dolby Atmos. Para obter mais informações, consulte [Codecs de áudio com suporte do Empacotamento Dinâmico](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
 Agora você pode especificar uma lista de filtros de conta ou ativos, que se aplicariam ao seu Localizador de Streaming. Para obter mais informações, consulte [Associar filtros com o Localizador de Streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -362,11 +369,15 @@ Os seguintes recursos estão presentes no SDK do .NET:
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao enviar um trabalho, você pode especificar para ingerir o vídeo de origem usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure. Atualmente, o AMS v3 não oferece suporte à codificação de transferência em partes sobre URLs HTTPS.
+* Ao enviar um trabalho, você pode especificar para ingerir o vídeo de origem usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure. Atualmente, os serviços de mídia v3 não dão suporte à codificação de transferência em partes sobre URLs HTTPS.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
+
+## <a name="see-also"></a>Confira também
+
+[Diretrizes de migração para mudar dos serviços de mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="next-steps"></a>Próximas etapas
 

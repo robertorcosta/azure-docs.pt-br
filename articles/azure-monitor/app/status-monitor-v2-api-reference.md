@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733668"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Referência da API do agente do Application Insights Azure Monitor
@@ -66,8 +65,8 @@ Configuring registry for instrumentation engine...
 
 Habilita o monitoramento de anexação de código de aplicativos IIS em um computador de destino.
 
-Esse cmdlet modificará o IIS applicationHost. config e definirá algumas chaves do registro.
-Ele também criará um arquivo applicationinsights. iKey. config, que define a chave de instrumentação usada por cada aplicativo.
+Esse cmdlet modificará o applicationHost.config do IIS e definirá algumas chaves do registro.
+Ele também criará um arquivo de applicationinsights.ikey.config, que define a chave de instrumentação usada por cada aplicativo.
 O IIS carregará o RedfieldModule na inicialização, que injetará o SDK Application Insights em aplicativos à medida que os aplicativos forem iniciados.
 Reinicie o IIS para que suas alterações entrem em vigor.
 
@@ -88,7 +87,7 @@ Neste exemplo:
 - `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
 - `AppFilter='WebAppOne'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
 - `AppFilter='WebAppTwo'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- Por fim `AppFilter` , o também `'.*'` usa o curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
+- Por fim, `AppFilter` o também usa o `'.*'` curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para facilitar a leitura.
 
 ```powershell
@@ -108,7 +107,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Necessário.** Use esse parâmetro para fornecer várias chaves de instrumentação e um mapeamento das chaves de instrumentação usadas por cada aplicativo.
-Você pode criar um único script de instalação para vários computadores definindo `MachineFilter`.
+Você pode criar um único script de instalação para vários computadores definindo `MachineFilter` .
 
 > [!IMPORTANT]
 > Os aplicativos serão compatíveis com as regras na ordem em que as regras são fornecidas. Portanto, você deve especificar as regras mais específicas primeiro e as regras mais genéricas por último.
@@ -213,7 +212,7 @@ Configuring registry for instrumentation engine...
 ## <a name="disable-applicationinsightsmonitoring"></a>Desabilitar-ApplicationInsightsMonitoring
 
 Desabilita o monitoramento no computador de destino.
-Esse cmdlet removerá edições para o applicationHost. config do IIS e removerá as chaves do registro.
+Esse cmdlet removerá as edições do applicationHost.config do IIS e removerá as chaves do registro.
 
 ### <a name="examples"></a>Exemplos
 
@@ -392,7 +391,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 Você pode inspecionar o processo no computador instrumentado para ver se todas as DLLs estão carregadas. Se o monitoramento estiver funcionando, pelo menos 12 DLLs deverão ser carregadas.
 
-Execute o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Execute o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` :
 
 
 ```
@@ -446,9 +445,9 @@ Ele também fará o download das ferramentas externas para determinar se as DLLs
 
 
 Se esse processo falhar por algum motivo, você poderá executar estes comandos manualmente:
-- iisreset. exe/status
-- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
-- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine ia ApplicationInsights"
+- iisreset.exe/status
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine ia ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -480,7 +479,7 @@ Neste exemplo:
 - `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
 - `AppFilter='WebAppOne'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
 - `AppFilter='WebAppTwo'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- Por fim `AppFilter` , o também `'.*'` usa o curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
+- Por fim, `AppFilter` o também usa o `'.*'` curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para facilitar a leitura.
 
 ```powershell
@@ -498,7 +497,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Necessário.** Use esse parâmetro para fornecer várias chaves de instrumentação e um mapeamento das chaves de instrumentação usadas por cada aplicativo.
-Você pode criar um único script de instalação para vários computadores definindo `MachineFilter`.
+Você pode criar um único script de instalação para vários computadores definindo `MachineFilter` .
 
 > [!IMPORTANT]
 > Os aplicativos serão compatíveis com as regras na ordem em que as regras são fornecidas. Portanto, você deve especificar as regras mais específicas primeiro e as regras mais genéricas por último.
@@ -556,7 +555,7 @@ Coleta [eventos ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracin
 
 Os eventos coletados serão impressos no console em tempo real e salvos em um arquivo ETL. O arquivo ETL de saída pode ser aberto por [Perfview](https://github.com/microsoft/perfview) para investigação adicional.
 
-Este cmdlet será executado até atingir a duração do tempo limite (padrão 5 minutos) ou for interrompido manualmente`Ctrl + C`().
+Este cmdlet será executado até atingir a duração do tempo limite (padrão 5 minutos) ou for interrompido manualmente ( `Ctrl + C` ).
 
 ### <a name="examples"></a>Exemplos
 
@@ -567,11 +566,11 @@ Normalmente, pedimos que você colete eventos para investigar por que seu aplica
 O tempo de execução de anexação com código emitirá eventos ETW quando o IIS for iniciado e quando seu aplicativo for iniciado.
 
 Para coletar esses eventos:
-1. Em um console cmd com privilégios de administrador, `iisreset /stop` execute para desligar o IIS e todos os aplicativos Web.
+1. Em um console cmd com privilégios de administrador, execute `iisreset /stop` para desligar o IIS e todos os aplicativos Web.
 2. Executar este cmdlet
-3. Em um console cmd com privilégios de administrador, `iisreset /start` execute para iniciar o IIS.
+3. Em um console cmd com privilégios de administrador, execute `iisreset /start` para iniciar o IIS.
 4. Tente navegar até seu aplicativo.
-5. Depois de concluir o carregamento do aplicativo, você pode interrompê`Ctrl + C`-lo manualmente () ou aguardar o tempo limite.
+5. Depois de concluir o carregamento do aplicativo, você pode interrompê-lo manualmente ( `Ctrl + C` ) ou aguardar o tempo limite.
 
 #### <a name="what-events-to-collect"></a>Quais eventos coletar
 

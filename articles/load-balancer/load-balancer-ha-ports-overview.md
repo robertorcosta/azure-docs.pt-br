@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: da776c679d5ded6f53cd0d224828fffee058d37d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920612"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
 
@@ -26,13 +25,13 @@ O Azure Load Balancer Standard ajuda você a balancear cargas de fluxos TCP e UD
 
 Uma regra de balanceamento de carga de portas de alta disponibilidade (HA) é uma variante de uma regra de balanceamento de carga, configurada em um Standard Load Balancer interno. Você pode simplificar o uso de um balanceador de carga fornecendo uma única regra para balancear a carga de todos os fluxos TCP e UDP que chegam em todas as portas de um Load Balancer Standard interno. A decisão de balanceamento de carga é feita por fluxo. A ação é baseada na seguinte conexão de cinco tuplas: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
 
-As regras de balanceamento de carga das portas de HA ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. O recurso também pode ajudar quando um grande número de portas precisar de balanceamento de carga. 
+As regras de balanceamento de carga de portas de HA o ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. O recurso também pode ajudar quando um grande número de portas precisar de balanceamento de carga. 
 
 As regras de balanceamento de carga das portas de alta disponibilidade são configuradas quando você define as portas de front-end e back-end como **0** e o protocolo como **todos**. O recurso de balanceador de carga interno agora balanceia todos os fluxos TCP e UDP, independentemente do número da porta
 
 ## <a name="why-use-ha-ports"></a>Por que usar portas de alta disponibilidade?
 
-### <a name="network-virtual-appliances"></a><a name="nva"></a>Soluções de virtualização de rede
+### <a name="network-virtual-appliances"></a><a name="nva"></a>Dispositivos de rede virtual
 
 É possível usar as NVA para ajudar a proteger as cargas de trabalho do Azure contra vários tipos de ameaças à segurança. Ao usar as NVA nesses cenários, elas devem ser confiáveis, altamente disponíveis e expandir sob demanda.
 
@@ -89,18 +88,15 @@ Se seu cenário exigir que você configure mais de um front-end de porta de alta
 
 Você pode configurar *um* recurso de Standard Load Balancer público para os recursos de back-end, juntamente com uma única Standard Load Balancer interna com portas de alta disponibilidade.
 
->[!NOTE]
->Esse recurso atualmente está disponível por meio de modelos do Azure Resource Manager, mas não está disponível por meio do portal do Azure.
-
 ## <a name="limitations"></a>Limitações
 
 - As regras de balanceamento de carga das portas de alta disponibilidade estão disponíveis somente para Standard Load Balancer internas.
-- Não há suporte para a combinação de uma regra de balanceamento de carga de portas de alta disponibilidade e uma regra de balanceamento de carga de portas não HA apontando para as mesmas ipconfigurations de back-end.
+- A combinação de uma regra de balanceamento de carga de portas de alta disponibilidade e uma regra de balanceamento de carga de portas não HA apontando para a mesma ipconfiguration (s) de back-end não tem suporte, a menos que ambos tenham o IP flutuante habilitado.
 - Os fragmentos IP existentes serão encaminhados pelas regras de balanceamento de carga das portas de alta disponibilidade para o mesmo destino que o primeiro pacote.  Não há suporte para a fragmentação de IP de um pacote UDP ou TCP.
 - A simetria do Flow (principalmente para cenários NVA) tem suporte com a instância de back-end e uma única NIC (e configuração de IP único) somente quando usada, conforme mostrado no diagrama acima, e usando regras de balanceamento de carga de portas de alta disponibilidade. Ela não é fornecida em nenhum outro cenário. Isso significa que dois ou mais recursos do Load Balancer e as respectivas regras tomam decisões independentes e nunca são coordenadas. Veja a descrição e o diagrama para [Soluções de virtualização de rede](#nva). Quando você estiver usando várias NICs ou sanduíches do NVA entre um Load Balancer público e interno, a simetria do fluxo não estará disponível.  Talvez seja possível solucionar isso fazendo a conversão de endereços de rede de origem do fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem ao mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no diagrama acima.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurar portas de alta disponibilidade em um Standard Load Balancer interno](load-balancer-configure-ha-ports.md)
+- Saiba como configurar portas de alta disponibilidade para seu ILB por meio do portal (tutorial-Load-Balancer-Standard-Internal-Portal. mdl # Create-a-Load-Balancer-Rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)ou [modelos](load-balancer-get-started-ilb-arm-template.md).
 - [Saiba mais sobre o Standard Load Balancer](load-balancer-standard-overview.md)

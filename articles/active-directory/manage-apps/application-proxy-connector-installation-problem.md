@@ -3,25 +3,24 @@ title: Problemas ao instalar o conector de agente do Application Proxy | Microso
 description: Como solucionar problemas que você poderá enfrentar ao instalar o conector de agente do Application Proxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764682"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -67,7 +66,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 **Para verificar o certificado do cliente:**
 
-Verifique a impressão digital do certificado do cliente atual. O repositório de certificados pode ser encontrado em%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+Verifique a impressão digital do certificado do cliente atual. O repositório de certificados pode ser encontrado no proxy de aplicativo%ProgramData%\microsoft\Microsoft AAD Connector\Config\TrustSettings.xml
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -93,8 +92,8 @@ Siga as etapas para verificar o certificado:
 
 Siga as etapas para verificar o certificado:
 
-1. Baixar [PsTools. zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extraia o [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) do pacote e execute **PsExec-i-u "NT Authority\Network Service" cmd. exe** em um prompt de comandos com privilégios elevados.
+1. Baixar [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Extraia o [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) do pacote e execute o **PsExec-i-u "NT authority\network Service" cmd.exe** em um prompt de comando elevado.
 3. Executar **certmgr. msc** no prompt de comando exibido recentemente
 2. No console de gerenciamento, expanda o contêiner pessoal e clique em certificados
 3. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
@@ -125,4 +124,4 @@ Conecte-se ao `https://login.microsoftonline.com` e use as mesmas credenciais. V
 Selecione sua conta de usuário e, em seguida, "função de diretório" no menu resultante. Verifique se a função selecionada é "administrador do aplicativo". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você tem a função exigida.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Entender os conectores de Proxy de Aplicativo do AD do Azure](application-proxy-connectors.md)
+[Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)

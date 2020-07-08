@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921026"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -71,7 +70,7 @@ Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa im
 
 **P: Minhas solicitações são registradas?**
 
-**R**: Ao criar uma implantação, você tem uma opção para desativar o rastreamento. Nesse ponto, o áudio ou as transcrições não serão registrados. Caso contrário, as solicitações normalmente são registradas no Azure no armazenamento seguro.
+**R**: por padrão, as solicitações não são registradas (nem de áudio nem transcrição). Se necessário, você pode selecionar o *conteúdo de log dessa opção de ponto de extremidade* ao [criar um ponto de extremidade personalizado](how-to-custom-speech-deploy-model.md) para habilitar o rastreamento. Em seguida, as solicitações serão registradas no Azure no armazenamento seguro.
 
 **Pergunta: são minhas solicitações limitadas?**
 
@@ -110,7 +109,7 @@ e
 
 - um token de acesso para sua assinatura (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-ou o
+ou
 
 - a ID de recurso para sua assinatura:
   - Vá para a [portal do Azure](https://portal.azure.com),
@@ -118,6 +117,10 @@ ou o
   - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
   - exibir o `Properties` para este serviço,
   - Copie o completo `Resource ID` .
+  
+**P: o aumento do meu limite de simultaneidade aumenta o custo?**
+
+**R**: não, o custo é baseado no uso. O aumento da simultaneidade não resulta em custos mais altos. Consulte nossa [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter detalhes sobre o custo. 
   
 >[!NOTE]
 >Os [contêineres](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) não exigem aumentos nos limites de simultaneidade, pois os contêineres são restritos somente pelas CPUs do hardware no qual estão hospedados.

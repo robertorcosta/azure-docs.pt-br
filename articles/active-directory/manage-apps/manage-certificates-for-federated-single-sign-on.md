@@ -3,8 +3,8 @@ title: Gerenciar certificados de federação no Azure AD | Microsoft Docs
 description: Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de60dc5095ce4ab4d0219a388c445b08f544e1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77159022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763203"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
 
@@ -30,7 +29,7 @@ Este artigo é relevante apenas para aplicativos que são configurados para usar
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificado gerado automaticamente para aplicativos da galeria e inexistentes na galeria
 
-Quando você adiciona um novo aplicativo da galeria e configura um logon baseado em SAML (selecionando > **SAML** de **logon único**na página Visão geral do aplicativo), o Azure ad gera um certificado para o aplicativo que é válido por três anos. Para baixar o certificado ativo como um arquivo de certificado de segurança (**. cer**), retorne a essa página (**logon baseado em SAML**) e selecione um link de download no cabeçalho do **certificado de autenticação SAML** . Você pode escolher entre o certificado bruto (binário) ou o certificado Base64 (texto codificado em base 64). Para aplicativos da galeria, esta seção também pode mostrar um link para baixar o certificado como XML de metadados de Federação (um arquivo **. xml** ), dependendo do requisito do aplicativo.
+Quando você adiciona um novo aplicativo da galeria e configura um logon baseado em SAML (selecionando SAML de **logon único**  >  **SAML** na página Visão geral do aplicativo), o Azure ad gera um certificado para o aplicativo que é válido por três anos. Para baixar o certificado ativo como um arquivo de certificado de segurança (**. cer**), retorne a essa página (**logon baseado em SAML**) e selecione um link de download no cabeçalho do **certificado de autenticação SAML** . Você pode escolher entre o certificado bruto (binário) ou o certificado Base64 (texto codificado em base 64). Para aplicativos da galeria, esta seção também pode mostrar um link para baixar o certificado como XML de metadados de Federação (um arquivo **. xml** ), dependendo do requisito do aplicativo.
 
 ![Opções de download de certificado de autenticação ativo SAML](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
@@ -54,7 +53,7 @@ As duas seções a seguir ajudam a executar essas etapas.
 
 Primeiro, crie e salve o novo certificado com uma data de expiração diferente:
 
-1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com/). A página **Azure Active Directory centro de administração** é exibida.
+1. Entre no [Portal do Azure Active Directory](https://aad.portal.azure.com/). A página **Azure Active Directory centro de administração** é exibida.
 1. No painel esquerdo, selecione **Aplicativos Empresariais**. É exibida uma lista dos aplicativos empresariais em sua conta.
 1. Selecione o aplicativo afetado. Uma página de visão geral do aplicativo é exibida.
 1. No painel esquerdo da página Visão geral do aplicativo, selecione **logon único**.
@@ -109,6 +108,6 @@ Se um certificado estiver prestes a expirar, você poderá renová-lo usando um 
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Gerenciamento de aplicativo com o Azure Active Directory](what-is-application-management.md)
+- [Gerenciamento de aplicativos com o Azure Active Directory](what-is-application-management.md)
 - [Logon único para aplicativos no Azure Active Directory](what-is-single-sign-on.md)
-- [Depurar logon único baseado em SAML para aplicativos no Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

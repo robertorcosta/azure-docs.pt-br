@@ -9,18 +9,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 09ac31f31f42f5aed9e7dd464e1fce1436cfe581
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982655"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Preserve a privacidade dos dados usando a privacidade diferencial e o pacote WhiteNoise
 
 Saiba o que é a privacidade diferencial e como o pacote WhiteNoise pode ajudar você a implementar sistemas com privacidade diferencial.
 
 À medida que aumenta a quantidade de dados que uma organização coleta e usa para as análises, também aumentam as preocupações de privacidade e segurança. As análises exigem dados. Normalmente, quanto mais dados são usados para treinar modelos, mais precisos eles são. Quando informações pessoais são usadas para essas análises, é especialmente importante que os dados permaneçam privados durante todo o uso deles.
+
+> [!NOTE]
+> Observe que estamos renomeando o kit de ferramentas e vamos introduzir o novo nome nas próximas semanas. 
 
 ## <a name="how-differential-privacy-works"></a>Como funciona a privacidade diferencial
 
@@ -79,4 +81,6 @@ A biblioteca do sistema fornece as seguintes ferramentas e os seguintes serviço
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar os componentes do WhiteNoise, confira os repositórios GitHub do [pacote Básico do WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core), [pacote do Sistema do WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-system) e [amostras do WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples).
+[Preserve a privacidade de dados](how-to-differential-privacy.md) no Azure Machine Learning.
+
+Para saber mais sobre os componentes do WhiteNoise, confira os repositórios do GitHub para o [pacote do WhiteNoise Core](https://github.com/opendifferentialprivacy/whitenoise-core), o [pacote do sistema WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-system) e os [exemplos do WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples).

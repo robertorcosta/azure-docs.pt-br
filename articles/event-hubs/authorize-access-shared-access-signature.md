@@ -1,19 +1,13 @@
 ---
 title: Autorizar o acesso com uma assinatura de acesso compartilhado nos hubs de eventos do Azure
 description: Este artigo fornece informações sobre como autorizar o acesso aos recursos dos hubs de eventos do Azure usando SAS (assinaturas de acesso compartilhado).
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: bdb1896f8a40c6de21ae76b536bfccec316341cd
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85323128"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autorizando o acesso aos recursos de hubs de eventos usando assinaturas de acesso compartilhado
 Uma SAS (assinatura de acesso compartilhado) fornece uma maneira de conceder acesso limitado a recursos em seu namespace de hubs de eventos. A SAS protege o acesso a recursos de hubs de eventos com base em regras de autorização. Essas regras são configuradas em um namespace ou em uma entidade (Hub de eventos ou tópico). Este artigo fornece uma visão geral do modelo SAS e revisa as práticas recomendadas de SAS.
@@ -33,7 +27,7 @@ A SAS é um mecanismo de autorização baseado em declarações usando tokens si
 
 ## <a name="shared-access-authorization-policies"></a>Políticas de autorização de acesso compartilhado
 Cada namespace de hubs de eventos e cada entidade de hubs de eventos (uma instância de Hub de eventos ou um tópico Kafka) tem uma política de autorização de acesso compartilhado composta por regras. A política no nível de namespace se aplica a todas as entidades dentro do namespace, independentemente de suas configurações de política individuais.
-Para cada regra de política de autorização, você toma decisões quanto a três informações: nome, escopo e direitos. O nome é um nome exclusivo nesse escopo. O escopo é o URI do recurso em questão. Para um namespace de hubs de eventos, o escopo é o FQDN (nome de domínio totalmente qualificado) `https://<yournamespace>.servicebus.windows.net/`, como.
+Para cada regra de política de autorização, você toma decisões quanto a três informações: nome, escopo e direitos. O nome é um nome exclusivo nesse escopo. O escopo é o URI do recurso em questão. Para um namespace de hubs de eventos, o escopo é o FQDN (nome de domínio totalmente qualificado), como `https://<yournamespace>.servicebus.windows.net/` .
 
 Os direitos fornecidos pela regra de política podem ser uma combinação de:
 - **Enviar** – dá o direito de enviar mensagens para a entidade

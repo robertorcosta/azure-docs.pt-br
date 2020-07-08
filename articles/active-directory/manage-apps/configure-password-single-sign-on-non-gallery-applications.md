@@ -2,21 +2,20 @@
 title: Como configurar o logon único com senha para aplicativos do Azure AD | Microsoft Docs
 description: Como configurar o SSO (logon único) com senha para seus aplicativos empresariais do Azure AD na plataforma Microsoft Identity (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763492"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurar o logon único com senha
 
@@ -44,7 +43,7 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confir
 
 1. Entre no [portal do Azure](https://portal.azure.com) como administrador do aplicativo em nuvem ou um administrador de aplicativo para seu locatário do Azure AD.
 
-2. Navegue até **Azure Active Directory** > **aplicativos empresariais**. Uma amostra aleatória dos aplicativos em seu locatário do Azure AD é exibida. 
+2. Navegue até **Azure Active Directory**  >  **aplicativos empresariais**. Uma amostra aleatória dos aplicativos em seu locatário do Azure AD é exibida. 
 
 3. No menu **Tipo de Aplicativo**, selecione **Todos os aplicativos** e, em seguida, **Aplicar**.
 
@@ -58,7 +57,7 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confir
 
    ![Logon único baseado em senha](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
-8. Clique em **Salvar**. O Azure AD tenta analisar a página de entrada para obter uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem-sucedida, você terminará. 
+8. Selecione **Salvar**. O Azure AD tenta analisar a página de entrada para obter uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem-sucedida, você terminará. 
  
 > [!NOTE]
 > A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas em nome de um usuário quando eles entrarem no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e clique em **Atualizar credenciais**. Em seguida, insira o nome de usuário e a senha a serem usados em nome do grupo de usuários ou grupos. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
@@ -68,7 +67,7 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confir
 
 Se a tentativa de análise do Azure AD falhar, você poderá configurar o logon manualmente.
 
-1. Em ** \<nome do aplicativo> configuração**, **selecione \<configurar nome do aplicativo> senha configurações de logon único** para exibir a página **Configurar logon** . 
+1. Em ** \<application name> configuração**, selecione **definir \<application name> configurações de logon único com senha** para exibir a página **Configurar logon** . 
 
 2. Selecione **detectar manualmente os campos de entrada**. São exibidas instruções adicionais que descrevem a detecção manual de campos de entrada.
 

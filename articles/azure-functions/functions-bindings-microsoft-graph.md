@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 770187693e5bac6e059dfd20455099fcc695b74b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76715021"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322508"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -40,11 +39,11 @@ A associação de entrada de token de autenticação é fornecida no pacote NuGe
 
 As associações do Microsoft Graph estão disponíveis por meio de _extensões de associação_. Extensões de associação são componentes opcionais para o Azure Functions runtime. Esta seção mostra como configurar o Microsoft Graph e as extensões de token de autenticação.
 
-### <a name="enabling-functions-20-preview"></a>Habilitar versão prévia do Functions 2.0
+### <a name="enabling-functions-20"></a>Habilitando as funções 2,0
 
-Extensões de associação só estão disponíveis para versão prévia do Azure Functions 2.0. 
+As extensões de associação estão disponíveis somente para o Azure Functions 2,0. 
 
-Para obter informações sobre como configurar um aplicativo de funções para usar a versão prévia 2.0 do runtime do Functions, confira [Como direcionar versões do Azure Functions runtime](set-runtime-version.md).
+Para obter informações sobre como definir um aplicativo de funções para usar a versão 2,0 do tempo de execução do functions, consulte [como direcionar Azure Functions versões de tempo de execução](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Como instalar a extensão
 
@@ -77,7 +76,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#auth-token---example)
 * [Atributos](#auth-token---attributes)
-* [Configuração](#auth-token---configuration)
+* [Configuration](#auth-token---configuration)
 * [Usage](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>Token de autenticação - exemplo
@@ -203,15 +202,15 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="auth-token---configuration"></a>Token de autenticação - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `Token` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Token`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatório – o nome da variável usada no código de função para o token de autenticação. Consulte [Como usar uma associação de entrada do token de autenticação do código](#token-input-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `token`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `in`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para o token de autenticação. Consulte [Como usar uma associação de entrada do token de autenticação do código](#token-input-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `token`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `in`.|
 |**identidade**|**Identidade**|Obrigatório – a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> – válida apenas com [gatilho HTTP]. Usa a identidade do usuário responsável pela chamada.</li><li><code>userFromId</code> – usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code> – usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code> – usa a identidade do aplicativo de funções.</li></ul>|
-|**ID**|**UserId**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
+|**ID**|**ID**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se, e somente se, a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de função. |
 |**Recurso**|**Kit**|Obrigatório – uma URL de recurso do Azure AD para a qual o token está sendo solicitado.|
 
@@ -235,7 +234,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#excel-input---example)
 * [Atributos](#excel-input---attributes)
-* [Configuração](#excel-input---configuration)
+* [Configuration](#excel-input---configuration)
 * [Usage](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Entrada do Excel - exemplo
@@ -338,15 +337,15 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="excel-input---configuration"></a>Entrada do Excel - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `Excel` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Excel`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatório – o nome da variável usada no código de função para a tabela do Excel. Consulte [Como usar uma associação de entrada de tabela do Excel do código](#excel-input-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `excel`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `in`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para a tabela do Excel. Consulte [Como usar uma associação de entrada de tabela do Excel do código](#excel-input-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `excel`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `in`.|
 |**identidade**|**Identidade**|Obrigatório – a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> – válida apenas com [gatilho HTTP]. Usa a identidade do usuário responsável pela chamada.</li><li><code>userFromId</code> – usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code> – usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code> – usa a identidade do aplicativo de funções.</li></ul>|
-|**ID**|**UserId**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
+|**ID**|**ID**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se, e somente se, a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de função. |
 |**path**|**Caminho**|Obrigatório – o caminho no OneDrive para a pasta de trabalho do Excel.|
 |**worksheetName**|**Planilhaname**|A planilha em que a tabela é encontrada.|
@@ -384,7 +383,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#excel-output---example)
 * [Atributos](#excel-output---attributes)
-* [Configuração](#excel-output---configuration)
+* [Configuration](#excel-output---configuration)
 * [Usage](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Saída do Excel - exemplo
@@ -500,15 +499,15 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="excel-output---configuration"></a>Saída do Excel - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `Excel` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Excel`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatório – o nome da variável usada no código de função para o token de autenticação. Consulte [Como usar uma associação de saída de tabela do Excel do código](#excel-output-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `excel`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `out`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para o token de autenticação. Consulte [Como usar uma associação de saída de tabela do Excel do código](#excel-output-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `excel`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `out`.|
 |**identidade**|**Identidade**|Obrigatório – a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> – válida apenas com [gatilho HTTP]. Usa a identidade do usuário responsável pela chamada.</li><li><code>userFromId</code> – usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code> – usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code> – usa a identidade do aplicativo de funções.</li></ul>|
-|**UserId** |**ID** |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
+|**ID** |**ID** |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se, e somente se, a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de função. |
 |**path**|**Caminho**|Obrigatório – o caminho no OneDrive para a pasta de trabalho do Excel.|
 |**worksheetName**|**Planilhaname**|A planilha em que a tabela é encontrada.|
@@ -543,7 +542,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#file-input---example)
 * [Atributos](#file-input---attributes)
-* [Configuração](#file-input---configuration)
+* [Configuration](#file-input---configuration)
 * [Usage](#file-input---usage)
 
 ### <a name="file-input---example"></a>Entrada do Arquivo - exemplo
@@ -646,15 +645,15 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="file-input---configuration"></a>Entrada do arquivo - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `OneDrive` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `OneDrive`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatório – o nome da variável usada no código de função para o arquivo. Consulte [Como usar uma associação de entrada de arquivo do OneDrive do código](#onedrive-input-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `onedrive`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `in`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para o arquivo. Consulte [Como usar uma associação de entrada de arquivo do OneDrive do código](#onedrive-input-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `onedrive`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `in`.|
 |**identidade**|**Identidade**|Obrigatório – a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> – válida apenas com [gatilho HTTP]. Usa a identidade do usuário responsável pela chamada.</li><li><code>userFromId</code> – usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code> – usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code> – usa a identidade do aplicativo de funções.</li></ul>|
-|**ID**|**UserId**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
+|**ID**|**ID**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se, e somente se, a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de função. |
 |**path**|**Caminho**|Obrigatória – o caminho no OneDrive para o arquivo.|
 
@@ -670,7 +669,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - STREAM
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -687,7 +686,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#file-output---example)
 * [Atributos](#file-output---attributes)
-* [Configuração](#file-output---configuration)
+* [Configuration](#file-output---configuration)
 * [Usage](#file-output---usage)
 
 ### <a name="file-output---example"></a>Saída do arquivo - exemplo
@@ -794,15 +793,15 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="file-output---configuration"></a>Saída do arquivo - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `OneDrive` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `OneDrive`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatório – o nome da variável usada no código de função para o arquivo. Consulte [Como usar uma associação de saída de arquivo do OneDrive do código](#onedrive-output-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `onedrive`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `out`.|
+|**name**| n/d |Obrigatório – o nome da variável usada no código de função para o arquivo. Consulte [Como usar uma associação de saída de arquivo do OneDrive do código](#onedrive-output-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `onedrive`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `out`.|
 |**identidade**|**Identidade**|Obrigatório – a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> – válida apenas com [gatilho HTTP]. Usa a identidade do usuário responsável pela chamada.</li><li><code>userFromId</code> – usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code> – usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code> – usa a identidade do aplicativo de funções.</li></ul>|
-|**UserId** |**ID** |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
+|**ID** |**ID** |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se, e somente se, a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de função. |
 |**path**|**Caminho**|Obrigatória – o caminho no OneDrive para o arquivo.|
 
@@ -818,7 +817,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - STREAM
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -834,7 +833,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#outlook-output---example)
 * [Atributos](#outlook-output---attributes)
-* [Configuração](#outlook-output---configuration)
+* [Configuration](#outlook-output---configuration)
 * [Usage](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Saída do Outlook - exemplo
@@ -945,15 +944,15 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="outlook-output---configuration"></a>Saída do Outlook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `Outlook` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Outlook`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `outlook`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `out`.|
+|**name**| n/d |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `outlook`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `out`.|
 |**identidade**|**Identidade**|Obrigatório – a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> – válida apenas com [gatilho HTTP]. Usa a identidade do usuário responsável pela chamada.</li><li><code>userFromId</code> – usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code> – usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code> – usa a identidade do aplicativo de funções.</li></ul>|
-|**ID**|**UserId**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
+|**ID**|**ID**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se, e somente se, a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de função. |
 
 <a name="outlook-output-code"></a>
@@ -968,7 +967,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- cadeia de caracteres
+- string
 - Tipos de objetos personalizados (usando o model binding estrutural)
 
 
@@ -999,7 +998,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#webhook-trigger---example)
 * [Atributos](#webhook-trigger---attributes)
-* [Configuração](#webhook-trigger---configuration)
+* [Configuration](#webhook-trigger---configuration)
 * [Usage](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>Gatilho de webhook - exemplo
@@ -1088,13 +1087,13 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atribut
 
 ### <a name="webhook-trigger---configuration"></a>Gatilho de webhook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `GraphWebhookTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `GraphWebhookTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `graphWebhook`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `trigger`.|
+|**name**| n/d |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `graphWebhook`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `trigger`.|
 |**resourceType**|**ResourceType**|Obrigatório – o recurso de grafo para o qual essa função deve responder a webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code> – alterações feitas em mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> – alterações feitas aos itens de raiz do OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> - as alterações feitas nos contatos pessoais do Outlook.</li><li><code>#Microsoft.Graph.Event</code> - as alterações feitas em itens de calendário do Outlook.</li></ul>|
 
 > [!Note]
@@ -1118,7 +1117,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#webhook-input---example)
 * [Atributos](#webhook-input---attributes)
-* [Configuração](#webhook-input---configuration)
+* [Configuration](#webhook-input---configuration)
 * [Usage](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>Entrada de webhook - exemplo
@@ -1240,13 +1239,13 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atribut
 
 ### <a name="webhook-input---configuration"></a>Entrada de webhook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `GraphWebhookSubscription` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `GraphWebhookSubscription`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `graphWebhookSubscription`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `in`.|
+|**name**| n/d |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `graphWebhookSubscription`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `in`.|
 |**sem**|**Filter**| Se definido como `userFromRequest`, a associação apenas recuperará assinaturas pertencentes ao usuário que está chamando (válido somente com [gatilho HTTP]).| 
 
 ### <a name="webhook-input---usage"></a>Entrada de webhook - uso
@@ -1269,7 +1268,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#webhook-output---example)
 * [Atributos](#webhook-output---attributes)
-* [Configuração](#webhook-output---configuration)
+* [Configuration](#webhook-output---configuration)
 * [Usage](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>Saída de webhook - exemplo
@@ -1381,15 +1380,15 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atribut
 
 ### <a name="webhook-output---configuration"></a>Saída de webhook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `GraphWebhookSubscription` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `GraphWebhookSubscription`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**name**| N/D |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
-|**type**| N/D |Obrigatório – deve ser definido como `graphWebhookSubscription`.|
-|**direção**| N/D |Obrigatório – deve ser definido como `out`.|
+|**name**| n/d |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
+|**tipo**| n/d |Obrigatório – deve ser definido como `graphWebhookSubscription`.|
+|**direction**| n/d |Obrigatório – deve ser definido como `out`.|
 |**identidade**|**Identidade**|Obrigatório – a identidade que será usada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> – válida apenas com [gatilho HTTP]. Usa a identidade do usuário responsável pela chamada.</li><li><code>userFromId</code> – usa a identidade de um usuário conectado anteriormente com a ID especificada. Consulte a propriedade <code>userId</code>.</li><li><code>userFromToken</code> – usa a identidade representada pelo token especificado. Consulte a propriedade <code>userToken</code>.</li><li><code>clientCredentials</code> – usa a identidade do aplicativo de funções.</li></ul>|
-|**ID**|**UserId**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
+|**ID**|**ID**  |Necessário se, e somente se, a _identidade_ estiver definida como `userFromId`. Uma ID de entidade de usuário associada a um usuário conectado anteriormente.|
 |**userToken**|**UserToken**|Necessário se, e somente se, a _identidade_ estiver definida como `userFromToken`. Um token válido para o aplicativo de função. |
 |**action**|**Ação**|Obrigatório – especifica a ação que a associação deve executar. Pode ser um dos seguintes valores:<ul><li><code>create</code> – registrar uma nova assinatura.</li><li><code>delete</code> – exclui uma assinatura especificada.</li><li><code>refresh</code> – atualiza uma assinatura especificada para impedir que ela expire.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|Necessário se e somente se a _ação_ estiver definida como `create`. Especifica o recurso Microsoft Graph que será monitorado quanto a alterações. Consulte [Como trabalhar com webhooks no Microsoft Graph]. |
@@ -1398,7 +1397,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="webhook-output---usage"></a>Saída de webhook - uso
 
 A associação expõe os seguintes tipos a funções .NET:
-- cadeia de caracteres
+- string
 - Microsoft.Graph.Subscription
 
 

@@ -3,16 +3,15 @@ title: Anexar um disco de dados gerenciado a uma VM do Windows – Azure
 description: Como anexar um disco de dados gerenciado a uma VM Windows usando o portal do Azure.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919372"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84657171"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados gerenciado a uma VM Windows usando o portal do Azure
 
@@ -28,7 +27,7 @@ Este artigo mostra como anexar um novo disco de dados gerenciados a uma VM (máq
 5. No menu suspenso do novo disco, selecione **Criar disco**.
 6. Na página **Criar disco gerenciado**, digite um nome para o disco e ajuste as outras configurações, conforme necessário. Quando terminar, selecione **Criar**.
 7. Na página **Discos**, selecione **Salvar** para salvar a nova configuração de disco da VM.
-8. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de dados**.
+8. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **discos de dados**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Inicializar um novo disco de dados

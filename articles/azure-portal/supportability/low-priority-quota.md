@@ -4,15 +4,14 @@ description: Aumente os limites de cota para VMs pontuais, que fornecem um model
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 3e6dddfc458f390f5648e23a8a2af8d714de4bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763866"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Cota de spot: aumentar os limites para todas as séries de VM
 
@@ -40,15 +39,15 @@ Para solicitar um aumento de limite de cota de spot para todas as séries de má
 > [!NOTE]
 > Você também pode solicitar um aumento de limite de cota para várias regiões por meio de um único caso de suporte. Para obter detalhes, consulte a etapa 8.
 
-1. No menu [portal do Azure](https://portal.azure.com) , selecione **ajuda + suporte**.
+1. No menu do [Portal do Azure](https://portal.azure.com), selecione **Ajuda + suporte**.
 
-   ![O link ajuda + suporte](./media/resource-manager-core-quotas-request/help-plus-support.png)
+   ![Link de ajuda + suporte](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. Em **ajuda + suporte**, selecione **nova solicitação de suporte**.
+1. Em **Ajuda + suporte**, selecione **Nova solicitação de suporte**.
 
-    ![Criar uma nova solicitação de suporte](./media/resource-manager-core-quotas-request/new-support-request.png)
+    ![Criar uma solicitação de suporte](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Para **tipo de problema**, selecione **Limites de serviço e assinatura (cotas)**.
+1. Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)**.
 
    ![Selecione um tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -62,7 +61,7 @@ Para solicitar um aumento de limite de cota de spot para todas as séries de má
 
 1. Selecione **Avançar: soluções** para abrir **detalhes do problema**. Selecione **fornecer detalhes** para inserir informações adicionais.
 
-   ![O link "fornecer detalhes"](./media/resource-manager-core-quotas-request/provide-details-link.png)
+   ![Link "fornecer detalhes"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
 1. Em **detalhes da cota**, execute as seguintes etapas:
 

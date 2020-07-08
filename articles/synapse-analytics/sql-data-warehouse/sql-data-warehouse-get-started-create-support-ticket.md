@@ -4,18 +4,17 @@ description: Como criar uma solicitação de suporte para o Azure Synapse Analyt
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/10/2020
 author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e0788f978fd25356b230a7923def6cbbea3dc305
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: de45e338b0b863dc2364af399a6991f56658b0e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212268"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Solicitar aumentos de cota ou obter suporte para o Azure Synapse Analytics
 
@@ -53,59 +52,89 @@ Siga as etapas a seguir para criar uma nova solicitação de suporte para o Azur
 
    ![Selecionar um tipo de cota](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
 
-1. Na janela **Detalhes**, selecione **Inserir detalhes** para incluir informações adicionais.
+1. Na janela **detalhes** , selecione **Inserir detalhes** para inserir informações adicionais.
 
    ![Link "fornecer detalhes"](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
 
 ## <a name="quota-request-types"></a>Tipos de solicitação de cota
 
-Clicar em **Fornecer detalhes** exibirá a janela **Detalhes da cota**, que permite que você inclua informações adicionais. As seções a seguir descrevem as diferentes solicitações de cota disponíveis para o Azure Synapse Analytics.
+Selecionar **Inserir detalhes** exibe a janela **detalhes da cota** que permite que você adicione informações adicionais. As seções a seguir descrevem as diferentes solicitações de cota disponíveis para o Azure Synapse Analytics.
 
-### <a name="data-warehouse-units-dwus-per-server"></a>Unidades de Data Warehouse (DWUs) por servidor
+### <a name="synapse-sql-pool-data-warehouse-units-dwus-per-server"></a>Synapse DWUs (unidades de data warehouse do pool do SQL) por servidor
 
 Siga as etapas a seguir para solicitar um aumento de DWUs por servidor.
 
-1. Selecione o tipo de cota de **DWUs (Unidades de Data Warehouse) por servidor**.
+1. Selecione o tipo de cota de **DWUs do pool do SQL Synapse por servidor** .
 
-1. Na lista de **Recursos**, selecione o recurso a de destino.
+1. Selecione o **recurso** ao qual você deseja aplicar o aumento de cota usando a lista suspensa.
 
-1. No campo **Solicitar cota**, insira o novo limite de DWU que você está solicitando.
+1. Insira sua nova cota na seção **cota de solicitação** .
+
+1. Selecione **Salvar e continuar**.
 
    ![Detalhes da cota de DWU](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
 
+
 ### <a name="servers-per-subscription"></a>Servidores por assinatura
 
-Siga as etapas a seguir para solicitar um aumento no número de servidores por assinatura.
+Para solicitar um aumento no número de servidores por assinatura, você precisará concluir as seguintes etapas:
 
-1. Selecione o tipo de cota de **Servidores por assinatura**.
+1. Selecione os **SQL Servers por assinatura** como o tipo de cota.
 
 1. Na lista de **Locais**, selecione a região do Azure a ser usada. A cota é relativa a cada região e por assinatura.
 
-1. No campo **Nova cota**, insira sua solicitação até o número máximo de servidores nessa região.
+1. No campo **cota de solicitação** , insira sua solicitação para o número máximo de servidores nessa região.
 
    ![Detalhes de cota de servidores](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
+
+
+1. Selecione **Salvar e continuar**.
+
+Alguns tipos de oferta não estão disponíveis em todas as regiões. Você poderá ver o seguinte erro:
+
+![Erro de acesso à região](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
+
 ### <a name="enable-subscription-access-to-a-region"></a>Habilitar o acesso à assinatura para uma região
 
-Nem todos os tipos de oferta estão disponíveis em todas as regiões. Nesse caso, é possível que você veja o seguinte erro:
+Para habilitar o acesso à região de uma assinatura, você precisará concluir as seguintes etapas:  
 
-`This location is not available for subscription`
+1. Selecione o tipo de cota de **acesso à região do pool do SQL Synapse (data warehouse)** .
 
-Se sua assinatura precisar de acesso em uma região específica, opte por **Outra solicitação de cota** para solicitar acesso. Em sua solicitação, especifique a oferta e os detalhes de SKU que você deseja habilitar para a região. Para explorar as opções de oferta e SKU, confira [Preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+1. Selecione a região escolhendo um **local** na lista suspensa.
+
+1. Indique o requisito de desempenho do DWU na seção **DWU necessária** .
+
+1. Insira sua **Descrição dos requisitos de negócios**. 
+
+1. Selecione **Salvar e continuar**.
+
+![Acesso à região](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
+
+
+### <a name="for-other-quota-requests"></a>Para outras solicitações de cota
+
+Selecione **outra solicitação de cota** no menu suspenso tipo de cota para outros tipos de solicitação de cota:
 
 ![Outros detalhes da cota](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
 ## <a name="submit-your-request"></a>Enviar a solicitação
 
-A etapa final é preencher os detalhes restantes da sua solicitação de suporte do Banco de Dados SQL do Microsoft Azure. Em seguida, selecione **Avançar: Examinar + criar>>** e, depois de revisar os detalhes da solicitação, clique em **Criar** para enviar a solicitação.
+A etapa final é preencher os detalhes restantes da sua solicitação de suporte do Banco de Dados SQL do Microsoft Azure. Em seguida, selecione **Avançar: revisar + criar>>**.
+
+![Examinar criar detalhes](./media/sql-data-warehouse-get-started-create-support-ticket/review-create-details.png)
+
+Depois de examinar os detalhes da solicitação, selecione **criar** para enviar a solicitação.
+
+![Criar tíquete](./media/sql-data-warehouse-get-started-create-support-ticket/create-ticket.png)
 
 ## <a name="monitor-a-support-ticket"></a>Monitorar um tíquete de suporte
 
-Depois que você enviar a solicitação de suporte, a equipe de suporte do Azure entrará em contato com você. Para verificar o status e os detalhes da solicitação, clique em **Todas as solicitações de suporte** no painel.
+Depois que você enviar a solicitação de suporte, a equipe de suporte do Azure entrará em contato com você. Para verificar o status e os detalhes da solicitação, selecione **todas as solicitações de suporte** no painel.
 
 ![Verificar o status](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## <a name="other-resources"></a>Outros recursos
 
-Você também pode se conectar à comunidade do Azure Synapse Analytics no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou na página de [Perguntas frequentes sobre o SQL Data Warehouse do Microsoft Azure](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
+Você também pode se conectar com a Comunidade do Azure Synapse Analytics em [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou por meio da [página de perguntas do Microsoft Q&uma pergunta para o Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 

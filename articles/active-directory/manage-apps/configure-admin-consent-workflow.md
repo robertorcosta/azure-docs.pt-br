@@ -2,22 +2,21 @@
 title: Configurar o fluxo de trabalho de consentimento do administrador-Azure Active Directory | Microsoft Docs
 description: Saiba como configurar uma maneira para os usuários finais solicitarem acesso a aplicativos que exigem consentimento de administrador.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763611"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
 
@@ -49,7 +48,7 @@ Para habilitar o fluxo de trabalho de consentimento do administrador e escolher 
    * **Os usuários selecionados receberão lembretes de expiração de solicitação**. Habilitar ou desabilitar notificações de email de lembrete para os revisores quando uma solicitação estiver prestes a expirar.  
    * A **solicitação de consentimento expira após (dias)**. Especifique por quanto tempo as solicitações permanecem válidas.
 
-7. Clique em **Salvar**. Pode levar até uma hora para que o recurso fique habilitado.
+7. Selecione **Salvar**. Pode levar até uma hora para que o recurso fique habilitado.
 
 > [!NOTE]
 > Você pode adicionar ou remover revisores para este fluxo de trabalho modificando a lista **selecionar revisores de solicitações de consentimento de administrador** . Observe que uma limitação atual desse recurso é que os revisores podem reter a capacidade de revisar solicitações feitas enquanto foram designadas como um revisor.
@@ -157,6 +156,6 @@ Para obter mais informações sobre o consentimento de aplicativos, consulte a [
 
 [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
 
-[Permissões e consentimento na plataforma Microsoft Identity](../develop/active-directory-v2-scopes.md)
+[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
 
 [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

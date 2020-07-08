@@ -6,17 +6,13 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 24b52042e037e998069550599ca006eded70d1c4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849715"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027402"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados do Banco de Dados do Azure para MySQL com uma chave gerenciada pelo cliente
-
-> [!NOTE]
-> No momento, é necessário solicitar acesso para usar esta capacidade. Para fazer isso, contate AskAzureDBforMySQL@service.microsoft.com.
 
 A criptografia de dados com chaves gerenciadas pelo cliente para o Banco de Dados do Azure para MySQL permite que você traga sua própria chave (BYOK) para proteção de dados em repouso. Ela também permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados. Com a criptografia gerenciada pelo cliente, você é responsável por (com controle total): ciclo de vida de uma chave, permissões de uso de chave e auditoria de operações em chaves.
 
@@ -129,6 +125,19 @@ Para evitar problemas durante a configuração da criptografia de dados gerencia
 * Inicie o processo de restauração ou criação de réplica de leitura mestre do Banco de Dados do Azure para MySQL.
 * Mantenha o servidor recém-criado (restaurado/de réplica) em um estado inacessível, porque sua identidade exclusiva ainda não recebeu permissões para o Key Vault.
 * No servidor restaurado/de réplica, revalide a chave gerenciada pelo cliente nas configurações de criptografia de dados para garantir que o servidor recém-criado receba permissões de encapsulamento e desencapsulamento para a chave armazenada no Key Vault.
+
+## <a name="limitations"></a>Limitações
+
+Para o banco de dados do Azure para MySQL, o suporte para criptografia de data em repouso usando a chave gerenciada do cliente (CMK) tem poucas limitações-
+
+* O suporte para essa funcionalidade é limitado a tipos de preço **uso geral** e com **otimização de memória** .
+* Esse recurso só tem suporte em regiões e servidores que dão suporte ao armazenamento de até 16TB. Para obter a lista de regiões do Azure que dão suporte ao armazenamento de até 16TB, consulte a seção armazenamento na documentação [aqui](concepts-pricing-tiers.md#storage)
+
+    > [!NOTE]
+    > - Todos os novos servidores MySQL criados nas regiões listadas acima, o suporte para criptografia com as chaves do Gerenciador de clientes está **disponível**. O servidor PITR (ponto no tempo restaurado) ou a réplica de leitura não serão qualificados, embora, na teoria, sejam ' New '.
+    > - Para validar se o servidor provisionado dá suporte a até 16TB, você pode ir para a folha tipo de preço no portal e ver o tamanho máximo de armazenamento suportado pelo servidor provisionado. Se você puder mover o controle deslizante até 4 TB, seu servidor poderá não dar suporte à criptografia com chaves gerenciadas pelo cliente. No entanto, os dados são criptografados usando chaves de serviço gerenciadas em todos os momentos. Entre em contato com AskAzureDBforMySQL@service.microsoft.com se você tiver alguma dúvida.
+
+* A criptografia só tem suporte com a chave de criptografia RSA 2048.
 
 ## <a name="next-steps"></a>Próximas etapas
 

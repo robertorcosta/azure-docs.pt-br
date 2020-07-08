@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
 ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709242"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 
@@ -91,7 +90,7 @@ As [ações de script](hdinsight-hadoop-customize-cluster-linux.md) do HDInsight
 
 ### <a name="view-ambari-alerts-status-logs"></a>Exibir logs de status de alertas do Ambari
 
-O Apache Ambari grava as alterações de `ambari-alerts.log`status de alerta no. O caminho completo é `/var/log/ambari-server/ambari-alerts.log`. Para habilitar a depuração para o log, altere uma propriedade `/etc/ambari-server/conf/log4j.properties.` em alteração e, `# Log alert state changes` em seguida, na entrada em de:
+O Apache Ambari grava as alterações de status de alerta no `ambari-alerts.log` . O caminho completo é `/var/log/ambari-server/ambari-alerts.log` . Para habilitar a depuração para o log, altere uma propriedade em `/etc/ambari-server/conf/log4j.properties.` alteração e, em seguida, na entrada em `# Log alert state changes` de:
 
 ```
 log4j.logger.alerts=INFO,alerts

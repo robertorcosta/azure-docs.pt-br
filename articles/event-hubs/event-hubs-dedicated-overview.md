@@ -1,26 +1,13 @@
 ---
 title: Visão geral dos hubs de eventos dedicados – Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral dos hubs de eventos dedicados do Azure, que oferece implantações de um único locatário de hubs de eventos.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72516754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322442"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral de Hubs de Eventos Dedicados
 
@@ -48,20 +35,20 @@ Em volumes de entrada altos (>100 TUs), um cluster custa significativamente meno
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Cotas e limites de Hubs de Eventos Dedicados
 
-A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um mínimo de 4 horas de uso. A camada dedicada oferece todos os recursos do plano padrão, mas com capacidade e limites de escala empresarial para clientes com cargas de trabalho exigentes. 
+A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um mínimo de quatro horas de uso. O nível Dedicado oferece todos os recursos do plano Standard, mas com capacidade em escala empresarial e limites para clientes com cargas de trabalho exigentes. 
 
 | Recurso | Standard | Dedicado |
 | --- |:---:|:---:|
 | Largura de banda | 20 TUs (até 40 TUs) | 20 CUs |
 | Namespaces |  1 | 50 por CU |
-| Hubs de Eventos |  10 por namespace | 1000 por namespace |
-| Eventos de entrada | Pagamento por milhão de eventos | Incluído |
+| Hubs de Eventos |  10 por namespace | 1\.000 por namespace |
+| Eventos de entrada | Pagamento por milhão de eventos | Incluso |
 | Tamanho da mensagem | 1 milhão bytes | 1 milhão bytes |
 | Partições | 32 por Hub de eventos | 1024 por Hub de eventos |
-| Grupos de consumidores | 20 por Hub de eventos | Nenhum limite por CU, 1000 por Hub de eventos |
+| Grupos de consumidores | 20 por Hub de eventos | Nenhum limite por CU, 1000 por hub de eventos |
 | Conexões orientadas | 1.000 incluso, 5.000 máx. | 100 K incluídos e máximo |
 | Retenção de mensagem | 7 dias, 84 GB incluídos por TU | 90 dias, 10 TB incluídos por CU |
-| Capturar | Pagamento por hora | Incluído |
+| Capturar | Pagamento por hora | Incluso |
 
 ## <a name="how-to-onboard"></a>Como fazer a integração
 
@@ -77,9 +64,9 @@ A tabela a seguir mostra os resultados do parâmetro de comparação obtidos dur
 
 | Forma da carga | Destinatários | Largura de banda de entrada| Mensagens de entrada | Largura de banda de saída | Mensagens de saída | Total de TUs | TUs por CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lotes de 100x1KB | 2 | 400 MB/s | mensagens 400 mil/s | 800 MB/s | mensagens 800K/s | 400 TUs | 100 TUs | 
-| Lotes de 10x10KB | 2 | 666 MB/s | mensagens de 66.6 k/s | 1,33 GB/s | mensagens 133k/s | 666 TUs | 166 TUs |
-| Lotes de 6x32KB | 1 | 1,05 GB/s | mensagens 34k/s | 1,05 GB/s | mensagens 34k/s | 1000 TUs | 250 TUs |
+| Lotes de 100x1KB | 2 | 400 MB/s | 400 mil mensagens/s | 800 MB/s | 800 mil mensagens/s | 400 TUs | 100 TUs | 
+| Lotes de 10x10KB | 2 | 666 MB/s | 66,6 mil mensagens/s | 1,33 GB/s | 133 mil mensagens/s | 666 TUs | 166 TUs |
+| Lotes de 6x32KB | 1 | 1,05 GB/s | 34 mil mensagens/s | 1,05 GB/s | 34 mil mensagens/s | 1000 TUs | 250 TUs |
 
 No teste, usamos os critérios a seguir:
 

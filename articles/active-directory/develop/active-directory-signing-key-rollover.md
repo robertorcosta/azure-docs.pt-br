@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537229"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
@@ -37,7 +36,7 @@ Como o seu aplicativo lida com a substituição de chave depende de variáveis c
 * [Aplicativos/APIs Web que protegem recursos e são criados usando Azure App Services](#appservices)
 * [Aplicativos/APIs Web que protegem recursos usando .NET OWIN OpenID Connect, WS-enalimentado ou middleware WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [Aplicativos/APIs Web protegendo recursos usando .NET Core OpenID Connect ou o middleware JwtBearerAuthentication](#owincore)
-* [Aplicativos/APIs Web que protegem recursos usando o módulo Passport-Azure-AD do node. js](#passport)
+* [Aplicativos/APIs Web que protegem recursos usando o módulo Node.js Passport-Azure-AD](#passport)
 * [Aplicativos/APIs Web que protegem recursos e criados com o Visual Studio 2015 ou posterior](#vs2015)
 * [Aplicativos Web protegendo recursos e criados com Visual Studio 2013](#vs2013)
 * APIs Web que protegem recursos e que foram criados com o Visual Studio 2013
@@ -273,7 +272,7 @@ Depois que você tiver seguido as etapas, o Web.config do seu aplicativo será a
 
 Siga as etapas abaixo para verificar se a lógica de substituição de chave está funcionando.
 
-1. Depois de verificar se seu aplicativo está usando o código acima, abra o arquivo **Web. config** e navegue até o bloco de ** \<>de issuerNameRegistry** , procurando especificamente as seguintes linhas:
+1. Após ter verificado que seu aplicativo está usando o código acima, abra o arquivo **Web.config** e navegue até o bloco **\<issuerNameRegistry>** procurando especificamente as poucas linhas abaixo:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,7 +280,7 @@ Siga as etapas abaixo para verificar se a lógica de substituição de chave est
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. Na configuração ** \<adicionar impressão digital = "" >** , altere o valor da impressão digital, substituindo qualquer caractere por um diferente. Salvar o arquivo **Web.config**.
+2. Na **\<add thumbprint="">** configuração, altere o valor da impressão digital substituindo qualquer caractere por um diferente. Salvar o arquivo **Web.config**.
 3. Crie o aplicativo e o execute. Se você consegue completar o processo de logon, seu aplicativo está atualizando a chave com êxito baixando as informações necessárias do documento de metadados federados do diretório. Se você estiver tendo problemas ao entrar, verifique se as alterações em seu aplicativo estão corretas lendo o artigo [Adicionando logon ao seu aplicativo Web usando o Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) ou baixando e inspecionando o seguinte exemplo de código: [Aplicativo de nuvem multilocatário do Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Os aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2008 ou 2010 e o Windows Identity Foundation (WIF) v1.0 para .NET 3.5

@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 1a6106a45f5062850ceb12205528a05ed1d494be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756674"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorar a conectividade do dispositivo usando a CLI do Azure
@@ -25,7 +24,7 @@ Use a extensão CLI do Azure IoT para ver as mensagens que seus dispositivos est
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ CLI do Azure instalado e é a versão 2.0.7 ou superior. Verifique a versão do seu CLI do Azure executando `az --version`. Saiba como instalar e atualizar a partir do [CLI do Azure docs](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ CLI do Azure instalado e é a versão 2.0.7 ou superior. Verifique a versão do seu CLI do Azure executando `az --version` . Saiba como instalar e atualizar a partir do [CLI do Azure docs](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Uma conta corporativa ou de estudante no Azure, adicionada como um usuário em um aplicativo IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Instalar a extensão de IoT Central
@@ -50,7 +49,7 @@ az extension update --name azure-iot
 
 ## <a name="using-the-extension"></a>Usar a extensão
 
-As seções a seguir descrevem comandos e opções comuns que você pode usar ao executar `az iot central`o. Para exibir o conjunto completo de comandos e opções, passe `--help` para `az iot central` ou qualquer um de seus subcomandos.
+As seções a seguir descrevem comandos e opções comuns que você pode usar ao executar o `az iot central` . Para exibir o conjunto completo de comandos e opções, passe `--help` para `az iot central` ou qualquer um de seus subcomandos.
 
 ### <a name="login"></a>Logon
 

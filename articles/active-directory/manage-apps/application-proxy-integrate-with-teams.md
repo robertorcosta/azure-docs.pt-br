@@ -3,25 +3,24 @@ title: Acessar aplicativos de Proxy de Aplicativo Azure AD no Teams | Microsoft 
 description: Use o Proxy de Aplicativo Azure AD para acessar seu aplicativo local por meio do Microsoft Teams.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/05/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7afcd3bfe16775d5c99100278eda81da739b8d22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67807770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764478"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Acessar seus aplicativos locais por meio do Microsoft Teams
 
@@ -33,7 +32,7 @@ Os usuários podem adicionar aplicativos de nuvem aos seus canais do Teams [usan
 
 Se você ainda não o fez, [configure o Proxy de Aplicativo para seu locatário e instale o conector](application-proxy-add-on-premises-application.md). Em seguida, [publique seu aplicativo local](application-proxy-add-on-premises-application.md) para acesso remoto. Quando você estiver publicando o aplicativo, anote a URL externa porque ela é usada para adicionar o aplicativo ao Teams.
 
-Se você já tem seus aplicativos publicados mas não se lembra de suas URLs externas, consulte-os no [portal do Azure](https://portal.azure.com). Entre e, em seguida, navegue até **Azure Active Directory** > **aplicativos** > empresariais**todos os aplicativos** > Selecione seu aplicativo > **proxy de aplicativo**.
+Se você já tem seus aplicativos publicados mas não se lembra de suas URLs externas, consulte-os no [portal do Azure](https://portal.azure.com). Entre e, em seguida, navegue até **Azure Active Directory**  >  **aplicativos empresariais**  >  **todos os aplicativos** > Selecione seu aplicativo > **proxy de aplicativo**.
 
 ## <a name="add-your-app-to-teams"></a>Adicionar seu aplicativo ao Teams
 

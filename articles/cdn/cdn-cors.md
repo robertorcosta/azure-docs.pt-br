@@ -11,26 +11,25 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74278125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921158"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Usar a CDN do Azure com o CORS
 ## <a name="what-is-cors"></a>O que é CORS?
 O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Para reduzir a possibilidade de ataques de script entre sites, todos os navegadores modernos implementam uma restrição de segurança conhecida como [política de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Isso impede que uma página da Web chame APIs em um domínio diferente.  O CORS fornece uma maneira segura para permitir que uma origem (o domínio de origem) chame APIs em outra origem.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 Há dois tipos de solicitações CORS, *solicitações simples* e *solicitações complexas.*
 
 ### <a name="for-simple-requests"></a>Para solicitações simples:
 
-1. O navegador envia a solicitação CORS com adicional **origem** cabeçalho de solicitação HTTP. O valor desse cabeçalho é a origem que serviu a página pai, que é definida como a combinação de *protocolo,* *domínio,* e *porta.*  Quando uma página de HTTPS\://www.contoso.com tenta acessar os dados de um usuário na origem fabrikam.com, o seguinte cabeçalho de solicitação seria enviado para fabrikam.com:
+1. O navegador envia a solicitação CORS com adicional **origem** cabeçalho de solicitação HTTP. O valor desse cabeçalho é a origem que serviu a página pai, que é definida como a combinação de *protocolo,* *domínio,* e *porta.*  Quando uma página de HTTPS \: //www.contoso.com tenta acessar os dados de um usuário na origem fabrikam.com, o seguinte cabeçalho de solicitação seria enviado para fabrikam.com:
 
    `Origin: https://www.contoso.com`
 
@@ -82,7 +81,9 @@ Há duas maneiras de fazer isso com o mecanismo de regras Premium. Em ambos os c
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Uma expressão regular com todas as origens válidas
 Nesse caso, você criará uma expressão regular que inclua todas as origens que deseja permitir: 
 
-    https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```http
+https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```
 
 > [!TIP]
 > A **CDN Premium do Azure da Verizon** usa as [Expressões Regulares Compatíveis com o Perl](https://pcre.org/) como seu mecanismo de expressões regulares.  Você pode usar uma ferramenta, como [Expressões Regulares 101](https://regex101.com/), para validar sua expressão regular.  Observe que o caractere "/" é válido em expressões regulares e não precisa ter um caractere de escape. No entanto, adicionar um caractere de escape a esse caractere é considerado uma prática recomendada e é esperado por alguns validadores de regex.

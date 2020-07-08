@@ -10,10 +10,9 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759337"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
@@ -58,7 +57,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Se você quiser compilar tudo o que pode ser compilado, incluindo a documentação (páginas HTML e Man) e módulos adicionais (`contrib`), execute o seguinte comando em vez disso:
+5. Se você quiser compilar tudo o que pode ser compilado, incluindo a documentação (páginas HTML e Man) e módulos adicionais ( `contrib` ), execute o seguinte comando em vez disso:
    
         # gmake install-world
    
@@ -124,7 +123,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
 ## <a name="set-up-postgresql"></a>Configurar o PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
-Execute os comandos a seguir:
+Execute os seguintes comandos:
 
     # cd /root/postgresql-9.3.5/contrib/start-scripts
 

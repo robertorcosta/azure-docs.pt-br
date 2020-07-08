@@ -5,16 +5,14 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cf78a2f7d909fb260c5ff99f80c9d1482f2cd08b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870375"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027300"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Adicionar e gerenciar bibliotecas para Apache Spark no Azure Synapse Analytics
 
@@ -26,7 +24,7 @@ Os pacotes do Python podem ser adicionados no nível do pool do Spark (visualiza
 
 Apache Spark no Azure Synapse Analytics tem uma instalação completa do Anacondas, além de bibliotecas adicionais. A lista de bibliotecas completa pode ser encontrada em [suporte à versão Apache Spark](apache-spark-version-support.md).
 
-Quando uma instância do Spark é iniciada, um novo ambiente virtual é criado usando essa instalação como base. Além disso, um arquivo *requirements. txt* (saída `pip freeze` do comando) pode ser usado para atualizar o ambiente virtual. Os pacotes listados neste arquivo para instalação ou atualização são baixados de PyPi no momento da inicialização do cluster. Esse arquivo de requisitos é usado toda vez que uma instância do Spark é criada a partir desse pool do Spark.
+Quando uma instância do Spark é iniciada, um novo ambiente virtual é criado usando essa instalação como base. Além disso, um arquivo de *requirements.txt* (saída do `pip freeze` comando) pode ser usado para atualizar o ambiente virtual. Os pacotes listados neste arquivo para instalação ou atualização são baixados de PyPi no momento da inicialização do cluster. Esse arquivo de requisitos é usado toda vez que uma instância do Spark é criada a partir desse pool do Spark.
 
 > [!IMPORTANT]
 >
@@ -40,9 +38,7 @@ O trecho a seguir mostra o formato do arquivo de requisitos. O nome do pacote Py
 
 ```
 absl-py==0.7.0
-
 adal==1.2.1
-
 alabaster==0.7.10
 ```
 
