@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c332c6712cdf057491e3039854aa1a29bd54196f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6476993627708670a210cce50072f1b183d90a8a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74083124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888674"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Solucionando problemas dos pontos de extremidade do Azure CDN que retornam o código de status 404
 Este artigo permite que você solucione problemas com pontos de extremidade de Rede de Distribuição de Conteúdo (CDN) do Microsoft Azure que retornam códigos de status de resposta HTTP 404.
@@ -73,7 +73,7 @@ Verifique se os valores do **Tipo de origem** e **Nome do host de origem** estã
 #### <a name="http-and-https-ports"></a>Portas HTTP e HTTPS
 Verifique suas portas **HTTP** e **HTTPS**. Na maioria dos casos, as portas 80 e 443 estão corretas e não será necessária nenhuma alteração.  No entanto, se o servidor de origem estiver escutando em uma porta diferente, isso precisará ser representado aqui. Caso você não tenha certeza, veja a URL do arquivo de origem. As especificações de HTTP e HTTPS usam as portas 80 e 443 como os padrões. Na URL de exemplo, https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt, uma porta não é especificada, então o padrão de 443 é considerado e as configurações estão corretas.  
 
-No entanto, suponha que a URL para o arquivo de origem que você testou anteriormente seja http:\//www.contoso.com:8080/file.txt. Observe a parte *:8080* no final do segmento do nome do host. Esse número instrui o navegador a usar a porta 8080 para se conectar ao servidor Web em www\.contoso.com, portanto, você precisará inserir *8080* no campo **porta http** . É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
+No entanto, suponha que a URL para o arquivo de origem que você testou anteriormente seja http:\//www.contoso.com:8080/file.txt. Observe a parte *:8080* no final do segmento do nome do host. Esse número instrui o navegador a usar a porta 8080 para se conectar ao servidor Web em www \. contoso.com, portanto, você precisará inserir *8080* no campo **porta http** . É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
 
 > [!NOTE]
 > **Azure CDN Standard da Akamai** não permitem o intervalo de portas TCP completo para origens.  Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](/previous-versions/azure/mt757337(v=azure.100)).  

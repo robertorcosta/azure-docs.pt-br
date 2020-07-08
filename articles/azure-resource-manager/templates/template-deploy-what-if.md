@@ -1,37 +1,41 @@
 ---
 title: Implantação de modelo What-if (visualização)
 description: Determine quais alterações ocorrerão para seus recursos antes de implantar um modelo de Azure Resource Manager.
-author: mumian
+author: tfitzmac
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: jgao
-ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 06/16/2020
+ms.author: tomfitz
+ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888747"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operação de hipóteses de implantação de modelo ARM (versão prévia)
 
 Antes de implantar um modelo de Azure Resource Manager (ARM), você pode visualizar as alterações que ocorrerão. Azure Resource Manager fornece a operação What-If para permitir que você veja como os recursos serão alterados se você implantar o modelo. A operação What-If não faz nenhuma alteração nos recursos existentes. Em vez disso, ele prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
-> A operação What-If está atualmente em visualização. Como uma versão de visualização, os resultados podem, às vezes, mostrar que um recurso será alterado quando, na verdade, nenhuma alteração ocorrerá. Estamos trabalhando para reduzir esses problemas, mas precisamos de sua ajuda. Informe esses problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> A operação What-If está atualmente em visualização. Como uma versão de visualização, os resultados podem, às vezes, mostrar que um recurso será alterado quando, na verdade, nenhuma alteração ocorrerá. Estamos trabalhando para reduzir esses problemas, mas precisamos de sua ajuda. Informe esses problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Você pode usar a operação What-If com as operações Azure PowerShell, CLI do Azure ou API REST.
+Você pode usar a operação What-If com as operações Azure PowerShell, CLI do Azure ou API REST. O What-If tem suporte para implantações de nível de assinatura e grupo de recursos.
 
-## <a name="install-powershell-module"></a>Instalar o módulo do PowerShell
+## <a name="install-azure-powershell-module"></a>Instalar o módulo do Azure PowerShell
 
-Para usar What-If no PowerShell, você deve instalar uma versão de visualização do módulo AZ. Resources da galeria do PowerShell. Mas, antes de instalar o módulo, verifique se você tem o PowerShell Core (6. x ou 7. x). Se você tiver o PowerShell 5. x ou anterior, [Atualize sua versão do PowerShell](/powershell/scripting/install/installing-powershell). Você não pode instalar o módulo de visualização no PowerShell 5. x ou anterior.
+Para usar What-If no PowerShell, você deve ter **a versão 4,2 ou posterior do módulo AZ**.
 
-### <a name="install-preview-version"></a>Instalar versão de visualização
+Mas, antes de instalar o módulo necessário, verifique se você tem o PowerShell Core (6. x ou 7. x). Se você tiver o PowerShell 5. x ou anterior, [Atualize sua versão do PowerShell](/powershell/scripting/install/installing-powershell). Não é possível instalar o módulo necessário no PowerShell 5. x ou anterior.
 
-Para instalar o módulo de visualização, use:
+### <a name="install-latest-version"></a>Instalar a versão mais recente
+
+Para instalar o módulo, use:
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+Para obter mais informações sobre a instalação de módulos, consulte [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="uninstall-alpha-version"></a>Desinstalar a versão Alpha
 
@@ -97,11 +101,14 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
+> [!NOTE]
+> A operação What-If não pode resolver a [função de referência](template-functions-resource.md#reference). Sempre que você definir uma propriedade como uma expressão de modelo que inclui a função de referência, os relatórios What-If serão alterados pela propriedade. Esse comportamento ocorre porque o What-If compara o valor atual da propriedade (como `true` ou `false` para um valor booliano) com a expressão de modelo não resolvida. Obviamente, esses valores não serão correspondentes. Quando você implanta o modelo, a propriedade só será alterada quando a expressão do modelo for resolvida para um valor diferente.
+
 ## <a name="what-if-commands"></a>Comandos What-If
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Para visualizar as alterações antes de implantar um modelo, adicione `-Whatif` o parâmetro de opção ao comando de implantação.
+Para visualizar as alterações antes de implantar um modelo, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) ou [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Adicione o `-Whatif` parâmetro de opção ao comando de implantação.
 
 * `New-AzResourceGroupDeployment -Whatif`para implantações de grupo de recursos
 * `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` para implantações em nível de assinatura
@@ -111,19 +118,19 @@ Você pode usar o `-Confirm` parâmetro switch para visualizar as alterações e
 * `New-AzResourceGroupDeployment -Confirm`para implantações de grupo de recursos
 * `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` para implantações em nível de assinatura
 
-Os comandos anteriores retornam um resumo de texto que você pode inspecionar manualmente. Para obter um objeto que você pode inspecionar para alterações programaticamente, use:
+Os comandos anteriores retornam um resumo de texto que você pode inspecionar manualmente. Para obter um objeto que você pode inspecionar para alterações programaticamente, use [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) ou [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`para implantações de grupo de recursos
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`ou `$results = Get-AzDeploymentWhatIfResult` para implantações de nível de assinatura
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para visualizar as alterações antes de implantar um modelo, `what-if` use com o comando de implantação.
+Para visualizar as alterações antes de implantar um modelo, use [AZ Deployment Group What-If](/cli/azure/deployment/group#az-deployment-group-what-if) ou [AZ Deployment sub What-If](/cli/azure/deployment/sub#az-deployment-sub-what-if).
 
 * `az deployment group what-if`para implantações de grupo de recursos
 * `az deployment sub what-if`para implantações em nível de assinatura
 
-Você pode usar a `--confirm-with-what-if` opção (ou sua forma `-c`abreviada) para visualizar as alterações e receber uma solicitação para continuar com a implantação.
+Você pode usar a `--confirm-with-what-if` opção (ou sua forma abreviada `-c` ) para visualizar as alterações e receber uma solicitação para continuar com a implantação. Adicione essa opção para [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create) ou [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
 
 * `az deployment group create --confirm-with-what-if`ou `-c` para implantações de grupo de recursos
 * `az deployment sub create --confirm-with-what-if`ou `-c` para implantações de nível de assinatura
@@ -132,6 +139,8 @@ Os comandos anteriores retornam um resumo de texto que você pode inspecionar ma
 
 * `az deployment group what-if --no-pretty-print`para implantações de grupo de recursos
 * `az deployment sub what-if --no-pretty-print`para implantações em nível de assinatura
+
+Se você quiser retornar os resultados sem cores, abra o arquivo de [configuração CLI do Azure](/cli/azure/azure-cli-configuration) . Defina **no_color** como **Sim**.
 
 ### <a name="azure-rest-api"></a>API REST do Azure
 
@@ -150,11 +159,11 @@ A operação What-If lista seis tipos diferentes de alterações:
 
 - **Ignorar**: o recurso existe, mas não está definido no modelo. O recurso não será implantado ou modificado.
 
-- **NoChange**: o recurso existe e é definido no modelo. O recurso será reimplantado, mas as propriedades do recurso não serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido `FullResourcePayloads`como, que é o valor padrão.
+- **NoChange**: o recurso existe e é definido no modelo. O recurso será reimplantado, mas as propriedades do recurso não serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido como `FullResourcePayloads` , que é o valor padrão.
 
-- **Modify**: o recurso existe e é definido no modelo. O recurso será reimplantado e as propriedades do recurso serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido `FullResourcePayloads`como, que é o valor padrão.
+- **Modify**: o recurso existe e é definido no modelo. O recurso será reimplantado e as propriedades do recurso serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido como `FullResourcePayloads` , que é o valor padrão.
 
-- **Implantar**: o recurso existe e é definido no modelo. O recurso será reimplantado. As propriedades do recurso podem ou não ser alteradas. A operação retorna esse tipo de alteração quando não tem informações suficientes para determinar se as propriedades serão alteradas. Você só verá essa condição quando [ResultFormat](#result-format) estiver definido como `ResourceIdOnly`.
+- **Implantar**: o recurso existe e é definido no modelo. O recurso será reimplantado. As propriedades do recurso podem ou não ser alteradas. A operação retorna esse tipo de alteração quando não tem informações suficientes para determinar se as propriedades serão alteradas. Você só verá essa condição quando [ResultFormat](#result-format) estiver definido como `ResourceIdOnly` .
 
 ## <a name="result-format"></a>Formato de resultado
 
@@ -165,7 +174,7 @@ Você controla o nível de detalhe que é retornado sobre as alterações previs
 
 O valor padrão é **FullResourcePayloads**.
 
-Para comandos de implantação do PowerShell, `-WhatIfResultFormat` use o parâmetro. Nos comandos de objeto programático, use `ResultFormat` o parâmetro.
+Para comandos de implantação do PowerShell, use o `-WhatIfResultFormat` parâmetro. Nos comandos de objeto programático, use o `ResultFormat` parâmetro.
 
 CLI do Azure, use o `--result-format` parâmetro.
  
@@ -397,9 +406,19 @@ Are you sure you want to execute the deployment?
 
 Você vê as alterações esperadas e pode confirmar que deseja que a implantação seja executada.
 
+## <a name="sdks"></a>SDKs
+
+Você pode usar a operação What-If por meio dos SDKs do Azure.
+
+* Para Python, use [What-If](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+
+* Para Java, use a [classe DeploymentWhatIf](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+
+* Para .NET, use a [classe DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você observar resultados incorretos da versão de visualização de What-If, informe os problemas [https://aka.ms/whatifissues](https://aka.ms/whatifissues)em.
+- Se você observar resultados incorretos da versão de visualização de What-If, informe os problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Para implantar modelos com Azure PowerShell, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
 - Para implantar modelos com CLI do Azure, consulte [implantar recursos com modelos ARM e CLI do Azure](deploy-cli.md).
 - Para implantar modelos com REST, consulte [implantar recursos com modelos ARM e API REST do Gerenciador de recursos](deploy-rest.md).

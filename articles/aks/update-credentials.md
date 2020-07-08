@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais do aplicativo de e
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905367"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou girar as credenciais do serviço kubernetes do Azure (AKS)
 
@@ -18,11 +18,11 @@ Por padrão, os clusters do AKS são criados com uma entidade de serviço que te
 
 Você também pode ter [integrado o cluster AKs com Azure Active Directory][aad-integration]e usá-lo como um provedor de autenticação para o cluster. Nesse caso, você terá mais duas identidades criadas para o cluster, o aplicativo do servidor do AAD e o aplicativo cliente do AAD, também poderá redefinir essas credenciais.
 
-Como alternativa, você pode usar uma identidade gerenciada para permissões em vez de uma entidade de serviço. Identidades gerenciadas são mais fáceis de gerenciar do que as entidades de serviço e não exigem atualizações ou rotações. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md).
+Como alternativa, é possível usar uma identidade gerenciada para permissões em vez de uma entidade de serviço. Identidades gerenciadas são mais fáceis de gerenciar do que as entidades de serviço e não exigem atualizações ou rotações. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Atualizar ou criar uma nova entidade de serviço para o cluster AKS
 
@@ -33,7 +33,7 @@ Quando desejar atualizar as credenciais para um cluster do AKS, você poderá op
 
 ### <a name="reset-existing-service-principal-credential"></a>Redefinir credencial de entidade de serviço existente
 
-Para atualizar as credenciais para a entidade de serviço existente, obtenha a ID da entidade de serviço do cluster usando o comando [az aks show][az-aks-show]. O exemplo a seguir obtém a ID do cluster chamado *myAKSCluster* no grupo de recursos *myResourceGroup*. A ID da entidade de serviço é definida como uma variável chamada *SP_ID* para uso em um comando adicional.
+Para atualizar as credenciais para a entidade de serviço existente, obtenha a ID da entidade de serviço do cluster usando o comando [az aks show][az-aks-show]. O exemplo a seguir obtém a ID do cluster chamado *myAKSCluster* no grupo de recursos *myResourceGroup*. A ID da entidade de serviço é definida como uma variável chamada *SP_ID* para uso em um comando adicional. Esses comandos usam a sintaxe bash.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \

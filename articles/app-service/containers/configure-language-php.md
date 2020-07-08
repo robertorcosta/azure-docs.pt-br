@@ -4,12 +4,12 @@ description: Saiba como configurar um contêiner pré-criado de PHP para seu apl
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9933205095587d9e8e0d8a5641d213f159512450
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: 9e4237f1eecb9f6542aac946525ff4583e478c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905690"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar um aplicativo de PHP do Linux para o Serviço de Aplicativo do Azure
 
@@ -109,7 +109,7 @@ Estrutura Web populares permitem que você acesse informações do `X-Forwarded-
 Se você precisar fazer alterações na instalação do PHP, altere qualquer uma das [diretivas php.ini](https://www.php.net/manual/ini.list.php) seguindo estas etapas.
 
 > [!NOTE]
-> A melhor maneira de ver a versão do PHP e a configuração *php.ini* atual é chamar [phpinfo()](https://www.php.net/manual/function.phpinfo.php) em seu aplicativo.
+> A melhor maneira de ver a versão do PHP e a configuração *php.ini* atual é chamar [phpinfo()](https://php.net/manual/function.phpinfo.php) em seu aplicativo.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar diretivas diferentes de PHP_INI_SYSTEM
@@ -187,7 +187,7 @@ Para que as alterações entrem em vigor, reinicie o aplicativo.
 
 ## <a name="access-diagnostic-logs"></a>Acessar logs de diagnóstico
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Abra a sessão SSH aberta no navegador
 
@@ -198,7 +198,7 @@ Para que as alterações entrem em vigor, reinicie o aplicativo.
 Quando um aplicativo PHP que esteja funcionando se comporta de maneira diferente no Serviço de Aplicativo ou tem erros, tente o seguinte:
 
 - [Acessar o fluxo de log](#access-diagnostic-logs).
-- Teste o aplicativo localmente no modo de produção. O Serviço de Aplicativo executa seus aplicativos do Node.js no modo de produção, portanto, verifique se seu projeto funciona como esperado localmente no modo de produção. Por exemplo:
+- Teste o aplicativo localmente no modo de produção. O serviço de aplicativo executa seu aplicativo no modo de produção, portanto, você precisa certificar-se de que seu projeto funciona como esperado no modo de produção localmente. Por exemplo:
     - Dependendo do *composer.json*, diferentes pacotes podem ser instalados para o modo de produção (`require` versus `require-dev`).
     - Determinadas estruturas da Web podem implantar arquivos estáticos de maneira diferente no modo de produção.
     - Determinadas estruturas da Web podem usar scripts de inicialização personalizados ao serem executados no modo de produção.
