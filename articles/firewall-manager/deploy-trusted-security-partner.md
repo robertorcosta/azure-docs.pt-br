@@ -1,60 +1,49 @@
 ---
-title: Implantar um parceiro de segurança confiável do Gerenciador de firewall do Azure
-description: Saiba como implantar uma segurança confiável do Gerenciador de firewall do Azure usando o portal do Azure.
+title: Implantar um provedor de parceiro de segurança do Gerenciador de firewall do Azure
+description: Saiba como implantar um provedor de parceiro de segurança do Gerenciador de firewall do Azure usando o portal do Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73931312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611570"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>Implante um parceiro de segurança confiável (versão prévia)
+# <a name="deploy-a-security-partner-provider"></a>Implantar um provedor de parceiro de segurança
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+Os *provedores de parceiros de segurança* no Gerenciador de firewall do Azure permitem que você use suas melhores ofertas de SECaaS (segurança como serviço) conhecidas e de terceiros para proteger o acesso à Internet para seus usuários.
 
-Os *parceiros de segurança confiáveis* no Gerenciador de firewall do Azure permitem que você use suas ofertas de SECaaS (segurança como serviço) mais conhecidas e de terceiros para proteger o acesso à Internet para seus usuários.
+Para saber mais sobre cenários com suporte e diretrizes de práticas recomendadas, consulte [o que são provedores de parceiros de segurança?](trusted-security-partners.md)
 
-Para saber mais sobre cenários com suporte e diretrizes de práticas recomendadas, consulte [o que são parceiros de segurança confiáveis (versão prévia)?](trusted-security-partners.md).
 
-Os parceiros de segurança com suporte são **ZScaler** e **iboss** para esta versão prévia. As regiões com suporte são WestCentralUS, NorthCentralUS, Westus, WestUS2 e Eastus.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-> [!IMPORTANT]
-> A Versão prévia do Gerenciador de Firewall do Azure deve ser habilitada explicitamente usando o comando `Register-AzProviderFeature` do PowerShell.
-
-Em um prompt de comando do PowerShell, execute os seguintes comandos:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-A conclusão do registro do recurso demora até 30 minutos. Execute o seguinte comando para verificar o status do registro:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+Parceiros de SECaaS (segurança como serviço) de terceiros integrados agora estão disponíveis em todas as regiões de nuvem pública do Azure. A integração do **Zscaler** estará disponível para o público em 3 de julho de 2020. O **Check Point** é um parceiro SECaaS com suporte e estará em versão prévia em 3 de julho de 2020. a integração do **iboss** estará disponível para o público em 31 de julho de 2020.
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Implantar um provedor de segurança de terceiros em um novo hub
 
+Ignore esta seção se você estiver implantando um provedor de terceiros em um Hub existente.
+
 1. Entre no Portal do Azure em https://portal.azure.com.
 2. Em **pesquisa**, digite **Gerenciador de firewall** e selecione-o em **Serviços**.
-3. Navegue até **introdução**. Selecione **criar um hub virtual protegido**. 
-4. Insira sua assinatura e grupo de recursos, selecione uma região com suporte e adicione as informações de Hub e WAN virtual. 
-5. A **implantação do gateway de VPN** está habilitada por padrão. Um gateway de VPN é necessário para implantar um parceiro de segurança confiável no Hub. 
-6. Selecione **Avançar: Firewall do Azure**
+3. Navegue até **introdução**. Selecione **Exibir hubs virtuais protegidos**.
+4. Selecione **criar novo hub virtual protegido**.
+5. Insira sua assinatura e grupo de recursos, selecione uma região com suporte e adicione as informações de Hub e WAN virtual. 
+6. Selecione **incluir gateway de VPN para habilitar provedores de parceiros de segurança**.
+7. Selecione as **unidades de escala de gateway** apropriadas para seus requisitos.
+8. Selecione **Avançar: Firewall do Azure**
    > [!NOTE]
-   > Os parceiros de segurança confiáveis se conectam ao seu hub usando túneis de gateway de VPN. Se você excluir o gateway de VPN, as conexões com seus parceiros de segurança confiáveis serão perdidas.
-7. Se você quiser implantar o Firewall do Azure para filtrar o tráfego privado junto com o provedor de serviços de terceiros para filtrar o tráfego de Internet, selecione uma política para o Firewall do Azure. Consulte os [cenários com suporte](trusted-security-partners.md#key-scenarios).
-8. Se você quiser implantar apenas um provedor de segurança de terceiros no Hub, selecione **Firewall do Azure: habilitado/desabilitado** para defini-lo como **desabilitado**. 
-9. Selecione **Avançar: parceiros de segurança confiáveis**.
-10. Selecione **parceiro de segurança confiável** para defini-lo como **habilitado**. Selecione um parceiro. 
-11. Selecione **Avançar**. 
-12. Examine o conteúdo e, em seguida, selecione **criar**.
+   > Os provedores de parceiros de segurança se conectam ao seu hub usando túneis de gateway de VPN. Se você excluir o gateway de VPN, as conexões com seus provedores de parceiros de segurança serão perdidas.
+9. Se você quiser implantar o Firewall do Azure para filtrar o tráfego privado junto com o provedor de serviços de terceiros para filtrar o tráfego de Internet, selecione uma política para o Firewall do Azure. Consulte os [cenários com suporte](trusted-security-partners.md#key-scenarios).
+10. Se você quiser implantar apenas um provedor de segurança de terceiros no Hub, selecione **Firewall do Azure: habilitado/desabilitado** para defini-lo como **desabilitado**. 
+11. Selecione **Avançar: provedor de parceiros de segurança**.
+12. Defina **provedor de parceiros de segurança** como **habilitado**. 
+13. Selecione um parceiro. 
+14. Selecione **Avançar: Revisar + criar**. 
+15. Examine o conteúdo e, em seguida, selecione **criar**.
 
 A implantação do gateway de VPN pode levar mais de 30 minutos.
 
@@ -66,8 +55,9 @@ Depois que o Hub for criado e o parceiro de segurança estiver configurado, cont
 
 Você também pode selecionar um Hub existente em uma WAN virtual e convertê-lo em um *Hub virtual protegido*.
 
-1. Em **introdução**, selecione **converter hubs existentes**.
-2. Selecione uma assinatura e um Hub existente. Siga as etapas restantes para implantar um provedor de terceiros em um novo hub.
+1. Em **introdução**, selecione **Exibir hubs virtuais protegidos**.
+2. Selecione **converter hubs existentes**.
+3. Selecione uma assinatura e um Hub existente. Siga as etapas restantes para implantar um provedor de terceiros em um novo hub.
 
 Lembre-se de que um gateway de VPN deve ser implantado para converter um Hub existente para um hub protegido com provedores de terceiros.
 
@@ -75,20 +65,26 @@ Lembre-se de que um gateway de VPN deve ser implantado para converter um Hub exi
 
 Para configurar túneis para o gateway de VPN do seu hub virtual, os provedores de terceiros precisam de direitos de acesso ao seu hub. Para fazer isso, associe uma entidade de serviço com sua assinatura ou grupo de recursos e conceda direitos de acesso. Em seguida, você deve fornecer essas credenciais para terceiros usando seu portal.
 
+### <a name="create-and-authorize-a-service-principal"></a>Criar e autorizar uma entidade de serviço
+
 1. Criar entidade de serviço do Azure Active Directory (AD): você pode ignorar a URL de redirecionamento. 
 
-   [Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. Adicionar direitos de acesso e escopo para a entidade de serviço.
-   [Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > Você pode limitar o acesso somente ao seu grupo de recursos para um controle mais granular.
-3. Siga o [ZScaler: Configurando uma Microsoft Azure instruções de integração de WAN virtual](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) para:
 
-   - Entre no portal de parceiros e adicione suas credenciais para conceder ao parceiro confiável acesso ao seu hub protegido.
-   - Sincronize os hubs virtuais no portal de parceiros e configure o túnel para o Hub virtual. Você pode fazer isso depois que suas credenciais de autenticação do Azure AD são validadas.
+### <a name="visit-partner-portal"></a>Visite o portal do parceiro
+
+1. Siga as instruções fornecidas pelo seu parceiro para concluir a instalação. Isso inclui o envio de informações do AAD para detectar e conectar-se ao Hub, atualizar as políticas de saída e verificar o status e os logs de conectividade.
+
+   - [Zscaler: Configure Microsoft Azure integração de WAN virtual](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
+   - [Ponto de verificação (versão prévia): Configure Microsoft Azure integração de WAN virtual](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss (versão prévia): Configure Microsoft Azure integração de WAN virtual](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
-4. Você pode examinar o status de criação do túnel no portal de WAN virtual do Azure no Azure. Depois que os túneis mostrarem **conectados** no portal do Azure e do parceiro, continue com as próximas etapas para configurar as rotas para selecionar quais branches e VNets devem enviar o tráfego de Internet para o parceiro.
+2. Você pode examinar o status de criação do túnel no portal de WAN virtual do Azure no Azure. Depois que os túneis mostrarem **conectados** no portal do Azure e do parceiro, continue com as próximas etapas para configurar as rotas para selecionar quais branches e VNets devem enviar o tráfego de Internet para o parceiro.
 
 ## <a name="configure-route-settings"></a>Definir configurações de rota
 
@@ -105,7 +101,7 @@ Para configurar túneis para o gateway de VPN do seu hub virtual, os provedores 
 5. Você deve selecionar **conexões seguras** e selecionar as conexões nas quais essas rotas devem ser definidas. Isso indica quais VNets/branches podem começar a enviar tráfego de Internet para o provedor de terceiros.
 6. Em **configurações de rota**, selecione **conexões seguras** em tráfego da Internet e, em seguida, selecione a VNet ou branches (*sites* na WAN virtual) a serem protegidos. Selecione **proteger o tráfego da Internet**.
    ![Proteger o tráfego da Internet](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Navegue de volta para a página hubs. O status do **parceiro de segurança confiável** do hub agora deve ser **protegido**.
+7. Navegue de volta para a página hubs. O status do **provedor de parceiros de segurança** do hub agora deve ser **protegido**.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Tráfego de Internet de filial ou VNet por meio de serviço de terceiros
 
@@ -115,8 +111,4 @@ Depois de concluir as etapas de configuração de rota, as máquinas virtuais de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: proteger sua rede de nuvem com a versão prévia do Gerenciador de firewall do Azure usando o portal do Azure](secure-cloud-network.md)
-
-
-
-
+- [Tutorial: proteger sua rede de nuvem com o Gerenciador de firewall do Azure usando o portal do Azure](secure-cloud-network.md)

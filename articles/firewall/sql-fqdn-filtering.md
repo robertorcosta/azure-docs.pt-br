@@ -4,15 +4,15 @@ description: Neste artigo, você aprenderá a configurar FQDNs do SQL nas regras
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 05/18/2020
+ms.topic: how-to
+ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 1195bb2676634dd3e7c9310da4e8855c4ff814f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610499"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configuração de regras de aplicativo do Firewall do Azure com FQDNs do SQL
 
@@ -24,7 +24,7 @@ Com os FQDNs do SQL, é possível filtrar o tráfego:
 - Do ambiente local para Instâncias Gerenciadas do SQL do Azure ou do IaaS do SQL em execução nas suas redes virtuais.
 - De spoke-to-spoke para Instâncias Gerenciadas do SQL do Azure ou do IaaS do SQL em execução nas suas redes virtuais.
 
-A filtragem de FQDN do SQL tem suporte apenas no [modo de proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (porta 1433). Se usar o SQL no modo de redirecionamento padrão, você pode filtrar o acesso usando a marca de serviço do SQL como parte das [regras de rede](overview.md#network-traffic-filtering-rules).
+A filtragem de FQDN do SQL tem suporte apenas no [modo de proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (porta 1433). Se usar o SQL no modo de redirecionamento padrão, você pode filtrar o acesso usando a marca de serviço do SQL como parte das [regras de rede](features.md#network-traffic-filtering-rules).
 Se usar portas não padrão para o tráfego de IaaS do SQL, você pode configurar essas portas nas regras de aplicativo do firewall.
 
 ## <a name="configure-using-azure-cli"></a>Configuração usando a CLI do Azure
@@ -63,4 +63,4 @@ Se usar portas não padrão para o tráfego de IaaS do SQL, você pode configura
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os modos de proxy e redirecionamento do SQL, veja [Arquitetura de conectividade do Banco de Dados SQL do Azure](../azure-sql/database/connectivity-architecture.md).
+Para saber mais sobre o SQL proxy e modos de redirecionamento, consulte [arquitetura de conectividade do banco de dados SQL do Azure](../azure-sql/database/connectivity-architecture.md).

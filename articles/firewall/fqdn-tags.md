@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: f4fcadb6d930f7863c733dad105432a64127b59b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e29e568786881f663414dcdf3eff72d4d72ab181
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610601"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral de marcas FQDN
 
@@ -36,7 +36,8 @@ A tabela a seguir mostra as marcas FQDN atuais que você pode usar. A Microsoft 
 |ASE (Ambiente do Serviço de Aplicativo)|Permite acesso de saída para tráfego de plataforma do ASE. Essa marca não cobre pontos de extremidade de Armazenamento e SQL específicos ao cliente criados pelo ASE. Eles devem ser habilitados por meio dos [Pontos de Extremidade de Serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionados manualmente.<br><br>Para obter mais informações sobre a integração do Firewall do Azure com o ASE, confira [Bloquear um Ambiente do Serviço de Aplicativo](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Serviço de Backup do Azure|Permite acesso de saída para os serviços de Backup do Azure.|
 |Azure HDInsight|Permite o acesso de saída para o tráfego da plataforma HDInsight. Essa marca não abrange o armazenamento específico do cliente ou o tráfego do SQL do HDInsight. Habilite-os usando [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicione-os manualmente.|
-|WindowsVirtualDesktop (WVD)|Permite o tráfego de saída da plataforma de área de trabalho virtual do Windows. Essa marca não abrange o armazenamento específico da implantação e os pontos de extremidade do barramento de serviço criados por WVD. Além disso, as regras de rede DNS e KMS são necessárias. Para obter mais informações sobre como integrar o Firewall do Azure ao WVD, consulte [usar o Firewall do Azure para proteger as implantações de área de trabalho virtual do Windows](protect-windows-virtual-desktop.md). 
+|WindowsVirtualDesktop (WVD)|Permite o tráfego de saída da plataforma de área de trabalho virtual do Windows. Essa marca não abrange o armazenamento específico da implantação e os pontos de extremidade do barramento de serviço criados por WVD. Além disso, as regras de rede DNS e KMS são necessárias. Para obter mais informações sobre como integrar o Firewall do Azure ao WVD, consulte [usar o Firewall do Azure para proteger as implantações de área de trabalho virtual do Windows](protect-windows-virtual-desktop.md).|
+|AKS (Serviço de Kubernetes do Azure)|Permite o acesso de saída ao AKS. Para obter mais informações, consulte [usar o Firewall do Azure para proteger implantações do AKS (serviço kubernetes do Azure)](protect-azure-kubernetes-service.md).|
 
 > [!NOTE]
 > Ao selecionar a Marca de FQDN em uma regra de aplicativo, o campo protocolo:porta precisa ser definido como **HTTPS**.

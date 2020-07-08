@@ -1,6 +1,6 @@
 ---
-title: Usar identidades gerenciadas em uma VM do Azure para entrar-Azure AD
-description: Instruções e exemplos passo a passo para o uso de identidades gerenciadas de VM do Azure para a entidade de serviço de recursos do Azure para login do cliente de script e acesso a recursos.
+title: Usar identidades gerenciadas em uma VM do Azure para entrar no Azure AVÇD
+description: Instruções passo a passo e exemplos para usar uma identidade gerenciada por VM do Azure para a entidade de serviço de recursos do Azure para entrada de cliente de script e acesso a recursos.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,20 +9,20 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 1380562cfc073d906ea4cfc0d6d849e9ca2a70d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74547379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608408"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrar 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrada 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Este artigo fornece exemplos de script do PowerShell e da CLI para entrada usando identidades gerenciadas para a entidade de serviço de recursos do Azure e orientação sobre tópicos importantes, como tratamento de erros.
@@ -41,7 +41,7 @@ Se você planeja usar os exemplos do Azure PowerShell ou da CLI do Azure neste a
 
 ## <a name="overview"></a>Visão geral
 
-Identidades gerenciadas para recursos do Azure fornecem um [objeto principal de serviço](../develop/developer-glossary.md#service-principal-object), que é [criado ao habilitar identidades gerenciadas para recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para entrada e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
+Identidades gerenciadas para recursos do Azure fornecem um [objeto de entidade de serviço](../develop/developer-glossary.md#service-principal-object) , que é [criado na habilitação de identidades gerenciadas para recursos do Azure](overview.md) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para conexão e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
 
    - estar registrado e ter o consentimento do Azure AD como um aplicativo cliente Web/confidencial
    - entrar com sua entidade de serviço, usando as credenciais do aplicativo (que estão provavelmente inseridas no script)

@@ -4,21 +4,21 @@ description: Saiba como usar o Firewall do Azure para proteger implantações de
 author: vhorne
 ms.service: firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 86b30b644da929f10f5d7c9642d5f89fbd29a7fa
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611128"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usar o Firewall do Azure para proteger as implantações de área de trabalho virtual do Windows
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usar o Firewall do Azure para proteger as implantações da Área de Trabalho Virtual do Windows
 
 A área de trabalho virtual do Windows é um serviço de desktop e de virtualização de aplicativo que é executado no Azure. Quando um usuário final se conecta a um ambiente de área de trabalho virtual do Windows, sua sessão é executada por um pool de hosts. Um pool de hosts é uma coleção de máquinas virtuais do Azure que se registram na área de trabalho virtual do Windows como hosts de sessão. Essas máquinas virtuais são executadas em sua rede virtual e estão sujeitas aos controles de segurança de rede virtual. Eles precisam de acesso de Internet de saída ao serviço de área de trabalho virtual do Windows para operar corretamente e também podem precisar de acesso de saída à Internet para usuários finais. O Firewall do Azure pode ajudá-lo a bloquear seu ambiente e filtrar o tráfego de saída.
 
-[![Arquitetura](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) de área de trabalho virtual do Windows](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
+[Arquitetura de área de trabalho virtual do ![ ](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) Windows](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
 
 Siga as diretrizes neste artigo para fornecer proteção adicional para o pool de hosts da área de trabalho virtual do Windows usando o Firewall do Azure.
 

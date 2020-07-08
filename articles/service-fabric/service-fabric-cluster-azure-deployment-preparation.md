@@ -3,12 +3,12 @@ title: Planejar uma implantação de Cluster Service Fabric do Azure
 description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610584"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
 
@@ -28,7 +28,7 @@ Para qualquer implantação de produção, o planejamento de capacidade é uma e
 * As características de confiabilidade e durabilidade do cluster
 
 ### <a name="select-the-initial-number-of-node-types"></a>Selecionar o número inicial de tipos de nó
-Primeiro, é necessário descobrir para que o cluster que você está criando será utilizado. Que tipos de aplicativos você planeja implantar nesse cluster? O aplicativo tem vários serviços, e algum deles precisa ser público ou voltado para a Internet? Os serviços (que compõem o aplicativo) têm necessidades de infraestrutura diferentes, como maior RAM ou mais ciclos de CPU? Um Cluster Service Fabric pode consistir em mais de um tipo de nó: um tipo de nó primário e um ou mais tipos de nós não primários. Cada tipo de nó é mapeado para um conjunto de dimensionamento de máquinas virtuais. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. [As propriedades de nó e as restrições de posicionamento][placementconstraints] podem ser configuradas para restringir serviços específicos a tipos de nó específicos.  Para obter mais informações, leia [o número de tipos de nós dos quais o cluster precisa iniciar](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+Primeiro, é necessário descobrir para que o cluster que você está criando será utilizado. Que tipos de aplicativos você planeja implantar nesse cluster? O aplicativo tem vários serviços, e algum deles precisa ser público ou voltado para a Internet? Os serviços (que compõem o aplicativo) têm necessidades de infraestrutura diferentes, como maior RAM ou mais ciclos de CPU? Um Cluster Service Fabric pode consistir em mais de um tipo de nó: um tipo de nó primário e um ou mais tipos de nós não primários. Cada tipo de nó é mapeado para um conjunto de dimensionamento de máquinas virtuais. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. [As propriedades de nó e as restrições de posicionamento][placementconstraints] podem ser configuradas para restringir serviços específicos a tipos de nó específicos.  Para obter mais informações, consulte [Service Fabric planejamento de capacidade de cluster](service-fabric-cluster-capacity.md).
 
 ### <a name="select-node-properties-for-each-node-type"></a>Selecionar Propriedades de nó para cada tipo de nó
 Os tipos de nó definem a SKU, o número e as propriedades da VM no conjunto de dimensionamento associado.
@@ -37,7 +37,7 @@ O tamanho mínimo das VMs para cada tipo de nó é determinado pela [camada de d
 
 O número mínimo de VMs para o tipo de nó primário é determinado pela [camada de confiabilidade][reliability] que você escolhe.
 
-Consulte as recomendações mínimas para [tipos de nós primários](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [cargas de trabalho com estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)e [cargas de trabalho sem estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
+Consulte as recomendações mínimas para [tipos de nós primários](service-fabric-cluster-capacity.md#primary-node-type), [cargas de trabalho com estado em tipos de nós não primários](service-fabric-cluster-capacity.md#stateful-workloads)e [cargas de trabalho sem estado em tipos de nós não primários](service-fabric-cluster-capacity.md#stateless-workloads).
 
 Um número mínimo de nós deve ser baseado no número de réplicas do aplicativo/serviços que você deseja executar nesse tipo de nó.  O [planejamento de capacidade para aplicativos Service Fabric](service-fabric-capacity-planning.md) ajuda a estimar os recursos de que você precisa para executar seus aplicativos. Você sempre pode dimensionar o cluster para cima ou para baixo mais tarde para ajustar a carga de trabalho do aplicativo em alteração. 
 
@@ -62,14 +62,14 @@ OS discos do sistema operacional efêmero não são um recurso Service Fabric es
     > [!NOTE]
     > Certifique-se de selecionar um tamanho de VM com um tamanho de cache igual ou maior que o tamanho de disco do sistema operacional da própria VM; caso contrário, sua implantação do Azure poderá resultar em erro (mesmo que ele seja aceito inicialmente).
 
-2. Especifique uma versão do conjunto de dimensionamento`vmssApiVersion`de máquinas `2018-06-01` virtuais () do ou posterior:
+2. Especifique uma versão do conjunto de dimensionamento de máquinas virtuais ( `vmssApiVersion` ) do `2018-06-01` ou posterior:
 
     ```xml
     "variables": {
         "vmssApiVersion": "2018-06-01",
     ```
 
-3. Na seção conjunto de dimensionamento de máquinas virtuais do seu modelo de `Local` implantação, `diffDiskSettings`especifique a opção para:
+3. Na seção conjunto de dimensionamento de máquinas virtuais do seu modelo de implantação, especifique a `Local` opção para `diffDiskSettings` :
 
     ```xml
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -123,5 +123,5 @@ O aplicativo e o cluster estão prontos para receber tráfego de produção? Ant
 * [Criar um Cluster Service Fabric executando o Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster

@@ -3,12 +3,12 @@ title: Lista de verificação de preparação da produção do Azure Service Fab
 description: Prepare o aplicativo do Service Fabric e o cluster prontos para produção seguindo as melhores práticas.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7011860b8e1162b35cbfee3a9e796163710b7fdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610023"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação de preparação para produção
 
@@ -17,13 +17,13 @@ O aplicativo e o cluster estão prontos para receber tráfego de produção? Exe
 
 ## <a name="prerequisites-for-production"></a>Pré-requisitos para produção
 1. Práticas recomendadas do Azure Service Fabric: [design de aplicativo](./service-fabric-best-practices-applications.md), [segurança](./service-fabric-best-practices-security.md), [rede](./service-fabric-best-practices-networking.md), [planejamento de capacidade e dimensionamento](./service-fabric-best-practices-capacity-scaling.md), [Infraestrutura como código](./service-fabric-best-practices-infrastructure-as-code.md)e [monitoramento e diagnóstico](./service-fabric-best-practices-monitoring.md). 
-1. Implementar a configuração de segurança dos Reliable Actors se o modelo de programação de Atores estiver sendo usado
+1. [Defina as configurações de FabricTransport](./service-fabric-reliable-actors-fabrictransportsettings.md) se você estiver usando o modelo de programação de Reliable Actors e exigir comunicação entre serviços segura.
 1. Para clusters com mais de 20 núcleos ou 10 nós, crie um tipo de nó primário dedicado para serviços do sistema. Adicione [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar o tipo de nó primário para serviços do sistema.
 1. Use D2v2 ou SKU superior para o tipo de nó primário. É recomendável separar uma SKU com pelo menos 50 GB de capacidade de disco rígido.
 1. Os clusters de produção devem ser [seguros](service-fabric-cluster-security.md). Para um exemplo de configuração de um cluster seguro, consulte este [modelo de cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use nomes comuns para certificados e evite usar certificados autoassinados.
 1. Adicione [restrições de recursos em contêineres e serviços](service-fabric-resource-governance.md), de modo que não consumam mais de 75% dos recursos do nó. 
-1. Reconheça e defina o [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). É recomendável o nível de durabilidade prata ou superior para tipos de nó que executam cargas de trabalho com estado. O tipo de nó primário deve ter um nível de durabilidade definido como Prata ou superior.
-1. Reconheça e escolha o [nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) do tipo de nó. É recomendável confiabilidade prata ou superior.
+1. Reconheça e defina o [nível de durabilidade](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). É recomendável o nível de durabilidade prata ou superior para tipos de nó que executam cargas de trabalho com estado. O tipo de nó primário deve ter um nível de durabilidade definido como Prata ou superior.
+1. Reconheça e escolha o [nível de confiabilidade](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) do tipo de nó. É recomendável confiabilidade prata ou superior.
 1. Carregue e dimensione o teste das cargas de trabalho para identificar os [requisitos de capacidades](service-fabric-cluster-capacity.md) para o cluster. 
 1. Os serviços e aplicativos são monitorados e os logs dos aplicativos estão sendo gerados e armazenados, com alertas. Por exemplo, consulte [adicionar registro em log ao aplicativo Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorar contêineres com Azure monitor logs](service-fabric-diagnostics-oms-containers.md).
 1. O cluster é monitorado com alertas (por exemplo, com [logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md)). 

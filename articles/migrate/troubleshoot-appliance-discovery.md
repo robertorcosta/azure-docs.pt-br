@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611349"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -31,7 +31,7 @@ Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada 
 2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
 3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
    - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) com o cliente Web (https://<*endereço IP do host*>/UI).
-   - Em **Home** > **inventário**doméstico, selecione **arquivo** > **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
+   - Em **Home**  >  **inventário**doméstico, selecione **arquivo**  >  **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
 4. Se a implantação ainda falhar, entre em contato com o suporte do Migrações para Azure.
 
 ## <a name="cant-connect-to-the-internet"></a>Não é possível conectar à Internet
@@ -62,7 +62,7 @@ Um erro sobre a sincronização de data e hora (802) indica que o relógio do se
 
 ## <a name="unabletoconnecttoserver"></a>UnableToConnectToServer
 
-Se você receber esse erro de conexão, talvez não consiga se conectar ao vCenter Server *ServerName*. com: 9443. Os detalhes do erro indicam que não há nenhum ponto de `https://\*servername*.com:9443/sdk` extremidade ouvindo no que possa aceitar a mensagem.
+Se você receber esse erro de conexão, talvez não consiga se conectar ao vCenter Server *ServerName*. com: 9443. Os detalhes do erro indicam que não há nenhum ponto de extremidade ouvindo no `https://\*servername*.com:9443/sdk` que possa aceitar a mensagem.
 
 - Verifique se você está executando a versão mais recente do dispositivo. Se você não tiver, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 - Se o problema ainda ocorrer na versão mais recente, o dispositivo poderá não conseguir resolver o nome de vCenter Server especificado ou a porta especificada poderá estar errada. Por padrão, se a porta não for especificada, o coletor tentará se conectar ao número da porta 443.
@@ -135,7 +135,7 @@ Se isso não funcionar e você estiver descobrindo servidores VMware:
 
 Se as VMs descobertas não aparecerem no portal ou se os dados da VM estiverem desatualizados, aguarde alguns minutos. Demora até 30 minutos para que as alterações nos dados de configuração da VM descobertas sejam exibidas no Portal. Pode levar algumas horas para que as alterações nos dados do aplicativo sejam exibidas. Se não houver dados após esse período, tente atualizar, da seguinte maneira
 
-1. Em **servidores** > **migração do Azure migrar servidor**, selecione **visão geral**.
+1. Em **servidores**  >  **migração do Azure migrar servidor**, selecione **visão geral**.
 2. Em **gerenciar**, selecione **integridade do agente**.
 3. Selecione **Atualizar agente**.
 4. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
@@ -144,6 +144,27 @@ Se as VMs descobertas não aparecerem no portal ou se os dados da VM estiverem d
 
 Se você excluir VMs e elas ainda aparecerem no portal, aguarde 30 minutos. Se eles ainda aparecerem, atualize conforme descrito acima.
 
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Não vejo dados de desempenho para alguns adaptadores de rede em meus servidores físicos
+
+Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Devido a uma lacuna do produto, a taxa de transferência da rede é capturada nos adaptadores de rede virtual descobertos.
+
+## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Erro: O arquivo carregado não está no formato esperado
+Algumas ferramentas têm configurações regionais que criam o arquivo CSV com ponto e vírgula como delimitador. Altere as configurações para garantir que o delimitador seja uma vírgula.
+
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Eu importei um CSV, mas vejo "A descoberta está em andamento"
+Esse status será exibido se o upload do CSV falhar devido a uma falha de validação. Tente importar o CSV novamente. Você pode baixar o relatório de erros do upload anterior e seguir as orientações de correção no arquivo, para corrigir os erros. O relatório de erros pode ser baixado na seção 'Importar detalhes' na página 'Descobrir computadores'.
+
+## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Não ver detalhes do aplicativo mesmo após atualizar credenciais de convidado
+A descoberta de aplicativos é executada uma vez a cada 24 horas. Se você quiser ver os detalhes imediatamente, atualize da seguinte maneira. Isso pode levar alguns minutos, dependendo do número de de VMs descobertas.
+
+1. Em **servidores**  >  **migração do Azure migrar servidor**, selecione **visão geral**.
+2. Em **gerenciar**, selecione **integridade do agente**.
+3. Selecione **Atualizar agente**.
+4. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
+
+## <a name="unable-to-export-application-inventory"></a>Não é possível exportar o inventário de aplicativos
+Verifique se o usuário que está baixando o inventário do portal tem privilégios de colaborador na assinatura.
+
 ## <a name="common-app-discovery-errors"></a>Erros comuns do App Discovery
 
 As migrações para Azure dão suporte à descoberta de aplicativos, funções e recursos usando migrações para Azure: avaliação do servidor. Atualmente, o app Discovery tem suporte apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e as etapas para configurar a descoberta de aplicativos.
@@ -151,38 +172,54 @@ As migrações para Azure dão suporte à descoberta de aplicativos, funções e
 Erros típicos de descoberta de aplicativo são resumidos na tabela. 
 
 **Erro** | **Causa** | **Ação**
---- | --- | --- | ---
-10000: "não é possível descobrir os aplicativos instalados no servidor". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
-10001: "não é possível recuperar os aplicativos instalados no servidor". | Erro interno-alguns arquivos ausentes no dispositivo. | Contatar Suporte da Microsoft
-10002: "não é possível recuperar os aplicativos instalados no servidor". | O agente de descoberta no dispositivo pode não estar funcionando corretamente. | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-10003 "não foi possível recuperar os aplicativos instalados no servidor". | O agente de descoberta no dispositivo pode não estar funcionando corretamente. | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-10004: "não é possível descobrir os aplicativos instalados para <computadores> Windows/Linux". |  As credenciais para acessar <máquinas> Windows/Linux não foram fornecidas no dispositivo.| Adicione uma credencial ao dispositivo que tem acesso ao <computadores> Windows/Linux.
-10005: "não é possível acessar o servidor local". | As credenciais de acesso podem estar erradas. | Atualize as credenciais do dispositivo Verifique se você pode acessar o computador relevante com eles. 
-10006: "não é possível acessar o servidor local". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux.|  Use a descoberta de aplicativos somente para Windows/Linux.
-10007: "não é possível processar os metadados recuperados" | Esse erro interno ocorreu ao tentar desserializar o JSON | Contatar Suporte da Microsoft para uma resolução
-9000/9001/9002: "não é possível descobrir os aplicativos instalados no servidor". | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Instale/reinstale as ferramentas do VMware no computador relevante e verifique se ela está em execução.
-9003: não é possível descobrir os aplicativos instalados no servidor ". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
-9004: "não é possível descobrir os aplicativos instalados no servidor". | Isso pode acontecer se a VM estiver desligada. | Para descoberta, verifique se a VM está ativada.
-9005: "não é possível descobrir os aplicativos instalados na VM. | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
-9006/9007: "não é possível recuperar os aplicativos instalados no servidor". | O agente de descoberta no dispositivo pode não estar funcionando corretamente. | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-9008: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
-9009: "não é possível recuperar os aplicativos instalados no servidor". | Pode ocorrer se as configurações de UAC (controle de conta de usuário) do Windows no servidor forem restritivas e impedir a descoberta de aplicativos instalados. | Procure configurações de ' controle de conta de usuário ' no servidor e defina a configuração do UAC no servidor para um dos dois níveis inferiores.
-9010: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
-9011: "o arquivo a ser baixado do convidado não foi encontrado na VM convidada" | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
-9012: "o conteúdo do arquivo de resultado está vazio." | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
-9013: "um novo perfil temporário é criado para cada logon na VM VMware" | Um novo perfil temporário é criado para cada logon na VM | Verifique se o nome de usuário fornecido nas credenciais da VM convidada está no formato UPN.
-9015: "não é possível se conectar a VMs VMware devido a privilégios insuficientes no vCenter" | A função de operações de convidado não está habilitada na conta de usuário do vCenter | Verifique se a função de operações de convidado está habilitada na conta de usuário do vCenter.
-9016: "não é possível conectar-se a VMs VMware, pois o agente de operações convidadas está sem dados" | As ferramentas do VMware não estão instaladas corretamente ou não estão atualizadas. | Verifique se as ferramentas do VMware estão corretamente instaladas e atualizadas.
-9017: "o arquivo com metadados descobertos não foi encontrado na VM". | O problema pode ocorrer devido a um erro interno. | Contate a Suporte da Microsoft para obter uma resolução.
-9018: "o PowerShell não está instalado nas VMs convidadas." | O PowerShell não está disponível na VM convidada. | Instale o PowerShell na VM convidada.
-9019: "não é possível descobrir devido a falhas de operação da VM convidada" | Falha na operação de convidado do VMware na VM. | Verifique se as credenciais da VM são válidas e se o nome de usuário fornecido nas credenciais da VM convidada está no formato UPN.
-9020: "a permissão de criação do arquivo foi negada." | A função associada ao usuário ou à política de grupo é restringir o usuário a criar o arquivo na pasta | Verifique se o usuário convidado fornecido tem permissão de criação para o arquivo na pasta. Consulte **notificações** na avaliação do servidor para o nome da pasta.
-9021: "a permissão de criação de arquivo foi negada no caminho temporário do sistema de pastas." | Não há suporte para a versão da ferramenta VMware na VM | Atualize sua versão de ferramenta do VMware acima de 10.2.0.
-9022: "obter acesso ao objeto WMI foi negado." | A função associada ao usuário ou à política de grupo está restringindo o usuário a acessar o objeto WMI. | Entre em contato com o Suporte da Microsoft.
-9023: "o valor da variável de ambiente SystemRoot está vazio." | Não conhecido | Entre em contato com o Suporte da Microsoft.
-9024: "o valor da variável de ambiente TEMP está vazio." | Não conhecido | Entre em contato com o Suporte da Microsoft.
-9025: "o PowerShell está corrompido nas VMs convidadas." | Não conhecido | Reinstale o PowerShell na VM convidada e verifique se o PowerShell pode ser executado na VM convidada.
-8084: "não é possível descobrir aplicativos devido ao erro do <Exception from VMware>VMware:" | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer se uma exceção for lançada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Pesquise a mensagem na documentação do [VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga as etapas para corrigir. Se você não puder corrigir, entre em contato com o suporte da Microsoft.
+--- | --- | ---
+9000: não é possível detectar o status da ferramenta VMware.     |   As ferramentas do VMWare podem não estar instaladas ou corrompidas.    |   Verifique se as ferramentas do VMware estão instaladas e em execução na VM.
+9001: as ferramentas do VMware não estão instaladas.     |   As ferramentas do VMWare podem não estar instaladas ou corrompidas.    |   Verifique se as ferramentas do VMware estão instaladas e em execução na VM.
+9002: as ferramentas do VMware não estão em execução.   |   As ferramentas do VMWare podem não estar instaladas ou corrompidas.    |   Verifique se as ferramentas do VMware estão instaladas e em execução na VM.
+9003: não há suporte para o tipo de sistema operacional para descoberta de VM convidada.    |   O sistema operacional em execução no servidor não é o Windows nem o Linux.    |   Os tipos de sistema operacional com suporte são somente Windows e Linux. Se o servidor for, de fato, Windows ou Linux, verifique o tipo de sistema operacional especificado em vCenter Server.
+9004: a VM não está em execução.     |   A VM está desligada.  |   Verifique se a VM está ligada.
+9005: não há suporte para o tipo de sistema operacional para descoberta de VM convidada.    |   Tipo de sistema operacional sem suporte para descoberta de VM convidada.     |   Os tipos de sistema operacional com suporte são somente Windows e Linux.
+9006: a URL para baixar o arquivo de metadados do convidado está vazia.     |   Isso pode acontecer se o agente de descoberta não estiver funcionando conforme o esperado.    |   O problema deve resolver automaticamente In24 horas. Se o problema persistir, contate o Suporte da Microsoft.
+9007: o processo que executa a tarefa de descoberta na VM convidada não foi encontrado.   |   Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
+9008: o status do processo da VM convidada não pode ser recuperado.   |   O problema pode ocorrer devido a um erro interno.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
+9009: o UAC do Windows impediu a execução da tarefa de descoberta no servidor.  |   As configurações de UAC (controle de conta de usuário) do Windows no servidor são restritivas e impedem a descoberta de aplicativos instalados.  |   Em configurações de ' controle de conta de usuário ' no servidor, defina a configuração do UAC como em um dos dois níveis inferiores.
+9010: a VM está desligada.     |   A VM está desligada.  |   Verifique se a VM está ligada.
+9011: arquivo de metadados descoberto não encontrado no sistema de arquivos da VM convidada.    |   O problema pode ocorrer devido a um erro interno.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
+9012: o arquivo de metadados descoberto está vazio.     |   O problema pode ocorrer devido a um erro interno.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
+9013: um novo perfil temporário é criado para cada logon.    |   Um novo perfil temporário é criado para cada logon na VM do VMware.    |   Contate a Suporte da Microsoft para obter uma resolução.
+9014: não é possível recuperar metadados do sistema de arquivos da VM convidada.     |   Sem conectividade com o host ESXi    |   Verifique se o dispositivo pode se conectar à porta 443 no host ESXi que executa a VM
+9015: a função de operações de convidado não está habilitada na conta de usuário do vCenter   |   A função de operações de convidado não está habilitada na conta de usuário do vCenter.   |   Verifique se a função de operações de convidado está habilitada na conta de usuário do vCenter.
+9016: não é possível descobrir porque o agente de operações de convidado está desatualizado.   |   As ferramentas do VMware não estão instaladas corretamente ou não estão atualizadas.    |   Verifique se as ferramentas do VMware estão corretamente instaladas e atualizadas.
+9017: o arquivo com metadados descobertos não foi encontrado na VM.  |   O problema pode ocorrer devido a um erro interno.   |   Contate a Suporte da Microsoft para obter uma resolução.
+9018: o PowerShell não está instalado nas VMs convidadas.  |   O PowerShell não está disponível na VM convidada.    |   Instale o PowerShell na VM convidada.
+9019: não é possível descobrir devido a falhas de operação da VM convidada.     |   Falha na operação de convidado do VMware na VM.    |   Verifique se as credenciais da VM são válidas e se o nome de usuário fornecido nas credenciais da VM convidada está no formato UPN.
+9020: a permissão de criação de arquivo foi negada.    |   A função associada ao usuário ou à política de grupo é restringir o usuário de criar o arquivo na pasta    |   Verifique se o usuário convidado fornecido tem permissão de criação para o arquivo na pasta. Consulte **notificações** na avaliação do servidor para o nome da pasta.
+9021: não é possível criar o arquivo no caminho temporário do sistema.     |   A ferramenta VMware relata o caminho temporário do sistema em vez do caminho temporário dos usuários.    |   Atualize sua versão da ferramenta VMware acima 10287 (formato de cliente do NGC/VI).
+9022: o acesso ao objeto WMI foi negado.    |   A função associada ao usuário ou à política de grupo é restringir o acesso do usuário ao objeto WMI.  |   Entre em contato com o Suporte da Microsoft.
+9023: não é possível executar o PowerShell, pois o valor da variável de ambiente SystemRoot está vazio.    |   O valor da variável de ambiente SystemRoot está vazio para a VM convidada.     |   Contate a Suporte da Microsoft para obter uma resolução.
+9024: não é possível descobrir porque o valor da variável de ambiente TEMP está vazio.    |   O valor da variável de ambiente TEMP está vazio para a VM convidada.   |   Entre em contato com o Suporte da Microsoft.
+9025: o PowerShell está corrompido nas VMs convidadas.  |   O PowerShell está corrompido na VM convidada.    |   Reinstale o PowerShell na VM convidada e verifique se o PowerShell pode ser executado na VM convidada.
+9026: não é possível executar operações de convidado na VM.  |   O estado da VM não permite que operações de convidado sejam executadas na VM.   |   Contate a Suporte da Microsoft para obter uma resolução.
+9027: o agente de operações de convidado não está em execução na VM.   |   Falha ao contatar o agente de operações convidadas em execução na máquina virtual.    |   Contate a Suporte da Microsoft para obter uma resolução.
+9028: o arquivo não pode ser criado devido a armazenamento em disco insuficiente na VM.     |   Não há espaço suficiente no disco.   |   Verifique se há espaço suficiente disponível no armazenamento em disco da VM.
+9029: nenhum acesso ao PowerShell na credencial de VM convidada fornecida.   |   O acesso ao PowerShell não está disponível para o usuário.     |   Verifique se o usuário adicionado ao dispositivo pode acessar o PowerShell na VM convidada.
+9030: não é possível coletar metadados descobertos, pois o host ESXi está desconectado.     |   O host ESXi está em um estado desconectado.   |   Verifique se o host ESXi que executa a VM está conectado.
+9031: não é possível coletar metadados descobertos, pois o host ESXi não está respondendo.   |   O host remoto está em estado inválido.    |   Verifique se o host ESXi que executa a VM está em execução e conectado.
+9032: não é possível descobrir devido a um erro interno.   |   O problema pode ocorrer devido a um erro interno.   |   Contate a Suporte da Microsoft para obter uma resolução.
+9033: não é possível descobrir, pois o nome de usuário da VM contém caracteres inválidos.     |   Caracteres inválidos foram detectados no nome de usuário.   |   Forneça novamente a credencial de VM, garantindo que não há caracteres inválidos.
+9034: o nome de usuário fornecido não está no formato UPN.    |   O nome de usuário não está no formato UPN.  |   Verifique se o nome de usuário está no formato de nome UPN.
+9035: não é possível descobrir porque o modo de linguagem do PowerShell não está definido como ' idioma completo '.  |   O modo de linguagem do PowerShell na VM convidada não está definido como idioma completo.   |   Verifique se o modo de linguagem do PowerShell está definido como ' idioma completo '.
+10000: não há suporte para o tipo de sistema operacional.   |   O sistema operacional em execução no servidor não é o Windows nem o Linux.    |   Os tipos de sistema operacional com suporte são somente Windows e Linux.
+10001: o script para a descoberta do servidor não foi encontrado no dispositivo.    |   A descoberta não está funcionando conforme o esperado.   |   Contate a Suporte da Microsoft para obter uma resolução.
+10002: a tarefa de descoberta não foi concluída no tempo.     |   O agente de descoberta não está funcionando conforme o esperado.     |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
+10003: o processo que executa a tarefa de descoberta foi encerrado com um erro.    |   Processo que executa a tarefa de descoberta foi encerrado com um erro.  |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+10004: credencial não fornecida para o tipo de sistema operacional convidado.  |   As credenciais para acessar computadores desse tipo de sistema operacional não foram fornecidas no dispositivo de migrações para Azure.    |   Adicionar credenciais para computadores no dispositivo
+10005: as credenciais fornecidas não são válidas.   |   As credenciais fornecidas para o dispositivo acessar o servidor estão incorretas.  |   Atualize as credenciais fornecidas no dispositivo e verifique se o servidor está acessível usando as credenciais.
+10006: tipo de SO convidado sem suporte pelo repositório de credenciais.  |   O sistema operacional em execução no servidor não é o Windows nem o Linux.    |   Os tipos de sistema operacional com suporte são somente Windows e Linux.
+10007: não é possível processar os metadados descobertos.    |   Erro ao tentar desserializar o JSON.    |   Contate a Suporte da Microsoft para obter uma resolução.
+10008: não é possível criar um arquivo no servidor.    |  O problema pode ocorrer devido a um erro interno.    |   Contate a Suporte da Microsoft para obter uma resolução.
+10009: não é possível gravar metadados descobertos em um arquivo no servidor.  |   O problema pode ocorrer devido a um erro interno.   |   Contate a Suporte da Microsoft para obter uma resolução.
+
 
 
 

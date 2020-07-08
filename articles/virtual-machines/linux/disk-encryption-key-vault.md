@@ -7,19 +7,19 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2adb158032582dff7449c7c0fc7b13419745f36c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 543e3c5d8148632eaca33935cc15e2d2ab1c0cea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611587"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para Azure Disk Encryption
 
 O Azure Disk Encryption usa o Azure Key Vault para ajudar você a controlar e gerenciar os segredos e chaves de criptografia de disco.  Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../../key-vault/general/secure-your-key-vault.md). 
 
 > [!WARNING]
-> - Se você já tiver usado o Azure Disk Encryption com o Azure AD para criptografar uma VM, deverá continuar usando essa opção para criptografar a VM. Veja [Criação e configuração de um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md) para saber detalhes.
+> - Se você já tiver usado o Azure Disk Encryption com o Azure AD anteriormente para criptografar uma VM, deverá continuar usando essa opção para criptografar a VM. Veja [Criação e configuração de um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md) para saber detalhes.
 
 Criar e configurar um cofre de chaves para usar com Azure Disk Encryption envolve três etapas:
 
@@ -30,7 +30,7 @@ Criar e configurar um cofre de chaves para usar com Azure Disk Encryption envolv
 Esses passos estão ilustrados nos seguintes guias de início rápido:
 
 - [Criar e criptografar uma VM do Linux com a CLI do Azure](disk-encryption-cli-quickstart.md)
-- [Criar e criptografar uma VM do Linux com o Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Criar e criptografar uma VM do Linux com o Azure PowerShell](disk-encryption-powershell-quickstart.md)
 
 Caso queira, também é possível gerar ou importar uma KEK (chave de criptografia de chave).
 
@@ -45,7 +45,7 @@ Embora o portal possa ser acessado através do navegador, a CLI do Azure e o Azu
 
 ### <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
-Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Entrando com Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
+Antes de usar a CLI do Azure ou o Azure PowerShell, é necessário se conectar a sua assinatura do Azure. Você faz isso [Entrando com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Entrando com Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0) ou fornecendo suas credenciais para o portal do Azure quando solicitado.
 
 ```azurecli-interactive
 az login

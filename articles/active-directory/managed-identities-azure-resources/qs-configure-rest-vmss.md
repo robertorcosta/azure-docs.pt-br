@@ -1,6 +1,6 @@
 ---
-title: Configurar identidades gerenciadas no Azure VMSS usando REST – Azure AD
-description: Instruções passo a passo para configurar identidades gerenciadas atribuídas ao usuário e ao sistema em um VMSS do Azure usando CURL para fazer chamadas à API REST.
+title: Configurar identidades gerenciadas no conjunto de dimensionamento de máquinas virtuais do Azure usando REST – Azure AD
+description: Instruções passo a passo para configurar um sistema e identidades gerenciadas atribuídas pelo usuário em um conjunto de dimensionamento de máquinas virtuais do Azure usando a rotação para fazer chamadas à API REST.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06bce15dfbd2ccd3ac97f6a4f1e4efb5a24db85d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609089"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -35,7 +35,7 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#managed-identity-types)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
 
@@ -92,7 +92,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -187,7 +187,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -220,7 +220,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
@@ -254,7 +254,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -298,7 +298,7 @@ Para desabilitar uma identidade gerenciada atribuída ao sistema em um conjunto 
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -355,7 +355,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -442,7 +442,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
@@ -537,7 +537,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |   
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |   
  
 
 4. Se não houver nenhuma identidade gerenciada atribuída ao usuário ou ao sistema ao conjunto de dimensionamento de máquinas virtuais, use o seguinte comando CURL para chamar o ponto de extremidade de REST do Azure Resource Manager para atribuir a primeira identidade gerenciada atribuída ao usuário ao conjunto de dimensionamento de máquinas virtuais.  Se houver alguma identidade gerenciada atribuída ao usuário ou ao sistema ao conjunto de dimensionamento de máquinas virtuais, passe para a etapa 5 que mostra como adicionar várias identidades gerenciadas atribuídas ao usuário a um conjunto de dimensionamento de máquinas virtuais, mantendo a identidade gerenciada atribuída ao sistema.
@@ -558,7 +558,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -590,7 +590,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -626,7 +626,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -665,7 +665,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -704,7 +704,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
    
    Se houver identidades gerenciadas atribuídas à VM, elas serão listadas na resposta no valor `identity`. 
     
@@ -726,7 +726,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -758,7 +758,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
    |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
@@ -788,7 +788,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
-|*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+|*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
 |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**
@@ -815,7 +815,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
-|*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
+|*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
 |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**

@@ -4,16 +4,16 @@ description: Neste artigo, você aprenderá a implantar e configurar o Firewall 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 37bb28419f23fee2c179171a2e5c0e4e851ac9a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611162"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -64,7 +64,7 @@ Consulte a seção [criar rotas](#create-the-routes) neste artigo para ver como 
 >[!NOTE]
 >O Firewall do Azure deve ter conectividade direta com a Internet. Se seu AzureFirewallSubnet aprender uma rota padrão para sua rede local via BGP, você deve substituir isso por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet.
 >
->O Firewall do Azure pode ser configurado para dar suporte ao túnel forçado. Para obter mais informações, consulte [túnel forçado do firewall do Azure](forced-tunneling.md).
+>O Firewall do Azure pode ser configurado para dar suporte a túnel forçado. Para obter mais informações, confira [Túnel forçado do Firewall do Azure](forced-tunneling.md).
 
 >[!NOTE]
 >O tráfego entre VNETs diretamente emparelhadas é roteado diretamente, mesmo se uma UDR aponta para o Firewall do Azure como o gateway padrão. Para enviar o tráfego de sub-rede para sub-rede para o firewall nesse cenário, uma UDR precisa conter o prefixo de rede da sub-rede de destino explicitamente em ambas as sub-redes.
@@ -464,7 +464,7 @@ No portal do Azure, conecte a máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP\>privado.
+Abra um navegador da Web em **VM-Onprem** e navegue até http://\<VM-spoke-01 private IP\>.
 
 Você deverá ver a página padrão dos Serviços de Informações da Internet.
 
@@ -497,4 +497,4 @@ Você pode manter seus recursos de firewall para o próximo tutorial ou se não 
 
 Em seguida,você pode monitorar os logs do Firewall do Azure.
 
-[Tutorial: Monitor logs do Firewall do Azure](./tutorial-diagnostics.md)
+[Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)

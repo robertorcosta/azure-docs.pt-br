@@ -4,12 +4,12 @@ description: Saiba mais sobre dimensionamento de clusters do Azure Service Fabri
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610193"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Dimensionar clusters do Azure Service Fabric
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os clusters podem conter potencialmente milhares de nós. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -28,7 +28,7 @@ Ao dimensionar um cluster do Azure, lembre-se das diretrizes a seguir:
 - os tipos de nós primários que executam cargas de trabalho de produção sempre devem ter cinco ou mais nós.
 - os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
 - os tipos de nó não primário que executam cargas de trabalho de produção sem estado sempre devem ter dois ou mais nós.
-- Todos os tipos de nó com [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Ouro ou Prata sempre devem ter cinco ou mais nós.
+- Todos os tipos de nó com [nível de durabilidade](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Ouro ou Prata sempre devem ter cinco ou mais nós.
 - Não remova instâncias/nós de VM aleatórios de um tipo de nó, sempre use a escala do conjunto de dimensionamento de máquinas virtuais no recurso. A exclusão de instâncias de VM aleatórias pode afetar negativamente a capacidade do sistema para balancear carga adequadamente.
 - Se estiver usando regras de autoescala, defina as regras para que a redução horizontal (remoção de instâncias de VM) seja feito um nó por vez. Redução de mais de uma instância em um momento não é segura.
 
@@ -59,14 +59,10 @@ Altera os recursos (CPU, memória ou armazenamento) de nós no cluster.
 - Vantagens: a arquitetura do software e do aplicativo permanece a mesma.
 - Desvantagens: escala finita, uma vez que há um limite para o quanto você pode aumentar os recursos em nós individuais. Tempo de inatividade, pois será necessário colocar computadores físicos ou virtuais offline para adicionar ou remover recursos.
 
-Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente.  Escalar verticalmente ou reduzir verticalmente um tipo de nó envolve alterar a SKU das instâncias de máquina virtual no conjunto de dimensionamento. 
-
-> [!WARNING]
-> É recomendável não alterar a SKU da VM de um tipo de nó/conjunto de dimensionamento, a menos que esteja em [Durabilidade prata ou maior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Alterar o Tamanho de SKU da VM é uma operação de infraestrutura no local com destruição de dados. Sem alguma habilidade para atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. 
->
+Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente.  Dimensionar um tipo de nó para cima ou para baixo envolve a adição de um novo tipo de nó (com SKU de VM atualizado) e a remoção do tipo de nó antigo.
 
 Ao dimensionar um cluster do Azure, lembre-se das diretrizes a seguir:
-- Se reduzir verticalmente um tipo de nó primário, você nunca deve reduzi-lo além do que a [camada de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) permite.
+- Se reduzir verticalmente um tipo de nó primário, você nunca deve reduzi-lo além do que a [camada de confiabilidade](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) permite.
 
 O processo de escala vertical ou redução vertical de um tipo de nó é diferente, dependendo se é um tipo de nó primário ou não primário.
 
@@ -74,9 +70,9 @@ O processo de escala vertical ou redução vertical de um tipo de nó é diferen
 Crie um novo tipo de nó com os recursos necessários.  Atualize as restrições de posicionamento dos serviços em execução para incluir o novo tipo de nó.  Gradualmente (um de cada vez), reduza a contagem de instâncias da contagem de instâncias do tipo de nó anterior para zero, de modo que a confiabilidade do cluster não seja afetada.  Os serviços migrarão gradualmente para o novo tipo de nó, já que o tipo de nó antigo é encerrado.
 
 ### <a name="scaling-the-primary-node-type"></a>Dimensionando o tipo de nó primário
-É recomendável não alterar a SKU da VM do tipo de nó primário. Se mais capacidade do cluster for necessária, é recomendável adicionar mais instâncias. 
+Implante um novo tipo de nó primário com SKU de VM atualizado e, em seguida, desabilite as instâncias do tipo de nó primário original, uma de cada vez, para que os serviços do sistema migrem para o novo conjunto de dimensionamento. Verifique se o cluster e os novos nós estão íntegros e, em seguida, remova o conjunto de dimensionamento original e o estado do nó para os nós excluídos.
 
-Se isso não for possível, você poderá criar um novo cluster e [restaurar o estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Você não precisa restaurar qualquer estado do serviço do sistema; ele é recriado quando você implanta os aplicativos no novo cluster. Se você estiver apenas executando aplicativos sem monitoração de estado no cluster, basta implantar os aplicativos no novo cluster; não há nada para restaurar. Se você decidir ir para a rota sem suporte e quiser alterar a SKU da VM, então, faça modificações na definição do Modelo do conjunto de dimensionamento de máquinas virtuais para refletir a nova SKU. Se o cluster tiver apenas um tipo de nó, certifique-se de que todos os aplicativos com estado respondam a todos os [Eventos do ciclo de vida de réplica do serviço](service-fabric-reliable-services-lifecycle.md) (como réplica na compilação paralisada) em tempo hábil e que a duração da recompilação da réplica do serviço seja inferior a cinco minutos (para o nível de durabilidade Prata). 
+Se isso não for possível, você poderá criar um novo cluster e [restaurar o estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Você não precisa restaurar qualquer estado do serviço do sistema; ele é recriado quando você implanta os aplicativos no novo cluster. Se você estiver apenas executando aplicativos sem monitoração de estado no cluster, basta implantar os aplicativos no novo cluster; não há nada para restaurar.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [escalabilidade de aplicativo](service-fabric-concepts-scalability.md).

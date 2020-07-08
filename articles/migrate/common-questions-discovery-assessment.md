@@ -2,13 +2,13 @@
 title: Perguntas sobre descoberta, avaliação e análise de dependência em migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 9374330044bcd0c0c5f2be44688c2b35760d4418
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 06/09/2020
+ms.openlocfilehash: 7d42de52d35d5a3c5e9a54673d8cd933fbee04aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610295"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -27,12 +27,36 @@ Examine as geografias compatíveis para [nuvens públicas](migrate-support-matri
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantas VMs posso descobrir com um dispositivo?
 
-Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores físicos usando um único dispositivo. Se você tiver mais computadores, leia sobre como [dimensionar uma avaliação do Hyper-V](scale-hyper-v-assessment.md), [dimensionando uma avaliação do VMware](scale-vmware-assessment.md)ou [dimensionando uma avaliação de servidor físico](scale-physical-assessment.md).
+Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 1000 servidores físicos usando um único dispositivo. Se você tiver mais computadores, leia sobre como [dimensionar uma avaliação do Hyper-V](scale-hyper-v-assessment.md), [dimensionando uma avaliação do VMware](scale-vmware-assessment.md)ou [dimensionando uma avaliação de servidor físico](scale-physical-assessment.md).
+
+## <a name="how-do-i-choose-the-assessment-type"></a>Como fazer escolher o tipo de avaliação?
+
+- Use as **avaliações de VM do Azure** quando desejar avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs do Azure. [Saiba mais](concepts-assessment-calculation.md)
+
+- Use as avaliações da **AVS (solução do Azure VMware)** quando desejar avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md) locais para migração para a [solução VMware do Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+- Você pode usar um grupo comum com máquinas VMware somente para executar os dois tipos de avaliações. Observe que, se você estiver executando avaliações de AVS no Azure migrar pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+
+## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Não consigo ver alguns grupos ao criar uma avaliação da AVS (solução do Azure VMware)
+
+- A avaliação da AVS pode ser feita em grupos que têm apenas máquinas VMware. Remova qualquer máquina não VMware do grupo se você pretende executar uma avaliação de AVS.
+- Se você estiver executando avaliações de AVS no Azure migrar pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+
+## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Como fazer selecionar o nível FTT-RAID na avaliação da AVS?
+
+O mecanismo de armazenamento usado na AVS é a vSAN. as políticas de armazenamento vSAN definem os requisitos de armazenamento para suas máquinas virtuais. Essas políticas garantem o nível de serviço necessário para suas VMs, pois elas determinam como o armazenamento é alocado para a VM. Essas são as combinações disponíveis do FTT-RAID: 
+
+**Falhas a tolerar (FTT)** | **Configuração de RAID** | **Hosts mínimos necessários** | **Consideração de dimensionamento**
+--- | --- | --- | --- 
+1 | RAID-1 (espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
+1 | RAID-5 (codificação de eliminação) | 4 | Uma VM de 100 GB consumiria 133.33 GB
+2 | RAID-1 (espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
+2 | RAID-6 (codificação de eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
+3 | RAID-1 (espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Azure governamental
 
 Os tipos de VM com suporte para avaliação e migração dependem da disponibilidade no local do Azure governamental. Você pode [examinar e comparar](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) os tipos de VM no Azure governamental.
-
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>O tamanho da minha VM foi alterado. Posso executar uma avaliação novamente?
 
@@ -47,7 +71,7 @@ O dispositivo de migração do Azure coleta continuamente informações sobre o 
 
 Sim, as migrações para Azure exigem vCenter Server em um ambiente VMware para executar a descoberta. As migrações para Azure não dão suporte à descoberta de hosts ESXi que não são gerenciados pelo vCenter Server.
 
-## <a name="what-are-the-sizing-options"></a>Quais são as opções de dimensionamento?
+## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Quais são as opções de dimensionamento em uma avaliação de VM do Azure?
 
 Com o dimensionamento local, as migrações para Azure não consideram os dados de desempenho da VM para avaliação. As migrações para Azure avaliam os tamanhos de VM com base na configuração local. Com o dimensionamento baseado em desempenho, o dimensionamento é baseado nos dados de utilização.
 
@@ -59,18 +83,18 @@ Da mesma forma, o dimensionamento de disco depende de critérios de dimensioname
 - Se os critérios de dimensionamento forem baseados em desempenho e o tipo de armazenamento for automático, as migrações para Azure levarão os valores de IOPS e taxa de transferência do disco em conta quando identificarem o tipo de disco de destino (Standard ou Premium).
 - Se os critérios de dimensionamento forem baseados em desempenho e o tipo de armazenamento for Premium, as migrações para Azure recomendarão uma SKU de disco Premium com base no tamanho do disco local. A mesma lógica é aplicada ao dimensionamento de disco quando o dimensionamento é o local e o tipo de armazenamento é Standard ou Premium.
 
-## <a name="does-performance-history-and-utilization-affect-sizing"></a>O histórico de desempenho e a utilização afetam o dimensionamento?
+## <a name="does-performance-history-and-utilization-affect-sizing-in-an-azure-vm-assessment"></a>O histórico de desempenho e a utilização afetam o dimensionamento em uma avaliação de VM do Azure?
 
-Sim, o histórico de desempenho e a utilização afetam o dimensionamento nas migrações para Azure.
+Sim, o histórico de desempenho e a utilização afetam o dimensionamento em uma avaliação de VM do Azure.
 
 ### <a name="performance-history"></a>Histórico de desempenho
 
 Somente para o dimensionamento baseado em desempenho, as migrações para Azure coletam o histórico de desempenho de computadores locais e, em seguida, o usam para recomendar o tamanho da VM e o tipo de disco no Azure:
 
 1. O dispositivo cria o perfil continuamente no ambiente local para coletar dados de utilização em tempo real a cada 20 segundos.
-1. O dispositivo acumula os exemplos de 20 segundos coletados e os usa para criar um único ponto de dados a cada 15 minutos.
-1. Para criar o ponto de dados, o dispositivo seleciona o valor de pico de todas as amostras de 20 segundos.
-1. O dispositivo envia o ponto de dados para o Azure.
+2. O dispositivo acumula os exemplos de 20 segundos coletados e os usa para criar um único ponto de dados a cada 15 minutos.
+3. Para criar o ponto de dados, o dispositivo seleciona o valor de pico de todas as amostras de 20 segundos.
+4. O dispositivo envia o ponto de dados para o Azure.
 
 ### <a name="utilization"></a>Utilização
 
@@ -80,11 +104,17 @@ Por exemplo, se você definir a duração do desempenho para um dia e o valor de
 
 O uso do valor 95 º percentil garante que as exceções sejam ignoradas. As exceções poderão ser incluídas se a migração do Azure usar o 99 º percentil. Para escolher o pico de uso do período sem exceções, defina migrações para Azure para usar o 99 º percentil.
 
+
 ## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>Como as avaliações baseadas em importação são diferentes das avaliações com a fonte de descoberta como dispositivo?
 
-As avaliações baseadas em importação são avaliações criadas com computadores que são importados para migrações para Azure usando um arquivo CSV. Somente quatro campos são obrigatórios para importar: nome do servidor, núcleos, memória e sistema operacional. Aqui estão algumas coisas a serem observadas: 
+As avaliações de VM do Azure baseadas em importação são avaliações criadas com computadores que são importados para migrações para Azure usando um arquivo CSV. Somente quatro campos são obrigatórios para importar: nome do servidor, núcleos, memória e sistema operacional. Aqui estão algumas coisas a serem observadas: 
  - Os critérios de preparação são menos rigorosos em avaliações baseadas em importação no parâmetro de tipo de inicialização. Se o tipo de inicialização não for fornecido, supõe-se que o computador tem o tipo de inicialização BIOS e que o computador não está marcado como **condicionalmente pronto**. Em avaliações com a origem de descoberta como dispositivo, a preparação será marcada como **condicionalmente pronta** se o tipo de inicialização estiver ausente. Essa diferença no cálculo de preparação é porque os usuários podem não ter todas as informações sobre as máquinas nos estágios iniciais do planejamento de migração quando são feitas avaliações baseadas em importação. 
  - As avaliações de importação baseadas em desempenho usam o valor de utilização fornecido pelo usuário para cálculos de dimensionamento correto. Como o valor de utilização é fornecido pelo usuário, as opções **histórico de desempenho** e utilização de **percentil** são desabilitadas nas propriedades de avaliação. Em avaliações com a origem de descoberta como dispositivo, o valor de percentil escolhido é escolhido dos dados de desempenho coletados pelo dispositivo.
+
+## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Por que a ferramenta de migração sugerida na avaliação de AVS baseada em importação foi marcada como desconhecida?
+
+Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão em uma avaliação de AVS é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare. [Saiba mais](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
 
 ## <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
 
@@ -99,14 +129,14 @@ As diferenças entre a visualização sem agente e a visualização baseada em a
 
 **Requisito** | **Sem agente** | **Baseado em agente**
 --- | --- | ---
-Suporte | Essa opção está atualmente em visualização e só está disponível para VMs VMware. [Examine](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) os sistemas operacionais com suporte. | Em disponibilidade geral (GA).
+Suporte | Essa opção está atualmente em visualização e só está disponível para VMs VMware. [Examine](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operacionais com suporte. | Em disponibilidade geral (GA).
 Agente | Não é necessário instalar agentes em computadores que você deseja verificar. | Agentes a serem instalados em cada computador local que você deseja analisar: o [MMA (Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e o [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Pré-requisitos | [Examine](concepts-dependency-visualization.md#agentless-analysis) os pré-requisitos e os requisitos de implantação. | [Examine](concepts-dependency-visualization.md#agent-based-analysis) os pré-requisitos e os requisitos de implantação.
-Log Analytics | Não obrigatório. | As migrações para Azure usam a solução [mapa do serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) em [logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
-Como ele funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
+Log Analytics | Não necessário. | As Migrações para Azure usam a solução [Mapa do Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nos [logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
+Como funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
 Dados | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta. | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta.<br/><br/> Número de conexões, latência e informações de transferência de dados são coletadas e disponibilizadas para consultas de Log Analytics. 
 Visualização | O mapa de dependências de um único servidor pode ser exibido durante uma duração de uma hora a 30 dias. | Mapa de dependências de um único servidor.<br/><br/> O mapa pode ser exibido somente em uma hora.<br/><br/> Mapa de dependências de um grupo de servidores.<br/><br/> Adicionar e remover servidores de um grupo da exibição de mapa.
-Exportação de dados | Atualmente, não pode ser baixado no formato tabular. | Os dados podem ser consultados com Log Analytics.
+Exportação de dados | Os últimos 30 dias de dados podem ser baixados em um formato CSV. | Os dados podem ser consultados com Log Analytics.
 
 
 ## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>Preciso implantar o dispositivo para análise de dependência sem agente?

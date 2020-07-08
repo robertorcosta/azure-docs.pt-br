@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127668"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611366"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -23,7 +23,7 @@ Este artigo ajuda você a solucionar problemas com a visualização de dependên
 
 Corrija os problemas de preparação da avaliação da seguinte maneira:
 
-**Problema** | **Soluciona**
+**Problema** | **Correção**
 --- | ---
 Tipo de inicialização sem suporte | O Azure não dá suporte a VMs com um tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para o Azure para lidar com a migração dessas VMs. Ele converterá o tipo de inicialização da VM para BIOS durante a migração.
 Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](https://aka.ms/WSosstatement). Considere a atualização antes de migrar para o Azure.
@@ -47,18 +47,27 @@ VM com núcleos necessários e memória não encontrada | O Azure não pôde enc
 Não foi possível determinar a adequação da VM devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação para um ou mais discos devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação para um ou mais adaptadores de rede devido a um erro interno | Tente criar uma nova avaliação para o grupo.
+Nenhum tamanho de VM encontrado para a instância reservada de moeda de oferta | Computador marcado como não adequado porque o tamanho da VM não foi encontrado para a combinação selecionada de RI, oferta e moeda. Edite as propriedades de avaliação para escolher as combinações válidas e recalcular a avaliação. 
+Protocolo de Internet condicionalmente pronto | Aplicável somente a avaliações da AVS (solução VMware do Azure). A AVS não dá suporte ao fator de endereços de Internet IPv6.Entre em contato com a equipe da AVS para obter diretrizes de correção se seu computador for detectado com o IPv6.
 
-## <a name="linux-vms-are-conditionally-ready"></a>As VMs do Linux estão "prontamente prontas"
+## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importação marcada como desconhecida
 
-A avaliação do servidor marca as VMs do Linux como "prontamente prontas" devido a uma lacuna conhecida na avaliação do servidor.
+Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão no e a avaliação AVS são desconhecidas. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare. [Saiba mais](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
+## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>VMs do Linux são "prontamente prontas" em uma avaliação de VM do Azure
+
+No caso de VMs do VMware e do Hyper-V, a avaliação do servidor marca as VMs do Linux como "prontas condicionalmente" devido a uma lacuna conhecida na avaliação do servidor. 
 
 - A lacuna impede que ele detecte a versão secundária do sistema operacional Linux instalada nas VMs locais.
-- Por exemplo, para RHEL 6,10, atualmente a avaliação do servidor detecta apenas RHEL 6 como a versão do sistema operacional.
+- Por exemplo, para RHEL 6,10, atualmente a avaliação do servidor detecta apenas RHEL 6 como a versão do sistema operacional. Isso ocorre porque o vCenter Server ar o host Hyper-V não fornece a versão do kernel para sistemas operacionais de VM do Linux.
 -  Como o Azure endossa apenas versões específicas do Linux, as VMs do Linux estão atualmente marcadas como prontas para avaliação de servidor.
 - Você pode determinar se o SO Linux em execução na VM local é endossado no Azure examinando o [suporte do Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  Depois de verificar a distribuição endossada, você pode ignorar este aviso.
 
-## <a name="azure-skus-bigger-than-on-premises"></a>SKUs do Azure maiores do que o local
+Essa lacuna pode ser resolvida habilitando a [descoberta de aplicativos](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) nas VMs VMware. A avaliação do servidor usa o sistema operacional detectado da VM usando as credenciais de convidado fornecidas. Esses dados do sistema operacional identificam as informações corretas do so no caso de VMs Windows e Linux.
+
+
+## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs do Azure maiores do que localmente em uma avaliação de VM do Azure
 
 A avaliação de servidor de migrações para Azure pode recomendar SKUs de VM do Azure com mais núcleos e memória do que a alocação local atual com base no tipo de avaliação:
 
@@ -76,7 +85,7 @@ Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utiliza
 - Se a avaliação for baseada em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB de memória * 1,3 = 5,3 GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos com suporte mais próximo) e oito GB de memória (tamanho de memória mais próximo com suporte
 - [Saiba mais](concepts-assessment-calculation.md#types-of-assessments) sobre o dimensionamento da avaliação.
 
-## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKUs de disco do Azure maiores do que localmente
+## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs de disco do Azure maiores do que localmente em uma avaliação de VM do Azure
 
 A avaliação de servidor de migrações para Azure pode recomendar um disco maior com base no tipo de avaliação.
 - O dimensionamento de disco na avaliação do servidor depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento.
@@ -94,14 +103,37 @@ A avaliação do servidor relata "PercentageOfCoresUtilizedMissing" ou "Percenta
 - Se algum dos contadores de desempenho estiver ausente, a avaliação do servidor de migrações para Azure voltará para os núcleos e a memória alocados e recomendará um tamanho de VM correspondente.
 - Se todos os contadores de desempenho estiverem ausentes, verifique se os requisitos de acesso à porta para avaliação foram atendidos. Saiba mais sobre os requisitos de acesso de porta para [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) e avaliação de servidor [físico](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) .
 
-## <a name="is-the-operating-system-license-included"></a>A licença do sistema operacional está incluída?
+## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>A licença do sistema operacional está incluída em uma avaliação de VM do Azure?
 
 A avaliação de servidor de migrações para Azure atualmente considera o custo de licença do sistema operacional somente para computadores Windows. Os custos de licença para computadores Linux não são atualmente considerados.
 
-## <a name="how-does-performance-based-sizing-work"></a>Como funciona o dimensionamento baseado em desempenho?
+## <a name="how-does-performance-based-sizing-work-in-an-azure-vm-assessment"></a>Como funciona o dimensionamento baseado em desempenho em uma avaliação de VM do Azure?
 
 A Avaliação de Servidor coleta continuamente os dados de desempenho dos computadores locais e o utiliza para recomendar a SKU da VM e a SKU de disco no Azure. [Saiba como](concepts-assessment-calculation.md#calculate-sizing-performance-based) os dados baseados em desempenho são coletados.
 
+## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Por que minha avaliação mostra um aviso de que foi criada com uma combinação inválida de instâncias reservadas, tempo de atividade e desconto da VM (%)?
+Quando você seleciona ' instâncias reservadas ', o ' desconto (%) ' e as propriedades ' VM de tempo de atividade ' não são aplicáveis. À medida que sua avaliação foi criada com uma combinação inválida dessas propriedades, os botões editar e recalcular são desabilitados. Crie uma nova avaliação. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2131554).
+
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Não vejo dados de desempenho para alguns adaptadores de rede em meus servidores físicos
+
+Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Nesses servidores, devido a uma lacuna de produtos, a migração do Azure atualmente descobre os adaptadores de rede física e virtual. A taxa de transferência de rede é capturada apenas nos adaptadores de rede virtual descobertos.
+
+## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>O SKU de VM do Azure recomendado para meu servidor físico está superdimensionado
+
+Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Nesses servidores, migrações para Azure atualmente descobre os adaptadores de rede física e virtual. Portanto, o não. de adaptadores de rede descobertos é maior do que o real. Como a avaliação do servidor escolhe uma VM do Azure que pode dar suporte ao número necessário de adaptadores de rede, isso pode potencialmente resultar em uma VM superdimensionada. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) sobre o impacto de não. de adaptadores de rede em dimensionamento. Esta é uma lacuna do produto que será abordada no futuro.
+
+## <a name="readiness-category-not-ready-for-my-physical-server"></a>Categoria de preparação "não está pronta" para meu servidor físico
+
+A categoria de preparação pode estar marcada incorretamente como "não está pronta" no caso de um servidor físico que tenha a virtualização do Hyper-V habilitada. Nesses servidores, devido a uma lacuna de produtos, a migração do Azure atualmente descobre os adaptadores físicos e virtuais. Portanto, o não. de adaptadores de rede descobertos é maior do que o real. Em avaliações locais e baseadas em desempenho, a avaliação do servidor escolhe uma VM do Azure que pode dar suporte ao número necessário de adaptadores de rede. Se for descoberto que o número de adaptadores de rede está sendo maior que 32, n º máximo de NICs com suporte em VMs do Azure, o computador será marcado como "não pronto".  [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) sobre o impacto de não. de NICs no dimensionamento.
+
+
+## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Número de NICs descobertos acima do real para servidores físicos
+
+Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Nesses servidores, migrações para Azure atualmente descobre os adaptadores físicos e virtuais. Portanto, o não. de NICs descobertas é maior do que o real.
+
+
+## <a name="low-confidence-rating-on-physical-server-assessments"></a>Classificação de baixa confiança em avaliações de servidor físico
+A classificação é atribuída com base na disponibilidade de pontos de dados que são necessários para calcular a avaliação. No caso de servidores físicos que têm a virtualização Hyper-V habilitada, há uma lacuna de produto conhecida devido à qual a classificação de baixa confiança pode ser atribuída incorretamente a avaliações de servidor físico. Nesses servidores, migrações para Azure atualmente descobre os adaptadores físicos e virtuais. A taxa de transferência de rede é capturada nos adaptadores de rede virtual descobertos, mas não nos adaptadores de rede física. Devido à ausência de pontos de dados nos adaptadores de rede física, a classificação de confiança pode ser afetada resultando em uma baixa classificação. Esta é uma lacuna do produto que será abordada no futuro.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualização de dependência no Azure governamental
 
@@ -113,29 +145,28 @@ Depois de instalar os agentes de visualização de dependência em VMs locais, a
 
 Para VMs do Windows:
 1. No painel de controle, inicie o MMA.
-2. Nas **Propriedades** > de Microsoft Monitoring Agent**log Analytics do Azure (OMS)**, verifique se o **status** do espaço de trabalho está verde.
+2. Nas **Propriedades de Microsoft Monitoring Agent**  >  **log Analytics do Azure (OMS)**, verifique se o **status** do espaço de trabalho está verde.
 3. Se o status não for verde, tente remover o espaço de trabalho e adicioná-lo novamente ao MMA.
 
     ![Status do MMA](./media/troubleshoot-assessment/mma-properties.png)
 
 Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 - **Agente MMS**: examine os sistemas operacionais [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)e [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) com suporte.
 - **Agente de dependência**: os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências por > hora
 
-Embora as migrações para Azure permitam que você volte para uma data específica no último mês, a duração máxima para a qual você pode visualizar as dependências é de uma hora.
+Com a análise de dependência sem agente, você pode visualizar dependências ou exportá-las em um mapa por uma duração de até 30 dias.
 
-Por exemplo, você pode usar a funcionalidade duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibi-las somente para um período de uma hora.
-
-No entanto, você pode usar os logs de Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
+Com a análise de dependência baseada em agente, embora as migrações para Azure permitam que você volte a uma data específica no último mês, a duração máxima para a qual você pode visualizar as dependências é de uma hora. Por exemplo, você pode usar a funcionalidade duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibi-las somente para um período de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>Dependências visualizadas para computadores > 10
 
-Na avaliação do servidor de migrações para Azure, você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMS. Para grupos maiores, recomendamos que você divida as VMs em grupos menores para visualizar as dependências.
+Na avaliação do servidor de migrações para Azure, com a análise de dependência baseada em agente, você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMS. Para grupos maiores, recomendamos que você divida as VMs em grupos menores para visualizar as dependências.
+
 
 ## <a name="machines-show-install-agent"></a>Computadores mostram "instalar agente"
 
@@ -146,6 +177,9 @@ Após a migração de computadores com a visualização de dependência habilita
 - Os computadores também podem ter um endereço IP diferente, dependendo se você manteve o endereço IP local ou não.
 - Se os endereços MAC e IP forem diferentes do local, as migrações para Azure não associarão os computadores locais a qualquer Mapa do Serviço dados de dependência. Nesse caso, ele mostrará a opção para instalar o agente em vez de exibir as dependências.
 - Após uma migração de teste para o Azure, as máquinas locais permanecem ativadas conforme o esperado. As máquinas equivalentes giradas no Azure adquirem um endereço MAC diferente e podem adquirir endereços IP diferentes. A menos que você bloqueie o tráfego de log Azure Monitor de saída desses computadores, as migrações para Azure não associarão os computadores locais a qualquer Mapa do Serviço dados de dependência e, portanto, mostrarão a opção de instalar agentes, em vez de exibir dependências.
+
+## <a name="dependencies-export-csv-shows-unknown-process"></a>O CSV de exportação de dependências mostra "processo desconhecido"
+Na análise de dependência sem agente, os nomes de processo são capturados em uma base de melhor esforço. Em determinados cenários, embora os nomes do servidor de origem e de destino e a porta de destino sejam capturados, não é possível determinar os nomes dos processos em ambas as extremidades da dependência. Nesses casos, o processo é marcado como "processo desconhecido".
 
 
 ## <a name="capture-network-traffic"></a>Capturar o tráfego de rede
@@ -165,6 +199,15 @@ Colete os logs de tráfego de rede da seguinte maneira:
    - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **salvar como**, para exportar e compactar o log.
    - No Microsoft Edge ou no Internet Explorer, clique com o botão direito do mouse nos erros e selecione **copiar tudo**.
 7. Fechar as Ferramentas para Desenvolvedores.
+
+
+## <a name="where-is-the-operating-system-data-in-my-assessment-discovered-from"></a>De onde os dados do sistema operacional em minha avaliação são descobertos?
+
+- Para VMs VMware, por padrão, são os dados do sistema operacional fornecidos pelo vCenter. 
+   - Para VMs do VMware Linux, se a descoberta de aplicativos estiver habilitada, os detalhes do sistema operacional serão buscados na VM convidada. Para verificar quais detalhes do sistema operacional na avaliação, vá para a exibição servidores descobertos e passe o mouse sobre o valor na coluna "sistema operacional". No texto que aparece, você poderá ver se os dados do sistema operacional que você vê são coletados do vCenter Server ou da VM convidada usando as credenciais da VM. 
+   - Para VMs do Windows, os detalhes do sistema operacional são sempre buscados no vCenter Server.
+- Para VMs do Hyper-V, os dados do sistema operacional são coletados do host do Hyper-V
+- Para servidores físicos, ele é buscado no servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
 

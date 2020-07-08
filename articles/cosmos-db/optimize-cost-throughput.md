@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610720"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -65,7 +65,7 @@ Ao provisionar a produtividade em níveis diferentes, você pode otimizar seus c
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Otimizar suas solicitações com limitação de taxa
 
-Para cargas de trabalho que não são afetadas pela latência, você pode provisionar uma taxa de transferência menor e permitir que o aplicativo lide com a limitação de taxa quando a taxa de transferência real exceder a taxa de transferência provisionada. O servidor encerrará de forma preventiva a solicitação `RequestRateTooLarge` com (código de status http 429) e `x-ms-retry-after-ms` retornará o cabeçalho indicando o tempo, em milissegundos, que o usuário deve aguardar antes de repetir a solicitação. 
+Para cargas de trabalho que não são afetadas pela latência, você pode provisionar uma taxa de transferência menor e permitir que o aplicativo lide com a limitação de taxa quando a taxa de transferência real exceder a taxa de transferência provisionada. O servidor encerrará de forma preventiva a solicitação com `RequestRateTooLarge` (código de status HTTP 429) e retornará o `x-ms-retry-after-ms` cabeçalho indicando o tempo, em milissegundos, que o usuário deve aguardar antes de repetir a solicitação. 
 
 ```html
 HTTP Status 429, 
@@ -117,7 +117,7 @@ Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades de c
 
 Você pode monitorar o número total de RUs provisionadas, o número de solicitações com taxa limitada e o número de RUs consumido no portal do Azure. A imagem abaixo mostra uma métrica de uso de exemplo:
 
-![Monitorar unidades de solicitação no portal do Azure](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Monitorar unidades de solicitação no portal do Azure":::
 
 Você também pode definir alertas para verificar se o número de solicitações com taxa limitada excede um limite específico. Consulte o artigo [Como monitorar o Azure Cosmos DB](use-metrics.md) para obter mais detalhes. Esses alertas podem enviar um email para os administradores de conta ou chamar um Webhook HTTP personalizado ou uma função do Azure para aumentar a taxa de transferência provisionada automaticamente. 
 
@@ -155,7 +155,7 @@ As etapas a seguir ajudam a tornar as suas soluções altamente escalonáveis e 
 
 1. Se você provisionou sua taxa de transferência muito acima do necessário em contêineres e bancos de dados, examine as RUs consumidas e as provisionadas e ajuste as cargas de trabalho.  
 
-2. Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de RUs ( unidades de solicitação) associado à execução de operações comuns em relação a um banco de dados ou contêiner do Azure Cosmos representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Meça e inclua consultas comuns e seu uso também. Para saber como estimar os custos de RU de consultas programaticamente ou usando o portal, consulte [Otimizar o custo de consultas](online-backup-and-restore.md). 
+2. Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de RUs ( unidades de solicitação) associado à execução de operações comuns em relação a um banco de dados ou contêiner do Azure Cosmos representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Meça e inclua consultas comuns e seu uso também. Para saber como estimar os custos de RU de consultas programaticamente ou usando o portal, consulte [Otimizar o custo de consultas](optimize-cost-queries.md). 
 
 3. Outra maneira de obter operações e seus custos no RUs é habilitar os logs de Azure Monitor, o que lhe dará a divisão de operação/duração e o encargo da solicitação. O Azure Cosmos DB fornece encargos de solicitação para cada operação, ou seja, o encargo de cada operação pode ser armazenado a partir da resposta e usado para análise. 
 

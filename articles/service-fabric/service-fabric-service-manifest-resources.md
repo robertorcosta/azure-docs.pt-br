@@ -3,12 +3,12 @@ title: Especificando Service Fabric pontos de extremidade de serviço
 description: Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610737"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
@@ -52,8 +52,6 @@ Consulte [Configurando o Reliable Services com estado](service-fabric-reliable-s
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemplo: especificando um ponto de extremidade HTTP para o serviço
 O manifesto do serviço a seguir define um recurso de ponto de extremidade TCP e dois recursos de ponto de extremidade HTTP no elemento &lt;Recursos&gt;.
-
-A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,6 +155,8 @@ Aqui está um exemplo de ApplicationManifest demonstrando a configuração neces
 
 Para clusters do Linux, o **MEU** armazenar padroniza para a pasta **/var/lib/sfcerts**.
 
+## <a name="port-acling-for-http-endpoints"></a>Porta atuação para pontos de extremidade HTTP
+Service Fabric automaticamente os pontos de extremidade de HTTP (S) de ACL especificados por padrão. Ele **não** executará atuação automática se um ponto de extremidade não tiver um [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associado a ele e Service Fabric estiver configurado para ser executado usando uma conta com privilégios de administrador.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituição dos pontos de extremidade em ServiceManifest.xml
 

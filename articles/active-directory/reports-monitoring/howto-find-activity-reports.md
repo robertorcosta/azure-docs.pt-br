@@ -7,19 +7,19 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608204"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -52,12 +52,12 @@ Você pode usar a filtragem avançada no relatório de auditoria para acessar um
 
 As categorias incluem:
 
-- Todos
+- Tudo
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
 - Autorização
-- Contato
+- Contact
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
@@ -73,13 +73,13 @@ Você também pode filtrar em um serviço específico usando o filtro suspenso d
 
 Os serviços incluem:
 
-- Todos
+- Tudo
 - Revisões de acesso
 - Provisionamento de conta de usuário 
 - SSO de aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Identity Protection
@@ -171,10 +171,10 @@ Eu executei algumas ações no portal do Azure e esperava ver os logs de auditor
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
-|--------|--------|---------------|---------------|
-| Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
-| Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
+| Relatório | Latência (P95) | Latência (P99) |
+|--------|---------------|---------------|
+| Auditoria de diretório | 2 minutos | 5 min |
+| Atividade de entrada | 2 minutos | 5 min |
 
 #### <a name="resolution"></a>Resolução
 
@@ -192,10 +192,10 @@ Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria pa
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
-|--------|--------|---------------|---------------|
-| Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
-| Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
+| Relatório | Latência (P95) | Latência (P99) |
+|--------|---------------|---------------|
+| Auditoria de diretório | 2 minutos | 5 min |
+| Atividade de entrada | 2 minutos | 5 min |
 
 #### <a name="resolution"></a>Resolução
 
@@ -213,10 +213,10 @@ Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal
 
 Dependendo da sua licença, as Ações do Azure Active Directory armazenam relatórios de atividades para as durações a seguir:
 
-| Relatório           | &nbsp; |  AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Auditoria de Diretório  | &nbsp; |   7 dias     | 30 dias             | 30 dias             |
-| Atividade de Entrada | &nbsp; | Não disponível. Você pode acessar sua própria atividade de entrada por 7 dias na folha de perfil do usuário individual | 30 dias | 30 dias             |
+| Relatório           | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---
+| Auditoria de Diretório  | 7 dias        | 30 dias             | 30 dias             |
+| Atividade de Entrada | Não disponível. Você pode acessar sua própria atividade de entrada por 7 dias na folha de perfil do usuário individual | 30 dias | 30 dias             |
 
 Para saber mais informações, confira [Políticas de retenção de relatório do Azure Active Directory](reference-reports-data-retention.md).  
 

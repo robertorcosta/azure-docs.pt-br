@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3195f1f409ab5cb87cd0520192a3dd362e188a3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610227"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Escalando clusters autônomos do Service Fabric
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os clusters podem conter potencialmente milhares de nós. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -28,7 +28,7 @@ Os clusters autônomos permitem implantar o cluster do Service Fabric local ou n
 A remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com a marca `IsSeedNode=”true”` e podem ser identificados, consultando o manifesto do cluster usando [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). A remoção desses nós pode levar mais tempo do que outros, pois os nós de propagação terão de ser movidos nesses cenários. O cluster deve manter no mínimo três nós do tipo nó primário.
 
 > [!WARNING]
-> É recomendável não reduzir a contagem de nós abaixo do [Tamanho do cluster da camada de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) para o cluster. Isso vai interferir na capacidade de os Serviços do Sistema do Service Fabric serem replicados no cluster, assim como vai desestabilizar ou possivelmente destruir o cluster.
+> É recomendável não reduzir a contagem de nós abaixo do [Tamanho do cluster da camada de confiabilidade](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) para o cluster. Isso vai interferir na capacidade de os Serviços do Sistema do Service Fabric serem replicados no cluster, assim como vai desestabilizar ou possivelmente destruir o cluster.
 >
 
 Ao dimensionar um cluster autônomo, lembre-se das diretrizes a seguir:

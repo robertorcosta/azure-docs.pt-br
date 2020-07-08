@@ -11,21 +11,22 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 885d30305ba2b186052e17b9b455b2248bca541b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608510"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planejar e solucionar problemas de alterações de nome principal de usuário no Azure Active Directory
 
 Um nome principal de usuário (UPN) é um atributo que é um padrão de comunicação da Internet para contas de usuário. Um UPN consiste em um prefixo UPN (o nome da conta de usuário) e um sufixo UPN (um nome de domínio de DNS). O prefixo une o sufixo usando o símbolo "@". Por exemplo, someone@example.com. Um UPN deve ser exclusivo entre todos os objetos de entidade de segurança em uma floresta de diretórios. 
 
-> [!NOTE]
-> Para os desenvolvedores, recomendamos que você use o objectID do usuário como o identificador imutável, em vez de UPN. Se seus aplicativos estiverem usando o UPN no momento, é recomendável definir o UPN para corresponder ao endereço de email principal do usuário para melhorar sua experiência.<br> **Em um ambiente híbrido, é importante que o UPN de um usuário seja idêntico no diretório local e no Azure Active Directory**.
-
 **Este artigo pressupõe que você está usando o UPN como o identificador de usuário. Ele aborda o planejamento de alterações de UPN e a recuperação de problemas que podem resultar de alterações de UPN.**
+
+> [!NOTE]
+> Para os desenvolvedores, recomendamos que você use o objectID do usuário como o identificador imutável, em vez de endereços UPN ou de email, pois seus valores podem ser alterados.
+
 
 ## <a name="learn-about-upns-and-upn-changes"></a>Saiba mais sobre os UPNs e as alterações de UPN
 As páginas de entrada geralmente solicitam que os usuários insiram seu endereço de email quando o valor necessário é, na verdade, seu UPN. Portanto, você deve ter certeza de alterar o UPN de usuários sempre que seu endereço de email principal for alterado.
@@ -47,10 +48,10 @@ Você pode alterar um UPN alterando o prefixo, o sufixo ou ambos.
 * **Alterando o prefixo**.
 
    *  Por exemplo, se o nome de uma pessoa foi alterado, você pode alterar o nome da conta:  
-BSimon@contoso.com paraBJohnson@contoso.com
+BSimon@contoso.comparaBJohnson@contoso.com
 
    * Você também pode alterar o padrão corporativo para prefixos:  
-Bsimon@contoso.com paraBritta.Simon@contoso.com
+Bsimon@contoso.comparaBritta.Simon@contoso.com
 
 * **Alterando o sufixo**. <br>
 
@@ -60,7 +61,7 @@ Bsimon@contoso.com paraBritta.Simon@contoso.com
      Ou<br>
     * Britta.Simon@corp.contoso.com em Britta.Simon@labs.contoso.com 
 
-Altere o UPN do usuário sempre que o endereço de email principal de um usuário for atualizado. Não importa o motivo da alteração do email, o UPN sempre deve ser atualizado para corresponder.
+É recomendável alterar o UPN de usuários sempre que seu endereço de email principal for atualizado.
 
 Durante a sincronização inicial do Active Directory ao Azure AD, verifique se os emails dos usuários são idênticos aos seus UPNs.
 
@@ -77,7 +78,7 @@ Por exemplo, você pode querer adicionar labs.contoso.com e fazer com que os UPN
 username@labs.contoso.com.
 
 >[!IMPORTANT]
-> Se os UPNs no Active Directory e Azure Active Directory não corresponderem, ocorrerão problemas. Se você estiver [alterando o sufixo em Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain), deverá garantir que um nome de domínio personalizado correspondente tenha sido [adicionado e verificado no Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
+> Se você estiver [alterando o sufixo em Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain), deverá garantir que um nome de domínio personalizado correspondente tenha sido [adicionado e verificado no Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
 
 ![Uma captura de tela dos domínios verificados](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
@@ -130,10 +131,14 @@ Os dispositivos [ingressados no Azure ad](https://docs.microsoft.com/azure/activ
 **Problemas conhecidos** <br>
 Os usuários podem enfrentar problemas de logon único com aplicativos que dependem do Azure AD para autenticação.
 
+**Resolução** <br>
+Os problemas mencionados nesta seção foram corrigidos no Windows 10 maio 2020 atualização (2004).
+
 **Solução alternativa** <br>
 Permita tempo suficiente para que a alteração de UPN seja sincronizada com o Azure AD. Depois de verificar se o novo UPN é refletido no portal do AD do Azure, peça ao usuário para selecionar o bloco "outro usuário" para entrar com seu novo UPN. Você também pode verificar por meio do [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de entrar com seu novo UPN, as referências ao UPN antigo ainda podem aparecer na configuração do Windows "acesso corporativo ou de estudante".
 
 ![Captura de tela dos domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
+
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
 
@@ -149,6 +154,9 @@ Além disso, a seguinte mensagem será exibida, forçando uma reinicialização 
 
 "Seu PC será reiniciado automaticamente em um minuto. O Windows encontrou um problema e precisa ser reiniciado. Você deve fechar esta mensagem agora e salvar seu trabalho ".
 
+**Resolução** <br>
+Os problemas mencionados nesta seção foram corrigidos no Windows 10 maio 2020 atualização (2004).
+
 **Solução alternativa** 
 
 O dispositivo deve ser retirado do Azure AD e reiniciado. Após a reinicialização, o dispositivo automaticamente ingressará no Azure AD novamente e o usuário deverá entrar usando o novo UPN selecionando o bloco "outro usuário". Para desassociar um dispositivo do Azure AD, execute o seguinte comando no prompt de comando:
@@ -156,6 +164,7 @@ O dispositivo deve ser retirado do Azure AD e reiniciado. Após a reinicializaç
 **dsregcmd/Leave**
 
 O usuário precisará se [inscrever novamente](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) no Windows Hello para empresas se ele estiver sendo usado. Os dispositivos Windows 7 e 8,1 não são afetados por esse problema após as alterações de UPN.
+
 
 ## <a name="microsoft-authenticator-known-issues-and-workarounds"></a>Microsoft Authenticator problemas conhecidos e soluções alternativas
 

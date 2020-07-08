@@ -4,15 +4,15 @@ description: Você pode integrar um Firewall do Azure em uma rede virtual com um
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78196681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610618"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Firewall do Azure com o Azure Standard Load Balancer
 
@@ -77,4 +77,4 @@ Para obter mais informações sobre NSGs, consulte [grupos de segurança](../vir
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda a [Implantar e configurar um Firewall do Azure](tutorial-firewall-deploy-portal.md).
+- Saiba como [implantar e configurar um firewall do Azure](tutorial-firewall-deploy-portal.md).

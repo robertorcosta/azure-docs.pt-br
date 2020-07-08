@@ -1,22 +1,22 @@
 ---
 title: Compreender módulos gêmeos no Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ use módulos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610142"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
-Este artigo pressupõe que você leu [compreender e usar dispositivos gêmeos no IoT Hub](iot-hub-devguide-device-twins.md) primeiro. No Hub IoT, em cada identidade de dispositivo, você pode criar até 20 identidades de módulo. Cada identidade de módulo implicitamente gera módulo gêmeo. Semelhante aos gêmeos do dispositivo, os gêmeos do módulo são documentos JSON que armazenam informações de estado do módulo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um módulo gêmeo para cada módulo que você conecta ao Hub IoT. 
+Este artigo pressupõe que você leu [compreender e usar dispositivos gêmeos no IoT Hub](iot-hub-devguide-device-twins.md) primeiro. No Hub IoT, em cada identidade de dispositivo, você pode criar até 50 de identidades de módulo. Cada identidade de módulo implicitamente gera módulo gêmeo. Semelhante aos gêmeos do dispositivo, os gêmeos do módulo são documentos JSON que armazenam informações de estado do módulo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um módulo gêmeo para cada módulo que você conecta ao Hub IoT. 
 
 No lado do dispositivo, os SDKs do dispositivo IoT Hub permitem criar módulos em que cada um abre uma conexão independente para o IoT Hub. Essa funcionalidade permite usar namespaces separados para diferentes componentes em seu dispositivo. Por exemplo, você tem uma máquina de vendas com três sensores diferentes. Cada sensor é controlado por diferentes departamentos na sua empresa. Você pode criar um módulo para cada sensor. Dessa forma, cada departamento só é capaz de enviar trabalhos ou métodos diretos para o sensor controlado por ele, evitando conflitos e erros de usuário.
 
@@ -45,11 +45,11 @@ O ciclo de vida de um módulo gêmeo está vinculado a correspondente [identidad
 
 Um módulo gêmeo é um documento JSON que inclui:
 
-* **Marcações**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcações não são visíveis para os módulos no dispositivo. As marcações são definidas para fins de consulta.
+* **Marcas**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcações não são visíveis para os módulos no dispositivo. As marcações são definidas para fins de consulta.
 
 * **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração ou condições de módulo. O back-end da solução pode definir as propriedades desejadas e o aplicativo de módulo pode lê-las. O aplicativo do módulo também pode receber notificações de alterações nas propriedades desejadas.
 
-* **Propriedades relatadas**. Usado junto com as propriedades desejadas para sincronizar a configuração ou condições de módulo. O aplicativo de módulo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
+* **Propriedades reportadas**. Usado junto com as propriedades desejadas para sincronizar a configuração ou condições de módulo. O aplicativo de módulo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
 
 * **Propriedades de identidade do módulo**. A raiz do documento JSON do módulo gêmeo contém as propriedades somente leitura da identidade de módulo correspondente armazenado na [registro de identidade](iot-hub-devguide-identity-registry.md).
 
@@ -236,39 +236,49 @@ Os [SDKs do dispositivo IoT do Azure](iot-hub-devguide-sdks.md) facilitam o uso 
 
 Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* **Chaves**: todas as chaves em objetos JSON diferenciam maiúsculas de minúsculas 64 bytes de cadeia de caracteres Unicode UTF-8. Caracteres permitidos excluir caracteres de controle UNICODE (segmentos C0 e C1) e `.`, SP, e `$`.
+* **Chaves**: todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
 
 * **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Não há permissão para matrizes.
 
     * Os inteiros podem ter um valor mínimo de-4503599627370496 e um valor máximo de 4503599627370495.
 
-    * Os valores de cadeia de caracteres são codificados em UTF-8 e podem ter um comprimento máximo de 512 bytes.
+    * Os valores de cadeia de caracteres são codificados em UTF-8 e podem ter um comprimento máximo de 4 KB.
 
-* **Profundidade**: todos os objetos JSON em marcas, propriedades desejadas e relatadas podem ter uma profundidade máxima de 5. Por exemplo, o seguinte objeto é válido:
+* **Profundidade**: a profundidade máxima de objetos JSON em marcas, propriedades desejadas e propriedades relatadas é 10. Por exemplo, o seguinte objeto é válido:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>Tamanho do módulo gêmeo
 
-O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com `properties/desired` o `properties/reported`valor de e. Esses totais são exclusivos de elementos somente leitura como `$etag`, `$version`e. `$metadata/$lastUpdated`
+O Hub IoT impõe um limite de tamanho de 8 KB no valor de e `tags` um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported` . Esses totais são exclusivos de elementos somente leitura como `$etag` , `$version` e `$metadata/$lastUpdated` .
 
 O tamanho do papel é calculado da seguinte maneira:
 

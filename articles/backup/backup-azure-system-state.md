@@ -1,17 +1,16 @@
 ---
 title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema do Windows Server e/ou de computadores Windows para o Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611434"
 ---
-# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
+# <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
 Este artigo explica como fazer backup do estado do sistema Windows Server para o Azure. O objetivo é orientá-lo pelas noções básicas.
 
@@ -19,49 +18,9 @@ Se você quiser saber mais sobre o Backup do Azure, leia esta [visão geral](bac
 
 Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) , que permitirá o acesso a qualquer serviço do Azure.
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Para fazer backup do Estado do Sistema do Windows Server, você precisa criar um cofre dos Serviços de Recuperação na região em que deseja armazenar os dados. Você também precisa determinar como deseja que o armazenamento seja replicado.
-
-### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre de Serviços de Recuperação
-
-1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com/) usando a sua assinatura do Azure.
-2. No menu Hub, clique em **Todos os serviços** e na lista de recursos digite **Serviços de Recuperação** e clique em **Cofres dos Serviços de Recuperação**.
-
-    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-system-state/open-rs-vault-list.png)
-
-    Se houver cofres dos serviços de recuperação na assinatura, os cofres serão listados.
-3. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
-
-    ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
-
-    ![Criar Cofre de Serviços de Recuperação - etapa 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
-
-5. Na seção **Assinatura**, use o menu suspenso para escolher a assinatura do Azure. Se você usar apenas uma assinatura, essa assinatura será exibida e você poderá pular para a próxima etapa. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou sugerida). Só haverá múltiplas opções se sua conta organizacional estiver associada a várias assinaturas do Azure.
-
-6. Na seção **Grupo de recursos**:
-
-    * selecione **Criar novo** se você quiser criar um Grupo de recursos.
-    Ou
-    * Selecione **Usar existente** e clique no menu suspenso para ver a lista de grupos de recursos disponíveis.
-
-   Para obter informações completas sobre Grupos de recursos, confira a [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
-
-7. Clique em **Local** para selecionar a região geográfica do cofre. Essa escolha determina a região geográfica para a qual os dados de backup são enviados.
-
-8. Na parte inferior da folha Cofre dos Serviços de Recuperação, clique em **Criar**.
-
-    Talvez demore alguns minutos para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita do portal. Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Recuperação. Se após alguns minutos, você não vir seu cofre, clique em **Atualizar**.
-
-    ![Clique no botão Atualizar](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-    Depois de ver seu cofre na lista de cofres dos Serviços de Recuperação, você estará pronto para configurar a redundância de armazenamento.
-
-### <a name="set-storage-redundancy-for-the-vault"></a>Definir a redundância de armazenamento para o cofre
+## <a name="set-storage-redundancy-for-the-vault"></a>Definir a redundância de armazenamento para o cofre
 
 Quando você criar um cofre de Serviços de Recuperação, certifique-se de que a redundância de armazenamento esteja configurada da maneira desejada.
 
@@ -127,7 +86,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    As credenciais do cofre são baixadas para a pasta Downloads. Após o término do download das credenciais do cofre, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Salvar**. Se você clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Vá para a próxima etapa. As credenciais do cofre estão na pasta Downloads.
+    As credenciais do cofre são baixadas para a pasta Downloads. Após o término do download das credenciais do cofre, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Save** (Salvar). Se você clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Vá para a próxima etapa. As credenciais do cofre estão na pasta Downloads.
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -193,7 +152,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 5. Selecione **Estado do sistema** e, em seguida, clique em **OK**.
 
-6. Clique em **Avançar**.
+6. Clique em **Próximo**.
 
 7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas.
 
@@ -222,7 +181,7 @@ Depois que o backup inicial for concluído, o status **Trabalho concluído** apa
 
   ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="questions"></a>Perguntas?
+## <a name="questions"></a>Dúvidas?
 
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://feedback.azure.com/forums/258995-azure-backup).
 

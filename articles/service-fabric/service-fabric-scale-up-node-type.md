@@ -3,22 +3,19 @@ title: Dimensionar um tipo de nó do Azure Service Fabric
 description: Aprenda como dimensionar um cluster do Microsoft Azure Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610686"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Dimensionar um tipo de nó primário do cluster do Service Fabric
 Este artigo descreve como dimensionar um tipo de nó primário de cluster do Service Fabric aumentando os recursos da máquina virtual. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
 > [!WARNING]
-> Não comece a alterar o serão iniciados alterar o SKU da VM do nodetype primário se o cluster não estiver íntegro. Se o cluster não estiver íntegro, tentar alterar o SKU da VM só desestabilizará o cluster ainda mais.
+> Não tente um procedimento de expansão do tipo de nó primário se o status do cluster não estiver íntegro, pois isso desestabilizará ainda mais o cluster.
 >
-> É recomendável não alterar a SKU da VM de um tipo de nó/conjunto de dimensionamento, a menos que esteja em [Durabilidade prata ou maior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Alterar o Tamanho de SKU da VM é uma operação de infraestrutura no local com destruição de dados. Sem alguma habilidade para atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. Isso significa que seu tipo de nó primário, que está executando os serviços do sistema de malha de serviço com estado ou qualquer tipo de nó que estiver executando suas cargas de trabalho do aplicativo com estado.
->
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -159,6 +156,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="migrate-nodes-to-the-new-scale-set"></a>Migrar nós para o novo conjunto de dimensionamento
 
 Agora estamos prontos para começar a desabilitar os nós do conjunto de dimensionamento original. Com a desabilitação desses nós, os serviços do sistema e os nós semente migram para as VMs do novo conjunto de dimensionamento porque ele também está marcado como tipo de nó primário.
+
+Para escalar verticalmente tipos de nó não primários, nesta etapa, você modificaria a restrição de posicionamento do serviço para incluir o novo tipo de nó/conjunto de dimensionamento de máquinas virtuais e, em seguida, reduzir a contagem de instâncias antiga do conjunto de dimensionamento de máquinas virtuais para zero, um nó por vez (para garantir que a remoção do nó não afete a confiabilidade do cluster
 
 ```powershell
 # Disable the nodes in the original scale set.

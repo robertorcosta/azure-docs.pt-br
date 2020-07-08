@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608255"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -44,7 +44,7 @@ Para obter acesso aos dados de relatórios por meio da API, você precisa ter um
 
 - Leitor de segurança
 
-- Administrador de segurança
+- Administrador de Segurança
 
 - Administrador global
 
@@ -85,7 +85,7 @@ Para configurar seu diretório para acessar a API de relatórios do Microsoft Az
 
     b. Para **tipo de contas com suporte**, selecione **contas somente nesta organização**.
 
-    c. Na caixa **de texto selecionar** URL de `https://localhost` **redirecionamento** , digite.
+    c. Na caixa **de texto selecionar** **URL de redirecionamento** , digite `https://localhost` .
 
     d. Selecione **Registrar**. 
 
@@ -115,7 +115,7 @@ A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar um
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. Na página **permissões necessárias** , selecione **permissões de aplicativo** **, expanda diretório caixa** de seleção **diretório. ReadAll**.  Selecione **Adicionar Permissões**.
+3. Na página **permissões necessárias** , selecione **permissões de aplicativo** **, expanda diretório caixa** de seleção **diretório. ReadAll**.  Escolha **Adicionar permissões**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
@@ -132,7 +132,7 @@ A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar um
 Esta seção mostra como obter as seguintes configurações de seu diretório:
 
 - Nome de domínio
-- ID do cliente
+- ID do Cliente
 - Segredo do cliente
 
 Você precisa desses valores ao configurar chamadas para a API de relatórios. 
@@ -224,6 +224,6 @@ Siga as etapas em [pré-requisitos para acessar a API de relatório de Azure Act
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter dados usando a API de Relatório do Azure AD com certificados](tutorial-access-api-with-certificates.md)
+* [Obter dados usando a API de Relatório do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
 * [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [Referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

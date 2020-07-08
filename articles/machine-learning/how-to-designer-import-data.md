@@ -1,23 +1,23 @@
 ---
 title: Importar dados
 titleSuffix: Azure Machine Learning
-description: Saiba como importar os dados para o designer do Azure Machine Learning de diferentes fontes de dados.
+description: Saiba como importar dados para o designer de Azure Machine Learning de várias fontes de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 2b42f8f9dfe6ef2993b4615f0e4584874beabb28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610941"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importar os dados para o designer do Azure Machine Learning (versão prévia)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importar dados para o designer de Azure Machine Learning (versão prévia)
 
 Neste artigo, você aprenderá a importar seus próprios dados para o designer para criar soluções personalizadas. Há duas maneiras de importar dados para o designer: 
 
@@ -89,6 +89,10 @@ O designer usa um tipo de dados interno chamado para transmitir dados entre mód
 ## <a name="data-constraints"></a>Restrições de dados
 
 Os módulos no designer são limitados pelo tamanho do destino de computação. Em conjuntos de dados maiores, use um recurso de computação do Azure Machine Learning maior. Para obter mais informações sobre a computação do Azure Machine Learning, consulte [O que são os destinos de computação no Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## <a name="access-data-in-a-virtual-network"></a>Acessar dados em uma rede virtual
+
+Se o seu espaço de trabalho estiver em uma rede virtual, você deverá executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [isolamento de rede durante o treinamento & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## <a name="next-steps"></a>Próximas etapas
 
