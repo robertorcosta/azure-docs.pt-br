@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75772916"
 ---
 Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a opção **-debug** com a CLI e a opção **-debug** com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
@@ -24,7 +24,7 @@ Possíveis causas:
 
 *O nome da galeria é inválido.*
 
-Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços. Altere o nome da galeria e tente novamente. 
+Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços. Altere o nome da galeria e tente novamente. 
 
 *O nome da galeria não é exclusivo na sua assinatura.*
 
@@ -52,7 +52,7 @@ Possíveis causas:
 
 *O nome de versão da imagem é inválido.*
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion.MinorVersion.Patch*. Altere o nome da versão de imagem e tente novamente.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion. MinorVersion. patch*. Altere o nome da versão de imagem e tente novamente.
 
 *A imagem gerenciada de origem da qual a versão da imagem está sendo criada não foi encontrada.* 
 

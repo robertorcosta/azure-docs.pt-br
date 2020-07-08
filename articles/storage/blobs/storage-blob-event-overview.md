@@ -7,13 +7,13 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooks
-ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: dineshm
+ms.openlocfilehash: 8f51b6f94ae8a245471757d256a923570582bb12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809066"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -39,7 +39,7 @@ Para exibir exemplos detalhados de como reagir a eventos de armazenamento de BLO
 - [Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Somente as contas de armazenamento do tipo **StorageV2 (uso geral v2)**, **BlockBlobStorage**e **BlobStorage** oferecem suporte à integração de eventos. Contas do tipo **Armazenamento (v1 de uso geral)** *não* dão suporte à integração com a Grade de Eventos.
+> Somente as contas de armazenamento do tipo **StorageV2 (uso geral v2)**, **BlockBlobStorage**e **BlobStorage** oferecem suporte à integração de eventos. O **armazenamento (uso geral v1)** *não oferece* suporte à integração com a grade de eventos.
 
 ## <a name="the-event-model"></a>O modelo de evento
 
@@ -60,7 +60,7 @@ Consulte o artigo [esquema de eventos de armazenamento de BLOBs](../../event-gri
 
 Os [eventos de blob podem ser filtrados](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) pelo tipo de evento, nome do contêiner ou nome do objeto que foi criado/excluído. Os filtros na grade de eventos correspondem ao início ou ao fim do assunto, de forma que os eventos com um assunto correspondente vá para o Assinante.
 
-Para saber mais sobre como aplicar filtros, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+Para saber mais sobre como aplicar filtros, confira [Filtrar eventos para a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 O assunto de eventos do Armazenamento de Blobs usa o formato:
 
@@ -102,7 +102,7 @@ Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas
 > * Use o campo blobType para entender os tipos de operações permitidos no blob, e quais tipos de biblioteca de cliente você deve usar para acessar o blob. Os valores válidos são `BlockBlob` ou `PageBlob`. 
 > * Use o campo de url com os construtores `CloudBlockBlob` e `CloudAppendBlob` para acessar o blob.
 > * Ignore os campos que você não entende. Essa prática ajudará você a manter-se resiliente a novos recursos que possam ser adicionados no futuro.
-> * Se você quiser garantir que o evento **Microsoft. Storage. BlobCreated** seja disparado somente quando um blob de blocos for completamente confirmado, filtre o evento `CopyBlob`para `PutBlob`as `PutBlockList` chamadas `FlushWithClose` da API REST, ou. Essas chamadas de API disparam o evento **Microsoft. Storage. BlobCreated** somente depois que os dados são totalmente confirmados em um blob de blocos. Para saber como criar um filtro, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> * Se você quiser garantir que o evento **Microsoft. Storage. BlobCreated** seja disparado somente quando um blob de blocos for completamente confirmado, filtre o evento para as `CopyBlob` `PutBlob` chamadas da `PutBlockList` `FlushWithClose` API REST, ou. Essas chamadas de API disparam o evento **Microsoft. Storage. BlobCreated** somente depois que os dados são totalmente confirmados em um blob de blocos. Para saber como criar um filtro, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
 ## <a name="next-steps"></a>Próximas etapas

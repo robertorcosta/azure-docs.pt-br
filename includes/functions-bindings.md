@@ -6,16 +6,16 @@ ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 819eed1eb4e32469bf0572a6548f5a2a44091ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77279515"
 ---
 Esta tabela mostra as associações com suporte nas versões principais do tempo de execução de Azure Functions:
 
 
-| Type | 1.x | 2. x e superior<sup>1</sup> | Gatilho | Entrada | Saída |
+| Tipo | 1.x | 2. x e superior<sup>1</sup> | Gatilho | Entrada | Saída |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Armazenamento de BLOBs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
@@ -26,7 +26,7 @@ Esta tabela mostra as associações com suporte nas versões principais do tempo
 | [Microsoft Graph<br/>Tabelas do Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
 | [Microsoft Graph<br/>Arquivos do OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
 | [Microsoft Graph<br/>Email do Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Eventos<br/>de Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Eventos de Microsoft Graph <br/>](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
 | [Microsoft Graph<br/>Tokens de autenticação](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [Aplicativos Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Hubs de Notificação](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|

@@ -5,16 +5,16 @@ description: Saiba como usar o portal do Azure para criar um gateway de aplicati
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6f86f32e64bbbe79ea5a403d04f7d6c29ee6b980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808030"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurar o TLS de ponta a ponta usando o gateway de aplicativo com o portal
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para configurar o TLS de ponta a ponta com um gateway de aplicativo, você precisa de um certificado para o gateway. Os certificados também são necessários para os servidores back-end. O certificado de gateway é usado para derivar uma chave simétrica em conformidade com a especificação do protocolo TLS. A chave simétrica é usada para criptografar e descriptografar o tráfego enviado para o gateway. 
+Para configurar o TLS de ponta a ponta com um gateway de aplicativo, você precisa de um certificado para o gateway. Os certificados também são necessários para os servidores back-end. O certificado de gateway é usado para derivar uma chave simétrica em conformidade com a especificação do protocolo TLS. A chave simétrica então é usada para criptografar e descriptografar o tráfego enviado para o gateway. 
 
 Para a criptografia TLS de ponta a ponta, os servidores back-end corretos devem ser permitidos no gateway de aplicativo. Para permitir esse acesso, carregue o certificado público dos servidores back-end, também conhecidos como certificados de autenticação (v1) ou certificados raiz confiáveis (v2), para o gateway de aplicativo. A adição do certificado garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Essa configuração protege ainda mais a comunicação de ponta a ponta.
 
@@ -119,7 +119,7 @@ Se você escolher a última opção, aplique as etapas no procedimento a seguir.
 
    ![Adicionar certificado raiz confiável](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: 74f5b22ccc822a188059b29d9c661a15cf8412bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593914"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixar e instalar o binário do cliente İSTİO istioctl
 
-Em um shell baseado em bash no MacOS, use `curl` para baixar a versão İSTİO e, em seguida `tar` , extrair com da seguinte maneira:
+Em um shell baseado em bash no MacOS, use `curl` para baixar a versão İSTİO e, em seguida, extrair com `tar` da seguinte maneira:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions

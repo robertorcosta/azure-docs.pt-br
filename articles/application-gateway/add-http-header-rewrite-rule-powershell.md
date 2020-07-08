@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como reescrever cabeçalhos
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 47fe6a5247622e3ad3b3720955068580e0329913
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f205b3a604aa38854969f6f62cbce44f46fa7d25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "64947200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808249"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescrever cabeçalhos de solicitação e resposta HTTP com Aplicativo Azure gateway-Azure PowerShell
 
@@ -22,7 +22,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Você precisa executar Azure PowerShell localmente para concluir as etapas neste artigo. Você também precisa ter o módulo AZ versão 1.0.0 ou posterior instalado. Execute `Import-Module Az` e, `Get-Module Az` em seguida, para determinar a versão que você instalou. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
+- Você precisa executar Azure PowerShell localmente para concluir as etapas neste artigo. Você também precisa ter o módulo AZ versão 1.0.0 ou posterior instalado. Execute `Import-Module Az` e, em seguida, `Get-Module Az` para determinar a versão que você instalou. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
 - Você precisa ter uma instância de SKU do gateway de aplicativo v2. Não há suporte para a regravação de cabeçalhos na SKU v1. Se você não tiver a SKU v2, crie uma instância de [SKU do gateway de aplicativo v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
 
 ## <a name="create-required-objects"></a>Criar objetos necessários
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Especificar a configuração da regra de reescrita do cabeçalho HTTP
 
-Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho de local na resposta HTTP sempre que o cabeçalho Location contiver uma referência a azurewebsites.net. Para fazer isso, adicionaremos uma condição para avaliar se o cabeçalho Location na resposta contém azurewebsites.net. Usaremos o padrão `(https?):\/\/.*azurewebsites\.net(.*)$`. Vamos usar `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor do cabeçalho. Esse valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de local.
+Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho de local na resposta HTTP sempre que o cabeçalho Location contiver uma referência a azurewebsites.net. Para fazer isso, adicionaremos uma condição para avaliar se o cabeçalho Location na resposta contém azurewebsites.net. Usaremos o padrão `(https?):\/\/.*azurewebsites\.net(.*)$` . Vamos usar `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor do cabeçalho. Esse valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de local.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

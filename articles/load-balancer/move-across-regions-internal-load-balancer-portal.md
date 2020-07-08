@@ -3,21 +3,21 @@ title: Mover o Load Balancer interno do Azure para outra região do Azure usando
 description: Use Azure Resource Manager modelo para mover o Load Balancer interno do Azure de uma região do Azure para outra usando o portal do Azure
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: f23923b9d847ef393ebd609eb5fbba530b1a07d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808440"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mover o Load Balancer interno do Azure para outra região usando o portal do Azure
 
 Há vários cenários em que você deseja mover o balanceador de carga interno existente de uma região para outra. Por exemplo, talvez você queira criar um balanceador de carga interno com a mesma configuração para teste. Você também pode querer mover um balanceador de carga interno para outra região como parte do planejamento de recuperação de desastre.
 
-Os balanceadores de carga internos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e a rede virtual de um balanceador de carga interno.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Os balanceadores de carga internos do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente e a rede virtual de um balanceador de carga interno.  Em seguida, você pode preparar o recurso em outra região exportando o balanceador de carga e a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar os modelos na nova região.  Para obter mais informações sobre o Resource Manager e modelos, consulte [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,11 +43,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Exportar o modelo de rede virtual e implantar do portal do Azure
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) > **grupos de recursos**.
+1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos**.
 2. Localize o grupo de recursos que contém a rede virtual de origem e clique nele.
-3. Selecione **configurações** > de >**modelo de exportação**.
+3. Selecione **configurações**de >  >  **modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
-5. Clique em **modelo** > **Editar parâmetros** para abrir o arquivo **Parameters. JSON** no editor online.
+5. Clique em **modelo**  >  **Editar parâmetros** para abrir o **parameters.jsno** arquivo no editor online.
 6. Para editar o parâmetro do nome da rede virtual, altere a propriedade **Value** em **parâmetros**:
 
     ```json
@@ -65,7 +65,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 8. Clique em **salvar** no editor.
 
-9. Clique em **modelo** > **Editar modelo** para abrir o arquivo **Template. JSON** no editor online.
+9. Clique em **modelo**  >  **Editar modelo** para abrir o **template.jsno** arquivo no editor online.
 
 10. Para editar a região de destino em que a VNET será movida, altere a propriedade **local** em recursos:
 
@@ -87,11 +87,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
     ```
 
-11. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central** = **centralus**.
+11. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central**  =  **centralus**.
 
-12. Você também pode alterar outros parâmetros no arquivo **Template. JSON** se escolher e forem opcionais, dependendo dos seus requisitos:
+12. Você também pode alterar outros parâmetros na **template.jsno** arquivo se escolher e forem opcionais, dependendo dos seus requisitos:
 
-    * **Espaço de endereço** -o espaço de endereço da VNET pode ser alterado antes de salvar modificando a seção **recursos** > de**addressSpace** e alterando a propriedade **addressPrefixes** no arquivo **Template. JSON** :
+    * **Espaço de endereço** -o espaço de endereço da VNET pode ser alterado antes de salvar, modificando a seção **recursos de**  >  **addressSpace** e alterando a propriedade **addressPrefixes** no **template.jsno** arquivo:
 
         ```json
                 "resources": [
@@ -111,7 +111,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
         ```
 
-    * **Sub** -rede-o nome da sub-rede e o espaço de endereço de sub-rede podem ser alterados ou adicionados ao modificando a seção **sub-redes** do arquivo **Template. JSON** . O nome da sub-rede pode ser alterado alterando a propriedade **Name** . O espaço de endereço de sub-rede pode ser alterado alterando a propriedade **addressPrefix** no arquivo **Template. JSON** :
+    * **Sub** -rede-o nome da sub-rede e o espaço de endereço de sub-rede podem ser alterados ou adicionados ao modificando a seção **sub-redes** do **template.jsno** arquivo. O nome da sub-rede pode ser alterado alterando a propriedade **Name** . O espaço de endereço de sub-rede pode ser alterado alterando a propriedade **addressPrefix** no **template.jsno** arquivo:
 
         ```json
                 "subnets": [
@@ -142,7 +142,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                 ]
         ```
 
-         No arquivo **Template. JSON** , para alterar o prefixo do endereço, ele deve ser editado em dois locais, na seção listada acima e na seção **tipo** listada abaixo.  Altere a propriedade **addressPrefix** para corresponder à que está acima:
+         No **template.jsno** arquivo, para alterar o prefixo do endereço, ele deve ser editado em dois locais, na seção listada acima e na seção **tipo** listada abaixo.  Altere a propriedade **addressPrefix** para corresponder à que está acima:
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -180,11 +180,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 13. Clique em **salvar** no editor online.
 
-14. Clique em**assinatura** **básica** > para escolher a assinatura na qual a VNET de destino será implantada.
+14. Clique **BASICS**em  >  **assinatura** básica para escolher a assinatura na qual a VNET de destino será implantada.
 
-15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente.
+15. Clique **BASICS**em  >  **grupo de recursos** básico para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente.
 
-16. Verifique se o**local** **básico** > está definido como o local de destino onde você deseja que a VNET seja implantada.
+16. Verifique **BASICS**se o  >  **local** básico está definido como o local de destino onde você deseja que a VNET seja implantada.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.
 
@@ -194,11 +194,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportar o modelo de balanceador de carga interno e implantar do Azure PowerShell
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) > **grupos de recursos**.
+1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos**.
 2. Localize o grupo de recursos que contém o balanceador de carga interno de origem e clique nele.
-3. Selecione **configurações** > de >**modelo de exportação**.
+3. Selecione **configurações**de >  >  **modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
-5. Clique em **modelo** > **Editar parâmetros** para abrir o arquivo **Parameters. JSON** no editor online.
+5. Clique em **modelo**  >  **Editar parâmetros** para abrir o **parameters.jsno** arquivo no editor online.
 
 6. Para editar o parâmetro do nome do balanceador de carga interno, altere a propriedade **DefaultValue** do nome do balanceador de carga interno de origem para o nome do balanceador de carga interno de destino, verifique se o nome está entre aspas:
 
@@ -216,11 +216,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
              }
     ```
 
-6. Para editar o valor da rede virtual de destino que foi movida acima, primeiro você deve obter a ID do recurso e, em seguida, copiá-la e colá-la no arquivo **Parameters. JSON** . Para obter a ID:
+6. Para editar o valor da rede virtual de destino que foi movida acima, primeiro você deve obter a ID do recurso e, em seguida, copiá-la e colá-la na **parameters.jsno** arquivo. Para obter a ID:
 
-    1. Faça logon no [portal do Azure](https://portal.azure.com) > **grupos de recursos** em outra guia ou janela do navegador.
+    1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos** em outra guia ou janela do navegador.
     2. Localize o grupo de recursos de destino que contém a rede virtual movida das etapas acima e clique nela.
-    3. Selecione **configurações** > de >**Propriedades**.
+    3. Selecione **configurações**de >  >  **Propriedades**.
     4. Na folha à direita, realce a **ID do recurso** e copie-a para a área de transferência.  Como alternativa, você pode clicar no botão **copiar para a área de transferência** à direita do caminho da **ID de recurso** .
     5. Cole a ID do recurso na propriedade **DefaultValue** no editor de **Editar parâmetros** aberto na outra janela do navegador ou na guia:
 
@@ -239,8 +239,8 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
         ```
     6. Clique em **salvar** no editor online.
 
-7. Clique em **modelo** > **Editar modelo** para abrir o arquivo **Template. JSON** no editor online.
-8. Para editar a região de destino em que a configuração do balanceador de carga interno será movida, altere a propriedade **local** em **recursos** no arquivo **Template. JSON** :
+7. Clique em **modelo**  >  **Editar modelo** para abrir o **template.jsno** arquivo no editor online.
+8. Para editar a região de destino em que a configuração do balanceador de carga interno será movida, altere a propriedade **local** em **recursos** na **template.jsno** arquivo:
 
     ```json
         "resources": [
@@ -255,11 +255,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                 },
     ```
 
-9.  Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central** = **centralus**.
+9.  Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central**  =  **centralus**.
 
-10. Você também pode alterar outros parâmetros no modelo se escolher e forem opcionais, dependendo dos seus requisitos:
+10. Você também pode alterar outros parâmetros no modelo se quiser, e eles podem ser opcionais dependendo dos seus requisitos:
 
-    * **SKU** -você pode alterar a SKU do balanceador de carga interno na configuração de Standard para básico ou básico para Standard, alterando a propriedade **sku** > **nome** do SKU no arquivo **Template. JSON** :
+    * **SKU** -você pode alterar a SKU do balanceador de carga interno na configuração de Standard para básico ou básico para Standard, alterando a propriedade **sku**  >  **nome** do SKU na **template.jsno** arquivo:
 
         ```json
         "resources": [
@@ -275,7 +275,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
         ```
       Para obter mais informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Regras de balanceamento de carga** – você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do arquivo **Template. JSON** :
+    * **Regras de balanceamento de carga** – você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do **template.jsno** arquivo:
 
         ```json
         "loadBalancingRules": [
@@ -307,7 +307,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
         ```
        Para obter mais informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Investigações** – você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas na seção **investigações** do arquivo **Template. JSON** :
+    * **Investigações** – você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas na seção **investigações** do **template.jsno** arquivo:
 
         ```json
         "probes": [
@@ -327,7 +327,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
         ```
        Para obter mais informações sobre Azure Load Balancer investigações de integridade, consulte [investigações de integridade de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Regras de NAT de entrada** -você pode adicionar ou remover regras de NAT de entrada para o balanceador de carga adicionando ou removendo entradas para a seção **inboundNatRules** do arquivo **Template. JSON** :
+    * **Regras de NAT de entrada** -você pode adicionar ou remover regras de NAT de entrada para o balanceador de carga adicionando ou removendo entradas para a seção **inboundNatRules** do **template.jsno** arquivo:
 
         ```json
         "inboundNatRules": [
@@ -349,7 +349,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
                     }
                 ]
         ```
-        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final do arquivo **Template. JSON** :
+        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final da **template.jsno** arquivo:
 
         ```json
         {
@@ -377,11 +377,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 12. Clique em **salvar** no editor online.
 
-13. Clique em**assinatura** **básica** > para escolher a assinatura na qual o balanceador de carga interno de destino será implantado.
+13. Clique **BASICS**em  >  **assinatura** básica para escolher a assinatura na qual o balanceador de carga interno de destino será implantado.
 
-15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos em que o balanceador de carga de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o balanceador de carga interno de destino ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador de carga interno de origem existente.
+15. Clique **BASICS**em  >  **grupo de recursos** básico para escolher o grupo de recursos em que o balanceador de carga de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o balanceador de carga interno de destino ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador de carga interno de origem existente.
 
-16. Verifique se o**local** **básico** > está definido como o local de destino onde você deseja que o balanceador de carga interno seja implantado.
+16. Verifique **BASICS**se o  >  **local** básico está definido como o local de destino onde você deseja que o balanceador de carga interno seja implantado.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.  Verifique se as IDs de recurso estão preenchidas para todas as redes virtuais na configuração.
 
@@ -399,8 +399,8 @@ Para confirmar as alterações e concluir a movimentação da rede virtual e do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você moveu um balanceador de carga interno do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte:
+Neste tutorial, você moveu um balanceador de carga interno do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
 - [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

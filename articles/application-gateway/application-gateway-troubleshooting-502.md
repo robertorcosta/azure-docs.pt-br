@@ -4,18 +4,18 @@ description: 'Saiba como solucionar problemas de erro do servidor do gateway de 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808151"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solução de problemas de erros de gateway incorreto no Application Gateway
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Comece</a></span>a<span class="has-padding-small">resolver seu problema rapidamente usando nosso agente virtual para executar o <b>diagnóstico automatizado.</b> </span> <span class="has-padding-small"> <sub>Privacy Statement</sub> Política <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
+
 Saiba como solucionar problemas de erros de gateway inválidos (502) recebidos ao usar o gateway de Aplicativo Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -111,9 +111,9 @@ As seguintes propriedades adicionais são adicionadas:
 | Nome |O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
 | Protocolo |O protocolo usado para enviar a investigação. A investigação usa o protocolo definido nas configurações de HTTP do back-end |
 | Host |O nome do host para enviar a investigação. Aplicável somente quando vários sites estão configurados no gateway de aplicativo. Isso é diferente do nome de host de VM. |
-| Caminho |O caminho relativo da investigação. Um caminho válido começa com '/'. A investigação é enviada para \<protocol\>://\<host\>:\<port\>\<path\> |
+| Caminho |O caminho relativo da investigação. Um caminho válido começa com '/'. A investigação é enviada para \<protocol\> :// \<host\> :\<port\>\<path\> |
 | Intervalo |Intervalo de investigação em segundos. Este é o intervalo de tempo entre duas investigações consecutivas. |
-| Tempo limite |Tempo limite da investigação em segundos. Se uma resposta válida não for recebida dentro desse período de tempo limite, a investigação será marcada como com falha. |
+| Tempo limite |Tempo limite da investigação em segundos. Se uma resposta válida não for recebida nesse período limite, a investigação será marcada como com falha. |
 | Limite não íntegro |Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
 
 ### <a name="solution"></a>Solução
@@ -121,8 +121,8 @@ As seguintes propriedades adicionais são adicionadas:
 Valide se a Investigação de Integridade Personalizada está configurada corretamente conforme a tabela anterior. Além das etapas de solução de problemas anteriores, também verifique o seguinte:
 
 * Verifique se a investigação foi especificada corretamente, conforme o [guia](application-gateway-create-probe-ps.md).
-* Se o gateway de aplicativo estiver configurado para um único site, por padrão, o nome do host deverá `127.0.0.1`ser especificado como, a menos que configurado de outra forma na investigação personalizada.
-* Verifique se uma chamada para http://\<host\>:\<port\>\<path\> retorna um código de resultado HTTP 200.
+* Se o gateway de aplicativo estiver configurado para um único site, por padrão, o nome do host deverá ser especificado como `127.0.0.1` , a menos que configurado de outra forma na investigação personalizada.
+* Certifique-se de que uma chamada para http:// \<host\> : \<port\> \<path\> retorna um código de resultado http de 200.
 * Certifique-se de que intervalo, tempo limite e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
 * Se usar uma investigação HTTPS, certifique-se de que o servidor de back-end não requer o SNI, configurando para isso um certificado fallback no próprio servidor de back-end.
 

@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f16902a779fdb7c86fb7506711d2bce77ca9d05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809218"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinar qual modelo de chave de criptografia de armazenamento do Azure está em uso para a conta de armazenamento
 
@@ -57,7 +57,7 @@ $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
 $account.Encryption.KeySource
 ```
 
-Se o valor da propriedade **keySource** for `Microsoft.Storage`, a conta será criptografada com chaves gerenciadas pela Microsoft. Se o valor da propriedade **keySource** for `Microsoft.Keyvault`, a conta será criptografada com chaves gerenciadas pelo cliente.
+Se o valor da propriedade **keySource** for `Microsoft.Storage` , a conta será criptografada com chaves gerenciadas pela Microsoft. Se o valor da propriedade **keySource** for `Microsoft.Keyvault` , a conta será criptografada com chaves gerenciadas pelo cliente.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
@@ -71,11 +71,11 @@ key_source=$(az storage account show \
     --output tsv)
 ```
 
-Se o valor da propriedade **keySource** for `Microsoft.Storage`, a conta será criptografada com chaves gerenciadas pela Microsoft. Se o valor da propriedade **keySource** for `Microsoft.Keyvault`, a conta será criptografada com chaves gerenciadas pelo cliente.
+Se o valor da propriedade **keySource** for `Microsoft.Storage` , a conta será criptografada com chaves gerenciadas pela Microsoft. Se o valor da propriedade **keySource** for `Microsoft.Keyvault` , a conta será criptografada com chaves gerenciadas pelo cliente.
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
 - [Usar chaves gerenciadas pelo cliente com Azure Key Vault para gerenciar a criptografia de armazenamento do Azure](encryption-customer-managed-keys.md)

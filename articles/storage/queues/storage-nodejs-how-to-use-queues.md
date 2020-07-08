@@ -1,28 +1,31 @@
 ---
-title: Usar o armazenamento de filas do Azure do node. js – armazenamento do Azure
+title: Usar o armazenamento de filas do Azure de Node.js armazenamento do Azure
 description: Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b8f15831c02a74bbba85ca4327369af6a4dbb2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808802"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Usar o serviço fila do Azure para criar e excluir filas do node. js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Usar o serviço fila do Azure para criar e excluir filas do Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Visão geral
 Este guia mostra como executar cenários comuns usando o serviço Fila do Microsoft Azure. As amostras são gravadas usando a API do Node.js. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
+
+> [!IMPORTANT]
+> Este artigo refere-se à versão herdada da biblioteca de cliente do armazenamento do Azure para JavaScript. Para começar a usar a versão mais recente, consulte [início rápido: biblioteca de cliente de armazenamento de fila do Azure para JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -51,7 +54,7 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. Você pode executar manualmente o comando **ls** para verificar se uma **pasta\_node modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
+3. Você pode executar manualmente o comando **ls** para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
 
 ### <a name="import-the-package"></a>Importar o pacote
 Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte superior do arquivo **server.js** do aplicativo no qual você pretende usar o armazenamento:
@@ -83,7 +86,7 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 Se a fila for criada, `result.created` é true. Se a fila existir, `result.created` é false.
 
 ### <a name="filters"></a>Filtros
-É possível aplicar operações de filtragem opcionais às operações executadas usando **QueueService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Filtros são objetos que implementam um método com a assinatura:
+É possível aplicar operações de filtragem opcionais às operações executadas usando **QueueService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)

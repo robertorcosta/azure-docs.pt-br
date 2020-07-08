@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 05/15/2019
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: 96828a854c340b89c26023ce60f9c85dd1bb4cdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: 8a3de37f6442900f600f3c6a3efaf75141d151bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80473921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808982"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 
@@ -170,7 +170,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o cmdlet Remove-
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover todos os ativos que você criou neste exercício, remova o grupo de recursos. Isso também exclui todos os recursos contidos no grupo. Nesse caso, ele remove a conta de armazenamento criada e o próprio grupo de recursos.
 

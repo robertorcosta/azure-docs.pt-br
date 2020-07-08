@@ -5,17 +5,17 @@ description: Saiba como criar uma SAS de delegação de usuário com credenciais
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bad97f9bc9eaa3aad02dfcb5e82d2171e93f2dac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "75371982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809021"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o CLI do Azure
 
@@ -60,7 +60,7 @@ Quando você cria uma SAS de delegação de usuário com a CLI do Azure, a chave
 
 Como o intervalo máximo em que a chave de delegação de usuário é válida é de 7 dias a partir da data de início, você deve especificar um tempo de expiração para a SAS que está dentro de 7 dias da hora de início. A SAS é inválida depois que a chave de delegação do usuário expira, portanto, uma SAS com um tempo de expiração superior a 7 dias ainda será válida por sete dias.
 
-Ao criar uma SAS de delegação de usuário `--auth-mode login` , `--as-user parameters` o e o são obrigatórios. Especifique o *logon* para `--auth-mode` o parâmetro para que as solicitações feitas ao armazenamento do Azure sejam autorizadas com suas credenciais do Azure AD. Especifique o `--as-user` parâmetro para indicar que a SAS retornada deve ser uma SAS de delegação de usuário.
+Ao criar uma SAS de delegação de usuário, o `--auth-mode login` e o `--as-user parameters` são obrigatórios. Especifique o *logon* para o `--auth-mode` parâmetro para que as solicitações feitas ao armazenamento do Azure sejam autorizadas com suas credenciais do Azure AD. Especifique o `--as-user` parâmetro para indicar que a SAS retornada deve ser uma SAS de delegação de usuário.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Criar uma SAS de delegação de usuário para um contêiner
 

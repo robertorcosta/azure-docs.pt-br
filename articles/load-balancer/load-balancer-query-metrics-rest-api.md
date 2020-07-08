@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74225251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808381"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obter Load Balancer métricas de uso usando a API REST
 
@@ -40,7 +40,7 @@ Os cabeçalhos a seguir são necessários:
 |*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
 |*Autorização:*|Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |  
 
-### <a name="uri-parameters"></a>Parâmetros de URI
+### <a name="uri-parameters"></a>Parâmetros do URI
 
 | Nome | Descrição |
 | :--- | :---------- |
@@ -49,7 +49,7 @@ Os cabeçalhos a seguir são necessários:
 | loadBalancerName | O nome do Azure Load Balancer. |
 | nomes de métrica | Lista separada por vírgulas de [métricas válidas do Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | A versão da API a ser usada para a solicitação.<br /><br /> Este documento abrange a versão da API `2018-01-01`, incluída na URL acima.  |
-| TimeSpan | O período de tempo da consulta. É uma cadeia de caracteres com o formato `startDateTime_ISO/endDateTime_ISO`a seguir. Este parâmetro opcional está configurado para retornar dados de um dia no exemplo. |
+| TimeSpan | O período de tempo da consulta. É uma cadeia de caracteres com o formato a seguir `startDateTime_ISO/endDateTime_ISO` . Este parâmetro opcional está configurado para retornar dados de um dia no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo da solicitação

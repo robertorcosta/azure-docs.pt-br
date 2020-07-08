@@ -4,15 +4,15 @@ description: Descreve como solucionar problemas de integridade de back-end para 
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648432"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808188"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no Gateway de Aplicativo
 ==================================================
@@ -81,7 +81,7 @@ Depois de você receber um status de servidor de back-end Não íntegro para tod
 A mensagem exibida na coluna **Detalhes** fornece mais informações detalhadas sobre o problema e, com base nelas, você pode começar a solucionar o problema.
 
 > [!NOTE]
-> A solicitação de análise padrão é enviada no formato do \<protocolo\>://127.0.0.1:\<port\>/. Por exemplo, http://127.0.0.1:80 para uma investigação http na porta 80. Somente os códigos de status HTTP de 200 a 399 são considerados íntegros. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o Gateway de Aplicativo investigue um protocolo, nome do host ou caminho diferente e reconheça um código de status diferente como Íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
+> A solicitação de investigação padrão é enviada no formato \<protocol\> ://127.0.0.1: \<port\> /. Por exemplo, http://127.0.0.1:80 para uma investigação http na porta 80. Somente os códigos de status HTTP de 200 a 399 são considerados íntegros. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o Gateway de Aplicativo investigue um protocolo, nome do host ou caminho diferente e reconheça um código de status diferente como Íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
 
 <a name="error-messages"></a>Mensagens de erro
 ------------------------
@@ -170,7 +170,7 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
 
 **Mensagem:** o código de status da resposta HTTP do back-end\' não corresponde à configuração da investigação. Esperado:{HTTPStatusCode0} Recebido:{HTTPStatusCode1}.
 
-**Causa:** depois que a conexão TCP for estabelecida e um handshake TLS for concluído (se o TLS estiver ativado), o Gateway de Aplicativo enviará a investigação como uma solicitação HTTP GET para o servidor back-end. Conforme descrito anteriormente, a investigação padrão será o \<protocol\>://127.0.0.1:\<port\>/ e considera os códigos de status de resposta na faixa 200 a 399 como Íntegros. Se o servidor retornar qualquer outro código de status, ele será marcado como Não íntegro nesta mensagem.
+**Causa:** depois que a conexão TCP for estabelecida e um handshake TLS for concluído (se o TLS estiver ativado), o Gateway de Aplicativo enviará a investigação como uma solicitação HTTP GET para o servidor back-end. Conforme descrito anteriormente, a investigação padrão será \<protocol\> ://127.0.0.1: \<port\> /, e considerará os códigos de status de resposta no Rage 200 a 399 como íntegro. Se o servidor retornar qualquer outro código de status, ele será marcado como Não íntegro nesta mensagem.
 
 **Solução:** dependendo do código de resposta do servidor back-end, você pode executar as seguintes etapas. Alguns dos códigos de status comuns estão listados aqui:
 
@@ -209,7 +209,7 @@ Saiba mais sobre a [correspondência de investigação do Gateway de Aplicativo]
 
 #### <a name="backend-server-certificate-invalid-ca"></a>AC inválida do certificado do servidor back-end
 
-**Mensagem:** O certificado do servidor usado pelo back-end não é assinado por uma CA (Autoridade de Certificação) bem conhecida. Liste o back-end no Gateway de Aplicativo, carregando o certificado raiz do certificado do servidor usado pelo back-end.
+**Mensagem:** O certificado do servidor usado pelo back-end não é assinado por uma CA (Autoridade de Certificação) bem conhecida. Permita o back-end no gateway de aplicativo carregando o certificado raiz do certificado do servidor usado pelo back-end.
 
 **Causa:** O SSL de ponta a ponta com o Gateway de Aplicativo v2 exige que o certificado do servidor de back-end seja verificado para considerar o servidor íntegro.
 Para que um certificado TLS/SSL seja confiável, o certificado do servidor back-end deve ser emitido por uma autoridade de certificação incluída no armazenamento confiável do Gateway de Aplicativo. Se o certificado não tiver sido emitido por uma autoridade de certificação confiável (por exemplo, certificados autoassinados), os usuários deverão carregar o certificado do emissor para o Gateway de Aplicativo.

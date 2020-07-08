@@ -3,17 +3,17 @@ title: Enviar eventos de Armazenamento de Blobs do Azure para o ponto de extremi
 description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs. Envie os eventos para um Webhook. Processe os eventos em um aplicativo Web.
 author: normesta
 ms.author: normesta
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: ad5662a722db764d09c1ead528a98c09c1d3df7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6cf929af951a6bbd498d13cd514b8cae8e353f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745522"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809132"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Início rápido: rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure
 
@@ -159,5 +159,5 @@ az group delete --name <resource_group_name>
 
 Agora que sabe como criar tópicos e assinaturas de evento, saiba mais sobre os Eventos de Armazenamento de Blobs e o que a Grade de Eventos pode fazer por você:
 
-- [Reagir aos eventos de armazenamento de Blobs](storage-blob-event-overview.md)
+- [Reagindo a eventos de Armazenamento de Blobs](storage-blob-event-overview.md)
 - [Sobre a Grade de Eventos](../../event-grid/overview.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807769"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -31,7 +31,7 @@ O glossário do Microsoft Azure é um pequeno dicionário de terminologia de nuv
 
 ## <a name="account"></a>account
 Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Ele também é conhecido como uma conta do Azure Embora uma conta pode ser um dos seguintes: um trabalho existente, escola, ou pessoais conta da Microsoft, ou um nome de usuário do Office 365 e senha. Você também pode criar uma conta para gerenciar uma assinatura do Azure, quando você se inscreve para o [avaliação gratuita](https://azure.microsoft.com).  
-veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) e [contas que você pode usar para entrar no](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+Consulte [inscrever-se para obter uma assinatura do Azure com sua conta do Microsoft 365](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) e [contas que você pode usar para entrar](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicativo de API
 Outro nome para o [aplicativo do serviço de aplicativo](#app-service-app).
@@ -123,13 +123,13 @@ Uma assinatura que permite que você conceda acesso limitado a um recurso, sem e
 
 ## <a name="storage-account"></a>do Azure
 Uma conta que fornece acesso aos serviços de Blob do Azure, de Fila, de Tabelas e de Arquivo no Armazenamento do Azure. O nome da conta de armazenamento define o namespace exclusivo para os objetos de dados de Armazenamento do Azure.  
-Veja [Sobre as contas de armazenamento do Azure](storage/common/storage-create-storage-account.md)
+Consulte [sobre as contas de armazenamento do Azure](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>subscription
 Um contrato do cliente com a Microsoft que permite a obtenção dos serviços do Azure. Os preços da assinatura e os termos relacionados são governados pela oferta escolhida para a assinatura.
 Veja [Contrato de Assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) e [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-## <a name="tag"></a>marca
+## <a name="tag"></a>marcação
 Um termo de indexação que permite a classificação dos recursos de acordo com suas necessidades de gerenciamento ou cobrança. Quando você tiver uma coleção complexa de recursos, você poderá usar marcas para visualizar esses ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento.  
 Veja [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md)
 
@@ -153,7 +153,7 @@ Veja [Visão geral da Rede Virtual](virtual-network/virtual-networks-overview.md
 ## <a name="web-app"></a>Aplicativo Web
 Outro nome para o [Aplicativo de Serviço de Aplicativo](#app-service-app).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de Recurso de Nuvem](https://azure.microsoft.com/resources/)  

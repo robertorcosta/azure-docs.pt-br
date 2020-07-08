@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152883"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807853"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das versões do Durable Functions
 
@@ -50,19 +50,19 @@ Instale a versão 2. x da [extensão de associações Durable Functions](https:/
 
 O Durable Functions 2. x apresenta várias alterações significativas. Os aplicativos Durable Functions 1. x não são compatíveis com o Durable Functions 2. x sem alterações de código. Esta seção lista algumas das alterações que você deve fazer ao atualizar suas funções da versão 1. x para 2. x.
 
-#### <a name="hostjson-schema"></a>Esquema host. JSON
+#### <a name="hostjson-schema"></a>Host.jsno esquema
 
-O Durable Functions 2. x usa um novo esquema host. JSON. As principais alterações de 1. x incluem:
+O Durable Functions 2. x usa um novo host.jsno esquema. As principais alterações de 1. x incluem:
 
 * `"storageProvider"`(e a `"azureStorage"` subseção) para configuração específica de armazenamento.
 * `"tracing"`para rastreamento e configuração de log.
 * `"notifications"`(e a `"eventGrid"` subseção) para configuração de notificação da grade de eventos.
 
-Consulte a [documentação de referência do Durable Functions host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) para obter detalhes.
+Consulte a [Durable Functions host.jsna documentação de referência](durable-functions-bindings.md#durable-functions-2-0-host-json) para obter detalhes.
 
 #### <a name="default-taskhub-name-changes"></a>Alterações de nome de taskhub padrão
 
-Na versão 1. x, se um nome de Hub de tarefas não foi especificado em host. JSON, o padrão é "DurableFunctionsHub". Na versão 2. x, o nome do hub de tarefas padrão agora é derivado do nome do aplicativo de funções. Por isso, se você não tiver especificado um nome de Hub de tarefas ao atualizar para 2. x, seu código estará operando com o novo hub de tarefas e todas as orquestrações em andamento não terão mais um aplicativo processando-os. Para contornar isso, você pode definir explicitamente o nome do hub de tarefas para o padrão v1. x de "DurableFunctionsHub", ou pode seguir nossas [diretrizes de implantação sem tempo de inatividade](durable-functions-zero-downtime-deployment.md) para obter detalhes sobre como lidar com alterações significativas para orquestrações em andamento.
+Na versão 1. x, se um nome de Hub de tarefas não foi especificado no host.jsem, ele foi padronizado como "DurableFunctionsHub". Na versão 2. x, o nome do hub de tarefas padrão agora é derivado do nome do aplicativo de funções. Por isso, se você não tiver especificado um nome de Hub de tarefas ao atualizar para 2. x, seu código estará operando com o novo hub de tarefas e todas as orquestrações em andamento não terão mais um aplicativo processando-os. Para contornar isso, você pode definir explicitamente o nome do hub de tarefas para o padrão v1. x de "DurableFunctionsHub", ou pode seguir nossas [diretrizes de implantação sem tempo de inatividade](durable-functions-zero-downtime-deployment.md) para obter detalhes sobre como lidar com alterações significativas para orquestrações em andamento.
 
 #### <a name="public-interface-changes-net-only"></a>Alterações de interface pública (somente .NET)
 
@@ -77,8 +77,12 @@ A tabela a seguir representa as principais alterações:
 | `DurableActivityContext` ou `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-No caso em que uma classe base abstrata continha métodos virtuais, esses métodos virtuais foram substituídos por métodos de extensão `DurableContextExtensions`definidos em.
+No caso em que uma classe base abstrata continha métodos virtuais, esses métodos virtuais foram substituídos por métodos de extensão definidos em `DurableContextExtensions` .
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>alterações de Function. JSON (script JavaScript e C#)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>function.jssobre alterações (script JavaScript e C#)
 
-No Durable Functions 1. x, a associação de cliente de orquestração `type` usa `orchestrationClient`um de. A versão 2. x `durableClient` usa em vez disso.
+No Durable Functions 1. x, a associação de cliente de orquestração usa um `type` de `orchestrationClient` . A versão 2. x usa `durableClient` em vez disso.
+
+#### <a name="raise-event-changes"></a>Gerar alterações de evento
+
+No Durable Functions 1. x, chamar a API de [evento raise](durable-functions-external-events.md#send-events) e especificar uma instância que não existia resultou em uma falha silenciosa. A partir do 2. x, a geração de um evento para uma orquestração inexistente resulta em uma exceção.

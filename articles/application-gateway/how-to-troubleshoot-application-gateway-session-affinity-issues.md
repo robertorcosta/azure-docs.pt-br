@@ -5,15 +5,15 @@ description: Este artigo fornece informações sobre como solucionar problemas d
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f5f5c16f3d6aa1d7115e99cbae0dbd6cd926b25a
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5acf4ac1ec75d5cec057e4b66e3c6cbd8a463271
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808023"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solucionar problemas de afinidade de sessão de gateway Aplicativo Azure
 
@@ -161,7 +161,7 @@ Ferramentas de depuração da Web como o Fiddler podem ajudá-lo a depurar aplic
 
 Use o depurador da Web de sua escolha. Neste exemplo, usaremos o Fiddler para capturar e analisar os tráfegos http ou HTTPS, siga as instruções:
 
-1. Baixe a ferramenta Fiddler em <https://www.telerik.com/download/fiddler>.
+1. Baixe a ferramenta Fiddler em <https://www.telerik.com/download/fiddler> .
 
     > [!NOTE]
     > Escolha Fiddler4 se o computador de captura tiver o .NET 4 instalado. Caso contrário, escolha fiddler2.
@@ -174,7 +174,7 @@ Use o depurador da Web de sua escolha. Neste exemplo, usaremos o Fiddler para ca
 
     ![solução de problemas – afinidade de sessão-problemas-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. Provavelmente, você estará interessado em tráfego HTTPS descriptografado e poderá habilitar a descriptografia de HTTPS selecionando **ferramentas** > **Fiddler opções**e marcando a caixa " **descriptografar tráfego HTTPS**".
+4. Provavelmente, você estará interessado em tráfego HTTPS descriptografado e poderá habilitar a descriptografia de HTTPS selecionando **ferramentas**  >  **Fiddler opções**e marcando a caixa " **descriptografar tráfego HTTPS**".
 
     ![solução de problemas – afinidade de sessão-problemas-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -182,7 +182,7 @@ Use o depurador da Web de sua escolha. Neste exemplo, usaremos o Fiddler para ca
 
     ![solução de problemas – afinidade de sessão-problemas-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
-6. Depois de reproduzir o problema, salve o arquivo para revisão selecionando **arquivo** > **salvar** > **todas as sessões..**. 
+6. Depois de reproduzir o problema, salve o arquivo para revisão selecionando **arquivo**  >  **salvar**  >  **todas as sessões..**. 
 
     ![solução de problemas – afinidade de sessão-problemas-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 

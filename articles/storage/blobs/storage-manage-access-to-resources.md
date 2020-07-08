@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.openlocfilehash: 7c524cb30b73c95329650924123b2ebc26a5d8a5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.reviewer: ozgun
+ms.openlocfilehash: 61f27d81cda2e57eb5730016dcc22252508fdd01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808999"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerenciar o acesso de leitura anônimo aos contêineres e blobs
 
@@ -59,7 +59,7 @@ O exemplo a seguir define as permissões do contêiner para acesso de leitura p�
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_SetPublicContainerPermissions":::
 
-# <a name="net-v11-sdk"></a>[\.SDK do NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 Para definir as permissões para um contêiner usando a biblioteca de cliente de armazenamento do Azure para .NET, primeiro recupere as permissões existentes do contêiner chamando um dos seguintes métodos:
 
@@ -100,7 +100,7 @@ Você pode criar um novo objeto de cliente de serviço para acesso anônimo forn
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_CreateAnonymousBlobClient":::
 
-# <a name="net-v11-sdk"></a>[\.SDK do NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -130,7 +130,7 @@ Se tiver a URL para um contêiner que está disponível de forma anônima, você
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_ListBlobsAnonymously":::
 
-# <a name="net-v11-sdk"></a>[\.SDK do NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 public static void ListBlobsAnonymously()
@@ -158,7 +158,7 @@ Se tiver a URL para um blob que está disponível para acesso anônimo, você po
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_DownloadBlobAnonymously":::
 
-# <a name="net-v11-sdk"></a>[\.SDK do NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 public static void DownloadBlobAnonymously()

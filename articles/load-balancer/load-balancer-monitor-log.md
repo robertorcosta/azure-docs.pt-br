@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7563eb4d22048021886925f6864e3616bed83a75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809186"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs do Azure Monitor para o Basic Load Balancer
 
@@ -38,14 +38,14 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) antes de continuar.
 
 1. No portal, clique em **grupos de recursos**.
-2. Selecione ** \<Resource-Group-Name>** em que o balanceador de carga é.
+2. Selecione **\<resource-group-name>** onde está o balanceador de carga.
 3. Selecione o balanceador de carga.
-4. Selecione **monitoramento** > **configurações de diagnóstico**.
+4. Selecione **monitoramento**  >  **configurações de diagnóstico**.
 5. No painel **configurações de diagnóstico** , em **configurações de diagnóstico**, selecione **+ Adicionar configuração de diagnóstico**.
 6. No painel criação de **configurações de diagnóstico** , insira **MyLBDiagnostics** no campo **nome** .
 7. Você tem três opções para as **configurações de diagnóstico**.  Você pode escolher um, dois ou todos os três e configurar cada um para seus requisitos:
    * **Arquivar em uma conta de armazenamento**
-   * **Transmitir para um hub de eventos**
+   * **Transmitir por streaming para um hub de eventos**
    * **Enviar para o Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Arquivar em uma conta de armazenamento

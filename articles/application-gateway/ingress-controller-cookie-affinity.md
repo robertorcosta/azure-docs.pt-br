@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como habilitar a afinidade 
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: adacd805e736524fd7956c4bbc0ad402980b4cd0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 3af2705fedbb9c19d4f128e8e997d3fa73f8b5a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807963"
 ---
 # <a name="enable-cookie-based-affinity-with-an-application-gateway"></a>Habilitar afinidade baseada em cookie com um gateway de aplicativo
 Conforme descrito na [documentação do gateway de aplicativo Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#http-settings), o gateway de aplicativo dá suporte à afinidade baseada em cookie, o que significa que ele pode direcionar o tráfego subsequente de uma sessão de usuário para o mesmo servidor para processamento.

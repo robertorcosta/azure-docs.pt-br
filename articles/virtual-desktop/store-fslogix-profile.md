@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4bb315991846b115070854b6e81caf16232fef6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808526"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows
 
-O Azure oferece várias soluções de armazenamento que você pode usar para armazenar seu contêiner de perfil do FSLogix. Este artigo compara as soluções de armazenamento oferecidas pelo Azure para contêineres de perfil de usuário FSLogix de área de trabalho virtual do Windows.
+O Azure oferece várias soluções de armazenamento que você pode usar para armazenar seu contêiner de perfil do FSLogix. Este artigo compara as soluções de armazenamento oferecidas pelo Azure para contêineres de perfil de usuário FSLogix de área de trabalho virtual do Windows. É recomendável armazenar contêineres de perfil FSLogix em arquivos do Azure para a maioria de nossos clientes. 
 
-A área de trabalho virtual do Windows oferece contêineres de perfil de FSLogix como a solução de perfil de usuário recomendada. O FSLogix é projetado para perfis de roaming em ambientes de computação remota, como área de trabalho virtual do Windows. Ao entrar, esse contêiner é dinamicamente anexado ao ambiente de computação usando um VHD (disco rígido virtual) com suporte nativo e um VHDX (disco rígido virtual) do Hyper-V. O perfil do usuário fica imediatamente disponível e aparece no sistema exatamente como um perfil de usuário nativo.
+A área de trabalho virtual do Windows oferece contêineres de perfil de FSLogix como a solução de perfil de usuário recomendada. O FSLogix é projetado para usar perfis móveis em ambientes de computação remota, como área de trabalho virtual do Windows. Ao entrar, esse contêiner é dinamicamente anexado ao ambiente de computação usando um VHD (disco rígido virtual) com suporte nativo e um VHDX (disco rígido virtual) do Hyper-V. O perfil do usuário fica imediatamente disponível e aparece no sistema exatamente como um perfil de usuário nativo.
 
 As tabelas a seguir comparam as soluções de armazenamento ofertas de armazenamento do Azure para perfis de usuário de contêiner do Windows Virtual Desktop FSLogix.
 
@@ -27,7 +27,7 @@ As tabelas a seguir comparam as soluções de armazenamento ofertas de armazenam
 
 |Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de Armazenamento Direct|
 |--------|-----------|------------------|---------------------|
-|Caso de uso|Propósito geral|Ultra desempenho ou migração do NetApp local|Multiplataforma|
+|Caso de uso|Propósito geral|Ultra desempenho ou migração do NetApp local|Plataforma cruzada|
 |Serviço de plataforma|Sim, solução nativa do Azure|Sim, solução nativa do Azure|Não, autogerenciado|
 |Disponibilidade regional|Todas as regiões|[Selecionar regiões](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Todas as regiões|
 |Redundância|Localmente redundante/com redundância de zona/redundância geográfica|Localmente redundante|Localmente redundante/com redundância de zona/redundância geográfica|
@@ -40,7 +40,7 @@ As tabelas a seguir comparam as soluções de armazenamento ofertas de armazenam
 
 |Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de Armazenamento Direct|
 |--------|-----------|------------------|---------------------|
-|Acesso|Nuvem, local e híbrido (sincronização de arquivos do Azure)|Nuvem, local (via ExpressRoute)|Nuvem, local|
+|Access|Nuvem, local e híbrido (sincronização de arquivos do Azure)|Nuvem, local (via ExpressRoute)|Nuvem, local|
 |Backup|Integração de instantâneo do backup do Azure|Instantâneos de Azure NetApp Files|Integração de instantâneo do backup do Azure|
 |Segurança e conformidade|[Todos os certificados com suporte do Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO concluído|[Todos os certificados com suporte do Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Integração do Microsoft Azure Active Directory|[Active Directory e Azure Active Directory Domain Services nativos](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Somente suporte nativo Active Directory ou Azure Active Directory Domain Services|

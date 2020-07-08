@@ -3,15 +3,15 @@ title: Mover um balanceador de carga externo do Azure para outra região do Azur
 description: Use um modelo de Azure Resource Manager para mover um balanceador de carga externo de uma região do Azure para outra usando o portal do Azure.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808722"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Mover um balanceador de carga externo para outra região usando o portal do Azure
 
@@ -43,9 +43,9 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o IP público de origem e selecione-o.
-3. Selecione **configurações** > **Exportar modelo**.
+3. Selecione **configurações**  >  **Exportar modelo**.
 4. Selecione **implantar** em **Exportar modelo**.
-5. Selecione **modelo** > **Editar parâmetros** para abrir o arquivo Parameters. JSON no editor online.
+5. Selecione **modelo**  >  **Editar parâmetros** para abrir o parameters.jsno arquivo no editor online.
 8. Para editar o parâmetro do nome do IP público, altere a propriedade **Value** em **parâmetros** do nome IP público de origem para o nome do seu IP público de destino. Coloque o nome entre aspas.
 
     ```json
@@ -63,7 +63,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
     Selecione **salvar** no editor.
 
-9.  Selecione **modelo** > **Editar modelo** para abrir o arquivo template. JSON no editor online.
+9.  Selecione **modelo**  >  **Editar modelo** para abrir o template.jsno arquivo no editor online.
 
 10. Para editar a região de destino para a qual o IP público será movido, altere a propriedade **local** em **recursos**:
 
@@ -95,7 +95,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
     
 12. Você também pode alterar outros parâmetros no modelo se quiser ou precisar, dependendo de seus requisitos:
 
-    * **SKU**. Você pode alterar a SKU do IP público na configuração de Standard para básico ou de básico para Standard alterando a propriedade **Name** em **SKU** no arquivo template. JSON:
+    * **SKU**. Você pode alterar a SKU do IP público na configuração de Standard para básico ou de básico para Standard alterando a propriedade **Name** em **SKU** no template.jsno arquivo:
 
         ```json
           "resources": [
@@ -141,11 +141,11 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
  
 13. Selecione **salvar** no editor online.
 
-14. Selecione **BASICS** > **assinatura** básica para escolher a assinatura na qual o IP público de destino será implantado.
+14. Selecione **BASICS**  >  **assinatura** básica para escolher a assinatura na qual o IP público de destino será implantado.
 
-15. Selecione **BASICS** > **grupo de recursos** básicos para escolher o grupo de recursos no qual o IP público de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o IP público de destino. Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
+15. Selecione **BASICS**  >  **grupo de recursos** básicos para escolher o grupo de recursos no qual o IP público de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o IP público de destino. Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
 
-16. Verifique se **BASICS** > **local** básico está definido como o local de destino onde você deseja que o IP público seja implantado.
+16. Verifique se **BASICS**  >  **local** básico está definido como o local de destino onde você deseja que o IP público seja implantado.
 
 17. Em **configurações**, verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros.
 
@@ -159,9 +159,9 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o balanceador de carga externo de origem e selecione-o.
-3. Selecione **configurações** > **Exportar modelo**.
+3. Selecione **configurações**  >  **Exportar modelo**.
 4. Selecione **implantar** em **Exportar modelo**.
-5. Selecione **modelo** > **Editar parâmetros** para abrir o arquivo Parameters. JSON no editor online.
+5. Selecione **modelo**  >  **Editar parâmetros** para abrir o parameters.jsno arquivo no editor online.
 
 5. Para editar o parâmetro do nome do balanceador de carga externo, altere a propriedade **Value** do nome do balanceador de carga externo de origem para o nome do balanceador de carga externo de destino. Coloque o nome entre aspas.
 
@@ -178,11 +178,11 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
     ```
 
-6.  Para editar o valor do IP público de destino que você moveu nas etapas anteriores, primeiro você deve obter a ID do recurso e, em seguida, colá-la no arquivo Parameters. JSON. Para obter a ID:
+6.  Para editar o valor do IP público de destino que você moveu nas etapas anteriores, primeiro você deve obter a ID do recurso e, em seguida, colá-la na parameters.jsno arquivo. Para obter a ID:
 
     1. Em outra guia ou janela do navegador, entre no [portal do Azure](https://portal.azure.com) e selecione **grupos de recursos**.
-    2. Localize o grupo de recursos de destino que contém o IP público que você moveu nas etapas anteriores. Selecione-o.
-    3. Selecione **configurações** > **Propriedades**.
+    2. Localize o grupo de recursos de destino que contém o IP público que você moveu nas etapas anteriores. Selecione-a.
+    3. Selecione **configurações**  >  **Propriedades**.
     4. Na folha à direita, realce a **ID do recurso** e copie-a para a área de transferência. Como alternativa, você pode selecionar **copiar para a área de transferência** à direita do caminho da **ID de recurso** .
     5. Cole a ID do recurso na propriedade **valor** no editor **Editar parâmetros** que está aberto na outra janela do navegador ou na guia:
 
@@ -202,7 +202,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
     6. Selecione **salvar** no editor online.
 
 
-7.  Se você tiver configurado o NAT de saída e as regras de saída para o balanceador de carga, você verá uma terceira entrada nesse arquivo para a ID externa do IP público de saída. Repita as etapas anteriores na **região de destino** para obter a ID para o IP público de saída. Cole essa ID no arquivo Parameters. JSON:
+7.  Se você tiver configurado o NAT de saída e as regras de saída para o balanceador de carga, você verá uma terceira entrada nesse arquivo para a ID externa do IP público de saída. Repita as etapas anteriores na **região de destino** para obter a ID para o IP público de saída. Cole essa ID na parameters.jsno arquivo:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,8 +223,8 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
         },
     ```
 
-8.  Selecione **modelo** > **Editar modelo** para abrir o arquivo template. JSON no editor online.
-9.  Para editar a região de destino para a qual a configuração do balanceador de carga externo será movida, altere a propriedade **local** em **recursos** no arquivo template. JSON:
+8.  Selecione **modelo**  >  **Editar modelo** para abrir o template.jsno arquivo no editor online.
+9.  Para editar a região de destino para a qual a configuração do balanceador de carga externo será movida, altere a propriedade **local** em **recursos** na template.jsno arquivo:
 
     ```json
         "resources": [
@@ -243,7 +243,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 11. Você também pode alterar outros parâmetros no modelo se quiser ou precisar, dependendo de seus requisitos:
 
-    * **SKU**. Você pode alterar a SKU do balanceador externo de carga na configuração de Standard para básico ou de básico para Standard alterando a propriedade **Name** em **SKU** no arquivo template. JSON:
+    * **SKU**. Você pode alterar a SKU do balanceador externo de carga na configuração de Standard para básico ou de básico para Standard alterando a propriedade **Name** em **SKU** no template.jsno arquivo:
 
         ```json
         "resources": [
@@ -259,7 +259,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
         ```
       Para obter informações sobre as diferenças entre os balanceadores de carga do SKU básico e Standard, consulte [visão geral do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-    * **Regras de balanceamento de carga**. Você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do arquivo template. JSON:
+    * **Regras de balanceamento de carga**. Você pode adicionar ou remover regras de balanceamento de carga na configuração adicionando ou removendo entradas na seção **loadBalancingRules** do template.jsno arquivo:
 
         ```json
         "loadBalancingRules": [
@@ -291,7 +291,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
         ```
        Para obter informações sobre regras de balanceamento de carga, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Investigações**. Você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas na seção **investigações** do arquivo template. JSON:
+    * **Investigações**. Você pode adicionar ou remover uma investigação para o balanceador de carga na configuração adicionando ou removendo entradas na seção **investigações** do template.jsno arquivo:
 
         ```json
         "probes": [
@@ -311,7 +311,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
         ```
        Para obter mais informações, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-    * **Regras de NAT de entrada**. Você pode adicionar ou remover regras NAT de entrada para o balanceador de carga adicionando ou removendo entradas na seção **inboundNatRules** do arquivo template. JSON:
+    * **Regras de NAT de entrada**. Você pode adicionar ou remover regras NAT de entrada para o balanceador de carga adicionando ou removendo entradas na seção **inboundNatRules** do template.jsno arquivo:
 
         ```json
         "inboundNatRules": [
@@ -333,7 +333,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
                     }
                 ]
         ```
-        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final do arquivo template. JSON:
+        Para concluir a adição ou remoção de uma regra NAT de entrada, a regra deve estar presente ou removida como uma propriedade de **tipo** no final da template.jsno arquivo:
 
         ```json
         {
@@ -359,7 +359,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
         ```
         Para obter informações sobre regras de NAT de entrada, consulte [o que é Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Regras de saída**. Você pode adicionar ou remover regras de saída na configuração editando a propriedade **outboundRules** no arquivo template. JSON:
+    * **Regras de saída**. Você pode adicionar ou remover regras de saída na configuração editando a propriedade **outboundRules** no template.jsno arquivo:
 
         ```json
         "outboundRules": [
@@ -389,11 +389,11 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 12. Selecione **salvar** no editor online.
 
-13. Selecione **BASICS** > **assinatura** básica para escolher a assinatura na qual o balanceador de carga externo de destino será implantado.
+13. Selecione **BASICS**  >  **assinatura** básica para escolher a assinatura na qual o balanceador de carga externo de destino será implantado.
 
-15. Selecione **BASICS** > **grupo de recursos** básicos para escolher o grupo de recursos no qual o balanceador de carga de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o balanceador de carga externo de destino. Ou você pode escolher o grupo de recursos existente que você criou anteriormente para o IP público. Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador externo de carga de origem existente.
+15. Selecione **BASICS**  >  **grupo de recursos** básicos para escolher o grupo de recursos no qual o balanceador de carga de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o balanceador de carga externo de destino. Ou você pode escolher o grupo de recursos existente que você criou anteriormente para o IP público. Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador externo de carga de origem existente.
 
-16. Verifique se **BASICS** > **local** básico está definido como o local de destino onde você deseja que o balanceador de carga externo seja implantado.
+16. Verifique se **BASICS**  >  **local** básico está definido como o local de destino onde você deseja que o balanceador de carga externo seja implantado.
 
 17. Em **configurações**, verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros. Verifique se as IDs de recurso são populadas para qualquer IPs público na configuração.
 
@@ -415,4 +415,4 @@ Neste tutorial, você moveu um balanceador de carga externo do Azure de uma regi
 
 
 - [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

@@ -8,19 +8,19 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808474"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer com a redefinição de TCP on Idle
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer com Redefinição de TCP quando ocioso
 
 Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) para criar um comportamento de aplicativo mais previsível para seus cenários, permitindo a Redefinição de TCP no modo ocioso para uma determinada regra. O comportamento de padrão do Load Balancer é remover fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.  Habilitar esse recurso fará o Load Balancer enviar Redefinições de TCP bidirecionais (pacote TCP RST) no tempo limite de ociosidade.  Isso informará os pontos de extremidade do aplicativo de que a conexão atingiu o tempo limite e não é mais utilizável.  Pontos de extremidade podem estabelecer imediatamente uma nova conexão se necessário.
 
@@ -75,5 +75,5 @@ Disponível em todas as regiões.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [Standard Load Balancer](load-balancer-standard-overview.md).
-- Saiba mais sobre [regras de saída](load-balancer-outbound-rules-overview.md).
+- Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md).
 - [Configurar TCP RST no tempo limite ocioso](load-balancer-tcp-idle-timeout.md)

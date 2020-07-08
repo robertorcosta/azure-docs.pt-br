@@ -6,25 +6,23 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: 7658b8541e7a79a5e547a6649b35681446e34b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: a0c94f3c9af9220bb3cf6476c50799d1f3313ffc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809236"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como usar o Armazenamento de Fila no Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
-
 Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários cobertos incluem **Inserir**, **inspecionar**, **obter**e **excluir** mensagens da fila, bem como **criar** e **excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
 
-> [!NOTE]
-> Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][Azure Storage SDK for Android].
+> [!IMPORTANT]
+> Este artigo refere-se à versão herdada da biblioteca de cliente de armazenamento do Azure para Java. Para começar a usar a versão mais recente, consulte [início rápido: biblioteca de cliente de armazenamento de fila do Azure para Java](storage-quickstart-queues-java.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -391,12 +389,17 @@ catch (Exception e)
 }
 ```
 
+[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+
+> [!NOTE]
+> Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][Azure Storage SDK for Android].
+
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)
+* [SDK do armazenamento do Azure para Java][Azure Storage SDK for Java]
 * [Referência de SDK do Cliente de Armazenamento do Azure][Azure Storage Client SDK Reference]
-* [Azure Storage Services REST API Reference][Azure Storage Services REST API] (Referência de API REST dos Serviços de Armazenamento do Azure)
+* [API REST de serviços de armazenamento do Azure][Azure Storage Services REST API]
 * [Blog da equipe de Armazenamento do Azure][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671

@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como adicionar investigaç�
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 8c8b8b0090877db7abc8fae0e44f928e8b10dcf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808002"
 ---
 # <a name="add-health-probes-to-your-service"></a>Adicionar investigações de integridade ao seu serviço
 Por padrão, o controlador de entrada provisionará uma investigação HTTP GET para o pods exposto.
@@ -47,20 +47,20 @@ spec:
 
 Referência da API do kubernetes:
 * [Investigações de contêiner](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [Ação HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+* [Ação HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`e `livenessProbe` têm suporte quando configurado com `httpGet`o.
+> * `readinessProbe`e `livenessProbe` têm suporte quando configurado com o `httpGet` .
 > * No momento, não há suporte para investigação em uma porta diferente daquela exposta no pod.
-> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` não tem suporte.
+> * `HttpHeaders`, `InitialDelaySeconds` , `SuccessThreshold` não tem suporte.
 
 ##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem `readinessProbe` ou`livenessProbe`
-Se as investigações acima não forem fornecidas, o controlador de entrada fará uma suposição de que o serviço pode ser `Path` acessado no `backend-path-prefix` especificado `path` para a anotação `ingress` ou o especificado na definição do serviço.
+Se as investigações acima não forem fornecidas, o controlador de entrada fará uma suposição de que o serviço pode ser acessado no `Path` especificado para `backend-path-prefix` a anotação ou o `path` especificado na `ingress` definição do serviço.
 
 ## <a name="default-values-for-health-probe"></a>Valores padrão para investigação de integridade
 Para qualquer propriedade que não pode ser inferida pela investigação de preparação/vida, os valores padrão são definidos.
 
-| Propriedade de investigação do gateway de aplicativo | Valor Padrão |
+| Propriedade de investigação do gateway de aplicativo | Valor padrão |
 |-|-|
 | `Path` | / |
 | `Host` | localhost |

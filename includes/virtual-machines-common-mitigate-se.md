@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73935870"
 ---
 **Última atualização do documento**: 12 de novembro de 2019 10:00 am PST.
@@ -101,17 +101,17 @@ Windows OS support for MDS mitigation is enabled: True
 Windows OS support for TAA mitigation is enabled: True
 ```
 
-Se a saída for `MDS mitigation is enabled: False`mostrada, [entre em contato com o suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter as opções de mitigação disponíveis.
+Se a saída for mostrada `MDS mitigation is enabled: False` , [entre em contato com o suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter as opções de mitigação disponíveis.
 
 
 
-**Etapa 3**: para habilitar o suporte do sistema operacional de KVAS (sombra de endereço virtual) de kernel e BTI (injeção de destino de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) Branch), siga as instruções em `Session Manager` KB4072698 para habilitar as proteções usando as chaves do registro. Uma reinicialização é necessária.
+**Etapa 3**: para habilitar o suporte do sistema operacional de KVAS (sombra de endereço virtual) de kernel e BTI (injeção de destino de Branch), siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar as proteções usando as `Session Manager` chaves do registro. Uma reinicialização é necessária.
 
 
 **Etapa 4**: para implantações que estão usando a [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (apenas D3 e E3): essas instruções se aplicam dentro da VM que você está usando como um host Hyper-V.
 
-1.  Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar as proteções usando `MinVmVersionForCpuBasedMitigations` as chaves do registro.
-2.  Defina o tipo de Agendador do `Core` hipervisor como seguindo as instruções [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+1.  Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar as proteções usando as `MinVmVersionForCpuBasedMitigations` chaves do registro.
+2.  Defina o tipo de Agendador do hipervisor como seguindo `Core` as instruções [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -121,9 +121,9 @@ Se a saída for `MDS mitigation is enabled: False`mostrada, [entre em contato co
 
 **Etapa 1: desabilitar o hyperthreading na VM** -os clientes que executam código não confiável em uma VM Hyper-threaded precisarão desabilitar o Hyper-Threading ou mover para uma VM não Hyper-thread.  Referencie [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obter uma lista de tamanhos de VM Hyper-threaded (em que a taxa de vCPU para Core é 2:1). Para verificar se você está executando uma VM Hyper-threaded, execute o `lscpu` comando na VM Linux. 
 
-Se `Thread(s) per core = 2`, o hyperthreading foi habilitado. 
+Se, o hyperthreading foi `Thread(s) per core = 2` habilitado. 
 
-Se `Thread(s) per core = 1`, o hyperthreading foi desabilitado. 
+Se, o hyperthreading foi `Thread(s) per core = 1` desabilitado. 
 
  
 Exemplo de saída para uma VM com o hyperthreading habilitado: 

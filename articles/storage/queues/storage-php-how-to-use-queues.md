@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 01/11/2018
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: 692c943e48c08771b5f1c60b66412270081cf0e6
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72302958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809215"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como usar o Armazenamento de Fila do PHP
 
@@ -37,7 +37,7 @@ Neste guia, você usa os recursos do serviço de armazenamento de fila que podem
 
 ### <a name="install-via-composer"></a>Instalar por meio do Composer
 
-1. Crie um arquivo chamado **Composer. JSON** na raiz do seu projeto e adicione o seguinte código a ele:
+1. Crie um arquivo chamado **composer.js** na raiz do seu projeto e adicione o seguinte código a ele:
    
     ```json
     {

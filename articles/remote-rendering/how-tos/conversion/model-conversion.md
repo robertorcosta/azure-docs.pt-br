@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 135c58a665779ffaad8750ffe618bdbe38639b66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808619"
 ---
 # <a name="convert-models"></a>Converter modelos
 
@@ -39,6 +39,11 @@ Há pequenas diferenças entre os formatos em relação à conversão de proprie
 
 Todos os dados de modelo (entrada e saída) são armazenados no armazenamento de BLOBs do Azure fornecido pelo usuário. A renderização remota do Azure oferece controle total sobre o gerenciamento de ativos.
 
+## <a name="pricing"></a>Preços
+
+Para obter informações sobre preços para conversão, consulte a página de [preços de renderização remota](https://azure.microsoft.com/pricing/details/remote-rendering) .
+
+
 ## <a name="conversion-parameters"></a>Parâmetros de conversão
 
 Para as várias opções de conversão, consulte [Este capítulo](configure-model-conversion.md).
@@ -52,5 +57,5 @@ Para as várias opções de conversão, consulte [Este capítulo](configure-mode
 
 - [Usar o armazenamento de Blobs do Azure para conversão de modelo](blob-storage.md)
 - [A API REST de conversão de modelo](conversion-rest-api.md)
-- [Configurando a conversão de modelo](configure-model-conversion.md)
+- [Configurar a conversão de modelo](configure-model-conversion.md)
 - [Mapeamento de material para formatos de modelo](../../reference/material-mapping.md)

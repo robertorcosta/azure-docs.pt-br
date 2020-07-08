@@ -5,21 +5,21 @@ description: Este artigo fornece orientação sobre como configurar os aplicativ
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74075175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808103"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar Serviço de Aplicativo com Gateway de Aplicativo
 
 Como o serviço de aplicativo é um serviço multilocatário em vez de uma implantação dedicada, ele usa o cabeçalho de host na solicitação de entrada para resolver a solicitação para o ponto de extremidade correto do serviço de aplicativo. Normalmente, o nome DNS do aplicativo que, por sua vez, é o nome DNS associado ao gateway de aplicativo que o serviço de aplicativo, é diferente do nome de domínio do serviço de aplicativo de back-end. Portanto, o cabeçalho de host na solicitação original recebida pelo gateway de aplicativo não é o mesmo que o nome de host do serviço de back-end. Por isso, a menos que o cabeçalho de host na solicitação do gateway de aplicativo para o back-end seja alterado para o nome de host do serviço de back-end, os back-ends de vários locatários não poderão resolver a solicitação para o ponto de extremidade correto.
 
-O gateway de aplicativo fornece uma `Pick host name from backend address` opção chamada que substitui o cabeçalho de host na solicitação pelo nome de host do back-end quando a solicitação é roteada do gateway de aplicativo para o back-end. Esse recurso habilita o suporte para back-ends de vários locatários, como o serviço de aplicativo do Azure e o gerenciamento de API. 
+O gateway de aplicativo fornece uma opção chamada `Pick host name from backend address` que substitui o cabeçalho de host na solicitação pelo nome de host do back-end quando a solicitação é roteada do gateway de aplicativo para o back-end. Esse recurso habilita o suporte para back-ends de vários locatários, como o serviço de aplicativo do Azure e o gerenciamento de API. 
 
 Neste artigo, você aprenderá como:
 
@@ -59,13 +59,13 @@ Neste artigo, você aprenderá como:
 3. Escolha o protocolo como HTTP ou HTTPS de acordo com seu caso de uso. 
 
    > [!NOTE]
-   > Se você selecionar HTTPS, não será necessário carregar nenhum certificado de autenticação ou certificado raiz confiável para a lista de permissões de back-end do serviço de aplicativo, pois o serviço de aplicativo é um serviço do Azure confiável.
+   > Se você selecionar HTTPS, não será necessário carregar nenhum certificado de autenticação ou certificado raiz confiável para permitir o back-end do serviço de aplicativo, pois o serviço de aplicativo é um serviço do Azure confiável.
 
-4. Marque a caixa para **uso do serviço de aplicativo** . Observe que os `Create a probe with pick host name from backend address` comutadores `Pick host name from backend address` e serão habilitados automaticamente.`Pick host name from backend address` substituirá o cabeçalho de host na solicitação pelo nome do host do back-end quando a solicitação for roteada do gateway de aplicativo para o back-end.  
+4. Marque a caixa para **uso do serviço de aplicativo** . Observe que os comutadores `Create a probe with pick host name from backend address` e `Pick host name from backend address` serão habilitados automaticamente.`Pick host name from backend address` substituirá o cabeçalho de host na solicitação pelo nome do host do back-end quando a solicitação for roteada do gateway de aplicativo para o back-end.  
 
-   `Create a probe with pick host name from backend address`criará automaticamente uma investigação de integridade e a associará a essa configuração de HTTP. Você não precisa criar nenhuma outra investigação de integridade para essa configuração de HTTP. Você pode verificar se uma nova investigação com o nome <HTTP Setting name> <Unique GUID> foi adicionada na lista de investigações de integridade e se ela já tem a opção `Pick host name from backend http settings enabled`.
+   `Create a probe with pick host name from backend address`criará automaticamente uma investigação de integridade e a associará a essa configuração de HTTP. Você não precisa criar nenhuma outra investigação de integridade para essa configuração de HTTP. Você pode verificar se uma nova investigação com o nome foi <HTTP Setting name> <Unique GUID> adicionada na lista de investigações de integridade e se ela já tem a opção `Pick host name from backend http settings enabled` .
 
-   Se você já tiver uma ou mais configurações HTTP que estão sendo usadas para o serviço de aplicativo e se essas configurações de HTTP usarem o mesmo protocolo que o que você está usando no que você está criando, em `Create a probe with pick host name from backend address` vez da opção, você obterá uma lista suspensa para selecionar uma das investigações personalizadas. Isso ocorre porque, como já existe uma configuração HTTP com o serviço de aplicativo, por isso, também existe uma investigação de integridade que tem `Pick host name from backend http settings enabled` a opção. Escolha essa investigação personalizada na lista suspensa.
+   Se você já tiver uma ou mais configurações HTTP que estão sendo usadas para o serviço de aplicativo e se essas configurações de HTTP usarem o mesmo protocolo que o que você está usando no que você está criando, em vez da `Create a probe with pick host name from backend address` opção, você obterá uma lista suspensa para selecionar uma das investigações personalizadas. Isso ocorre porque, como já existe uma configuração HTTP com o serviço de aplicativo, por isso, também existe uma investigação de integridade que tem a opção `Pick host name from backend http settings enabled` . Escolha essa investigação personalizada na lista suspensa.
 
 5. Clique em **OK** para criar a configuração de http.
 

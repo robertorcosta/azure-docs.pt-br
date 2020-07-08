@@ -5,15 +5,15 @@ description: Este artigo fornece informações sobre como configurar o gateway d
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808123"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar um gateway de aplicativo com um ponto de extremidade de ILB (balanceador de carga interno)
 
@@ -74,7 +74,7 @@ Para que o Azure se comunique entre os recursos que você cria, ele precisa de u
 25. Aceite os padrões restantes e selecione **Adicionar**.
 26. Na página **Adicionar uma regra de roteamento** , selecione **Adicionar**.
 27. Selecione **Avançar: marcas**.
-28. Selecione **Avançar: revisar + criar**.
+28. Selecione **Avançar: Revisar + criar**.
 29. Examine as configurações na página Resumo e, em seguida, selecione **criar** para criar os recursos de rede e o gateway de aplicativo. Pode levar vários minutos para criar o gateway de aplicativo. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 
 ## <a name="add-backend-pool"></a>Adicionar pool de back-end

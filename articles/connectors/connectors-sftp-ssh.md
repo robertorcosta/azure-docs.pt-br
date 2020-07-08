@@ -6,18 +6,27 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 06/17/2020
 tags: connectors
-ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807742"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
-Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) usando o protocolo [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), você pode criar e automatizar fluxos de trabalho de integração usando os Aplicativos Lógicos do Azure e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a arquivos, transferência de arquivos e gerenciamento de arquivos em qualquer fluxo de dados confiável. Aqui estão algumas tarefas de exemplo que você pode automatizar:
+Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) usando o protocolo [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), você pode criar e automatizar fluxos de trabalho de integração usando os Aplicativos Lógicos do Azure e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a arquivos, transferência de arquivos e gerenciamento de arquivos em qualquer fluxo de dados confiável.
+
+> [!NOTE]
+> O conector SFTP-SSH atualmente não dá suporte a estes servidores SFTP:
+> 
+> * IBM datapower
+> * MFT seguro do OpenText
+> * GXS de OpenText
+
+Aqui estão algumas tarefas de exemplo que você pode automatizar:
 
 * Monitorar quando arquivos são adicionados ou alterados.
 * Obter, criar, copiar, renomear, atualizar, listar e excluir arquivos.
@@ -25,7 +34,7 @@ Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um s
 * Obter conteúdo e metadados do arquivo.
 * Extrair o arquivo para pastas.
 
-Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por email sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por email sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a seção [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste tópico.
 
@@ -105,8 +114,8 @@ SFTP-os gatilhos SSH funcionam sondando o sistema de arquivos SFTP e procurando 
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| WinSCP | Vá para **Opções** > **preferências** > **transferir** > **Edit**editar > **preservar carimbo de data/hora** > **desabilitar** |
-| FileZilla | Ir para **transferir** > **preservar carimbos de data/hora dos arquivos** > transferidos**desabilitar** |
+| WinSCP | Vá para **Opções**  >  **preferências**  >  **transferir**  >  **Editar**  >  **preservar carimbo de data/hora**  >  **desabilitar** |
+| FileZilla | Ir para **transferir**  >  **preservar carimbos de data/hora dos arquivos transferidos**  >  **desabilitar** |
 |||
 
 Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está concluído e não gravado parcialmente. Por exemplo, um arquivo pode ter alterações em andamento quando o gatilho verifica o servidor de arquivos. Para evitar o retorno de um arquivo gravado parcialmente, o gatilho observa o carimbo de data/hora do arquivo que tem alterações recentes, mas não retorna o arquivo imediatamente. O gatilho retorna o arquivo apenas ao executar a sondagem do servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o intervalo de sondagem do gatilho.
@@ -127,13 +136,13 @@ Se sua chave privada estiver no formato de reversões, que usa a extensão de no
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Por exemplo: 
+   Por exemplo:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
 ### <a name="windows-os"></a>Sistema operacional Windows
 
-1. Se você ainda não fez isso, [Baixe a ferramenta mais recente do gerador de geração (puttygen. exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)e, em seguida, inicie a ferramenta.
+1. Se você ainda não fez isso, [Baixe a ferramenta mais recente do gerador de geração (puttygen.exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)e, em seguida, inicie a ferramenta.
 
 1. Nessa tela, selecione **carregar**.
 
@@ -145,7 +154,7 @@ Se sua chave privada estiver no formato de reversões, que usa a extensão de no
 
    ![Selecione "Exportar chave OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
 
-1. Salve o arquivo de chave privada com `.pem` a extensão de nome de arquivo.
+1. Salve o arquivo de chave privada com a `.pem` extensão de nome de arquivo.
 
 ## <a name="considerations"></a>Considerações
 
@@ -155,7 +164,7 @@ Esta seção descreve as considerações para examinar os gatilhos e as ações 
 
 ### <a name="create-file"></a>Criar arquivo
 
-Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criação de arquivo** SFTP-SSH. Quando essa ação cria o arquivo, o serviço de aplicativos lógicos também chama automaticamente seu servidor SFTP para obter os metadados do arquivo. No entanto, se você mover o arquivo recém-criado antes que o serviço de aplicativos lógicos possa fazer a chamada para obter os metadados `404` , você receberá uma mensagem de erro, `'A reference was made to a file or folder which does not exist'`. Para ignorar a leitura dos metadados do arquivo após a criação do arquivo, siga as etapas para [Adicionar e definir a propriedade **obter todos os metadados do arquivo** como **não**](#file-does-not-exist).
+Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criação de arquivo** SFTP-SSH. Quando essa ação cria o arquivo, o serviço de aplicativos lógicos também chama automaticamente seu servidor SFTP para obter os metadados do arquivo. No entanto, se você mover o arquivo recém-criado antes que o serviço de aplicativos lógicos possa fazer a chamada para obter os metadados, você receberá uma `404` mensagem de erro, `'A reference was made to a file or folder which does not exist'` . Para ignorar a leitura dos metadados do arquivo após a criação do arquivo, siga as etapas para [Adicionar e definir a propriedade **obter todos os metadados do arquivo** como **não**](#file-does-not-exist).
 
 <a name="connect"></a>
 
@@ -165,13 +174,13 @@ Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criaç
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Para aplicativos lógicos em branco, na caixa de pesquisa `sftp ssh` , insira como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira `sftp ssh` como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
    -ou-
 
    Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, selecione **nova etapa**. Na caixa de pesquisa, insira `sftp ssh` como o filtro. Na lista de ações, selecione a ação desejada.
 
-   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Forneça os detalhes necessários para sua conexão.
 
@@ -185,7 +194,7 @@ Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criaç
 
    1. No menu **Editar** do bloco de notas, selecione **selecionar tudo**.
 
-   1. Selecione **Editar** > **cópia**.
+   1. Selecione **Editar**  >  **cópia**.
 
    1. No acionador ou ação SFTP-SSH que você adicionou, cole a chave *completa* que você copiou na propriedade **chave privada SSH**, que suporta várias linhas.  ***Certifique-se de colar*** a chave. ***Não insira ou edite manualmente a chave***.
 
@@ -203,7 +212,7 @@ Para substituir o comportamento adaptável padrão que o agrupamento usa, você 
 
    ![Abrir SFTP-configurações de SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. Em **transferência de conteúdo**, na propriedade **tamanho da parte** , insira um valor inteiro `5` de `50`para, por exemplo: 
+1. Em **transferência de conteúdo**, na propriedade **tamanho da parte** , insira um valor inteiro de `5` para `50` , por exemplo: 
 
    ![Especifique o tamanho da parte para usar em vez disso](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
@@ -235,7 +244,7 @@ Esta seção descreve as possíveis soluções para erros ou problemas comuns.
 
 ### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 erro: "uma referência foi feita a um arquivo ou pasta que não existe"
 
-Esse erro pode acontecer quando seu aplicativo lógico cria um novo arquivo em seu servidor SFTP por meio da ação de **criação de arquivo** SFTP-SSH, mas o arquivo recém-criado é imediatamente movido antes de o serviço de aplicativos lógicos obter os metadados do arquivo. Quando seu aplicativo lógico executa a ação **criar arquivo** , o serviço de aplicativos lógicos também chama automaticamente seu servidor SFTP para obter os metadados do arquivo. No entanto, se o arquivo for movido, o serviço de aplicativos lógicos não poderá mais localizar o arquivo `404` para que você receba a mensagem de erro.
+Esse erro pode acontecer quando seu aplicativo lógico cria um novo arquivo em seu servidor SFTP por meio da ação de **criação de arquivo** SFTP-SSH, mas o arquivo recém-criado é imediatamente movido antes de o serviço de aplicativos lógicos obter os metadados do arquivo. Quando seu aplicativo lógico executa a ação **criar arquivo** , o serviço de aplicativos lógicos também chama automaticamente seu servidor SFTP para obter os metadados do arquivo. No entanto, se o arquivo for movido, o serviço de aplicativos lógicos não poderá mais localizar o arquivo para que você receba a `404` mensagem de erro.
 
 Se não for possível evitar ou atrasar a movimentação do arquivo, você poderá ignorar a leitura dos metadados do arquivo após a criação do arquivo, seguindo estas etapas:
 

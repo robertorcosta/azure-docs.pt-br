@@ -4,15 +4,15 @@ description: Este artigo descreve como configurar o TLS de ponta a ponta com o G
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/8/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648427"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808206"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurar o TLS de ponta a ponta usando o Gateway de Aplicativo com o PowerShell
 
@@ -167,7 +167,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    > [!NOTE]
    > A investigação padrão obtém a chave pública a associação TLS *padrão* no endereço IP do back-end e compara o valor da chave pública que recebe ao valor da chave pública fornecida aqui. 
    > 
-   > Se você estiver usando cabeçalhos de host e a SNI (Indicação de Nome de Servidor) no back-end, a chave pública recuperada poderá não ser o site pretendido para que o tráfego flua. Em caso de dúvida, acesse https://127.0.0.1/ nos servidores de back-end para confirmar qual certificado será usado para a associação TLS *padrão*. Use a chave pública dessa solicitação nesta seção. Se você estiver usando cabeçalhos de host e SNI em associações HTTPS e não receber uma resposta e um certificado de uma solicitação de navegador manual para https://127.0.0.1/ em servidores de back-end, você deverá configurar uma associação TLS padrão neles. Se você não fizer isso, as investigações falharão e o back-end não estará na lista de permissões.
+   > Se você estiver usando cabeçalhos de host e a SNI (Indicação de Nome de Servidor) no back-end, a chave pública recuperada poderá não ser o site pretendido para que o tráfego flua. Em caso de dúvida, acesse https://127.0.0.1/ nos servidores de back-end para confirmar qual certificado será usado para a associação TLS *padrão*. Use a chave pública dessa solicitação nesta seção. Se você estiver usando cabeçalhos de host e SNI em associações HTTPS e não receber uma resposta e um certificado de uma solicitação de navegador manual para https://127.0.0.1/ em servidores de back-end, você deverá configurar uma associação TLS padrão neles. Se você não fizer isso, as investigações falharão e o back-end não será permitido.
    
    Para saber mais sobre SNI em Gateway de Aplicativo, veja [Visão geral do término de TLS e TLS de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md).
 
@@ -176,7 +176,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    ```
 
    > [!NOTE]
-   > O certificado fornecido na etapa anterior deve ser a chave pública do certificado .pfx presente no back-end. Exporte o certificado (não o certificado raiz) instalado no servidor de back-end no formato CER (Claim, Evidence and Reasoning) e use-o nesta etapa. Esta etapa coloca o back-end na lista de permissões do gateway de aplicativo.
+   > O certificado fornecido na etapa anterior deve ser a chave pública do certificado .pfx presente no back-end. Exporte o certificado (não o certificado raiz) instalado no servidor de back-end no formato CER (Claim, Evidence and Reasoning) e use-o nesta etapa. Esta etapa permite o back-end com o gateway de aplicativo.
 
    Se você estiver usando a SKU do Gateway de Aplicativo v2, crie um certificado raiz confiável, em vez de um certificado de autenticação. Para saber mais, confira [Visão geral de TLS de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-tls-with-the-v2-sku):
 
