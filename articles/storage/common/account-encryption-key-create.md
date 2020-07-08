@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805707"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Criar uma conta que dê suporte a chaves gerenciadas pelo cliente para tabelas e filas
 
-O armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, o armazenamento de filas e o armazenamento de tabelas usam uma chave que tem como escopo o serviço e é gerenciada pela Microsoft. Você também pode optar por usar chaves gerenciadas pelo cliente para criptografar dados de fila ou de tabela. Para usar chaves gerenciadas pelo cliente com filas e tabelas, você deve primeiro criar uma conta de armazenamento que usa uma chave de criptografia com escopo para a conta, e não para o serviço. Depois de criar uma conta que usa a chave de criptografia da conta para dados de fila e tabela, você pode configurar chaves gerenciadas pelo cliente com Azure Key Vault para essa conta de armazenamento.
+O Armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, o armazenamento de filas e o armazenamento de tabelas usam uma chave que tem como escopo o serviço e é gerenciada pela Microsoft. Você também pode optar por usar chaves gerenciadas pelo cliente para criptografar dados de fila ou de tabela. Para usar chaves gerenciadas pelo cliente com filas e tabelas, você deve primeiro criar uma conta de armazenamento que usa uma chave de criptografia com escopo para a conta, e não para o serviço. Depois de criar uma conta que usa a chave de criptografia da conta para dados de fila e tabela, você pode configurar chaves gerenciadas pelo cliente com Azure Key Vault para essa conta de armazenamento.
 
 Este artigo descreve como criar uma conta de armazenamento que se baseia em uma chave que tem como escopo a conta. Quando a conta é criada pela primeira vez, a Microsoft usa a chave de conta para criptografar os dados na conta e a Microsoft gerencia a chave. Posteriormente, você pode configurar chaves gerenciadas pelo cliente para a conta para aproveitar esses benefícios, incluindo a capacidade de fornecer suas próprias chaves, atualizar a versão da chave, girar as chaves e revogar controles de acesso.
 
@@ -222,11 +222,11 @@ Depois de criar uma conta que dependa da chave de criptografia da conta, consult
 
 ## <a name="verify-the-account-encryption-key"></a>Verificar a chave de criptografia da conta
 
-Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando CLI do Azure [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo de cada serviço na propriedade de criptografia e verifique se ele está definido como `Account`.
+Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando CLI do Azure [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo de cada serviço na propriedade de criptografia e verifique se ele está definido como `Account` .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `KeyType` campo de cada serviço dentro da `Encryption` Propriedade e verifique se ele está definido como. `Account`
+Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `KeyType` campo de cada serviço dentro da `Encryption` propriedade e verifique se ele está definido como `Account` .
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo de cada serviço na propriedade de criptografia e verifique se ele está definido como `Account`.
+Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo de cada serviço na propriedade de criptografia e verifique se ele está definido como `Account` .
 
 ```azurecli
 az storage account show /
@@ -253,5 +253,5 @@ N/D
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md) 
+- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md) 
 - [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

@@ -5,15 +5,15 @@ description: Saiba como criar uma investigação personalizada para o Gateway de
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a244cd17ecf1f6165936d86791f9b2e320666c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807167"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Gateway de Aplicativo do Azure usando o PowerShell do Azure Resource Manager
 
@@ -95,7 +95,7 @@ Configure todos os itens de configuração antes de criar o gateway de aplicativ
 | **Configurações de HTTP** | Uma coleção de configurações, inclusive porta, protocolo, afinidade baseada em cookie, investigação e tempo limite.  Essas configurações determinam como o tráfego é roteado para os membros do pool de back-end|
 | **Porta de front-end** | A porta em que o gateway de aplicativo escuta tráfego|
 | **Ouvinte** | Uma combinação de um protocolo, configuração de IP front-end e porta front-end. É o que escuta solicitações de entrada.
-|**Régua**| Roteia o tráfego para o back-end apropriado com base em configurações de HTTP.|
+|**Regra**| Roteia o tráfego para o back-end apropriado com base em configurações de HTTP.|
 
 ```powershell
 # Creates an application gateway Frontend IP configuration named gatewayIP01

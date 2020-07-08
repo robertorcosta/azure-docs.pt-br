@@ -4,15 +4,15 @@ description: Saiba como criar um gateway de aplicativo com um conjunto de dimens
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
-ms.openlocfilehash: 3064def2eac0aaee5c04f7ab736cf539ae372cb4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: d4a72017b1ec86f10a746a9530a1ff9a2742fa20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68359891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806291"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gerenciar o tráfego da Web com um gateway de aplicativo usando a CLI do Azure
 

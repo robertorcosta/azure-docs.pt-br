@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 06/11/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2d07195e28c964a540eafdfba94a958e6c9f6981
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807584"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Iniciar um failover de conta de armazenamento
 
@@ -35,7 +35,7 @@ Para poder executar um failover de conta em sua conta de armazenamento, verifiqu
 - Armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS)
 - Armazenamento com redundância de zona geográfica (GZRS) ou armazenamento com redundância de acesso de leitura (RA-GZRS)
 
-Para obter mais informações sobre a redundância de armazenamento do Azure, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
+Para obter mais informações sobre a redundância do Armazenamento do Microsoft Azure, confira [Redundância no Armazenamento do Azure](storage-redundancy.md).
 
 ## <a name="initiate-the-failover"></a>Iniciar o failover
 
@@ -44,16 +44,16 @@ Para obter mais informações sobre a redundância de armazenamento do Azure, co
 Para iniciar um failover da conta do portal do Azure, siga estas etapas:
 
 1. Navegue até sua conta de armazenamento.
-2. Em **Configurações**, selecione **Replicação geográfica**. A imagem a seguir mostra o status de replicação geográfica e de failover de uma conta de armazenamento.
+1. Em **Configurações**, selecione **Replicação geográfica**. A imagem a seguir mostra o status de replicação geográfica e de failover de uma conta de armazenamento.
 
-    ![Captura de tela mostrando o status de failover e de replicação geográfica](media/storage-initiate-account-failover/portal-failover-prepare.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Captura de tela mostrando o status de failover e de replicação geográfica":::
 
-3. Verifique se a conta de armazenamento está configurada para GRS (armazenamento com redundância geográfica) ou RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Se não estiver, selecione **Configuração** em **Configurações** para atualizar sua conta, acrescentando redundância geográfica a ela. 
-4. A propriedade **Hora da Última Sincronização** indica o atraso do secundário em relação ao primário. A **Hora da Última Sincronização** fornece uma estimativa da extensão da perda de dados que você experimentará após a conclusão do failover.
-5. Selecione **preparar para failover**.
-6. Revise a caixa de diálogo de confirmação. Quando você estiver pronto, insira **Sim** para confirmar e iniciar o failover.
+1. Verifique se a conta de armazenamento está configurada para GRS (armazenamento com redundância geográfica) ou RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Se não estiver, selecione **Configuração** em **Configurações** para atualizar sua conta, acrescentando redundância geográfica a ela.
+1. A propriedade **Hora da Última Sincronização** indica o atraso do secundário em relação ao primário. A **Hora da Última Sincronização** fornece uma estimativa da extensão da perda de dados que você experimentará após a conclusão do failover. Para obter mais informações sobre como verificar a propriedade **hora da última sincronização** , consulte [verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md).
+1. Selecione **preparar para failover**.
+1. Revise a caixa de diálogo de confirmação. Quando você estiver pronto, insira **Sim** para confirmar e iniciar o failover.
 
-    ![Caixa de diálogo de confirmação de que mostra a captura de tela de um failover de conta](media/storage-initiate-account-failover/portal-failover-confirm.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Caixa de diálogo de confirmação de que mostra a captura de tela de um failover de conta":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -62,7 +62,7 @@ O recurso de failover de conta está geralmente disponível, mas ainda depende d
 1. Desinstale as instalações anteriores do Azure PowerShell:
 
     - Remova as instalações anteriores do Azure PowerShell do Windows usando a configuração **Aplicativos e recursos** em **Configurações**.
-    - Remova todos **Azure** os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
+    - Remova todos os módulos do **Azure** de `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Verifique se tem a versão mais recente do PowerShellGet instalado. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
@@ -94,7 +94,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 Para usar a CLI do Azure para iniciar um failover de conta, execute os seguintes comandos:
 
-```azurecli
+```azurecli-interactive
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
@@ -105,7 +105,7 @@ az storage account failover \ --name accountName
 
 Quando você inicia um failover de conta para sua conta de armazenamento, os registros DNS para o ponto de extremidade secundário são atualizados para que o ponto de extremidade secundário se torne o ponto de extremidade primário. Verifique se você compreende o impacto potencial para sua conta de armazenamento antes de iniciar um failover.
 
-Para estimar a extensão da provável perda de dados antes de iniciar um failover, verifique a propriedade **Hora da Última Sincronização** usando o cmdlet `Get-AzStorageAccount` do PowerShell e inclua o parâmetro `-IncludeGeoReplicationStats`. Em seguida, verifique a propriedade `GeoReplicationStats` para sua conta.
+Para estimar a extensão de perda de dados provável antes de iniciar um failover, verifique a propriedade **hora da última sincronização** . Para obter mais informações sobre como verificar a propriedade **hora da última sincronização** , consulte [verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md).
 
 Após o failover, o tipo de conta de armazenamento é automaticamente convertido em LRS (Armazenamento com Redundância Local) na nova região primária. Você pode reabilitar o GRS (armazenamento com redundância geográfica) ou o RA-GRS (armazenamento com redundância geográfica com acesso de leitura) para a conta. Observe que a conversão de LRS em GRS ou RA-GRS acarreta um custo adicional. Para obter informações adicionais, veja [Detalhes de preço de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -113,6 +113,7 @@ Depois de habilitar novamente o GRS para sua conta de armazenamento, a Microsoft
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Recuperação de desastres e failover de conta de armazenamento](storage-disaster-recovery-guidance.md)
-- [Use a redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
-- [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md)
+- [Recuperação de desastres e failover da conta de armazenamento](storage-disaster-recovery-guidance.md)
+- [Verificar a propriedade Horário da Última Sincronização de uma conta de armazenamento](last-sync-time-get.md)
+- [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
+- [Tutorial: Criar um aplicativo altamente disponível com o armazenamento de Blobs](../blobs/storage-create-geo-redundant-storage.md)

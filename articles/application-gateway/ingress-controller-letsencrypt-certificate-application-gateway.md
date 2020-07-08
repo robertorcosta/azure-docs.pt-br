@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como obter um certificado d
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73957977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807025"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Usar certificados com LetsEncrypt.org no gateway de aplicativo para clusters AKS
 
@@ -22,7 +22,7 @@ Siga as etapas abaixo para instalar o [CERT-Manager](https://docs.cert-manager.i
 
 1. Gráfico de Helm
 
-    Execute o script a seguir para instalar `cert-manager` o gráfico Helm. Isso vai:
+    Execute o script a seguir para instalar o `cert-manager` gráfico Helm. Isso vai:
 
     - criar um novo `cert-manager` namespace em seu AKs
     - Crie o seguinte CRDs: certificado, desafio, ClusterIssuer, emissor, ordem
@@ -58,9 +58,9 @@ Siga as etapas abaixo para instalar o [CERT-Manager](https://docs.cert-manager.i
 
     Criar um `ClusterIssuer` recurso. Ele é exigido pelo `cert-manager` para representar a `Lets Encrypt` autoridade de certificação em que os certificados assinados serão obtidos.
 
-    Usando o `ClusterIssuer` recurso não-namespace, o CERT-Manager emitirá certificados que podem ser consumidos de vários namespaces. `Let’s Encrypt`usa o protocolo ACME para verificar se você controla um determinado nome de domínio e emite um certificado. Mais detalhes sobre como `ClusterIssuer` configurar as propriedades [aqui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`o irá `cert-manager` instruir a emitir certificados `Lets Encrypt` usando o ambiente de preparo usado para teste (o certificado raiz não está presente em repositórios de confiança de navegador/cliente).
+    Usando o recurso não-namespace `ClusterIssuer` , o CERT-Manager emitirá certificados que podem ser consumidos de vários namespaces. `Let’s Encrypt`usa o protocolo ACME para verificar se você controla um determinado nome de domínio e emite um certificado. Mais detalhes sobre como configurar `ClusterIssuer` as propriedades [aqui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`o irá instruir `cert-manager` a emitir certificados usando o `Lets Encrypt` ambiente de preparo usado para teste (o certificado raiz não está presente em repositórios de confiança de navegador/cliente).
 
-    O tipo de desafio padrão no YAML abaixo é `http01`. Outros desafios estão documentados em [tipos de letsencrypt.org de desafio](https://letsencrypt.org/docs/challenge-types/)
+    O tipo de desafio padrão no YAML abaixo é `http01` . Outros desafios estão documentados em [tipos de letsencrypt.org de desafio](https://letsencrypt.org/docs/challenge-types/)
 
     > [!IMPORTANT] 
     > Atualizar `<YOUR.EMAIL@ADDRESS>` no YAML abaixo
@@ -97,8 +97,8 @@ Siga as etapas abaixo para instalar o [CERT-Manager](https://docs.cert-manager.i
 
     Crie um recurso de entrada para expor o `guestbook` aplicativo usando o gateway de aplicativo com o certificado de criptografia permite criptografar.
 
-    Verifique se o gateway de aplicativo tem uma configuração de IP de front-end pública com um nome `azure.com` DNS (usando o domínio `Azure DNS Zone` padrão ou provisione um serviço e atribua seu próprio domínio personalizado).
-    Observe a anotação `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, que informa ao Gerenciador de certificados para processar o recurso de entrada marcado.
+    Verifique se o gateway de aplicativo tem uma configuração de IP de front-end pública com um nome DNS (usando o `azure.com` domínio padrão ou provisione um `Azure DNS Zone` serviço e atribua seu próprio domínio personalizado).
+    Observe a anotação `certmanager.k8s.io/cluster-issuer: letsencrypt-staging` , que informa ao Gerenciador de certificados para processar o recurso de entrada marcado.
 
     > [!IMPORTANT] 
     > Atualize `<PLACEHOLDERS.COM>` no YAML abaixo com seu próprio domínio (ou o gateway de aplicativo, por exemplo, "KH-AKs-ingress.westeurope.cloudapp.Azure.com")
@@ -127,15 +127,15 @@ Siga as etapas abaixo para instalar o [CERT-Manager](https://docs.cert-manager.i
     EOF
     ```
 
-    Depois de alguns segundos, você pode acessar o `guestbook` serviço por meio da URL https do gateway de aplicativo usando o certificado de **preparo** `Lets Encrypt` emitido automaticamente.
-    Seu navegador pode avisá-lo sobre uma autoridade de certificação inválida. O certificado de preparo é emitido pelo `CN=Fake LE Intermediate X1`. Essa é uma indicação de que o sistema funcionou conforme o esperado e você está pronto para o certificado de produção.
+    Depois de alguns segundos, você pode acessar o `guestbook` serviço por meio da URL https do gateway de aplicativo usando o certificado de **preparo** emitido automaticamente `Lets Encrypt` .
+    Seu navegador pode avisá-lo sobre uma autoridade de certificação inválida. O certificado de preparo é emitido pelo `CN=Fake LE Intermediate X1` . Essa é uma indicação de que o sistema funcionou conforme o esperado e você está pronto para o certificado de produção.
 
 4. Certificado de produção
 
     Depois que o certificado de preparo for configurado com êxito, você poderá alternar para um servidor de produção ACME:
     1. Substitua a anotação de preparo em seu recurso de entrada por:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Exclua o preparo `ClusterIssuer` existente criado na etapa anterior e crie um novo substituindo o servidor Acme do ClusterIssuer YAML acima por`https://acme-v02.api.letsencrypt.org/directory`
+    1. Exclua o preparo existente `ClusterIssuer` criado na etapa anterior e crie um novo substituindo o servidor Acme do CLUSTERISSUER YAML acima por`https://acme-v02.api.letsencrypt.org/directory`
 
 5. Expiração e renovação do certificado
 
-    Antes que `Lets Encrypt` o certificado expire, `cert-manager` o atualizará automaticamente o certificado no repositório de segredos do kubernetes. Nesse ponto, o controlador de entrada do gateway de aplicativo aplicará o segredo atualizado referenciado nos recursos de entrada que está usando para configurar o gateway de aplicativo.
+    Antes que o `Lets Encrypt` certificado expire, o `cert-manager` atualizará automaticamente o certificado no repositório de segredos do kubernetes. Nesse ponto, o controlador de entrada do gateway de aplicativo aplicará o segredo atualizado referenciado nos recursos de entrada que está usando para configurar o gateway de aplicativo.

@@ -4,16 +4,16 @@ description: Neste artigo, aprenda a rotear o tráfego da Web baseado na URL par
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fc32dd5c477a76a20bc3a641ec8761e95c129554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68688189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805898"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rotear o tráfego da Web baseado na URL usando a CLI do Azure
 
@@ -252,11 +252,11 @@ Altere a URL para http://&lt;ip-address&gt;:8080/images/test.html, substituindo 
 
 ![Testar a URL de imagens no gateway de aplicativo](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Altere a URL para http://&lt;IP-address&gt;: 8080/Video/Test.html, substituindo seu endereço IP &lt;por IP-&gt;address e você verá algo parecido com o exemplo a seguir.
+Altere a URL para http:// &lt; IP-address &gt; : 8080/vídeo/test.html, substituindo seu endereço IP para &lt; endereço IP &gt; e você deverá ver algo semelhante ao exemplo a seguir.
 
 ![Testar a URL de vídeo no gateway de aplicativo](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não forem mais necessários, remova o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

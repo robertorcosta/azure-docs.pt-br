@@ -5,19 +5,19 @@ description: Saiba como criar um gateway de aplicativo que redireciona o tráfeg
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 7d37e36a4cdfed462904e2d02871345ad89d7ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d889d0c13c911e02d73bb1de76b7c3d1aa240027
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74074561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806812"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento interno usando a CLI do Azure
 
-Você pode usar a CLI do Azure para configurar o [redirecionamento do tráfego da Web](multiple-site-overview.md) ao criar um [gateway de aplicativo](overview.md). Neste tutorial, você define pools de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, configura ouvintes e regras com base em domínios que você tem, para garantir que o tráfego da Web chegue ao pool apropriado. Este tutorial pressupõe que você possui vários domínios e usa exemplos de *www\.contoso.com* e *www\.contoso.org*.
+Você pode usar a CLI do Azure para configurar o [redirecionamento do tráfego da Web](multiple-site-overview.md) ao criar um [gateway de aplicativo](overview.md). Neste tutorial, você define pools de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, configura ouvintes e regras com base em domínios que você tem, para garantir que o tráfego da Web chegue ao pool apropriado. Este tutorial presume que você tem vários domínios e usa exemplos do *www\.contoso.com* e *www\.contoso.org*.
 
 Neste artigo, você aprenderá como:
 
@@ -97,7 +97,7 @@ O gateway de aplicativo pode demorar vários minutos para ser criado. Depois de 
 
 ## <a name="add-listeners-and-rules"></a>Adicionar ouvintes e regras 
 
-Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *www\.contoso.com* e *www\.contoso.org*.
+Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes para os seus dois domínios. Neste exemplo, são criados ouvintes para os domínios *www\.contoso.com* e *www\.contoso.org*.
 
 Adicione ouvintes de back-end necessários para redirecionar o tráfego usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
@@ -120,7 +120,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicione a configuração de redirecionamento que envia o tráfego de *consoto.org da\.www* para o ouvinte da *www\.contoso.com* no gateway de aplicativo usando [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Adicione a configuração de redirecionamento que envia o tráfego de * \. consoto.org da www* para o ouvinte da *www \. contoso.com* no gateway de aplicativo usando [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,7 +213,7 @@ Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, \/
 
 ![Testar o site contoso no gateway do aplicativo](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Altere o endereço para o outro domínio, por exemplo, http\/:/www.contoso.org e você verá que o tráfego foi Redirecionado de volta para o ouvinte da\.contoso.com da Web.
+Altere o endereço para o outro domínio, por exemplo, http: \/ /www.contoso.org e você verá que o tráfego foi Redirecionado de volta para o ouvinte da \. contoso.com da Web.
 
 ## <a name="next-steps"></a>Próximas etapas
 

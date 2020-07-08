@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como criar um Gateway de Ap
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74173726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806432"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Criar um gateway de aplicativo e reescrever cabeçalhos HTTP
 
@@ -167,7 +167,7 @@ Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Primeiro, explore os recursos criados com o gateway de aplicativo. Em seguida, quando não for mais necessário, você pode usar o comando `Remove-AzResourceGroup` para remover o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

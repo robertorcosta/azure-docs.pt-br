@@ -5,15 +5,15 @@ description: Este artigo fornece informações sobre como solucionar o problema 
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 961ed17bcef19b445c2546a557725bb6bd8653cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80293534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806489"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solucionar problemas do serviço de aplicativo no gateway de aplicativo
 
@@ -77,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-No exemplo anterior, observe que o cabeçalho de resposta tem um código de status de 301 para redirecionamento. O cabeçalho de local tem o nome de host do serviço de aplicativo em vez do `www.contoso.com`nome do host original.
+No exemplo anterior, observe que o cabeçalho de resposta tem um código de status de 301 para redirecionamento. O cabeçalho de local tem o nome de host do serviço de aplicativo em vez do nome do host original `www.contoso.com` .
 
 ## <a name="solution-rewrite-the-location-header"></a>Solução: reescreva o cabeçalho de local
 
@@ -98,9 +98,9 @@ Você deve possuir um domínio personalizado e seguir este processo:
 
     ![Lista de domínios personalizados do serviço de aplicativo](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Seu serviço de aplicativo está pronto para aceitar o nome `www.contoso.com`do host. Altere a entrada CNAME no DNS para apontar de volta para o FQDN do gateway de aplicativo, por exemplo `appgw.eastus.cloudapp.azure.com`,.
+- Seu serviço de aplicativo está pronto para aceitar o nome do host `www.contoso.com` . Altere a entrada CNAME no DNS para apontar de volta para o FQDN do gateway de aplicativo, por exemplo, `appgw.eastus.cloudapp.azure.com` .
 
-- Certifique-se de que `www.contoso.com` seu domínio seja resolvido para o FQDN do gateway de aplicativo quando você fizer uma consulta DNS.
+- Certifique-se de que seu domínio seja `www.contoso.com` resolvido para o FQDN do gateway de aplicativo quando você fizer uma consulta DNS.
 
 - Defina sua investigação personalizada para desabilitar **escolher nome do host das configurações de http de back-end**. Na portal do Azure, desmarque a caixa de seleção nas configurações de investigação. No PowerShell, não use a opção **-PickHostNameFromBackendHttpSettings** no comando **set-AzApplicationGatewayProbeConfig** . No campo nome do host da investigação, insira o FQDN do serviço de aplicativo, example.azurewebsites.net. As solicitações de investigação enviadas do gateway de aplicativo carregam esse FQDN no cabeçalho do host.
 
@@ -111,7 +111,7 @@ Você deve possuir um domínio personalizado e seguir este processo:
 
 - Associe a investigação personalizada de volta às configurações de HTTP de back-end e verifique se o back-end está íntegro.
 
-- O gateway de aplicativo agora deve encaminhar o mesmo nome `www.contoso.com`de host,, para o serviço de aplicativo. O redirecionamento ocorre no mesmo nome de host. Verifique os seguintes cabeçalhos de solicitação e resposta de exemplo.
+- O gateway de aplicativo agora deve encaminhar o mesmo nome de host, `www.contoso.com` , para o serviço de aplicativo. O redirecionamento ocorre no mesmo nome de host. Verifique os seguintes cabeçalhos de solicitação e resposta de exemplo.
 
 Para implementar as etapas anteriores usando o PowerShell para uma instalação existente, use o exemplo de script do PowerShell a seguir. Observe como não usamos os comutadores **-PickHostname** na configuração de investigação e configurações de http.
 

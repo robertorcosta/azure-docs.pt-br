@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como implantar um controlad
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 949f1b3ee3db72e1c541c3dd4c5f74f364f1b514
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807097"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instalar um controlador de entrada do gateway de aplicativo (AGIC) usando um gateway de aplicativo existente
 
@@ -32,7 +32,7 @@ Este documento pressupõe que você já tem as seguintes ferramentas e infraestr
 - [AKs](https://azure.microsoft.com/services/kubernetes-service/) com [rede avançada](https://docs.microsoft.com/azure/aks/configure-azure-cni) habilitada
 - [Gateway de aplicativo v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) na mesma rede virtual que AKs
 - [Identidade do Pod do AAD](https://github.com/Azure/aad-pod-identity) instalada no cluster AKs
-- [Cloud Shell](https://shell.azure.com/) é o ambiente do shell do Azure, `az` que tem `kubectl`a CLI `helm` , o e o instalado. Essas ferramentas são necessárias para os comandos a seguir.
+- [Cloud Shell](https://shell.azure.com/) é o ambiente do shell do Azure, que tem a `az` CLI, o `kubectl` e o `helm` instalado. Essas ferramentas são necessárias para os comandos a seguir.
 
 Faça __backup da configuração do gateway de aplicativo antes de__ instalar o AGIC:
   1. usando [portal do Azure](https://portal.azure.com/) navegar para sua `Application Gateway` instância
@@ -44,7 +44,7 @@ O arquivo zip que você baixou terá modelos JSON, bash e scripts do PowerShell 
 [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) é um Gerenciador de pacotes para kubernetes. Vamos aproveitá-lo para instalar o `application-gateway-kubernetes-ingress` pacote.
 Use [Cloud Shell](https://shell.azure.com/) para instalar o Helm:
 
-1. Instale o [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) e execute o seguinte para `application-gateway-kubernetes-ingress` adicionar o pacote Helm:
+1. Instale o [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) e execute o seguinte para adicionar o `application-gateway-kubernetes-ingress` pacote Helm:
 
     - *RBAC habilitado* Cluster AKS
 
@@ -79,19 +79,19 @@ Siga as [instruções de instalação de identidade do Pod do AAD](https://githu
 Em seguida, precisamos criar uma identidade do Azure e dar a ela permissões ARM.
 Use [Cloud Shell](https://shell.azure.com/) para executar todos os comandos a seguir e criar uma identidade:
 
-1. Crie uma identidade do Azure **no mesmo grupo de recursos que os nós AKs**. É importante escolher o grupo de recursos correto. O grupo de recursos necessário no comando abaixo *não* é aquele referenciado no painel do portal do AKS. Esse é o grupo de recursos das `aks-agentpool` máquinas virtuais. Normalmente, esse grupo de recursos `MC_` começa com e contém o nome do seu AKs. Por exemplo:`MC_resourceGroup_aksABCD_westus`
+1. Crie uma identidade do Azure **no mesmo grupo de recursos que os nós AKs**. É importante escolher o grupo de recursos correto. O grupo de recursos necessário no comando abaixo *não* é aquele referenciado no painel do portal do AKS. Esse é o grupo de recursos das `aks-agentpool` máquinas virtuais. Normalmente, esse grupo de recursos começa com `MC_` e contém o nome do seu AKs. Por exemplo:`MC_resourceGroup_aksABCD_westus`
 
     ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
-1. Para os comandos de atribuição de função abaixo, precisamos `principalId` obter a identidade recém-criada:
+1. Para os comandos de atribuição de função abaixo, precisamos obter `principalId` a identidade recém-criada:
 
     ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Conceda acesso `Contributor` de identidade ao seu gateway de aplicativo. Para isso, você precisa da ID do gateway de aplicativo, que terá uma aparência semelhante a esta:`/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
+1. Conceda acesso de identidade `Contributor` ao seu gateway de aplicativo. Para isso, você precisa da ID do gateway de aplicativo, que terá uma aparência semelhante a esta:`/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
 
     Obtenha a lista de IDs de gateway de aplicativo em sua assinatura com:`az network application-gateway list --query '[].id'`
 
@@ -102,7 +102,7 @@ Use [Cloud Shell](https://shell.azure.com/) para executar todos os comandos a se
         --scope <App-Gateway-ID>
     ```
 
-1. Conceda acesso `Reader` de identidade ao grupo de recursos do gateway de aplicativo. A ID do grupo de recursos teria a `/subscriptions/A/resourceGroups/B`seguinte aparência:. Você pode obter todos os grupos de recursos com:`az group list --query '[].id'`
+1. Conceda acesso de identidade `Reader` ao grupo de recursos do gateway de aplicativo. A ID do grupo de recursos teria a seguinte aparência: `/subscriptions/A/resourceGroups/B` . Você pode obter todos os grupos de recursos com:`az group list --query '[].id'`
 
     ```azurecli
     az role assignment create \
@@ -196,21 +196,21 @@ Nas primeiras etapas, instalamos o gaveta do Helm no cluster do kubernetes. Use 
         apiServerAddress: <aks-api-server-address>
     ```
 
-1. Edite Helm-config. YAML e preencha os valores de `appgw` e `armAuth`.
+1. Edite Helm-config. YAML e preencha os valores de `appgw` e `armAuth` .
     ```bash
     nano helm-config.yaml
     ```
 
     > [!NOTE] 
-    > O `<identity-resource-id>` e `<identity-client-id>` são as propriedades da identidade do Azure AD que você configura na seção anterior. Você pode recuperar essas informações executando o seguinte comando: `az identity show -g <resourcegroup> -n <identity-name>`, em que `<resourcegroup>` é o grupo de recursos no qual o objeto de cluster AKs de nível superior, o gateway de aplicativo e a identificação gerenciada são implantados.
+    > O `<identity-resource-id>` e `<identity-client-id>` são as propriedades da identidade do Azure AD que você configura na seção anterior. Você pode recuperar essas informações executando o seguinte comando: `az identity show -g <resourcegroup> -n <identity-name>` , em que `<resourcegroup>` é o grupo de recursos no qual o objeto de cluster AKs de nível superior, o gateway de aplicativo e a identificação gerenciada são implantados.
 
-1. Instalar o gráfico `application-gateway-kubernetes-ingress` do Helm `helm-config.yaml` com a configuração da etapa anterior
+1. Instalar o gráfico do Helm `application-gateway-kubernetes-ingress` com a `helm-config.yaml` configuração da etapa anterior
 
     ```bash
     helm install -f <helm-config.yaml> application-gateway-kubernetes-ingress/ingress-azure
     ```
 
-    Como alternativa, você pode combinar `helm-config.yaml` o e o comando Helm em uma única etapa:
+    Como alternativa, você pode combinar o `helm-config.yaml` e o comando Helm em uma única etapa:
     ```bash
     helm install ./helm/ingress-azure \
          --name ingress-azure \
@@ -248,9 +248,9 @@ Vamos examinar um gateway de aplicativo imaginário, que gerencia o tráfego par
   - `dev.contoso.com`-hospedado em um novo AKS, usando o gateway de aplicativo e o AGIC
   - `prod.contoso.com`-hospedado em um [conjunto de dimensionamento de máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
-Com as configurações padrão, AGIC assume 100% de Propriedade do gateway de aplicativo ao qual ele é apontado. AGIC substitui toda a configuração do gateway de aplicativo. Se tivéssemos de criar manualmente um ouvinte para `prod.contoso.com` (no gateway de aplicativo), sem defini-lo na entrada kubernetes, o AGIC excluirá `prod.contoso.com` a configuração em segundos.
+Com as configurações padrão, AGIC assume 100% de Propriedade do gateway de aplicativo ao qual ele é apontado. AGIC substitui toda a configuração do gateway de aplicativo. Se tivéssemos de criar manualmente um ouvinte para `prod.contoso.com` (no gateway de aplicativo), sem defini-lo na entrada kubernetes, o AGIC excluirá a `prod.contoso.com` configuração em segundos.
 
-Para instalar o AGIC e também `prod.contoso.com` para atender de nossos computadores de conjunto de dimensionamento de máquinas virtuais, `dev.contoso.com` é necessário restringir AGIC somente à configuração. Isso é facilitado com a instanciação do seguinte [CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/):
+Para instalar o AGIC e também para atender `prod.contoso.com` de nossos computadores de conjunto de dimensionamento de máquinas virtuais, é necessário restringir AGIC somente à configuração `dev.contoso.com` . Isso é facilitado com a instanciação do seguinte [CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/):
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -263,12 +263,12 @@ spec:
 EOF
 ```
 
-O comando acima cria um `AzureIngressProhibitedTarget` objeto. Isso torna o AGIC (versão 0.8.0 e posterior) ciente da existência da configuração do gateway de `prod.contoso.com` aplicativo para o e o instrui explicitamente para evitar a alteração de qualquer configuração relacionada a esse nome de host.
+O comando acima cria um `AzureIngressProhibitedTarget` objeto. Isso torna o AGIC (versão 0.8.0 e posterior) ciente da existência da configuração do gateway de aplicativo para o `prod.contoso.com` e o instrui explicitamente para evitar a alteração de qualquer configuração relacionada a esse nome de host.
 
 
 ### <a name="enable-with-new-agic-installation"></a>Habilitar com a instalação do New AGIC
-Para limitar o AGIC (versão 0.8.0 e posterior) a um subconjunto da configuração do gateway de `helm-config.yaml` aplicativo, modifique o modelo.
-Na `appgw:` seção, adicione `shared` a chave e defina-a como `true`.
+Para limitar o AGIC (versão 0.8.0 e posterior) a um subconjunto da configuração do gateway de aplicativo, modifique o `helm-config.yaml` modelo.
+Na `appgw:` seção, adicione a `shared` chave e defina-a como `true` .
 
 ```yaml
 appgw:
@@ -279,7 +279,7 @@ appgw:
 ```
 
 Aplique as alterações Helm:
-  1. Verifique se `AzureIngressProhibitedTarget` o CRD está instalado com:
+  1. Verifique se o `AzureIngressProhibitedTarget` CRD está instalado com:
       ```bash
       kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/ae695ef9bd05c8b708cedf6ff545595d0b7022dc/crds/AzureIngressProhibitedTarget.yaml
       ```
@@ -291,13 +291,13 @@ Aplique as alterações Helm:
           ingress-azure application-gateway-kubernetes-ingress/ingress-azure
       ```
 
-Como resultado, seu AKS terá uma nova instância do `AzureIngressProhibitedTarget` chamada: `prohibit-all-targets`
+Como resultado, seu AKS terá uma nova instância do `AzureIngressProhibitedTarget` chamada `prohibit-all-targets` :
 ```bash
 kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
 ```
 
-O objeto `prohibit-all-targets`, como o nome sugere, proíbe AGIC de alterar a configuração de *qualquer* host e caminho.
-O Helm instalar `appgw.shared=true` com o implantará o AGIC, mas não fará nenhuma alteração no gateway de aplicativo.
+O objeto `prohibit-all-targets` , como o nome sugere, proíbe AGIC de alterar a configuração de *qualquer* host e caminho.
+O Helm instalar com o `appgw.shared=true` implantará o AGIC, mas não fará nenhuma alteração no gateway de aplicativo.
 
 
 ### <a name="broaden-permissions"></a>Ampliar permissões
@@ -323,7 +323,7 @@ Amplie as permissões de AGIC com:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Habilitar para uma instalação existente do AGIC
-Vamos supor que já temos um AKS de trabalho, um gateway de aplicativo e um AGIC configurado em nosso cluster. Temos uma entrada para `prod.contosor.com` e estão servindo com êxito o tráfego para ele do AKS. Queremos adicionar `staging.contoso.com` ao nosso gateway de aplicativo existente, mas é necessário hospedá-lo em uma [VM](https://azure.microsoft.com/services/virtual-machines/). Vamos reutilizar o gateway de aplicativo existente e configurar manualmente um ouvinte e pools de `staging.contoso.com`back-end para o. Mas ajustar manualmente a configuração do gateway de aplicativo (por meio do [portal](https://portal.azure.com), [APIs ARM](https://docs.microsoft.com/rest/api/resources/) ou [Terraform](https://www.terraform.io/)) estaria em conflito com as suposições de AGIC de propriedade total. Logo após aplicarmos as alterações, AGIC irá substituí-las ou excluí-las.
+Vamos supor que já temos um AKS de trabalho, um gateway de aplicativo e um AGIC configurado em nosso cluster. Temos uma entrada para `prod.contosor.com` e estão servindo com êxito o tráfego para ele do AKS. Queremos adicionar `staging.contoso.com` ao nosso gateway de aplicativo existente, mas é necessário hospedá-lo em uma [VM](https://azure.microsoft.com/services/virtual-machines/). Vamos reutilizar o gateway de aplicativo existente e configurar manualmente um ouvinte e pools de back-end para o `staging.contoso.com` . Mas ajustar manualmente a configuração do gateway de aplicativo (por meio do [portal](https://portal.azure.com), [APIs ARM](https://docs.microsoft.com/rest/api/resources/) ou [Terraform](https://www.terraform.io/)) estaria em conflito com as suposições de AGIC de propriedade total. Logo após aplicarmos as alterações, AGIC irá substituí-las ou excluí-las.
 
 Podemos proibir o AGIC de fazer alterações em um subconjunto da configuração.
 
@@ -344,4 +344,4 @@ Podemos proibir o AGIC de fazer alterações em um subconjunto da configuração
     kubectl get AzureIngressProhibitedTargets
     ```
 
-3. Modificar a configuração do gateway de aplicativo por meio do portal-adicionar ouvintes, regras de roteamento, back-ends etc. O novo objeto que criamos`manually-configured-staging-environment`() proíbe AGIC de substituir a configuração do gateway de aplicativo `staging.contoso.com`relacionada ao.
+3. Modificar a configuração do gateway de aplicativo por meio do portal-adicionar ouvintes, regras de roteamento, back-ends etc. O novo objeto que criamos ( `manually-configured-staging-environment` ) proíbe AGIC de substituir a configuração do gateway de aplicativo relacionada ao `staging.contoso.com` .

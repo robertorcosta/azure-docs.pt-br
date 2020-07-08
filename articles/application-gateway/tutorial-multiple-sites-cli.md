@@ -5,20 +5,20 @@ description: Saiba como criar um gateway de aplicativo que hospeda vários sites
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a559ec7f9138810611841eed4a035f30662bc39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74047352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806264"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure
 
-Você pode usar a CLI do Azure para configurar [a hospedagem de vários sites da Web](multiple-site-overview.md) ao criar um [gateway de aplicativo](overview.md). Neste artigo, você define pools de endereço back-end usando conjuntos de dimensionamento de máquinas virtuais. Em seguida, você configurará ouvintes e regras com base em domínios que possui para garantir que o tráfego da Web chegue aos servidores apropriados nos pools. Este artigo pressupõe que você possui vários domínios e usa exemplos de *www\.contoso.com* e *www\.fabrikam.com*.
+Você pode usar a CLI do Azure para configurar [a hospedagem de vários sites da Web](multiple-site-overview.md) ao criar um [gateway de aplicativo](overview.md). Neste artigo, você define pools de endereço back-end usando conjuntos de dimensionamento de máquinas virtuais. Em seguida, você configurará ouvintes e regras com base em domínios que possui para garantir que o tráfego da Web chegue aos servidores apropriados nos pools. Este artigo pressupõe que você possui vários domínios e usa exemplos de *www \. contoso.com* e *www \. fabrikam.com*.
 
 Neste artigo, você aprenderá como:
 

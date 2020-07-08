@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95d25e4f26abc48f2a734cf8456739e6ef55b84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807689"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usar o PowerShell para atribuir uma função de RBAC para acesso a dados de BLOB e de fila
 
@@ -61,7 +61,7 @@ Para atribuir uma função de RBAC a uma entidade de segurança, use o comando [
 
 ### <a name="container-scope"></a>Escopo do contêiner
 
-Para atribuir uma função com escopo a um contêiner, especifique uma cadeia de caracteres que contenha o escopo do `--scope` contêiner para o parâmetro. O escopo de um contêiner está no formato:
+Para atribuir uma função com escopo a um contêiner, especifique uma cadeia de caracteres que contenha o escopo do contêiner para o `--scope` parâmetro. O escopo de um contêiner está no formato:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
@@ -77,7 +77,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="queue-scope"></a>Escopo da fila
 
-Para atribuir uma função com escopo a uma fila, especifique uma cadeia de caracteres que contenha o escopo da `--scope` fila para o parâmetro. O escopo de uma fila está no formato:
+Para atribuir uma função com escopo a uma fila, especifique uma cadeia de caracteres que contenha o escopo da fila para o `--scope` parâmetro. O escopo de uma fila está no formato:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
@@ -93,7 +93,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="storage-account-scope"></a>Escopo da conta de armazenamento
 
-Para atribuir uma função com escopo à conta de armazenamento, especifique o escopo do recurso de conta de armazenamento para `--scope` o parâmetro. O escopo de uma conta de armazenamento está no formato:
+Para atribuir uma função com escopo à conta de armazenamento, especifique o escopo do recurso de conta de armazenamento para o `--scope` parâmetro. O escopo de uma conta de armazenamento está no formato:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -109,7 +109,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="resource-group-scope"></a>Escopo do grupo de recursos
 
-Para atribuir uma função com escopo ao grupo de recursos, especifique o nome ou a ID do grupo de `--resource-group` recursos para o parâmetro. O exemplo a seguir atribui a função de **leitor de dados de fila de armazenamento** a um usuário no nível do grupo de recursos. Certifique-se de substituir os valores de exemplo e os valores de espaço reservado entre colchetes por seus próprios valores: 
+Para atribuir uma função com escopo ao grupo de recursos, especifique o nome ou a ID do grupo de recursos para o `--resource-group` parâmetro. O exemplo a seguir atribui a função de **leitor de dados de fila de armazenamento** a um usuário no nível do grupo de recursos. Certifique-se de substituir os valores de exemplo e os valores de espaço reservado entre colchetes por seus próprios valores: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
