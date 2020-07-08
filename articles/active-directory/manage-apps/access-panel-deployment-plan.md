@@ -2,25 +2,25 @@
 title: Planejar uma implantação do painel de acesso do Azure Active Directory
 description: Orientação sobre a implantação do painel de acesso do Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555319"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planejar uma implantação do painel de acesso do Azure Active Directory
 
@@ -83,23 +83,23 @@ A tabela a seguir descreve os principais casos de uso para uma implantação do 
 
 | Área| Descrição |
 | - | - |
-| Acesso| O portal do painel de acesso pode ser acessado de dispositivos corporativos e pessoais na rede corporativa. |
-|Acesso | O portal do painel de acesso pode ser acessado de dispositivos corporativos fora da rede corporativa. |
+| Access| O portal do painel de acesso pode ser acessado de dispositivos corporativos e pessoais na rede corporativa. |
+|Access | O portal do painel de acesso pode ser acessado de dispositivos corporativos fora da rede corporativa. |
 | Auditoria| Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias. |
 | Governança| O ciclo de vida das atribuições de usuário para aplicativos e grupos conectados ao Azure AD é definido e monitorado. |
 | Segurança| O acesso aos recursos é controlado por meio de atribuições de usuário e de grupo. Somente usuários autorizados podem gerenciar o acesso a recursos. |
 | Desempenho| As linhas do tempo de propagação de atribuição de acesso são documentadas e monitoradas. |
-| Experiência do Usuário| Os usuários estão cientes dos recursos do painel de acesso e de como usá-los.|
-| Experiência do Usuário| Os usuários podem gerenciar seu acesso a aplicativos e grupos.|
-| Experiência do Usuário| Os usuários podem gerenciar suas contas. |
-| Experiência do Usuário| Os usuários estão cientes da compatibilidade do navegador. |
+| Experiência do usuário| Os usuários estão cientes dos recursos do painel de acesso e de como usá-los.|
+| Experiência do usuário| Os usuários podem gerenciar seu acesso a aplicativos e grupos.|
+| Experiência do usuário| Os usuários podem gerenciar suas contas. |
+| Experiência do usuário| Os usuários estão cientes da compatibilidade do navegador. |
 | Suporte| Os usuários podem encontrar suporte para problemas do painel de acesso. |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Práticas recomendadas para implantar o painel de acesso do AD do Azure
 
 A funcionalidade do painel de acesso pode ser habilitada gradualmente. Recomendamos a seguinte ordem de implantação:
 
-1. Meus Aplicativos
+1. Meus aplicativos
    * Inicializador de aplicativo
    * Gerenciamento de aplicativo de autoatendimento
    * Integração do Microsoft Office 365
@@ -107,7 +107,7 @@ A funcionalidade do painel de acesso pode ser habilitada gradualmente. Recomenda
 1. Descoberta de aplicativo de autoatendimento
    * Redefinição de senha de autoatendimento
    * Configurações de autenticação multifator
-   * Gerenciamento de dispositivos
+   * Gerenciamento de dispositivo
    * Termos de uso
    * Gerenciar organizações
 
@@ -149,7 +149,7 @@ Para obter mais informações, consulte [Configurar a maneira como os usuários 
 
 Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md) e se as funções de Stakeholder no projeto são bem compreendidas.
 
-### <a name="plan-communications"></a>Planejar a comunicação
+### <a name="plan-communications"></a>Planejar comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Informe de forma proativa aos usuários como e quando sua experiência será alterada e como obter suporte, se necessário.
 
@@ -215,7 +215,7 @@ Um navegador protegido com a política do Intune (Microsoft Edge ou Intune Manag
 
 ## <a name="plan-your-my-apps-deployment"></a>Planejar a implantação de meus aplicativos
 
-A base do painel de acesso é o iniciador do aplicativo meus aplicativos, que os [https://myapps.microsoft.com](https://myapps.microsoft.com/)usuários acessam em. As páginas meus aplicativos fornecem aos usuários um único lugar para iniciar seu trabalho e obter seus aplicativos necessários. Aqui, os usuários encontram uma lista de todos os aplicativos aos quais têm acesso de logon único. 
+A base do painel de acesso é o iniciador do aplicativo meus aplicativos, que os usuários acessam em [https://myapps.microsoft.com](https://myapps.microsoft.com/) . As páginas meus aplicativos fornecem aos usuários um único lugar para iniciar seu trabalho e obter seus aplicativos necessários. Aqui, os usuários encontram uma lista de todos os aplicativos aos quais têm acesso de logon único. 
 
 ![Uma captura de tela do painel de aplicativos](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -261,7 +261,7 @@ Para planejar a associação de grupo de autoatendimento, determine se você per
 
 O Azure AD fornece [relatórios que oferecem informações técnicas e de negócios](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Trabalhe com seus proprietários de aplicativos técnicos e de negócios para assumir a propriedade desses relatórios e consumi-los regularmente. A tabela a seguir fornece alguns exemplos de cenários de relatório típicos.
 
-|   | gerenciar riscos| Aumentar a produtividade| Governança e conformidade |
+| Exemplo | gerenciar riscos| Aumentar a produtividade| Governança e conformidade |
 |  - |- | - | - |
 | Tipos de relatório|  Permissões e uso do aplicativo| Atividade de provisionamento de conta| Revisar quem está acessando os aplicativos |
 | Ações potenciais| Acesso de auditoria; revogar permissões| Corrigir quaisquer erros de provisionamento| Revogar acesso |
@@ -309,7 +309,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 #### <a name="application-sso-access-test-case-examples"></a>Exemplos de casos de teste de acesso de SSO de aplicativo:
 
 
-| caso comercial| Resultado esperado |
+| Caso comercial| Resultado esperado |
 | - | -|
 | O usuário entra no portal meus aplicativos| O usuário pode entrar e ver seus aplicativos |
 | O usuário inicia um aplicativo SSO Federado| O usuário é conectado automaticamente ao aplicativo |
@@ -322,7 +322,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Exemplos de casos de teste de recursos de autoatendimento do aplicativo
 
 
-| caso comercial| Resultado esperado |
+| Caso comercial| Resultado esperado |
 | - | - |
 | O usuário pode gerenciar a associação ao aplicativo| O usuário pode adicionar/remover membros que têm acesso ao aplicativo |
 | O usuário pode editar o aplicativo| O usuário pode editar a descrição e as credenciais do aplicativo para aplicativos de SSO de senha |
@@ -336,7 +336,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 
 Você deve usar a função menos privilegiada para realizar uma tarefa necessária dentro de Azure Active Directory. [Examine as diferentes funções que estão disponíveis](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e escolha a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
 
-| Personas| Funções| Função de AD do Azure  |
+| Personas| Funções| Função do Azure AD  |
 | - | -| -|
 | Administrador de assistência técnica| Suporte da camada 1| Nenhum |
 | Administrador de identidade| Configurar e depurar quando os problemas afetam o Azure AD| Administrador global |

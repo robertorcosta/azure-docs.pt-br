@@ -2,22 +2,22 @@
 title: Adicionar um aplicativo não Galeria-plataforma de identidade da Microsoft | Microsoft Docs
 description: Adicione um aplicativo que não seja da galeria ao seu locatário do Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555127"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Adicionar um aplicativo não listado (não Galeria) à sua organização do Azure AD
 
@@ -34,7 +34,7 @@ Este artigo descreve como adicionar um aplicativo que não seja da galeria a **a
 
 1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com/) usando sua conta de administrador da plataforma de identidade da Microsoft.
 
-2. Selecione **aplicativos** > empresariais**novo aplicativo**.
+2. Selecione **aplicativos empresariais**  >  **novo aplicativo**.
 
 3. (Opcional, mas recomendado) Na caixa de pesquisa **procurar na galeria do Azure ad** , insira o nome de exibição do aplicativo. 
 
@@ -70,7 +70,7 @@ Este artigo descreve como adicionar um aplicativo que não seja da galeria a **a
 
       Comportamento de usuários **atribuídos**:
 
-       | Configurações de propriedade do aplicativo | | | Experiência do usuário atribuído | |
+       | Propriedade do aplicativo | Propriedade do aplicativo | Propriedade do aplicativo | Experiência do usuário atribuído | Experiência do usuário atribuído |
        |---|---|---|---|---|
        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários atribuídos podem entrar? | Os usuários atribuídos podem ver o aplicativo?* |
        | sim | sim | sim | sim | sim  |
@@ -84,7 +84,7 @@ Este artigo descreve como adicionar um aplicativo que não seja da galeria a **a
 
       Comportamento de usuários **não atribuídos**:
 
-       | Configurações de propriedade do aplicativo | | | Experiência de usuário não atribuído | |
+       | Propriedade do aplicativo | Propriedade do aplicativo | Propriedade do aplicativo | Experiência de usuário não atribuído | Experiência de usuário não atribuído |
        |---|---|---|---|---|
        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários não atribuídos podem entrar? | Os usuários não atribuídos podem ver o aplicativo?* |
        | sim | sim | sim | não  | não   |
@@ -102,7 +102,7 @@ Este artigo descreve como adicionar um aplicativo que não seja da galeria a **a
 
     ![Alterar o logotipo](media/add-non-gallery-app/change-logo.png)
 
-4. Quando terminar, selecione **Salvar**.
+4. Quando tiver terminado, selecione **salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

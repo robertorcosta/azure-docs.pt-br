@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557974"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -48,15 +48,15 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |authentication-basic|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|username|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|
+|Nome de Usuário|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|
 |password|Especifica a senha da credencial do Basic.|Sim|N/D|
 
 ### <a name="usage"></a>Uso
@@ -77,27 +77,38 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="examples"></a>Exemplos
 
-Neste exemplo, o certificado de cliente é identificado por sua impressão digital.
+Neste exemplo, o certificado do cliente é identificado por sua impressão digital:
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
+
+Neste exemplo, o certificado do cliente é identificado pelo nome do recurso:
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+Neste exemplo, o certificado do cliente é definido na política em vez de ser recuperado do repositório de certificados interno:
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### <a name="elements"></a>Elementos  
   
-|Name|Descrição|Obrigatório|  
+|Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|Descrição|Obrigatório|Padrão|  
+|Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|A impressão digital do certificado do cliente.|`thumbprint` Ou `certificate-id` deve estar presente.|N/D|  
-|ID do certificado|O nome do recurso do certificado.|`thumbprint` Ou `certificate-id` deve estar presente.|N/D|  
+|thumbprint|A impressão digital do certificado do cliente.|`thumbprint`Ou `certificate-id` deve estar presente.|N/D|
+|ID do certificado|O nome do recurso do certificado.|`thumbprint`Ou `certificate-id` deve estar presente.|N/D|
+|body|Certificado de cliente como uma matriz de bytes.|Não|N/D|
+|password|Senha do certificado do cliente.|Usado se o certificado especificado em `body` for protegido por senha.|N/D|
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -107,12 +118,14 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 -   **Escopos da política:** todos os escopos  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Autenticar com identidade gerenciada  
- Use a `authentication-managed-identity` política para autenticar com um serviço de back-end usando a identidade gerenciada do serviço de gerenciamento de API. Essa política usa basicamente a identidade gerenciada para obter um token de acesso de Azure Active Directory para acessar o recurso especificado. Depois de obter o token com êxito, a política definirá o valor do token no `Authorization` cabeçalho usando o `Bearer` esquema.
+ Use a `authentication-managed-identity` política para autenticar com um serviço de back-end usando a identidade gerenciada. Essa política usa basicamente a identidade gerenciada para obter um token de acesso de Azure Active Directory para acessar o recurso especificado. Depois de obter o token com êxito, a política definirá o valor do token no `Authorization` cabeçalho usando o `Bearer` esquema.
+
+Tanto a identidade atribuída pelo sistema quanto qualquer uma das várias identidades atribuídas pelo usuário podem ser usadas para solicitar o token. Se `client-id` não for fornecida, a identidade atribuída pelo sistema será assumida. Se a `client-id` variável for fornecida, o token será solicitado para essa identidade atribuída pelo usuário de Azure Active Directory
   
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>Exemplo  
@@ -127,7 +140,7 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -135,7 +148,21 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
-  
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+```
+
+#### <a name="use-managed-identity-and-set-header-manually"></a>Usar identidade gerenciada e definir o cabeçalho manualmente
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<set-header name="Authorization" exists-action="override">
+   <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+</set-header>
+```
+
 #### <a name="use-managed-identity-in-send-request-policy"></a>Usar identidade gerenciada na política de solicitação de envio
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
@@ -147,17 +174,18 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 
 ### <a name="elements"></a>Elementos  
   
-|Name|Descrição|Obrigatório|  
+|Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
 |autenticação-gerenciada-identidade |Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|Descrição|Obrigatório|Padrão|  
+|Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia de caracteres. A ID do aplicativo da API Web de destino (recurso protegido) em Azure Active Directory.|Sim|N/D|  
-|saída-token-variável-nome|Cadeia de caracteres. Nome da variável de contexto que receberá o valor de token como um `string`tipo de objeto. |Não|N/D|  
-|ignore-error|Booliano. Se definido como `true`, o pipeline de política continuará a ser executado mesmo se um token de acesso não for obtido.|Não|false|  
+|recurso|Cadeia de caracteres. A ID do aplicativo da API Web de destino (recurso protegido) em Azure Active Directory.|Sim|N/D|
+|ID do cliente|Cadeia de caracteres. A ID do aplicativo da identidade atribuída pelo usuário no Azure Active Directory.|Não|identidade atribuída pelo sistema|
+|saída-token-variável-nome|Cadeia de caracteres. Nome da variável de contexto que receberá o valor de token como um tipo de objeto `string` . |Não|N/D|  
+|ignore-error|Booliano. Se definido como `true` , o pipeline de política continuará a ser executado mesmo se um token de acesso não for obtido.|Não|false|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  

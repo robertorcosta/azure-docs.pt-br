@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 62933a0e83a7494bc208068cb418f9ccc29ba637
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554526"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -92,7 +92,7 @@ Depois que os padrões de segurança forem habilitados em seu locatário, todas 
 > [!WARNING]
 > Antes de habilitar os padrões de segurança, garanta que os administradores não estejam usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [Como deixar de usar a autenticação herdada](concept-fundamentals-block-legacy-authentication.md).
 
-- [Como configurar um dispositivo ou aplicativo multifuncional para enviar emails usando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Como configurar um dispositivo ou aplicativo multifuncional para enviar emails usando o Office 365 e o Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Proteção a ações privilegiadas
 
@@ -122,7 +122,7 @@ As considerações adicionais a seguir estão relacionadas à implantação dos 
 
 Esses padrões de segurança gratuitos permitem o registro e o uso da MFA do Microsoft Azure **usando apenas o aplicativo Microsoft Authenticator com notificações**. O Acesso Condicional permite o uso de qualquer método de autenticação que o administrador escolha habilitar.
 
-|   | Padrões de segurança | Acesso Condicional |
+| Método | Padrões de segurança | Acesso Condicional |
 | --- | --- | --- |
 | Notificação pelo aplicativo móvel | X | X |
 | O código de verificação do aplicativo móvel ou token de hardware | X** | X |

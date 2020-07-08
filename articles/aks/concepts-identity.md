@@ -4,12 +4,12 @@ description: Saiba mais sobre acesso e identidade no Serviço de Kubernetes do A
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb3f0a7aee63f8b655e7056ee870de80c2f814e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558165"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -68,6 +68,9 @@ Associações de função são usadas para atribuir funções para um namespace 
 
 Um ClusterRole funciona da mesma forma para conceder permissões para recursos, mas pode ser aplicado a recursos em todo o cluster, não um namespace específico. Essa abordagem permite que você conceda ou aos engenheiros de suporte acesso a todos os recursos no cluster AKS.
 
+> [!NOTE]
+> Todas as ações de cluster tomadas pelo suporte da Microsoft são feitas com o consentimento do usuário em uma função interna kubernetes ["Edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) do nome `aks-support-rolebinding` . Com essa função, o suporte a AKS está habilitado para editar a configuração e os recursos do cluster para solucionar problemas e diagnosticar os problema de cluster, mas a função não pode modificar permissões nem criar funções ou associações de função. O acesso à função só é habilitado em Tíquetes de suporte ativos com acesso JIT (just-in-time). Leia mais sobre [as políticas de suporte do AKS](support-policies.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para começar com o Microsoft Azure Active Directory e o RBAC do Kubernetes, consulte [Integrar o Azure Active Directory ao AKS][aks-aad].
@@ -76,11 +79,11 @@ Para obter as práticas recomendadas associadas, consulte [práticas recomendada
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
-- [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
+- [Clusters e cargas de trabalho do Kubernetes/AKS][aks-concepts-clusters-workloads]
 - [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / redes virtuais do AKS][aks-concepts-network]
-- [Kubernetes / armazenamento AKS][aks-concepts-storage]
-- [Kubernetes / escala de AKS][aks-concepts-scale]
+- [Redes virtuais do Kubernetes/AKS][aks-concepts-network]
+- [Armazenamento do Kubernetes/AKS][aks-concepts-storage]
+- [Escala do Kubernetes/AKS][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kubernetes-authentication]: https://kubernetes.io/docs/reference/access-authn-authz/authentication

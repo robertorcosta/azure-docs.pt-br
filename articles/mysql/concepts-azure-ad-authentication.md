@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0c56652b4e098213bae0c69d4be5ac77e1b1393c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 12316abd4a738d54e01f88873498e4b299d6053d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556373"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usar o Azure Active Directory para autenticação com o MySQL
 
@@ -66,14 +66,18 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 - Integrada do Azure Active Directory
 - Universal do Azure Active Directory com o MFA
 - Usar certificados de aplicativos do Active Directory ou segredos de cliente
+- [Identidade gerenciada](howto-connect-with-managed-identity.md)
 
 Depois de estar autenticado no Active Directory, você recuperará um token. Esse token é sua senha para entrar.
+
+Observe que as operações de gerenciamento, como adicionar novos usuários, têm suporte apenas para funções de usuário do Azure AD neste momento.
 
 > [!NOTE]
 > Para obter mais detalhes sobre como se conectar com um token do Active Directory, confira [Configurar e entrar com o Azure AD para o Banco de Dados do Azure para MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
 ## <a name="additional-considerations"></a>Considerações adicionais
 
+- Azure Active Directory autenticação só está disponível para MySQL 5,7 e mais recente.
 - Somente um administrador do Azure AD pode ser configurado para um servidor do Banco de Dados do Azure para MySQL a qualquer momento.
 - Somente um administrador do Azure AD para MySQL pode se conectar inicialmente ao Banco de Dados do Azure para MySQL usando uma conta do Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.
 - Se um usuário for excluído do Azure AD, esse usuário não poderá mais se autenticar com o Azure AD e, portanto, não será mais possível adquirir um token de acesso para esse usuário. Nesse caso, embora o usuário correspondente ainda esteja no banco de dados, não será possível se conectar ao servidor com esse usuário.

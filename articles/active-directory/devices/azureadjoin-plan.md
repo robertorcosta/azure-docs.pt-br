@@ -4,19 +4,19 @@ description: Explica as etapas necessárias para implementar o Azure Active Dire
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555025"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -32,15 +32,14 @@ Este artigo presume que você esteja familiarizado com o [Introdução ao gerenc
 
 Para planejar sua implementação de ingresso no Azure AD, você deve se familiarizar com:
 
-|   |   |
-|---|---|
-|![Verificação][1]|Revisar seus cenários|
-|![Verificação][1]|Revisar sua infraestrutura de identidade|
-|![Verificação][1]|Avaliar o gerenciamento de dispositivo|
-|![Verificação][1]|Entenda as considerações para aplicativos e recursos|
-|![Verificação][1]|Entenda suas opções de provisionamento|
-|![Verificação][1]|Configurar o roaming de estado|
-|![Verificação][1]|Configurar o acesso condicional|
+> [!div class="checklist"]
+> - Revisar seus cenários
+> - Revisar sua infraestrutura de identidade
+> - Avaliar o gerenciamento de dispositivo
+> - Entenda as considerações para aplicativos e recursos
+> - Entenda suas opções de provisionamento
+> - Configurar o roaming de estado
+> - Configurar acesso condicional
 
 ## <a name="review-your-scenarios"></a>Revisar seus cenários 
 
@@ -104,7 +103,7 @@ Ingresso no Azure AD:
 
 - Só é aplicável a dispositivos Windows 10. 
 - Não é aplicável a versões anteriores do Windows ou outros sistemas operacionais. Se você tiver dispositivos Windows 7/8.1, você deve atualizar para o Windows 10 para implantar o ingresso no Azure Active Directory.
-- Não há suporte em dispositivos com o TPM no modo FIPS.
+- Tem suporte para TPM 2,0 compatível com FIPS, mas sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com o ingresso no Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte.
  
 **Recomendação:** sempre usar a versão mais recente do Windows 10 para tirar proveito dos recursos atualizados.
 
@@ -185,6 +184,8 @@ O Azure Active Directory não dão suporte a aplicativos locais na autenticaçã
 
 Conexão da área de trabalho remota para um dispositivos adicionados ao Azure Active Directory requer que o computador host para o Azure Active Directory ingressado ou Azure AD Híbrido ingressado. Área de trabalho remota de um dispositivo não relacionado ou não Windows que não é compatível. Para obter mais informações, consulte [Conectar ao Azure Active Directory ingressado remoto pc](/windows/client-management/connect-to-remote-aadj-pc)
 
+Iniciando a atualização do Windows 10 2004, os usuários podem Alo usar a área de trabalho remota de um dispositivo Windows 10 registrado no Azure AD para um dispositivo ingressado no Azure AD. 
+
 ## <a name="understand-your-provisioning-options"></a>Entenda suas opções de provisionamento
 
 Você pode provisionar o ingresso no Azure Active Directory usando as seguintes abordagens:
@@ -195,7 +196,7 @@ Você pode provisionar o ingresso no Azure Active Directory usando as seguintes 
  
 Aqui está uma comparação dessas três abordagens 
  
-|   | Instalação do autoatendimento | Windows Autopilot | Registro em massa |
+| Elemento | Instalação do autoatendimento | Windows Autopilot | Registro em massa |
 | --- | --- | --- | --- |
 | Requer interação do usuário para configurar | Sim | Sim | Não |
 | Requer trabalho de TI | Não | Sim | Sim |
@@ -284,7 +285,7 @@ Se você quiser habilitar o roaming de estado para o Azure Active Directory para
 
 **Recomendação**: habilite esta configuração mesmo para os dispositivos do Azure Active Directory híbrido ingressado.
 
-## <a name="configure-conditional-access"></a>Configurar o acesso condicional
+## <a name="configure-conditional-access"></a>Configurar acesso condicional
 
 Se você tiver um provedor MDM configurado para os dispositivos Azure Active Directory ingressados, o provedor sinaliza o dispositivo como conformidade assim que o dispositivo está sob gerenciamento. 
 
@@ -295,8 +296,8 @@ Você pode usar essa implementação para [exigir dispositivos gerenciados para 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Ingressar em um novo dispositivo Windows 10 com o Azure ad durante uma primeira execução](azuread-joined-devices-frx.md)
-> [ingressar seu dispositivo de trabalho na rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Ingressar em um novo dispositivo Windows 10 com o Azure ad durante uma primeira execução](azuread-joined-devices-frx.md) 
+>  [Ingresse seu dispositivo de trabalho na rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

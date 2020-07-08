@@ -4,28 +4,27 @@ description: Entrar no Azure AD em uma VM do Azure executando o Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554879"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
 As organizações agora podem utilizar a autenticação Azure Active Directory (AD) para suas VMs (máquinas virtuais) do Azure que executam o **Windows Server 2019 Datacenter Edition** ou o **Windows 10 1809** e posterior. Usar o Azure AD para autenticar em VMs fornece uma maneira de controlar e impor políticas de forma centralizada. Ferramentas como o RBAC (controle de acesso baseado em função) do Azure e o acesso condicional do Azure AD permitem que você controle quem pode acessar uma VM. Este artigo mostra como criar e configurar uma VM do Windows Server 2019 para usar a autenticação do Azure AD.
 
-|     |
-| --- |
-| A entrada do Azure AD para VMs do Windows do Azure é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> A entrada do Azure AD para VMs do Windows do Azure é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em VMs do Windows no Azure, incluindo:
 
@@ -33,7 +32,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 - Não precisa mais gerenciar contas de administrador local.
 - O RBAC do Azure permite conceder o acesso apropriado às VMs com base na necessidade e removê-la quando não for mais necessária.
 - Antes de permitir o acesso a uma VM, o acesso condicional do Azure AD pode impor requisitos adicionais, como: 
-   - Autenticação Multifator
+   - Autenticação multifator
    - Verificação de risco de entrada
 - Automatize e dimensione o ingresso no Azure AD de VMs do Windows do Azure que fazem parte para suas implantações de VDI.
 
@@ -63,10 +62,10 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 
 Para habilitar a autenticação do Azure AD para suas VMs do Windows no Azure, você precisa garantir que sua configuração de rede de VMs permita o acesso de saída aos seguintes pontos de extremidade pela porta TCP 443:
 
-- https:\//enterpriseregistration.Windows.net
+- https: \/ /enterpriseregistration.Windows.net
 - https:\//login.microsoftonline.com
-- https:\//Device.login.microsoftonline.com
-- https:\//Pas.Windows.net
+- https: \/ /Device.login.microsoftonline.com
+- https: \/ /Pas.Windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitando o logon do Azure AD no para VM do Windows no Azure
 
@@ -188,7 +187,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se o domínio do AAD e o domínio de nome de usuário de logon não corresponderem, você deverá especificar a ID `--assignee-object-id`de objeto da sua conta de `--assignee`usuário com o, e não apenas o nome do usuário para. É possível obter a ID de objeto para a conta de usuário com [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> Se o domínio do AAD e o domínio de nome de usuário de logon não corresponderem, você deverá especificar a ID de objeto da sua conta de usuário com o `--assignee-object-id` , e não apenas o nome do usuário para `--assignee` . É possível obter a ID de objeto para a conta de usuário com [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 Para obter mais informações sobre como usar o RBAC para gerenciar o acesso aos recursos de sua assinatura do Azure, consulte os seguintes artigos:
 
@@ -243,21 +242,21 @@ A extensão AADLoginForWindows deve ser instalada com êxito para que a VM concl
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
 
    > [!NOTE]
-   > O token de acesso pode ser decodificado usando uma ferramenta [http://calebb.net/](http://calebb.net/)como. Verifique se "AppID" no token de acesso corresponde à identidade gerenciada atribuída à VM.
+   > O token de acesso pode ser decodificado usando uma ferramenta como [http://calebb.net/](http://calebb.net/) . Verifique se "AppID" no token de acesso corresponde à identidade gerenciada atribuída à VM.
 
 1. Verifique se os pontos de extremidade necessários estão acessíveis da VM usando a linha de comando:
    
-   - enrolar\/https:/login.microsoftonline.com/-D –
-   - enrolar\/https:`<TenantID>`/login.microsoftonline.com//-D –
+   - enrolar https: \/ /login.microsoftonline.com/-D –
+   - enrolar https: \/ /login.microsoftonline.com/ `<TenantID>` /-D –
 
    > [!NOTE]
    > Substitua `<TenantID>` pela ID de locatário do Azure AD que está associada à assinatura do Azure.
 
-   - enrolar\/https:/Enterpriseregistration.Windows.net/-D-
-   - enrolar\/https:/Device.login.microsoftonline.com/-D-
-   - enrolar\/https:/Pas.Windows.net/-D-
+   - enrolar https: \/ /enterpriseregistration.Windows.net/-D-
+   - enrolar https: \/ /Device.login.microsoftonline.com/-D-
+   - enrolar https: \/ /Pas.Windows.net/-D-
 
-1. O estado do dispositivo pode ser exibido executando `dsregcmd /status`. O objetivo é que o estado do dispositivo seja `AzureAdJoined : YES`mostrado como.
+1. O estado do dispositivo pode ser exibido executando `dsregcmd /status` . O objetivo é que o estado do dispositivo seja mostrado como `AzureAdJoined : YES` .
 
    > [!NOTE]
    > A atividade de ingresso no Azure AD é capturada no Visualizador de eventos no log do dispositivo Registration\Admin do usuário.
@@ -282,17 +281,17 @@ Esse código de saída é convertido para DSREG_AUTOJOIN_DISC_FAILED porque a ex
 
 1. Verifique se os pontos de extremidade necessários estão acessíveis da VM usando a linha de comando:
 
-   - enrolar\/https:/login.microsoftonline.com/-D –
-   - enrolar\/https:`<TenantID>`/login.microsoftonline.com//-D –
+   - enrolar https: \/ /login.microsoftonline.com/-D –
+   - enrolar https: \/ /login.microsoftonline.com/ `<TenantID>` /-D –
    
    > [!NOTE]
    > Substitua `<TenantID>` pela ID de locatário do Azure AD que está associada à assinatura do Azure. Se você precisar localizar a ID do locatário, passe o mouse sobre o nome da sua conta para obter a ID do diretório/locatário ou selecione Azure Active Directory > Propriedades > ID do diretório no portal do Azure.
 
-   - enrolar\/https:/Enterpriseregistration.Windows.net/-D-
-   - enrolar\/https:/Device.login.microsoftonline.com/-D-
-   - enrolar\/https:/Pas.Windows.net/-D-
+   - enrolar https: \/ /enterpriseregistration.Windows.net/-D-
+   - enrolar https: \/ /Device.login.microsoftonline.com/-D-
+   - enrolar https: \/ /Pas.Windows.net/-D-
 
-1. Se qualquer um dos comandos falhar com "não foi possível resolver `<URL>`o host", tente executar esse comando para determinar o servidor DNS que está sendo usado pela VM.
+1. Se qualquer um dos comandos falhar com "não foi possível resolver `<URL>` o host", tente executar esse comando para determinar o servidor DNS que está sendo usado pela VM.
    
    `nslookup <URL>`
 
@@ -315,7 +314,7 @@ Na visualização pública, a extensão AADLoginForWindows destina-se apenas a s
 
 Alguns erros comuns quando você tenta usar o RDP com as credenciais do Azure AD não incluem nenhuma função RBAC atribuída, cliente não autorizado ou método de entrada 2FA necessário. Use as informações a seguir para corrigir esses problemas.
 
-O estado do dispositivo e do SSO pode ser exibido `dsregcmd /status`executando. O objetivo é que o estado do dispositivo seja `AzureAdJoined : YES` mostrado `SSO State` como e `AzureAdPrt : YES`para mostrar.
+O estado do dispositivo e do SSO pode ser exibido executando `dsregcmd /status` . O objetivo é que o estado do dispositivo seja mostrado como `AzureAdJoined : YES` e `SSO State` para mostrar `AzureAdPrt : YES` .
 
 Além disso, a entrada RDP usando contas do Azure AD é capturada no Visualizador de eventos nos logs de eventos do AAD\Operational.
 

@@ -1,19 +1,19 @@
 ---
 title: Filtros de segurança para os resultados de corte
 titleSuffix: Azure Cognitive Search
-description: Controle de acesso no Azure Pesquisa Cognitiva conteúdo usando filtros de segurança e identidades de usuário.
+description: Privilégios de segurança no nível de documento para resultados da pesquisa do Azure Pesquisa Cognitiva, usando filtros de segurança e identidades de usuário.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553136"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de segurança para aparar resultados no Azure Pesquisa Cognitiva
 
@@ -27,7 +27,7 @@ Este artigo mostra como realizar a filtragem de segurança usando as seguintes e
 > [!div class="checklist"]
 > * Criar um campo que contenha os identificadores de entidade 
 > * Enviar por push ou atualizar os documentos existentes com os identificadores de entidade relevantes
-> * Emitir uma solicitação de pesquisa `search.in` com`filter`
+> * Emitir uma solicitação de pesquisa com `search.in``filter`
 
 >[!NOTE]
 > O processo de recuperar os identificadores de entidade não é abordado neste documento. Você deve obtê-lo do seu provedor de serviço de identidade.
@@ -60,7 +60,7 @@ Vamos supor que nós temos um índice de arquivos protegidos e cada arquivo pode
 Emita uma solicitação HTTP POST para o ponto de extremidade de URL do índice. O corpo da solicitação HTTP é um objeto JSON que contém os documentos a serem adicionados:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -118,7 +118,7 @@ Observe que este exemplo mostra como pesquisar documentos usando uma solicitaç�
 Emita a solicitação HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
 ```
@@ -151,9 +151,9 @@ Você deve obter os documentos de volta, em que `group_ids` contém "group_id1" 
 ```
 ## <a name="conclusion"></a>Conclusão
 
-É assim que você pode filtrar os resultados com base na identidade do usuário `search.in()` e na função de pesquisa cognitiva do Azure. Você pode usar essa função para passar identificadores principais para que o usuário solicitante coincida com os identificadores de entidade de segurança associados a cada documento de destino. Quando uma solicitação de pesquisa é manipulada, a função `search.in` filtra os resultados da pesquisa aos quais nenhuma das entidades do usuário têm acesso de leitura. Os identificadores de entidade podem representar itens como grupos de segurança, funções ou até mesmo a própria identidade do usuário.
+É assim que você pode filtrar os resultados com base na identidade do usuário e na função de Pesquisa Cognitiva do Azure `search.in()` . Você pode usar essa função para passar identificadores principais para que o usuário solicitante coincida com os identificadores de entidade de segurança associados a cada documento de destino. Quando uma solicitação de pesquisa é manipulada, a função `search.in` filtra os resultados da pesquisa aos quais nenhuma das entidades do usuário têm acesso de leitura. Os identificadores de entidade podem representar itens como grupos de segurança, funções ou até mesmo a própria identidade do usuário.
  
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Active Directory controle de acesso baseado em identidade usando filtros de Pesquisa Cognitiva do Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros no Azure Pesquisa Cognitiva](search-filters.md)

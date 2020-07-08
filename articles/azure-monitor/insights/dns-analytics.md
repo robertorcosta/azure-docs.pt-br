@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552815"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -179,7 +179,7 @@ Etapas comuns de solução de problemas:
 
 1. Dados de pesquisas de DNS ausentes-para solucionar esse problema, tente redefinir a configuração ou apenas carregar a página de configuração uma vez no Portal. Para redefinir, basta alterar uma configuração para outro valor e, em seguida, alterá-la de volta para o valor original e salvar a configuração.
 
-## <a name="feedback"></a>Comentários
+## <a name="suggestions"></a>Sugestões
 
 Para fornecer comentários, visite a [página log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) para postar ideias para análise de DNS recursos para trabalhar. 
 

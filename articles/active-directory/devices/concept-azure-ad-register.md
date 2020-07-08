@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67462753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554867"
 ---
 # <a name="azure-ad-registered-devices"></a>Dispositivos registrados no Azure AD
 
 A meta dos dispositivos registrados no Azure AD é fornecer aos usuários suporte para o BYOD (Traga seu próprio dispositivo) ou cenários de dispositivo móvel. Nesses cenários, um usuário pode acessar os Azure Active Directory recursos controlados da sua organização usando um dispositivo pessoal.
 
-|   | Azure AD registrado |
+| Azure AD registrado | Descrição |
 | --- | --- |
 | **Definição** | Registrado no Azure AD sem exigir que a conta organizacional entre no dispositivo |
-| **Público-alvo principal** | Aplicável a todos os usuários com os seguintes critérios: |
+| **Público principal** | Aplicável a todos os usuários com os seguintes critérios: |
 |   | BYOD (Traga seu próprio dispositivo) |
 |   | Dispositivos móveis |
 | **Propriedade do dispositivo** | Usuário ou organização |
-| **Sistemas operacionais** | Windows 10, iOS, Android e MacOS |
+| **Sistemas Operacionais** | Windows 10, iOS, Android e MacOS |
 | **Provisionamento** | Windows 10 – configurações |
 |   | iOS/Android – Portal da Empresa ou aplicativo Microsoft Authenticator |
 |   | MacOS – Portal da Empresa |
@@ -47,7 +47,7 @@ A meta dos dispositivos registrados no Azure AD é fornecer aos usuários suport
 
 ![Dispositivos registrados no Azure AD](./media/concept-azure-ad-register/azure-ad-registered-device.png)
 
-Os dispositivos registrados no Azure AD são conectados ao usando uma conta local como uma conta Microsoft em um dispositivo Windows 10, mas também têm uma conta do Azure AD anexada para acesso aos recursos organizacionais. O acesso a recursos na organização pode ser ainda mais limitado com base nessa conta do Azure AD e nas políticas de acesso condicional aplicadas à identidade do dispositivo.
+Os dispositivos registrados no Azure AD são conectados ao usando uma conta local como uma conta Microsoft em um dispositivo Windows 10, mas também têm uma conta do Azure AD anexada para acesso aos recursos organizacionais. O acesso a recursos na organização pode ser limitado com base nessa conta do Azure AD e nas políticas de acesso condicional aplicadas à identidade do dispositivo.
 
 Os administradores podem proteger e controlar ainda mais esses dispositivos registrados no Azure AD usando ferramentas de MDM (gerenciamento de dispositivo móvel), como Microsoft Intune. O MDM fornece um meio para impor configurações necessárias à organização, como exigir que o armazenamento seja criptografado, a complexidade da senha e o software de segurança mantidos atualizados. 
 

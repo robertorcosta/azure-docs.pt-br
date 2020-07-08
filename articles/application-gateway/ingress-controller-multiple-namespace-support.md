@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como habilitar o suporte a 
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556164"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Habilitar o suporte a vários namespaces em um cluster AKS com o controlador de entrada do gateway de aplicativo
 
@@ -21,14 +21,14 @@ Os [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-object
 
 A partir da versão 0,7 [aplicativo Azure gateway kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) pode ingerir eventos e observar vários namespaces. Se o administrador do AKS decidir usar o [Gateway de aplicativo](https://azure.microsoft.com/services/application-gateway/) como uma entrada, todos os namespaces usarão a mesma instância do gateway de aplicativo. Uma única instalação do controlador de entrada irá monitorar namespaces acessíveis e configurará o gateway de aplicativo ao qual ele está associado.
 
-A versão 0,7 do AGIC continuará a observar exclusivamente `default` o namespace, a menos que isso seja explicitamente alterado para um ou mais namespaces diferentes na configuração do Helm (consulte a seção abaixo).
+A versão 0,7 do AGIC continuará a observar exclusivamente o `default` namespace, a menos que isso seja explicitamente alterado para um ou mais namespaces diferentes na configuração do Helm (consulte a seção abaixo).
 
 ## <a name="enable-multiple-namespace-support"></a>Habilitar o suporte a vários namespaces
 Para habilitar o suporte a vários namespaces:
 1. Modifique o arquivo [Helm-config. YAML](#sample-helm-config-file) de uma das seguintes maneiras:
-   - Exclua `watchNamespace` a chave inteiramente de [Helm-config. YAML](#sample-helm-config-file) -AGIC irá observar todos os namespaces
+   - Exclua a `watchNamespace` chave inteiramente de [Helm-config. YAML](#sample-helm-config-file) -AGIC irá observar todos os namespaces
    - definido `watchNamespace` como uma cadeia de caracteres vazia-AGIC observará todos os namespaces
-   - adicionar vários namespaces separados por uma vírgula (`watchNamespace: default,secondNamespace`)-AGIC irá observar esses namespaces exclusivamente
+   - adicionar vários namespaces separados por uma vírgula ( `watchNamespace: default,secondNamespace` )-AGIC irá observar esses namespaces exclusivamente
 2. aplicar alterações do modelo Helm com:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 Uma vez implantado com a capacidade de observar vários namespaces, o AGIC irá:
@@ -44,7 +44,8 @@ Na parte superior da hierarquia-os **ouvintes** (endereço IP, porta e host) e *
 
 Por outro lado, os caminhos, os pools de back-end, as configurações de HTTP e os certificados TLS podem ser criados somente por um namespace e as duplicatas serão removidas.
 
-Por exemplo, considere os seguintes namespaces definidos por recursos de entrada `staging` `production` duplicados `www.contoso.com`e para:
+Por exemplo, considere os seguintes namespaces definidos por recursos de entrada duplicados `staging` e `production` para `www.contoso.com` :
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -81,7 +82,7 @@ spec:
               servicePort: 80
 ```
 
-Apesar dos dois recursos de entrada que exigem tráfego `www.contoso.com` para serem roteados para os respectivos namespaces do kubernetes, somente um back-end pode atender ao tráfego. O AGIC criaria uma configuração na base "primeira vez, servida" para um dos recursos. Se dois recursos de insere forem criados ao mesmo tempo, aquele anterior no alfabeto terá precedência. No exemplo acima, só será possível criar configurações para a `production` entrada. O gateway de aplicativo será configurado com os seguintes recursos:
+Apesar dos dois recursos de entrada que exigem tráfego para serem `www.contoso.com` roteados para os respectivos namespaces do kubernetes, somente um back-end pode atender ao tráfego. O AGIC criaria uma configuração na base "primeira vez, servida" para um dos recursos. Se dois recursos de insere forem criados ao mesmo tempo, aquele anterior no alfabeto terá precedência. No exemplo acima, só será possível criar configurações para a `production` entrada. O gateway de aplicativo será configurado com os seguintes recursos:
 
   - Listener`fl-www.contoso.com-80`
   - Regra de roteamento:`rr-www.contoso.com-80`
@@ -89,18 +90,19 @@ Apesar dos dois recursos de entrada que exigem tráfego `www.contoso.com` para s
   - Configurações de HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
   - Investigação de integridade:`pb-production-contoso-web-service-80-websocket-ingress`
 
-Observe que, exceto para o *ouvinte* e a *regra de roteamento*, os recursos do gateway de aplicativo criados`production`incluem o nome do namespace () para o qual foram criados.
+Observe que, exceto para o *ouvinte* e a *regra de roteamento*, os recursos do gateway de aplicativo criados incluem o nome do namespace ( `production` ) para o qual foram criados.
 
-Se os dois recursos de entrada forem introduzidos no cluster AKS em diferentes pontos no tempo, é provável que o AGIC acabe em um cenário no qual reconfigura o gateway de aplicativo e reroteia o tráfego do `namespace-B` para `namespace-A`o.
+Se os dois recursos de entrada forem introduzidos no cluster AKS em diferentes pontos no tempo, é provável que o AGIC acabe em um cenário no qual reconfigura o gateway de aplicativo e reroteia o tráfego do `namespace-B` para o `namespace-A` .
 
-Por exemplo, se você `staging` adicionou First, AGIC configurará o gateway de aplicativo para rotear o tráfego para o pool de back-end de preparo. Em um estágio posterior, a `production` introdução à entrada causará AGIC para reprogramar o gateway de aplicativo, o que iniciará o roteamento do tráfego para o pool de `production` back-end.
+Por exemplo, se você adicionou `staging` First, AGIC configurará o gateway de aplicativo para rotear o tráfego para o pool de back-end de preparo. Em um estágio posterior, a introdução `production` à entrada causará AGIC para reprogramar o gateway de aplicativo, o que iniciará o roteamento do tráfego para o `production` pool de back-end.
 
 ## <a name="restrict-access-to-namespaces"></a>Restringir o acesso a namespaces
 Por padrão, o AGIC configurará o gateway de aplicativo com base em entrada anotada dentro de qualquer namespace. Se você quiser limitar esse comportamento, terá as seguintes opções:
-  - limitar os namespaces, definindo explicitamente os namespaces AGIC deve observar por meio `watchNamespace` da chave YAML em [Helm-config. YAML](#sample-helm-config-file)
+  - limitar os namespaces, definindo explicitamente os namespaces AGIC deve observar por meio da `watchNamespace` chave YAML em [Helm-config. YAML](#sample-helm-config-file)
   - Use [role/rolebinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) para limitar o AGIC a namespaces específicos
 
 ## <a name="sample-helm-config-file"></a>Arquivo de configuração Helm de exemplo
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ Por padrão, o AGIC configurará o gateway de aplicativo com base em entrada ano
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 

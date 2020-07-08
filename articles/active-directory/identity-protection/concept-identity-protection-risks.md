@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 06/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775ff6b3ba003bed22ccd5a42cb4da005c4dbb69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555267"
 ---
 # <a name="what-is-risk"></a>O que é risco?
 
@@ -38,7 +38,7 @@ Esses riscos são calculados offline usando fontes de inteligência contra amea�
 
 | Detecção de riscos | Descrição |
 | --- | --- |
-| Credenciais vazadas | Esse tipo de detecção de risco indica que as credenciais válidas do usuário foram vazadas. Quando criminosos cibernéticos comprometem senhas válidas de usuários legítimos, geralmente compartilham essas credenciais. Normalmente, esse compartilhamento é feito postando-se publicamente na Web escura, colando sites ou negociando e vendendo as credenciais no mercado preto. Quando o serviço de credenciais vazadas da Microsoft adquire credenciais de usuário da Web escura, colar sites ou outras fontes, eles são verificados em relação às credenciais válidas atuais dos usuários do Azure AD para encontrar correspondências válidas. |
+| Credenciais vazadas | Esse tipo de detecção de risco indica que as credenciais válidas do usuário foram vazadas. Quando criminosos cibernéticos comprometem senhas válidas de usuários legítimos, geralmente compartilham essas credenciais. Normalmente, esse compartilhamento é feito postando-se publicamente na Web escura, colando sites ou negociando e vendendo as credenciais no mercado preto. Quando o serviço de credenciais vazadas da Microsoft adquire credenciais de usuário da Web escura, colar sites ou outras fontes, eles são verificados em relação às credenciais válidas atuais dos usuários do Azure AD para encontrar correspondências válidas. Para obter mais informações sobre credenciais vazadas, consulte [perguntas comuns](#common-questions). |
 | Inteligência contra ameaças do Azure AD | Esse tipo de detecção de risco indica a atividade do usuário que é incomum para o usuário determinado ou é consistente com padrões de ataque conhecidos com base nas fontes de inteligência contra ameaças internas e externas da Microsoft. |
 
 ### <a name="sign-in-risk"></a>Risco de entrada
@@ -55,7 +55,7 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 | Propriedades de entrada desconhecidas | Tempo real | Esse tipo de detecção de risco considera o histórico de entrada anterior (IP, latitude/longitude e ASN) para procurar por entradas anormais. O sistema armazena informações sobre os locais anteriores usados por um usuário e considera esses locais "familiares". A detecção de risco é disparada quando a entrada ocorre de um local que ainda não está na lista de locais familiares. Os usuários recém-criados estarão no "modo de aprendizado" por um período em que as propriedades de entrada desconhecidas as detecções de risco serão desativadas enquanto nossos algoritmos aprendem o comportamento do usuário. A duração do modo de aprendizado é dinâmica e depende de quanto tempo leva o algoritmo para reunir informações suficientes sobre os padrões de entrada do usuário. A duração mínima é de cinco dias. Um usuário pode voltar para o modo de aprendizado após um longo período de inatividade. O sistema também ignora entradas de dispositivos conhecidos e locais que são geograficamente próximos de uma localização familiar. <br><br> Também podemos executar essa detecção para a autenticação Básica (ou protocolos herdados). Como esses protocolos não têm propriedades modernas como a ID do cliente, há uma telemetria limitada para reduzir os falsos positivos. Recomendamos que nossos clientes mudem para a autenticação moderna. |
 | Usuário confirmado pelo administrador comprometido | Offline | Essa detecção indica que um administrador selecionou ' confirmar o usuário comprometido ' na interface do usuário de usuários arriscados ou usando a API riskyUsers. Para ver qual administrador confirmou que esse usuário está comprometido, verifique o histórico de risco do usuário (por meio da interface de usuário ou API). |
 | Endereço IP mal-intencionado | Offline | Essa detecção indica a entrada de um endereço IP mal-intencionado. Um endereço IP é considerado mal-intencionado com base em taxas de falha altas devido a credenciais inválidas recebidas do endereço IP ou outras fontes de reputação de IP. |
-| Regras de manipulação de caixa de entrada suspeita | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Essa detecção analisa o ambiente e dispara alertas quando regras suspeitas que excluem ou movem mensagens ou pastas são definidas na caixa de entrada de um usuário. Isso pode indicar que a conta do usuário está comprometida, que as mensagens estão sendo intencionalmente ocultas e que a caixa de correio está sendo usada para distribuir spam ou malware na sua organização. |
+| Regras de manipulação de caixa de entrada suspeita | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Essa detecção analisa o ambiente e dispara alertas quando regras suspeitas que excluem ou movem mensagens ou pastas são definidas na caixa de entrada de um usuário. Essa detecção pode indicar que a conta do usuário está comprometida, que as mensagens estão sendo intencionalmente ocultas e que a caixa de correio está sendo usada para distribuir spam ou malware na sua organização. |
 | Viagem impossível | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Essa detecção identifica duas atividades do usuário (é uma única ou várias sessões) provenientes de locais geograficamente distantes em um período de tempo menor que o tempo que teria levado para o usuário viajar do primeiro local para o segundo, indicando que um usuário diferente está usando as mesmas credenciais. |
 
 ### <a name="other-risk-detections"></a>Outras detecções de risco
@@ -64,8 +64,34 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 | --- | --- | --- |
 | Risco adicional detectado | Em tempo real ou offline | Essa detecção indica que uma das detecções Premium acima foi detectada. Como as detecções Premium são visíveis apenas para clientes Azure AD Premium P2, elas são intituladas "risco adicional detectado" para clientes sem licenças Azure AD Premium P2. |
 
+## <a name="common-questions"></a>Perguntas comuns
+
+### <a name="leaked-credentials"></a>Credenciais vazadas
+
+#### <a name="where-does-microsoft-find-leaked-credentials"></a>Onde a Microsoft encontra credenciais vazadas?
+
+A Microsoft encontra credenciais vazadas em uma variedade de locais, incluindo:
+
+- Public cola sites como pastebin.com e paste.ca em que os atores inválidos normalmente lançam tal material. Esse local é a primeira parada dos atores mais ruins em sua busca de encontrar credenciais roubadas.
+- Agências de aplicação de leis.
+- Outros grupos da Microsoft fazendo pesquisas escuras na Web.
+
+#### <a name="why-arent-i-seeing-any-leaked-credentials"></a>Por que não vejo credenciais vazadas?
+
+As credenciais vazadas são processadas sempre que a Microsoft encontra um novo lote disponível publicamente. Devido à natureza confidencial, as credenciais vazadas são excluídas logo após o processamento. Somente novas credenciais vazadas encontradas depois que você habilita a sincronização de hash de senha (PHS) serão processadas em seu locatário. A verificação dos pares de credenciais encontrados anteriormente não é executada. 
+
+#### <a name="i-havent-seen-any-leaked-credential-risk-events-for-quite-some-time"></a>Não vi nenhum evento de risco de credencial vazado há algum tempo?
+
+Se você não viu nenhum evento de risco de credencial vazado, isso ocorre devido aos seguintes motivos:
+
+- Você não tem o PHS habilitado para seu locatário.
+- A Microsoft não encontrou pares de credenciais vazados que correspondam aos seus usuários.
+
+#### <a name="how-often-does-microsoft-process-new-credentials"></a>Com que frequência a Microsoft processa novas credenciais?
+
+As credenciais são processadas imediatamente depois de serem encontradas, normalmente em vários lotes por dia.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
-
-- [Visão geral da segurança](concept-identity-protection-security-overview.md)
+- [Visão geral de segurança](concept-identity-protection-security-overview.md)

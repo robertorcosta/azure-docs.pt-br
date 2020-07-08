@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556066"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
 
 > [!IMPORTANT] 
 > Os níveis de desempenho S1, S2 e S3 abordados neste artigo estão sendo desativados e não estão mais disponíveis para novas contas do Azure Cosmos DB.
->
 
 Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e discute como as coleções que usam esses níveis de desempenho podem ser migrado para o único coleções particionadas. Após ler este artigo, você poderá responder as perguntas a seguir:
 
@@ -43,7 +42,7 @@ Os níveis de desempenho S1, S2 e S3 não oferecem a flexibilidade que a oferta 
 
 A tabela a seguir compara as opções da taxa de transferência e armazenamento disponíveis nas coleções de partição única, coleções particionadas e níveis de desempenho S1, S2 e S3. Aqui está um exemplo para a região no Leste dos EUA 2:
 
-|   |Coleção particionada|Coleção de partição única|S1|S2|S3|
+| Nome da cota  |Coleção particionada|Coleção de partição única|S1|S2|S3|
 |---|---|---|---|---|---|
 |Taxa de transferência máxima|Ilimitado|10 K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Taxa de transferência mínima|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
@@ -76,7 +75,7 @@ Em cada um desses casos, após a migração da coleção, você poderá personal
 
 Supondo que você tem 10 coleções S1, 1 GB de armazenamento para cada uma, na região Leste dos EUA, e migra essas 10 coleções S1 para 10 coleções de partição única em 400 RU/s (o nível mínimo). Se você mantiver as 10 coleções de partição única por um mês inteiro, sua fatura será semelhante ao seguinte:
 
-![Como o preço de S1 para 10 coleções se compara a 10 coleções usando o preço para uma coleção de partição única](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="Como o preço de S1 para 10 coleções se compara a 10 coleções usando o preço para uma coleção de partição única" border="false":::
 
 <a name="more-storage-needed"></a>
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a20884c33d5232661e858e0b3ec722f139825aea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557221"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar System Center Operations Manager com o recurso de mapa de Azure Monitor para VMs
 
@@ -29,7 +29,7 @@ No Azure Monitor para VMs, você pode exibir componentes de aplicativos descober
 
 ## <a name="install-the-service-map-management-pack"></a>Instalar o pacote de gerenciamento do Mapa do Serviço
 
-Você habilita a integração entre Operations Manager e o recurso de mapa importando o pacote de gerenciamento Microsoft. SystemCenter. ServiceMap (Microsoft. SystemCenter. ServiceMap. MPB). Você pode baixar o pacote de gerenciamento no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). O pacote contém os seguintes pacotes de gerenciamento:
+Você habilita a integração entre Operations Manager e o recurso de mapa importando o pacote de gerenciamento Microsoft.SystemCenter. ServiceMap (Microsoft.SystemCenter. ServiceMap. MPB). Você pode baixar o pacote de gerenciamento no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). O pacote contém os seguintes pacotes de gerenciamento:
 
 * Exibições de Aplicativo do Mapa do Serviço da Microsoft
 * Mapa do Serviço Interno do Microsoft System Center
@@ -117,7 +117,7 @@ Você pode configurar apenas um espaço de trabalho Log Analytics nesta versão 
 
 ## <a name="configure-rules-and-overrides"></a>Configurar regras e substituições
 
-Uma regra, *Microsoft. SystemCenter. ServiceMapImport. Rule*, busca periodicamente informações de Azure monitor para VMs recurso de mapa. Para modificar o intervalo de sincronização, você pode substituir a regra e modificar o valor do parâmetro **IntervalMinutes**.
+Uma regra, *Microsoft.SystemCenter. ServiceMapImport. Rule*, busca periodicamente informações do recurso de mapa Azure monitor para VMs. Para modificar o intervalo de sincronização, você pode substituir a regra e modificar o valor do parâmetro **IntervalMinutes**.
 
 ![A janela de propriedades Substituições do Operations Manager](media/service-map-scom/scom-overrides.png)
 
@@ -142,5 +142,6 @@ Para obter a documentação oficial do Azure sobre como criar uma entidade de se
 * [Criar uma entidade de serviço usando a CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 * [Criar uma entidade de serviço usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
-### <a name="feedback"></a>Comentários
+### <a name="suggestions"></a>Sugestões
+
 Você tem algum comentário para nós sobre a integração com Azure Monitor para VMs recurso de mapa ou esta documentação? Visite nossa [página de voz do usuário](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde você pode sugerir recursos ou votar em sugestões existentes.

@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d50b08ab85c7e299c465c3eb6f34e867d6634006
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ac3235191952702f2acc39a25e948511901050b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555891"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
  Retorna a data e a hora UTC atuais (tempo Universal Coordenado) como uma cadeia de caracteres ISO 8601.
   
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
   
 ```sql
 GetCurrentDateTime ()
@@ -25,9 +25,9 @@ GetCurrentDateTime ()
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Retorna o valor de cadeia de caracteres atual de data e 8601 hora UTC `YYYY-MM-DDThh:mm:ss.fffffffZ` no formato em que:
+  Retorna o valor de cadeia de caracteres atual de data e 8601 hora UTC no formato em `YYYY-MM-DDThh:mm:ss.fffffffZ` que:
   
-  |||
+  |Formatar|Descrição|
   |-|-|
   |AAAA|ano de quatro dígitos|
   |MM|mês de dois dígitos (01 = Janeiro, etc.)|
@@ -68,5 +68,5 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções de data e hora Azure Cosmos DB](sql-query-date-time-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

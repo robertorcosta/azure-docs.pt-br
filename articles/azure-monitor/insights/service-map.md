@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 217b15b4004b1f06ef63414adc25890d4d87b027
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557588"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
@@ -326,7 +326,7 @@ Os registros nessas tabelas são gerados a partir dos dados relatados pelo agent
 
 Para gerenciar o custo e a complexidade, os registros de conexão não representam as conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica, o que é refletido na respectiva tabela.  Ou seja, os registros na tabela *VMConnection* representam um agrupamento lógico, não as conexões físicas individuais sendo observadas. As conexões de rede física que compartilham o mesmo valor para os atributos a seguir durante o intervalo especificado de um minuto são agregadas em um único registro lógico em *VMConnection*. 
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 | `Direction` |Direção da conexão, o valor é *entrada* ou *saída* |
 | `Machine` |O FQDN do computador |
@@ -338,7 +338,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 Para levar em conta o impacto do agrupamento, são fornecidas informações sobre o número de conexões físicas agrupadas nas seguintes propriedades do registro:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 | `LinksEstablished` |O número de conexões de rede física que foram estabelecidas durante o intervalo de tempo de geração de relatórios |
 | `LinksTerminated` |O número de conexões de rede física que foram terminadas durante o intervalo de tempo de geração de relatórios |
@@ -349,7 +349,7 @@ Para levar em conta o impacto do agrupamento, são fornecidas informações sobr
 
 Além das métricas de contagem de conexões, as informações sobre o volume de dados enviados e recebidos em determinada conexão lógica ou porta de rede também estão incluídas nas seguintes propriedades do registro:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 | `BytesSent` |Número total de bytes enviados durante o intervalo de tempo de geração de relatórios |
 | `BytesReceived` |Número total de bytes recebidos durante o intervalo de tempo de geração de relatórios |
@@ -377,7 +377,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 *VMConnection* também inclui informações de localização geográfica para a extremidade remota de cada registro de conexão nas seguintes propriedades do registro: 
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 | `RemoteCountry` |O nome do país/região que hospeda o RemoteIp.  Por exemplo: *Estados Unidos* |
 | `RemoteLatitude` |A latitude da localização geográfica.  Por exemplo: *47,68* |
@@ -387,7 +387,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um conjunto de IPs com atividades maliciosas conhecidas. Se RemoteIp for identificado como malicioso, as propriedades a seguir serão preenchidas (elas ficam em branco quando o IP não é considerado malicioso) nas seguintes propriedades do registro:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 | `MaliciousIp` |Endereço de RemoteIp |
 | `IndicatorThreadType` |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -565,15 +565,15 @@ O agente de dependência *geralmente* não requer uma reinicialização após a 
 
 O Microsoft Dependency Agent é compilado com base nas bibliotecas de runtime do Microsoft Visual Studio. Você receberá uma mensagem se houver um problema durante a instalação das bibliotecas. 
 
-Os instaladores da biblioteca de runtime criam logs na pasta %LOCALAPPDATA%\temp. O arquivo é `dd_vcredist_arch_yyyymmddhhmmss.log`, onde *Arch* é `x86` ou `amd64` e *AAAAMMDDHHMMSS* é a data e hora (relógio de 24 horas) quando o log foi criado. O log fornece detalhes sobre o problema que está bloqueando a instalação.
+Os instaladores da biblioteca de runtime criam logs na pasta %LOCALAPPDATA%\temp. O arquivo é `dd_vcredist_arch_yyyymmddhhmmss.log` , onde *Arch* é `x86` ou `amd64` e *AAAAMMDDHHMMSS* é a data e hora (relógio de 24 horas) quando o log foi criado. O log fornece detalhes sobre o problema que está bloqueando a instalação.
 
-Pode ser útil instalar primeiro as [bibliotecas de tempo de execução mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) .
+Pode ser útil instalar as [Bibliotecas de runtime mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) primeiro.
 
 A tabela a seguir lista números de código e soluções sugeridas.
 
 | Código | Descrição | Resolução |
 |:--|:--|:--|
-| 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` , você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção pré-requisitos no artigo [tempo de execução universal C no Windows](https://support.microsoft.com/kb/2999226) . Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
+| 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha, `Error 0x80240017: Failed to execute MSU package,` você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção de pré-requisitos no artigo [Runtime C Universal no Windows](https://support.microsoft.com/kb/2999226). Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
 
 ### <a name="post-installation-issues"></a>Problemas pós-instalação
 
@@ -584,15 +584,15 @@ Se a instalação do agente de dependência for bem-sucedida, mas você não vir
 **Windows**: Procure o serviço chamado **Microsoft Dependency Agent**.
 **Linux**: Procure o processo em execução **Microsoft-Dependency-Agent**.
 
-* Você está na [camada gratuita log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? O plano gratuito permite até cinco máquinas Mapa do Serviço exclusivas. Quaisquer computadores subsequentes não aparecerão no Mapa do Serviço, mesmo que os cinco anteriores não estejam mais enviando dados.
+* Você está na [camada gratuita log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? O plano Gratuito permite até cinco servidores exclusivos de Mapa do Serviço. Quaisquer servidores subsequentes serão exibidos no Mapa do Serviço, mesmo que os cinco anteriores não estejam enviando dados.
 
-* O servidor está enviando dados de log e desempenho para Azure Monitor logs? Vá para o Azure Monitor\Logs e execute a seguinte consulta para o seu computador: 
+* O servidor está enviando dados de log e desempenho para Azure Monitor logs? Acesse a Azure Monitor/Logs e execute a consulta a seguir para seu computador: 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Nesse caso, seu agente de Log Analytics está operando corretamente e se comunicando com o espaço de trabalho. Caso contrário, verifique o agente em seu computador: [log Analytics agente para solução de problemas do Windows](../platform/agent-windows-troubleshoot.md) ou solução [de problemas do agente log Analytics para Linux](../platform/agent-linux-troubleshoot.md).
+Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Se sim, o Agente do Log Analytics está operando corretamente e se comunicando com o espaço de trabalho. Caso contrário, verifique o agente em sua máquina: [Solução de problemas do agente do Log Analytics para Windows](../platform/agent-windows-troubleshoot.md) ou [Solução de problemas do agente do Log Analytics para Linux](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>O servidor aparece no Mapa do Serviço, mas sem processos
 
@@ -600,6 +600,6 @@ Se você vir seu computador no Mapa do Serviço, mas ele não tem nenhum process
 
 Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As últimas linhas do arquivo devem indicar por que o kernel não foi carregado. Por exemplo, se o kernel tiver sido atualizado por você, talvez o Linux não dê suporte a ele.
 
-## <a name="feedback"></a>Comentários
+## <a name="suggestions"></a>Sugestões
 
 Você tem algum comentário sobre o Mapa de Serviço ou sobre esta documentação?  Visita nossa [página Voz do Usuário](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde você pode sugerir recursos ou votar em sugestões existentes.

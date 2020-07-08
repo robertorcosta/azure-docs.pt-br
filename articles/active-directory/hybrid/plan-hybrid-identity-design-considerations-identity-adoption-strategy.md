@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67109328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555377"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você define uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -63,7 +63,7 @@ A estratégia adotada define a experiência de entrada do usuário.  A tabela a 
 
 **Aplicativos de rede privada ou ingressados no domínio**:
 
-|  | Identidade sincronizada | Identidade federada |
+| Aplicativo | Identidade sincronizada | Identidade federada |
 | --- | --- | --- |
 | Navegadores da Web |Autenticação baseada em formulários |Às vezes requer logon único para fornecer a ID da organização |
 | Outlook |Solicita credenciais |Solicita credenciais |
@@ -73,7 +73,7 @@ A estratégia adotada define a experiência de entrada do usuário.  A tabela a 
 
 **Fontes externas ou não confiáveis**:
 
-|  | Identidade sincronizada | Identidade federada |
+| Aplicativo | Identidade sincronizada | Identidade federada |
 | --- | --- | --- |
 | Navegadores da Web |Autenticação baseada em formulários |Autenticação baseada em formulários |
 | Outlook, Skype for Business (Lync), OneDrive for Business, assinatura do Office |Solicita credenciais |Solicita credenciais |
@@ -111,7 +111,7 @@ Usamos diversas ferramentas de sincronização para vários cenários ao longo d
 ### <a name="supported-topologies"></a>Topologias com suporte
 Escolha a topologia que vai usar quando definir a estratégia de sincronização. Dependendo das informações indicadas na etapa 2, determine a topologia de utilização mais adequada. A floresta única, topologia exclusiva do AD do Azure, é a mais comum e consiste de uma floresta única do Active Directory e de uma instância única do AD do Azure.  Ela será usada na maioria dos cenários, além de ser a topologia esperada para o uso da instalação expressa do Azure AD Connect Express, como ilustrado na imagem a seguir.
 
-![Cenário de](./media/plan-hybrid-identity-design-considerations/single-forest.png) floresta única de topologias com suporte é comum que organizações grandes e até mesmo pequenas tenham várias florestas, como mostra a Figura 5.
+![](./media/plan-hybrid-identity-design-considerations/single-forest.png)Cenário de floresta única de topologias com suporte é comum que organizações grandes e até mesmo pequenas tenham várias florestas, como mostra a Figura 5.
 
 > [!NOTE]
 > Para saber mais sobre as diversas topologias locais e as topologias do AD do Azure com serviço de sincronização do Azure AD Connect, leia o artigo [Topologias do Azure AD Connect](plan-connect-topologies.md).
@@ -213,6 +213,6 @@ A autenticação multifator está disponível por padrão para administradores g
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar os requisitos para proteção de dados](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

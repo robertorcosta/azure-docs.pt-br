@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512242"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554920"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
 
@@ -29,10 +29,10 @@ Normalmente, as organizações com um espaço local dependem de métodos de gera
 
 Se seu ambiente tiver um espaço local do AD e você também quiser se beneficiar dos recursos fornecidos pelo Azure Active Directory, será possível implementar dispositivos adicionados ao Azure AD híbrido. Esses dispositivos são dispositivos que ingressaram em seu Active Directory local e registrados com seu Azure Active Directory.
 
-|   | Ingresso híbrido no Azure AD |
+| Ingresso híbrido no Azure AD | Descrição |
 | --- | --- |
 | **Definição** | Ingressado no AD local e no Azure AD exigindo a conta institucional para entrar no dispositivo |
-| **Público-alvo principal** | Adequado para organizações híbridas com a infraestrutura existente do AD local |
+| **Público principal** | Adequado para organizações híbridas com a infraestrutura existente do AD local |
 |   | Aplicável a todos os usuários em uma organização |
 | **Propriedade do dispositivo** | Organização |
 | **Sistemas operacionais** | Windows 10, 8,1 e 7 |
@@ -41,7 +41,7 @@ Se seu ambiente tiver um espaço local do AD e você também quiser se beneficia
 |   | Ingresso no domínio por ti e autojunção via configuração do Azure AD Connect ou do ADFS |
 |   | Ingresso no domínio pelo AutoPilot do Windows e autojunção via configuração do Azure AD Connect ou do ADFS |
 |   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2-exigir MSI |
-| **Opções de entrada do dispositivo** | Contas organizacionais usando: |
+| **Opções de entrada do dispositivo** | Contas organizacionais que usam: |
 |   | Senha |
 |   | Windows Hello para empresas para Win10 |
 | **Gerenciamento de dispositivos** | Política de Grupo |

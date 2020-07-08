@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557877"
 ---
 # <a name="monitor-runbook-output"></a>Monitorar saída de runbook
 
@@ -88,7 +88,7 @@ A seguir, exemplos de tipos de dados de saída:
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>Declarar o tipo de dados de saída em um fluxo de trabalho
 
-Um fluxo de trabalho especifica o tipo de dados de sua saída usando o [atributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Esse atributo não tem nenhum efeito durante o runtime, mas ele fornece a você uma indicação no momento de criação da saída esperada do runbook. Como o conjunto de ferramentas para runbooks continua a evoluir, cresce a importância de declarar tipos de dados de saída em tempo de design. Portanto, é uma melhor prática incluir essa declaração em qualquer runbook criado por você.
+Um fluxo de trabalho especifica o tipo de dados de sua saída usando o [atributo OutputType](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Esse atributo não tem nenhum efeito durante o runtime, mas ele fornece a você uma indicação no momento de criação da saída esperada do runbook. Como o conjunto de ferramentas para runbooks continua a evoluir, cresce a importância de declarar tipos de dados de saída em tempo de design. Portanto, é uma melhor prática incluir essa declaração em qualquer runbook criado por você.
 
 O exemplo de runbook a seguir gera um objeto de cadeia de caracteres e inclui uma declaração de seu tipo de saída. Se seu runbook gerar uma matriz de um determinado tipo, você ainda deverá especificar o tipo como oposto a uma matriz do tipo.
 

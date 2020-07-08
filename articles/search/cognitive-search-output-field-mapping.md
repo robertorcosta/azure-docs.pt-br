@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557266"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Como mapear campos de ia-ricos para um índice pesquisável
 
@@ -28,7 +28,7 @@ Os mapeamentos de campo de saída são necessários para mover o conteúdo de do
 Para mapear campos, adicione `outputFieldMappings` à sua definição do indexador, conforme mostrado abaixo:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -117,7 +117,7 @@ Esse é um princípio importante, então forneceremos outro exemplo. Imagine que
 
 Vamos supor que o índice tenha um campo chamado ' doenças ' do tipo Collection (EDM. String), em que você gostaria de armazenar cada um dos nomes das entidades. 
 
-Isso pode ser feito facilmente usando o símbolo "\*", da seguinte maneira:
+Isso pode ser feito facilmente usando o símbolo " \* ", da seguinte maneira:
 
 ```json
     "outputFieldMappings": [

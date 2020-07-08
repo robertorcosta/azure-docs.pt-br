@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: HT
+ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402456"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558090"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o Serviço de Kubernetes do Azure
 
@@ -51,9 +51,12 @@ Como os nós de trabalho são confidenciais, a Microsoft toma muito cuidado para
 
 A Microsoft oferece suporte técnico para o seguinte:
 
+> [!NOTE]
+> Todas as ações de cluster tomadas pelo suporte da Microsoft são feitas com o consentimento do usuário em uma função interna kubernetes ["Edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) do nome `aks-support-rolebinding` . Com essa função, o suporte a AKS está habilitado para editar a configuração e os recursos do cluster para solucionar problemas e diagnosticar os problema de cluster, mas a função não pode modificar permissões nem criar funções ou associações de função. O acesso à função só é habilitado em Tíquetes de suporte ativos com acesso JIT (just-in-time).
+
 * Conectividade com todos os componentes do Kubernetes que o serviço de Kubernetes oferece e dá suporte, como o servidor de API.
 * Gerenciamento, tempo de atividade, QoS e operações dos serviços do painel de controle do Kubernetes (nós mestre do Kubernetes, servidor de API, etcd e kube-dns, por exemplo).
-* Etcd. O suporte inclui backups automatizados e transparentes de todos os dados do etcd a cada 30 minutos para planejamento de desastre e restauração de estado do cluster. Esses backups não estão disponíveis diretamente para clientes ou usuários. Eles garantem a confiabilidade e a consistência dos dados.
+* Etcd. O suporte inclui backups automatizados e transparentes de todos os dados do etcd a cada 30 minutos para planejamento de desastre e restauração de estado do cluster. Esses backups não estão disponíveis diretamente para clientes ou usuários. Eles garantem a confiabilidade e a consistência dos dados. Etcd. Não há suporte para a reversão ou restauração sob demanda como um recurso.
 * Qualquer ponto de integração no driver do provedor de nuvem do Azure para Kubernetes. Isso inclui integrações em outros serviços do Azure, como balanceadores de carga, volumes persistentes ou rede (Kubernetes e CNI do Azure).
 * Perguntas ou problemas sobre a personalização de componentes do painel de controle, como o servidor de API do Kubernetes, etcd e kube-dns.
 * Problemas sobre redes, como CNI do Azure, kubenet ou outros problemas de acesso e funcionalidade de rede. Os problemas podem incluir resolução de DNS, perda de pacotes, roteamento e assim por diante. A Microsoft dá suporte a vários cenários de rede:

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552522"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorar solicitações de consulta no Azure Pesquisa Cognitiva
 
@@ -128,11 +128,11 @@ Quando você habilita o log de recursos, o sistema captura solicitações de con
    AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where Query_s != "?api-version=2020-06-30&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Opcionalmente, defina um filtro de coluna em *Query_s* para pesquisar por uma sintaxe ou cadeia de caracteres específica. Por exemplo, você pode filtrar por *é igual a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+1. Opcionalmente, defina um filtro de coluna em *Query_s* para pesquisar por uma sintaxe ou cadeia de caracteres específica. Por exemplo, você pode filtrar por *é igual a* `?api-version=2020-06-30&search=*&%24filter=HotelName` ).
 
    ![Cadeias de consulta registradas](./media/search-monitor-usage/log-query-strings.png "Cadeias de consulta registradas")
 
@@ -181,7 +181,7 @@ Ao enviar por push os limites de uma configuração de partição de réplica es
 
    ![Detalhes do Alerta](./media/search-monitor-usage/alert-details.png "Detalhes do Alerta")
 
-Se você especificou uma notificação por email, receberá um email de "Microsoft Azure" com uma linha de assunto de "Azure: severidade ativada: 3 `<your rule name>`".
+Se você especificou uma notificação por email, receberá um email de "Microsoft Azure" com uma linha de assunto de "Azure: severidade ativada: 3 `<your rule name>` ".
 
 <!-- ## Report query data
 

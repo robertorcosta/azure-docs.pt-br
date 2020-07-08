@@ -1,6 +1,6 @@
 ---
 title: Conectar a Fortinet data ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar o Fortinet data ao Azure Sentinel.
+description: Conecte seu dispositivo Fortinet ao Azure Sentinel para exibir painéis, criar alertas personalizados e melhorar a investigação. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72ba4acd694933db503b01611e63867af99a129f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555958"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Conectar o Fortinet ao Azure Sentinel
 
@@ -50,9 +50,9 @@ Configure a Fortinet para encaminhar mensagens de syslog no formato CEF para seu
    > [!NOTE] 
    > Para obter mais informações, vá para a [biblioteca de documentos do Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Selecione sua versão e use o **manual** e a **referência de mensagem de log**.
 
-1. Para usar o esquema relevante no Azure Monitor Log Analytics para os eventos da Fortinet, procure `CommonSecurityLog`.
+1. Para usar o esquema relevante no Azure Monitor Log Analytics para os eventos da Fortinet, procure `CommonSecurityLog` .
 
-1. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
+1. Prossiga para a [ETAPA 3: Validar a conectividade](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

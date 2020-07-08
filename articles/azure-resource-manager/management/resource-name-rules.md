@@ -3,16 +3,18 @@ title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554342"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
 Este artigo resume as regras de nomenclatura e as restrições para recursos do Azure. Para obter recomendações sobre como dar nome aos recursos, veja [Convenções de nomenclatura e de marcação recomendadas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+Este artigo lista os recursos por namespace do provedor de recursos. Para obter uma lista de como os provedores de recursos correspondem aos serviços do Azure, consulte [provedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 
 Os nomes de recursos não diferenciam maiúsculas de minúsculas, a menos que sejam especificamente indicados na coluna de caracteres válidos.
 
@@ -34,7 +36,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | serviço | global | 1-50 | Caracteres alfanuméricos.<br><br>Comece com letra. |
+> | serviço | global | 1-50 | Alfanuméricos e hifens.<br><br>Comece com letra e termine com caractere alfanumérico. |
 > | service / apis | serviço | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
 > | service / apis / issues | api | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
 > | service / apis / issues / attachments | problema | 1–256 | Não é possível usar:<br> `*#&+:<>?` |
@@ -81,9 +83,9 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | locks | escopo da atribuição | 1-90 | Caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses.<br><br>Não pode terminar com ponto. |
-> | policyassignments | escopo da atribuição | Nome de exibição 1–128<br><br>Nome do recurso 1–260 | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
-> | policydefinitions | escopo da definição | Nome de exibição 1–128<br><br>Nome do recurso 1–260 | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
-> | policySetDefinitions | escopo da definição | Nome de exibição 1–128<br><br>Nome do recurso 1–260 | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço.  |
+> | policyAssignments | escopo da atribuição | Nome de exibição 1–128<br><br>1-64 nome do recurso | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
+> | policyDefinitions | escopo da definição | Nome de exibição 1–128<br><br>1-64 nome do recurso | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
+> | policySetDefinitions | escopo da definição | Nome de exibição 1–128<br><br>1-64 nome do recurso<br><br>1-24 nome do recurso no escopo do grupo de gerenciamento | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -172,8 +174,8 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | galleries/images/versions | image | Inteiro de 32 bits | Números e pontos. |
 > | images | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
 > | snapshots | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
-> | virtualMachineScaleSets | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
+> | virtualMachines | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
+> | virtualMachineScaleSets | grupo de recursos | 1–15 (Windows)<br>1–64 (Linux)<br><br>Veja a observação abaixo. | Não é possível usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não pode começar com sublinhado. Não pode terminar com ponto ou hífen. |
 
 > [!NOTE]
 > As máquinas virtuais do Azure têm dois nomes distintos: nome do recurso e nome do host. Quando você cria uma máquina virtual no portal, o mesmo valor é usado para ambos os nomes. As restrições na tabela anterior são para o nome do host. O nome real do recurso pode ter até 64 caracteres.
@@ -296,7 +298,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não pode iniciar ou terminar com hífen. |
-> | servers/databases | servers | 1-63 | Caracteres alfanuméricos e hifens. |
+> | servers / databases | servers | 1-63 | Caracteres alfanuméricos e hifens. |
 > | servers / firewallRules | servers | 1–128 | Caracteres alfanuméricos, hifens e sublinhados. |
 > | servers / virtualNetworkRules | servers | 1–128 | Caracteres alfanuméricos e hifens. |
 
@@ -306,7 +308,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | servers | global | 3-63 | Letras minúsculas, hifens e números.<br><br>Não pode iniciar ou terminar com hífen. |
-> | servers/databases | servers | 1-63 | Caracteres alfanuméricos e hifens. |
+> | servers / databases | servers | 1-63 | Caracteres alfanuméricos e hifens. |
 > | servers / firewallRules | servers | 1–128 | Caracteres alfanuméricos, hifens e sublinhados. |
 > | servers / virtualNetworkRules | servers | 1–128 | Caracteres alfanuméricos e hifens. |
 
@@ -522,7 +524,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6–50 | Caracteres alfanuméricos e hifens<br><br>Comece e termine com caractere alfanumérico. |
+> | namespaces | global | 6–50 | Caracteres alfanuméricos e hifens<br><br>Comece com letra. Termine com caractere alfanumérico. |
 > | namespaces / AuthorizationRules | namespace | 1–256 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece com caractere alfanumérico. |
 > | namespaces / notificationHubs | namespace | 1–260 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece com caractere alfanumérico. |
 > | namespaces / notificationHubs / AuthorizationRules | hub de notificação | 1–256 | Caracteres alfanuméricos, pontos, hifens e sublinhados.<br><br>Comece com caractere alfanumérico. |

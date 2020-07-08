@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 12ca4df6e5dd4ba86ece8469255195e2fa1c155e
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558540"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados a Azure Data Box e Azure Data Box Heavy
 
@@ -51,8 +51,8 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
     - Os nomes só podem ter letras, números e hifens.
     - Os nomes não podem começar nem terminar com hifens.
     - Os nomes não podem ter hifens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exemplos de nomes que não são válidos:,,, `my-folder_1` `my` `--myfolder` `myfolder--` ,`myfolder!`
 
     Para obter mais informações, consulte Convenções de nomenclatura do Azure para nomes de [contêiner](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de compartilhamento](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -70,8 +70,8 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
     - Os nomes só podem ter letras, números e hifens.
     - Os nomes não podem começar nem terminar com hifens.
     - Os nomes não podem ter hifens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exemplos de nomes que não são válidos:,,, `my-folder_1` `my` `--myfolder` `myfolder--` ,`myfolder!`
 
     Para obter mais informações, consulte Convenções de nomenclatura do Azure para nomes de [contêiner](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de compartilhamento](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -88,8 +88,8 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
     - Os nomes só podem ter letras, números e hifens.
     - Os nomes não podem começar nem terminar com hifens.
     - Os nomes não podem ter hifens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exemplos de nomes que não são válidos:,,, `my-folder_1` `my` `--myfolder` `myfolder--` ,`myfolder!`
 
     Para obter mais informações, consulte Convenções de nomenclatura do Azure para nomes de [contêiner](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de compartilhamento](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
@@ -102,7 +102,7 @@ Esses são erros relacionados a nomes de contêiner e compartilhamento.
 - Na página conectar e copiar da interface do usuário da Web local, baixe e examine os arquivos de erro para identificar os nomes de pastas com problemas. 
 - Renomeie o diretório ou os contêineres para garantir que eles estejam em conformidade com as convenções de nomenclatura do Azure.
 
-Para obter mais informações, consulte Convenções de nomenclatura do Azure para [diretórios](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e [contêineres](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+Para obter mais informações, consulte Convenções de nomenclatura do Azure para [diretórios](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   e [contêineres](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Erros de limite de tamanho de contêiner ou de compartilhamento
 
