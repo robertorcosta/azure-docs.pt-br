@@ -9,10 +9,9 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457568"
 ---
 # <a name="modeling-relationships"></a>Relações de modelagem
@@ -100,7 +99,7 @@ Modelos de domínio podem incluir relações um-para-um entre entidades. Se voc�
 
 Também há considerações de implementação que podem levá-lo a implementar relações um-para-um no serviço Tabela:  
 
-* Controlando grandes entidades (para obter mais informações, consulte [Padrão de grandes entidades](table-storage-design-patterns.md#large-entities-pattern)).  
+* Tratando grandes entidades (para obter mais informações, consulte [padrão de entidades grandes](table-storage-design-patterns.md#large-entities-pattern)).  
 * A implementação de controles de acesso (para saber mais, consulte Controlando o acesso com assinaturas de acesso compartilhado).  
 
 ## <a name="join-in-the-client"></a>Unindo o cliente

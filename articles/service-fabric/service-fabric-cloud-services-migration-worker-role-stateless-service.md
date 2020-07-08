@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463333"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
@@ -40,7 +39,7 @@ Semelhante à função de trabalho, uma função Web também representa uma carg
 ## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e ciclo de vida
 As APIs de função de trabalho e do Service Fabric oferecem pontos de entrada semelhantes: 
 
-| **Entry Point** | **Função de trabalho** | **Serviço Service Fabric** |
+| **Ponto de entrada** | **Função de trabalho** | **Serviço Service Fabric** |
 | --- | --- | --- |
 | Processando |`Run()` |`RunAsync()` |
 | Iniciar VM |`OnStart()` |N/D |

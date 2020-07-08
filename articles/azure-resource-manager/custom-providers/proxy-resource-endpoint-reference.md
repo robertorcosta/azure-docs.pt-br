@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650455"
 ---
 # <a name="custom-resource-proxy-reference"></a>Referência de proxy de recurso personalizado
@@ -42,10 +41,10 @@ Provedor de recursos personalizados de exemplo:
 
 ## <a name="building-proxy-resource-endpoint"></a>Criando ponto de extremidade de recurso de proxy
 
-Um **ponto de extremidade** que implementa um ponto de **extremidade** de recurso de "proxy" deve manipular a solicitação e a resposta para a nova API no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure `PUT`para `GET`, e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes.
+Um **ponto de extremidade** que implementa um ponto de **extremidade** de recurso de "proxy" deve manipular a solicitação e a resposta para a nova API no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure para `PUT` , `GET` e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes.
 
 > [!NOTE]
-> Os `id`campos `name`, e `type` não são necessários, mas são necessários para integrar o recurso personalizado com o ecossistema do Azure existente.
+> Os `id` `name` campos, e `type` não são necessários, mas são necessários para integrar o recurso personalizado com o ecossistema do Azure existente.
 
 Recurso de exemplo:
 
@@ -65,10 +64,10 @@ Recurso de exemplo:
 
 Referência de parâmetro:
 
-Propriedade | Amostra | Descrição
+Property | Amostra | Descrição
 ---|---|---
 name | '{myCustomResourceName}' | O nome do recurso personalizado.
-type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | O namespace do tipo de recurso.
+tipo | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | O namespace do tipo de recurso.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | A ID do recurso.
 
 ### <a name="create-a-custom-resource"></a>Criar um recurso personalizado
@@ -270,7 +269,7 @@ Da mesma forma, a resposta do **ponto de extremidade** é então encaminhada de 
 
 - Um documento de objeto JSON válido. Todas as matrizes e cadeias de caracteres devem ser aninhadas em um objeto superior.
 - O `Content-Type` cabeçalho deve ser definido como "Application/JSON; charset = utf-8 ".
-- A lista de recursos deve ser colocada sob a propriedade de nível `value` superior.
+- A lista de recursos deve ser colocada sob a propriedade de nível superior `value` .
 
 **Ponto de extremidade** Responde
 

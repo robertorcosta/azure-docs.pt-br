@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75494916"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Otimização de desempenho para clusters do Apache Kafka HDInsight
@@ -40,17 +39,17 @@ As seções a seguir destacarão algumas das propriedades de configuração mais
 
 ### <a name="batch-size"></a>Tamanho do lote
 
-Apache Kafka produtores montam grupos de mensagens (chamados de lotes) que são enviados como uma unidade a ser armazenada em uma única partição de armazenamento. Tamanho do lote significa o número de bytes que devem estar presentes antes que esse grupo seja transmitido. O aumento `batch.size` do parâmetro pode aumentar a taxa de transferência, pois reduz a sobrecarga de processamento das solicitações de rede e e/s. Sob carga leve, o tamanho do lote aumentado pode aumentar a latência de envio do Kafka, pois o produtor espera que um lote esteja pronto. Sob carga pesada, é recomendável aumentar o tamanho do lote para melhorar a taxa de transferência e a latência.
+Apache Kafka produtores montam grupos de mensagens (chamados de lotes) que são enviados como uma unidade a ser armazenada em uma única partição de armazenamento. Tamanho do lote significa o número de bytes que devem estar presentes antes que esse grupo seja transmitido. O aumento do `batch.size` parâmetro pode aumentar a taxa de transferência, pois reduz a sobrecarga de processamento das solicitações de rede e e/s. Sob carga leve, o tamanho do lote aumentado pode aumentar a latência de envio do Kafka, pois o produtor espera que um lote esteja pronto. Sob carga pesada, é recomendável aumentar o tamanho do lote para melhorar a taxa de transferência e a latência.
 
 ### <a name="producer-required-acknowledgments"></a>Confirmações necessárias do produtor
 
-A configuração necessária `acks` do produtor determina o número de confirmações exigidas pelo líder da partição antes que uma solicitação de gravação seja considerada concluída. Essa configuração afeta a confiabilidade dos dados e usa os `0`valores `1`de, `-1`ou. O valor de `-1` significa que uma confirmação deve ser recebida de todas as réplicas antes de a gravação ser concluída. A `acks = -1` configuração fornece garantias mais fortes contra perda de dados, mas também resulta em latência mais alta e taxa de transferência mais baixa. Se os requisitos do aplicativo exigirem maior taxa de `acks = 0` transferência `acks = 1`, tente definir ou. Tenha em mente que a não confirmação de todas as réplicas pode reduzir a confiabilidade dos dados.
+A configuração necessária do produtor `acks` determina o número de confirmações exigidas pelo líder da partição antes que uma solicitação de gravação seja considerada concluída. Essa configuração afeta a confiabilidade dos dados e usa os valores de `0` , `1` ou `-1` . O valor de `-1` significa que uma confirmação deve ser recebida de todas as réplicas antes de a gravação ser concluída. A configuração `acks = -1` fornece garantias mais fortes contra perda de dados, mas também resulta em latência mais alta e taxa de transferência mais baixa. Se os requisitos do aplicativo exigirem maior taxa de transferência, tente definir `acks = 0` ou `acks = 1` . Tenha em mente que a não confirmação de todas as réplicas pode reduzir a confiabilidade dos dados.
 
 ### <a name="compression"></a>Compactação
 
 Um produtor do Kafka pode ser configurado para compactar mensagens antes de enviá-las aos agentes. A `compression.type` configuração especifica o codec de compactação a ser usado. Os codecs de compactação com suporte são "gzip," "encaixado" e "lz4". A compactação é benéfica e deve ser considerada se houver uma limitação na capacidade do disco.
 
-Entre os dois codecs de compactação comumente `gzip` usados `snappy`e `gzip` o tem uma taxa maior de compactação, o que resulta em menor uso do disco no custo de maior carga da CPU. O `snappy` codec fornece menos compactação com menos sobrecarga de CPU. Você pode decidir qual codec usar com base nas limitações de disco do agente ou da CPU do produtor. `gzip`pode compactar dados a uma taxa cinco vezes maior `snappy`que.
+Entre os dois codecs de compactação comumente usados `gzip` e o `snappy` `gzip` tem uma taxa maior de compactação, o que resulta em menor uso do disco no custo de maior carga da CPU. O `snappy` codec fornece menos compactação com menos sobrecarga de CPU. Você pode decidir qual codec usar com base nas limitações de disco do agente ou da CPU do produtor. `gzip`pode compactar dados a uma taxa cinco vezes maior que `snappy` .
 
 Usar a compactação de dados aumentará o número de registros que podem ser armazenados em um disco. Ele também pode aumentar a sobrecarga de CPU em casos em que há uma incompatibilidade entre os formatos de compactação usados pelo produtor e o agente. como os dados devem ser compactados antes do envio e depois descompactados antes do processamento.
 

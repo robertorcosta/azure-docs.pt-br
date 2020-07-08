@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639795"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
@@ -191,12 +190,12 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
  
 3. Apenas para clusters do Windows, configure uma regra de grupo de segurança de rede (NSG) do Azure que abre a porta UDP/53 para a rede virtual com os seguintes valores:
 
-   |Configuração |Valor | |
+   |Setting |Valor | |
    | --- | --- | --- |
    |Prioridade |2000 | |
    |Nome |Custom_Dns  | |
-   |Fonte |VirtualNetwork | |
-   |Destino | VirtualNetwork | |
+   |Origem |VirtualNetwork | |
+   |Destination | VirtualNetwork | |
    |Serviço | DNS (UDP/53) | |
    |Ação | Allow  | |
    | | |

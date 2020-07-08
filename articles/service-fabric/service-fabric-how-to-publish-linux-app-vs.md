@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614342"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Usar o Visual Studio para criar e publicar .Net Core aplicativos direcionados a um cluster remoto de Service Fabric do Linux
@@ -26,7 +25,7 @@ Com as ferramentas do Visual Studio, você pode desenvolver e publicar Service F
 ![criar aplicativo]
 4. Nomeie o aplicativo e clique em **OK**.
 5. Na página **novo serviço Service Fabric** , selecione o tipo de serviço que você deseja criar na **seção .NET Core**.
-![Criar serviço]
+![create-service]
 
 ## <a name="deploy-to-a-remote-linux-cluster"></a>Implantar em um cluster Linux remoto
 1. No Gerenciador de soluções, clique com o botão direito do mouse no aplicativo e selecione **Compilar**.
@@ -38,7 +37,7 @@ Com as ferramentas do Visual Studio, você pode desenvolver e publicar Service F
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
 > [!Note]
-> Definir UpdateServiceFabricManifestEnabled como false desativará as atualizações para o manifesto. xml durante uma compilação. Qualquer alteração como adicionar, remover ou renomear para o serviço não será refletida no Service manifest. xml. Se forem feitas alterações, você deverá atualizar o Service manifest manualmente ou temporariamente definir UpdateServiceFabricManifestEnabled como true e criar o serviço que atualizará o manifest. xml e, em seguida, revertê-lo novamente para false.
+> Definir UpdateServiceFabricManifestEnabled como false desabilitará as atualizações para o ServiceManifest.xml durante uma compilação. Qualquer alteração, como adicionar, remover ou renomear para o serviço, não será refletida no ServiceManifest.xml. Se forem feitas alterações, você deverá atualizar o Service manifest manualmente ou temporariamente definir UpdateServiceFabricManifestEnabled como true e criar o serviço que atualizará o ServiceManifest.xml e, em seguida, revertê-lo de volta para false.
 >
 
 4. Atualize o RuntimeIndetifier do Win7-x64 para a plataforma de destino no projeto de serviço.
@@ -59,7 +58,7 @@ Com as ferramentas do Visual Studio, você pode desenvolver e publicar Service F
 
 <!--Image references-->
 [criar aplicativo]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-application-remote-linux.png
-[Criar serviço]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
+[create-service]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
 [Compilar aplicativo]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
 [editar-csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [publicar aplicativo]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png

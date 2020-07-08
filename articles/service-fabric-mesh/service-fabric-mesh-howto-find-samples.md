@@ -4,10 +4,9 @@ description: Aqui está um índice de aplicativos de exemplo de malha Service Fa
 ms.date: 12/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: c944ddc26f2e2d099cf9552acb8287c363d0c768
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461914"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Localizar Exemplos da Malha do Service Fabric
@@ -16,7 +15,7 @@ Essa tabela descreve os aplicativos de exemplo da malha do Service Fabric dispon
 
 Para obter mais informações sobre como implantar modelos diretamente no Azure, confira a [Página de modelo de exemplo do GitHub.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
 
-|Modelo de Exemplo|Descrição do cenário|Código-fonte|Ferramentas de Desenvolvedor|
+|Modelo de Exemplo|Descrição do cenário|Código-fonte|Ferramentas para Desenvolvedores|
 |------------|--------------------|----------|----------------------|
 | [Aplicativo Olá, Mundo](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/helloworld) | Página da Web estática hospedada em um contêiner. Para Linux, ele usa nginx, para o Windows, IIS | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld) | Não há requisitos |
 | [Aplicativo de contador para Volumes de arquivos do Azure](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/counter/readme.md) | Armazene o estado ao montar o volume baseado em arquivos do Azure dentro do contêiner. <br><br> **Observação:** esse modelo requer que um compartilhamento dos Arquivos do Azure já seja provisionado [Instruções](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) | [Código-fonte](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter) | Ferramentas da Malha do Visual Studio |

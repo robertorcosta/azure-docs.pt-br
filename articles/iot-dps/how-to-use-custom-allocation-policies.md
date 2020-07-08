@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75453937"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
@@ -122,7 +121,7 @@ Nesta seção, você cria uma função do Azure que implementa sua política de 
 
 4. Na página **Resumo** , selecione **criar** para criar o aplicativo de funções. A implantação pode levar vários minutos. Ao concluir, selecione **ir para o recurso**.
 
-5. No painel esquerdo da página **visão geral** do aplicativo de funções, **+** Selecione Avançar para **funções** para adicionar uma nova função.
+5. No painel esquerdo da página **visão geral** do aplicativo de funções, selecione **+** Avançar para **funções** para adicionar uma nova função.
 
     ![Adicionar uma função à Aplicativo de funções](./media/how-to-use-custom-allocation-policies/create-function.png)
 
@@ -436,7 +435,7 @@ Esta seção é voltada para uma estação de trabalho baseada em Windows. Para 
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    Se `cmake` o não encontrar seu compilador do C++, você poderá obter erros de compilação ao executar o comando. Se isso acontecer, tente executar o comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    Se o `cmake` não encontrar seu compilador do C++, você poderá obter erros de compilação ao executar o comando. Se isso acontecer, tente executar o comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Após o sucesso da compilação, as últimas linhas de saída serão semelhantes à seguinte saída:
 
@@ -456,7 +455,7 @@ Esta seção é voltada para uma estação de trabalho baseada em Windows. Para 
 
 ## <a name="simulate-the-devices"></a>Simular os dispositivos
 
-Nesta seção, você atualiza um exemplo de provisionamento chamado **Prov\_\_dev Client\_Sample** localizado no SDK do Azure IOT C que você configurou anteriormente.
+Nesta seção, você atualiza um exemplo de provisionamento chamado **Prov \_ dev \_ Client \_ Sample** localizado no SDK do Azure IOT C que você configurou anteriormente.
 
 Esse código de exemplo simula uma sequência de inicialização do dispositivo que envia a solicitação de provisionamento à sua instância do Serviço de Provisionamento de Dispositivos. A sequência de inicialização fará com que o dispositivo de resistência seja reconhecido e atribuído ao Hub IoT usando a política de alocação personalizada.
 
@@ -507,7 +506,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
     Salve o arquivo.
 
-2. No menu do Visual Studio, selecione **depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recriar o projeto, selecione **Sim**para recompilar o projeto antes de executá-lo.
+2. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, selecione **Sim** para recompilar o projeto antes da execução.
 
     A saída a seguir é um exemplo do dispositivo de torradeira simulado inicializado com êxito e conectando-se à instância do serviço de provisionamento a ser atribuída ao Hub IoT dos torradeiras pela política de alocação personalizada:
 
@@ -536,7 +535,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
     Salve o arquivo.
 
-2. No menu do Visual Studio, selecione **depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, selecione **Sim** para recompilar o projeto antes da execução.
+2. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recriar o projeto, selecione **Sim** para recompilar o projeto antes de executá-lo.
 
     A saída a seguir é um exemplo do dispositivo de bomba de calor simulado Inicializando com êxito e conectando-se à instância do serviço de provisionamento a ser atribuída ao Hub IoT de bombas de aquecimento da Contoso pela política de alocação personalizada:
 
@@ -567,7 +566,7 @@ A tabela a seguir mostra os cenários esperados e os códigos de erro de resulta
 | O webhook retorna o código de erro >= 429 | Orquestração do DPS tentará novamente várias vezes. A política de repetição atualmente é:<br><br>&nbsp;&nbsp;- Contagem de repetições: 10<br>&nbsp;&nbsp;- Intervalo inicial: 1 s<br>&nbsp;&nbsp;- Incremento: 9 s | O SDK ignorará o erro e enviará outra mensagem de obtenção de status no tempo especificado |
 | O webhook retorna qualquer outro código de status | Status do resultado: Com falha<br><br>Código de erro: CustomAllocationFailed (400207) | O SDK retorna PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja continuar trabalhando com os recursos criados neste artigo, você pode deixá-los. Se você não planeja continuar usando os recursos, use as etapas a seguir para excluir todos os recursos criados neste artigo para evitar encargos desnecessários.
 

@@ -4,10 +4,9 @@ description: Descreve como o Azure Resource Manager trata de solicitações de a
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478819"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticar solicitações entre locatários
@@ -21,7 +20,7 @@ A solicitação tem os seguintes valores de cabeçalho de autenticação:
 | Nome do cabeçalho | Descrição | Valor de exemplo |
 | ----------- | ----------- | ------------ |
 | Autorização | Token primário | &lt;Token primário&gt; portador |
-| x-ms-authorization-auxiliary | Tokens auxiliares | Portador &lt;&gt;auxiliar-token1, &lt;EncryptedBearer auxiliar-token2&gt;, portador &lt;auxiliar-token3&gt; |
+| x-ms-authorization-auxiliary | Tokens auxiliares | Portador &lt; auxiliar-token1 &gt; , EncryptedBearer &lt; auxiliar-token2 &gt; , portador &lt; auxiliar-token3&gt; |
 
 O cabeçalho auxiliar pode conter até três tokens auxiliares. 
 

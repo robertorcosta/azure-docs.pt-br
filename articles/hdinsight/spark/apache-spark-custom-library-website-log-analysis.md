@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552705"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise logs do site usando uma biblioteca Python personalizada com cluster do Apache Spark no HDInsight
@@ -29,7 +28,7 @@ Nesta seção, usamos o notebook [Jupyter](https://jupyter.org) associado a um c
 
 Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seção, vamos nos conectar à tabela Hive usando ferramentas de BI, como Power BI e tableau.
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net/jupyter`até, `CLUSTERNAME` em que é o nome do cluster.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/jupyter`, em que `CLUSTERNAME` é o nome do cluster.
 
 1. Crie um novo bloco de anotações. Selecione **novo**e, em seguida, **PySpark**.
 
@@ -46,7 +45,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     from pyspark.sql.types import *
     ```
 
-1. Crie um RDD usando os dados de log de exemplo já disponíveis no cluster. Você pode acessar os dados na conta de armazenamento padrão associada ao cluster em `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`. Execute o seguinte código:
+1. Crie um RDD usando os dados de log de exemplo já disponíveis no cluster. Você pode acessar os dados na conta de armazenamento padrão associada ao cluster em `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log` . Execute o seguinte código:
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
@@ -70,9 +69,9 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analise os dados de log usando uma biblioteca Python personalizada
 
-1. Na saída acima, as primeiras linhas incluem as informações de cabeçalho, e cada linha restante coincide com o esquema descrito naquele cabeçalho. Analisar esses logs pode ser complicado. Então, usamos uma biblioteca personalizada do Python (**iislogparser.py**) que torna a análise desses logs muito mais fácil. Por padrão, essa biblioteca é incluída com o cluster Spark no HDInsight em `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`.
+1. Na saída acima, as primeiras linhas incluem as informações de cabeçalho, e cada linha restante coincide com o esquema descrito naquele cabeçalho. Analisar esses logs pode ser complicado. Então, usamos uma biblioteca personalizada do Python (**iislogparser.py**) que torna a análise desses logs muito mais fácil. Por padrão, essa biblioteca é incluída com o cluster Spark no HDInsight em `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py` .
 
-    No entanto, essa biblioteca não `PYTHONPATH` está no, portanto, não podemos usá-la usando `import iislogparser`uma instrução de importação como. Para usar essa biblioteca, devemos distribuí-la para todos os nós de trabalho. Execute o snippet de código a seguir.
+    No entanto, essa biblioteca não está no `PYTHONPATH` , portanto, não podemos usá-la usando uma instrução de importação como `import iislogparser` . Para usar essa biblioteca, devemos distribuí-la para todos os nós de trabalho. Execute o snippet de código a seguir.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -110,7 +109,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    A saída deve ser `There are 30 errors and 646 log entries`State.
+    A saída deve ser State `There are 30 errors and 646 log entries` .
 
 1. Você também pode usar **Matplotlib** para construir uma visualização dos dados. Por exemplo, se você quiser isolar a causa de solicitações executadas por um longo tempo, talvez queira localizar os arquivos que, em média, levam mais tempo para atender. O snippet a seguir recupera os 25 principais recursos que levaram mais tempo para atender uma solicitação.
 

@@ -7,10 +7,9 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461958"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configure um recurso de Gateway para rotear solicitações
@@ -219,8 +218,8 @@ Aqui está a aparência de uma configuração de recurso completa do Gateway (is
 ```
 
 Esse gateway está configurado para um aplicativo do Linux, "meshAppLinux", que consiste em pelo menos dois serviços, "helloWorldService" e "counterService", que escuta na porta 80. Dependendo da estrutura da URL da solicitação de entrada, ele encaminhará a solicitação para um desses serviços. 
-* "\<IPAddress>:80/HelloWorld/\<Request\>" resultaria em uma solicitação sendo direcionada para "helloWorldListener" no helloWorldService. 
-* "\<IPAddress>:80/contador/\<solicitação\>" resultaria em uma solicitação sendo direcionada para o "ouvinte" no mesmo serviço. 
+* " \<IPAddress> : 80/HelloWorld/ \<request\> " resultaria em uma solicitação sendo direcionada para o "helloWorldListener" no helloWorldService. 
+* " \<IPAddress> : 80/Counter/ \<request\> " resultaria em uma solicitação sendo direcionada para o "Counter Listener" no próprio serviço. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Implantar o [Exemplo de entrada](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) para ver os gateways em ação

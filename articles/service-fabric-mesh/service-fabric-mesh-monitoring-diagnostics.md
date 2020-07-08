@@ -7,10 +7,9 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498151"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
@@ -53,7 +52,7 @@ O ambiente de malha expõe algumas métricas que indicam como os contêineres es
 | ActualMemory | Uso de memória | MB |
 | ContainerStatus | 0-inválido: o status do contêiner é desconhecido <br> 1-pendente: o contêiner foi agendado para iniciar <br> 2-iniciando: o contêiner está no processo de início <br> 3-iniciado: o contêiner foi iniciado com êxito <br> 4-parando: o contêiner está sendo interrompido <br> 5-parado: o contêiner foi interrompido com êxito | N/D |
 | ApplicationStatus | 0-desconhecido: o status não é recuperável <br> 1-pronto: o aplicativo está sendo executado com êxito <br> 2-Atualizando: há uma atualização em andamento <br> 3-Criando: o aplicativo está sendo criado <br> 4-excluindo: o aplicativo está sendo excluído <br> 5-falha: falha ao implantar o aplicativo | N/D |
-| Perstatus | 0-inválido: o serviço atualmente não tem um status de integridade <br> 1-OK: o serviço está íntegro  <br> 2-AVISO: pode haver algo errado ao exigir investigação <br> 3-erro: há algo errado que precisa de investigação <br> 4-desconhecido: o status não é recuperável | N/D |
+| ServiceStatus | 0-inválido: o serviço atualmente não tem um status de integridade <br> 1-OK: o serviço está íntegro  <br> 2-AVISO: pode haver algo errado ao exigir investigação <br> 3-erro: há algo errado que precisa de investigação <br> 4-desconhecido: o status não é recuperável | N/D |
 | ServiceReplicaStatus | 0-inválido: a réplica não tem um status de integridade no momento <br> 1-OK: o serviço está íntegro  <br> 2-AVISO: pode haver algo errado ao exigir investigação <br> 3-erro: há algo errado que precisa de investigação <br> 4-desconhecido: o status não é recuperável | N/D | 
 | RestartCount | Número de reinicializações de contêiner | N/D |
 

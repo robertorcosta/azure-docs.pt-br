@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458363"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo no Windows
@@ -19,9 +18,9 @@ Ao [fazer o download do pacote do Service Fabric autônomo](service-fabric-clust
 
 * ClusterConfig.Unsecure.DevCluster.json e lusterConfig.Unsecure.MultiMachine.json mostram como criar um cluster de teste ou de produção sem segurança, respectivamente.
 
-* ClusterConfig. Windows. DevCluster. JSON e ClusterConfig. Windows. Multimachine. JSON mostram como criar clusters de teste ou de produção que são protegidos usando a [segurança do Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.jse ClusterConfig.Windows.MultiMachine.jsem mostrar como criar clusters de teste ou de produção que são protegidos usando a [segurança do Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig. X509. DevCluster. JSON e ClusterConfig. X509. Multimachine. JSON mostram como criar clusters de teste ou de produção que são protegidos usando [a segurança baseada em certificado X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.jse ClusterConfig.X509.MultiMachine.jsem mostrar como criar clusters de teste ou de produção que são protegidos usando [a segurança baseada em certificado X509](service-fabric-windows-cluster-x509-security.md).
 
 Agora, vamos examinar as várias seções de um arquivo ClusterConfig.json.
 
@@ -76,7 +75,7 @@ A seção propriedades no ClusterConfig.json é usada para configurar o cluster 
 ### <a name="reliability"></a>Confiabilidade
 O conceito de reliabilityLevel define o número de réplicas ou as instâncias dos serviços de sistema do Service Fabric que podem ser executados em nós do cluster primários. Determina a confiabilidade desses serviços e, portanto, do cluster. O valor é calculado pelo sistema na hora da criação e da atualização do cluster.
 
-### <a name="diagnostics"></a>Diagnóstico
+### <a name="diagnostics"></a>Diagnósticos
 Na seção diagnosticsStore, você pode configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o seguinte snippet de código: 
 
 ```json
@@ -199,7 +198,7 @@ Todos os recursos complementares disponíveis podem ser vistos na [referência d
 Para habilitar o suporte de contêiner para os contêineres do Windows Server e os contêineres do Hyper-V para clusters autônomos, o recurso de complemento DnsService precisa ser habilitado.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de ter um arquivo *ClusterConfig. JSON* completo configurado de acordo com a configuração do cluster autônomo, você pode implantar o cluster. Siga as etapas em [Criar um cluster do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md). 
+Depois de ter uma *ClusterConfig.jscompleta no* arquivo configurado de acordo com a configuração do cluster autônomo, você pode implantar o cluster. Siga as etapas em [Criar um cluster do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md). 
 
 Se você tiver um cluster autônomo implantado, você também pode [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 

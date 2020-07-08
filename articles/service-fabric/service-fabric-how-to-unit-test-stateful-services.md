@@ -4,10 +4,9 @@ description: Saiba mais sobre os testes de unidade no Azure Service Fabric para 
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639829"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado
@@ -22,8 +21,8 @@ Este artigo presume que [Unit testando serviços com estado no Service Fabric](s
 ## <a name="the-servicefabricmocks-library"></a>A biblioteca ServiceFabric.Mocks
 A partir da versão 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fornece uma API para zombar tanto da orquestração das réplicas quanto do gerenciamento de estado. Isso será usado nos exemplos.
 
-[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[GitHub](https://github.com/loekd/ServiceFabric.Mocks) do NuGet
+[NuGet](https://www.nuget.org/packages/ServiceFabric.Mocks/) 
+ [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *O infabric. Mocks não é propriedade da Microsoft nem é mantida por ela. No entanto, essa é atualmente a biblioteca recomendada pela Microsoft para serviços com estado de teste de unidade.*
 

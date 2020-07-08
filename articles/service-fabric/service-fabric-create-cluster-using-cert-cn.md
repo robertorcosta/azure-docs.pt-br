@@ -4,10 +4,9 @@ description: Saiba como criar um cluster do Service Fabric usando o nome comum d
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614546"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implantar um cluster do Service Fabric que usa o nome comum do certificado em vez de impressão digital
@@ -120,7 +119,7 @@ Em seguida, abra o arquivo *azuredeploy.json* em um editor de texto e faça trê
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. No recurso **Microsoft.Compute/virtualMachineScaleSets**, atualize a extensão de máquina virtual para usar o nome comum em configurações de certificado em vez da impressão digital.  Em **virtualMachineProfile**->**extensionProfile**->**properties**propriedades->de**extensions**extensões->do virtualMachineProfile extensionProfile->**configurações**do**certificado**, adicionar 
+3. No recurso **Microsoft.Compute/virtualMachineScaleSets**, atualize a extensão de máquina virtual para usar o nome comum em configurações de certificado em vez da impressão digital.  Em Propriedades de extensões do **virtualMachineProfile** -> **extensionProfile** -> **extensions** -> **properties** -> **configurações**do -> **certificado**, adicionar 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: 6fc0d4cfe29e0fb189c44b307576bd08d2da8a31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75638866"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Executar cargas de trabalho de Azure Machine Learning com o Machine Learning automatizado no Apache Spark no HDInsight
@@ -71,7 +70,7 @@ Você também pode registrar o repositório de dados com o workspace usando um �
 
 ## <a name="experiment-submission"></a>Envio de experimento
 
-Na [configuração de Machine Learning automatizada](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig), a `spark_context` propriedade deve ser definida para que o pacote seja executado no modo distribuído. A propriedade `concurrent_iterations`, que é o número máximo de iterações executadas em paralelo, deve ser definida como um número menor que os núcleos de executor para o aplicativo Spark.
+Na [configuração de Machine Learning automatizada](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig), a propriedade `spark_context` deve ser definida para que o pacote seja executado no modo distribuído. A propriedade `concurrent_iterations`, que é o número máximo de iterações executadas em paralelo, deve ser definida como um número menor que os núcleos de executor para o aplicativo Spark.
 
 ## <a name="next-steps"></a>Próximas etapas
 

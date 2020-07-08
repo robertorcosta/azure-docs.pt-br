@@ -4,10 +4,9 @@ description: Use Azure Resource Manager para mover recursos de implantação cl�
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 78b9769a31fa0c96c12e18d05cb9c484aa52a1d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75485280"
 ---
 # <a name="move-guidance-for-classic-deployment-model-resources"></a>Mover diretrizes para recursos do modelo de implantação clássico

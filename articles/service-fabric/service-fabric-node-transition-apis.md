@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.openlocfilehash: 8f2eefec94ad4763a054ee089b17232c41e642dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609784"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Substituir as APIs de Nó de Início e Nó de Parada pela API de Nó de Transição
@@ -31,7 +30,7 @@ Além disso, a duração pela qual um nó é interrompido é "infinita" até que
 
 Abordamos esses problemas acima em um novo conjunto de APIs.  A nova API de Transição de Nó (gerenciada: [StartNodeTransitionAsync()][snt]) pode ser usada para fazer a transição de um nó do Service Fabric para um estado *parado* ou para fazer a transição de um estado *parado* para um estado ativo normal.  Observe que "Start" no nome da API não se refere a iniciar um nó.  Isso se refere a iniciar uma operação assíncrona que o sistema executará para fazer a transição do nó como estado *parado* ou iniciado.
 
-**Uso**
+**Usage**
 
 Se a API de Transição de Nó não lançar uma exceção quando invocada, o sistema aceitou a operação assíncrona e a executará.  Uma chamada bem-sucedida não implica que a operação já foi concluída.  Para obter informações sobre o estado atual da operação, chame a API de Progresso de Transição de Nó (gerenciada: [GetNodeTransitionProgressAsync()][gntp]) com o guid usado ao invocar a API de Transição de Nó para essa operação.  A API de Progresso de Transição de Nó retorna um objeto NodeTransitionProgress.  A propriedade do objeto State especifica o estado atual da operação.  Se o estado for "Em Execução", a operação estará em execução.  Se for Concluído, a operação foi concluída sem erros.  Se for Falha, houve um problema ao executar a operação.  A propriedade Exception da propriedade Result indicará qual foi o problema.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obter mais informações sobre a propriedade de Estado e a seção "Exemplo de Uso" abaixo para obter exemplos de código.
 

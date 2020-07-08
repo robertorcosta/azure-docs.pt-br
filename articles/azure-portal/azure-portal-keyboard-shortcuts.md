@@ -16,10 +16,9 @@ ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
 ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75641326"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
@@ -56,4 +55,4 @@ Este artigo lista os atalhos de teclado que funcionam em qualquer lugar na porta
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Ativar alto contraste ou alterar tema](azure-portal-change-theme-high-contrast.md)
-- [Dispositivos e navegadores com suporte](../azure-preview-portal-supported-browsers-devices.md)
+- [Navegadores e dispositivos com suporte](../azure-preview-portal-supported-browsers-devices.md)

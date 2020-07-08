@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8149e9230de3e8b6c18d150c81ea67b1d861746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482017"
 ---
-# <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>Obter todos os aplicativos de proxy de aplicativo usando a publicação curinga
+# <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>Obter todos os aplicativos do Proxy de Aplicativo usando a publicação curinga
 
 Este exemplo de script do PowerShell lista todos os aplicativos de proxy de aplicativo Azure Active Directory (Azure AD) que estão usando a publicação curinga.
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651911"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.PublicIpAddressCombo
@@ -80,7 +79,7 @@ Se o usuário não seleciona um endereço IP novo ou existente, o controle retor
 }
 ```
 
-- Quando `options.hideNone` for especificado como **true**, `newOrExistingOrNone` terá apenas um valor de **novo** ou **existente**.
+- Quando `options.hideNone` for especificado como **true**, terá `newOrExistingOrNone` apenas um valor de **novo** ou **existente**.
 - Quando `options.hideDomainNameLabel` é especificado como **true**, `domainNameLabel` é não declarado.
 
 ## <a name="remarks"></a>Comentários

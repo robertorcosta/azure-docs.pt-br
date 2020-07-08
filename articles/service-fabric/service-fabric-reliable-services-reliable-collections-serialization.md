@@ -4,10 +4,9 @@ description: Saiba mais sobre a serialização de objeto de coleções confiáve
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639540"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
@@ -29,7 +28,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 - sbyte
 - byte[]
 - char
-- cadeia de caracteres
+- string
 - decimal
 - double
 - FLOAT
@@ -44,7 +43,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 
 Os serializadores personalizados são geralmente usados para aumentar o desempenho ou criptografar os dados durante a transmissão e em disco. Entre outros motivos, de modo geral, os serializadores personalizados são mais eficientes do que os serializadores genéricos, já que eles não precisam serializar informações sobre o tipo. 
 
-[IReliableStateManager. TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ocorrer na construção do StatefulServiceBase para garantir que antes do início da recuperação, todas as coleções confiáveis tenham acesso ao serializador relevante para ler seus dados persistentes.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ser feito na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Confiáveis têm acesso ao serializador relevante para ler seus dados persistentes.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -62,10 +61,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Como implementar um serializador personalizado
 
-Um serializador personalizado precisa implementar a [interface\<IStateSerializer T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Um serializador personalizado precisa implementar a interface [IStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1).
 
 > [!NOTE]
-> IStateSerializer\<T> inclui uma sobrecarga para Write e Read que usa um T chamado valor base adicional. Essa API destina-se à serialização diferencial. Atualmente, o recurso de serialização diferencial não está exposto. Portanto, essas duas sobrecargas só são chamadas quando a serialização diferencial é exposta e habilitada.
+> IStateSerializer\<T> inclui uma sobrecarga de Gravação e Leitura que usa um valor base chamado T adicional. Essa API destina-se à serialização diferencial. Atualmente, o recurso de serialização diferencial não está exposto. Portanto, essas duas sobrecargas só são chamadas quando a serialização diferencial é exposta e habilitada.
 
 Veja a seguir um tipo personalizado de exemplo chamado OrderKey que contém quatro propriedades
 
@@ -85,7 +84,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Veja a seguir um exemplo de implementação\<de IStateSerializer OrderKey>.
+Veja a seguir uma implementação de exemplo de IStateSerializer\<OrderKey>.
 Observe que as sobrecargas de Leitura e Gravação que usam o baseValue chamam sua respectiva sobrecarga para compatibilidade com versões posteriores.
 
 ```csharp

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
 ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75466258"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
@@ -86,7 +85,7 @@ Pressione **Ctrl-Shift-B** para compilar o projeto e certificar-se de que tudo �
 
 Crie um aplicativo de console simples para chamar o serviço de ator.
 
-1. Clique com o botão direito do mouse na solução em Gerenciador de soluções > **Adicionar** > **novo projeto...**.
+1. Clique com o botão direito do mouse na solução em Gerenciador de soluções > **Adicionar**  >  **novo projeto...**.
 
 2. Nos tipos de projeto **.NET Core**, selecione **Console App (.NET Core)**.  Nomeie o projeto *ActorClient*.
     
@@ -99,7 +98,7 @@ Crie um aplicativo de console simples para chamar o serviço de ator.
     
     ![Compilar propriedades][8]
 
-4. O projeto de cliente requer o pacote NuGet do Reliable Actors .  Clique em **ferramentas** > **Gerenciador** > de pacotes NuGet**console do Gerenciador de pacotes**.  No Console do Gerenciador de Pacotes, digite o seguinte comando:
+4. O projeto de cliente requer o pacote NuGet do Reliable Actors .  Clique em **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **console do Gerenciador de pacotes**.  No Console do Gerenciador de Pacotes, digite o seguinte comando:
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient

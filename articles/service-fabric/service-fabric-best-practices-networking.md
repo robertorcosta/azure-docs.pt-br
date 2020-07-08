@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551787"
 ---
 # <a name="networking"></a>Rede
@@ -51,7 +50,7 @@ A expansão da infraestrutura é necessária para habilitar a Rede Acelerada em 
 
 * Os clusters do Service Fabric podem ser implantados em uma rede virtual existente seguindo as etapas descritas em [Padrões de rede do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e saída para o cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo: ![Service Fabric regras NSG][NSGSetup]
+* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e saída para o cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo: ![ Service Fabric regras NSG][NSGSetup]
 
 * O tipo de nó primário, que contém os serviços do sistema do Service Fabric, não precisa ser exposto por meio do balanceador de carga externo e pode ser exposto por um [balanceador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 

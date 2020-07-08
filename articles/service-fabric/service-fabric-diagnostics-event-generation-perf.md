@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464710"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
@@ -25,12 +24,12 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 | Disco Lógico | Espaço livre em disco lógico |
 | PhysicalDisk(per Disco) | Comprimento médio da fila de leitura de disco |
 | PhysicalDisk(per Disco) | Comprimento médio da fila de gravação de disco |
-| PhysicalDisk(per Disco) | Média de disco s/leitura |
-| PhysicalDisk(per Disco) | Média de disco s/gravação |
-| PhysicalDisk(per Disco) | Leituras de Disco/s  |
-| PhysicalDisk(per Disco) | Bytes Lidos no Disco/s  |
-| PhysicalDisk(per Disco) |  Gravações de Disco/s |
-| PhysicalDisk(per Disco) |  Bytes Gravados no Disco/s |
+| PhysicalDisk(per Disco) | Média de segundos/Leitura do Disco |
+| PhysicalDisk(per Disco) | Média de segundos/Gravação do Disco |
+| PhysicalDisk(per Disco) | Leituras de Disco/s |
+| PhysicalDisk(per Disco) | Bytes Lidos no Disco/s |
+| PhysicalDisk(per Disco) | Gravações de Disco/s |
+| PhysicalDisk(per Disco) | Bytes Gravados no Disco/s |
 | Memória | MBytes Disponíveis |
 | PagingFile | % Uso |
 | Processador(total) | % Tempo do Processador |

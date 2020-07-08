@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/19/2019
 ms.author: memildin
 ms.openlocfilehash: 74ed55e1d460495bfa8d3d4c00bd37bb7f05260e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552858"
 ---
 # <a name="protect-azure-data-and-storage-services"></a>Proteger serviços de armazenamento e dados do Azure
@@ -69,5 +68,5 @@ Para obter uma lista completa das recomendações que podem ser exibidas nesta p
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes tópicos:
 
 * [Lista de referências completa das recomendações de segurança da central de segurança do Azure](recommendations-reference.md)
-* [Protegendo suas máquinas e aplicativos na Central de Segurança do Azure](security-center-virtual-machine-protection.md)
+* [Protegendo suas máquinas e aplicativos na Central de segurança do Azure](security-center-virtual-machine-protection.md)
 * [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md)

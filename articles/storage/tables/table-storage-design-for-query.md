@@ -9,10 +9,9 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457633"
 ---
 # <a name="design-for-querying"></a>Design para consulta
@@ -35,12 +34,12 @@ Esta seção se concentra nos principais problemas que você deve abordar ao pro
 ## <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>Como sua escolha de PartitionKey e RowKey afeta o desempenho da consulta
 Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de funcionário com a seguinte estrutura (a maioria dos exemplos omite a propriedade **Timestamp** por motivos de clareza):  
 
-| *Nome da coluna* | *Tipo de dados* |
+| *Nome da coluna* | *Data type* |
 | --- | --- |
 | **PartitionKey** (nome de departamento) |String |
 | **RowKey** (Id do funcionário) |String |
-| **FirstName** |String |
-| **LastName** |String |
+| **Nome** |String |
+| **Sobrenome** |String |
 | **Idade** |Integer |
 | **EmailAddress** |String |
 

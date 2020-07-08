@@ -4,10 +4,9 @@ description: Use os logs de atividade para examinar erros e ações do usuário.
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478130"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Exibir logs de atividade para monitorar ações em recursos
@@ -20,7 +19,7 @@ Com os logs de atividade, você pode determinar:
 * o status da operação
 * os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
-O log de atividades contém todas as operações de gravação (PUT, POST e DELETE) para seus recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
+O log de atividades contém todas as operações de gravação (PUT, POST, DELETE) para seus recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
 
 Os logs de atividades são mantidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
 

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482563"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
@@ -51,7 +50,7 @@ Depois de inserir suas credenciais e selecionar **Enviar** no aplicativo parceir
 Depois de vincular sua conta de sensor ao Azure FarmBeats, você precisará atribuir os sensores de umidade de solo ao farm de interesse.
 
 1.  No home page, selecione **farms** no menu, a página lista de **farms** é exibida.
-2.  Selecione **myfarm** > **Adicionar dispositivos**.
+2.  Selecione **myfarm**  >  **Adicionar dispositivos**.
 3.  A janela **Adicionar dispositivos** é exibida. Selecione qualquer dispositivo que esteja vinculado aos sensores de umidade de solo do seu farm.
 
     ![Projeto do FarmBeats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
@@ -81,7 +80,7 @@ Esta etapa é criar um trabalho ou uma operação de execução longa que irá g
 
 ### <a name="download-the-soil-moisture-heatmap"></a>Baixe o calor de umidade de solo
 
-Use as seguintes etapas:
+Use as etapas a seguir:
 
 1. Na página **trabalhos** , verifique o **status do trabalho** que você criou no último procedimento.
 2. Quando o status do trabalho for exibido com **êxito**, selecione **mapas** no menu.

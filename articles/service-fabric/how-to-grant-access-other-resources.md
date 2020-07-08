@@ -4,10 +4,9 @@ description: Este artigo explica como conceder acesso ao aplicativo Service Fabr
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614786"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concedendo um acesso de identidade gerenciada de Service Fabric aplicativo aos recursos do Azure (versão prévia)
@@ -24,18 +23,18 @@ Você pode usar a identidade gerenciada do aplicativo Service Fabric (atribuída
 3. adicional Verificar o acesso existente: selecione a identidade gerenciada atribuída pelo sistema ou pelo usuário no controle ' Localizar '; Selecione a identidade apropriada na lista de resultados informados
 4. Clique em + Adicionar atribuição de função na parte superior da página para adicionar uma nova atribuição de função para a identidade do aplicativo.
 Em Função, no menu suspenso, selecione Leitor de Dados de Blob de Armazenamento.
-5. No menu suspenso seguinte, em atribuir acesso a, escolha `User assigned managed identity`.
+5. No menu suspenso seguinte, em atribuir acesso a, escolha `User assigned managed identity` .
 6. Depois, verifique se a assinatura correta está listada no menu suspenso Assinatura e defina Grupo de Recursos como Todos os grupos de recursos.
 7. Em selecionar, escolha o UAI correspondente ao aplicativo Service Fabric e, em seguida, clique em salvar.
 
-O suporte para identidades gerenciadas Service Fabric atribuídas pelo sistema não inclui integração no portal do Azure; Se seu aplicativo usar uma identidade atribuída pelo sistema, você precisará localizar primeiro a ID do cliente da identidade do aplicativo e, em seguida, repetir as etapas acima, mas `Azure AD user, group, or service principal` selecionando a opção no controle localizar.
+O suporte para identidades gerenciadas Service Fabric atribuídas pelo sistema não inclui integração no portal do Azure; Se seu aplicativo usar uma identidade atribuída pelo sistema, você precisará localizar primeiro a ID do cliente da identidade do aplicativo e, em seguida, repetir as etapas acima, mas selecionando a `Azure AD user, group, or service principal` opção no controle localizar.
 
 ## <a name="granting-access-to-azure-key-vault"></a>Concedendo acesso ao Azure Key Vault
 Da mesma forma, com o acesso ao armazenamento, você pode aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar um cofre de chaves do Azure. As etapas para conceder acesso no portal do Azure são semelhantes às listadas acima e não serão repetidas aqui. Consulte a imagem abaixo para obter diferenças.
 
 ![Política de acesso ao cofre de chaves](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-O exemplo a seguir ilustra a concessão de acesso a um cofre por meio de uma implantação de modelo; Adicione o (s) trecho (es) abaixo como outra `resources` entrada no elemento do modelo. O exemplo demonstra a concessão de acesso para os tipos de identidade atribuídos pelo usuário e pelo sistema, respectivamente, escolha o aplicável.
+O exemplo a seguir ilustra a concessão de acesso a um cofre por meio de uma implantação de modelo; Adicione o (s) trecho (es) abaixo como outra entrada no `resources` elemento do modelo. O exemplo demonstra a concessão de acesso para os tipos de identidade atribuídos pelo usuário e pelo sistema, respectivamente, escolha o aplicável.
 
 ```json
     # under 'variables':

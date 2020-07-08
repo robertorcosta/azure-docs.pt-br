@@ -4,10 +4,9 @@ description: Saiba como se conectar remotamente a uma instância de conjunto de 
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458322"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conectar remotamente a uma instância do conjunto de dimensionamento de máquinas virtuais ou a um nó de cluster
@@ -19,7 +18,7 @@ Para localizar um endereço IP e porta que você pode usar para se conectar remo
 
     Normalmente, cada tipo de nó definido em seu cluster tem seu próprio endereço IP virtual e um balanceador de carga dedicado. Por padrão, o balanceador de carga para um tipo de nó é nomeado com o seguinte formato: *LB-{nome do cluster}-{tipo de nó}*; por exemplo, *LB-mycluster-FrontEnd*. 
     
-    Na página do balanceador de carga no portal do Azure, selecione **configurações** > **regras de NAT de entrada**: 
+    Na página do balanceador de carga no portal do Azure, selecione **configurações**  >  **regras de NAT de entrada**: 
 
     ![Regras NAT de entrada dos balanceadores de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 

@@ -9,10 +9,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75612284"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
@@ -49,7 +48,7 @@ Quando você envia uma topologia Storm do Visual Studio, o SCP.NET gera um arqui
 
 2. Defina a `JAVA_HOME` variável de ambiente para o diretório que contém Java.
 
-3. Defina a `PATH` variável de ambiente para incluir `%JAVA_HOME%\bin` o diretório.
+3. Defina a `PATH` variável de ambiente para incluir o `%JAVA_HOME%\bin` diretório.
 
 Você pode compilar e executar o seguinte aplicativo de console em C# para verificar se o Java e o JDK estão instalados corretamente:
 
@@ -152,7 +151,7 @@ Em seguida, adicione o código para o Spout, que é usado para ler dados em uma 
 
    * `Ack`(somente topologia transacional): lida com confirmações iniciadas por outros componentes na topologia para tuplas enviadas do Spout. Confirmar uma tupla informa ao spout que ele foi processado com êxito por componentes downstream.
 
-   * `Fail`(somente topologia transacional): lida com tuplas que estão processando outros componentes na topologia. A implementação `Fail` de um método permite emitir novamente a tupla para que ela possa ser processada novamente.
+   * `Fail`(somente topologia transacional): lida com tuplas que estão processando outros componentes na topologia. A implementação de um `Fail` método permite emitir novamente a tupla para que ela possa ser processada novamente.
 
 2. Substitua o conteúdo da `Spout` classe pelo seguinte texto:
 
@@ -220,7 +219,7 @@ Agora, crie dois parafusos Storm neste exemplo:
 
 1. Exclua o arquivo *Bolt.cs* existente do projeto.
 
-2. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **novo item**. Na lista, selecione **Storm Bolt** e digite *Splitter.cs* como o nome. No código do novo arquivo, altere o nome do namespace para `WordCount`. Em seguida, repita esse processo para criar um segundo parafuso chamado *Counter.cs*.
+2. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar**  >  **novo item**. Na lista, selecione **Storm Bolt** e digite *Splitter.cs* como o nome. No código do novo arquivo, altere o nome do namespace para `WordCount` . Em seguida, repita esse processo para criar um segundo parafuso chamado *Counter.cs*.
 
    * *Splitter.cs*: implementa um raio que divide frases em palavras individuais e emite um novo fluxo de palavras.
 
@@ -229,7 +228,7 @@ Agora, crie dois parafusos Storm neste exemplo:
      > [!NOTE]  
      > Esses bolts leem e gravam em fluxos, mas você também pode usar um bolt para se comunicar com um banco de dados ou serviço.
 
-3. Abra *Splitter.cs*. Ele tem apenas um método por padrão: `Execute`. O `Execute` método é chamado quando o raio recebe uma tupla para processamento. Aqui, você pode ler e processar tuplas de entradas e emitir tuplas de saída.
+3. Abra *Splitter.cs*. Ele tem apenas um método por padrão: `Execute` . O `Execute` método é chamado quando o raio recebe uma tupla para processamento. Aqui, você pode ler e processar tuplas de entradas e emitir tuplas de saída.
 
 4. Substitua o conteúdo da classe `Splitter` pelo seguinte código:
 
@@ -341,7 +340,7 @@ O Spout emite frases que são distribuídas para instâncias do parafuso do divi
 
 Como a instância do contador mantém a contagem de palavras localmente, você deseja garantir que as palavras específicas fluam para a mesma instância do balcão do contador. Cada instância controla palavras específicas. Uma vez que o bolt Splitter não mantém nenhum estado, não importa qual instância do Splitter recebe qual frase.
 
-Abra *Program.cs*. O método importante é `GetTopologyBuilder`, que é usado para definir a topologia que é enviada ao Storm. Substitua o conteúdo de `GetTopologyBuilder` pelo código a seguir para implementar a topologia descrita anteriormente:
+Abra *Program.cs*. O método importante é `GetTopologyBuilder` , que é usado para definir a topologia que é enviada ao Storm. Substitua o conteúdo de `GetTopologyBuilder` pelo código a seguir para implementar a topologia descrita anteriormente:
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -405,7 +404,7 @@ return topologyBuilder;
 
 Agora você está pronto para enviar a topologia para o cluster HDInsight.
 
-1. Navegue para **Exibir** > **Gerenciador de servidores**.
+1. Navegue para **Exibir**  >  **Gerenciador de servidores**.
 
 1. Clique com o botão direito do mouse em **Azure**, selecione **conectar-se a Microsoft Azure assinatura...** e conclua o processo de entrada.
 
@@ -418,7 +417,7 @@ Agora você está pronto para enviar a topologia para o cluster HDInsight.
     ![Janela de exibição de topologia do Storm, cluster HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
 
     > [!NOTE]  
-    > Você também pode exibir **topologias Storm** do **Gerenciador de Servidores**. Expanda **Azure** > **HDInsight**, clique com o botão direito do mouse em um cluster Storm no HDInsight e escolha **Exibir topologias Storm**.
+    > Você também pode exibir **topologias Storm** do **Gerenciador de Servidores**. Expanda **Azure**  >  **HDInsight**, clique com o botão direito do mouse em um cluster Storm no HDInsight e escolha **Exibir topologias Storm**.
 
     Para exibir informações sobre os componentes na topologia, selecione um componente no diagrama.
 
@@ -439,11 +438,11 @@ As topologias transacionais implementam o seguinte para suportar a reprodução 
 
 * **Falha**: cada bolt pode chamar `this.ctx.Fail(tuple)` para indicar que o processamento falhou para uma tupla. A falha é propagada para o método `Fail` do spout, onde a tupla pode ser reproduzida usando os metadados armazenados em cache.
 
-* **ID de Sequência**: ao emitir uma tupla, uma ID de sequência exclusiva poderá ser especificada. Esse valor identifica a tupla para o processamento de`Ack` reprodução `Fail`(e). Por exemplo, o Spout no projeto de **exemplo do Storm** usa a seguinte chamada de método ao emitir dados:
+* **ID de Sequência**: ao emitir uma tupla, uma ID de sequência exclusiva poderá ser especificada. Esse valor identifica a tupla para o processamento de reprodução ( `Ack` e `Fail` ). Por exemplo, o Spout no projeto de **exemplo do Storm** usa a seguinte chamada de método ao emitir dados:
 
   `this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);`
 
-  Esse código emite uma tupla que contém uma frase para o fluxo padrão, com o valor de ID de sequência contido `lastSeqId`em. Para este exemplo, `lastSeqId` é incrementado para cada tupla emitida.
+  Esse código emite uma tupla que contém uma frase para o fluxo padrão, com o valor de ID de sequência contido em `lastSeqId` . Para este exemplo, `lastSeqId` é incrementado para cada tupla emitida.
 
 Conforme demonstrado no projeto **Amostra do Storm**, se um componente for transacional, ele poderá ser definido no runtime com base na configuração.
 
@@ -684,12 +683,12 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
     Console.ReadKey();
     ```
 
-1. Salve as alterações e, em seguida, selecione **F5** ou escolha **depurar** > **Iniciar Depuração** para iniciar o projeto. Uma janela de console deve aparecer e o status do log colocado como progresso dos testes. Quando `Tests finished` aparecer, selecione qualquer chave para fechar a janela.
+1. Salve as alterações e, em seguida, selecione **F5** ou escolha **depurar**  >  **Iniciar Depuração** para iniciar o projeto. Uma janela de console deve aparecer e o status do log colocado como progresso dos testes. Quando `Tests finished` aparecer, selecione qualquer chave para fechar a janela.
 
-1. Use **Windows Explorer** para localizar o diretório que contém seu projeto. (Por exemplo: *C:\\\\\<Users your_user_name \\>\\Source\\repositórios\\WordCount WordCount*.) Em seguida, nesse diretório, abra *bin*e, em seguida, selecione *depurar*. Você deve ver os arquivos de texto que foram produzidos quando os testes foram executados: *Sentences. txt*, *Counter. txt*e *Splitter. txt*. Abra cada arquivo de texto e inspecione os dados.
+1. Use **Windows Explorer** para localizar o diretório que contém seu projeto. (Por exemplo: *C: \\ Users \\ \<your_user_name> \\ Source \\ repositórios \\ WordCount \\ WordCount*.) Em seguida, nesse diretório, abra *bin*e, em seguida, selecione *depurar*. Você deve ver os arquivos de texto que foram produzidos quando os testes foram executados: *sentences.txt*, *counter.txt*e *splitter.txt*. Abra cada arquivo de texto e inspecione os dados.
 
    > [!NOTE]  
-   > Os dados da cadeia de caracteres persistem como uma matriz de valores decimais nesses arquivos. Por exemplo, `[[97,103,111]]` no arquivo **Splitter. txt** representa a palavra *atrás*.
+   > Os dados da cadeia de caracteres persistem como uma matriz de valores decimais nesses arquivos. Por exemplo, `[[97,103,111]]` no arquivo **splitter.txt** representa a palavra *atrás*.
 
 > [!NOTE]  
 > Certifique-se de definir o **tipo de projeto** de volta para biblioteca de **classes** nas propriedades do projeto antes de implantá-lo em um Storm no cluster HDInsight.
@@ -734,7 +733,7 @@ Envios podem falhar por vários motivos:
 * As dependências são incompatíveis.
 * Os nomes de topologia são duplicados.
 
-Se o arquivo de log *hdinsight-scpwebapi. out* contiver um `FileNotFoundException`, a exceção poderá ser causada pelas seguintes condições:
+Se o arquivo de log *hdinsight-scpwebapi. out* contiver um `FileNotFoundException` , a exceção poderá ser causada pelas seguintes condições:
 
 * O JDK não está no caminho do ambiente de desenvolvimento. Verifique se o JDK está instalado no ambiente de desenvolvimento e que `%JAVA_HOME%/bin` está no caminho.
 * Você está sem uma dependência de Java. Verifique se você está incluindo todos os arquivos. jar necessários como parte do envio.

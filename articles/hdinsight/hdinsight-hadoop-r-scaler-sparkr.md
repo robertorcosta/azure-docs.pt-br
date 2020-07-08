@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75500068"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar o ScaleR e o SparkR no HDInsight
@@ -29,7 +28,7 @@ As etapas neste documento consideram que você possui um nível intermediário d
 
 ## <a name="the-airline-and-weather-datasets"></a>Os conjuntos de dados de linhas aéreas e clima
 
-Os dados do voo estão disponíveis nas [camadas de acesso aos arquivos do governo dos EUA](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Ele também está disponível como um zip de [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Os dados do voo estão disponíveis nas [camadas de acesso aos arquivos do governo dos EUA](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Ele também está disponível como um zip de [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
 Os dados meteorológicos podem ser baixados como arquivos zip em formato raw, por mês, do [repositório da Administração Oceânica e Atmosférica Nacional](https://www.ncdc.noaa.gov/orders/qclcd/). Para este exemplo, baixe os dados de maio de 2007 – dezembro de 2012. Use os arquivos de dados por hora e o arquivo `YYYYMMMstation.txt` dentro de cada um dos zips.
 

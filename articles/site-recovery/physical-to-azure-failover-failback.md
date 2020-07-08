@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497863"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
@@ -95,7 +94,7 @@ Após o failover para o Azure, você protege novamente as VMs do Azure replicand
 
 Este procedimento pressupõe que a VM local não está disponível.
 
-1. No cofre > **configurações** > **itens replicados**, clique com o botão direito do mouse no computador que passou por failover > **proteja novamente**.
+1. No cofre > **configurações**  >  **itens replicados**, clique com o botão direito do mouse no computador que passou por failover > **proteja novamente**.
 2. Em **Proteger novamente**, verifique se **Do Azure para local** está selecionado.
 3. Especifique o servidor de destino mestre local e o servidor de processo.
 4. Em **Armazenamento de dado**, selecione o armazenamento de dados de destino mestre para o qual deseja recuperar os discos locais.

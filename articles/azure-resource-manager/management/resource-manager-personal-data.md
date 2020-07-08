@@ -4,10 +4,9 @@ description: Saiba como gerenciar dados pessoais associados às operações do A
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.openlocfilehash: 22cfc1b6096980f3d10db404a1c4e02f2de355d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75485254"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gerenciar dados pessoais associados com o Azure Resource Manager
@@ -30,7 +29,7 @@ Para listar **implantações** no histórico, use:
 
 Para excluir **implantações** do histórico, use:
 
-* [Delete (excluir)](/rest/api/resources/deployments/delete)
+* [Excluir](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete)
 
@@ -46,7 +45,7 @@ Para listar os **grupos de recursos**, use:
 
 Para excluir os **grupos de recursos**, use:
 
-* [Delete (excluir)](/rest/api/resources/resourcegroups/delete)
+* [Excluir](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
 * [az group delete](/cli/azure/group#az-group-delete)
 
@@ -62,7 +61,7 @@ Para listar as **marcas**, use:
 
 Para excluir as **marcas**, use:
 
-* [Delete (excluir)](/rest/api/resources/tags/delete)
+* [Excluir](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 

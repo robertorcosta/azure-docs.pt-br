@@ -1,24 +1,23 @@
 ---
 title: Referência de artefato de definição de exibição
-description: Fornece um exemplo de artefato de definição de exibição para aplicativos gerenciados do Azure. O nome do arquivo é viewDefinition. JSON.
+description: Fornece um exemplo de artefato de definição de exibição para aplicativos gerenciados do Azure. O nome do arquivo é viewDefinition.jsem.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651196"
 ---
 # <a name="reference-view-definition-artifact"></a>Referência: Exibir artefato de definição
 
-Este artigo é uma referência para um artefato *viewDefinition. JSON* em aplicativos gerenciados do Azure. Para obter mais informações sobre criação de configurações de exibições, consulte [Exibir artefato de definição](concepts-view-definition.md).
+Este artigo é uma referência para um *viewDefinition.jsno* artefato em aplicativos gerenciados do Azure. Para obter mais informações sobre criação de configurações de exibições, consulte [Exibir artefato de definição](concepts-view-definition.md).
 
 ## <a name="view-definition"></a>Exibir definição
 
-O JSON a seguir mostra um exemplo de arquivo *viewDefinition. JSON* para aplicativos gerenciados do Azure:
+O JSON a seguir mostra um exemplo de *viewDefinition.jsno* arquivo para aplicativos gerenciados do Azure:
 
 ```json
 {

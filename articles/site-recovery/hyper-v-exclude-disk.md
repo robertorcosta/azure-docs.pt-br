@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
 ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498125"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
@@ -32,7 +31,7 @@ Observe o seguinte antes de começar:
 
 - **Replicação**: por padrão, todos os discos em um computador são replicados.
 - **Tipo de disco**:
-    - Você pode excluir discos básicos da replicação.
+    - Você pode excluir somente os discos básicos da replicação.
     - Você não pode excluir os discos do sistema operacional.
     - É recomendável que você não exclua discos dinâmicos. Site Recovery não pode identificar qual VHD é básico ou dinâmico na VM convidada.  Se você não excluir todos os discos de volume dinâmico dependentes, o disco dinâmico protegido se tornará um disco com falha em uma VM com failover e os dados nesse disco não estarão acessíveis.
 - **Adicionar/remover/excluir discos**: depois de habilitar a replicação, você não pode adicionar/remover/excluir discos para replicação. Se desejar adicionar/remover ou excluir um disco, você precisará desabilitar a proteção para a VM e habilitá-la novamente.
@@ -41,7 +40,7 @@ Observe o seguinte antes de começar:
 
 ## <a name="exclude-disks"></a>Excluir discos
 
-1. Para excluir discos quando você [habilita a replicação](site-recovery-hyper-v-site-to-azure.md) para uma VM do Hyper-V, depois de selecionar as VMs que deseja replicar, na página habilitar**Properties** > **Propriedades de configuração** de **replicação** > , examine a coluna **discos para replicar** . Por padrão, todos os discos são selecionados para replicação.
+1. Para excluir discos quando você [habilita a replicação](site-recovery-hyper-v-site-to-azure.md) para uma VM do Hyper-V, depois de selecionar as VMs que deseja replicar, na página habilitar Propriedades de configuração de **replicação**  >  **Properties**  >  **Configure properties** , examine a coluna **discos para replicar** . Por padrão, todos os discos são selecionados para replicação.
 2. Se você não quiser replicar um disco específico, em **discos para replicar** , limpe a seleção de todos os discos que você deseja excluir. 
 
     ![Excluir discos da replicação](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)

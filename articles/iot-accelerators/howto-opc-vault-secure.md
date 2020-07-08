@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75454203"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usar o serviço de gerenciamento de certificados do cofre OPC
@@ -36,7 +35,7 @@ Se você ainda não tiver feito isso, crie o certificado de autoridade de certif
 > [!IMPORTANT]
 > A função de gravador é necessária para registrar um aplicativo.
 
-1. Abra seu serviço de certificado `https://myResourceGroup-app.azurewebsites.net`em e entre.
+1. Abra seu serviço de certificado em `https://myResourceGroup-app.azurewebsites.net` e entre.
 2. Vá para **registrar novo**. Para um registro de aplicativo, um usuário precisa ter pelo menos a função de gravador atribuída.
 2. O formulário de entrada segue as convenções de nomenclatura no OPC UA. Por exemplo, na captura de tela a seguir, as configurações para o exemplo de [servidor de referência do OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) na pilha de .net standard do OPC UA são mostradas:
 
@@ -71,7 +70,7 @@ Proteja seu aplicativo OPC UA emitindo um certificado assinado com base em uma s
 8. Depois que a chave privada for baixada e armazenada com segurança, você poderá selecionar **Excluir chave privada**. O certificado com a chave pública permanece disponível para uso futuro.
 9. Devido ao uso de um certificado assinado por uma autoridade de certificação, o certificado de CA e a CRL (lista de certificados revogados) também devem ser baixados aqui.
 
-Agora, ele depende do dispositivo OPC UA como aplicar o novo par de chaves. Normalmente, o certificado de autoridade de certificação e a CRL `trusted` são copiados para uma pasta, enquanto as chaves pública e privada do certificado de `own` aplicativo são aplicadas a uma pasta no repositório de certificados. Alguns dispositivos podem já dar suporte ao push do servidor para atualizações de certificado. Consulte a documentação do seu dispositivo OPC UA.
+Agora, ele depende do dispositivo OPC UA como aplicar o novo par de chaves. Normalmente, o certificado de autoridade de certificação e a CRL são copiados para uma `trusted` pasta, enquanto as chaves pública e privada do certificado de aplicativo são aplicadas a uma `own` pasta no repositório de certificados. Alguns dispositivos podem já dar suporte ao push do servidor para atualizações de certificado. Consulte a documentação do seu dispositivo OPC UA.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>Solicitar um novo certificado com um CSR 
 
@@ -96,7 +95,7 @@ Agora, ele depende do dispositivo OPC UA como aplicar o novo par de chaves. Norm
 10. Depois que o certificado for baixado e armazenado com segurança, você poderá selecionar **excluir certificado**.
 11. Devido ao uso de um certificado assinado por uma autoridade de certificação, o certificado de CA e a CRL devem ser baixados aqui também.
 
-Agora, isso depende do dispositivo OPC UA como aplicar o novo certificado. Normalmente, o certificado de autoridade de certificação e a CRL `trusted` são copiados para uma pasta, ao passo que `own` ele é aplicado a uma pasta no repositório de certificados. Alguns dispositivos podem já dar suporte ao push do servidor para atualizações de certificado. Consulte a documentação do seu dispositivo OPC UA.
+Agora, isso depende do dispositivo OPC UA como aplicar o novo certificado. Normalmente, o certificado de autoridade de certificação e a CRL são copiados para uma `trusted` pasta, ao passo que ele é aplicado a uma `own` pasta no repositório de certificados. Alguns dispositivos podem já dar suporte ao push do servidor para atualizações de certificado. Consulte a documentação do seu dispositivo OPC UA.
 
 ### <a name="step-3-device-secured"></a>Etapa 3: dispositivo protegido
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650403"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Visão geral da integração de recursos de provedores personalizados do Azure
@@ -54,7 +53,7 @@ Veja um exemplo de provedor personalizado do Azure:
 }
 ```
 
-Propriedade | Obrigatório? | Descrição
+Property | Obrigatório? | Descrição
 ---|---|---
 name | Sim | O nome da definição do ponto de extremidade. Para integração de recursos, o nome deve ser "associações".
 routingType | Sim | Determina o tipo de contrato com o ponto de extremidade. Para integração de recursos, os **routingTypes** válidos são "proxy, cache, extensão" e "webhook, cache, extensão".
@@ -76,7 +75,7 @@ Exemplo de associação de provedores personalizados do Azure:
 }
 ```
 
-Propriedade | Obrigatório? | Descrição
+Property | Obrigatório? | Descrição
 ---|---|---
 targetResourceId | Sim | A ID de recurso do Microsoft. CustomProviders/resourceProviders ou Microsoft. Solutions/Applications.
 
@@ -146,7 +145,7 @@ X-MS-CustomProviders-ExtendedResource: /subscriptions/{subscriptionId}/resourceG
 }
 ```
 
-O ponto de extremidade deve responder com um aplicativo `Content-Type` /JSON e um corpo de resposta JSON válido. Os campos retornados no objeto de **Propriedades** do JSON serão adicionados à resposta de retorno da associação.
+O ponto de extremidade deve responder com um aplicativo/JSON `Content-Type` e um corpo de resposta JSON válido. Os campos retornados no objeto de **Propriedades** do JSON serão adicionados à resposta de retorno da associação.
 
 ## <a name="getting-help"></a>Obtendo ajuda
 

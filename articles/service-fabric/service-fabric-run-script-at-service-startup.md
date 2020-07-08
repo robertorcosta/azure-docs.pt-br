@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464277"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de inicialização do serviço como uma conta de usuário ou sistema local
@@ -168,7 +167,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>Executar os comandos do PowerShell em um ponto de entrada de instalação
-Para executar o PowerShell do ponto de **SetupEntryPoint** , você pode executar o **PowerShell. exe** em um arquivo em lotes que aponta para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, **MySetup.ps1**. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote de serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes que inicia um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
+Para executar o PowerShell do ponto de **SetupEntryPoint** , você pode executar **PowerShell.exe** em um arquivo em lotes que aponta para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, **MySetup.ps1**. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote de serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes que inicia um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
 
 MySetup.bat para iniciar o arquivo do PowerShell:
 

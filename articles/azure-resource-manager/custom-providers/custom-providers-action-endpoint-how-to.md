@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650390"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Adicionando ações personalizadas à API REST do Azure
@@ -18,7 +17,7 @@ Este artigo abordará os requisitos e as práticas recomendadas para a criação
 
 ## <a name="how-to-define-an-action-endpoint"></a>Como definir um ponto de extremidade de ação
 
-Um **ponto de extremidade** é uma URL que aponta para um serviço, que implementa o contrato subjacente entre ele e o Azure. O ponto de extremidade é definido no provedor de recursos personalizado e pode ser qualquer URL acessível publicamente. O exemplo a seguir tem **action** uma ação `myCustomAction` chamada implementada pelo `endpointURL`.
+Um **ponto de extremidade** é uma URL que aponta para um serviço, que implementa o contrato subjacente entre ele e o Azure. O ponto de extremidade é definido no provedor de recursos personalizado e pode ser qualquer URL acessível publicamente. O exemplo a seguir tem uma **ação** chamada `myCustomAction` implementada pelo `endpointURL` .
 
 Exemplo de **resourceprovider**:
 
@@ -42,7 +41,7 @@ Exemplo de **resourceprovider**:
 
 ## <a name="building-an-action-endpoint"></a>Criando um ponto de extremidade de ação
 
-Um **ponto de extremidade** que implementa uma **ação** deve tratar a solicitação e a resposta para a nova API no Azure. Quando um provedor de recursos personalizado com uma **ação** é criado, ele irá gerar um novo conjunto de APIs no Azure. Nesse caso, a ação irá gerar uma nova API de ação do Azure `POST` para chamadas:
+Um **ponto de extremidade** que implementa uma **ação** deve tratar a solicitação e a resposta para a nova API no Azure. Quando um provedor de recursos personalizado com uma **ação** é criado, ele irá gerar um novo conjunto de APIs no Azure. Nesse caso, a ação irá gerar uma nova API de ação do Azure para `POST` chamadas:
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction

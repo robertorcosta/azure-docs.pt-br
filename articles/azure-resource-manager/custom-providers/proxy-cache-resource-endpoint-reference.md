@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650377"
 ---
 # <a name="custom-resource-cache-reference"></a>Referência de cache de recurso personalizado
@@ -42,11 +41,11 @@ Provedor de recursos personalizados de exemplo:
 
 ## <a name="building-proxy-resource-endpoint"></a>Criando ponto de extremidade de recurso de proxy
 
-Um **ponto de extremidade** que implementa um **ponto de extremidade** de recurso de "proxy, cache" deve lidar com a solicitação e a resposta para a nova API no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure `PUT`para `GET`, e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes:
+Um **ponto de extremidade** que implementa um **ponto de extremidade** de recurso de "proxy, cache" deve lidar com a solicitação e a resposta para a nova API no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure para `PUT` , `GET` e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes:
 
 > [!NOTE]
-> A API do Azure gerará os métodos `PUT`de `GET`solicitação, `DELETE`e, mas o **ponto de extremidade** do cache `PUT` só `DELETE`precisa manipular e.
-> Recomendamos que o **ponto** de extremidade `GET`também implemente.
+> A API do Azure gerará os métodos de solicitação `PUT` , `GET` e `DELETE` , mas o **ponto de extremidade** do cache só precisa manipular `PUT` e `DELETE` .
+> Recomendamos que o **ponto de extremidade** também implemente `GET` .
 
 ### <a name="create-a-custom-resource"></a>Criar um recurso personalizado
 
@@ -88,7 +87,7 @@ Da mesma forma, a resposta do **ponto de extremidade** é então encaminhada de 
 
 - Um documento de objeto JSON válido. Todas as matrizes e cadeias de caracteres devem ser aninhadas em um objeto superior.
 - O `Content-Type` cabeçalho deve ser definido como "Application/JSON; charset = utf-8 ".
-- O provedor de recursos personalizado substituirá `name`os `type`campos, `id` e da solicitação.
+- O provedor de recursos personalizado substituirá `name` os `type` campos, e `id` da solicitação.
 - O provedor de recursos personalizado retornará apenas campos sob o `properties` objeto para um ponto de extremidade de cache.
 
 **Ponto de extremidade** Responde
@@ -107,7 +106,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Os `name`campos `id`, e `type` serão gerados automaticamente para o recurso personalizado pelo provedor de recursos personalizado.
+Os `name` `id` campos, e `type` serão gerados automaticamente para o recurso personalizado pelo provedor de recursos personalizado.
 
 Resposta do provedor de recursos personalizados do Azure:
 

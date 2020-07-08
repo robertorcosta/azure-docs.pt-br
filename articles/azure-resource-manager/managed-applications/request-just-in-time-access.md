@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651378"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
@@ -34,9 +33,9 @@ Este artigo se concentra nas ações que os editores adotam para habilitar o ace
 
 ## <a name="add-jit-access-step-to-ui"></a>Adicionar etapa de acesso JIT à interface do usuário
 
-Seu arquivo CreateUiDefinition. JSON é exatamente como o arquivo de interface do usuário que você cria para acesso permanente, exceto que você deve incluir uma etapa que permite aos consumidores habilitar o acesso JIT. Para saber mais sobre como publicar sua primeira oferta de aplicativo gerenciado no Azure Marketplace, confira [aplicativos gerenciados do Azure no Marketplace](publish-marketplace-app.md).
+Seu CreateUiDefinition.jsno arquivo é exatamente como o arquivo da interface do usuário que você cria para acesso permanente, exceto que você deve incluir uma etapa que permite aos consumidores habilitar o acesso JIT. Para saber mais sobre como publicar sua primeira oferta de aplicativo gerenciado no Azure Marketplace, confira [aplicativos gerenciados do Azure no Marketplace](publish-marketplace-app.md).
 
-Para dar suporte à funcionalidade JIT para sua oferta, adicione o seguinte conteúdo ao seu arquivo CreateUiDefinition. JSON:
+Para dar suporte à funcionalidade JIT para sua oferta, adicione o seguinte conteúdo ao seu CreateUiDefinition.jsno arquivo:
 
 Em "etapas":
 
@@ -98,7 +97,7 @@ Para enviar uma solicitação de acesso JIT:
 
 1. Exiba as notificações para ver que a nova solicitação JIT foi enviada com êxito ao consumidor.
 
-   ![Notification](./media/request-just-in-time-access/in-progress.png)
+   ![Notificação](./media/request-just-in-time-access/in-progress.png)
 
    Agora, você deve aguardar até que o consumidor [aprove sua solicitação](approve-just-in-time-access.md#approve-requests).
 

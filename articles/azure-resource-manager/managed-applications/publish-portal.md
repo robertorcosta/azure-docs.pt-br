@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651716"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicar um aplicativo de catálogo de serviços por meio do portal do Azure
@@ -30,7 +29,7 @@ O arquivo .zip que contém a definição de aplicativo gerenciado deve estar dis
 
 1. Pesquise o **catálogo de serviços**.
 
-1. Nos resultados, role até encontrar a **Definição de Aplicativo gerenciado do Catálogo de Serviços**. Selecione-o.
+1. Nos resultados, role até encontrar a **Definição de Aplicativo gerenciado do Catálogo de Serviços**. Selecione-a.
 
    ![Pesquisar por definições de aplicativo gerenciado](./media/publish-portal/select-managed-apps-definition.png)
 

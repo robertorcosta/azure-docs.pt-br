@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 845c4a62aee04a8acdc645ba4c41f1f5496537c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552603"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carregar dados em massa para o Apache Phoenix usando psql
@@ -33,7 +32,7 @@ Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitad
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Use `psql` para tabelas de carregamento em massa
 
-1. Crie um arquivo chamado `createCustomersTable.sql`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
+1. Crie um arquivo chamado `createCustomersTable.sql` e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,13 +43,13 @@ Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitad
         Country varchar);
     ```
 
-1. Crie um arquivo chamado `listCustomers.sql`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
+1. Crie um arquivo chamado `listCustomers.sql` e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
 
     ```sql
     SELECT * from Customers;
     ```
 
-1. Crie um arquivo chamado `customers.csv`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
+1. Crie um arquivo chamado `customers.csv` e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
 
     ```txt
     1,Samantha,260000.0,18,US
@@ -58,7 +57,7 @@ Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitad
     3,Anton,550150.0,42,Norway
     ```
 
-1. Crie um arquivo chamado `customers2.csv`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
+1. Crie um arquivo chamado `customers2.csv` e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
 
     ```txt
     4,Nicolle,180000.0,22,US
@@ -72,7 +71,7 @@ Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitad
     scp customers.csv customers2.csv createCustomersTable.sql listCustomers.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/tmp
     ```
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -116,7 +115,7 @@ Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitad
 
 Para carregamento de maior taxa de transferência distribuído pelo cluster, use a ferramenta de carregamento do MapReduce. Esse carregador primeiro converte todos os dados em HFiles e, em seguida, fornece o HFiles criado para o HBase.
 
-1. Esta seção continua com a sessão SSH e os objetos criados anteriormente. Crie a tabela **Customers** e o arquivo **Customers. csv** conforme necessário usando as etapas acima. Se necessário, restabeleça a conexão SSH.
+1. Esta seção continua com a sessão SSH e os objetos criados anteriormente. Crie a tabela de **clientes** e o arquivo de **customers.csv** conforme necessário usando as etapas acima. Se necessário, restabeleça a conexão SSH.
 
 1. Truncar o conteúdo da tabela **Customers** . Em sua sessão SSH aberta, execute os comandos abaixo:
 

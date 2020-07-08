@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75494994"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight
@@ -34,7 +33,7 @@ Você não precisa fazer nenhuma alteração em seus trabalhos do Spark para ver
 
 O Cache de E/S do Azure HDInsight está desativado por padrão na versão prévia. O Cache de E/S está disponível em clusters Spark do Azure HDInsight 3.6+, que executam o Apache Spark 2.3.  Para ativar o cache de e/s no HDInsight 4,0, execute as seguintes etapas:
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
 1. Selecione o serviço **Cache de E/S** à esquerda.
 
@@ -67,7 +66,7 @@ Você pode receber erros de espaço em disco ao executar trabalhos do Spark depo
 
 1. Selecione **Salvar** no canto superior direito.
 
-1. Selecione **reiniciar** > **reiniciar todos os afetados**.
+1. Selecione **reiniciar**  >  **reiniciar todos os afetados**.
 
     ![O Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
 

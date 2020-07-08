@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458428"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup sob demanda no Azure Service Fabric
 
 Você pode fazer backup de dados de Reliable Stateful Services e Reliable Actors para lidar com cenários de desastre ou perda de dados.
 
-O Azure Service Fabric é equipado com recursos para [backup periódico dos dados](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e backup dos dados conforme a necessidade. O backup sob demanda é útil porque protege contra a _perda_/de dados_corrompida_ devido a alterações planejadas no serviço subjacente ou em seu ambiente.
+O Azure Service Fabric é equipado com recursos para [backup periódico dos dados](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e backup dos dados conforme a necessidade. O backup sob demanda é útil porque protege contra a _perda de dados_ / _corrompida_ devido a alterações planejadas no serviço subjacente ou em seu ambiente.
 
 Os recursos de backup sob demanda são úteis para capturar o estado dos serviços antes de você acionar manualmente uma operação de serviço ou ambiente de serviço. Por exemplo, se você fizer uma alteração nos binários de serviço ao atualizar ou fazer o downgrade do serviço. Nesse caso, o backup sob demanda pode ajudar a proteger os dados contra corrupção por bugs no código do aplicativo.
 ## <a name="prerequisites"></a>Pré-requisitos

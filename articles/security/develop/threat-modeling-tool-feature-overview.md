@@ -8,10 +8,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552110"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
@@ -44,7 +43,7 @@ A experiência é semelhante a de outros produtos da Microsoft. Vamos analisar o
 | **Arquivo** | <ul><li>Abrir, salvar e fechar arquivos</li><li>Entrar e sair das contas do OneDrive.</li><li>Compartilhar links (exibir e editar).</li><li>Exibir informações do arquivo.</li><li>Aplicar um novo modelo aos modelos já existentes.</li></ul> |
 | **Editar** | Desfazer e refazer ações, bem como copiar, colar e excluir. |
 | **Exibir** | <ul><li>Alternar entre as exibições de **Análise** e **Design**.</li><li>Abrir janelas fechadas (por exemplo, estênceis, propriedades do elemento e mensagens).</li><li>Redefinir layout para as configurações padrão.</li></ul> |
-| **Organograma** | Adicionar e excluir diagramas e navegar pelas guias dos diagramas. |
+| **Diagrama** | Adicionar e excluir diagramas e navegar pelas guias dos diagramas. |
 | **Relatórios** | Criar relatórios em HTML para compartilhar com outras pessoas. |
 | **Ajuda** | Encontre guias para ajudar você a usar a ferramenta. |
 
@@ -63,7 +62,7 @@ Os símbolos são atalhos para os menus de nível superior:
 | **Ampliar/Reduzir** | Amplia e reduz o diagrama para uma exibição melhor. |
 | **Comentários** | Abre o Fórum do MSDN. |
 
-### <a name="canvas"></a>Tela
+### <a name="canvas"></a>Canvas
 
 A tela é o espaço onde você arrasta e solta elementos. Arrastar e soltar é a maneira mais rápida e eficiente de criar modelos. Você também pode clicar com o botão direito e selecionar itens do menu para adicionar versões genéricas de elementos, conforme mostrado:
 
@@ -146,13 +145,13 @@ Você pode conectar elementos de duas maneiras:
 
  Para ver as propriedades que podem ser modificadas em estênceis, selecione o estêncil e as informações serão devidamente populadas. O exemplo abaixo mostra o antes e o depois que o estêncil de um **Banco de dados** é arrastado para o diagrama:
 
-#### <a name="before"></a>Antes de
+#### <a name="before"></a>Antes
 
-![Antes de](./media/threat-modeling-tool-feature-overview/properties1.png)
+![Antes](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>After (após)
+#### <a name="after"></a>Depois
 
-![After (após)](./media/threat-modeling-tool-feature-overview/properties2.png)
+![Depois](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Mensagens
 
@@ -194,7 +193,7 @@ Conforme mostrado na imagem anterior, você pode alterar as informações gerada
 
 ## <a name="reports"></a>Relatórios
 
-Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Vá para **relatório** > **criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
+Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Vá para **relatório**  >  **criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
 
 ![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
 

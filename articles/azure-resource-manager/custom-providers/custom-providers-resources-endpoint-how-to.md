@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650520"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Adicionando recursos personalizados à API REST do Azure
@@ -18,7 +17,7 @@ Este artigo abordará os requisitos e as práticas recomendadas para a criação
 
 ## <a name="how-to-define-a-resource-endpoint"></a>Como definir um ponto de extremidade de recurso
 
-Um **ponto de extremidade** é uma URL que aponta para um serviço, que implementa o contrato subjacente entre ele e o Azure. O ponto de extremidade é definido no provedor de recursos personalizado e pode ser qualquer URL acessível publicamente. O exemplo a seguir tem **resourceType** um ResourceType `myCustomResource` chamado implementado `endpointURL`pelo.
+Um **ponto de extremidade** é uma URL que aponta para um serviço, que implementa o contrato subjacente entre ele e o Azure. O ponto de extremidade é definido no provedor de recursos personalizado e pode ser qualquer URL acessível publicamente. O exemplo a seguir tem um **ResourceType** chamado `myCustomResource` implementado pelo `endpointURL` .
 
 Exemplo de **resourceprovider**:
 
@@ -42,39 +41,39 @@ Exemplo de **resourceprovider**:
 
 ## <a name="building-a-resource-endpoint"></a>Criando um ponto de extremidade de recurso
 
-Um **ponto de extremidade** que implementa um **ResourceType** deve lidar com a solicitação e a resposta para a nova API no Azure. Quando um provedor de recursos personalizado com um **ResourceType** é criado, ele irá gerar um novo conjunto de APIs no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure `PUT`para `GET`, e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes:
+Um **ponto de extremidade** que implementa um **ResourceType** deve lidar com a solicitação e a resposta para a nova API no Azure. Quando um provedor de recursos personalizado com um **ResourceType** é criado, ele irá gerar um novo conjunto de APIs no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure para `PUT` , `GET` e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes:
 
-Manipular recurso único (`PUT`, `GET`e `DELETE`):
+Manipular recurso único ( `PUT` , `GET` e `DELETE` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
-Recuperar todos os recursos`GET`():
+Recuperar todos os recursos ( `GET` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-Para recursos personalizados, os provedores de recursos personalizados oferecem dois **routingTypes**tipos de routingTypes`Proxy`: ""`Proxy, Cache`e "".
+Para recursos personalizados, os provedores de recursos personalizados oferecem dois tipos de **routingTypes**: " `Proxy` " e " `Proxy, Cache` ".
 
 ### <a name="proxy-routing-type"></a>tipo de roteamento de proxy
 
-Os métodos`Proxy`de solicitação "" proxies de **RoutingType** todos para o **ponto de extremidade** especificado no provedor de recursos personalizado. Quando usar "`Proxy`":
+Os `Proxy` métodos de solicitação "" proxies de **RoutingType** todos para o **ponto de extremidade** especificado no provedor de recursos personalizado. Quando usar " `Proxy` ":
 
 - O controle total sobre a resposta é necessário.
 - Integração de sistemas com recursos existentes.
 
-Para saber mais sobre os`Proxy`recursos "", consulte [a referência de proxy de recurso personalizado](proxy-resource-endpoint-reference.md)
+Para saber mais sobre `Proxy` os recursos "", consulte [a referência de proxy de recurso personalizado](proxy-resource-endpoint-reference.md)
 
 ### <a name="proxy-cache-routing-type"></a>tipo de roteamento do cache de proxy
 
-O "`Proxy, Cache`" somente `PUT` proxies de `DELETE` **RoutingType** e métodos de solicitação para o **ponto de extremidade** especificado no provedor de recursos personalizado. O provedor de recursos personalizado retornará `GET` solicitações automaticamente com base no que ele armazenou em seu cache. Se um recurso personalizado for marcado com cache, o provedor de recursos personalizado também adicionará/substituirá campos na resposta para tornar as APIs em conformidade com o Azure. Quando usar "`Proxy, Cache`":
+O " `Proxy, Cache` " somente proxies de **RoutingType** `PUT` e `DELETE` métodos de solicitação para o **ponto de extremidade** especificado no provedor de recursos personalizado. O provedor de recursos personalizado retornará `GET` solicitações automaticamente com base no que ele armazenou em seu cache. Se um recurso personalizado for marcado com cache, o provedor de recursos personalizado também adicionará/substituirá campos na resposta para tornar as APIs em conformidade com o Azure. Quando usar " `Proxy, Cache` ":
 
 - Criando um novo sistema que não tem recursos existentes.
 - Trabalhe com o ecossistema do Azure existente.
 
-Para saber mais sobre os`Proxy, Cache`recursos "", consulte [a referência de cache de recurso personalizado](proxy-cache-resource-endpoint-reference.md)
+Para saber mais sobre `Proxy, Cache` os recursos "", consulte [a referência de cache de recurso personalizado](proxy-cache-resource-endpoint-reference.md)
 
 ## <a name="creating-a-custom-resource"></a>Criando um recurso personalizado
 
@@ -131,9 +130,9 @@ id | *Ok* | A ID de recurso referente ao recurso personalizado. Isso deve existi
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
 > [!NOTE]
-> Os recursos exigem que a resposta contenha `id`um `name`, e `type` do **ponto de extremidade**apropriado.
+> Os recursos exigem que a resposta contenha um `id` , `name` e `type` do **ponto de extremidade**apropriado.
 
-Os modelos de Azure Resource Manager `id`exigem `name`que, `type` e sejam retornados corretamente do ponto de extremidade downstream. Uma resposta de recurso retornada deve estar no formato:
+Os modelos de Azure Resource Manager exigem que `id` , `name` e `type` sejam retornados corretamente do ponto de extremidade downstream. Uma resposta de recurso retornada deve estar no formato:
 
 Exemplo de resposta de **ponto de extremidade** :
 
