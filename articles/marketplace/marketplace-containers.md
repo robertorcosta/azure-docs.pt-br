@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 99aecee930e5d77302ad54babd927588519e33fd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: fae11343332fe741301016d4871d098b0214c7f5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160453"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964440"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Guia de publicação para ofertas de contêiner
 
@@ -34,12 +34,12 @@ A Microsoft atualmente dá suporte a modelos de licenciamento BYOL (traga sua pr
 |:--- |:--- |  
 | Cobrança e medição | Suporte a qualquer modelo de cobrança gratuito ou BYOL.<br><br> |  
 | Imagem criada a partir de um Dockerfile | As imagens de contêiner devem ser baseadas na especificação de imagem do Docker e criadas a partir de um Dockerfile.<br> <br>Para obter mais informações sobre a criação de imagens do Docker, consulte a seção "uso" da [referência de Dockerfile](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
-| Hospedando em um repositório do registro de contêiner do Azure | As imagens de contêiner devem ser hospedadas em um repositório do registro de contêiner do Azure.<br> <br>Para obter mais informações sobre como trabalhar com o registro de contêiner do Azure, consulte [início rápido: criar um registro de contêiner privado usando o portal do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).<br><br> |  
-| Marcação de imagem | As imagens de contêiner devem conter pelo menos uma marca (número máximo de marcas: 16).<br><br>Para obter mais informações sobre como marcar uma imagem, consulte `docker tag` a página no site de [documentação do Docker](https://docs.docker.com/engine/reference/commandline/tag) .<br><br> |  
+| Hospedando em um repositório do registro de contêiner do Azure | As imagens de contêiner devem ser hospedadas em um repositório do registro de contêiner do Azure.<br> <br>Para obter mais informações sobre como trabalhar com o registro de contêiner do Azure, consulte [início rápido: criar um registro de contêiner privado usando o portal do Azure](../container-registry/container-registry-get-started-portal.md).<br><br> |  
+| Marcação de imagem | As imagens de contêiner devem conter pelo menos uma marca (número máximo de marcas: 16).<br><br>Para obter mais informações sobre como marcar uma imagem, consulte a `docker tag` página no site de [documentação do Docker](https://docs.docker.com/engine/reference/commandline/tag) .<br><br> |  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não fez isso, saiba como [aumentar seu negócio de nuvem com o Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Se você ainda não fez isso, saiba como [Aumentar seus negócios na nuvem com o Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 
 Para se registrar e começar a trabalhar no Partner Center:
 

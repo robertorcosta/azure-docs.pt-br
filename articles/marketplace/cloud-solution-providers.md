@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 633656af72790c7dfebeee567713875ce0d609b4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798143"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964202"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa do provedor de soluções de nuvem
 
-Este artigo explica como configurar sua oferta para estar disponível para o programa CSP (Provedor de Soluções de Nuvem). Além de publicar suas ofertas por meio de [vitrines na Web do marketplace comercial](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), você também pode vender por meio do programa CSP para alcançar milhões de clientes qualificados da Microsoft aos quais o programa atende.
+Este artigo explica como configurar sua oferta para estar disponível para o programa CSP (Provedor de Soluções de Nuvem). Além de publicar suas ofertas por meio de [vitrines na Web do marketplace comercial](comparing-appsource-azure-marketplace.md), você também pode vender por meio do programa CSP para alcançar milhões de clientes qualificados da Microsoft aos quais o programa atende.
 
 Você pode configurar ofertas novas ou existentes para disponibilidade no programa CSP de acordo com a aceitação, o que permite que os parceiros do CSP vendam seus produtos e criem soluções agrupadas para os clientes.
 
@@ -191,7 +191,7 @@ Se você optou pelo canal do CSP no Portal do Cloud Partner, os editores devem i
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Visite o [Azure Marketplace e o AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Visite o [Azure Marketplace e o AppSource Publisher Guide](marketplace-publishers-guide.md).
 
 Para saber mais sobre os serviços GTM do marketplace, confira [serviços Go-to-market](https://partner.microsoft.com/reach-customers/gtm).
 

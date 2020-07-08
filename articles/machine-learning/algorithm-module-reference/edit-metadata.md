@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064256"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965001"
 ---
 # <a name="edit-metadata-module"></a>Editar módulo de metadados
 
@@ -34,7 +34,7 @@ As alterações de metadados típicas podem incluir:
   
 + Renomeando colunas.
   
- Use editar metadados sempre que você precisar modificar a definição de uma coluna, normalmente para atender aos requisitos de um módulo downstream. Por exemplo, alguns módulos funcionam apenas com tipos de dados específicos ou exigem sinalizadores nas colunas, como `IsFeature` ou. `IsCategorical`  
+ Use editar metadados sempre que você precisar modificar a definição de uma coluna, normalmente para atender aos requisitos de um módulo downstream. Por exemplo, alguns módulos funcionam apenas com tipos de dados específicos ou exigem sinalizadores nas colunas, como `IsFeature` ou `IsCategorical` .  
   
  Depois de executar a operação necessária, você pode redefinir os metadados para seu estado original.
   
@@ -55,7 +55,8 @@ As alterações de metadados típicas podem incluir:
     + O tipo de coluna e os valores serão alterados depois que você executar a operação de edição de metadados. Você pode recuperar o tipo de dados original a qualquer momento usando editar metadados para redefinir o tipo de dados da coluna.  
 
     > [!NOTE]
-    > Se você alterar qualquer tipo de número para o tipo **DateTime** , deixe o campo de **formato DateTime** em branco. Atualmente, não é possível especificar o formato de dados de destino.  
+    > O **formato DateTime** segue o [formato DateTime interno do Python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > Se você alterar qualquer tipo de número para o tipo **DateTime** , deixe o campo de **formato DateTime** em branco. Atualmente, não é possível especificar o formato de dados de destino.
 
 1. Selecione a opção **categórica** para especificar que os valores nas colunas selecionadas devem ser tratados como categorias.
 
@@ -98,4 +99,4 @@ As alterações de metadados típicas podem incluir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

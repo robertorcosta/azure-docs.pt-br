@@ -3,18 +3,18 @@ title: Fluxo de trabalho e recursos do serviço do Lote
 description: Conheça os recursos do serviço de Lote e o fluxo de serviço de alto nível do ponto de vista de um desenvolvedor.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 5084ae222d0a9da0d8aa171bc89dba48377a9dd4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835913"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965205"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Fluxo de trabalho e recursos do serviço do Lote
 
 Nesta visão geral dos componentes principais do serviço de Lote do Azure, vamos abordar o fluxo de trabalho de alto nível que os desenvolvedores do Lote podem usar para criar soluções de computação paralela em larga escala, junto com os recursos de serviço primário usados.
 
-Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST](https://docs.microsoft.com/rest/api/batchservice/) ou estiver usando outro dos [SDKs de Lote](batch-apis-tools.md#batch-service-apis), usará muitos dos recursos analisados aqui.
+Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST](/rest/api/batchservice/) ou estiver usando outro dos [SDKs de Lote](batch-apis-tools.md#batch-service-apis), usará muitos dos recursos analisados aqui.
 
 > [!TIP]
 > Para obter uma introdução de nível superior do serviço de Lote, consulte os [Fundamentos do Lote do Azure](batch-technical-overview.md). Confira também as [atualizações de serviço Lote](https://azure.microsoft.com/updates/?product=batch) mais recentes.
@@ -47,4 +47,4 @@ Os tópicos a seguir discutem os recursos do Lote que habilitarão seus cenário
 - Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 - Obtenha as noções básicas sobre o desenvolvimento de um aplicativo habilitado para o Lote usando a [biblioteca de cliente .NET do Lote](quick-run-dotnet.md) ou do [Python](quick-run-python.md). O artigo de início rápido orienta você por meio de um aplicativo de exemplo que usa o serviço em Lotes para executar uma carga de trabalho em vários nós de computação e que inclui o uso do Armazenamento do Azure para preparação e recuperação de um arquivo de carga de trabalho.
 - Baixe e instale o [Batch Explorer](https://azure.github.io/BatchExplorer/) para usá-lo durante a instalação das suas soluções de lote. Use o Batch Explorer para ajudar a criar, depurar e monitorar os aplicativos do Lote do Azure.
-- Consulte os recursos da comunidade incluindo o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade de Lote](https://github.com/Azure/Batch), e o [fórum do Lote do Azure](https://docs.microsoft.com/answers/topics/azure-batch.html).
+- Consulte os recursos da comunidade incluindo o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade de Lote](https://github.com/Azure/Batch), e o [fórum do Lote do Azure](/answers/topics/azure-batch.html).

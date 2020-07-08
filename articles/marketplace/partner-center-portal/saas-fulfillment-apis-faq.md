@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792897"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963743"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento de SaaS
 
@@ -46,7 +46,7 @@ Quando o usuário do Azure é redirecionado para a página de aterrissagem, um t
 
 ![Fluxo de assinatura do cliente](media/saas-metering-service-integration-flow-a.png)
 
-Para obter mais informações sobre o contrato de API para lidar com cenários de Transact no ciclo de vida de uma oferta de SaaS, consulte [API de preenchimento de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+Para obter mais informações sobre o contrato de API para lidar com cenários de Transact no ciclo de vida de uma oferta de SaaS, consulte [API de preenchimento de SaaS](pc-saas-fulfillment-api-v2.md).
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Como você sabe a oferta de SaaS para a qual o usuário se inscreve no Azure?
 

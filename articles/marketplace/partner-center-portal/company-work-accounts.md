@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 3c0ee2f8d5291f7904435dea32d913adeaaf25c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27a51a1203b0c25474bdb292c467a40b67309757
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262359"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964423"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas corporativas corporativas e Partner Center
 
@@ -23,7 +23,7 @@ O Partner Center usa contas corporativas corporativas, também conhecidas como l
 Se sua empresa assinou um serviço de nuvem da Microsoft, como Azure, Microsoft Intune ou Office 365, você já tem um domínio de conta de email de trabalho (também conhecido como um locatário de Azure Active Directory) que pode ser usado com o Partner Center.
 
 Siga estas etapas para verificar:
-1. Entre no portal de administração do Azure em https://portal.azure.com.
+1. Entre no portal de administração do Azure em https://portal.azure.com .
 2. Selecione **Azure Active Directory** no menu de navegação à esquerda e, em seguida, selecione **nomes de domínio personalizados**.
 3. Caso você já tenha uma conta corporativa, seu nome de domínio estará listado.
 
@@ -37,14 +37,14 @@ Antes de decidir usar uma conta de trabalho existente, considere quantos usuári
 
 Para criar uma nova conta de trabalho para sua empresa, siga as etapas abaixo. Talvez seja necessário solicitar assistência de quem tem permissões administrativas na conta de Microsoft Azure da sua empresa.
 
-1. Entre no [portal do Microsoft Azure](https://portal.azure.com).
-2. No menu de navegação à esquerda, selecione o **Azure Active Directory** -> **usuários**.
+1. Entre no [Portal do Microsoft Azure](https://portal.azure.com).
+2. No menu de navegação à esquerda, selecione o **Azure Active Directory**  ->  **usuários**.
 3. Selecione **novo usuário** e crie uma nova conta de trabalho do Azure inserindo um nome e endereço de email. Verifique se a **função de diretório** está definida como **usuário** e marque a caixa de seleção **Mostrar senha** na parte inferior para exibir e anotar a senha gerada automaticamente.
 4. Selecione **criar** para salvar o novo usuário.
 
-O endereço de email para a conta de usuário deve ser um nome de domínio verificado em seu diretório. Você pode listar todos os domínios verificados em seu diretório selecionando **Azure Active Directory** -> **nomes de domínio personalizados** no menu de navegação à esquerda.
+O endereço de email para a conta de usuário deve ser um nome de domínio verificado em seu diretório. Você pode listar todos os domínios verificados em seu diretório selecionando **Azure Active Directory**  ->  **nomes de domínio personalizados** no menu de navegação à esquerda.
 
-Para saber mais sobre como adicionar domínios personalizados no Azure Active Directory, consulte [Adicionar ou associar um domínio no Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Para saber mais sobre como adicionar domínios personalizados no Azure Active Directory, consulte [Adicionar ou associar um domínio no Azure ad](../../active-directory/active-directory-add-domain.md).
 
 ## <a name="troubleshoot-work-email-sign-in"></a>Solucionar problemas de entrada de email de trabalho
 
@@ -54,4 +54,4 @@ Se você estiver tendo problemas para entrar em sua conta corporativa (também c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciar sua conta do Marketplace comercial no Partner Center](./manage-account.md) 
+- [Gerenciar sua conta do marketplace comercial no Partner Center](./manage-account.md) 

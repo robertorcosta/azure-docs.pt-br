@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658272"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965020"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parâmetros de menu suspenso da pasta de trabalho
 
@@ -31,7 +31,7 @@ A maneira mais fácil de especificar um menu suspenso é fornecendo uma lista es
     1. Nome do parâmetro:`Environment`
     2. Tipo de parâmetro:`Drop down`
     3. Necessário:`checked`
-    4. Permitir `multiple selection`:`unchecked`
+    4. Permitir `multiple selection` :`unchecked`
     5. Obter dados de:`JSON`
 5. No bloco de texto de entrada JSON, insira este trecho de JSON:
     ```json
@@ -41,14 +41,16 @@ A maneira mais fácil de especificar um menu suspenso é fornecendo uma lista es
         { "value":"prod", "label":"Production", "selected":true }
     ]
     ```
-6. Pressione o botão `Update` azul.
+6. Pressione o `Update` botão azul.
 7. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
 8. O parâmetro de ambiente será uma lista suspensa com os três valores.
 
     ![Imagem mostrando a criação de um estático afogado](./media/workbook-dropdowns/dropdown-create.png)
 
 ## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Criando uma lista suspensa estática com grupos de itens
+
 Se o resultado da consulta/JSON contiver um campo "grupo", a lista suspensa exibirá grupos de valores. Siga o exemplo acima, mas use o JSON a seguir em vez disso:
+
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -59,7 +61,8 @@ Se o resultado da consulta/JSON contiver um campo "grupo", a lista suspensa exib
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+
+![Imagem mostrando um exemplo de uma lista suspensa agrupada](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## <a name="creating-a-dynamic-drop-down-parameter"></a>Criando um parâmetro suspenso dinâmico
@@ -70,7 +73,7 @@ Se o resultado da consulta/JSON contiver um campo "grupo", a lista suspensa exib
     1. Nome do parâmetro:`RequestName`
     2. Tipo de parâmetro:`Drop down`
     3. Necessário:`checked`
-    4. Permitir `multiple selection`:`unchecked`
+    4. Permitir `multiple selection` :`unchecked`
     5. Obter dados de:`Query`
 5. No bloco de texto de entrada JSON, insira este trecho de JSON:
 
@@ -79,13 +82,14 @@ Se o resultado da consulta/JSON contiver um campo "grupo", a lista suspensa exib
         | summarize by name
         | order by name asc
     ```
-1. Pressione o botão `Run Query` azul.
+1. Pressione o `Run Query` botão azul.
 2. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
 3. O parâmetro RequestName será uma lista suspensa dos nomes de todas as solicitações no aplicativo.
 
     ![Imagem mostrando a criação de uma lista suspensa dinâmica](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## <a name="referencing-drop-down-parameter"></a>Parâmetro suspenso de referência
+
 ### <a name="in-kql"></a>Em KQL
 1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
 2. No editor de KQL, insira este trecho de código
@@ -122,7 +126,8 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+
+![Imagem mostrando um parâmetro suspenso usando opções de valor, rótulo, seleção e grupo](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## <a name="drop-down-parameter-options"></a>Opções de parâmetro de lista suspensa
@@ -133,11 +138,11 @@ dependencies
 | `{DependencyName:value}` | O valor selecionado | OBTER fabrikamaccount |
 
 ## <a name="multiple-selection"></a>Seleção múltipla
-Os exemplos até agora definem explicitamente o parâmetro para selecionar apenas um valor na lista suspensa. Os parâmetros suspensos também `multiple selection` oferecem suporte para isso é tão simples quanto marcar `Allow multiple selection` a opção. 
+Os exemplos até agora definem explicitamente o parâmetro para selecionar apenas um valor na lista suspensa. Os parâmetros suspensos também oferecem suporte para `multiple selection` isso é tão simples quanto marcar a `Allow multiple selection` opção. 
 
 O usuário também tem a opção de especificar o formato do conjunto de resultados por meio `delimiter` das `quote with` configurações e. O padrão apenas retorna os valores como uma coleção neste formulário: ' a ', ' b ', ' C'. Eles também têm a opção de limitar o número de seleções.
 
-O KQL que faz referência ao parâmetro precisará ser alterado para funcionar com o formato do resultado. A maneira mais comum de habilitá-lo é `in` por meio do operador.
+O KQL que faz referência ao parâmetro precisará ser alterado para funcionar com o formato do resultado. A maneira mais comum de habilitá-lo é por meio do `in` operador.
 
 ```kusto
 dependencies

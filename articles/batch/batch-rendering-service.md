@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: fc779d6caba2b896b869440ad523291bc3c9a9b2
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726427"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965273"
 ---
 # <a name="rendering-using-azure"></a>Renderizar usando o Azure
 
@@ -48,7 +48,7 @@ Há um intervalo de recursos do Azure que pode ser usado para renderizar cargas 
 
 O caso mais comum é que haja um farm de renderização local gerenciado por um aplicativo de gerenciamento de renderização, como PipelineFX Qube, Royal Render ou Thinkbox Deadline.  O requisito é estender a capacidade do farm de renderização local usando VMs do Azure.
 
-O software de gerenciamento de renderização tem suporte integrado ao Azure ou disponibilizamos plug-ins que adicionam suporte ao Azure. Para obter mais informações sobre os gerenciadores de renderização com suporte e a funcionalidade habilitada, consulte o artigo sobre [usar gerenciadores de renderização](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
+O software de gerenciamento de renderização tem suporte integrado ao Azure ou disponibilizamos plug-ins que adicionam suporte ao Azure. Para obter mais informações sobre os gerenciadores de renderização com suporte e a funcionalidade habilitada, consulte o artigo sobre [usar gerenciadores de renderização](./batch-rendering-render-managers.md).
 
 ### <a name="custom-rendering-workflow"></a>Fluxo de trabalho de renderização personalizada
 
@@ -77,9 +77,9 @@ O Lote do Azure é usado para muitas cargas de trabalho, mas os recursos a segui
 Há várias maneiras de usar o Lote do Azure, que também aplicam-se à renderização do Lote do Azure.
 
 * APIs:
-  * Grave código usando [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) ou outras APIs com suporte.  Desenvolvedores podem integrar os recursos do Lote do Azure aos fluxos de trabalho ou aplicativos existentes, sejam baseados em nuvem ou locais.  Por exemplo, o [plug-in do Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza a API do Python do Lote para invocar o Lote, criar e gerenciar pools, enviar trabalhos e tarefas e monitorar status.
+  * Grave código usando [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) ou outras APIs com suporte.  Desenvolvedores podem integrar os recursos do Lote do Azure aos fluxos de trabalho ou aplicativos existentes, sejam baseados em nuvem ou locais.  Por exemplo, o [plug-in do Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza a API do Python do Lote para invocar o Lote, criar e gerenciar pools, enviar trabalhos e tarefas e monitorar status.
 * Ferramentas de linha de comando:
-  * A [linha de comando do Azure](https://docs.microsoft.com/cli/azure/) ou o [PowerShell](https://docs.microsoft.com/powershell/azure/overview) pode ser usado para script de uso do Lote.
+  * A [linha de comando do Azure](/cli/azure/) ou o [PowerShell](/powershell/azure/overview) pode ser usado para script de uso do Lote.
   * Em particular, o suporte de modelo da CLI do Lote torna muito mais fácil criar pools e enviar trabalhos.
 * Interfaces do usuário:
   * O [Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente de plataforma cruzada que também permite que as contas do Lote sejam gerenciadas e monitoradas, mas fornece alguns recursos mais avançados em comparação com a interface do usuário do portal do Azure.  Um conjunto de modelos de trabalho e pool é fornecido, adaptado para cada aplicativo com suporte e pode ser usado para criar pools e enviar trabalhos facilmente.
@@ -95,9 +95,9 @@ Há várias maneiras de usar o Lote do Azure, que também aplicam-se à renderiz
 
 Consulte os tutoriais introdutórios a seguir para experimentar a renderização de Lote do Azure:
 
-* [Usar o Batch Explorer para renderizar uma cena do Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
-* [Usar a CLI do Lote para renderizar uma cena do Autodesk 3ds Max](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Usar o Batch Explorer para renderizar uma cena do Blender](./tutorial-rendering-batchexplorer-blender.md)
+* [Usar a CLI do Lote para renderizar uma cena do Autodesk 3ds Max](./tutorial-rendering-cli.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Determine a lista de aplicativos e versões de renderização incluídos nas imagens da VM do Azure Marketplace [neste artigo](https://docs.microsoft.com/azure/batch/batch-rendering-applications).
+Determine a lista de aplicativos e versões de renderização incluídos nas imagens da VM do Azure Marketplace [neste artigo](./batch-rendering-applications.md).

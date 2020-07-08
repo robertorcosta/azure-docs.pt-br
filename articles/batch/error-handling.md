@@ -3,12 +3,12 @@ title: Tratamento e detecção de erro no Lote do Azure
 description: Saiba mais sobre o tratamento de erros em fluxos de trabalho de serviço do lote de um ponto de vista de desenvolvimento.
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 07b9d43ea9bdf21fe3188c4481e6dd0c86374607
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790823"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964270"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Tratamento e detecção de erro no Lote do Azure
 
@@ -23,13 +23,13 @@ Os tipos gerais de erros incluem:
 - Erros relacionados à limitação, como as respostas HTTP do código de status 429 ou 503 com o cabeçalho Retry-after.
 - erros de 4xx, como AlreadyExists e InvalidOperation. Isso significa que o recurso não está no estado correto para a transição de estado.
 
-Para obter informações detalhadas sobre códigos de erro específicos, incluindo códigos de erro para API REST, serviço de lote e tarefa/agendamento de trabalho, consulte [Status de lote e códigos de erro](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+Para obter informações detalhadas sobre códigos de erro específicos, incluindo códigos de erro para API REST, serviço de lote e tarefa/agendamento de trabalho, consulte [Status de lote e códigos de erro](/rest/api/batchservice/batch-status-and-error-codes).
 
 ## <a name="application-failures"></a>Falhas de aplicativo
 
 Durante a execução, um aplicativo pode produzir uma saída de diagnóstico que pode ser usada para solucionar os problemas. Conforme descrito em [Arquivos e diretórios](files-and-directories.md) anterior, o serviço de Lote grava a saída padrão e os erros padrão nos arquivos `stdout.txt` e `stderr.txt` no diretório da tarefa no nó de computação.
 
-Você pode usar o portal do Azure ou um dos SDKs do Lote para baixar esses arquivos. Por exemplo, você pode recuperar esses e outros arquivos para solucionar problemas usando [ComputeNode.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) e [CloudTask.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) na biblioteca do .NET do Lote.
+Você pode usar o portal do Azure ou um dos SDKs do Lote para baixar esses arquivos. Por exemplo, você pode recuperar esses e outros arquivos para solucionar problemas usando [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) e [CloudTask.GetNodeFile](/dotnet/api/microsoft.azure.batch.cloudtask) na biblioteca do .NET do Lote.
 
 ## <a name="task-errors"></a>Erros de tarefa
 
@@ -73,10 +73,10 @@ Também é possível que um problema intermitente faça com que uma tarefa pare 
 
 ## <a name="connect-to-compute-nodes"></a>Conectar-se a nós de computação
 
-Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do Lote – por exemplo, com o [.NET do Lote](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) ou o [Python do Lote](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do Lote – por exemplo, com o [.NET do Lote](/dotnet/api/microsoft.azure.batch.computenode) ou o [Python do Lote](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Para se conectar a um nó via RDP ou SSH, primeiro você deve criar um usuário no nó. Para tanto, você pode usar o portal do Azure, [adicionar uma conta de usuário a um nó](https://docs.microsoft.com/rest/api/batchservice/computenode/adduser) usando a API REST do Lote, chamar o método [ComputeNode.CreateComputeNodeUser](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) no .NET do Lote ou chamar o método [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) no módulo Python do Lote.
+> Para se conectar a um nó via RDP ou SSH, primeiro você deve criar um usuário no nó. Para tanto, você pode usar o portal do Azure, [adicionar uma conta de usuário a um nó](/rest/api/batchservice/computenode/adduser) usando a API REST do Lote, chamar o método [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode) no .NET do Lote ou chamar o método [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) no módulo Python do Lote.
 
 Se for necessário restringir ou desabilitar o acesso RDP ou SSH para nós de computação, consulte [Configurar ou desabilitar o acesso remoto para nós de computação em um pool do Lote do Azure](pool-endpoint-configuration.md).
 
@@ -84,21 +84,21 @@ Se for necessário restringir ou desabilitar o acesso RDP ou SSH para nós de co
 
 Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serviço de Lote pode examinar os metadados das tarefas com falha para identificar um nó com comportamento inadequado. Cada nó em um pool tem uma ID exclusiva, e o nó no qual uma tarefa é executada é incluído nos metadados da tarefa. Após identificar um nó com problemas, você poderá executar várias ações nele:
 
-- **Reiniciar o nó** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reboot) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reboot))
+- **Reiniciar o nó** ([REST](/rest/api/batchservice/computenode/reboot) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reboot))
 
     Às vezes, reiniciar o nó pode corrigir problemas latentes, como processos bloqueados ou com falha. Se o pool usar uma tarefa de inicialização ou se o trabalho usar uma tarefa de preparação de trabalho, eles serão executados quando o nó for reiniciado.
-- **Refazer a imagem do nó** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reimage))
+- **Refazer a imagem do nó** ([REST](/rest/api/batchservice/computenode/reimage) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reimage))
 
     Esse procedimento reinstala o sistema operacional no nó. Assim como ocorre com a reinicialização de um nó, as tarefas de inicialização e de preparação de trabalho são executadas novamente depois que a imagem do nó é refeita.
-- **Remover o nó do pool** ([REST](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations))
+- **Remover o nó do pool** ([REST](/rest/api/batchservice/pool/removenodes) | [.NET](/dotnet/api/microsoft.azure.batch.pooloperations))
 
     Às vezes, é necessário remover completamente o nó do pool.
-- **Desabilitar o agendamento de tarefas no nó** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/disablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
+- **Desabilitar o agendamento de tarefas no nó** ([REST](/rest/api/batchservice/computenode/disablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
 
-    Isso efetivamente coloca o nó offline para que nenhuma tarefa adicional seja atribuída a ele, mas permite que o nó permaneça em execução e no pool. Isso o habilita a continuar a investigar a causa das falhas sem perder os dados da tarefa com falha e sem que o nó cause falhas de tarefas adicionais. Por exemplo, você pode desabilitar o agendamento de tarefas no nó e fazer logon remotamente para examinar os logs de evento do nó ou solucionar outros problemas. Depois de concluir sua investigação, você poderá colocar o nó online novamente, permitindo o agendamento da tarefa ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/enablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)) ou executar uma das ações analisadas anteriormente.
+    Isso efetivamente coloca o nó offline para que nenhuma tarefa adicional seja atribuída a ele, mas permite que o nó permaneça em execução e no pool. Isso o habilita a continuar a investigar a causa das falhas sem perder os dados da tarefa com falha e sem que o nó cause falhas de tarefas adicionais. Por exemplo, você pode desabilitar o agendamento de tarefas no nó e fazer logon remotamente para examinar os logs de evento do nó ou solucionar outros problemas. Depois de concluir sua investigação, você poderá colocar o nó online novamente, permitindo o agendamento da tarefa ([REST](/rest/api/batchservice/computenode/enablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)) ou executar uma das ações analisadas anteriormente.
 
 > [!IMPORTANT]
-> Com as ações descritas acima, é possível especificar como as tarefas em execução no nó são manipuladas quando você executa a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do Lote, pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) para especificar se deseja **Terminar** as tarefas em execução, **Recolocar em fila** para o agendamento em outros nós ou permitir que a execução das tarefas conclua antes de executar a ação (**TaskCompletion**).
+> Com as ações descritas acima, é possível especificar como as tarefas em execução no nó são manipuladas quando você executa a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do Lote, pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) para especificar se deseja **Terminar** as tarefas em execução, **Recolocar em fila** para o agendamento em outros nós ou permitir que a execução das tarefas conclua antes de executar a ação (**TaskCompletion**).
 
 ## <a name="retry-after-errors"></a>Tentar novamente após erros
 
@@ -110,4 +110,4 @@ Após uma falha, você deve aguardar um pouco (vários segundos entre as repeti�
 
 - Saiba como [Verificar erros no pool e nos nós](batch-pool-node-error-checking.md).
 - Saiba como [Verificar erros no trabalho e na tarefa](batch-job-task-error-checking.md).
-- Examine a lista de [Status de lote e códigos de erro](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+- Examine a lista de [Status de lote e códigos de erro](/rest/api/batchservice/batch-status-and-error-codes).

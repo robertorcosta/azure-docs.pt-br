@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647731"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964576"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 
 Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, o Azure Cosmos DB simplifica a cobrança cobrando apenas a taxa de transferência provisionada e o armazenamento consumido. Não existem valores de licença adicionais, hardware, custos de utilitários ou custos de instalação, comparados com alternativas locais ou hospedadas em IaaS. Quando você considera os recursos multirregiões do Azure Cosmos DB, o serviço de banco de dados reduz os custos substancialmente em comparação com soluções de IaaS ou locais existentes.
 
-Com o Azure Cosmos DB, você será cobrado por hora com base na taxa de transferência provisionada e no armazenamento consumido. Para a taxa de transferência provisionada, a unidade de cobrança é 100 RU/s por hora, cobrada a US$ 0,008 por hora, levando em conta o preço público padrão; consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). Para o armazenamento consumido, você é cobrado US$ 0,25 por 1 GB de armazenamento por mês. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+Com o Azure Cosmos DB, você será cobrado por hora com base na taxa de transferência provisionada e no armazenamento consumido. Para a taxa de transferência provisionada, a unidade de cobrança é de 100 RU/s por hora, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações de preços mais recentes. Para o armazenamento consumido, você será cobrado por 1 GB de armazenamento por mês, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações de preços mais recentes.
 
-Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes encontrados na fatura mensal. Os números mostrados nos exemplos podem ser diferentes se seus contêineres do Azure Cosmos têm uma taxa de transferência provisionada diferente, se eles abrangem várias regiões ou são executados em regiões diferentes por algum tempo durante o mês.
+Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes encontrados na fatura mensal. Os números mostrados nos exemplos podem ser diferentes se seus contêineres do Azure Cosmos têm uma taxa de transferência provisionada diferente, se eles abrangem várias regiões ou são executados em regiões diferentes por algum tempo durante o mês. Todos os exemplos neste artigo calculam a fatura com base nas informações de preços mostradas na [página de preços.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
 > [!NOTE]
-> A cobrança é para qualquer parte de uma hora do relógio, não para uma duração de 60 minutos.
+> A cobrança é para qualquer parte de uma hora do relógio, não para uma duração de 60 minutos. Todos os exemplos mostrados neste documento baseiam-se no preço de uma conta do Azure Cosmos implantada em uma região não governamental nos EUA. O preço e o cálculo variam de acordo com a região que você está usando, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre preços.
 
 ## <a name="billing-examples"></a>Exemplos de cobrança
 
@@ -73,7 +73,7 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 * Em um mês de 720 horas (24 horas * 30 dias), se por 500 horas a taxa de transferência provisionada foi de 1.200 RU/s e, nas 220 horas restantes a taxa de transferência provisionada foi de 22.200 RU/s, sua fatura mensal mostrará: 500 x US$ 0,096/hora + 220 x US$ 1.776/hora = US$ 438,72/mês.
 
-![Exemplo de cobrança da taxa de transferência dedicada](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Exemplo de cobrança da taxa de transferência dedicada":::
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>Exemplo de cobrança: contêineres com modo de taxa de transferência compartilhada
 
@@ -87,7 +87,7 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 * Em um mês de 720 horas, se por 300 horas a taxa de transferência provisionada foi de 120 mil RU/s e, nas 420 horas restantes a taxa de transferência provisionada foi de 155 mil RU/s, sua fatura mensal mostrará: 300 x US$ 9,60/hora + 420 x US$12,40/hora = US$ 2.880 + US$ 5.208 = US$ 8.088/mês. 
 
-![Exemplo de cobrança da taxa de transferência compartilhada](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de cobrança da taxa de transferência compartilhada":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemplos de cobrança com replicação geográfica e de vários mestres  
 
@@ -177,7 +177,7 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 Visualmente, as alterações na taxa de transferência provisionada total durante 720 horas no mês são mostradas na figura abaixo: 
 
-![Exemplo da vida real](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemplo da vida real":::
 
 A fatura mensal total (supondo 30 dias/720 horas em um mês) será calculada da seguinte maneira:
 
@@ -234,19 +234,18 @@ Este exemplo reflete o [preço de vários mestres](https://azure.microsoft.com/p
 
 Vamos considerar outro exemplo, em que você deseja proativamente estimar sua fatura antes do final do mês. É possível estimar sua fatura da seguinte maneira:
 
-|**Custo de armazenamento** | |
-|----|----|
-|Tamanho médio dos registros (KB) |1 |
-|Número de registros  |100.000.000  |
-|Armazenamento total (GB)  |100 |
-|Custo mensal por GB  |US$ 0,25  |
-|Custo mensal esperado pelo armazenamento   |US$ 25,00  |
+**Custo de armazenamento**
 
-<br>
+* Tamanho médio de registro (KB) = 1 
+* Número de registros = 100 milhões 
+* Armazenamento total (GB) = 100 
+* Custo mensal por GB = $0.25 
+* Custo mensal esperado para armazenamento = $25 
 
-|**Custo de taxa de transferência** | | | |
-|----|----|----|----|
+**Custo de taxa de transferência**
+
 |Tipo de operação| Solicitações/s| Média RU/solicitação| RUs necessárias|
+|----|----|----|----|
 |Gravar| 100 | 5 | 500|
 |Ler| 400| 1| 400|
 

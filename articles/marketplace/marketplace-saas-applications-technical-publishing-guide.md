@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657817"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963828"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação da oferta de aplicativos SaaS
 
@@ -62,11 +62,9 @@ Para começar, é recomendável que você tenha uma assinatura dedicada à publi
 
 As melhores documentações, exemplos e diretrizes do Azure Active Directory estão nestes sites: 
 
-* [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Guia do desenvolvedor do Active Directory do Azure](../active-directory/develop/index.yml)
 
-* [Integração com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Integrar aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integração com Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Roteiro do Azure - Segurança e Identidade](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +88,7 @@ Além disso, o Azure Active Directory fornece um site para verificar se há atua
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Usar o Azure Active Directory para habilitar avaliações  
 
-A Microsoft autentica todos os usuários do Marketplace com o Azure AD. Portanto, quando um usuário autenticado clicar na sua listagem de Avaliação no Marketplace e for redirecionado para seu ambiente de Avaliação, você poderá provisionar o usuário diretamente em uma Avaliação sem exigir uma etapa adicional de entrada. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+A Microsoft autentica todos os usuários do Marketplace com o Azure AD. Portanto, quando um usuário autenticado clicar na sua listagem de Avaliação no Marketplace e for redirecionado para seu ambiente de Avaliação, você poderá provisionar o usuário diretamente em uma Avaliação sem exigir uma etapa adicional de entrada. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](../active-directory/develop/active-directory-token-and-claims.md).
 
 Usar o Azure AD para habilitar a autenticação em 1 clique no aplicativo ou avaliação:  
 * Simplifica a experiência do cliente do Marketplace para Avaliação.  
@@ -106,15 +104,15 @@ Certifique a integração do Azure AD de maneiras diferentes, de acordo com o ti
 
 Se você já dá suporte ao Azure AD, faça o seguinte:
 1.    Registre seu aplicativo no Portal do Azure
-2.    Habilite o recurso de suporte multilocatário no Azure AD para obter uma experiência de avaliação com um clique. Encontre mais informações específicas [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+2.    Habilite o recurso de suporte multilocatário no Azure AD para obter uma experiência de avaliação com um clique. Encontre mais informações específicas [aqui](../active-directory/develop/active-directory-integrating-applications.md).  
 
 Se você é novo no SSO Federado do Azure AD, faça o seguinte: 
 1.  Registre seu aplicativo no Portal do Azure
-2.  Desenvolva SSO com o Azure AD usando [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Habilite o recurso de suporte multilocatário no AAD para obter uma experiência de avaliação com um clique Encontre mais informações específicas [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Desenvolva SSO com o Azure AD usando [OpenID Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) ou [OAuth 2.0](../active-directory/develop/active-directory-protocols-oauth-code.md).
+3.  Habilite o recurso de suporte multilocatário no AAD para obter uma experiência de avaliação com um clique Encontre mais informações específicas [aqui](../active-directory/develop/active-directory-devhowto-appsource-certified.md).  
 
 **Para o aplicativo de locatário único, use qualquer uma das seguintes opções:**  
-* Adicionar usuários ao seu diretório como usuários convidados usando [B2B do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Adicionar usuários ao seu diretório como usuários convidados usando [B2B do Azure](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)
 * Provisionar manualmente avaliações para clientes por meio do "Entre em contato comigo"
 * Desenvolver um test drive por cliente
 * Compile um aplicativo de demonstração de amostra multilocatário com SSO
@@ -141,7 +139,7 @@ Caso ainda não tenha feito isso,
 
 * [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o marketplace.
 
-Para se registrar na Central de Parceiros, crie uma nova oferta ou trabalhe em uma existente:
+Para se registrar na Central de Parceiros, comece criando uma nova oferta ou trabalhando em uma existente:
 
 * [Entre na Central de Parceiros](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir a oferta.
 * Consulte [Criar uma oferta de aplicativo SaaS](./partner-center-portal/create-new-saas-offer.md) para obter mais informações.

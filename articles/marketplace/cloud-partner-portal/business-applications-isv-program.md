@@ -1,5 +1,5 @@
 ---
-title: Guia de integração do programa ISV (fornecedor independente de software) da Microsoft Business Applications
+title: Guia de integração do programa ISV Connect do Microsoft Business Applications
 description: Veja como carregar o Business Applications programa ISV Connect.
 author: qianw211
 ms.service: marketplace
@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: dsindona
-ms.openlocfilehash: f7fd3f43c7faddb5481411dc9c4c94864b6dc0b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80288964"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964882"
 ---
-# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de integração do programa ISV (fornecedor independente de software) da Microsoft Business Applications
+# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de integração do programa ISV Connect do Microsoft Business Applications
 
 O [programa Business Applications ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview) tem como objetivo acelerar o crescimento e o sucesso geral de fornecedores independentes de software (ISVs) que criam soluções modernas, baseadas em nuvem e de linha de negócios (LOB) com o *engajamento do cliente do Dynamics 365 e o PowerApps* ("Dynamics CE Offers") ou o *Dynamics 365 Finance and Operations* ("ofertas do Dynamics Ops"). Aqui está como fazer parte dele.
 
@@ -43,7 +43,7 @@ Se você já publicou as ofertas do Dynamics CE ou Dynamics Ops, provavelmente s
 1. Entre em sua página de **perfil do Publicador** no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 2. Se você vir uma faixa mostrando que as configurações de sua conta foram migradas para o Partner Center, continue na próxima seção. Caso contrário, selecione a faixa solicitando que você ative sua conta do Partner Center.
 
-Para obter mais informações, consulte [migração de conta do portal do Cloud Partner para o Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
+Para obter mais informações, consulte [migração de conta do portal do Cloud Partner para o Partner Center](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
 ## <a name="accept-the-business-applications-isv-program-addendum"></a>Aceite o adendo do programa ISV Business Applications
 
@@ -88,7 +88,7 @@ Depois de concluir as etapas acima, suas ofertas existentes do Dynamics CE e do 
 A etapa final do registro no Business Applications programa ISV Connect está recertificando seus aplicativos existentes.
 
 1. [Siga estas etapas](https://partner.microsoft.com/solutions/business-applications/isv-publish) para rescertificar seu aplicativo ao AppSource.
-2. [Crie e publique uma nova oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). Esta oferta será uma oferta totalmente nova e não substituirá uma existente.
+2. [Crie e publique uma nova oferta](../partner-center-portal/create-new-customer-engagement-offer.md). Esta oferta será uma oferta totalmente nova e não substituirá uma existente.
 
 ## <a name="further-info"></a>Mais informações
 

@@ -4,12 +4,12 @@ description: Saiba como usar a API do serviço de Lote para persistir dados de s
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726308"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965120"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -32,7 +32,7 @@ Se seu cenário for diferente daqueles listados acima, poderá ser necessário c
 
 ## <a name="create-a-container-in-azure-storage"></a>Criar um contêiner no Armazenamento do Azure
 
-Para manter a saída da tarefa no Armazenamento do Azure, você precisará criar um contêiner que serve como o destino para seus arquivos de saída. Crie o contêiner antes de executar a tarefa, preferencialmente antes de enviar seu trabalho. Para criar o contêiner, use a biblioteca de cliente de Armazenamento do Azure apropriada ou o SDK. Para obter mais informações sobre APIs de Armazenamento do Azure, consulte a [documentação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/).
+Para manter a saída da tarefa no Armazenamento do Azure, você precisará criar um contêiner que serve como o destino para seus arquivos de saída. Crie o contêiner antes de executar a tarefa, preferencialmente antes de enviar seu trabalho. Para criar o contêiner, use a biblioteca de cliente de Armazenamento do Azure apropriada ou o SDK. Para obter mais informações sobre APIs de Armazenamento do Azure, consulte a [documentação do Armazenamento do Azure](../storage/index.yml).
 
 Por exemplo, se você estiver escrevendo seu aplicativo em C#, use a [biblioteca de cliente de Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). O exemplo a seguir mostra como criar um contêiner:
 
@@ -61,7 +61,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## <a name="specify-output-files-for-task-output"></a>Especificar arquivos de saída para a saída da tarefa
 
-Para especificar os arquivos de saída para uma tarefa, crie uma coleção de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e a atribua para a propriedade de [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa.
+Para especificar os arquivos de saída para uma tarefa, crie uma coleção de objetos [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) e a atribua para a propriedade de [CloudTask.OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa.
 
 O exemplo de código C# a seguir cria uma tarefa que grava números aleatórios para um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` a ser gravado para o contêiner. O exemplo também cria arquivos de saída para os arquivos de log que correspondem ao padrão de arquivo `std*.txt` ( _, por exemplo,_ , `stdout.txt` e `stderr.txt`). A URL do contêiner requer o SAS que foi criado anteriormente para o contêiner. O serviço de lote usa as SAS para autenticar o acesso ao contêiner:
 
@@ -91,7 +91,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### <a name="specify-a-file-pattern-for-matching"></a>Especifique um padrão de arquivo para correspondência
 
-Quando você especifica um arquivo de saída, você pode usar a propriedade [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) para especificar um padrão de arquivo para correspondência. O padrão de arquivo pode corresponder a zero arquivos, um único arquivo ou um conjunto de arquivos que são criados pela tarefa.
+Quando você especifica um arquivo de saída, você pode usar a propriedade [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) para especificar um padrão de arquivo para correspondência. O padrão de arquivo pode corresponder a zero arquivos, um único arquivo ou um conjunto de arquivos que são criados pela tarefa.
 
 A propriedade **FilePattern** oferece suporte a caracteres curinga do sistema de arquivos padrão como `*` (para não-recursivo corresponde) e `**` (para corresponde recursivo). Por exemplo, o exemplo de código acima especifica o padrão de arquivo para corresponder `std*.txt` não recursiva:
 
@@ -103,19 +103,19 @@ Para carregar um único arquivo, especifique um padrão de arquivo sem curingas.
 
 ### <a name="specify-an-upload-condition"></a>Especificar uma condição de upload
 
-A propriedade [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) permite o upload condicional de arquivos de saída. Um cenário comum é carregar um conjunto de arquivos se a tarefa for bem-sucedida, e um conjunto diferente de arquivos se ele falhar. Por exemplo, você talvez queira carregar arquivos de log detalhados somente quando a tarefa falhar e for encerrada com um código de saída diferente de zero. Da mesma forma, você talvez queira carregar arquivos de resultado somente se a tarefa for bem-sucedida, pois esses arquivos podem estar ausentes ou incompletos se a tarefa falhar.
+A propriedade [OutputFileUploadOptions.UploadCondition](/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) permite o upload condicional de arquivos de saída. Um cenário comum é carregar um conjunto de arquivos se a tarefa for bem-sucedida, e um conjunto diferente de arquivos se ele falhar. Por exemplo, você talvez queira carregar arquivos de log detalhados somente quando a tarefa falhar e for encerrada com um código de saída diferente de zero. Da mesma forma, você talvez queira carregar arquivos de resultado somente se a tarefa for bem-sucedida, pois esses arquivos podem estar ausentes ou incompletos se a tarefa falhar.
 
 O exemplo de código acima define a propriedade **UploadCondition** para **TaskCompletion**. Essa configuração especifica que o arquivo será carregado após a conclusão de tarefas, independentemente do valor do código de saída.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-Para outras configurações, consulte o enum [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition).
+Para outras configurações, consulte o enum [OutputFileUploadCondition](/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition).
 
 ### <a name="disambiguate-files-with-the-same-name"></a>Desfazer a ambiguidade de arquivos com o mesmo nome
 
 As tarefas em um trabalho podem produzir os arquivos que têm o mesmo nome. Por exemplo, `stdout.txt` e `stderr.txt` são criados para cada tarefa que executa em um trabalho. Como cada tarefa é executada em seu próprio contexto, esses arquivos não estão em conflito no sistema de arquivos do nó. No entanto, quando você carrega arquivos de várias tarefas para um contêiner compartilhado, você precisará desfazer a ambiguidade de arquivos com o mesmo nome.
 
-A propriedade [OutputFileBlobContainerDestination.Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) especifica o blob de destino ou o diretório virtual para arquivos de saída. Você pode usar a propriedade de **caminho** para nomear o blob ou diretório virtual de forma que os arquivos de saída com o mesmo nome são nomeados exclusivamente no Armazenamento do Azure. Usando a ID da tarefa no caminho é uma boa maneira de garantir nomes exclusivos e identificar facilmente os arquivos.
+A propriedade [OutputFileBlobContainerDestination.Path](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) especifica o blob de destino ou o diretório virtual para arquivos de saída. Você pode usar a propriedade de **caminho** para nomear o blob ou diretório virtual de forma que os arquivos de saída com o mesmo nome são nomeados exclusivamente no Armazenamento do Azure. Usando a ID da tarefa no caminho é uma boa maneira de garantir nomes exclusivos e identificar facilmente os arquivos.
 
 Se a propriedade **FilePattern** é definida como uma expressão curinga, em seguida, todos os arquivos que correspondem ao padrão são carregados para o diretório virtual especificado pela propriedade **caminho**. Por exemplo, se o contêiner for `mycontainer`, a tarefa de ID é `mytask`, e o padrão de arquivo é `..\std*.txt`, em seguida, os URIs absolutos para arquivos de saída no Armazenamento do Azure serão semelhantes a:
 
@@ -139,7 +139,7 @@ Para obter mais informações sobre diretórios virtuais no Armazenamento do Azu
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnosticar erros de carregamento de arquivo
 
-Se o carregamento de arquivos de saída no Armazenamento do Azure falhar, então a tarefa será movida para o estado **concluído** e a propriedade [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) é definida. Analise a propriedade **FailureInformation** para determinar o erro. Por exemplo, aqui está um erro que ocorre no upload do arquivo se o contêiner não pode ser encontrado:
+Se o carregamento de arquivos de saída no Armazenamento do Azure falhar, então a tarefa será movida para o estado **concluído** e a propriedade [TaskExecutionInformation.FailureInformation](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) é definida. Analise a propriedade **FailureInformation** para determinar o erro. Por exemplo, aqui está um erro que ocorre no upload do arquivo se o contêiner não pode ser encontrado:
 
 ```
 Category: UserError
@@ -163,7 +163,7 @@ Se você estiver desenvolvendo em C#, poderá usar os métodos incorporados à [
 string containerName = job.OutputStorageContainerName();
 ```
 
-Você pode usar o método [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) para retornar uma URL de assinatura de acesso compartilhado (SAS) que é usada para gravar no contêiner. Você pode passar esse SAS para o construtor [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination).
+Você pode usar o método [CloudJobExtensions.GetOutputStorageContainerUrl](/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) para retornar uma URL de assinatura de acesso compartilhado (SAS) que é usada para gravar no contêiner. Você pode passar esse SAS para o construtor [OutputFileBlobContainerDestination](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination).
 
 Se você estiver desenvolvendo com uma linguagem que não C#, precisará implantar o padrão de Convenções de Arquivo você mesmo.
 

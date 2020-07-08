@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7a48da25c60eb2db3b918ebe9523440c49ed9693
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800804"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963794"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de uso de parceiros e clientes do Marketplace comercial
 
@@ -59,11 +59,14 @@ Os GUIDs precisam ser registrados no Partner Center para habilitar a atribuiçã
 
 Depois que você adicionar um GUID ao seu modelo ou no agente do usuário e registrar o GUID no Partner Center, as implantações são acompanhadas.
 
+> [!NOTE]
+> Se você estiver publicando sua oferta de [aplicativo Azure](./partner-center-portal/create-new-azure-apps-offer.md) no Azure Marketplace por meio do Partner Center, qualquer novo GUID usado dentro do modelo será registrado automaticamente em seu perfil do Partner Center quando o modelo for carregado.  
+
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
 
 1. Inscreva-se como um [editor do Marketplace comercial](https://aka.ms/JoinMarketplace).
 
-   * Os parceiros precisam [ter um perfil no Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). Você é incentivado a listar a oferta no Azure Marketplace ou no AppSource.
+   * Os parceiros precisam [ter um perfil no Partner Center](become-publisher.md). Você é incentivado a listar a oferta no Azure Marketplace ou no AppSource.
    * Parceiros podem registrar vários GUIDs.
    * Os parceiros podem registrar GUIDs para os modelos e ofertas de soluções que não são do Marketplace.
 
@@ -71,7 +74,7 @@ Depois que você adicionar um GUID ao seu modelo ou no agente do usuário e regi
 
 1. Na página **Configurações da conta**, selecione **Adicionar GUID de acompanhamento**.
 
-1. Na caixa **GUID**, insira seu GUID de acompanhamento. Insira o GUID sem as **pid -** prefixo. Na caixa **Descrição**, insira o nome ou a descrição da sua oferta.
+1. Na caixa **GUID**, insira seu GUID de acompanhamento. Insira apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição**, insira o nome ou a descrição da sua oferta.
 
 1. Para registrar mais de um GUID, selecione **Adicionar GUID de Rastreamento** novamente. Caixas adicionais aparecerão na página.
 
@@ -82,7 +85,7 @@ Muitas soluções de parceiros são implantadas usando modelos do Azure Resource
 
 > [!NOTE]
 > Para saber mais sobre como criar e publicar Modelos de Solução, confira
-> * [Criar e implantar seu primeiro modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+> * [Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Oferta de aplicativo do Azure](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Vídeo: [Compilar modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
@@ -95,7 +98,7 @@ Para adicionar um identificador global exclusivo (GUID), você faz uma única mo
 
 1. Adicione um novo recurso no arquivo de modelo principal. O recurso precisa estar no arquivo **mainTemplate.json** ou **azuredeploy.json**, e não em nenhum modelo aninhado ou vinculado.
 
-1. Digite o valor de GUID após o prefixo **pid-** (por exemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Insira o valor de GUID após o `pid-` prefixo (por exemplo, PID-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Verifique o modelo para todos os erros.
 
@@ -134,12 +137,12 @@ Se você estiver usando um modelo do Resource Manager, deverá marcar sua soluç
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Marcar uma implantação com as APIs do Resource Manager
 
-Para habilitar a atribuição de uso do cliente, ao criar suas chamadas à API, inclua um GUID no cabeçalho do agente do usuário na solicitação. Adicione o GUID para cada oferta ou SKU. Formatar a cadeia de caracteres com o **pid -** de prefixo e incluir o GUID gerado pelo parceiro. Aqui está um exemplo do formato GUID para inserção no agente do usuário:
+Para habilitar a atribuição de uso do cliente, ao criar suas chamadas à API, inclua um GUID no cabeçalho do agente do usuário na solicitação. Adicione o GUID para cada oferta ou SKU. Formate a cadeia de caracteres com o `pid-` prefixo e inclua o GUID gerado pelo parceiro. Aqui está um exemplo do formato GUID para inserção no agente do usuário:
 
 ![Formato GUID de exemplo](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> O formato da cadeia de caracteres é importante. Se o prefixo **pid-** não estiver incluído, não será possível consultar os dados. Diferentes SDKs acompanham de forma diferente. Para implementar esse método, revise a abordagem de suporte e acompanhamento do seu SDK do Azure preferido.
+> O formato da cadeia de caracteres é importante. Se o `pid-` prefixo não estiver incluído, não será possível consultar os dados. Diferentes SDKs acompanham de forma diferente. Para implementar esse método, revise a abordagem de suporte e acompanhamento do seu SDK do Azure preferido.
 
 #### <a name="example-the-python-sdk"></a>Exemplo: O SDK do Python
 
@@ -165,7 +168,7 @@ Quando você usa a CLI do Azure para anexar seu GUID, defina a variável de ambi
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Para obter mais informações, confira [SDK do Azure para linguagem Go](https://docs.microsoft.com/azure/go/).
+Para obter mais informações, confira [SDK do Azure para linguagem Go](https://docs.microsoft.com/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Usar o Terraform
 
@@ -238,15 +241,15 @@ Escolha Modelo Controlado na lista suspensa do Tipo de Associação de Parceiro 
 
 ## <a name="notify-your-customers"></a>Notificar os clientes
 
-Os parceiros devem informar seus clientes sobre implantações que usam a atribuição de uso do cliente. A Microsoft relata o uso do Azure associado a essas implantações no parceiro. Os exemplos a seguir incluem conteúdo que você pode usar para notificar seus clientes sobre essas implantações. Nos exemplos, substitua \<parceiro > com o nome da sua empresa. Os parceiros devem certificar-se de que a notificação esteja alinhada com suas políticas de privacidade e coleta de dados, incluindo opções para os clientes serem excluídos do rastreamento.
+Os parceiros devem informar seus clientes sobre implantações que usam a atribuição de uso do cliente. A Microsoft relata o uso do Azure associado a essas implantações no parceiro. Os exemplos a seguir incluem conteúdo que você pode usar para notificar seus clientes sobre essas implantações. Nos exemplos, substitua \<PARTNER> pelo nome da sua empresa. Os parceiros devem certificar-se de que a notificação esteja alinhada com suas políticas de privacidade e coleta de dados, incluindo opções para os clientes serem excluídos do rastreamento.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificação para implantações de modelos do Resource Manager
 
-Quando você implanta esse modelo, a Microsoft consegue identificar a instalação do software \<PARTNER> com os recursos do Azure implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
+Quando você implanta esse modelo, a Microsoft é capaz de identificar a instalação do \<PARTNER> software com os recursos do Azure que são implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificação para implantações de SDK ou a API
 
-Quando você implanta o software \<PARTNER>, a Microsoft pode identificar a instalação do software \< PARTNER> com os recursos do Azure implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
+Quando você implanta \<PARTNER> software, a Microsoft é capaz de identificar a instalação do \<PARTNER> software com os recursos do Azure que são implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Obtenha suporte
 
@@ -254,7 +257,7 @@ Há dois canais de suporte, dependendo dos problemas que você está enfrentando
 
 Se você encontrar problemas no Partner Center, como ver o relatório de atribuição de uso do cliente ou ao entrar, crie uma solicitação de suporte com a equipe de suporte do Partner Center aqui: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
-![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+![Captura de tela da página obter suporte](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Se você precisar de assistência para integração do Marketplace e/ou atribuição de uso do cliente em geral, por exemplo, como configurar a atribuição de uso do cliente, siga as etapas abaixo:
 
@@ -329,7 +332,7 @@ O formulário Gerador de GUID do Armazenamento do Azure tem a garantia de gerar 
 
 **Posso usar um VHD personalizado e particular para uma oferta de modelo de solução no Azure Marketplace?**
 
-Não é possível. A imagem de máquina virtual precisa vir do Azure Marketplace. Confira [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+Não é possível. A imagem da máquina virtual deve vir do Azure Marketplace, consulte: [Guia de publicação para ofertas de máquina virtual no Azure Marketplace](marketplace-virtual-machines.md).
 
 É possível criar uma oferta de VM no Marketplace usando seu VHD personalizado e marcá-la como particular para que ninguém possa vê-la. Em seguida, faça referência a essa VM em seu modelo de solução.
 

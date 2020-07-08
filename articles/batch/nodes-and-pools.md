@@ -2,13 +2,13 @@
 title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.date: 06/16/2020
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790913"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964035"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -27,6 +27,8 @@ Todos os nós de computação no Lote também incluem:
 - Uma [estrutura de pastas](files-and-directories.md) padrão e as [variáveis de ambiente](jobs-and-tasks.md) associadas disponíveis para a referência por tarefas.
 - **firewall** que são definidas para controlar o acesso.
 - [Acesso remoto](error-handling.md#connect-to-compute-nodes) para os nós do Windows (Remote Desktop Protocol (RDP)) e do Linux (Secure Shell (SSH)).
+
+Por padrão, os nós podem se comunicar entre si, mas não podem se comunicar com máquinas virtuais que não fazem parte do mesmo pool. Para permitir que os nós se comuniquem com segurança com outras máquinas virtuais, ou com uma rede local, você pode provisionar o pool [em uma sub-rede de uma VNet (rede virtual) do Azure](batch-virtual-network.md). Quando você fizer isso, os nós poderão ser acessados por meio de endereços IP públicos. Esses endereços IP públicos são criados pelo lote e podem ser alterados durante o tempo de vida do pool. Você também pode [criar um pool com endereços IP públicos estáticos](create-pool-public-ip.md) que você controla, o que garante que eles não serão alterados inesperadamente.
 
 ## <a name="pools"></a>Pools
 
@@ -78,7 +80,7 @@ Assim como ocorre com as funções de trabalho nos Serviços de Nuvem, você pod
 
 ### <a name="node-agent-skus"></a>SKUs do Agente de Nó
 
-Quando você cria um pool, precisa selecionar o **nodeAgentSkuId** apropriado, dependendo do sistema operacional da imagem base do seu VHD. Obtenha um mapeamento das IDs de SKU do agente de nó disponível para suas referências de imagem do SO chamando a operação [Listar SKUs Suportadas do Agente de Nó](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+Quando você cria um pool, precisa selecionar o **nodeAgentSkuId** apropriado, dependendo do sistema operacional da imagem base do seu VHD. Obtenha um mapeamento das IDs de SKU do agente de nó disponível para suas referências de imagem do SO chamando a operação [Listar SKUs Suportadas do Agente de Nó](/rest/api/batchservice/list-supported-node-agent-skus).
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Imagens personalizadas para pools de máquina virtual
 
@@ -127,7 +129,7 @@ Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 - **métricas do recurso** são baseadas nos usos da CPU, da largura de banda e da memória, e no número de nós.
 - As **métricas de tarefa** são baseadas no estado da tarefa, como *Ativa* (na fila), *Em execução* ou *Concluída*.
 
-Quando o dimensionamento automático diminui o número de nós de computação em um pool, você deve considerar como lidar com as tarefas em execução no momento da operação de redução. Para aceitar isso, o Lote fornece uma [*opção de desalocação do nó*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução sejam interrompidas imediatamente e colocadas novamente na fila para execução em outro nó ou concluídas antes que o nó seja removido do pool. Observe que definir a opção de desalocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de pool até que todas as tarefas sejam concluídas ou que todos os períodos de retenção da tarefa tenham expirado, respectivamente.
+Quando o dimensionamento automático diminui o número de nós de computação em um pool, você deve considerar como lidar com as tarefas em execução no momento da operação de redução. Para aceitar isso, o Lote fornece uma [*opção de desalocação do nó*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução sejam interrompidas imediatamente e colocadas novamente na fila para execução em outro nó ou concluídas antes que o nó seja removido do pool. Observe que definir a opção de desalocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de pool até que todas as tarefas sejam concluídas ou que todos os períodos de retenção da tarefa tenham expirado, respectivamente.
 
 Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md).
 
@@ -162,13 +164,16 @@ Para saber mais sobre como usar pacotes de aplicativos para implantar os aplicat
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuração de firewall e VNet (rede virtual)
 
-Quando você provisiona um pool de nós de computação no Lote, pode associar o pool de uma sub-rede de uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Para usar uma rede virtual do Azure, a API do cliente do Lote deverá usar a autenticação do Azure Active Directory (AD). O suporte ao Lote do Azure para o Azure AD está documentado em [Autenticar soluções do serviço Lote com o Active Directory](batch-aad-auth.md).  
+Quando você provisiona um pool de nós de computação no Lote, pode associar o pool de uma sub-rede de uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Para usar uma rede virtual do Azure, a API do cliente do Lote deverá usar a autenticação do Azure Active Directory (AD). O suporte ao Lote do Azure para o Azure AD está documentado em [Autenticar soluções do serviço Lote com o Active Directory](batch-aad-auth.md).
 
 ### <a name="vnet-requirements"></a>Requisitos de rede virtual
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Para saber mais sobre como configurar um pool do Lote em uma rede virtual, veja [Criar um pool de máquinas virtuais com sua rede virtual](batch-virtual-network.md).
+
+> [!TIP]
+> Para garantir que os endereços IP públicos usados para acessar nós não sejam alterados, você pode [criar um pool com os endereços IP públicos especificados que você controla](create-pool-public-ip.md).
 
 ## <a name="pool-and-compute-node-lifetime"></a>Tempo de vida de nó de computação e de pool
 
@@ -184,7 +189,7 @@ Uma abordagem combinada normalmente é usada para lidar com uma carga variável,
 
 Normalmente, você precisa usar certificados ao criptografar ou descriptografar informações confidenciais para as tarefas, como a chave para uma [conta de Armazenamento do Azure](accounts.md#azure-storage-accounts). Para dar suporte a isso, você pode instalar certificados nos nós. Os segredos criptografados são passados para tarefas por meio dos parâmetros de linha de comando ou incorporados em um dos recursos de tarefa, e os certificados instalados podem ser usados para descriptografá-los.
 
-Você usa a operação [Adicionar certificado](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (REST do Lote) ou o método [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (.NET do Lote) para adicionar um certificado a uma conta do Lote. Então, pode associar o certificado a um pool novo ou existente.
+Você usa a operação [Adicionar certificado](/rest/api/batchservice/certificate/add) (REST do Lote) ou o método [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (.NET do Lote) para adicionar um certificado a uma conta do Lote. Então, pode associar o certificado a um pool novo ou existente.
 
 Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a [tarefa inicial](jobs-and-tasks.md#start-task) e a [tarefa do gerenciador de trabalhos](jobs-and-tasks.md#job-manager-task)).
 

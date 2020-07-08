@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670552"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963233"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -34,18 +34,18 @@ O arquivo de autenticação do MySQL é armazenado em `/var/opt/microsoft/mysql-
 ### <a name="authentication-file-format"></a>Formato do arquivo de autenticação
 A seguir, temos o formato para o arquivo de autenticação de OMI do MySQL
 
-    [Port]=[Bind-Address], [username], [Base64 encoded Password]
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    AutoUpdate=[true|false]
+> [Porta] = [ligação-endereço], [username], [senha codificada em base64]  
+> (Porta) = (endereço de ligação), (nome de usuário), (senha codificada em Base64)  
+> (Porta) = (endereço de ligação), (nome de usuário), (senha codificada em Base64)  
+> AutoUpdate = [true | false]  
 
 As entradas no arquivo de autenticação são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 | Porta | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
 | Endereço de Ligação| Endereço de associação atual de MySQL. |
-| username| Usuário do MySQL a utilizar para monitorar a instância do servidor MySQL. |
+| Nome de Usuário| Usuário do MySQL a utilizar para monitorar a instância do servidor MySQL. |
 | Senha codificada em Base64| Senha do usuário de monitoramento do MySQL codificada em Base64. |
 | Atualização Automática| Especifica se será feita uma nova varredura em busca de alterações no arquivo my.cnf e uma substituição do arquivo de Autenticação de OMI do MySQL quando o Provedor de OMI do MySQL é atualizado. |
 
@@ -63,7 +63,7 @@ A tabela a seguir tem configurações de instância de exemplo
 ### <a name="mysql-omi-authentication-file-program"></a>Programa de Arquivo de Autenticação de OMI do MySQL
 Incluído com a instalação do provedor de OMI do MySQL temos um programa de arquivo de autenticação de OMI do MySQL, que pode ser usado para editar o arquivo de autenticação de OMI do MySQL. O programa de arquivo de autenticação pode ser encontrado no local a seguir.
 
-    /opt/microsoft/mysql-cimprov/bin/mycimprovauth
+`/opt/microsoft/mysql-cimprov/bin/mycimprovauth`
 
 > [!NOTE]
 > O arquivo de credenciais deve ser legível para a conta do omsagent. É recomendável executar o comando mycimprovauth como omsgent.
@@ -81,15 +81,18 @@ A tabela a seguir fornece detalhes sobre a sintaxe para usar mycimprovauth.
 
 Os comandos de exemplo a seguir definem uma conta de usuário padrão para o servidor MySQL no localhost.  O campo de senha deve ser inserido em texto sem formatação – a senha no arquivo de autenticação de OMI do MySQL será codificada em Base 64
 
-    sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
-    sudo /opt/omi/bin/service_control restart
+```console
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo /opt/omi/bin/service_control restart
+```
 
 ### <a name="database-permissions-required-for-mysql-performance-counters"></a>Permissões de banco de dados necessárias para contadores de desempenho do MySQL
 O usuário do MySQL requer acesso para as consultas a seguir para coletar dados de desempenho do MySQL Server. 
 
-    SHOW GLOBAL STATUS;
-    SHOW GLOBAL VARIABLES:
-
+```sql
+SHOW GLOBAL STATUS;
+SHOW GLOBAL VARIABLES:
+```
 
 O usuário do MySQL também requer acesso SELECT às tabelas padrão a seguir.
 
@@ -98,9 +101,10 @@ O usuário do MySQL também requer acesso SELECT às tabelas padrão a seguir.
 
 Esses privilégios podem ser concedidos por meio da execução dos seguintes comandos de concessão.
 
-    GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
-    GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
-
+```sql
+GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
+```
 
 > [!NOTE]
 > Para conceder permissões a um usuário de monitoramento do MySQL, o usuário que receber a concessão deverá ter o privilégio 'GRANT option', além do privilégio concedido.
@@ -132,12 +136,14 @@ Depois de configurar o agente do Log Analytics para Linux para enviar dados para
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
 Se o Apache HTTP Server for detectado no computador quando o pacote omsagent for instalado, um provedor de monitoramento de desempenho para o Apache HTTP Server será automaticamente instalado. Esse provedor se baseia em um módulo do Apache que deve ser carregado no Apache HTTP Server para acessar os dados de desempenho. Você pode carregar o módulo com o seguinte comando:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
 Para descarregar o módulo de monitoramento do Apache, execute o seguinte comando:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 

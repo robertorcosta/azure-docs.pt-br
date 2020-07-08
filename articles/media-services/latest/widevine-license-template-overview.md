@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: f614bd7f00587c5bdc0e7bc3e4ec737985da328b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8cd79ffc619a74d3f339fe88daad89d21f230510
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996992"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964253"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Visão geral do modelo de licença do Media Services V3 com Widevine
 
@@ -29,34 +29,36 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
 >[!NOTE]
 > Você pode criar uma mensagem vazia sem valores, apenas "{}". Em seguida, é criado um modelo de licença com os padrões. O padrão funciona na maioria dos casos. Cenários de entrega de licença baseada na Microsoft sempre devem usar os padrões. Se você precisar definir os valores de "content_id" e "provedor", um provedor deverá corresponder às credenciais de Widevine.
 
-    {  
-       "payload":"<license challenge>",
-       "content_id": "<content id>"
-       "provider": "<provider>"
-       "allowed_track_types":"<types>",
-       "content_key_specs":[  
-          {  
-             "track_type":"<track type 1>"
-          },
-          {  
-             "track_type":"<track type 2>"
-          },
-          …
-       ],
-       "policy_overrides":{  
-          "can_play":<can play>,
-          "can persist":<can persist>,
-          "can_renew":<can renew>,
-          "rental_duration_seconds":<rental duration>,
-          "playback_duration_seconds":<playback duration>,
-          "license_duration_seconds":<license duration>,
-          "renewal_recovery_duration_seconds":<renewal recovery duration>,
-          "renewal_server_url":"<renewal server url>",
-          "renewal_delay_seconds":<renewal delay>,
-          "renewal_retry_interval_seconds":<renewal retry interval>,
-          "renew_with_usage":<renew with usage>
-       }
+```json
+{  
+    "payload":"<license challenge>",
+    "content_id": "<content id>"
+    "provider": "<provider>"
+    "allowed_track_types":"<types>",
+    "content_key_specs":[  
+        {  
+            "track_type":"<track type 1>"
+        },
+        {  
+            "track_type":"<track type 2>"
+        },
+        …
+    ],
+    "policy_overrides":{  
+        "can_play":<can play>,
+        "can persist":<can persist>,
+        "can_renew":<can renew>,
+        "rental_duration_seconds":<rental duration>,
+        "playback_duration_seconds":<playback duration>,
+        "license_duration_seconds":<license duration>,
+        "renewal_recovery_duration_seconds":<renewal recovery duration>,
+        "renewal_server_url":"<renewal server url>",
+        "renewal_delay_seconds":<renewal delay>,
+        "renewal_retry_interval_seconds":<renewal retry interval>,
+        "renew_with_usage":<renew with usage>
     }
+}
+```
 
 ## <a name="json-message"></a>Mensagem JSON
 

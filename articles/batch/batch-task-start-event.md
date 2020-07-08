@@ -3,12 +3,12 @@ title: Evento de início de tarefa no Lote do Azure
 description: Informações de referência para evento de início de tarefa no Lote. Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: f872e6c89e2f528729ae08125c6cc3eb5718e19a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: ed7b3014279fc87fbaae6f1c270f056e95073aaf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725781"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965086"
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
 
@@ -46,7 +46,7 @@ ms.locfileid: "83725781"
 |`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Consulte [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Consulte [multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
 |[`constraints`](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|
 |[`executionInfo`](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
 

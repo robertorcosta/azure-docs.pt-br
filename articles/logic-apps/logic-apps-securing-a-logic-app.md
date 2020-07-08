@@ -3,31 +3,42 @@ title: Proteger o acesso e os dados
 description: Acesso seguro a entradas, saídas, gatilhos baseados em solicitação, histórico de execuções, tarefas de gerenciamento e acesso a outros recursos nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 8fe53b7a27c922462f9134bc78ff648aca3aca62
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.date: 07/03/2020
+ms.openlocfilehash: 769d82cae6b5f9039587018ba5a7cde407f74e4c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715538"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964236"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
-Para controlar o acesso e proteger dados confidenciais em Aplicativos Lógicos do Azure, você pode configurar a segurança para estas áreas:
+Os aplicativos lógicos do Azure dependem do [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) para armazenar e [criptografar automaticamente os dados em repouso](../security/fundamentals/encryption-atrest.md). Essa criptografia protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Por padrão, o armazenamento do Azure usa chaves gerenciadas pela Microsoft para criptografar seus dados. Para obter mais informações, consulte [Criptografia do Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
+
+Para controlar ainda mais o acesso e proteger dados confidenciais em aplicativos lógicos do Azure, você pode configurar a segurança adicional nessas áreas:
 
 * [Acesso a gatilhos baseados em solicitação](#secure-triggers)
 * [Acesso a operações de aplicativo lógico](#secure-operations)
 * [Acesso a entradas e saídas do histórico de execuções](#secure-run-history)
 * [Acesso a entradas de parâmetro](#secure-action-parameters)
 * [Acesso a serviços e sistemas chamados de aplicativos lógicos](#secure-outbound-requests)
+* [Bloquear a criação de conexões para conectores específicos](#block-connections)
+* [Diretrizes de isolamento para aplicativos lógicos](#isolation-logic-apps)
+* [Linha de base de segurança do Azure para aplicativos lógicos do Azure](../logic-apps/security-baseline.md)
+
+Para obter mais informações sobre segurança no Azure, consulte estes tópicos:
+
+* [Visão geral da criptografia do Azure](../security/fundamentals/encryption-overview.md)
+* [Criptografia de dados em repouso no Azure](../security/fundamentals/encryption-atrest.md)
+* [Azure Security Benchmark](../security/benchmarks/overview.md)
 
 <a name="secure-triggers"></a>
 
 ## <a name="access-to-request-based-triggers"></a>Acesso a gatilhos baseados em solicitação
 
-Caso seu aplicativo lógico use um gatilho baseado em solicitação que recebe chamadas ou solicitações, como o gatilho de [Solicitação](../connectors/connectors-native-reqres.md) ou de [Webhook](../connectors/connectors-native-webhook.md), você pode limitar o acesso para que apenas clientes autorizados possam chamar seu aplicativo lógico. Todas as solicitações recebidas por um aplicativo lógico são criptografadas e protegidas com o protocolo TLS, conhecido anteriormente como protocolo SSL.
+Caso seu aplicativo lógico use um gatilho baseado em solicitação que recebe chamadas ou solicitações, como o gatilho de [Solicitação](../connectors/connectors-native-reqres.md) ou de [Webhook](../connectors/connectors-native-webhook.md), você pode limitar o acesso para que apenas clientes autorizados possam chamar seu aplicativo lógico. Todas as solicitações recebidas por um aplicativo lógico são criptografadas e protegidas com o protocolo TLS, anteriormente conhecido como protocolo SSL (SSL).
 
 Aqui estão opções que podem ajudá-lo a proteger o acesso a esse tipo de gatilho:
 
@@ -99,17 +110,13 @@ No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa pro
 
 ### <a name="enable-azure-active-directory-oauth"></a>Habilitar o OAuth do Azure Active Directory
 
-Se o seu aplicativo lógico começar com um gatilho de solicitação, você poderá o habilitar o [OAuth do Azure AD](../active-directory/develop/about-microsoft-identity-platform.md) para autorizar chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, revise estas considerações:
+Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) criando uma política de autorização para chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, revise estas considerações:
+
+* Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas). Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth, que têm suporte apenas para o gatilho de solicitação.
 
 * Seu aplicativo lógico é limitado a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [declarações](../active-directory/develop/developer-glossary.md#claim). Para obter mais informações, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Uma política de autorização deve incluir pelo menos a declaração do **Emissor**, que tem um valor que começa com `https://sts.windows.net/` como a ID do emissor do Azure AD.
-
-* Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas).
-
-* Os tokens OAuth têm suporte apenas para o gatilho de solicitação.
-
-* Apenas os esquemas de autorização [do tipo Portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth.
+* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) como a ID do emissor do Azure AD. Para obter mais informações sobre tokens de acesso, consulte [tokens de acesso da plataforma de identidade da Microsoft](../active-directory/develop/access-tokens.md).
 
 Para habilitar o OAuth do Azure AD, siga estas etapas a fim de adicionar uma ou mais políticas de autorização ao seu aplicativo lógico.
 
@@ -126,7 +133,7 @@ Para habilitar o OAuth do Azure AD, siga estas etapas a fim de adicionar uma ou 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
-   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **Declarações** deve incluir a declaração de **emissor**, que tem um valor que começa com a ID do emissor do Azure AD `https://sts.windows.net/`. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
+   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
    |||
 
 1. Para adicionar outra declaração, selecione uma destas opções:
@@ -139,7 +146,7 @@ Para habilitar o OAuth do Azure AD, siga estas etapas a fim de adicionar uma ou 
 
 1. Quando terminar, selecione **Salvar**.
 
-Seu aplicativo lógico agora está configurado para usar o OAuth do Azure AD a fim de autorizar solicitações de entrada. Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de autenticação, os Aplicativos Lógicos do Azure comparam as declarações do token com as declarações em cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso na solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
+Seu aplicativo lógico agora está configurado para usar o OAuth do Azure AD a fim de autorizar solicitações de entrada. Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de autenticação, os aplicativos lógicos do Azure comparam as declarações do token com as declarações em cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso na solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
 
 Por exemplo, suponha que seu aplicativo lógico tenha uma política de autorização que exija dois tipos de declaração, Emissor e Público. Este exemplo de [token de acesso](../active-directory/develop/access-tokens.md) decodificado inclui ambos os tipos de declaração:
 
@@ -188,7 +195,7 @@ Por exemplo, suponha que seu aplicativo lógico tenha uma política de autoriza�
 
 ### <a name="restrict-inbound-ip-addresses"></a>Restringir endereços IP de entrada
 
-Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar os clientes que podem acessar seu aplicativo lógico. Por exemplo, se você gerenciar sua solicitação de ponto de extremidade com o gerenciamento de API do Azure, poderá restringir seu aplicativo lógico para aceitar solicitações apenas do endereço IP da instância de Gerenciamento de API.
+Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar os clientes que podem acessar seu aplicativo lógico. Por exemplo, se você gerenciar seu ponto de extremidade de solicitação usando o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md), poderá restringir seu aplicativo lógico para aceitar solicitações somente do endereço IP da [instância do serviço de gerenciamento de API que você criar](../api-management/get-started-create-service-instance.md).
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Restringir intervalos de IP de entrada no portal do Azure
 
@@ -205,7 +212,7 @@ Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar o
 Se você quer que seu aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, na lista de **Endereços IP de entrada permitidos**, selecione **Apenas outros Aplicativos Lógicos**. Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico. Dessa forma, somente chamadas do serviço de Aplicativos Lógicos (aplicativos lógicos pai) podem disparar o aplicativo lógico aninhado.
 
 > [!NOTE]
-> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando `/triggers/<trigger-name>/run` por meio da API REST do Azure ou do Gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-scenarios.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
+> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho –](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) solicitação de execução ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-scenarios.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo do Azure Resource Manager
 
@@ -690,18 +697,41 @@ Aqui estão algumas maneiras de ajudar a proteger pontos de extremidade que rece
 
   * Conectar-se por meio do Gerenciamento de API do Azure
 
-    O [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) fornece opções de conexão locais, como rede privada virtual site a site e integração do ExpressRoute para proxy seguro e comunicação com sistemas locais. A partir do fluxo de trabalho do aplicativo lógico no Designer do Aplicativo lógico, você pode selecionar uma API que é exposta pelo Gerenciamento de API, que fornece acesso rápido a sistemas locais.
+    O [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) fornece opções de conexão locais, como a rede privada virtual site a site e a integração do [ExpressRoute](../expressroute/expressroute-introduction.md) para o proxy seguro e a comunicação com sistemas locais. Se você tiver uma API que fornece acesso ao seu sistema local e tiver exposto essa API criando uma instância de serviço de [Gerenciamento de API](../api-management/get-started-create-service-instance.md), poderá chamar essa API no fluxo de trabalho do seu aplicativo lógico selecionando o gatilho ou a ação interna de gerenciamento de API no designer de aplicativo lógico.
+
+    > [!NOTE]
+    > O conector mostra apenas os serviços de gerenciamento de API em que você tem permissões para exibir e conectar, mas não mostra serviços de gerenciamento de API baseados em consumo.
+
+    1. No designer do aplicativo lógico, digite `api management` na caixa de pesquisa. Escolha a etapa com base em se você está adicionando um gatilho ou uma ação:<p>
+
+       * Se você estiver adicionando um gatilho, que é sempre a primeira etapa no fluxo de trabalho, selecione **escolher um gatilho de gerenciamento de API do Azure**.
+
+       * Se você estiver adicionando uma ação, selecione **escolher uma ação de gerenciamento de API do Azure**.
+
+       Este exemplo adiciona um gatilho:
+
+       ![Adicionar gatilho de gerenciamento de API do Azure](./media/logic-apps-securing-a-logic-app/select-api-management.png)
+
+    1. Selecione a instância do serviço de gerenciamento de API criada anteriormente.
+
+       ![Selecionar instância do serviço de gerenciamento de API](./media/logic-apps-securing-a-logic-app/select-api-management-service-instance.png)
+
+    1. Selecione a chamada à API a ser usada.
+
+       ![Selecionar API existente](./media/logic-apps-securing-a-logic-app/select-api.png)
 
 <a name="add-authentication-outbound"></a>
 
 ## <a name="add-authentication-to-outbound-calls"></a>Adicionar autenticação a solicitações de saída
 
-Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autenticação. Com base no gatilho ou na ação que você usa para fazer chamadas ou solicitações de saída que acessam esses pontos de extremidade, você pode selecionar entre variados intervalos de tipos de autenticação. Para garantir que você proteja todas as informações confidenciais que seu aplicativo lógico manipula, use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como usar e proteger parâmetros, confira [Acesso a entradas de parâmetro](#secure-action-parameters).
+Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autenticação. Em alguns gatilhos e ações que você usa para enviar chamadas de saída ou solicitações para esses pontos de extremidade, você pode especificar um tipo de autenticação. No designer do aplicativo lógico, gatilhos e ações que dão suporte à escolha de um tipo de autenticação têm uma propriedade de **autenticação** . No entanto, essa propriedade nem sempre pode ser exibida por padrão. Nesses casos, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **autenticação**.
 
-> [!NOTE]
-> No Designer do Aplicativo Lógico, a propriedade de **Autenticação** pode estar oculta em alguns gatilhos e ações em que você pode especificar o tipo de autenticação. Para fazer com que a propriedade apareça nesses casos, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **Autenticação**. Para mais informações, confira [Autenticar o acesso com a identidade gerenciada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+> [!IMPORTANT]
+> Para proteger informações confidenciais que seu aplicativo lógico manipula, use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como usar e proteger parâmetros, confira [Acesso a entradas de parâmetro](#secure-action-parameters).
 
-| Tipo de autenticação | Com suporte por |
+Esta tabela identifica os tipos de autenticação que estão disponíveis nos gatilhos e ações em que você pode selecionar um tipo de autenticação:
+
+| Tipo de autenticação | Disponibilidade |
 |---------------------|--------------|
 | [Basic](#basic-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
@@ -749,7 +779,7 @@ Se a opção [Certificado do Cliente](../active-directory/authentication/active-
 
 | Propriedade (designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados do cliente de protocolo TLS/SSL <p><p>**Observação**: Embora haja suporte a certificados autoassinados, não há suporte a certificados autoassinados para protocolo TLS/SSL. O conector HTTP não dá suporte a certificados TLS/SSL intermediários. |
+| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado. Você pode gerenciar certificados com o [Gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Observação**: os conectores personalizados não dão suporte à autenticação baseada em certificado para chamadas de entrada e de saída. |
 | **Pfx** | `pfx` | Sim | <*conteúdo de arquivo pfx codificado*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado em base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Converta o conteúdo do certificado usando a função `ToBase64String()` e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Senha** | `password`| Não | <*senha para arquivo pfx*> | A senha para acessar o arquivo PFX |
 |||||
@@ -867,7 +897,7 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 ### <a name="managed-identity-authentication"></a>Autenticação de identidade gerenciada
 
-Se a opção [Identidade Gerenciada](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível, seu aplicativo lógico poderá usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário e criada manualmente para autenticar o acesso a outros recursos protegidos Azure AD sem fazer logon. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, pois você não precisa fornecer ou trocar segredos. Saiba mais sobre [serviços do Azure que dão suporte a identidades gerenciadas para a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Se a opção de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível, seu aplicativo lógico poderá usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário criada manualmente para autenticar o acesso a outros recursos protegidos pelo Azure Active Directory (AD do Azure) sem entrar. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, pois você não precisa fornecer ou trocar segredos. Saiba mais sobre [serviços do Azure que dão suporte a identidades gerenciadas para a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Antes que seu aplicativo lógico possa usar uma identidade gerenciada, siga as etapas em [Autenticar o acesso aos recursos do Azure usando identidades gerenciadas nos Aplicativos Lógicos do Azure](../logic-apps/create-managed-service-identity.md). Essas etapas habilitam a identidade gerenciada em seu aplicativo lógico e configuram o acesso da identidade ao recurso de destino do Azure.
 
@@ -900,9 +930,43 @@ Se a opção [Identidade Gerenciada](../active-directory/managed-identities-azur
    }
    ```
 
+<a name="block-connections"></a>
+
+## <a name="block-creating-connections"></a>Bloquear a criação de conexões
+
+Se sua organização não permitir a conexão a recursos específicos usando seus conectores em aplicativos lógicos do Azure, você poderá [bloquear a capacidade de criar essas conexões](../logic-apps/block-connections-connectors.md) para conectores específicos em fluxos de trabalho de aplicativo lógico usando [Azure Policy](../governance/policy/overview.md). Para obter mais informações, consulte [Bloquear conexões criadas por conectores específicos nos aplicativos lógicos do Azure](../logic-apps/block-connections-connectors.md).
+
+<a name="isolation-logic-apps"></a>
+
+## <a name="isolation-guidance-for-logic-apps"></a>Diretrizes de isolamento para aplicativos lógicos
+
+Você pode usar os aplicativos lógicos do Azure no [Azure governamental](../azure-government/documentation-government-welcome.md) que dão suporte a todos os níveis de impacto nas regiões descritas pelas [diretrizes de isolamento do nível 5 de impacto do Azure governamental](../azure-government/documentation-government-impact-level-5.md#azure-logic-apps) e pelo [SRG (guia de requisitos de segurança) do departamento de defesa dos EUA](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). Para atender a esses requisitos, os aplicativos lógicos dão suporte à capacidade de criar e executar fluxos de trabalho em um ambiente com recursos dedicados para que você possa reduzir o impacto no desempenho de outros locatários do Azure em seus aplicativos lógicos e evitar compartilhar recursos de computação com outros locatários.
+
+* Para executar seu próprio código ou executar a transformação XML, [crie e chame uma função do Azure](../logic-apps/logic-apps-azure-functions.md), em vez de usar o [recurso de código embutido](../logic-apps/logic-apps-add-run-inline-code.md) ou fornecer [assemblies para usar como mapas](../logic-apps/logic-apps-enterprise-integration-maps.md), respectivamente. Além disso, configure o ambiente de hospedagem para seu aplicativo de funções para obedecer aos seus requisitos de isolamento.
+
+  Por exemplo, para atender aos requisitos de impacto nível 5, crie seu aplicativo de funções com o [plano do serviço de aplicativo](../azure-functions/functions-scale.md#app-service-plan) usando o tipo de [preço **isolado** ](../app-service/overview-hosting-plans.md) junto com um [ambiente do serviço de aplicativo (ase)](../app-service/environment/intro.md) que também usa o tipo de preço **isolado** . Nesse ambiente, os aplicativos de funções são executados em máquinas virtuais do Azure dedicadas e em redes virtuais do Azure, que fornecem isolamento de rede sobre o isolamento de computação para seus aplicativos e recursos de expansão máxima. Para obter mais informações, consulte [diretrizes de isolamento do nível 5 de impacto do Azure governamental – Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+
+  Para saber mais, consulte esses tópicos:<p>
+
+  * [Azure App planos de serviço](../app-service/overview-hosting-plans.md)
+  * [Opções de rede do Azure Functions](../azure-functions/functions-networking-options.md)
+  * [Hosts dedicados do Azure para máquinas virtuais](../virtual-machines/windows/dedicated-hosts.md)
+  * [Isolamento de máquina virtual no Azure](../virtual-machines/windows/isolation.md)
+  * [Implantar serviços dedicados do Azure em redes virtuais](../virtual-network/virtual-network-for-azure-services.md)
+
+* Para criar aplicativos lógicos que são executados em recursos dedicados e podem acessar recursos protegidos por uma rede virtual do Azure, você pode criar um [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+  * Algumas redes virtuais do Azure usam pontos de extremidade privados ([link privado do Azure](../private-link/private-link-overview.md)) para fornecer acesso aos serviços de PaaS do Azure, como o armazenamento do azure, Azure Cosmos DB ou banco de dados SQL do Azure, serviços de parceiro ou serviços de cliente hospedados no Azure. Se seus aplicativos lógicos precisarem de acesso a redes virtuais que usam pontos de extremidade privados, você deverá criar, implantar e executar esses aplicativos lógicos dentro de um ISE.
+
+  * Para obter mais controle sobre as chaves de criptografia usadas pelo armazenamento do Azure, você pode configurar, usar e gerenciar sua própria chave usando [Azure Key Vault](../key-vault/general/overview.md). Esse recurso também é conhecido como "Bring Your Own Key" (BYOK) e sua chave é chamada de "chave gerenciada pelo cliente". Para obter mais informações, consulte [Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes do serviço de integração (ISEs) em aplicativos lógicos do Azure](../logic-apps/customer-managed-keys-integration-service-environment.md).
+
+Para saber mais, consulte esses tópicos:
+
+* [Isolamento na nuvem pública do Azure](../security/fundamentals/isolation-choices.md)
+* [Segurança para aplicativos IaaS altamente confidenciais no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Automatizar a implantação para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
-* [Monitorar aplicativos lógicos](../logic-apps/monitor-logic-apps-log-analytics.md)  
-* [Diagnosticar falhas e problemas do aplicativo lógico](../logic-apps/logic-apps-diagnosing-failures.md)  
-* [Automatizar a implantação de aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Linha de base de segurança do Azure para aplicativos lógicos do Azure](../logic-apps/security-baseline.md)
+* [Automatizar a implantação para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Monitorar aplicativos lógicos](../logic-apps/monitor-logic-apps-log-analytics.md)

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996356"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964678"
 ---
 # <a name="unsupported-language-deployments"></a>Implantações de linguagem sem suporte
 
@@ -32,7 +32,7 @@ Para que seus modelos sejam candidatos à implantação, eles devem atender aos 
 * O modelo deve estar no estado implantado quando a migração ocorrer.  
 * O par de idiomas do modelo deve ser um par de idiomas sem suporte no Tradutor personalizado.  Os pares de idiomas nos quais um idioma tem suporte no ou em inglês, mas o par não inclui o inglês, são candidatos para implantações de idioma sem suporte.  Por exemplo, um modelo de Hub para um par de idiomas francês a alemão é considerado um par de idiomas sem suporte, embora francês a inglês e inglês para alemão sejam um par de idiomas com suporte.
 
-## <a name="process"></a>Processo
+## <a name="process"></a>Processar
 Depois de migrar os modelos do Hub que são candidatos à implantação, você poderá encontrá-los acessando a página de **configurações** do seu espaço de trabalho e rolando até o final da página em que você verá uma seção de **treinamentos do Hub do tradutor sem suporte** .  Esta seção só aparecerá se você tiver projetos que atendam aos pré-requisitos mencionados acima.
 
 ![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
@@ -47,7 +47,7 @@ Depois de enviado, o modelo não estará mais disponível na guia **treinamentos
 
 ## <a name="whats-next"></a>O que vem a seguir?
 
-Os modelos selecionados para implantação são salvos depois que o Hub é encerrado e todos os modelos são desimplantados.  Você tem até 24 de maio para enviar solicitações de implantação de modelos sem suporte.  Implantaremos esses modelos em 15 de junho, em que eles poderão ser acessados por meio da API do Translator v3.  Além disso, eles estarão disponíveis por meio da API v2 até 1º de julho.  
+Os modelos selecionados para implantação são salvos depois que o Hub é encerrado e todos os modelos são desimplantados.  Você tem até 24 de maio para enviar solicitações de implantação de modelos sem suporte.  Implantaremos esses modelos em 15 de junho, em que eles estarão acessíveis por meio do tradutor v3.  Além disso, eles estarão disponíveis por meio do tradutor v2 até 1º de julho.  
 
 Para obter mais informações sobre datas importantes na reprovação da verificação do Hub [aqui](https://www.microsoft.com/translator/business/hub/).
 Depois de implantados, os encargos de hospedagem normais serão aplicados.  Consulte os [preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para obter detalhes.  

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5a37ebba7dd0622db7e76ecef1c3eda24d72b27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726393"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965239"
 ---
 # <a name="using-azure-batch-rendering"></a>Usar a renderização de Lote do Azure
 
@@ -19,8 +19,8 @@ Há várias maneiras de usar a renderização de Lote do Azure:
 * APIs:
   * Grave código usando qualquer uma das APIs de Lote.  Desenvolvedores podem integrar os recursos do Lote do Azure aos fluxos de trabalho ou aplicativos existentes, sejam baseados em nuvem ou locais.
 * Ferramentas de linha de comando:
-  * A [linha de comando do Azure](https://docs.microsoft.com/cli/azure/) ou o [PowerShell](https://docs.microsoft.com/powershell/azure/overview) pode ser usado para script de uso do Lote.
-  * Em particular, o [suporte de modelo da CLI do Lote](https://docs.microsoft.com/azure/batch/batch-cli-templates) torna muito mais fácil criar pools e enviar trabalhos.
+  * A [linha de comando do Azure](/cli/azure/) ou o [PowerShell](/powershell/azure/overview) pode ser usado para script de uso do Lote.
+  * Em particular, o [suporte de modelo da CLI do Lote](./batch-cli-templates.md) torna muito mais fácil criar pools e enviar trabalhos.
 * Interface do usuário do Batch Explorer:
   * O [Batch Explorer](https://github.com/Azure/BatchLabs) é uma ferramenta do cliente de plataforma cruzada que também permite que as contas do Batch sejam gerenciadas e monitoradas.
   * Para cada um dos aplicativos de renderização, são fornecidos vários modelos de trabalho e pool que podem ser usados para facilmente criar pools e enviar trabalhos.  Um conjunto de modelos é listado na interface do usuário do aplicativo, com os arquivos de modelo sendo acessados no GitHub.
@@ -32,7 +32,7 @@ A melhor forma de experimentar o Lote do Azure e a maneira mais simples para os 
 
 ## <a name="using-batch-explorer"></a>Usar o Batch Explorer
 
-Para um tutorial passo a passo para usar o Batch Explorer para executar a renderização, consulte o [tutorial do Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
+Para um tutorial passo a passo para usar o Batch Explorer para executar a renderização, consulte o [tutorial do Blender](./tutorial-rendering-batchexplorer-blender.md).
 
 ### <a name="download-and-install"></a>Baixar e instalar
 
@@ -65,5 +65,5 @@ Plug-ins estão disponíveis para alguns dos aplicativos clientes.  Os plug-ins 
 
 Para exemplos de renderização de Lote, experimente os dois tutoriais:
 
-* [Renderizar usando a CLI do Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Renderizar usando o Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Renderizar usando a CLI do Azure](./tutorial-rendering-cli.md)
+* [Renderizar usando o Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)

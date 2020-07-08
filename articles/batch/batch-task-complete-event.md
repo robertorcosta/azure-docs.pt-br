@@ -3,12 +3,12 @@ title: Evento de conclusão de tarefa do Lote do Azure
 description: Referência de evento de tarefa de lote concluída. Esse evento é emitido quando uma tarefa é concluída, independentemente do código de saída.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 5e3959a34b96ef4cebdbedadf736418d08cb2746
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 42860836e294780649616b0843db6ba19718dd64
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726359"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965171"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
@@ -50,7 +50,7 @@ ms.locfileid: "83726359"
 |`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos. Esse evento não é emitido para tarefas de preparação, lançamento ou inicialização de trabalho.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Confira [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Confira [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
 |[`constraints`](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|
 |[`executionInfo`](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
 

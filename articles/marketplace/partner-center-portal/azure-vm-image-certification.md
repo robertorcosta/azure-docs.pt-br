@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 63f18556847a717322b00092b973f59877102a1d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726138"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963896"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certificação de imagem de máquina virtual (VM) do Azure
 
@@ -649,4 +649,4 @@ Por fim, selecione **Gerar Relatório** para baixar os resultados do teste e os 
 
 ## <a name="next-step"></a>Próxima etapa
 
-- [Gerar um URI (identificadores de recurso uniforme) para cada VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Correções e problemas comuns de URI do SAS](common-sas-uri-issues.md)

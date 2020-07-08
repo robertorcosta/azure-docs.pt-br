@@ -6,30 +6,30 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
-ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/21/2020
+ms.openlocfilehash: 0f8078c52945b52a27144c1f73ea4a136bf536d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642309"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963148"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do Marketplace
 
 O serviço de medição do Marketplace dá suporte a duas estratégias de autenticação:
 
-* [Token de segurança do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Token de segurança do Azure Active Directory](../../active-directory/develop/access-tokens.md)
+* [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 Explicaremos quando e como usar as diferentes estratégias de autenticação para enviar medidores personalizados com segurança usando o serviço de medição do Marketplace.
 
 ## <a name="using-the-azure-ad-security-token"></a>Usar o token de segurança do Azure Active Directory
 
-Os tipos de oferta aplicáveis são SaaS e Aplicativos Azure com o tipo de plano de aplicativo gerenciado.  
+Os tipos de oferta aplicáveis são SaaS e aplicativos do Azure que podem ser acessados com o tipo de plano de aplicativo gerenciado.  
 
-Envie medidores personalizados usando uma ID de aplicativo fixa predefinida para autenticar.
+Envie medidores personalizados usando uma ID de aplicativo fixa do Azure AD predefinida para autenticar.
 
-Para ofertas de SaaS, o Azure Active Directory é a única opção disponível.
+Para ofertas de SaaS, essa é a única opção disponível. É uma etapa obrigatória para a publicação de qualquer oferta de SaaS, conforme descrito em [registrar um aplicativo SaaS](./pc-saas-registration.md).
 
 Para aplicativos do Azure com o plano de aplicativo gerenciado, você deve considerar o uso dessa estratégia nos seguintes casos:
 
@@ -38,7 +38,7 @@ Para aplicativos do Azure com o plano de aplicativo gerenciado, você deve consi
 
 Depois de registrar seu aplicativo, você pode solicitar um token de segurança do Azure Active Directory programaticamente. O publicador deve usar esse token e fazer uma solicitação para resolvê-lo.
 
-Para obter mais informações sobre esses tokens, veja [Tokens de acesso do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Para obter mais informações sobre esses tokens, veja [Tokens de acesso do Azure Active Directory](../../active-directory/develop/access-tokens.md).
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obter um token com base no Aplicativo Azure AD
 
@@ -68,10 +68,10 @@ Para obter mais informações sobre esses tokens, veja [Tokens de acesso do Azur
 
 |  **Nome da propriedade**  |  **Necessário**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | Tipo de concessão. O valor padrão é `client_credentials`. |
+|  `Grant_type`       |   True         | Tipo de concessão. Use `client_credentials`. |
 |  `Client_id`        |   True         | Identificador do cliente/aplicativo associado ao Aplicativo Azure AD.|
-|  `client_secret`    |   True         | Senha associada ao aplicativo Azure Active Directory.  |
-|  `Resource`         |   True         | Recurso de destino para o qual o token é solicitado. O valor padrão é `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `client_secret`    |   True         | Segredo associado ao aplicativo do Azure AD.  |
+|  `Resource`         |   True         | Recurso de destino para o qual o token é solicitado. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Resposta*
@@ -106,17 +106,17 @@ Usar essa abordagem permitirá que a identidade de recursos implantados se auten
 >[!Note]
 >O publicador deve garantir que os recursos que emitem o uso estejam bloqueados, para que não sejam violados.
 
-Seu aplicativo gerenciado pode conter diferentes tipos de recursos, de Máquinas Virtuais até Azure Functions.  Para obter mais informações sobre como autenticar usando identidades gerenciadas para diferentes serviços, consulte [como usar identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+Seu aplicativo gerenciado pode conter diferentes tipos de recursos, de Máquinas Virtuais até Azure Functions.  Para obter mais informações sobre como autenticar usando identidades gerenciadas para diferentes serviços, consulte [como usar identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources)).
 
 Por exemplo, siga as etapas abaixo para autenticar usando uma VM do Windows,
 
 1. Verifique se a identidade gerenciada está configurada usando um dos métodos:
-    * [Interface do usuário do portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Modelo do Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [SDKs do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Interface do usuário do portal do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Modelo do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [REST](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
+    * [SDKs do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. Obtenha um token de acesso para a ID do aplicativo do serviço de medição do Marketplace (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) usando a identidade do sistema, o RDP para a VM, abra o console do PowerShell e execute o comando a seguir
 
@@ -145,7 +145,7 @@ Por exemplo, siga as etapas abaixo para autenticar usando uma VM do Windows,
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,3 +156,4 @@ Por exemplo, siga as etapas abaixo para autenticar usando uma VM do Windows,
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma oferta do Aplicativo Azure](./create-new-azure-apps-offer.md)
+* [Criar uma oferta de SaaS transactável](./offer-creation-checklist.md)

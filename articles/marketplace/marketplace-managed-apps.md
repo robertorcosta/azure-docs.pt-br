@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 5bd89e406c3067585595479dc1d8351e9ea7eea8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a4b788749e6178c49010b153fb5caae35b79abf9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856108"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963573"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guia de publicação para aplicativos gerenciados do Azure
 
@@ -34,7 +34,7 @@ Use o tipo de oferta de aplicativo gerenciado sob as seguintes condições:
 |---------|---------|
 |Uma assinatura do Azure | Os aplicativos gerenciados devem ser implantados na assinatura de um cliente, mas podem ser gerenciados por terceiros. |
 |Cobrança e medição    |  Os recursos são fornecidos na assinatura do Azure de um cliente. As VMs que usam o modelo de pagamento pago conforme o uso são transacionadas com o cliente pela Microsoft e cobradas por meio da assinatura do Azure do cliente. <br><br> Para suas VMs traga sua própria licença, a Microsoft cobra os custos de infraestrutura incorridos na assinatura do cliente, mas você tem transações de licenciamento de software diretamente com o cliente.        |
-|Um VHD (disco rígido virtual) compatível com o Azure    |   As VMs devem ser criadas em Windows ou Linux.<br><br>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).<br><br>Para obter mais informações sobre como criar um VHD do Windows, consulte [criar uma oferta de aplicativo do Azure](./partner-center-portal/create-new-azure-apps-offer.md). |
+|Um VHD (disco rígido virtual) compatível com o Azure    |   As VMs devem ser criadas em Windows ou Linux.<br><br>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para obter mais informações sobre como criar um VHD do Windows, consulte [criar uma oferta de aplicativo do Azure](./partner-center-portal/create-new-azure-apps-offer.md). |
 
 ---
 
@@ -46,7 +46,7 @@ Use o tipo de oferta de aplicativo gerenciado sob as seguintes condições:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não fez isso, saiba como [aumentar seu negócio de nuvem com o Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Se você ainda não fez isso, saiba como [Aumentar seus negócios na nuvem com o Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 
 Para se registrar e começar a trabalhar no Partner Center:
 

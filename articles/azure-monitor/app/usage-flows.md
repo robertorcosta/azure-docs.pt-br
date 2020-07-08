@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892437"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963403"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights
 
-![Ferramenta Fluxos de Usuário do Application Insights](./media/usage-flows/00001-flows.png)
+![Ferramenta Fluxos de Usuário do Application Insights](./media/usage-flows/flows.png)
 
 A ferramenta Fluxos de Usuário visualiza como os usuários navegam entre as páginas e recursos de seu site. Isso é ótimo para responder a perguntas como:
 
@@ -33,7 +33,7 @@ A ferramenta Fluxos de Usuário inicia de uma exibição de página inicial, eve
 
 ## <a name="start-by-choosing-an-initial-event"></a>Inicie escolhendo um evento inicial
 
-![Escolha um evento inicial para o Fluxos de Usuário](./media/usage-flows/00002-flows-initial-event.png)
+![Escolha um evento inicial para o Fluxos de Usuário](./media/usage-flows/initial-event.png)
 
 Para começar a responder perguntas com a ferramenta Fluxos de Usuário, escolha uma exibição de página ou um evento personalizado inicial para servir como o ponto de partida para a visualização:
 
@@ -58,7 +58,7 @@ Se você quiser ver mais etapas na visualização, use os menus suspensos **Etap
 
 ## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Depois de visitar uma página ou um recurso, para onde os usuários vão e no que eles clicam?
 
-![Usar Fluxos de Usuário para entender em que os usuários clicam](./media/usage-flows/00003-flows-one-step.png)
+![Usar Fluxos de Usuário para entender em que os usuários clicam](./media/usage-flows/one-step.png)
 
 Se o evento inicial é uma exibição de página, a primeira coluna ("Etapa 1") da visualização é uma maneira rápida de entender o que os usuários fizeram imediatamente após visitarem a página. Tente abrir o site em uma janela ao lado da visualização do Fluxos de Usuário. Compare suas expectativas de como os usuários interagem com a página à lista de eventos na coluna "Etapa 1". Geralmente, um elemento de interface do usuário na página que parece insignificante para a sua equipe pode estar entre os mais usados na página. Isso pode ser um excelente ponto de partida para aprimoramentos do design de seu site.
 

@@ -3,12 +3,12 @@ title: Criar e usar arquivos de recurso
 description: Saiba como criar arquivos de recurso do Lote a partir de várias fontes de entrada. Este artigo aborda alguns métodos comuns sobre como criar e colocar arquivos de recursos em uma VM.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: ea349c3a190b78297d9ad4555258d0cfd8828ed4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 481ac8843f871f9f1eaa61e782e273e27715a473
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723452"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964015"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e usar arquivos de recurso
 
@@ -50,7 +50,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > Para acesso ao contêiner, você deve ter as permissões `Read` e `List`. Já para acessar o Blob, você precisa apenas da permissão `Read`.
 
-Depois que as permissões forem configuradas, crie o token SAS e formate a URL de SAS para acesso ao contêiner de armazenamento. Usando a URL de SAS formatada para o contêiner de armazenamento, gere um arquivo de recurso com [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
+Depois que as permissões forem configuradas, crie o token SAS e formate a URL de SAS para acesso ao contêiner de armazenamento. Usando a URL de SAS formatada para o contêiner de armazenamento, gere um arquivo de recurso com [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -99,7 +99,7 @@ Se cada tarefa tiver muitos arquivos exclusivos, os arquivos de recurso serão a
 
 Se houver várias centenas de arquivos de recurso especificados em uma tarefa, o Lote poderá rejeitar a tarefa por ser muito grande. É melhor manter suas tarefas em tamanho pequeno, minimizando o número de arquivos de recurso na própria tarefa.
 
-Se não houver como reduzir o número de arquivos de que sua tarefa precisa, você poderá otimizar a tarefa criando um único arquivo de recurso que faça referência a um contêiner de armazenamento de arquivos de recurso. Para isso, coloque os arquivos de recurso em um contêiner de Armazenamento do Azure e use os [métodos](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de "contêiner" para os arquivos de recurso. Use as opções de prefixo de blob a fim de especificar coleções de arquivos a serem baixadas para suas tarefas.
+Se não houver como reduzir o número de arquivos de que sua tarefa precisa, você poderá otimizar a tarefa criando um único arquivo de recurso que faça referência a um contêiner de armazenamento de arquivos de recurso. Para isso, coloque os arquivos de recurso em um contêiner de Armazenamento do Azure e use os [métodos](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de "contêiner" para os arquivos de recurso. Use as opções de prefixo de blob a fim de especificar coleções de arquivos a serem baixadas para suas tarefas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

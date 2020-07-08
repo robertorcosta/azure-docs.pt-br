@@ -4,12 +4,12 @@ description: Saiba mais sobre as diferentes opções para persistir dados de sa�
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726291"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965103"
 ---
 # <a name="persist-job-and-task-output"></a>Persistir saída de tarefa e de trabalho
 
@@ -35,7 +35,7 @@ As seções a seguir descrevem brevemente cada abordagem, bem como consideraçõ
 
 ### <a name="use-the-batch-service-api"></a>Usar a API de serviço de Lote
 
-O serviço Batch oferece suporte à especificação de arquivos de saída no Armazenamento do Microsoft Azure para dados da tarefa quando você [adiciona uma tarefa a uma tarefa](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) ou [adiciona uma coleção de tarefas a uma tarefa](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+O serviço Batch oferece suporte à especificação de arquivos de saída no Armazenamento do Microsoft Azure para dados da tarefa quando você [adiciona uma tarefa a uma tarefa](/rest/api/batchservice/add-a-task-to-a-job) ou [adiciona uma coleção de tarefas a uma tarefa](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
 Para obter mais informações sobre manter a saída da tarefa com a API de serviço de Lote, consulte [Manter dados de tarefa para o Armazenamento do Azure com a API de serviço de Lote](batch-task-output-files.md).
 

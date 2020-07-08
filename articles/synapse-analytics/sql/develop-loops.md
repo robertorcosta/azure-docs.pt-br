@@ -1,23 +1,23 @@
 ---
-title: Usando loops T-SQL
+title: Usar loops T-SQL
 description: Dicas para usar loops T-SQL, substituir cursores e desenvolver soluções relacionadas com o pool SQL no Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429948"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964984"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Usando loops T-SQL no Synapse SQL
+# <a name="use-t-sql-loops-in-synapse-sql"></a>Usar loops T-SQL no Synapse SQL
 Este artigo fornece dicas essenciais para o uso de loops T-SQL, a substituição de cursores e o desenvolvimento de soluções relacionadas com o pool do SQL no Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Finalidade de loops WHILE

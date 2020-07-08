@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 6dbadee427abfa82fb32ebb7db85adf627dd5e0a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800213"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964831"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerenciar sua conta do marketplace comercial no Partner Center
 
@@ -128,7 +128,7 @@ Se você implantar um produto usando um modelo e ele estiver disponível no Azur
 
 Emissão de relatórios é feita, o valor de parceiro (ID de parceiro da Microsoft) e os GUIDs. Você também pode acompanhar GUIDs em um nível mais granular, alinhando a cada plano de sua oferta.
 
-Para obter mais informações, confira as [Perguntas frequentes sobre como acompanhar o uso do cliente do Azure com GUIDs](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+Para obter mais informações, consulte as [perguntas frequentes sobre como controlar o uso do cliente do Azure com GUIDs](../azure-partner-customer-usage-attribution.md#faq)).
 
 ## <a name="create-a-billing-profile"></a>Criação de um perfil de cobrança
 
@@ -138,7 +138,7 @@ O endereço para cobrança é preenchido previamente de sua pessoa jurídica e v
 
 ## <a name="multi-user-account-management"></a>Gerenciamento de contas de vários usuários
 
-O Partner Center aproveita o [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure Active Directory) para acesso e gerenciamento de contas de vários usuários. O Azure AD da sua organização é associado automaticamente à sua conta do Partner Center como parte do processo de registro.
+O Partner Center aproveita o [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) (Azure Active Directory) para acesso e gerenciamento de contas de vários usuários. O Azure AD da sua organização é associado automaticamente à sua conta do Partner Center como parte do processo de registro.
 
 ## <a name="manage-users"></a>Gerenciar usuários
 
@@ -168,7 +168,7 @@ Para adicionar usuários à conta do Partner Center que já existe na [conta cor
 
 ### <a name="create-new-users"></a>Criar usuários
 
-Para criar contas de usuário totalmente novas, você deve ter uma conta com permissões de [**Administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+Para criar contas de usuário totalmente novas, você deve ter uma conta com permissões de [**Administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
 
 1. Acesse **Usuários** (em **Configurações de conta**), selecione **Adicionar usuários** e, em seguida, escolha **Criar usuários**.
 1. Insira um nome, o sobrenome e o nome de usuário para cada novo usuário. 
@@ -182,7 +182,7 @@ A criação de um usuário no Partner Center também criará uma conta para esse
 
 ### <a name="invite-new-users-by-email"></a>Convidar novos usuários por email
 
-Para convidar usuários que atualmente não fazem parte de sua conta corporativa (locatário do Azure AD) por email, você deve ter uma conta com permissões de [**Administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+Para convidar usuários que atualmente não fazem parte de sua conta corporativa (locatário do Azure AD) por email, você deve ter uma conta com permissões de [**Administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 1. Acesse **Usuários** (em **Configurações de conta**), selecione **Adicionar usuários** e, em seguida, escolha **Convidar usuários por email**.
 2. Insira um ou mais endereços de email (até dez), separados por vírgulas ou pontos-e-vírgulas.
@@ -202,7 +202,7 @@ Para remover um usuário de sua conta corporativa (locatário do Azure AD), aces
 
 ### <a name="change-a-user-password"></a>Alterar uma senha de usuário
 
-Se um dos seus usuários precisar alterar a senha, ele poderá fazê-lo se você tiver fornecido um **Email de recuperação de senha** ao criar a conta de usuário. Você também pode atualizar a senha de um usuário seguindo as etapas abaixo. Para alterar a senha de um usuário em sua conta corporativa (locatário do Azure AD), você deve estar conectado em uma conta com permissões de [**Administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Observe que isso alterará a senha do usuário no locatário do Azure AD, juntamente com a senha que ele usa para acessar o Partner Center.
+Se um dos seus usuários precisar alterar a senha, ele poderá fazê-lo se você tiver fornecido um **Email de recuperação de senha** ao criar a conta de usuário. Você também pode atualizar a senha de um usuário seguindo as etapas abaixo. Para alterar a senha de um usuário em sua conta corporativa (locatário do Azure AD), você deve estar conectado em uma conta com permissões de [**Administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). Observe que isso alterará a senha do usuário no locatário do Azure AD, juntamente com a senha que ele usa para acessar o Partner Center.
 
 1. Na página **Usuários** (em **Configurações de conta**), selecione o nome da conta de usuário que você deseja editar.
 2. Selecione o botão **Redefinir senha** na parte inferior da página.
@@ -264,7 +264,7 @@ Se você quiser conceder acesso ao Partner Center a uma conta de aplicativo do A
 1. Na página **Usuários** (em **Configurações de conta**), selecione **Adicionar aplicativos do Azure AD**.
 2. Na próxima página, selecione **Novo aplicativo do Azure AD**.
 3. Insira a **URL de Resposta** para o novo aplicativo do Azure AD. Essa é a URL em que os usuários podem entrar e usar o aplicativo do Azure AD (também conhecida como URL do aplicativo ou URL de entrada). A **URL de Resposta** não pode ter mais de 256 caracteres e deve ser exclusiva em seu diretório.
-4. Insira o **URI da ID do Aplicativo** para o novo aplicativo do Azure AD. Esse é um identificador lógico para o aplicativo do Azure AD que é apresentado quando uma solicitação de logon único é enviada ao Azure AD. Observe que o **URI da ID do Aplicativo** deve ser exclusivo para cada aplicativo do Azure AD em seu diretório. Essa ID não pode ter mais de 256 caracteres. Para obter mais informações sobre o URI da ID do Aplicativo, confira [Integrando aplicativos ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+4. Insira o **URI da ID do Aplicativo** para o novo aplicativo do Azure AD. Esse é um identificador lógico para o aplicativo do Azure AD que é apresentado quando uma solicitação de logon único é enviada ao Azure AD. Observe que o **URI da ID do Aplicativo** deve ser exclusivo para cada aplicativo do Azure AD em seu diretório. Essa ID não pode ter mais de 256 caracteres. Para obter mais informações sobre o URI da ID do aplicativo, consulte [integrando aplicativos com Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. Na seção **Funções**, especifique as funções ou as permissões personalizadas para o aplicativo do Azure AD.
 6. Clique em **Salvar**.
 
@@ -328,7 +328,7 @@ Para criar um locatário totalmente novo do Azure AD com sua conta do Partner Ce
 3. Selecione **Criar** para confirmar as novas informações de domínio e conta.
 4. Entre com seu novo nome de usuário e senha de administrador global do Azure AD para começar a [adicionar e gerenciar usuários](#manage-users).
 
-Para obter mais informações sobre como criar locatários dentro do portal do Azure em vez de fazê-lo no portal do Partner Center, confira o artigo [Criar um locatário no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Para obter mais informações sobre como criar locatários dentro do portal do Azure em vez de fazê-lo no portal do Partner Center, confira o artigo [Criar um locatário no Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### <a name="remove-a-tenant"></a>Remover um locatário
 

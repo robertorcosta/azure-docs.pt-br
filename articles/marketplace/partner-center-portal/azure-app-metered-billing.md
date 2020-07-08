@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 180015a6bab576c02dcfaaea589628e40c6adde4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 5a867243e57790bf72cef6991d6d8ac06639be49
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736169"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963913"
 ---
 # <a name="managed-application-metered-billing"></a>Cobrança limitada do aplicativo gerenciado 
 
@@ -125,7 +125,7 @@ Siga as etapas abaixo para enviar seu tíquete de suporte:
 4. Em "Selecione um problema que melhor descreva o problema", selecione **cobrança limitada**.
 5. Ao selecionar o botão **Avançar** , você será direcionado para a página **detalhes do problema** , onde poderá inserir mais detalhes sobre o problema.
 
-Para obter mais opções de suporte do Publicador, consulte [suporte para o programa comercial Marketplace no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Para obter mais opções de suporte do Publicador, consulte [suporte para o programa comercial Marketplace no Partner Center](support.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
