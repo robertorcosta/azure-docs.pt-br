@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77482166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602713"
 ---
 # <a name="azure-firewall-certifications"></a>Certificações de firewall do Azure
 
@@ -29,7 +29,7 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - AMF e ACPR (França)
 - APRA (Austrália)
 - PDPA da Argentina
-- IRAP da Austrália
+- Austrália IRAP
 - CDSA
 - CFTC 1,31
 - Atestado CSA STAR
@@ -38,7 +38,7 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - Leis de privacidade canadenses
 - DPP (REINO UNIDO)
 - ENISA DE IAF DA UE
-- EU Model Clauses
+- Cláusulas Modelo da UE
 - Autoridade do Banco Europeu
 - FCA e PRA (Reino Unido)
 - FERPA (EUA)
@@ -48,6 +48,8 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - GLBA (EUA)
 - Alemanha C5
 - GxP (FDA 21 CFR Parte 11)
+- HIPAA
+- Lei de alta tecnologia (EUA)
 - HITRUST
 - ISO 20000-1:2011
 - ISO 22301:2012
@@ -58,15 +60,15 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - Lei de meu número do Japão
 - K-ISMS
 - KNF (Polônia)
-- MAS e ABS (Cingapura)
+- MAS e ABS (Singapura)
 - MPAA (EUA)
 - NBB e FSMA (Bélgica)
 - NEN 7510:2011 (Países Baixos)
-- Kit de ferramentas do NHS IG (Reino Unido)
+- IG Toolkit do NHS (Reino Unido)
 - Países Baixos BIR 2012
 - OSFI (Canadá)
 - PCI DSS nível 1
-- RBI e IRDAi (Índia)
+- RBI e IRDAI (Índia)
 - SOC 1 tipo 2
 - SOC 2 tipo 2
 - SOC 3
@@ -74,11 +76,11 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - DPA da Espanha
 - TISAX
 - TruSight
-- G-Cloud do Reino Unido
+- UK G-Cloud
 - WCAG 2.0
 
 
-## <a name="azure-government-certifications"></a>Certificações do Azure governamental
+## <a name="azure-government-certifications"></a>Certificações do Azure Government
 
 As seguintes certificações de firewall do Azure são para o Azure governamental:
 
@@ -87,10 +89,12 @@ As seguintes certificações de firewall do Azure são para o Azure governamenta
 - Atestado CSA STAR
 - DFARS
 - DoD DISA SRG nível 2
-- DoE 10 CFR Parte 810
+- 10 CFR Part 810 do DoE
 - EAR
 - FIPS 140-2
 - FedRAMP Alto
+- HIPAA
+- Lei de alta tecnologia (EUA)
 - HITRUST
 - IRS 1075
 - ITAR
@@ -102,7 +106,7 @@ As seguintes certificações de firewall do Azure são para o Azure governamenta
 - SOC 2 tipo 2
 - SOC 3
 - SOX (EUA)
-- Seção 508 VPATs
+- VPATs da Seção 508
 
 ## <a name="icsa-labs-corporate-firewall-certification"></a>Certificação de firewall corporativo ICSA Labs
 

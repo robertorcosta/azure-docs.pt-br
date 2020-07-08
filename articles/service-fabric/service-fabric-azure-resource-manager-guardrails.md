@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602696"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Ao implantar um cluster de Service Fabric, os guardrails são colocados em vigor, o que falhará em uma implantação de Azure Resource Manager no caso de uma configuração de cluster inválida. As seções a seguir fornecem uma visão geral dos problemas comuns de configuração de cluster e as etapas necessárias para mitigar esses problemas. 
@@ -68,12 +68,12 @@ Para corrigir uma incompatibilidade de durabilidade, que é indicada por qualque
 
 ## <a name="seed-node-deletion"></a>Exclusão do nó de semente 
 ### <a name="overview"></a>Visão geral
-Um Cluster Service Fabric tem uma propriedade de [camada de confiabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) que é usada para determinar o número de réplicas dos serviços do sistema que são executados no tipo de nó primário do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nós no tipo de nó primário ficar abaixo do mínimo necessário para a camada de confiabilidade, o cluster ficará instável.  
+Um Cluster Service Fabric tem uma propriedade de [camada de confiabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) que é usada para determinar o número de réplicas dos serviços do sistema que são executados no tipo de nó primário do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nós no tipo de nó primário ficar abaixo do mínimo necessário para a camada de confiabilidade, o cluster ficará instável.  
 
 ### <a name="error-messages"></a>Mensagens de erro 
 A operação de remoção do nó de semente foi detectada e será rejeitada. 
-* Essa operação resultaria apenas {0} em possíveis nós de semente permanecerem no cluster, enquanto {1} são necessários no mínimo.
-* Remover {0} nós de semente para {1} fora do resultaria no desligamento do cluster devido à perda do quorum do nó de semente. O número máximo de nós de semente que podem ser removidos por vez {2}é.
+* Essa operação resultaria apenas em {0} possíveis nós de semente permanecerem no cluster, enquanto {1} são necessários no mínimo.
+* Remover {0} nós de semente para fora do {1} resultaria no desligamento do cluster devido à perda do quorum do nó de semente. O número máximo de nós de semente que podem ser removidos por vez é {2} .
  
 ### <a name="mitigation"></a>Atenuação 
 Verifique se o tipo de nó primário tem máquinas virtuais suficientes para a confiabilidade especificada no cluster. Você não poderá remover uma máquina virtual se ela for colocar o conjunto de dimensionamento de máquinas virtuais abaixo do número mínimo de nós para a camada de confiabilidade fornecida.

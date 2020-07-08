@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: ddd34295bfe64fdd336d8b237482b45f02e30201
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602577"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -74,11 +74,17 @@ Por exemplo, se você quiser que as redes virtuais internas VNet1 e VNet2 se con
 
 Comece criando um recurso de Escopo de Link Privado do Azure Monitor.
 
-1. No portal do Azure, acesse **Criar um recurso** e procure por **Escopo de Link Privado do Azure Monitor**. 
-2. Clique em **Criar**. 
-3. Escolha uma assinatura e um grupo de recursos. 
-4. Nomeie o AMPLS. Recomendamos usar um nome que esclareça a finalidade e o limite de segurança definidos para o uso do Escopo, de modo que ninguém viole acidentalmente os limites de segurança da rede. Por exemplo, "TelemProdServAplic". 
+1. No portal do Azure, acesse **Criar um recurso** e procure por **Escopo de Link Privado do Azure Monitor**.
+
+   ![Localizar Azure Monitor escopo de link privado](./media/private-link-security/ampls-find-1c.png)
+
+2. Clique em **Criar**.
+3. Escolha uma assinatura e um grupo de recursos.
+4. Nomeie o AMPLS. Recomendamos usar um nome que esclareça a finalidade e o limite de segurança definidos para o uso do Escopo, de modo que ninguém viole acidentalmente os limites de segurança da rede. Por exemplo, "TelemProdServAplic".
 5. Clique em **Examinar + Criar**. 
+
+   ![Criar Azure Monitor escopo de link privado](./media/private-link-security/ampls-create-1d.png)
+
 6. Espere a validação ser aprovada e clique em **Criar**.
 
 ## <a name="connect-azure-monitor-resources"></a>Conectar recursos do Azure Monitor
@@ -117,7 +123,7 @@ Agora que os recursos estão conectados a seu AMPLS, crie um ponto de extremidad
 
    a.    Escolha a **rede virtual** e a **sub-rede** que você deseja conectar aos recursos do Azure Monitor. 
  
-   b.    Na opção **Integrar à zona DNS privada**, escolha **Sim** e aguarde enquanto ela cria automaticamente uma Zona DNS Privada. 
+   b.    Na opção **Integrar à zona DNS privada**, escolha **Sim** e aguarde enquanto ela cria automaticamente uma Zona DNS Privada. As zonas DNS reais podem ser diferentes do que é mostrado na captura de tela abaixo. 
  
    c.    Clique em **Revisar + Criar**.
  
@@ -162,9 +168,8 @@ Essa restrição de acesso se aplica apenas aos dados no recurso Application Ins
 
 > [!NOTE]
 > Para proteger totalmente o Application Insights baseado no workspace, é necessário bloquear o acesso ao recurso do Application Insights e ao workspace subjacente do Log Analytics.
-
-> [!NOTE]
-> No momento, o diagnóstico no nível do código (criador de perfil/depurador) não oferece suporte para o Link Privado.
+>
+> O diagnóstico de nível de código (criador de perfil/depurador) precisa que você forneça sua própria conta de armazenamento para dar suporte ao link privado. Aqui está a [documentação](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) para saber como fazer isso.
 
 ## <a name="use-apis-and-command-line"></a>Usar APIs e linha de comando
 
@@ -174,7 +179,7 @@ Para criar e gerenciar escopos de link privado, use [az monitor private-link-sco
 
 Para gerenciar o acesso à rede, use os sinalizadores `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` nos [Workspaces do Log Analytics](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou [Componentes do Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## <a name="collect-custom-logs-over-private-link"></a>Coletar logs personalizados em Link Privado
+## <a name="collect-custom-logs-over-private-link"></a>Coletar logs personalizados sobre o link privado
 
 As contas de armazenamento são usadas no processo de ingestão de logs personalizados. Por padrão, são usadas contas de armazenamento gerenciadas por serviços. No entanto, para ingerir logs personalizados em links privados, você deve usar suas contas de armazenamento e associá-las aos workspaces do Log Analytics. Confira mais detalhes sobre como configurar essas contas usando a [linha de comando](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -188,7 +193,7 @@ As versões mais recentes dos agentes Windows e Linux devem ser usadas em redes 
 
 **Agente Windows do Log Analytics**
 
-Use o agente do Log Analytics versão 18.20.18038.0 ou posterior.
+Use o agente de Log Analytics versão 10.20.18038.0 ou posterior.
 
 **Agente Linux do Log Analytics**
 
@@ -201,7 +206,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para usar as experiências do portal do Azure Monitor, como Application Insights e Log Analytics, você precisa permitir que o portal do Azure e as extensões do Azure Monitor estejam acessíveis nas redes privadas. Adicione as [marcas de serviço](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty e **AzureFrontdoor.Frontend** a seu firewall.
+Para usar as experiências do portal do Azure Monitor, como Application Insights e Log Analytics, você precisa permitir que o portal do Azure e as extensões do Azure Monitor estejam acessíveis nas redes privadas. Adicione as [marcas de serviço](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**e **AzureFrontDoor. frontend** ao seu firewall.
 
 ### <a name="programmatic-access"></a>Acesso Programático
 
@@ -220,7 +225,14 @@ Para permitir que o agente do Log Analytics baixe pacotes de soluções, adicion
 
 | Ambiente de nuvem | Recurso de agente | Portas | Direção |
 |:--|:--|:--|:--|
-|Público do Azure     | scadvisor.blob.core.windows.net         | 443 | Saída
+|Público do Azure     | scadvisorcontent.blob.core.windows.net         | 443 | Saída
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
 
+### <a name="browser-dns-settings"></a>Configurações de DNS do navegador
+
+Se você estiver se conectando aos recursos do Azure Monitor por meio de um link privado, o tráfego para esses recursos deverá passar pelo ponto de extremidade privado configurado em sua rede. Para habilitar o ponto de extremidade privado, atualize suas configurações de DNS conforme explicado em [conectar-se a um ponto de extremidade privado](#connect-to-a-private-endpoint). Alguns navegadores usam suas próprias configurações de DNS em vez daqueles que você definiu. O navegador pode tentar se conectar a Azure Monitor pontos de extremidade públicos e ignorar totalmente o link privado. Verifique se as configurações de navegadores não substituem ou armazenam configurações de DNS antigas. 
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Saiba mais sobre o [armazenamento privado](private-storage.md)

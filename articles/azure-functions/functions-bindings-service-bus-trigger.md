@@ -1,23 +1,24 @@
 ---
-title: Associações do Barramento de Serviço para o Azure Functions
+title: Gatilho do barramento de serviço do Azure para Azure Functions
 description: Saiba como executar uma função do Azure quando as mensagens do barramento de serviço do Azure são criadas.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: tracking-python
+ms.openlocfilehash: ee4961c6c1bb8cafe25ec2c84affdf0f1789e9f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603019"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho do barramento de serviço do Azure para Azure Functions
 
 Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila ou tópico do Barramento de Serviço. Começando com a versão de extensão 3.1.0, você pode disparar em uma fila ou tópico habilitado para sessão.
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -119,7 +120,7 @@ module.exports = function(context, myQueueItem) {
 
 O exemplo a seguir demonstra como ler uma mensagem da fila do barramento de serviço por meio de um gatilho.
 
-Uma associação do barramento de serviço é definida em *Function. JSON* , em que `serviceBusTrigger` *Type* é definido como.
+Uma associação do barramento de serviço é definida em *function.jsem* que o *tipo* está definido como `serviceBusTrigger` .
 
 ```json
 {
@@ -136,7 +137,7 @@ Uma associação do barramento de serviço é definida em *Function. JSON* , em 
 }
 ```
 
-O código em * _ \_init_\_. py* declara um parâmetro como `func.ServiceBusMessage`, que permite que você leia a mensagem da fila em sua função.
+O código em * _ \_ init_ \_ . py* declara um parâmetro como `func.ServiceBusMessage` , que permite que você leia a mensagem da fila em sua função.
 
 ```python
 import azure.functions as func
@@ -168,7 +169,7 @@ def main(msg: func.ServiceBusMessage):
 
 # <a name="java"></a>[Java](#tab/java)
 
-A função Java a seguir usa `@ServiceBusQueueTrigger` a anotação da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para descrever a configuração de um gatilho de fila do barramento de serviço. A função captura a mensagem colocada na fila e a adiciona aos logs.
+A função Java a seguir usa a `@ServiceBusQueueTrigger` anotação da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para descrever a configuração de um gatilho de fila do barramento de serviço. A função captura a mensagem colocada na fila e a adiciona aos logs.
 
 ```java
 @FunctionName("sbprocessor")
@@ -182,7 +183,7 @@ A função Java a seguir usa `@ServiceBusQueueTrigger` a anotação da [bibliote
  }
 ```
 
-As funções Java também podem ser disparadas quando uma mensagem é adicionada a um tópico do barramento de serviço. O exemplo a seguir usa `@ServiceBusTopicTrigger` a anotação para descrever a configuração do gatilho.
+As funções Java também podem ser disparadas quando uma mensagem é adicionada a um tópico do barramento de serviço. O exemplo a seguir usa a `@ServiceBusTopicTrigger` anotação para descrever a configuração do gatilho.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -222,7 +223,7 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguin
   }
   ```
 
-  Como a `Connection` propriedade não está definida, o Functions procura uma configuração `AzureWebJobsServiceBus`de aplicativo chamada, que é o nome padrão para a cadeia de conexão do barramento de serviço. Você também pode definir a `Connection` propriedade para especificar o nome de uma configuração de aplicativo que contém a cadeia de conexão do barramento de serviço a ser usada, conforme mostrado no exemplo a seguir:
+  Como a `Connection` propriedade não está definida, o Functions procura uma configuração de aplicativo chamada `AzureWebJobsServiceBus` , que é o nome padrão para a cadeia de conexão do barramento de serviço. Você também pode definir a `Connection` propriedade para especificar o nome de uma configuração de aplicativo que contém a cadeia de conexão do barramento de serviço a ser usada, conforme mostrado no exemplo a seguir:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -264,15 +265,15 @@ A conta de Barramento de Serviço a ser usada é determinada na seguinte ordem:
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -286,13 +287,13 @@ Consulte o [exemplo](#example) de gatilho para obter mais detalhes.
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `ServiceBusTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `ServiceBusTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como "serviceBusTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direção** | N/D | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | N/D | O nome da variável que representa a fila ou mensagem de tópico no código de função. |
+|**direction** | N/D | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | n/d | O nome da variável que representa a fila ou mensagem de tópico no código de função. |
 |**queueName**|**QueueName**|Nome da fila a ser monitorada.  Defina somente se for monitorar uma fila, não para um tópico.
 |**topicName**|**Topicname**|Nome do tópico a ser monitorado. Defina somente se for monitorar um tópico, não uma fila.|
 |**subscriptionName**|**SubscriptionName**|Nome da assinatura a ser monitorada. Defina somente se for monitorar um tópico, não uma fila.|
@@ -311,9 +312,10 @@ Os seguintes tipos de parâmetro estão disponíveis para a mensagem de fila ou 
 * `string` -Se a mensagem for de texto.
 * `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, funções do Azure tentará desserializar os dados JSON.
-* `BrokeredMessage`– Fornece a você a mensagem desserializada com o método [BrokeredMessage.\<getbody T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage`– Fornece a você a mensagem desserializada com o método [BrokeredMessage. GetBody \<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* [`MessageReceiver`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)-Usado para receber e reconhecer mensagens do contêiner de mensagens (obrigatório quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) é definido como `false` )
 
-Esses tipos de parâmetro são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez `BrokeredMessage`de.
+Esses tipos de parâmetro são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
@@ -322,21 +324,21 @@ Os seguintes tipos de parâmetro estão disponíveis para a mensagem de fila ou 
 * `string` -Se a mensagem for de texto.
 * `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, funções do Azure tentará desserializar os dados JSON.
-* `BrokeredMessage`– Fornece a você a mensagem desserializada com o método [BrokeredMessage.\<getbody T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage`– Fornece a você a mensagem desserializada com o método [BrokeredMessage. GetBody \<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
-Esses parâmetros são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez `BrokeredMessage`de.
+Esses parâmetros são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Acesse a mensagem da fila ou do `context.bindings.<name from function.json>`tópico usando. A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
+Acesse a mensagem da fila ou do tópico usando `context.bindings.<name from function.json>` . A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A mensagem da fila está disponível para a função por meio de um `func.ServiceBusMessage`parâmetro digitado como. A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
+A mensagem da fila está disponível para a função por meio de um parâmetro digitado como `func.ServiceBusMessage` . A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A mensagem do barramento de serviço de entrada está `ServiceBusQueueMessage` disponível `ServiceBusTopicMessage` por meio de um parâmetro ou.
+A mensagem do barramento de serviço de entrada está disponível por meio de um `ServiceBusQueueMessage` `ServiceBusTopicMessage` parâmetro ou.
 
 [Consulte o exemplo para obter detalhes](#example).
 
@@ -356,7 +358,7 @@ O `maxAutoRenewDuration` pode ser configurado no *host.json*, que mapeia para [O
 
 O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas propriedades são membros da classe de [mensagem](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) .
 
-|Propriedade|Type|Descrição|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo destinatário para lógica específica do aplicativo.|
 |`CorrelationId`|`string`|ID de correlação.|

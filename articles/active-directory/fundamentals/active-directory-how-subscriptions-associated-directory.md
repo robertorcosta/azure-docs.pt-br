@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc81cca10bacc581e72c7caa70a0b74b7ae99f9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604209"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -42,7 +42,7 @@ Todos os seus usuários têm um único diretório *base* para autenticação. Os
 
 Para poder associar ou adicionar sua assinatura, execute as seguintes tarefas:
 
-- Examine a lista de alterações a seguir e como você pode ser afetado:
+- Examine a seguinte lista de alterações que ocorrerão depois que você associar ou adicionar sua assinatura e como você pode ser afetado:
 
   - Os usuários aos quais foram atribuídas funções usando o RBAC perderão seu acesso
   - O administrador de serviços e coadministradores perderão o acesso
@@ -61,23 +61,23 @@ Para poder associar ou adicionar sua assinatura, execute as seguintes tarefas:
 
 Para associar uma assinatura existente ao seu diretório do Azure AD, siga estas etapas:
 
-1. Faça login e selecione a assinatura que você deseja usar na página [Inscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Entre e selecione a assinatura que você deseja usar na [página assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-1. Selecione **altere o diretório**.
+1. Selecione **Alterar diretório**.
 
     ![Página de assinaturas, com a opção Alterar diretório destacada](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
 
-1. Revise todos os avisos exibidos e, em seguida, selecione **Alterar**.
+1. Revise todos os avisos que aparecem e, em seguida, selecione **alterar**.
 
     ![Altere a página do diretório, mostrando o diretório para alterar para](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    O diretório é alterado para a assinatura e você recebe uma mensagem de sucesso.
+    Depois que o diretório for alterado para a assinatura, você receberá uma mensagem de êxito.
 
-    ![Mensagem de êxito sobre alteração de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+  1. Selecione **alternar diretórios** na página de assinatura para ir para o novo diretório. 
 
-Use o **diretório de comutador** para ir para o novo diretório. Pode levar várias horas para que tudo seja exibido corretamente. Se parecer que está demorando muito, verifique o **filtro de assinatura global**. Verifique se a assinatura movida não está oculta. Talvez seja necessário sair do portal do Azure e entrar novamente para ver o novo diretório.
+      ![Página de seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-![Página de seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+      Pode levar várias horas para que tudo seja exibido corretamente. Se parecer que está demorando muito, verifique o **filtro de assinatura global**. Verifique se a assinatura movida não está oculta. Talvez seja necessário sair do portal do Azure e entrar novamente para ver o novo diretório.
 
 A alteração do diretório de assinatura é uma operação no nível do serviço, portanto, não afeta a propriedade do faturamento da assinatura. O administrador da conta ainda pode alterar o administrador do serviço do [Centro de contas](https://account.azure.com/subscriptions). Para excluir o diretório original, você deve transferir a propriedade de cobrança da assinatura para um novo administrador da conta. Para saber mais sobre como transferir a propriedade de cobrança, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../../cost-management-billing/manage/billing-subscription-transfer.md).
 

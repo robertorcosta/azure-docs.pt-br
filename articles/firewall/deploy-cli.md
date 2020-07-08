@@ -6,13 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
-ms.topic: article
-ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73831976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602611"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implantar e configurar o Firewall do Azure usando o CLI do Azure
 
@@ -25,7 +25,7 @@ Uma maneira de controlar o acesso à saída de rede em uma sub-rede do Azure é 
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando o tráfego de rede para o firewall foi roteado como a sub-rede de gateway padrão.
 
-Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de Hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . O firewall está em sua própria VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
+Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). O firewall está na própria VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
 
 * **AzureFirewallSubnet**: o firewall está nesta sub-rede.
 * **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
@@ -274,7 +274,7 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
    Os dois comandos devem retornar respostas, mostrando que as consultas DNS estão passando pelo firewall.
 
-1. Execute os comandos a seguir:
+1. Execute os seguintes comandos:
 
    ```
    Invoke-WebRequest -Uri https://www.google.com
@@ -302,4 +302,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tutorial: Monitor logs do Firewall do Azure](./tutorial-diagnostics.md)
+* [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)

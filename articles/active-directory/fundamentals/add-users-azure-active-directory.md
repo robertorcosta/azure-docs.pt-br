@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c30730f685945d129ababb27040f34bf8ab2f790
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603852"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 
@@ -32,7 +32,7 @@ Para adicionar um novo usuário, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de usuário para a organização.
 
-1. Pesquise e selecione *Azure Active Directory* em qualquer página.
+1. Procure e selecione *Azure Active Directory* em qualquer página.
 
 1. Selecione **usuários**e, em seguida, selecione **novo usuário**.
 
@@ -44,11 +44,11 @@ Para adicionar um novo usuário, siga estas etapas:
 
    - **Nome de usuário**. Obrigatórios. O nome de usuário do novo usuário. Por exemplo, `mary@contoso.com`.
 
-     A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, * \<yourdomainname>. onmicrosoft.com*ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar seu nome de domínio personalizado usando o portal de Azure Active Directory](add-custom-domain.md).
+     A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, * \<yourdomainname> . onmicrosoft.com*ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar seu nome de domínio personalizado usando o portal de Azure Active Directory](add-custom-domain.md).
 
    - **Grupos**. Opcionalmente, você pode adicionar o usuário a um ou mais grupos existentes. Você também pode adicionar o usuário aos grupos posteriormente. Para obter mais informações sobre como adicionar usuários a grupos, consulte [criar um grupo básico e adicionar membros usando Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
-   - **Função de diretório**: se você precisar de permissões administrativas do Azure ad para o usuário, poderá adicioná-las a uma função do Azure AD. Você pode atribuir o usuário para ser um administrador global ou uma ou mais das funções de administrador limitadas no Azure AD. Para mais informações sobre como atribuir funções, consulte [Como atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md).
+   - **Função do diretório**: se precisar de permissões administrativas do Azure AD para o usuário, você poderá adicioná-las a uma função do Azure AD. Você pode atribuir o usuário para ser um administrador global ou uma ou mais das funções de administrador limitadas no Azure AD. Para mais informações sobre como atribuir funções, consulte [Como atribuir funções aos usuários](active-directory-users-assign-role-azure-portal.md).
 
    - **Informações do trabalho**: você pode adicionar mais informações sobre o usuário aqui ou fazer isso mais tarde. Para obter mais informações sobre como adicionar informações do usuário, consulte [Como adicionar ou alterar as informações do perfil do usuário](active-directory-users-profile-azure-portal.md).
 
@@ -78,7 +78,7 @@ Para excluir um usuário, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador de usuário para a organização.
 
-1. Pesquise e selecione *Azure Active Directory* em qualquer página.
+1. Procure e selecione *Azure Active Directory* em qualquer página.
 
 1. Pesquise e selecione o usuário que você deseja excluir do seu locatário do Azure AD. Por exemplo, _Mary Parker_.
 

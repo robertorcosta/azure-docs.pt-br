@@ -4,14 +4,14 @@ description: Este artigo informa como gerenciar a coleta de inventário em VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventário, automação, alteração, acompanhamento
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603104"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gerenciar coleção de inventário de VMs
 
@@ -87,7 +87,7 @@ As seções a seguir mostram informações sobre cada propriedade que pode ser c
 |Inserir o Caminho     | O caminho para verificar o arquivo, por exemplo, **/etc/*.conf**.       |
 |Tipo de caminho     | O tipo de item a ser monitorado. Os valores são Arquivo e Diretório.        |
 |Recursão     | True se a recursão for usada ao procurar o item a ser rastreado e, caso contrário, False.        |
-|Usar o Sudo     | Verdadeiro se sudo for usado ao verificar o item; caso contrário, Falso.         |
+|Usar sudo     | Verdadeiro se sudo for usado ao verificar o item; caso contrário, Falso.         |
 |Links     | Valor que indica como os links simbólicos são tratados ao passar diretórios. Os valores possíveis são: <br> Ignorar: ignora os links simbólicos e não inclui os arquivos/diretórios referenciados<br>Seguir: segue os links simbólicos durante a recursão e também inclui os arquivos/diretórios referenciados<br>Gerenciar: segue os links simbólicos e permite a alteração do tratamento do conteúdo retornado      |
 
 ## <a name="manage-machine-groups"></a>Gerenciar grupos de computadores
@@ -100,7 +100,7 @@ Para exibir seus grupos de computadores, selecione a guia **Grupos de computador
 
 ![Exibir grupos de computadores na página de inventário](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Selecionar um grupo de computadores na lista abre a página de grupos de Computadores. Esta página mostra detalhes sobre o grupo de computadores. Esses detalhes incluem a consulta da análise de logs que é usada para definir o grupo. Na parte inferior da página, há uma lista paginada dos computadores que fazem parte do grupo.
+Selecionar um grupo de computadores na lista abre a página de grupos de Computadores. Esta página mostra detalhes sobre o grupo de computadores. Esses detalhes incluem a consulta de log de Azure Monitor que é usada para definir o grupo. Na parte inferior da página, há uma lista paginada dos computadores que fazem parte do grupo.
 
 ![Página Exibir grupo de computadores](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -115,15 +115,18 @@ Se quiser criar um novo grupo de computadores, clique em **+ Criar um grupo de c
 Para remover sua VM do gerenciamento do Controle de Alterações e Inventário:
 
 1. No painel esquerdo do portal do Azure, escolha **Log Analytics** e o espaço de trabalho que você usou ao habilitar sua VM para Controle de Alterações e Inventário.
-2. Na página Log Analytics, abra o menu **Recurso**.
+2. Na página **log Analytics** , abra o menu de **recursos** .
 3. Escolha **Máquinas Virtuais** em **Fontes de Dados do Workspace**.
 4. Na lista, escolha a VM que você quer desconectar. O computador tem uma marca de seleção verde ao lado de **Este Workspace** na coluna **Conexão OMS**.
 
    >[!NOTE]
    >O Microsoft Operations Management Suite (OMS) agora é conhecido como logs de Azure Monitor.
-   
+
 5. Na parte superior da próxima página, clique em **Desconectar**.
 6. Na janela de confirmação, clique em **Sim** para desconectar o computador do gerenciamento.
+
+>[!NOTE]
+>As máquinas ainda são mostradas depois que você tiver cancelado o registro porque relatamos em todos os computadores inventariados nas últimas 24 horas. Depois de desconectar o computador, você precisa aguardar 24 horas antes que eles não sejam mais listados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

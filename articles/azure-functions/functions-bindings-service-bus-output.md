@@ -1,23 +1,24 @@
 ---
-title: Associações do Barramento de Serviço para o Azure Functions
+title: Associações de saída do barramento de serviço do Azure para Azure Functions
 description: Saiba como enviar mensagens do barramento de serviço do Azure de Azure Functions.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: d6817ac4ebc272747776eab8b11dba62f318e4ed
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: tracking-python
+ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603631"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Associação de saída do barramento de serviço do Azure para Azure Functions
 
 Use a associação de saída do barramento de serviço do Azure para enviar mensagens de fila ou de tópico.
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -142,7 +143,7 @@ module.exports = function (context, myTimer) {
 
 O exemplo a seguir demonstra como gravar em uma fila do barramento de serviço em Python.
 
-Uma definição de associação do barramento de serviço é definida em *Function. JSON* , em `serviceBus`que *Type* é definido como.
+Uma definição de associação do barramento de serviço é definida em *function.jsem* onde o *tipo* está definido como `serviceBus` .
 
 ```json
 {
@@ -174,7 +175,7 @@ Uma definição de associação do barramento de serviço é definida em *Functi
 }
 ```
 
-`set` Em * _ \_init_\_. py*, você pode gravar uma mensagem na fila passando um valor para o método.
+Em * _ \_ init_ \_ . py*, você pode gravar uma mensagem na fila passando um valor para o `set` método.
 
 ```python
 import azure.functions as func
@@ -190,7 +191,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra uma função Java que envia uma mensagem para uma fila `myqueue` do barramento de serviço quando disparada por uma solicitação HTTP.
+O exemplo a seguir mostra uma função Java que envia uma mensagem para uma fila do barramento de serviço `myqueue` quando disparada por uma solicitação HTTP.
 
 ```java
 @FunctionName("httpToServiceBusQueue")
@@ -206,7 +207,7 @@ public String pushToQueue(
 
  Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@QueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
 
-As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa `@ServiceBusTopicOutput` a anotação para descrever a configuração da Associação de saída. 
+As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa a `@ServiceBusTopicOutput` anotação para descrever a configuração da Associação de saída. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -259,31 +260,31 @@ Você pode usar o atributo `ServiceBusAccount` para especificar a conta do Barra
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-As `ServiceBusQueueOutput` anotações `ServiceBusTopicOutput` e estão disponíveis para gravar uma mensagem como uma saída de função. O parâmetro decorado com essas anotações deve ser declarado como um `OutputBinding<T>` onde `T` é o tipo correspondente ao tipo da mensagem.
+As `ServiceBusQueueOutput` `ServiceBusTopicOutput` anotações e estão disponíveis para gravar uma mensagem como uma saída de função. O parâmetro decorado com essas anotações deve ser declarado como um `OutputBinding<T>` onde `T` é o tipo correspondente ao tipo da mensagem.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `ServiceBus` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `ServiceBus`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como "serviceBus". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direção** | N/D | Deve ser definido como "out". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | N/D | O nome da variável que representa a fila ou mensagem de tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
+|**direction** | n/d | Deve ser definido como "out". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | n/d | O nome da variável que representa a fila ou mensagem de tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila.  Defina somente se for enviar mensagens da fila, não para um tópico.
 |**topicName**|**Topicname**|Nome do tópico. Defina somente se for enviar mensagens do tópico, não para uma fila.|
 |**connection**|**Conexão**|O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Barramento de Serviço para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome. Por exemplo, se você definir `connection` como "MyServiceBus", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyServiceBus". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão do Barramento de serviço na configuração de aplicativo chamada "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de conexão, siga as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.|
@@ -304,13 +305,13 @@ Use os seguintes tipos de parâmetro para a associação de saída:
 * `out byte[]` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
 * `out BrokeredMessage`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 1. x)
 * `out Message`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 2. x e superior)
-* `ICollector<T>` ou `IAsyncCollector<T>` - Para a criação de várias mensagens. Uma mensagem é criada quando você chama o método `Add` .
+* `ICollector<T>`ou `IAsyncCollector<T>` (para métodos assíncronos) – para criar várias mensagens. Uma mensagem é criada quando você chama o método `Add` .
 
 Ao trabalhar com funções C#:
 
-* As funções assíncronas precisam de `IAsyncCollector` um valor de `out` retorno ou em vez de um parâmetro.
+* As funções assíncronas precisam de um valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 
-* Para acessar a ID da sessão, associe a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) um tipo e use `sessionId` a propriedade.
+* Para acessar a ID da sessão, associe a um [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
@@ -325,13 +326,13 @@ Use os seguintes tipos de parâmetro para a associação de saída:
 
 Ao trabalhar com funções C#:
 
-* As funções assíncronas precisam de `IAsyncCollector` um valor de `out` retorno ou em vez de um parâmetro.
+* As funções assíncronas precisam de um valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 
-* Para acessar a ID da sessão, associe a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) um tipo e use `sessionId` a propriedade.
+* Para acessar a ID da sessão, associe a um [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Acesse a fila ou o tópico `context.bindings.<name from function.json>`usando. Você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto JavaScript (desserializado em JSON `context.binding.<name>`) para.
+Acesse a fila ou o tópico usando `context.bindings.<name from function.json>` . Você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto JavaScript (desserializado em JSON) para `context.binding.<name>` .
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -354,7 +355,7 @@ Use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/
 
 ## <a name="hostjson-settings"></a>configurações de host.json
 
-Esta seção descreve as definições de configuração global disponíveis para essa associação nas versões 2. x e superior. O arquivo host. JSON de exemplo abaixo contém apenas as configurações para essa associação. Para obter mais informações sobre definições de configuração global, consulte [referência de host. JSON para Azure Functions versão](functions-host-json.md).
+Esta seção descreve as definições de configuração global disponíveis para essa associação nas versões 2. x e superior. O exemplo host.jsno arquivo abaixo contém apenas as configurações dessa associação. Para obter mais informações sobre definições de configuração global, consulte [host.jsem referência para Azure Functions versão](functions-host-json.md).
 
 > [!NOTE]
 > Para obter uma referência de host.json no Functions 1.x, confira [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
@@ -380,13 +381,14 @@ Esta seção descreve as definições de configuração global disponíveis para
     }
 }
 ```
-Se você tiver `isSessionsEnabled` definido como `true`, o `sessionHandlerOptions` será respeitado.  Se você tiver `isSessionsEnabled` definido como `false`, o `messageHandlerOptions` será respeitado.
 
-|Propriedade  |Padrão | Descrição |
+Se você tiver `isSessionsEnabled` definido como `true` , o `sessionHandlerOptions` será respeitado.  Se você tiver `isSessionsEnabled` definido como `false` , o `messageHandlerOptions` será respeitado.
+
+|Property  |Padrão | Descrição |
 |---------|---------|---------|
 |prefetchCount|0|Obtém ou define o número de mensagens que o destinatário da mensagem pode solicitar simultaneamente.|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.|
+|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.<br><br>A configuração para `false` tem suporte apenas em C#.<br><br>Se definido como `true` , o gatilho concluirá a mensagem automaticamente se a execução da função for concluída com êxito e abandonará a mensagem de outra forma.<br><br>Quando definido como `false` , você é responsável por chamar métodos [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para concluir, abandonar ou incorrer a mensagem. Se uma exceção for lançada (e nenhum dos `MessageReceiver` métodos for chamado), o bloqueio permanecerá. Depois que o bloqueio expirar, a mensagem será colocada em fila novamente com o `DeliveryCount` incremento e o bloqueio será renovado automaticamente.<br><br>Em funções não C #, as exceções na função resultam em chamadas de tempo de execução `abandonAsync` em segundo plano. Se nenhuma exceção ocorrer, `completeAsync` será chamado em segundo plano. |
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagem deve iniciar por instância dimensionada. Por padrão, o runtime do Functions processa várias mensagens simultaneamente.|
 |maxConcurrentSessions|2000|O número máximo de sessões que podem ser manipuladas simultaneamente por instância dimensionada.|
 
