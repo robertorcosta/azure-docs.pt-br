@@ -10,10 +10,9 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: 02e814a9da320d688fe57edf3a3fe0640b8f5a47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75976731"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Criar um Hub IoT usando um modelo do Azure Resource Manager (.NET)
@@ -30,7 +29,7 @@ Você pode usar o Gerenciador de Recursos do Azure para criar e gerenciar hubs I
 Para concluir este tutorial, você precisará do seguinte:
 
 * Visual Studio.
-* Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
+* Uma conta ativa do Azure. <br/>Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 * Uma [conta de armazenamento do Azure][lnk-storage-account] em que é possível armazenar seus arquivos de modelo do Azure Resource Manager.
 * [Azure PowerShell 1.0][lnk-powershell-install] ou posterior.
 

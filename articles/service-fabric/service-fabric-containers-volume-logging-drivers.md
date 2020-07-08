@@ -4,10 +4,9 @@ description: O Service Fabric oferece suporte a Arquivos do Azure para volumes d
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750049"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Driver de volume de arquivos do Azure para Service Fabric
@@ -29,7 +28,7 @@ O driver de volume do Azure Files é um [plug-in de volume do Docker](https://do
 
 * Você precisará do [Powershell com o módulo do Service Fabric](/azure/service-fabric/service-fabric-get-started) ou [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) instalado.
 
-* Se você estiver usando contêineres do Hyper-V, os trechos de código a seguir precisam ser adicionados na seção ClusterManifest (cluster local) ou fabricSettings no modelo de Azure Resource Manager (cluster do Azure) ou ClusterConfig. JSON (cluster autônomo).
+* Se você estiver usando contêineres do Hyper-V, os trechos de código a seguir precisam ser adicionados na seção ClusterManifest (cluster local) ou fabricSettings no modelo de Azure Resource Manager (cluster do Azure) ou ClusterConfig.jsno (cluster autônomo).
 
 No ClusterManifest, o seguinte precisa ser adicionado na seção Hospedagem. Neste exemplo, o nome do volume é **sfazurefile** e a porta que ele escuta no cluster é **19100**. Substitua-os pelos valores corretos para o cluster.
 
@@ -39,7 +38,7 @@ No ClusterManifest, o seguinte precisa ser adicionado na seção Hospedagem. Nes
 </Section>
 ```
 
-Na seção fabricSettings do modelo de Azure Resource Manager (para implantações do Azure) ou ClusterConfig. JSON (para implantações autônomas), o trecho a seguir precisa ser adicionado. Novamente, substitua o nome do volume e os valores de porta pelos seus próprios.
+Na seção fabricSettings do modelo de Azure Resource Manager (para implantações do Azure) ou ClusterConfig.jsno (para implantações autônomas), o trecho a seguir precisa ser adicionado. Novamente, substitua o nome do volume e os valores de porta pelos seus próprios.
 
 ```json
 "fabricSettings": [

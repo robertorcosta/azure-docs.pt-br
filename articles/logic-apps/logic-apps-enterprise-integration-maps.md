@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979400"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
-Para transferir dados XML entre formatos para cenários de integração corporativa em aplicativos lógicos do Azure, seu aplicativo lógico pode usar mapas ou, mais especificamente, mapas XSLT (transformações de linguagem de folha de estilo extensível). Um mapa é um documento XML que descreve como converter dados de um documento XML para outro formato. 
+Para transferir dados XML entre formatos para cenários de integração corporativa nos Aplicativos Lógicos do Azure, seu aplicativo lógico pode usar mapas ou, mais especificamente, mapas XSLT (linguagem XSL Transformations). Um mapa é um documento XML que descreve como converter dados de um documento XML para outro formato. 
 
 Por exemplo, suponha que você recebe regularmente pedidos ou faturas B2B de clientes que usam o formato de data AAAAMMDD. No entanto, sua organização usa o formato de data MMDDAAAA. Você pode usar um mapa para transformar o formato de data AAAAMMDD em MMDDAAAA antes de armazenar os detalhes do pedido ou da fatura no banco de dados de atividade do cliente.
 

@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75896133"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticação no Azure HDInsight
@@ -34,7 +33,7 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 ### <a name="cause"></a>Causa
 
-O código de erro 50126 do Azure `AllowCloudPasswordValidation` ad significa que a política não foi definida pelo locatário.
+O código de erro 50126 do Azure AD significa que a `AllowCloudPasswordValidation` política não foi definida pelo locatário.
 
 ### <a name="resolution"></a>Resolução
 
@@ -106,11 +105,11 @@ Altere a senha no portal do Azure (no seu sistema local) e aguarde 30 minutos pa
 
 ### <a name="issue"></a>Problema
 
-Receber mensagem `interaction_required`de erro.
+Receber mensagem de erro `interaction_required` .
 
 ### <a name="cause"></a>Causa
 
-A política de acesso condicional ou MFA está sendo aplicada ao usuário. Como a autenticação interativa ainda não é compatível, o usuário ou o cluster precisa estar isento de acesso de MFA/condicional. Se você optar por isentar o cluster (política de isenção baseada em endereço IP), certifique- `ServiceEndpoints` se de que o AD esteja habilitado para essa vnet.
+A política de acesso condicional ou MFA está sendo aplicada ao usuário. Como a autenticação interativa ainda não é compatível, o usuário ou o cluster precisa estar isento de acesso de MFA/condicional. Se você optar por isentar o cluster (política de isenção baseada em endereço IP), certifique-se de que o AD `ServiceEndpoints` esteja habilitado para essa vnet.
 
 ### <a name="resolution"></a>Resolução
 
@@ -148,9 +147,9 @@ Varia.
 
 ### <a name="resolution"></a>Resolução
 
-Para que o kinit seja bem sucedido, você `sAMAccountName` precisa saber seu (esse é o nome curto da conta sem o realm). `sAMAccountName`geralmente é o prefixo da conta (como Bob `bob@contoso.com`in). Para alguns usuários, ele pode ser diferente. Você precisará da capacidade de procurar/pesquisar no diretório para aprender seu `sAMAccountName`.
+Para que o kinit seja bem sucedido, você precisa saber seu `sAMAccountName` (esse é o nome curto da conta sem o realm). `sAMAccountName`geralmente é o prefixo da conta (como Bob in `bob@contoso.com` ). Para alguns usuários, ele pode ser diferente. Você precisará da capacidade de procurar/pesquisar no diretório para aprender seu `sAMAccountName` .
 
-Maneiras de localizar `sAMAccountName`:
+Maneiras de localizar `sAMAccountName` :
 
 * Se você puder entrar no Ambari usando o administrador do Ambari local, examine a lista de usuários.
 
@@ -158,7 +157,7 @@ Maneiras de localizar `sAMAccountName`:
 
 * No nó de cabeçalho, você pode usar comandos do SAMBA para pesquisar. Isso requer uma sessão Kerberos válida (kinit bem-sucedida). pesquisa do ADS net "(userPrincipalName = Bob *)"
 
-    Os resultados da pesquisa/procura devem mostrar o `sAMAccountName` atributo. Além disso, você pode examinar outros atributos como `pwdLastSet`, `badPasswordTime`, `userPrincipalName` etc. para ver se essas propriedades correspondem ao que você espera.
+    Os resultados da pesquisa/procura devem mostrar o `sAMAccountName` atributo. Além disso, você pode examinar outros atributos como `pwdLastSet` , `badPasswordTime` , `userPrincipalName` etc. para ver se essas propriedades correspondem ao que você espera.
 
 ---
 
@@ -174,7 +173,7 @@ Nome de usuário ou senha incorretos.
 
 ### <a name="resolution"></a>Resolução
 
-Verifique seu nome de usuário e senha. Verifique também outras propriedades descritas acima. Para habilitar a depuração detalhada, `export KRB5_TRACE=/tmp/krb.log` execute da sessão antes de tentar kinit.
+Verifique seu nome de usuário e senha. Verifique também outras propriedades descritas acima. Para habilitar a depuração detalhada, execute `export KRB5_TRACE=/tmp/krb.log` da sessão antes de tentar kinit.
 
 ---
 
@@ -182,7 +181,7 @@ Verifique seu nome de usuário e senha. Verifique também outras propriedades de
 
 ### <a name="issue"></a>Problema
 
-Falha no comando de trabalho/HDFS `TokenNotFoundException`devido a.
+Falha no comando de trabalho/HDFS devido a `TokenNotFoundException` .
 
 ### <a name="cause"></a>Causa
 
@@ -198,7 +197,7 @@ Verifique se você fez logon com êxito no portal do Ambari uma vez por meio do 
 
 ### <a name="issue"></a>Problema
 
-O usuário recebe a `Error fetching access token`mensagem de erro.
+O usuário recebe a mensagem de erro `Error fetching access token` .
 
 ### <a name="cause"></a>Causa
 
@@ -216,8 +215,8 @@ Esse erro ocorre intermitentemente quando os usuários tentam acessar o ADLS Gen
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

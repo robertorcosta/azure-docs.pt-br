@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75659280"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Como dimensionar uma instância do serviço de Signaler do Azure?
@@ -29,7 +28,7 @@ Para obter informações sobre os preços e as capacidades do serviço Signalr i
 
 ## <a name="scale-on-azure-portal"></a>Dimensionar em portal do Azure
 
-1. No navegador, abra o [portal do Azure](https://portal.azure.com).
+1. No seu navegador, abra o [portal do Azure](https://portal.azure.com).
 
 2. Na página de serviço do Signalr, no menu à esquerda, selecione **escala**.
    
@@ -37,7 +36,7 @@ Para obter informações sobre os preços e as capacidades do serviço Signalr i
    
     ![Dimensionar no portal](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ## <a name="scale-using-azure-cli"></a>Dimensionar usando a CLI do Azure
 

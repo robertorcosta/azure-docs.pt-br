@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
 ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75897956"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicar máquinas com discos habilitados para CMK (chaves gerenciadas pelo cliente)
@@ -33,7 +32,7 @@ Para este exemplo, a região primária do Azure é Ásia Oriental e a região se
     - **Assinatura de origem**: a assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura que esteja no mesmo locatário Azure Active Directory como seu cofre de serviços de recuperação.
     - **Grupo de recursos**: o grupo de recursos ao qual pertencem as máquinas virtuais de origem. Todas as VMs no grupo de recursos selecionado são listadas para proteção na próxima etapa.
 
-3. Em **máquinas** > virtuais**selecione máquinas virtuais**, selecione cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, selecione **OK**.
+3. Em **máquinas virtuais**  >  **selecione máquinas virtuais**, selecione cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Depois, selecione **OK**.
 
 4. Em **configurações**, você pode definir as seguintes configurações de site de destino.
 
@@ -64,7 +63,7 @@ Siga estas etapas para modificar as Site Recovery configurações de destino pad
 
 3. Selecione **Personalizar** ao lado de "configurações de criptografia de armazenamento" para selecionar o des de destino para cada disco gerenciado de origem gerenciado por CMK (chave gerenciada pelo cliente). No momento da seleção, você também poderá ver a qual cofre de chaves de destino o DES está associado.
 
-4. Selecione **criar recurso** > de destino**habilitar replicação**.
+4. Selecione **criar recurso de destino**  >  **habilitar replicação**.
 5. Depois que as VMs estiverem habilitadas para replicação, você poderá verificar o status de integridade das VMs em **itens replicados**.
 
 ![Habilitar a replicação para computador com discos habilitados para CMK](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)

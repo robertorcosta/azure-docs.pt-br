@@ -8,15 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: e241657186582955d21981f7dfe18856724aa692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894422"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Cenário: erro do Jupyter Server 404 "não encontrado" devido a "bloquear API de origem cruzada" no Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
+Este artigo descreve as etapas de solução de problemas e as possíveis resoluções de problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
@@ -36,7 +35,7 @@ Esse erro pode ser causado por algumas coisas:
 
 - Se você tiver configurado regras de NSG (grupo de segurança de rede) para restringir o acesso ao cluster. Restringir o acesso com regras NSG ainda permitirá que você acesse diretamente o Apache Ambari e outros serviços usando o endereço IP em vez do nome do cluster. No entanto, ao acessar o Jupyter, você pode ver um erro 404 "não encontrado".
 
-- Se você tiver dado ao seu gateway do HDInsight um nome DNS personalizado diferente do `xxx.azurehdinsight.net`padrão.
+- Se você tiver dado ao seu gateway do HDInsight um nome DNS personalizado diferente do padrão `xxx.azurehdinsight.net` .
 
 ## <a name="resolution"></a>Resolução
 
@@ -47,7 +46,7 @@ Esse erro pode ser causado por algumas coisas:
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. Localize a linha que diz: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` e altere-a para `NotebookApp.allow_origin='\"*\"'`:.
+1. Localize a linha que diz: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` e altere-a para: `NotebookApp.allow_origin='\"*\"'` .
 
 1. Reinicie o serviço Jupyter de Ambari.
 
@@ -59,8 +58,8 @@ Isso é menos seguro do que a configuração que já tínhamos em vigor. Mas é 
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, confira [Como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
 ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645728"
 ---
 # <a name="eventstore-overview"></a>Visão geral do EventStore
@@ -65,7 +64,7 @@ No [fabricSettings.json em seu cluster](service-fabric-cluster-fabric-settings.m
 ### <a name="azure-cluster-version-65"></a>Cluster do Azure versão 6.5 +
 Se o cluster do Azure for atualizado para a versão 6,5 ou superior, o EventStore será habilitado automaticamente no cluster. Para recusar, você precisa atualizar o modelo de cluster com o seguinte:
 
-* Usar uma versão de API `2019-03-01` do ou mais recente 
+* Usar uma versão de API do `2019-03-01` ou mais recente 
 * Adicione o código a seguir à seção de propriedades no cluster
   ```json  
     "fabricSettings": [

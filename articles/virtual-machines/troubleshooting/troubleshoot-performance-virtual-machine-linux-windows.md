@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75772611"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solucionar problemas de desempenho de máquina virtual do Azure no Linux ou Windows
@@ -139,7 +138,7 @@ Consumo estável e constante/constante-a utilização de memória alta pode não
 
 Consumo cada vez maior – um possível "aquecimento" do aplicativo, esse consumo é comum entre os mecanismos de banco de dados iniciando. No entanto, isso também pode ser um sinal de perda de memória em um aplicativo. Identifique o aplicativo e entenda se o comportamento é esperado.
 
-Uso de página ou troca de arquivo – Verifique se você está usando o arquivo de paginação do\) Windows (localizado em D: ou `/dev/sdb`se o arquivo de permuta do Linux (localizado em) está sendo usado intensamente. Se você não tiver nada nesses volumes, exceto nesses arquivos, verifique se há altas leituras/gravações nesses discos. Esse problema é um indicativo de condições de memória insuficiente.
+Uso de página ou troca de arquivo – Verifique se você está usando o arquivo de paginação do Windows (localizado em D: ou se o \) arquivo de permuta do Linux (localizado em `/dev/sdb` ) está sendo usado intensamente. Se você não tiver nada nesses volumes, exceto nesses arquivos, verifique se há altas leituras/gravações nesses discos. Esse problema é um indicativo de condições de memória insuficiente.
 
 ### <a name="high-memory-utilization-remediation"></a>Correção de utilização de memória alta
 
@@ -252,4 +251,4 @@ Estes artigos discutem os cenários específicos:
 
 Se precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Como alternativa, arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

@@ -4,10 +4,9 @@ description: Saiba como instalar ou atualizar as extensões de ligação do Azur
 ms.topic: reference
 ms.date: 09/26/2018
 ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75768853"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar manualmente as extensões de associação do Azure Functions no portal
@@ -22,9 +21,9 @@ Siga as etapas abaixo para instalar ou atualizar manualmente as extensões do po
 
 1. No [portal do Azure](https://portal.azure.com), localize o aplicativo de funções e selecione-o. Escolha a guia **Visão geral** e selecione **Parar**.  Parar o aplicativo de funções desbloqueia arquivos para que as alterações possam ser efetivadas.
 
-1. Escolha a guia **Recursos da plataforma** e em **Ferramentas de Desenvolvimento** selecione **Ferramentas Avançadas (Kudu)**. O ponto de extremidade`https://<APP_NAME>.scm.azurewebsites.net/`kudu () é aberto em uma nova janela.
+1. Escolha a guia **Recursos da plataforma** e em **Ferramentas de Desenvolvimento** selecione **Ferramentas Avançadas (Kudu)**. O ponto de extremidade kudu ( `https://<APP_NAME>.scm.azurewebsites.net/` ) é aberto em uma nova janela.
 
-1. Na janela kudu, selecione **console** > de depuração**cmd**.  
+1. Na janela kudu, selecione **console de depuração**  >  **cmd**.  
 
 1. Na janela de comando, navegue até `D:\home\site\wwwroot` e escolha o ícone de exclusão próximo a `bin` para excluir a pasta. Selecione **OK** para confirmar a exclusão.
 

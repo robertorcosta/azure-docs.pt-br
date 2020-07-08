@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 2b17c2488e47148e8845433f9c7613e1127fbffa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895751"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Cenário: erro do Apache Ambari UI 502 no Azure HDInsight
@@ -32,7 +31,7 @@ Na maioria dos casos, para atenuar o problema, você pode reiniciar o cabeçalho
 
 ### <a name="ambari-server-failed-to-start"></a>Falha ao iniciar o servidor Ambari
 
-Você pode verificar os logs de ambari-Server para descobrir por que o Ambari Server falhou ao iniciar. Um motivo comum é o erro de verificação de consistência do banco de dados. Você pode descobrir isso neste arquivo de log: `/var/log/ambari-server/ambari-server-check-database.log`.
+Você pode verificar os logs de ambari-Server para descobrir por que o Ambari Server falhou ao iniciar. Um motivo comum é o erro de verificação de consistência do banco de dados. Você pode descobrir isso neste arquivo de log: `/var/log/ambari-server/ambari-server-check-database.log` .
 
 Se você fez modificações no nó do cluster, desfaça-as. Sempre use a interface do usuário do Ambari para modificar as configurações relacionadas ao Hadoop/Spark.
 
@@ -49,7 +48,7 @@ service ambari-server start
 
 ### <a name="ambari-server-killed-by-oom-killer"></a>Servidor Ambari eliminado por Oom-Killer
 
-Em alguns cenários, o cabeçalho fica sem memória e o Linux Oom-Killer começa a escolher os processos a serem eliminados. Você pode verificar essa situação pesquisando a ID do processo AmbariServer, que não deve ser encontrada. Em seguida, examine `/var/log/syslog`seu e procure algo assim:
+Em alguns cenários, o cabeçalho fica sem memória e o Linux Oom-Killer começa a escolher os processos a serem eliminados. Você pode verificar essa situação pesquisando a ID do processo AmbariServer, que não deve ser encontrada. Em seguida, examine seu `/var/log/syslog` e procure algo assim:
 
 ```
 Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
@@ -69,8 +68,8 @@ Error Processing URI: /api/v1/clusters/xxxxxx/host_components - (java.lang.OutOf
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, confira [Como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

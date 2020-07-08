@@ -16,28 +16,27 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68728409"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e log | Atenuações 
 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
-| **Dynamics CRM**    | <ul><li>[Identificar entidades sensíveis em sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |
+| **Dynamics CRM**    | <ul><li>[Identificar entidades confidenciais em sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Verifique se a auditoria e o log são impostos no aplicativo](#auditing)</li><li>[Verifique se a rotação de log e a separação estão em vigor](#log-rotation)</li><li>[Verifique se o aplicativo não registra em log os dados confidenciais do usuário](#log-sensitive-data)</li><li>[Garantir que os arquivos de auditoria e de log tenham acesso restrito](#log-restricted-access)</li><li>[Certifique-se de que os eventos de gerenciamento de usuário estão registrados](#user-management)</li><li>[Verifique se o sistema tem embutidas defesas contra uso indevido](#inbuilt-defenses)</li><li>[Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](#diagnostics-logging)</li></ul> |
 | **Backup de banco de dados** | <ul><li>[Verifique se a auditoria de logon é habilitada no SQL Server](#identify-sensitive-entities)</li><li>[Ativar a detecção de ameaças no SQL Azure](#threat-detection)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Uso da Análise de Armazenamento do Azure para auditar o acesso do Armazenamento do Azure](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Implementar o log suficiente](#sufficient-logging)</li><li>[Implementar o tratamento de falha de auditoria suficiente](#audit-failure-handling)</li></ul> |
-| **API Web** | <ul><li>[Garantir que a auditoria e o log sejam impostos na API da Web](#logging-web-api)</li></ul> |
+| **API da Web** | <ul><li>[Garantir que a auditoria e o log sejam impostos na API da Web](#logging-web-api)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Certifique-se de que a auditoria e log apropriado é imposta no campo Gateway](#logging-field-gateway)</li></ul> |
 | **Gateway de Nuvem IoT** | <ul><li>[Verifique se a auditoria apropriada e o registro em log são aplicados no gateway de nuvem](#logging-cloud-gateway)</li></ul> |
 
 ## <a name="identify-sensitive-entities-in-your-solution-and-implement-change-auditing"></a><a id="sensitive-entities"></a>Identificar entidades sensíveis em sua solução e implementar a auditoria de alteração
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Build |  
@@ -48,7 +47,7 @@ ms.locfileid: "68728409"
 
 ## <a name="ensure-that-auditing-and-logging-is-enforced-on-the-application"></a><a id="auditing"></a>Certifique-se de que a auditoria e o registro em log são impostos no aplicativo
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -59,7 +58,7 @@ ms.locfileid: "68728409"
 
 ## <a name="ensure-that-log-rotation-and-separation-are-in-place"></a><a id="log-rotation"></a>Certifique-se de que a rotação de log e separação estão em vigor
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -70,7 +69,7 @@ ms.locfileid: "68728409"
 
 ## <a name="ensure-that-the-application-does-not-log-sensitive-user-data"></a><a id="log-sensitive-data"></a>Certifique-se de que o aplicativo não registra dados confidenciais do usuário
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -81,7 +80,7 @@ ms.locfileid: "68728409"
 
 ## <a name="ensure-that-audit-and-log-files-have-restricted-access"></a><a id="log-restricted-access"></a>Verifique se os arquivos de Log e auditoria tem acesso restrito
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -92,7 +91,7 @@ ms.locfileid: "68728409"
 
 ## <a name="ensure-that-user-management-events-are-logged"></a><a id="user-management"></a>Certifique-se de que os eventos de gerenciamento de usuário estão registrados
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -103,7 +102,7 @@ ms.locfileid: "68728409"
 
 ## <a name="ensure-that-the-system-has-inbuilt-defenses-against-misuse"></a><a id="inbuilt-defenses"></a>Verifique se o sistema tem embutidas defesas contra uso indevido
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -114,7 +113,7 @@ ms.locfileid: "68728409"
 
 ## <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a><a id="diagnostics-logging"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -125,7 +124,7 @@ ms.locfileid: "68728409"
 
 ## <a name="ensure-that-login-auditing-is-enabled-on-sql-server"></a><a id="identify-sensitive-entities"></a>Verifique se a auditoria de logon é habilitada no SQL Server
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados | 
 | **Fase do SDL**               | Build |  
@@ -136,7 +135,7 @@ ms.locfileid: "68728409"
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Ativar a detecção de ameaças no SQL Azure
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados | 
 | **Fase do SDL**               | Build |  
@@ -147,7 +146,7 @@ ms.locfileid: "68728409"
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Uso da Análise de Armazenamento do Azure para auditar o acesso do Armazenamento do Azure
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Armazenamento do Azure | 
 | **Fase do SDL**               | Implantação |  
@@ -158,7 +157,7 @@ ms.locfileid: "68728409"
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementar o log suficiente
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  
@@ -187,7 +186,7 @@ A seguir está um exemplo de configuração com a auditoria ativada
 
 ## <a name="implement-sufficient-audit-failure-handling"></a><a id="audit-failure-handling"></a>Implementar o tratamento de falha de auditoria suficiente
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  
@@ -214,7 +213,7 @@ Configure o WCF para notificar o programa sempre que não é possível gravar em
 
 ## <a name="ensure-that-auditing-and-logging-is-enforced-on-web-api"></a><a id="logging-web-api"></a>Certifique-se de que a auditoria e registro em log é imposto no API da Web
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Build |  
@@ -225,7 +224,7 @@ Configure o WCF para notificar o programa sempre que não é possível gravar em
 
 ## <a name="ensure-that-appropriate-auditing-and-logging-is-enforced-on-field-gateway"></a><a id="logging-field-gateway"></a>Certifique-se de que a auditoria e log apropriado é imposta no campo Gateway
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Campo de IoT | 
 | **Fase do SDL**               | Build |  
@@ -236,7 +235,7 @@ Configure o WCF para notificar o programa sempre que não é possível gravar em
 
 ## <a name="ensure-that-appropriate-auditing-and-logging-is-enforced-on-cloud-gateway"></a><a id="logging-cloud-gateway"></a>Certifique-se de que a auditoria e log apropriado é imposta no Gateway de nuvem
 
-| Título                   | Detalhes      |
+| Title                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Nuvem IoT | 
 | **Fase do SDL**               | Build |  

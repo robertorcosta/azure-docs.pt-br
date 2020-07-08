@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75973670"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Excluir discos da replicação do PowerShell de VMs do Azure
@@ -21,7 +20,7 @@ Este artigo descreve como excluir discos ao replicar VMs do Azure. Você pode ex
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar:
+Antes de começar:
 
 - Certifique-se de compreender a [arquitetura e os componentes de recuperação de desastre](azure-to-azure-architecture.md).
 - Examine os [requisitos de suporte](azure-to-azure-support-matrix.md) para todos os componentes.

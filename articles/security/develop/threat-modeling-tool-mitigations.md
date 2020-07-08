@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68728039"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigações do Microsoft Threat Modeling Tool
@@ -36,7 +35,7 @@ As atenuações da ferramenta de modelagem de ameaças são categorizadas de aco
 | -------- | ----------- |
 | **[Auditoria e registro em log](threat-modeling-tool-auditing-and-logging.md)** | Quem fez o que e quando? Auditoria e log consultem como seu aplicativo registra eventos relacionados à segurança |
 | **[Autenticação](threat-modeling-tool-authentication.md)** | quem é você? Autenticação é o processo no qual uma entidade comprova a identidade de outra entidade, normalmente por meio de credenciais, como um nome de usuário e senha |
-| **[Nesse](threat-modeling-tool-authorization.md)** | o que você pode fazer? A autorização é como o seu aplicativo fornece controles de acesso para recursos e operações |
+| **[Autorização](threat-modeling-tool-authorization.md)** | o que você pode fazer? A autorização é como o seu aplicativo fornece controles de acesso para recursos e operações |
 | **[Segurança de comunicação](threat-modeling-tool-communication-security.md)** | Que você está falando com? Segurança de comunicação garante que toda a comunicação feita é tão segura quanto possível |
 | **[Gerenciamento de configuração](threat-modeling-tool-configuration-management.md)** | Que seu aplicativo executar como? Quais bancos de dados ele se conecta ao? Como o seu aplicativo é administrado? Como essas configurações são protegidas? Gerenciamento de configuração se refere a como o seu aplicativo lida com esses problemas operacionais |
 | **[Criptografia](threat-modeling-tool-cryptography.md)** | Como você mantém os segredos (confidencialidade)? Como são à prova de adulteração seus dados ou bibliotecas (integridade)? Como você gera valores aleatórios que devem ser criptograficamente forte? Criptografia refere-se a como seu aplicativo impõe a integridade e confidencialidade |

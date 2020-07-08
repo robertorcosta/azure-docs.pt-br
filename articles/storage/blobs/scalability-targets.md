@@ -1,5 +1,5 @@
 ---
-title: Escalabilidade e metas de desempenho para o armazenamento de BLOBs
+title: Metas de escalabilidade e desempenho do Armazenamento de Blobs
 titleSuffix: Azure Storage
 description: Saiba mais sobre escalabilidade e metas de desempenho para o armazenamento de BLOBs.
 services: storage
@@ -10,13 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 3d0dd4683c990e2bd5b2f6f1990f1b379f76fc75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75748821"
 ---
-# <a name="scalability-and-performance-targets-for-blob-storage"></a>Escalabilidade e metas de desempenho para o armazenamento de BLOBs
+# <a name="scalability-and-performance-targets-for-blob-storage"></a>Metas de escalabilidade e desempenho do Armazenamento de Blobs
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
@@ -24,7 +23,7 @@ ms.locfileid: "75748821"
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento de Blobs](storage-performance-checklist.md)
 - [Metas de escalabilidade para contas de armazenamento Standard](../common/scalability-targets-standard-account.md)

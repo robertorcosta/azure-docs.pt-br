@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646465"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
@@ -52,7 +51,7 @@ Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../
 
 2. Navegue até seu hub IoT.
 
-3. Selecione **configurações de diagnóstico**.
+3. Selecionar **configurações de Diagnóstico**.
 
 4. Selecione **Ativar diagnóstico**.
 
@@ -69,7 +68,7 @@ Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../
 
 8. Clique em **executar** para exibir eventos recentes.
 
-9. Se houver resultados, `OperationName`procure, `ResultType`, `ResultSignature`e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
+9. Se houver resultados, procure `OperationName` , `ResultType` , `ResultSignature` e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
 
 
 ## <a name="common-error-codes"></a>Códigos de erro comuns

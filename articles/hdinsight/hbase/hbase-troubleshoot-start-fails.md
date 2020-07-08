@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887199"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>O Apache HBase Master (HMaster) não é iniciado no Azure HDInsight
@@ -44,7 +43,7 @@ Após a execução desses comandos, o HMaster deve iniciar imediatamente.
 
 ### <a name="issue"></a>Problema
 
-Você pode ver uma mensagem que indica que a `hbase: meta` tabela não está online. A `hbck` execução pode informar `hbase: meta table replicaId 0 is not found on any region.` que nos logs do HMaster, você pode ver a mensagem `No server address listed in hbase: meta for region hbase: backup <region name>`:.  
+Você pode ver uma mensagem que indica que a `hbase: meta` tabela não está online. A execução `hbck` pode informar que `hbase: meta table replicaId 0 is not found on any region.` nos logs do HMaster, você pode ver a mensagem: `No server address listed in hbase: meta for region hbase: backup <region name>` .  
 
 ### <a name="cause"></a>Causa
 
@@ -59,7 +58,7 @@ HMaster não pôde inicializar após a reinicialização do HBase.
     delete 'hbase:meta','hbase:backup <region name>','<column name>'
     ```
 
-1. Exclua `hbase: namespace` a entrada. Essa entrada pode ser o mesmo erro que está sendo relatado quando a `hbase: namespace` tabela é verificada.
+1. Exclua a `hbase: namespace` entrada. Essa entrada pode ser o mesmo erro que está sendo relatado quando a `hbase: namespace` tabela é verificada.
 
 1. Reinicie o HMaster ativo da interface do usuário do Ambari para exibir o HBase em estado de execução.
 
@@ -75,7 +74,7 @@ HMaster não pôde inicializar após a reinicialização do HBase.
 
 ### <a name="issue"></a>Problema
 
-O HMaster expira com uma exceção fatal semelhante a `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`:.
+O HMaster expira com uma exceção fatal semelhante a: `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned` .
 
 ### <a name="cause"></a>Causa
 
@@ -83,7 +82,7 @@ Você pode enfrentar esse problema se tiver muitas tabelas e regiões que não f
 
 ### <a name="resolution"></a>Resolução
 
-1. Na interface do usuário do Apache Ambari, vá para**configurações**do **HBase** > . No arquivo personalizado `hbase-site.xml` , adicione a seguinte configuração:
+1. Na interface do usuário do Apache Ambari, vá para configurações do **HBase**  >  **Configs**. No arquivo personalizado `hbase-site.xml` , adicione a seguinte configuração:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -107,15 +106,15 @@ Nós reiniciam periodicamente. Nos logs do servidor de região, você pode ver e
 
 ### <a name="cause"></a>Causa
 
-Pausa `regionserver` longa do GC de JVM. A pausa causará uma falta de resposta e não será capaz de enviar uma `regionserver` pulsação de coração para HMaster dentro do 40s de tempo limite de sessão ZK. O HMaster acreditará `regionserver` estar inativo e anulará o `regionserver` e será reiniciado.
+Pausa longa do `regionserver` GC de JVM. A pausa causará uma `regionserver` falta de resposta e não será capaz de enviar uma pulsação de coração para HMaster dentro do 40s de tempo limite de sessão ZK. O HMaster acreditará `regionserver` estar inativo e anulará o `regionserver` e será reiniciado.
 
 ### <a name="resolution"></a>Resolução
 
-Altere o tempo limite da sessão Zookeeper, `hbase-site` não `zookeeper.session.timeout` apenas Configurando `maxSessionTimeout` , mas também a configuração Zookeeper `zoo.cfg` , precisa ser alterada.
+Altere o tempo limite da sessão Zookeeper, não apenas `hbase-site` configurando, `zookeeper.session.timeout` mas também `zoo.cfg` a configuração Zookeeper, `maxSessionTimeout` precisa ser alterada.
 
 1. Acesse a interface do usuário do Ambari, vá para **> de configuração do HBase – configurações de >**, na seção tempos limite, altere o valor do tempo limite da sessão Zookeeper.
 
-1. Acesse a interface do usuário do Ambari, acesse **Zookeeper-> configurações-> personalizado** `zoo.cfg`, adicione/altere a configuração a seguir. Verifique se o valor é o mesmo que o `zookeeper.session.timeout`HBase.
+1. Acesse a interface do usuário do Ambari, acesse **Zookeeper-> configurações-> personalizado** `zoo.cfg` , adicione/altere a configuração a seguir. Verifique se o valor é o mesmo que o HBase `zookeeper.session.timeout` .
 
     ```
     Key: maxSessionTimeout Value: 120000  
@@ -145,8 +144,8 @@ Defina HBase. rootdir: wasb://@.blob.core.windows.net/hbase e reinicie os servi�
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

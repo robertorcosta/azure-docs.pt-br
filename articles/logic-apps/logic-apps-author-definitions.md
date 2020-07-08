@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979386"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Criar, editar ou estender JSON para definições de fluxo de trabalho de aplicativo lógico em aplicativos lógicos do Azure
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Criar, editar ou estender o JSON para definições de fluxo de trabalho do aplicativo lógico nos Aplicativos Lógicos do Azure
 
 Quando você cria soluções de integração corporativa com fluxos de trabalho automatizados em [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md), as definições de aplicativo lógico subjacentes usam JSON (JavaScript Object Notation) simples e declarativo, junto com o [ Esquema de Linguagem de Definição do Fluxo de Trabalho (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) para sua descrição e validação. Esses formatos tornam as definições do aplicativo lógico mais fáceis de ler e entender sem saber muito sobre o código.
 Quando você quiser automatizar a criação e implantação de aplicativos lógicos, você pode incluir definições de aplicativo lógica como [recursos do Azure](../azure-resource-manager/management/overview.md) dentro de [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md).
@@ -131,14 +130,14 @@ Estas etapas descrevem como esse exemplo processa essa cadeia de caracteres, tra
 
 2. Para obter uma cadeia de caracteres mais curta, subtraia `5`.
 
-3. Agora obtenha um [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
+3. Agora obtenha um [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md) .
 Comece no `5` do índice e siga pelo restante da cadeia de caracteres.
 
-4. Converta essa Subcadeia em [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) uma cadeia de caracteres.
+4. Converta essa Subcadeia em uma [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) cadeia de caracteres.
 
-5. Agora [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) , todos `+` os caracteres `-` com caracteres.
+5. Agora, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) todos os `+` caracteres com `-` caracteres.
 
-6. Por fim [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) , todos `/` os caracteres `_` com caracteres.
+6. Por fim, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) todos os `/` caracteres com `_` caracteres.
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mapeie itens de lista a valores de propriedade e, em seguida, use mapas como parâmetros
 
@@ -240,7 +239,7 @@ Por exemplo, essa expressão descobre quanto tempo estão demorando as etapas do
 
    Se o primeiro valor for menor que o segundo valor, mais de um segundo terá decorrido desde o primeiro pedido.
 
-Para formatar datas, você pode usar formatadores de cadeia de caracteres. Por exemplo, para obter o RFC1123, use [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+Para formatar datas, você pode usar formatadores de cadeia de caracteres. Por exemplo, para obter o RFC1123, use [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md) .
 Saiba mais sobre [formatação de data](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json

@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: twooley
 ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75930215"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar e configurar o Adaptador StorSimple para o SharePoint
@@ -226,7 +225,7 @@ Antes de desinstalar o software Adaptador StorSimple para SharePoint, é necess�
 4. Na página **Configurar Adaptador do StorSimple**, clique no botão **Desabilitar** abaixo de cada um dos bancos de dados de conteúdo que deseja remover do armazenamento BLOB externo. 
 5. Exclua os objetos do SharePoint e depois os carregue novamente.
 
-Como alternativa, você pode usar o cmdlet `RBS Migrate()` do Microsoft PowerShell incluído com o SharePoint. Para saber mais, consulte [Migrar o conteúdo para dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Como alternativa, você pode usar o cmdlet do Microsoft `RBS Migrate()` PowerShell incluído com o SharePoint. Para saber mais, consulte [Migrar o conteúdo para dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 Depois de mover os BLOBs de volta para o banco de dados de conteúdo, vá para a próxima etapa: [Desinstalar o adaptador](#uninstall-the-adapter).
 
@@ -237,8 +236,8 @@ Depois de mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Se
 1. Use uma conta com privilégios de administrador para fazer logon no servidor WFE (front-end da Web).
 2. Clique duas vezes no instalador do Adaptador StorSimple para SharePoint. O Assistente de Instalação é iniciado.
    
-    ![Assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. Clique em **Avançar**. A página a seguir será exibida.
+    ![Assistente para Instalação](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+3. Clique em **Próximo**. A página a seguir será exibida.
    
     ![Página de remoção do assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. Clique em **Remover** para selecionar o processo de remoção. A página a seguir será exibida.

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75780327"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Criando filtros com a API REST de Serviços de Mídia do Microsoft Azure
@@ -83,7 +82,7 @@ A seguir, o exemplo **Request body**, que define as condições de seleção de 
 
 ## <a name="create-account-filters"></a>Crie filtros de conta
 
-Na coleção do postmaster que você baixou, selecione **filtros**->de conta**criar ou atualizar um filtro de conta**.
+Na coleção do postmaster que você baixou, selecione **filtros de conta** -> **criar ou atualizar um filtro de conta**.
 
 O método de solicitação HTTP **PUT** é semelhante a:
 
@@ -101,7 +100,7 @@ Para mais informações, consulte [Criar ou atualizar](https://docs.microsoft.co
 
 ## <a name="create-asset-filters"></a>Crie filtros de ativos  
 
-Na coleção do "Media Services V3" do postmaster que você baixou, selecione **ativos**->**criar ou atualizar o filtro de ativo**.
+Na coleção do "Media Services V3" do postmaster que você baixou, selecione **ativos** -> **criar ou atualizar o filtro de ativo**.
 
 O método de solicitação HTTP **PUT** é semelhante a:
 

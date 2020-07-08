@@ -8,10 +8,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666662"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Trocar mensagens EDI como lotes ou grupos entre parceiros comerciais em aplicativos lógicos do Azure
@@ -93,7 +92,7 @@ Para esse receptor do lote, você especifica o modo de lote, nome, critérios de
 
    4. Configure essas propriedades para a ação do codificador de lote:
 
-      | Propriedade | Descrição |
+      | Property | Descrição |
       |----------|-------------|
       | **Nome do contrato do X12** | Abra a lista e selecione o contrato existente. <p>Se a lista estiver vazia, certifique-se de [vincular o aplicativo lógico à conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) que tiver o contrato desejado. | 
       | **BatchName** | Clique dentro dessa caixa e, após a exibição da lista de conteúdo dinâmico, selecione o token do **Nome do Lote**. | 
@@ -123,11 +122,11 @@ Para certificar-se de que o receptor do lote funciona conforme o esperado, você
 
 3. Configure as propriedades para a ação HTTP:
 
-   | Propriedade | Descrição | 
+   | Property | Descrição | 
    |----------|-------------|
-   | **Forma** | Nessa lista, selecione **POST**. | 
-   | **URI** | Gere um URI para o compartimento de solicitação e, em seguida, insira esse URI nessa caixa. | 
-   | **Conteúdo** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token do **Corpo**, que aparece na seção, **Codificar em lote por nome de contrato**. <p>Se você não visualizar o token do **Corpo**, próximo a **Codificar em lote por nome de contrato **, selecione **Ver mais**. | 
+   | **Método** | Nessa lista, selecione **POST**. | 
+   | **Uri** | Gere um URI para o compartimento de solicitação e, em seguida, insira esse URI nessa caixa. | 
+   | **Corpo** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token do **Corpo**, que aparece na seção, **Codificar em lote por nome de contrato**. <p>Se você não visualizar o token do **Corpo**, próximo a **Codificar em lote por nome de contrato **, selecione **Ver mais**. | 
    ||| 
 
    ![Forneça detalhes da ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
@@ -173,7 +172,7 @@ Agora crie um ou mais aplicativos lógicos que enviem mensagens ao aplicativo l�
 
 4. Defina as propriedades do remetente do lote.
 
-   | Propriedade | Descrição | 
+   | Property | Descrição | 
    |----------|-------------| 
    | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: o nome do lote é validado no runtime e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você quer enviar, que é o token do **Corpo** neste exemplo | 

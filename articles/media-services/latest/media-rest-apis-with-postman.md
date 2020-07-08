@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75779630"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia v3
@@ -49,7 +48,7 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
 
 ### <a name="configure-the-environment"></a>Configure o ambiente 
 
-1. Abra o aplicativo **Postman**.
+1. Abra o aplicativo do **postmaster** .
 2. À direita da tela, selecione a opção **Gerenciar ambiente**.
 
     ![Gerenciar ambiente](./media/develop-with-postman/postman-import-env.png)
@@ -97,7 +96,7 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 * Se seu aplicativo falhar com "HTTP 504: tempo limite do gateway", verifique se a variável de local não foi definida explicitamente com um valor diferente do local esperado da conta dos serviços de mídia. 
 * Se você receber um erro "conta não encontrada", verifique também se a propriedade local na mensagem JSON do corpo está definida como o local em que a conta dos serviços de mídia está. 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Carregar arquivos em uma conta dos Serviços de Mídia – REST](upload-files-rest-how-to.md)
 - [Criar filtros com os Serviços de Mídia – REST](filters-dynamic-manifest-rest-howto.md)

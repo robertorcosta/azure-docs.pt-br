@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/08/2020
 tags: connectors
 ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75732647"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerenciar emails, contatos e calendários no Outlook do Office 365 usando os Aplicativos Lógicos do Azure
@@ -25,7 +24,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 Você pode usar qualquer gatilho para iniciar o fluxo de trabalho, por exemplo, quando um novo email chegar, quando um item de calendário for atualizado ou quando um evento ocorrer em um serviço de diferença, como o Salesforce. Você pode usar ações que respondem ao evento de gatilho, por exemplo, enviar um email ou criar um novo evento de calendário. 
 
 > [!NOTE]
-> Para automatizar tarefas para uma @outlook.com conta @hotmail.com do ou do, use o [conector do Outlook.com](../connectors/connectors-create-api-outlook.md).
+> Para automatizar tarefas para uma @outlook.com conta do ou @hotmail.com do, use o [conector do Outlook.com](../connectors/connectors-create-api-outlook.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +52,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
 
 1. No gatilho, defina os valores de **frequência** e **intervalo** . Para adicionar outras propriedades de gatilho disponíveis, como **fuso horário**, selecione essas propriedades na lista **Adicionar novo parâmetro** .
 
-   Por exemplo, se você quiser que o gatilho Verifique o calendário a cada 15 minutos, defina a **frequência** como **minuto**e defina o `15` **intervalo** como. 
+   Por exemplo, se você quiser que o gatilho Verifique o calendário a cada 15 minutos, defina a **frequência** como **minuto**e defina o **intervalo** como `15` . 
 
    ![Definir a frequência e o intervalo para o gatilho](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -69,7 +68,7 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
 1. Para adicionar uma ação como a última etapa no fluxo de trabalho, selecione **nova etapa**. 
 
-   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal mais ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, insira `office 365 outlook` como o filtro. Este exemplo seleciona **criar contato**.
 

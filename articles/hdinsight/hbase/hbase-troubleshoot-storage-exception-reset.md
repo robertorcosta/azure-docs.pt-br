@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: a7af6407191577112f936bfb9048985e85c868ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887216"
 ---
 # <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>Cenário: exceção de armazenamento após a redefinição de conexão no Azure HDInsight
@@ -26,13 +25,13 @@ Não é possível criar uma nova tabela do Apache HBase.
 
 Durante um processo de truncamento de tabela, houve um problema de conexão de armazenamento. A entrada da tabela foi excluída na tabela de metadados do HBase. Todos, exceto um arquivo de BLOB, foram excluídos.
 
-Embora não haja nenhum blob de pasta `/hbase/data/default/ThatTable` chamado sentado no armazenamento. O driver WASB encontrou a existência do arquivo de blob acima e não permitiria criar nenhum blob chamado `/hbase/data/default/ThatTable` porque ele assumiu que as pastas pai existiam, portanto, a criação da tabela falhará.
+Embora não haja nenhum blob de pasta chamado `/hbase/data/default/ThatTable` sentado no armazenamento. O driver WASB encontrou a existência do arquivo de blob acima e não permitiria criar nenhum blob chamado `/hbase/data/default/ThatTable` porque ele assumiu que as pastas pai existiam, portanto, a criação da tabela falhará.
 
 ## <a name="resolution"></a>Resolução
 
 1. Na interface do usuário do Apache Ambari, reinicie o HMaster ativo. Isso permitirá que um dos dois HMaster em espera se torne o ativo e o novo HMaster ativo recarregará as informações da tabela de metadados. Portanto, você não verá a `already-deleted` tabela na interface do usuário do amHMaster.
 
-1. Você pode encontrar o arquivo de blob órfão nas ferramentas de interface do usuário, como `hdfs dfs -ls /xxxxxx/yyyyy`o Cloud Explorer ou executando o comando como. Execute `hdfs dfs -rmr /xxxxx/yyyy` para excluir esse BLOB. Por exemplo, `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`.
+1. Você pode encontrar o arquivo de blob órfão nas ferramentas de interface do usuário, como o Cloud Explorer ou executando o comando como `hdfs dfs -ls /xxxxxx/yyyyy` . Execute `hdfs dfs -rmr /xxxxx/yyyy` para excluir esse BLOB. Por exemplo, `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`.
 
 Agora você pode criar uma nova tabela com o mesmo nome no HBase.
 
@@ -40,8 +39,8 @@ Agora você pode criar uma nova tabela com o mesmo nome no HBase.
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 80f984643d6d8be88b381881c6fc1cb1cb5f1815
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887335"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Cenário: Bindexception-o endereço já está em uso no Azure HDInsight
@@ -20,7 +19,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 ## <a name="issue"></a>Problema
 
-A operação de reinicialização em um servidor de região do Apache HBase não é concluída. No diretório `region-server.log` in `/var/log/hbase` nos nós de trabalho em que o servidor de região é iniciado, você pode ver uma mensagem de erro semelhante à seguinte:
+A operação de reinicialização em um servidor de região do Apache HBase não é concluída. No `region-server.log` diretório in `/var/log/hbase` nos nós de trabalho em que o servidor de região é iniciado, você pode ver uma mensagem de erro semelhante à seguinte:
 
 ```
 Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
@@ -42,7 +41,7 @@ Reiniciando servidores de região do Apache HBase durante atividade de carga de 
 
 1. Após 30 segundos, o agente do Ambari envia um comando (`kill -9`) de encerramento forçado ao servidor de região.
 
-1. Devido a esse desligamento abrupta, embora o processo do servidor de região seja eliminado, a porta associada ao processo pode não ser liberada `AddressBindException`, o que eventualmente acarreta.
+1. Devido a esse desligamento abrupta, embora o processo do servidor de região seja eliminado, a porta associada ao processo pode não ser liberada, o que eventualmente acarreta `AddressBindException` .
 
 ## <a name="resolution"></a>Resolução
 
@@ -59,8 +58,8 @@ sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh star
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -9,10 +9,9 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
 ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666543"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Sem servidor do Azure: visão geral para a criação de aplicativos e soluções baseados em nuvem com aplicativos lógicos do Azure e Azure Functions
@@ -45,4 +44,4 @@ O Azure fornece ferramentas avançadas para o desenvolvimento, implantação e g
 
 * [Criar um aplicativo sem servidor no Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Criar um painel do Customer insights sem servidor](logic-apps-scenario-social-serverless.md)
-* [Automatizar implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatizar a implantação de aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md)

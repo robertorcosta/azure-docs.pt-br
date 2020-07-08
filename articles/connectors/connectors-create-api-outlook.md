@@ -8,15 +8,14 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75707179"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Gerenciar emails, calendários e contatos no Outlook.com usando o aplicativo lógico do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do Outlook.com](/connectors/outlook/), você pode criar tarefas automatizadas e @outlook.com fluxos @hotmail.com de trabalho que gerenciam sua conta do ou criando aplicativos lógicos. Por exemplo, você automatiza essas tarefas:
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do Outlook.com](/connectors/outlook/), você pode criar tarefas automatizadas e fluxos de trabalho que gerenciam sua conta do @outlook.com ou @hotmail.com criando aplicativos lógicos. Por exemplo, você automatiza essas tarefas:
 
 * Obter, enviar e responder a emails.
 * Agende reuniões no seu calendário.
@@ -25,7 +24,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 Você pode usar qualquer gatilho para iniciar o fluxo de trabalho, por exemplo, quando um novo email chega, quando um item de calendário é atualizado ou quando um evento ocorre em um serviço de diferença. Você pode usar ações que respondem ao evento de gatilho, por exemplo, enviar um email ou criar um novo evento de calendário.
 
 > [!NOTE]
-> Para automatizar tarefas para uma conta corporativa da Microsoft @fabrikam.onmicrosoft.com, como, use o conector do Outlook do [Office 365](../connectors/connectors-create-api-office365-outlook.md).
+> Para automatizar tarefas para uma conta corporativa da Microsoft @fabrikam.onmicrosoft.com , como, use o [conector do Outlook do Office 365](../connectors/connectors-create-api-office365-outlook.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +60,7 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
 1. Para adicionar uma ação como a última etapa no fluxo de trabalho, selecione **nova etapa**. 
 
-   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal mais ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, digite "outlook.com" como filtro. Para este exemplo, selecione **enviar um email**. 
 

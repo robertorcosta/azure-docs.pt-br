@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75967389"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
@@ -39,7 +38,7 @@ Para obter mais informações, consulte [SDK do Azure para Visual Studio 2.6](ht
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 ou posterior
 A partir da versão 0.8.0, a instalação do Azure PowerShell inclui o módulo do Gerenciador de Recursos do Azure, além do módulo do Azure. Este novo módulo permite que você escreva script para implantação de grupos de recursos.
 
-Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
+Para obter mais informações, consulte [usando Azure PowerShell com Azure Resource Manager](../powershell-azure-resource-manager.md)
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições de JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos.  As informações prontamente disponíveis nesta ferramenta são muito úteis para a criação de modelos, pois mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [portal do Azure](https://portal.azure.com/)e, em seguida, inspecionar suas definições de JSON na ferramenta do Explorer para ajudá-lo a modelar o grupo de recursos.
@@ -182,8 +181,8 @@ Novamente, os recursos aninhados devem ter uma hierarquia muito semelhante àque
 ## <a name="deploy-the-resource-group-template-yourself"></a>Implantar o modelo de grupo de recursos por conta própria
 O botão **Implantar no Azure** é ótimo, mas só permite que você implante o modelo de grupo de recursos em azuredeploy.json se você já tiver enviado azuredeploy.json por push para o GitHub. O SDK .NET do Azure também fornece as ferramentas para implantar qualquer arquivo de modelo JSON diretamente do computador local. Para fazer isso, siga as etapas abaixo:
 
-1. No Visual Studio, clique em **arquivo** > **novo** > **projeto**.
-2. Clique em **Visual C#** > **Cloud** > **Azure Resource Group**e clique em **OK**.
+1. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
+2. Clique em **Visual C#**  >  **Cloud**  >  **Azure Resource Group**e clique em **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Em **Selecionar Modelo do Azure**, selecione **Modelo em Branco** e clique em **OK**.
@@ -209,7 +208,7 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
 11. Localize as propriedades `location` e `isEnabled` e defina-as conforme mostrado abaixo. Faça o mesmo para os outros três alertas (lâmpadas roxas).
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. Agora, você está pronto para implantar. Clique com o botão direito do mouse no projeto e selecione **implantar** > **nova implantação**.
+12. Agora, você está pronto para implantar. Clique com o botão direito do mouse no projeto e selecione **implantar**  >  **nova implantação**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Faça logon na conta do Azure se ainda não fez isso.
@@ -262,9 +261,9 @@ No DevOps, repetitividade e previsibilidade são essenciais para qualquer implan
 Para saber mais sobre as propriedades e a sintaxe JSON de tipos de recursos implantados neste artigo, consulte:
 
 * [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
-* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
-* [Microsoft.Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
+* [Microsoft. SQL/Servers/bancos de dados](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft. SQL/Servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
 * [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)
-* [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
+* [Microsoft. Web/sites/Slots](/azure/templates/microsoft.web/sites/slots)
 * [Microsoft. insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

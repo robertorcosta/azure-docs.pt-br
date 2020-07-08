@@ -8,19 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887318"
 ---
-# <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Cenário: `hbase hbck` o comando retorna inconsistências no Azure HDInsight
+# <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Cenário: o `hbase hbck` comando retorna inconsistências no Azure HDInsight
 
 Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
 ## <a name="issue-region-is-not-in-hbasemeta"></a>Problema: a região não está em`hbase:meta`
 
-Região xxx no HDFS, mas não listada `hbase:meta` em ou implantada em qualquer servidor de região.
+Região xxx no HDFS, mas não listada em `hbase:meta` ou implantada em qualquer servidor de região.
 
 ### <a name="cause"></a>Causa
 
@@ -43,7 +42,7 @@ Varia.
 
 ## <a name="issue-region-is-offline"></a>Problema: a região está offline
 
-Região xxx não implantada em nenhum RegionServer. Isso significa que a região está `hbase:meta`em, mas offline.
+Região xxx não implantada em nenhum RegionServer. Isso significa que a região está em `hbase:meta` , mas offline.
 
 ### <a name="cause"></a>Causa
 
@@ -67,7 +66,7 @@ Varia.
 
 ### <a name="resolution"></a>Resolução
 
-Mescle manualmente essas regiões sobrepostas. Vá para a seção da interface do usuário da Web do HBase HMaster, selecione o link da tabela, que tem o problema. Você verá chave inicial/chave final de cada região que pertence a essa tabela. Em seguida, mescle essas regiões sobrepostas. No Shell do HBase, `merge_region 'xxxxxxxx','yyyyyyy', true`faça. Por exemplo:
+Mescle manualmente essas regiões sobrepostas. Vá para a seção da interface do usuário da Web do HBase HMaster, selecione o link da tabela, que tem o problema. Você verá chave inicial/chave final de cada região que pertence a essa tabela. Em seguida, mescle essas regiões sobrepostas. No Shell do HBase, faça `merge_region 'xxxxxxxx','yyyyyyy', true` . Por exemplo:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -83,7 +82,7 @@ Nesse cenário, você precisa mesclar Regiona e RegionC e ser região com o mesm
 
 ## <a name="issue-cant-load-regioninfo"></a>Problema: não é possível carregar`.regioninfo`
 
-Não é `.regioninfo` possível carregar `/hbase/data/default/tablex/regiony`para a região.
+Não é possível carregar `.regioninfo` para a região `/hbase/data/default/tablex/regiony` .
 
 ### <a name="cause"></a>Causa
 
@@ -105,8 +104,8 @@ Limpe manualmente estes arquivos e pastas restantes:
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

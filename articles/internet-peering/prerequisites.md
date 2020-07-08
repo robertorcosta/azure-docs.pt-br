@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3c820a7be561aeef9b7e50fd0ac0cf4dee721af8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75775401"
 ---
 # <a name="prerequisites-to-set-up-peering-with-microsoft"></a>Pré-requisitos de configuração de emparelhamento com a Microsoft
@@ -34,5 +33,5 @@ Verifique se os pré-requisitos abaixo foram atendidos antes de solicitar um nov
 
 * [Crie ou modifique um emparelhamento direto usando o portal](howto-direct-portal.md).
 * [Converter um Emparelhamento direto herdado para o recurso do Azure usando o portal](howto-legacy-direct-portal.md)
-* [Criar ou modificar o emparelhamento do Exchange usando o portal](howto-exchange-portal.md)
+* [Criar ou modificar um emparelhamento do Exchange usando o portal](howto-exchange-portal.md)
 * [Converter um emparelhamento do Exchange herdado para o recurso do Azure usando o portal](howto-legacy-exchange-portal.md)

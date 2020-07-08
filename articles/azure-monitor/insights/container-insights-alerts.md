@@ -4,10 +4,9 @@ description: Este artigo descreve como criar alertas personalizados com base em 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75730918"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como configurar alertas no Azure Monitor para problemas de desempenho de contêineres
@@ -100,7 +99,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->As consultas a seguir usam os valores \<de espaço reservado Your-cluster- \<Name> e-Controller-Name> para representar o cluster e o controlador. Substitua-os por valores específicos do seu ambiente ao configurar alertas.
+>As consultas a seguir usam os valores de espaço reservado \<your-cluster-name> e \<your-controller-name> para representar o cluster e o controlador. Substitua-os por valores específicos do seu ambiente ao configurar alertas.
 
 A consulta a seguir calcula a utilização média da CPU de todos os contêineres em um controlador como uma média da utilização da CPU de cada instância de contêiner em um controlador a cada minuto. A medida é uma porcentagem do limite configurado para um contêiner.
 
@@ -284,12 +283,12 @@ Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das re
 >
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Na portal do Azure, procure e selecione espaços de **trabalho do log Analytics**.
+2. No portal do Azure, procure e selecione **Workspaces do Log Analytics**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que oferece suporte a Azure Monitor para contêineres. 
 4. No painel no lado esquerdo, selecione **logs** para abrir a página logs de Azure monitor. Use essa página para gravar e executar consultas de Log Analytics do Azure.
 5. Na página **logs** , Cole uma das [consultas](#resource-utilization-log-search-queries) fornecidas anteriormente no campo consulta de **pesquisa** e, em seguida, selecione **executar** para validar os resultados. Se você não executar essa etapa, a opção **+ novo alerta** não estará disponível para seleção.
 6. Selecione **+ novo alerta** para criar um alerta de log.
-7. Na seção **condição** , selecione o **sempre que a pesquisa de logs personalizada \<for lógica indefinida>** condição de log personalizado predefinida. O tipo de sinal de **pesquisa de log personalizado** é selecionado automaticamente porque estamos criando uma regra de alerta diretamente na página de logs de Azure monitor.  
+7. Na seção **condição** , selecione o **sempre que a pesquisa de logs personalizada \<logic undefined> for uma condição de** log personalizado predefinida. O tipo de sinal de **pesquisa de log personalizado** é selecionado automaticamente porque estamos criando uma regra de alerta diretamente na página de logs de Azure monitor.  
 8. Cole uma das [consultas](#resource-utilization-log-search-queries) fornecidas anteriormente no campo de **consulta de pesquisa** .
 9. Configure o alerta da seguinte maneira:
 

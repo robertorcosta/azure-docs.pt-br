@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75966662"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Diretrizes de recuperação de desastre para avere vFXT para Azure
@@ -83,7 +82,7 @@ Siga estas etapas para estabelecer um backup de dados em outra conta.
 
    Anote o nome do Filer principal e as informações de junção (listadas na página **namespace** no painel de controle) para que você possa replicá-lo ao adicionar novamente o contêiner após o backup.
 
-   Use o painel de controle de cluster para remover o filer principal. [Abra o painel de controle de cluster](avere-vfxt-cluster-gui.md) e escolha **principal Filer** > **gerenciar Filers principais**. Localize o sistema de armazenamento do qual você deseja fazer backup e use o botão **remover** para excluí-lo do cluster.
+   Use o painel de controle de cluster para remover o filer principal. [Abra o painel de controle de cluster](avere-vfxt-cluster-gui.md) e escolha **principal Filer**  >  **gerenciar Filers principais**. Localize o sistema de armazenamento do qual você deseja fazer backup e use o botão **remover** para excluí-lo do cluster.
 
 1. Crie um novo contêiner de armazenamento de blob vazio em outra conta de armazenamento em outra região.
 

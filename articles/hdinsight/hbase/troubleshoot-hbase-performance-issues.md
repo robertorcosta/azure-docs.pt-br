@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887148"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solucionar problemas de desempenho do Apache HBase no Azure HDInsight
@@ -65,17 +64,17 @@ Se você estiver migrando para o Azure HDInsight, certifique-se de que sua migra
 
 ## <a name="server-side-configuration-tunings"></a>Ajustes de configuração no lado do servidor
 
-No HBase do HDInsight, os HFiles são armazenados no armazenamento remoto. Quando há um erro de cache, o custo de leituras é maior do que os sistemas locais, pois os dados em sistemas locais são apoiados pelo HDFS local. Para a maioria dos cenários, o uso inteligente de caches do HBase (cache de blocos e cache de buckets) foi projetado para contornar esse problema. Nos casos em que o problema não é burlado, usar uma conta de blob de blocos Premium pode ajudar esse problema. O driver do Windows Azure Storage Blob depende de determinadas propriedades, como `fs.azure.read.request.size` para buscar dados em blocos com base no que ele determina para ser modo de leitura (sequencial versus aleatório), para que possa continuar a ser uma instância de latências mais altas com leituras. Por meio de experimentos de empírica, descobrimos que definir o tamanho do`fs.azure.read.request.size`bloco de solicitação de leitura () para 512 KB e corresponder o tamanho do bloco das tabelas do HBase para que o mesmo tamanho produza o melhor resultado na prática.
+No HBase do HDInsight, os HFiles são armazenados no armazenamento remoto. Quando há um erro de cache, o custo de leituras é maior do que os sistemas locais, pois os dados em sistemas locais são apoiados pelo HDFS local. Para a maioria dos cenários, o uso inteligente de caches do HBase (cache de blocos e cache de buckets) foi projetado para contornar esse problema. Nos casos em que o problema não é burlado, usar uma conta de blob de blocos Premium pode ajudar esse problema. O driver do Windows Azure Storage Blob depende de determinadas propriedades, como `fs.azure.read.request.size` para buscar dados em blocos com base no que ele determina para ser modo de leitura (sequencial versus aleatório), para que possa continuar a ser uma instância de latências mais altas com leituras. Por meio de experimentos de empírica, descobrimos que definir o tamanho do bloco de solicitação de leitura ( `fs.azure.read.request.size` ) para 512 KB e corresponder o tamanho do bloco das tabelas do HBase para que o mesmo tamanho produza o melhor resultado na prática.
 
-Para a maioria dos clusters de nós de tamanho grande, `bucketcache` o HBase do HDInsight fornece como um arquivo em um SSD Premium local que é anexado à máquina `regionservers`virtual, que é executada. O uso do cache off-heap pode fornecer um aperfeiçoamento. Essa solução alternativa tem a limitação de usar a memória disponível e, potencialmente, ser menor do que o cache baseado em arquivo, de modo que talvez nem sempre seja a melhor opção.
+Para a maioria dos clusters de nós de tamanho grande, o HBase do HDInsight fornece `bucketcache` como um arquivo em um SSD Premium local que é anexado à máquina virtual, que é executada `regionservers` . O uso do cache off-heap pode fornecer um aperfeiçoamento. Essa solução alternativa tem a limitação de usar a memória disponível e, potencialmente, ser menor do que o cache baseado em arquivo, de modo que talvez nem sempre seja a melhor opção.
 
 A seguir estão alguns dos outros parâmetros específicos que ajustamos, e isso parecia ajudar em diferentes graus:
 
-- Aumente `memstore` o tamanho do padrão de 128 mb a 256 MB. Normalmente, essa configuração é recomendada para cenários de gravação pesada.
+- Aumente o `memstore` tamanho do padrão de 128 MB a 256 MB. Normalmente, essa configuração é recomendada para cenários de gravação pesada.
 
 - Aumente o número de threads dedicados para compactação, da configuração padrão de **1** a **4**. Essa configuração será relevante se observarmos compactações secundárias frequentes.
 
-- Evite o `memstore` bloqueio de liberação devido ao limite de armazenamento. Para fornecer esse buffer, aumente a `Hbase.hstore.blockingStoreFiles` configuração para **100**.
+- Evite o bloqueio `memstore` de liberação devido ao limite de armazenamento. Para fornecer esse buffer, aumente a `Hbase.hstore.blockingStoreFiles` configuração para **100**.
 
 - Para controlar liberações, use as seguintes configurações:
 
@@ -104,7 +103,7 @@ A seguir estão alguns dos outros parâmetros específicos que ajustamos, e isso
 - Tempos limite de RPC: **3 minutos**
 
    - Os tempos limite de RPC incluem tempo limite de RPC do HBase, tempo limite do scanner de cliente HBase e tempo limite de consulta de Phoenix. 
-   - Verifique se o `hbase.client.scanner.caching` parâmetro está definido com o mesmo valor na extremidade do servidor e na extremidade do cliente. Se eles não forem iguais, essa configuração levará a erros de término do cliente relacionados ao `OutOfOrderScannerException`. Essa configuração deve ser definida como um valor baixo para verificações grandes. Definimos esse valor como **100**.
+   - Verifique se o `hbase.client.scanner.caching` parâmetro está definido com o mesmo valor na extremidade do servidor e na extremidade do cliente. Se eles não forem iguais, essa configuração levará a erros de término do cliente relacionados ao `OutOfOrderScannerException` . Essa configuração deve ser definida como um valor baixo para verificações grandes. Definimos esse valor como **100**.
 
 ## <a name="other-considerations"></a>Outras considerações
 
@@ -120,8 +119,8 @@ Estes são os parâmetros adicionais para considerar o ajuste:
 
 Se o problema permanecer sem resolução, visite um dos seguintes canais para obter mais suporte:
 
-- Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+- Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-- Conecte- [@AzureSupport](https://twitter.com/azuresupport)se com. Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Essa é a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Ele conecta a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Sua assinatura do Microsoft Azure inclui acesso ao gerenciamento de assinaturas e suporte de cobrança, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

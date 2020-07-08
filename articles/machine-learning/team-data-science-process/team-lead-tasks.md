@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75864274"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para o líder de equipe em uma equipe de processo de ciência de dados de equipe
@@ -77,7 +76,7 @@ Os nomes especificados para os repositórios e diretórios neste tutorial pressu
 - Um pequeno grupo de ciência de dados que não tem várias equipes de ciência de dados. 
 - Um grupo de ciência de dados maior com várias equipes de ciência de dados que, no entanto, deseja otimizar a colaboração entre equipes com atividades como planejamento de Sprint em nível de grupo. 
 
-Se as equipes optarem por seus repositórios específicos de equipe em um único projeto de grupo, os líderes de equipe deverão criar os repositórios com nomes como * \<o teamname>modelo* e * \<os utilitários do teamname>*. Por exemplo: *TeamATemplate* e *TeamAUtilities*. 
+Se as equipes optarem por seus repositórios específicos de equipe em um único projeto de grupo, os líderes de equipe deverão criar os repositórios com nomes como * \<TeamName> modelo* e * \<TeamName> utilitários*. Por exemplo: *TeamATemplate* e *TeamAUtilities*. 
 
 De qualquer forma, os líderes de equipe precisam permitir que os membros da equipe saibam quais repositórios de modelos e utilitários devem ser configurados e clonados. Os leads do projeto devem seguir as [tarefas do líder do projeto para que uma equipe de ciência de dados](project-lead-tasks.md) crie repositórios de projetos, seja em projetos separados ou em um único projeto. 
 
@@ -85,7 +84,7 @@ De qualquer forma, os líderes de equipe precisam permitir que os membros da equ
 
 Para criar um projeto separado para sua equipe:
 
-1. No navegador da Web, vá para a organização do Azure DevOps do seu grupo home page na URL *\//\<https: nome do\<servidor>/nome da organização>* e selecione **novo projeto**. 
+1. No navegador da Web, vá para a organização do Azure DevOps do seu grupo home page na URL *https: \/ / \<server name> / \<organization name> *e selecione **novo projeto**. 
    
    ![Selecionar novo projeto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
@@ -95,7 +94,7 @@ Para criar um projeto separado para sua equipe:
    
    ![Criar projeto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-A página **Resumo** do projeto de equipe é aberta, com URL de página *\//\<https:\<nome do servidor>\</nome da organização>/nome da equipe>*.
+A página **Resumo** do projeto de equipe é aberta, com URL de página *https: \/ / \<server name> / \<organization name> / \<team name> *.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Renomeie o repositório padrão myTeam para TeamUtilities
 
@@ -140,7 +139,7 @@ Para preencher seus repositórios de equipe com o conteúdo dos repositórios co
    
    ![Selecionar importação](./media/team-lead-tasks/import-repo.png)
    
-1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório de modelo comum de grupo em URL de **clonagem**. A URL é *https:\//\<nome do servidor>\</nome da organização>/\<_git/nome do repositório>*. Por exemplo: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório de modelo comum de grupo em URL de **clonagem**. A URL é *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *. Por exemplo: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Selecione **Importar**. O conteúdo do seu repositório de modelos de grupo é importado para o repositório de modelos de equipe. 
    
@@ -199,7 +198,7 @@ Para clonar repositórios:
    
 1. Altere para o diretório que você criou.
    
-1. No git bash, execute o comando `git clone <clone URL>`, em \<que a URL de clone> é a URL que você copiou da caixa de diálogo de **clonagem** .
+1. No git bash, execute o comando `git clone <clone URL>` , em que \<clone URL> é a URL que você copiou da caixa de diálogo de **clonagem** .
    
    Por exemplo, use um dos comandos a seguir para clonar o repositório **TeamUtilities** para o diretório *myTeam* em seu computador local. 
    
@@ -226,7 +225,7 @@ git push
 ```
 
 > [!NOTE]
-> Se esta for a primeira vez que você se compromete a um repositório git, talvez seja necessário configurar os parâmetros globais *User.Name* e *User. email* antes de `git commit` executar o comando. Execute os dois comandos a seguir:
+> Se esta for a primeira vez que você se compromete a um repositório git, talvez seja necessário configurar os parâmetros globais *User.Name* e *User. email* antes de executar o `git commit` comando. Execute os dois comandos a seguir:
 > 
 > `git config --global user.name <your name>`
 > 

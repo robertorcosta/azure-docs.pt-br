@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895308"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho do cluster do HDInsight lento ou com falha
@@ -111,7 +110,7 @@ As seções a seguir descrevem como verificar a integridade de cada nó e do clu
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Obter um instantâneo da integridade de cluster usando o painel de interface do usuário do Ambari
 
-O [painel de interface](#view-cluster-configuration-settings-with-the-ambari-ui) do`https://<clustername>.azurehdinsight.net`usuário do Ambari () fornece uma visão geral da integridade do cluster, como tempo de atividade, memória, rede e uso da CPU, uso de disco do HDFS e assim por diante. Use a Seção de hosts do Ambari para exibir recursos em um nível de host. Você também pode interromper e reiniciar serviços.
+O [painel de interface do usuário do Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) ( `https://<clustername>.azurehdinsight.net` ) fornece uma visão geral da integridade do cluster, como tempo de atividade, memória, rede e uso da CPU, uso de disco do HDFS e assim por diante. Use a Seção de hosts do Ambari para exibir recursos em um nível de host. Você também pode interromper e reiniciar serviços.
 
 ### <a name="check-your-webhcat-service"></a>Verificar seu serviço WebHCat
 
@@ -261,7 +260,7 @@ Para ajudar a diagnosticar a origem de um erro do cluster, inicie um novo cluste
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar clusters do HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
 * [Acessar Apache Hadoop entrada do aplicativo YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
