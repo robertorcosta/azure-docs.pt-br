@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807597"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de hash de senha com a sincronização do Azure AD Connect
 
@@ -288,12 +287,15 @@ Se você usou a instalação personalizada, defina as permissões manualmente, f
 6. Os controladores de domínio estão acessíveis pelo Azure AD Connect? Se o servidor do Connect não puder se conectar a todos os controladores de domínio, configure **Usar somente o controlador de domínio preferencial**.  
     
     ![Controlador de domínio usado pelo Active Directory Connector](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Volte para **Synchronization Service Manager** e **Configurar Partição de Diretório**. 
  
 8. Selecione o domínio em **Selecionar partições de diretório**, selecione a caixa de seleção **Usar somente controladores de domínio preferenciais** e, em seguida, clique em **Configurar**. 
 
 9. Na lista, insira os controladores de domínio que o Connect deve usar para a sincronização de senha. A mesma lista também é usada para importação e exportação. Siga estas etapas para todos os domínios.
+
+> [!NOTE]
+> Para aplicar essas alterações, reinicie o serviço de **sincronização de Microsoft Azure ad** (AdSync).
 
 10. Se o script mostrar que não há nenhuma pulsação, execute o script [Disparar uma sincronização completa de todas as senhas](#trigger-a-full-sync-of-all-passwords).
 
@@ -323,7 +325,7 @@ Você pode solucionar problemas de sincronização de hash de senha problemas fa
 
     f. Localize o usuário que você está procurando e, em seguida, clique em **Propriedades** para ver todos os atributos. Se o usuário não estiver no resultado da pesquisa, verifique as [regras de filtragem](how-to-connect-sync-configure-filtering.md) e lembre-se de executar [Aplicar e verificar alterações](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) para que o usuário seja exibido no Connect.
 
-    g. Para ver os detalhes de sincronização de senha do objeto da semana passada, clique em **Log**.  
+    (por exemplo, Para ver os detalhes de sincronização de senha do objeto da semana passada, clique em **Log**.  
 
     ![Detalhes do log do objeto](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
@@ -360,7 +362,7 @@ A coluna de status pode ter os seguintes valores:
 | TargetNotExportedToDirectory |O objeto no espaço conector do AD do Azure ainda não foi exportado. |
 | MigratedCheckDetailsForMoreInfo |A entrada de log foi criada antes da versão 1.0.9125.0 e é mostrada em seu estado herdado. |
 | Erro |O serviço retornou um erro desconhecido. |
-| Unknown |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
+| Unknown (desconhecido) |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
 | MissingAttribute |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estão disponíveis. |
 | RetryRequestedByTarget |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estavam disponíveis anteriormente. É feita uma tentativa de sincronizar novamente o hash de senha do usuário. |
 
@@ -446,4 +448,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 * [Implementação de sincronização de hash de senha com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md)
 * [Sincronização do Azure AD Connect: personalizando as opções de sincronização](how-to-connect-sync-whatis.md)
-* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)

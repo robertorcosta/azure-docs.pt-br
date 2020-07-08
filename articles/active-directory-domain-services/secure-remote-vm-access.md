@@ -10,12 +10,11 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734462"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Proteger o acesso remoto a máquinas virtuais no Azure Active Directory Domain Services
 
@@ -41,7 +40,7 @@ Para concluir este artigo, você precisa dos seguintes recursos:
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, [crie e configure uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, [crie e configure um domínio gerenciado do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Uma sub-rede de *cargas de trabalho* criada em seu Azure Active Directory Domain Services rede virtual.
     * Se necessário, [Configure a rede virtual para um Azure Active Directory Domain Services domínio gerenciado][configure-azureadds-vnet].
 * Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
@@ -55,16 +54,16 @@ Uma implantação de RDS sugerida inclui as duas VMs a seguir:
 * *RDGVM01* -executa o servidor do agente de conexão de área de trabalho remota, o servidor de acesso via Web RD e o servidor Gateway RD.
 * *RDSHVM01* -executa o servidor de host da Sessão RD.
 
-Verifique se as VMs estão implantadas em uma sub-rede de *cargas de trabalho* de sua rede virtual do Azure AD DS e, em seguida, ingresse as VMs no domínio gerenciado do Azure AD DS. Para obter mais informações, consulte como [criar e ingressar uma VM do Windows Server em um domínio gerenciado do Azure AD DS][tutorial-create-join-vm].
+Verifique se as VMs estão implantadas em uma sub-rede de *cargas de trabalho* de sua rede virtual do Azure AD DS e, em seguida, ingresse as VMs no domínio gerenciado. Para obter mais informações, consulte como [criar e ingressar uma VM do Windows Server em um domínio gerenciado][tutorial-create-join-vm].
 
-A implantação do ambiente RD contém várias etapas. O guia de implantação de RD existente pode ser usado sem nenhuma alteração específica a ser usada em um domínio gerenciado do Azure AD DS:
+A implantação do ambiente RD contém várias etapas. O guia de implantação de RD existente pode ser usado sem nenhuma alteração específica para usar em um domínio gerenciado:
 
 1. Entre em VMs criadas para o ambiente de RD com uma conta que faça parte do grupo de *Administradores de DC do Azure ad* , como *contosoadmin*.
 1. Para criar e configurar o RDS, use o [Guia de implantação de ambiente de área de trabalho remota][deploy-remote-desktop]existente. Distribua os componentes do servidor RD entre suas VMs do Azure, conforme desejado.
     * Específico do Azure AD DS-quando você configura o Licenciamento RD, defina-o para o modo **por dispositivo** , não **por usuário** , conforme observado no guia de implantação.
 1. Se você quiser fornecer acesso usando um navegador da Web, [Configure o cliente web área de trabalho remota para seus usuários][rd-web-client].
 
-Com o RD implantado no domínio gerenciado AD DS do Azure, você pode gerenciar e usar o serviço como faria com um domínio de AD DS local.
+Com o RD implantado no domínio gerenciado, você pode gerenciar e usar o serviço como faria com um domínio de AD DS local.
 
 ## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Implantar e configurar o NPS e a extensão NPS do Azure MFA
 
@@ -76,7 +75,7 @@ Os usuários devem ser [registrados para usar a autenticação multifator do Azu
 
 Para integrar a autenticação multifator do Azure ao seu ambiente do Azure AD DS Área de Trabalho Remota, crie um servidor NPS e instale a extensão:
 
-1. Crie uma VM Windows Server 2016 ou 2019 adicional, como *NPSVM01*, que está conectada a uma sub-rede de *cargas de trabalho* em sua rede virtual do Azure AD DS. Ingresse a VM no domínio gerenciado AD DS do Azure.
+1. Crie uma VM Windows Server 2016 ou 2019 adicional, como *NPSVM01*, que está conectada a uma sub-rede de *cargas de trabalho* em sua rede virtual do Azure AD DS. Ingresse a VM no domínio gerenciado.
 1. Entre na VM do NPS como uma conta que faça parte do grupo de *Administradores de DC do Azure ad* , como *contosoadmin*.
 1. Em **Gerenciador do servidor**, selecione **adicionar funções e recursos**e, em seguida, instale a função de *serviços de acesso e política de rede* .
 1. Use o artigo de instruções existentes para [instalar e configurar a extensão NPS do Azure MFA][nps-extension].
@@ -87,9 +86,9 @@ Com o servidor NPS e a extensão NPS da autenticação multifator do Azure insta
 
 Para integrar a extensão NPS da autenticação multifator do Azure, use o artigo de instruções existentes para [integrar sua infraestrutura de área de trabalho remota gateway usando a extensão NPS (servidor de políticas de rede) e o Azure ad][azure-mfa-nps-integration].
 
-As opções de configuração adicionais a seguir são necessárias para integrar com um domínio gerenciado do Azure AD DS:
+As opções de configuração adicionais a seguir são necessárias para integrar um domínio gerenciado:
 
-1. Não [Registre o servidor NPS no Active Directory][register-nps-ad]. Esta etapa falha em um domínio gerenciado do Azure AD DS.
+1. Não [Registre o servidor NPS no Active Directory][register-nps-ad]. Esta etapa falha em um domínio gerenciado.
 1. Na [etapa 4 para configurar a política de rede][create-nps-policy], marque também a caixa para **ignorar as propriedades de discagem da conta de usuário**.
 1. Se você usar o Windows Server 2019 para o servidor NPS e a extensão NPS da autenticação multifator do Azure, execute o seguinte comando para atualizar o canal seguro para permitir que o servidor NPS se comunique corretamente:
 

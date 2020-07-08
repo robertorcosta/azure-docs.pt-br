@@ -4,19 +4,18 @@ description: Saiba como simular as detecções de riscos na proteção de identi
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50e406e74c0b78f41830c4ea7c5b10830002ed3
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72886929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463749"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulando detecções de riscos na proteção de identidades
 
@@ -76,7 +75,7 @@ A simulação da condição de viagem atípicos é difícil porque o algoritmo u
 
 **Para simular uma detecção de risco do atípicos Travel, execute as seguintes etapas**:
 
-1. Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com) .  
 2. Insira as credenciais da conta para a qual você deseja gerar uma detecção de risco de viagem de atípicos.
 3. Altere o agente do usuário. Você pode alterar o agente do usuário no Microsoft Edge de Ferramentas para Desenvolvedores (F12).
 4. Altere seu endereço IP. Você pode alterar seu endereço IP usando uma VPN, um complemento do Tor ou criando uma nova máquina virtual no Azure em um data center diferente.
@@ -93,15 +92,15 @@ Esta seção fornece etapas para testar o usuário e as políticas de risco de e
 Para testar uma política de segurança de risco de usuário, execute as seguintes etapas:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **Security** > **visão geral**de segurança.
+1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral**de segurança.
 1. Selecione **Configurar política de risco do usuário**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
-      1. **Condições** - de**risco do usuário** a recomendação da Microsoft é definir essa opção como **alta**.
+      1. **Condições**  -  do **Risco do usuário** A recomendação da Microsoft é definir essa opção como **alta**.
    1. Em **controles**
       1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir alteração de senha**.
-   1. **Impor política** - **desativada**
+   1. **Impor política**  -  **Desativado**
    1. **Salvar** – esta ação retornará à página **visão geral** .
 1. Eleve o risco do usuário de uma conta de teste, por exemplo, simulando uma das detecções de risco algumas vezes.
 1. Aguarde alguns minutos e verifique se o risco foi elevado para o usuário. Caso contrário, simule mais detecções de risco para o usuário.
@@ -113,15 +112,15 @@ Para testar uma política de segurança de risco de usuário, execute as seguint
 Para testar uma política de segurança de entrada, execute as seguintes etapas:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **Security** > **visão geral**de segurança.
+1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral**de segurança.
 1. Selecione **Configurar política de risco de entrada**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
-      1. **Conditions** - **Risco de entrada** de condições a recomendação da Microsoft é definir essa opção como **média e posterior**.
+      1. **Condições**  -  do **Risco de entrada** A recomendação da Microsoft é definir essa opção como **média e posterior**.
    1. Em **controles**
       1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir a autenticação multifator**.
-   1. **Impor política** - **em**
+   1. **Impor política**  -  **Em**
    1. **Salvar** – esta ação retornará à página **visão geral** .
 1. Agora você pode testar o acesso condicional com base em risco de entrada, entrando usando uma sessão arriscada (por exemplo, usando o navegador Tor). 
 

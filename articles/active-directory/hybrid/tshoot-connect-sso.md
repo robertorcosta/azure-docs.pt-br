@@ -8,17 +8,16 @@ manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759748124893a8f906a4bc336f835546202b0b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355906"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -35,7 +34,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
 - Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.
-- Adicionar a URL de serviço do Azure`https://autologon.microsoftazuread-sso.com`AD () à zona de sites confiáveis em vez da zona de intranet local *impede que os usuários entrem*.
+- Adicionar a URL de serviço do Azure AD ( `https://autologon.microsoftazuread-sso.com` ) à zona de sites confiáveis em vez da zona de intranet local *impede que os usuários entrem*.
 - O SSO contínuo dá suporte aos tipos de criptografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 para Kerberos. É recomendável que o tipo de criptografia para a conta AzureADSSOAcc $ seja definido como AES256_HMAC_SHA1 ou um dos tipos AES versus RC4 para segurança adicional. O tipo de criptografia é armazenado no atributo msDS-SupportedEncryptionTypes da conta no seu Active Directory.  Se o tipo de criptografia da conta AzureADSSOAcc $ for definido como RC4_HMAC_MD5 e você quiser alterá-lo para um dos tipos de criptografia AES, certifique-se de que você primeiro se sobreponha à chave de descriptografia do Kerberos da conta AzureADSSOAcc $, conforme explicado no [documento de perguntas frequentes](how-to-connect-sso-faq.md) sob a pergunta relevante; caso contrário, o SSO contínuo não ocorrerá.
 
 ## <a name="check-status-of-feature"></a>Verificar o status do recurso
@@ -54,7 +53,7 @@ Se o locatário tiver uma licença do Azure AD Premium associada a ele, você ta
 
 ![Centro de administração do Azure Active Directory: relatório Entradas](./media/tshoot-connect-sso/sso9.png)
 
-Navegue até **Azure Active Directory** > **entradas** no [centro de administração do Azure Active Directory](https://aad.portal.azure.com/)e, em seguida, selecione uma atividade de entrada do usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
+Navegue até **Azure Active Directory**  >  **entradas** no [centro de administração do Azure Active Directory](https://aad.portal.azure.com/)e, em seguida, selecione uma atividade de entrada do usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
 
 |Código de erro de logon|Motivo da falha no logon|Resolução
 | --- | --- | ---
@@ -75,7 +74,7 @@ Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo
 
 - Verifique se o recurso de SSO Contínuo está habilitado no Azure AD Connect. Se você não puder habilitar o recurso (por exemplo, devido a uma porta bloqueada), verifique se você cumpriu com todos os [pré-requisitos](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Se você habilitou o [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) e o SSO Contínuo em seu locatário, verifique se o problema não está com o Ingresso no Azure AD. O SSO por meio do Ingresso no Azure AD terá precedência sobre SSO Contínuo se o dispositivo estiver registrado no Azure AD e ingressado no domínio. Com o SSO por meio do Ingresso no Azure AD, o usuário verá um bloco de entrada com a informação "Conectado ao Windows".
-- Verifique se a URL do Azure AD`https://autologon.microsoftazuread-sso.com`() faz parte das configurações de zona da intranet do usuário.
+- Verifique se a URL do Azure AD ( `https://autologon.microsoftazuread-sso.com` ) faz parte das configurações de zona da intranet do usuário.
 - Certifique-se de que o dispositivo corporativo tenha ingressado no domínio do Active Directory. O dispositivo _não_ precisa ser [Ingressado no Azure AD](../active-directory-azureadjoin-overview.md) para que o SSO Contínuo funcione.
 - Certifique-se de que o usuário esteja conectado ao dispositivo por meio de uma conta de domínio do Active Directory.
 - Verifique se a conta do usuário é de uma floresta do Active Directory na qual o SSO Contínuo foi configurado.
@@ -120,7 +119,7 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
 
    > [!NOTE]
-   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso. com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
+   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso.com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
 
    >[!NOTE]
    >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
@@ -133,7 +132,7 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 1. Chame `Enable-AzureADSSOForest`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
 
    > [!NOTE]
-   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso. com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
+   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso.com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
 
    >[!NOTE]
    >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.

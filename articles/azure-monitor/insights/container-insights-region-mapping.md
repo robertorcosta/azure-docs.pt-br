@@ -3,12 +3,12 @@ title: Azure Monitor para mapeamentos de região de contêineres
 description: Este artigo descreve os mapeamentos de região com suporte entre Azure Monitor para contêineres, espaço de trabalho Log Analytics e métricas personalizadas.
 ms.topic: conceptual
 ms.date: 06/26/2019
-ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75403417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194980"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapeamentos de região com suporte pelo Azure Monitor para contêineres
 
@@ -33,7 +33,7 @@ Os recursos de cluster AKS ou Log Analytics espaço de trabalho podem residir em
 |SoutheastAsia |SoutheastAsia |
 |**Brasil** | |
 |BrazilSouth | SouthCentralUS |
-|**Canada** ||
+|**Canadá** ||
 |Canadá Central |Canadá Central |
 |CanadaEast |Canadá Central |
 |**Europa** | |
@@ -50,16 +50,16 @@ Os recursos de cluster AKS ou Log Analytics espaço de trabalho podem residir em
 |**Japão** | |
 |JapanEast |JapanEast |
 |JapanWest |JapanEast |
-|**Coréia** | |
+|**Coreia do Sul** | |
 |KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
-|**Digamos** | |
+|**EUA** | |
 |CentralUS |CentralUS|
 |EastUS |EastUS |
 |EastUS2 |EastUS2 |
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
-|WestCentralUS<sup>1</sup>|Lesteus<sup>1</sup>|
+|WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
 |Gov. dos EUA – Virgínia |Gov. dos EUA – Virgínia |
 
 <sup>1</sup> devido a restrições de capacidade, a região não está disponível durante a criação de novos recursos. Isso inclui um espaço de trabalho Log Analytics. No entanto, os recursos vinculados preexistentes na região devem continuar funcionando.

@@ -4,19 +4,18 @@ description: Comece a usar Azure Active Directory termos de uso para apresentar 
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253317"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -60,7 +59,7 @@ Para usar e configurar os termos de uso do Azure AD, você deve ter:
    - Se você não tiver uma dessas assinaturas, poderá [obter o Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) ou [habilitar a avaliação do Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Uma das seguintes contas de administrador para o diretório que você deseja configurar:
    - Administrador global
-   - Administrador de segurança
+   - Administrador de Segurança
    - Administrador de acesso condicional
 
 ## <a name="terms-of-use-document"></a>Documento Termos de uso
@@ -366,7 +365,7 @@ R: atualmente, você não pode atualizar um documento de termos de uso existente
 R: Sim, os usuários finais podem selecionar hiperlinks para páginas adicionais, mas não há suporte para links para seções dentro do documento.
 
 **P: os termos de uso possuem suporte para vários idiomas?**<br />
-R: Sim. Atualmente, há 108 diferentes idiomas que um administrador pode configurar para um único termo de uso. Um administrador pode carregar vários documentos em PDF e marcar esses documentos com um idioma correspondente (até 108). Quando os usuários finais entram, examinamos a preferência de idioma do navegador deles e exibimos o documento correspondente. Se não houver nenhuma correspondência, exibimos o documento padrão, que é o primeiro documento carregado.
+A: Sim. Atualmente, há 108 diferentes idiomas que um administrador pode configurar para um único termo de uso. Um administrador pode carregar vários documentos em PDF e marcar esses documentos com um idioma correspondente (até 108). Quando os usuários finais entram, examinamos a preferência de idioma do navegador deles e exibimos o documento correspondente. Se não houver nenhuma correspondência, exibimos o documento padrão, que é o primeiro documento carregado.
 
 **P: quando os termos de uso são disparados?**<br />
 R: Os termos de uso são acionados acionada no momento em que o usuário faz o logon.
@@ -387,7 +386,7 @@ R: você pode [revisar os termos de uso aceitos anteriormente](#how-users-can-re
 R: se você tiver configurado os termos de uso do Azure AD e os [termos e condições do Intune](/intune/terms-and-conditions-create), o usuário será solicitado a aceitar ambos. Para obter mais informações, consulte a [Escolha da solução de Termos correta para a publicação do seu blog da organização](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **P: quais pontos de extremidade os termos de uso do serviço usam para autenticação?**<br />
-R: Termos de uso utiliza os seguintes pontos de extremidade para autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e. https://account.activedirectory.windowsazure.com Se sua organização tiver uma lista de permissões de URLs para registro, você precisará adicionar esses pontos de extremidade à sua lista de permissões, juntamente com os pontos de extremidade do Azure AD para entrar.
+R: Termos de uso utiliza os seguintes pontos de extremidade para autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se sua organização tiver uma lista de permissões de URLs para registro, você precisará adicionar esses pontos de extremidade à sua lista de permissões, juntamente com os pontos de extremidade do Azure AD para entrar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

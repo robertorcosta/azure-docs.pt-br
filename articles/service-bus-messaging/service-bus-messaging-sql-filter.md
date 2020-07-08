@@ -1,25 +1,13 @@
 ---
 title: Referência da sintaxe SQLFilter do Barramento de Serviços do Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre a gramática do sqlfilter. Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341601"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
 
@@ -60,7 +48,7 @@ Um objeto *SqlFilter* é uma instância da [classe SqlFilter](/dotnet/api/micros
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O `sys` valor indica o escopo do `<property_name>` sistema em que é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o escopo do `<property_name>` usuário, em que é uma chave do dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
+-   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O `sys` valor indica o escopo do sistema em que `<property_name>` é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o escopo do usuário, em que `<property_name>` é uma chave do dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
   
 ## <a name="remarks"></a>Comentários
 

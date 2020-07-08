@@ -1,6 +1,6 @@
 ---
-title: Usar instância gerenciada do Banco de Dados SQL do Azure com Azure-SSIS (SQL Server Integration Services) no Azure Data Factory
-description: Saiba como usar uma instância gerenciada do Banco de Dados SQL do Azure com SSIS (SQL Server Integration Services) no Azure Data Factory.
+title: Use o Azure SQL Instância Gerenciada com o SSIS (Azure-SQL Server Integration Services) no Azure Data Factory
+description: Saiba como usar o Azure SQL Instância Gerenciada com o SSIS (SQL Server Integration Services) no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,30 +11,29 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 74cad0ab9ffc3eb05219cb9e2c2585e73498c9bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195379"
 ---
-# <a name="use-azure-sql-database-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usar instância gerenciada do Banco de Dados SQL com SSIS (SQL Server Integration Services) no Azure Data Factory
+# <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usar o Azure SQL Instância Gerenciada com o SQL Server Integration Services (SSIS) no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL Server Integration Services) para a nuvem do Microsoft Azure. Implante, execute e gerencie projetos do SSIS e pacotes no Banco de Dados SQL do Azure ou na Instância Gerenciada do Banco de Dados SQL com ferramentas conhecidas, como o SSMS (SQL Server Management Studio). Este artigo destaca as seguintes áreas específicas ao usar a Instância Gerenciada do Banco de Dados SQL do Azure com o Azure-SSIS IR (Integration Runtime):
+Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL Server Integration Services) para a nuvem do Microsoft Azure. Implante, execute e gerencie projetos e pacotes do SSIS no banco de dados SQL do Azure ou no SQL Instância Gerenciada com ferramentas familiares, como SQL Server Management Studio (SSMS). Este artigo realça as seguintes áreas específicas ao usar o Azure SQL Instância Gerenciada com o tempo de execução de integração (IR) do Azure-SSIS:
 
-- [Provisionar um Azure-SSIS IR com o catálogo do SSIS (SSISDB) hospedado pela instância gerenciada do Banco de Dados SQL do Azure](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
+- [Provisionar um Azure-SSIS IR com o catálogo do SSIS (SSISDB) hospedado pelo SQL Instância Gerenciada do Azure](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Executar pacotes SSIS pelo trabalho do Agente de Instância Gerenciada do SQL do Azure](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Limpar logs do SSISDB pelo trabalho do Agente de Instância Gerenciada do SQL do Azure](#clean-up-ssisdb-logs)
-- [Failover do Azure-SSIS IR com uma Instância Gerenciada do Banco de Dados SQL do Azure](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrar cargas de trabalho SSIS locais para SSIS no ADF com a instância gerenciada do Banco de Dados SQL do Azure como destino da carga de trabalho do banco de dados](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
+- [Failover de Azure-SSIS IR com o SQL do Azure Instância Gerenciada](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Migrar cargas de trabalho SSIS locais para o SSIS no ADF com o Azure SQL Instância Gerenciada como destino de carga de trabalho de banco de dados](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
-## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance"></a>Provisionar um Azure-SSIS IR com SSISDB hospedado pela instância gerenciada do Banco de Dados SQL do Azure
+## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Provisionar Azure-SSIS IR com o SSISDB hospedado pelo SQL Instância Gerenciada do Azure
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. [Habilite o Azure AD (Azure Active Directory) na instância gerenciada do Banco de Dados SQL do Azure](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance), ao escolher a autenticação do Azure Active Directory.
+1. [Habilite o Azure Active Directory (Azure AD) no SQL instância gerenciada do Azure](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), ao escolher a autenticação Azure Active Directory.
 
 1. Escolha como conectar a instância gerenciada do SQL, no ponto de extremidade privado ou no ponto de extremidade público:
 
@@ -44,13 +43,13 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
             - Dentro da mesma rede virtual que a instância gerenciada do SQL, com **sub-rede diferente**.
             - Dentro de uma rede virtual diferente da instância gerenciada pelo SQL, via emparelhamento de rede virtual (que é limitado à mesma região devido a restrições de emparelhamento da VNet Global) ou uma conexão da rede virtual à rede virtual.
 
-            Para saber mais sobre conectividade da instância gerenciada do SQL, confira [Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Para obter mais informações sobre a conectividade da instância gerenciada do SQL, consulte [conectar seu aplicativo ao Azure SQL instância gerenciada](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Configure a rede virtual](#configure-virtual-network).
 
     - Ponto de extremidade público
 
-        As instâncias gerenciadas do Banco de Dados SQL do Azure podem fornecer conectividade em [pontos de extremidade públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Os requisitos de entrada e saída precisam ser atendidos para permitir o tráfego entre a instância gerenciada do SQL e o Azure-SSIS IR:
+        As instâncias gerenciadas do SQL do Azure podem fornecer conectividade sobre [pontos de extremidade públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Os requisitos de entrada e saída precisam ser atendidos para permitir o tráfego entre a instância gerenciada do SQL e o Azure-SSIS IR:
 
         - quando Azure-SSIS IR não está dentro de uma rede virtual (preferencial)
 
@@ -90,8 +89,8 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
     1. Verifique se o grupo de recursos da rede virtual pode criar e excluir determinados recursos de rede do Azure.
 
         O Azure-SSIS IR precisa criar determinados recursos de rede no mesmo grupo de recursos que a rede virtual. Esses recursos incluem:
-        - Um balanceador de carga do Azure, com o nome *\<Guid>-azurebatch-cloudserviceloadbalancer*
-        - Um grupo de segurança de rede, com o nome *\<Guid>-azurebatch-cloudservicenetworksecuritygroup
+        - Um Azure Load Balancer, com o nome * \<Guid> -azurebatch-cloudserviceloadbalancer*
+        - Um grupo de segurança de rede, com o nome * \<Guid> -azurebatch-cloudservicenetworksecuritygroup
         - Um endereço IP público do Azure, com o nome -azurebatch-cloudservicepublicip
 
         Esses recursos serão criados quando o Azure-SSIS IR for iniciado. Eles serão excluídos quando o Azure-SSIS IR for interrompido. Para evitar o bloqueio do Azure-SSIS IR, não reutilize esses recursos de rede nos outros recursos.
@@ -147,7 +146,7 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
 
     ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    Para saber mais sobre como habilitar a autenticação do Azure AD, confira [Habilitar o Azure AD na instância gerenciada do Banco de Dados SQL do Azure](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance).
+    Para obter mais informações sobre como habilitar a autenticação do Azure AD, consulte [habilitar o Azure AD no Azure SQL instância gerenciada](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Associe o Azure-SSIS IR à rede virtual quando aplicável.
 

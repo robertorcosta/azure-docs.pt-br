@@ -10,24 +10,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 745ddcc95bb91e61478307265aec1ac8a7ebba54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3ca2600101c302cee1da4d22a3f098436ecb71e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75609189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355889"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solucionando erros durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do AD DS (Active Directory do Windows Server) para o Azure AD (Azure Active Directory). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que causam esses erros e possíveis maneiras de corrigi-los. Este artigo inclui os tipos de erro comuns e talvez não abranja todos os erros possíveis.
 
  Este artigo pressupõe que o leitor esteja familiarizado com os [conceitos de criação do Azure AD e Azure AD Connect](plan-connect-design-concepts.md) subjacentes.
 
-Com a versão mais recente do \(Azure ad Connect de agosto de\)2016 ou superior, um relatório de erros de sincronização está disponível na [portal do Azure](https://aka.ms/aadconnecthealth) como parte do Azure ad Connect Health para sincronização.
+Com a versão mais recente do Azure AD Connect de \( agosto de 2016 ou superior \) , um relatório de erros de sincronização está disponível na [portal do Azure](https://aka.ms/aadconnecthealth) como parte do Azure ad Connect Health para sincronização.
 
 A partir de 1º de setembro de 2016, o recurso [Duplicar a Resiliência do Atributo do Azure Active Directory](how-to-connect-syncservice-duplicate-attribute-resiliency.md) estará habilitado por padrão para todos os *novos* locatários do Azure Active Directory. Este recurso será habilitado automaticamente para locatários existentes nos próximos meses.
 
@@ -72,19 +71,19 @@ O esquema do Azure Active Directory não permite que dois ou mais objetos tenham
 
 #### <a name="example-case"></a>Caso de exemplo:
 1. **Bob Smith** é um usuário sincronizado no Azure Active Directory local Active Directory do *contoso.com*
-2. O **userPrincipalName** de Bob Smith é definido **como\@bobs contoso.com**.
+2. O **userPrincipalName** de Bob Smith é definido como **bobs \@ contoso.com**.
 3. **"abcdefghijklmnopqrstuv=="** é o **SourceAnchor** calculado pelo Azure AD Connect usando o **objectGUID** de Bob Smith do Active Directory local, que é a **immutableId** de Bob Smith no Azure Active Directory.
 4. Bob também tem os seguintes valores para o atributo **proxyAddresses**:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **SMTP: Bob\@contoso.com**
+   * **SMTP: Bob \@ contoso.com**
 5. Um novo usuário, **Bob Taylor**, é adicionado ao Active Directory local.
-6. O **userPrincipalName** de Bob Taylor é definido **como\@bobt contoso.com**.
+6. O **userPrincipalName** de Bob Taylor é definido como **bobt \@ contoso.com**.
 7. **"abcdefghijkl0123456789==""** é o **sourceAnchor** calculado pelo Azure AD Connect usando o **objectGUID** de Bob Taylor no Active Directory local. O objeto de Bob Taylor ainda NÃO foi sincronizado com o Azure Active Directory.
 8. Bob Taylor tem os valores a seguir para o atributo proxyAddresses
    * smtp: bobt@contoso.com
    * smtp: bob.taylor@contoso.com
-   * **SMTP: Bob\@contoso.com**
+   * **SMTP: Bob \@ contoso.com**
 9. Durante a sincronização, o Azure AD Connect reconhecerá a adição de Bob Taylor no Active Directory local e pedirá ao Azure AD para fazer a mesma alteração.
 10. O Azure AD executará primeiro a correspondência rígida. Ou seja, ele pesquisará se há qualquer objeto com a immutableId igual a "abcdefghijkl0123456789==". Correspondência de disco rígida falhará, pois nenhum outro objeto no Azure AD terá essa immutableId.
 11. O Azure AD tentará então realizar uma correspondência flexível para Bob Taylor. Ou seja, ele pesquisará se há algum objeto com proxyAddresses igual aos três valores, inclusive smtp: bob@contoso.com
@@ -116,8 +115,8 @@ Quando o Azure AD tenta fazer a correspondência flexível entre dois objetos, �
 * Um grupo de segurança habilitado para email é criado no Office 365. O administrador adiciona um novo usuário ou contato no AD local (que ainda não está sincronizado com o Azure AD) com o mesmo valor para o atributo ProxyAddresses que o utilizado no grupo do Office 365.
 
 #### <a name="example-case"></a>Caso de exemplo
-1. O administrador cria um novo grupo de segurança habilitado para email no Office 365 para o departamento fiscal e fornece um endereço de email como tax@contoso.com. Esse grupo é atribuído ao valor do atributo ProxyAddresses de **SMTP:\@Tax contoso.com**
-2. Um novo usuário ingressa em Contoso.com e uma conta é criada para o usuário local com o proxyAddress como **SMTP: tax\@contoso.com**
+1. O administrador cria um novo grupo de segurança habilitado para email no Office 365 para o departamento fiscal e fornece um endereço de email como tax@contoso.com. Esse grupo é atribuído ao valor do atributo ProxyAddresses de **SMTP: tax \@ contoso.com**
+2. Um novo usuário ingressa em Contoso.com e uma conta é criada para o usuário local com o proxyAddress como **SMTP: tax \@ contoso.com**
 3. Quando o Azure AD Connect sincronizar a nova conta de usuário, ele receberá o erro "ObjectTypeMismatch".
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Como corrigir o erro ObjectTypeMismatch
@@ -143,16 +142,16 @@ Se o Azure AD Connect tentar adicionar um novo objeto ou atualizar um objeto exi
 
 #### <a name="example-case"></a>Caso de exemplo:
 1. **Bob Smith** é um usuário sincronizado no Azure Active Directory do Active Directory local de contoso.com
-2. O **userPrincipalName** local de Bob Smith está definido como **bobs\@contoso.com**.
+2. O **userPrincipalName** local de Bob Smith está definido como **bobs \@ contoso.com**.
 3. Bob também tem os seguintes valores para o atributo **proxyAddresses**:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **SMTP: Bob\@contoso.com**
+   * **SMTP: Bob \@ contoso.com**
 4. Um novo usuário, **Bob Taylor**, é adicionado ao Active Directory local.
-5. O **userPrincipalName** de Bob Taylor é definido **como\@bobt contoso.com**.
+5. O **userPrincipalName** de Bob Taylor é definido como **bobt \@ contoso.com**.
 6. **Bob Taylor** tem os valores a seguir para o atributo i **ProxyAddresses**. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. O objeto de Bob Taylor foi sincronizado com êxito ao Azure AD.
-8. O administrador decidiu atualizar o atributo **ProxyAddresses** de Bob Taylor com o seguinte valor: i. **SMTP: Bob\@contoso.com**
+8. O administrador decidiu atualizar o atributo **ProxyAddresses** de Bob Taylor com o seguinte valor: i. **SMTP: Bob \@ contoso.com**
 9. O Azure AD tentará atualizar o objeto de Bob Taylor no Azure AD com o valor acima, mas essa operação falhará porque o valor de ProxyAddresses já está atribuído a Bob Smith, resultando em um erro "AttributeValueMustBeUnique".
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>Como corrigir o erro AttributeValueMustBeUnique
@@ -186,7 +185,7 @@ a. Certifique-se de que o atributo userPrincipalName tem caracteres com suporte 
 Esse caso resulta em um erro de sincronização **"FederatedDomainChangeError"** quando o sufixo UserPrincipalName de um usuário é alterado de um domínio federado para outro.
 
 #### <a name="scenarios"></a>Cenários
-Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um domínio federado para outro domínio federado local. Por exemplo, *userPrincipalName = bob\@contoso.com* foi alterado para *userPrincipalName = Bob\@fabrikam.com*.
+Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um domínio federado para outro domínio federado local. Por exemplo, *userPrincipalName = bob \@ contoso.com* foi alterado para *userPrincipalName = Bob \@ fabrikam.com*.
 
 #### <a name="example"></a>Exemplo
 1. Bob Smith, uma conta para Contoso.com, é adicionado como um novo usuário no Active Directory com o UserPrincipalName bob@contoso.com
@@ -195,7 +194,7 @@ Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um dom
 4. O userPrincipalName de Bob não é atualizado e resulta em um erro de sincronização "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Como corrigir
-Se o sufixo userPrincipalName de um usuário tiver sido atualizado de Bob@**contoso.com** para Bob\@**fabrikam.com**, em que **contoso.com** e **fabrikam.com** são **domínios federados**, siga estas etapas para corrigir o erro de sincronização
+Se o sufixo UserPrincipalName de um usuário tiver sido atualizado de bob@**contoso.com** para Bob \@ **fabrikam.com**, em que **contoso.com** e **fabrikam.com** são **domínios federados**, siga estas etapas para corrigir o erro de sincronização
 
 1. Atualize o UserPrincipalName do usuário no Azure AD de bob@contoso.com para bob@contoso.onmicrosoft.com. Você pode usar o seguinte comando do PowerShell com o Módulo do PowerShell do Azure AD: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Permita que o próximo ciclo de sincronização tentar a sincronização. Dessa vez, a sincronização será bem-sucedida e atualizará o UserPrincipalName de Bob para bob@fabrikam.com conforme esperado.
@@ -229,7 +228,7 @@ Uma **Conflito de função de administrador existente** ocorrerá em um objeto d
 - permissões administrativas e
 - o mesmo UserPrincipalName que um objeto existente do Azure AD
 
-O Azure AD Connect não tem permissão para fazer a correspondência suave com um objeto de usuário do AD local com um objeto de usuário no Azure AD que tenha uma função administrativa atribuída a ele.  Para obter mais informações, confira [Preenchimento de UserPrincipalName do Azure AD](plan-connect-userprincipalname.md)
+O Azure AD Connect não tem permissão para fazer a correspondência suave com um objeto de usuário do AD local com um objeto de usuário no Azure AD que tenha uma função administrativa atribuída a ele.  Para obter mais informações, consulte [população userPrincipalName do Azure ad](plan-connect-userprincipalname.md)
 
 ![Administrador existente](media/tshoot-connect-sync-errors/existingadmin.png)
 

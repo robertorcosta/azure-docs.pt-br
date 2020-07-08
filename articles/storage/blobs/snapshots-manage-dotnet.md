@@ -5,16 +5,15 @@ description: Saiba como criar um instantâneo somente leitura de um blob para fa
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 438692d5c142c3f617ee9d0c3f55b9b3740f9b7a
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463528"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerenciar um instantâneo de blob no .NET
 
@@ -135,7 +134,7 @@ Para excluir um blob e seus instantâneos usando a versão 12. x da biblioteca d
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
 
-O exemplo de código a seguir mostra como excluir um blob e seus instantâneos no .NET, `blobClient` em que é um objeto do tipo [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)):
+O exemplo de código a seguir mostra como excluir um blob e seus instantâneos no .NET, em que `blobClient` é um objeto do tipo [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)):
 
 ```csharp
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
@@ -150,7 +149,7 @@ Para excluir um blob e seus instantâneos usando a versão 11. x da biblioteca d
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
-O exemplo de código a seguir mostra como excluir um blob e seus instantâneos no .NET, `blockBlob` em que é um objeto do tipo [CloudBlockBlob] [dotnet_CloudBlockBlob]:
+O exemplo de código a seguir mostra como excluir um blob e seus instantâneos no .NET, em que `blockBlob` é um objeto do tipo [CloudBlockBlob] [dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);

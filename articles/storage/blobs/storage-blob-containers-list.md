@@ -4,16 +4,15 @@ description: Saiba como listar contêineres de BLOB em sua conta de armazenament
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: da0c5bf6bc371bc512d9264afeab52b9908396fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135897"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463551"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar contêineres de blob com .NET
 
@@ -30,15 +29,15 @@ As sobrecargas para esses métodos fornecem opções adicionais para o gerenciam
 
 ### <a name="manage-how-many-results-are-returned"></a>Gerenciar quantos resultados são retornados
 
-Por padrão, uma operação de listagem retorna até 5000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero `maxresults` para o parâmetro ao chamar um dos métodos **ListContainerSegmented** .
+Por padrão, uma operação de listagem retorna até 5.000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero para o `maxresults` parâmetro ao chamar um dos métodos **ListContainerSegmented** .
 
-Se sua conta de armazenamento contiver mais de 5000 contêineres ou se você tiver especificado um `maxresults` valor para tal que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com a lista de contêineres. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do armazenamento do Azure.
+Se sua conta de armazenamento contiver mais de 5000 contêineres ou se você tiver especificado um valor para `maxresults` tal que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com a lista de contêineres. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do Armazenamento do Azure.
 
-Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, o conjunto de resultados é concluído. Se o token de continuação não for nulo, chame **ListContainersSegmented** ou **ListContainersSegmentedAsync** novamente, passando o token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
+Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, significa que o conjunto de resultados está concluído. Se o token de continuação não for nulo, chame **ListContainersSegmented** ou **ListContainersSegmentedAsync** novamente, passando o token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrar resultados com um prefixo
 
-Para filtrar a lista de contêineres, especifique uma cadeia de `prefix` caracteres para o parâmetro. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. Em seguida, o armazenamento do Azure retorna somente os contêineres cujos nomes começam com esse prefixo.
+Para filtrar a lista de contêineres, especifique uma cadeia de caracteres para o parâmetro `prefix`. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. Em seguida, o armazenamento do Azure retorna somente os contêineres cujos nomes começam com esse prefixo.
 
 ### <a name="return-metadata"></a>Retornar metadados
 
@@ -98,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
-[Listar contêineres](/rest/api/storageservices/list-containers2)
-que[enumeram recursos de blob](/rest/api/storageservices/enumerating-blob-resources)
+[Listar contêineres](/rest/api/storageservices/list-containers2) 
+ [Enumerando recursos de blob](/rest/api/storageservices/enumerating-blob-resources)

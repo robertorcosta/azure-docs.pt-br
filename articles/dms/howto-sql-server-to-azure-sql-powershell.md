@@ -1,7 +1,7 @@
 ---
 title: 'PowerShell: migrar SQL Server para o banco de dados SQL'
 titleSuffix: Azure Database Migration Service
-description: Saiba como migrar do SQL Server local para o banco de dados SQL do Azure usando Azure PowerShell com o serviço de migração de banco de dados do Azure.
+description: Saiba como migrar um banco de dados do SQL Server para o banco de dados SQL do Azure usando Azure PowerShell com o serviço de migração de banco de dados do Azure.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,15 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253402"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrar o SQL Server local para o Banco de Dados SQL do Azure usando o Azure PowerShell
+# <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrar um banco de dados SQL Server para o banco de dados SQL do Azure usando Azure PowerShell
 
-Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2016 ou posterior para um Banco de Dados SQL do Azure usando o Microsoft Azure PowerShell. Migre bancos de dados de uma instância local do SQL Server para o Banco de Dados SQL do Azure usando o módulo `Az.DataMigration` no Microsoft Azure PowerShell.
+Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado para uma instância local do SQL Server 2016 ou superior para o banco de dados SQL do Azure usando Microsoft Azure PowerShell. Você pode migrar bancos de dados de uma instância SQL Server para o banco de dados SQL do Azure usando o `Az.DataMigration` módulo no Microsoft Azure PowerShell.
 
 Neste artigo, você aprenderá como:
 > [!div class="checklist"]
@@ -38,7 +37,7 @@ Para concluir essas etapas, você precisa:
 * [SQL Server 2016 ou posterior](https://www.microsoft.com/sql-server/sql-server-downloads) (qualquer edição)
 * Para habilitar o protocolo TCP/IP, que está desabilitado por padrão com a instalação do SQL Server Express. Habilite o protocolo TCP/IP seguindo o artigo [Habilitar ou desabilitar um protocolo de rede de servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Uma instância do Banco de Dados SQL do Azure. Crie uma instância do Banco de Dados SQL do Azure seguindo os detalhes no artigo [Criar um banco de dados SQL do Azure no portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Uma instância do Banco de Dados SQL do Azure. Você pode criar uma instância do banco de dados SQL do Azure seguindo os detalhes no artigo [criar um banco de dados no banco de dados SQL do Azure no portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * [Assistente de Migração de Dados](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 ou posterior.
 * Para ter criado um Rede Virtual do Microsoft Azure usando o modelo de implantação Azure Resource Manager, que fornece o serviço de migração de banco de dados do Azure com conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * Para concluir a avaliação de seu banco de dados local e a migração de esquema usando Assistente de Migração de Dados, conforme descrito no artigo [executando uma avaliação de migração de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
@@ -57,7 +56,7 @@ Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Az
 
 Crie um grupo de recursos usando o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) .
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *EastUS*.
+O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group na região *eastus* .
 
 ```powershell
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -69,7 +68,7 @@ Crie uma nova instância do Serviço de Migração de Banco de Dados do Azure us
 
 * *Nome do grupo de recursos do Azure*. Você pode usar o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) para criar o grupo de recursos do Azure como mostrado anteriormente e fornecer seu nome como um parâmetro.
 * *Nome do serviço*. Cadeia de caracteres que corresponde ao nome de serviço exclusivo desejado para o Serviço de Migração de Banco de Dados do Azure 
-* *Localização*. Especifica o local do serviço. Especifique um local de data center do Azure, como Oeste dos EUA ou Sudeste Asiático
+* *Local*. Especifica o local do serviço. Especifique um local de data center do Azure, como Oeste dos EUA ou Sudeste Asiático
 * *SKU*. Esse parâmetro corresponde ao nome do SKU do DMS. É o nome da Sku com suporte no momento *GeneralPurpose_4vCores*.
 * *Identificador de Sub-rede Virtual*. Você pode usar o cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) para criar uma sub-rede. 
 
@@ -96,7 +95,7 @@ Depois de criar uma instância do Serviço de Migração de Banco de Dados do Az
 Crie um objeto de Informações de Conexão de Banco de Dados usando o cmdlet `New-AzDmsConnInfo`. Esse cmdlet espera os seguintes parâmetros:
 
 * *ServerType*. O tipo de conexão de banco de dados solicitado, por exemplo, SQL, Oracle ou MySQL. Use o SQL para SQL Server e SQL do Azure.
-* *Fonte de fontes*. O nome ou IP de uma instância do SQL Server ou banco de dados SQL do Azure.
+* *Fonte de fontes*. O nome ou IP de uma instância de SQL Server ou banco de dados SQL do Azure.
 * *AuthType*. O tipo de autenticação da conexão, que pode ser SqlAuthentication ou WindowsAuthentication.
 * O parâmetro *TrustServerCertificate* define um valor que indica se o canal é criptografado durante o bypass percorrendo a cadeia de certificados para validar a relação de confiança. O valor pode ser verdadeiro ou falso.
 
@@ -109,7 +108,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-O próximo exemplo mostra a criação de Informações de Conexão para o servidor do banco de dados SQL do Azure chamado SQLAzureTarget usando a autenticação SQL:
+O exemplo a seguir mostra a criação de informações de conexão para um servidor chamado SQLAzureTarget usando a autenticação do SQL:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `

@@ -3,15 +3,14 @@ title: Usar o cache do HPC do Azure e Azure NetApp Files
 description: Como usar o cache HPC do Azure para melhorar o acesso aos dados armazenados com o Azure NetApp Files
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 374f3106ec42233cd5309c2773b05e3c96bbf98e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515496"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Usar o cache HPC do Azure com Azure NetApp Files
 
@@ -80,7 +79,7 @@ Você também pode encontrar endereços IP com o CLI do Azure:
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 
-Os nomes de exportação no sistema Azure NetApp Files têm um único componente de caminho. Não tente criar um destino de armazenamento para a exportação ``/`` de raiz no Azure NetApp files, pois essa exportação não fornece acesso ao arquivo.
+Os nomes de exportação no sistema Azure NetApp Files têm um único componente de caminho. Não tente criar um destino de armazenamento para a exportação de raiz ``/`` no Azure NetApp files, pois essa exportação não fornece acesso ao arquivo.
 
 Não há restrições especiais em caminhos de namespace virtual para esses destinos de armazenamento.
 

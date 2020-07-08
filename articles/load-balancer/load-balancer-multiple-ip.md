@@ -7,18 +7,17 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74077001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803627"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -88,7 +87,7 @@ Crie seu balanceador de carga para a configuração:
 
 1. Navegue até o Portal do Azure: https://portal.azure.com. Faça logon usando sua conta do Azure.
 
-2. No canto superior esquerdo da tela, selecione **criar um recurso** > **rede** > **Load Balancer**. Em seguida, selecione **Criar**.
+2. No canto superior esquerdo da tela, selecione **criar um recurso**  >  **rede**  >  **Load Balancer**. Em seguida, selecione **Criar**.
 
 3. Em **Criar balanceador de carga**, digite um nome para o balanceador de carga. Neste cenário, estamos usando o nome **mylb**.
 

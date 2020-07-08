@@ -9,17 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde94dce13eeb7536f72fb0dcd937265960c7314
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d5f8b87684847089a05341a5a68f6ad3e2ac86b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70842698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355855"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade de SQL com o Azure AD Connect
 Este artigo explica como solucionar problemas de conectividade entre o Azure AD Connect e o SQL Server. 
@@ -173,5 +172,5 @@ PS C:\Program Files\Microsoft Azure Active Directory Connect\tools>
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
+- [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 -  [Conectividade do Azure AD com o Azure AD Connect](tshoot-connect-connectivity.md)

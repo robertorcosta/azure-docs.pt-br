@@ -4,12 +4,11 @@ description: Modelo de dados do Application Insights para telemetria de solicita
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807648"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
 
@@ -17,11 +16,11 @@ Um item de telemetria de solicitação (em [Application Insights](../../azure-mo
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 O nome da solicitação representa o caminho de código necessário para processar a solicitação. Valor de baixa cardinalidade para permitir melhor agrupamento de solicitações. Para solicitações HTTP, ele representa o método HTTP e o modelo do caminho de URL como `GET /values/{id}` sem um valor real de `id`.
 
-O SDK Web do Application Insights envia o nome de solicitação "como está" em relação a diferenciar maiúsculas e minúsculas. O agrupamento na interface do usuário diferencia maiúsculas de minúsculas, então `GET /Home/Index` é contado separadamente de `GET /home/INDEX`, embora muitas vezes eles resultem na mesma execução de ação e de controlador. O motivo é que as URLs em geral [diferenciam maiúsculas e minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Talvez você queira ver se todos os `404` aconteceram para as URLs digitadas em maiúsculas. Você pode ler mais sobre a coleção de nomes de solicitação pelo SDK da Web do ASP.NET na [postagem do blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+O SDK Web do Application Insights envia o nome de solicitação "como está" em relação a diferenciar maiúsculas e minúsculas. O agrupamento na interface do usuário diferencia maiúsculas de minúsculas, então `GET /Home/Index` é contado separadamente de `GET /home/INDEX`, embora muitas vezes eles resultem na mesma execução de ação e de controlador. O motivo é que as URLs em geral [diferenciam maiúsculas e minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Talvez você queira ver se todos os `404` aconteceram para as URLs digitadas em maiúsculas. Você pode ler mais sobre a coleção de nomes de solicitação pelo SDK da Web do ASP.NET na [postagem do blog](https://apmtips.com/posts/2015-02-23-request-name-and-url/).
 
 Comprimento máximo: 1.024 caracteres
 
@@ -37,7 +36,7 @@ URL de solicitação com todos os parâmetros de cadeia de consulta.
 
 Comprimento máximo: 2.048 caracteres
 
-## <a name="source"></a>Fonte
+## <a name="source"></a>Origem
 
 A origem da solicitação. Os exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para obter mais informações, consulte a página de [correlação](../../azure-monitor/app/correlation.md).
 
@@ -61,7 +60,7 @@ Para aplicativos Web, o Application Insights define uma solicitação como bem-s
 
 Conteúdo `206` parcialmente aceito pode indicar uma falha de uma solicitação geral. Por exemplo, o ponto de extremidade do Application Insights recebe um lote de itens de telemetria como uma única solicitação. Ele retorna `206` quando alguns itens no lote não foram processados com êxito. A taxa crescente de `206` indica um problema que precisa ser investigado. Uma lógica semelhante se aplica ao Status Múltiplo `207`, em que o êxito pode ser o pior dos códigos de resposta separados.
 
-Você pode ler mais sobre código de status e código de resultados de solicitação na [postagem de blog](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Você pode ler mais sobre código de status e código de resultados de solicitação na [postagem de blog](https://apmtips.com/posts/2016-12-03-request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 

@@ -3,12 +3,11 @@ title: Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 description: Uma introdução ao backup de bancos de dados SQL Server usando o serviço de backup do Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183782"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195787"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 
@@ -43,7 +42,7 @@ Para proteger SQL Server bancos de dados no Azure, primeiro crie uma política d
 1. Selecione **servidores**.
 
     ![Selecione o tipo de grupo de proteção servidores](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expanda a máquina SQL Server em que os bancos de dados que você deseja fazer backup estão localizados. Você vê as fontes de dados cujo backup pode ser feito a partir desse servidor. Expanda **todos os compartilhamentos SQL** e selecione os bancos de dados que você deseja fazer backup. Neste exemplo, selecionamos ReportServer $ MSDPM2012 e ReportServer $ MSDPM2012TempDB. Em seguida, selecione **Avançar**.
+1. Expanda a máquina virtual SQL Server em que os bancos de dados que você deseja fazer backup estão localizados. Você vê as fontes de dados cujo backup pode ser feito a partir desse servidor. Expanda **todos os compartilhamentos SQL** e selecione os bancos de dados que você deseja fazer backup. Neste exemplo, selecionamos ReportServer $ MSDPM2012 e ReportServer $ MSDPM2012TempDB. Em seguida, selecione **Avançar**.
 
     ![Selecionar um banco de dados SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nomeie o grupo de proteção e selecione **desejo proteção online**.
@@ -80,7 +79,7 @@ Para proteger SQL Server bancos de dados no Azure, primeiro crie uma política d
 
     ![Escolher quando executar uma verificação de consistência](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    O DPM pode executar uma verificação de consistência na integridade do ponto de backup. Ele calcula a soma de verificação do arquivo de backup no servidor de produção (a máquina SQL Server neste exemplo) e os dados de backup para esse arquivo no DPM. Se a verificação encontrar um conflito, o arquivo de backup no DPM será considerado corrompido. O DPM corrige os dados dos quais foi feito backup enviando os blocos que correspondem à incompatibilidade da soma de verificação. Como a verificação de consistência é uma operação com uso intensivo de desempenho, os administradores podem optar por agendar a verificação de consistência ou executá-la automaticamente.
+    O DPM pode executar uma verificação de consistência na integridade do ponto de backup. Ele calcula a soma de verificação do arquivo de backup no servidor de produção (o SQL Server computador neste exemplo) e os dados de backup para esse arquivo no DPM. Se a verificação encontrar um conflito, o arquivo de backup no DPM será considerado corrompido. O DPM corrige os dados dos quais foi feito backup enviando os blocos que correspondem à incompatibilidade da soma de verificação. Como a verificação de consistência é uma operação com uso intensivo de desempenho, os administradores podem optar por agendar a verificação de consistência ou executá-la automaticamente.
 
 1. Selecione as fontes de dados a serem protegidas no Azure. Em seguida, selecione **Avançar**.
 

@@ -11,12 +11,11 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2d2cd98a9af75b5f3a6ca084dbfd4c144e06643d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733782"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Solucionar problemas de conectividade LDAP segura para um Azure Active Directory Domain Services domínio gerenciado
 
@@ -26,22 +25,22 @@ Este artigo ajuda você a solucionar problemas com acesso LDAP seguro no Azure A
 
 ## <a name="common-connection-issues"></a>Problemas comuns de conexão
 
-Se você tiver problemas para se conectar a um domínio gerenciado do Azure AD DS usando o LDAP seguro, examine as etapas de solução de problemas a seguir. Após cada etapa de solução de problemas, tente se conectar ao domínio gerenciado do Azure AD DS novamente:
+Se você tiver problemas para se conectar a um domínio gerenciado do Azure AD DS usando o LDAP seguro, examine as etapas de solução de problemas a seguir. Após cada etapa de solução de problemas, tente se conectar novamente ao domínio gerenciado:
 
 * A cadeia de emissor do certificado LDAP seguro deve ser confiável no cliente. Você pode adicionar a AC (autoridade de certificação) raiz ao repositório de certificados raiz confiáveis no cliente para estabelecer a relação de confiança.
     * Certifique-se de [exportar e aplicar o certificado aos computadores cliente][client-cert].
 * Verifique se o certificado LDAP seguro para seu domínio gerenciado tem o nome DNS no atributo *assunto* ou *nomes alternativos da entidade* .
     * Examine os [requisitos de certificado LDAP seguro][certs-prereqs] e crie um certificado de substituição, se necessário.
-* Verifique se o cliente LDAP, como *LDP. exe* , conecta-se ao ponto de extremidade de LDAP seguro usando um nome DNS, não o endereço IP.
-    * O certificado aplicado ao domínio gerenciado AD DS do Azure não inclui os endereços IP do serviço, somente os nomes DNS.
-* Verifique o nome DNS que o cliente LDAP se conecta. Ele deve resolver para o endereço IP público para LDAP seguro no domínio gerenciado AD DS do Azure.
+* Verifique se o cliente LDAP, como *ldp.exe* se conecta ao ponto de extremidade LDAP seguro usando um nome DNS, não o endereço IP.
+    * O certificado aplicado ao domínio gerenciado não inclui os endereços IP do serviço, somente os nomes DNS.
+* Verifique o nome DNS que o cliente LDAP se conecta. Deve ser resolvido para o endereço IP público para LDAP seguro no domínio gerenciado.
     * Se o nome DNS for resolvido para o endereço IP interno, atualize o registro DNS para resolver para o endereço IP externo.
 * Para conectividade externa, o grupo de segurança de rede deve incluir uma regra que permita o tráfego para a porta TCP 636 da Internet.
-    * Se você puder se conectar ao domínio gerenciado do Azure AD DS usando o LDAP seguro dos recursos conectados diretamente à rede virtual, mas não a conexões externas, certifique-se de [criar uma regra de grupo de segurança de rede para permitir o tráfego LDAP seguro][ldaps-nsg].
+    * Se você puder se conectar ao domínio gerenciado usando o LDAP seguro de recursos conectados diretamente à rede virtual, mas não a conexões externas, certifique-se de [criar uma regra de grupo de segurança de rede para permitir o tráfego LDAP seguro][ldaps-nsg].
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
+Se ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

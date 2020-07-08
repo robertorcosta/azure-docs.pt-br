@@ -4,16 +4,15 @@ description: Saiba como desenvolver aplicativos e serviços .NET que usam o Arqu
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515368"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
@@ -34,7 +33,7 @@ Para saber mais sobre os arquivos do Azure, confira [o que são os arquivos do A
 
 ## <a name="understanding-the-net-apis"></a>Compreendendo as APIs do .NET
 
-Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: protocolo SMB e REST. No .NET, as `System.IO` APIs `WindowsAzure.Storage` e abstraim essas abordagens.
+Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: protocolo SMB e REST. No .NET, as `System.IO` `WindowsAzure.Storage` APIs e abstraim essas abordagens.
 
 API | Quando usar | Observações
 ----|-------------|------
@@ -49,7 +48,7 @@ No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seg
 1. Em **criar um novo projeto**, escolha **aplicativo de console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
 1. Em **configurar seu novo projeto**, insira um nome para o aplicativo e selecione **criar**.
 
-Você pode adicionar todos os exemplos de código neste tutorial ao `Main()` método do arquivo do `Program.cs` seu aplicativo de console.
+Você pode adicionar todos os exemplos de código neste tutorial ao `Main()` método do arquivo do seu aplicativo de console `Program.cs` .
 
 Você pode usar a biblioteca de cliente de armazenamento do Azure em qualquer tipo de aplicativo .NET. Esses tipos incluem um serviço de nuvem do Azure ou aplicativo Web, e aplicativos móveis e de desktop. Neste guia, usamos um aplicativo de console para simplificar.
 
@@ -73,18 +72,18 @@ Consulte estes pacotes em seu projeto para concluir este tutorial:
 Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**.
-1. No **Gerenciador de pacotes NuGet**, selecione **procurar**. Em seguida, pesquise e escolha **Microsoft. Azure. Storage. blob**e, em seguida, selecione **instalar**.
+1. No **Gerenciador de Pacotes NuGet**, selecione **Procurar**. Em seguida, pesquise e escolha **Microsoft. Azure. Storage. blob**e, em seguida, selecione **instalar**.
 
    Esta etapa instala o pacote e suas dependências.
 1. Pesquise e instale esses pacotes:
 
    * **Microsoft. Azure. Storage. Common**
    * **Microsoft. Azure. Storage. File**
-   * **Microsoft. Azure. ConfigurationManager**
+   * **Microsoft.Azure.ConfigurationManager**
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvar as credenciais da conta de armazenamento no arquivo app. config
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salve as credenciais da conta de armazenamento no arquivo de App.config
 
-Em seguida, salve suas credenciais no arquivo do `App.config` seu projeto. Em **Gerenciador de soluções**, clique `App.config` duas vezes e edite o arquivo para que ele seja semelhante ao exemplo a seguir. Substitua `myaccount` pelo nome da conta de armazenamento `mykey` e pela sua chave de conta de armazenamento.
+Em seguida, salve suas credenciais no arquivo do seu projeto `App.config` . Em **Gerenciador de soluções**, clique duas vezes `App.config` e edite o arquivo para que ele seja semelhante ao exemplo a seguir. Substitua `myaccount` pelo nome da conta de armazenamento e `mykey` pela sua chave de conta de armazenamento.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -435,7 +434,7 @@ using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Embora os BLOBs do Azure, as tabelas do Azure e as filas do `ServiceProperties` Azure usem o `Microsoft.Azure.Storage.Shared.Protocol` tipo compartilhado no namespace, os arquivos do Azure usam `FileServiceProperties` seu próprio tipo `Microsoft.Azure.Storage.File.Protocol` , o tipo no namespace. Você deve referenciar ambos os namespaces do seu código, no entanto, para que o código a seguir seja compilado.
+Embora os BLOBs do Azure, as tabelas do Azure e as filas do Azure usem o `ServiceProperties` tipo compartilhado no `Microsoft.Azure.Storage.Shared.Protocol` namespace, os arquivos do Azure usam seu próprio tipo, o `FileServiceProperties` tipo no `Microsoft.Azure.Storage.File.Protocol` namespace. Você deve referenciar ambos os namespaces do seu código, no entanto, para que o código a seguir seja compilado.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.

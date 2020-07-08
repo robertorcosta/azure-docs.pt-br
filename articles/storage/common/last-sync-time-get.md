@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4309f1dc63ac7dd96e22f4564a32aae6ed59ad84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195797"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Verificação da propriedade Horário da Última Sincronização de uma conta de armazenamento
 
@@ -37,13 +36,7 @@ Você pode usar o PowerShell ou a CLI do Azure para recuperar o valor da proprie
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para obter a hora da última sincronização para a conta de armazenamento com o PowerShell, instale uma versão do módulo Az.Storage que dá suporte à obtenção de estatísticas de replicação geográfica. Por exemplo:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
-```
-
-Em seguida, verifique a propriedade **GeoReplicationStats.LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores dos espaços reservados por seus próprios valores:
+Para obter a hora da última sincronização para a conta de armazenamento com o PowerShell, instale a versão 1.11.0 ou posterior do módulo [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) . Em seguida, verifique a propriedade **GeoReplicationStats.LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores dos espaços reservados por seus próprios valores:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

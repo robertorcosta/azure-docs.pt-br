@@ -3,12 +3,11 @@ title: Perguntas comuns sobre a recuperação de desastres do Hyper-V com o Azur
 description: Este artigo resume perguntas comuns sobre a configuração da recuperação de desastre de VMs do Hyper-V locais para o Azure usando o site do Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498199"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195255"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
 
@@ -114,7 +113,7 @@ Sim. O Site Recovery converte da segunda geração para a primeira geração dur
 Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Rest, o PowerShell ou o SDK do Azure. Cenários atualmente suportados para replicar o Hyper-V para o Azure usando o PowerShell:
 
 - [Replique Hyper-V sem o VMM usando o PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Replicação do Hyper-V com o VMM usando o Powershell](hyper-v-vmm-powershell-resource-manager.md)
+- [Replicando o Hyper-V com o VMM usando o PowerShell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>Replicação
 
@@ -159,7 +158,7 @@ Para replicação, uma VM do Hyper-V deve estar executando um sistema operaciona
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência é possível replicar para o Azure?
 
-VMs Hyper-V podem ser replicadas a cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos.
+As VMs do Hyper-V podem ser replicadas a cada 30 segundos (exceto para armazenamento Premium) ou 5 minutos.
 
 ### <a name="can-i-extend-replication"></a>É possível estender replicação?
 Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

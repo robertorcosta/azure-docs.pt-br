@@ -3,19 +3,18 @@ title: Montar um cache HPC do Azure
 description: Como conectar clientes a um serviço de cache do Azure HPC
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: a44232f06b455e20530271723e816c2117b339a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515524"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
 
-Depois que o cache é criado, os clientes NFS podem acessá- `mount` lo com um comando simples. O comando conecta um caminho de destino de armazenamento específico no cache do Azure HPC a um diretório local no computador cliente.
+Depois que o cache é criado, os clientes NFS podem acessá-lo com um `mount` comando simples. O comando conecta um caminho de destino de armazenamento específico no cache do Azure HPC a um diretório local no computador cliente.
 
 O comando Mount é composto por esses elementos:
 
@@ -57,7 +56,7 @@ Ao conectar o computador cliente ao cache, você associará esse caminho a um ca
 
 Você pode usar a página **instruções de montagem** no portal do Azure para criar um comando de montagem copiável. Abra a página na seção **Configurar** do modo de exibição de cache no Portal.
 
-Antes de usar o comando em um cliente, verifique se o cliente atende aos pré-requisitos e tem o software necessário para usar o comando `mount` NFS, conforme descrito acima em [preparar clientes](#prepare-clients).
+Antes de usar o comando em um cliente, verifique se o cliente atende aos pré-requisitos e tem o software necessário para usar o comando NFS, `mount` conforme descrito acima em [preparar clientes](#prepare-clients).
 
 ![captura de tela de uma instância de cache do HPC do Azure no portal, com a página Configurar instruções de montagem > carregada](media/mount-instructions.png)
 
@@ -107,7 +106,7 @@ root@test-client:/tmp# sudo mount -o hard,proto=tcp,mountproto=tcp,retry=30 10.0
 root@test-client:/tmp#
 ```
 
-Depois que esse comando for executado com sucesso, o conteúdo da exportação de armazenamento ficará visível ``hpccache`` no diretório do cliente.
+Depois que esse comando for executado com sucesso, o conteúdo da exportação de armazenamento ficará visível no ``hpccache`` diretório do cliente.
 
 ### <a name="mount-command-options"></a>Opções de comando de montagem
 
@@ -129,7 +128,7 @@ Se você quiser criar um comando de montagem sem usar a página **instruções d
 ![captura de tela da página de visão geral da instância do cache HPC do Azure, com uma caixa de realce em volta da lista de endereços de montagem no canto inferior direito](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
-> Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede do cache. Em um grupo de recursos, essas NICs são listadas com nomes `-cluster-nic-` que terminam em e um número. Não altere ou exclua essas interfaces, ou o cache ficará indisponível.
+> Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede do cache. Em um grupo de recursos, essas NICs são listadas com nomes que terminam em `-cluster-nic-` e um número. Não altere ou exclua essas interfaces, ou o cache ficará indisponível.
 
 Os caminhos de namespace virtual são mostrados na página de detalhes de cada destino de armazenamento. Clique em um nome de destino de armazenamento individual para ver seus detalhes, incluindo caminhos de namespace agregados associados a ele.
 

@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: d6a61a4a26176ee353d1f182579e1f8d80a95aab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60386917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355991"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Você pode usar o padrão que do SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação.
@@ -87,7 +86,7 @@ Por padrão, Azure AD Connect retém a dias sete de dados de histórico de execu
 
 3. Em **Ações**, selecione **Limpar Execuções**…
 
-4. Você pode escolher **limpar todas as execuções** ou **limpar execuções antes de... \<** opção de>de data. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
+4. Você pode escolher a opção **Limpar todas as execuções** ou **Limpar execuções antes de... \<date>**. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reduzir o período de retenção de dados de histórico de execução
 Esta etapa é reduzir a probabilidade de executando o problema de limite de 10 GB após vários ciclos de sincronização.
@@ -104,4 +103,4 @@ Em geral, o problema é indicativo de que o tamanho do banco de dados de 10 GB n
 * Para obter instruções sobre a migração swing para atualização do Azure AD Connect, veja o artigo [Azure AD Connect: Atualização de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

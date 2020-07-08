@@ -3,16 +3,15 @@ title: Implantar a Sincronização de Arquivos do Azure | Microsoft Docs
 description: Saiba como implantar a Sincronização de arquivos do Azure do início ao fim.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515360"
 ---
 # <a name="deploy-azure-file-sync"></a>Implantar a Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -23,14 +22,14 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
 * Um compartilhamento de arquivos do Azure na mesma região que você deseja implantar Sincronização de Arquivos do Azure. Para obter mais informações, consulte:
     - [Disponibilidade de região](storage-sync-files-planning.md#azure-file-sync-region-availability) para Sincronização de arquivos do Azure.
     - Para orientações passo a passo sobre como criar uma conta de compartilhamento, consulte [Criar uma conta de compartilhamento](storage-how-to-create-file-share.md).
-* Pelo menos uma instância do Windows Server ou cluster do Windows Server com suporte para sincronização com o Sincronização de Arquivos do Azure. Para obter mais informações sobre as versões com suporte do Windows Server, consulte [interoperabilidade com o Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
-* O módulo AZ PowerShell pode ser usado com o PowerShell 5,1 ou o PowerShell 6 +. Você pode usar o módulo AZ PowerShell para Sincronização de Arquivos do Azure em qualquer sistema com suporte, incluindo sistemas não Windows, no entanto, o cmdlet de registro do servidor sempre deve ser executado na instância do Windows Server que você está registrando (isso pode ser feito diretamente ou por meio de comunicação remota do PowerShell). No Windows Server 2012 R2, você pode verificar se está executando pelo menos o PowerShell 5,1. \* examinando o valor da propriedade **PSVersion** do objeto **$psversiontable** :
+* Pelo menos uma instância do Windows Server ou cluster do Windows Server com suporte para sincronização com o Sincronização de Arquivos do Azure. Para obter mais informações sobre as versões com suporte do Windows Server e os recursos de sistema recomendados, consulte [Considerações sobre o servidor de arquivos do Windows](storage-sync-files-planning.md#windows-file-server-considerations).
+* O módulo AZ PowerShell pode ser usado com o PowerShell 5,1 ou o PowerShell 6 +. Você pode usar o módulo AZ PowerShell para Sincronização de Arquivos do Azure em qualquer sistema com suporte, incluindo sistemas não Windows, no entanto, o cmdlet de registro do servidor sempre deve ser executado na instância do Windows Server que você está registrando (isso pode ser feito diretamente ou por meio de comunicação remota do PowerShell). No Windows Server 2012 R2, você pode verificar se está executando pelo menos o PowerShell 5,1. \* examinando o valor da propriedade **psversion** do objeto **$psversiontable** :
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Se o valor de PSVersion for menor que 5.1. \*, como será o caso com a maioria das novas instalações do Windows Server 2012 R2, será possível facilmente fazer upgrade, baixando e instalando o [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote apropriado para baixar e instalar o Windows Server 2012 R2 é **win 8.1 andw2k12r2-KB\*\*\*\*\*\*\*-x64. msu**. 
+    Se o valor de PSVersion for menor que 5.1. \*, como será o caso com a maioria das novas instalações do Windows Server 2012 R2, será possível facilmente fazer upgrade, baixando e instalando o [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote apropriado para baixar e instalar o Windows Server 2012 R2 é **win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
 
     O PowerShell 6 + pode ser usado com qualquer sistema com suporte e pode ser baixado por meio de sua [página do GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -40,7 +39,7 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
 * Se você tiver optado por usar o PowerShell 5,1, verifique se pelo menos o .NET 4.7.2 está instalado. Saiba mais sobre [as versões do .NET Framework e as dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) em seu sistema.
 
     > [!Important]  
-    > Se você estiver instalando o .NET 4.7.2 + no Windows Server Core, será necessário instalar `quiet` o `norestart` com os sinalizadores e ou a instalação falhará. Por exemplo, se estiver instalando o .NET 4,8, o comando seria semelhante ao seguinte:
+    > Se você estiver instalando o .NET 4.7.2 + no Windows Server Core, será necessário instalar o com os `quiet` `norestart` sinalizadores e ou a instalação falhará. Por exemplo, se estiver instalando o .NET 4,8, o comando seria semelhante ao seguinte:
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
@@ -109,7 +108,7 @@ No novo painel que será aberta, insira as seguintes informações:
 Quando terminar, selecione **Criar** para implantar o Serviço De Sincronização De Armazenamento.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Substitua `<Az_Region>`, `<RG_Name>`e `<my_storage_sync_service>` pelos seus próprios valores e, em seguida, use os seguintes comandos para criar e implantar um serviço de sincronização de armazenamento:
+Substitua `<Az_Region>` , `<RG_Name>` e `<my_storage_sync_service>` pelos seus próprios valores e, em seguida, use os seguintes comandos para criar e implantar um serviço de sincronização de armazenamento:
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -366,7 +365,7 @@ Se você quiser configurar a sincronização de arquivos do Azure para trabalhar
 1. Selecione **redes selecionadas** em **permitir acesso de**.
 1. Verifique se os servidores IP ou rede virtual estão listados na seção apropriada.
 1. Certifique-se **de que permitir que serviços da Microsoft confiáveis acessem esta conta de armazenamento** esteja marcado.
-1. Selecione **salvar** para salvar as configurações.
+1. Selecione **salvar** para salvar suas configurações.
 
 ![Definindo configurações de rede virtual e de firewall para trabalhar com a sincronização de arquivos do Azure](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 

@@ -8,18 +8,17 @@ ms.author: trbye
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: f997aef59e91bed325b84af855a84f43cd639d83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 660cb14bd081dffbf3e9fb5f02b7690212915355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807478"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Usar a identidade do Azure AD com o serviço Web do Machine Learning no serviço kubernetes do Azure
 
-Neste "como", você aprende a atribuir uma identidade de Azure Active Directory (AAD) ao seu modelo de aprendizado de máquina implantado no serviço kubernetes do Azure. O projeto de [identidade Pod do AAD](https://github.com/Azure/aad-pod-identity) permite que os aplicativos acessem recursos de nuvem com segurança com o AAD usando uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) e primitivos kubernetes. Isso permite que seu serviço Web acesse seus recursos do Azure com segurança sem precisar inserir credenciais ou gerenciar tokens diretamente `score.py` dentro do script. Este artigo explica as etapas para criar e instalar uma identidade do Azure em seu cluster do serviço kubernetes do Azure e atribuir a identidade ao serviço Web implantado.
+Neste "como", você aprende a atribuir uma identidade de Azure Active Directory (AAD) ao seu modelo de aprendizado de máquina implantado no serviço kubernetes do Azure. O projeto de [identidade Pod do AAD](https://github.com/Azure/aad-pod-identity) permite que os aplicativos acessem recursos de nuvem com segurança com o AAD usando uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) e primitivos kubernetes. Isso permite que seu serviço Web acesse seus recursos do Azure com segurança sem precisar inserir credenciais ou gerenciar tokens diretamente dentro do `score.py` script. Este artigo explica as etapas para criar e instalar uma identidade do Azure em seu cluster do serviço kubernetes do Azure e atribuir a identidade ao serviço Web implantado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,7 +93,7 @@ spec:
   Selector: <label value to match>
 ```
 
-Edite a implantação para adicionar o rótulo do seletor de identidade do Azure. Vá para a seção a seguir `/spec/template/metadata/labels`em. Você deve ver valores como `isazuremlapp: “true”`. Adicione o rótulo AAD-Pod-Identity, como mostrado abaixo.
+Edite a implantação para adicionar o rótulo do seletor de identidade do Azure. Vá para a seção a seguir em `/spec/template/metadata/labels` . Você deve ver valores como `isazuremlapp: “true”` . Adicione o rótulo AAD-Pod-Identity, como mostrado abaixo.
 
 ```azurecli-interactive
     kubectl edit deployment/<name of deployment> -n azureml-<name of workspace>
@@ -105,7 +104,7 @@ spec:
   template:
     metadata:
       labels:
-      - aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
+       aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
       ...
 ```
 
@@ -133,7 +132,7 @@ Implante um modelo no cluster AKS. O `score.py` script pode conter operações q
 
 ### <a name="access-key-vault-from-your-web-service"></a>Acesse Key Vault de seu serviço Web
 
-Se você tiver dado ao seu acesso de leitura de identidade do Azure a **Key Vault**um segredo dentro `score.py` de um Key Vault, seu poderá acessá-lo usando o código a seguir.
+Se você tiver dado ao seu acesso de leitura de identidade do Azure a um segredo dentro de um **Key Vault**, seu `score.py` poderá acessá-lo usando o código a seguir.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -153,7 +152,7 @@ secret = secret_client.get_secret(my_secret_name)
 
 ### <a name="access-blob-from-your-web-service"></a>Acessar o blob do serviço Web
 
-Se você tiver dado ao seu acesso de leitura de identidade do Azure aos dados dentro de `score.py` um blob de **armazenamento**, você poderá acessá-lo usando o código a seguir.
+Se você tiver dado ao seu acesso de leitura de identidade do Azure aos dados dentro de um **blob de armazenamento**, você `score.py` poderá acessá-lo usando o código a seguir.
 
 ```python
 from azure.identity import DefaultAzureCredential

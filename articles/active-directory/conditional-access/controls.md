@@ -4,19 +4,18 @@ description: Saiba como os controles personalizados no Azure Active Directory ac
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c149279a755eb186a3fdc7891e9b511d18c7f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253300"
 ---
 # <a name="custom-controls-preview"></a>Controles personalizados (versão prévia)
 
@@ -57,8 +56,8 @@ Os controles personalizados não podem ser usados com a automação da proteçã
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+- [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
 - [Modo somente relatório](concept-conditional-access-report-only.md)
 
-- [Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
+- [Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)

@@ -14,12 +14,11 @@ ms.workload: big-compute
 ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 4da5fad63b148fa054eefb7f13424b46dc43bf29
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 96a3ada98bb41ea007eaaae2a40983d2448b38c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83764315"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960819"
 ---
 # <a name="using-certificates-with-batch"></a>Usando certificados com o Lote
 
@@ -39,6 +38,6 @@ Agora, quando você cria um pool do Lote, é possível navegar até Certificados
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O Lote tem uma API de certificado, [Criação de certificado em lote do AZ](https://docs.microsoft.com/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
+O Lote tem uma API de certificado, [Criação de certificado em lote do AZ](/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
 
 Para obter informações sobre como usar Key Vault, consulte [Acessar o Key Vault com segurança com o Lote](credential-access-key-vault.md).

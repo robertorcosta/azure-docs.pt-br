@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188167"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041312"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança do Azure para HDInsight
 
@@ -994,7 +993,7 @@ Como armazenar código no Azure DevOps:
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentação do Azure Repos: 
+Documentação do Azure Repos:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
@@ -1152,7 +1151,7 @@ Como configurar a redundância de armazenamento para contas de armazenamento do 
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-Como configurar a redundância para bancos de dados SQL do Azure:
+Como configurar a redundância para o banco de dados SQL do Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 

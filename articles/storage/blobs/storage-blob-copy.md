@@ -7,13 +7,12 @@ ms.author: mhopkins
 ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463443"
 ---
 # <a name="copy-a-blob-with-net"></a>Copiar um blob com o .NET
 
@@ -109,7 +108,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 ## <a name="abort-a-blob-copy-operation"></a>Anular uma operação de cópia de BLOB
 
-Anular uma operação de cópia resulta em um blob de destino de comprimento zero para BLOBs de blocos, blobs de acréscimo e blobs de páginas. No entanto, os metadados para o blob de destino terão os novos valores copiados do blob de origem ou definidos explicitamente na chamada [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) ou [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Para manter os metadados originais antes da cópia, crie um instantâneo do blob de destino antes de chamar `StartCopy` ou `StartCopyAsync`.
+Anular uma operação de cópia resulta em um blob de destino de comprimento zero para BLOBs de blocos, blobs de acréscimo e blobs de páginas. No entanto, os metadados para o blob de destino terão os novos valores copiados do blob de origem ou definidos explicitamente na chamada [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) ou [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Para manter os metadados originais antes da cópia, crie um instantâneo do blob de destino antes de chamar `StartCopy` ou `StartCopyAsync` .
 
 Quando você anula uma operação de cópia de BLOB em andamento, o [CopyState](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) do blob de destino é definido como [CopyStatus. Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 

@@ -4,11 +4,10 @@ description: Saiba como definir variáveis de ambiente nos contêineres que voc�
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686725"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente em instâncias de contêiner
 
@@ -144,7 +143,7 @@ Azure:\
 Para definir variáveis de ambiente ao iniciar um contêiner no portal do Azure, especifique-os na página **avançado** ao criar o contêiner.
 
 1. Na página **avançado** , defina a **política de reinicialização** como *em caso de falha*
-2. Em **variáveis de ambiente**, `NumWords` Insira com um valor `5` de para a primeira variável e digite `MinLength` com um valor de `8` para a segunda variável. 
+2. Em **variáveis de ambiente**, insira `NumWords` com um valor de `5` para a primeira variável e digite `MinLength` com um valor de `8` para a segunda variável. 
 1. Selecione **examinar + criar** para verificar e implantar o contêiner.
 
 ![Página do portal mostrando a variável de ambiente Habilitar botão e caixas de texto][portal-env-vars-01]

@@ -3,12 +3,11 @@ title: Adicionar ferramentas de avaliação em migrações para Azure
 description: Saiba como adicionar ferramentas de avaliação nas migrações para Azure.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195627"
 ---
 # <a name="add-assessment-tools"></a>Adicionar ferramentas de avaliação
 
@@ -23,7 +22,7 @@ Este artigo descreve como adicionar ferramentas de avaliação nas [migrações 
 2. Selecione o cenário de avaliação que você deseja usar:
 
     - Para descobrir e avaliar máquinas e cargas de trabalho para migração para o Azure, selecione **avaliar e migrar servidores**.
-    - Para avaliar as máquinas locais do SQL, selecione **avaliar e migrar bancos de dados**.
+    - Para avaliar os bancos de dados SQL Server locais, selecione **avaliar e migrar bancos de dados**.
     - Para avaliar aplicativos Web locais, selecione **avaliar e migrar aplicativos Web**.
 
     ![Cenário de avaliação](./media/how-to-assess/assess-scenario.png)

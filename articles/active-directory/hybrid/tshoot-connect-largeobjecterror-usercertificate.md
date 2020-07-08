@@ -11,18 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "62095482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356161"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros LargeObject causados pelo atributo userCertificate
 
@@ -118,11 +117,11 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
     | Nome | *Fornecer um nome* | Por exemplo, *“Saída para AAD – Substituição personalizado para userCertificate”* |
-    | Descrição | *Forneça uma descrição* | Por exemplo, *“Se o atributo userCertificate tiver mais de 15 valores, exportar NULL”.* |
+    | Descrição | *Fornecer uma descrição* | Por exemplo, *“Se o atributo userCertificate tiver mais de 15 valores, exportar NULL”.* |
     | Sistema Conectado | *Selecionar o Azure AD Connector* |
     | Tipo de Objeto do Sistema Conectado | **user** | |
     | Tipo de Objeto de Metaverso | **pessoa** | |
-    | Tipo de link | **Ingressar** | |
+    | Tipo de link | **Join** | |
     | Precedência | *Escolher um número entre 1 a 99* | O número escolhido não deve ser usado por nenhuma regra de sincronização existente e tem um valor mais baixo (e, portanto, uma precedência mais alta) que a regra de sincronização existente. |
 
 3. Acesse a guia **Filtro de escopo** e implemente o mesmo filtro de escopo usado pela regra de sincronização existente.
@@ -131,7 +130,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
 
     | Atributo | Valor |
     | --- | --- |
-    | Tipo de Fluxo |**Expressão** |
+    | Tipo de Fluxo |**Expression** |
     | Atributo de Destino |**userCertificate** |
     | Atributo de Origem |*Use a seguinte expressão*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
@@ -182,5 +181,5 @@ Agora que o problema foi resolvido, habilite o agendador de sincronização inte
 > As etapas anteriores só são aplicáveis às versões mais novas (1.1.xxx.x) do Azure AD Connect com o agendador interno. Se você estiver usando versões mais antigas (1.0.xxx.x) do Azure AD Connect que usam o Agendador de Tarefas do Windows ou estiver usando seu próprio agendador personalizado (caso incomum) para disparar a sincronização periódica, precisará desabilitá-las de acordo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
 

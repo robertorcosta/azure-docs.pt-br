@@ -4,16 +4,15 @@ description: Mostra como criar uma conta do Azure BlockBlobStorage com caracter�
 author: tamram
 services: storage
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
-ms.translationtype: MT
+ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463545"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta do BlockBlobStorage
 
@@ -51,7 +50,7 @@ O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente
 
 O botão inicia um shell interativo que você pode usar para executar as etapas descritas neste artigo de instruções:
 
-[![Captura de tela mostrando a janela Cloud Shell no portal](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![Captura de tela mostrando a janela do Cloud Shell no portal](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
@@ -173,7 +172,7 @@ Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
 
 Para criar uma conta de blob de blocos usando o CLI do Azure, você deve primeiro instalar o CLI do Azure v. 2.0.46 ou uma versão posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-1. Entre em sua assinatura do Azure.
+1. Entre na sua assinatura do Azure.
 
    ```azurecli
    az login

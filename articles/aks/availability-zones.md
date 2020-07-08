@@ -2,15 +2,14 @@
 title: Usar zonas de disponibilidade no AKS (Serviço de Kubernetes do Azure)
 description: Saiba como criar um cluster que distribui nós entre zonas de disponibilidade no AKS (Serviço de Kubernetes do Azure)
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195558"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster do AKS (Serviço de Kubernetes do Azure) que usa zonas de disponibilidade
 
@@ -48,7 +47,7 @@ As seguintes limitações se aplicam quando você cria um cluster do AKS usando 
 
 ### <a name="azure-disks-limitations"></a>Limitações de discos do Azure
 
-Os volumes que usam os discos gerenciados do Azure não são recursos com redundância de zona no momento. Não é possível anexar os volumes entre zonas e devem estar colocalizados na mesma zona que um determinado nó que hospeda um pod de destino.
+Os volumes que usam os discos gerenciados do Azure não são recursos com redundância de zona no momento. Os volumes não podem ser anexados entre zonas e devem estar colocalizados na mesma zona que um determinado nó que hospeda o pod de destino.
 
 Se você precisar executar cargas de trabalho com estado, use taints e tolerations do pool de nós em especificações de pod para agrupar o agendamento de pod na mesma zona que os discos. Como alternativa, use o armazenamento baseado em rede, como Arquivos do Azure, que podem ser anexados a pods à medida que são agendados entre as zonas.
 

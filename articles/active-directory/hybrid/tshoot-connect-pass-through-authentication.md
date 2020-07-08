@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60456086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356144"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -52,13 +51,40 @@ Se o usuário não consegue entrar usando a autenticação de passagem, ele pode
 |AADSTS80005|Validação encontrou WebException imprevisível|Um erro transitório. Tente novamente a solicitação. Caso a falha persista, contate o Suporte da Microsoft.
 |AADSTS80007|Erro na comunicação com o Active Directory|Confira os logs do agente para obter mais informações e verifique se o Active Directory está funcionando conforme o esperado.
 
+### <a name="users-get-invalid-usernamepassword-error"></a>Os usuários obtêm erro de nome de usuário/senha inválido 
+
+Isso pode acontecer quando o UserPrincipalName local de um usuário (UPN) é diferente do UPN da nuvem do usuário.
+
+Para confirmar que esse é o problema, primeiro teste se o agente de autenticação de passagem está funcionando corretamente:
+
+
+1. Crie uma conta de teste.  
+2. Importe o módulo do PowerShell no computador do agente:
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Execute o comando Invoke PowerShell: 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. Quando for solicitado que você insira as credenciais, insira o mesmo nome de usuário e senha que são usados para entrar no ( https://login.microsoftonline.com) .
+
+Se você receber o mesmo erro de nome de usuário/senha, isso significa que o agente de autenticação de passagem está funcionando corretamente e o problema pode ser que o UPN local não é roteável. Para saber mais, consulte [Configurando a ID de logon alternativa]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+
+
+
+
+
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário licença Premium)
 
 Se o locatário tiver uma licença do Azure AD Premium associada a ele, você também poderá analisar o [relatório de atividade de entrada](../reports-monitoring/concept-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Azure Active Directory - relatório Entradas](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Navegue até **Azure Active Directory** -> **entradas** no [centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e clique em uma atividade de entrada do usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
+Navegue até **Azure Active Directory**  ->  **entradas** no [centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e clique em uma atividade de entrada do usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
 
 |Código de erro de logon|Motivo da falha no logon|Resolução
 | --- | --- | ---

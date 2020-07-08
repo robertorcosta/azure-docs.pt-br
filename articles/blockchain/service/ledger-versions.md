@@ -1,21 +1,20 @@
 ---
 title: Versões do razão do serviço Blockchain do Azure, aplicação de patches, atualização &
-description: Visão geral das versões de razões com suporte no serviço Blockchain do Azure, incluindo políticas relacionadas à aplicação de patches de sistemas e atualizações gerenciadas pelo usuário e pelo sistema.
-ms.date: 11/20/2019
+description: Visão geral das versões de razões com suporte no serviço Blockchain do Azure. Incluindo políticas para aplicação de patches e atualizações de sistemas.
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.reviewer: janders
-ms.openlocfilehash: 8d4a77699dd80743acfadd4d72d6d75bc1939b3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.reviewer: ravastra
+ms.openlocfilehash: ea7c54e229178320329204a3199ab2b4c44058fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807733"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versões do razão do serviço Blockchain do Azure com suporte
 
 O serviço Blockchain do Azure usa o razão de [Quorum](https://www.goquorum.com/developers) baseado em Ethereum projetado para o processamento de transações privadas dentro de um grupo de participantes conhecidos, identificado como um consórcio no serviço Blockchain do Azure.
 
-Atualmente, o serviço Blockchain do Azure dá suporte à [versão de quorum 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) e [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
+Atualmente, o serviço Blockchain do Azure dá suporte à [versão de quorum 2.6.0](https://github.com/jpmorganchase/quorum/releases/tag/v2.6.0) e [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Gerenciar atualizações e upgrades
 
@@ -30,6 +29,43 @@ O serviço Blockchain do Azure atualiza automaticamente as versões de patch do 
 ## <a name="availability-of-new-ledger-versions"></a>Disponibilidade de novas versões do razão
 
 O serviço Blockchain do Azure fornece as últimas versões principais e secundárias do razão de quorum dentro de 60 dias de disponibilidade do fabricante do quorum. No máximo quatro versões secundárias são fornecidas para que consortia escolha ao provisionar um novo membro e consórcio. No momento, não há suporte para a atualização do para uma versão principal ou secundária. Por exemplo, se você estiver executando a versão 2. x, não há suporte atualmente para a atualização para a versão 3. x. Da mesma forma, se você estiver executando a versão 2,2, não há suporte para uma atualização para a versão 2,3 no momento.
+
+## <a name="how-to-check-quorum-ledger-version"></a>Como verificar a versão do razão do quorum
+
+Você pode verificar a versão de quorum em seu membro do serviço Blockchain do Azure anexando ao seu nó usando Geth ou exibindo logs de diagnóstico.
+
+### <a name="using-geth"></a>Usando Geth
+
+Anexe ao nó do serviço Blockchain do Azure usando o Geth. Por exemplo, `geth attach https://myblockchainmember.blockchain.azure.com:3200/<Access key>`.
+
+Quando o nó estiver conectado, o Geth relatará a versão de quorum semelhante à seguinte saída:
+
+``` text
+instance: Geth/v1.9.7-stable-9339be03(quorum-v2.6.0)/linux-amd64/go1.13.12
+```
+
+Para obter mais informações sobre como usar o Geth, consulte [início rápido: usar o Geth para anexar a um nó de transação do serviço Blockchain do Azure](connect-geth.md).
+
+### <a name="using-diagnostic-logs"></a>Usando logs de diagnóstico
+
+Se você habilitar os logs de diagnóstico, a versão de quorum será relatada para nós de transação. Por exemplo, a seguinte mensagem de log informativo de nó inclui a versão de quorum.
+
+``` text 
+{"NodeName":"transaction-node","Message":"INFO [06-22|05:31:45.156] Starting peer-to-peer node instance=Geth/v1.9.7-stable-9339be03(quorum-v2.6.0)/linux-amd64/go1.13.12\n"}
+{"NodeName":"transaction-node","Message":"[*] Starting Quorum node with QUORUM_VERSION=2.6.0, TESSERA_VERSION=0.10.5 and PRIVATE_CONFIG=/working-dir/c/tm.ipc\n"}
+111
+```
+
+Para obter mais informações sobre logs de diagnóstico, consulte [monitorar o serviço Blockchain do Azure por meio de Azure monitor](monitor-azure-blockchain-service.md#diagnostic-settings).
+
+## <a name="how-to-check-genesis-file-content"></a>Como verificar o conteúdo do arquivo Genesis
+
+Para verificar o conteúdo do arquivo Genesis do nó blockchain, você pode usar a seguinte API JavaScript do Ethereum:
+
+``` bash
+admin.nodeInfo.protocols
+```
+Você pode chamar a API usando um console do Geth ou uma biblioteca do Web3. Para obter mais informações sobre como usar o Geth, consulte [início rápido: usar o Geth para anexar a um nó de transação do serviço Blockchain do Azure](connect-geth.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

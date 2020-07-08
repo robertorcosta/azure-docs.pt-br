@@ -6,12 +6,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84457296"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -38,6 +37,8 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
  * **Evite operações caras** – algumas operações Redis, como o comando [Keys](https://redis.io/commands/keys) , são *muito* caras e devem ser evitadas.  Para obter mais informações, consulte algumas considerações sobre [comandos de longa execução](cache-troubleshoot-server.md#long-running-commands)
 
  * **Usar criptografia TLS** -o cache do Azure para Redis requer comunicações criptografadas TLS por padrão.  No momento, há suporte para as versões 1,0, 1,1 e 1,2 do TLS.  No entanto, o TLS 1,0 e o 1,1 estão em um caminho para a substituição em todo o setor, portanto, use o TLS 1,2, se possível.  Se a sua biblioteca ou ferramenta de cliente não oferecer suporte a TLS, a habilitação de conexões não criptografadas poderá ser feita [por meio das APIs de](cache-configure.md#access-ports) [Gerenciamento](https://docs.microsoft.com/rest/api/redis/redis/update)ou portal do Azure.  Nesses casos em que as conexões criptografadas não são possíveis, colocar o cache e o aplicativo cliente em uma rede virtual seria recomendado.  Para obter mais informações sobre quais portas são usadas no cenário de cache de rede virtual, consulte esta [tabela](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ 
+ * **Tempo limite de ociosidade** -o Azure Redis atualmente tem 10 minutos de tempo limite de ociosidade para conexões, portanto, isso deve ser definido para menos de 10 minutos.
  
 ## <a name="memory-management"></a>Gerenciamento de memória
 Há várias coisas relacionadas ao uso de memória em sua instância do servidor Redis que você talvez queira considerar.  Aqui estão algumas:
@@ -67,7 +68,7 @@ Infelizmente, não há uma resposta fácil.  Cada aplicativo precisa decidir qua
 Se você quiser testar como o código funciona em condições de erro, considere usar o [recurso de reinicialização](cache-administration.md#reboot). A reinicialização permite que você veja como a conexão blips afeta seu aplicativo.
 
 ## <a name="performance-testing"></a>Testes de desempenho
- * **Comece usando `redis-benchmark.exe` ** para ter uma ideia de taxa de transferência/latência possível antes de escrever seus próprios testes de desempenho.  A documentação do Redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que Redis-benchmark não dá suporte a TLS, portanto, você precisará [habilitar a porta não TLS por meio do portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com Windows do Redis-benchmark. exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
+ * **Comece usando `redis-benchmark.exe` ** para ter uma ideia de taxa de transferência/latência possível antes de escrever seus próprios testes de desempenho.  A documentação do Redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que Redis-benchmark não dá suporte a TLS, portanto, você precisará [habilitar a porta não TLS por meio do portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com Windows do redis-benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
  * A VM do cliente usada para teste deve estar **na mesma região** que a instância do cache Redis.
  * **É recomendável usar a série de VMs Dv2** para seu cliente, pois eles têm um hardware melhor e fornecerão os melhores resultados.
  * Verifique se a VM do cliente que você usa tem **pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
@@ -81,10 +82,10 @@ Se você quiser testar como o código funciona em condições de erro, considere
  
 ### <a name="redis-benchmark-examples"></a>Redis-exemplos de benchmark
 **Configuração de pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t SET-n 10-d 1024 
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t SET-n 10-d 1024 
 
 **Para testar a latência**: teste as solicitações Get usando uma carga de 1K.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-d 1024-P 50-c 4
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-d 1024-P 50-c 4
 
 **Para testar a taxa de transferência:** Solicitações GET em pipeline com carga de 1K.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-n 1 milhão-d 1024-P 50-c 50
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-n 1 milhão-d 1024-P 50-c 50

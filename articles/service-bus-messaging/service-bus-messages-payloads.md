@@ -1,24 +1,13 @@
 ---
 title: Mensagens, payloads e serialização do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral das mensagens, cargas, roteamento de mensagens e serialização do barramento de serviço do Azure.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 11e56ae2483a254fb00e3593da7841f3f3d844f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341682"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 
@@ -77,7 +66,7 @@ Quando estiver em trânsito ou armazenado dentro do Barramento de Serviço, o pa
 
 Diferentemente das variantes Java ou .NET Standard, a versão .NET Framework da API do Barramento de Serviço dá suporte à criação de instâncias **BrokeredMessage** passando objetos .NET arbitrários para o construtor. 
 
-Ao usar o protocolo SBMP herdado, esses objetos são serializados com o serializador binário padrão ou com um serializador fornecido externamente. Ao usar o protocolo AMQP, o objeto é serializado em um objeto AMQP. O receptor pode recuperar esses objetos com o método [GetBody\<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) , fornecendo o tipo esperado. Com AMQP, os objetos são serializados em um gráfico AMQP dos objetos **ArrayList** e **IDictionary <string,object>**, e qualquer cliente do AMQP pode decodificá-los. 
+Ao usar o protocolo SBMP herdado, esses objetos são serializados com o serializador binário padrão ou com um serializador fornecido externamente. Ao usar o protocolo AMQP, o objeto é serializado em um objeto AMQP. O receptor pode recuperar esses objetos com o método [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1), fornecendo o tipo esperado. Com AMQP, os objetos são serializados em um gráfico AMQP dos objetos **ArrayList** e **IDictionary <string,object>**, e qualquer cliente do AMQP pode decodificá-los. 
 
 Embora essa mágica de serialização oculta seja conveniente, os aplicativos devem assumir o controle explícito da serialização do objeto e transformar os grafos dos seus objetos em fluxos antes de incluí-los em uma mensagem e fazer o contrário no lado do receptor. Isso produz resultados interoperáveis. Também deve-se observar que, embora o AMQP tenha um avançado modelo de codificação binária, ele está vinculado ao ecossistema de mensagens AMQP e os clientes HTTP terão problemas para decodificar esses payloads. 
 

@@ -10,19 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fa56217c54ac662a62a5ce835d75e3d85f05bfa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77470744"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041465"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na Versão Prévia do Azure Time Series Insights
 
 Este artigo descreve como trabalhar com o modelo de série temporal na visualização Azure Time Series Insights. Detalha vários cenários comuns de dados.
 
 > [!TIP]
-> * Leia sobre o [modelo de série temporal](time-series-insights-update-tsm.md)de visualização.
+> * Leia sobre o [modelo de série temporal](concepts-model-overview.md)de visualização.
 > * Saiba mais sobre como navegar na interface do usuário da versão prévia no [Azure Time Series insights Explorer Preview](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Instâncias
@@ -53,7 +52,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
     [![Instâncias de carregamento em massa por meio de JSON.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
 
-1. Selecione **Carregar**.
+1. Escolha **Carregar**.
 
 ### <a name="edit-a-single-instance"></a>Editar uma única instância
 
@@ -104,7 +103,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 1. Selecione **Carregar JSON**.
 1. Selecione o arquivo que contém o conteúdo de hierarquia.
-1. Selecione **Carregar**.
+1. Escolha **Carregar**.
 
     [![Seleções para o carregamento em massa de hierarquias.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
 
@@ -147,7 +146,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 1. Selecione **Carregar JSON**.
 1. Selecione o arquivo que contém o conteúdo de tipo.
-1. Selecione **Carregar**.
+1. Escolha **Carregar**.
 
     [![Opções de carregamento de tipos em massa.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
 
@@ -168,7 +167,7 @@ Para começar, selecione o modo de exibição de **modelo** na exibição de **a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre o modelo de série temporal, leia [modelagem de dados](./time-series-insights-update-tsm.md).
+- Para obter mais informações sobre o modelo de série temporal, leia [modelagem de dados](./concepts-model-overview.md).
 
 - Para saber mais sobre a versão prévia, leia [Visualizar dados no Gerenciador da Versão Prévia do Azure Time Series Insights](./time-series-insights-update-explorer.md).
 

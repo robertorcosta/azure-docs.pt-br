@@ -6,12 +6,11 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686997"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure
 
@@ -27,7 +26,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * Você pode especificar uma chave gerenciada pelo cliente *somente quando criar o ISE*, não depois. Não é possível desabilitar essa chave após a criação do ISE. No momento, não existe suporte para a rotação de uma chave gerenciada pelo cliente para um ISE.
 
-* Para dar suporte a chaves gerenciadas pelo cliente, seu ISE requer que o tenha sua [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) habilitada. Essa identidade permite que o ISE autentique o acesso a recursos em outros locatários Azure Active Directory (Azure AD) para que você não precise entrar com suas credenciais.
+* Para dar suporte a chaves gerenciadas pelo cliente, seu ISE requer que o tenha sua [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) habilitada. Essa identidade permite que o ISE autentique o acesso a recursos em outros locatários Azure Active Directory (Azure AD) para que você não precise entrar com suas credenciais.
 
 * Atualmente, para criar um ISE que dê suporte a chaves gerenciadas pelo cliente e tenha sua identidade atribuída pelo sistema habilitada, você precisa chamar a API REST dos aplicativos lógicos usando uma solicitação HTTPS PUT.
 
@@ -47,7 +46,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
   |----------|-------|
   | **Tipo de chave** | RSA |
   | **Tamanho da chave RSA** | 2.048 |
-  | **Habilitada** | Sim |
+  | **Habilitado** | Sim |
   |||
 
   ![Criar sua chave de criptografia gerenciada pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -67,20 +66,20 @@ Para criar seu ISE chamando a API REST dos aplicativos lógicos, faça esta soli
 > [!IMPORTANT]
 > A versão 2019-05-01 da API REST dos aplicativos lógicos requer que você faça sua própria solicitação HTTP PUT para conectores do ISE.
 
-A implantação geralmente leva dentro de duas horas para ser concluída. Ocasionalmente, a implantação pode levar até quatro horas. Para verificar o status da implantação, na [portal do Azure](https://portal.azure.com), na barra de ferramentas do Azure, selecione o ícone notificações, que abre o painel notificações.
+A implantação geralmente leva dentro de duas horas para ser concluída. Em alguns casos, a implantação pode levar até quatro horas. Para verificar o status da implantação, na [portal do Azure](https://portal.azure.com), na barra de ferramentas do Azure, selecione o ícone notificações, que abre o painel notificações.
 
 > [!NOTE]
-> Se a implantação falhar ou se você excluir o ISE, o Azure poderá levar até uma hora para liberar as sub-redes. Esse atraso significa que você pode precisar esperar antes de reutilizar essas sub-redes em outro ISE.
+> Se a implantação falhar ou se você excluir o ISE, o Azure poderá levar até uma hora para liberar as sub-redes. Esse atraso significa que você precisará esperar antes de reutilizar essas sub-redes em outro ISE.
 >
 > Se você excluir sua rede virtual, o Azure geralmente levará até duas horas antes de lançar suas sub-redes, mas essa operação poderá levar mais tempo. 
-> Ao excluir redes virtuais, certifique-se de que nenhum recurso ainda esteja conectado. 
-> Consulte [excluir rede virtual](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
+> Ao excluir redes virtuais, verifique se algum recurso ainda está conectado. 
+> Confira [Excluir rede virtual](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 ### <a name="request-header"></a>Cabeçalho da solicitação
 
 No cabeçalho da solicitação, inclua estas propriedades:
 
-* `Content-type`: Defina esse valor de propriedade `application/json`como.
+* `Content-type`: Defina esse valor de propriedade como `application/json` .
 
 * `Authorization`: Defina esse valor de propriedade para o token de portador para o cliente que tem acesso à assinatura do Azure ou ao grupo de recursos que você deseja usar.
 
@@ -203,7 +202,7 @@ Para essa tarefa, você pode usar o comando Azure PowerShell [set-AzKeyVaultAcce
 
 1. No [portal do Azure](https://portal.azure.com), abra o cofre de chaves do Azure.
 
-1. No menu do cofre de chaves, selecione **políticas** > de acesso**Adicionar política de acesso**, por exemplo:
+1. No menu do cofre de chaves, selecione **políticas de acesso**  >  **Adicionar política de acesso**, por exemplo:
 
    ![Adicionar política de acesso para identidade gerenciada atribuída pelo sistema](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
@@ -219,7 +218,7 @@ Para essa tarefa, você pode usar o comando Azure PowerShell [set-AzKeyVaultAcce
 
       ![Selecione "gerenciamento de chaves" > "permissões de chave"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. Para **selecionar entidade de segurança**, selecione **nenhum selecionado**. Depois que o painel **principal** for aberto, na caixa de pesquisa, localize e selecione o ISE. Quando terminar **, escolha** > **Adicionar**.
+   1. Para **selecionar entidade de segurança**, selecione **nenhum selecionado**. Depois que o painel **principal** for aberto, na caixa de pesquisa, localize e selecione o ISE. Quando terminar **, escolha**  >  **Adicionar**.
 
       ![Selecione o ISE para usar como o principal](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

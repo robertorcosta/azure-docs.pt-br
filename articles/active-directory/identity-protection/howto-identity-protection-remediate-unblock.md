@@ -4,25 +4,24 @@ description: Saiba mais sobre as opções que você tem de fechar as detecções
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350e7b37d36be70cea345db52cdfb639b2f1c1a8
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463953"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Corrigir riscos e desbloquear usuários
 
 Depois de concluir a [investigação](howto-identity-protection-investigate-risk.md), você desejará tomar medidas para corrigir o risco ou desbloquear os usuários. As organizações também têm a opção de habilitar a correção automatizada usando suas [políticas de risco](howto-identity-protection-configure-risk-policies.md). As organizações devem tentar fechar todas as detecções de riscos com as quais elas são apresentadas em um período de tempo com que sua organização se sente confortável. A Microsoft recomenda os eventos de fechamento assim que possível, pois o tempo é importante ao trabalhar com risco.
 
-## <a name="remediation"></a>Correção
+## <a name="remediation"></a>Remediação
 
 Todas as detecções de riscos ativas contribuem para o cálculo de um valor chamado nível de risco do usuário. O nível de risco do usuário é um indicador (baixo, médio, alto) para a probabilidade de que uma conta tenha sido comprometida. Como administrador, você deseja que todas as detecções de riscos sejam fechadas, para que os usuários afetados não estejam mais em risco.
 
@@ -65,7 +64,7 @@ Ao fechar as detecções de risco manualmente, você pode optar por executar qua
 
 - Confirmar o usuário comprometido
 - Ignorar o risco de usuário
-- Confirmar a entrada segura
+- Confirmar entrada segura
 - Confirmar entrada comprometida
 
 ## <a name="unblocking-users"></a>Desbloqueando usuários

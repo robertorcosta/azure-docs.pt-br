@@ -9,11 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687065"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Execute o serviço de gerenciamento de certificados do cofre OPC com segurança
 

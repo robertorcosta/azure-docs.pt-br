@@ -5,12 +5,11 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7fa2dd335e457307dd6d7e4ecdc787015b742b32
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: HT
+ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100380"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerenciar pré-scripts e pós-scripts
 
@@ -90,6 +89,9 @@ Um exemplo completo com todas as propriedades pode ser encontrado em: [Obter con
 
 > [!NOTE]
 > O objeto `SoftwareUpdateConfigurationRunContext` pode conter entradas duplicadas para computadores. Isso pode fazer com que os pré-scripts e os pós-scripts sejam executados várias vezes no mesmo computador. Para contornar esse comportamento, use `Sort-Object -Unique` para selecionar apenas nomes de VM exclusivos.
+
+> [!NOTE]
+> Atualmente, somente os runbooks do PowerShell têm suporte como scripts de pré/pós. Outros tipos de runbook como Python, gráfico, fluxo de trabalho do PowerShell, fluxo de trabalho gráfico do PowerShell atualmente não têm suporte como scripts de pré/pós.
 
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Usar um pré-script ou pós-script em uma implantação
 

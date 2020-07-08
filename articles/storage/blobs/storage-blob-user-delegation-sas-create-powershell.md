@@ -8,14 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5250a27e6c5fcf012207f1edb95ad46c0aabfe63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803532"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell
 
@@ -32,7 +31,7 @@ Para criar uma SAS de delegação de usuário com o PowerShell, instale a versã
 1. Desinstale as instalações anteriores do Azure PowerShell:
 
     - Remova as instalações anteriores do Azure PowerShell do Windows usando a configuração **Aplicativos e recursos** em **Configurações**.
-    - Remova todos **Azure** os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
+    - Remova todos os módulos do **Azure** de `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Verifique se tem a versão mais recente do PowerShellGet instalado. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
@@ -62,7 +61,7 @@ Para verificar qual versão do módulo AZ. Storage está instalada, execute o se
 Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
-Para obter mais informações sobre como instalar Azure PowerShell, consulte [instalar Azure PowerShell com PowerShellGet](/powershell/azure/install-az-ps).
+Para obter mais informações sobre como instalar o Azure PowerShell, consulte [Instalar o Azure PowerShell com o PowerShellGet](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-azure-powershell-with-azure-ad"></a>Entrar no Azure PowerShell com o Azure AD
 
@@ -98,7 +97,7 @@ Quando você cria uma SAS de delegação de usuário com Azure PowerShell, a cha
 
 Como o intervalo máximo em que a chave de delegação de usuário é válida é de 7 dias a partir da data de início, você deve especificar um tempo de expiração para a SAS que está dentro de 7 dias da hora de início. A SAS é inválida depois que a chave de delegação do usuário expira, portanto, uma SAS com um tempo de expiração superior a 7 dias ainda será válida por sete dias.
 
-Para criar uma SAS de delegação de usuário para um contêiner ou BLOB com Azure PowerShell, primeiro crie um novo objeto de contexto de armazenamento `-UseConnectedAccount` do Azure, especificando o parâmetro. O `-UseConnectedAccount` parâmetro especifica que o comando cria o objeto de contexto na conta do Azure AD com a qual você se conectou.
+Para criar uma SAS de delegação de usuário para um contêiner ou BLOB com Azure PowerShell, primeiro crie um novo objeto de contexto de armazenamento do Azure, especificando o `-UseConnectedAccount` parâmetro. O `-UseConnectedAccount` parâmetro especifica que o comando cria o objeto de contexto na conta do Azure AD com a qual você se conectou.
 
 Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
