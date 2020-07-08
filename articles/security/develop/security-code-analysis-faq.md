@@ -1,7 +1,7 @@
 ---
 title: FAQ da documentação de análise de código de segurança da Microsoft
 description: Este artigo contém perguntas frequentes sobre a extensão de análise de código de segurança da Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362067"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 Tem dúvidas? Confira as perguntas frequentes a seguir para obter mais informações.
@@ -48,7 +48,7 @@ Para a maior parte, as tarefas de compilação do Azure DevOps são wrappers dir
 
 Diferenças perceptíveis:
 
-- Ferramentas executadas na pasta de origem do agente $ (Build. SourcesDirectory) ou de% BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent\_work\1\s.
+- Ferramentas executadas na pasta de origem do agente $ (Build. SourcesDirectory) ou de% BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent \_ work\1\s.
 - Os caminhos nos argumentos podem ser relativos à raiz do diretório de origem listado anteriormente. Os caminhos também podem ser absolutos. Você obtém caminhos absolutos usando variáveis de compilação DevOps do Azure ou executando um agente local com locais de implantação conhecidos de recursos locais.
 - As ferramentas fornecem automaticamente um caminho ou pasta de arquivo de saída. Se você fornecer um local de saída para uma tarefa de compilação, esse local será substituído por um caminho para nosso local conhecido de logs no agente de compilação
 - Alguns argumentos de linha de comando adicionais são alterados para algumas ferramentas. Um exemplo é a adição ou remoção de opções que garantem que nenhuma GUI seja iniciada.
@@ -63,7 +63,7 @@ As tarefas de compilação filtram alguma entrada do usuário. Para essa pergunt
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Onde os arquivos de saída são gerados pelas ferramentas salvas? 
 
-As tarefas de compilação adicionam automaticamente caminhos de saída a esse local conhecido no agente de compilação: $ (Agent. BuildDirectory\_) sdt\logs. Como padronizamos esse local, todas as equipes que produzem ou consomem logs de análise de código têm acesso à saída.
+As tarefas de compilação adicionam automaticamente caminhos de saída a esse local conhecido no agente de compilação: $ (Agent. BuildDirectory) \_ sdt\logs. Como padronizamos esse local, todas as equipes que produzem ou consomem logs de análise de código têm acesso à saída.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Posso colocar uma compilação em fila para executar essas tarefas em um agente de compilação hospedado? 
 
@@ -123,15 +123,15 @@ A chave de hash do segredo do arquivo de saída CredScan é necessária, conform
 
 A expressão de arquivo pode ser um nome de arquivo. Ele também pode ser a parte basename de um caminho de arquivo completo ou um nome de arquivo. Não há suporte para caracteres curinga.
 
-Os exemplos a seguir mostram como suprimir o \<arquivo inputPath> \src\js\lib\angular.js
+Os exemplos a seguir mostram como suprimir o arquivo \<InputPath>\src\JS\lib\angular.js
 
 Exemplos de regras de supressão válidas:
 
-- \<InputPath> \src\JS\lib\angular.js-suprime o arquivo no caminho especificado
+- \<InputPath>\src\JS\lib\angular.js-suprime o arquivo no caminho especificado
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- angular. js-suprime qualquer arquivo com o mesmo nome
+- angular.js-suprime qualquer arquivo com o mesmo nome
 
         {
             "tool": "Credential Scanner",
@@ -155,9 +155,9 @@ Exemplos de regras de supressão válidas:
 Os recursos a seguir ajudam você a gerenciar com segurança segredos e acessar informações confidenciais de dentro de seus aplicativos:
 
  - [Cofre da Chave do Azure](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Identidade de Serviço Gerenciada do Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Identidades gerenciadas dos recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Identidades gerenciadas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identidades gerenciadas no serviço Azure App e Azure Functions](../../app-service/overview-managed-identity.md)
  - [Biblioteca AppAuthentication](../../key-vault/general/service-to-service-authentication.md)
 
@@ -166,14 +166,14 @@ Para obter mais informações, consulte a postagem de blog [Gerenciando segredos
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>Posso escrever meus próprios pesquisadores personalizados?
 
-O verificador de credenciais depende de um conjunto de pesquisa de conteúdo que são normalmente definidos no arquivo buildsearchers. xml. O arquivo contém uma matriz de objetos serializados XML que representam um objeto **ContentSearcher** . O programa é distribuído com um conjunto de pesquisadores bem testados. Mas você também pode implementar seus próprios pesquisadores personalizados.
+O verificador de credenciais depende de um conjunto de pesquisa de conteúdo que são normalmente definidos no arquivo de buildsearchers.xml. O arquivo contém uma matriz de objetos serializados XML que representam um objeto **ContentSearcher** . O programa é distribuído com um conjunto de pesquisadores bem testados. Mas você também pode implementar seus próprios pesquisadores personalizados.
 
 Um pesquisador de conteúdo é definido da seguinte maneira:
 
 - **Nome**: o nome descritivo do pesquisador a ser usado em arquivos de saída do verificador de credenciais. Recomendamos que você use a Convenção de nomenclatura do camel case para nomes de pesquisador.
 - **RuleId**: a ID opaca estável do pesquisador:
     - Um pesquisador de credenciais padrão recebe um valor **RuleId** como CSCAN0010, CSCAN0020 ou CSCAN0030. O último dígito é reservado para potencialmente mesclagem ou divisão de grupos de pesquisa por meio de expressões regulares (Regex).
-    - O valor de **RuleId** para um pesquisador personalizado deve ter seu próprio namespace. Os exemplos incluem CSCAN\<-\>namespace 0010, CSCAN\<-\>namespace 0020 e CSCAN-\<namespace\>0030.
+    - O valor de **RuleId** para um pesquisador personalizado deve ter seu próprio namespace. Os exemplos incluem CSCAN- \<Namespace\> 0010, CSCAN- \<Namespace\> 0020 e CSCAN- \<Namespace\> 0030.
     - Um nome do pesquisador totalmente qualificado é a combinação de um valor de **RuleId** e um nome de pesquisador. Os exemplos incluem CSCAN0010. KeyStoreFiles e CSCAN0020. Base64EncodedCertificate.
 - **ResourceMatchPattern**: Regex de extensões de arquivo para verificar no Pesquisador.
 - **ContentSearchPatterns**: uma matriz de cadeias de caracteres que contém instruções Regex para fazer a correspondência. Se nenhum padrão de pesquisa for definido, todos os arquivos correspondentes ao valor de **ResourceMatchPattern** serão retornados.
@@ -196,23 +196,23 @@ A mensagem de erro completa:
 
 Como as tarefas de analisadores Roslyn são executadas como parte da compilação, a árvore de origem no computador de compilação precisa estar em um estado compilável.
 
-Uma etapa entre as etapas da compilação principal e dos analisadores Roslyn pode colocar a árvore de origem em um estado que impede a criação. Essa etapa extra é provavelmente **dotnet. exe Publish**. Tente duplicar a etapa que faz uma restauração do NuGet logo antes da etapa dos analisadores de Roslyn. Essa etapa duplicada pode colocar a árvore de origem de volta em um estado compilável.
+Uma etapa entre as etapas da compilação principal e dos analisadores Roslyn pode colocar a árvore de origem em um estado que impede a criação. Essa etapa extra provavelmente **dotnet.exe publicar**. Tente duplicar a etapa que faz uma restauração do NuGet logo antes da etapa dos analisadores de Roslyn. Essa etapa duplicada pode colocar a árvore de origem de volta em um estado compilável.
 
-##### <a name="cscexe-cant-create-an-analyzer-instance"></a>o CSC. exe não pode criar uma instância do analisador
+##### <a name="cscexe-cant-create-an-analyzer-instance"></a>csc.exe não pode criar uma instância do analisador
 
 A mensagem de erro completa:
 
-"o CSC. exe ' saiu com o código de erro 1--uma instância do Analyzer *aaaa* não pode ser criada a\\partir de C:*bbbb*. dll: não foi possível carregar o arquivo ou assembly ' Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' ou uma de suas dependências. O sistema não pode localizar o arquivo especificado."
+"' csc.exe ' saiu com o código de erro 1--uma instância do Analyzer *aaaa* não pode ser criada a partir de C: \\ *bbbb*. dll: não foi possível carregar o arquivo ou assembly ' Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' ou uma de suas dependências. O sistema não pode localizar o arquivo especificado."
 
-Verifique se o compilador dá suporte a analisadores Roslyn. A execução do comando **CSC. exe/Version** deve relatar um valor de versão de 2,6 ou posterior.
+Verifique se o compilador dá suporte a analisadores Roslyn. Executar o comando **csc.exe/Version** deve relatar um valor de versão de 2,6 ou posterior.
 
 Às vezes, um arquivo. csproj pode substituir a instalação do Visual Studio da máquina de compilação referenciando um pacote de Microsoft.Net. compilers. Se você não pretende usar uma versão específica do compilador, remova as referências a Microsoft.Net. compilers. Caso contrário, verifique se a versão do pacote referenciado também é 2,6 ou posterior.
 
-Tente obter o caminho do log de erros, que é especificado na opção **CSC. exe/ErrorLog** . A opção e o caminho aparecem no log para a tarefa de compilação de analisadores de Roslyn. Eles podem ter uma aparência semelhante a **/ErrorLog:\_f:\ts-Services-123 work\456\s\Some\Project\Code\Code.csproj.Sarif**
+Tente obter o caminho do log de erros, que é especificado na opção **csc.exe/ErrorLog** . A opção e o caminho aparecem no log para a tarefa de compilação de analisadores de Roslyn. Eles podem ter uma aparência semelhante a **/ErrorLog: f:\ts-services-123 \_ work\456\s\Some\Project\Code\Code.csproj.Sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>A versão do compilador C# não é recente o suficiente
 
-Para obter as versões mais recentes do compilador C#, vá para [Microsoft.net. compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Para obter a versão instalada, execute **CSC. exe/Version** em um prompt de comando. Certifique-se de fazer referência a um pacote NuGet do Microsoft.Net. compilers que seja da versão 2,6 ou posterior.
+Para obter as versões mais recentes do compilador C#, vá para [Microsoft.net. compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Para obter a versão instalada, execute **csc.exe/Version** em um prompt de comando. Certifique-se de fazer referência a um pacote NuGet do Microsoft.Net. compilers que seja da versão 2,6 ou posterior.
 
 ##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>Os logs do MSBuild e do VSBuild não foram encontrados
 

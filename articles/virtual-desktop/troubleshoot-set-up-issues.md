@@ -8,36 +8,37 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e248e7af5fc9ed2bc144a4b302577be56524d7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612516"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361160"
 ---
-# <a name="host-pool-creation"></a>Criação de pool de hosts
+# <a name="host-pool-creation"></a>Criação do pool de host
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo aborda problemas durante a configuração inicial do locatário da área de trabalho virtual do Windows e da infraestrutura do pool de hosts da sessão relacionada.
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 
 Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para comentar sobre o serviço da Área de Trabalho Virtual do Windows com a equipe do produto e membros ativos da comunidade.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirindo a imagem de várias sessões do Windows 10 Enterprise
 
-Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione** > introdução ao**Microsoft Windows 10** > e [Windows 10 Enterprise Multi-Session, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar a imagem de várias sessões do Windows 10 Enterprise, vá para o Azure Marketplace, **selecione introdução**ao  >  **Microsoft Windows 10** > e [Windows 10 Enterprise Multi-Session, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemas com o uso do portal do Azure para criar pools de hosts
 
 ### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Erro: "criar uma conta gratuita" é exibido ao acessar o serviço
 
-![Uma imagem mostrando a portal do Azure exibir a mensagem "criar uma conta gratuita"](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem mostrando a portal do Azure exibir a mensagem "criar uma conta gratuita"](media/create-new-account.png)
 
 **Causa**: não há assinaturas ativas na conta com a qual você entrou no Azure, ou a conta não tem permissões para exibir as assinaturas. 
 
@@ -60,9 +61,10 @@ Siga estas instruções para solucionar problemas de implantações sem êxito d
 3. Depois que o erro for identificado, use a mensagem de erro e os recursos em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
 4. Exclua todos os recursos criados durante a implantação anterior e tente novamente implantar o modelo novamente.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: falha na implantação....\<nome do host>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: falha na implantação... \<hostname> /JoinDomain
 
-![Falha na captura de tela da implantação.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela da implantação.](media/failure-joindomain.png)
 
 Exemplo de erro bruto:
 
@@ -103,7 +105,8 @@ Para corrigir isso, faça o seguinte:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Erro: VMExtensionProvisioningError
 
-![Falha na captura de tela de sua implantação com o estado de provisionamento do terminal.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela de sua implantação com o estado de provisionamento do terminal.](media/failure-vmextensionprovisioning.png)
 
 **Causa 1:** Erro transitório com o ambiente de área de trabalho virtual do Windows.
 
@@ -113,7 +116,8 @@ Para corrigir isso, faça o seguinte:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: o nome de usuário do administrador especificado não é permitido
 
-![A captura de tela de sua implantação falhou na qual um administrador especificado não é permitido.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![A captura de tela de sua implantação falhou na qual um administrador especificado não é permitido.](media/failure-username.png)
 
 Exemplo de erro bruto:
 
@@ -130,7 +134,8 @@ Exemplo de erro bruto:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: a VM relatou uma falha ao processar a extensão
 
-![Falha na captura de tela da operação de recurso concluída com o estado de provisionamento de terminal em sua implantação.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela da operação de recurso concluída com o estado de provisionamento de terminal em sua implantação.](media/failure-processing.png)
 
 Exemplo de erro bruto:
 
@@ -149,7 +154,8 @@ Exemplo de erro bruto:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erro: DeploymentFailed – a configuração de DSC do PowerShell ' FirstSessionHost ' foi concluída com erro (s)
 
-![Falha na captura de tela da implantação com a configuração DSC do PowerShell ' FirstSessionHost ' concluída com erro (s).](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Falha na captura de tela da implantação com a configuração DSC do PowerShell ' FirstSessionHost ' concluída com erro (s).](media/failure-dsc.png)
 
 Exemplo de erro bruto:
 
@@ -254,12 +260,12 @@ the VM.\\\"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
-- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
+- Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
+- Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
-- Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
+- Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).
 - Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](../azure-resource-manager/management/view-activity-logs.md).
 - Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](../azure-resource-manager/templates/deployment-history.md).

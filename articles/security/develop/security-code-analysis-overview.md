@@ -1,7 +1,7 @@
 ---
 title: Visão geral da documentação de análise de código de segurança da Microsoft
 description: Este artigo é uma visão geral da extensão de análise de código de segurança da Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42ea5c6863e769f6d2664b3bcd48d15f00b6b5e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74851461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361312"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Sobre a análise de código de segurança da Microsoft
 
@@ -65,15 +65,11 @@ A tarefa de compilação de scanner antimalware agora está incluída na extens�
 
 ### <a name="binskim"></a>BinSkim
 
-O BinSkim é um scanner leve executável (PE) que valida as configurações do compilador, as configurações do vinculador e outras características relevantes de segurança dos arquivos binários. Essa tarefa de compilação fornece um wrapper de linha de comando em torno do aplicativo de console binskim. exe. BinSkim é uma ferramenta de código-fonte aberto. Para obter mais informações, consulte [BinSkim no GitHub](https://github.com/Microsoft/binskim).
+O BinSkim é um scanner leve executável (PE) que valida as configurações do compilador, as configurações do vinculador e outras características relevantes de segurança dos arquivos binários. Essa tarefa de compilação fornece um wrapper de linha de comando em torno do aplicativo de console binskim.exe. BinSkim é uma ferramenta de código-fonte aberto. Para obter mais informações, consulte [BinSkim no GitHub](https://github.com/Microsoft/binskim).
 
 ### <a name="credential-scanner"></a>Verificador de credenciais
 
 As senhas e outros segredos armazenados no código-fonte são um problema significativo. O verificador de credenciais é uma ferramenta de análise estática proprietária que ajuda a resolver esse problema. A ferramenta detecta credenciais, segredos, certificados e outros conteúdos confidenciais no código-fonte e na saída da compilação.
-
-### <a name="microsoft-security-risk-detection"></a>Detecção de riscos de segurança da Microsoft
-
-A MSRD (detecção de riscos de segurança da Microsoft) é um serviço baseado em nuvem para teste de fuzzing. Ele identifica bugs de segurança exploráveis no software. Esse serviço requer uma assinatura e ativação separadas. Para obter mais informações, consulte o [centro de desenvolvedores do MSRD](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Analisadores Roslyn
 

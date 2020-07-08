@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7eed3e06ab42671d9674ad3893a88dfe9817e22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "64571120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360173"
 ---
 # <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Solucionar problemas de conectividade do Azure AD com o módulo do PowerShell do ADConnectivityTool
 
@@ -47,7 +47,7 @@ Por exemplo, quando estamos tentando adicionar um diretório na tela **Conecte s
 
 O que realmente está acontecendo nos bastidores é que o Azure AD Connect está chamando a função `Start-NetworkConnectivityDiagnosisTools`.  Essa função é chamada quando a validação de credenciais falha devido a um problema de conectividade de rede.
 
-Finalmente, um arquivo de log detalhado é gerado sempre que a ferramenta é chamada do assistente. O log está localizado em **C:\ProgramData\AADConnect\ADConnectivityTool-\<Date>-\<time>. log**
+Finalmente, um arquivo de log detalhado é gerado sempre que a ferramenta é chamada do assistente. O log está localizado em **C:\ProgramData\AADConnect\ADConnectivityTool- \<date> - \<time> . log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools pós instalação
 Depois que o Azure AD Connect tiver sido instalado, qualquer uma das funções no módulo ADConnectivityTools PowerShell poderá ser usada.  
@@ -74,7 +74,7 @@ Se o usuário executar essa função depois que um problema for resolvido (ou se
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Azure AD Connect: contas e permissões](reference-connect-accounts-permissions.md)
+- [Azure AD Connect: Contas e permissões](reference-connect-accounts-permissions.md)
 - Instalação expressa[Instalação expressa](how-to-connect-install-express.md)
 - [Personalização Instalada](how-to-connect-install-custom.md)
 - [Referência do ADConnectivityTools](reference-connect-adconnectivitytools.md)

@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60386732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358133"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação de passagem do Azure Active Directory: atualização de agentes de autenticação de versão prévia
 
@@ -89,4 +89,4 @@ Siga estas etapas para atualizar os Agentes de autenticação em outros servidor
 >Se você verificar a folha Autenticação de Passagem no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) após a conclusão das etapas anteriores, verá duas entradas do Agente de Autenticação por servidor - uma entrada mostrando o Agente de Autenticação como **Ativo** e o outro como **Inativo**. Isso é _esperado_. A entrada **Inativo** é descartada automaticamente depois de alguns dias.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [**Solução de problemas**](tshoot-connect-pass-through-authentication.md) -saiba como resolver problemas comuns com o recurso.
+- [**Solução de problemas**](tshoot-connect-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.

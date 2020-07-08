@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5ca9b1d9fbd18f60de80a80c932f0e27b8dc8583
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701053"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361482"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
 
@@ -24,7 +24,7 @@ O Azure Analysis Services dá suporte à [Colaboração B2B do Azure AD](../acti
 
 ## <a name="authentication"></a>Autenticação
 
-Todas as ferramentas e aplicativos cliente usam uma ou mais das [bibliotecas de cliente](analysis-services-data-providers.md) do Analysis Services (AMO, MSOLAP, ADOMD) para se conectar a um servidor. 
+Todas as ferramentas e aplicativos cliente usam uma ou mais das [bibliotecas de cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) do Analysis Services (AMO, MSOLAP, ADOMD) para se conectar a um servidor. 
 
 Todas as três bibliotecas de cliente dão suporte ao fluxo interativo do Azure AD e métodos de autenticação não interativos. Os dois métodos não interativos, os métodos Senha do Active Directory e Autenticação Integrada do Active Directory, podem ser usados em aplicativos utilizando AMOMD e MSOLAP. Esses dois métodos nunca resultam em caixas de diálogo pop-up.
 

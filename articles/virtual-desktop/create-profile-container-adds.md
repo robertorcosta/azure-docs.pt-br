@@ -4,18 +4,18 @@ description: Este artigo descreve como criar um contêiner de perfil do FSLogix 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362434"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Criar um contêiner de perfil do FSLogix com os arquivos do Azure
+# <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS do Azure
 
 Este artigo mostrará como criar um contêiner de perfil FSLogix com arquivos do Azure e Azure Active Directory Domain Services (AD DS).
 
@@ -41,7 +41,7 @@ Para adicionar um administrador:
 
 ## <a name="set-up-an-azure-storage-account"></a>Configurar uma conta de armazenamento do Azure
 
-Agora é hora de habilitar a autenticação de AD DS do Azure sobre o protocolo SMB. 
+Agora é hora de habilitar a autenticação de AD DS do Azure sobre o protocolo SMB.
 
 Para habilitar a autenticação:
 
@@ -63,7 +63,7 @@ Para atribuir permissões de acesso de usuários:
 
 1. No portal do Azure, abra o compartilhamento de arquivos que você criou em [Configurar uma conta de armazenamento do Azure](#set-up-an-azure-storage-account).
 
-2. Selecione **controle de acesso (iam)**.
+2. Selecione **Controle de Acesso (IAM)** .
 
 3. Selecione **Adicionar uma atribuição de função**.
 
@@ -73,7 +73,7 @@ Para atribuir permissões de acesso de usuários:
 
 6. Selecione um nome ou endereço de email para a identidade de Azure Active Directory de destino.
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 ## <a name="get-the-storage-account-access-key"></a>Obter a chave de acesso da conta de armazenamento
 
@@ -93,7 +93,8 @@ Para obter a chave de acesso da conta de armazenamento:
 
     Isso fará o download de um arquivo RDP que permitirá que você entre na VM com suas próprias credenciais.
 
-    ![Uma captura de tela da guia RDP da janela conectar-se à máquina virtual.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da guia RDP da janela conectar-se à máquina virtual.](media/rdp-tab.png)
 
 6. Quando você tiver entrado na VM, execute um prompt de comando como administrador.
 
@@ -103,13 +104,13 @@ Para obter a chave de acesso da conta de armazenamento:
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - Substitua `<desired-drive-letter>` por uma letra da unidade de sua escolha (por exemplo `y:`,).
-    - Substitua todas as instâncias `<storage-account-name>` de pelo nome da conta de armazenamento especificada anteriormente.
+    - Substitua `<desired-drive-letter>` por uma letra da unidade de sua escolha (por exemplo, `y:` ).
+    - Substitua todas as instâncias de `<storage-account-name>` pelo nome da conta de armazenamento especificada anteriormente.
     - Substitua `<share-name>` pelo nome do compartilhamento que você criou anteriormente.
     - Substitua `<storage-account-key>` pela chave da conta de armazenamento do Azure.
 
-    Por exemplo:   
-  
+    Por exemplo:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -123,8 +124,8 @@ Para obter a chave de acesso da conta de armazenamento:
     - Substitua `<mounted-drive-letter>` pela letra da unidade que você deseja que o usuário use.
     - Substitua `<user-email>` pelo UPN do usuário que usará esse perfil para acessar as VMs do host de sessão.
 
-    Por exemplo: 
-     
+    Por exemplo:
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -137,30 +138,32 @@ Para configurar um contêiner de perfil do FSLogix:
 
 1. Entre na VM host da sessão que você configurou no início deste artigo e, em seguida, [Baixe e instale o agente do FSLogix](/fslogix/install-ht/).
 
-2. Descompacte o arquivo do agente FSLogix que você baixou e vá para**versões** **x64** > e, em seguida, abra **FSLogixAppsSetup. exe**.
+2. Descompacte o arquivo do agente FSLogix que você **x64**baixou e vá para  >  **versões**x64 e, em seguida, abra **FSLogixAppsSetup.exe**.
 
 3. Depois que o instalador for iniciado, selecione **concordo com os termos e condições de licença.** Se aplicável, forneça uma nova chave.
 
 4. Selecione **Instalar**.
 
-5. Abra a **unidade C**e vá para **arquivos** > de programas**FSLogix** > **aplicativos** para certificar-se de que o agente FSLogix foi instalado corretamente.
+5. Abra a **unidade C**e vá para **arquivos de programas**  >  **FSLogix**  >  **aplicativos** para certificar-se de que o agente FSLogix foi instalado corretamente.
 
      >[!NOTE]
      > Se houver várias VMs no pool de hosts, você precisará repetir as etapas de 1 a 5 para cada VM.
 
 6. Execute o **Editor do registro** (regedit) como administrador.
 
-7. Navegue até **computador** > **HKEY_LOCAL_MACHINE** > **software** > **FSLogix**, clique com o botão direito do mouse em **FSLogix**, selecione **novo**e selecione **chave**.
+7. Navegue até **computador**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix**, clique com o botão direito do mouse em **FSLogix**, selecione **novo**e selecione **chave**.
 
 8. Crie uma nova chave chamada **perfis**.
 
 9.  Clique com o botão direito do mouse em **perfis**, selecione **novo**e, em seguida, selecione **valor DWORD (32 bits).** Nomeie o valor como **habilitado** e defina o valor de **dados** como **1**.
 
-    ![Uma captura de tela da chave de perfis. O arquivo de REG_DWORD é realçado e seu valor de dados é definido como 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da chave de perfis. O arquivo de REG_DWORD é realçado e seu valor de dados é definido como 1.](media/dword-value.png)
 
-10. Clique com o botão direito do mouse em **perfis**, selecione **novo**e, em seguida, selecione **valor de cadeia de caracteres múltipla**. Nomeie o valor **VHDLocations** e defina Insira o URI para o compartilhamento `\\fsprofile.file.core.windows.net\share` de arquivos do Azure como o valor de dados.
+10. Clique com o botão direito do mouse em **perfis**, selecione **novo**e, em seguida, selecione **valor de cadeia de caracteres múltipla**. Nomeie o valor **VHDLocations** e defina Insira o URI para o compartilhamento de arquivos do Azure `\\fsprofile.file.core.windows.net\share` como o valor de dados.
 
-    ![Uma captura de tela da chave de perfis que mostra o arquivo VHDLocations. Seu valor de dados mostra o URI para o compartilhamento de arquivos do Azure.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da chave de perfis que mostra o arquivo VHDLocations. Seu valor de dados mostra o URI para o compartilhamento de arquivos do Azure.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Atribuir usuários a um host de sessão
 
@@ -197,19 +200,19 @@ Para atribuir usuários:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    Como os cmdlets anteriores, certifique-se de `<your-wvd-tenant>`substituir `<wvd-pool>`, e `<user-principal>` pelos valores relevantes.
+    Como os cmdlets anteriores, certifique-se de substituir `<your-wvd-tenant>` , `<wvd-pool>` e `<user-principal>` pelos valores relevantes.
 
-    Por exemplo: 
+    Por exemplo:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
@@ -231,7 +234,7 @@ Para verificar seu perfil:
 
 6. Selecione o ícone **arquivos** e expanda seu compartilhamento.
 
-    Se tudo estiver configurado corretamente, você verá um **diretório** com um nome que é formatado da seguinte maneira: `<user SID>-<username>`.
+    Se tudo estiver configurado corretamente, você verá um **diretório** com um nome que é formatado da seguinte maneira: `<user SID>-<username>` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

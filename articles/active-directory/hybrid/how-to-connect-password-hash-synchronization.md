@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358553"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -89,14 +89,13 @@ Se um usuário estiver no escopo da sincronização de hash de senha, por padrã
 
 Você pode continuar entrando nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local. A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Visualização pública do recurso *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
+##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
 Se houver usuários sincronizados que interagem somente com os serviços integrados do Azure AD e também devem estar em conformidade com uma política de expiração de senha, você poderá forçá-los a cumprir sua política de expiração de senha do Azure AD habilitando o recurso *EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
 
 Quando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* está desabilitado (que é a configuração padrão), Azure ad Connect define o atributo PasswordPolicies de usuários sincronizados como "DisablePasswordExpiration". Isso é feito toda vez que a senha de um usuário é sincronizada e instrui o Azure AD a ignorar a política de expiração de senha de nuvem para esse usuário. Você pode verificar o valor do atributo usando o módulo do PowerShell do Azure AD com o seguinte comando:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
-
 
 Para habilitar o recurso EnforceCloudPasswordPolicyForPasswordSyncedUsers, execute o comando a seguir usando o módulo MSOnline do PowerShell, como mostrado abaixo. Você precisaria digitar Sim para o parâmetro Enable, conforme mostrado abaixo:
 
@@ -110,9 +109,9 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Uma vez habilitado, o Azure AD não vai para cada usuário sincronizado para `DisablePasswordExpiration` remover o valor do atributo PasswordPolicies. Em vez disso, o valor é `None` definido como durante a próxima sincronização de senha para cada usuário quando ele altera sua senha no AD local.  
+Uma vez habilitado, o Azure AD não vai para cada usuário sincronizado para remover o `DisablePasswordExpiration` valor do atributo PasswordPolicies. Em vez disso, o valor é definido como `None` durante a próxima sincronização de senha para cada usuário quando ele altera sua senha no AD local.  
 
-É recomendável habilitar EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de habilitar a sincronização de hash de senha, para que a sincronização inicial de hashes de senha não `DisablePasswordExpiration` adicione o valor ao atributo PasswordPolicies para os usuários.
+É recomendável habilitar EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de habilitar a sincronização de hash de senha, para que a sincronização inicial de hashes de senha não adicione o `DisablePasswordExpiration` valor ao atributo PasswordPolicies para os usuários.
 
 A política de senha padrão do Azure AD exige que os usuários alterem suas senhas a cada 90 dias. Se sua política no AD também for de 90 dias, as duas políticas deverão corresponder. No entanto, se a política do AD não for de 90 dias, você poderá atualizar a política de senha do Azure AD para fazer a correspondência usando o comando do PowerShell Set-MsolPasswordPolicy.
 
@@ -123,10 +122,9 @@ ADVERTÊNCIA: se houver contas sincronizadas que precisam ter senhas que não ex
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Este recurso está em visualização pública no momento.
 > O comando do PowerShell Set-MsolPasswordPolicy não funcionará em domínios federados. 
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Visualização pública de sincronização de senhas temporárias e "forçar alteração de senha no próximo logon"
+#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Sincronizar senhas temporárias e "forçar alteração de senha no próximo logon"
 
 É comum forçar um usuário a alterar sua senha durante o primeiro logon, especialmente depois que uma redefinição de senha de administrador ocorre.  Ele é comumente conhecido como definir uma senha "temporária" e é concluído verificando o sinalizador "o usuário deve alterar a senha no próximo logon" em um objeto de usuário no Active Directory (AD).
   
@@ -141,9 +139,6 @@ Para dar suporte a senhas temporárias no Azure AD para usuários sincronizados,
 
 > [!CAUTION]
 > Você só deve usar esse recurso quando SSPR e Write-back de senha estiverem habilitados no locatário.  Isso é para que, se um usuário alterar sua senha por meio de SSPR, ele será sincronizado com Active Directory.
-
-> [!NOTE]
-> Este recurso está em visualização pública no momento.
 
 #### <a name="account-expiration"></a>Expiração da conta
 
@@ -238,5 +233,5 @@ Caso tenha problemas com a sincronização de hash de senha, veja [Solucionar pr
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Sincronização de Azure AD Connect: personalizando opções de sincronização](how-to-connect-sync-whatis.md)
-* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 * [Obter um plano de implantação passo a passo para migração do AD FS para sincronização de Hash de senha](https://aka.ms/authenticationDeploymentPlan)

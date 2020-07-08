@@ -3,25 +3,36 @@ title: Serviço de Kubernetes do Azure (AKS) com SLA de tempo de atividade
 description: Saiba mais sobre a oferta opcional de SLA de tempo de atividade para o servidor de API do Serviço de Kubernetes do Azure (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361567"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
 O SLA de tempo de atividade é um recurso opcional para habilitar um SLA com suporte financeiro e superior para um cluster. O SLA de tempo de atividade garante 99,95% de disponibilidade do ponto de extremidade do servidor de API do Kubernetes para clusters que usam [Zona de Disponibilidade][availability-zones] e 99,9% da disponibilidade para clusters que não usam Zonas de Disponibilidade. O AKS usa réplicas de nó mestre em domínios de atualização e de falha para garantir que os requisitos de SLA sejam atendidos.
 
-Os clientes que precisam de um SLA para atender aos requisitos de conformidade ou solicitam a extensão de um SLA para seus usuários finais devem ativar esse recurso. Os clientes com cargas de trabalho críticas que aproveitarão bem um SLA de tempo de atividade mais alto também podem se beneficiar. Usar o recurso de SLA de tempo de atividade com Zonas de Disponibilidade permite uma disponibilidade maior para o tempo de atividade do servidor de API do Kubernetes.  
+Os clientes que precisam de um SLA para atender aos requisitos de conformidade ou exigem a extensão de um SLA para seus usuários finais devem habilitar esse recurso. Os clientes com cargas de trabalho críticas que aproveitarão bem um SLA de tempo de atividade mais alto também podem se beneficiar. Usar o recurso de SLA de tempo de atividade com Zonas de Disponibilidade permite uma disponibilidade maior para o tempo de atividade do servidor de API do Kubernetes.  
 
 Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de nível de serviço (SLO) de 99,5% e optar pelo tempo de atividade do SLO ou do SLA que preferirem, conforme necessário.
 
 > [!Important]
 > Para clusters com bloqueio de tráfego de saída, consulte [limitar tráfego de saída](limit-egress-traffic.md) para abrir as portas apropriadas.
+
+## <a name="region-availability"></a>Disponibilidade de região
+
+O SLA de tempo de atividade está disponível em regiões públicas em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Atualmente, o Azure governamental não tem suporte.
+* Atualmente, não há suporte para o Azure China 21Vianet.
+
+## <a name="limitations"></a>Limitações
+
+* Atualmente, não há suporte para clusters particulares.
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
@@ -29,23 +40,28 @@ O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preç
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* A CLI do Azure versão 2.7.0 ou posterior
+* Instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versão 2.8.0 ou posterior
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Criar um cluster com SLA de tempo de atividade
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criando um novo cluster com SLA de tempo de atividade
+
+> [!NOTE]
+> Atualmente, se você habilitar o SLA de tempo de atividade, não será possível removê-lo de um cluster.
 
 Para criar um novo cluster com o SLA de tempo de atividade, use a CLI do Azure.
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. O Azure Monitor para contêineres também é habilitado usando o parâmetro *--enable-addons monitoring*.  Essa operação leva vários minutos para ser concluída.
+Use o [`az aks create`][az-aks-create] comando para criar um cluster AKs. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Esta operação leva vários minutos para ser concluída:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. O snippet JSON a seguir mostra a camada paga do SKU, indicando que seu cluster está habilitado com SLA de tempo de atividade.
+Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. O trecho JSON a seguir mostra a camada paga para a SKU, indicando que o cluster está habilitado com SLA de tempo de atividade:
 
 ```output
   },
@@ -55,15 +71,61 @@ Após alguns minutos, o comando será concluído e retornará informações no f
   },
 ```
 
-## <a name="limitations"></a>Limitações
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modificar um cluster existente para usar o SLA de tempo de atividade
 
-* Atualmente, não é possível converter como cluster existente para habilitar o SLA de tempo de atividade.
-* Atualmente, não é possível remover o SLA de tempo de atividade de um cluster AKS depois que ele foi criado com esse SLA ativado.  
-* Atualmente, não há suporte para clusters particulares.
+Opcionalmente, você pode atualizar seus clusters existentes para usar o SLA de tempo de atividade.
+
+Se você criou um cluster AKS com as etapas anteriores, exclua o grupo de recursos:
+
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Criar um novo grupo de recursos:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Crie um novo cluster e não use o SLA de tempo de atividade:
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Use o [`az aks update`][az-aks-nodepool-update] comando para atualizar o cluster existente:
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ O trecho JSON a seguir mostra a camada paga para a SKU, indicando que o cluster está habilitado com SLA de tempo de atividade:
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## <a name="clean-up"></a>Limpar
+
+Para evitar cobranças, limpe todos os recursos que você criou. Para excluir o cluster, use o [`az group delete`][az-group-delete] comando para excluir o grupo de recursos AKs:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Use as [Zonas de Disponibilidade][availability-zones] para aumentar a HA com suas cargas de trabalho de cluster do AKS.
+
 Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
@@ -79,3 +141,5 @@ Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md)
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete

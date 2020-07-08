@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/02/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2328674fd601f2e04684e8a9af1ae242ff6106
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358575"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Migrar grupos de uma floresta para outra para Azure AD Connect
 
@@ -29,13 +29,13 @@ Este artigo descreve como migrar grupos de uma floresta para outra para que os o
 
 ## <a name="migrate-groups"></a>Migrar grupos
 
-A partir da versão 1.5.18.0, Azure AD Connect dá suporte ao uso `mS-DS-ConsistencyGuid` do atributo para grupos. Se você escolher `mS-DS-ConsistencyGuid` como o atributo de âncora de origem e o valor for populado em Active Directory, Azure ad Connect `mS-DS-ConsistencyGuid` usará `immutableId`o valor de como. Caso contrário, ele retornará ao uso `objectGUID`do. Mas Observe que Azure AD Connect não grava o valor de volta para `mS-DS-ConsistencyGuid` o atributo em Active Directory.
+A partir da versão 1.5.18.0, Azure AD Connect dá suporte ao uso do `mS-DS-ConsistencyGuid` atributo para grupos. Se você escolher `mS-DS-ConsistencyGuid` como o atributo de âncora de origem e o valor for populado em Active Directory, Azure ad Connect usará o valor de `mS-DS-ConsistencyGuid` como `immutableId` . Caso contrário, ele retornará ao uso do `objectGUID` . Mas Observe que Azure AD Connect não grava o valor de volta para o `mS-DS-ConsistencyGuid` atributo em Active Directory.
 
 Durante uma movimentação entre florestas, quando um objeto de grupo está mudando de uma floresta (digamos F1) para outra floresta (digamos que F2), você precisa copiar o `mS-DS-ConsistencyGuid` valor (se ele estiver presente) ou o `objectGUID` valor do objeto na floresta F1 para o `mS-DS-ConsistencyGuid` atributo do objeto em F2.
 
 Use os scripts a seguir como um guia para saber como migrar um único grupo de uma floresta para outra. Você também pode usar esses scripts como um guia para a migração de vários grupos. Os scripts usam o nome da floresta F1 para a floresta de origem e F2 para a floresta de destino.
 
-Primeiro, obtemos o `objectGUID` e `mS-DS-ConsistencyGuid` o do objeto de grupo na floresta F1. Esses atributos são exportados para um arquivo CSV.
+Primeiro, obtemos o `objectGUID` e o `mS-DS-ConsistencyGuid` do objeto de grupo na floresta F1. Esses atributos são exportados para um arquivo CSV.
 ```
 <#
 DESCRIPTION
@@ -125,4 +125,4 @@ Set-ADGroup -Identity $dn -Replace @{'mS-DS-ConsistencyGuid'=$targetGuid} -Error
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

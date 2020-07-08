@@ -8,17 +8,17 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359748"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
 
@@ -49,7 +49,7 @@ Veja a seguir as personalizações comuns para as regras padrão:
 
 Antes de alterar qualquer regra:
 
-- Desabilite o Agendador de sincronização. O Agendador é executado a cada 30 minutos por padrão. Verifique se ele não está iniciando enquanto você está fazendo alterações e Solucionando problemas de suas novas regras. Para desabilitar temporariamente o Agendador, inicie o PowerShell e execute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+- Desabilite o Agendador de sincronização. O Agendador é executado a cada 30 minutos por padrão. Verifique se ele não está iniciando enquanto você está fazendo alterações e Solucionando problemas de suas novas regras. Para desabilitar temporariamente o Agendador, inicie o PowerShell e execute `Set-ADSyncScheduler -SyncCycleEnabled $false` .
  ![Comandos do PowerShell para desabilitar o Agendador de sincronização](media/how-to-connect-fix-default-rules/default3.png)
 
 - A alteração no filtro de escopo pode resultar na exclusão de objetos no diretório de destino. Tenha cuidado antes de fazer qualquer alteração no escopo dos objetos. Recomendamos que você faça alterações em um servidor de preparo antes de fazer alterações no servidor ativo.
@@ -105,10 +105,10 @@ Mantenha o **filtro de escopo** e **as regras de junção** vazias. Preencha a t
 Agora você sabe como criar um novo atributo para um fluxo de objeto de usuário de Active Directory para Azure Active Directory. Você pode usar estas etapas para mapear qualquer atributo de qualquer objeto para origem e destino. Para obter mais informações, consulte [criando regras de sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [preparar para provisionar usuários](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Substituir o valor de um atributo existente
-Talvez você queira substituir o valor de um atributo que já foi mapeado. Por exemplo, se você sempre quiser definir um valor nulo para um atributo no Azure AD, basta criar apenas uma regra de entrada. Torne o valor constante, `AuthoritativeNull`, fluxo para o atributo de destino. 
+Talvez você queira substituir o valor de um atributo que já foi mapeado. Por exemplo, se você sempre quiser definir um valor nulo para um atributo no Azure AD, basta criar apenas uma regra de entrada. Torne o valor constante, `AuthoritativeNull` , fluxo para o atributo de destino. 
 
 >[!NOTE] 
-> Use `AuthoritativeNull` em vez `Null` de neste caso. Isso ocorre porque o valor não nulo substitui o valor nulo, mesmo que tenha precedência inferior (um valor de número mais alto na regra). `AuthoritativeNull`, por outro lado, não é substituído por outras regras por um valor não nulo. 
+> Use em `AuthoritativeNull` vez de `Null` neste caso. Isso ocorre porque o valor não nulo substitui o valor nulo, mesmo que tenha precedência inferior (um valor de número mais alto na regra). `AuthoritativeNull`, por outro lado, não é substituído por outras regras por um valor não nulo. 
 
 ### <a name="dont-sync-existing-attribute"></a>Não sincronizar atributo existente
 Se você quiser excluir um atributo da sincronização, use o recurso de filtragem de atributo fornecido no Azure AD Connect. Inicie **Azure ad Connect** no ícone da área de trabalho e, em seguida, selecione **Personalizar opções de sincronização**.
@@ -141,7 +141,7 @@ Você não pode definir esse atributo em Active Directory. Defina o valor desse 
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-Primeiro convertemos o departamento da origem (Active Directory) em minúsculas. Em seguida, usando `Left` a função, pegamos apenas os três primeiros caracteres e comparamos com `hrd`ele. Se ele coincidir, o valor será definido `True`como, `NULL`caso contrário. Ao definir o valor como NULL, alguma outra regra com precedência inferior (um valor de número mais alto) pode gravar nele com uma condição diferente. Execute a visualização em um objeto para validar a regra de sincronização, conforme mencionado na seção [validar regra de sincronização](#validate-sync-rule) .
+Primeiro convertemos o departamento da origem (Active Directory) em minúsculas. Em seguida, usando a `Left` função, pegamos apenas os três primeiros caracteres e comparamos com ele `hrd` . Se ele coincidir, o valor será definido como `True` , caso contrário `NULL` . Ao definir o valor como NULL, alguma outra regra com precedência inferior (um valor de número mais alto) pode gravar nele com uma condição diferente. Execute a visualização em um objeto para validar a regra de sincronização, conforme mencionado na seção [validar regra de sincronização](#validate-sync-rule) .
 
 ![Criar opções de regra de sincronização de entrada](media/how-to-connect-fix-default-rules/default7a.png)
 
@@ -184,7 +184,7 @@ Aqui, observe que a regra recém-adicionada é executada no objeto e definiu o `
  
 Para comparar a regra modificada com a regra padrão, exporte as duas regras separadamente, como arquivos de texto. Essas regras são exportadas como um arquivo de script do PowerShell. Você pode compará-los usando qualquer ferramenta de comparação de arquivos (por exemplo, WinDiff) para ver as alterações. 
  
-Observe que, na regra modificada, `msExchMailboxGuid` o atributo é alterado para o tipo de **expressão** , em vez de **direto**. Além disso, o valor é alterado para **NULL** e a opção **ExecuteOnce** . Você pode ignorar as diferenças identificadas e de precedência. 
+Observe que, na regra modificada, o `msExchMailboxGuid` atributo é alterado para o tipo de **expressão** , em vez de **direto**. Além disso, o valor é alterado para **NULL** e a opção **ExecuteOnce** . Você pode ignorar as diferenças identificadas e de precedência. 
 
 ![saída da ferramenta WinDiff](media/how-to-connect-fix-default-rules/default17.png)
  

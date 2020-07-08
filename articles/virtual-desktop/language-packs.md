@@ -4,16 +4,16 @@ description: Como instalar pacotes de idiomas para VMs de várias sessões do Wi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80634029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361295"
 ---
 # <a name="install-language-packs"></a>Instalar pacote de idiomas
 
@@ -32,11 +32,12 @@ Para instalar os pacotes de idiomas:
 
 1. Entre como administrador.
 2. Verifique se você instalou todas as atualizações mais recentes do Windows e da Windows Store.
-3. Acesse **configurações** > **hora &** > **região**de idioma.
+3. Acesse **configurações**  >  **hora &**  >  **região**de idioma.
 4. Em **país ou região**, selecione seu país ou região preferencial no menu suspenso.
     Neste exemplo, vamos selecionar **França**, conforme mostrado na seguinte captura de tela:
 
-    ![Uma captura de tela da página de região. A região selecionada atualmente é França.](media/region-page-france.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página de região. A região selecionada atualmente é França.](media/region-page-france.png)
 
 5. Depois disso, selecione **idioma**e, em seguida, selecione **Adicionar um idioma**. Escolha o idioma que você deseja instalar na lista e, em seguida, selecione **Avançar**.
 6. Quando a janela **instalar recursos de idioma** for aberta, marque a caixa de seleção **instalar pacote de idiomas e definir como meu idioma de exibição do Windows**.
@@ -45,19 +46,23 @@ Para instalar os pacotes de idiomas:
 
     Vamos executar uma demonstração visual rápida. As imagens a seguir mostram como instalar os pacotes de idioma francês e holandês e, em seguida, definir o francês como o idioma de exibição.
 
-    ![Uma captura de tela da página de idioma no início do processo. O idioma de exibição do Windows selecionado é o inglês.](media/language-page-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página de idioma no início do processo. O idioma de exibição do Windows selecionado é o inglês.](media/language-page-default.png)
 
-    ![Uma captura de tela da janela de seleção de idioma. O usuário inseriu "francês" na barra de pesquisa para localizar os pacotes de idioma em francês.](media/select-language-french.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da janela de seleção de idioma. O usuário inseriu "francês" na barra de pesquisa para localizar os pacotes de idioma em francês.](media/select-language-french.png)
 
-    ![Uma captura de tela da página instalar recursos de idioma. O francês é selecionado como o idioma preferencial. As opções selecionadas são "definir meu idioma de exibição", "instalar pacote de idiomas", "reconhecimento de fala" e "manuscrito".](media/install-language-features.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página instalar recursos de idioma. O francês é selecionado como o idioma preferencial. As opções selecionadas são "definir meu idioma de exibição", "instalar pacote de idiomas", "reconhecimento de fala" e "manuscrito".](media/install-language-features.png)
 
     Depois que os pacotes de idiomas tiverem sido instalados, você deverá ver os nomes dos seus pacotes de idiomas aparecerem na lista de idiomas.
 
-    ![Uma captura de tela da página de idioma com os novos pacotes de idiomas instalados. Os pacotes de idiomas francês e Holanda estão listados em "idiomas preferenciais".](media/language-page-complete.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página de idioma com os novos pacotes de idiomas instalados. Os pacotes de idiomas francês e Holanda estão listados em "idiomas preferenciais".](media/language-page-complete.png)
 
 9. Se uma janela for exibida solicitando que você saia da sessão. Saia e entre novamente. Seu idioma de exibição agora deve ser o idioma selecionado.
 
-10.  Vá para a**região**de**relógio e região** > do **painel** > de controle.
+10.  Vá para **Control Panel**a região de  >  **relógio e região**do painel de controle  >  **Region**.
 
 11.  Quando a janela **região** for aberta, selecione a guia **Administração** e, em seguida, selecione **configurações de cópia**.
 
@@ -67,7 +72,7 @@ Para instalar os pacotes de idiomas:
 
 14.  Uma janela será aberta e informará que você deve reiniciar a sessão. Selecione **reiniciar agora**.
 
-15.  Depois de entrar novamente, volte para a**região**de **Control Panel** > **relógio e região** > do painel de controle.
+15.  Depois de entrar novamente, volte para a região de **Control Panel**  >  **relógio e região**do painel de controle  >  **Region**.
 
 16.  Selecione a guia **Administração** .
 
@@ -89,13 +94,13 @@ Para Sysprep seu computador:
 
 1. Abra o PowerShell como Administrador.
 2. Execute o seguinte cmdlet para ir para o diretório correto:
-   
+
     ```powershell
     cd Windows\System32\Sysprep
     ```
 
 3. Em seguida, execute o seguinte cmdlet:
-    
+
     ```powershell
     .\sysprep.exe
     ```
@@ -109,11 +114,12 @@ Para Sysprep seu computador:
 
 Se você vir uma mensagem de erro durante o processo do Sysprep, veja o que você deve fazer:
 
-1. Abra a **unidade C** e vá para **Windows** > **System32 Sysprep** > **Panther**e, em seguida, abra o arquivo **Setuperr** .
+1. Abra a **unidade C** e vá para **Windows**  >  **System32 Sysprep**  >  **Panther**e, em seguida, abra o arquivo **Setuperr** .
 
    O texto no arquivo de erro informará que você precisa desinstalar um pacote de idioma específico, conforme mostrado na imagem a seguir. Copie o nome do pacote de idioma para a próxima etapa.
 
-   ![Uma captura de tela do arquivo Setuperr. O texto com o nome do pacote é realçado em azul escuro.](media/setuperr-package-name.png)
+   > [!div class="mx-imgBorder"]
+   > ![Uma captura de tela do arquivo Setuperr. O texto com o nome do pacote é realçado em azul escuro.](media/setuperr-package-name.png)
 
 2. Abra uma nova janela do PowerShell e execute o seguinte cmdlet com o nome do pacote que você copiou na etapa 2 para remover o pacote de idiomas:
 
@@ -137,7 +143,8 @@ Para capturar uma imagem:
 
 3. Insira um nome para a imagem no campo **nome** e atribua-o ao grupo de recursos usando o menu suspenso **grupo de recursos** , conforme mostrado na imagem a seguir.
 
-   ![Uma captura de tela da janela criar imagem. O nome que o usuário forneceu para esta imagem de teste é "vmwvd-Image-fr" e o atribuiu ao grupo de recursos "testwvdimagerg".](media/create-image.png)
+   > [!div class="mx-imgBorder"]
+   > ![Uma captura de tela da janela criar imagem. O nome que o usuário forneceu para esta imagem de teste é "vmwvd-Image-fr" e o atribuiu ao grupo de recursos "testwvdimagerg".](media/create-image.png)
 
 4. Selecione **Criar**.
 

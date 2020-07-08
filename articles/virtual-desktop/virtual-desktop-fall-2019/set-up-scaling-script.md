@@ -4,16 +4,16 @@ description: Como dimensionar automaticamente os hosts da sessão da Área de Tr
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362536"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts da sessão usando a Automação do Azure
 
@@ -33,7 +33,7 @@ No momento, os relatórios de problemas da ferramenta de dimensionamento estão 
 A ferramenta de dimensionamento fornece uma opção de automação de baixo custo para os clientes que desejam otimizar os custos de VM dos hosts da sessão.
 
 A ferramenta de dimensionamento pode ser usada para:
- 
+
 - Agendar o início e o término das VMs com base nos horários comerciais de pico e fora de pico.
 - Distribuir as VMs com base no número de sessões por núcleo de CPU.
 - Dimensionar as VMs fora dos horários de pico, deixando o mínimo de VMs de host da sessão em execução.
@@ -67,7 +67,7 @@ Antes de começar a configurar a ferramenta de dimensionamento, verifique se est
 - VMs de pool de hosts da sessão configuradas e registradas no serviço da Área de Trabalho Virtual do Windows
 - Um usuário com [acesso de Colaborador](../../role-based-access-control/role-assignments-portal.md) na assinatura do Azure
 
-O computador que você usar para implantar a ferramenta deverá ter: 
+O computador que você usar para implantar a ferramenta deverá ter:
 
 - O Windows PowerShell 5.1 ou posterior
 - O módulo do PowerShell Microsoft AZ
@@ -106,7 +106,8 @@ Primeiro, será preciso uma conta de Automação do Azure para executar o runboo
 
 6. Depois de configurar sua conta de Automação do Azure, entre na sua assinatura do Azure e verifique se sua conta de Automação do Azure e o respectivo runbook apareceram no grupo de recursos especificado, conforme mostrado na seguinte imagem:
 
-![Uma imagem da página de visão geral do Azure mostrando a conta de automação e o runbook recém-criados.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem da página de visão geral do Azure mostrando a conta de automação e o runbook recém-criados.](../media/automation-account.png)
 
   Para verificar se o webhook está no local certo, selecione o nome dele. Em seguida, vá para a seção Recursos do seu runbook e selecione **Webhooks**.
 
@@ -180,21 +181,21 @@ Por fim, será preciso criar o Aplicativo Lógico do Azure e configurar um agend
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -204,12 +205,12 @@ Por fim, será preciso criar o Aplicativo Lógico do Azure e configurar um agend
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
@@ -236,11 +237,13 @@ Por fim, será preciso criar o Aplicativo Lógico do Azure e configurar um agend
 
      Depois de executar o script, o aplicativo lógico deve aparecer em um grupo de recursos, conforme mostrado na imagem a seguir.
 
-     ![Uma imagem da página de visão geral de um Aplicativo Lógico do Azure de exemplo.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma imagem da página de visão geral de um Aplicativo Lógico do Azure de exemplo.](../media/logic-app.png)
 
 Para fazer alterações no agendamento de execução, como alterar o intervalo de recorrência ou o fuso horário, acesse o Agendador de dimensionamento automático e selecione **Editar** para ir para o Designer de Aplicativos Lógicos.
 
-![Uma imagem do Designer de Aplicativos Lógicos. Os menus de Recorrência e Webhook que permitem ao usuário editar os horários de recorrência e o arquivo de webhook estão abertos.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem do Designer de Aplicativos Lógicos. Os menus de Recorrência e Webhook que permitem ao usuário editar os horários de recorrência e o arquivo de webhook estão abertos.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Gerenciar a ferramenta de dimensionamento
 
@@ -252,7 +255,8 @@ No portal do Azure, é possível exibir um status resumido de todos os trabalhos
 
 À direita da conta de Automação selecionada, em "Estatísticas de Trabalho", é possível exibir uma lista de resumos de todos os trabalhos de runbook. Abrir a página **Trabalhos** no lado esquerdo da janela mostrará os status do trabalho atual, os horários de início e de conclusão.
 
-![Uma captura de tela da página de status de trabalho.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela da página de status de trabalho.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Exibir logs e saída da ferramenta de dimensionamento
 
@@ -260,5 +264,6 @@ Exiba os logs das operações de expansão e redução abrindo o runbook e selec
 
 Navegue até o runbook (o nome padrão é WVDAutoScaleRunbook) no grupo de recursos que hospeda a conta de Automação do Azure e selecione **Visão geral**. Na página Visão geral, selecione um trabalho em Trabalhos recentes para exibir a saída da ferramenta de dimensionamento, conforme mostrado na imagem a seguir.
 
-![Uma imagem da janela de saída da ferramenta de dimensionamento.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![Uma imagem da janela de saída da ferramenta de dimensionamento.](../media/tool-output.png)
 

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362050"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 
@@ -48,8 +48,9 @@ Se você atender às qualificações acima, entre em contato com um parceiro na 
 
 >**Parceiros**
 
-- Zonas-detalhes de contato:cloudsupport@zones.com
+- Zonas – detalhes de contato:cloudsupport@zones.com
 - Wortell – detalhes de contato:info@wortell.nl
+- Logicalis – detalhes de contato:Matthew.Curtis@us.logicalis.com 
 
 ### <a name="become-a-partner"></a>Torne-se um parceiro
 
@@ -57,7 +58,7 @@ A equipe de análise de código de segurança da Microsoft está buscando parcei
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Instalando a extensão de análise de código de segurança da Microsoft
 
-1. Depois que a extensão for compartilhada com sua organização do DevOps do Azure, vá para a página da organização do DevOps do Azure. Uma URL de exemplo para tal página é `https://dev.azure.com/contoso`.
+1. Depois que a extensão for compartilhada com sua organização do DevOps do Azure, vá para a página da organização do DevOps do Azure. Uma URL de exemplo para tal página é `https://dev.azure.com/contoso` .
 1. Selecione o ícone de bolsa de compras no canto superior direito ao lado de seu nome e, em seguida, selecione **gerenciar extensões**.
 1. Selecione **compartilhado**.
 1. Selecione a extensão análise de código de segurança da Microsoft, selecione **instalar**.
@@ -72,7 +73,7 @@ Depois de instalar a extensão, as tarefas do Build de desenvolvimento seguro fi
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Adicionando tarefas de compilação específicas ao pipeline DevOps do Azure
 
 1. Em sua organização do Azure DevOps, abra seu projeto de equipe.
-1. Selecione **pipelines** > **Builds**.
+1. Selecione **pipelines**  >  **Builds**.
 1. Selecione o pipeline no qual você deseja adicionar as tarefas de compilação de extensão:
    - Novo pipeline: selecione **novo** e siga as etapas detalhadas para criar um novo pipeline.
    - Editar pipeline: selecione um pipeline existente e, em seguida, selecione **Editar** para começar a editar o pipeline.

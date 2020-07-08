@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b5c46c8b85af59efaf611300e2ab7129b3ef3cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361550"
 ---
 # <a name="connect-with-excel"></a>Conectar com o Excel
 
@@ -42,7 +42,7 @@ A conexão com um servidor no Excel usando Obter Dados no Excel 2016 e posterior
 
 ## <a name="see-also"></a>Confira também
 
-[Bibliotecas de cliente](analysis-services-data-providers.md)   
+[Bibliotecas do cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Gerenciar seu serviço](analysis-services-manage.md)     
 
 

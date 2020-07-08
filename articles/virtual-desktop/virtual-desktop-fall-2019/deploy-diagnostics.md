@@ -4,21 +4,21 @@ description: Como implantar a ferramenta de diagnóstico UX para a área de trab
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6635fff957512b601fe0927769e4ea91e9270450
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362332"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 >[!IMPORTANT]
 >A partir de 16 de março de 2020, desabilitamos temporariamente as consultas de diagnóstico que afetaram a experiência do usuário devido à maior demanda no serviço. Isso fará com que a ferramenta pare de funcionar porque depende dessas consultas para funcionar. Atualizaremos este artigo quando as consultas de diagnóstico estiverem disponíveis novamente.
@@ -68,7 +68,7 @@ Esta seção mostrará como usar o PowerShell para criar o aplicativo Azure Acti
    ```powershell
    Connect-AzureAD
    ```
-4. Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateADAppRegistrationforDiagnostics. ps1** no PowerShell.
+4. Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script de **CreateADAppRegistrationforDiagnostics.ps1** no PowerShell.
 5.  Quando o script solicitar que você nomeie seu aplicativo, insira um nome de aplicativo exclusivo.
 
 
@@ -93,7 +93,7 @@ Você pode executar um script do PowerShell para criar um Log Analytics espaço 
 Para executar o script do PowerShell:
 
 1.  Abrir o PowerShell como administrador.
-2.  Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** no PowerShell.
+2.  Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script de **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** no PowerShell.
 3. Insira os seguintes valores para os parâmetros:
 
     - Para **ResourceGroupName**, insira o nome para o grupo de recursos.
@@ -115,13 +115,13 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
 1. Abra seu navegador da Internet e entre no [portal do Azure](https://portal.azure.com/) com sua conta administrativa.
 2. Em seguida, vá para **log Analytics espaços de trabalho** para examinar os contadores de desempenho do Windows configurados.
 3. Na seção **configurações** , selecione **Configurações avançadas**.
-4. Depois disso, navegue até **dados** > **contadores de desempenho do Windows** e adicione os seguintes contadores:
+4. Depois disso, navegue até **dados**  >  **contadores de desempenho do Windows** e adicione os seguintes contadores:
 
-    -   LogicalDisk (\*)\\% de espaço livre
-    -   LogicalDisk (C:)\\Méd. comprimento da fila de disco
-    -   Memória (\*)\\MBytes disponíveis
-    -   Informações do processador\*(\\) tempo do processador
-    -   Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada
+    -   LogicalDisk ( \* ) \\ % de espaço livre
+    -   LogicalDisk (C:) \\ Méd. comprimento da fila de disco
+    -   Memória ( \* ) \\ MBytes disponíveis
+    -   Informações do processador ( \* ) \\ tempo do processador
+    -   Atraso de entrada do usuário por sessão ( \* ) \\ atraso máximo de entrada
 
 Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -147,14 +147,14 @@ Para certificar-se de que seu espaço de trabalho Log Analytics tem os contadore
 
 1. Na [portal do Azure](https://portal.azure.com/), acesse **log Analytics espaços de trabalho** para examinar os contadores de desempenho do Windows configurados.
 2. Em **configurações**, selecione **Configurações avançadas**.
-3. Depois disso, vá para **dados** > **contadores de desempenho do Windows**.
+3. Depois disso, vá para **dados**  >  **contadores de desempenho do Windows**.
 4. Verifique se os seguintes contadores estão pré-configurados:
 
-   - LogicalDisk (\*)\\% de espaço livre: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
-   - LogicalDisk (C:)\\Méd. comprimento da fila de disco: o comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
-   - Memória (\*)\\MBytes disponíveis: a memória disponível para o sistema em megabytes.
-   - Informações do processador\*(\\) tempo do processador: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
-   - Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada
+   - LogicalDisk ( \* ) \\ % de espaço livre: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
+   - LogicalDisk (C:) \\ Méd. comprimento da fila de disco: o comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
+   - Memória ( \* ) \\ MBytes disponíveis: a memória disponível para o sistema em megabytes.
+   - Informações do processador ( \* ) \\ tempo do processador: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
+   - Atraso de entrada do usuário por sessão ( \* ) \\ atraso máximo de entrada
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Conectar-se a VMs em seu espaço de trabalho Log Analytics
 
@@ -195,9 +195,10 @@ Para definir o URI de redirecionamento:
 6. Selecione **Web** no menu suspenso em tipo.
 7. Insira a URL na página Visão geral do aplicativo e adicione **/Security/SignIn-callback** ao final dela. Por exemplo: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![A página URI de redirecionamento](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![A página URI de redirecionamento](../media/redirect-uri-page.png)
 
-8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo era `contosoapp45`, então, a URL associada é <https://contosoapp45.azurewebsites.net>).
+8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo era `contosoapp45` , então, a URL associada é <https://contosoapp45.azurewebsites.net> ).
 9. Entre usando a conta de usuário do Azure Active Directory apropriada.
 10.   Selecione **Aceitar**.
 
@@ -226,7 +227,7 @@ As atividades são classificadas por carimbo de data/hora, com a atividade mais 
 
 As atividades de conexão podem ter mais de um erro. Você pode expandir o tipo de atividade para ver quaisquer outros erros que o usuário tenha fornecido. Selecione o nome do código de erro para abrir uma caixa de diálogo para ver mais informações sobre ela.
 
-### <a name="investigate-the-session-host"></a>Investigar o host da sessão 
+### <a name="investigate-the-session-host"></a>Investigar o host da sessão
 
 Nos resultados da pesquisa, localize e selecione o host da sessão sobre o qual você deseja obter informações.
 
@@ -242,26 +243,26 @@ Você também pode interagir com os usuários no host da sessão:
 
 ### <a name="windows-performance-counter-thresholds"></a>Limites do contador de desempenho do Windows
 
-- LogicalDisk (\*)\\% de espaço livre:
+- LogicalDisk ( \* ) \\ % de espaço livre:
 
     - Exibe o percentual do total de espaço utilizável no disco lógico que é gratuito.
     - Limite: menos de 20% está marcado como não íntegro.
 
-- LogicalDisk (C:)\\Méd. comprimento da fila de disco:
+- LogicalDisk (C:) \\ Méd. comprimento da fila de disco:
 
     - Representa as condições do sistema de armazenamento.
     - Limite: maior que 5 é marcado como não íntegro.
 
-- Memória (\*)\\MBytes disponíveis:
+- Memória ( \* ) \\ MBytes disponíveis:
 
     - A memória disponível para o sistema.
     - Limite: menos de 500 megabytes marcados como não íntegros.
 
-- Informações do processador\*(\\) tempo do processador:
+- Informações do processador ( \* ) \\ tempo do processador:
 
     - Limite: maior que 80% é marcado como não íntegro.
 
-- [Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
+- [Atraso de entrada do usuário por sessão ( \* ) \\ atraso máximo de entrada](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Limite: maior que 2000 MS é marcado como não íntegro.
 

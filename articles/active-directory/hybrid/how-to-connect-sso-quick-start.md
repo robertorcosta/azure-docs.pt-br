@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Logon Único Contínuo – Início Rápido| Microsoft Docs'
+title: 'Azure AD Connect: logon único contínuo-início rápido | Microsoft Docs'
 description: Este artigo descreve como começar a usar o Logon Único Contínuo do Azure Active Directory
 services: active-directory
 keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58e779e6feeba27711a1746fbf7d6878725790fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357997"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
+# <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory logon único contínuo: início rápido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implantar Logon Único Contínuo
 
@@ -37,7 +37,7 @@ Verifique se os seguintes pré-requisitos estão em vigor:
 
 * **Configurar seu servidor do Azure AD Connect**: se você usa a [Autenticação de Passagem](how-to-connect-pta.md) como seu método de entrada, não é necessária nenhuma verificação de pré-requisitos adicional. Se você usar a [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) como seu método de entrada e se houver um firewall entre Azure ad Connect e o Azure AD, verifique se:
    - Está usando a versão 1.1.644.0 ou superior do Azure AD Connect. 
-   - Se o firewall ou o proxy permitir a lista de permissões de DNS, adicione as conexões às URLs ** \*. msappproxy.net** pela porta 443. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
+   - Se o firewall ou o proxy permitir, adicione as conexões à lista de permissões para URLs ** \* . msappproxy.net** pela porta 443. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
 
     >[!NOTE]
     >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a autenticação de passagem, leia as [notas de versão Azure ad Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
@@ -93,10 +93,10 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 ![Portal do Azure: painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> O SSO contínuo cria uma conta de `AZUREADSSOACC` computador chamada no seu ad (Active Directory local) em cada floresta do AD. A `AZUREADSSOACC` conta do computador precisa estar fortemente protegida por motivos de segurança. Somente administradores de domínio devem ser capazes de gerenciar a conta de computador. Verifique se a delegação de Kerberos na conta do computador está desabilitada e se nenhuma outra conta no Active Directory tem permissões de `AZUREADSSOACC` delegação na conta do computador. Armazene a conta de computador em uma UO (unidade organizacional) em que elas estão protegidas contra exclusões acidentais e em que somente administradores de domínio têm acesso.
+> O SSO contínuo cria uma conta de computador chamada `AZUREADSSOACC` no seu AD (Active Directory local) em cada floresta do AD. A `AZUREADSSOACC` conta do computador precisa estar fortemente protegida por motivos de segurança. Somente administradores de domínio devem ser capazes de gerenciar a conta de computador. Verifique se a delegação de Kerberos na conta do computador está desabilitada e se nenhuma outra conta no Active Directory tem permissões de delegação na `AZUREADSSOACC` conta do computador. Armazene a conta de computador em uma UO (unidade organizacional) em que elas estão protegidas contra exclusões acidentais e em que somente administradores de domínio têm acesso.
 
 >[!NOTE]
-> Se você estiver usando as arquiteturas de mitigação de roubo de credencial e de passagem de hash no seu ambiente local, faça as alterações apropriadas para `AZUREADSSOACC` garantir que a conta de computador não acabe no contêiner de quarentena. 
+> Se você estiver usando as arquiteturas de mitigação de roubo de credencial e de passagem de hash no seu ambiente local, faça as alterações apropriadas para garantir que a `AZUREADSSOACC` conta de computador não acabe no contêiner de quarentena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
 
@@ -124,7 +124,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até **User Configuration** > **política** > de configuração de usuário**modelos administrativos** > **componentes** > do Windows > **página segurança**do**painel de controle Internet**do**Internet Explorer** > . Em seguida, selecione **Lista de atribuição de sites a zonas**.
+3. Navegue até política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  **Internet Control Panel**  >  **página segurança**do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
     ![Logon Único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: a URL do Azure Active Directory para as quais os tíquetes Kerberos são encaminhados.
@@ -144,7 +144,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
     ![Logon único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até a**política** > de **configuração** > de usuário**modelos administrativos** > **componentes** > do Windows**Internet Explorer** > **Internet Control Panel** > **segurança** > da área de rede do painel de controle**da**Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
+6. Navegue até a política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  segurança da área de rede do painel de**controle**  >  **Security Page**  >  **da**Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
 
     ![Logon único](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +156,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até **User Configuration** > **preferências** > configuração do usuário**configurações** > **do Windows registro** > **novo** > **item do registro**.
+3. Navegue até **User Configuration**  >  **preferências**configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
 
     ![Logon único](./media/how-to-connect-sso-quick-start/sso15.png)
 
@@ -187,11 +187,11 @@ Verifique se o computador que está executando o macOS está associado ao AD. In
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge com base em Chromium (todas as plataformas)
 
-Se você tiver substituído as configurações de política [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de adicionar a URL do Azure`https://autologon.microsoftazuread-sso.com`AD () também a elas.
+Se você tiver substituído as configurações de política [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de adicionar a URL do Azure AD ( `https://autologon.microsoftazuread-sso.com` ) também a elas.
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge com base em Chromium (macOS e outras plataformas que não sejam Windows)
 
-Para o Microsoft Edge com base em Chromium em Mac OS e outras plataformas que não sejam Windows, consulte [o Microsoft Edge com base na lista de políticas do Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar a URL do Azure ad para autenticação integrada à sua lista de permissões.
+Para o Microsoft Edge com base em Chromium no macOS e outras plataformas que não sejam Windows, consulte [o Microsoft Edge com base na lista de políticas do Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar a URL do Azure ad para autenticação integrada à sua lista de permissões.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
@@ -199,7 +199,7 @@ Caso tenha substituído as configurações de política [AuthNegotiateDelegateWh
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS e outras plataformas não Windows)
 
-Para o Google Chrome no Mac OS e outras plataformas que não sejam Windows, veja [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como adicionar a URL do Azure Active Directory à lista de permissões para uma autenticação integrada.
+Para o Google Chrome no macOS e outras plataformas que não sejam Windows, consulte [a lista de políticas de projeto Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como controlar a lista de permissões para a URL do Azure ad para autenticação integrada.
 
 O uso de extensões de Política de Grupo do Active Directory de terceiros para distribuir a URL do Azure Active Directory para usuários do Firefox e do Google Chrome no Mac está fora do escopo deste artigo.
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362084"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
 
@@ -61,15 +61,15 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 - Em **destino**, insira um ou mais especificadores para um arquivo, diretório ou padrão de filtro. Esses especificadores são resolvidos para um ou mais binários a serem analisados:
     - Vários destinos especificados devem ser separados por um ponto-e-vírgula (;).
     - Um especificador pode ser um único arquivo ou conter curingas.
-    - As especificações de diretório sempre devem \\terminar com *.
+    - As especificações de diretório sempre devem terminar com \\ *.
     - Exemplos:
 
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
 
-- Se você selecionar **linha de comando** na lista **tipo** , será necessário executar o binskim. exe:
-     - Verifique se os primeiros argumentos para binskim. exe são a **análise** de verbo seguida por uma ou mais especificações de caminho. Cada caminho pode ser um caminho completo ou um caminho relativo ao diretório de origem.
+- Se você selecionar **linha de comando** na lista **tipo** , precisará executar binskim.exe:
+     - Certifique-se de que os primeiros argumentos para binskim.exe são a **análise** de verbo seguida por uma ou mais especificações de caminho. Cada caminho pode ser um caminho completo ou um caminho relativo ao diretório de origem.
      - Vários caminhos de destino devem ser separados por um espaço.
      - Você pode omitir a opção **/o** ou **/output** . O valor de saída é adicionado ou substituído.
      - As configurações de linha de comando padrão são mostradas a seguir.
@@ -78,7 +78,7 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
            analyze *.dll *.exe --recurse --verbose
 
           > [!NOTE]
-          > A trilha \\* é importante se você especificar os diretórios para o destino.
+          > A trilha \\ * é importante se você especificar os diretórios para o destino.
 
 Para obter mais informações sobre argumentos de linha de comando BinSkim, regras por ID ou códigos de saída, consulte o [Guia do usuário do BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
@@ -103,40 +103,10 @@ As opções disponíveis incluem:
   - **Tempo limite de correspondência**: a quantidade de tempo em segundos a ser gasto tentando uma correspondência de pesquisador antes de abandonar a verificação.
   - **Tamanho do buffer de leitura de verificação de arquivo**: o tamanho em bytes do buffer usado enquanto o conteúdo é lido. O valor padrão é 524.288.  
   - **Máximo de bytes lidos da verificação de arquivo**: o número máximo de bytes a serem lidos de um arquivo durante a análise de conteúdo. O valor padrão é 104.857.600.
-  - **Opções de controle** > **executar esta tarefa**: especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
+  - **Opções**  >  de controle **Executar esta tarefa**: especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
   - **Versão**: a versão da tarefa de compilação no Azure DevOps. Essa opção não é usada com frequência.
 
 Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML do verificador de credenciais](yaml-configuration.md#credential-scanner-task)
-
-## <a name="microsoft-security-risk-detection-task"></a>Tarefa de detecção de riscos de segurança da Microsoft
-
-> [!NOTE]
-> Você deve criar e configurar uma conta com o serviço de detecção de riscos de segurança da Microsoft (MSRD) antes de usar a tarefa MSRD. Esse serviço requer um processo de integração separado. Ao contrário da maioria das outras tarefas nesta extensão, essa tarefa requer uma assinatura separada com MSRD.
->
-> Consulte detecção de [riscos de segurança](https://aka.ms/msrddocs) da Microsoft e [detecção de riscos de segurança da Microsoft:](https://docs.microsoft.com/security-risk-detection/how-to/) instruções.
-
-Os detalhes para configurar essa tarefa são mostrados na lista a seguir. Para qualquer elemento de interface do usuário, você pode passar o mouse sobre esse elemento para obter ajuda.
-
-   - **Nome do ponto de extremidade do serviço DevOps do Azure para MSRD**: um tipo genérico de ponto de extremidade de serviço do Azure DevOps armazena sua URL de instância de MSRD integrada e seu token de acesso da API REST. Se você tiver criado um ponto de extremidade desse tipo, poderá especificá-lo aqui. Caso contrário, selecione o link **gerenciar** para criar e configurar um novo ponto de extremidade de serviço para esta tarefa MSRD.
-   - **ID da conta**: um GUID que pode ser recuperado da URL da conta do MSRD.
-   - **URLs para binários**: uma lista delimitada por ponto-e-vírgula de URLs disponíveis publicamente. A máquina difusa usa essas URLs para baixar os binários.
-   - **URLs dos arquivos de semente**: uma lista delimitada por ponto-e-vírgula de URLs disponíveis publicamente. A máquina difusa usa essas URLs para baixar as sementes. A especificação desse valor será opcional se os arquivos de semente forem baixados junto com os binários.
-   - **Tipo de plataforma do so**: a plataforma do sistema operacional (SO) de computadores que executam o trabalho de difusão. Os valores disponíveis são **Windows** e **Linux**.
-   - **Windows Edition/Linux Edition**: a edição do sistema operacional de computadores que executam o trabalho de fuzzing. Você poderá substituir o valor padrão se seus computadores tiverem uma edição de sistema operacional diferente.
-   - **Script de instalação de pacote**: seu script a ser executado em um computador de teste. Esse script instala o programa de destino de teste e suas dependências antes de o trabalho de fuzzing ser enviado.
-   - **Parâmetros de envio de trabalho**:
-       - **Diretório de semente**: o caminho para o diretório no computador de difusão que contém as sementes.
-       - **Extensão de semente**: a extensão de nome de arquivo das sementes.
-       - **Executável do driver de teste**: o caminho para o arquivo executável de destino no computador de difusão.
-       - **Arquitetura executável do driver de teste**: a arquitetura do arquivo executável de destino. Os valores disponíveis são **x86** e **AMD64**.
-       - **Argumentos de driver de teste**: os argumentos de linha de comando passados para o arquivo executável de teste. O argumento "% Testfile%", incluindo as aspas, é substituído automaticamente pelo caminho completo para o arquivo de destino. Esse arquivo é analisado pelo driver de teste e é necessário.
-       - O **processo do driver de teste é encerrado após a conclusão do teste**: Marque esta caixa de seleção se o driver de teste tiver que ser encerrado após a conclusão. Desmarque-a se o driver de teste precisar ser fechado à força.
-       - **Duração máxima (em segundos)**: uma estimativa do tempo razoavelmente esperado mais longo que o programa de destino requer para analisar um arquivo de entrada. Quanto mais precisa for a estimativa, mais eficiente será a execução do aplicativo difuso.
-       - O **Driver de teste pode ser executado repetidamente**: Marque esta caixa de seleção se o driver de teste puder ser executado repetidamente sem depender de um estado global persistente ou compartilhado.
-       - O **Driver de teste pode ser renomeado**: Marque esta caixa de seleção se o arquivo executável do driver de teste puder ser renomeado e ainda funcionar corretamente.
-       - **O aplicativo de fuzzing é executado como um único processo do sistema operacional**: Marque esta caixa de seleção se o driver de teste for executado em um único processo do sistema operacional. Desmarque-a se o driver de teste gerar processos adicionais.
-
-Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de detecção de riscos de segurança da Microsoft](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## <a name="roslyn-analyzers-task"></a>Tarefa de analisadores de Roslyn
 
@@ -153,11 +123,11 @@ As opções disponíveis incluem:
 - **RuleSet**: os valores são o **SDL necessário**, o **SDL é recomendado**ou seu próprio conjunto de regras personalizado.
 - **Versão do analisadores**: Recomendamos que você selecione **mais recente**.
 - **Arquivo de supressões de avisos do compilador**: um arquivo de texto com uma lista de IDs de Avisos suprimidos.
-- **Opções de controle** > **executar esta tarefa**: especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
+- **Opções**  >  de controle **Executar esta tarefa**: especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
 
 > [!NOTE]
 >
-> - Os analisadores Roslyn são integrados ao compilador e podem ser executados somente como parte da compilação CSC. exe. Portanto, essa tarefa requer que o comando do compilador executado anteriormente na compilação seja reproduzido ou executado novamente. Essa reprodução ou execução é feita consultando Visual Studio Team Services (VSTS) para os logs de tarefa de compilação do MSBuild.
+> - Os analisadores Roslyn são integrados ao compilador e podem ser executados somente como parte da compilação de csc.exe. Portanto, essa tarefa requer que o comando do compilador executado anteriormente na compilação seja reproduzido ou executado novamente. Essa reprodução ou execução é feita consultando Visual Studio Team Services (VSTS) para os logs de tarefa de compilação do MSBuild.
 >
 >   Não há outra maneira para a tarefa obter de forma confiável a linha de comando de compilação do MSBuild da definição de compilação. Consideramos a adição de uma caixa de texto de forma livre para permitir que os usuários insiram suas linhas de comando. Mas seria difícil manter essas linhas de comando atualizadas e sincronizadas com a compilação principal.
 >

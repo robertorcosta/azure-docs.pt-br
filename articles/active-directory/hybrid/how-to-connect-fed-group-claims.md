@@ -8,16 +8,16 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359952"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory
 
@@ -143,23 +143,23 @@ Os valores válidos são:
 | Seleção | Descrição |
 |----------|-------------|
 | **Os** | Emite grupos de segurança, listas de distribuição e funções |
-| **SecurityGroup** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
+| **“SecurityGroup”** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
 | **"DirectoryRole** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
 | **"The Application** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
 
-   Por exemplo: 
+   Por exemplo:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
    ```
 
-   Por padrão, ObjectIDs de grupo serão emitidas no valor de declaração de grupo.  Para modificar o valor da declaração para conter os atributos do grupo local ou para alterar o tipo de declaração para função, use a configuração OptionalClaims da seguinte maneira:
+   Por padrão, as ObjectIDs de grupo serão emitidas no valor da declaração de grupo.  Para modificar o valor da declaração e conter os atributos do grupo local ou para alterar o tipo de declaração para função, use a configuração OptionalClaims da seguinte maneira:
 
 3. Definir declarações opcionais de configuração de nome de grupo.
 
    Se você quiser que os grupos no token contenham os atributos do grupo do AD local, especifique qual tipo de token a declaração opcional deve ser aplicada na seção de declarações opcionais.  Vários tipos de token podem ser listados:
 
-   - Token para o token de ID de OIDC
+   - idToken para o token de ID de OIDC
    - accessToken para o token de acesso do OAuth/OIDC
    - Saml2Token para tokens SAML.
 
@@ -179,17 +179,17 @@ Os valores válidos são:
 
    | Esquema de declarações opcional | Valor |
    |----------|-------------|
-   | **nomes** | Deve ser "grupos" |
-   | **original** | Não usado. Omitir ou especificar nulo |
-   | **importante** | Não usado. Omitir ou especificar false |
-   | **AdditionalProperties** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **name:** | Precisa ser "grupos" |
+   | **source:** | Não usado. Omitir ou especificar null |
+   | **essential:** | Não usado. Omitir ou especificar false |
+   | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   Somente um de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" é necessário em um adicional.  Se mais de um estiver presente, o primeiro será usado e todos os outros serão ignorados.
+   Somente um de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" é necessário em um adicional.  Se mais de um estiver presente, o primeiro será usado e os outros serão ignorados.
 
    Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de declaração para de uma declaração de grupo para uma declaração de função, adicione "emit_as_roles" a propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
 
    > [!NOTE]
-   > Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário está atribuído não aparecerão na declaração de função
+   > Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário recebeu não aparecerão na declaração de função
 
 ### <a name="examples"></a>Exemplos
 
@@ -222,6 +222,6 @@ Para emitir nomes de grupo a serem retornados no formato netbiosDomain\samAccoun
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Configurar declarações de função](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Adicionar autorização usando grupos & declarações de grupos a um aplicativo Web ASP.NET Core (exemplo de código)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Atribuir um usuário ou um grupo a um aplicativo empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Configurar declarações de função](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

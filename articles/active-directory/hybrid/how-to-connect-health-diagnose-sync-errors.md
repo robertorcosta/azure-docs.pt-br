@@ -11,16 +11,16 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359085"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
 
@@ -34,7 +34,7 @@ Para obter mais informações sobre o Azure AD, consulte [ Sincronização de id
 
 ## <a name="problems"></a>Problemas
 ### <a name="a-common-scenario"></a>Um cenário comum
-Quando ocorrem ** erros de sincronização QuarantinedAttributeValueMustBeUnique ** e ** AttributeValueMustBeUnique **, é comum ver um conflito entre **UserPrincipalName ** ou ** Proxy Addresses ** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, essa imagem indica que dois usuários têm um conflito de **userPrincipalName**. Ambos são **Joe. J\@contoso.com**. Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
+Quando ocorrem ** erros de sincronização QuarantinedAttributeValueMustBeUnique ** e ** AttributeValueMustBeUnique **, é comum ver um conflito entre **UserPrincipalName ** ou ** Proxy Addresses ** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, essa imagem indica que dois usuários têm um conflito de **userPrincipalName**. Ambos são **Joe. J \@ contoso.com**. Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
 
 ![Diagnosticar cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 

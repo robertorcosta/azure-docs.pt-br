@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/15/2019
+ms.topic: how-to
+ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77185553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358235"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Aprofundamento de segurança da Autenticação de Passagem do Azure Active Directory
 
@@ -72,9 +72,12 @@ As seções a seguir abordam essas fases detalhadamente.
 
 ### <a name="authentication-agent-installation"></a>Instalação do Agente de Autenticação
 
-Somente os administradores globais podem instalar um Agente de Autenticação (usando o Azure AD Connect ou autônomo) em um servidor local. A instalação adiciona duas novas entradas à **Control Panel** > **lista programas** > **e recursos** do painel de controle:
+Somente os administradores globais podem instalar um Agente de Autenticação (usando o Azure AD Connect ou autônomo) em um servidor local. A instalação adiciona duas novas entradas à **Control Panel**  >  lista**programas**  >  **e recursos** do painel de controle:
 - O próprio aplicativo do Agente de Autenticação. Esse aplicativo é executado com privilégios [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx).
 - O aplicativo do Atualizador, que é usado para atualizar automaticamente o Agente de Autenticação. Esse aplicativo é executado com os privilégios [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
+
+>[!IMPORTANT]
+>Do ponto de vista da segurança, os administradores devem tratar o servidor que executa o agente PTA como se fosse um controlador de domínio.  Os servidores do agente PTA devem ser protegidos ao longo das mesmas linhas, conforme descrito em [protegendo controladores de domínio contra ataques](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="authentication-agent-registration"></a>Registro do Agente de Autenticação
 
@@ -103,7 +106,7 @@ Os Agentes de Autenticação usam as seguintes etapas para se registrar com o Az
     - A autoridade de certificação é usada apenas pelo recurso Autenticação de Passagem. A autoridade de certificação é usada apenas para assinar CSRs durante o registro do Agente de Autenticação.
     -  Nenhum outro serviço do Azure AD usa essa autoridade de certificação.
     - A entidade do certificado (Nome Diferenciado ou DN) é definida para sua ID de locatário. Esse DN é um GUID que identifica exclusivamente o locatário. O escopo desse DN é o certificado para uso apenas com seu locatário.
-6. O Azure AD armazena a chave pública do Agente de Autenticação em um Banco de Dados SQL do Azure, o qual apenas o Azure AD tem acesso.
+6. O Azure AD armazena a chave pública do agente de autenticação em um banco de dados no banco de dados SQL do Azure, ao qual somente o Azure AD tem acesso.
 7. O certificado (emitido na etapa 5) é armazenado no servidor local do repositório de certificados do Windows (especificamente no local [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)). Ele é usado pelo Agente de Autenticação e pelos aplicativos do Atualizador.
 
 ### <a name="authentication-agent-initialization"></a>Inicialização do Agente de Autenticação
@@ -136,7 +139,7 @@ A Autenticação de Passagem trata uma solicitação de entrada do usuário conf
 4. O usuário digita seu nome de usuário na página **Login do usuário** e, em seguida, seleciona o botão **Próximo**.
 5. O usuário digita sua senha na página **Login do usuário** e, em seguida, seleciona o botão **Login**.
 6. O nome de usuário e a senha são enviados ao STS do Azure AD em uma solicitação HTTPS POST.
-7. O STS do Azure AD recupera chaves públicas para todos os Agentes de Autenticação registrados em seu locatário no banco de dados SQL do Azure e criptografa a senha usando-as.
+7. O STS do Azure AD recupera chaves públicas para todos os agentes de autenticação registrados em seu locatário do banco de dados SQL do Azure e criptografa a senha usando-as.
     - Isso produz "N" valores de senha criptografados para "N" Agentes de Autenticação registrados no seu locatário.
 8. O STS do Azure AD coloca a solicitação de validação de senha, que consiste no nome de usuário e nos valores de senha criptografada, na fila do Barramento de Serviço específico ao seu locatário.
 9. Como os Agentes de Autenticação inicializados são persistentemente conectados à fila do Barramento de Serviço, um dos Agentes de Autenticação disponíveis recupera a solicitação de validação de senha.
@@ -175,7 +178,7 @@ Para renovar a confiança do Agente de Autenticação com o Azure AD:
 6. Se o certificado existente expirou, o Azure AD excluirá o Agente de Autenticação da lista de locatários dos Agentes de Autenticação registrados. Em seguida, um administrador global precisará instalar manualmente e registrar um novo Agente de Autenticação.
     - Use a autoridade de certificação raiz do Azure AD para assinar o certificado.
     - Defina a entidade do certificado (Nome Diferenciado ou DN) para sua ID de locatário, um GUID que identifica exclusivamente seu locatário. O escopo do DN é o certificado apenas para seu locatário.
-6. O Azure AD armazena a nova chave pública do Agente de Autenticação em um banco de dados SQL do Azure, ao qual somente ele tem acesso. Ele também invalida a chave pública antiga associada ao Agente de Autenticação.
+6. O Azure AD armazena a nova chave pública do agente de autenticação em um banco de dados no banco de dados SQL do Azure ao qual apenas ele tem acesso. Ele também invalida a chave pública antiga associada ao Agente de Autenticação.
 7. O novo certificado (emitido na etapa 5) é armazenado no servidor no repositório de certificados do Windows (especificamente não local [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER)).
     - Como o procedimento de renovação de confiança ocorrer de modo não interativo (sem a presença do administrador global), o Agente de Autenticação não terá mais acesso para atualizar o certificado existente no local CERT_SYSTEM_STORE_LOCAL_MACHINE. 
     

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa763c875b06bd7e22be0e814838f2e79b24e283
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77185513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358014"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
 
@@ -76,7 +76,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - [Limitações atuais](how-to-connect-pta-current-limitations.md) - Saiba quais cenários têm suporte e quais não têm.
 - [Aprofundamento técnico](how-to-connect-pta-how-it-works.md) – entenda como esse recurso funciona.
 - [Perguntas frequentes](how-to-connect-pta-faq.md) – respostas para perguntas frequentes.
-- [Solução de problemas](tshoot-connect-pass-through-authentication.md) – saiba como resolver problemas comuns do recurso.
+- [Solução de problemas](tshoot-connect-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.
 - [Aprofundamento em Segurança](how-to-connect-pta-security-deep-dive.md) – informações técnicas aprofundadas adicionais sobre o recurso.
 - [SSO contínuo do Azure AD](how-to-connect-sso.md) – Saiba mais sobre esse recurso complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.

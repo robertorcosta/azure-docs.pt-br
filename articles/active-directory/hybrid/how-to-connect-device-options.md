@@ -11,27 +11,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cedf1419a763fe0b0f528bee6e1b48e435ec0e2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67109537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360020"
 ---
 # <a name="azure-ad-connect-device-options"></a>Do Azure AD Connect: opções de dispositivo
 
 A documentação a seguir fornece informações sobre as várias opções de dispositivo disponíveis no Azure AD Connect. Você pode usar o Azure AD Connect para configurar as duas operações a seguir: 
 * **Ingresso no Azure AD híbrido**: se o ambiente tiver um volume de memória do AD local e você quiser os benefícios do Azure AD, poderá implementar dispositivos ingressados ao Azure AD híbrido. Esses dispositivos são ingressados ao Active Directory local e ao Azure Active Directory.
-* **Write**-back de dispositivo: o Write-back de dispositivo é usado para habilitar o acesso condicional com base em dispositivos para AD FS (2012 R2 ou superior) dispositivos protegidos
+* **Write-back de dispositivo**: o Write-back de dispositivo é usado para habilitar o Acesso Condicional baseado em dispositivos para os dispositivos protegidos do AD FS (2012 R2 ou superior)
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Opções de logon único do usuário no Azure AD Connect
 
-1.  Executar o Azure AD Connect. Na página **Tarefas adicionais**, selecione **Configurar opções de dispositivo**.  Clique em **Avançar**.
+1.  Executar o Azure AD Connect. Na página **Tarefas adicionais**, selecione **Configurar opções de dispositivo**.  Clique em **Próximo**.
     ![Configurar opções do dispositivo](./media/how-to-connect-device-options/deviceoptions.png) 
 
     A página de **visão geral** exibe os detalhes.

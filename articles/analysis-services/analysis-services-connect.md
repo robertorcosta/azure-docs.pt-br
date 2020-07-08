@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361465"
 ---
 # <a name="connecting-to-servers"></a>Conectando-se a servidores
 
@@ -20,7 +20,7 @@ Este artigo descreve como se conectar a um servidor usando aplicativos de modela
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
-[Obter as bibliotecas de Cliente mais recentes](analysis-services-data-providers.md)
+[Obter as bibliotecas de Cliente mais recentes](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 Todas as conexões a um servidor, independentemente do tipo, exigem bibliotecas de cliente OLEDB, ADOMD.NET e AMO atualizadas para a conexão e interface com um servidor do Analysis Services. Para SSMS, Visual Studio, Excel 2016 e posterior e Power BI, as bibliotecas de cliente mais recentes são instaladas ou atualizadas com versões mensais. No entanto, em alguns casos, é possível que um aplicativo não tenha a mais recente. Por exemplo, quando políticas atrasam atualizações ou, as atualizações do Office 365 estão no Canal Adiado.
 

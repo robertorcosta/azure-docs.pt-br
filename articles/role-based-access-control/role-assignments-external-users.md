@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361897"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure
 
@@ -49,9 +49,9 @@ Os membros nativos de um diretório (usuários Membros) têm permissões diferen
 
 Siga estas etapas para adicionar um usuário convidado ao seu diretório usando a página Azure Active Directory.
 
-1. Verifique se as configurações de colaboração externa da sua organização estão configuradas de forma que você tenha permissão para convidar convidados. Para obter mais informações, consulte [habilitar colaboração externa B2B e gerenciar quem pode convidar convidados](../active-directory/b2b/delegate-invitations.md).
+1. Verifique se as definições de colaboração externa de sua organização estão configuradas de forma que você tenha permissão para convidar participantes. Para obter mais informações, consulte [habilitar colaboração externa B2B e gerenciar quem pode convidar convidados](../active-directory/b2b/delegate-invitations.md).
 
-1. Na portal do Azure, clique em **Azure Active Directory** > **usuários** > **novo usuário convidado**.
+1. Na portal do Azure, clique em **Azure Active Directory**  >  **usuários**  >  **novo usuário convidado**.
 
     ![Novo recurso de usuário convidado no portal do Azure](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -71,13 +71,13 @@ Para obter mais informações sobre o processo de convite, consulte [Azure Activ
 
 No RBAC do Azure, para conceder acesso, você atribui uma função. Para adicionar uma atribuição de função para um usuário convidado, siga [as mesmas etapas necessárias](role-assignments-portal.md#add-a-role-assignment) para um usuário membro, grupo, entidade de serviço ou identidade gerenciada. Siga estas etapas para adicionar uma atribuição de função para um usuário convidado em escopos diferentes.
 
-1. Na portal do Azure, clique em **todos os serviços**.
+1. No portal do Azure, clique em **Todos os serviços**.
 
 1.  Selecione o conjunto de recursos ao qual o acesso se aplica, também conhecido como o escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**, ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
     A captura de tela a seguir mostra um exemplo da folha controle de acesso (IAM) para um grupo de recursos. Se você fizer alterações de controle de acesso aqui, elas se aplicarão apenas ao grupo de recursos.
 
@@ -89,7 +89,9 @@ No RBAC do Azure, para conceder acesso, você atribui uma função. Para adicion
 
     Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desativada.
 
-    ![Adicionar menu](./media/role-assignments-external-users/add-menu.png)
+    ![Adicionar menu de atribuição de função](./media/shared/add-role-assignment-menu.png)
+
+    O painel Adicionar atribuição de função é aberto.
 
 1. Na lista suspensa **Função**, selecione uma função, por exemplo, **Colaborador da Máquina Virtual**.
 
@@ -107,19 +109,21 @@ Para adicionar uma atribuição de função para um usuário convidado, siga [as
 
 Se o usuário convidado ainda não estiver em seu diretório, você poderá convidar o usuário diretamente do painel Adicionar atribuição de função.
 
-1. Na portal do Azure, clique em **todos os serviços**.
+1. No portal do Azure, clique em **Todos os serviços**.
 
 1.  Selecione o conjunto de recursos ao qual o acesso se aplica, também conhecido como o escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**, ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 
 1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
-    ![Adicionar menu](./media/role-assignments-external-users/add-menu.png)
+    ![Adicionar menu de atribuição de função](./media/shared/add-role-assignment-menu.png)
+
+    O painel Adicionar atribuição de função é aberto.
 
 1. Na lista suspensa **Função**, selecione uma função, por exemplo, **Colaborador da Máquina Virtual**.
 
@@ -161,7 +165,7 @@ Antes de remover um usuário convidado de um diretório, primeiro você deve rem
 
 1. Na mensagem para remover a atribuição de função exibida, clique em **Sim**.
 
-1. Na barra de navegação à esquerda, clique em **Azure Active Directory** > **usuários**.
+1. Na barra de navegação à esquerda, clique em **Azure Active Directory**  >  **usuários**.
 
 1. Clique no usuário convidado que você deseja remover.
 
@@ -171,7 +175,7 @@ Antes de remover um usuário convidado de um diretório, primeiro você deve rem
 
 1. Na mensagem de exclusão exibida, clique em **Sim**.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>O usuário convidado não pode navegar no diretório
 

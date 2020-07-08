@@ -5,15 +5,15 @@ author: billmath
 ms.author: billmath
 manager: daveba
 ms.date: 12/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e41be4b76245f2567015eb0ede317830120ee61a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75549478"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360785"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Solução de problemas de provisionamento de nuvem
 
@@ -44,14 +44,14 @@ Esses itens podem ser verificados no portal do Azure e no servidor local que est
 Para verificar se o agente é visto pelo Azure e está íntegro, siga estas etapas.
 
 1. Entre no portal do Azure.
-1. À esquerda, selecione **Azure Active Directory** > **Azure ad Connect**. No centro, selecione **gerenciar provisionamento (versão prévia)**.
-1. Na tela **provisionamento do Azure AD (versão prévia)** , selecione **examinar todos os agentes**.
+1. À esquerda, selecione **Azure Active Directory** > **Azure AD Connect**. No centro, selecione **Gerenciar aprovisionamento (versão prévia)** .
+1. Na tela **Provisionamento do Azure AD (versão prévia)** , selecione **Examinar todos os agentes**.
 
    ![Examinar todos os agentes](media/how-to-install/install7.png)</br>
  
 1. Na tela **agentes de provisionamento locais** , você vê os agentes que você instalou. Verifique se o agente em questão está lá e está marcado como *íntegro*.
 
-   ![Tela de agentes de provisionamento local](media/how-to-install/install8.png)</br>
+   ![Tela Agentes de provisionamento local](media/how-to-install/install8.png)</br>
 
 ### <a name="verify-the-port"></a>Verificar a porta
 
@@ -67,8 +67,8 @@ Esse teste verifica se os agentes podem se comunicar com o Azure pela porta 443.
 
 Para verificar se o agente está em execução, siga estas etapas.
 
-1. No servidor com o agente instalado, abra **Serviços** navegando até ele ou acessando **Iniciar** > **executar** > **Services. msc**.
-1. Em **Serviços**, verifique se **Microsoft Azure ad atualizador do agente** e **Microsoft Azure ad agente de provisionamento do Connect** estão lá e se seu status está *em execução*.
+1. No servidor com o agente instalado, abra **Serviços** navegando até ele ou acessando **Iniciar**  >  **executar**  >  **Services. msc**.
+1. Em **Serviços** certifique-se de que o **Atualizador do Agente do Microsoft Azure AD Connect** e o **Agente de Provisionamento do Microsoft Azure AD Connect** estão lá e se o status é *Em execução*.
 
    ![Tela de serviços](media/how-to-troubleshoot/troubleshoot1.png)
 
@@ -87,7 +87,7 @@ Esse problema geralmente é causado por uma política de grupo que impediu que a
 Para resolver esse problema, siga estas etapas.
 
 1. Entre no servidor com uma conta de administrador.
-1. Abra **Serviços** navegando até ele ou acessando **Iniciar** > **executar** > **Services. msc**.
+1. Abra **Serviços** navegando até ele ou acessando **Iniciar** > **Executar** > **Services.msc**.
 1. Em **Serviços**, clique duas vezes em **Microsoft Azure ad conectar agente de provisionamento**.
 1. Na guia **fazer logon** , altere **essa conta** para um administrador de domínio. Em seguida, reinicie o serviço. 
 
@@ -99,9 +99,9 @@ Você pode receber a seguinte mensagem de erro ao tentar registrar o agente.
 
 ![Mensagem de erro de tempo limite](media/how-to-troubleshoot/troubleshoot4.png)
 
-Esse problema geralmente é causado pelo agente que não consegue se conectar ao serviço de identidade híbrida e exige que você configure um proxy HTTP. Para resolver esse problema, configure um proxy de saída. 
+Geralmente, esse problema é causado pelo agente que não consegue se conectar ao Serviço de Identidade Híbrida e exige que você configure um proxy HTTP. Para resolver esse problema, configure um proxy de saída. 
 
-O agente de provisionamento dá suporte ao uso de um proxy de saída. Você pode configurá-lo editando o arquivo de configuração do agente *C:\Program Files\Microsoft Azure ad Connect Provisionando Agent\AADConnectProvisioningAgent.exe.config*. Adicione as seguintes linhas a ela, em direção ao final do arquivo logo antes da marca `</configuration>` de fechamento.
+O agente de provisionamento dá suporte ao uso de um proxy de saída. Você pode configurá-lo editando o arquivo de configuração do agente *C:\Program Files\Microsoft Azure ad Connect provisionando Agent\AADConnectProvisioningAgent.exe.config*. Adicione as seguintes linhas a ela, em direção ao final do arquivo logo antes da marca de fechamento `</configuration>` .
 Substitua as variáveis `[proxy-server]` e `[proxy-port]` pelo nome do servidor proxy e pelos valores de porta.
 
 ```xml
@@ -131,8 +131,8 @@ Por padrão, o agente emite mensagens de erro mínimas e informações de rastre
 Para coletar detalhes adicionais para solucionar problemas relacionados ao agente, siga estas etapas.
 
 1. Pare o serviço **Microsoft Azure ad conectar o agente de provisionamento**.
-1. Crie uma cópia do arquivo de configuração original: *C:\Program Files\Microsoft Azure ad Connect Provisionando Agent\AADConnectProvisioningAgent.exe.config*.
-1. Substitua a seção `<system.diagnostics>` existente pelo seguinte e todas as mensagens de rastreamento vão para o arquivo *ProvAgentTrace. log*.
+1. Crie uma cópia do arquivo de configuração original: *c:\Arquivos de programas\microsoft Azure AD Connect Agent\AADConnectProvisioningAgent.exe.configde provisionamento *.
+1. Substitua a `<system.diagnostics>` seção existente pelo seguinte e todas as mensagens de rastreamento vão para o arquivo *ProvAgentTrace. log*.
 
    ```xml
      <system.diagnostics>

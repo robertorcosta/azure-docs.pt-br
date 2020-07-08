@@ -2,24 +2,20 @@
 title: Adicionar ou remover atribuições de função do Azure usando o portal do Azure-RBAC do Azure
 description: Saiba como conceder acesso aos recursos do Azure para usuários, grupos, entidades de serviço ou identidades gerenciadas usando o portal do Azure e o controle de acesso baseado em função do Azure (RBAC do Azure).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 01/25/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735684"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362203"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Adicionar ou remover atribuições de função do Azure usando o portal do Azure
 
@@ -35,11 +31,11 @@ Para adicionar ou remover atribuições de função, você deve ter:
 
 ## <a name="access-control-iam"></a>Controle de acesso (IAM)
 
-O **controle de acesso (iam)** é a folha que você usa para atribuir funções para conceder acesso aos recursos do Azure. Ele também é conhecido como gerenciamento de identidade e acesso e aparece em vários locais na portal do Azure. O exemplo a seguir mostra um exemplo de folha de controle (IAM) de acesso para uma assinatura.
+O **controle de acesso (iam)** é a página que você normalmente usa para atribuir funções para conceder acesso aos recursos do Azure. Ele também é conhecido como gerenciamento de identidade e acesso e aparece em vários locais na portal do Azure. Veja a seguir um exemplo da página de controle de acesso (IAM) para uma assinatura.
 
-![Folha IAM (controle) de acesso para uma assinatura](./media/role-assignments-portal/access-control-subscription.png)
+![Página de controle de acesso (IAM) para uma assinatura](./media/role-assignments-portal/access-control-subscription.png)
 
-Para ser o mais eficaz com a folha de controle de acesso (IAM), ele ajuda se você pode responder às três perguntas a seguir ao tentar atribuir uma função:
+Para ser o mais eficaz com a página de controle de acesso (IAM), ele ajuda se você pode responder às três perguntas a seguir ao tentar atribuir uma função:
 
 1. **Quem precisa de acesso?**
 
@@ -61,17 +57,17 @@ No RBAC do Azure, para conceder acesso a um recurso do Azure, você adiciona uma
 
 1. Clique no recurso específico para esse escopo.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **atribuições de função** para exibir as atribuições de função nesse escopo.
 
     ![Controle de acesso (IAM) e guia atribuições de função](./media/role-assignments-portal/role-assignments.png)
 
-1. Clique em **Adicionar** > **Adicionar atribuição de função**.
+1. Clique em **Adicionar**  >  **Adicionar atribuição de função**.
 
    Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desativada.
 
-   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu de atribuição de função](./media/shared/add-role-assignment-menu.png)
 
     O painel Adicionar atribuição de função é aberto.
 
@@ -95,17 +91,17 @@ Para tornar um usuário administrador de uma assinatura do Azure, atribua-o à f
 
 1. Clique na assinatura em que você deseja conceder acesso.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **atribuições de função** para exibir as atribuições de função para esta assinatura.
 
     ![Controle de acesso (IAM) e guia atribuições de função](./media/role-assignments-portal/role-assignments.png)
 
-1. Clique em **Adicionar** > **Adicionar atribuição de função**.
+1. Clique em **Adicionar**  >  **Adicionar atribuição de função**.
 
    Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desativada.
 
-   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu de atribuição de função](./media/shared/add-role-assignment-menu.png)
 
     O painel Adicionar atribuição de função é aberto.
 
@@ -118,6 +114,75 @@ Para tornar um usuário administrador de uma assinatura do Azure, atribua-o à f
 1. Clique em **Salvar** para atribuir a função.
 
    Após alguns instantes, o usuário é atribuído à função Proprietário no escopo da assinatura.
+
+## <a name="add-a-role-assignment-for-a-managed-identity-preview"></a>Adicionar uma atribuição de função para uma identidade gerenciada (versão prévia)
+
+Você pode adicionar atribuições de função para uma identidade gerenciada usando a página **controle de acesso (iam)** , conforme descrito anteriormente neste artigo. Ao usar a página controle de acesso (IAM), você começa com o escopo e, em seguida, seleciona a identidade e a função gerenciadas. Esta seção descreve uma maneira alternativa de adicionar atribuições de função para uma identidade gerenciada. Usando essas etapas, você começa com a identidade gerenciada e, em seguida, seleciona o escopo e a função.
+
+> [!IMPORTANT]
+> A adição de uma atribuição de função para uma identidade gerenciada usando essas etapas alternativas está atualmente em versão prévia.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
+
+Siga estas etapas para atribuir uma função a uma identidade gerenciada atribuída pelo sistema, começando com a identidade gerenciada.
+
+1. No portal do Azure, abra uma identidade gerenciada atribuída pelo sistema.
+
+1. No menu à esquerda, clique em **identidade**.
+
+    ![Identidade gerenciada atribuída pelo sistema](./media/shared/identity-system-assigned.png)
+
+1. Em **permissões**, clique em **atribuições de função do Azure**.
+
+    Se as funções já estiverem atribuídas à identidade gerenciada atribuída pelo sistema selecionada, você verá a lista de atribuições de função. Essa lista inclui todas as atribuições de função que você tem permissão para ler.
+
+    ![Atribuições de função para uma identidade gerenciada atribuída pelo sistema](./media/shared/role-assignments-system-assigned.png)
+
+1. Para alterar a assinatura, clique na lista **assinatura** .
+
+1. Clique em **Adicionar atribuição de função (versão prévia)**.
+
+1. Use as listas suspensas para selecionar o conjunto de recursos que a atribuição de função aplica a, como **assinatura**, **grupo de recursos**ou recurso.
+
+    Se você não tiver permissões de gravação de atribuição de função para o escopo selecionado, uma mensagem embutida será exibida. 
+
+1. Na lista suspensa **Função**, selecione uma função, por exemplo, **Colaborador da Máquina Virtual**.
+
+   ![Adicionar painel de atribuição de função](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Clique em **Salvar** para atribuir a função.
+
+   Depois de alguns instantes, a identidade gerenciada é atribuída à função no escopo selecionado.
+
+### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
+
+Siga estas etapas para atribuir uma função a uma identidade gerenciada atribuída pelo usuário, começando com a identidade gerenciada.
+
+1. No portal do Azure, abra uma identidade gerenciada atribuída pelo usuário.
+
+1. No menu à esquerda, clique em **atribuições de função do Azure**.
+
+    Se as funções já estiverem atribuídas à identidade gerenciada atribuída pelo usuário selecionada, você verá a lista de atribuições de função. Essa lista inclui todas as atribuições de função que você tem permissão para ler.
+
+    ![Atribuições de função para uma identidade gerenciada atribuída pelo sistema](./media/shared/role-assignments-user-assigned.png)
+
+1. Para alterar a assinatura, clique na lista **assinatura** .
+
+1. Clique em **Adicionar atribuição de função (versão prévia)**.
+
+1. Use as listas suspensas para selecionar o conjunto de recursos que a atribuição de função aplica a, como **assinatura**, **grupo de recursos**ou recurso.
+
+    Se você não tiver permissões de gravação de atribuição de função para o escopo selecionado, uma mensagem embutida será exibida. 
+
+1. Na lista suspensa **Função**, selecione uma função, por exemplo, **Colaborador da Máquina Virtual**.
+
+   ![Adicionar painel de atribuição de função](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Clique em **Salvar** para atribuir a função.
+
+   Depois de alguns instantes, a identidade gerenciada é atribuída à função no escopo selecionado.
 
 ## <a name="remove-a-role-assignment"></a>Excluir uma atribuição de função
 
@@ -144,6 +209,6 @@ No RBAC do Azure, para remover o acesso de um recurso do Azure, você remove uma
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Listar atribuições de função do Azure usando o portal do Azure](role-assignments-list-portal.md)
-- [Tutorial: conceder a um usuário acesso aos recursos do Azure usando o portal do Azure](quickstart-assign-role-user-portal.md)
+- [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o portal do Azure](quickstart-assign-role-user-portal.md)
 - [Solucionar problemas do RBAC do Azure](troubleshooting.md)
 - [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)

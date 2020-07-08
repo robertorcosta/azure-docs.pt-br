@@ -3,14 +3,14 @@ title: Iniciar um runbook da Automação do Azure a partir de um webhook
 description: Este artigo informa como usar um webhook para iniciar um runbook na Automação do Azure a partir de uma chamada HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361669"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar runbook a partir de um webhook
 
@@ -21,11 +21,13 @@ Um webhook permite que um serviço externo inicie um runbook específico na Auto
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
+Para entender os requisitos do cliente para o TLS 1,2 com WebHooks, confira [imposição TLS 1,2 para a automação do Azure](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+
 ## <a name="webhook-properties"></a>Propriedades de webhook
 
 A tabela a seguir descreve as propriedades que devem ser configuradas para um webhook.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | Nome |Nome do webhook. É possível fornecer qualquer nome desejado, já que ele não é exposto ao cliente. Ele é usado apenas por você para identificar o runbook na Automação do Azure. Como melhor prática, você deve atribuir ao webhook um nome relacionado ao cliente que o utiliza. |
 | URL |URL do webhook. É o endereço exclusivo que um cliente chama com um HTTP POST para iniciar o runbook vinculado ao webhook. Ele é gerado automaticamente quando você cria o webhook. Você não pode especificar uma URL personalizada. <br> <br> A URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, você deve tratar a URL como uma senha. Por motivos de segurança, só é possível exibir a URL no portal do Azure ao criar o webhook. Anote a URL em um local seguro para uso futuro. |
@@ -81,9 +83,13 @@ Agora, transmitimos o seguinte objeto JSON na interface do usuário para o parâ
 
 A segurança de um webhook conta com a privacidade da sua URL, que contém um token de segurança que permite que ele seja invocado. A Automação do Azure não executa nenhuma autenticação em uma solicitação desde que ela seja feita para a URL correta. Por esse motivo, os clientes não devem usar webhooks para runbooks que executam operações altamente confidenciais sem usar um meio alternativo de validar a solicitação.
 
-Será possível incluir lógica em um runbook para determinar se ele é chamado por um webhook. Faça com que o runbook verifique a propriedade `WebhookName` do parâmetro `WebhookData`. O runbook pode executar uma validação adicional procurando informações específicas nas propriedades `RequestHeader` e `RequestBody`.
+Considere as seguintes estratégias:
 
-Outra estratégia é o runbook realizar alguma validação de uma condição externa quando ele recebe uma solicitação de webhook. Por exemplo, considere um runbook que é chamado pelo GitHub sempre que houver uma nova confirmação para um repositório GitHub. O runbook pode se conectar ao GitHub para validar se uma nova confirmação ocorreu antes de continuar.
+* Será possível incluir lógica em um runbook para determinar se ele é chamado por um webhook. Faça com que o runbook verifique a propriedade `WebhookName` do parâmetro `WebhookData`. O runbook pode executar uma validação adicional procurando informações específicas nas propriedades `RequestHeader` e `RequestBody`.
+
+* Faça com que o runbook execute algumas validações de uma condição externa quando receber uma solicitação de webhook. Por exemplo, considere um runbook que é chamado pelo GitHub sempre que houver uma nova confirmação para um repositório GitHub. O runbook pode se conectar ao GitHub para validar se uma nova confirmação ocorreu antes de continuar.
+
+* A automação do Azure dá suporte a marcas de serviço de rede virtual do Azure, especificamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md) e disparar WebHooks de dentro de sua rede virtual. As marcas de serviço podem ser usadas no lugar de endereços IP específicos quando você cria regras de segurança. Ao especificar o nome da marca de serviço **GuestAndHybridManagement** no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço de automação. Essa marca de serviço não dá suporte à permissão de controle mais granular restringindo intervalos de IP para uma região específica.
 
 ## <a name="create-a-webhook"></a>Criar um webhook
 
@@ -101,7 +107,8 @@ Use o procedimento a seguir para criar um novo webhook vinculado a um runbook no
    ![URL de Webhook](media/automation-webhooks/copy-webhook-url.png)
 
 1. Clique em **Parâmetros** para fornecer valores para os parâmetros do runbook. Se o runbook tiver parâmetros obrigatórios, não será possível criar o webhook, a menos que você forneça valores.
-1. Clique em **Criar** para criar o webhook.
+
+2. Clique em **Criar** para criar o webhook.
 
 ## <a name="use-a-webhook"></a>Usar um webhook
 

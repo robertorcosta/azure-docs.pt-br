@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f228da5afc5998d8fa59ce2d720cec4c9f955b67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67478713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360292"
 ---
 # <a name="adsync-service-account"></a>Conta do serviço ADSync
 Azure AD Connect instala um serviço local que orquestra a sincronização entre Active Directory e Azure Active Directory.  O Microsoft Azure AD ADSync (serviço de sincronização sincronizada) é executado em um servidor no seu ambiente local.  As credenciais para o serviço são definidas por padrão nas instalações expressas, mas podem ser personalizadas para atender aos requisitos de segurança organizacional.  Essas credenciais não são usadas para se conectar às suas florestas ou Azure Active Directory locais.
@@ -37,7 +37,7 @@ Quando executado em um servidor membro, o serviço AdSync é executado no contex
 |Azure AD Connect local|Conta de serviço criada|
 |-----|-----|
 |Servidor membro|NT SERVICE\ADSync|
-|Controlador de domínio|Domínio \ AAD_74dc30c01e80 (consulte a observação)|
+|Controlador de Domínio|Domínio \ AAD_74dc30c01e80 (consulte a observação)|
 
 ## <a name="custom-adsync-service-accounts"></a>Contas de serviço do ADSync personalizado
 A Microsoft recomenda executar o serviço ADSync no contexto de uma conta de serviço virtual ou de uma conta de serviço gerenciado de grupo ou autônomo.  O administrador de domínio também pode optar por criar uma conta de serviço provisionada para atender aos requisitos específicos de segurança organizacional.   Para personalizar a conta de serviço usada durante a instalação, escolha a opção personalizar na página Configurações expressas abaixo.   As seguintes opções estão disponíveis:
@@ -82,4 +82,4 @@ Minor Number = 0
 Description  = 'A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.'
 ```
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

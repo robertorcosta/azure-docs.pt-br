@@ -4,15 +4,15 @@ description: Saiba como criar aliases de nome do servidor do Azure Analysis Serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b416a25fd0befa91076fed5f9bf5df23ea30844
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 435649c5431ff14461245fee88cebe4a2c571663
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361431"
 ---
 # <a name="alias-server-names"></a>Nome de servidor de alias
 
@@ -37,7 +37,7 @@ Ao conectar-se usando um cliente, o nome do servidor de alias é inserido usando
 
 Para criar um ponto de extremidade de alias, você pode usar qualquer método que retorne um nome de servidor válido do Azure Analysis Services. Por exemplo, uma referência a um arquivo no Armazenamento de Blobs do Azure que contenha o nome real do servidor, ou criar e publicar um aplicativo Web Forms do ASP.NET.
 
-Neste exemplo, um aplicativo Web Forms do ASP.NET é criado no Visual Studio. A referência da página mestra e o controle de usuário são removidos da página Default.aspx. O conteúdo de Default.aspx é simplesmente a seguinte diretiva de página:
+Neste exemplo, um aplicativo Web Forms do ASP.NET é criado no Visual Studio. A referência de página e o controle de usuário são removidos da página default. aspx. O conteúdo de Default.aspx é simplesmente a seguinte diretiva de página:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Confira também
 
-[Bibliotecas do cliente](analysis-services-data-providers.md)   
+[Bibliotecas do cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Conectar-se a partir do Power BI Desktop](analysis-services-connect-pbi.md)

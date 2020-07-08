@@ -1,5 +1,5 @@
 ---
-title: ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
+title: Faça uma lista segura das URLs do portal Azure em seu firewall ou servidor proxy
 description: Adicione essas URLs ao bypass do servidor proxy para se comunicar com o portal do Azure e seus serviços
 services: azure-portal
 keywords: ''
@@ -9,14 +9,14 @@ ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67ccf6e2f113c0ec72cfcbccedf88017e452ec4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361652"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Faça uma lista segura das URLs do portal Azure em seu firewall ou servidor proxy
 
 Você pode configurar dispositivos de segurança locais para ignorar as restrições de segurança para as URLs de portal do Azure. Essa configuração pode melhorar o desempenho e a conectividade entre sua rede local ou de longa distância e a nuvem do Azure.
 
@@ -53,6 +53,7 @@ Os pontos de extremidade de URL para a lista segura para os portal do Azure são
 #### <a name="us-government-cloud"></a>[Nuvem do governo dos EUA](#tab/us-government-cloud)
 
 ```
+*.applicationinsights.us
 *.azure.us
 *.loganalytics.us
 *.microsoft.us

@@ -5,34 +5,35 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362417"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Logs de auditoria no banco de dados do Azure para MariaDB
 
 No banco de dados do Azure para MariaDB, o log de auditoria está disponível para os usuários. O log de auditoria pode ser usado para acompanhar a atividade no nível do banco de dados e é normalmente usado para conformidade.
 
-> [!IMPORTANT]
-> A funcionalidade de log de auditoria está atualmente em visualização.
-
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
 
-Por padrão, o log de auditoria é desabilitado. Para habilitá-lo `audit_log_enabled` , defina como ativado.
+>[!IMPORTANT]
+> É recomendável registrar apenas os tipos de eventos e os usuários necessários para fins de auditoria para garantir que o desempenho do servidor não seja muito afetado.
+
+Por padrão, o log de auditoria é desabilitado. Para habilitá-lo, defina `audit_log_enabled` como ativado.
 
 Outros parâmetros que você pode ajustar incluem:
 
 - `audit_log_events`: controla os eventos a serem registrados. Consulte a tabela abaixo para ver eventos de auditoria específicos.
-- `audit_log_include_users`: MariaDB usuários a serem incluídos para registro em log. O valor padrão para esse parâmetro é vazio, o que incluirá todos os usuários para registro em log. Isso tem prioridade mais alta `audit_log_exclude_users`. O comprimento máximo do parâmetro é de 512 caracteres.
-> [!Note]
-> `audit_log_include_users`tem prioridade mais alta `audit_log_exclude_users`. Por exemplo, se `audit_log_include_users`  =  `demouser` e `audit_log_exclude_users`  =  `demouser`, o usuário será incluído nos logs de auditoria porque `audit_log_include_users` tem prioridade mais alta.
+- `audit_log_include_users`: MariaDB usuários a serem incluídos para registro em log. O valor padrão para esse parâmetro é vazio, o que incluirá todos os usuários para registro em log. Isso tem prioridade mais alta `audit_log_exclude_users` . O comprimento máximo do parâmetro é de 512 caracteres.
 - `audit_log_exclude_users`: MariaDB os usuários a serem excluídos do registro em log. Permite no máximo quatro usuários. O comprimento máximo do parâmetro é de 256 caracteres.
 
-| **Circunstância** | **Descrição** |
+> [!Note]
+> `audit_log_include_users`tem prioridade mais alta `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e `audit_log_exclude_users`  =  `demouser` , o usuário será incluído nos logs de auditoria porque `audit_log_include_users` tem prioridade mais alta.
+
+| **Evento** | **Descrição** |
 |---|---|
 | `CONNECTION` | -Início da conexão (bem-sucedido ou malsucedido) <br> -Reautenticação do usuário com usuário/senha diferente durante a sessão <br> -Terminação de conexão |
 | `DML_SELECT`| Consultas SELECT |
@@ -45,7 +46,7 @@ Outros parâmetros que você pode ajustar incluem:
 
 ## <a name="access-audit-logs"></a>Acesse os logs de auditoria
 
-Os logs de auditoria são integrados a Azure Monitor logs de diagnóstico. Depois de habilitar os logs de auditoria no servidor MariaDB, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre como habilitar os logs de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Os logs de auditoria são integrados aos logs de diagnóstico do Azure Monitor. Depois de habilitar os logs de auditoria no servidor MariaDB, você pode emiti-los para logs do Azure Monitor, hubs de eventos ou armazenamento do Microsoft Azure. Para saber mais sobre como habilitar os logs de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Esquemas de logs de diagnóstico
 
@@ -70,7 +71,7 @@ As seções a seguir descrevem o que é resultado de logs de auditoria do MariaD
 | `event_class_s` | `connection_log` |
 | `event_subclass_s` | `CONNECT`, `DISCONNECT` |
 | `connection_id_d` | ID de conexão exclusiva gerada por MariaDB |
-| `host_s` | Em branco |
+| `host_s` | Em Branco |
 | `ip_s` | Endereço IP do cliente que se conecta ao MariaDB |
 | `user_s` | Nome do usuário executando a consulta |
 | `db_s` | Nome do banco de dados conectado a |
@@ -79,6 +80,9 @@ As seções a seguir descrevem o que é resultado de logs de auditoria do MariaD
 ### <a name="general"></a>Geral
 
 O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador.
+
+> [!NOTE]
+> Para `sql_text` , o log será truncado se exceder 2048 caracteres.
 
 | **Propriedade** | **Descrição** |
 |---|---|
@@ -100,7 +104,7 @@ O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELEC
 | `event_time` | Segundos de início de consulta no carimbo de data/hora UNIX |
 | `error_code_d` | Código de erro se a consulta falhar. `0`significa nenhum erro |
 | `thread_id_d` | ID do thread que executou a consulta |
-| `host_s` | Em branco |
+| `host_s` | Em Branco |
 | `ip_s` | Endereço IP do cliente que se conecta ao MariaDB |
 | `user_s` | Nome do usuário executando a consulta |
 | `sql_text_s` | Texto de consulta completo |

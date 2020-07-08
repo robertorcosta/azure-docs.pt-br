@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a859a10e02a5738ee023db5d653ea14403b9bcad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358439"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
 Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  
@@ -59,7 +59,7 @@ Se você precisar executar uma tarefa de sincronização, poderá fazer isso da 
 2. Clique em **Configurar**.
 3. Na tela tarefas, selecione as **opções personalizar sincronização** e clique em **Avançar**
 4. Insira suas credenciais de AD do Azure
-5. Clique em **Avançar**. Clique em **Avançar**.  Clique em **Avançar**.
+5. Clique em **Próximo**. Clique em **Próximo**.  Clique em **Próximo**.
 5.  Na tela **pronto para configurar** , verifique se a caixa **iniciar o processo de sincronização quando a configuração for concluída** está marcada.
 6.  Clique em **Configurar**.
 
@@ -74,7 +74,7 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 
 | Tarefa adicional | Descrição |
 | --- | --- |
-|**Configurações de privacidade**|Exibir quais dados de telemetria estão sendo compartilhados com a Microsoft.|
+|**Configurações de Privacidade**|Exibir quais dados de telemetria estão sendo compartilhados com a Microsoft.|
 |**Exibir a configuração atual**|Exiba sua solução atual do Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |
 | **Personalizar opções de sincronização** |Altere a configuração atual, por exemplo adicionando florestas do Active Directory para a configuração ou habilitando opções de sincronização como usuário, grupo, dispositivo ou write-back de senha. |
 |**Configurar opções do dispositivo**|Opções de dispositivo disponíveis para sincronização|
@@ -85,4 +85,4 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 |**Solucionar problemas**|Ajuda para solucionar problemas de Azure AD Connect|
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

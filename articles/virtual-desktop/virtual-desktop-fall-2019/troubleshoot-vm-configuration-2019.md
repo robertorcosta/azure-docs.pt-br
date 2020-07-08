@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362502"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
 
@@ -22,7 +22,7 @@ ms.locfileid: "83117420"
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 
 Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para comentar sobre o serviço da Área de Trabalho Virtual do Windows com a equipe do produto e membros ativos da comunidade.
 
@@ -118,7 +118,8 @@ Quando o agente de área de trabalho virtual do Windows é instalado pela primei
 
 ### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: o status arquivado no cmdlet Get-RdsSessionHost mostra o status como indisponível
 
-![O cmdlet Get-RdsSessionHost mostra o status como indisponível.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O cmdlet Get-RdsSessionHost mostra o status como indisponível.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** O agente não é capaz de se atualizar para uma nova versão.
 
@@ -179,7 +180,7 @@ Quando o agente de área de trabalho virtual do Windows é instalado pela primei
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Solucionando problemas com a pilha lado a lado da área de trabalho virtual do Windows
 
-A pilha lado a lado da área de trabalho virtual do Windows é instalada automaticamente com o Windows Server 2019. Use o MSI (Microsoft Installer) para instalar a pilha lado a lado no Microsoft Windows Server 2016 ou no Windows Server 2012 R2. Para o Microsoft Windows 10, a pilha lado a lado da área de trabalho virtual do Windows é habilitada com **enablesxstackrs. ps1**.
+A pilha lado a lado da área de trabalho virtual do Windows é instalada automaticamente com o Windows Server 2019. Use o MSI (Microsoft Installer) para instalar a pilha lado a lado no Microsoft Windows Server 2016 ou no Windows Server 2012 R2. Para o Microsoft Windows 10, a pilha lado a lado da área de trabalho virtual do Windows é habilitada com **enablesxstackrs.ps1**.
 
 Há três maneiras principais pelas quais a pilha lado a lado é instalada ou habilitada nas VMs do pool de hosts de sessão:
 
@@ -191,7 +192,8 @@ Se você estiver tendo problemas com a pilha lado a lado da área de trabalho vi
 
 A saída de **Qwinsta** listará o **RDP-SxS** na saída se a pilha lado a lado estiver instalada e habilitada.
 
-![Pilha lado a lado instalada ou habilitada com Qwinsta listado como RDP-SxS na saída.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Pilha lado a lado instalada ou habilitada com Qwinsta listado como RDP-SxS na saída.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Examine as entradas de registro listadas abaixo e confirme se seus valores correspondem. Se as chaves do registro estiverem ausentes ou se os valores forem incompatíveis, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell-2019.md) sobre como reinstalar a pilha lado a lado.
 
@@ -205,7 +207,8 @@ Examine as entradas de registro listadas abaixo e confirme se seus valores corre
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Erro: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE código de erro.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE código de erro.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** A pilha lado a lado não está instalada na VM host da sessão.
 
@@ -227,8 +230,8 @@ Há circunstâncias conhecidas que podem causar o mau funcionamento da pilha lad
 - Não seguindo a ordem correta das etapas para habilitar a pilha lado a lado
 - Atualização automática para o disco versátil aprimorado do Windows 10 (EVD)
 - Função de Host da Sessão da Área de Trabalho Remota (RDSH) ausente
-- Executando enablesxsstackrc. ps1 várias vezes
-- Executando enablesxsstackrc. ps1 em uma conta que não tem privilégios de administrador local
+- Executando o enablesxsstackrc.ps1 várias vezes
+- Executando enablesxsstackrc.ps1 em uma conta que não tem privilégios de administrador local
 
 As instruções nesta seção podem ajudá-lo a desinstalar a pilha lado a lado da área de trabalho virtual do Windows. Depois de desinstalar a pilha lado a lado, vá para "registrar a VM com o pool de hosts da área de trabalho virtual do Windows" em [criar um pool de hosts com o PowerShell](create-host-pools-powershell-2019.md) para reinstalar a pilha lado a lado.
 
@@ -247,19 +250,21 @@ Siga estas instruções para executar a correção da mesma sub-rede e domínio:
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname é o nome do computador da VM com a pilha lado a lado defeituosa.
 
 7. Aceite o contrato de licença do PsExec clicando em Concordo.
 
-    ![Captura de tela do contrato de licença de software.](../media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela do contrato de licença de software.](../media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >Esta caixa de diálogo será mostrada apenas na primeira vez que o PsExec for executado.
 
 8. Depois que a sessão de prompt de comando for aberta na VM com a pilha lado a lado com problemas de funcionamento, execute Qwinsta e confirme se uma entrada chamada RDP-SxS está disponível. Caso contrário, uma pilha lado a lado não está presente na VM, portanto, o problema não está vinculado à pilha lado a lado.
 
-    ![Prompt de comando do administrador](../media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Prompt de comando do administrador](../media/AdministratorCommandPrompt.png)
 
 9. Execute o comando a seguir, que listará os componentes da Microsoft instalados na VM com a pilha lado a lado com funcionamento inadequado.
 
@@ -281,7 +286,7 @@ Siga estas instruções para executar a correção da mesma sub-rede e domínio:
 
 Se o seu sistema operacional for o Microsoft Windows 10, continue com as instruções abaixo:
 
-14. Na VM que executa o PsExec, abra o explorador de arquivos e copie disablesxsstackrc. ps1 para a unidade do sistema da VM com a pilha lado a lado com defeito.
+14. Na VM que executa o PsExec, abra o explorador de arquivos e copie disablesxsstackrc.ps1 para a unidade do sistema da VM com a pilha lado a lado com defeito.
 
     ```cmd
         \\<VMname>\c$\
@@ -290,7 +295,7 @@ Se o seu sistema operacional for o Microsoft Windows 10, continue com as instru�
     >[!NOTE]
     >VMname é o nome do computador da VM com a pilha lado a lado defeituosa.
 
-15. O processo recomendado: na ferramenta PsExec, inicie o PowerShell e navegue até a pasta da etapa anterior e execute disablesxsstackrc. ps1. Como alternativa, você pode executar os seguintes cmdlets:
+15. O processo recomendado: na ferramenta PsExec, inicie o PowerShell e navegue até a pasta da etapa anterior e execute disablesxsstackrc.ps1. Como alternativa, você pode executar os seguintes cmdlets:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -327,7 +332,8 @@ Para verificar qual versão do Windows 10 Enterprise Multi-Session você tem:
 3. Selecione **sobre seu PC**.
 4. Verifique o número ao lado de "versão". O número deve ser "1809" ou "1903", conforme mostrado na imagem a seguir.
 
-    ![Uma captura de tela da janela especificações do Windows. O número de versão é realçado em azul.](../media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da janela especificações do Windows. O número de versão é realçado em azul.](../media/windows-specifications.png)
 
 Agora que você conhece o número de versão, pule para a seção relevante.
 
@@ -347,13 +353,13 @@ Para saber mais sobre essa política, consulte [Permitir logon por meio de servi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview-2019.md).
-- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues-2019.md).
-- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration-2019.md).
+- Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview-2019.md).
+- Veja como solucionar problemas ao criar um pool de locatários e de hosts em um ambiente da Área de Trabalho Virtual do Windows em [Criação de pool de locatários e de hosts](troubleshoot-set-up-issues-2019.md).
+- Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration-2019.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection-2019.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](../troubleshoot-client.md)
-- Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell-2019.md).
+- Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell-2019.md).
 - Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup-2019.md).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](../../azure-resource-manager/management/view-activity-logs.md).
 - Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](../../azure-resource-manager/templates/deployment-history.md).
