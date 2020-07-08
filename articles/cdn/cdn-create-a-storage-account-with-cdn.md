@@ -114,7 +114,7 @@ Um objeto que já está armazenado em cache na CDN do Azure permanecerá em cach
 
 Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um grupo de recursos. Salve esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como adicionar um domínio personalizado em seu ponto de extremidade. No entanto, se você não espera usar esses recursos no futuro, poderá excluí-los ao excluir o grupo de recursos, evitando assim encargos adicionais:
 
-1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e *CDNQuickstart-rg**.
+1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e *CDNQuickstart-rg*\*.
 
 2. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos**, digite *CDNQuickstart-rg* na caixa de texto e, em seguida, selecione **Excluir**.
 

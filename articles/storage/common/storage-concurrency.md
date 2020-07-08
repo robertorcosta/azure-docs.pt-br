@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: article
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45eb227d5e2608f4fbe6a75f3d95e46dbc3bdee4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504280"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655939"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 
@@ -252,7 +252,7 @@ A tabela a seguir resume como as operações de entidade de tabela usam os valor
 | Insert or Replace Entity |Sim |Não |
 | Insert or Merge Entity |Sim |Não |
 
-Observe que as operações **Insert or Replace Entity** e **Insert or Merge Entity***não* realizam nenhuma verificação de simultaneidade, pois não enviam um valor de ETag para o serviço Tabela.  
+Observe que as operações **Insert or Replace Entity** e **Insert or Merge Entity** *não* realizam nenhuma verificação de simultaneidade, pois não enviam um valor de ETag para o serviço Tabela.  
 
 Em geral, os desenvolvedores usando tabelas devem recorrer à simultaneidade otimista ao desenvolver aplicativos escalonáveis. Se o bloqueio pessimista for necessário, uma abordagem que os desenvolvedores podem adotar ao acessar tabelas é atribuir um blob designado para cada tabela e tentar obter uma concessão no blob antes de operar na tabela. Essa abordagem exige que o aplicativo garanta que todos os caminhos de acesso de dados obtenham a concessão antes de operar na tabela. Você também deve observar que o tempo mínimo de concessão é de 15 segundos, o que exige uma consideração cuidadosa quanto à escalabilidade.  
 
