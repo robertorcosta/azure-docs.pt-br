@@ -1,18 +1,18 @@
 ---
-title: Serviços Go-To-Market – seus benefícios do marketplace comercial | Azure Marketplace
+title: Serviços de entrada no mercado-seus benefícios do Marketplace comercial, Azure Marketplace
 description: Go-To-Market Services – os recursos da Microsoft que os publicadores podem usar são descritos nesta seção.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: article
+ms.date: 07/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800508"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085677"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Benefícios do marketplace comercial
 
@@ -26,7 +26,7 @@ As Recompensas do Marketplace foram projetadas para dar suporte a você em seu e
 
 O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento são projetados para você avançar para o próximo estágio, permitindo que seu negócio cresça com os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, utilizando o marketplace comercial como sua plataforma. 
 
-Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](determine-your-listing-type.md#choose-a-publishing-option).
 
 Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa. 
 
@@ -41,7 +41,7 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
 As etapas para começar são fáceis:
 
 1. Publicar uma oferta no Microsoft AppSource ou no Azure Marketplace.
-2. Acesse o [painel](https://partner.microsoft.com/dashboard/directory)do Partner Center, selecione a guia **Benefícios de Vendas e Marketing** na página Recompensas do Marketplace para ver sua lista de benefícios.
+2. Vá para o [painel](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)do Partner Center, abra o **Marketplace comercial** no menu do nav esquerdo, selecione **recompensas do Marketplace**e, em seguida, selecione a guia benefícios de **vendas e marketing** para ver sua lista de benefícios.
 3. Para ativar o benefício de vendas e marketing, primeiro você deve atribuir um contato de marketing da empresa. Este contato receberá comunicações de acompanhamento sobre suas recompensas do Marketplace.
 4. Para adicionar ou atualizar suas informações de contato de marketing, acesse a parte superior da guia de benefícios de vendas e marketing na página de recompensas do Marketplace e, em seguida, selecione **Adicionar, atualizar ou alterar**.  Em seguida, faça o seguinte:
 
@@ -55,7 +55,7 @@ As etapas para começar são fáceis:
 1. Você pode usar seu benefício técnico para solicitar assistência técnica durante as fases de pré-vendas, design, implantação e desenvolvimento de aplicativos de sua nuvem e soluções híbridas. Para solicitar assistência, preencha o formulário de solicitação e, em seguida, selecione **Enviar solicitação**.
 2. Como fazer uso dos benefícios de patrocínio do Azure, que será compartilhado por meio de um email à medida que você desbloquear esses benefícios.
 
->[!Note]
+>[!NOTE]
 >Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, verifique em sua organização quem é o proprietário da oferta em questão, examinando o Partner Center. Eles devem conter a comunicação e as próximas etapas. <br> <br> Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, você poderá gerar um tíquete de suporte em [Ajuda e Suporte](https://aka.ms/marketplacepublishersupport).
 
 O escopo das atividades disponíveis para você se expande conforme o crescimento de suas ofertas no Marketplace. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e melhores práticas.
@@ -74,7 +74,7 @@ Descrições detalhadas de todos os esses benefícios podem ser encontradas no [
 
 Quando você lança sua oferta no Azure Marketplace ou no Microsoft AppSource, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do marketplace comercial. 
 
->[!Note]
+>[!NOTE]
 >O limite de estações vendidas aplica-se somente a aplicativos do Microsoft 365 (aplicativos SaaS que têm integrações com o Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2020.
 
 Esses benefícios foram criados para dar suporte a você com marketing, vendas e atividades técnicas e, assim, ajudar você a obter mais visitantes, receber mais clientes potenciais e converter mais negócios.
@@ -101,16 +101,16 @@ Todas as atividades descritas nesta página são cobertas pelo [contrato de edit
 
 ### <a name="cancellation-policy"></a>Política de cancelamento
 
-Os editores de [Lista e Avaliação](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) podem aceitar ou recusar atividades por publicação de oferta. Os parceiros podem recusar qualquer participação a qualquer momento. 
+Os editores de [Lista e Avaliação](determine-your-listing-type.md) podem aceitar ou recusar atividades por publicação de oferta. Os parceiros podem recusar qualquer participação a qualquer momento. 
 
 A Microsoft se reserva o direito de revogar e encerrar os benefícios de Recompensas do Marketplace para os editores que: 
 
-* participem de atividades ilegais usando a listagem do marketplace;
-* estejam fora da lista no marketplace comercial; 
-* usem sua oferta para mostrar marketing ou outro conteúdo que viole as leis de direitos autorais ou marcas comerciais;
-* violem as políticas do [programa de patrocínio do Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, entre outros, o uso do financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de Bitcoin.
+* Envolva atividades ilegais usando a listagem do Marketplace.
+* Estão listadas no Marketplace comercial. 
+* Use sua oferta para mostrar marketing ou outro conteúdo que viole as leis de direitos autorais ou marcas comerciais.
+* Viole as políticas do programa de [patrocínio do Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usando o financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de Bitcoin.
 
-### <a name="offer-availability"></a>Disponibilidade de oferta
+### <a name="offer-availability"></a>Disponibilidade da oferta
 
 Essa oferta é conduzida em inglês para todos os parceiros com uma oferta ativa no Azure Marketplace ou no Microsoft AppSource.
 
@@ -123,5 +123,3 @@ Se você criou sua oferta no [Partner Center](https://partner.microsoft.com/dash
 Examine os [recursos de autoatendimento disponíveis para você](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Inscreva-se no [Fórum da comunidade do Microsoft AppSource e do Azure Marketplace](https://aka.ms/MarketplaceCommunity) e saiba mais sobre tópicos relevantes ou participe da discussão.
-
----

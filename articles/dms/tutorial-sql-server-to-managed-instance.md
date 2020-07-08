@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: migrar SQL Server para instância gerenciada do SQL'
+title: 'Tutorial: migrar SQL Server para o SQL Instância Gerenciada'
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar de SQL Server para uma Instância Gerenciada do SQL do Azure usando o serviço de migração de banco de dados do Azure.
 services: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247437"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085522"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: migrar SQL Server para um SQL do Azure Instância Gerenciada offline usando DMS
 
@@ -60,7 +61,7 @@ Para concluir este tutorial, você precisará:
 - Se você estiver executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez precise habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio dos firewalls, de modo que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada no servidor de origem.
 - Se você estiver usando um dispositivo de firewall na frente dos bancos de dados de origem, talvez precise adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração, bem como arquivos por meio da porta SMB 445.
 - Crie um Instância Gerenciada SQL seguindo os detalhes no artigo [criar um instância gerenciada SQL no portal do Azure](https://aka.ms/sqldbmi).
-- Verificar se os logons usados para conectar o SQL Server de origem e a instância gerenciada de destino são membros da função de servidor sysadmin.
+- Verifique se os logons usados para conectar o SQL Server de origem e o SQL Instância Gerenciada de destino são membros da função de servidor sysadmin.
 
     >[!NOTE]
     >Por padrão, o serviço de migração de banco de dados do Azure dá suporte apenas à migração de logons SQL. No entanto, você pode habilitar a capacidade de migrar logons do Windows por:
@@ -112,7 +113,7 @@ Para concluir este tutorial, você precisará:
 
     Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
-    Para obter detalhes adicionais, confira o artigo [Topologias de rede para migrações da instância gerenciada do BD SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure](https://aka.ms/dmsnetworkformi).
+    Para obter detalhes adicionais, consulte o artigo [topologias de rede para Azure SQL instância gerenciada migrações usando o serviço de migração de banco de dados do Azure](https://aka.ms/dmsnetworkformi).
 
 6. Selecione um tipo de preço.
 
@@ -244,6 +245,6 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter um tutorial mostrando como migrar um banco de dados para uma instância gerenciada usando o comando T-SQL RESTOre, consulte [restaurar um backup em uma instância gerenciada usando o comando restaurar](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Para obter informações sobre a instância gerenciada, consulte [o que é uma instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- Para obter informações sobre como conectar aplicativos a uma instância gerenciada, consulte [conectar aplicativos](../azure-sql/managed-instance/connect-application-instance.md).
+- Para obter um tutorial mostrando como migrar um banco de dados para o SQL Instância Gerenciada usando o comando T-SQL RESTOre, consulte [restaurar um backup para o sql instância gerenciada usando o comando restaurar](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Para obter informações sobre o SQL Instância Gerenciada, consulte [o que é sql instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- Para obter informações sobre como conectar aplicativos ao SQL Instância Gerenciada, consulte [conectar aplicativos](../azure-sql/managed-instance/connect-application-instance.md).

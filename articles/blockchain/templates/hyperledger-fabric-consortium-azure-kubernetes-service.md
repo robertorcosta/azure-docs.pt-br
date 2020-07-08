@@ -1,15 +1,15 @@
 ---
 title: O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 description: Como implantar e configurar a rede do consórcio do Fabric do Microsoft Azure no serviço kubernetes
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209701"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085790"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 
@@ -19,6 +19,18 @@ Depois de ler este artigo, você irá:
 
 - Obtenha o conhecimento prático da malha de hiperrazãor e os vários componentes que formam os blocos de construção da rede blockchain de malha do
 - Saiba como implantar e configurar um consórcio de malha de multirazão no serviço kubernetes do Azure para seus cenários de produção.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
+
+## <a name="choose-an-azure-blockchain-solution"></a>Escolher uma solução de Blockchain do Azure
+
+Antes de optar por usar um modelo de solução, Compare seu cenário com os casos de uso comuns das opções disponíveis do Azure Blockchain.
+
+Opção | Modelo de serviço | Caso de uso comum
+-------|---------------|-----------------
+Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use a [página da Microsoft Q&uma pergunta](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obter suporte.
+[Serviço do Azure Blockchain](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos empresariais e dados com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito de aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um Contrato de Nível de Serviço. Use a [página da Microsoft Q&uma pergunta](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obter suporte.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do consórcio de malha de multirazãor
 
@@ -397,7 +409,7 @@ Execute o comando abaixo para consultar o chaincode:
 ```
 Passe o nome da função de consulta e a lista de argumentos separados por espaço em  `<queryFunction>`   e,  `<queryFuncArgs>`   respectivamente. Novamente, levando chaincode_example02. go chaincode como referência, para consultar o valor de "a" no estado do mundo definido  `<queryFunction>`   como  `query` e  `<queryArgs>` como "a".  
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 **Para verificar a versão do modelo em execução**
 
@@ -429,6 +441,6 @@ Para fornecer comentários sobre o produto ou solicitar novos recursos, poste um
 
 converse com engenheiros da Microsoft e com os especialistas da comunidade do Azure Blockchain.
 
-- O [Microsoft Q&uma página de perguntas para o serviço Blockchain do Azure](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain é limitado a problemas de implantação.
+- [O Microsoft Q&uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain é limitado a problemas de implantação.
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

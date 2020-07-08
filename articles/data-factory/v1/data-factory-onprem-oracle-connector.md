@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265851"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084283"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
 
@@ -99,7 +99,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que você
 
 A tabela a seguir descreve elementos JSON que são específicos para o serviço vinculado Oracle:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade **Type** deve ser definida como **OnPremisesOracle**. |Sim |
 | driverType | Especifique qual driver a ser usado para copiar dados de ou para um Oracle Database. Os valores permitidos são **Microsoft** ou **ODP** (padrão). Confira [Versão e instalação com suporte](#supported-versions-and-installation) para obter detalhes do driver. | Não |
@@ -150,7 +150,7 @@ As seções de um arquivo JSON do conjunto de dados, como estrutura, disponibili
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeproperties** do conjunto de um do tipo **oracletable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Necessária |
 | --- | --- | --- |
 | tableName |O nome da tabela no banco de dados Oracle à qual o serviço vinculado se refere. |Não (se **oracleReaderQuery** ou **OracleSource** for especificado) |
 
@@ -169,7 +169,7 @@ As propriedades que estão disponíveis na seção **typeProperties** da ativida
 
 Na Atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Utiliza a consulta personalizada para ler os dados. |Uma cadeia de caracteres de consulta SQL. Por exemplo, "select \* from **MyTable**". <br/><br/>Se não for especificada, a instrução SQL executada será: "select \* from **MyTable**" |Não<br />(se **tableName** de **dataset** for especificado) |
 
@@ -177,7 +177,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes
 
 **OracleSink** é compatível com as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | writeBatchTimeout |O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite. |**TimeSpan**<br/><br/> Exemplo: "00:30:00" (30 minutos) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
@@ -263,7 +263,7 @@ Configurar **external**: **true** informa ao serviço Data Factory que o conjunt
 }
 ```
 
-**Conjunto de resultados de saída de blob do Azure**
+**Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo BLOB a cada hora (**frequência**: **hora**, **intervalo**: **1**). O caminho de pasta e o nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes de ano, mês, dia e hora da hora de início.
 
@@ -556,9 +556,11 @@ O pipeline contém uma atividade de cópia configurada para usar os conjuntos de
 
 **Mensagem de erro**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```text
+Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```
 
-**Possíveis causas**
+**Possíveis causas:**
 
 * O Provedor de Dados .NET Framework para Oracle não foi instalado.
 * O Provedor de Dados .NET Framework para Oracle foi instalado no .NET Framework 2.0 e não foi encontrado nas pastas .NET Framework 4.0.
@@ -568,21 +570,25 @@ O pipeline contém uma atividade de cópia configurada para usar os conjuntos de
 * Se você não instalou o Provedor do .NET para o Oracle, [instale-o](https://www.oracle.com/technetwork/topics/dotnet/downloads/) e repita o cenário.
 * Se você vir a mensagem de erro mesmo depois de instalar o provedor, conclua as seguintes etapas:
     1. Abra o arquivo de configuração de computador para .NET 2.0 na pasta <disco do sistema\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Pesquise **Provedor de Dados Oracle para .NET**. Você deve ser capaz de encontrar uma entrada, conforme mostrado no exemplo a seguir em **System. Data** > **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Copie essa entrada para o arquivo Machine. config na seguinte pasta .NET 4,0: <disco\>do sistema: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, altere a versão para 4. xxx. x.x.
+    2. Pesquise **Provedor de Dados Oracle para .NET**. Você deve ser capaz de encontrar uma entrada, conforme mostrado no exemplo a seguir em **System. Data**  >  **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+* Copie essa entrada para o arquivo de machine.config na seguinte pasta .NET 4,0: <disco do sistema \>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, altere a versão para 4. xxx. x.x.
 * Instale <Caminho de Instalação do ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll no GAC (cache de assembly global) executando **gacutil /i [caminho do provedor]**.
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: Formatação de data/hora
 
 **Mensagem de erro**
 
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```text
+Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```
 
 **Resolução**
 
 Talvez você precise ajustar a cadeia de consulta em sua atividade de cópia com base em como as datas são configuradas no Oracle Database. Aqui está um exemplo (usando a função **to_date**):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```console   
+"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```
 
 
 ## <a name="type-mapping-for-oracle"></a>Mapeamento de tipo para Oracle

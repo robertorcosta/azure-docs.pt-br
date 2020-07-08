@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: e73a8a420c7591a45a62ba38123c6b3368e0f738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085864"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Apache Hadoop no HDInsight
 
@@ -62,11 +62,11 @@ Por exemplo, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Como o sistema de arquivos padrão do HDInsight está no armazenamento do Azure, o/example/data/data.txt está na verdade no armazenamento do Azure. Você também pode fazer referência ao arquivo como:
 
-    wasbs:///example/data/data.txt
+`wasbs:///example/data/data.txt`
 
-ou o
+ou
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+`wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
 Para obter uma lista de outros comandos do Hadoop que funcionam com arquivos, consulte[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -98,7 +98,7 @@ O serviço de Azure Data Factory é um serviço totalmente gerenciado para compo
 
 |Tipo de armazenamento|Documentação|
 |----|----|
-|Armazenamento de Blobs do Azure|[Copiar dados de ou para o armazenamento de BLOBs do Azure usando Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Armazenamento de Blobs do Azure|[Copiar dados de/para o Armazenamento de Blobs do Azure usando o Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
 |Azure Data Lake Storage Gen1|[Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Carregar dados no Azure Data Lake Storage Gen2 com o Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 

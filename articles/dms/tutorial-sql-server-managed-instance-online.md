@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: migrar SQL Server online para uma instância gerenciada do SQL'
+title: 'Tutorial: migrar SQL Server online para o SQL Instância Gerenciada'
 titleSuffix: Azure Database Migration Service
 description: Saiba como executar uma migração online do SQL Server para uma Instância Gerenciada do SQL do Azure usando o serviço de migração de banco de dados do Azure.
 services: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 817e1d740ce34704acb4b20a7c3f71807bfa66bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187947"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084215"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: migrar SQL Server para um SQL do Azure Instância Gerenciada online usando DMS
 
@@ -77,11 +78,11 @@ Para concluir este tutorial, você precisará:
 * Se você estiver executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez precise habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio dos firewalls, de modo que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada no servidor de origem.
 * Se você estiver usando um dispositivo de firewall na frente dos bancos de dados de origem, talvez precise adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração, bem como arquivos por meio da porta SMB 445.
 * Crie um Instância Gerenciada SQL seguindo os detalhes no artigo [criar um instância gerenciada SQL no portal do Azure](https://aka.ms/sqldbmi).
-* Verifique se os logons usados para conectar o SQL Server de origem e a instância gerenciada de destino são membros da função de servidor sysadmin.
+* Verifique se os logons usados para conectar o SQL Server de origem e o SQL Instância Gerenciada de destino são membros da função de servidor sysadmin.
 * Forneça um compartilhamento de rede SMB que contém todos os arquivos de backup completo do banco de dados e os arquivos de backup de log de transações seguintes que o Serviço de Migração de Banco de Dados do Azure pode usar para a migração de banco de dados.
 * Certifique-se de que a conta de serviço que executa a instância do SQL Server de origem tem privilégios de gravação no compartilhamento de rede que você criou e que a conta de computador do servidor de origem tem acesso de leitura/gravação para o mesmo compartilhamento.
 * Anote um usuário do Windows (e a senha) que tem privilégios de controle total no compartilhamento de rede criado anteriormente. O serviço de migração de banco de dados do Azure representa a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração.
-* Crie uma ID do aplicativo do Azure Active Directory que gera a chave da ID do aplicativo que pode ser usada pelo Serviço de Migração de Banco de Dados do Azure para se conectar ao contêiner do Armazenamento do Azure e à instância gerenciada do Banco de Dados do Azure de destino. Para obter mais informações, confira o artigo [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar os recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+* Crie uma ID de aplicativo Azure Active Directory que gera a chave de ID do aplicativo que o serviço de migração de banco de dados do Azure pode usar para se conectar ao banco de dados do Azure de destino Instância Gerenciada e ao contêiner de armazenamento Para obter mais informações, confira o artigo [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar os recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
   > O Serviço de Migração de Banco de Dados do Azure exige a permissão de Colaborador na assinatura para a ID do aplicativo especificada. Como alternativa, você pode criar funções personalizadas que concedem as permissões específicas que o Serviço de Migração de Banco de Dados do Azure exige. Para obter orientações passo a passo sobre como usar funções personalizadas, consulte o artigo [funções personalizadas para SQL Server para migrações do SQL instância gerenciada online](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
@@ -265,6 +266,6 @@ Depois que o backup completo do banco de dados é restaurado na instância de de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter um tutorial mostrando como migrar um banco de dados para uma instância gerenciada usando o comando T-SQL RESTOre, consulte [restaurar um backup em uma instância gerenciada usando o comando restaurar](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-* Para obter informações sobre a instância gerenciada, consulte [o que é uma instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-* Para obter informações sobre como conectar aplicativos a uma instância gerenciada, consulte [conectar aplicativos](../azure-sql/managed-instance/connect-application-instance.md).
+* Para obter um tutorial mostrando como migrar um banco de dados para o SQL Instância Gerenciada usando o comando T-SQL RESTOre, consulte [restaurar um backup para o sql instância gerenciada usando o comando restaurar](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+* Para obter informações sobre o SQL Instância Gerenciada, consulte [o que é sql instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+* Para obter informações sobre como conectar aplicativos ao SQL Instância Gerenciada, consulte [conectar aplicativos](../azure-sql/managed-instance/connect-application-instance.md).

@@ -11,11 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d5faa08b0b493ac9b7fc03cd15c4747c3e602f02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038067"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084317"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,11 +43,11 @@ As camadas de serviço baseadas em vCore são diferenciadas com base na disponib
 | | Tipo de recurso | Uso Geral |  Hiperescala | Comercialmente Crítico |
 |:---:|:---:|:---:|:---:|:---:|
 | **Mais adequado para** |Tudo|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
-|  **Tipo de recurso** ||Banco de dados único / Elástico pool / instância gerenciada | Banco de dados individual | Banco de dados único / Elástico pool / instância gerenciada |
-| **Tamanho da computação**|Banco de dados individual/pool elástico * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
+|  **Tipo de recurso** ||Banco de dados SQL/SQL Instância Gerenciada | Banco de dados individual | Banco de dados SQL/SQL Instância Gerenciada |
+| **Tamanho da computação**|Banco de dados SQL * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
 | |Instância Gerenciada do SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Tipo de armazenamento** | Tudo |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
-| **Tamanho de armazenamento** | Banco de dados único / Elástico pool *| 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
+| **Tamanho de armazenamento** | Banco de dados SQL *| 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
 | | Instância Gerenciada do SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **IOPS** | Banco de dados individual | 500 IOPS por vCore com máximo de 7.000 IOPS | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximo|
 | | Instância Gerenciada do SQL | Depende do tamanho do arquivo | N/D | 1375 IOPS/vCore |

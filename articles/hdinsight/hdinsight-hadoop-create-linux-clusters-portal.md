@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: a2a9b149bd76ed276f3210f27ea0f60bbc7b7662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95756e9951b384c779f61651555482b3c8cb7321
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84190882"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083365"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 
@@ -93,7 +94,7 @@ Selecione **Avançar: segurança + rede >>** para avançar para a próxima guia.
 
 Na guia **segurança + rede** , forneça as seguintes informações:
 
-|Property |Descrição |
+|Propriedade |Descrição |
 |---|---|
 |Pacote de segurança empresarial|Opcional: marque a caixa de seleção para usar **Enterprise Security Package**. Para obter mais informações, consulte [configurar um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Opcional: selecione uma versão de TLS na lista suspensa. Para obter mais informações, confira [Protocolo TLS](./transport-layer-security.md).|
@@ -110,7 +111,7 @@ Selecione **Avançar: configuração + preço >>** para avançar para a próxima
 
 Na guia **configuração + preços** , forneça as seguintes informações:
 
-|Property |Descrição |
+|Propriedade |Descrição |
 |---|---|
 |+ Adicionar aplicativo|Opcional: selecione os aplicativos desejados. Você, a Microsoft ou os fornecedores independentes de software (ISVs)  podem desenvolver esses aplicativos. Para obter mais informações, consulte [Instalar aplicativos durante a criação do cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).|
 |Tamanho do nó|Opcional: selecione um nó de tamanho diferente.|
@@ -136,7 +137,7 @@ Após o término do processo de criação, selecione **Ir para Recurso** na noti
 
 Alguns dos ícones na janela são explicados da seguinte maneira:
 
-|Property | Descrição |
+|Propriedade | Descrição |
 |---|---|
 |Visão geral|Fornece todas as informações essenciais sobre o cluster. Exemplos são o nome, o grupo de recursos ao qual ele pertence, a localização, o sistema operacional e a URL do painel do cluster.|
 |Painéis de cluster|Direciona você para o portal do Ambari associado ao cluster.|
@@ -147,7 +148,7 @@ Alguns dos ícones na janela são explicados da seguinte maneira:
 
 Consulte [excluir um cluster HDInsight usando seu navegador, o PowerShell ou o CLI do Azure](./hdinsight-delete-cluster.md).
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 

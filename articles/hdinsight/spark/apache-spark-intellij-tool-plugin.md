@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a3884fdfbbc215c305053d8615d690880f4026ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314155"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085337"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Usar o Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster do HDInsight
 
@@ -47,7 +47,7 @@ Etapas para instalar o plug-in escalar:
 
 1. Abra o IntelliJ IDEA.
 
-2. Na tela de boas-vindas, navegue até **Configurar** > **plug-ins** para abrir a janela **plug-ins** .
+2. Na tela de boas-vindas, navegue até **Configurar**  >  **plug-ins** para abrir a janela **plug-ins** .
 
     ![IntelliJ IDEA habilita o plug-in escalar](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
 
@@ -98,7 +98,7 @@ Etapas para instalar o plug-in escalar:
 
 9. Adicione o código-fonte do aplicativo executando as seguintes etapas:
 
-    a. Em projeto, navegue até **MyApp** > **src** > **Main** > **escala**.  
+    a. Em projeto, navegue até **MyApp**  >  **src**  >  **Main**  >  **escala**.  
 
     b. Clique com o botão direito do mouse em **scala** e, em seguida, navegue até **Novo** > **classe Scala**.
 
@@ -262,7 +262,7 @@ Você pode realizar várias operações usando Azure Toolkit for IntelliJ.  A ma
 
 ### <a name="access-the-job-view"></a>Acessar a exibição do trabalho
 
-1. No Azure Explorer, navegue até o **HDInsight** > \<seu cluster> > **trabalhos**.
+1. No Azure Explorer, navegue até trabalhos do **HDInsight**  >  \<Your Cluster>  >  **Jobs**.
 
     ![IntelliJ nó de exibição de trabalho do Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 
@@ -446,19 +446,19 @@ Quando os usuários enviam um trabalho a um cluster com permissão de função s
 
 Você pode converter os aplicativos Scala Spark existentes criados no IDEA do IntelliJ para serem compatíveis com o Kit de Ferramentas do Azure para IntelliJ. Em seguida, você pode usar o plug-in para enviar os aplicativos a um cluster Spark do HDInsight.
 
-1. Para um aplicativo do Spark escalar existente criado por meio de IntelliJ IDEA, abra `.iml` o arquivo associado.
+1. Para um aplicativo do Spark escalar existente criado por meio de IntelliJ IDEA, abra o `.iml` arquivo associado.
 
 2. No nível raiz, é um elemento de **módulo** como o texto a seguir:
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+    ```
 
-   Edite o elemento a `UniqueKey="HDInsightTool"` ser adicionado para que o elemento **Module** seja semelhante ao seguinte texto:
+   Edite o elemento a ser adicionado para `UniqueKey="HDInsightTool"` que o elemento **Module** seja semelhante ao seguinte texto:
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
+    ```
 
 3. Salve as alterações. Seu aplicativo deve ser compatível com o Kit de Ferramentas do Azure para IntelliJ. Você pode testar isso clicando com o botão direito do mouse no nome do projeto no Projeto. Agora, o menu pop-up tem a opção **Enviar Aplicativo Spark ao HDInsight**.
 

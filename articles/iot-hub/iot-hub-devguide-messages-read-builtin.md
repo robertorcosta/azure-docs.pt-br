@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907475"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083977"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
@@ -57,7 +57,7 @@ No portal, o campo do ponto de extremidade compatível com hub de eventos conté
 | Nome do host | abcd1234namespace.servicebus.windows.net |
 | Namespace | abcd1234namespace |
 
-Dessa forma, você poderá usar qualquer política de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
+Em seguida, você pode escolher qualquer política de acesso compartilhado na lista suspensa, conforme mostrado na captura de tela acima. Ele mostra apenas as políticas que têm as permissões de **perconnect** para se conectar ao Hub de eventos especificado.
 
 Os SDKs, que você pode usar para se conectar ao ponto de extremidade compatível com hub de eventos interno que o Hub IoT expõe, incluem:
 

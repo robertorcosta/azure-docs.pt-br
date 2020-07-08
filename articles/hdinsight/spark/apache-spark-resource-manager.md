@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 3aab89f86dcd48328771cd0fda03d1c9de4bc2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75932099"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085184"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight
 
@@ -34,7 +34,7 @@ O Servidor de Histórico do Spark é a interface do usuário da Web para aplicat
     ![Iniciar Interface do usuário do YARN](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
    > [!TIP]  
-   > Alternativamente, também é possível iniciar a interface do usuário do YARN na interface do usuário do Ambari. Na interface do usuário do amAmbari, navegue até **yarn** > **links** > rápidos**Active** > **Resource Manager UI**.
+   > Alternativamente, também é possível iniciar a interface do usuário do YARN na interface do usuário do Ambari. Na interface do usuário do amAmbari, navegue até **yarn**  >  **links rápidos**  >  **Active**  >  **Resource Manager UI**.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Otimizar clusters para aplicativos do Spark
 
@@ -44,7 +44,7 @@ Os três parâmetros de configuração podem ser definidos no nível de cluster 
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Alterar os parâmetros usando a interface de usuário do Ambari
 
-1. Na interface do usuário do amAmbari, navegue até **Spark2** > **configurações** > **personalizado Spark2-padrões**.
+1. Na interface do usuário do amAmbari, navegue até **Spark2**  >  **configurações**  >  **personalizado Spark2-padrões**.
 
     ![Definir parâmetros usando Ambari personalizado](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Definir parâmetros usando Ambari personalizado")
 
@@ -62,8 +62,10 @@ Para aplicativos em execução no bloco de notas Jupyter, você pode usar a mág
 
 O snippet a seguir mostra como alterar a configuração para um aplicativo em execução no Jupyter.
 
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```scala
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```
 
 Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo.
 
@@ -71,25 +73,29 @@ Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem est
 
 O comando a seguir é um exemplo de como alterar os parâmetros de configuração para um aplicativo em lote que é enviado usando `spark-submit`.
 
-    spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```scala
+spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>Alterar os parâmetros de um aplicativo enviado usando cURL
 
 O comando a seguir é um exemplo de como alterar os parâmetros de configuração para um aplicativo em lote que é enviado usando o cURL.
 
-    curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```bash
+curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```
 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Alterar esses parâmetros em um Servidor Spark Thrift
 
 O Servidor Thrift Spark fornece acesso JDBC/ODBC a um cluster Spark e é usado para atender às consultas SQL do Spark. Ferramentas como Power BI, tableau e assim por diante, usam o protocolo ODBC para se comunicar com o servidor Spark Thrift para executar consultas SQL do Spark como um aplicativo Spark. Quando um cluster Spark é criado, as duas instâncias do Servidor Thrift Spark são iniciadas, uma em cada nó de cabeçalho. Cada Servidor Thrift Spark é visto como um aplicativo Spark na interface de usuário do YARN.
 
-O servidor Spark Thrift usa a alocação de executor dinâmico do `spark.executor.instances` Spark e, portanto, o não é usado. Em vez disso, o Servidor Thrift Spark usa `spark.dynamicAllocation.maxExecutors` e `spark.dynamicAllocation.minExecutors` para especificar a contagem do executor. Os parâmetros `spark.executor.cores`de configuração e `spark.executor.memory` são usados para modificar o tamanho do executor. Altere esses parâmetros, conforme mostrado nas seguintes etapas:
+O servidor Spark Thrift usa a alocação de executor dinâmico do Spark e, portanto, o `spark.executor.instances` não é usado. Em vez disso, o Servidor Thrift Spark usa `spark.dynamicAllocation.maxExecutors` e `spark.dynamicAllocation.minExecutors` para especificar a contagem do executor. Os parâmetros de configuração `spark.executor.cores` e `spark.executor.memory` são usados para modificar o tamanho do executor. Altere esses parâmetros, conforme mostrado nas seguintes etapas:
 
-* Expanda a categoria **avançado spark2-Thrift-sparkconf** para atualizar os `spark.dynamicAllocation.maxExecutors`parâmetros e `spark.dynamicAllocation.minExecutors`.
+* Expanda a categoria **avançado spark2-Thrift-sparkconf** para atualizar os parâmetros `spark.dynamicAllocation.maxExecutors` e `spark.dynamicAllocation.minExecutors` .
 
     ![Configurar o servidor Thrift Spark](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Configurar o servidor Thrift Spark")
 
-* Expanda a categoria **spark2-Thrift-Sparkconf personalizada** para atualizar os `spark.executor.cores`parâmetros e `spark.executor.memory`.
+* Expanda a categoria **spark2-Thrift-Sparkconf personalizada** para atualizar os parâmetros `spark.executor.cores` e `spark.executor.memory` .
 
     ![Configurar o parâmetro de servidor Spark thrift](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Configurar o parâmetro de servidor Spark thrift")
 
@@ -97,7 +103,7 @@ O servidor Spark Thrift usa a alocação de executor dinâmico do `spark.executo
 
 A memória do driver do Servidor Spark Thrift é configurada para 25% do tamanho da RAM do nó de cabeçalho, desde que o tamanho total da RAM do nó de cabeçalho seja superior a 14 GB. Use a interface do usuário do Ambari para alterar a configuração da memória do driver, conforme mostrado na seguinte captura de tela:
 
-Na interface do usuário do amAmbari, navegue até **Spark2** > **configurações** > **avançadas Spark2-env**. Em seguida, forneça o valor para **spark_thrift_cmd_opts**.
+Na interface do usuário do amAmbari, navegue até **Spark2**  >  **configurações**  >  **avançadas Spark2-env**. Em seguida, forneça o valor para **spark_thrift_cmd_opts**.
 
 ## <a name="reclaim-spark-cluster-resources"></a>Recuperar recursos do cluster Spark
 
@@ -140,7 +146,7 @@ Inicie a interface do usuário do Yarn, conforme mostrado no início do artigo. 
 
     ![Eliminar App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Eliminar App2")
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
 
