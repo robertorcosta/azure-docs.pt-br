@@ -1,5 +1,5 @@
 ---
-title: Migrar pacotes do SSIS para a instância gerenciada do SQL
+title: Migrar pacotes do SSIS para o SQL Instância Gerenciada
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar pacotes do SQL Server Integration Services (SSIS) e projetos para um SQL do Azure Instância Gerenciada usando o serviço de migração de banco de dados do Azure ou o Assistente de Migração de Dados.
 services: database-migration
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196559"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086561"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrar pacotes SQL Server Integration Services para um SQL do Azure Instância Gerenciada
 Se você usar SQL Server Integration Services (SSIS) e quiser migrar seus projetos/pacotes do SSIS do SSISDB de origem hospedado por SQL Server para o SSISDB de destino, hospedado por um Instância Gerenciada SQL do Azure, você poderá usar o serviço de migração de banco de dados do Azure.
@@ -84,7 +85,7 @@ Embora a avaliação da origem SSISDB ainda não esteja integrada ao DMA (Assist
 
     Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
-    Para obter detalhes adicionais, consulte o artigo [topologias de rede para migrações de instância gerenciada do BD SQL do Azure usando o serviço de migração de banco de dados do Azure](https://aka.ms/dmsnetworkformi).
+    Para obter detalhes adicionais, consulte o artigo [topologias de rede para Azure SQL instância gerenciada migrações usando o serviço de migração de banco de dados do Azure](https://aka.ms/dmsnetworkformi).
 
 6. Selecione um tipo de preço.
 

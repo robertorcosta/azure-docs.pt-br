@@ -7,145 +7,146 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 ms.date: 06/16/2020
-ms.openlocfilehash: 7bd3f1a5b242ee5196e92456cb3fc8c97f8f5b27
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 71577a52ed1b528bc330d4c8e1f4c34ab6e1d81f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958524"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087037"
 ---
-# <a name="virtual-machine-certification---issues-and-solutions"></a>Certificação de máquina virtual – problemas e soluções
+# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquina virtual 
 
-Ao publicar suas imagens de máquina virtual (VM) no Azure Marketplace, a equipe do Azure valida a imagem da VM para garantir a inicialização, a segurança e a compatibilidade do Azure. Se qualquer um dos testes de alta qualidade falhar, a publicação falhará com uma mensagem que contém o erro.
+Quando você publica sua imagem de VM (máquina virtual) no Azure Marketplace, a equipe do Azure a valida para garantir sua inicialização, segurança e compatibilidade do Azure. Se qualquer um dos testes de alta qualidade falhar, a publicação falhará e você receberá uma mensagem de erro que descreve o problema.
 
-Este artigo explica mensagens de erro comuns para imagens de VM. Ele também aborda soluções relacionadas:
+Este artigo explica as mensagens de erro comuns durante a publicação de imagens de VM, juntamente com as soluções relacionadas.
 
 > [!NOTE]
 > Se você tiver dúvidas ou comentários para aprimoramento, entre em contato com o [suporte do Partner Center](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="approved-base-image"></a>Imagem de base aprovada
 
-Quando você envia uma solicitação para republicar a imagem com atualizações, o caso de teste de verificação de número de peça pode falhar. Nessa instância, a imagem não será aprovada.
+Quando você envia uma solicitação para republicar a imagem com atualizações, o caso de teste de verificação de número de peça pode falhar. Se falhar, a imagem não será aprovada.
 
-Essa falha ocorrerá quando você usou uma imagem base que pertence a outro Publicador e atualizou a imagem. Nessa situação, você não terá permissão para publicar sua imagem.
+Essa falha ocorre quando você usa uma imagem base que pertence a outro Publicador e você atualizou a imagem. Nessa situação, você não terá permissão para publicar sua imagem.
 
-Para corrigir esse problema, recupere a imagem mais recente do Azure Marketplace e faça alterações nessa imagem. Consulte o seguinte para exibir as imagens base aprovadas nas quais você pode pesquisar sua imagem:
+Para corrigir esse problema, recupere a imagem do Azure Marketplace e faça alterações nela. Para obter mais informações, consulte os seguintes artigos:
 
-- [Linux-imagens](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows-imagens](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base))
+- [Imagens do Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
+- [Imagens do Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 ## <a name="vm-extension-failure"></a>Falha na extensão da VM
 
-Para verificar se a imagem dá suporte à extensão de VM ou não, siga estas etapas:
+Verifique se sua imagem dá suporte a extensões de VM.
 
-Habilitar extensões de VM:
+Para habilitar as extensões de VM, faça o seguinte:
 
-1. Selecione a VM Linux.
-2. Vá para **configurações de diagnóstico**.
-3. Habilite matrizes base atualizando a **conta de armazenamento**.
-4. Selecione **Salvar**.
+1. Selecione sua VM do Linux.
+1. Vá para **configurações de diagnóstico**.
+1. Habilite matrizes base atualizando a **conta de armazenamento**.
+1. Selecione **Salvar**.
 
    ![Habilitar o monitoramento no nível do convidado](./media/vm-certification-issues-solutions-1.png)
 
-Verifique se as extensões de VM estão ativadas corretamente:
+Para verificar se as extensões de VM estão ativadas corretamente, faça o seguinte:
 
-5. Vá para a guia **extensões de VM** da VM e verifique a **extensão de diagnóstico do Linux**.
-6. Se o status for **Provisionando com êxito** , o caso de teste de extensões foi aprovado.
-7. Se o status for **Provisionando falha** , o caso de teste de extensões falhou e você precisa definir o sinalizador de proteção.
+1. Na VM, selecione a guia **extensões de VM** e verifique o status da **extensão de diagnóstico do Linux**.
+    * Se o status for *provisionado com êxito*, o caso de teste de extensões foi aprovado.  
+    * Se o status for *falha no provisionamento*, o caso de teste de extensões falhou e você precisa definir o sinalizador de proteção.
 
-   ![Provisionamento bem-sucedido](./media/vm-certification-issues-solutions-2.png)
+      ![Captura de tela mostrando que o provisionamento foi bem-sucedido](./media/vm-certification-issues-solutions-2.png)
 
-   Se a extensão da VM falhar, vá para [usar a extensão de diagnóstico do Linux para monitorar as métricas e os logs](../../virtual-machines/extensions/diagnostics-linux.md) para habilitá-lo. Se você não quiser que a extensão de VM seja habilitada, entre em contato com a equipe de suporte e peça para desabilitar a extensão.
+      Se a extensão da VM falhar, consulte [usar a extensão de diagnóstico do Linux para monitorar as métricas e os logs](../../virtual-machines/extensions/diagnostics-linux.md) para habilitá-la. Se você não quiser que a extensão de VM seja habilitada, entre em contato com a equipe de suporte e peça para desabilitá-la.
 
-## <a name="virtual-machine-provisioning-issue"></a>Problema de provisionamento de máquina virtual
+## <a name="vm-provisioning-issue"></a>Problema de provisionamento de VM
 
-Verifique se o processo de provisionamento é rigorosamente seguido para a VM antes de enviar sua oferta. Para exibir o formato JSON para provisionar a VM, vá para [certificação de imagem de VM (máquina virtual) do Azure](azure-vm-image-certification.md).
+Verifique se você seguiu rigorosamente o processo de provisionamento da VM antes de enviar sua oferta. Para exibir o formato JSON para provisionar a VM, consulte [certificação de imagem de máquina virtual do Azure](azure-vm-image-certification.md).
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|S.NO|erro|reason|solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
-|1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD não estiver correto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
-|2|Tipo de blob inválido|Falha no provisionamento da VM, pois o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
+|1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
+|2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
 |3|Tempo limite de provisionamento ou não generalizado corretamente|Há um problema com a generalização da VM.|Recrie a imagem com generalização e envie a solicitação.|
 
 > [!NOTE]
-> Siga estes links para obter a documentação relacionada à generalização da VM:
-> - [Linux](create-azure-vm-technical-asset.md#generalize-the-image))
-> - [Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep))
+> Para obter mais informações sobre a generalização da VM, consulte:
+> - [Documentação do Linux](create-azure-vm-technical-asset.md#generalize-the-image)
+> - [Documentação do Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
 ## <a name="software-compliance-for-windows"></a>Conformidade de software para Windows
 
-Se sua solicitação de imagem do Windows for rejeitada devido à conformidade do software, você poderá ter criado uma imagem do Windows com o SQL Server instalado, em vez de usar a imagem de base da versão do SQL relevante do Azure Marketplace.
+Se a solicitação de imagem do Windows for rejeitada devido a um problema de conformidade de software, você poderá ter criado uma imagem do Windows com a instância do SQL Server instalada em vez de usar a imagem de base da versão do SQL relevante do Azure Marketplace.
 
 Não crie sua própria imagem do Windows com o SQL Server instalado. Em vez disso, use as imagens base SQL aprovadas (Enterprise/Standard/Web) do Azure Marketplace.
 
-Se você estiver tentando instalar o Visual Studio ou qualquer produto licenciado do Office, entre em contato com a equipe de suporte para aprovação prévia.
+Se você estiver tentando instalar o Visual Studio ou qualquer produto licenciado pelo Office, entre em contato com a equipe de suporte para aprovação prévia.
 
-Para obter mais informações, visite [criar seus ativos técnicos da máquina virtual do Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)) para selecionar uma base aprovada.
+Para obter mais informações sobre como selecionar uma base aprovada, consulte [criar seus ativos técnicos de máquina virtual do Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
 ## <a name="tool-kit-test-case-execution-failed"></a>Falha na execução do caso de teste do kit de ferramentas
 
-O Microsoft Certification Toolkit o ajudará a executar casos de teste, verifique se o VHD/imagem é compatível com o ambiente do Azure.
+O Microsoft Certification Toolkit pode ajudá-lo a executar casos de teste e verificar se o VHD ou a imagem é compatível com o ambiente do Azure.
 
 Baixe o [Microsoft certificar Toolkit](azure-vm-image-certification.md).
 
 ## <a name="linux-test-cases"></a>Casos de teste do Linux
 
-A seguir, os casos de teste do Linux que o kit de ferramentas executará. A validação de teste é indicada na descrição.
+A tabela a seguir lista os casos de teste do Linux que o kit de ferramentas executará. A validação de teste é indicada na descrição.
 
-|S.Não|casos de teste|descrição|
+|Cenário|Caso de teste|Descrição|
 |---|---|---|
-|1|Histórico de bash|Os arquivos de histórico do bash devem ser limpos antes da criação da imagem da VM.|
-|2|Versão do agente do Linux|O agente Linux do Azure 2.2.41 e posterior deve ser instalado.|
+|1|Histórico de bash|Os arquivos de histórico do bash devem ser limpos antes de criar a imagem da VM.|
+|2|Versão do agente do Linux|O agente Linux do Azure 2.2.41 ou posterior deve estar instalado.|
 |3|Parâmetros de kernel necessários|Verifica se os seguintes parâmetros de kernel estão definidos: <br>console = ttyS0<br>earlyprintk = ttyS0<br>atrasoraiz = 300|
 |4|Trocar partição no disco do sistema operacional|Verifica se as partições de permuta não foram criadas no disco do sistema operacional.|
 |5|Partição raiz no disco do sistema operacional|Crie uma única partição raiz para o disco do sistema operacional.|
-|6|Versão do OpenSSL|A versão do OpenSSL deve ser maior ou igual a v 0.9.8.|
-|7|Versão do Python|O Python versão 2.6 + é altamente recomendável.|
-|8|Intervalo de ativo do cliente|Defina ClientAliveInterval como 180. Na necessidade do aplicativo, ele pode ser definido entre 30 e 235. Se você estiver habilitando o SSH para seus usuários finais, esse valor deverá ser definido como explicado.|
+|6|Versão do OpenSSL|A versão do OpenSSL deve ser v 0.9.8 ou posterior.|
+|7|Versão do Python|O Python versão 2,6 ou posterior é altamente recomendável.|
+|8|Intervalo de ativo do cliente|Defina ClientAliveInterval como 180. Na necessidade do aplicativo, ele pode ser definido de 30 a 235. Se você estiver habilitando o SSH para seus usuários finais, esse valor deverá ser definido como explicado.|
 |9|Arquitetura do SO|Há suporte somente para sistemas operacionais de 64 bits.|
 |10|Atualização automática|Identifica se a atualização automática do agente do Linux está habilitada.|
 
-### <a name="common-errors-found-while-executing-the-previous-test-cases"></a>Erros comuns encontrados ao executar os casos de teste anteriores
+### <a name="common-errors-found-while-executing-previous-test-cases"></a>Erros comuns encontrados durante a execução de casos de teste anteriores
 
-Erros comuns encontrados ao executar os casos de teste anteriores.
+A tabela a seguir lista os erros comuns encontrados durante a execução dos casos de teste anteriores:
  
-|S.NO|caso de teste|erro|solução|
+|Cenário|Caso de teste|Erro|Solução|
 |---|---|---|---|
-|1|Caso de teste de versão do agente Linux|A versão mínima do agente do Linux é 2,241 ou superior. Esse requisito foi obrigatório desde 1º de maio de 2020|A imagem deve ser atualizada com a versão necessária para [enviar a solicitação](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
-|2|Caso de teste do histórico de bash|Você verá um erro se o tamanho do histórico de bash em sua imagem enviada for maior que 1 KB. O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente confidencial não seja capturada em seu arquivo de histórico bash.|Para resolver esse problema, monte o VHD em qualquer outra VM de trabalho e faça as alterações (por exemplo, exclua os `.bash` arquivos de histórico) que você deseja reduzir o tamanho para menor ou igual a 1 KB.|
-|3|Caso de teste do parâmetro do kernel necessário|Você receberá esse erro quando o valor do **console** não estiver definido como **ttyS0**. Verifique executando o comando:<br>`cat /proc/cmdline`|Defina o valor do **console** como **ttyS0** e envie a solicitação novamente.|
+|1|Caso de teste de versão do agente Linux|A versão mínima do agente do Linux é 2,241 ou posterior. Esse requisito foi obrigatório desde 1º de maio de 2020.|A imagem deve ser atualizada com a versão necessária para [enviar a solicitação](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|2|Caso de teste do histórico de bash|Você verá um erro se o tamanho do histórico de bash em sua imagem enviada tiver mais de 1 kilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente confidencial não seja capturada em seu arquivo de histórico bash.|Para resolver esse problema, monte o VHD em qualquer outra VM de trabalho e faça as alterações desejadas (por exemplo, exclua os arquivos de histórico *. bash* ) para reduzir o tamanho para menor ou igual a 1 KB.|
+|3|Caso de teste do parâmetro do kernel necessário|Você receberá esse erro quando o valor do **console** não estiver definido como **ttyS0**. Verifique executando o seguinte comando:<br>`cat /proc/cmdline`|Defina o valor do **console** para **ttyS0**e envie a solicitação novamente.|
 |4|Caso de teste de intervalo ClientAlive|Se o resultado do kit de ferramentas fornecer um resultado com falha para esse caso de teste, haverá um valor inadequado para **ClientAliveInterval**.|Defina o valor de **ClientAliveInterval** como menor ou igual a 235 e envie a solicitação novamente.|
 
 ### <a name="windows-test-cases"></a>Casos de teste do Windows
 
-A seguir, os casos de teste do Windows que o kit de ferramentas executará. A validação de teste é indicada na descrição.
+A tabela a seguir lista os casos de teste do Windows que o kit de ferramentas executará, juntamente com uma descrição da validação do teste:
 
-|S.Não|casos de teste|descrição|
+|Cenário |Casos de teste|Descrição|
 |---|---|---|---|
-|1|Arquitetura do SO|O Azure só dá suporte a sistemas operacionais de 64 bits.|
-|2|Dependência da conta de usuário|A execução do aplicativo não deve depender da conta de administrador.|
-|3|Cluster de failover|O recurso Windows Server failover clustering ainda não tem suporte. o aplicativo não deve depender desse recurso.|
+|1|Arquitetura do SO|O Azure dá suporte apenas a sistemas operacionais de 64 bits.|
+|2|Dependência da conta de usuário|A execução do aplicativo não deve ser dependente da conta de administrador.|
+|3|Cluster de failover|Ainda não há suporte para o recurso Windows Server failover clustering. O aplicativo não deve depender desse recurso.|
 |4|IPV6|O IPv6 ainda não tem suporte no ambiente do Azure. O aplicativo não deve depender desse recurso.|
 |5|DHCP|A função de servidor do protocolo de configuração de host dinâmico ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |6|Hyper-V|A função de servidor Hyper-V ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |7|Acesso remoto|A função de servidor acesso remoto (acesso direto) ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |8|Rights Management Services|Serviços Rights Managements. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |9|Windows Deployment Services|Serviços de implantação do Windows. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|
-|10|Criptografia de Unidade de Disco BitLocker|Não há suporte para Criptografia de Unidade de Disco BitLocker no disco rígido do sistema operacional, mas pode ser usado em discos de dados.|
+|10|Criptografia de Unidade de Disco BitLocker|Não há suporte para Criptografia de Unidade de Disco BitLocker no disco rígido do sistema operacional, mas ele pode ser usado em discos de dados.|
 |11|Internet Storage Name Server|O recurso de servidor de nome de armazenamento da Internet ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |12|Multipath I/O|Multipath I/O. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
 |13|Network Load Balancing|Balanceamento de carga de rede. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
 |14|Protocolo PNRP|Protocolo de resolução de nome de par. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
-|15|Serviços SNMP|O recurso de serviços SNMP ainda não tem suporte. O aplicativo não deve depender desse recurso.|
+|15|Serviços SNMP|O recurso de serviços SNMP (Simple Network Management Protocol) ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |16|Serviço de Cadastramento na Internet do Windows|Serviço de cadastramento na Internet do Windows. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
 |17|Serviço de LAN sem fio|Serviço de LAN sem fio. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
 
-Se você entrar em qualquer falha com os casos de teste acima, consulte a coluna **Descrição** na tabela anterior para a solução. Se você precisar de mais informações, entre em contato com a equipe de suporte. 
+Se você entrar em qualquer falha com os casos de teste anteriores, consulte a coluna **Descrição** na tabela da solução. Se você precisar de mais informações, entre em contato com a equipe de suporte. 
 
 ## <a name="data-disk-size-verification"></a>Verificação do tamanho do disco de dados
 
-Se o tamanho de qualquer solicitação enviada com o disco de dados for maior que 1023 GB, essa solicitação não será aprovada. Essa regra se aplica ao Linux & Windows.
+Se o tamanho de qualquer solicitação enviada com o disco de dados for maior que 1023 gigabytes (GB), a solicitação não será aprovada. Essa regra se aplica ao Linux e ao Windows.
 
 Envie novamente a solicitação com um tamanho menor ou igual a 1023 GB.
 
@@ -153,53 +154,53 @@ Envie novamente a solicitação com um tamanho menor ou igual a 1023 GB.
 
 Consulte as regras a seguir para obter limitações no tamanho do disco do sistema operacional. Ao enviar qualquer solicitação, verifique se o tamanho do disco do sistema operacional está dentro da limitação do Linux ou do Windows.
 
-|Sistema operacional|tamanho de VHD recomendado|
+|Sistema operacional|Tamanho de VHD recomendado|
 |---|---|
 |Linux|30 GB a 1023 GB|
 |Windows|30 GB a 250 GB|
 
-Como as VMs permitem o acesso ao sistema operacional subjacente, verifique se o tamanho do VHD é suficientemente grande para o VHD. Como os discos não são expansíveis sem tempo de inatividade, use um tamanho de disco entre 30 e 50 GB.
+Como as VMs permitem o acesso ao sistema operacional subjacente, verifique se o tamanho do VHD é suficientemente grande para o VHD. Como os discos não são expansíveis sem tempo de inatividade, use um tamanho de disco de 30 GB a 50 GB.
 
-|Tamanho do VHD|tamanho real de ocupado|solução|
+|Tamanho do VHD|Tamanho real de ocupado|Solução|
 |---|---|---|
-|>500 TiB|N/D|Contate a equipe de suporte para obter uma aprovação de exceção.|
-|250-500 TiB|>200 GiB diferente do tamanho do blob|Contate a equipe de suporte para obter uma aprovação de exceção.|
+|>500 tebibytes (TiB)|N/D|Contate a equipe de suporte para obter uma aprovação de exceção.|
+|250-500 TiB|Diferença de >200 Gibibytes (GiB) do tamanho do blob|Contate a equipe de suporte para obter uma aprovação de exceção.|
 
 > [!NOTE]
-> Tamanhos de disco maiores incorrem em custos maiores e incorrerão em um atraso durante as etapas de provisionamento e de replicação. Devido a esse atraso e custo, a equipe de suporte pode buscar justificativa para a aprovação da exceção.
+> Tamanhos de disco maiores incorrem em custos maiores e incorrerão em um atraso durante o processo de instalação e replicação. Devido a esse atraso e custo, a equipe de suporte pode buscar justificativa para a aprovação da exceção.
 
 ## <a name="wannacry-patch-verification-test-for-windows"></a>Teste de verificação de patch do WannaCry para Windows
 
-Para evitar um ataque potencial relacionado ao vírus WannaCry, certifique-se de que todas as solicitações de imagem do Windows sejam atualizadas com o patch mais recente.
+Para evitar um ataque potencial relacionado ao vírus WannaCry, verifique se todas as solicitações de imagem do Windows foram atualizadas com o patch mais recente.
 
-Para verificar a versão corrigida do Windows Server, consulte a tabela a seguir para obter os detalhes do sistema operacional e a versão mínima que dará suporte. 
+Para verificar a versão com patch do Windows Server para os detalhes do sistema operacional e a versão mínima que dará suporte, consulte a tabela a seguir: 
 
 A versão do arquivo de imagem pode ser verificada de `C:\windows\system32\drivers\srv.sys` ou `srv2.sys` .
 
 > [!NOTE]
-> WindowsServer2019 não tem nenhum requisito de versão obrigatório.
+> O Windows Server 2019 não tem nenhum requisito de versão obrigatório.
 
-|Sistema operacional|version|
+|Sistema operacional|Versão|
 |---|---|
-|WindowsServer2008R2|6.1.7601.23689|
-|WindowsServer2012|6.2.9200.22099|
-|WindowsServer2012R2|6.3.9600.18604|
-|WindowsServer2016|10.0.14393.953|
-|WindowsServer2019|NA|
+|Windows servindo 2008 R2|6.1.7601.23689|
+|Windows Server 2012|6.2.9200.22099|
+|Windows Server 2012 R2|6.3.9600.18604|
+|Windows Server 2016|10.0.14393.953|
+|Windows Server 2019|NA|
 
 ## <a name="sack-vulnerability-patch-verification"></a>Verificação de patch de vulnerabilidade de SACK
 
 Quando você envia uma imagem do Linux, sua solicitação pode ser rejeitada devido a problemas de versão do kernel.
 
-Atualize o kernel com uma versão aprovada e reenvie a solicitação. Você pode encontrar a versão de kernel aprovada na tabela a seguir. O número de versão deve ser igual ou maior que aquele listado abaixo.
+Atualize o kernel com uma versão aprovada e envie a solicitação novamente. Você pode encontrar a versão de kernel aprovada na tabela a seguir. O número de versão deve ser igual ou maior que o número listado aqui.
 
-Se a imagem não estiver instalada com uma das versões de kernel a seguir, atualize sua imagem com os patches corretos. Você pode encontrar mais informações nos links a seguir. Solicite a aprovação necessária da equipe de suporte depois que a imagem for atualizada com estes patches necessários:
+Se a imagem não estiver instalada com uma das seguintes versões de kernel, atualize-a com os patches corretos. Solicite a aprovação necessária da equipe de suporte depois que a imagem for atualizada com estes patches necessários:
 
 - CVE-2019-11477 
 - CVE-2019-11478 
 - CVE-2019-11479
 
-|Família de sistema operacional|version|kernel|
+|Família de sistema operacional|Versão|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049-*-Azure|
@@ -246,28 +247,28 @@ Se a imagem não estiver instalada com uma das versões de kernel a seguir, atua
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>O tamanho da imagem deve estar em múltiplos de megabytes
 
-Todos os VHDs no Azure devem ter um tamanho virtual alinhado a múltiplos de 1 MB. Se o VHD não aderir ao tamanho virtual recomendado, sua solicitação poderá ser rejeitada.
+Todos os VHDs no Azure devem ter um tamanho virtual alinhado a múltiplos de 1 megabyte (MB). Se o VHD não aderir ao tamanho virtual recomendado, sua solicitação poderá ser rejeitada.
 
-Siga as diretrizes quando estiver convertendo de um disco bruto para VHD e deve garantir que o tamanho do disco bruto seja um múltiplo de 1 MB. Para obter mais informações, consulte [informações para distribuições não endossadas](../../virtual-machines/linux/create-upload-generic.md)
+Siga as diretrizes quando estiver convertendo de um disco bruto para VHD e certifique-se de que o tamanho do disco bruto seja um múltiplo de 1 MB. Para obter mais informações, consulte [informações para distribuições não endossadas](../../virtual-machines/linux/create-upload-generic.md).
 
 ## <a name="vm-access-denied"></a>Acesso à VM negado
 
-Se você entrar nos problemas de acesso negado ao executar os casos de teste na VM, isso pode ser devido a privilégios insuficientes para executar os casos de teste.
+Se você entrar nos problemas de acesso negado enquanto estiver executando os casos de teste na VM, isso pode ser devido a privilégios insuficientes para executar os casos de teste.
 
-Verifique se o acesso adequado está habilitado para a conta na qual os casos de teste automático estão em execução. Se não forem, habilite o acesso para executar os casos de teste. Se não quiser habilitar o acesso, você poderá compartilhar os resultados do caso de teste automático com a equipe de suporte.
+Verifique se o acesso adequado está habilitado para a conta na qual os casos de teste automático estão em execução. Se o acesso não estiver habilitado, habilite-o para executar os casos de teste. Se não quiser habilitar o acesso, você poderá compartilhar os resultados do caso de teste automático com a equipe de suporte.
 
 ## <a name="download-failure"></a>Falha no download
     
-Consulte a tabela a seguir para quaisquer problemas ao baixar a imagem da VM usando a URL SAS.
+Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM usando uma URL de assinatura de acesso compartilhado (SAS).
 
-|S.NO|erro|reason|solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
-|1|BLOB não encontrado|O VHD pode ser excluído ou movido do local especificado|| 
-|2|Blob em uso|O VHD é usado por outro processo interno|O VHD deve estar em um estado usado ao baixar usando a URL SAS.|
-|3|URL SAS inválida|A URL SAS associada para esse VHD está incorreta.|Obtenha a URL SAS correta.|
-|4|Invalid Signature|A URL SAS associada para esse VHD está incorreta.|Obtenha a URL SAS correta.|
-|6|Cabeçalho condicional HTTP|URL SAS inválida.|Obtenha a URL SAS correta.|
-|7|Nome de VHD inválido|Verifique se algum caractere especial, como **%** ou **""** , existe no nome do VHD|Renomear o arquivo VHD removendo caracteres especiais|
+|1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
+|2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa usando uma URL SAS.|
+|3|URL SAS inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
+|4|Assinatura inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
+|6|Cabeçalho condicional HTTP|A URL SAS é inválida.|Obtenha a URL SAS correta.|
+|7|Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem (%) ou aspas ("), existem no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
 
 ## <a name="first-1-mb-partition"></a>Primeira partição de 1 MB
 
@@ -279,44 +280,40 @@ Sempre certifique-se de que as credenciais padrão não sejam enviadas com o VHD
   
 ## <a name="datadisk-mapped-incorrectly"></a>Datadisk mapeado incorretamente
 
-Quando uma solicitação é enviada com vários discos de dados, mas sua ordem não está em sequência, isso é considerado um problema de mapeamento. Por exemplo, se houver três discos de dados, a ordem de numeração deverá ser **0, 1, 2**. Qualquer outro pedido será tratado como um problema de mapeamento.
+Quando uma solicitação é enviada com vários discos de dados, mas sua ordem não está em sequência, isso é considerado um problema de mapeamento. Por exemplo, se houver três discos de dados, a ordem de numeração deverá ser *0, 1, 2*. Qualquer outra ordem é tratada como um problema de mapeamento.
 
 Envie novamente a solicitação com o sequenciamento adequado de discos de dados.
 
 ## <a name="incorrect-os-mapping"></a>Mapeamento de so incorreto
 
-Quando uma imagem é criada, ela pode ser mapeada ou atribuída ao rótulo de so errado. Por exemplo, quando o **Windows** é selecionado como parte do nome do sistema operacional durante a criação da imagem, o disco do sistema operacional só deve ser instalado com o Windows. O mesmo se aplica ao Linux.
+Quando uma imagem é criada, ela pode ser mapeada ou atribuída ao rótulo de so errado. Por exemplo, quando você seleciona **Windows** como parte do nome do sistema operacional enquanto estiver criando a imagem, o disco do sistema operacional deve ser instalado somente com o Windows. O mesmo requisito se aplica ao Linux.
 
 ## <a name="vm-not-generalized"></a>VM não generalizada
 
-Se todas as imagens extraídas do Azure Marketplace forem reutilizadas, o VHD do sistema operacional deverá ser generalizado.
+Se todas as imagens obtidas do Azure Marketplace forem reutilizadas, o VHD do sistema operacional deverá ser generalizado.
 
-Linux:
+* Para o **Linux**, o processo a seguir GENERALIZA uma VM Linux e a implanta novamente como uma VM separada.
 
-O processo a seguir generalizará uma VM do Linux e a reimplantará como uma VM separada.
+  Na janela SSH, digite o seguinte comando:`sudo waagent -deprovision+user`
 
-Na janela SSH, digite o seguinte comando:`sudo waagent -deprovision+user`
+* Para o **Windows**, você generaliza as imagens do Windows usando o `sysreptool` .
 
-Windows:
+Para obter mais informações sobre essa ferramenta, consulte [visão geral do Sysprep (preparação do sistema)]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-As imagens do Windows são generalizadas com o `sysreptool` .
+## <a name="datadisk-errors"></a>Erros de disco
 
-Você pode encontrar mais informações sobre essa ferramenta na [visão geral do Sysprep (preparação do sistema)]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
+Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-## <a name="datadisk-error"></a>Erro de disco
-
-Consulte a tabela a seguir para obter soluções para erros relacionados ao disco de dados.
-
-|Erro|reason|solução|
+|Erro|Motivo|Solução|
 |---|---|---|
-|`DataDisk- InvalidUrl:`|Esse erro pode ser devido a um número inválido especificado para LUN ao enviar a oferta.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
-|`DataDisk- NotFound:`|Esse erro pode ser devido a um disco de dados não estar localizado em uma URL SAS especificada|Verifique se o disco de dados está localizado na URL SAS especificada na solicitação.|
+|`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número inválido especificado para o LUN (número de unidade lógica) quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
+|`DataDisk- NotFound:`|Esse erro pode ocorrer devido a um disco de dados não estar localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada na solicitação.|
 
 ## <a name="remote-access-issue"></a>Problema de acesso remoto
 
-Se a opção RDP não estiver habilitada para a imagem do Windows, você receberá esse erro. 
+Se a opção protocolo RDP (RDP) não estiver habilitada para a imagem do Windows, você receberá esse erro. 
 
-Habilite o acesso RDP para imagens do Windows antes de enviar.
+Habilite o acesso RDP para imagens do Windows antes de enviá-las.
 
 ## <a name="next-steps"></a>Próximas etapas
 

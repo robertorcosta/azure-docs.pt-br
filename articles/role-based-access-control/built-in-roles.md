@@ -2,25 +2,18 @@
 title: Funções internas do Azure - RBAC do Azure
 description: Este artigo descreve as funções internas do Azure para o controle de acesso baseado em função do Azure (RBAC do Azure). Ele lista Actions, NotActions, DataActions e NotDataActions.
 services: active-directory
-documentationcenter: ''
-author: rolyon
-manager: mtillman
-editor: ''
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: reference
-ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/04/2020
+author: rolyon
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: it-pro
-ms.openlocfilehash: 0a574ba281a037a06ddda1981ae6fa35b905bca1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 24e964ec37184e38358b5c64eff05a8aa10a431d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683656"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086803"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -28,10 +21,9 @@ ms.locfileid: "83683656"
 
 Este artigo lista as funções internas do Azure, que estão sempre em evolução. Para obter as funções mais recentes, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list). Se você estiver procurando por funções de administrador para Azure Active Directory (AD do Azure), confira [Permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## <a name="all"></a>Todos
+A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Selecione o nome da função para ver a lista de `Actions`, `NotActions`, `DataActions`e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
-
+## <a name="all"></a>Tudo
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |
@@ -54,6 +46,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador de rede clássica](#classic-network-contributor) | Permite que você gerencie redes clássicas, mas não acessá-las. | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 > | [Colaborador de zona DNS](#dns-zone-contributor) | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | [Colaborador de rede](#network-contributor) | Permite gerenciar redes, mas não acessá-las. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
+> | [Colaborador de zona de DNS privado](#private-dns-zone-contributor) | Permite que você gerencie recursos de zona DNS privada, mas não as redes virtuais às quais eles estão vinculados. | b12aa53e-6015-4669-85d0-8515ebb3ae7f |
 > | [Colaborador do Gerenciador de Tráfego](#traffic-manager-contributor) | Permite gerenciar perfis do Gerenciador de Tráfego, mas não permite controlar quem tem acesso a eles. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
 > | **Storage** |  |  |
 > | [Colaborador do Avere](#avere-contributor) | Pode criar e gerenciar um cluster do Avere vFXT. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
@@ -94,6 +87,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [AcrQuarantineWriter](#acrquarantinewriter) | gravador de dados de quarentena acr | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Função de Administrador do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Liste a ação de credencial de administrador de cluster. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Função de Usuário do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Liste a ação de credencial de usuário de cluster. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | [Função colaborador do serviço kubernetes do Azure](#azure-kubernetes-service-contributor-role) | Concede acesso para ler e gravar clusters do serviço kubernetes do Azure | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
 > | **Bancos de dados** |  |  |
 > | [Função de leitor de conta do Cosmos DB](#cosmos-db-account-reader-role) | Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operador de Cosmos DB](#cosmos-db-operator) | Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados nelas. Impede o acesso a chaves de conta e cadeias de conexão. | 230815da-be43-4aae-9cb4-875f7bd000aa |
@@ -121,6 +115,8 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Leitor de Dados de Serviços Cognitivos (Versão Prévia)](#cognitive-services-data-reader-preview) | Permite que você leia os dados dos Serviços Cognitivos. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | [Usuário dos Serviços Cognitivos](#cognitive-services-user) | Permite ler e listar as chaves dos Serviços Cognitivos. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Realidade misturada** |  |  |
+> | [Administrador de renderização remoto](#remote-rendering-administrator) | Fornece ao usuário recursos de conversão, gerenciamento de sessão, renderização e diagnóstico para renderização remota do Azure | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
+> | [Cliente de renderização remota](#remote-rendering-client) | Fornece ao usuário recursos de gerenciamento de sessão, renderização e diagnóstico para a renderização remota do Azure. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
 > | [Colaborador da conta de âncoras espaciais](#spatial-anchors-account-contributor) | Permite que você gerencie âncoras espaciais em sua conta, exceto excluí-las | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | [Proprietário da conta das âncoras espaciais](#spatial-anchors-account-owner) | Permite gerenciar âncoras espaciais em sua conta, inclusive excluí-las | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | [Leitor de conta de âncoras espaciais](#spatial-anchors-account-reader) | Permite localizar e ler propriedades de âncoras espaciais em sua conta | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
@@ -136,6 +132,12 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Proprietário de registro do Microsoft Azure Stack](#azure-stack-registration-owner) | Permite que você gerencie registros do Microsoft Azure Stack. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite que você gerencie operações de assinatura de evento EventGrid. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | [Leitor de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite que você gerencie operações de assinatura de evento EventGrid. | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | [Colaborador de dados do FHIR](#fhir-data-contributor) | A função permite o acesso completo do usuário ou principal aos dados do FHIR | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
+> | [Exportador de dados FHIR](#fhir-data-exporter) | A função permite que o usuário ou entidade de segurança Leia e exporte dados do FHIR | 3db33094-8700-4567-8da5-1501d4e7e843 |
+> | [Leitor de dados do FHIR](#fhir-data-reader) | A função permite que o usuário ou a entidade de segurança Leia dados do FHIR | 4c8d0bbc-75d3-4935-991f-5f3c56d81508 |
+> | [Gravador de dados FHIR](#fhir-data-writer) | A função permite que o usuário ou a entidade de segurança Leia e grave dados do FHIR | 3f88fce4-5892-4214-ae73-ba5294559913 |
+> | [Colaborador de Ambiente de Serviço de Integração](#integration-service-environment-contributor) | Permite que você gerencie ambientes de serviço de integração, mas não tem acesso a eles. | a41e2c5b-bd99-4a07-88f4-9bf657a760b8 |
+> | [Ambiente de Serviço de Integração Developer](#integration-service-environment-developer) | Permite que os desenvolvedores criem e atualizem fluxos de trabalho, contas de integração e conexões de API em ambientes de serviço de integração. | c7aa55d3-1abb-444a-a5ca-5e51e485d6ec |
 > | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Permite gerenciar contas do Intelligent Systems, mas não acessá-las. | 03a6d094-3444-4b3d-88af-7477090a9e5e |
 > | [Colaborador de Aplicativo Lógico](#logic-app-contributor) | Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o acesso a eles. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [Operador de Aplicativo Lógico](#logic-app-operator) | Permite a leitura, habilitação e desabilitação de aplicativos lógicos, mas você não pode editá-los ou atualizá-los. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
@@ -190,6 +192,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador de Marca](#tag-contributor) | Permite que você gerencie marcas em entidades, sem fornecer acesso às entidades propriamente ditas. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **Outros** |  |  |
 > | [Colaborador do BizTalk](#biztalk-contributor) | Permite gerenciar serviços do BizTalk, mas não acessá-los. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
+> | [Usuário de virtualização de desktop](#desktop-virtualization-user) | Permite que o usuário use os aplicativos em um grupo de aplicativos. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
 > | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Permite gerenciar as coleções de trabalhos do Agendador, mas não acessá-las. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 
 
@@ -198,7 +201,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 
 ### <a name="contributor"></a>Colaborador
 
-Permite que você gerencie tudo, exceto conceder acesso aos recursos.
+Permite que você gerencie tudo, exceto conceder acesso aos recursos. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -206,11 +209,11 @@ Permite que você gerencie tudo, exceto conceder acesso aos recursos.
 > | **Ações** |  |
 > | * | Criar e gerenciar recursos de todos os tipos |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Excluir funções, atribuições de política, definições de política e definições de conjunto de políticas |
-> | Microsoft.Authorization/*/Write | Criar funções, atribuições de função, atribuições de política, definições de política e definições de conjunto de políticas |
-> | Microsoft.Authorization/elevateAccess/Action | Concede ao chamador acesso de administrador de acesso do usuário no escopo do locatário |
-> | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar quaisquer atribuições de blueprint |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Excluir quaisquer atribuições de blueprint |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Delete | Excluir funções, atribuições de política, definições de política e definições de conjunto de políticas |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Write | Criar funções, atribuições de função, atribuições de política, definições de política e definições de conjunto de políticas |
+> | /ElevateAccess/Action [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Concede ao chamador acesso de administrador de acesso do usuário no escopo do locatário |
+> | /BlueprintAssignments/Write [Microsoft. Blueprint](resource-provider-operations.md#microsoftblueprint) | Criar ou atualizar quaisquer atribuições de blueprint |
+> | /BlueprintAssignments/Delete [Microsoft. Blueprint](resource-provider-operations.md#microsoftblueprint) | Excluir quaisquer atribuições de blueprint |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -248,7 +251,7 @@ Permite que você gerencie tudo, exceto conceder acesso aos recursos.
 
 ### <a name="owner"></a>Proprietário
 
-Permite que você gerencie tudo, incluindo acesso aos recursos.
+Permite que você gerencie tudo, incluindo acesso aos recursos. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -288,7 +291,7 @@ Permite que você gerencie tudo, incluindo acesso aos recursos.
 
 ### <a name="reader"></a>Leitor
 
-Permite que você veja tudo, mas não faça alterações.
+Permite que você veja tudo, mas não faça alterações. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -328,15 +331,15 @@ Permite que você veja tudo, mas não faça alterações.
 
 ### <a name="user-access-administrator"></a>Administrador de Acesso do Usuário
 
-Permite que você gerencie o acesso do usuário aos recursos do Azure.
+Permite que você gerencie o acesso do usuário aos recursos do Azure. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.Authorization/* | Gerenciar autorização |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/* | Gerenciar autorização |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -381,23 +384,23 @@ Permite gerenciar máquinas virtuais clássicas, mas não o acesso a elas, nem �
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.ClassicCompute/domainNames/* | Criar e gerenciar nomes de domínio de computação clássica |
-> | Microsoft.ClassicCompute/virtualMachines/* | Criar e gerenciar máquinas virtuais |
-> | Microsoft.ClassicNetwork/networkSecurityGroups/join/action |  |
-> | Microsoft.ClassicNetwork/reservedIps/link/action | Vincular um IP reservado |
-> | Microsoft.ClassicNetwork/reservedIps/read | Obter os IPs reservados |
-> | Microsoft.ClassicNetwork/virtualNetworks/join/action | Ingressar na rede virtual. |
-> | Microsoft.ClassicNetwork/virtualNetworks/read | Obter a rede virtual. |
-> | Microsoft.ClassicStorage/storageAccounts/disks/read | Retornar o disco da conta de armazenamento. |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | Retornar a imagem da conta de armazenamento. (Preterido. Usar 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
-> | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Listar as chaves de acesso das contas de armazenamento. |
-> | Microsoft.ClassicStorage/storageAccounts/read | Retornar a conta de armazenamento com a conta fornecida. |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/domainNames/* | Criar e gerenciar nomes de domínio de computação clássica |
+> | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/* | Criar e gerenciar máquinas virtuais |
+> | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/networkSecurityGroups/Join/Action |  |
+> | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/reservedIps/link/Action | Vincular um IP reservado |
+> | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/reservedIps/Read | Obter os IPs reservados |
+> | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/virtualNetworks/Join/Action | Ingressar na rede virtual. |
+> | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/virtualNetworks/Read | Obter a rede virtual. |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/disks/Read | Retornar o disco da conta de armazenamento. |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/images/Read | Retornar a imagem da conta de armazenamento. (Preterido. Usar 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listKeys/Action | Listar as chaves de acesso das contas de armazenamento. |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/Read | Retornar a conta de armazenamento com a conta fornecida. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -447,22 +450,22 @@ Permite gerenciar máquinas virtuais clássicas, mas não o acesso a elas, nem �
 
 ### <a name="virtual-machine-administrator-login"></a>Logon de administrador da Máquina Virtual
 
-Máquinas Virtuais do Microsoft Azure no portal e logon como administrador
+Exibir máquinas virtuais no portal e fazer logon como administrador [saiba mais](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Network/publicIPAddresses/read | Obter uma definição de endereço IP público. |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.Network/loadBalancers/read | Obter uma definição de balanceador de carga |
-> | Microsoft.Network/networkInterfaces/read | Obter uma definição de adaptador de rede.  |
-> | Microsoft.Compute/virtualMachines/*/read |  |
+> | /PublicIPAddresses/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de endereço IP público. |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | /LoadBalancers/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de balanceador de carga |
+> | /NetworkInterfaces/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de adaptador de rede.  |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Compute/virtualMachines/login/action | Faça logon em uma máquina virtual como um usuário normal |
-> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Faça logon em uma máquina virtual com os privilégios de administrador do Windows ou de usuário raiz do Linux |
+> | /VirtualMachines/login/Action [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Faça logon em uma máquina virtual como um usuário normal |
+> | /VirtualMachines/loginAsAdmin/Action [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Faça logon em uma máquina virtual com os privilégios de administrador do Windows ou de usuário raiz do Linux |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -499,53 +502,53 @@ Máquinas Virtuais do Microsoft Azure no portal e logon como administrador
 
 ### <a name="virtual-machine-contributor"></a>Colaborador de Máquina Virtual
 
-Permite gerenciar máquinas virtuais, mas não o acesso a elas, nem à rede virtual ou conta de armazenamento à qual estão conectadas.
+Permite gerenciar máquinas virtuais, mas não o acesso a elas, nem à rede virtual ou conta de armazenamento à qual estão conectadas. [Saiba mais](../virtual-machines/linux/tutorial-govern-resources.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Compute/availabilitySets/* | Criar e gerenciar conjuntos de disponibilidade de computação |
-> | Microsoft.Compute/locations/* | Criar e gerenciar locais de computação |
-> | Microsoft.Compute/virtualMachines/* | Criar e gerenciar máquinas virtuais |
-> | Microsoft.Compute/virtualMachineScaleSets/* | Criar e gerenciar conjuntos de escala de máquina virtual |
-> | Microsoft.Compute/disks/write | Criar um novo disco ou atualizar um existente |
-> | Microsoft.Compute/disks/read | Obter as propriedades de um disco |
-> | Microsoft.Compute/disks/delete | Excluir o disco |
-> | Microsoft.DevTestLab/schedules/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Ingressar em um pool de endereços de back-end do gateway de aplicativo. Não é possível alertá-lo. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ingressar em um pool de endereços de back-end do balanceador de carga. Não é possível alertá-lo. |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Ingressar em um pool NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Adicionar uma regra NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
-> | Microsoft.Network/loadBalancers/probes/join/action | Permitir o uso de investigações de um balanceador de carga. Por exemplo, com essa permissão, a propriedade healthProbe do conjunto de dimensionamento de VM pode referenciar a investigação. Não é possível alertá-lo. |
-> | Microsoft.Network/loadBalancers/read | Obter uma definição de balanceador de carga |
-> | Microsoft.Network/locations/* | Criar e gerenciar locais de rede |
-> | Microsoft.Network/networkInterfaces/* | Criar e gerenciar as interfaces de rede |
-> | Microsoft.Network/networkSecurityGroups/join/action | Ingressar em um grupo de segurança de rede. Não é possível alertá-lo. |
-> | Microsoft.Network/networkSecurityGroups/read | Obter uma definição de um grupo de segurança de rede |
-> | Microsoft.Network/publicIPAddresses/join/action | Ingressar em um endereço IP público. Não é possível alertá-lo. |
-> | Microsoft.Network/publicIPAddresses/read | Obter uma definição de endereço IP público. |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual. Não é possível alertá-lo. |
-> | Microsoft.RecoveryServices/locations/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Criar uma política de proteção |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.SqlVirtualMachine/* |  |
-> | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
-> | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Criar e gerenciar conjuntos de disponibilidade de computação |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/Locations/* | Criar e gerenciar locais de computação |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Criar e gerenciar máquinas virtuais |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Criar e gerenciar conjuntos de escala de máquina virtual |
+> | /Disks/Write [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Criar um novo disco ou atualizar um existente |
+> | /Disks/Read [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Obter as propriedades de um disco |
+> | /Disks/Delete [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Excluir o disco |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Schedules/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /ApplicationGateways/backendAddressPools/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um pool de endereços de back-end do gateway de aplicativo. Não é possível alertá-lo. |
+> | /LoadBalancers/backendAddressPools/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um pool de endereços de back-end do balanceador de carga. Não é possível alertá-lo. |
+> | /LoadBalancers/inboundNatPools/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um pool NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
+> | /LoadBalancers/inboundNatRules/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar uma regra NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
+> | /LoadBalancers/Probes/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Permitir o uso de investigações de um balanceador de carga. Por exemplo, com essa permissão, a propriedade healthProbe do conjunto de dimensionamento de VM pode referenciar a investigação. Não é possível alertá-lo. |
+> | /LoadBalancers/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de balanceador de carga |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/Locations/* | Criar e gerenciar locais de rede |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/* | Criar e gerenciar as interfaces de rede |
+> | /NetworkSecurityGroups/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um grupo de segurança de rede. Não é possível alertá-lo. |
+> | /NetworkSecurityGroups/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de um grupo de segurança de rede |
+> | /PublicIPAddresses/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um endereço IP público. Não é possível alertá-lo. |
+> | /PublicIPAddresses/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de endereço IP público. |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | /VirtualNetworks/Subnets/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em uma rede virtual. Não é possível alertá-lo. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/backupProtectionIntent/Write | Criar uma Intenção de Proteção de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/*/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/Read | Retornar detalhes do objeto do item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/Write | Criar um item protegido de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/Read | Retornar todas as políticas de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/Write | Criar uma política de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Usages/Read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. SqlVirtualMachine](resource-provider-operations.md#microsoftsqlvirtualmachine)/* |  |
+> | /StorageAccounts/listKeys/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar as chaves de acesso da conta de armazenamento especificada. |
+> | /StorageAccounts/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -619,21 +622,21 @@ Permite gerenciar máquinas virtuais, mas não o acesso a elas, nem à rede virt
 
 ### <a name="virtual-machine-user-login"></a>Logon de usuário da Máquina Virtual
 
-Visualize as Máquinas Virtuais do Microsoft Azure no portal e faça logon como usuário.
+Visualize as Máquinas Virtuais do Microsoft Azure no portal e faça logon como usuário. [Saiba mais](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Network/publicIPAddresses/read | Obter uma definição de endereço IP público. |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.Network/loadBalancers/read | Obter uma definição de balanceador de carga |
-> | Microsoft.Network/networkInterfaces/read | Obter uma definição de adaptador de rede.  |
-> | Microsoft.Compute/virtualMachines/*/read |  |
+> | /PublicIPAddresses/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de endereço IP público. |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | /LoadBalancers/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de balanceador de carga |
+> | /NetworkInterfaces/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de adaptador de rede.  |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Compute/virtualMachines/login/action | Faça logon em uma máquina virtual como um usuário normal |
+> | /VirtualMachines/login/Action [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Faça logon em uma máquina virtual como um usuário normal |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -678,14 +681,14 @@ Pode gerenciar os pontos de extremidade de CDN, mas não pode conceder acesso a 
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Cdn/edgenodes/read |  |
-> | Microsoft.Cdn/operationresults/* |  |
-> | Microsoft.Cdn/profiles/endpoints/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /Edgenodes/Read [Microsoft. CDN](resource-provider-operations.md#microsoftcdn) |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/Profiles/Endpoints/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -732,14 +735,14 @@ Pode exibir os pontos de extremidade de CDN, mas não pode fazer alterações.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Cdn/edgenodes/read |  |
-> | Microsoft.Cdn/operationresults/* |  |
-> | Microsoft.Cdn/profiles/endpoints/*/read |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /Edgenodes/Read [Microsoft. CDN](resource-provider-operations.md#microsoftcdn) |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/Profiles/Endpoints/*/Read |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -780,20 +783,20 @@ Pode exibir os pontos de extremidade de CDN, mas não pode fazer alterações.
 
 ### <a name="cdn-profile-contributor"></a>Colaborador de perfil de CDN
 
-Pode gerenciar os perfis de CDN e os respectivos pontos de extremidade, mas não pode conceder acesso a outros usuários.
+Pode gerenciar os perfis de CDN e os respectivos pontos de extremidade, mas não pode conceder acesso a outros usuários. [Saiba mais](../cdn/cdn-app-dev-net.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Cdn/edgenodes/read |  |
-> | Microsoft.Cdn/operationresults/* |  |
-> | Microsoft.Cdn/profiles/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /Edgenodes/Read [Microsoft. CDN](resource-provider-operations.md#microsoftcdn) |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/Profiles/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -840,14 +843,14 @@ Pode exibir os perfis de CDN e os respectivos pontos de extremidade, mas não po
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Cdn/edgenodes/read |  |
-> | Microsoft.Cdn/operationresults/* |  |
-> | Microsoft.Cdn/profiles/*/read |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /Edgenodes/Read [Microsoft. CDN](resource-provider-operations.md#microsoftcdn) |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
+> | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/Profiles/*/Read |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -888,19 +891,19 @@ Pode exibir os perfis de CDN e os respectivos pontos de extremidade, mas não po
 
 ### <a name="classic-network-contributor"></a>Colaborador de rede clássica
 
-Permite que você gerencie redes clássicas, mas não acessá-las.
+Permite que você gerencie redes clássicas, mas não acessá-las. [Saiba mais](../virtual-network/virtual-network-manage-peering.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.ClassicNetwork/* | Criar e gerenciar redes clássicas |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/* | Criar e gerenciar redes clássicas |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -940,19 +943,19 @@ Permite que você gerencie redes clássicas, mas não acessá-las.
 
 ### <a name="dns-zone-contributor"></a>Colaborador de zona DNS
 
-Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles.
+Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. [Saiba mais](../dns/dns-protect-zones-recordsets.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Network/dnsZones/* | Criar e gerenciar zonas e registros DNS |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/dnsZones/* | Criar e gerenciar zonas e registros DNS |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -998,13 +1001,13 @@ Permite gerenciar redes, mas não acessá-las.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Network/* | Criar e gerenciar redes |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/* | Criar e gerenciar redes |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1042,6 +1045,64 @@ Permite gerenciar redes, mas não acessá-las.
 }
 ```
 
+### <a name="private-dns-zone-contributor"></a>Colaborador de zona de DNS privado
+
+Permite que você gerencie recursos de zona DNS privada, mas não as redes virtuais às quais eles estão vinculados. [Saiba mais](../dns/dns-protect-private-zones-recordsets.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/privateDnsZones/* |  |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/privateDnsOperationResults/* |  |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/privateDnsOperationStatuses/* |  |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | /VirtualNetworks/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em uma rede virtual. Não é possível alertá-lo. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage private DNS zone resources, but not the virtual networks they are linked to.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b12aa53e-6015-4669-85d0-8515ebb3ae7f",
+  "name": "b12aa53e-6015-4669-85d0-8515ebb3ae7f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Network/privateDnsZones/*",
+        "Microsoft.Network/privateDnsOperationResults/*",
+        "Microsoft.Network/privateDnsOperationStatuses/*",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/join/action",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Private DNS Zone Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="traffic-manager-contributor"></a>Colaborador do Gerenciador de Tráfego
 
 Permite gerenciar perfis do Gerenciador de Tráfego, mas não permite controlar quem tem acesso a eles.
@@ -1050,13 +1111,13 @@ Permite gerenciar perfis do Gerenciador de Tráfego, mas não permite controlar 
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Network/trafficManagerProfiles/* |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/trafficManagerProfiles/* |  |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1099,37 +1160,38 @@ Permite gerenciar perfis do Gerenciador de Tráfego, mas não permite controlar 
 
 ### <a name="avere-contributor"></a>Colaborador do Avere
 
-Pode criar e gerenciar um cluster do Avere vFXT.
+Pode criar e gerenciar um cluster do Avere vFXT. [Saiba mais](../avere-vfxt/avere-vfxt-deploy-plan.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Compute/*/read |  |
-> | Microsoft.Compute/availabilitySets/* |  |
-> | Microsoft.Compute/virtualMachines/* |  |
-> | Microsoft.Compute/disks/* |  |
-> | Microsoft.Network/*/read |  |
-> | Microsoft.Network/networkInterfaces/* |  |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.Network/virtualNetworks/subnets/read | Obter uma definição de sub-rede da rede virtual |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual. Não é possível alertá-lo. |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
-> | Microsoft.Network/networkSecurityGroups/join/action | Ingressar em um grupo de segurança de rede. Não é possível alertá-lo. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/*/read |  |
-> | Microsoft.Storage/storageAccounts/* | Criar e gerenciar contas de armazenamento |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obter os recursos do grupo de recursos. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/*/Read |  |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* |  |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/proximityPlacementGroups/* |  |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* |  |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/disks/* |  |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/*/Read |  |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/* |  |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | /VirtualNetworks/Subnets/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de sub-rede da rede virtual |
+> | /VirtualNetworks/Subnets/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em uma rede virtual. Não é possível alertá-lo. |
+> | /VirtualNetworks/Subnets/joinViaServiceEndpoint/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
+> | /NetworkSecurityGroups/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um grupo de segurança de rede. Não é possível alertá-lo. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/*/Read |  |
+> | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/* | Criar e gerenciar contas de armazenamento |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /Subscriptions/resourceGroups/Resources/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os recursos do grupo de recursos. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retorna o resultado da exclusão de um blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retorna um blob ou uma lista de blobs |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retorna o resultado da gravação de um blob |
+> | /StorageAccounts/blobServices/containers/BLOBs/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da exclusão de um blob |
+> | /StorageAccounts/blobServices/containers/BLOBs/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna um blob ou uma lista de blobs |
+> | /StorageAccounts/blobServices/containers/BLOBs/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da gravação de um blob |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -1147,6 +1209,7 @@ Pode criar e gerenciar um cluster do Avere vFXT.
         "Microsoft.Authorization/*/read",
         "Microsoft.Compute/*/read",
         "Microsoft.Compute/availabilitySets/*",
+        "Microsoft.Compute/proximityPlacementGroups/*",
         "Microsoft.Compute/virtualMachines/*",
         "Microsoft.Compute/disks/*",
         "Microsoft.Network/*/read",
@@ -1181,29 +1244,29 @@ Pode criar e gerenciar um cluster do Avere vFXT.
 
 ### <a name="avere-operator"></a>Operador do Avere
 
-Usado pelo cluster do Avere vFXT para gerenciar o cluster
+Usado pelo cluster avere vFXT para gerenciar o cluster [saiba mais](../avere-vfxt/avere-vfxt-manage-cluster.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Compute/virtualMachines/read | Obter as propriedades de uma máquina virtual |
-> | Microsoft.Network/networkInterfaces/read | Obter uma definição de adaptador de rede.  |
-> | Microsoft.Network/networkInterfaces/write | Criar uma interface de rede ou atualizar uma interface de rede existente.  |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.Network/virtualNetworks/subnets/read | Obter uma definição de sub-rede da rede virtual |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual. Não é possível alertá-lo. |
-> | Microsoft.Network/networkSecurityGroups/join/action | Ingressar em um grupo de segurança de rede. Não é possível alertá-lo. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retornar o resultado da exclusão de um contêiner |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retorna a lista de contêineres |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de put blob |
+> | /VirtualMachines/Read [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Obter as propriedades de uma máquina virtual |
+> | /NetworkInterfaces/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de adaptador de rede.  |
+> | /NetworkInterfaces/Write [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Criar uma interface de rede ou atualizar uma interface de rede existente.  |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | /VirtualNetworks/Subnets/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de sub-rede da rede virtual |
+> | /VirtualNetworks/Subnets/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em uma rede virtual. Não é possível alertá-lo. |
+> | /NetworkSecurityGroups/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um grupo de segurança de rede. Não é possível alertá-lo. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /StorageAccounts/blobServices/containers/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar o resultado da exclusão de um contêiner |
+> | /StorageAccounts/blobServices/containers/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna a lista de contêineres |
+> | /StorageAccounts/blobServices/containers/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado do contêiner de put blob |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retorna o resultado da exclusão de um blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retorna um blob ou uma lista de blobs |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retorna o resultado da gravação de um blob |
+> | /StorageAccounts/blobServices/containers/BLOBs/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da exclusão de um blob |
+> | /StorageAccounts/blobServices/containers/BLOBs/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna um blob ou uma lista de blobs |
+> | /StorageAccounts/blobServices/containers/BLOBs/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da gravação de um blob |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -1247,53 +1310,53 @@ Usado pelo cluster do Avere vFXT para gerenciar o cluster
 
 ### <a name="backup-contributor"></a>Colaborador de Backup
 
-Permite que você gerencie o serviço de backup, mas não pode criar cofres e fornecer acesso a outras pessoas
+Permite que você gerencie o serviço de backup, mas não pode criar cofres e conceder acesso a outras pessoas [saiba mais](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.RecoveryServices/locations/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gerenciar os resultados da operação no gerenciamento de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Criar e gerenciar contêineres de backup em malhas de backup do cofre de Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Criar e gerenciar políticas de backup |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Criar e gerenciar itens submetidos a backup |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Criar e gerenciar contêineres que armazenam itens de backup |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/certificates/* | Criar e gerenciar certificados relacionados a backup em um cofre de Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
-> | Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerenciar o uso do cofre dos Serviços de Recuperação |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar operação no Item protegido |
-> | Microsoft.RecoveryServices/Vaults/write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contêineres protegidos |
-> | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
-> | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar recursos |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolver o alerta. |
-> | Microsoft.RecoveryServices/operations/read | Operação retorna a lista de operações para um provedor de recursos |
-> | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Status da operação para uma determinada operação |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de backup |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/* | Gerenciar os resultados da operação no gerenciamento de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/* | Criar e gerenciar contêineres de backup em malhas de backup do cofre de Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/refreshContainers/Action | Atualizar a lista de contêineres |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupJobsExport/Action | Exportar trabalhos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/* | Criar e gerenciar políticas de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectedItems/* | Criar e gerenciar itens submetidos a backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionContainers/* | Criar e gerenciar contêineres que armazenam itens de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupSecurityPIN/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupUsageSummaries/Read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Certificates/* | Criar e gerenciar certificados relacionados a backup em um cofre de Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Read | Obter os alertas para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Usages/* | Criar e gerenciar o uso do cofre dos Serviços de Recuperação |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /StorageAccounts/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupstorageconfig/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/BackupConfig/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupValidateOperation/Action | Validar operação no Item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupOperations/Read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupEngines/Read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/backupProtectionIntent/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectableContainers/Read | Obter todos os contêineres protegidos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupStatus/Action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupPreValidateProtection/Action |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupValidateFeatures/Action | Validar recursos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Write | Resolver o alerta. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Operations/Read | Operação retorna a lista de operações para um provedor de recursos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/operationStatus/Read | Obtém o Status da operação para uma determinada operação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/Read | Listar todas as Intenções de Proteção de backup |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1367,68 +1430,68 @@ Permite que você gerencie o serviço de backup, mas não pode criar cofres e fo
 
 ### <a name="backup-operator"></a>Operador de Backup
 
-Permite que você gerencie serviços de backup, exceto a remoção de backup, a criação de cofres e o fornecimento de acesso a outras pessoas
+Permite que você gerencie serviços de backup, exceto remoção de backup, criação de cofre e acesso a outros [saiba mais](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retornar o status da operação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obter o resultado da operação executada no contêiner de proteção. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Executar um backup para um item protegido. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obter o resultado da operação executada em itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Retornar o status da operação executada em itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provisionar recuperação de item instantânea para item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter pontos de recuperação para itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurar pontos de recuperação para itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revogar a recuperação de item instantânea para item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retornar todos os contêineres registrados |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter os resultados da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Retornar a lista de todos os itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retornar todos os contêineres pertencentes à assinatura |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/certificates/write | A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso. |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/write | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | A operação Registrar o contêiner de serviço pode ser usada para registrar um contêiner com o Serviço de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar operação no Item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter o status da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Criar um contêiner registrado |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Consultar cargas de trabalho em um contêiner |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contêineres protegidos |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obter todos os itens em um contêiner |
-> | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
-> | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar recursos |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolver o alerta. |
-> | Microsoft.RecoveryServices/operations/read | Operação retorna a lista de operações para um provedor de recursos |
-> | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Status da operação para uma determinada operação |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de backup |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/Read | Retornar o status da operação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/operationResults/Read | Obter o resultado da operação executada no contêiner de proteção. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/backup/Action | Executar um backup para um item protegido. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Obter o resultado da operação executada em itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Retornar o status da operação executada em itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/Read | Retornar detalhes do objeto do item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Provisionar recuperação de item instantânea para item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Obter pontos de recuperação para itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Restaurar pontos de recuperação para itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Revogar a recuperação de item instantânea para item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/Write | Criar um item protegido de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/Read | Retornar todos os contêineres registrados |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/refreshContainers/Action | Atualizar a lista de contêineres |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupJobsExport/Action | Exportar trabalhos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/operationResults/Read | Obter os resultados da operação de política. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/Read | Retornar todas as políticas de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectedItems/Read | Retornar a lista de todos os itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionContainers/Read | Retornar todos os contêineres pertencentes à assinatura |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupUsageSummaries/Read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Certificates/Write | A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/Read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/Write | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Read | Obter os alertas para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/operationResults/Read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/Read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/Write | A operação Registrar o contêiner de serviço pode ser usada para registrar um contêiner com o Serviço de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Usages/Read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /StorageAccounts/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupstorageconfig/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupValidateOperation/Action | Validar operação no Item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupOperations/Read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/Operations/Read | Obter o status da operação de política. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/Write | Criar um contêiner registrado |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/inquire/Action | Consultar cargas de trabalho em um contêiner |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupEngines/Read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/backupProtectionIntent/Write | Criar uma Intenção de Proteção de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/backupProtectionIntent/Read | Obter uma Intenção de Proteção de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectableContainers/Read | Obter todos os contêineres protegidos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/Items/Read | Obter todos os itens em um contêiner |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupStatus/Action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupPreValidateProtection/Action |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupValidateFeatures/Action | Validar recursos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Write | Resolver o alerta. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Operations/Read | Operação retorna a lista de operações para um provedor de recursos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/operationStatus/Read | Obtém o Status da operação para uma determinada operação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/Read | Listar todas as Intenções de Proteção de backup |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1517,50 +1580,50 @@ Permite que você gerencie serviços de backup, exceto a remoção de backup, a 
 
 ### <a name="backup-reader"></a>Leitor de Backup
 
-Pode exibir serviços de backup, mas não pode fazer alterações
+Pode exibir serviços de backup, mas não pode fazer alterações [saiba mais](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retornar o status da operação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obter o resultado da operação executada no contêiner de proteção. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obter o resultado da operação executada em itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Retornar o status da operação executada em itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter pontos de recuperação para itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retornar todos os contêineres registrados |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Retornar o resultado da operação do trabalho. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Retornar todos os objetos de trabalho |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Retornar o resultado da operação de backup para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter os resultados da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Retornar a lista de todos os itens protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retornar todos os contêineres pertencentes à assinatura |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Retornar cofre de armazenamento para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Retornar a configuração para cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter o status da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obter todos os itens em um contêiner |
-> | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolver o alerta. |
-> | Microsoft.RecoveryServices/operations/read | Operação retorna a lista de operações para um provedor de recursos |
-> | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Status da operação para uma determinada operação |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar recursos |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocatedStamp/Read | GetAllocatedStamp é uma operação interna usada pelo serviço |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/Read | Retornar o status da operação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/operationResults/Read | Obter o resultado da operação executada no contêiner de proteção. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Obter o resultado da operação executada em itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Retornar o status da operação executada em itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/Read | Retornar detalhes do objeto do item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Obter pontos de recuperação para itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/Read | Retornar todos os contêineres registrados |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupJobs/operationResults/Read | Retornar o resultado da operação do trabalho. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupJobs/Read | Retornar todos os objetos de trabalho |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupJobsExport/Action | Exportar trabalhos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupOperationResults/Read | Retornar o resultado da operação de backup para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/operationResults/Read | Obter os resultados da operação de política. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/Read | Retornar todas as políticas de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectedItems/Read | Retornar a lista de todos os itens protegidos. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionContainers/Read | Retornar todos os contêineres pertencentes à assinatura |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupUsageSummaries/Read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/Read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Read | Obter os alertas para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/operationResults/Read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/Read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupstorageconfig/Read | Retornar cofre de armazenamento para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/BackupConfig/Read | Retornar a configuração para cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupOperations/Read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/Operations/Read | Obter o status da operação de política. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupEngines/Read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/backupProtectionIntent/Read | Obter uma Intenção de Proteção de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/Items/Read | Obter todos os itens em um contêiner |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupStatus/Action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/* |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Write | Resolver o alerta. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Operations/Read | Operação retorna a lista de operações para um provedor de recursos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/operationStatus/Read | Obtém o Status da operação para uma determinada operação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/Read | Listar todas as Intenções de Proteção de backup |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Usages/Read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupValidateFeatures/Action | Validar recursos |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1637,13 +1700,13 @@ Permite que você gerencie contas de armazenamento clássico, mas não acessá-l
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.ClassicStorage/storageAccounts/* | Criar e gerenciar contas de armazenamento |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/* | Criar e gerenciar contas de armazenamento |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1683,14 +1746,14 @@ Permite que você gerencie contas de armazenamento clássico, mas não acessá-l
 
 ### <a name="classic-storage-account-key-operator-service-role"></a>Função do Serviço de Operador da Chave da Conta de Armazenamento Clássica
 
-Os Operadores da Chave da Conta de Armazenamento Clássica têm permissão para listar e regenerar chaves nas Contas de Armazenamento Clássicas
+Os operadores de chave de conta de armazenamento clássico têm permissão para listar e regenerar chaves em contas de armazenamento clássicas [saiba mais](../key-vault/secrets/overview-storage-keys.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Listar as chaves de acesso das contas de armazenamento. |
-> | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Regenera as chaves de acesso existentes da conta de armazenamento. |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listkeys/Action | Listar as chaves de acesso das contas de armazenamento. |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/regeneratekey/Action | Regenera as chaves de acesso existentes da conta de armazenamento. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1725,18 +1788,18 @@ Os Operadores da Chave da Conta de Armazenamento Clássica têm permissão para 
 
 ### <a name="data-box-contributor"></a>Colaborador do Data Box
 
-Permite que você gerencie tudo sob o serviço Data Box exceto fornecer acesso a outras pessoas.
+Permite que você gerencie tudo sob o serviço Data Box exceto fornecer acesso a outras pessoas. [Saiba mais](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Databox/* |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1775,22 +1838,22 @@ Permite que você gerencie tudo sob o serviço Data Box exceto fornecer acesso a
 
 ### <a name="data-box-reader"></a>Leitor do Data Box
 
-Permite que você gerencie o serviço do Azure Data Box, exceto a ordem de criação ou edição de detalhes do pedido e fornecer acesso a outras pessoas.
+Permite que você gerencie o serviço do Azure Data Box, exceto a ordem de criação ou edição de detalhes do pedido e fornecer acesso a outras pessoas. [Saiba mais](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Databox/*/read |  |
-> | Microsoft.Databox/jobs/listsecrets/action |  |
-> | Microsoft.Databox/jobs/listcredentials/action | Lista as credenciais não criptografadas relacionadas ao pedido. |
-> | Microsoft.Databox/locations/availableSkus/action | Este método retorna a lista de SKUs disponíveis. |
-> | Microsoft.Databox/locations/validateInputs/action | Este método faz todos os tipos de validações. |
-> | Microsoft.Databox/locations/regionConfiguration/action | Este método retorna as configurações da região. |
-> | Microsoft.Databox/locations/validateAddress/action | Validará o endereço de entrega e fornecerá endereços alternativos, se houver algum. |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/*/Read |  |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/Jobs/listsecrets/Action |  |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/Jobs/listcredentials/Action | Lista as credenciais não criptografadas relacionadas ao pedido. |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/Locations/availableSkus/Action | Este método retorna a lista de SKUs disponíveis. |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/Locations/validateInputs/Action | Este método faz todos os tipos de validações. |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/Locations/regionConfiguration/Action | Este método retorna as configurações da região. |
+> | [Microsoft. Data Box](resource-provider-operations.md#microsoftdatabox)/Locations/validateAddress/Action | Validará o endereço de entrega e fornecerá endereços alternativos, se houver algum. |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1833,35 +1896,35 @@ Permite que você gerencie o serviço do Azure Data Box, exceto a ordem de cria�
 
 ### <a name="data-lake-analytics-developer"></a>Desenvolvedor do Data Lake Analytics
 
-Permite enviar, monitorar e gerenciar seus próprios trabalhos, mas não criar nem excluir contas do Data Lake Analytics.
+Permite enviar, monitorar e gerenciar seus próprios trabalhos, mas não criar nem excluir contas do Data Lake Analytics. [Saiba mais](../data-lake-analytics/data-lake-analytics-manage-use-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | Microsoft.BigAnalytics/accounts/* |  |
-> | Microsoft.DataLakeAnalytics/accounts/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | Microsoft.BigAnalytics/accounts/Delete |  |
 > | Microsoft.BigAnalytics/accounts/TakeOwnership/action |  |
 > | Microsoft.BigAnalytics/accounts/Write |  |
-> | Microsoft.DataLakeAnalytics/accounts/Delete | Excluir uma conta DataLakeAnalytics. |
-> | Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action | Conceder permissões para cancelar trabalhos enviados por outros usuários. |
-> | Microsoft.DataLakeAnalytics/accounts/Write | Criar ou atualizar uma conta DataLakeAnalytics. |
-> | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/Write | Criar ou atualizar uma conta DataLakeStore vinculada de uma conta DataLakeAnalytics. |
-> | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/Delete | Desvincular uma conta do Data Lake Store de uma conta do Data Lake Analytics. |
-> | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Write | Criar ou atualizar uma conta de armazenamento vinculada de uma conta DataLakeAnalytics. |
-> | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Delete | Desvincular uma conta de armazenamento de uma conta DataLakeAnalytics. |
-> | Microsoft.DataLakeAnalytics/accounts/firewallRules/Write | Criar ou atualizar uma regra de firewall. |
-> | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | Excluir uma regra de firewall. |
-> | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Criar ou atualizar uma política de computação. |
-> | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Excluir uma política de computação. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/Delete | Excluir uma conta DataLakeAnalytics. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/TakeOwnership/Action | Conceder permissões para cancelar trabalhos enviados por outros usuários. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/Write | Criar ou atualizar uma conta DataLakeAnalytics. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/dataLakeStoreAccounts/Write | Criar ou atualizar uma conta DataLakeStore vinculada de uma conta DataLakeAnalytics. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/dataLakeStoreAccounts/Delete | Desvincular uma conta do Data Lake Store de uma conta do Data Lake Analytics. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/storageAccounts/Write | Criar ou atualizar uma conta de armazenamento vinculada de uma conta DataLakeAnalytics. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/storageAccounts/Delete | Desvincular uma conta de armazenamento de uma conta DataLakeAnalytics. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/firewallRules/Write | Criar ou atualizar uma regra de firewall. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/firewallRules/Delete | Excluir uma regra de firewall. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/computePolicies/Write | Criar ou atualizar uma política de computação. |
+> | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/computePolicies/Delete | Excluir uma política de computação. |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -1921,9 +1984,9 @@ Permite que você exiba tudo, mas não permitirá que exclua ou crie uma conta d
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
-> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Retornar o token SAS da conta para a conta de armazenamento especificada. |
-> | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
+> | /StorageAccounts/listKeys/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar as chaves de acesso da conta de armazenamento especificada. |
+> | /StorageAccounts/ListAccountSas/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar o token SAS da conta para a conta de armazenamento especificada. |
+> | /StorageAccounts/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1959,21 +2022,21 @@ Permite que você exiba tudo, mas não permitirá que exclua ou crie uma conta d
 
 ### <a name="storage-account-contributor"></a>Colaborador da Conta de Armazenamento
 
-Permite o gerenciamento de contas de armazenamento. Fornece acesso à chave de conta, que pode ser usada para acessar dados por meio de autorização de chave compartilhada.
+Permite o gerenciamento de contas de armazenamento. Fornece acesso à chave de conta, que pode ser usada para acessar dados por meio de autorização de chave compartilhada. [Saiba mais](../storage/common/storage-auth-aad.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/* | Criar e gerenciar contas de armazenamento |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
+> | /VirtualNetworks/Subnets/joinViaServiceEndpoint/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/* | Criar e gerenciar contas de armazenamento |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2015,14 +2078,14 @@ Permite o gerenciamento de contas de armazenamento. Fornece acesso à chave de c
 
 ### <a name="storage-account-key-operator-service-role"></a>Função do Serviço de Operador da Chave da Conta de Armazenamento
 
-Permite listar e regenerar chaves de acesso da conta de armazenamento.
+Permite listar e regenerar chaves de acesso da conta de armazenamento. [Saiba mais](../storage/common/storage-account-keys-manage.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/listkeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerar as chaves de acesso da conta de armazenamento especificada. |
+> | /StorageAccounts/listkeys/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar as chaves de acesso da conta de armazenamento especificada. |
+> | /StorageAccounts/regeneratekey/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Regenerar as chaves de acesso da conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2057,23 +2120,23 @@ Permite listar e regenerar chaves de acesso da conta de armazenamento.
 
 ### <a name="storage-blob-data-contributor"></a>Colaborador de dados de blob de armazenamento
 
-Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Excluir um contêiner. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retornar um contêiner ou uma lista de contêineres. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Modificar os metadados ou as propriedades de um contêiner. |
-> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço Blob. |
+> | /StorageAccounts/blobServices/containers/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Excluir um contêiner. |
+> | /StorageAccounts/blobServices/containers/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar um contêiner ou uma lista de contêineres. |
+> | /StorageAccounts/blobServices/containers/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Modificar os metadados ou as propriedades de um contêiner. |
+> | /StorageAccounts/blobServices/generateUserDelegationKey/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna uma chave de delegação de usuário para o serviço Blob. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Excluir um blob. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retornar um blob ou uma lista de blobs. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | Move o blob de um caminho para outro |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Gravar em um blob. |
+> | /StorageAccounts/blobServices/containers/BLOBs/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Excluir um blob. |
+> | /StorageAccounts/blobServices/containers/BLOBs/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar um blob ou uma lista de blobs. |
+> | /StorageAccounts/blobServices/containers/BLOBs/move/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Move o blob de um caminho para outro |
+> | /StorageAccounts/blobServices/containers/BLOBs/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Gravar em um blob. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2111,18 +2174,18 @@ Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber
 
 ### <a name="storage-blob-data-owner"></a>Proprietário de Dados do Blob de Armazenamento
 
-Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azure, incluindo a atribuição de controle de acesso POSIX. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azure, incluindo a atribuição de controle de acesso POSIX. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Permissões completas em contêineres. |
-> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço Blob. |
+> | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/* | Permissões completas em contêineres. |
+> | /StorageAccounts/blobServices/generateUserDelegationKey/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna uma chave de delegação de usuário para o serviço Blob. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Permissões completas em blobs. |
+> | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/BLOBs/* | Permissões completas em blobs. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2155,18 +2218,18 @@ Fornece acesso completo aos dados e contêineres de blob do Armazenamento do Azu
 
 ### <a name="storage-blob-data-reader"></a>Leitor de Dados do Blob de Armazenamento
 
-Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retornar um contêiner ou uma lista de contêineres. |
-> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço Blob. |
+> | /StorageAccounts/blobServices/containers/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar um contêiner ou uma lista de contêineres. |
+> | /StorageAccounts/blobServices/generateUserDelegationKey/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna uma chave de delegação de usuário para o serviço Blob. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retornar um blob ou uma lista de blobs. |
+> | /StorageAccounts/blobServices/containers/BLOBs/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar um blob ou uma lista de blobs. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2199,13 +2262,13 @@ Leia e liste contêineres e blobs do Armazenamento do Azure. Para saber quais a�
 
 ### <a name="storage-blob-delegator"></a>Delegador do Blob de Armazenamento
 
-Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou blob que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [Criar uma SAS de delegação de usuário](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas).
+Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou blob que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [Criar uma SAS de delegação de usuário](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). [Saiba mais](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço Blob. |
+> | /StorageAccounts/blobServices/generateUserDelegationKey/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna uma chave de delegação de usuário para o serviço Blob. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2239,7 +2302,7 @@ Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma 
 
 ### <a name="storage-file-data-smb-share-contributor"></a>Colaborador de Compartilhamento SMB de Dados do Arquivo de Armazenamento
 
-Permite o acesso de leitura, gravação e exclusão em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função não tem equivalente interno nos servidores de arquivos do Windows.
+Permite o acesso de leitura, gravação e exclusão em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função não tem equivalente interno nos servidores de arquivos do Windows. [Saiba mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -2249,9 +2312,9 @@ Permite o acesso de leitura, gravação e exclusão em arquivos/diretórios nos 
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo, uma pasta ou uma lista de arquivos/pastas. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retorna o resultado da gravação em um arquivo ou da criação de uma pasta. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retorna o resultado da exclusão de um arquivo ou uma pasta. |
+> | /StorageAccounts/fileServices/fileshares/files/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna um arquivo, uma pasta ou uma lista de arquivos/pastas. |
+> | /StorageAccounts/fileServices/fileshares/files/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da gravação em um arquivo ou da criação de uma pasta. |
+> | /StorageAccounts/fileServices/fileshares/files/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da exclusão de um arquivo ou uma pasta. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2283,7 +2346,7 @@ Permite o acesso de leitura, gravação e exclusão em arquivos/diretórios nos 
 
 ### <a name="storage-file-data-smb-share-elevated-contributor"></a>Colaborador elevado de compartilhamento SMB de dados de arquivo de armazenamento
 
-Permite ler, gravar, excluir e modificar ACLs em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função é equivalente a uma ACL de compartilhamento de arquivos de alteração em servidores de arquivos do Windows.
+Permite ler, gravar, excluir e modificar ACLs em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função é equivalente a uma ACL de compartilhamento de arquivos de alteração em servidores de arquivos do Windows. [Saiba mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -2293,10 +2356,10 @@ Permite ler, gravar, excluir e modificar ACLs em arquivos/diretórios nos compar
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo, uma pasta ou uma lista de arquivos/pastas. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retorna o resultado da gravação em um arquivo ou da criação de uma pasta. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retorna o resultado da exclusão de um arquivo ou uma pasta. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Retorna o resultado da modificação da permissão em um arquivo ou uma pasta. |
+> | /StorageAccounts/fileServices/fileshares/files/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna um arquivo, uma pasta ou uma lista de arquivos/pastas. |
+> | /StorageAccounts/fileServices/fileshares/files/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da gravação em um arquivo ou da criação de uma pasta. |
+> | /StorageAccounts/fileServices/fileshares/files/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da exclusão de um arquivo ou uma pasta. |
+> | /StorageAccounts/fileServices/fileshares/files/modifypermissions/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da modificação da permissão em um arquivo ou uma pasta. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2329,7 +2392,7 @@ Permite ler, gravar, excluir e modificar ACLs em arquivos/diretórios nos compar
 
 ### <a name="storage-file-data-smb-share-reader"></a>Leitor de Compartilhamento SMB de Dados do Arquivo de Armazenamento
 
-Permite acesso de leitura em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função é equivalente a uma ACL de compartilhamento de arquivos de leitura em servidores de arquivos do Windows.
+Permite acesso de leitura em arquivos/diretórios nos compartilhamentos de arquivos do Azure. Essa função é equivalente a uma ACL de compartilhamento de arquivos de leitura em servidores de arquivos do Windows. [Saiba mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -2339,7 +2402,7 @@ Permite acesso de leitura em arquivos/diretórios nos compartilhamentos de arqui
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo, uma pasta ou uma lista de arquivos/pastas. |
+> | /StorageAccounts/fileServices/fileshares/files/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna um arquivo, uma pasta ou uma lista de arquivos/pastas. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2369,21 +2432,21 @@ Permite acesso de leitura em arquivos/diretórios nos compartilhamentos de arqui
 
 ### <a name="storage-queue-data-contributor"></a>Colaborador de Dados da Fila de Armazenamento
 
-Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Excluir uma fila. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Retornar uma fila ou uma lista de filas. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Modificar metadados ou propriedades da fila. |
+> | /StorageAccounts/queueServices/Queues/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Excluir uma fila. |
+> | /StorageAccounts/queueServices/Queues/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar uma fila ou uma lista de filas. |
+> | /StorageAccounts/queueServices/Queues/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Modificar metadados ou propriedades da fila. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Excluir uma ou mais mensagens de uma fila. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Espiar ou recuperar uma ou mais mensagens de uma fila. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Adicionar uma mensagem a uma fila. |
+> | /StorageAccounts/queueServices/Queues/messages/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Excluir uma ou mais mensagens de uma fila. |
+> | /StorageAccounts/queueServices/Queues/messages/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Espiar ou recuperar uma ou mais mensagens de uma fila. |
+> | /StorageAccounts/queueServices/Queues/messages/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Adicionar uma mensagem a uma fila. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2419,7 +2482,7 @@ Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para sa
 
 ### <a name="storage-queue-data-message-processor"></a>Processador de Mensagens de Dados da Fila de Armazenamento
 
-Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -2429,8 +2492,8 @@ Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Par
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Espiar uma mensagem. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Recuperar e excluir uma mensagem. |
+> | /StorageAccounts/queueServices/Queues/messages/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Espiar uma mensagem. |
+> | /StorageAccounts/queueServices/Queues/messages/Process/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Recuperar e excluir uma mensagem. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2461,7 +2524,7 @@ Espia, recupera e exclui uma mensagem de uma fila de armazenamento do Azure. Par
 
 ### <a name="storage-queue-data-message-sender"></a>Remetente da Mensagem de Dados da Fila de Armazenamento
 
-Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -2471,7 +2534,7 @@ Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais açõe
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Adicionar uma mensagem a uma fila. |
+> | /StorageAccounts/queueServices/Queues/messages/Add/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Adicionar uma mensagem a uma fila. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2501,17 +2564,17 @@ Adiciona mensagens a uma fila de Armazenamento do Azure. Para saber quais açõe
 
 ### <a name="storage-queue-data-reader"></a>Leitor de Dados da Fila de Armazenamento
 
-Lê e lista as filas do armazenamento do Azure e as mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Lê e lista as filas do armazenamento do Azure e as mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, consulte [Permissões para chamar blob e operações de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Retornar uma fila ou uma lista de filas. |
+> | /StorageAccounts/queueServices/Queues/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar uma fila ou uma lista de filas. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Espiar ou recuperar uma ou mais mensagens de uma fila. |
+> | /StorageAccounts/queueServices/Queues/messages/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Espiar ou recuperar uma ou mais mensagens de uma fila. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2556,7 +2619,7 @@ Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Mapas.
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Maps/accounts/*/read |  |
+> | [Microsoft. Maps](resource-provider-operations.md#microsoftmaps)/accounts/*/Read |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2586,19 +2649,19 @@ Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Mapas.
 
 ### <a name="search-service-contributor"></a>Colaborador do Serviço de Pesquisa
 
-Permite gerenciar serviços de pesquisa, mas não acessá-las.
+Permite gerenciar serviços de pesquisa, mas não acessá-las. [Saiba mais](../search/search-security-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Search/searchServices/* | Criar e gerenciar serviços de pesquisa |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Search](resource-provider-operations.md#microsoftsearch)/searchServices/* | Criar e gerenciar serviços de pesquisa |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2644,14 +2707,14 @@ Permite gerenciar os planos da Web para sites, mas não o acesso a eles.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Web/serverFarms/* | Criar e gerenciar farms de servidores |
-> | Microsoft.Web/hostingEnvironments/Join/Action | Unir um Ambiente do Serviço de Aplicativo |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/serverFarms/* | Criar e gerenciar farms de servidores |
+> | /HostingEnvironments/Join/Action [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Unir um Ambiente do Serviço de Aplicativo |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2698,18 +2761,18 @@ Permite gerenciar sites (não planos da Web), mas não acessá-los.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/components/* | Criar e gerenciar componentes do Insights |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Web/certificates/* | Criar e gerenciar certificados de site da Web |
-> | Microsoft.Web/listSitesAssignedToHostName/read | Obter nomes dos sites atribuídos ao nome de host. |
-> | Microsoft.Web/serverFarms/join/action |  |
-> | Microsoft.Web/serverFarms/read | Obter as propriedades em um Plano do Serviço de Aplicativo |
-> | Microsoft.Web/sites/* | Criar e gerenciar sites (a criação de sites também requer permissões de gravação para o Plano do Serviço de Aplicativo associado) |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/* | Criar e gerenciar componentes do Insights |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/Certificates/* | Criar e gerenciar certificados de site da Web |
+> | /ListSitesAssignedToHostName/Read [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Obter nomes dos sites atribuídos ao nome de host. |
+> | /ServerFarms/Join/Action [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Une um plano do serviço de aplicativo |
+> | /ServerFarms/Read [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Obter as propriedades em um Plano do Serviço de Aplicativo |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/sites/* | Criar e gerenciar sites (a criação de sites também requer permissões de gravação para o Plano do Serviço de Aplicativo associado) |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2757,13 +2820,13 @@ Permite gerenciar sites (não planos da Web), mas não acessá-los.
 
 ### <a name="acrdelete"></a>AcrDelete
 
-acr delete
+exclusão de ACR [saiba mais](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/artifacts/delete | Excluir o artefato em um registro de contêiner. |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Artifacts/Delete | Excluir o artefato em um registro de contêiner. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2797,13 +2860,13 @@ acr delete
 
 ### <a name="acrimagesigner"></a>AcrImageSigner
 
-signatário de imagem ACR
+signatário de imagem ACR [saiba mais](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/sign/write | Efetuar push/pull de metadados de conteúdo confiável para um registro de contêiner. |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Sign/Write | Efetuar push/pull de metadados de conteúdo confiável para um registro de contêiner. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2837,13 +2900,13 @@ signatário de imagem ACR
 
 ### <a name="acrpull"></a>AcrPull
 
-acr pull
+extração de ACR [saiba mais](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/pull/read | Efetuar pull ou Obter imagens de um registro de contêiner. |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/pull/Read | Efetuar pull ou Obter imagens de um registro de contêiner. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2877,14 +2940,14 @@ acr pull
 
 ### <a name="acrpush"></a>AcrPush
 
-acr push
+Informações sobre o ACR Push [saiba mais](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/pull/read | Efetuar pull ou Obter imagens de um registro de contêiner. |
-> | Microsoft.ContainerRegistry/registries/push/write | Efetuar push ou Gravar imagens para um registro de contêiner. |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/pull/Read | Efetuar pull ou Obter imagens de um registro de contêiner. |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Push/Write | Efetuar push ou Gravar imagens para um registro de contêiner. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2925,7 +2988,7 @@ leitor de dados de quarentena acr
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/quarantine/read | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Quarantine/Read | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -2965,8 +3028,8 @@ gravador de dados de quarentena acr
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/quarantine/read | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
-> | Microsoft.ContainerRegistry/registries/quarantine/write | Gravar/Modificar o estado de quarentena das imagens em quarentena |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Quarantine/Read | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
+> | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Quarantine/Write | Gravar/Modificar o estado de quarentena das imagens em quarentena |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3001,14 +3064,14 @@ gravador de dados de quarentena acr
 
 ### <a name="azure-kubernetes-service-cluster-admin-role"></a>Função de Administrador do Cluster do Serviço de Kubernetes do Azure
 
-Liste a ação de credencial de administrador de cluster.
+Liste a ação de credencial de administrador de cluster. [Saiba mais](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial clusterAdmin de um cluster gerenciado |
-> | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Obtém um perfil de acesso do cluster gerenciado por nome de função usando a credencial de lista |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterAdminCredential/Action | Listar a credencial clusterAdmin de um cluster gerenciado |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/accessProfiles/listCredential/Action | Obtém um perfil de acesso do cluster gerenciado por nome de função usando a credencial de lista |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3043,13 +3106,13 @@ Liste a ação de credencial de administrador de cluster.
 
 ### <a name="azure-kubernetes-service-cluster-user-role"></a>Função de Usuário do Cluster do Serviço de Kubernetes do Azure
 
-Liste a ação de credencial de usuário de cluster.
+Liste a ação de credencial de usuário de cluster. [Saiba mais](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial clusterUser de um cluster gerenciado |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Listar a credencial clusterUser de um cluster gerenciado |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3081,24 +3144,68 @@ Liste a ação de credencial de usuário de cluster.
 }
 ```
 
-## <a name="databases"></a>Bancos de dados
+### <a name="azure-kubernetes-service-contributor-role"></a>Função colaborador do serviço kubernetes do Azure
 
-
-### <a name="cosmos-db-account-reader-role"></a>Função de leitor de conta do Cosmos DB
-
-Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB.
+Concede acesso para ler e gravar clusters do serviço kubernetes do Azure
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.DocumentDB/*/read | Ler qualquer coleção |
-> | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Ler as chaves somente leitura da conta do banco de dados. |
-> | Microsoft.Insights/MetricDefinitions/read | Ler definições de métrica |
-> | Microsoft.Insights/Metrics/read | Ler métrica |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Read | Obtém um cluster gerenciado |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Write | Cria um novo cluster gerenciado ou atualiza um existente |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to read and write Azure Kubernetes Service clusters",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "name": "ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/read",
+        "Microsoft.ContainerService/managedClusters/write",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Contributor Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## <a name="databases"></a>Bancos de dados
+
+
+### <a name="cosmos-db-account-reader-role"></a>Função de leitor de conta do Cosmos DB
+
+Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB. [Saiba mais](../cosmos-db/role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/*/Read | Ler qualquer coleção |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/readonlykeys/Action | Ler as chaves somente leitura da conta do banco de dados. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/MetricDefinitions/Read | Ler definições de métrica |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Ler métrica |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3138,25 +3245,25 @@ Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do D
 
 ### <a name="cosmos-db-operator"></a>Operador do Cosmos DB
 
-Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados nelas. Impede o acesso a chaves de conta e cadeias de conexão.
+Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados nelas. Impede o acesso a chaves de conta e cadeias de conexão. [Saiba mais](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.DocumentDb/databaseAccounts/* |  |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
+> | [Microsoft.DocumentDb](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /VirtualNetworks/Subnets/joinViaServiceEndpoint/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
 > | **NotActions** |  |
-> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
-> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
-> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
-> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/readonlyKeys/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/regenerateKey/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listKeys/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -3200,14 +3307,14 @@ Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados n
 
 ### <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 
-Pode enviar solicitação de restauração de um banco de dados Cosmos DB ou de um contêiner em uma conta
+Pode enviar solicitação de restauração para um banco de dados Cosmos DB ou um contêiner para uma conta [saiba mais](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.DocumentDB/databaseAccounts/backup/action | Envie uma solicitação para configurar o backup |
-> | Microsoft.DocumentDB/databaseAccounts/restore/action | Enviar uma solicitação de restauração |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/backup/Action | Envie uma solicitação para configurar o backup |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/Restore/Action | Enviar uma solicitação de restauração |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3242,20 +3349,20 @@ Pode enviar solicitação de restauração de um banco de dados Cosmos DB ou de 
 
 ### <a name="documentdb-account-contributor"></a>Colaborador de Conta do DocumentDB
 
-Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB.
+Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB. [Saiba mais](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.DocumentDb/databaseAccounts/* | Criar e gerenciar contas do Azure Cosmos DB |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft.DocumentDb](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/* | Criar e gerenciar contas do Azure Cosmos DB |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /VirtualNetworks/Subnets/joinViaServiceEndpoint/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3302,13 +3409,13 @@ Permite gerenciar caches Redis, mas não acessá-los.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Cache/redis/* | Criar e gerenciar caches Redis |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /Redis/ [do Microsoft. cache](resource-provider-operations.md#microsoftcache)* | Criar e gerenciar caches Redis |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3348,48 +3455,48 @@ Permite gerenciar caches Redis, mas não acessá-los.
 
 ### <a name="sql-db-contributor"></a>Colaborador do banco de dados SQL
 
-Permite gerenciar Bancos de Dados SQL, mas não acessá-los. Além disso, não é possível gerenciar as políticas relacionadas à segurança ou respectivos servidores SQL pai.
+Permite gerenciar Bancos de Dados SQL, mas não acessá-los. Além disso, não é possível gerenciar as políticas relacionadas à segurança ou respectivos servidores SQL pai. [Saiba mais](../data-share/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/servers/databases/* | Criar e gerenciar bancos de dados SQL |
-> | Microsoft.Sql/servers/read | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Insights/metrics/read | Ler métrica |
-> | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Locations/*/Read |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/* | Criar e gerenciar bancos de dados SQL |
+> | /Servers/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Ler métrica |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/Read | Ler definições de métrica |
 > | **NotActions** |  |
-> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Editar políticas de auditoria |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Editar configurações de auditoria |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Recuperar os registros de auditoria do blob do banco de dados |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Editar políticas de conexão |
-> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento dos dados |
-> | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Editar métricas de segurança |
-> | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
-> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/Tables/Columns/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/securityAlertPolicies/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/securityAlertPolicies/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/auditingPolicies/* | Editar políticas de auditoria |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/auditingSettings/* | Editar configurações de auditoria |
+> | /Servers/databases/auditRecords/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Recuperar os registros de auditoria do blob do banco de dados |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/connectionPolicies/* | Editar políticas de conexão |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/currentSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento dos dados |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/extendedAuditingSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/recommendedSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/schemas/Tables/Columns/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/securityMetrics/* | Editar métricas de segurança |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentScans/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -3462,20 +3569,21 @@ Permite que você gerencie instâncias gerenciadas do SQL e a configuração de 
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Network/networkSecurityGroups/* |  |
-> | Microsoft.Network/routeTables/* |  |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Network/virtualNetworks/subnets/* |  |
-> | Microsoft.Network/virtualNetworks/* |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/metrics/read | Ler métrica |
-> | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/* |  |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/routeTables/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Locations/*/Read |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Locations/instanceFailoverGroups/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/* |  |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Subnets/* |  |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/* |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Ler métrica |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/Read | Ler definições de métrica |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3500,6 +3608,7 @@ Permite que você gerencie instâncias gerenciadas do SQL e a configuração de 
         "Microsoft.Network/networkSecurityGroups/*",
         "Microsoft.Network/routeTables/*",
         "Microsoft.Sql/locations/*/read",
+        "Microsoft.Sql/locations/instanceFailoverGroups/*",
         "Microsoft.Sql/managedInstances/*",
         "Microsoft.Support/*",
         "Microsoft.Network/virtualNetworks/subnets/*",
@@ -3522,55 +3631,55 @@ Permite que você gerencie instâncias gerenciadas do SQL e a configuração de 
 
 ### <a name="sql-security-manager"></a>Gerenciador de Segurança do SQL
 
-Permite você gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL, mas não acessá-los.
+Permite você gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL, mas não acessá-los. [Saiba mais](../sql-database/sql-database-advanced-data-security.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/databases/transparentDataEncryption/* |  |
-> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Criar e gerenciar políticas de auditoria do servidor SQL |
-> | Microsoft.Sql/servers/auditingSettings/* | Criar e gerenciar a configuração de auditoria do servidor SQL |
-> | Microsoft.Sql/servers/extendedAuditingSettings/read | Recuperar detalhes da política de auditoria de blob de servidor estendida configurada em um determinado servidor |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Criar e gerenciar políticas de auditoria de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Criar e gerenciar configurações de auditoria de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Recuperar os registros de auditoria do blob do banco de dados |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Criar e gerenciar políticas de conexão de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Criar e gerenciar políticas de mascaramento de dados do banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Recuperar detalhes da política de auditoria de blob estendida configurada em um determinado banco de dados |
-> | Microsoft.Sql/servers/databases/read | Retornar a lista de bancos de dados ou obter as propriedades para o banco de dados especificado. |
-> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/read | Obter um esquema de banco de dados. |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obter uma coluna de banco de dados. |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/tables/read | Obter uma tabela de banco de dados. |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança do banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Criar e gerenciar métricas de segurança do banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/transparentDataEncryption/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
-> | Microsoft.Sql/servers/firewallRules/* |  |
-> | Microsoft.Sql/servers/read | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança de servidor SQL |
-> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /VirtualNetworks/Subnets/joinViaServiceEndpoint/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. Não é possível alertá-lo. |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/Tables/Columns/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/securityAlertPolicies/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/securityAlertPolicies/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/transparentDataEncryption/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/auditingPolicies/* | Criar e gerenciar políticas de auditoria do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/auditingSettings/* | Criar e gerenciar a configuração de auditoria do servidor SQL |
+> | /Servers/extendedAuditingSettings/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Recuperar detalhes da política de auditoria de blob de servidor estendida configurada em um determinado servidor |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/auditingPolicies/* | Criar e gerenciar políticas de auditoria de banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/auditingSettings/* | Criar e gerenciar configurações de auditoria de banco de dados do servidor SQL |
+> | /Servers/databases/auditRecords/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Recuperar os registros de auditoria do blob do banco de dados |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/connectionPolicies/* | Criar e gerenciar políticas de conexão de banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/currentSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/dataMaskingPolicies/* | Criar e gerenciar políticas de mascaramento de dados do banco de dados do servidor SQL |
+> | /Servers/databases/extendedAuditingSettings/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Recuperar detalhes da política de auditoria de blob estendida configurada em um determinado banco de dados |
+> | /Servers/databases/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Retornar a lista de bancos de dados ou obter as propriedades para o banco de dados especificado. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/recommendedSensitivityLabels/* |  |
+> | /Servers/databases/schemas/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Obter um esquema de banco de dados. |
+> | /Servers/databases/schemas/Tables/Columns/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Obter uma coluna de banco de dados. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/schemas/Tables/Columns/sensitivityLabels/* |  |
+> | /Servers/databases/schemas/Tables/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Obter uma tabela de banco de dados. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança do banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/securityMetrics/* | Criar e gerenciar métricas de segurança do banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/transparentDataEncryption/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentScans/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/firewallRules/* |  |
+> | /Servers/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança de servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/vulnerabilityAssessments/* |  |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3646,51 +3755,51 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
 
 ### <a name="sql-server-contributor"></a>Colaborador do SQL Server
 
-Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as políticas relacionadas à segurança.
+Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as políticas relacionadas à segurança. [Saiba mais](../sql-database/sql-database-aad-authentication-configure.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/servers/* | Criar e gerenciar servidores SQL |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Insights/metrics/read | Ler métrica |
-> | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Locations/*/Read |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/* | Criar e gerenciar servidores SQL |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Ler métrica |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/Read | Ler definições de métrica |
 > | **NotActions** |  |
-> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Editar políticas de auditoria do servidor SQL |
-> | Microsoft.Sql/servers/auditingSettings/* | Editar configurações de auditoria do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Editar políticas de auditoria de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Editar configurações de auditoria de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Recuperar os registros de auditoria do blob do banco de dados |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Editar políticas de conexão de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Editar métricas de segurança de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
-> | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
-> | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Editar políticas de alerta de segurança de servidor SQL |
-> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/Tables/Columns/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/securityAlertPolicies/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/securityAlertPolicies/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/auditingPolicies/* | Editar políticas de auditoria do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/auditingSettings/* | Editar configurações de auditoria do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/auditingPolicies/* | Editar políticas de auditoria de banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/auditingSettings/* | Editar configurações de auditoria de banco de dados do servidor SQL |
+> | /Servers/databases/auditRecords/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Recuperar os registros de auditoria do blob do banco de dados |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/connectionPolicies/* | Editar políticas de conexão de banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/currentSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento de banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/extendedAuditingSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/recommendedSensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/schemas/Tables/Columns/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança de banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/securityMetrics/* | Editar métricas de segurança de banco de dados do servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/sensitivityLabels/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentScans/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/extendedAuditingSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/securityAlertPolicies/* | Editar políticas de alerta de segurança de servidor SQL |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -3763,17 +3872,17 @@ Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as
 
 ### <a name="azure-event-hubs-data-owner"></a>Proprietário de Dados de Hubs de Eventos do Azure
 
-Permite acesso completo aos recursos dos Hubs de Eventos do Azure.
+Permite acesso completo aos recursos dos Hubs de Eventos do Azure. [Saiba mais](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.EventHub/* |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.EventHub/* |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/* |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -3805,17 +3914,17 @@ Permite acesso completo aos recursos dos Hubs de Eventos do Azure.
 
 ### <a name="azure-event-hubs-data-receiver"></a>Receptor de Dados dos Hubs de Eventos do Azure
 
-Permite acesso de recebimento aos recursos dos Hubs de Eventos do Azure.
+Permite acesso de recebimento aos recursos dos Hubs de Eventos do Azure. [Saiba mais](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/*/Eventhubs/consumergroups/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.EventHub/*/receive/action |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/*/Receive/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -3847,17 +3956,17 @@ Permite acesso de recebimento aos recursos dos Hubs de Eventos do Azure.
 
 ### <a name="azure-event-hubs-data-sender"></a>Remetente de Dados dos Hubs de Eventos do Azure
 
-Permite acesso de envio aos recursos dos Hubs de Eventos do Azure.
+Permite acesso de envio aos recursos dos Hubs de Eventos do Azure. [Saiba mais](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.EventHub/*/eventhubs/read |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/*/Eventhubs/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.EventHub/*/send/action |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/*/Send/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -3889,21 +3998,21 @@ Permite acesso de envio aos recursos dos Hubs de Eventos do Azure.
 
 ### <a name="data-factory-contributor"></a>Colaborador da fábrica de dados
 
-Cria e gerencia data factories, assim como os recursos filhos neles.
+Cria e gerencia data factories, assim como os recursos filhos neles. [Saiba mais](../data-factory/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.DataFactory/dataFactories/* | Criar e gerenciar data factories e recursos filho dentro deles. |
-> | Microsoft.DataFactory/factories/* | Criar e gerenciar data factories e recursos filho dentro deles. |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.EventGrid/eventSubscriptions/write | Criar ou atualizar um eventSubscription |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. datafactory](resource-provider-operations.md#microsoftdatafactory)/dataFactories/* | Criar e gerenciar data factories e recursos filho dentro deles. |
+> | [Microsoft. datafactory](resource-provider-operations.md#microsoftdatafactory)/factories/* | Criar e gerenciar data factories e recursos filho dentro deles. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/Write | Criar ou atualizar um eventSubscription |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3945,16 +4054,16 @@ Cria e gerencia data factories, assim como os recursos filhos neles.
 
 ### <a name="data-purger"></a>Limpador de Dados
 
-Pode limpar os dados de análise
+Pode limpar dados de análise [saiba mais](../azure-monitor/platform/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action | Limpe dados do Application Insights |
-> | Microsoft.OperationalInsights/workspaces/*/read | Exibir dados da análise de logs |
-> | Microsoft.OperationalInsights/workspaces/purge/action | Excluir dados especificados do workspace |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/*/Read |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/Purge/Action | Limpe dados do Application Insights |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Purge/Action | Excluir dados especificados do workspace |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3991,21 +4100,21 @@ Pode limpar os dados de análise
 
 ### <a name="hdinsight-cluster-operator"></a>Operador de Cluster do HDInsight
 
-Permite que você leia e modifique as configurações de cluster do HDInsight.
+Permite que você leia e modifique as configurações de cluster do HDInsight. [Saiba mais](../hdinsight/hdinsight-migrate-granular-access-cluster-configurations.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.HDInsight/*/read |  |
-> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obter configurações de gateway para o cluster HDInsight |
-> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Atualizar as configurações do gateway para o cluster HDInsight |
-> | Microsoft.HDInsight/clusters/configurations/* |  |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. HDInsight](resource-provider-operations.md#microsofthdinsight)/*/Read |  |
+> | /Clusters/getGatewaySettings/Action [Microsoft. HDInsight](resource-provider-operations.md#microsofthdinsight) | Obter configurações de gateway para o cluster HDInsight |
+> | /Clusters/updateGatewaySettings/Action [Microsoft. HDInsight](resource-provider-operations.md#microsofthdinsight) | Atualizar as configurações do gateway para o cluster HDInsight |
+> | [Microsoft. HDInsight](resource-provider-operations.md#microsofthdinsight)/clusters/Configurations/* |  |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /Deployments/Operations/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou lista operações de implantação. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -4047,15 +4156,15 @@ Permite que você leia e modifique as configurações de cluster do HDInsight.
 
 ### <a name="hdinsight-domain-services-contributor"></a>Colaborador dos serviços de domínio do HDInsight
 
-Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight
+Pode ler, criar, modificar e excluir as operações relacionadas ao serviço de domínio necessárias para o HDInsight Enterprise Security Package [saiba mais](../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.AAD/*/read |  |
-> | Microsoft.AAD/domainServices/*/read |  |
-> | Microsoft.AAD/domainServices/oucontainer/* |  |
+> | [Microsoft. AAD](resource-provider-operations.md#microsoftaad)/*/Read |  |
+> | [Microsoft. AAD](resource-provider-operations.md#microsoftaad)/domainServices/*/Read |  |
+> | [Microsoft. AAD](resource-provider-operations.md#microsoftaad)/domainServices/oucontainer/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -4091,26 +4200,26 @@ Pode ler, criar, modificar e excluir operações relacionadas aos serviços de d
 
 ### <a name="log-analytics-contributor"></a>Colaborador do Log Analytics
 
-O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure.
+O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.Automation/automationAccounts/* |  |
-> | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
-> | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Listar as chaves de acesso das contas de armazenamento. |
-> | Microsoft.Compute/virtualMachines/extensions/* |  |
-> | Microsoft.HybridCompute/machines/extensions/write | Instala ou atualiza uma extensão do Azure Arc |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
-> | Microsoft.OperationalInsights/* |  |
-> | Microsoft.OperationsManagement/* |  |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
-> | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/* |  |
+> | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/Extensions/* |  |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listKeys/Action | Listar as chaves de acesso das contas de armazenamento. |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/Extensions/* |  |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Extensions/Write | Instala ou atualiza uma extensão do Azure Arc |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/* |  |
+> | [Microsoft. OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/* |  |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/Deployments/* |  |
+> | /StorageAccounts/listKeys/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar as chaves de acesso da conta de armazenamento especificada. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -4157,18 +4266,18 @@ O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar
 
 ### <a name="log-analytics-reader"></a>Leitor do Log Analytics
 
-Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure.
+Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
-> | Microsoft.OperationalInsights/workspaces/search/action | Executar uma consulta de pesquisa |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Pesquisar usando o novo mecanismo. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Search/Action | Executar uma consulta de pesquisa |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
-> | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/sharedKeys/Read | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -4208,17 +4317,17 @@ Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramen
 
 ### <a name="blockchain-member-node-access-preview"></a>Acesso de Nó de Membro do Blockchain (Versão Prévia)
 
-Permite acesso a nós de Membro do Blockchain
+Permite o acesso a nós membros do Blockchain [saiba mais](../blockchain/service/configure-aad.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtém ou lista os nós de transação de membro Blockchain existentes. |
+> | [Microsoft. Blockchain](resource-provider-operations.md#microsoftblockchain)/blockchainMembers/transactionNodes/Read | Obtém ou lista os nós de transação de membro Blockchain existentes. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Conecta-se a um nó de transação de membro Blockchain. |
+> | [Microsoft. Blockchain](resource-provider-operations.md#microsoftblockchain)/blockchainMembers/transactionNodes/Connect/Action | Conecta-se a um nó de transação de membro Blockchain. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4253,29 +4362,29 @@ Permite acesso a nós de Membro do Blockchain
 
 ### <a name="cognitive-services-contributor"></a>Colaborador dos Serviços Cognitivos
 
-Permite criar, ler, atualizar, excluir e gerenciar chaves dos Serviços Cognitivos.
+Permite criar, ler, atualizar, excluir e gerenciar chaves dos Serviços Cognitivos. [Saiba mais](../cognitive-services/cognitive-services-virtual-networks.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.CognitiveServices/* |  |
-> | Microsoft.Features/features/read | Obter os recursos de uma assinatura. |
-> | Microsoft.Features/providers/features/read | Obter o recurso de uma assinatura em determinado provedor de recursos. |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
-> | Microsoft.Insights/logDefinitions/read | Ler definições de log |
-> | Microsoft.Insights/metricdefinitions/read | Ler definições de métrica |
-> | Microsoft.Insights/metrics/read | Ler métrica |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
-> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação da assinatura. |
-> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
-> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/* |  |
+> | /Features/Read [Microsoft. Features](resource-provider-operations.md#microsoftfeatures) | Obter os recursos de uma assinatura. |
+> | /Providers/Features/Read [Microsoft. Features](resource-provider-operations.md#microsoftfeatures) | Obter o recurso de uma assinatura em determinado provedor de recursos. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/logDefinitions/Read | Ler definições de log |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricdefinitions/Read | Ler definições de métrica |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Ler métrica |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Deployments/Operations/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou lista operações de implantação. |
+> | /Subscriptions/operationresults/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os resultados da operação da assinatura. |
+> | /Subscriptions/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter a lista de assinaturas. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/Deployments/* |  |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -4335,7 +4444,7 @@ Permite que você leia os dados dos Serviços Cognitivos.
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.CognitiveServices/*/read |  |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/*/Read |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4365,29 +4474,29 @@ Permite que você leia os dados dos Serviços Cognitivos.
 
 ### <a name="cognitive-services-user"></a>Usuário dos Serviços Cognitivos
 
-Permite ler e listar as chaves dos Serviços Cognitivos.
+Permite ler e listar as chaves dos Serviços Cognitivos. [Saiba mais](../cognitive-services/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.CognitiveServices/*/read |  |
-> | Microsoft.CognitiveServices/accounts/listkeys/action | Listar chaves |
-> | Microsoft.Insights/alertRules/read | Ler alerta de métrica clássico |
-> | Microsoft.Insights/diagnosticSettings/read | Ler uma configuração de diagnóstico de recurso |
-> | Microsoft.Insights/logDefinitions/read | Ler definições de log |
-> | Microsoft.Insights/metricdefinitions/read | Ler definições de métrica |
-> | Microsoft.Insights/metrics/read | Ler métrica |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
-> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação da assinatura. |
-> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/*/Read |  |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/listkeys/Action | Listar chaves |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/Read | Ler alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/Read | Ler uma configuração de diagnóstico de recurso |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/logDefinitions/Read | Ler definições de log |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricdefinitions/Read | Ler definições de métrica |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/Read | Ler métrica |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | /Deployments/Operations/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou lista operações de implantação. |
+> | /Subscriptions/operationresults/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os resultados da operação da assinatura. |
+> | /Subscriptions/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter a lista de assinaturas. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.CognitiveServices/* |  |
+> | [Microsoft. Cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/* |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4432,9 +4541,9 @@ Permite ler e listar as chaves dos Serviços Cognitivos.
 ## <a name="mixed-reality"></a>Realidade misturada
 
 
-### <a name="spatial-anchors-account-contributor"></a>Colaborador da Conta de Âncoras Espaciais
+### <a name="remote-rendering-administrator"></a>Administrador de renderização remoto
 
-Permite que você gerencie âncoras espaciais em sua conta, exceto excluí-las
+Fornece ao usuário recursos de conversão, gerenciamento de sessão, renderização e diagnóstico para a renderização remota do Azure [saiba mais](../remote-rendering/how-tos/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4444,12 +4553,114 @@ Permite que você gerencie âncoras espaciais em sua conta, exceto excluí-las
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Criar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Localizar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço de Âncoras Espaciais do Azure |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Atualizar propriedades de âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Convert/Action | Iniciar conversão de ativo |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Convert/Read | Obter propriedades de conversão de ativo |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Convert/Delete | Parar conversão de ativo |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Read | Obter propriedades da sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Action | Iniciar sessões |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Delete | Parar sessões |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a uma sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Diagnostic/Read | Conectar-se ao inspetor de renderização remoto |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides user with conversion, manage session, rendering and diagnostics capabilities for Azure Remote Rendering",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3df8b902-2a6f-47c7-8cc5-360e9b272a7e",
+  "name": "3df8b902-2a6f-47c7-8cc5-360e9b272a7e",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.MixedReality/RemoteRenderingAccounts/convert/action",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/convert/read",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/convert/delete",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/read",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/action",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/delete",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/render/read",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/diagnostic/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Remote Rendering Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="remote-rendering-client"></a>Cliente de renderização remota
+
+Fornece ao usuário recursos de gerenciamento de sessão, renderização e diagnóstico para a renderização remota do Azure. [Saiba mais](../remote-rendering/how-tos/authentication.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Read | Obter propriedades da sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Action | Iniciar sessões |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Delete | Parar sessões |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a uma sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Diagnostic/Read | Conectar-se ao inspetor de renderização remoto |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides user with manage session, rendering and diagnostics capabilities for Azure Remote Rendering.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d39065c4-c120-43c9-ab0a-63eed9795f0a",
+  "name": "d39065c4-c120-43c9-ab0a-63eed9795f0a",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/read",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/action",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/delete",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/render/read",
+        "Microsoft.MixedReality/RemoteRenderingAccounts/diagnostic/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Remote Rendering Client",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="spatial-anchors-account-contributor"></a>Colaborador da Conta de Âncoras Espaciais
+
+Permite gerenciar âncoras espaciais em sua conta, mas não excluí-las [saiba mais](../spatial-anchors/concepts/authentication.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Create/Action | Criar âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Discovery/Read | Descobrir âncoras espaciais próximas |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Properties/Read | Obter propriedades de âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Query/Read | Localizar âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/submitdiag/Read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço de Âncoras Espaciais do Azure |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Write | Atualizar propriedades de âncoras espaciais |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4484,7 +4695,7 @@ Permite que você gerencie âncoras espaciais em sua conta, exceto excluí-las
 
 ### <a name="spatial-anchors-account-owner"></a>Proprietário da Conta de Âncoras Espaciais
 
-Permite gerenciar âncoras espaciais em sua conta, inclusive excluí-las
+Permite gerenciar âncoras espaciais em sua conta, incluindo excluí-las [saiba mais](../spatial-anchors/concepts/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4494,13 +4705,13 @@ Permite gerenciar âncoras espaciais em sua conta, inclusive excluí-las
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Criar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Excluir âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Localizar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço de Âncoras Espaciais do Azure |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Atualizar propriedades de âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Create/Action | Criar âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Delete | Excluir âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Discovery/Read | Descobrir âncoras espaciais próximas |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Properties/Read | Obter propriedades de âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Query/Read | Localizar âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/submitdiag/Read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço de Âncoras Espaciais do Azure |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Write | Atualizar propriedades de âncoras espaciais |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4536,7 +4747,7 @@ Permite gerenciar âncoras espaciais em sua conta, inclusive excluí-las
 
 ### <a name="spatial-anchors-account-reader"></a>Leitor da Conta de Âncoras Espaciais
 
-Permite localizar e ler propriedades de âncoras espaciais em sua conta
+Permite localizar e ler propriedades de âncoras espaciais em sua conta [saiba mais](../spatial-anchors/concepts/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4546,10 +4757,10 @@ Permite localizar e ler propriedades de âncoras espaciais em sua conta
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Localizar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço de Âncoras Espaciais do Azure |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Discovery/Read | Descobrir âncoras espaciais próximas |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Properties/Read | Obter propriedades de âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/Query/Read | Localizar âncoras espaciais |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/SpatialAnchorsAccounts/submitdiag/Read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço de Âncoras Espaciais do Azure |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4585,19 +4796,19 @@ Permite localizar e ler propriedades de âncoras espaciais em sua conta
 
 ### <a name="api-management-service-contributor"></a>Colaborador de serviço de gerenciamento de API
 
-Pode gerenciar o serviço e as APIs
+Pode gerenciar o serviço e as APIs [saiba mais](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ApiManagement/service/* | Criar e gerenciar o serviço de gerenciamento da API |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/* | Criar e gerenciar o serviço de gerenciamento da API |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -4637,29 +4848,29 @@ Pode gerenciar o serviço e as APIs
 
 ### <a name="api-management-service-operator-role"></a>Função do operador de serviço de gerenciamento da API
 
-Pode gerenciar serviços, mas não as APIs
+Pode gerenciar o serviço, mas não as APIs [saiba mais](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ApiManagement/service/*/read | Ler instâncias do serviço de gerenciamento da API |
-> | Microsoft.ApiManagement/service/backup/action | Fazer backup do Serviço de Gerenciamento de API para o contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
-> | Microsoft.ApiManagement/service/delete | Excluir uma instância do Serviço de Gerenciamento de API |
-> | Microsoft.ApiManagement/service/managedeployments/action | Alterar SKU/unidades, adicionar/remover implantações regionais do Serviço de Gerenciamento de API |
-> | Microsoft.ApiManagement/service/read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
-> | Microsoft.ApiManagement/service/restore/action | Restaurar o Serviço de Gerenciamento de API do contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Carregar certificado TLS/SSL para um serviço de Gerenciamento de API |
-> | Microsoft.ApiManagement/service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizado para um Serviço de Gerenciamento de API |
-> | Microsoft.ApiManagement/service/write | Criar ou atualizar a instância do serviço de Gerenciamento de API |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/*/Read | Ler instâncias do serviço de gerenciamento da API |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/backup/Action | Fazer backup do Serviço de Gerenciamento de API para o contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Delete | Excluir uma instância do Serviço de Gerenciamento de API |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/managedeployments/Action | Alterar SKU/unidades, adicionar/remover implantações regionais do Serviço de Gerenciamento de API |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Restore/Action | Restaurar o Serviço de Gerenciamento de API do contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/updatecertificate/Action | Carregar certificado TLS/SSL para um serviço de Gerenciamento de API |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/updatehostname/Action | Configurar, atualizar ou remover nomes de domínio personalizado para um Serviço de Gerenciamento de API |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Write | Criar ou atualizar a instância do serviço de Gerenciamento de API |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obter chaves associadas ao usuário |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Users/Keys/Read | Obter chaves associadas ao usuário |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -4707,22 +4918,22 @@ Pode gerenciar serviços, mas não as APIs
 
 ### <a name="api-management-service-reader-role"></a>Função de leitor do Serviço de Gerenciamento de API
 
-Acesso somente leitura ao serviço e APIs
+Acesso somente leitura ao serviço e às APIs [saiba mais](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ApiManagement/service/*/read | Ler instâncias do serviço de gerenciamento da API |
-> | Microsoft.ApiManagement/service/read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/*/Read | Ler instâncias do serviço de gerenciamento da API |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obter chaves associadas ao usuário |
+> | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Users/Keys/Read | Obter chaves associadas ao usuário |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -4763,7 +4974,7 @@ Acesso somente leitura ao serviço e APIs
 
 ### <a name="app-configuration-data-owner"></a>Proprietário de Dados da Configuração de Aplicativos
 
-Permite o acesso completo aos dados de Configuração de Aplicativos.
+Permite o acesso completo aos dados de Configuração de Aplicativos. [Saiba mais](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4773,9 +4984,9 @@ Permite o acesso completo aos dados de Configuração de Aplicativos.
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.AppConfiguration/configurationStores/*/read |  |
-> | Microsoft.AppConfiguration/configurationStores/*/write |  |
-> | Microsoft.AppConfiguration/configurationStores/*/delete |  |
+> | [Microsoft. AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/Read |  |
+> | [Microsoft. AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/Write |  |
+> | [Microsoft. AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/Delete |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4807,7 +5018,7 @@ Permite o acesso completo aos dados de Configuração de Aplicativos.
 
 ### <a name="app-configuration-data-reader"></a>Leitor de Dados da Configuração de Aplicativos
 
-Permite o acesso de leitura aos dados de Configuração de Aplicativos.
+Permite o acesso de leitura aos dados de Configuração de Aplicativos. [Saiba mais](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4817,7 +5028,7 @@ Permite o acesso de leitura aos dados de Configuração de Aplicativos.
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.AppConfiguration/configurationStores/*/read |  |
+> | [Microsoft. AppConfiguration](resource-provider-operations.md#microsoftappconfiguration)/configurationStores/*/Read |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4847,17 +5058,17 @@ Permite o acesso de leitura aos dados de Configuração de Aplicativos.
 
 ### <a name="azure-service-bus-data-owner"></a>Proprietário de Dados de Barramento de Serviço do Azure
 
-Permite acesso completo aos recursos do Barramento de Serviço do Azure.
+Permite acesso completo aos recursos do Barramento de Serviço do Azure. [Saiba mais](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ServiceBus/* |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.ServiceBus/* |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/* |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4889,19 +5100,19 @@ Permite acesso completo aos recursos do Barramento de Serviço do Azure.
 
 ### <a name="azure-service-bus-data-receiver"></a>Receptor de Dados do Barramento de Serviço do Azure
 
-Permite acesso de recebimento aos recursos do Barramento de Serviço do Azure.
+Permite acesso de recebimento aos recursos do Barramento de Serviço do Azure. [Saiba mais](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ServiceBus/*/queues/read |  |
-> | Microsoft.ServiceBus/*/topics/read |  |
-> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/Queues/Read |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/Read |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/subscriptions/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.ServiceBus/*/receive/action |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/Receive/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4935,19 +5146,19 @@ Permite acesso de recebimento aos recursos do Barramento de Serviço do Azure.
 
 ### <a name="azure-service-bus-data-sender"></a>Remetente de Dados do Barramento de Serviço do Azure
 
-Permite o acesso de envio aos recursos do Barramento de Serviço do Azure.
+Permite o acesso de envio aos recursos do Barramento de Serviço do Azure. [Saiba mais](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ServiceBus/*/queues/read |  |
-> | Microsoft.ServiceBus/*/topics/read |  |
-> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/Queues/Read |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/Read |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/subscriptions/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.ServiceBus/*/send/action |  |
+> | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/Send/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -4987,9 +5198,10 @@ Permite que você gerencie registros do Microsoft Azure Stack.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.AzureStack/registrations/products/*/action |  |
-> | Microsoft.AzureStack/registrations/products/read | Obter as propriedades de um produto do Marketplace do Azure Stack |
-> | Microsoft.AzureStack/registrations/read | Obter as propriedades de um registro do Microsoft Azure Stack |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read | Obter as propriedades de uma assinatura do Azure Stack Edge |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/*/Action |  |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/Read | Obter as propriedades de um produto do Marketplace do Azure Stack |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Read | Obter as propriedades de um registro do Microsoft Azure Stack |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5008,6 +5220,7 @@ Permite que você gerencie registros do Microsoft Azure Stack.
   "permissions": [
     {
       "actions": [
+        "Microsoft.AzureStack/edgeSubscriptions/read",
         "Microsoft.AzureStack/registrations/products/*/action",
         "Microsoft.AzureStack/registrations/products/read",
         "Microsoft.AzureStack/registrations/read"
@@ -5025,21 +5238,21 @@ Permite que você gerencie registros do Microsoft Azure Stack.
 
 ### <a name="eventgrid-eventsubscription-contributor"></a>Colaborador de EventGrid EventSubscription
 
-Permite que você gerencie operações de assinatura de evento EventGrid.
+Permite que você gerencie operações de assinatura de evento EventGrid. [Saiba mais](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.EventGrid/eventSubscriptions/* |  |
-> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Listar assinaturas de eventos globais por tipo de tópico |
-> | Microsoft.EventGrid/locations/eventSubscriptions/read | Listar assinaturas de eventos regionais |
-> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Listar assinaturas de eventos regionais por tipo de tópico |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/* |  |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/topicTypes/eventSubscriptions/Read | Listar assinaturas de eventos globais por tipo de tópico |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/Locations/eventSubscriptions/Read | Listar assinaturas de eventos regionais |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/Locations/topicTypes/eventSubscriptions/Read | Listar assinaturas de eventos regionais por tipo de tópico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5081,18 +5294,18 @@ Permite que você gerencie operações de assinatura de evento EventGrid.
 
 ### <a name="eventgrid-eventsubscription-reader"></a>Leitor de EventGrid EventSubscription
 
-Permite que você gerencie operações de assinatura de evento EventGrid.
+Permite que você gerencie operações de assinatura de evento EventGrid. [Saiba mais](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.EventGrid/eventSubscriptions/read | Ler um eventSubscription |
-> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Listar assinaturas de eventos globais por tipo de tópico |
-> | Microsoft.EventGrid/locations/eventSubscriptions/read | Listar assinaturas de eventos regionais |
-> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Listar assinaturas de eventos regionais por tipo de tópico |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/Read | Ler um eventSubscription |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/topicTypes/eventSubscriptions/Read | Listar assinaturas de eventos globais por tipo de tópico |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/Locations/eventSubscriptions/Read | Listar assinaturas de eventos regionais |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/Locations/topicTypes/eventSubscriptions/Read | Listar assinaturas de eventos regionais por tipo de tópico |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5129,6 +5342,260 @@ Permite que você gerencie operações de assinatura de evento EventGrid.
 }
 ```
 
+### <a name="fhir-data-contributor"></a>Colaborador de dados do FHIR
+
+A função permite acesso completo de usuário ou principal aos dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft. HealthcareApis/Services/fhir/Resources/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal full access to FHIR Data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5a1fc7df-4bf1-4951-a576-89034ee01acd",
+  "name": "5a1fc7df-4bf1-4951-a576-89034ee01acd",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="fhir-data-exporter"></a>Exportador de dados FHIR
+
+A função permite que o usuário ou a entidade de segurança Leia e exporte dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft. HealthcareApis/Services/fhir/Resources/Read | Ler recursos do FHIR (inclui pesquisa e histórico com controle de versão).  |
+> | Microsoft. HealthcareApis/Services/fhir/Resources/Export/Action | Operação de exportação ($export). |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to read and export FHIR Data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3db33094-8700-4567-8da5-1501d4e7e843",
+  "name": "3db33094-8700-4567-8da5-1501d4e7e843",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/read",
+        "Microsoft.HealthcareApis/services/fhir/resources/export/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Exporter",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="fhir-data-reader"></a>Leitor de dados do FHIR
+
+A função permite que o usuário ou a entidade de segurança Leia FHIR dados [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft. HealthcareApis/Services/fhir/Resources/Read | Ler recursos do FHIR (inclui pesquisa e histórico com controle de versão).  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to read FHIR Data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4c8d0bbc-75d3-4935-991f-5f3c56d81508",
+  "name": "4c8d0bbc-75d3-4935-991f-5f3c56d81508",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="fhir-data-writer"></a>Gravador de dados FHIR
+
+A função permite que o usuário ou a entidade de segurança Leia e grave dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft. HealthcareApis/Services/fhir/Resources/* |  |
+> | **NotDataActions** |  |
+> | Microsoft. HealthcareApis/Services/fhir/Resources/hardDelete/Action | Exclusão impressa (incluindo o histórico de versão). |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to read and write FHIR Data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3f88fce4-5892-4214-ae73-ba5294559913",
+  "name": "3f88fce4-5892-4214-ae73-ba5294559913",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/*"
+      ],
+      "notDataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action"
+      ]
+    }
+  ],
+  "roleName": "FHIR Data Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="integration-service-environment-contributor"></a>Colaborador de Ambiente de Serviço de Integração
+
+Permite que você gerencie ambientes de serviço de integração, mas não tem acesso a eles. [Saiba mais](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage integration service environments, but not access to them.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a41e2c5b-bd99-4a07-88f4-9bf657a760b8",
+  "name": "a41e2c5b-bd99-4a07-88f4-9bf657a760b8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Logic/integrationServiceEnvironments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Integration Service Environment Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="integration-service-environment-developer"></a>Ambiente de Serviço de Integração Developer
+
+Permite que os desenvolvedores criem e atualizem fluxos de trabalho, contas de integração e conexões de API em ambientes de serviço de integração. [Saiba mais](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /IntegrationServiceEnvironments/Read [Microsoft. Logic](resource-provider-operations.md#microsoftlogic) | Lê o ambiente do serviço de integração. |
+> | /IntegrationServiceEnvironments/Join/Action [Microsoft. Logic](resource-provider-operations.md#microsoftlogic) | Une o Ambiente do Serviço de Integração. |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows developers to create and update workflows, integration accounts and API connections in integration service environments.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/c7aa55d3-1abb-444a-a5ca-5e51e485d6ec",
+  "name": "c7aa55d3-1abb-444a-a5ca-5e51e485d6ec",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Logic/integrationServiceEnvironments/read",
+        "Microsoft.Logic/integrationServiceEnvironments/join/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Integration Service Environment Developer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="intelligent-systems-account-contributor"></a>Colaborador de conta do sistemas inteligentes
 
 Permite gerenciar contas do Intelligent Systems, mas não acessá-las.
@@ -5137,13 +5604,13 @@ Permite gerenciar contas do Intelligent Systems, mas não acessá-las.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
 > | Microsoft.IntelligentSystems/accounts/* | Criar e gerenciar contas do Sistemas Inteligentes |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5183,33 +5650,33 @@ Permite gerenciar contas do Intelligent Systems, mas não acessá-las.
 
 ### <a name="logic-app-contributor"></a>Colaborador de aplicativo lógico
 
-Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o acesso a eles.
+Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o acesso a eles. [Saiba mais](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Listar as chaves de acesso das contas de armazenamento. |
-> | Microsoft.ClassicStorage/storageAccounts/read | Retornar a conta de armazenamento com a conta fornecida. |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/metricAlerts/* |  |
-> | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
-> | Microsoft.Insights/logdefinitions/* | Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
-> | Microsoft.Insights/metricDefinitions/* | Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
-> | Microsoft.Logic/* | Gerenciar recursos de Aplicativos Lógicos. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação da assinatura. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/listkeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
-> | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Web/connectionGateways/* | Criar e gerenciar um Gateway de Conexão. |
-> | Microsoft.Web/connections/* | Criar e gerenciar uma Conexão. |
-> | Microsoft.Web/customApis/* | Criar e gerenciar uma API Personalizada. |
-> | Microsoft.Web/serverFarms/join/action |  |
-> | Microsoft.Web/serverFarms/read | Obter as propriedades em um Plano do Serviço de Aplicativo |
-> | Microsoft.Web/sites/functions/listSecrets/action | Listar segredos de função. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listKeys/Action | Listar as chaves de acesso das contas de armazenamento. |
+> | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/Read | Retornar a conta de armazenamento com a conta fornecida. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/logdefinitions/* | Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/* | Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
+> | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/* | Gerenciar recursos de Aplicativos Lógicos. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/operationresults/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os resultados da operação da assinatura. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /StorageAccounts/listkeys/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar as chaves de acesso da conta de armazenamento especificada. |
+> | /StorageAccounts/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Criar e gerenciar um Gateway de Conexão. |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/Connections/* | Criar e gerenciar uma Conexão. |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/customApis/* | Criar e gerenciar uma API Personalizada. |
+> | /ServerFarms/Join/Action [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Une um plano do serviço de aplicativo |
+> | /ServerFarms/Read [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Obter as propriedades em um Plano do Serviço de Aplicativo |
+> | /Sites/Functions/listSecrets/Action [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Listar segredos de função. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5263,29 +5730,29 @@ Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o a
 
 ### <a name="logic-app-operator"></a>Operador de aplicativo lógico
 
-Permite a leitura, habilitação e desabilitação de aplicativos lógicos, mas você não pode editá-los ou atualizá-los.
+Permite a leitura, habilitação e desabilitação de aplicativos lógicos, mas você não pode editá-los ou atualizá-los. [Saiba mais](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/*/read | Ler regras de alerta do Insights |
-> | Microsoft.Insights/metricAlerts/*/read |  |
-> | Microsoft.Insights/diagnosticSettings/*/read | Obter configurações de diagnóstico para Aplicativos Lógicos |
-> | Microsoft.Insights/metricDefinitions/*/read | Obter as métricas disponíveis para Aplicativos Lógicos. |
-> | Microsoft.Logic/*/read | Ler recursos de Aplicativos Lógicos. |
-> | Microsoft.Logic/workflows/disable/action | Desabilitar o fluxo de trabalho. |
-> | Microsoft.Logic/workflows/enable/action | Permitir o fluxo de trabalho. |
-> | Microsoft.Logic/workflows/validate/action | Valida o fluxo de trabalho. |
-> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
-> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação da assinatura. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Web/connectionGateways/*/read | Ler gateways de conexão. |
-> | Microsoft.Web/connections/*/read | Ler conexões. |
-> | Microsoft.Web/customApis/*/read | Ler API personalizada. |
-> | Microsoft.Web/serverFarms/read | Obter as propriedades em um Plano do Serviço de Aplicativo |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/*/Read | Ler regras de alerta do Insights |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/*/Read |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/*/Read | Obter configurações de diagnóstico para Aplicativos Lógicos |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/*/Read | Obter as métricas disponíveis para Aplicativos Lógicos. |
+> | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/*/Read | Ler recursos de Aplicativos Lógicos. |
+> | /Workflows/Disable/Action [Microsoft. Logic](resource-provider-operations.md#microsoftlogic) | Desabilitar o fluxo de trabalho. |
+> | /Workflows/Enable/Action [Microsoft. Logic](resource-provider-operations.md#microsoftlogic) | Permitir o fluxo de trabalho. |
+> | /Workflows/Validate/Action [Microsoft. Logic](resource-provider-operations.md#microsoftlogic) | Valida o fluxo de trabalho. |
+> | /Deployments/Operations/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou lista operações de implantação. |
+> | /Subscriptions/operationresults/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os resultados da operação da assinatura. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/Read | Ler gateways de conexão. |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/Connections/*/Read | Ler conexões. |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/customApis/*/Read | Ler API personalizada. |
+> | /ServerFarms/Read [Microsoft. Web](resource-provider-operations.md#microsoftweb) | Obter as propriedades em um Plano do Serviço de Aplicativo |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5338,20 +5805,20 @@ Permite a leitura, habilitação e desabilitação de aplicativos lógicos, mas 
 
 ### <a name="managed-identity-contributor"></a>Colaborador de Identidade Gerenciada
 
-Criar, ler, atualizar e excluir a identidade atribuída pelo usuário
+Criar, ler, atualizar e excluir identidade atribuída ao usuário [saiba mais](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/read | Obter uma identidade atribuída ao usuário existente |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/write | Criar uma nova identidade atribuída ao usuário ou atualizar as marcas associadas a uma identidade atribuída a um usuário existente |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Excluir uma identidade atribuída ao usuário existente |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/Read | Obter uma identidade atribuída ao usuário existente |
+> | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/Write | Criar uma nova identidade atribuída ao usuário ou atualizar as marcas associadas a uma identidade atribuída a um usuário existente |
+> | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/Delete | Excluir uma identidade atribuída ao usuário existente |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5392,19 +5859,19 @@ Criar, ler, atualizar e excluir a identidade atribuída pelo usuário
 
 ### <a name="managed-identity-operator"></a>Operador de Identidade Gerenciada
 
-Ler e atribuir identidade atribuída pelo usuário
+Ler e atribuir identidade atribuída ao usuário [saiba mais](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/*/Read |  |
+> | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/*/Assign/Action |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5447,26 +5914,26 @@ Ler e atribuir identidade atribuída pelo usuário
 
 ### <a name="azure-sentinel-contributor"></a>Colaborador do Azure Sentinel
 
-Colaborador do Azure Sentinel
+Colaborador do Azure Sentinel [saiba mais](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.SecurityInsights/* |  |
-> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
-> | Microsoft.OperationalInsights/workspaces/*/read | Exibir dados da análise de logs |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
-> | Microsoft.OperationsManagement/solutions/read | Obter solução OMS de saída |
-> | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas dos dados no workspace |
-> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
-> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados em um workspace. |
-> | Microsoft.Insights/workbooks/* |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/* |  |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Pesquisar usando o novo mecanismo. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/savedSearches/* |  |
+> | [Microsoft. OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/Solutions/Read | Obter solução OMS de saída |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/Read | Executar consultas dos dados no workspace |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/* |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5513,28 +5980,28 @@ Colaborador do Azure Sentinel
 
 ### <a name="azure-sentinel-reader"></a>Leitor do Azure Sentinel
 
-Leitor do Azure Sentinel
+Leitor do Azure Sentinel [saiba mais](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.SecurityInsights/*/read |  |
-> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Verificar a autorização e a licença do usuário |
-> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
-> | Microsoft.OperationalInsights/workspaces/*/read | Exibir dados da análise de logs |
-> | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Obter serviços vinculados em um determinado workspace. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obter uma consulta de pesquisa salva |
-> | Microsoft.OperationsManagement/solutions/read | Obter solução OMS de saída |
-> | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas dos dados no workspace |
-> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
-> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados em um workspace. |
-> | Microsoft.Insights/workbooks/read | Ler uma pasta de trabalho |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Verificar a autorização e a licença do usuário |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Pesquisar usando o novo mecanismo. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/LinkedServices/Read | Obter serviços vinculados em um determinado workspace. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/savedSearches/Read | Obter uma consulta de pesquisa salva |
+> | [Microsoft. OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/Solutions/Read | Obter solução OMS de saída |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/Read | Executar consultas dos dados no workspace |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Ler uma pasta de trabalho |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5583,30 +6050,30 @@ Leitor do Azure Sentinel
 
 ### <a name="azure-sentinel-responder"></a>Respondente do Azure Sentinel
 
-Respondente do Azure Sentinel
+Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.SecurityInsights/*/read |  |
-> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Verificar a autorização e a licença do usuário |
-> | Microsoft.SecurityInsights/cases/* |  |
-> | Microsoft.SecurityInsights/incidents/* |  |
-> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
-> | Microsoft.OperationalInsights/workspaces/*/read | Exibir dados da análise de logs |
-> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados em um workspace. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obter uma consulta de pesquisa salva |
-> | Microsoft.OperationsManagement/solutions/read | Obter solução OMS de saída |
-> | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas dos dados no workspace |
-> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
-> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados em um workspace. |
-> | Microsoft.Insights/workbooks/read | Ler uma pasta de trabalho |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Verificar a autorização e a licença do usuário |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/* |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/Incidents/* |  |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Pesquisar usando o novo mecanismo. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/savedSearches/Read | Obter uma consulta de pesquisa salva |
+> | [Microsoft. OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/Solutions/Read | Obter solução OMS de saída |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/Read | Executar consultas dos dados no workspace |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Ler uma pasta de trabalho |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5657,21 +6124,21 @@ Respondente do Azure Sentinel
 
 ### <a name="key-vault-contributor"></a>Colaborador do Key Vault
 
-Permite gerenciar cofres de chaves, mas não acessá-los.
+Permite gerenciar cofres de chaves, mas não acessá-los. [Saiba mais](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.KeyVault/* |  |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/* |  |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
-> | Microsoft.KeyVault/locations/deletedVaults/purge/action | Limpar um cofre de chaves com exclusão reversível |
-> | Microsoft.KeyVault/hsmPools/* |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Locations/deletedVaults/Purge/Action | Limpar um cofre de chaves com exclusão reversível |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/hsmPools/* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -5711,23 +6178,23 @@ Permite gerenciar cofres de chaves, mas não acessá-los.
 
 ### <a name="security-admin"></a>Administrador de Segurança
 
-Visualiza e atualiza permissões para a Central de Segurança. Mesmas permissões que a função de leitor de segurança e também podem atualizar a política de segurança e ignorar alertas e recomendações.
+Visualiza e atualiza permissões para a Central de Segurança. Mesmas permissões que a função de leitor de segurança e também podem atualizar a política de segurança e ignorar alertas e recomendações. [Saiba mais](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Authorization/policyAssignments/* | Criar e gerenciar atribuições de política |
-> | Microsoft.Authorization/policyDefinitions/* | Criar e gerenciar definições de política |
-> | Microsoft.Authorization/policySetDefinitions/* | Criar e gerenciar conjuntos de política |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
-> | Microsoft.operationalInsights/workspaces/*/read | Exibir dados da análise de logs |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Security/* | Criar e gerenciar políticas e componentes de segurança |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyAssignments/* | Criar e gerenciar atribuições de política |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/PolicyDefinitions/* | Criar e gerenciar definições de política |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policySetDefinitions/* | Criar e gerenciar conjuntos de política |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
+> | [Microsoft. operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/* | Criar e gerenciar políticas e componentes de segurança |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5777,7 +6244,7 @@ Permite enviar avaliações por push para a Central de Segurança
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Security/assessments/write | Criar ou atualizar avaliações de segurança em sua assinatura |
+> | /Assessments/Write [Microsoft. Security](resource-provider-operations.md#microsoftsecurity) | Criar ou atualizar avaliações de segurança em sua assinatura |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5817,16 +6284,16 @@ Esta é uma função herdada. Em vez disso, use o Administrador de Segurança.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.ClassicCompute/*/read | Ler informações de configuração de máquinas virtuais clássicas |
-> | Microsoft.ClassicCompute/virtualMachines/*/write | Escrever configurações para máquinas virtuais clássicas |
-> | Microsoft.ClassicNetwork/*/read | Ler informações de configuração sobre a rede clássica |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Security/* | Criar e gerenciar políticas e componentes de segurança |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/*/Read | Ler informações de configuração de máquinas virtuais clássicas |
+> | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/*/Write | Escrever configurações para máquinas virtuais clássicas |
+> | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/*/Read | Ler informações de configuração sobre a rede clássica |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/* | Criar e gerenciar políticas e componentes de segurança |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5869,20 +6336,20 @@ Esta é uma função herdada. Em vez disso, use o Administrador de Segurança.
 
 ### <a name="security-reader"></a>Leitor de segurança
 
-Visualiza permissões para a Central de Segurança. Pode exibir recomendações, alertas, uma política de segurança e estados de segurança, mas não pode fazer alterações.
+Visualiza permissões para a Central de Segurança. Pode exibir recomendações, alertas, uma política de segurança e estados de segurança, mas não pode fazer alterações. [Saiba mais](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.operationalInsights/workspaces/*/read | Exibir dados da análise de logs |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Security/*/read | Ler componentes de segurança e políticas |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/*/Read | Ler componentes de segurança e políticas |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -5926,46 +6393,46 @@ Visualiza permissões para a Central de Segurança. Pode exibir recomendações,
 
 ### <a name="devtest-labs-user"></a>Usuário do DevTest Labs
 
-Permite conectar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs.
+Permite conectar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. [Saiba mais](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Compute/availabilitySets/read | Obter as propriedades de um conjunto de disponibilidade |
-> | Microsoft.Compute/virtualMachines/*/read | Ler as propriedades de uma máquina virtual (tamanhos de VM, status de runtime, extensões de VM etc.) |
-> | Microsoft.Compute/virtualMachines/deallocate/action | Desligar a máquina virtual e liberar os recursos de computação |
-> | Microsoft.Compute/virtualMachines/read | Obter as propriedades de uma máquina virtual |
-> | Microsoft.Compute/virtualMachines/restart/action | Reinicia a máquina virtual |
-> | Microsoft.Compute/virtualMachines/start/action | Inicia a máquina virtual |
-> | Microsoft.DevTestLab/*/read | Ler as propriedades de um laboratório |
-> | Microsoft.DevTestLab/labs/claimAnyVm/action | Declarar uma máquina virtual aleatória declarável no laboratório. |
-> | Microsoft.DevTestLab/labs/createEnvironment/action | Criar máquinas virtuais em um laboratório. |
-> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Verificar se o usuário atual tem um perfil válido no laboratório. |
-> | Microsoft.DevTestLab/labs/formulas/delete | Excluir fórmulas. |
-> | Microsoft.DevTestLab/labs/formulas/read | Ler fórmulas. |
-> | Microsoft.DevTestLab/labs/formulas/write | Adicionar ou modificar fórmulas. |
-> | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Avaliar a política de laboratório. |
-> | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Assumir o controle de uma máquina virtual existente |
-> | Microsoft.DevTestLab/labs/virtualMachines/ListApplicableSchedules/action | Lista as agendas de iniciar/parar aplicáveis, se houver alguma. |
-> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Obtém uma cadeia de caracteres que representa o conteúdo do arquivo RDP para a máquina virtual |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ingressar em um pool de endereços de back-end do balanceador de carga. Não é possível alertá-lo. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Adicionar uma regra NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
-> | Microsoft.Network/networkInterfaces/*/read | Ler as propriedades de uma interface de rede (por exemplo, todos os balanceadores de carga dos quais o adaptador de rede faz parte) |
-> | Microsoft.Network/networkInterfaces/join/action | Adicionar uma Máquina Virtual a um adaptador de rede. Não é possível alertá-lo. |
-> | Microsoft.Network/networkInterfaces/read | Obter uma definição de adaptador de rede.  |
-> | Microsoft.Network/networkInterfaces/write | Criar uma interface de rede ou atualizar uma interface de rede existente.  |
-> | Microsoft.Network/publicIPAddresses/*/read | Ler as propriedades de um endereço IP público |
-> | Microsoft.Network/publicIPAddresses/join/action | Ingressar em um endereço IP público. Não é possível alertá-lo. |
-> | Microsoft.Network/publicIPAddresses/read | Obter uma definição de endereço IP público. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual. Não é possível alertá-lo. |
-> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
-> | Microsoft.Resources/deployments/read | Obter ou lista implantações. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /AvailabilitySets/Read [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Obter as propriedades de um conjunto de disponibilidade |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/Read | Ler as propriedades de uma máquina virtual (tamanhos de VM, status de runtime, extensões de VM etc.) |
+> | /VirtualMachines/DEALLOCATE/Action [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Desligar a máquina virtual e liberar os recursos de computação |
+> | /VirtualMachines/Read [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Obter as propriedades de uma máquina virtual |
+> | /VirtualMachines/Restart/Action [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Reinicia a máquina virtual |
+> | /VirtualMachines/Start/Action [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Inicia a máquina virtual |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/*/Read | Ler as propriedades de um laboratório |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/claimAnyVm/Action | Declarar uma máquina virtual aleatória declarável no laboratório. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/createEnvironment/Action | Criar máquinas virtuais em um laboratório. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/ensureCurrentUserProfile/Action | Verificar se o usuário atual tem um perfil válido no laboratório. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/formulas/Delete | Excluir fórmulas. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/formulas/Read | Ler fórmulas. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/formulas/Write | Adicionar ou modificar fórmulas. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/policySets/evaluatePolicies/Action | Avaliar a política de laboratório. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/virtualMachines/Claim/Action | Assumir o controle de uma máquina virtual existente |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/VirtualMachines/listApplicableSchedules/Action | Lista as agendas de iniciar/parar aplicáveis, se houver alguma. |
+> | [Microsoft. DevTestLab](resource-provider-operations.md#microsoftdevtestlab)/Labs/virtualMachines/getRdpFileContents/Action | Obtém uma cadeia de caracteres que representa o conteúdo do arquivo RDP para a máquina virtual |
+> | /LoadBalancers/backendAddressPools/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um pool de endereços de back-end do balanceador de carga. Não é possível alertá-lo. |
+> | /LoadBalancers/inboundNatRules/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar uma regra NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/*/Read | Ler as propriedades de uma interface de rede (por exemplo, todos os balanceadores de carga dos quais o adaptador de rede faz parte) |
+> | /NetworkInterfaces/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Adicionar uma Máquina Virtual a um adaptador de rede. Não é possível alertá-lo. |
+> | /NetworkInterfaces/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de adaptador de rede.  |
+> | /NetworkInterfaces/Write [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Criar uma interface de rede ou atualizar uma interface de rede existente.  |
+> | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/*/Read | Ler as propriedades de um endereço IP público |
+> | /PublicIPAddresses/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em um endereço IP público. Não é possível alertá-lo. |
+> | /PublicIPAddresses/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter uma definição de endereço IP público. |
+> | /VirtualNetworks/Subnets/Join/Action [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Ingressar em uma rede virtual. Não é possível alertá-lo. |
+> | /Deployments/Operations/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou lista operações de implantação. |
+> | /Deployments/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou lista implantações. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /StorageAccounts/listKeys/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar as chaves de acesso da conta de armazenamento especificada. |
 > | **NotActions** |  |
-> | Microsoft.Compute/virtualMachines/vmSizes/read | Listar os tamanhos disponíveis para os quais a máquina virtual possa ser atualizada |
+> | /VirtualMachines/vmSizes/Read [Microsoft. Compute](resource-provider-operations.md#microsoftcompute) | Listar os tamanhos disponíveis para os quais a máquina virtual possa ser atualizada |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -6030,21 +6497,21 @@ Permite conectar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure D
 
 ### <a name="lab-creator"></a>Criador de laboratório
 
-Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas contas de laboratório do Azure.
+Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas contas de laboratório do Azure. [Saiba mais](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.LabServices/labAccounts/*/read |  |
-> | Microsoft.LabServices/labAccounts/createLab/action | Criar um laboratório em uma conta de laboratório. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
-> | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obter informações sobre disponibilidade regional para cada categoria de tamanho configurado em uma conta de laboratório |
-> | Microsoft.LabServices/labAccounts/getPricingAndAvailability/action | Obter o preço e a disponibilidade de combinações de tamanhos, geografias e sistemas operacionais para a conta de laboratório. |
-> | Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action | Obter restrições básicas e uso para esta assinatura |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/*/Read |  |
+> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/createLab/Action | Criar um laboratório em uma conta de laboratório. |
+> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/sizes/getRegionalAvailability/Action |  |
+> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/getRegionalAvailability/Action | Obter informações sobre disponibilidade regional para cada categoria de tamanho configurado em uma conta de laboratório |
+> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/getPricingAndAvailability/Action | Obter o preço e a disponibilidade de combinações de tamanhos, geografias e sistemas operacionais para a conta de laboratório. |
+> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/getRestrictionsAndUsage/Action | Obter restrições básicas e uso para esta assinatura |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6089,21 +6556,21 @@ Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas cont
 
 ### <a name="application-insights-component-contributor"></a>Colaborador de componente do Application Insights
 
-Pode gerenciar os componentes do Application Insights
+Pode gerenciar Application Insights componentes [saiba mais](../azure-monitor/app/resources-roles-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta clássicas |
-> | Microsoft.Insights/metricAlerts/* | Criar e gerenciar novas regras de alerta |
-> | Microsoft.Insights/components/* | Criar e gerenciar componentes do Insights |
-> | Microsoft.Insights/webtests/* | Criar e gerenciar testes na Web do insights |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar regras de alerta clássicas |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/* | Criar e gerenciar novas regras de alerta |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/* | Criar e gerenciar componentes do Insights |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/webtests/* | Criar e gerenciar testes na Web do insights |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6145,18 +6612,18 @@ Pode gerenciar os componentes do Application Insights
 
 ### <a name="application-insights-snapshot-debugger"></a>Depurador de Instantâneos do Application Insights
 
-Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). Quando você concede aos usuários a função de Depurador de Instantâneos do Application Insights, deve conceder a função diretamente ao usuário. A função não é reconhecida quando adicionada a uma função personalizada. 
+Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). Quando você concede aos usuários a função de Depurador de Instantâneos do Application Insights, deve conceder a função diretamente ao usuário. A função não é reconhecida quando adicionada a uma função personalizada. [Saiba mais](../azure-monitor/app/snapshot-debugger.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/*/Read |  |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6195,43 +6662,43 @@ Concede permissão ao usuário para exibir e baixar os instantâneos de depuraç
 
 ### <a name="monitoring-contributor"></a>Colaborador de monitoramento
 
-Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles).
+Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.AlertsManagement/alerts/* |  |
-> | Microsoft.AlertsManagement/alertsSummary/* |  |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/activityLogAlerts/* |  |
-> | Microsoft.Insights/AlertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Insights/components/* | Criar e gerenciar componentes do Insights |
-> | Microsoft.Insights/DiagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
-> | Microsoft.Insights/eventtypes/* | Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável ao acesso programático e ao portal para o Log de atividades. |
-> | Microsoft.Insights/LogDefinitions/* | Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
-> | Microsoft.Insights/metricalerts/* |  |
-> | Microsoft.Insights/MetricDefinitions/* | Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
-> | Microsoft.Insights/Metrics/* | Ler as métricas para um recurso. |
-> | Microsoft.Insights/Register/Action | Registrar o provedor do Microsoft Insights |
-> | Microsoft.Insights/scheduledqueryrules/* |  |
-> | Microsoft.Insights/webtests/* | Criar e gerenciar testes na Web do insights |
-> | Microsoft.Insights/workbooks/* |  |
-> | Microsoft.Insights/privateLinkScopes/* |  |
-> | Microsoft.Insights/privateLinkScopeOperationStatuses/* |  |
-> | Microsoft.OperationalInsights/workspaces/write | Criar um novo workspace ou links para um workspace existente fornecendo a ID do cliente do workspace existente. |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Ler/gravar/excluir pacotes de solução de análise de logs. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Ler/gravar/excluir pesquisas salvas do de análise de logs. |
-> | Microsoft.OperationalInsights/workspaces/search/action | Executar uma consulta de pesquisa |
-> | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Ler/gravar/excluir configurações de insight de armazenamento da análise de logs. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.WorkloadMonitor/monitors/* |  |
-> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
-> | Microsoft.AlertsManagement/actionRules/* |  |
-> | Microsoft.AlertsManagement/smartGroups/* |  |
+> | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/Alerts/* |  |
+> | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/alertsSummary/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/actiongroups/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/activityLogAlerts/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/AlertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/* | Criar e gerenciar componentes do Insights |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/EventTypes/* | Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável ao acesso programático e ao portal para o Log de atividades. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/LogDefinitions/* | Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricalerts/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/MetricDefinitions/* | Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/* | Ler as métricas para um recurso. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Register/Action | Registrar o provedor do Microsoft Insights |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/scheduledqueryrules/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/webtests/* | Criar e gerenciar testes na Web do insights |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/privateLinkScopes/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/privateLinkScopeOperationStatuses/* |  |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Write | Criar um novo workspace ou links para um workspace existente fornecendo a ID do cliente do workspace existente. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/intelligencepacks/* | Ler/gravar/excluir pacotes de solução de análise de logs. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/savedSearches/* | Ler/gravar/excluir pesquisas salvas do de análise de logs. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Search/Action | Executar uma consulta de pesquisa |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/sharedKeys/Action | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/storageinsightconfigs/* | Ler/gravar/excluir configurações de insight de armazenamento da análise de logs. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/Monitors/* |  |
+> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/notificationSettings/* |  |
+> | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
+> | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
+> | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6295,19 +6762,19 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
 
 ### <a name="monitoring-metrics-publisher"></a>Publicador de Métricas de Monitoramento
 
-Habilita a publicação de métricas com base nos recursos do Azure
+Permite a publicação de métricas em relação aos recursos do Azure [saiba mais](../azure-monitor/insights/container-insights-update-metrics.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Insights/Register/Action | Registrar o provedor do Microsoft Insights |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Register/Action | Registrar o provedor do Microsoft Insights |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Insights/Metrics/Write | Gravar métricas |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Metrics/Write | Gravar métricas |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -6341,15 +6808,15 @@ Habilita a publicação de métricas com base nos recursos do Azure
 
 ### <a name="monitoring-reader"></a>Leitor de monitoramento
 
-Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles).
+Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.OperationalInsights/workspaces/search/action | Executar uma consulta de pesquisa |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Search/Action | Executar uma consulta de pesquisa |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6385,15 +6852,15 @@ Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte també
 
 ### <a name="workbook-contributor"></a>Colaborador da Pasta de Trabalho
 
-Pode salvar as pastas de trabalho compartilhadas.
+Pode salvar as pastas de trabalho compartilhadas. [Saiba mais](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Insights/workbooks/write | Criar ou atualizar uma pasta de trabalho |
-> | Microsoft.Insights/workbooks/delete | Excluir uma pasta de trabalho |
-> | Microsoft.Insights/workbooks/read | Ler uma pasta de trabalho |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Write | Criar ou atualizar uma pasta de trabalho |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Delete | Excluir uma pasta de trabalho |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Ler uma pasta de trabalho |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6429,13 +6896,13 @@ Pode salvar as pastas de trabalho compartilhadas.
 
 ### <a name="workbook-reader"></a>Leitor de Pasta de Trabalho
 
-Pode ler as pastas de trabalho.
+Pode ler as pastas de trabalho. [Saiba mais](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | microsoft.insights/workbooks/read | Ler uma pasta de trabalho |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Ler uma pasta de trabalho |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6472,25 +6939,25 @@ Pode ler as pastas de trabalho.
 
 ### <a name="automation-job-operator"></a>Operador do Trabalho de Automação
 
-Criar e gerenciar trabalhos usando runbooks de Automação.
+Criar e gerenciar trabalhos usando runbooks de Automação. [Saiba mais](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Ler recursos do Hybrid Runbook Worker |
-> | Microsoft.Automation/automationAccounts/jobs/read | Obter um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/resume/action | Reinicia um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/stop/action | Interrompe um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/streams/read | Obter um fluxo de trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspende um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/write | Criar um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/output/read | Obter a saída de um trabalho |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /AutomationAccounts/hybridRunbookWorkerGroups/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Ler recursos do Hybrid Runbook Worker |
+> | /AutomationAccounts/Jobs/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/resume/Action [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Reinicia um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/Stop/Action [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Interrompe um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/streams/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter um fluxo de trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/Suspend/Action [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Suspende um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/Write [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Criar um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/output/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter a saída de um trabalho |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6536,33 +7003,33 @@ Criar e gerenciar trabalhos usando runbooks de Automação.
 
 ### <a name="automation-operator"></a>Operador de automação
 
-Os Operadores de Automação podem iniciar, interromper, suspender e retomar trabalhos
+Os operadores de automação podem iniciar, parar, suspender e retomar trabalhos [saiba mais](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Ler recursos do Hybrid Runbook Worker |
-> | Microsoft.Automation/automationAccounts/jobs/read | Obter um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/resume/action | Reinicia um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/stop/action | Interrompe um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/streams/read | Obter um fluxo de trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspende um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobs/write | Criar um trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobSchedules/read | Obter uma agenda de trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/jobSchedules/write | Criar uma agenda de trabalho da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/linkedWorkspace/read | Obtém o workspace vinculado à conta de automação |
-> | Microsoft.Automation/automationAccounts/read | Obter uma conta da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/runbooks/read | Obter um runbook da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/schedules/read | Obter um ativo de agendamento da Automação do Azure |
-> | Microsoft.Automation/automationAccounts/schedules/write | Criar ou atualizar um ativo de agendamento da Automação do Azure |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Automation/automationAccounts/jobs/output/read | Obter a saída de um trabalho |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /AutomationAccounts/hybridRunbookWorkerGroups/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Ler recursos do Hybrid Runbook Worker |
+> | /AutomationAccounts/Jobs/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/resume/Action [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Reinicia um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/Stop/Action [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Interrompe um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/streams/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter um fluxo de trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/Suspend/Action [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Suspende um trabalho da Automação do Azure |
+> | /AutomationAccounts/Jobs/Write [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Criar um trabalho da Automação do Azure |
+> | /AutomationAccounts/jobSchedules/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter uma agenda de trabalho da Automação do Azure |
+> | /AutomationAccounts/jobSchedules/Write [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Criar uma agenda de trabalho da Automação do Azure |
+> | /AutomationAccounts/linkedWorkspace/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obtém o workspace vinculado à conta de automação |
+> | /AutomationAccounts/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter uma conta da Automação do Azure |
+> | /AutomationAccounts/runbooks/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter um runbook da Automação do Azure |
+> | /AutomationAccounts/Schedules/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter um ativo de agendamento da Automação do Azure |
+> | /AutomationAccounts/Schedules/Write [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Criar ou atualizar um ativo de agendamento da Automação do Azure |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /AutomationAccounts/Jobs/output/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter a saída de um trabalho |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6616,18 +7083,18 @@ Os Operadores de Automação podem iniciar, interromper, suspender e retomar tra
 
 ### <a name="automation-runbook-operator"></a>Operador de Runbook de Automação
 
-Ler propriedades do Runbook - para poder criar Trabalhos do runbook.
+Ler propriedades do Runbook - para poder criar Trabalhos do runbook. [Saiba mais](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Automation/automationAccounts/runbooks/read | Obter um runbook da Automação do Azure |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /AutomationAccounts/runbooks/Read [Microsoft. Automation](resource-provider-operations.md#microsoftautomation) | Obter um runbook da Automação do Azure |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6666,15 +7133,15 @@ Ler propriedades do Runbook - para poder criar Trabalhos do runbook.
 
 ### <a name="azure-connected-machine-onboarding"></a>Integração de Azure Connected Machine
 
-Pode integrar Azure Connected Machines.
+Pode integrar Azure Connected Machines. [Saiba mais](../azure-arc/servers/onboard-service-principal.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.HybridCompute/machines/read | Ler qualquer computador do Azure Arc |
-> | Microsoft.HybridCompute/machines/write | Grava um computador do Azure Arc |
-> | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Obter atribuição de configuração de convidado. |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Read | Ler qualquer computador do Azure Arc |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Write | Grava um computador do Azure Arc |
+> | [Microsoft. GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/Read | Obter atribuição de configuração de convidado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6716,12 +7183,12 @@ Pode ler, gravar, excluir e reintegrar Azure Connected Machines.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.HybridCompute/machines/read | Ler qualquer computador do Azure Arc |
-> | Microsoft.HybridCompute/machines/write | Grava um computador do Azure Arc |
-> | Microsoft.HybridCompute/machines/delete | Exclui um computador do Azure Arc |
-> | Microsoft.HybridCompute/machines/reconnect/action | Reconecta um computador do Azure Arc |
-> | Microsoft.HybridCompute/machines/extensions/write | Instala ou atualiza uma extensão do Azure Arc |
-> | Microsoft.HybridCompute/*/read |  |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Read | Ler qualquer computador do Azure Arc |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Write | Grava um computador do Azure Arc |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Delete | Exclui um computador do Azure Arc |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/reconnect/Action | Reconecta um computador do Azure Arc |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Extensions/Write | Instala ou atualiza uma extensão do Azure Arc |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/*/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6760,19 +7227,19 @@ Pode ler, gravar, excluir e reintegrar Azure Connected Machines.
 
 ### <a name="billing-reader"></a>Leitor de cobrança
 
-Permite o acesso de leitura aos dados de cobrança
+Permite o acesso de leitura aos dados de cobrança [saiba mais](../cost-management-billing/manage/manage-billing-access.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Billing/*/read | Ler Informações de cobrança |
-> | Microsoft.Commerce/*/read |  |
-> | Microsoft.Consumption/*/read |  |
-> | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
-> | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. billing](resource-provider-operations.md#microsoftbilling)/*/Read | Ler Informações de cobrança |
+> | [Microsoft. Commerce](resource-provider-operations.md#microsoftcommerce)/*/Read |  |
+> | [Microsoft. consumo](resource-provider-operations.md#microsoftconsumption)/*/Read |  |
+> | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
+> | [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement)/*/Read |  |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6812,17 +7279,17 @@ Permite o acesso de leitura aos dados de cobrança
 
 ### <a name="blueprint-contributor"></a>Colaborador do Blueprint
 
-Pode gerenciar definições de blueprint, mas não as atribuir.
+Pode gerenciar definições de blueprint, mas não as atribuir. [Saiba mais](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Blueprint/blueprints/* | Criar e gerenciar definições de blueprint ou artefatos de blueprint. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Blueprint](resource-provider-operations.md#microsoftblueprint)/Blueprints/* | Criar e gerenciar definições de blueprint ou artefatos de blueprint. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6860,17 +7327,17 @@ Pode gerenciar definições de blueprint, mas não as atribuir.
 
 ### <a name="blueprint-operator"></a>Operador de Blueprint
 
-Pode atribuir blueprints publicados existentes, mas não pode criar novos blueprints. Observe que isso só funcionará se a atribuição for feita com uma identidade gerenciada atribuída pelo usuário.
+Pode atribuir blueprints publicados existentes, mas não pode criar novos blueprints. Observe que isso só funcionará se a atribuição for feita com uma identidade gerenciada atribuída pelo usuário. [Saiba mais](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Blueprint/blueprintAssignments/* | Criar e gerenciar atribuições de blueprint. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Blueprint](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/* | Criar e gerenciar atribuições de blueprint. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6908,21 +7375,21 @@ Pode atribuir blueprints publicados existentes, mas não pode criar novos bluepr
 
 ### <a name="cost-management-contributor"></a>Colaborador do Gerenciamento de Custos
 
-Pode exibir os custos e gerenciar a configuração de custo (por exemplo, orçamentos, exportações)
+Pode exibir custos e gerenciar a configuração de custo (por exemplo, orçamentos, exportações) [saiba mais](../cost-management-billing/costs/understand-work-scopes.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Consumption/* |  |
-> | Microsoft.CostManagement/* |  |
-> | Microsoft.Billing/billingPeriods/read |  |
-> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Advisor/configurations/read | Obter configurações |
-> | Microsoft.Advisor/recommendations/read | Ler recomendações |
-> | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
+> | [Microsoft. consumo](resource-provider-operations.md#microsoftconsumption)/* |  |
+> | [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement)/* |  |
+> | /BillingPeriods/Read [Microsoft. billing](resource-provider-operations.md#microsoftbilling) |  |
+> | /Subscriptions/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter a lista de assinaturas. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /Configurations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Obter configurações |
+> | /Recommendations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Ler recomendações |
+> | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6964,21 +7431,21 @@ Pode exibir os custos e gerenciar a configuração de custo (por exemplo, orçam
 
 ### <a name="cost-management-reader"></a>Leitor do Gerenciamento de Custos
 
-Pode exibir dados e configuração de custos (por exemplo, orçamentos, exportações)
+Pode exibir dados de custo e configuração (por exemplo, orçamentos, exportações) [saiba mais](../cost-management-billing/costs/understand-work-scopes.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Consumption/*/read |  |
-> | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Billing/billingPeriods/read |  |
-> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Advisor/configurations/read | Obter configurações |
-> | Microsoft.Advisor/recommendations/read | Ler recomendações |
-> | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
+> | [Microsoft. consumo](resource-provider-operations.md#microsoftconsumption)/*/Read |  |
+> | [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement)/*/Read |  |
+> | /BillingPeriods/Read [Microsoft. billing](resource-provider-operations.md#microsoftbilling) |  |
+> | /Subscriptions/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter a lista de assinaturas. |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /Configurations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Obter configurações |
+> | /Recommendations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Ler recomendações |
+> | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7026,8 +7493,8 @@ Permite que os usuários editem e excluam Configurações de hierarquia
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Management/managementGroups/settings/write | Cria ou atualiza configurações de hierarquia do grupo de gerenciamento. |
-> | Microsoft.Management/managementGroups/settings/delete | Exclui as configurações de hierarquia do grupo de gerenciamento. |
+> | /ManagementGroups/Settings/Write [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Cria ou atualiza configurações de hierarquia do grupo de gerenciamento. |
+> | /ManagementGroups/Settings/Delete [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Exclui as configurações de hierarquia do grupo de gerenciamento. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7069,10 +7536,10 @@ Permite a criação de recursos de aplicativos gerenciados.
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.Solutions/applications/* |  |
-> | Microsoft.Solutions/register/action | Registrar para Soluções. |
-> | Microsoft.Resources/subscriptions/resourceGroups/* |  |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/Applications/* |  |
+> | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/Register/Action | Registrar para Soluções. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/* |  |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7117,8 +7584,8 @@ Permite que você leia e execute as ações nos recursos de aplicativo gerenciad
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.Solutions/applications/read | Recuperar uma lista de aplicativos. |
-> | Microsoft.Solutions/*/action |  |
+> | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/Applications/Read | Recuperar uma lista de aplicativos. |
+> | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/*/Action |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7161,8 +7628,8 @@ Permite ler os recursos de um aplicativo gerenciado e solicitar acesso JIT.
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Solutions/jitRequests/* |  |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/jitRequests/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7198,15 +7665,15 @@ Permite ler os recursos de um aplicativo gerenciado e solicitar acesso JIT.
 
 ### <a name="managed-services-registration-assignment-delete-role"></a>Função de Exclusão de Atribuição de Registro de Serviços Gerenciados
 
-A Função de Exclusão de Atribuição de Registro de Serviços Gerenciados permite que os usuários do locatário de gerenciamento excluam a atribuição de registro atribuída aos locatários.
+A Função de Exclusão de Atribuição de Registro de Serviços Gerenciados permite que os usuários do locatário de gerenciamento excluam a atribuição de registro atribuída aos locatários. [Saiba mais](../lighthouse/how-to/remove-delegation.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.ManagedServices/registrationAssignments/read | Recupera uma lista das atribuições de registro de Serviços Gerenciados. |
-> | Microsoft.ManagedServices/registrationAssignments/delete | Remove a atribuição de registro de Serviços Gerenciados. |
-> | Microsoft.ManagedServices/operationStatuses/read | Ler o status da operação do recurso. |
+> | [Microsoft. managedservices](resource-provider-operations.md#microsoftmanagedservices)/registrationAssignments/Read | Recupera uma lista das atribuições de registro de Serviços Gerenciados. |
+> | [Microsoft. managedservices](resource-provider-operations.md#microsoftmanagedservices)/registrationAssignments/Delete | Remove a atribuição de registro de Serviços Gerenciados. |
+> | [Microsoft. managedservices](resource-provider-operations.md#microsoftmanagedservices)/operationStatuses/Read | Ler o status da operação do recurso. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7242,17 +7709,17 @@ A Função de Exclusão de Atribuição de Registro de Serviços Gerenciados per
 
 ### <a name="management-group-contributor"></a>Colaborador do Grupo de Gerenciamento
 
-Função de Colaborador do Grupo de Gerenciamento
+Função de colaborador do grupo de gerenciamento [saiba mais](../governance/management-groups/overview.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Management/managementGroups/delete | Excluir um grupo de gerenciamento. |
-> | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
-> | Microsoft.Management/managementGroups/subscriptions/delete | Desassociar a assinatura do grupo de gerenciamento. |
-> | Microsoft.Management/managementGroups/subscriptions/write | Associar a assinatura existente ao grupo de gerenciamento. |
-> | Microsoft.Management/managementGroups/write | Criar ou atualizar um grupo de gerenciamento. |
+> | /ManagementGroups/Delete [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Excluir um grupo de gerenciamento. |
+> | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
+> | /ManagementGroups/subscriptions/Delete [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Desassociar a assinatura do grupo de gerenciamento. |
+> | /ManagementGroups/subscriptions/Write [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Associar a assinatura existente ao grupo de gerenciamento. |
+> | /ManagementGroups/Write [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Criar ou atualizar um grupo de gerenciamento. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7296,7 +7763,7 @@ Função de Leitor do Grupo de Gerenciamento
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
+> | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7336,12 +7803,12 @@ Permite que você gerencie contas e aplicativos do Gerenciamento de desempenho d
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -7382,20 +7849,20 @@ Permite que você gerencie contas e aplicativos do Gerenciamento de desempenho d
 
 ### <a name="policy-insights-data-writer-preview"></a>Gravador de Dados de Insights de Política (Versão Prévia)
 
-Permite o acesso de leitura às políticas de recurso e o acesso de gravação aos eventos de política de componente de recurso.
+Permite o acesso de leitura às políticas de recurso e o acesso de gravação aos eventos de política de componente de recurso. [Saiba mais](../governance/policy/concepts/policy-for-kubernetes.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/policyassignments/read | Obter informações sobre uma atribuição de política. |
-> | Microsoft.Authorization/policydefinitions/read | Obter informações sobre uma definição de política. |
-> | Microsoft.Authorization/policysetdefinitions/read | Obter informações sobre uma definição de conjunto de políticas. |
+> | /Policyassignments/Read [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Obter informações sobre uma atribuição de política. |
+> | /PolicyDefinitions/Read [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Obter informações sobre uma definição de política. |
+> | /Policysetdefinitions/Read [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Obter informações sobre uma definição de conjunto de políticas. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.PolicyInsights/checkDataPolicyCompliance/action | Verificar o status de conformidade de um determinado componente em relação às políticas de dados. |
-> | Microsoft.PolicyInsights/policyEvents/logDataEvents/action | Registrar os eventos da política do componente do recurso. |
+> | [Microsoft. PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/checkDataPolicyCompliance/Action | Verificar o status de conformidade de um determinado componente em relação às políticas de dados. |
+> | [Microsoft. PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/policyEvents/logDataEvents/Action | Registrar os eventos da política do componente do recurso. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -7430,18 +7897,18 @@ Permite o acesso de leitura às políticas de recurso e o acesso de gravação a
 
 ### <a name="resource-policy-contributor"></a>Colaborador da política de recurso
 
-Usuários com direitos para criar ou modificar a política de recursos, criar tíquete de suporte e ler recursos ou hierarquias.
+Usuários com direitos para criar ou modificar a política de recursos, criar tíquete de suporte e ler recursos ou hierarquias. [Saiba mais](../governance/policy/overview.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
-> | Microsoft.Authorization/policyAssignments/* | Criar e gerenciar atribuições de política |
-> | Microsoft.Authorization/policyDefinitions/* | Criar e gerenciar definições de política |
-> | Microsoft.Authorization/policysetdefinitions/* | Criar e gerenciar conjuntos de política |
-> | Microsoft.PolicyInsights/* |  |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyassignments/* | Criar e gerenciar atribuições de política |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/PolicyDefinitions/* | Criar e gerenciar definições de política |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policysetdefinitions/* | Criar e gerenciar conjuntos de política |
+> | [Microsoft. PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/* |  |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7480,40 +7947,40 @@ Usuários com direitos para criar ou modificar a política de recursos, criar t�
 
 ### <a name="site-recovery-contributor"></a>Colaborador do Site Recovery
 
-Permite gerenciar o serviço do Azure Site Recovery, exceto a criação de cofre e atribuição de função
+Permite que você gerencie Site Recovery serviço, exceto criação de cofre e atribuição de função [saiba mais](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/certificates/write | A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso. |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
-> | Microsoft.RecoveryServices/vaults/replicationAlertSettings/* | Criar ou atualizar as configurações de alerta de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler quaisquer eventos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/* | Criar e gerenciar malhas de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationPolicies/* | Criar e gerenciar políticas de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Criar e gerenciar planos de recuperação |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* | Criar e gerenciar a configuração de armazenamento do cofre de Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
-> | Microsoft.RecoveryServices/vaults/replicationOperationStatus/read | Ler qualquer status da operação de replicação do cofre |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocatedStamp/Read | GetAllocatedStamp é uma operação interna usada pelo serviço |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocateStamp/Action | AllocateStamp é uma operação interna usada pelo serviço |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Certificates/Write | A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/refreshContainers/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationAlertSettings/* | Criar ou atualizar as configurações de alerta de replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationEvents/Read | Ler quaisquer eventos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/* | Criar e gerenciar malhas de replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationPolicies/* | Criar e gerenciar políticas de replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/* | Criar e gerenciar planos de recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/storageConfig/* | Criar e gerenciar a configuração de armazenamento do cofre de Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/tokenInfo/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Usages/Read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/vaultTokens/Read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/notificationConfiguration/Read |  |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /StorageAccounts/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationOperationStatus/Read | Ler qualquer status da operação de replicação do cofre |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7574,70 +8041,70 @@ Permite gerenciar o serviço do Azure Site Recovery, exceto a criação de cofre
 
 ### <a name="site-recovery-operator"></a>Operador do Site Recovery
 
-Permite failover e failback, mas não executa outras operações de gerenciamento do Azure Site Recovery
+Permite failover e failback, mas não executa outras operações de gerenciamento de Site Recovery [saiba mais](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
-> | Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Ler configurações de alertas |
-> | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler quaisquer eventos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verificar consistência da malha |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Ler quaisquer malhas |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Reassociar gateway |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar Certificado para malha do Microsoft Azure |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Ler quaisquer redes |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read | Ler quaisquer mapeamentos de rede |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Ler quaisquer contêineres de proteção |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Ler quaisquer itens que podem ser protegidos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Aplicar ponto de recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Confirmação de failover |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Failover planejado |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler quaisquer itens protegidos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler quaisquer pontos de recuperação de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparar replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Proteger item protegido novamente |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Alterar contêiner de proteção |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Failover de Teste |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza do Failover de teste |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Failover |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Atualizar serviço de mobilidade |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisquer mapeamentos de contêiner de proteção |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Atualizar provedor |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Ler quaisquer classificações de armazenamento |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler quaisquer mapeamentos de classificação de armazenamento |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Ler quaisquer vCenters |
-> | Microsoft.RecoveryServices/vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Ler quaisquer políticas |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Plano de recuperação de confirmação de failover |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Plano de recuperação de failover planejado |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Ler quaisquer planos de recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Proteja plano de recuperação novamente |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Testar plano de recuperação de failover |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Testar plano de recuperação de limpeza do failover |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Plano de recuperação de failover |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | /VirtualNetworks/Read [Microsoft. Network](resource-provider-operations.md#microsoftnetwork) | Obter a definição de rede virtual |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocatedStamp/Read | GetAllocatedStamp é uma operação interna usada pelo serviço |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocateStamp/Action | AllocateStamp é uma operação interna usada pelo serviço |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/Read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/refreshContainers/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/operationResults/Read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/Read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationAlertSettings/Read | Ler configurações de alertas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationEvents/Read | Ler quaisquer eventos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/checkConsistency/Action | Verificar consistência da malha |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/Read | Ler quaisquer malhas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/reassociateGateway/Action | Reassociar gateway |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/renewcertificate/Action | Renovar Certificado para malha do Microsoft Azure |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationNetworks/Read | Ler quaisquer redes |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/Read | Ler quaisquer mapeamentos de rede |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/Read | Ler quaisquer contêineres de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/Read | Ler quaisquer itens que podem ser protegidos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/Action | Aplicar ponto de recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/Action | Confirmação de failover |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/Action | Failover planejado |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/Read | Ler quaisquer itens protegidos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/Read | Ler quaisquer pontos de recuperação de replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/Action | Reparar replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/Action | Proteger item protegido novamente |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/switchprotection/Action | Alterar contêiner de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/Action | Failover de Teste |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/Action | Limpeza do Failover de teste |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/Action | Failover |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/Action | Atualizar serviço de mobilidade |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/Read | Ler quaisquer mapeamentos de contêiner de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationRecoveryServicesProviders/Read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/Action | Atualizar provedor |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationStorageClassifications/Read | Ler quaisquer classificações de armazenamento |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/Read | Ler quaisquer mapeamentos de classificação de armazenamento |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationvCenters/Read | Ler quaisquer vCenters |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationPolicies/Read | Ler quaisquer políticas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/failoverCommit/Action | Plano de recuperação de confirmação de failover |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/plannedFailover/Action | Plano de recuperação de failover planejado |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/Read | Ler quaisquer planos de recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/reProtect/Action | Proteja plano de recuperação novamente |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/testFailover/Action | Testar plano de recuperação de failover |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/testFailoverCleanup/Action | Testar plano de recuperação de limpeza do failover |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/unplannedFailover/Action | Plano de recuperação de failover |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/notificationConfiguration/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/storageConfig/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/tokenInfo/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Usages/Read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/vaultTokens/Read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /StorageAccounts/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7728,43 +8195,43 @@ Permite failover e failback, mas não executa outras operações de gerenciament
 
 ### <a name="site-recovery-reader"></a>Leitor do Site Recovery
 
-Permite visualizar o status do Azure Site Recovery, mas não executar outras operações de gerenciamento
+Permite exibir Site Recovery status, mas não executar outras operações de gerenciamento [saiba mais](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
-> | Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Ler configurações de alertas |
-> | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler quaisquer eventos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Ler quaisquer malhas |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Ler quaisquer redes |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read | Ler quaisquer mapeamentos de rede |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Ler quaisquer contêineres de proteção |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Ler quaisquer itens que podem ser protegidos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler quaisquer itens protegidos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler quaisquer pontos de recuperação de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisquer mapeamentos de contêiner de proteção |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Ler quaisquer classificações de armazenamento |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler quaisquer mapeamentos de classificação de armazenamento |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Ler quaisquer vCenters |
-> | Microsoft.RecoveryServices/vaults/replicationJobs/read | Ler todos os trabalhos |
-> | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Ler quaisquer políticas |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Ler quaisquer planos de recuperação |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocatedStamp/Read | GetAllocatedStamp é uma operação interna usada pelo serviço |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/Read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Read | Obter os alertas para o cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/notificationConfiguration/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/refreshContainers/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/operationResults/Read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/registeredIdentities/Read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationAlertSettings/Read | Ler configurações de alertas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationEvents/Read | Ler quaisquer eventos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/Read | Ler quaisquer malhas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationNetworks/Read | Ler quaisquer redes |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/Read | Ler quaisquer mapeamentos de rede |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/Read | Ler quaisquer contêineres de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/Read | Ler quaisquer itens que podem ser protegidos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/Read | Ler quaisquer itens protegidos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/Read | Ler quaisquer pontos de recuperação de replicação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/Read | Ler quaisquer mapeamentos de contêiner de proteção |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationRecoveryServicesProviders/Read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationStorageClassifications/Read | Ler quaisquer classificações de armazenamento |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/Read | Ler quaisquer mapeamentos de classificação de armazenamento |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationFabrics/replicationvCenters/Read | Ler quaisquer vCenters |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationJobs/Read | Ler todos os trabalhos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationPolicies/Read | Ler quaisquer políticas |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/replicationRecoveryPlans/Read | Ler quaisquer planos de recuperação |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/storageConfig/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/tokenInfo/Read |  |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/Usages/Read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/vaultTokens/Read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7828,15 +8295,15 @@ Permite visualizar o status do Azure Site Recovery, mas não executar outras ope
 
 ### <a name="support-request-contributor"></a>Colaborador de solicitação de suporte
 
-Permite criar e gerenciar Solicitações de Suporte
+Permite que você crie e gerencie solicitações de suporte [saiba mais](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7872,20 +8339,20 @@ Permite criar e gerenciar Solicitações de Suporte
 
 ### <a name="tag-contributor"></a>Colaborador de Marca
 
-Permite que você gerencie marcas em entidades, sem fornecer acesso às entidades propriamente ditas.
+Permite que você gerencie marcas em entidades, sem fornecer acesso às entidades propriamente ditas. [Saiba mais](../azure-resource-manager/management/tag-resources.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obter os recursos do grupo de recursos. |
-> | Microsoft.Resources/subscriptions/resources/read | Obter os recursos de uma assinatura. |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
-> | Microsoft.Resources/tags/* |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /Subscriptions/resourceGroups/Resources/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os recursos do grupo de recursos. |
+> | /Subscriptions/Resources/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os recursos de uma assinatura. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Tags/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7935,13 +8402,13 @@ Permite gerenciar serviços do BizTalk, mas não acessá-los.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | Microsoft.BizTalkServices/BizTalk/* | Criar e gerenciar serviços BizTalk |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -7979,6 +8446,46 @@ Permite gerenciar serviços do BizTalk, mas não acessá-los.
 }
 ```
 
+### <a name="desktop-virtualization-user"></a>Usuário de virtualização de desktop
+
+Permite que o usuário use os aplicativos em um grupo de aplicativos. [Saiba mais](../virtual-desktop/delegated-access-virtual-desktop.md)
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Ações** |  |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft. DesktopVirtualization/applicationGroups/useApplications/Action | Usar o fileapplication |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows user to use the applications in an application group.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63",
+  "name": "1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DesktopVirtualization/applicationGroups/useApplications/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="scheduler-job-collections-contributor"></a>Colaborador de Coleções de Trabalho do Agendador
 
 Permite gerenciar as coleções de trabalhos do Agendador, mas não acessá-las.
@@ -7987,13 +8494,13 @@ Permite gerenciar as coleções de trabalhos do Agendador, mas não acessá-las.
 > |  |  |
 > | --- | --- |
 > | **Ações** |  |
-> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Insights/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerenciar uma implantação |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Scheduler/jobcollections/* | Criar e gerenciar coleções de trabalhos |
-> | Microsoft.Support/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. Scheduler](resource-provider-operations.md#microsoftscheduler)/jobcollections/* | Criar e gerenciar coleções de trabalhos |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |

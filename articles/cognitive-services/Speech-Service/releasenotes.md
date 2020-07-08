@@ -11,14 +11,82 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 13a7250bc89b1c9f81996dfa4e15d7d4469779ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086273"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="text-to-speech-2020-july-release"></a>Conversão de texto em fala 2020-versão de julho
+
+### <a name="new-features"></a>Novos recursos
+
+* **TTS de neural, 15 novas vozes neurais**: as novas vozes adicionadas ao portfólio de TTS do neural são Salma em árabe (Egito), Zariyah em árabe (Arábia Saudita), Alba in Catalão (Espanha), Christel em dinamarquês (Dinamarca), Neerja em inglês (Índia), swara em Híndi (Índia), Colette em Holandês (Países Baixos), Zofia em polonês (Polônia), Fernanda em Português (Portugal), Dariya em Russo (Rússia), Hillevi em Sueco (Suécia), achara em tailandês (Tailândia), Iselin norueguês (bokmål) em (Noruega), HiuGaai em Chinês (Hong Kong) e HsiaoYu em Chinês (Taiwan). Verifique todos os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+
+* **Voz personalizada, testes de voz simplificados com o fluxo de treinamento para simplificar a experiência do usuário**: com o novo recurso de teste, cada voz será testada automaticamente com um conjunto de teste predefinido otimizado para cada idioma para cobrir cenários de assistente de voz e geral. Esses conjuntos de testes são cuidadosamente selecionados e testados para incluir casos de uso típicos e fonemas na linguagem. Além disso, os usuários ainda podem optar por carregar seus próprios scripts de teste ao treinar um modelo.
+
+* **Criação de conteúdo de áudio: um conjunto de novos recursos é lançado para permitir um ajuste de voz mais poderoso e recursos de gerenciamento de áudio**
+
+    * `Pitch`, `rate` e `volume` são aprimorados para dar suporte ao ajuste com um valor predefinido, como lento, médio e rápido. Agora, é simples para os usuários escolherem um valor "constante" para a edição de áudio.
+
+    ![Ajuste de áudio](media/release-notes/audio-tuning.png)
+
+    * Os usuários agora podem examinar o `Audio history` seu arquivo de trabalho. Com esse recurso, os usuários podem facilmente acompanhar todo o áudio gerado relacionado a um arquivo de trabalho. Eles podem verificar a versão do histórico e comparar a qualidade durante o ajuste ao mesmo tempo. 
+
+    ![Histórico de áudio](media/release-notes/audio-history.png)
+
+    * Agora, o `Clear` recurso é mais flexível. Os usuários podem limpar um parâmetro de ajuste específico e manter outros parâmetros disponíveis para o conteúdo selecionado.  
+
+    * Um vídeo do tutorial foi adicionado na [página de aterrissagem](https://speech.microsoft.com/audiocontentcreation) para ajudar os usuários a começar rapidamente com o gerenciamento de áudio e o ajuste de voz TTS. 
+
+### <a name="general-tts-voice-quality-improvements"></a>Melhorias gerais de qualidade de voz TTS
+
+* Vocoder de TTS aprimorados em para maior fidelidade e menor latência.
+
+    * Atualização de Elsa em italiano para um novo vocoder que alcançou + 0,464 CMOS (Pontuação de opinião média comparativa) ganho em qualidade de voz, 40% mais rápido em síntese e 30% de redução na latência do primeiro byte. 
+    * Atualizado Xiaoxiao em chinês para o novo vocoder com o CMOS de + 0148 para o domínio geral, + 0,348 para o estilo newscast e + 0,195 para o estilo Lyrical. 
+
+* `de-DE`Modelos de `ja-JP` voz e atualizados para tornar a saída de TTS mais natural.
+    
+    * Katja atualizado em alemão com o método de modelagem de Prosody mais recente, o ganho (Pontuação média de opinião) é + 0,13. 
+    * Nanami atualizado em Japonês com um novo modelo Prosody de ênfase de Tom, o ganho (Pontuação média de opinião) é + 0,19;  
+
+* Precisão de pronúncia de nível de palavra aprimorada em 5 idiomas.
+
+    | Linguagem | Redução de erros de pronúncia |
+    |---|---|
+    | en-GB | 51% |
+    | ko-KR | 17% |
+    | pt-BR | 39% |
+    | pt-PT | 77% |
+    | id-ID | 46% |
+
+### <a name="bug-fixes"></a>Correções de bug
+
+* Leitura de moeda
+    * Corrigido o problema com a leitura de moeda para `es-ES` e`es-MX`
+     
+    | Linguagem | Entrada | Leitura após aperfeiçoamento |
+    |---|---|---|
+    | es-MX | $1.58 | un peso Cincuenta y Ocho centavos |
+    | es-ES | $1.58 | Dólar Cincuenta y Ocho centavos |
+
+    * Suporte para moeda negativa (como "-$325") nas seguintes localidades: `en-US` ,,,,, `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` .
+
+* Leitura de endereço aprimorada no `pt-PT` .
+* Correção `en-AU` dos problemas de pronúncia Natasha () e Libby ( `en-UK` ) na palavra "for" e "quatro".  
+* Correção de bugs na ferramenta de criação de conteúdo de áudio
+    * A pausa adicional e inesperada depois que o segundo parágrafo é corrigido.  
+    * O recurso ' no break ' é adicionado novamente de um bug de regressão. 
+    * O problema de atualização aleatória do Speech Studio é fixo.  
+
+### <a name="samplessdk"></a>Exemplos/SDK
+
+* JavaScript: corrige o problema de reprodução no FireFox e no Safari no macOS e no iOS. 
+
 ## <a name="speech-sdk-1121-2020-june-release"></a>SDK de fala 1.12.1:2020 – versão de junho
 **CLI de fala (também conhecido como SPX)**
 -   Adicionados recursos de pesquisa na ajuda da CLI:
@@ -149,7 +217,7 @@ Mantenha-se íntegro!
 - JavaScript: suporte adicionado para `FromHost API` para facilitar o uso com contêineres locais e nuvens soberanas. Consulte a documentação [aqui](speech-container-howto.md).
 - JavaScript: agora respeitamos `NODE_TLS_REJECT_UNAUTHORIZED` graças a uma contribuição do [orgads](https://github.com/orgads). Veja os detalhes [aqui](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - `OpenSSL`foi atualizado para a versão 1.1.1 b e é vinculado estaticamente à biblioteca principal do SDK de fala para Linux. Isso poderá causar uma interrupção se a caixa de entrada `OpenSSL` não tiver sido instalada `/usr/lib/ssl` no diretório no sistema. Consulte [nossa documentação](how-to-configure-openssl-linux.md) em documentos do SDK de fala para contornar o problema.
 - Alteramos o tipo de dados retornado para C# `WordLevelTimingResult.Offset` de `int` para `long` para permitir o acesso ao `WordLevelTimingResults` quando os dados de fala forem maiores do que 2 minutos.
@@ -190,7 +258,7 @@ Mantenha-se íntegro!
 - `KeywordRecognizer`Suporte adicionado no Windows (UWP), Android e Ios por meio dos pacotes NuGet e Unity
 - API Java de conversa remota adicionada para fazer a transcrição de conversa em lotes assíncronos.
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - Funcionalidades de transistores de conversa movidas no namespace `Microsoft.CognitiveServices.Speech.Transcription` .
 - Parte dos métodos de transistores de conversa são movidos para a nova `Conversation` classe.
@@ -322,7 +390,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 - O SDK de fala para Java, .NET Core, C++ e Objective-C ganhou suporte para macOS. O suporte a Objective-C para macOS está atualmente em beta.
 - iOS: o SDK de fala para iOS (Objective-C) agora também é publicado como um CocoaPod.
 - JavaScript: suporte para microfone não padrão como um dispositivo de entrada.
-- JavaScript: suporte de proxy para node. js.
+- JavaScript: suporte a proxy para Node.js.
 
 **Amostras**
 
@@ -497,7 +565,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 - Suporte para Objective-C no iOS. Confira nosso [Início Rápido do Objective-C para iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Suporte para JavaScript no navegador. Confira nosso [Início Rápido do JavaScript](quickstart-js-browser.md).
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - Com esta versão, várias alterações significativas são introduzidas.
   Confira [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
@@ -516,7 +584,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 - Expor informações de detalhe de erro adicionais sobre erros de conexão.
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - No Java (Android), a função `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` não requer mais um parâmetro de caminho. Agora, o caminho é detectado automaticamente em todas as plataformas com suporte.
 - O get-accessor da propriedade `EndpointUrl` em Java e C# foi removido.
@@ -545,7 +613,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 - O resultado do reconhecimento contém mais campos. Eles são deslocados do início do áudio e da duração (ambos em tiques) do texto reconhecido e dos valores adicionais que representam o status de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 - Suporte para AuthorizationToken para criar instâncias de fábrica.
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - Eventos de reconhecimento: `NoMatch` o tipo de evento foi mesclado no `Error` evento.
 - SpeechOutputFormat em C# foi renomeado para `OutputFormat` para se manter alinhado com o C++.

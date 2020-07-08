@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: 2163a6e47767f6ce990526c7ececb7b4b554bf4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708490"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086391"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicação transacional com o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,8 +29,8 @@ A replicação transacional é um recurso do Azure SQL Instância Gerenciada e S
 Você pode usar a replicação transacional para enviar por push as alterações feitas em um Instância Gerenciada do SQL do Azure para:
 
 - Um banco de dados SQL Server-local ou na VM do Azure
-- Um banco de dados único ou em pool no banco de dados SQL do Azure
-- Um banco de dados único ou em pool no Azure SQL Instância Gerenciada
+- Um banco de dados no banco de dados SQL do Azure
+- Um banco de dados de instância no Azure SQL Instância Gerenciada
 
   > [!NOTE]
   > Para usar todos os recursos do Azure SQL Instância Gerenciada, você deve usar as versões mais recentes do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).

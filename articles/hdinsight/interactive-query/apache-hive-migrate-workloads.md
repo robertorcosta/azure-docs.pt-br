@@ -1,20 +1,20 @@
 ---
-title: Migrar cargas de trabalho do hive do Azure HDInsight 3,6 para o HDInsight 4,0
+title: Migrar cargas de trabalho do Hive do Azure HDInsight 3.6 para o HDInsight 4.0
 description: Saiba como migrar cargas de trabalho Apache Hive no HDInsight 3,6 para o HDInsight 4,0.
 author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 14849dd1f68f281009808d1bd1dc1cae62927ab4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594229"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087506"
 ---
-# <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do hive do Azure HDInsight 3,6 para o HDInsight 4,0
+# <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do Hive do Azure HDInsight 3.6 para o HDInsight 4.0
 
 Este documento mostra como migrar cargas de trabalho Apache Hive e LLAP no HDInsight 3,6 para o HDInsight 4,0. O HDInsight 4,0 fornece recursos mais recentes de Hive e LLAP, como exibições materializadas e cache de resultados de consultas. Ao migrar suas cargas de trabalho para o HDInsight 4,0, você pode usar muitos recursos mais recentes do hive 3 que não estão disponíveis no HDInsight 3,6.
 
@@ -34,12 +34,12 @@ Uma vantagem do hive é a capacidade de exportar metadados para um banco de dado
 As tabelas de ACID do HDInsight 3,6 e do HDInsight 4,0 compreendem os deltas ACID de forma diferente. A única ação necessária antes da migração é executar a compactação ' principal ' em cada tabela ACID no cluster 3,6. Consulte o [manual de idioma do hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) para obter detalhes sobre a compactação.
 
 ### <a name="2-copy-sql-database"></a>2. copiar banco de dados SQL
-Crie uma nova cópia do seu metastore externo. Se você estiver usando um metastore externo, uma das maneiras seguras e fáceis de fazer uma cópia do metastore é [restaurar o banco de dados](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) com um nome diferente usando a função de restauração do banco de dados SQL.  Consulte [usar repositórios de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para saber mais sobre como anexar um metastore externo a um cluster HDInsight.
+Crie uma nova cópia do seu metastore externo. Se você estiver usando um metastore externo, uma das maneiras seguras e fáceis de fazer uma cópia do metastore é [restaurar o banco de dados](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) com um nome diferente usando a `RESTORE` função.  Consulte [usar repositórios de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para saber mais sobre como anexar um metastore externo a um cluster HDInsight.
 
 ### <a name="3-upgrade-metastore-schema"></a>3. Atualizar esquema de metastore
 Depois que a **cópia** do metastore for concluída, execute um script de atualização de esquema na [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) no cluster existente do HDInsight 3,6 para atualizar o novo metastore para o esquema do hive 3. (Essa etapa não exige que o novo metastore esteja conectado a um cluster.) Isso permite que o banco de dados seja anexado como um metastore do HDInsight 4,0.
 
-Use os valores na tabela abaixo. Substitua `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` pelos valores apropriados para a metastore do hive **cópia**, separados por espaços. Não inclua ". database.windows.net" ao especificar o nome do SQL Server.
+Use os valores na tabela abaixo. Substitua pelos `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` valores apropriados para a metastore do hive **cópia**, separados por espaços. Não inclua ". database.windows.net" ao especificar o nome do SQL Server.
 
 |Propriedade | Valor |
 |---|---|
@@ -124,7 +124,7 @@ Os clusters HDInsight 3,6 e 4,0 devem usar a mesma conta de armazenamento.
     chmod 755 exporthive_hdi_3_6.sh
     ```
 
-    * Para um cluster HDInsight normal, sem o ESP, basta `exporthive_hdi_3_6.sh`executar.
+    * Para um cluster HDInsight normal, sem o ESP, basta executar `exporthive_hdi_3_6.sh` .
 
     * Para um cluster com ESP, kinit e modifique os argumentos para beeline: execute o seguinte, definindo o usuário e o domínio para o usuário do Azure AD com as permissões completas do hive.
 
@@ -221,14 +221,14 @@ No HDInsight 3,6, o cliente de GUI para interagir com o servidor do hive é a ex
 |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Tipo(s) de nó|Head|
 
-Aguarde de 10 a 15 minutos e, em seguida, inicie o data Analytics Studio `https://CLUSTERNAME.azurehdinsight.net/das/`usando esta URL:.
+Aguarde de 10 a 15 minutos e, em seguida, inicie o data Analytics Studio usando esta URL: `https://CLUSTERNAME.azurehdinsight.net/das/` .
 
 Uma atualização da interface do usuário do Ambari e/ou uma reinicialização de todos os componentes do Ambari pode ser necessária antes de acessar o DAS.
 
 Quando o DAS estiver instalado, se você não vir as consultas que você executou no Visualizador de consultas, execute as seguintes etapas:
 
 1. Defina as configurações de Hive, tez e DAS, conforme descrito neste [guia para solução de problemas de instalação do das](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Verifique se as seguintes configurações de diretório do armazenamento do Azure são blobs de página e se estão listadas `fs.azure.page.blob.dirs`em:
+2. Verifique se as seguintes configurações de diretório do armazenamento do Azure são blobs de página e se estão listadas em `fs.azure.page.blob.dirs` :
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
 3. Reinicie HDFS, Hive, tez e DAS em ambos os cabeçalho.

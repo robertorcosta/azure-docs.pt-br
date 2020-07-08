@@ -7,11 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087173"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -71,7 +72,7 @@ Quando você adiciona Análise de SQL do Azure ao seu espaço de trabalho, o blo
 
 ![Bloco de resumo Análise de SQL do Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Depois de carregado, o bloco mostra o número de bancos de dados e pools elásticos no banco de dados SQL e instâncias gerenciadas e bancos de dados de instância no SQL Instância Gerenciada do qual Análise de SQL do Azure está recebendo telemetria de diagnóstico.
+Depois de carregado, o bloco mostra o número de bancos de dados e pools elásticos no banco de dados SQL, instâncias e bancos de dados de instância no SQL Instância Gerenciada do qual Análise de SQL do Azure está recebendo telemetria de diagnóstico.
 
 ![Bloco de Análise do SQL Azure](./media/azure-sql/azure-sql-sol-tile-02.png)
 
@@ -105,7 +106,7 @@ Depois que o bloco da Análise de SQL do Azure para o banco de dados é selecion
 
 Selecionar qualquer bloco abre um relatório de detalhamento sobre a perspectiva específica. Quando a perspectiva for selecionada, o relatório de dril down será aberto.
 
-Selecionar o modo de exibição do SQL Instância Gerenciada, mostra detalhes sobre a utilização da instância gerenciada, os bancos de dados que ele contém e a telemetria nas consultas executadas na instância.
+Selecionar a exibição do SQL Instância Gerenciada, mostra detalhes sobre a utilização da instância, bancos de dados de instância e telemetria nas consultas executadas na instância gerenciada.
 
 ![Tempos limite da Análise de SQL do Azure](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
@@ -268,7 +269,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - O pré-requisito da configuração desse alerta é que o monitorado da instância gerenciada tem o streaming do log ResourceUsageStats habilitado para Análise de SQL do Azure.
+> - O pré-requisito da configuração desse alerta é que a instância gerenciada monitorada tem o streaming do log ResourceUsageStats habilitado para Análise de SQL do Azure.
 > - Essa consulta requer que uma regra de alerta seja configurada para disparar um alerta quando houver resultados (> 0 resultados) da consulta, indicando que a condição existe na instância gerenciada. A saída é o consumo percentual de armazenamento na instância gerenciada.
 
 #### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>O consumo médio da CPU está acima de 95% na última hora

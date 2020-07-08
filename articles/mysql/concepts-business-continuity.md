@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537220"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086544"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Entender a continuidade dos negócios no banco de dados do Azure para MySQL
 
@@ -47,6 +47,10 @@ A outra opção é usar a restauração geográfica do Banco de Dados do Azure p
 
 > [!IMPORTANT]
 > A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica. Se você quiser alternar de backups com redundância local para backups com redundância geográfica de um servidor existente, será necessário fazer um despejo usando o mysqldump do servidor existente e restaurá-lo em um servidor recém-criado configurado com backups com redundância geográfica.
+
+## <a name="cross-region-read-replicas"></a>Réplicas de leitura entre regiões
+
+Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas de forma assíncrona usando a tecnologia de replicação de log binário do MySQL. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

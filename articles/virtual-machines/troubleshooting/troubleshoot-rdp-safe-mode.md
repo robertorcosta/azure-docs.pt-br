@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918199"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086765"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM é inicializada no modo de segurança
 
@@ -46,7 +47,9 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
    ). Se o Console Serial não estiver habilitado em sua VM, consulte [reparar a VM off-line](#repair-the-vm-offline).
 2. Verifique os dados de configuração de inicialização:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     Se a VM estiver configurada para inicializar no Modo de Segurança, você verá um sinalizador extra na seção do **Carregador de Inicialização do Windows** chamada **safeboot**. Se você não vir o sinalizador **safeboot**, a VM não está no modo de segurança. Este artigo não se aplica ao seu cenário.
 
@@ -60,11 +63,15 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
 
 3. Exclua o sinalizador **safemoade** para que a VM inicialize no modo normal:
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. Verifique os dados de configuração de inicialização para certificar-se de que o sinalizador **safeboot** seja removido:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. Reinicie a VM e verifique se o problema foi resolvido.
 
@@ -114,7 +121,10 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 1. Abra uma sessão de prompt de comando com privilégios elevados (**Executar como administrador**).
 2. Verifique os dados de configuração da inicialização. Nos comandos a seguir, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado seja F. Substitua essa letra da unidade pelo valor apropriado para a VM.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     Anote o nome do Identificador da partição que tem a pasta **\windows**. Por padrão, o nome do Identificador é "Default".
 
     Se a VM estiver configurada para inicializar no Modo de Segurança, você verá um sinalizador extra na seção do **Carregador de Inicialização do Windows** chamada **safeboot**. Caso você não veja o sinalizador **safeboot**, este artigo não se aplicará ao seu cenário.
@@ -123,8 +133,14 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
 3. Remova o sinalizador **safeboot**, de modo que a VM seja inicializada no modo normal:
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. Verifique os dados de configuração de inicialização para certificar-se de que o sinalizador **safeboot** seja removido:
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema for resolvido.

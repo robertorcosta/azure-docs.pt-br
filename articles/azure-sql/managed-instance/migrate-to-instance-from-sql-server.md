@@ -11,16 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 47f766e8e5c1ea43d0c9bde8138c0ab17533f539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087549"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Neste artigo, você aprende sobre os métodos para migrar uma instância de versão SQL Server 2005 ou posterior para o [SQL instância gerenciada do Azure](sql-managed-instance-paas-overview.md). Para obter informações sobre como migrar para um banco de dados individual ou pool elástico, confira [Migrar para um banco de dados individual ou em pool](../database/migrate-to-database-from-sql-server.md). Para obter informações de migração sobre como migrar de outras plataformas, confira o [Guia de Migração de Banco de Dados do Azure](https://datamigration.microsoft.com/).
+Neste artigo, você aprende sobre os métodos para migrar uma instância de versão SQL Server 2005 ou posterior para o [SQL instância gerenciada do Azure](sql-managed-instance-paas-overview.md). Para obter informações sobre como migrar para um banco de dados individual ou pool elástico, consulte [migrar para o banco de dados SQL](../database/migrate-to-database-from-sql-server.md). Para obter informações de migração sobre como migrar de outras plataformas, confira o [Guia de Migração de Banco de Dados do Azure](https://datamigration.microsoft.com/).
 
 > [!NOTE]
 > Se você quiser iniciar rapidamente e experimentar o Azure SQL Instância Gerenciada, talvez queira ir para o guia de [início rápido](quickstart-content-reference-guide.md) em vez desta página.

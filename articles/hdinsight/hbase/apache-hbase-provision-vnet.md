@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087734"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters do Apache HBase no HDInsight na rede virtual do Azure
 
@@ -51,7 +51,7 @@ Nesta seção, você cria um cluster Apache HBase baseado em Linux com a conta d
 
 1. Na caixa de diálogo **implantação personalizada** , selecione **Editar modelo**.
 
-1. Na linha 165, altere o `Standard_A3` valor `Standard_A4_V2`para. Em seguida, selecione **salvar**.
+1. Na linha 165, altere o valor `Standard_A3` para `Standard_A4_V2` . Depois, selecione **Salvar**.
 
 1. Conclua o modelo restante com as seguintes informações:
 
@@ -59,7 +59,7 @@ Nesta seção, você cria um cluster Apache HBase baseado em Linux com a conta d
     |---|---|
     |Subscription|Selecione uma assinatura do Azure usada para criar o cluster HDInsight, a conta de armazenamento dependente e a rede virtual do Azure.|
     Resource group|Selecione **Criar novo** e especifique um novo nome do grupo de recursos.|
-    |Local|Selecione um local para o grupo de recursos.|
+    |Location|Selecione um local para o grupo de recursos.|
     |Nome do cluster|Insira um nome para o cluster Hadoop a ser criado.|
     |Nome de usuário e senha de logon no cluster|O nome de usuário padrão é **admin**. Forneça uma senha.|
     |Nome de usuário e senha ssh|O nome de usuário padrão é **sshuser**.  Forneça uma senha.|
@@ -134,10 +134,12 @@ Para verificar se a máquina virtual pode se comunicar com o cluster do HBase, u
 
 Para usar essas informações em um aplicativo Java, você pode seguir as etapas em [Use o Apache Maven para criar aplicativos Java que usem o Apache HBase com o HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) para criar um aplicativo. Para que o aplicativo se conecte a um servidor HBase remoto, modifique o arquivo **hbase-site.xml** nesse exemplo para usar o FQDN para ZooKeeper. Por exemplo:
 
-    <property>
-        <name>hbase.zookeeper.quorum</name>
-        <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
-    </property>
+```xml
+<property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
+</property>
+```
 
 > [!NOTE]  
 > Para obter mais informações sobre a resolução de nome em redes virtuais do Azure, incluindo como usar seu próprio servidor DNS, consulte [Resolução do Nome (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).

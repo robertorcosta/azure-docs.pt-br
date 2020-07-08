@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 925a69f1f3a408e50cb9dc1d03cb5c1cf673ef41
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106441"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102677"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
@@ -67,4 +67,4 @@ Para transferir qualquer outra assinatura de um parceiro CSP para outra oferta d
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA](mpa-request-ownership.md).
-- Leia sobre como [Gerenciar contas e assinaturas com a Cobrança do Azure](index.yml).
+- Leia sobre como [Gerenciar contas e assinaturas com a Cobrança do Azure](../index.yml).

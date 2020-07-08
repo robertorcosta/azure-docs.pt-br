@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 148b344d469c78936b56b96090c76e379bb63731
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027487"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087139"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -100,27 +101,42 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 
 |Local  | Linguagem            | Gênero | Nome da voz | Suporte de estilo |
 |--|--|--|--|--|
+| `ar-EG` | Árabe (Egito)                  | Feminino | `ar-EG-SalmaNeural`      | Geral |
+| `ar-SA` | Árabe (Arábia Saudita)           | Feminino | `ar-SA-ZariyahNeura`     | Geral |
+| `ca-ES` | Catalão (Espanha)                 | Feminino | `ca-ES-AlbaNeural`       | Geral |
+| `da-DK` | Dinamarquês (Dinamarca)                | Feminino | `da-DK-ChristelNeural`   | Geral |
 | `de-DE` | Alemão (Alemanha)                | Feminino | `de-DE-KatjaNeural`      | Geral |
 | `en-AU` | Inglês (Austrália)             | Feminino | `en-AU-NatashaNeural`    | Geral |
 | `en-CA` | Inglês (Canadá)                | Feminino | `en-CA-ClaraNeural`      | Geral |
 | `en-GB` | Inglês (Reino Unido)                    | Feminino | `en-GB-LibbyNeural`      | Geral |
 |         |                                 | Feminino | `en-GB-MiaNeural`        | Geral |
+| `en-IN` | Inglês (Índia)                 | Feminino | `en-IN-NeerjaNeural`     | Geral |
 | `en-US` | Inglês (EUA)                    | Feminino | `en-US-AriaNeural`       | Geral, com vários estilos de voz disponíveis |
 |         |                                 | Masculino   | `en-US-GuyNeural`        | Geral |
 | `es-ES` | Espanhol (Espanha)                 | Feminino | `es-ES-ElviraNeural`     | Geral |
 | `es-MX` | Espanhol (México)                | Feminino | `es-MX-DaliaNeural`      | Geral |
+| `fi-FI` | Finlandês (Finlândia)               | Feminino | `fi-FI-NooraNeural`      | Geral |
 | `fr-CA` | Francês (Canadá)                 | Feminino | `fr-CA-SylvieNeural`     | Geral |
 | `fr-FR` | Francês (França)                 | Feminino | `fr-FR-DeniseNeural`     | Geral |
+| `hi-IN` | Híndi (Índia)                   | Feminino | `hi-IN-SwaraNeural`      | Geral |
 | `it-IT` | Italiano (Itália)                 | Feminino | `it-IT-ElsaNeural`       | Geral |
 | `ja-JP` | Japonês                        | Feminino | `ja-JP-NanamiNeural`     | Geral |
 | `ko-KR` | Coreano                          | Feminino | `ko-KR-SunHiNeural`      | Geral |
 | `nb-NO` | Norueguês                       | Feminino | `nb-NO-IselinNeural`     | Geral |
-| `pt-BR` | Português (Brasil)             | Feminino | `pt-BR-FranciscaNeural`  | Geral |
+| `nl-NL` | Holandês (Netherland)              | Feminino | `nl-NL-ColetteNeural`    | Geral |
+| `pl-PL` | Polonês (Polônia)                 | Feminino | `pl-PL-ZofiaNeural`      | Geral |
+| `pt-BR` | Português (Brasil)             | Feminino | `pt-BR-FranciscaNeural`  | Geral, com vários estilos de voz disponíveis |
 | `tr-TR` | Turco                         | Feminino | `tr-TR-EmelNeural`       | Geral |
+| `pt-PT` | Português (Portugal)           | Feminino | `pt-PT-FernandaNeural`   | Geral |
+| `ru-RU` | Russo (Rússia)                | Feminino | `ru-RU-DariyaNeural`     | Geral |
+| `sv-SE` | Sueco (Suécia)                | Feminino | `sv-SE-HilleviNeural`    | Geral |
+| `th-TH` | Tailandês (Tailândia)                 | Feminino | `th-TH-AcharaNeural`     | Geral |
 | `zh-CN` | Chinês (mandarim, simplificado)  | Feminino | `zh-CN-XiaoxiaoNeural`   | Geral, com vários estilos de voz disponíveis |
 |         |                                 | Feminino | `zh-CN-XiaoyouNeural`    | Voz de criança, otimização para narração de histórias |
 |         |                                 | Masculino   | `zh-CN-YunyangNeural`    | Otimização para leitura de notícias, com vários estilos de voz disponíveis |
 |         |                                 | Masculino   | `zh-CN-YunyeNeural`      | Otimização para narração de histórias |
+| `zh-HK` | Chinês (Cantonês, tranditional)   | Feminino | `zh-HK-HiuGaaiNeural`| Geral |
+| `zh-TW` | Chinês (Mandarim Taiwanês)   | Feminino | `zh-TW-HsiaoYuNeural`    | Geral |
 
 > [!IMPORTANT]
 > A voz `en-US-JessaNeural` foi alterada para `en-US-AriaNeural`. Se você usava a voz "Jessa", faça a conversão para "Aria".

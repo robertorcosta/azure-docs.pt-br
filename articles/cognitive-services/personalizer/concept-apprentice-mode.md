@@ -3,12 +3,12 @@ title: Modo aprendiz – personalizador
 description: ''
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 2697ab4b32edbd4841f2b11725fda46e90e7ae7e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599398"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087190"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Use o modo aprendiz para treinar o personalizador sem afetar o aplicativo existente
 
@@ -30,7 +30,7 @@ O modo aprendiz fornece confiança no serviço personalizador e em seus recursos
 
 Os dois principais motivos para usar o modo aprendiz são:
 
-* A mitigação de **frio é iniciada**: o modo aprendiz ajuda a gerenciar e avaliar o custo de um "novo" tempo de aprendizagem do modelo – quando não está retornando a melhor ação e não obteve um nível satisfatório de eficiência de cerca de 75-85%.
+* A mitigação de **frio é iniciada**: o modo aprendiz ajuda a gerenciar e avaliar o custo de um "novo" tempo de aprendizagem do modelo – quando não está retornando a melhor ação e não obteve um nível satisfatório de eficiência de cerca de 60-80%.
 * **Validação de recursos de ação e contexto**: recursos enviados em ações e contexto podem ser inadequados ou imprecisos-muito pouco, muito, incorretos ou muito específicos para treinar o personalizador para obter a taxa de eficácia ideal. Use [avaliações de recursos](concept-feature-evaluation.md) para localizar e corrigir problemas com recursos.
 
 ## <a name="when-should-you-use-apprentice-mode"></a>Quando você deve usar o modo aprendiz?
@@ -57,7 +57,7 @@ O modo aprendiz é útil para desenvolvedores, cientistas de dados e tomadores d
 
 Aprender quando no modo aprendiz difere do modo online das seguintes maneiras.
 
-|Área|Modo de aprendiz|Modoonline|
+|Área|Modo Aprendiz|Modoonline|
 |--|--|--|
 |Impacto na experiência do usuário|Você pode usar o comportamento do usuário existente para treinar o personalizado ao deixá-lo observar (não afetar) o que a **ação padrão** teria e a recompensa obtida. Isso significa que a experiência dos usuários e os resultados de negócios deles não serão afetados.|Exibir a ação superior retornada da chamada de classificação para afetar o comportamento do usuário.|
 |Velocidade de aprendizagem|O personalizador irá aprender mais lentamente quando estiver no modo de aprendiz do que ao aprender no modo online. O modo aprendiz só pode aprender observando as recompensas obtidas por sua **ação padrão**, o que limita a velocidade de aprendizado, pois nenhuma exploração pode ser executada.|Aprende mais rápido porque pode explorar o modelo atual e explorar novas tendências.|
@@ -68,7 +68,7 @@ Aprender quando no modo aprendiz difere do modo online das seguintes maneiras.
 Uma observação sobre a eficácia do modo aprendiz:
 
 * A eficácia do personalizador no modo aprendiz raramente atingirá quase 100% da linha de base do aplicativo; e nunca exceda.
-* As práticas recomendadas não tentarão chegar a 100% de realização; Mas um intervalo de 75 a 85% deve ser direcionado dependendo do caso de uso.
+* As práticas recomendadas não tentarão chegar a 100% de realização; Mas um intervalo de 60% – 80% deve ser direcionado dependendo do caso de uso.
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>Usando o modo aprendiz para treinar com dados históricos
 
