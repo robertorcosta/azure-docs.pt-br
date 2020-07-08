@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: c36d651fde4c10157979e12fda12604153aefdfc
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 713e4e162ff16b674df88036adbaba6fa210c815
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561872"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106044"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
 
@@ -140,6 +140,6 @@ Saiba mais sobre como implantar e gerenciar o AKS com os tutoriais de início r�
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md

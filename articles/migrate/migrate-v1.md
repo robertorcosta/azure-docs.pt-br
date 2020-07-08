@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7b02560d1e7b7c34a4d87dbdc468a85362aca4f7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993800"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103952"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
@@ -92,7 +92,7 @@ A preparação leva em consideração uma série de propriedades da VM para iden
 --- | --- | ---
 **Tempo de inicialização** | BIOS com suporte. UEFI sem suporte. | Condicionalmente pronto se o tipo de inicialização for UEFI.
 **Núcleos** | Núcleo dos computadores < = o número máximo de núcleos (128) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados.<br/>Se um fator de conforto for especificado nas configurações de avaliação, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as Migrações para Azure usarão os núcleos alocados, sem aplicar o fator de conforto. | Pronto, se for menor que ou igual aos limites.
-**Memória** | O tamanho da memória do computador < = a memória máxima (3892 GB no Azure M series Standard_M128m&nbsp;<sup>2</sup>) para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão a memória utilizada.<br/><br/>Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver histórico, a memória alocada será usada sem a aplicação do fator de conforto.<br/><br/> | Se estiver pronto dentro dos limites.
+**Memória** | O tamanho da memória do computador < = a memória máxima (3892 GB no Azure M series Standard_M128m&nbsp;<sup>2</sup>) para uma VM do Azure. [Saiba mais](../virtual-machines/windows/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão a memória utilizada.<br/><br/>Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver histórico, a memória alocada será usada sem a aplicação do fator de conforto.<br/><br/> | Se estiver pronto dentro dos limites.
 **Disco de armazenamento** | O tamanho alocado de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos anexados à máquina deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Se estiver pronto dentro dos limites.
 **Rede** | Um computador deve ter 32 NICs ou menos conectados a ele. | Se estiver pronto dentro dos limites.
 
@@ -114,8 +114,8 @@ Windows Server 2008 R2 e todos os SPs | O Azure fornece suporte total.| Pronto p
 Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pronto para o Azure
 Windows Server 2003, 2003 R2 | Sem suporte e precisa de um [CSA (contrato personalizado de suporte)](https://aka.ms/WSosstatement) para ter suporte no Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Sem suporte. O computador pode ser inicializado no Azure, mas não há suporte ao sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
-Cliente do Windows 7, 8 e 10 | O Azure oferece suporte apenas [com a Assinatura do Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Condicionalmente pronta para o Azure
-Windows 10 Pro Desktop | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente pronta para o Azure
+Cliente do Windows 7, 8 e 10 | O Azure oferece suporte apenas [com a Assinatura do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronta para o Azure
+Windows 10 Pro Desktop | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronta para o Azure
 Windows Vista, XP Professional | Sem suporte. O computador pode ser inicializado no Azure, mas não há suporte ao sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Linux | O Azure endossa esses [sistemas operacionais Linux](../virtual-machines/linux/endorsed-distros.md). Outros sistemas operacionais podem ser inicializados no Azure, mas recomendamos atualizar o sistema operacional para uma versão endossada antes de migrar para o Azure. | Pronto para o Azure se a versão é aprovada.<br/><br/>Condicionalmente pronto se a versão não é aprovada.
 Outros sistemas operacionais<br/><br/> Por exemplo, Oracle Solaris, sistema operacional Apple Mac OS, FreeBSD, etc. | O Azure não endossa esses sistemas operacionais. O computador pode ser inicializado no Azure, mas não há suporte do sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, é recomendável atualizar o sistema operacional antes de migrar para o Azure.  
@@ -240,11 +240,11 @@ Para instalar o agente em uma máquina com Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA.
+[Saiba mais](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Instalar o agente MMA em um computador monitorado pelo Operations Manager
 
-Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, não é necessário instalar o agente do MMA. O Mapa do Serviço integra-se ao MMA do Operations Manager para coletar os dados de dependência necessários. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). O agente de dependência precisa ser instalado.
+Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, não é necessário instalar o agente do MMA. O Mapa do Serviço integra-se ao MMA do Operations Manager para coletar os dados de dependência necessários. [Saiba mais](../azure-monitor/insights/service-map-scom.md#prerequisites). O agente de dependência precisa ser instalado.
 
 ### <a name="install-the-dependency-agent"></a>Instalar o Agente de dependência
 
@@ -274,7 +274,7 @@ Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou p
 4. Você pode exibir dependências de períodos diferentes clicando no período no rótulo de intervalo de tempo. Por padrão, o intervalo é de uma hora. Você pode modificar o intervalo, ou especificar as datas de início e de término e a duração.
 
    > [!NOTE]
-   >    Há suporte a um intervalo de tempo de até uma hora. Use os logs do Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por mais tempo.
+   >    Há suporte a um intervalo de tempo de até uma hora. Use os logs do Azure Monitor para [consultar os dados de dependência](./how-to-create-group-machine-dependencies.md) por mais tempo.
 
 5. Depois de identificar máquinas dependentes que você deseja agrupar, use Ctrl+Clique para selecionar várias máquinas no mapa e clique em **Agrupar máquinas**.
 6. Especifique um nome de grupo. Verifique se as máquinas dependentes foram descobertas pelas Migrações para Azure.
@@ -289,7 +289,7 @@ Após o grupo ser criado, é recomendável instalar agentes em todas as máquina
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consultar dados de dependência em logs do Azure Monitor
 
-Os dados de dependência capturados pelo Mapa do Serviço ficam disponíveis para consulta no espaço de trabalho do Log Analytics associado ao seu projeto das Migrações para Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados do Mapa do Serviço a serem consultadas nos logs do Azure Monitor. 
+Os dados de dependência capturados pelo Mapa do Serviço ficam disponíveis para consulta no espaço de trabalho do Log Analytics associado ao seu projeto das Migrações para Azure. [Saiba mais](../azure-monitor/insights/service-map.md#log-analytics-records) sobre as tabelas de dados do Mapa do Serviço a serem consultadas nos logs do Azure Monitor. 
 
 Para executar as consultas do Kusto:
 
@@ -299,15 +299,15 @@ Para executar as consultas do Kusto:
 4. Crie sua consulta para coletar dados de dependência usando os logs do Azure Monitor. Encontre consultas de exemplo na próxima seção.
 5. Execute a consulta clicando em Executar. 
 
-[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como codificar consultas Kusto. 
+[Saiba mais](../azure-monitor/log-query/get-started-portal.md) sobre como codificar consultas Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Consultas aos logs do Azure Monitor de exemplo
 
-Veja a seguir as consultas de exemplo que você pode usar para extrair dados de dependência. Você pode modificar as consultas para extrair seus pontos de dados preferenciais. Uma lista completa dos campos nos registros de dados de dependência está disponível [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Encontre mais consultas de exemplo [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+Veja a seguir as consultas de exemplo que você pode usar para extrair dados de dependência. Você pode modificar as consultas para extrair seus pontos de dados preferenciais. Uma lista completa dos campos nos registros de dados de dependência está disponível [aqui](../azure-monitor/insights/service-map.md#log-analytics-records). Encontre mais consultas de exemplo [aqui](../azure-monitor/insights/service-map.md#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Resumir conexões de entrada em um conjunto de computadores
 
-Os registros na tabela para métricas de conexão, a VMConnection, não representam conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sobre como os dados de conexão de rede física são agregados em um único registro lógico em VMConnection. 
+Os registros na tabela para métricas de conexão, a VMConnection, não representam conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica. [Saiba mais](../azure-monitor/insights/service-map.md#connections) sobre como os dados de conexão de rede física são agregados em um único registro lógico em VMConnection. 
 
 ```
 // the machines of interest

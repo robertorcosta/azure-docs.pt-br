@@ -5,15 +5,15 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: f4e2395659659781da49159247991d0711491ff2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7da1a3501d74cc7f46d35597df5a985c3e571388
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76846045"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106043"
 ---
 > [!NOTE]
-> Esse serviço dá suporte ao [gerenciamento de recursos delegados do Azure](../articles/lighthouse/concepts/azure-delegated-resource-management.md), que permite que os provedores de serviços entrem no próprio locatário para gerenciar assinaturas e grupos de recursos delegados pelos clientes. Para saber mais, confira [Azure Lighthouse](../articles/lighthouse/overview.md).
+> Esse serviço dá suporte ao [Azure Lighthouse](../articles/lighthouse/overview.md), que permite que os provedores de serviços entrem em seu próprio locatário para gerenciar assinaturas e grupos de recursos que os clientes delegaram.

@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de VMs VMware 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771182"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109567"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs do VMware para avaliação e migração para o Azure
 
@@ -64,7 +64,7 @@ Para registrar o dispositivo, sua conta do Azure precisa de permissões para cri
 Conceda permissões à conta conforme descrito a seguir:
 
 1. Verifique se você é um locatário ou administrador global. Depois, no Azure AD, navegue até **Azure Active Directory** > **Usuários** > **Configurações do Usuário**.
-2. Configure **Registros de aplicativo** para **Sim**. Essa é uma configuração padrão que não é confidencial. [Saiba mais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Configure **Registros de aplicativo** para **Sim**. Essa é uma configuração padrão que não é confidencial. [Saiba mais](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Permissões do Azure AD](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Conceda permissões à conta conforme descrito a seguir:
 
 #### <a name="method-2-assign-application-developer-role"></a>Método 2: Atribuir função de Desenvolvedor de Aplicativos
 
-Ou o locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos a uma conta. [Leia mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) sobre como atribuir uma função.
+Ou o locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos a uma conta. [Leia mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) sobre como atribuir uma função.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Atribuir permissões para criar um Key Vault
 
