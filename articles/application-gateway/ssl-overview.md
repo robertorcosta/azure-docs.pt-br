@@ -4,15 +4,15 @@ description: Este artigo é uma visão geral do suporte a TLS de ponta a ponta d
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648127"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962094"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral do encerramento de TLS e TLS de ponta a ponta com um Gateway de Aplicativo
 
@@ -68,7 +68,7 @@ Para o Gateway de Aplicativo e a SKU WAF v1, a política TLS aplica-se ao tráfe
 
 Para o Gateway de Aplicativo e a SKU WAF v2, a política de TLS se aplica somente ao tráfego de front-end e todas as codificações são oferecidas ao servidor de back-end, que tem controle para selecionar codificações específicas e a versão de TLS durante o handshake.
 
-O Gateway de Aplicativo só se comunica com os servidores back-end que têm o certificado na lista de permissões com o Gateway de Aplicativo ou cujos certificados são assinados por autoridades de certificação conhecidas, e o CN do certificado corresponde ao nome do host nas configurações de back-end HTTP. Isso inclui os serviços confiáveis do Azure, como Serviço de Aplicativo/Aplicativos Web do Azure e o Gerenciamento de API do Azure.
+O gateway de aplicativo só se comunica com os servidores de back-end que têm permissão de listar seus certificados com o gateway de aplicativo ou cujos certificados são assinados por autoridades de certificação conhecidas e o CN do certificado corresponde ao nome do host nas configurações de back-end HTTP. Isso inclui os serviços confiáveis do Azure, como Serviço de Aplicativo/Aplicativos Web do Azure e o Gerenciamento de API do Azure.
 
 Se os certificados dos membros no pool de back-end não forem assinados por autoridades de certificação conhecidas, cada instância no pool de back-end com TLS de ponta a ponta habilitado deverá ser configurada com um certificado para permitir a comunicação segura. Adicionar o certificado garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponta a ponta.
 
@@ -80,9 +80,9 @@ Se os certificados dos membros no pool de back-end não forem assinados por auto
 
 Neste exemplo, as solicitações que usam o TLS1.2 são roteadas para os servidores de back-end no Pool1 usando o TLS de ponta a ponta.
 
-## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>TLS de ponta a ponta e lista de exceções de certificados
+## <a name="end-to-end-tls-and-allow-listing-of-certificates"></a>TLS de ponta a ponta e permitir a listagem de certificados
 
-O Gateway de Aplicativo se comunica somente com as instâncias de back-end conhecidas que têm o certificado na lista de exceções do gateway. Há algumas diferenças no processo de configuração de TLS de ponta a ponta em relação à versão do Gateway de Aplicativo usada. A seção a seguir explica individualmente.
+O gateway de aplicativo só se comunica com instâncias de back-end conhecidas que permitem listar seus certificados com o gateway de aplicativo. Há algumas diferenças no processo de configuração de TLS de ponta a ponta em relação à versão do Gateway de Aplicativo usada. A seção a seguir explica individualmente.
 
 ## <a name="end-to-end-tls-with-the-v1-sku"></a>TLS de ponta a ponta com a SKU v1
 
@@ -90,7 +90,7 @@ Para habilitar o TLS de ponta a ponta com os servidores de back-end e para o Gat
 
 Para investigações de integridade HTTPS, a SKU v1 do Gateway de Aplicativo usa uma correspondência exata do certificado de autenticação (chave pública do certificado do servidor back-end e não do certificado raiz) a ser carregada nas configurações de HTTP.
 
-Somente as conexões com os back-ends conhecidos e na lista de exceções são permitidas. Os back-ends restantes são considerados não íntegros pelas investigações de integridade. Os certificados autoassinados servem somente para teste e não são recomendados para cargas de trabalho de produção. Esses certificados devem estar na lista de exceções do gateway de aplicativo, conforme descrito nas etapas acima, antes de poder ser usados.
+São permitidas apenas conexões com back-ends conhecidos e permitidos. Os back-ends restantes são considerados não íntegros pelas investigações de integridade. Os certificados autoassinados servem somente para teste e não são recomendados para cargas de trabalho de produção. Esses certificados devem ser permitidos listados com o gateway de aplicativo, conforme descrito nas etapas anteriores, antes que possam ser usados.
 
 > [!NOTE]
 > A autenticação e a configuração de certificado raiz confiável não são necessárias para serviços confiáveis do Azure, como o Serviço de Aplicativo do Azure. Eles são considerados confiáveis por padrão.
@@ -111,7 +111,7 @@ Os Certificados de Autenticação foram reprovados e substituídos por Certifica
 
 - Além da correspondência de certificado raiz, o Gateway de Aplicativo V2 também valida se a configuração de host especificada na configuração de http de back-end corresponde à do nome comum (CN) apresentado pelo certificado TLS/SSL do servidor de back-end. Ao tentar estabelecer uma conexão TLS com o back-end, o Gateway de Aplicativo v2 define a extensão SNI (Indicação de Nome de Servidor) para o host especificado na configuração http de back-end.
 
-- Se **Escolher nome do host do endereço de back-end** for escolhido em vez do campo Host na configuração http de back-end, o cabeçalho SNI sempre será definido como o FQDN do pool de back-end e o CN no certificado TLS/SSL do servidor de back-end deverá corresponder ao FQDN. Não há suporte para membros do pool de back-end com IPs neste cenário.
+- Se **escolher nome do host do destino de back-end** for escolhido em vez do campo host na configuração http de back-end, o cabeçalho SNI sempre será definido como o FQDN do pool de back-end e o CN no certificado TLS/SSL do servidor de back-end deverá corresponder ao FQDN. Não há suporte para membros do pool de back-end com IPs neste cenário.
 
 - O certificado raiz é um certificado raiz codificado em base64 a partir dos certificados do servidor de back-end.
 
@@ -138,10 +138,10 @@ Cenário | v1 | v2 |
 Cenário | v1 | v2 |
 | --- | --- | --- |
 | Cabeçalho SNI (server_name) durante o handshake de TLS como FQDN | Defina como FQDN do pool de back-end. De acordo com [RFC 6066](https://tools.ietf.org/html/rfc6066), os endereços IPv4 e IPv6 literais não são permitidos no nome do host SNI. <br> **Observação:** O FQDN no pool de back-end deve ser resolvido pelo DNS para o endereço IP do servidor back-end (público ou privado) | O cabeçalho SNI (server_name) é definido como o nome do host na investigação personalizada anexada às configurações de HTTP (se configurado), caso contrário, no nome do host mencionado nas configurações de HTTP ou no FQDN mencionado no pool de back-end. A ordem de precedência é investigação personalizada > configurações HTTP > pool de back-end. <br> **Observação:** Se os nomes de host definidos nas configurações de HTTP e a investigação personalizada forem diferentes, de acordo com a precedência, SNI será definido como o nome do host da investigação personalizada.
-| Se o endereço do pool de back-end for um endereço IP (v1) ou se o nome de host da investigação personalizada estiver configurado como endereço IP (v2) | SNI (server_name) não será definido. <br> **Observação:** Nesse caso, o servidor back-end deve ser capaz de retornar um certificado padrão/fallback e isso deve estar na lista de permissões de HTTP no certificado de autenticação. Se não houver um certificado padrão/fallback configurado no servidor back-end e o SNI for esperado, o servidor poderá redefinir a conexão e levará a falhas de investigação | Na ordem de precedência mencionada anteriormente, se eles tiverem o endereço IP como nome do host, o SNI não será definido de acordo com [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Observação:** O SNI também não será definido em investigações v2 se nenhuma investigação personalizada estiver configurada e nenhum nome de host estiver definido em configurações HTTP ou pool de back-end |
+| Se o endereço do pool de back-end for um endereço IP (v1) ou se o nome de host da investigação personalizada estiver configurado como endereço IP (v2) | SNI (server_name) não será definido. <br> **Observação:** Nesse caso, o servidor back-end deve ser capaz de retornar um certificado padrão/fallback e isso deve ser permitido listado em configurações de HTTP em certificado de autenticação. Se não houver um certificado padrão/fallback configurado no servidor back-end e o SNI for esperado, o servidor poderá redefinir a conexão e levará a falhas de investigação | Na ordem de precedência mencionada anteriormente, se eles tiverem o endereço IP como nome do host, o SNI não será definido de acordo com [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Observação:** O SNI também não será definido em investigações v2 se nenhuma investigação personalizada estiver configurada e nenhum nome de host estiver definido em configurações HTTP ou pool de back-end |
 
 > [!NOTE] 
-> Se uma investigação personalizada não estiver configurada, o Gateway de Aplicativo enviará uma investigação padrão neste formato - \<protocolo\>://127.0.0.1:\<porta\>/. Por exemplo, para uma investigação HTTPS padrão, ela será enviada como https://127.0.0.1:443/. Observe que o 127.0.0.1 mencionado aqui é usado apenas como cabeçalho de host HTTP e, de acordo com RFC 6066, não será usado como cabeçalho SNI. Para obter mais informações sobre erros de investigação de integridade, consulte o [guia de solução de problemas de integridade de back-end](application-gateway-backend-health-troubleshooting.md).
+> Se uma investigação personalizada não estiver configurada, o gateway de aplicativo enviará uma investigação padrão neste formato- \<protocol\> ://127.0.0.1: \<port\> /. Por exemplo, para uma investigação HTTPS padrão, ela será enviada como https://127.0.0.1:443/. Observe que o 127.0.0.1 mencionado aqui é usado apenas como cabeçalho de host HTTP e, de acordo com RFC 6066, não será usado como cabeçalho SNI. Para obter mais informações sobre erros de investigação de integridade, consulte o [guia de solução de problemas de integridade de back-end](application-gateway-backend-health-troubleshooting.md).
 
 #### <a name="for-live-traffic"></a>Para tráfego em tempo real
 

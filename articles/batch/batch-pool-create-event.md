@@ -3,12 +3,12 @@ title: Pool de criação de evento do Lote do Microsoft Azure
 description: Referência para o evento de criação do pool do Lote, o qual é emitido após a criação de um pool. O conteúdo do log expõe as informações gerais do pool.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: fe327b7c369405cb3160c67d79e5dbdf55463f77
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: d8e4537e0074b7af1e65ea5f13a9668483abc45e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724030"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962485"
 ---
 # <a name="pool-create-event"></a>Evento de criação de pool
 
@@ -53,7 +53,7 @@ ms.locfileid: "83724030"
 |-------------|----------|-----------|
 |`id`|String|A ID do pool.|
 |`displayName`|String|O nome de exibição do pool.|
-|`vmSize`|String|O tamanho das máquinas virtuais no pool. Todas as máquinas virtuais em um pool têm o mesmo tamanho. <br/><br/> Para obter informações sobre tamanhos disponíveis de máquinas virtuais para pools de serviços de nuvem (pools criados com cloudServiceConfiguration), consulte [Tamanhos para serviços de nuvem](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O lote dá suporte a todos os tamanhos de VM de serviços de nuvem, exceto `ExtraSmall`.<br/><br/> Para obter informações sobre tamanhos de VM disponíveis para pools usando imagens do Marketplace de máquinas virtuais (pools criados com virtualMachineConfiguration) consulte [Tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [Tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Lote dá suporte a todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e aqueles com armazenamento premium (série `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
+|`vmSize`|String|O tamanho das máquinas virtuais no pool. Todas as máquinas virtuais em um pool têm o mesmo tamanho. <br/><br/> Para obter informações sobre tamanhos disponíveis de máquinas virtuais para pools de serviços de nuvem (pools criados com cloudServiceConfiguration), consulte [Tamanhos para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md). O lote dá suporte a todos os tamanhos de VM de serviços de nuvem, exceto `ExtraSmall`.<br/><br/> Para obter informações sobre tamanhos de VM disponíveis para pools usando imagens do Marketplace de máquinas virtuais (pools criados com virtualMachineConfiguration) consulte [Tamanhos de máquinas virtuais](/azure/virtual-machines/linux/sizes?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json) (Linux) ou [Tamanhos de máquinas virtuais](/azure/virtual-machines/windows/sizes?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) (Windows). O Lote dá suporte a todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e aqueles com armazenamento premium (série `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
 |`imageType`|String|O método de implantação para a imagem. Os valores com suporte são `virtualMachineConfiguration` ou `cloudServiceConfiguration`|
 |[`cloudServiceConfiguration`](#bk_csconf)|Tipo complexo|A configuração do serviço de nuvem para o pool.|
 |[`virtualMachineConfiguration`](#bk_vmconf)|Tipo complexo|A configuração da máquina virtual para o pool.|
@@ -71,8 +71,8 @@ ms.locfileid: "83724030"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`osFamily`|String|A família do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> Os valores possíveis são:<br /><br /> **2** – SO Família 2, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – SO Família 3, equivalente ao Windows Server 2012.<br /><br /> **4** – SO Família 4, equivalente ao Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [Lançamentos do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
-|`targetOSVersion`|String|A versão do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> O valor padrão é **\*** que especifica a última versão do sistema operacional da família especificada.<br /><br /> Para outros valores permitidos, consulte [Lançamentos do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|`osFamily`|String|A família do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> Os valores possíveis são:<br /><br /> **2** – SO Família 2, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – SO Família 3, equivalente ao Windows Server 2012.<br /><br /> **4** – SO Família 4, equivalente ao Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [Lançamentos do SO convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases).|
+|`targetOSVersion`|String|A versão do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> O valor padrão é **\*** que especifica a última versão do sistema operacional da família especificada.<br /><br /> Para outros valores permitidos, consulte [Lançamentos do SO convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases).|
 
 ###  <a name="virtualmachineconfiguration"></a><a name="bk_vmconf"></a> virtualMachineConfiguration
 

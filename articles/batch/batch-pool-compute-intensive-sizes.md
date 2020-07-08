@@ -3,12 +3,12 @@ title: Usar VMs do Azure de computação intensiva com o Lote
 description: Como aproveitar os tamanhos de máquina virtual de GPU e HPC nos pools do Lote do Azure. Saiba mais sobre as dependências do sistema operacional e veja vários exemplos de cenário.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779754"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962502"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias de GPU ou RDMA em pools do Lote
 
@@ -127,7 +127,7 @@ Para executar aplicativos CUDA em um conjunto de nós da NC do Linux, é necess�
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemplo: Microsoft MPI em um pool de VM do Windows H16r
 
-Para executar aplicativos Windows MPI em um pool de nós de VM do Azure H16r, é necessário configurar a extensão HpcVmDrivers e instalar o [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). A seguir, são apresentados exemplos de etapas para implantar uma imagem personalizada do Windows Server 2016 com os drivers e softwares necessários:
+Para executar aplicativos Windows MPI em um pool de nós de VM do Azure H16r, é necessário configurar a extensão HpcVmDrivers e instalar o [Microsoft MPI](/message-passing-interface/microsoft-mpi). A seguir, são apresentados exemplos de etapas para implantar uma imagem personalizada do Windows Server 2016 com os drivers e softwares necessários:
 
 1. Implante uma VM do Azure H16r em execução no Windows Server 2016. Por exemplo, crie a VM na região Oeste dos EUA. 
 2. Adicione a extensão HpcVmDrivers à VM, [executando um comando do Azure PowerShell](../virtual-machines/sizes-hpc.md) de um computador cliente que conecta-se à assinatura do Azure ou usando o Azure Cloud Shell. 
@@ -163,6 +163,6 @@ Usando as APIs do Lote ou o portal do Azure, crie um pool usando essa imagem e c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para executar trabalhos MPI em um pool do Lote do Azure, consulte os exemplos do [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
+* Para executar trabalhos MPI em um pool do Lote do Azure, consulte os exemplos do [Windows](batch-mpi.md) ou [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
 
 * Para obter exemplos de cargas de trabalho de GPU no Lote, consulte as receitas de [Batch Shipyard](https://github.com/Azure/batch-shipyard/).

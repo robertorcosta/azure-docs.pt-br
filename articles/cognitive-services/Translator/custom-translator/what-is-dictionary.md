@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 510c75b6e1a06ab800128534a72c5e1f6e510600
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 826da5c3754ad03ac1fb62288f0b03ee2353d1f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997036"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962255"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
-Um dicionário é um par de documentos alinhados que especifica uma lista de frases ou sentenças e suas respectivas traduções. Use um dicionário no seu treinamento, quando quiser que o Microsoft Translator sempre traduza quaisquer instâncias da frase ou sentença de origem, usando a tradução que você forneceu no dicionário. Dicionários são às vezes chamados de glossários ou bases de termos. Você pode considerar o dicionário como uma força bruta "copiar e substituir" para todos os termos que listar. Além disso, o serviço Tradutor personalizado da Microsoft cria e usa seus próprios dicionários de uso geral para melhorar a qualidade de sua tradução. No entanto, um dicionário fornecido pelo cliente usa o precedente e será pesquisado primeiro em palavras ou sentenças de pesquisa.
+Um dicionário é um par de documentos alinhados que especifica uma lista de frases ou sentenças e suas respectivas traduções. Use um dicionário em seu treinamento, quando desejar que o Translator sempre traduza todas as instâncias da frase ou sentença de origem, usando a tradução que você forneceu no dicionário. Dicionários são às vezes chamados de glossários ou bases de termos. Você pode considerar o dicionário como uma força bruta "copiar e substituir" para todos os termos que listar. Além disso, o recurso de Tradutor personalizado cria e usa seus próprios dicionários de uso geral para melhorar a qualidade de sua tradução. No entanto, um dicionário fornecido pelo cliente usa o precedente e será pesquisado primeiro em palavras ou sentenças de pesquisa.
 
 Os dicionários só funcionam para projetos em pares de idiomas que tenham um modelo de rede neural geral da Microsoft totalmente compatível por trás deles. [Exiba a lista completa de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
