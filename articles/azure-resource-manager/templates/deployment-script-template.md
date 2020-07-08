@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/25/2020
 ms.author: jgao
-ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
-ms.translationtype: HT
+ms.openlocfilehash: b3de286bbf4513d252b42304cdc667877c72f6da
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83707999"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057408"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
 
@@ -60,7 +60,7 @@ O recurso de script de implantação só está disponível nas regiões em que a
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -74,10 +74,10 @@ O recurso de script de implantação só está disponível nas regiões em que a
 
   ---
 
-- **Azure PowerShell** ou **CLI do Azure**. Para obter uma lista de versões do Azure PowerShell com suporte, consulte [aqui](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Para obter uma lista de versões da CLI do Azure com suporte, consulte [aqui](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+- **Azure PowerShell** ou **CLI do Azure**. Consulte uma lista de [versões de Azure PowerShell com suporte](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões de CLI do Azure com suporte](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
     >[!IMPORTANT]
-    > O script de implantação usa as imagens da CLI disponíveis do Registro de Contêiner da Microsoft (MCR). A certificação de uma imagem da CLI para o script de implantação leva cerca de um mês. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Se for usada uma versão sem suporte, a mensagem de erro listará as versões com suporte.
+    > O script de implantação usa as imagens da CLI disponíveis do Registro de Contêiner da Microsoft (MCR). A certificação de uma imagem da CLI para o script de implantação leva cerca de um mês. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Se for usada uma versão sem suporte, a mensagem de erro listará as versões com suporte.
 
     Você não precisa dessas versões para implantar modelos. Porém, essas versões são necessárias para testar os scripts de implantação localmente. Confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Você pode usar uma imagem pré-configurada do Docker.  Consulte [Configurar o ambiente de desenvolvimento](#configure-development-environment).
 
@@ -108,7 +108,7 @@ O json a seguir é um exemplo.  O esquema de modelo mais recente pode ser encont
       "storageAccountKey": "myKey"
     },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
-    "arguments": "[concat('-name ', parameters('name'))]",
+    "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
         "name": "someSecret",
@@ -131,7 +131,7 @@ O json a seguir é um exemplo.  O esquema de modelo mais recente pode ser encont
 ```
 
 > [!NOTE]
-> O exemplo é para fins de demonstração.  **scriptContent** e **primaryScriptUris** não podem coexistir em um modelo.
+> O exemplo é para fins de demonstração.  **scriptContent** e **primaryScriptUri** não podem coexistir em um modelo.
 
 Detalhes do valor da propriedade:
 
@@ -139,9 +139,22 @@ Detalhes do valor da propriedade:
 - **kind**: especifica o tipo de script. No momento, os scripts do Azure PowerShell e da CLI do Azure têm suporte. Os valores são **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: Alterar esse valor entre implantações de modelo força o script de implantação a ser executado novamente. Use a função newGuid() ou utcNow() que precisa ser definida como o defaultValue de um parâmetro. Para saber mais, confira [Executar script mais de uma vez](#run-script-more-than-once).
 - **containerSettings**: Especifique as configurações para personalizar a Instância de Contêiner do Azure.  **containerGroupName** serve para especificar o nome do grupo de contêineres.  Se não for especificado, o nome do grupo será gerado automaticamente.
-- **storageAccountSettings**: Especifique as configurações para usar uma conta de armazenamento existente. Se não for especificado, uma conta de armazenamento será criada automaticamente. Consulte [Usar uma conta de armazenamento existente](#use-an-existing-storage-account).
+- **storageAccountSettings**: Especifique as configurações para usar uma conta de armazenamento existente. Se não for especificado, uma conta de armazenamento será criada automaticamente. Consulte [Usar uma conta de armazenamento existente](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão de módulo a ser usada. Para obter uma lista de versões do PowerShell e da CLI com suporte, consulte [Pré-requisitos](#prerequisites).
 - **arguments**: Especifique os valores de parâmetro. Os valores são separados por espaços.
+
+    Os scripts de implantação dividem os argumentos em uma matriz de cadeias de caracteres invocando a chamada do sistema [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Isso é necessário porque os argumentos são passados como uma [propriedade de comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) para a instância de contêiner do Azure e a propriedade Command é uma matriz de cadeia de caracteres.
+
+    Se os argumentos contiverem caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para dobrar o escape dos caracteres. Cole a cadeia de caracteres de escape original na ferramenta e selecione **escape**.  A ferramenta gera uma cadeia de caracteres com escape duplo. Por exemplo, no modelo de exemplo anterior, o argumento é **-name \\ "John giros \\ "**.  A cadeia de caracteres de escape é **-name \\ \\ \\ "John giros \\ \\ \\ "**.
+
+    Para passar um parâmetro de modelo ARM do tipo Object como um argumento, converta o objeto em uma cadeia de caracteres usando a função [String ()](./template-functions-string.md#string) e, em seguida, use a função [replace ()](./template-functions-string.md#replace) para substituir qualquer ** \\ "** into ** \\ \\ \\ "**. Por exemplo:
+
+    ```json
+    replace(string(parameters('tables')), '\"', '\\\"')
+    ```
+
+    Para ver um modelo de exemplo, selecione [aqui](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+
 - **environmentVariables**: Especifique as variáveis de ambiente a serem passadas para o script. Para obter mais informações, consulte [Desenvolver scripts de implantação](#develop-deployment-scripts).
 - **scriptContent**: especifique o conteúdo do script. Para executar um script externo, use `primaryScriptUri`. Para mais exemplos, consulte [Usar script embutido](#use-inline-scripts) e [Usar script externo](#use-external-scripts).
 - **primaryScriptUri**: Especifique uma URL acessível publicamente para o script de implantação primário com as extensões de arquivo que têm suporte.
@@ -152,9 +165,9 @@ Detalhes do valor da propriedade:
 
 ### <a name="additional-samples"></a>Outros exemplos
 
-- [Criar e atribuir um certificado a um cofre de chaves](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
-
-- [Crie e atribua uma identidade gerenciada atribuída pelo usuário a um grupo de recursos e execute um script de implantação](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json).
+- [Exemplo 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): criar um cofre de chaves e usar o script de implantação para atribuir um certificado ao cofre de chaves.
+- [Exemplo 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): Crie um grupo de recursos no nível da assinatura, crie um cofre de chaves no grupo de recursos e, em seguida, use o script de implantação para atribuir um certificado ao cofre de chaves.
+- [Exemplo 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): criar uma identidade gerenciada atribuída pelo usuário, atribuir a função de colaborador à identidade no nível do grupo de recursos, criar um cofre de chaves e usar o script de implantação para atribuir um certificado ao cofre de chaves.
 
 > [!NOTE]
 > É recomendável criar uma identidade atribuída pelo usuário e conceder permissões com antecedência. Você poderá obter erros relacionados a entrada e permissão se criar a identidade e conceder permissões no mesmo modelo em que executa scripts de implantação. Demora algum tempo para que as permissões se tornem efetivas.
@@ -166,9 +179,9 @@ O modelo a seguir tem um recurso definido com o tipo `Microsoft.Resources/deploy
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Como os scripts de implantação embutidos são colocados entre aspas duplas, as cadeias de caracteres dentro dos scripts de implantação precisam ser colocadas entre aspas simples. O caractere de escape do PowerShell é **&#92;** . Você também pode considerar usar a substituição de cadeia de caracteres, como mostrado no exemplo de JSON anterior. Consulte o valor padrão do parâmetro name.
+> Como os scripts de implantação embutidos são colocados entre aspas duplas, as cadeias de caracteres dentro dos scripts de implantação precisam ser precedidas usando um **&#92;** ou entre aspas simples. Você também pode considerar usar a substituição de cadeia de caracteres, como mostrado no exemplo de JSON anterior.
 
-O script usa um parâmetro e a saída do valor do parâmetro. **DeploymentScriptOutputs** é usado para armazenar saídas.  Na seção de saídas, a linha de **valor** mostra como acessar os valores armazenados. `Write-Output` é usado para fins de depuração. Para saber como acessar o arquivo de saída, consulte [Depurar scripts de implantação](#debug-deployment-scripts).  Para obter as descrições de propriedade, consulte [Modelos de exemplo](#sample-templates).
+O script usa um parâmetro e a saída do valor do parâmetro. **DeploymentScriptOutputs** é usado para armazenar saídas.  Na seção de saídas, a linha de **valor** mostra como acessar os valores armazenados. `Write-Output` é usado para fins de depuração. Para saber como acessar o arquivo de saída, consulte [monitorar e solucionar problemas de scripts de implantação](#monitor-and-troubleshoot-deployment-scripts).  Para obter as descrições de propriedade, consulte [Modelos de exemplo](#sample-templates).
 
 Para executar o script, selecione **Experimentar** para abrir o Cloud Shell, e cole o código a seguir no painel do Shell.
 
@@ -244,69 +257,24 @@ As saídas de script de implantação devem ser salvas no local AZ_SCRIPTS_OUTPU
 
 [jq](https://stedolan.github.io/jq/) foi usado no exemplo anterior. Ele vem com as imagens de contêiner. Consulte [Configurar o ambiente de desenvolvimento](#configure-development-environment).
 
-## <a name="develop-deployment-scripts"></a>Desenvolver scripts pós-implantação
-
-### <a name="handle-non-terminating-errors"></a>Tratar de erros de não encerramento
-
-Você pode controlar como o PowerShell responde a erros de não encerramento usando a variável [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) no script de implantação. O serviço de script não define/altera o valor.  Apesar do valor definido para $ErrorActionPreference, o script de implantação define o estado de provisionamento de recursos como *Falha* quando o script encontra um erro.
-
-### <a name="pass-secured-strings-to-deployment-script"></a>Passar cadeias de caracteres seguras para o script de implantação
-
-Definir variáveis de ambiente (EnvironmentVariable) em suas instâncias de contêiner permite que você forneça a configuração dinâmica do aplicativo ou do script executado pelo contêiner. O script de implantação manipula variáveis de ambiente não seguras e protegidas da mesma maneira que a Instância de Contêiner do Azure. Para saber mais, consulte [Definir variáveis de ambiente em instâncias de contêiner](../../container-instances/container-instances-environment-variables.md#secure-values).
-
-O tamanho máximo permitido para variáveis de ambiente é 64 KB.
-
-## <a name="debug-deployment-scripts"></a>Depurar scripts de implantação
-
-O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) (a menos que você especifique uma conta de armazenamento existente) e uma [instância de contêiner](../../container-instances/container-instances-overview.md) para execução de script. Se esses recursos forem criados automaticamente pelo serviço de script, ambos os recursos terão o sufixo **azscripts** nos nomes dos recursos.
-
-![Nomes dos recursos de script de implantação de modelo do Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
-
-O script do usuário, os resultados da execução e o arquivo stdout são armazenados nos compartilhamentos de arquivos da conta de armazenamento. Há uma pasta chamada **azscripts**. Na pasta, há mais duas pastas para os arquivos de entrada e de saída: **azscriptinput** e **azscriptoutput**.
-
-A pasta de saída contém um **executionresult.json** e o arquivo de saída de script. Você pode ver a mensagem de erro de execução do script em **executionresult.json**. O arquivo de saída é criado somente quando o script é executado com êxito. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. Você pode substituir o arquivo de script de implantação do usuário por um revisado e executar novamente o script de implantação da instância de contêiner do Azure.
-
-Você pode obter as informações de implantação de recurso de script de implantação no nível do grupo de recursos e no nível da assinatura usando a API REST:
-
-```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
-```
-
-```rest
-/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
-```
-
-O exemplo a seguir usa [ARMClient](https://github.com/projectkudu/ARMClient):
-
-```azurepowershell
-armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
-```
-
-A saída deverá ser semelhante a:
-
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-status.json" range="1-37" highlight="15,34":::
-
-A saída mostra o estado de implantação e as IDs de recurso do script de implantação.
-
-A API REST a seguir retorna o log:
-
-```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
-```
-
-Ele só funciona antes de os recursos de script de implantação serem excluídos.
-
-Para ver o recurso deploymentScripts no portal, selecione **Mostrar tipos ocultos**:
-
-![Script de implantação de modelo do Resource Manager, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
-
-## <a name="use-an-existing-storage-account"></a>Usar uma conta de armazenamento existente
+## <a name="use-existing-storage-account"></a>Usar conta de armazenamento existente
 
 Uma conta de armazenamento e uma instância de contêiner são necessárias para executar o script e solucionar problemas. Você tem as opções necessárias para especificar uma conta de armazenamento existente, caso contrário, o serviço de script criará automaticamente a conta de armazenamento junto com a instância de contêiner. Estes são os requisitos para usar uma conta de armazenamento existente:
 
-- Os tipos de conta de armazenamento com suporte são: general-purpose v2, general-purpose v1 e FileStorage. Somente o FileStorage dá suporte ao SKU Premium. Para obter mais informações, consulte [Tipos de contas de armazenamento](../../storage/common/storage-account-overview.md).
+- Os tipos de conta de armazenamento com suporte são:
+
+    | SKU             | Tipo com suporte     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Armazenamento, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Armazenamento, StorageV2 |
+    | Standard_RAGRS  | Armazenamento, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    Essas combinações dão suporte ao compartilhamento de arquivos.  Para obter mais informações, consulte [criar um compartilhamento de arquivos do Azure](../../storage/files/storage-how-to-create-file-share.md) e [tipos de contas de armazenamento](../../storage/common/storage-account-overview.md).
 - As regras de firewall da conta de armazenamento ainda não têm suporte. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../../storage/common/storage-network-security.md).
 - A identidade gerenciada atribuída pelo usuário do script de implantação deve ter permissões para gerenciar a conta de armazenamento, que inclui os compartilhamentos de arquivos de leitura, criação e exclusão.
 
@@ -333,6 +301,228 @@ Consulte [Modelos de exemplo](#sample-templates) para obter um exemplo de defini
 
 Quando uma conta de armazenamento existente é usada, o serviço de script cria um compartilhamento de arquivos com um nome exclusivo. Consulte [Limpar recursos de script de implantação](#clean-up-deployment-script-resources) para saber como o serviço de script limpa o compartilhamento de arquivos.
 
+## <a name="develop-deployment-scripts"></a>Desenvolver scripts pós-implantação
+
+### <a name="handle-non-terminating-errors"></a>Tratar de erros de não encerramento
+
+Você pode controlar como o PowerShell responde a erros de não encerramento usando a variável  **$ErrorActionPreference** no script de implantação. Se a variável não estiver definida no script de implantação, o serviço de script usará o valor padrão **continue**.
+
+O serviço de script define o estado de provisionamento de recursos como **falha** quando o script encontra um erro, apesar da configuração de $ErrorActionPreference.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Passar cadeias de caracteres seguras para o script de implantação
+
+Definir variáveis de ambiente (EnvironmentVariable) em suas instâncias de contêiner permite que você forneça a configuração dinâmica do aplicativo ou do script executado pelo contêiner. O script de implantação manipula variáveis de ambiente não seguras e protegidas da mesma maneira que a Instância de Contêiner do Azure. Para saber mais, consulte [Definir variáveis de ambiente em instâncias de contêiner](../../container-instances/container-instances-environment-variables.md#secure-values).
+
+O tamanho máximo permitido para variáveis de ambiente é 64 KB.
+
+## <a name="monitor-and-troubleshoot-deployment-scripts"></a>Monitorar e solucionar problemas de scripts de implantação
+
+O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) (a menos que você especifique uma conta de armazenamento existente) e uma [instância de contêiner](../../container-instances/container-instances-overview.md) para execução de script. Se esses recursos forem criados automaticamente pelo serviço de script, ambos os recursos terão o sufixo **azscripts** nos nomes dos recursos.
+
+![Nomes dos recursos de script de implantação de modelo do Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
+
+O script do usuário, os resultados da execução e o arquivo stdout são armazenados nos compartilhamentos de arquivos da conta de armazenamento. Há uma pasta chamada **azscripts**. Na pasta, há mais duas pastas para os arquivos de entrada e de saída: **azscriptinput** e **azscriptoutput**.
+
+A pasta de saída contém um **executionresult.json** e o arquivo de saída de script. Você pode ver a mensagem de erro de execução do script em **executionresult.json**. O arquivo de saída é criado somente quando o script é executado com êxito. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. Você pode substituir o arquivo de script de implantação do usuário por um revisado e executar novamente o script de implantação da instância de contêiner do Azure.
+
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+
+Depois de implantar um recurso de script de implantação, o recurso é listado no grupo de recursos no portal do Azure. A captura de tela a seguir mostra a página de visão geral de um recurso de script de implantação:
+
+![Visão geral do portal de script de implantação de modelo do Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
+
+A página Visão geral exibe algumas informações importantes do recurso, como o **estado de provisionamento**, a **conta de armazenamento**, a **instância de contêiner**e **os logs**.
+
+No menu à esquerda, você pode exibir o conteúdo do script de implantação, os argumentos passados para o script e a saída.  Você também pode exportar um modelo para o script de implantação, incluindo o script de implantação.
+
+### <a name="use-powershell"></a>Usar o PowerShell
+
+Usando Azure PowerShell, você pode gerenciar scripts de implantação na assinatura ou no escopo do grupo de recursos:
+
+- [Get-AzDeploymentScript](/powershell/module/az.resources/get-azdeploymentscript): Obtém ou lista os scripts de implantação.
+- [Get-AzDeploymentScriptLog](/powershell/module/az.resources/get-azdeploymentscriptlog): Obtém o log de uma execução de script de implantação.
+- [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): Remove um script de implantação e seus recursos associados.
+- [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): salva o log de uma execução de script de implantação em disco.
+
+A saída Get-AzDeploymentScript é semelhante a:
+
+```output
+Name                : runPowerShellInlineWithOutput
+Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
+ResourceGroupName   : myds0618rg
+Location            : centralus
+SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+ProvisioningState   : Succeeded
+Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
+ScriptKind          : AzurePowerShell
+AzPowerShellVersion : 3.0
+StartTime           : 6/18/2020 7:46:45 PM
+EndTime             : 6/18/2020 7:49:45 PM
+ExpirationDate      : 6/19/2020 7:49:45 PM
+CleanupPreference   : OnSuccess
+StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
+ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
+Outputs             :
+                      Key                 Value
+                      ==================  ==================
+                      text                Hello John Dole
+
+RetentionInterval   : P1D
+Timeout             : PT1H
+```
+
+### <a name="use-azure-cli"></a>Usar a CLI do Azure
+
+Usando CLI do Azure, você pode gerenciar scripts de implantação na assinatura ou no escopo do grupo de recursos:
+
+- [AZ Deployment – scripts Delete](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): excluir um script de implantação.
+- [AZ Deployment-lista de scripts](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): lista todos os scripts de implantação.
+- [AZ Deployment – scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): recuperar um script de implantação.
+- [AZ Deployment – scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Mostrar logs de script de implantação.
+
+A saída do comando de lista é semelhante a:
+
+```json
+[
+  {
+    "arguments": "-name \\\"John Dole\\\"",
+    "azPowerShellVersion": "3.0",
+    "cleanupPreference": "OnSuccess",
+    "containerSettings": {
+      "containerGroupName": null
+    },
+    "environmentVariables": null,
+    "forceUpdateTag": "20200625T025902Z",
+    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+    "identity": {
+      "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+      "type": "userAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+          "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+          "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+        }
+      }
+    },
+    "kind": "AzurePowerShell",
+    "location": "centralus",
+    "name": "runPowerShellInlineWithOutput",
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "primaryScriptUri": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myds0624rg",
+    "retentionInterval": "1 day, 0:00:00",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "endTime": "2020-06-25T03:00:16.796923+00:00",
+      "error": null,
+      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
+      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
+    },
+    "storageAccountSettings": null,
+    "supportingScriptUris": null,
+    "systemData": {
+      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdBy": "someone@contoso.com",
+      "createdByType": "User",
+      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
+      "lastModifiedBy": "someone@contoso.com",
+      "lastModifiedByType": "User"
+    },
+    "tags": null,
+    "timeout": "1:00:00",
+    "type": "Microsoft.Resources/deploymentScripts"
+  }
+]
+```
+
+### <a name="use-rest-api"></a>Usar API REST
+
+Você pode obter as informações de implantação de recurso de script de implantação no nível do grupo de recursos e no nível da assinatura usando a API REST:
+
+```rest
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
+```
+
+```rest
+/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
+```
+
+O exemplo a seguir usa [ARMClient](https://github.com/projectkudu/ARMClient):
+
+```azurepowershell
+armclient login
+armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
+```
+
+A saída deverá ser semelhante a:
+
+```json
+{
+  "kind": "AzurePowerShell",
+  "identity": {
+    "type": "userAssigned",
+    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+    "userAssignedIdentities": {
+      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+      }
+    }
+  },
+  "location": "centralus",
+  "systemData": {
+    "createdBy": "someone@contoso.com",
+    "createdByType": "User",
+    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "lastModifiedBy": "someone@contoso.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+  },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "forceUpdateTag": "20200625T025902Z",
+    "azPowerShellVersion": "3.0",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "arguments": "-name \\\"John Dole\\\"",
+    "retentionInterval": "P1D",
+    "timeout": "PT1H",
+    "containerSettings": {},
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
+      "startTime": "2020-06-25T02:59:07.5951401Z",
+      "endTime": "2020-06-25T03:00:16.7969234Z",
+      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+    },
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "cleanupPreference": "OnSuccess"
+  },
+  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "type": "Microsoft.Resources/deploymentScripts",
+  "name": "runPowerShellInlineWithOutput"
+}
+
+```
+
+A API REST a seguir retorna o log:
+
+```rest
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
+```
+
+Ele só funciona antes de os recursos de script de implantação serem excluídos.
+
+Para ver o recurso deploymentScripts no portal, selecione **Mostrar tipos ocultos**:
+
+![Script de implantação de modelo do Resource Manager, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
+
 ## <a name="clean-up-deployment-script-resources"></a>Limpar recursos do script de implantação
 
 Uma conta de armazenamento e uma instância de contêiner são necessárias para executar o script e solucionar problemas. Você tem as opções necessárias para especificar uma conta de armazenamento existente, caso contrário, uma conta de armazenamento, juntamente com uma instância de contêiner, será criada automaticamente pelo serviço de script. Os dois recursos criados automaticamente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para obter as informações de preço, consulte os [Preços de Instâncias de Contêiner](https://azure.microsoft.com/pricing/details/container-instances/) e os [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
@@ -341,9 +531,9 @@ O ciclo de vida desses recursos é controlado pelas seguintes propriedades no mo
 
 - **cleanupPreference**: Limpe a preferência quando a execução do script chegar a um estado terminal. Os valores com suporte são:
 
-  - **Sempre**: Exclua os recursos criados automaticamente quando a execução do script chegar a um estado terminal. Se uma conta de armazenamento existente for usada, o serviço de script excluirá o compartilhamento de arquivos criado na conta de armazenamento. Como o recurso deploymentScripts ainda pode estar presente depois que os recursos são limpos, os serviços de script persistem os resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. antes de os recursos serem excluídos.
+  - **Sempre**: Exclua os recursos criados automaticamente quando a execução do script chegar a um estado terminal. Se uma conta de armazenamento existente for usada, o serviço de script excluirá o compartilhamento de arquivos criado na conta de armazenamento. Como o recurso deploymentScripts ainda pode estar presente depois que os recursos são limpos, o serviço de script persiste os resultados da execução do script, por exemplo, stdout, Outputs, valor de retorno, etc., antes de os recursos serem excluídos.
   - **OnSuccess**: Exclua os recursos criados automaticamente somente quando a execução do script for bem-sucedida. Se uma conta de armazenamento existente for usada, o serviço de script removerá o compartilhamento de arquivos somente quando a execução do script for bem-sucedida. Você ainda pode acessar os recursos para localizar as informações de depuração.
-  - **OnExpiration**: Exclua os recursos automaticamente somente quando a configuração **retentionInterval** tiver expirado. Se uma conta de armazenamento existente for usada, o serviço de script removerá o compartilhamento de arquivos, mas manterá a conta de armazenamento.
+  - **Onexpiretion**: exclua os recursos criados automaticamente somente quando a configuração **retentionInterval** estiver expirada. Se uma conta de armazenamento existente for usada, o serviço de script removerá o compartilhamento de arquivos, mas manterá a conta de armazenamento.
 
 - **retentionInterval**: Especifique o intervalo de tempo durante o qual um recurso de script será mantido e após o qual será expirado e excluído.
 
@@ -366,17 +556,9 @@ A execução do script de implantação é uma operação idempotente. Se nenhum
 
 ## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Você pode usar uma imagem de contêiner pré-configurada do Docker como seu ambiente de desenvolvimento de script de implantação. O procedimento a seguir mostra como configurar a imagem do Docker no Windows. Para Linux e Mac, você pode encontrar as informações na Internet.
+Você pode usar uma imagem de contêiner pré-configurada do Docker como seu ambiente de desenvolvimento de script de implantação. Para instalar o Docker, consulte [obter Docker](https://docs.docker.com/get-docker/).
+Você também precisa configurar o compartilhamento de arquivos para montar o diretório que contém os scripts de implantação no contêiner do Docker.
 
-1. Instale [Docker Desktop](https://www.docker.com/products/docker-desktop) no computador de desenvolvimento.
-1. Abra o Docker Desktop.
-1. Selecione o ícone do Docker desktop nas barras de tarefas e, em seguida, selecione **Configurações**.
-1. Selecione **Unidades compartilhadas**, selecione uma unidade local que você queira disponibilizar para seus contêineres e, em seguida, selecione **Aplicar**
-
-    ![Unidade do Docker do script de implantação do modelo do Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
-
-1. Insira suas credenciais do Windows no prompt.
-1. Abra uma janela de terminal, um prompt de comando ou o Windows PowerShell (não use o ISE do PowerShell).
 1. Efetuar pull da imagem de contêiner do script de implantação para o computador local:
 
     ```command
@@ -413,12 +595,11 @@ Você pode usar uma imagem de contêiner pré-configurada do Docker como seu amb
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. Selecione **Compartilhar** quando você receber um prompt.
-1. A captura de tela a seguir mostra como executar um script do PowerShell, considerando que você tenha um arquivo HelloWorld.ps1 na pasta d:\docker.
+1. A captura de tela a seguir mostra como executar um script do PowerShell, Considerando que você tem um arquivo de helloworld.ps1 na unidade compartilhada.
 
     ![Cmd do Docker do script de implantação do modelo do Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-Depois que o script for testado com êxito, você poderá usá-lo como um script de implantação.
+Depois que o script for testado com êxito, você poderá usá-lo como um script de implantação em seus modelos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

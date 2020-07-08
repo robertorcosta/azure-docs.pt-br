@@ -6,12 +6,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 09fe1455f0dba57fd23aeeb66acb1f99fc2513d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b605d63db09b81bfe73eca8f4abd7a38d2325004
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648983"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056014"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Crie uma definição de aplicativo gerenciado com o PowerShell
 
@@ -32,10 +32,10 @@ Este script usa os comandos a seguir para implantar a definição de aplicativo 
 
 | Comando | Observações |
 |---|---|
-| [New-AzManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Crie uma definição de aplicativo gerenciado. Forneça o pacote que contém os arquivos necessários. |
+| [New-AzManagedApplicationDefinition](/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Crie uma definição de aplicativo gerenciado. Forneça o pacote que contém os arquivos necessários. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](../overview.md).
-* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/get-started-azureps).

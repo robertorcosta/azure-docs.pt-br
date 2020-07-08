@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156099"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055232"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência de nuvem
 
@@ -51,7 +51,7 @@ As novas funções de modelo introduzidas no Azure Resource Manager não ficam i
 
 As funcionalidades do Azure Resource Manager sempre serão introduzidas primeiro no Azure global. Use o seguinte script do PowerShell para verificar se as funções de modelo recém-introduzidas também estão disponíveis no Azure Stack:
 
-1. Faça um clone do repositório GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
+1. Faça um clone do repositório GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions) .
 
 1. Quando você tiver um clone local do repositório, conecte-se ao Azure Resource Manager do destino com o PowerShell.
 
@@ -133,7 +133,7 @@ Em todo o modelo, os vínculos são gerados pela combinação do URI base (do pa
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2019-10-01",
     "name": "shared",
     "properties": {
       "mode": "Incremental",
@@ -301,7 +301,7 @@ Por esse motivo, o Resource Manager introduziu o conceito de perfis de API para 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -342,7 +342,7 @@ Uma versão de perfil de API funciona como um alias para uma única versão de A
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -384,7 +384,7 @@ O perfil de API não é um elemento necessário em um modelo. Mesmo se você adi
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -574,7 +574,7 @@ As mesmas alterações também se aplicam aos [discos de dados](../../virtual-ma
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Verificar se as extensões de VM estão disponíveis no Azure Stack
 
-Outra consideração a ser feita sobre a consistência de nuvem é o uso de [extensões de máquina virtual](../../virtual-machines/windows/extensions-features.md) para configurar os recursos dentro de uma VM. Nem todas as extensões de VM estão disponíveis no Azure Stack. Um modelo pode especificar os recursos dedicados para a extensão de VM, criando dependências e condições dentro do modelo.
+Outra consideração a ser feita sobre a consistência de nuvem é o uso de [extensões de máquina virtual](../../virtual-machines/extensions/features-windows.md) para configurar os recursos dentro de uma VM. Nem todas as extensões de VM estão disponíveis no Azure Stack. Um modelo pode especificar os recursos dedicados para a extensão de VM, criando dependências e condições dentro do modelo.
 
 Por exemplo, caso você deseje configurar uma VM que executa o Microsoft SQL Server, a extensão de VM poderá configurar o SQL Server como parte da implantação de modelo. Considere o que acontecerá se o modelo de implantação também contiver um servidor de aplicativos configurado para criar um banco de dados na VM que executa o SQL Server. Além de também usar uma extensão de VM para os servidores de aplicativos, você pode configurar a dependência do servidor de aplicativos em um retorno bem-sucedido do recurso de extensão de VM do SQL Server. Essa abordagem garante que a VM que executa o SQL Server esteja configurada e disponível quando o servidor de aplicativos for instruído a criar o banco de dados.
 

@@ -3,14 +3,14 @@ title: Fazendo backup de arquivos e pastas-perguntas comuns
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254743"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056167"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre como fazer backup de arquivos e pastas
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas frequentes sobre como fazer backup de arquivos e pastas
 
 Este artigo responde a perguntas comuns abound backup de arquivos e pastas com o agente de Serviços de Recuperação do Microsoft Azure (MARS) no serviço de [backup do Azure](backup-overview.md) .
 
@@ -112,9 +112,9 @@ O tamanho da pasta de cache determina a quantidade de dados submetida a backup.
 1. Execute este comando em um prompt de comandos com privilégios elevados para interromper o mecanismo de backup:
 
     ```Net stop obengine```
-2. Se você tiver configurado o backup do estado do sistema, abra o gerenciamento de disco e desmonte os discos com nomes no `"CBSSBVol_<ID>"`formato.
+2. Se você tiver configurado o backup do estado do sistema, abra o gerenciamento de disco e desmonte os discos com nomes no formato `"CBSSBVol_<ID>"` .
 3. Por padrão, a pasta de rascunho está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
-4. Copie a pasta `\Scratch` inteira para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo seja copiado, não movido.
+4. Copie a `\Scratch` pasta inteira para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo seja copiado, não movido.
 5. Atualize as entradas de registro a seguir com o caminho da pasta de rascunho recentemente movida.
 
     | Caminho do registro | Chave do Registro | Valor |
@@ -159,7 +159,8 @@ Sim, você pode usar a opção **alterar propriedades** no agente Mars para ajus
 
 ### <a name="manage"></a>Gerenciar
 
-**Posso recuperar se esqueci minha frase secreta?**
+#### <a name="can-i-recover-if-i-forgot-my-passphrase"></a>Posso recuperar se esqueci minha frase secreta?
+
 O agente de backup do Azure requer uma frase secreta (que você forneceu durante o registro) para descriptografar os dados de backup durante a restauração. Examine os cenários abaixo para entender suas opções de tratamento de uma senha perdida:
 
 | Computador original <br> *(computador de origem onde os backups foram feitos)* | Senha | Opções Disponíveis |
@@ -177,14 +178,18 @@ Considere as seguintes condições:
   * Uma *senha diferente*, você não poderá restaurar os dados de backup.
 * Se o computador original estiver corrompido (impedindo a regeneração da senha por meio do console do MARS), mas você puder restaurar ou acessar a pasta de rascunho original usada pelo agente MARS, poderá restaurar (se você esqueceu a senha). Para obter mais assistência, entre em contato com o atendimento ao cliente.
 
-**Como fazer recuperar se eu perder minha máquina original (onde os backups foram feitos)?**
+#### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Como fazer recuperar se eu perder minha máquina original (onde os backups foram feitos)?
 
 Se você tiver a mesma senha (que você forneceu durante o registro) da máquina original, poderá restaurar os dados de backup para um computador alternativo. Examine os cenários abaixo para entender as opções de restauração.
 
 | Computador original | Senha | Opções Disponíveis |
 | --- | --- | --- |
-| Excluído |Disponível |Você pode instalar e registrar o agente MARS em outro computador com a mesma senha que você forneceu durante o registro do computador original. Escolha a **opção** > de recuperação**outro local** para executar a restauração. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Excluído |Disponível |Você pode instalar e registrar o agente MARS em outro computador com a mesma senha que você forneceu durante o registro do computador original. Escolha a **opção de recuperação**  >  **outro local** para executar a restauração. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Excluído |Excluído |Não é possível recuperar os dados ou os dados não estão disponíveis |
+
+### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Meus trabalhos de backup estavam falhando ou não em execução há muito tempo. Estou além do período de retenção. Ainda posso restaurar?
+
+Como medida de segurança, o backup do Azure preservará o último ponto de recuperação, mesmo que ele esteja além do período de retenção. Quando os backups forem retomados e novos pontos de recuperação forem disponibilizados, o ponto de recuperação mais antigo será removido de acordo com a retenção especificada.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontecerá se eu cancelar um trabalho de restauração em andamento?
 

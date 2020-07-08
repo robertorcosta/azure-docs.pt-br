@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e3cd30f2ed523584ae827f51d19c6acebf72abf
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248340"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055504"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gerenciar recursos do Azure usando o portal do Azure
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre como Azure Resource Manager ordena a exclus�
 ## <a name="move-resources"></a>Mover recursos
 
 1. Abra o recurso no Portal. Para as etapas, consulte [recursos abertos](#open-resources).
-2. Selecione **mover**. A captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
+2. Selecione **Mover**. A captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
 
     ![mover recurso do Azure](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
 3. Selecione **mover para outro grupo de recursos** ou **mover para outra assinatura** , dependendo de suas necessidades.
@@ -120,5 +120,5 @@ O [Controle de acesso baseado em função (RBAC)](../../role-based-access-contro
 
 - Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](overview.md).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../templates/template-syntax.md).
-- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](../index.yml).
 - Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

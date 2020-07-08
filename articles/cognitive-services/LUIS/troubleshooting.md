@@ -4,12 +4,12 @@ description: Este artigo contém as respostas para perguntas frequentes sobre o 
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343518"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054824"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -43,7 +43,7 @@ Sim, é bom treinar sua intenção **None** com mais enunciados conforme você a
 Veja o tutorial [API de Verificação Ortográfica do Bing V7](luis-tutorial-bing-spellcheck.md). O LUIS impõe limites exigidos pela API de Verificação Ortográfica do Bing V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Como fazer para editar meu aplicativo de LUIS programaticamente?
-Para editar seu aplicativo de LUIS programaticamente, use a [API de Criação](https://go.microsoft.com/fwlink/?linkid=2092087). Veja [Chamar a API de criação LUIS](./get-started-get-model-rest-apis.md) e [Compilar um aplicativo de LUIS programaticamente usando Node.js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de Criação. A API de Criação exige que você use uma [chave de criação](luis-concept-keys.md#azure-resources-for-luis), em vez de uma chave de ponto de extremidade. A criação programática permite até um milhão de chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves que você usa com o LUIS, consulte [Gerenciar chaves](./luis-concept-keys.md).
+Para editar seu aplicativo de LUIS programaticamente, use a [API de Criação](https://go.microsoft.com/fwlink/?linkid=2092087). Veja [Chamar a API de criação LUIS](./get-started-get-model-rest-apis.md) e [Compilar um aplicativo de LUIS programaticamente usando Node.js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de Criação. A API de Criação exige que você use uma [chave de criação](luis-how-to-azure-subscription.md#azure-resources-for-luis), em vez de uma chave de ponto de extremidade. A criação programática permite até um milhão de chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves que você usa com o LUIS, consulte [Gerenciar chaves](./luis-how-to-azure-subscription.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Em local está o recurso de Padrão que forneceu a correspondência da expressão regular?
 O **Recurso de Padrão** anterior atualmente foi preterido, tendo sido substituído por **[Padrões](luis-concept-patterns.md)**.
@@ -82,7 +82,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 
@@ -123,7 +123,7 @@ Examine as [práticas recomendadas](luis-concept-best-practices.md) para obter o
 O LUIS transforma em [token](luis-glossary.md#token) o enunciado com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor em token estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como fazer para criar e atribuir uma chave de ponto de extremidade de LUIS?
-[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribua a chave](luis-how-to-azure-subscription.md) na página de **[recursos do Azure](luis-how-to-azure-subscription.md)** . Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md).
+[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribua a chave](luis-how-to-azure-subscription.md) na página de **[recursos do Azure](luis-how-to-azure-subscription.md)** . Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-how-to-azure-subscription.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como fazer para interpretar as pontuações de LUIS?
 Seu sistema deve usar a intenção de pontuação mais alta, independentemente do seu valor. Por exemplo, uma pontuação inferior a 0,5 (menor que 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a [Pontuação](luis-concept-prediction-score.md) da intenção mais provável.
@@ -144,10 +144,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Meu aplicativo de LUIS estava funcionando ontem, mas hoje estou recebendo erros 403. Eu não alterei o aplicativo. Como corrigi-la?
-Siga estas [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponto de extremidade Luis e atribuí-la ao aplicativo. Em seguida, você deve alterar a solicitação HTTP do aplicativo cliente para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md). Se você criou um novo recurso em uma região diferente, altere também a região da solicitação de cliente HTTP.
+Siga estas [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponto de extremidade Luis e atribuí-la ao aplicativo. Em seguida, você deve alterar a solicitação HTTP do aplicativo cliente para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-how-to-azure-subscription.md). Se você criou um novo recurso em uma região diferente, altere também a região da solicitação de cliente HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Como fazer para protejar o ponto de extremidade de LUIS?
-Veja [Protegendo o ponto de extremidade](luis-concept-keys.md#securing-the-endpoint).
+Veja [Protegendo o ponto de extremidade](luis-how-to-azure-subscription.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Trabalhando dentro dos limites de LUIS
 
@@ -206,7 +206,7 @@ Se seu aplicativo existia antes da GA (disponibilidade geral) do LUIS, as chaves
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como sei qual chave preciso, onde obtê-la e o que fazer com ela?
 
-Consulte [criação e consulta de chaves de ponto de extremidade de previsão em Luis](luis-concept-keys.md) para saber mais sobre as diferenças entre a chave de criação e a chave de tempo de execução de previsão.
+Consulte [criação e consulta de chaves de ponto de extremidade de previsão em Luis](luis-how-to-azure-subscription.md) para saber mais sobre as diferenças entre a chave de criação e a chave de tempo de execução de previsão.
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro informando a ausência de cota. Como corrigi-la?
 

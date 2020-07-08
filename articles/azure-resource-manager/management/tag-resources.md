@@ -2,13 +2,13 @@
 title: Marcar recursos, grupos de recursos e assinaturas para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864480"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056915"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use marcas para organizar os recursos e a hierarquia de gerenciamento do Azure
 
@@ -17,7 +17,9 @@ Você aplica marcas aos recursos, grupos de recursos e assinaturas do Azure para
 Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [nomenclatura de recursos e guia de decisão de marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Os nomes de marca não diferenciam maiúsculas de minúsculas. Os valores de marca diferenciam maiúsculas de minúsculas.
+> Os nomes de marca não diferenciam maiúsculas de minúsculas para operações. Uma marca com um nome de marca, independentemente de maiúsculas e minúsculas, é atualizada ou recuperada. No entanto, o provedor de recursos pode manter a embalagem que você fornecer para o nome da marca. Você verá essa capitalização nos relatórios de custo.
+> 
+> Os valores de marca diferenciam maiúsculas de minúsculas.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -31,7 +33,7 @@ A função [colaborador](../../role-based-access-control/built-in-roles.md#contr
 
 ### <a name="apply-tags"></a>Aplicar marcas
 
-O Azure PowerShell oferece dois comandos para aplicar marcas- [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Você deve ter o módulo AZ. Resources 1.12.0 ou posterior. Você pode verificar sua versão com `Get-Module Az.Resources`. Você pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou posterior.
+O Azure PowerShell oferece dois comandos para aplicar marcas- [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Você deve ter o módulo AZ. Resources 1.12.0 ou posterior. Você pode verificar sua versão com `Get-Module Az.Resources` . Você pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou posterior.
 
 O **New-AzTag** substitui todas as marcas no recurso, no grupo de recursos ou na assinatura. Ao chamar o comando, passe a ID de recurso da entidade que você deseja marcar.
 
@@ -263,7 +265,7 @@ Para acrescentar uma marca às marcas existentes em um grupo de recursos, use:
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Atualmente, CLI do Azure não dá suporte à aplicação de marcas em assinaturas.
+Atualmente, CLI do Azure não tem um comando para aplicar marcas a assinaturas. No entanto, você pode usar a CLI para implantar um modelo do ARM que aplica as marcas a uma assinatura. Consulte [aplicar marcas a grupos de recursos ou assinaturas](#apply-tags-to-resource-groups-or-subscriptions).
 
 ### <a name="list-tags"></a>Listar marcas
 
@@ -326,7 +328,7 @@ Você pode marcar recursos, grupos de recursos e assinaturas durante a implanta�
 
 ### <a name="apply-values"></a>Aplicar valores
 
-O exemplo a seguir implanta uma conta de armazenamento com três marcas. Duas das marcas (`Dept` e `Environment`) são definidas como valores literais. Uma marca (`LastDeployed`) é definida como um parâmetro que usa como padrão a data atual.
+O exemplo a seguir implanta uma conta de armazenamento com três marcas. Duas das marcas ( `Dept` e `Environment` ) são definidas como valores literais. Uma marca ( `LastDeployed` ) é definida como um parâmetro que usa como padrão a data atual.
 
 ```json
 {
@@ -436,7 +438,7 @@ Para armazenar diversos valores em uma única marca, aplica uma cadeia de caract
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
 
-Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](../templates/template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use `tags[tag-name]` a sintaxe em vez `tags.tag-name` da sintaxe, porque alguns caracteres não são analisados corretamente na notação de ponto.
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](../templates/template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a `tags[tag-name]` sintaxe em vez da `tags.tag-name` sintaxe, porque alguns caracteres não são analisados corretamente na notação de ponto.
 
 ```json
 {
@@ -523,6 +525,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](../templates/deploy-to-subscription.md).
+
 O modelo a seguir adiciona as marcas de um objeto a um grupo de recursos ou assinatura.
 
 ```json
@@ -574,7 +578,7 @@ As marcas aplicadas ao grupo de recursos ou à assinatura não são herdadas pel
 
 Você pode usar marcas para agrupar os dados de cobrança. Por exemplo, se estiver executando várias VMs para organizações diferentes, use marcas para agrupar o uso por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de runtime, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
 
-Você pode recuperar as informações sobre as marcações por meio das [APIs RateCard e Uso de Recursos do Azure](../../billing/billing-usage-rate-card-overview.md) ou do arquivo de uso CSV (com valores separados por vírgula). Você baixar o arquivo de uso do [Centro de Contas do Azure](https://account.azure.com/Subscriptions) ou do Portal do Azure. Para saber mais, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **Versão 2**. Para os serviços que dão suporte a marcas com cobrança, as marcas aparecerão na coluna **Marcas**.
+Você pode recuperar as informações sobre as marcações por meio das [APIs RateCard e Uso de Recursos do Azure](../../cost-management-billing/manage/usage-rate-card-overview.md) ou do arquivo de uso CSV (com valores separados por vírgula). Você baixar o arquivo de uso do [Centro de Contas do Azure](https://account.azure.com/Subscriptions) ou do Portal do Azure. Para saber mais, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **Versão 2**. Para os serviços que dão suporte a marcas com cobrança, as marcas aparecerão na coluna **Marcas**.
 
 Para operações de API REST, confira [Referência da API REST de cobrança do Azure](/rest/api/billing/).
 
@@ -583,17 +587,15 @@ Para operações de API REST, confira [Referência da API REST de cobrança do A
 As seguintes limitações se aplicam a marcas:
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
-* Atualmente, os grupos de gerenciamento não dão suporte a marcas.
 * Cada recurso, grupo de recursos e assinatura podem ter um máximo de 50 pares de nome/valor de marca. Se você precisar aplicar mais marcas do que o número máximo permitido, use uma cadeia de caracteres JSON para o valor da marca. A cadeia de caracteres JSON pode conter diversos valores que são aplicados a um único nome de marca. Um grupo de recursos ou uma assinatura pode conter muitos recursos, cada um com pares de nome/valor de marca 50.
 * O nome da marca é limitado a 512 caracteres e o valor da marca é limitado a 256 caracteres. Para contas de armazenamento, o nome da marca é limitado a 128 caracteres e o valor da marca é limitado a 256 caracteres.
-* As VMs generalizadas não dão suporte a marcas.
 * As marcas não podem ser aplicadas a recursos clássicos como Serviços de Nuvem.
 * Os nomes das marcas não podem conter esses caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
    > Atualmente, as zonas DNS do Azure e os serviços do Traffic Manager também não permitem o uso de espaços na marca.
    >
-   > A porta frontal do Azure não dá suporte `#` ao uso de no nome da marca.
+   > A porta frontal do Azure não dá suporte ao uso de `#` no nome da marca.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,12 +4,12 @@ description: Crie alertas do log de atividades usando o portal do Azure, um mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744259"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056252"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor  
 
@@ -200,6 +200,11 @@ Para criar uma regra de alerta do log de atividades usando um modelo do Azure Re
 }
 ```
 O JSON de exemplo anterior pode ser salvo como, por exemplo, sampleActivityLogAlert.json para este passo a passo e pode ser implantado usando o [Azure Resource Manager no portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Observe que os alertas do log de atividades de nível mais alto podem ser definidos como assinatura.
+  > Ou seja, não há nenhuma opção para definir o alerta em duas assinaturas, portanto, a definição deve ser alertado por assinatura.
 
 Os seguintes campos são as opções que você pode usar no modelo do Azure Resource Manager para os campos de condições: Observe que "Resource Health", "Assistente" e "Integridade do Serviço" têm campos de propriedades extras para seus campos especiais. 
 1. resourceId:  a ID do recurso afetado no evento do log de atividades no qual o alerta deve ser gerado.

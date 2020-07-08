@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4a9639343827ebc5bb17a6d62d9b65d0b561e932
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595125"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056779"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas na Versão Prévia do serviço Aplicativos Web Estáticos do Azure
 
-O roteamento no serviço Aplicativos Web Estáticos do Azure define as regras de roteamento de back-end e o comportamento de autorização para conteúdo estático e APIs. As regras são definidas como uma matriz de regras no arquivo _routes.json_.
+O roteamento em aplicativos Web estáticos do Azure define as regras de roteamento de back-end e o comportamento de autorização para conteúdo estático e APIs<sup>1</sup>. As regras são definidas como uma matriz de regras no arquivo _routes.json_.
 
 - O arquivo _routes.json_ deve existir na raiz da pasta de artefatos do build do aplicativo.
 - As regras são executadas na ordem em que aparecem na matriz de `routes`.
@@ -25,6 +25,8 @@ O roteamento no serviço Aplicativos Web Estáticos do Azure define as regras de
 - Você tem controle total sobre o nome das funções.
 
 O tópico de roteamento é bastante semelhante aos conceitos de autenticação e autorização. Certifique-se de ler o guia de [autenticação e autorização,](authentication-authorization.md) juntamente com este artigo.
+
+Consulte o [exemplo de arquivo de rota](#example-route-file) para obter detalhes.
 
 ## <a name="location"></a>Location
 
@@ -45,8 +47,8 @@ As rotas são definidas no arquivo _routes.json_ como uma matriz de regras de ro
 
 | Propriedade de regra  | Obrigatório | Valor padrão | Comentário                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Sim      | n/d          | O padrão de rota solicitado pelo chamador.<ul><li>Há suporte para [curingas](#wildcards) no final dos caminhos de rota. Por exemplo, a rota _admin/\*_ corresponde a qualquer rota sob o caminho de _administrador_.<li>O arquivo padrão de uma rota é _index. html_.</ul>|
-| `serve`        | Não       | n/d          | Define o arquivo ou caminho retornado da solicitação. O caminho e o nome do arquivo podem ser diferentes do caminho solicitado. Se um valor de `serve` for definido, o caminho solicitado será usado. |
+| `route`        | Sim      | N/D          | O padrão de rota solicitado pelo chamador.<ul><li>Há suporte para [curingas](#wildcards) no final dos caminhos de rota. Por exemplo, a rota _admin/\*_ corresponde a qualquer rota sob o caminho de _administrador_.<li>O arquivo padrão de uma rota é _index. html_.</ul>|
+| `serve`        | Não       | n/d          | Define o arquivo ou caminho retornado da solicitação. O caminho e o nome do arquivo podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, o caminho solicitado será usado. Não há suporte para parâmetros de QueryString; `serve`os valores devem apontar para os arquivos reais.  |
 | `allowedRoles` | Não       | anônimo     | Uma matriz de nomes de função. <ul><li>Os caracteres válidos incluem `a-z`, `A-Z`, `0-9` e `_`.<li>A função interna `anonymous` se aplica a todos os usuários não autenticados.<li>A função interna `authenticated` se aplica a todos os usuários não conectados.<li>Os usuários devem pertencer a pelo menos uma função.<li>As funções são comparadas usando o operador _OR_. Se um usuário estiver em qualquer uma das funções listadas, o acesso será concedido.<li>Os usuários individuais são associados a funções por meio de [convites](authentication-authorization.md).</ul> |
 | `statusCode`   | Não       | 200           | A resposta do [código de status HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para a solicitação. |
 
@@ -150,6 +152,9 @@ Os redirecionamentos também funcionam com caminhos que não definem arquivos di
 
 Os usuários podem encontrar várias situações diferentes que podem resultar em um erro. Usando a matriz de `platformErrorOverrides`, você pode fornecer uma experiência personalizada em resposta a esses erros. Consulte o [exemplo de arquivo de rota](#example-route-file) para o posicionamento da matriz no arquivo _rotas.json_.
 
+> [!NOTE]
+> Quando uma solicitação o torna para o nível de substituições da plataforma, as regras de rota não são executadas novamente.
+
 A tabela a seguir lista as substituições de erro de plataforma disponíveis:
 
 | Tipo de erro  | Código de status HTTP | Descrição |
@@ -161,6 +166,53 @@ A tabela a seguir lista as substituições de erro de plataforma disponíveis:
 | `Unauthorized_MissingRoles` | 401 | O usuário não é membro de uma função necessária. |
 | `Unauthorized_TooManyUsers` | 401 | O site atingiu o número máximo de usuários e o servidor está limitando mais adições. Esse erro é exposto ao cliente porque não há limite para o número de [convites](authentication-authorization.md) que você pode gerar, e alguns usuários podem nunca aceitar o convite.|
 | `Unauthorized_Unknown` | 401 | Há um problema desconhecido ao tentar autenticar o usuário. Uma causa desse erro pode ser que o usuário não é reconhecido porque não deu consentimento ao aplicativo.|
+
+## <a name="custom-mime-types"></a>Tipos de MIME personalizados
+
+O `mimeTypes` objeto, listado no mesmo nível que a `routes` matriz, permite que você associe [tipos de MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) a extensões de arquivo.
+
+```json
+{
+    "routes": [],
+    "mimeTypes": {
+        "custom": "text/html"
+    }
+}
+```
+
+No exemplo acima, todos os arquivos com a `.custom` extensão são servidos com o `text/html` tipo MIME.
+
+As considerações a seguir são importantes ao trabalhar com tipos MIME:
+
+- As chaves não podem ser nulas ou vazias ou ter mais de 50 caracteres
+- Os valores não podem ser nulos ou vazios ou ter mais de 1000 caracteres
+
+## <a name="default-headers"></a>Cabeçalhos padrão
+
+O `defaultHeaders` objeto, listado no mesmo nível que a `routes` matriz, permite que você adicione, modifique ou remova cabeçalhos de [resposta](https://developer.mozilla.org/docs/Web/HTTP/Headers).
+
+Fornecer um valor para um cabeçalho adiciona ou modifica o cabeçalho. Fornecendo um valor vazio, remove o cabeçalho de ser servido para o cliente.
+
+```json
+{
+    "routes": [],
+    "defaultHeaders": {
+      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+      "cache-control": "must-revalidate, max-age=6000",
+      "x-dns-prefetch-control": ""
+    }
+}
+```
+
+No exemplo acima, um novo `content-security-policy` cabeçalho é adicionado, o `cache-control` modifica o valor padrão do servidor e o `x-dns-prefectch-control` cabeçalho é removido.
+
+As considerações a seguir são importantes ao trabalhar com cabeçalhos:
+
+- As chaves não podem ser nulas ou vazias.
+- Valores nulos ou vazios removem um cabeçalho do processamento.
+- Chaves ou valores não podem exceder 8.000 caracteres.
+- Os cabeçalhos definidos são servidos com todas as solicitações.
+- Os cabeçalhos definidos no _routes.js_ somente se aplicam ao conteúdo estático. Você pode personalizar cabeçalhos de resposta de um ponto de extremidade de API no código da função.
 
 ## <a name="example-route-file"></a>Exemplo de arquivo de rota
 
@@ -214,33 +266,47 @@ O exemplo a seguir mostra como criar regras de rota para conteúdo estático e A
     },
     {
       "errorType": "Unauthenticated",
+      "statusCode": "302",
       "serve": "/login"
     }
-  ]
+  ],
+  "defaultHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+      "custom": "text/html"
+  }
 }
 ```
 
 Os exemplos a seguir descrevem o que acontece quando uma solicitação corresponde a uma regra.
 
-|Solicitações para...  | O resultado é... |
-|---------|---------|---------|
+| Solicitações para... | O resultado é... |
+|--|--|--|
 | _/profile_ | Os usuários autenticados recebem o arquivo _/profile/index.html_. Usuários não autenticados são redirecionados para _/login_. |
-| _/admin/reports_ | Usuários autenticados na função de _administradores_ recebem o arquivo _/admin/reports/index.html_. Os usuários autenticados que não estão na função _administradores_ recebem um erro 401<sup>1</sup>. Usuários não autenticados são redirecionados para _/login_. |
+| _/admin/reports_ | Usuários autenticados na função de _administradores_ recebem o arquivo _/admin/reports/index.html_. Os usuários autenticados que não estão na função _Administradores_ são atendidos com o erro<sup>2</sup>de 401. Usuários não autenticados são redirecionados para _/login_. |
 | _/api/admin_ | As solicitações de usuários autenticados na função _administradores_ são enviadas para a API. Os usuários autenticados que não estão na função _administradores_ e usuários não autenticados recebem um erro 401. |
-| _/customers/contoso_ | Usuários autenticados que pertencem às funções _administradores_ ou _clientes\_contoso_ recebem o arquivo _/customers/contoso/index.html_<sup>1</sup>. Os usuários autenticados que não estão na função _administradores_ ou _clientes\_contoso_ recebem um erro 401. Usuários não autenticados são redirecionados para _/login_. |
-| _/login_     | Os usuários não autenticados são desafiados a autenticar com o GitHub. |
-| _/.auth/login/twitter_     | A autorização com o Twitter está desabilitada. O servidor responde com um erro 404. |
-| _/logout_     | Os usuários são desconectados de qualquer provedor de autenticação. |
+| _/customers/contoso_ | Os usuários autenticados que pertencem a funções do _ \_ contoso_ de _Administradores_ ou clientes são servidos pelo _/Customers/contoso/index.html_ arquivo<sup>2</sup>. Os usuários autenticados que não estão na função _administradores_ ou _clientes\_contoso_ recebem um erro 401. Usuários não autenticados são redirecionados para _/login_. |
+| _/login_ | Os usuários não autenticados são desafiados a autenticar com o GitHub. |
+| _/.auth/login/twitter_ | A autorização com o Twitter está desabilitada. O servidor responde com um erro 404. |
+| _/logout_ | Os usuários são desconectados de qualquer provedor de autenticação. |
 | _/calendar/2020/01_ | O navegador recebe o arquivo _/calendar.html_. |
 | _/specials_ | O navegador é redirecionado para _/deals_. |
-| _/unknown-folder_     | O arquivo _/custom-404.html_ é entregue. |
+| _/unknown-folder_ | O arquivo _/custom-404.html_ é entregue. |
+| Arquivos com a `.custom` extensão | São servidos com o `text/html` tipo MIME |
 
-<sup>1</sup> Você pode fornecer uma página de erro personalizada definindo uma regra de `Unauthorized_MissingRoles` na matriz de `platformErrorOverrides`.
+- Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
+
+<sup>1</sup> as regras de rota para funções de API só dão suporte a [redirecionamentos](#redirects) e [proteção de rotas com funções](#securing-routes-with-roles).
+
+<sup>2</sup> você pode fornecer uma página de erro personalizada definindo uma `Unauthorized_MissingRoles` regra na `platformErrorOverrides` matriz.
 
 ## <a name="restrictions"></a>Restrições
 
 - O arquivo _routes.json_ não pode ter mais de 100 KB
 - O arquivo _routes.json_ oferece suporte a um máximo de 50 funções distintas
+
+Consulte o [artigo cotas](quotas.md) para restrições gerais e limitações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

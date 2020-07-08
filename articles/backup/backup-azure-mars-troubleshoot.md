@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas de instalação e reg
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598004"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056575"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -66,13 +66,13 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 ## <a name="unable-to-download-vault-credential-file"></a>Não é possível baixar o arquivo de credenciais do cofre
 
-| Erro do   | Ações recomendadas |
+| Erro   | Ações recomendadas |
 | ---     | ---    |
 |Falha ao baixar o arquivo de credenciais do cofre. (ID: 403) | <ul><li> Tente baixar as credenciais do cofre usando um navegador diferente ou execute estas etapas: <ul><li> Inicie o Internet Explorer. Selecione F12. </li><li> Vá para a guia **rede** e limpe o cache e os cookies. </li> <li> Atualize a página.<br></li></ul> <li> Verifique se a assinatura está desabilitada/expirada.<br></li> <li> Verifique se alguma regra de firewall está bloqueando o download. <br></li> <li> Verifique se você não esgotou o limite do cofre (50 máquinas por cofre).<br></li>  <li> Verifique se o usuário tem as permissões de backup do Azure que são necessárias para baixar as credenciais do cofre e registrar um servidor com o cofre. Consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>O Agente de Serviços de Recuperação do Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure
 
-| Erro do  | Causa possível | Ações recomendadas |
+| Erro  | Causa possível | Ações recomendadas |
 | ---     | ---     | ---    |
 | <br /><ul><li>O agente de serviço de recuperação Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure. (ID: 100050) Verifique as configurações de rede e certifique-se de que você possa se conectar à Internet.<li>(407) Autenticação de Proxy Necessária. |Um proxy está bloqueando a conexão. |  <ul><li>No Internet Explorer, vá para **ferramentas**  >  **Internet opções**  >  **segurança**  >  **Internet**. Selecione **nível personalizado** e role para baixo até a seção **download de arquivo** . Selecione **Habilitar**.<p>Você também pode ter que adicionar [URLs e endereços IP](install-mars-agent.md#verify-internet-access) aos seus sites confiáveis no Internet Explorer.<li>Altere as configurações para usar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<li> Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem essas [URLs e endereços IP](install-mars-agent.md#verify-internet-access). <li>Se você tiver um software antivírus instalado no servidor, exclua esses arquivos da verificação antivírus: <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionado ao .NET Framework). Há um CSC.exe para cada .NET Framework versão instalada no servidor. Exclua CSC.exe arquivos para todas as versões do .NET Framework no servidor afetado. <li>A pasta de rascunho ou o local do cache. <br>O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -104,19 +104,19 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Falha ao configurar a chave de criptografia para backups seguros
 
-| Erro do | Possíveis causas | Ações recomendadas |
+| Erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |
 | <br />Falha ao definir a chave de criptografia para backups seguros. A ativação não foi concluída com êxito, mas a senha de criptografia foi salva no arquivo a seguir. |<li>O servidor já está registrado com outro cofre.<li>Durante a configuração, a frase secreta foi corrompida.| Cancele o registro do servidor do cofre e registre-o novamente com uma nova senha.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>A ativação não foi concluída com êxito
 
-| Erro do  | Possíveis causas | Ações recomendadas |
+| Erro  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 |<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft.     | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup.KEK está ausente.         | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do agente Mars.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>A frase secreta de criptografia não está configurada corretamente
 
-| Erro do  | Possíveis causas | Ações recomendadas |
+| Erro  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 | <br />Error 34506. A senha de criptografia armazenada neste computador não está configurada corretamente.    | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup.KEK está ausente.        | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do MARS Agent.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
@@ -162,9 +162,28 @@ Set-ExecutionPolicy Unrestricted
 
 ## <a name="resource-not-provisioned-in-service-stamp"></a>Recurso não provisionado no carimbo de serviço
 
-Erro do | Possíveis causas | Ações recomendadas
+Erro | Possíveis causas | Ações recomendadas
 --- | --- | ---
 A operação atual falhou devido a um erro de serviço interno "recurso não provisionado no carimbo de serviço". Repita a operação após algum tempo. (ID: 230006) | O servidor protegido foi renomeado. | <li> Renomeie o servidor de volta para o nome original, conforme registrado no cofre. <br> <li> Registre novamente o servidor no cofre com o novo nome.
+
+## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Não foi possível iniciar o trabalho porque outro trabalho estava em andamento
+
+Se você notar uma mensagem de aviso no histórico de trabalhos do **console do Mars**  >  **Job history**, dizer "o trabalho não pôde ser iniciado enquanto outro trabalho estava em andamento", isso pode ser devido a uma instância duplicada do trabalho disparado pelo Agendador de tarefas.
+
+![Não foi possível iniciar o trabalho porque outro trabalho estava em andamento](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
+
+Para resolver o problema:
+
+1. Inicie o snap-in Agendador de Tarefas digitando *Taskschd. msc* na janela executar
+1. No painel esquerdo, navegue até **Agendador de tarefas biblioteca**  ->  **Microsoft**  ->  **OnlineBackup**.
+1. Para cada tarefa nesta biblioteca, clique duas vezes na tarefa para abrir as propriedades e execute as seguintes etapas:
+    1. Alterne para a guia **Configurações** .
+
+         ![Guia Configurações](./media/backup-azure-mars-troubleshoot/settings-tab.png)
+
+    1. Altere a opção para **se a tarefa já estiver em execução e a regra a seguir se aplicar**. Escolha **não iniciar uma nova instância**.
+
+         ![Alterar a regra para não iniciar nova instância](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
 ## <a name="troubleshoot-restore-problems"></a>Solucionar problemas de restauração
 

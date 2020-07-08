@@ -6,12 +6,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 878a8d660495c932cc8fa44bb1ed06e79576729b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f119fe4b4547bda8249a3620baf938dd8b83c235
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648773"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056031"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obter recursos em um grupo de recursos gerenciado e redimensionar VMs com a CLI do Azure
 
@@ -33,12 +33,12 @@ Este script usa os comandos a seguir para implantar o aplicativo gerenciado. Cad
 
 | Comando | Observações |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | Liste os aplicativos gerenciados. Forneça os valores da consulta para destacar os resultados. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | Liste os recursos. Forneça um grupo de recursos e os valores da consulta para destacar os resultados. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Atualize o tamanho de uma máquina virtual. |
+| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | Liste os aplicativos gerenciados. Forneça os valores da consulta para destacar os resultados. |
+| [az resource list](/cli/azure/resource#az-resource-list) | Liste os recursos. Forneça um grupo de recursos e os valores da consulta para destacar os resultados. |
+| [az vm resize](/cli/azure/vm#az-vm-resize) | Atualize o tamanho de uma máquina virtual. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](../overview.md).
-* Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+* Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).

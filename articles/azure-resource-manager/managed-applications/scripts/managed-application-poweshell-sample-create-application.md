@@ -6,12 +6,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: e076128a5be453028635b1657bf3f90980863148
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a2687e9c943df8454ff42a17f44866dcdb7f4730
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648933"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055878"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Implantar um aplicativo gerenciado no catálogo de serviços com o PowerShell
 
@@ -33,10 +33,10 @@ Este script usa o comando a seguir para implantar o aplicativo gerenciado. Cada 
 
 | Comando | Observações |
 |---|---|
-| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Crie um aplicativo gerenciado. Forneça a ID de definição e os parâmetros para o modelo. |
+| [New-AzManagedApplication](/powershell/module/az.resources/new-azmanagedapplication) | Crie um aplicativo gerenciado. Forneça a ID de definição e os parâmetros para o modelo. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](../overview.md).
-* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/get-started-azureps).

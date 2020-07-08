@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f389943d284c573312473f426048f8aadb79088e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81533965"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054654"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrar aplicativos para MSAL.NET
 
@@ -131,7 +131,7 @@ Aqui estão as concessões com suporte em ADAL.NET e MSAL.NET para aplicativos W
 
 Tipo de aplicativo | Conceder | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
-Aplicativo Web, API da Web, daemon | Credenciais do cliente | [Fluxos de credencial do cliente na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Fluxos de credencial do cliente na MSAL.NET](msal-authentication-flows.md#client-credentials))
+Aplicativo Web, API da Web, daemon | Credenciais do cliente | [Fluxos de credencial do cliente na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Fluxos de credencial de cliente no MSAL.NET](msal-authentication-flows.md#client-credentials)
 API Web | Em nome de | [Serviço para chamadas de serviço em nome do usuário com ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [On-Behalf-Of (em nome de) na MSAL.NET](msal-authentication-flows.md#on-behalf-of)
 Aplicativo Web | Código de Autenticação | [Adquirir tokens com códigos de autorização em aplicativos Web com ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Adquirir tokens com códigos de autorização em aplicativos Web com uma MSAL.NET](msal-authentication-flows.md#authorization-code)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
-ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a51a67200ec411f0f9362bc92bf7926f221b1f2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250992"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056796"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium
 ## <a name="overview"></a>Visão geral
@@ -141,7 +141,7 @@ Para verificar o caminho e o nome da propriedade, use o botão de ação ao lado
 
 ![Ação/Editar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
-![Propriedade](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
+![Property](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ## <a name="multiple-input-files"></a>Vários arquivos de entrada
 Cada tarefa enviada para o **Fluxo de Trabalho Premium do Codificador de Mídia** exige dois ativos:
@@ -366,7 +366,7 @@ Agora, adicione os componentes **Multiplexador ISO Mpeg-4** e **Saída de Arquiv
 
 É necessário definir o nome do arquivo de saída. Clique no componente **Saída de Arquivo** e edite a expressão do arquivo:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4`
 
 ![Nome de saída do arquivo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 
@@ -466,7 +466,7 @@ Para codificar, siga estas etapas:
 
 * O ativo codificado conterá várias faixas de áudio de idiomas e essas faixas devem ser selecionáveis no Player de Mídia do Azure.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Apresentando a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Como usar a codificação Premium nos serviços de mídia do Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codificando conteúdo sob demanda com os serviços de mídia do Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
@@ -477,5 +477,5 @@ Para codificar, siga estas etapas:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

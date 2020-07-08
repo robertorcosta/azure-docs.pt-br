@@ -3,18 +3,19 @@ title: Como usar as chaves de criação e tempo de execução-LUIS
 description: Ao usar o Reconhecimento vocal (LUIS) pela primeira vez, você não precisa criar uma chave de criação. Quando você pretende publicar o aplicativo, use o ponto de extremidade do tempo de execução, você precisa criar e atribuir a chave de tempo de execução ao aplicativo.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/07/2020
+ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560430"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055759"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
 Os recursos de tempo de execução de previsão de criação e consulta fornecem autenticação para o aplicativo LUIS e o ponto de extremidade de previsão.
 
+<a name="azure-resources-for-luis"></a>
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
@@ -38,7 +39,7 @@ Quando o processo de criação de recursos do Azure for concluído, [atribua a c
 
 Um recurso do Azure, como um LUIS, pertence à assinatura que contém o recurso.
 
-Para transferir a propriedade de um recurso, a ou pode:
+Para transferir a propriedade de um recurso, você pode:
 * Transferir a [Propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) de sua assinatura
 * Exporte o aplicativo LUIS como um arquivo e, em seguida, importe o aplicativo em uma assinatura diferente. A exportação está disponível na página **meus aplicativos** no portal do Luis.
 
@@ -70,6 +71,8 @@ Para aplicativos que ainda não foram migrados: a chave é redefinida em todos o
 
 Gere novamente as chaves do Azure no portal do Azure, na página **chaves** .
 
+
+<a name="securing-the-endpoint"></a>
 
 ## <a name="app-ownership-access-and-security"></a>Propriedade, acesso e segurança do aplicativo
 
@@ -158,11 +161,10 @@ Você pode controlar quem pode ver sua chave de ponto de extremidade do LUIS de 
 1. Quando você terminar com o processo de seleção de recursos, [crie um novo aplicativo](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
 
-## <a name="create-azure-resources"></a>Criar recursos do Azure
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
-[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
 ### <a name="create-resources-in-azure-cli"></a>Criar recursos no CLI do Azure
 
@@ -204,7 +206,7 @@ Você pode atribuir um recurso de criação para um único aplicativo ou para to
 
 1. Entre no portal do [LUIS](https://www.luis.ai).
 1. Na barra de navegação superior, à extrema direita, selecione sua conta de usuário e, em seguida, selecione **configurações**.
-1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar**.
+1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Selecione **Salvar**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 
@@ -237,15 +239,15 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     Essa API retorna uma matriz de objetos JSON das suas assinaturas do LUIS, incluindo a ID da assinatura, o grupo de recursos e o nome do recurso, retornado como o nome da conta. Localize um item na matriz que é o recurso do LUIS a atribuir ao aplicativo LUIS.
 
-1. Atribua o token para o recurso do LUIS com a API [Atribuir contas do Azure do LUIS a um aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515).
+1. Atribua o token ao recurso LUIS com [atribuir uma Luis contas do Azure a uma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API de aplicativo.
 
     Essa API POST requer as seguintes configurações:
 
-    |Type|Configuração|Valor|
+    |Tipo|Setting|Valor|
     |--|--|--|
-    |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
-    |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
-    |Cabeçalho|`Content-type`|`application/json`|
+    |parâmetro|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
+    |parâmetro|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
+    |parâmetro|`Content-type`|`application/json`|
     |Querystring|`appid`|A ID do aplicativo de LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 

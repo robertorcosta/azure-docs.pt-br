@@ -3,12 +3,12 @@ title: Limites-LUIS
 description: Este artigo contém os limites conhecidos do LUIS (Reconhecimento vocal) dos Serviços Cognitivos do Azure. LUIS tem várias áreas limites. O limite de modelo controla as intenções, as entidades e os recursos no LUIS. Limites de cota com base no tipo de chave. A combinação de teclado controla o site do LUIS.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976975"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055334"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
 LUIS tem várias áreas de limite. O primeiro é o [limite do modelo](#model-limits), que controla as intenções, as entidades e os recursos no Luis. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. Uma terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site Luis. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS.
@@ -22,7 +22,7 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 |Área|Limite|
 |--|:--|
 | [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
-| Aplicativo| 500 aplicativos por recurso de criação do Azure |
+| Aplicativos| 500 aplicativos por recurso de criação do Azure |
 | [Teste em lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
 | Entidades externas | sem limites |
@@ -68,7 +68,7 @@ Não use os seguintes caracteres nos nomes a seguir.
 
 ## <a name="resource-usage-and-limits"></a>Limites e uso de recursos
 
-O entendimento da linguagem tem recursos separados, um tipo para a criação e um tipo para consultar o ponto de extremidade de previsão. Para saber mais sobre as diferenças entre tipos de chaves, confira [Chaves de ponto de extremidade de previsão de criação e consulta no LUIS](luis-concept-keys.md).
+O entendimento da linguagem tem recursos separados, um tipo para a criação e um tipo para consultar o ponto de extremidade de previsão. Para saber mais sobre as diferenças entre tipos de chaves, confira [Chaves de ponto de extremidade de previsão de criação e consulta no LUIS](luis-how-to-azure-subscription.md).
 
 <a name="key-limits"></a>
 

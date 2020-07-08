@@ -3,12 +3,12 @@ title: Glossário-LUIS
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681608"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056371"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O Glossário de Reconhecimento vocal (LUIS) explica os termos que você pode encontrar enquanto trabalha com o serviço LUIS.
@@ -38,11 +38,11 @@ A criação é a capacidade de criar, gerenciar e implantar um aplicativo LUIS, 
 
 ### <a name="authoring-key"></a>Chave de criação
 
-A [chave de criação](luis-concept-keys.md) é usada para criar o aplicativo. Não usada para consultas de ponto de extremidade no nível de produção. Para obter mais informações, confira [Limites da chave](luis-limits.md#key-limits).
+A [chave de criação](luis-how-to-azure-subscription.md) é usada para criar o aplicativo. Não usada para consultas de ponto de extremidade no nível de produção. Para obter mais informações, confira [Limites da chave](luis-limits.md#key-limits).
 
 ### <a name="authoring-resource"></a>Recurso de criação
 
-O [recurso de criação](luis-concept-keys.md#azure-resources-for-luis) do Luis é um item gerenciável que está disponível por meio do Azure. O recurso é seu acesso às capacidades de criação, treinamento e publicação associadas do serviço do Azure. O recurso inclui autenticação, autorização e informações de segurança de que você precisa para acessar o serviço do Azure associado.
+O [recurso de criação](luis-how-to-azure-subscription.md#azure-resources-for-luis) do Luis é um item gerenciável que está disponível por meio do Azure. O recurso é seu acesso às capacidades de criação, treinamento e publicação associadas do serviço do Azure. O recurso inclui autenticação, autorização e informações de segurança de que você precisa para acessar o serviço do Azure associado.
 
 O recurso de criação tem um "tipo" do Azure `LUIS-Authoring` .
 
@@ -111,7 +111,7 @@ Um descritor é o termo usado anteriormente para um [recurso](#features)de apren
 
 No contexto do LUIS, um domínio é uma área de conhecimento. Seu domínio é específico do seu cenário. Domínios diferentes usam uma terminologia e linguagem específica que têm significado no contexto do domínio. Por exemplo, se você estiver criando um aplicativo para reproduzir música, seu aplicativo teria termos e idioma específicos para música – palavras como "música, faixa, álbum, letras do lado do b, artista". Para obter exemplos de domínios, consulte [domínios predefinidos](#prebuilt-domain).
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 
 ### <a name="authoring-endpoint"></a>Ponto de extremidade de criação
 
@@ -234,7 +234,7 @@ Uma previsão é uma solicitação REST para o serviço de previsão de LUIS do 
 
 ### <a name="prediction-key"></a>Chave de previsão
 
-A [chave de previsão](luis-concept-keys.md) (anteriormente conhecida como chave de assinatura) é a chave associada ao serviço Luis que você criou no Azure que autoriza o uso do ponto de extremidade de previsão.
+A [chave de previsão](luis-how-to-azure-subscription.md) (anteriormente conhecida como chave de assinatura) é a chave associada ao serviço Luis que você criou no Azure que autoriza o uso do ponto de extremidade de previsão.
 
 Essa chave não é a chave de criação. Se você tiver uma chave de ponto de extremidade de previsão, ela deverá ser usada para qualquer solicitação de ponto de extremidade em vez da chave de criação. Você pode ver sua chave de previsão atual dentro da URL do ponto de extremidade na parte inferior da página de recursos do Azure no site do LUIS. É o valor do par nome/valor da chave de assinatura.
 
@@ -285,7 +285,7 @@ Em LUIS [listar entidades](reference-entity-list.md), você pode criar um valor 
 |--|--|
 |Pequena| o pouco, 8 onças|
 |Médio| regular, 12 onças|
-|grande| Big, 16 onças|
+|Grande| Big, 16 onças|
 |Xtra grande| o maior, 24 onças|
 
 O modelo retornará o valor normalizado para a entidade quando qualquer um dos sinônimos for visto na entrada.

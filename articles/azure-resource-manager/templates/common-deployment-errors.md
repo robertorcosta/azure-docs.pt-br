@@ -3,13 +3,13 @@ title: Solucionar Problemas de erros comuns de implantação
 description: Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 10/04/2019
-ms.openlocfilehash: bc1568c53cdb5518f694d77a2f28f3cf77296ee2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460374"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055657"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -25,7 +25,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga as restrições de nomenclatura para as contas de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não é compatível com o tamanho solicitado de VM. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemas de provisionamento e alocação para Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Solucionar problemas de falhas de alocação](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não é compatível com o tamanho solicitado de VM. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problemas de provisionamento e alocação para Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) e [Solucionar problemas de falhas de alocação](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função a que sua conta pertence e seu acesso para o escopo da implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](error-register-resource-provider.md) |
 | BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-location.md) |
@@ -62,8 +62,8 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | OperationNotAllowed | A implantação está tentando uma operação que ultrapassa a cota da assinatura, do grupo de recursos ou da região. Se possível, revise sua implantação para permanecer dentro das cotas. Caso contrário, considere solicitar uma alteração de suas cotas. | [Resolver cotas](error-resource-quota.md) |
 | ParentResourceNotFound | Verifique se há um recurso pai antes de criar os recursos filho. | [Resolver recurso pai](error-parent-resource.md) |
 | PasswordTooLong | Você pode ter selecionado uma senha com muitos caracteres ou convertido o valor da senha em uma cadeia de caracteres segura antes de passá-lo como um parâmetro. Se o modelo inclui um parâmetro **cadeia de caracteres segura**, não é necessário converter o valor em uma cadeia de caracteres segura. Forneça o valor da senha como texto. |  |
-| PrivateIPAddressInReservedRange | O endereço IP especificado contém um intervalo de endereços exigido pelo Azure. Altere o endereço IP para evitar o intervalo reservado. | [Endereços IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PrivateIPAddressNotInSubnet | O endereço IP especificado está fora do intervalo da sub-rede. Altere o endereço IP para que ele fique dentro do intervalo de sub-rede. | [Endereços IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PrivateIPAddressInReservedRange | O endereço IP especificado contém um intervalo de endereços exigido pelo Azure. Altere o endereço IP para evitar o intervalo reservado. | [Endereços IP](../../virtual-network/public-ip-addresses.md) |
+| PrivateIPAddressNotInSubnet | O endereço IP especificado está fora do intervalo da sub-rede. Altere o endereço IP para que ele fique dentro do intervalo de sub-rede. | [Endereços IP](../../virtual-network/public-ip-addresses.md) |
 | PropertyChangeNotAllowed | Algumas propriedades não podem ser alteradas em um recurso implantado. Ao atualizar um recurso, limite suas alterações às propriedades permitidas. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Sua assinatura inclui uma política de recursos que impede uma ação que você está tentando executar durante a implantação. Localize a política que bloqueia a ação. Se possível, altere a implantação para atender às limitações da política. | [Resolver políticas](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Forneça um nome de recurso que não inclua um nome reservado. | [Nomes de recurso reservados](error-reserved-resource-name.md) |
@@ -114,7 +114,7 @@ Para ver os códigos de erro de implantação e as mensagens com o PowerShell, u
 Para ver os códigos de erro de implantação e as mensagens com a CLI do Azure, use:
 
 ```azurecli-interactive
-az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment operation group list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 No portal, selecione a notificação.
@@ -172,7 +172,7 @@ Atualmente, CLI do Azure não dá suporte para ativar o log de depuração, mas 
 Examine as operações de implantação, com o comando a seguir:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -180,7 +180,7 @@ az deployment group operation list \
 Examine o conteúdo da solicitação com o seguinte comando:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -189,7 +189,7 @@ az deployment group operation list \
 Examine o conteúdo da resposta com o seguinte comando:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response
@@ -223,7 +223,7 @@ Em alguns casos, a maneira mais fácil de solucionar problemas do seu modelo é 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   "storageName": {

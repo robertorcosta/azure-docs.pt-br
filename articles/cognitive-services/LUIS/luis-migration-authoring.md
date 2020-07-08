@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 440162d6cddd790cdb2859c119d60a6dbe28dcbf
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374859"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055453"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -25,7 +25,7 @@ A autenticação de criação de Reconhecimento vocal (LUIS) mudou de uma conta 
 
 ## <a name="what-is-migration"></a>O que é migração?
 
-A migração é o processo de alterar a criação de autenticação de uma conta de email para um recurso do Azure. Sua conta será vinculada a uma assinatura do Azure e a um recurso de criação do Azure depois que você migrar. *Todos os usuários do LUIS (proprietários ou colaboradores) eventualmente precisarão migrar.* 
+A migração é o processo de alterar a criação de autenticação de uma conta de email para um recurso do Azure. Sua conta será vinculada a uma assinatura do Azure e a um recurso de criação do Azure depois que você migrar. *Todos os usuários do LUIS (proprietários ou colaboradores) eventualmente precisarão migrar.*
 
 A migração deve ser feita no portal do LUIS. Se você criar as chaves de criação usando a CLI do LUIS, por exemplo, você precisará concluir o processo de migração no portal do LUIS. Você ainda pode ter coautores em seus aplicativos após a migração, mas eles serão adicionados no nível de recurso do Azure em vez de no nível do aplicativo.
 
@@ -81,7 +81,7 @@ A migração deve ser feita no portal do LUIS. Se você criar as chaves de cria�
 3. Se qualquer um de seus aplicativos tiver colaboradores, você será solicitado a enviar um email que lhes permita saber mais sobre a migração. Esta é uma etapa opcional.
 
    Para cada colaborador e aplicativo, o aplicativo de email padrão é aberto com um email levemente formatado. Você pode editar o email antes de enviá-lo. O modelo de email inclui a ID do aplicativo e o nome do aplicativo exatos.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -89,10 +89,10 @@ A migração deve ser feita no portal do LUIS. Se você criar as chaves de cria�
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > Depois de migrar sua conta para o Azure, seus aplicativos não estarão mais disponíveis para colaboradores.
 
@@ -162,7 +162,7 @@ A lista **meus aplicativos** mostra os aplicativos migrados para o novo recurso 
  > [!div class="mx-imgBorder"]
  > ![Caixas de assinatura e recurso de criação](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-Você não precisa saber a chave do recurso de criação para continuar editando seus aplicativos no portal do LUIS. 
+Você não precisa saber a chave do recurso de criação para continuar editando seus aplicativos no portal do LUIS.
 
 Se você planeja editar seus aplicativos programaticamente, precisará dos valores de chave de criação. Esses valores são exibidos na página **gerenciar**  >  **recursos do Azure** no portal do Luis. Eles também estão disponíveis na portal do Azure na página de **chaves** do recurso. Você também pode criar mais recursos de criação e atribuí-los da mesma página.
 
@@ -246,5 +246,5 @@ Se você vir o erro a seguir, verifique as [etapas recomendadas se você for um 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Examine os [conceitos sobre criação e chaves de tempo de execução](luis-concept-keys.md). 
+* Examine os [conceitos sobre criação e chaves de tempo de execução](luis-how-to-azure-subscription.md).
 * Examine como [atribuir chaves](luis-how-to-azure-subscription.md) e [Adicionar colaboradores](luis-how-to-collaborate.md).

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad79721b88f886426d658ed6ee89c4969e1f1baa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75470281"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056881"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager (versão prévia pública)
 
@@ -40,7 +40,7 @@ Este tutorial cobre as seguintes tarefas:
 
 Recursos adicionais:
 
-* A [referência à API REST do Gerenciador de Implantação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* A [referência à API REST do Gerenciador de Implantação do Azure](/rest/api/deploymentmanager/).
 * [Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure](./deployment-manager-tutorial-health-check.md).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -52,7 +52,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para concluir este artigo, você precisa do seguinte:
 
 * Alguma experiência com o desenvolvimento de [modelos do Azure Resource Manager](overview.md).
-* PowerShell do Azure. Para obter mais informações, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* PowerShell do Azure. Para obter mais informações, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 * Cmdlets do Gerenciador de Implantação. Para instalar esses cmdlets de pré-lançamento, você precisa ter a versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Instalação do PowerShellGet](/powershell/scripting/gallery/installing-psget). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma nova janela elevada do PowerShell e use o seguinte comando:
 
     ```powershell

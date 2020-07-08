@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273612"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055249"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -63,9 +63,9 @@ A tabela a seguir explica os diferentes tipos de backups e quando eles são usad
 
 **Tipo de backup** | **Detalhes** | **Usage**
 --- | --- | ---
-**Completo** | Um backup completo contém a fonte de dados inteira. Consome mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado no backup inicial.
+**Full** | Um backup completo contém a fonte de dados inteira. Consome mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado no backup inicial.
 **Diferencial** |  Um backup diferencial armazena os blocos que foram alterados desde o backup completo inicial. O usa uma quantidade menor de rede e armazenamento e não mantém cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre os backups posteriores são transferidos e armazenados. | Não é usada pelo Backup do Azure.
-**Lucrativ** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alto armazenamento e eficiência de rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo MABS/DPM para backups em disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
+**Incremental** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alto armazenamento e eficiência de rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo MABS/DPM para backups em disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
 
 ## <a name="sql-server-backup-types"></a>Tipos de backup do SQL Server
 
@@ -100,14 +100,12 @@ Compactar os dados enviados para backup | ![Sim][green] | Nenhuma compactação 
 Executa o backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente.
 
-![Chave de tabela](./media/backup-architecture/table-key.png)
+![Legenda da tabela](./media/backup-architecture/table-key.png)
 
 ## <a name="backup-policy-essentials"></a>Conceitos básicos de política de backup do Microsoft Azure
 
 - Uma política de backup é criada por cofre.
-- Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho
-  - VM do Azure
-  - SQL na VM do Azure
+- Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho: VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure e compartilhamentos de arquivos do Azure. A política para backup de arquivos e pastas usando o agente MARS é especificada no console do MARS.
   - Compartilhamento de arquivos do Azure
 - Uma política pode ser atribuída a muitos recursos. Uma política de backup de VM do Azure pode ser usada para proteger várias VMs do Azure.
 - Uma política consiste em dois componentes
@@ -115,9 +113,12 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
   - Retenção: Por quanto tempo cada backup deverá ser mantido.
 - A programação pode ser definida como "diária" ou "semanal" com um ponto específico do tempo.
 - A retenção pode ser definida para pontos de backup "diários", "semanais", "mensais", "anuais".
-- "semanal" refere-se a um backup em um determinado dia da semana, "mensalmente" significa um backup em um determinado dia do mês e "anual" refere-se a um backup em um determinado dia do ano.
-- A retenção para pontos de backup "mensais" e "anuais" é chamada de "LongTermRetention".
-- Quando um cofre é criado, uma política para backups de VM do Azure chamada "DefaultPolicy" também é criada e pode ser usada para fazer backup de VMs do Azure.
+  - "semanalmente" refere-se a um backup em um determinado dia da semana
+  - "mensal" refere-se a um backup em um determinado dia do mês
+  - "anual" refere-se a um backup em um determinado dia do ano
+- Retenção de pontos de backup "mensais", "anuais" são chamados de retenção de longo prazo (EPD)
+- Quando um cofre é criado, um "DefaultPolicy" também é criado e pode ser usado para fazer backup de recursos.
+- Todas as alterações feitas no período de retenção de uma política de backup serão aplicadas retroativamente a todos os pontos de recuperação mais antigos além dos novos.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: backup de VM do Azure interno
 

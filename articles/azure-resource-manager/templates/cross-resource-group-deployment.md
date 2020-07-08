@@ -3,12 +3,12 @@ title: Implantação de recursos em assinaturas e grupos de recursos
 description: Mostra como usar mais de um destino de assinatura e de grupo de recursos do Azure durante a implantação.
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 34de1d9df53d61d849ffbb81a57b468020bc3b65
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650628"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057374"
 ---
 # <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>Implantação de recursos do Azure em assinaturas ou grupos de recursos
 
@@ -25,7 +25,7 @@ Para usar como destino um grupo de recursos diferente daquele para o modelo pai,
 
 Se você não especificar a ID da assinatura ou o grupo de recursos, serão usados a assinatura e o grupo de recursos do modelo pai. Todos os grupos de recursos devem existir antes da execução da implantação.
 
-A conta que implanta o modelo deve ter permissões para implantar a ID da assinatura especificada. Se a assinatura especificada existe em um locatário diferente do Azure Active Directory, você deve [adicionar usuários convidados em outro diretório](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+A conta que implanta o modelo deve ter permissões para implantar a ID da assinatura especificada. Se a assinatura especificada existe em um locatário diferente do Azure Active Directory, você deve [adicionar usuários convidados em outro diretório](../../active-directory/b2b/what-is-b2b.md).
 
 O exemplo a seguir implanta duas contas de armazenamento. A primeira conta de armazenamento é implantada no grupo de recursos especificado na operação de implantação. A segunda conta de armazenamento é implantada no grupo de recursos especificado nos parâmetros `secondResourceGroup` e `secondSubscriptionID`:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b258b0b5dba902e94e8d221e0d8f0292fdec9f67
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176814"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057391"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no Portal do Azure  
 > [!div class="op_single_selector"]
@@ -42,19 +42,19 @@ Para fornecer a seus usuários uma URL que eles podem usar para transmitir ou ba
 
 Para criar uma URL de streaming de HLS, anexe *(format=m3u8-aapl)* à URL:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)`
 
 Para criar uma URL de streaming para reproduzir ativos de Smooth Streaming, use o formato de URL a seguir:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest`
 
 Para criar uma URL de streaming MPEG DASH, anexe *(format=mpd-time-csf)* à URL:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)`
 
 Uma URL de assinatura de acesso compartilhado tem o seguinte formato:
 
-    {blob container name}/{asset name}/{file name}/{shared access signature}
+`{blob container name}/{asset name}/{file name}/{shared access signature}`
 
 Para obter mais informações, consulte [visão geral sobre entrega de conteúdo](media-services-deliver-content-overview.md).
 

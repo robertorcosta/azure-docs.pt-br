@@ -3,12 +3,12 @@ title: Solucionar problemas de erros de movimentação
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60e4ffb2b79fcce85fa4b316e68e191eb14f8bf0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75891268"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055067"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Solução de problemas de mudança de recursos para um novo grupo de recursos ou assinatura
 
@@ -18,8 +18,8 @@ Este artigo fornece sugestões para ajudar a resolver problemas ao mover recurso
 
 Se você realmente quiser atualizar sua assinatura do Azure (por exemplo, mudando de gratuita para pré-paga), você precisará converter sua assinatura.
 
-* Para atualizar uma avaliação gratuita, consulte [Faça o upgrade da sua avaliação gratuita ou da assinatura do Microsoft Imagine Azure para o Pague conforme o uso](../../billing/billing-upgrade-azure-subscription.md).
-* Para alterar uma conta de pagamento conforme o uso, consulte [Alterar sua assinatura do Azure Pay-As-You-Go para uma oferta diferente](../../billing/billing-how-to-switch-azure-offer.md).
+* Para atualizar uma avaliação gratuita, consulte [atualizar sua avaliação gratuita ou Microsoft imagine assinatura do Azure para](../../cost-management-billing/manage/upgrade-azure-subscription.md)pré-pago.
+* Para alterar uma conta paga conforme o uso, consulte [alterar sua assinatura paga conforme o uso do Azure para uma oferta diferente](../../cost-management-billing/manage/switch-azure-offer.md).
 
 Se você não puder converter a assinatura, [crie uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **Subscription Management** para o tipo de problema.
 
@@ -32,7 +32,7 @@ Alguns serviços exigem considerações adicionais ao mover recursos. Se você e
 * [Modelo de implantação clássica](./move-limitations/classic-model-move-limitations.md)
 * [Rede](./move-limitations/networking-move-limitations.md)
 * [Serviços de Recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-* [Máquinas Virtuais](./move-limitations/virtual-machines-move-limitations.md)
+* [Máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md)
 
 ## <a name="large-requests"></a>Solicitações grandes
 
