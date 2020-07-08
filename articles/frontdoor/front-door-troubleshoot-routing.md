@@ -9,15 +9,15 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 962c884eb8adc05e5d50b6b254d5c3f0b18af556
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743568"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solução de problemas comuns de roteamentos
 
@@ -39,7 +39,7 @@ Esse sintoma acontece quando o back-end leva além da configuração de tempo li
 
 - Envie a solicitação ao seu back-end diretamente (sem passar pela porta frontal) e veja qual é o tempo normal que leva para o back-end responder.
 - Envie a solicitação por meio da porta frontal e veja se você está vendo quaisquer respostas de 503. Caso contrário, isso pode não ser um problema de tempo limite. Contate o suporte.
-- Se passar por meio da porta frontal resultar no código de resposta de erro 503, configure o campo sendReceiveTimeout para sua porta frontal para estender o tempo limite padrão de até 4 minutos (240 segundos). A configuração está sob a `backendPoolSettings` e é chamada `sendRecvTimeoutSeconds`. 
+- Se passar por meio da porta frontal resultar no código de resposta de erro 503, configure o campo sendReceiveTimeout para sua porta frontal para estender o tempo limite padrão de até 4 minutos (240 segundos). A configuração está sob a `backendPoolSettings` e é chamada `sendRecvTimeoutSeconds` . 
 
 ## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>As solicitações enviadas para o domínio personalizado retorna o código de status 400
 

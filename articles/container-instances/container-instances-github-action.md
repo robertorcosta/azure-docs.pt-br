@@ -4,12 +4,12 @@ description: Configurar uma ação do GitHub que automatiza etapas para compilar
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
-ms.openlocfilehash: 13397cee8197afc65b93c587ae1505e59cfdebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80258032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743993"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurar uma ação do GitHub para criar uma instância de contêiner
 
@@ -33,7 +33,7 @@ Este artigo mostra duas maneiras de configurar o fluxo de trabalho:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Conta do GitHub** – crie uma conta https://github.com no se você ainda não tiver uma.
+* **Conta do GitHub** – crie uma conta no https://github.com se você ainda não tiver uma.
 * **CLI do Azure** -você pode usar o Azure cloud Shell ou uma instalação local do CLI do Azure para concluir as etapas de CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 * **Registro de contêiner do Azure** -se você não tiver um, crie um registro de contêiner do Azure na camada básica usando o [CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md), [portal do Azure](../container-registry/container-registry-get-started-portal.md)ou outros métodos. Anote o grupo de recursos usado para a implantação, que é usado para o fluxo de trabalho do GitHub.
 
@@ -45,7 +45,7 @@ Este artigo mostra duas maneiras de configurar o fluxo de trabalho:
 
   ![Captura de tela do botão Fork (realçado) no GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Verifique se as ações estão habilitadas para o repositório. Navegue até o repositório bifurcado e selecione **configurações** > **ações**. Em **permissões de ações**, verifique se **habilitar ações locais e de terceiros para este repositório** está selecionado.
+* Verifique se as ações estão habilitadas para o repositório. Navegue até o repositório bifurcado e selecione **configurações**  >  **ações**. Em **permissões de ações**, verifique se **habilitar ações locais e de terceiros para este repositório** está selecionado.
 
 ## <a name="configure-github-workflow"></a>Configurar fluxo de trabalho do GitHub
 
@@ -53,7 +53,7 @@ Este artigo mostra duas maneiras de configurar o fluxo de trabalho:
 
 No fluxo de trabalho do GitHub, você precisa fornecer as credenciais do Azure para autenticar para o CLI do Azure. O exemplo a seguir cria uma entidade de serviço com a função de colaborador com o escopo definido para o grupo de recursos para o registro de contêiner.
 
-Primeiro, obtenha a ID de recurso do seu grupo de recursos. Substitua o nome do grupo no seguinte comando [AZ Group show][az-acr-show] :
+Primeiro, obtenha a ID de recurso do seu grupo de recursos. Substitua o nome do grupo no seguinte comando [AZ Group show][az-group-show] :
 
 ```azurecli
 groupId=$(az group show \
@@ -87,7 +87,7 @@ A saída é semelhante a:
 }
 ```
 
-Salve a saída JSON porque ela é usada em uma etapa posterior. Além disso, anote o `clientId`, que você precisa para atualizar a entidade de serviço na próxima seção.
+Salve a saída JSON porque ela é usada em uma etapa posterior. Além disso, anote o `clientId` , que você precisa para atualizar a entidade de serviço na próxima seção.
 
 ### <a name="update-service-principal-for-registry-authentication"></a>Atualizar entidade de serviço para autenticação de registro
 
@@ -112,7 +112,7 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>Salvar credenciais no repositório GitHub
 
-1. Na interface do usuário do GitHub, navegue até o repositório bifurcado e selecione **configurações** > **segredos**. 
+1. Na interface do usuário do GitHub, navegue até o repositório bifurcado e selecione **configurações**  >  **segredos**. 
 
 1. Selecione **Adicionar um novo segredo** para adicionar os seguintes segredos:
 
@@ -126,9 +126,9 @@ az role assignment create \
 
 ### <a name="create-workflow-file"></a>Criar arquivo de fluxo de trabalho
 
-1. Na interface do usuário do GitHub, selecione **ações** > **novo fluxo de trabalho**.
+1. Na interface do usuário do GitHub, selecione **ações**  >  **novo fluxo de trabalho**.
 1. Selecione **configurar um fluxo de trabalho por conta própria**.
-1. Em **Editar novo arquivo**, Cole o conteúdo do YAML a seguir para substituir o código de exemplo. Aceite o nome de `main.yml`arquivo padrão ou forneça um nome de arquivo que você escolher.
+1. Em **Editar novo arquivo**, Cole o conteúdo do YAML a seguir para substituir o código de exemplo. Aceite o nome de arquivo padrão `main.yml` ou forneça um nome de arquivo que você escolher.
 1. Selecione **Iniciar confirmação**, opcionalmente, forneça descrições curtas e estendidas de sua confirmação e selecione **confirmar novo arquivo**.
 
 ```yml
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>Validar fluxo de trabalho
 
-Depois de confirmar o arquivo de fluxo de trabalho, o fluxo de trabalho é disparado. Para examinar o progresso do fluxo de trabalho, navegue até **ações** > **fluxos de trabalho**. 
+Depois de confirmar o arquivo de fluxo de trabalho, o fluxo de trabalho é disparado. Para examinar o progresso do fluxo de trabalho, navegue até **ações**  >  **fluxos de trabalho**. 
 
 ![Exibir progresso do fluxo de trabalho](./media/container-instances-github-action/github-action-progress.png)
 
@@ -264,7 +264,7 @@ O fluxo de trabalho implanta uma instância de contêiner do Azure com o nome ba
 
 Para exibir o status do fluxo de trabalho e os resultados de cada etapa na interface do usuário do GitHub, consulte [Gerenciando uma execução de fluxo de trabalho](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pare a instância de contêiner com o comando [az container delete][az-container-delete]:
 

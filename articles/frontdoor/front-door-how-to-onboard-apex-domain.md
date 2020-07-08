@@ -4,20 +4,20 @@ description: Saiba como carregar um domínio raiz ou Apex para uma porta frontal
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743585"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Carregar um domínio raiz ou Apex na sua porta frontal
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio raiz ou apex no seu Front Door
 A porta frontal do Azure usa registros CNAME para validar a propriedade do domínio para a integração de domínios personalizados. Além disso, a porta frontal não expõe o endereço IP de front-end associado ao seu perfil de porta frontal e, portanto, não é possível mapear seu domínio Apex para um endereço IP, se a intenção for integrar-o à porta frontal do Azure.
 
-O protocolo DNS previne a atribuição de registros CNAME no ápice da zona. Por exemplo, se seu domínio for `contoso.com`; Você pode criar registros CNAME para `somelabel.contoso.com`o; Mas você não pode criar CNAME `contoso.com` para si mesmo. Essa restrição apresenta um problema para proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás da porta frontal do Azure. Como o uso de um perfil de porta frontal requer a criação de um registro CNAME, não é possível apontar para o perfil de porta frontal do Apex da zona.
+O protocolo DNS previne a atribuição de registros CNAME no ápice da zona. Por exemplo, se seu domínio for `contoso.com` ; você pode criar registros CNAME para o `somelabel.contoso.com` ; mas não pode criar o CNAME para `contoso.com` si mesmo. Essa restrição apresenta um problema para proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás da porta frontal do Azure. Como o uso de um perfil de porta frontal requer a criação de um registro CNAME, não é possível apontar para o perfil de porta frontal do Apex da zona.
 
 Esse problema é resolvido usando registros de alias no DNS do Azure. Ao contrário dos registros CNAME, os registros de alias são criados no Apex da zona e os proprietários do aplicativo podem usá-lo para apontar o registro de Apex da zona para um perfil de porta frontal que tenha pontos de extremidade públicos. Os proprietários de aplicativo apontam para o mesmo perfil de porta frontal usado para qualquer outro domínio dentro de sua zona DNS. Por exemplo, `contoso.com` e `www.contoso.com` pode apontar para o mesmo perfil de porta frontal. 
 
@@ -48,12 +48,12 @@ Neste artigo, você aprenderá como:
 
     ![Registro de alias para o Apex da zona](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. A etapa acima criará um registro de Apex de zona apontando para o recurso de porta frontal e também um mapeamento de registro CNAME ' afdverify `afdverify.contosonews.com`' ( `afdverify.<name>.azurefd.net` exemplo-) para o qual será usado para integração do domínio em seu perfil de porta frontal.
+6. A etapa acima criará um registro de Apex de zona apontando para o recurso de porta frontal e também um mapeamento de registro CNAME ' afdverify ' (exemplo- `afdverify.contosonews.com` ) para o `afdverify.<name>.azurefd.net` qual será usado para integração do domínio em seu perfil de porta frontal.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Carregar o domínio personalizado na sua porta frontal
 
 1. Na guia Designer de porta frontal, clique no ícone "+" na seção hosts de front-end para adicionar um novo domínio personalizado.
-2. Insira o nome de domínio raiz ou Apex no campo nome de host personalizado, `contosonews.com`por exemplo.
+2. Insira o nome de domínio raiz ou Apex no campo nome de host personalizado, por exemplo `contosonews.com` .
 3. Depois que o mapeamento CNAME do domínio para sua porta frontal for validado, clique em **Adicionar** para adicionar o domínio personalizado.
 4. Clique em **salvar** para enviar as alterações.
 

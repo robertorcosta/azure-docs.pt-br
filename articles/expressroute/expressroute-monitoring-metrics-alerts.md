@@ -4,15 +4,15 @@ description: Esta página fornece informações sobre o monitoramento do Express
 services: expressroute
 author: mialdrid
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6622a6e9f6865dbbafa145d6773440599b0c2777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738899"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoramento, alertas e métricas do ExpressRoute
 
@@ -34,10 +34,10 @@ Depois que uma métrica for selecionada, a agregação padrão será aplicada. O
 |Disponibilidade do ARP|Disponibilidade|<ui><li>Par (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento (privado/público/Microsoft)</ui></li>|ExpressRoute|
 |Disponibilidade de BGP|Disponibilidade|<ui><li> Par (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento</ui></li>|ExpressRoute|
 |BitsInPerSecond|Tráfego|<ui><li> Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute direto)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Tráfego| <ui><li>Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute direto) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|BitsOutPerSecond|Tráfego| <ui><li>Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute direto) | <ui><li>ExpressRoute<ui><li>ExpressRoute direto</ui></li> |
 |GlobalReachBitsInPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
 |GlobalReachBitsOutPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
-|Adminstate|Conectividade física|Link|ExpressRoute Direct|
+|AdminState|Conectividade física|Link|ExpressRoute Direct|
 |LineProtocol|Conectividade física|Link|ExpressRoute Direct|
 |RxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
 |TxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329555"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743126"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no Privileged Identity Management
 
@@ -34,7 +34,7 @@ Para ver as ações que um usuário específico realizou em vários recursos, vo
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **Recursos do Azure**.
+1. Selecione **recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exibir a atividade e as ativações.
 
@@ -56,7 +56,7 @@ Talvez você tenha um requisito de conformidade no qual precisa fornecer uma lis
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **Recursos do Azure**.
+1. Selecione **recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exportar atribuições de função, como uma assinatura.
 
@@ -76,7 +76,7 @@ A auditoria de recursos fornece uma exibição de todas as atividades de funçã
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **Recursos do Azure**.
+1. Selecione **recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exibir o histórico de auditoria.
 
@@ -88,7 +88,7 @@ A auditoria de recursos fornece uma exibição de todas as atividades de funçã
 
 1. Em **Tipo de auditoria**, selecione **Ativar (Atribuído + Ativado)**.
 
-    Lista de auditoria [![de recurso filtrada por ativar tipo](media/azure-pim-resource-rbac/rbac-audit-activity.png "Lista de auditoria de recursos filtrada por ativar")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![de auditoria lista de auditoria de recurso filtrada por ativar tipo de auditoria](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    [![Lista de auditoria de recursos filtrada por ativar tipo](media/azure-pim-resource-rbac/rbac-audit-activity.png "Lista de auditoria de recursos filtrada por ativar")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![ de auditoria Lista de auditoria de recursos filtrada por ativar tipo de auditoria](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Em **Ação**, clique em **(atividade)** de um usuário para ver os detalhes da atividade desse usuário em recursos do Azure.
 
@@ -100,7 +100,7 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **Recursos do Azure**.
+1. Selecione **recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exibir o histórico de auditoria.
 
@@ -116,7 +116,7 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Obter motivo, Aprovador e número do tíquete para eventos de aprovação
 
 1. Entre no [portal do Azure](https://aad.portal.azure.com) com permissões de função de administrador de função com privilégios e abra o Azure AD.
-1. Selecione **logs de auditoria**.
+1. Selecione **Logs de Auditoria**.
 1. Use o filtro de **serviço** para exibir apenas eventos de auditoria para o serviço Privileged Identity Management. Na página **logs de auditoria** , você pode:
 
     - Consulte o motivo de um evento de auditoria na coluna **razão do status** .

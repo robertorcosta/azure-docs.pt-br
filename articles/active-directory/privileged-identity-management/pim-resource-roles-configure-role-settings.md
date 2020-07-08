@@ -7,7 +7,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0a38194c46fa1f5bf7a6a0683e85776abb1f93b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743789"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Definir configurações de função de recurso do Azure no Privileged Identity Management
 
@@ -34,7 +34,7 @@ Siga estas etapas para abrir as configurações de uma função de recursos do A
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **Recursos do Azure**.
+1. Selecione **recursos do Azure**.
 
 1. Selecione o recurso que você deseja gerenciar, como uma assinatura ou grupo de gerenciamento.
 

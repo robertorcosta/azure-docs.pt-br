@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42d931206e99516e0320d0cbedd0812389ee41aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75932331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742157"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licença para usar o Privileged Identity Management
 
@@ -34,7 +34,7 @@ Para usar o Azure AD (Azure Active Directory) PIM (Privileged Identity Managemen
 
 ## <a name="how-many-licenses-must-you-have"></a>Quantas licenças você precisa ter?
 
-Certifique-se de que seu diretório tenha pelo menos tantas licenças Azure AD Premium P2, pois você tem funcionários que executarão as seguintes tarefas:
+Verifique se o seu diretório tem um número de licenças do Azure AD Premium P2 igual ou superior ao número dos seus funcionários que executarão as seguintes tarefas:
 
 - Usuários atribuídos como qualificados para funções do Azure AD gerenciadas usando o PIM
 - Usuários capazes de aprovar ou rejeitar solicitações de ativação no PIM
@@ -46,11 +46,11 @@ As licenças do Azure AD Premium P2 **não** são necessárias para as seguintes
 
 - Nenhuma licença é necessária para usuários com funções de administrador global ou de administrador de função com privilégios que configuram o PIM, configurar políticas, receber alertas e configurar revisões de acesso.
 
-Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ## <a name="example-license-scenarios"></a>Cenários de licença de exemplo
 
-Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar o número de licenças que você deve ter.
+Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar o número de licenças que você precisa ter.
 
 | Cenário | Cálculo | Número de licenças |
 | --- | --- | --- |

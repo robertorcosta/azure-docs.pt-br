@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35997f57b0a66b4f7853ea117519273fd7b6f726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75440468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84436166"
 ---
 | Categoria | Armazenamento de dados |
 |:--- |:--- |
-| **Azure** |[Armazenamento de BLOBs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |
+| **Azure** |[Armazenamento de Blobs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (API do SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
@@ -27,13 +27,13 @@ ms.locfileid: "75440468"
 | &nbsp; |[Banco de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Arquivos do Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Banco de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Instância Gerenciada do Banco de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
+| &nbsp; |[Instância Gerenciada do SQL do Azure](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics (antigo SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
-| &nbsp; |[Armazenamento de tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |
+| &nbsp; |[Armazenamento de Tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |
 | **Backup de banco de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
-| &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |
-| &nbsp; |[BigQuery do Google](../articles/data-factory/connector-google-bigquery.md) |
+| &nbsp; |[Aprofundar-se](../articles/data-factory/connector-drill.md) |
+| &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
@@ -50,7 +50,8 @@ ms.locfileid: "75440468"
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
-| &nbsp; |[Tabela SAP](../articles/data-factory/connector-sap-table.md) |
+| &nbsp; |[SAP Table](../articles/data-factory/connector-sap-table.md) |
+| &nbsp; |[Snowflake](../articles/data-factory/connector-snowflake.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
@@ -68,7 +69,7 @@ ms.locfileid: "75440468"
 | &nbsp; |[OData Genérico](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[ODBC Genérico](../articles/data-factory/connector-odbc.md) |
 | **Serviços e aplicativos** |[Serviço Web do Amazon Marketplace](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[Serviço de dados comum para aplicativos](../articles/data-factory/connector-dynamics-crm-office-365.md) |
+| &nbsp; |[Common Data Service para aplicativos](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concorrente (versão prévia)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics AX](../articles/data-factory/connector-dynamics-ax.md) |
@@ -84,12 +85,13 @@ ms.locfileid: "75440468"
 | &nbsp; |[PayPal (versão prévia)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (versão prévia)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
-| &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |
-| &nbsp; |[Nuvem de Marketing SalesForce](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
+| &nbsp; |[Nuvem de serviço Salesforce](../articles/data-factory/connector-salesforce-service-cloud.md) |
+| &nbsp; |[Nuvem de Marketing Salesforce](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
 | &nbsp; |[Shopify (versão prévia)](../articles/data-factory/connector-shopify.md) |
+| &nbsp; |[Lista do SharePoint Online](../articles/data-factory/connector-sharepoint-online-list.md) |
 | &nbsp; |[Square (versão prévia)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[Tabela da Web (tabela HTML)](../articles/data-factory/connector-web-table.md) 
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |

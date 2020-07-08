@@ -4,15 +4,15 @@ description: Neste artigo, saiba como alterar a exibição para tela inteira.
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 2e72eb9ffc3affa0bf09692ac0780f9310308521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4aa2c5aa3f40802db7be64eeb778866819bfe67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744214"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Alterar para exibição de tela inteira de uma sessão de VM: bastiões do Azure
 
@@ -22,7 +22,7 @@ Este artigo ajuda você a alterar a exibição de máquina virtual para tela int
 
 Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência de bastiões selecionando as duas setas localizadas no centro esquerdo da sessão.
 
-![ferramentas](./media/bastion-vm-manage/left.png)
+![tools](./media/bastion-vm-manage/left.png)
 
 ## <a name="select-full-screen"></a>Selecionar tela inteira
 
@@ -32,5 +32,5 @@ Selecione o botão **tela inteira** para alternar a sessão para uma experiênci
  
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).
+Leia as [perguntas frequentes do Bastion](bastion-faq.md).
 Saiba como [copiar e colar](bastion-vm-copy-paste.md) de e para uma VM do Azure.

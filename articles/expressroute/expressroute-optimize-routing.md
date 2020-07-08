@@ -4,15 +4,15 @@ description: Esta página fornece detalhes sobre como otimizar o roteamento quan
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: charwen
-ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3a658d4b02501994437691308810ffb9cabcb6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74080132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738848"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o roteamento do ExpressRoute
 Quando você tem vários circuitos de ExpressRoute, tem mais de um caminho para se conectar à Microsoft. Portanto, pode ocorrer um roteamento abaixo do ideal, ou seja, o tráfego pode levar um caminho mais longo para acessar a Microsoft e esta para acessar a sua rede. Quanto maior o caminho de rede, maior será a latência. A latência tem impacto direto na experiência de usuário e no desempenho do aplicativo. Este artigo ilustra esse problema e explica como otimizar o roteamento usando tecnologias de roteamento padrão.

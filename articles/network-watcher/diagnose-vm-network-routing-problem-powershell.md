@@ -11,18 +11,18 @@ Customer intent: I need to diagnose virtual machine (VM) network routing problem
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: b5a636471eab188dc8648761afedd81694331953
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 362157f023f7ed4d2da81962acd32e2da968193e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76834680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738763"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - Azure PowerShell
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá `Az` o módulo Azure PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o `Az` módulo Azure PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 
 
@@ -133,7 +133,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
 
 Como é possível ver na saída anterior, a rota com **AddressPrefix** de **0.0.0.0/0** roteia todo o tráfego não destinado a endereços dentro dos prefixos de endereço de outras rotas com um próximo salto de **Internet**. Como você também pode ver na saída, embora haja uma rota padrão para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, o **nextHopType** é **Nenhum**. O Azure cria uma rota padrão para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo. Se, por exemplo, você adicionou o intervalo de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure alterará o **nextHopType** para **Rede virtual** da rota. Em seguida, uma verificação mostra a **Rede virtual** como o **nextHopType**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 

@@ -4,15 +4,15 @@ description: A referência para solução de problemas do Analisador de Internet
 services: internet-analyzer
 author: diego-perez-botero
 ms.service: internet-analyzer
-ms.topic: guide
+ms.topic: troubleshooting
 ms.date: 12/04/2019
 ms.author: dibotero
-ms.openlocfilehash: 0c9e203d7e8be7b24c711f73e2152a7745a57dac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: fe173ec4d4f28444d43739ea2ed51e43021916b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744350"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Solução de problemas do Analisador de Internet do Azure
 
@@ -20,7 +20,7 @@ Este artigo contém etapas para a solução dos problemas mais comuns do Analisa
 
 ## <a name="things-to-keep-in-mind"></a>Algumas coisas que se deve manter em mente
 - O script do cliente deve ser inserido em um site **HTTPS**. As medidas não serão coletadas se o script for executado em um site de texto não criptografado (**http://** ) ou local (**file://** ).
-- Os dados de medição serão coletados apenas se o script de cliente do perfil do Analisador de Internet tiver sido inserido em um aplicativo que esteja recebendo tráfego de um usuário real. O tráfego sintético (por exemplo, Testes de Desempenho do Azure WebApp) normalmente não executa código JavaScript integrado, portanto, nenhuma medida será gerada por esse tipo de tráfego.
+- Os dados de medição serão coletados apenas se o script de cliente do perfil do Analisador de Internet tiver sido inserido em um aplicativo que esteja recebendo tráfego de um usuário real. O tráfego sintético (por exemplo, testes de desempenho do Azure WebApp) normalmente não executa código JavaScript inserido, portanto, nenhuma medida será gerada por esse tipo de tráfego.
 
 ## <a name="azure-portal"></a>Portal do Azure
 **“Um scorecard não foi gerado para a combinação de filtros selecionada” na seção Scorecards**

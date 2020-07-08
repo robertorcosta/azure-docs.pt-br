@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742259"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Exibir histórico de auditoria para funções do Azure AD no Privileged Identity Management
 
@@ -95,7 +95,7 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
     | Ação | Ações tomadas pelo solicitante. As ações podem incluir atribuir, Cancelar atribuição, ativar, desativar ou AddedOutsidePIM. |
     | Membro | Usuário que está ativando ou atribuído a uma função. |
     | Função | Função atribuída ou ativada pelo usuário. |
-    | Raciocínio | Texto inserido no campo motivo durante a ativação. |
+    | Justificativa | Texto inserido no campo motivo durante a ativação. |
     | Expiração | Quando uma função ativada expira. Aplica-se somente a atribuições de função qualificadas. |
 
 1. Para classificar o histórico de auditoria, clique nos botões de **hora**, **ação**e **função** .
@@ -117,7 +117,7 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Obter motivo, Aprovador e número do tíquete para eventos de aprovação
 
 1. Entre no [portal do Azure](https://aad.portal.azure.com) com permissões de função de administrador de função com privilégios e abra o Azure AD.
-1. Selecione **logs de auditoria**.
+1. Selecione **Logs de Auditoria**.
 1. Use o filtro de **serviço** para exibir apenas eventos de auditoria para o serviço Privileged Identity Management. Na página **logs de auditoria** , você pode:
 
     - Consulte o motivo de um evento de auditoria na coluna **razão do status** .

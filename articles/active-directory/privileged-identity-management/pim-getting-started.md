@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.subservice: pim
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8d41fb3e6233d319725cac924c0c0ed41b7ce4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742893"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar usando o Privileged Identity Management
 
@@ -69,7 +69,7 @@ Quando Privileged Identity Management estiver configurado, você pode aprender o
 | **Minhas solicitações** | Exibe as solicitações pendentes para ativar atribuições de função qualificadas. |
 | **Aprovar solicitações** | Exibe uma lista de solicitações de usuários para ativar funções qualificadas em seu diretório, que você pode aprovar. |
 | **Examinar acesso** | Lista as revisões de acesso ativas atribuídas a você para completar, esteja você revisando o acesso para si mesmo ou para outra pessoa. |
-| **Funções do Microsoft Azure Active Directory** | Exibe um painel e configurações para administradores de função com privilégios para gerenciar atribuições de função do Azure AD. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel minha exibição exibe apenas informações sobre o usuário que está acessando o painel, e não toda a organização. |
+| **Funções do Azure AD** | Exibe um painel e configurações para administradores de função com privilégios para gerenciar atribuições de função do Azure AD. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel minha exibição exibe apenas informações sobre o usuário que está acessando o painel, e não toda a organização. |
 | **Recursos do Azure** | Exibe um painel e configurações para administradores de função com privilégios para gerenciar atribuições de função de recurso do Azure. Esse painel é desabilitado para todos que não forem administradores de função com privilégios. Esses usuários têm acesso a um painel especial denominado Minha exibição. O painel minha exibição exibe apenas informações sobre o usuário que está acessando o painel, e não toda a organização. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Adicionar um bloco PIM ao painel

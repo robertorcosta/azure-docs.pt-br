@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80a75664b977c7f37808de7ca68b332363886a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742974"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir uma função personalizada do Azure AD no PIM (Privileged Identity Management)
 
@@ -74,7 +74,7 @@ O Privileged Identity Management pode gerenciar funções personalizadas que voc
 1. Se a caixa de seleção **Permanente** estiver presente e disponível (dependendo das configurações de função), você poderá especificar se a atribuição é permanente. Marque a caixa de seleção para tornar a atribuição permanentemente qualificada ou permanentemente atribuída. Desmarque a caixa de seleção para especificar a duração de uma atribuição.
 1. Para criar a atribuição de função, clique em **Salvar** e, em seguida, em **Adicionar**. Uma notificação do status do processo da atribuição é exibida.
 
-Para verificar a atribuição de função, em uma função aberta, selecione **atribuições** > **atribuir** e verifique se a atribuição de função está corretamente identificada como qualificada ou ativa.
+Para verificar a atribuição de função, em uma função aberta, selecione **atribuições**  >  **atribuir** e verifique se a atribuição de função está corretamente identificada como qualificada ou ativa.
 
  ![Marque para ver se a atribuição de função está visível como qualificada ou ativa](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

@@ -4,15 +4,15 @@ description: Neste artigo, saiba como se conectar a um conjunto de dimensionamen
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 290a20fcd827841c24983f3bdd54b6db8e154462
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3dc7ce36e773b5a615b1abf4f50406fcb07826b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744299"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Conectar-se a um conjunto de dimensionamento de máquinas virtuais usando a bastiões do Azure
 
@@ -24,9 +24,9 @@ Verifique se você configurou um host de bastiões do Azure para a rede virtual 
 
 ## <a name="connect-using-rdp"></a><a name="rdp"></a>Conectar usando RDP
 
-1. Abra o [portal do Azure](https://portal.azure.com). Navegue até o conjunto de dimensionamento de máquinas virtuais ao qual você deseja se conectar.
+1. Abra o [Portal do Azure](https://portal.azure.com). Navegue até o conjunto de dimensionamento de máquinas virtuais ao qual você deseja se conectar.
 
-   ![navigate](./media/bastion-connect-vm-scale-set/1.png)
+   ![navegar](./media/bastion-connect-vm-scale-set/1.png)
 2. Navegue até a instância do conjunto de dimensionamento de máquinas virtuais à qual você deseja se conectar e, em seguida, selecione **conectar**. Ao usar uma conexão RDP, o conjunto de dimensionamento de máquinas virtuais deve ser um conjunto de dimensionamento de máquinas virtuais do Windows.
 
    ![conjunto de dimensionamento de máquinas virtuais](./media/bastion-connect-vm-scale-set/2.png)
@@ -35,9 +35,9 @@ Verifique se você configurou um host de bastiões do Azure para a rede virtual 
    ![Guia de bastiões](./media/bastion-connect-vm-scale-set/3.png)
 4. Na guia bastião, insira o nome de usuário e a senha para o conjunto de dimensionamento de máquinas virtuais e, em seguida, selecione **conectar**.
 
-   ![connect](./media/bastion-connect-vm-scale-set/4.png)
-5. A conexão RDP com essa máquina virtual via bastiões será aberta diretamente no portal do Azure (sobre o HTML5) usando a porta 443 e o serviço de bastiões.
+   ![conectar](./media/bastion-connect-vm-scale-set/4.png)
+5. A conexão RDP com essa máquina virtual via Bastion será aberta diretamente no portal do Azure (via HTML5) usando a porta 443 e o serviço Bastion.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).
+Leia as [perguntas frequentes do Bastion](bastion-faq.md).

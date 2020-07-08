@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 334f239ea8382a67add9655d4a25f98d254567d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743942"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Definir as configurações de função do Azure AD no Privileged Identity Management
 
@@ -44,7 +44,7 @@ Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 gt
-1. Abra **Azure ad Privileged Identity Management** &gt; &gt; **configurações de função**de **funções do Azure ad** .
+1. Abra **Azure ad Privileged Identity Management** &gt; configurações de função de **funções do Azure ad** &gt; **Role settings**.
 
     ![Página de configurações de função listando funções do Azure AD](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -131,7 +131,7 @@ Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
 1. Selecione **funções do Azure ad**.
 
-1. Selecione **Configurações**.
+1. Escolha a opção **Configurações**.
 
     ![Funções do Azure AD – configurações](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
@@ -167,10 +167,10 @@ Use a opção de **tíquete de incidente/solicitação** para exigir que os admi
 
 Use a opção **Autenticação Multifator** para especificar se os usuários deverão confirmar a identidade com MFA antes de poderem ativar as funções. Eles só precisam verificar sua identidade uma vez por sessão, nem sempre que ativam uma função. Há duas dicas para ter em mente quando você habilita a MFA:
 
-- Os usuários que têm contas da Microsoft para seus endereços de @outlook.comemail (normalmente, mas nem sempre) não podem se registrar para a autenticação multifator do Azure. Se você quiser atribuir funções a usuários com contas da Microsoft, você deve torná-los administradores permanentes ou desabilitar a autenticação multifator para essa função.
+- Os usuários que têm contas da Microsoft para seus endereços de email (normalmente @outlook.com , mas nem sempre) não podem se registrar para a autenticação multifator do Azure. Se você quiser atribuir funções a usuários com contas da Microsoft, você deve torná-los administradores permanentes ou desabilitar a autenticação multifator para essa função.
 - Não é possível desabilitar a autenticação multifator do Azure para funções altamente privilegiadas para o Azure AD e o Office 365. Esse recurso de segurança ajuda a proteger as seguintes funções:  
   
-  - Administrador da proteção de informações do Azure
+  - Administrador da Proteção de Informações do Azure
   - Administrador de cobrança
   - Administrador de aplicativos de nuvem
   - Administrador de conformidade
@@ -181,12 +181,12 @@ Use a opção **Autenticação Multifator** para especificar se os usuários dev
   - Administradores do Exchange
   - Administrador global
   - Administrador do Intune
-  - Administrador de Power BI
+  - Administrador do Power BI
   - Administrador de função com privilégios
   - Administrador de segurança
   - Administrador do SharePoint
   - Administrador do Skype for Business
-  - Administrador do usuário
+  - Administrador de usuários
 
 Para saber mais, confira [Autenticação multifator e Privileged Identity Management](pim-how-to-require-mfa.md).
 

@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488776"
 ---
 O uso da integração de VNet regional permite que seu aplicativo acesse:
 
@@ -56,11 +56,7 @@ Um endereço é usado para cada instância do plano. Se você dimensionar seu ap
 
 Se você quiser que seus aplicativos em outro plano alcancem uma VNet que já está conectada por aplicativos em outro plano, selecione uma sub-rede diferente daquela que está sendo usada pela integração VNet pré-existente.
 
-O recurso está em versão prévia para Linux. O formulário Linux do recurso só dá suporte à realização de chamadas para endereços RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
-
-### <a name="web-or-function-app-for-containers"></a>Web ou Aplicativo de funções para contêineres
-
-Se você hospedar seu aplicativo no Linux com as imagens internas, a integração VNet regional funcionará sem alterações adicionais. Se você usar Web ou Aplicativo de funções para contêineres, deverá modificar a imagem do Docker para usar a integração VNet. Na imagem do Docker, use a variável de ambiente PORT como a porta de escuta do servidor Web principal, em vez de usar um número de porta codificado. A variável de ambiente PORT é definida automaticamente pela plataforma no tempo de inicialização do contêiner. Se você usar SSH, o daemon SSH deverá ser configurado para escutar no número da porta especificado pela variável de ambiente SSH_PORT quando você usar a integração VNet regional. Não há suporte para a integração VNet do gateway necessária no Linux.
+O recurso tem suporte total para aplicativos Web do Windows e Linux. Todos os comportamentos agem da mesma entre aplicativos do Windows e aplicativos do Linux.
 
 ### <a name="service-endpoints"></a>Pontos de extremidade de serviço
 

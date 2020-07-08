@@ -4,15 +4,15 @@ description: Saiba como criar uma porta frontal com tráfego Redirecionado de HT
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05699c827af251b890de4c6f195df5872bfbe364
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743602"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Criar uma porta frontal com o redirecionamento de HTTP para HTTPS usando o portal do Azure
 
@@ -40,19 +40,19 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
      ![Designer de configuração de porta frontal](./media/front-door-url-redirect/front-door-designer.png)
 
-6. Clique no ícone**+**' ' nos _hosts de front_ -end para criar um host de front-end, insira um nome globalmente exclusivo para seu host de`\<**name**\>.azurefd.net`front-end padrão para sua porta frontal (). Clique em **Adicionar** para prosseguir para a próxima etapa.
+6. Clique no **+** ícone ' ' nos _hosts de front_ -end para criar um host de front-end, insira um nome globalmente exclusivo para seu host de front-end padrão para sua porta frontal ( `\<**name**\>.azurefd.net` ). Clique em **Adicionar** para prosseguir para a próxima etapa.
 
      ![Adicionar um host de front-end](./media/front-door-url-redirect/front-door-create-fehost.png)
 
-7. Clique no ícone**+**' ' nos _pools de back-end_ para criar um pool de back-end. Forneça um nome para o pool de back-end e clique em '**Adicionar um back-end**'.
+7. Clique no **+** ícone ' ' nos _pools de back-end_ para criar um pool de back-end. Forneça um nome para o pool de back-end e clique em '**Adicionar um back-end**'.
 8. Selecione o tipo de host de back-end como _serviço de aplicativo_. Selecione a assinatura na qual seu aplicativo Web está hospedado e, em seguida, selecione o aplicativo Web específico no menu suspenso para **nome de host de back-end**.
 9. Clique em **Adicionar** para salvar o back-end e clique em **Adicionar** novamente para salvar a configuração do pool de back-end.   ![Adicionar um back-end em um pool de back-end](./media/front-door-url-redirect/front-door-create-backendpool.png)
 
-10. Clique no ícone**+**' ' nas _regras de roteamento_ para criar uma rota. Forneça um nome para a rota, diga ' HttpToHttpsRedirect ' e defina o campo _protocolos aceitos_ como **' somente http '**. Verifique se o _host front-end_ apropriado está selecionado.  
+10. Clique no **+** ícone ' ' nas _regras de roteamento_ para criar uma rota. Forneça um nome para a rota, diga ' HttpToHttpsRedirect ' e defina o campo _protocolos aceitos_ como **' somente http '**. Verifique se o _host front-end_ apropriado está selecionado.  
 11. Na seção _detalhes da rota_ , defina o _tipo de rota_ como **redirecionar**, verifique se o _tipo de redirecionamento_ está definido como **encontrado (302)** e se o _protocolo de redirecionamento_ está definido como **somente HTTPS**. 
 12. Clique em Adicionar para salvar a regra de roteamento para redirecionamento HTTP para HTTPS.
      ![Adicionar uma rota de redirecionamento de HTTP para HTTPS](./media/front-door-url-redirect/front-door-redirect-config-example.png)
-13. Adicione outra regra de roteamento para lidar com o tráfego HTTPS. Clique no sinal**+**' ' nas _regras de roteamento_ e forneça um nome para a rota, digamos ' DefaultForwardingRoute ' e, em seguida, defina o campo _protocolos aceitos_ como **' somente HTTPS '**. Verifique se o _host front-end_ apropriado está selecionado.
+13. Adicione outra regra de roteamento para lidar com o tráfego HTTPS. Clique no **+** sinal ' ' nas _regras de roteamento_ e forneça um nome para a rota, digamos ' DefaultForwardingRoute ' e, em seguida, defina o campo _protocolos aceitos_ como **' somente HTTPS '**. Verifique se o _host front-end_ apropriado está selecionado.
 14. Na seção detalhes da rota, defina o _tipo de rota_ como **encaminhar**, verifique se o pool de back-end correto está selecionado e se o _protocolo de encaminhamento_ está definido como **somente HTTPS**. 
 15. Clique em Adicionar para salvar a regra de roteamento para encaminhamento de solicitação.
      ![Adicionar uma rota de avanço para o tráfego HTTPS](./media/front-door-url-redirect/front-door-forward-route-example.png)
@@ -63,13 +63,13 @@ As etapas a seguir mostram como você pode adicionar um domínio personalizado e
 
 ### <a name="add-a-custom-domain"></a>Adicionar um domínio personalizado
 
-Neste exemplo, você adiciona um registro CNAME para o `www` subdomínio (por exemplo, `www.contosonews.com`).
+Neste exemplo, você adiciona um registro CNAME para o `www` subdomínio (por exemplo, `www.contosonews.com` ).
 
 #### <a name="create-the-cname-record"></a>Criar um registro CNAME
 
-Adicione um registro CNAME para mapear um subdomínio para o host de front-end padrão`<name>.azurefd.net`da porta `<name>` frontal (, em que é o nome do seu perfil de porta frontal).
+Adicione um registro CNAME para mapear um subdomínio para o host de front-end padrão da porta frontal ( `<name>.azurefd.net` , em que `<name>` é o nome do seu perfil de porta frontal).
 
-Para o `www.contoso.com` domínio, como um exemplo, adicione um registro CNAME que mapeie o nome `www` para `<name>.azurefd.net`.
+Para o `www.contoso.com` domínio, como um exemplo, adicione um registro CNAME que mapeie o nome `www` para `<name>.azurefd.net` .
 
 Depois de adicionar o CNAME, a página de registros DNS será parecida com o seguinte exemplo:
 
@@ -78,7 +78,7 @@ Depois de adicionar o CNAME, a página de registros DNS será parecida com o seg
 #### <a name="onboard-the-custom-domain-on-your-front-door"></a>Carregar o domínio personalizado na sua porta frontal
 
 1. Na guia Designer de porta frontal, clique no ícone "+" na seção hosts de front-end para adicionar um novo domínio personalizado. 
-2. Insira o nome DNS personalizado totalmente qualificado no campo nome do host personalizado, exemplo `www.contosonews.com`. 
+2. Insira o nome DNS personalizado totalmente qualificado no campo nome do host personalizado, exemplo `www.contosonews.com` . 
 3. Depois que o mapeamento CNAME do domínio para sua porta frontal for validado, clique em **Adicionar** para adicionar o domínio personalizado.
 4. Clique em **salvar** para enviar as alterações.
 
@@ -94,7 +94,7 @@ Depois de adicionar o CNAME, a página de registros DNS será parecida com o seg
 4. Clique em **Atualizar** após alguns minutos e, em seguida, clique no domínio personalizado novamente para ver o progresso do provisionamento de certificado. 
 
 > [!WARNING]
-> A habilitação de HTTPS para um domínio personalizado pode levar vários minutos e também depende da validação de Propriedade do domínio se o CNAME não for mapeado diretamente `<name>.azurefd.net`para o host da porta frontal. Saiba mais sobre [como habilitar HTTPS para um domínio personalizado](./front-door-custom-domain-https.md).
+> A habilitação de HTTPS para um domínio personalizado pode levar vários minutos e também depende da validação de Propriedade do domínio se o CNAME não for mapeado diretamente para o host da porta frontal `<name>.azurefd.net` . Saiba mais sobre [como habilitar HTTPS para um domínio personalizado](./front-door-custom-domain-https.md).
 
 ## <a name="configure-the-routing-rules-for-the-custom-domain"></a>Configurar as regras de roteamento para o domínio personalizado
 

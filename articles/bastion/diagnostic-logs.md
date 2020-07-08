@@ -4,15 +4,15 @@ description: Neste artigo, saiba como habilitar e trabalhar com os logs de diagn
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 4b71dba02a311b8fa6a16645364f90d7632693a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744197"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Habilitar e trabalhar com logs de recursos de bastiões
 
@@ -79,4 +79,4 @@ Para acessar seus logs de diagnóstico, você pode usar diretamente a conta de a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).
+Leia as [perguntas frequentes do Bastion](bastion-faq.md).

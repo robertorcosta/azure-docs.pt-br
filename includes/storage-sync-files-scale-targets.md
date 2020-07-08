@@ -1,5 +1,5 @@
 ---
-title: incluir arquivo
+title: arquivo de inclusão
 description: incluir arquivo
 services: storage
 author: roygara
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6a053b94813145f9ccd69158d18edb728d5dad61
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74795815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466870"
 ---
 | Recurso | Destino | Limite rígido |
 |----------|--------------|------------|
-| Serviços de Sincronização de Armazenamento por região | 20 serviços de sincronização de armazenamento | Sim |
-| Grupos de sincronização por Serviço de Sincronização de Armazenamento | 100 grupos de sincronização | Sim |
+| Serviços de Sincronização de Armazenamento por região | 100 serviços de sincronização de armazenamento | Sim |
+| Grupos de sincronização por Serviço de Sincronização de Armazenamento | 200 grupos de sincronização | Sim |
 | Servidores registrados por Serviço de Sincronização de Armazenamento | 99 servidores | Sim |
 | Pontos de extremidade de nuvem por grupo de sincronização | 1 ponto de extremidade de nuvem | Sim |
 | Pontos de extremidade do servidor por grupo de sincronização | 50 pontos de extremidade de servidor | Não |
