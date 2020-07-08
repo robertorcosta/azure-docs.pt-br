@@ -2,21 +2,21 @@
 title: Status de provisionamento de aplicativo de quarentena | Microsoft Docs
 description: Quando você configurou um aplicativo para provisionamento automático de usuário, saiba o que é um status de provisionamento de quarentena e como limpá-lo.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/28/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593923"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024563"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
 
@@ -28,11 +28,11 @@ Durante a quarentena, a frequência de ciclos incrementais é reduzida gradualme
 
 Há três maneiras de verificar se um aplicativo está em quarentena:
   
-- Na portal do Azure, navegue até **Azure Active Directory** > **aplicativos** > &lt;*nome*&gt; > do aplicativo**provisionamento** e examine a barra de progresso de uma mensagem de quarentena.   
+- Na portal do Azure, navegue até **Azure Active Directory**  >  **aplicativos empresariais**  >  &lt; *nome do aplicativo* &gt;  >  **provisionamento** e examine a barra de progresso de uma mensagem de quarentena.   
 
   ![Barra de status de provisionamento mostrando o status de quarentena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- No portal do Azure, navegue até **Azure Active Directory** > **logs de auditoria** > filtrar em **atividade: quarentena** e examine o histórico de quarentena. Embora a exibição na barra de progresso conforme descrito acima mostre se o provisionamento está em quarentena no momento, os logs de auditoria permitem que você veja o histórico de quarentena de um aplicativo. 
+- No portal do Azure, navegue até **Azure Active Directory**  >  **logs de auditoria** > filtrar em **atividade: quarentena** e examine o histórico de quarentena. Embora a exibição na barra de progresso conforme descrito acima mostre se o provisionamento está em quarentena no momento, os logs de auditoria permitem que você veja o histórico de quarentena de um aplicativo. 
 
 - Use a solicitação de Microsoft Graph [obter synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) para obter programaticamente o status do trabalho de provisionamento:
 
@@ -66,7 +66,7 @@ Primeiro, resolva o problema que fez com que o aplicativo fosse colocado em quar
 
 - Verifique as configurações de provisionamento do aplicativo para certificar-se de que você [inseriu credenciais de administrador válidas](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). O Azure AD deve ser capaz de estabelecer uma relação de confiança com o aplicativo de destino. Verifique se você inseriu credenciais válidas e se sua conta tem as permissões necessárias.
 
-- Examine os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para investigar melhor quais erros estão causando a quarentena e resolver o erro. Acesse os logs de provisionamento no portal do Azure acessando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** .
+- Examine os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para investigar melhor quais erros estão causando a quarentena e resolver o erro. Acesse os logs de provisionamento no portal do Azure acessando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **logs de provisionamento (versão prévia)** na seção **atividade** .
 
 Depois de resolver o problema, reinicie o trabalho de provisionamento. Determinadas alterações nas configurações de provisionamento do aplicativo, como mapeamentos de atributo ou filtros de escopo, reiniciarão automaticamente o provisionamento para você. A barra de progresso na página de **provisionamento** do aplicativo indica quando o provisionamento foi iniciado pela última vez. Se você precisar reiniciar o trabalho de provisionamento manualmente, use um dos seguintes métodos:  
 
@@ -75,3 +75,6 @@ Depois de resolver o problema, reinicie o trabalho de provisionamento. Determina
 - Use Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Você terá controle total sobre o que reinicia. Você pode optar por limpar as caução (para reiniciar o contador de caução que se acumula para o status de quarentena), limpar a quarentena (para remover o aplicativo da quarentena) ou limpar as marcas d' água. Envie a seguinte solicitação:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+       
+Substitua "{ID}" pelo valor da ID do aplicativo e substitua "{jobId}" pela [ID do trabalho de sincronização](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
+

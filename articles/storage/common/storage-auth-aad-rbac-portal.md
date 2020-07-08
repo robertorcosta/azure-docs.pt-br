@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d224bd9e9e7b1f8fc9eb45d85e78811d8642fc78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b22c653d25dc23bbcb249344affaf83a07f190af
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519553"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024869"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Use o portal do Azure para atribuir uma função de RBAC para acesso aos dados de BLOB e de fila
 
@@ -66,7 +66,7 @@ O procedimento mostrado aqui atribui uma função com escopo a um contêiner, ma
 
     ![Captura de tela que mostra como atribuir uma função do RBAC](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. Clique em **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que o usuário adicionado agora tem permissões de leitura para os dados no contêiner nomeado *sample-container*.
+1. Clique em **Save** (Salvar). A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que o usuário adicionado agora tem permissões de leitura para os dados no contêiner nomeado *sample-container*.
 
     ![Captura de tela mostrando a lista de usuários atribuídos a uma função](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 

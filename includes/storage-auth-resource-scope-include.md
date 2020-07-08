@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 74ef8270b5efcd3b7cdf756c103dcc2e1c935508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b97a62626666fa39a5b0622852d9eec47c2410a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460512"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024870"
 ---
 Antes de atribuir uma função de RBAC a uma entidade de segurança, determine o escopo de acesso que a entidade de segurança deve ter. As práticas recomendadas ditam que é sempre melhor conceder apenas o escopo mais estreito possível.
 
@@ -24,6 +24,3 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
 - **A conta de armazenamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres e seus BLOBs, ou a todas as filas e suas mensagens.
 - **O grupo de recursos.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento no grupo de recursos.
 - **A assinatura.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento em todos os grupos de recursos na assinatura.
-
-> [!IMPORTANT]
-> Se sua assinatura incluir um namespace do Azure databricks, as funções que têm o escopo para a assinatura não concederão acesso aos dados de BLOB e de fila. Em vez disso, as funções de escopo para o grupo de recursos, a conta de armazenamento ou o contêiner ou a fila.     

@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 4ef5d89ea58c5c27f4344633afa2fe8048948719
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849460"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025583"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com uma chave gerenciada pelo cliente
-
-> [!NOTE]
-> No momento, é necessário solicitar acesso para usar esta capacidade. Para fazer isso, entre em contato com AskAzureDBforPostgreSQL@service.microsoft.com.
 
 A criptografia de dados com chaves gerenciadas pelo cliente para o servidor único do Banco de Dados do Azure para PostgreSQL permite que você BYOK (Bring Your Own Key) para proteção de dados em repouso. Ela também permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados. Com a criptografia gerenciada pelo cliente, você é responsável por (com controle total): ciclo de vida de uma chave, permissões de uso de chave e auditoria de operações em chaves.
 
@@ -38,7 +35,7 @@ A criptografia de dados para o servidor único do Banco de Dados do Azure para P
 
 ## <a name="terminology-and-description"></a>Descrição e terminologia
 
-**DEK (chave de criptografia de dados)** : uma chave simétrica AES256 utilizada para criptografar uma partição ou bloco de dados. Criptografar cada bloco de dados com uma chave diferente torna os ataques de análise de criptografia mais difíceis. O acesso a DEKs é necessário pelo provedor de recursos ou instância do aplicativo que criptografa e descriptografa um bloco específico. Quando você substitui uma DEK por uma nova chave, apenas os dados no respectivo bloco associado precisam ser criptografados novamente com a nova chave.
+**DEK (chave de criptografia de dados)** : uma chave simétrica AES256 usada para criptografar uma partição ou bloco de dados. Criptografar cada bloco de dados com uma chave diferente torna os ataques de análise de criptografia mais difíceis. O acesso a DEKs é necessário pelo provedor de recursos ou instância do aplicativo que criptografa e descriptografa um bloco específico. Quando você substitui uma DEK por uma nova chave, apenas os dados no respectivo bloco associado precisam ser criptografados novamente com a nova chave.
 
 **KEK (chave de criptografia de chave)** : uma chave de criptografia usada para criptografar as DEKs. Uma KEK que nunca deixa o Key Vault permite que as DEKs sejam criptografadas e controladas. A entidade que tem acesso à KEK pode ser diferente da entidade que requer a DEK. Uma vez que o KEK é necessário para descriptografar os DEKs, o KEK é efetivamente um ponto único pelo qual os DEKs podem ser efetivamente excluídos pela exclusão do KEK.
 
@@ -63,14 +60,14 @@ Quando o servidor é configurado para usar a chave gerenciada pelo cliente armaz
 Veja a seguir os requisitos para configurar o Key Vault:
 
 * O Key Vault e o servidor único do Banco de Dados do Azure para PostgreSQL precisam pertencer ao mesmo locatário do Azure AD (Azure Active Directory). Não há suporte para interações do servidor e do Key Vault entre locatários. A movimentação de recursos posteriormente exige que você reconfigure a criptografia de dados.
-* Habilite o recurso de exclusão reversível no cofre de chaves para proteger contra perda de dados em caso de exclusão acidental da chave (ou do cofre de chaves). Os recursos excluídos com a exclusão reversível são retidos por 90 dias, a menos que o usuário os recupere ou os limpe nesse tempo. As ações de recuperação e limpeza têm suas próprias permissões associadas em uma política de acesso do Key Vault. O recurso de exclusão reversível está desativado por padrão, mas você pode habilitá-lo por meio do PowerShell ou da CLI do Azure (observe que não é possível habilitá-lo por meio do portal do Azure).
+* Habilite o recurso de exclusão reversível no cofre de chaves para proteger contra perda de dados em caso de exclusão acidental da chave (ou do cofre de chaves). Os recursos excluídos com a exclusão reversível são retidos por 90 dias, a menos que o usuário os recupere ou limpe pelo. As ações de recuperação e limpeza têm suas próprias permissões associadas em uma política de acesso do Key Vault. O recurso de exclusão reversível está desativado por padrão, mas você pode habilitá-lo por meio do PowerShell ou da CLI do Azure (observe que não é possível habilitá-lo por meio do portal do Azure).
 * Conceda o acesso de servidor único do Banco de Dados do Azure para PostgreSQL ao cofre de chaves com as permissões get, wrapKey e unwrapKey usando a identidade gerenciada exclusiva. No portal do Azure, a identidade exclusiva é criada automaticamente quando a criptografia de dados é habilitada no servidor único PostgreSQL. Confira [Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal](howto-data-encryption-portal.md) (Criptografia de dados para servidor único do Banco de Dados do Azure para PostgreSQL usando o portal do Azure) para obter instruções detalhadas passo a passo quando você estiver usando o portal do Azure.
 
 Veja a seguir os requisitos para configurar a chave gerenciada pelo cliente:
 
 * A chave gerenciada pelo cliente a ser usada para criptografar a DEK só pode ser assimétrica, RSA 2048.
-* A data de ativação da chave (se definida) deve ser uma data e uma hora no passado. A data de validade (se definida) precisa ser uma data e hora no futuro.
-* A chave deve estar no estado *Habilitado*.
+* A data de ativação da chave (se definida) precisa ser uma data e uma hora no passado. A data de validade (se definida) precisa ser uma data e hora no futuro.
+* A chave precisa estar no estado *Habilitado*.
 * Se você estiver importando uma chave existente no cofre de chaves, certifique-se de fornecê-la nos formatos de arquivo com suporte (`.pfx`, `.byok`, `.backup`).
 
 ## <a name="recommendations"></a>Recomendações
@@ -92,7 +89,7 @@ Veja recomendações para configurar uma chave gerenciada pelo cliente:
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Condição de chave gerenciada pelo cliente inacessível
 
-Quando você configura a criptografia de dados com uma chave gerenciada pelo cliente no Key Vault, o acesso contínuo a essa chave é necessário para que o servidor permaneça online. Se o servidor perder o acesso à chave gerenciada pelo cliente no Key Vault, o servidor começará a negar todas as conexões em 10 minutos. O servidor emite uma mensagem de erro correspondente e altera o estado do servidor para *inacessível*. Algumas das razões pelas quais o servidor pode alcançar esse estado são:
+Quando você configura a criptografia de dados com uma chave gerenciada pelo cliente no Key Vault, o acesso contínuo a essa chave é necessário para que o servidor permaneça online. Se o servidor perder o acesso à chave gerenciada pelo cliente no Key Vault, o servidor começará a negar todas as conexões em dez minutos. O servidor emite uma mensagem de erro correspondente e altera o estado do servidor para *inacessível*. Algumas das razões pelas quais o servidor pode alcançar esse estado são:
 
 * Se criarmos um servidor de restauração pontual para o servidor único do Banco de Dados do Azure para PostgreSQL, que tem criptografia de dados habilitada, o servidor recém-criado estará no estado *Inacessível*. Você pode corrigir o estado do servidor por meio do [portal do Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou da [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Se criarmos uma réplica de leitura para o servidor único do Banco de Dados do Azure para PostgreSQL, que tem criptografia de dados habilitada, o servidor de réplica estará no estado *Inacessível*. Você pode corrigir o estado do servidor por meio do [portal do Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou da [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
@@ -104,7 +101,7 @@ Quando você configura a criptografia de dados com uma chave gerenciada pelo cli
 
 Pode acontecer de alguém com direitos de acesso suficientes ao Key Vault desabilitar acidentalmente o acesso do servidor à chave ao:
 
-* Revogar as permissões get, wrapKey e unwrapKey do cofre de chaves do servidor.
+* Revogar as permissões get, wrapKey, and unwrapKey do cofre de chaves do servidor.
 * Excluir a chave.
 * Excluir o cofre de chaves.
 * Alterar as regras de firewall do cofre de chaves.
@@ -129,6 +126,19 @@ Para evitar problemas durante a configuração da criptografia de dados gerencia
 * Inicie o processo de restauração ou criação de réplica de leitura servidor único mestre do Banco de Dados do Azure para PostgreSQL.
 * Mantenha o servidor recém-criado (restaurado/de réplica) em um estado inacessível, porque sua identidade exclusiva ainda não recebeu permissões para o Key Vault.
 * No servidor restaurado/de réplica, revalide a chave gerenciada pelo cliente nas configurações de criptografia de dados. Isso garante que o servidor recém-criado receba permissões de encapsulamento e desencapsulamento para a chave armazenada no Key Vault.
+
+## <a name="limitations"></a>Limitações
+
+Para o banco de dados do Azure para PostgreSQL, o suporte para criptografia de data em repouso usando a chave gerenciada do cliente (CMK) tem poucas limitações-
+
+* O suporte para essa funcionalidade é limitado a tipos de preço **uso geral** e com **otimização de memória** .
+* Esse recurso só tem suporte em regiões e servidores que dão suporte ao armazenamento de até 16TB. Para obter a lista de regiões do Azure que dão suporte ao armazenamento de até 16TB, consulte a seção armazenamento na documentação [aqui](concepts-pricing-tiers.md#storage)
+
+    > [!NOTE]
+    > - Todos os novos servidores PostgreSQL criados nas regiões listadas acima, o suporte para criptografia com as chaves do Gerenciador de clientes está **disponível**. O servidor PITR (ponto no tempo restaurado) ou a réplica de leitura não serão qualificados, embora, na teoria, sejam ' New '.
+    > - Para validar se o servidor provisionado dá suporte a até 16TB, você pode ir para a folha tipo de preço no portal e ver o tamanho máximo de armazenamento suportado pelo servidor provisionado. Se você puder mover o controle deslizante até 4 TB, seu servidor poderá não dar suporte à criptografia com chaves gerenciadas pelo cliente. No entanto, os dados são criptografados usando chaves de serviço gerenciadas em todos os momentos. Entre em contato com AskAzureDBforPostgreSQL@service.microsoft.com se você tiver alguma dúvida.
+
+* A criptografia só tem suporte com a chave de criptografia RSA 2048.
 
 ## <a name="next-steps"></a>Próximas etapas
 
