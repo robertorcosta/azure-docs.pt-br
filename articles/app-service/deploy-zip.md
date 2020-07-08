@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32fc57e720f9c23f6ef26f02b2cd4a82c4266984
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945166"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957028"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure com um arquivo ZIP ou WAR
 
@@ -27,6 +27,9 @@ Essa implantação de arquivo zip usa o mesmo serviço Kudu que alimenta impleme
 Para obter mais informações, consulte [Documentação do Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 A implantação do arquivo WAR implanta seu arquivo [WAR](https://wikipedia.org/wiki/WAR_(file_format)) ao Serviço de Aplicativo para executar seu aplicativo Web Java. Consulte [Implantar arquivo WAR](#deploy-war-file).
+
+> [!NOTE]
+> Ao usar o `ZipDeploy` , os arquivos serão copiados somente se seus carimbos de data/hora não corresponderem ao que já está implantado. Gerar um zip usando um processo de compilação que armazena as saídas em cache pode resultar em implantações mais rápidas. Consulte [Implantando de um arquivo zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)para obter mais informações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +54,7 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 Esse comando implanta os arquivos e diretórios do arquivo zip para sua pasta de aplicativo do Serviço de Aplicativo do Azure padrão (`\home\site\wwwroot`) e reinicia o aplicativo.
 
-Por padrão, o mecanismo de implantação assume que um arquivo ZIP está pronto para ser executado no estado em que se encontra e não executa nenhuma automação de compilação. Para habilitar a mesma automação de compilação que em uma [implantação do git](deploy-local-git.md), `SCM_DO_BUILD_DURING_DEPLOYMENT` defina a configuração do aplicativo executando o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Por padrão, o mecanismo de implantação assume que um arquivo ZIP está pronto para ser executado no estado em que se encontra e não executa nenhuma automação de compilação. Para habilitar a mesma automação de compilação que em uma [implantação do git](deploy-local-git.md), defina a configuração do `SCM_DO_BUILD_DURING_DEPLOYMENT` aplicativo executando o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -63,7 +66,7 @@ Para obter mais informações, consulte [Documentação do Kudu](https://github.
 
 ## <a name="deploy-war-file"></a>Implantar arquivo WAR
 
-Para implantar um arquivo WAR no serviço de aplicativo, envie uma solicitação POST `https://<app-name>.scm.azurewebsites.net/api/wardeploy`para. A solicitação POST deve conter o arquivo .war no corpo da mensagem. As credenciais de implantação para seu aplicativo são fornecidas na solicitação usando a autenticação BÁSICA HTTP.
+Para implantar um arquivo WAR no serviço de aplicativo, envie uma solicitação POST para `https://<app-name>.scm.azurewebsites.net/api/wardeploy` . A solicitação POST deve conter o arquivo .war no corpo da mensagem. As credenciais de implantação para seu aplicativo são fornecidas na solicitação usando a autenticação BÁSICA HTTP.
 
 Sempre use `/api/wardeploy` ao implantar arquivos War. Essa API expandirá o arquivo WAR e o posicionará na unidade de arquivo compartilhada. o uso de outras APIs de implantação pode resultar em um comportamento inconsistente. 
 
