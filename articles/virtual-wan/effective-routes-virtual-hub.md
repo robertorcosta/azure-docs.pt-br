@@ -1,72 +1,68 @@
 ---
 title: 'Exibir rotas efetivas de um hub virtual: WAN virtual do Azure | Microsoft Docs'
-description: Requerer rotas efetivas para um hub virtual na WAN virtual do Azure
+description: Como exibir rotas efetivas para um hub virtual na WAN virtual do Azure
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73515844"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037759"
 ---
-# <a name="view-effective-routes-of-a-virtual-hub"></a>Exibir rotas efetivas de um hub virtual
+# <a name="view-virtual-hub-effective-routes"></a>Exibir rotas efetivas do hub virtual
 
-Você pode exibir todas as rotas do seu hub de WAN virtual no portal do Azure. Para exibir as rotas, navegue até o Hub virtual e selecione **Roteamento-> Exibir rotas efetivas**.
+Você pode exibir todas as rotas do seu hub de WAN virtual no portal do Azure. Este artigo orienta você pelas etapas para exibir rotas efetivas. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
-## <a name="understanding-routes"></a><a name="understand"></a>Noções básicas sobre rotas
+> [!NOTE]
+> No portal do Azure, alguns desses recursos ainda podem estar sendo distribuídos e não disponíveis até a semana de agosto. 
+>
 
-O exemplo a seguir pode ajudá-lo a entender melhor como o roteamento de WAN virtual aparece.
+## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Selecionar conexões ou tabelas de rotas
 
-Neste exemplo, temos uma WAN virtual com três hubs. O primeiro Hub está na região leste dos EUA, o segundo Hub está na região Europa Ocidental e o terceiro Hub está na região oeste dos EUA. Em uma WAN virtual, todos os hubs são interconectados. Neste exemplo, vamos pressupor que os hubs leste dos EUA e Europa Ocidental tenham conexões de branches locais (spokes) e redes virtuais do Azure (spokes).
+1. Navegue até o Hub virtual e selecione **Roteamento**. Na página roteamento, selecione **rotas efetivas**.
+1. No menu suspenso, você pode selecionar o **tipo de conexão** ou uma tabela de **rotas**. Se você não vir uma opção de tabela de rotas, isso significa que você não tem uma tabela de rotas personalizada ou padrão configurada nesse Hub virtual.
+1. No menu suspenso de **conexões/tabelas de rotas**, você pode selecionar um dos seguintes itens:
 
-Um Azure VNet spoke (10.4.0.0/16) com uma solução de virtualização de rede (10.4.0.6) é ainda mais emparelhado com uma VNet (10.5.0.0/16). Consulte [informações adicionais](#abouthubroute) mais adiante neste artigo para obter mais informações sobre a tabela de rotas do Hub.
+   * Conexão de rede virtual
+   * Conexão de site VPN
+   * Conexão ExpressRoute
+   * Conexão ponto a site
+   * Tabela de rotas
 
-Neste exemplo, também presumimos que o Europa Ocidental Branch 1 esteja conectado ao Hub leste dos EUA, bem como ao Hub de Europa Ocidental. Um circuito do ExpressRoute no leste dos EUA conecta a ramificação 2 ao Hub leste dos EUA.
+   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Roteamento":::
 
-![diagrama](./media/effective-routes-virtual-hub/diagram.png)
+## <a name="view-output"></a><a name="output"></a>Exibir saída
 
-## <a name="view-effective-routes"></a><a name="view"></a>Exibir rotas efetivas
+A saída da página mostra os seguintes campos:
 
-Quando você seleciona ' Exibir rotas efetivas ' no portal, ele produz a saída mostrada na [tabela de rotas do Hub](#routetable) para o Hub leste dos EUA.
+* **Prefixo**: prefixo de endereço conhecido pela entidade atual.
+* **Tipo do próximo salto**: pode ser conexão de rede Virtual, VPN_S2S_Gateway, ExpressRouteGateway, Hub remoto ou firewall do Azure.
+* **Próximo salto**: esse é o IP ou simplesmente mostra o no link para implicar o Hub atual.
+* **Origem**: a ID de recurso da fonte de roteamento.
+* **Como caminho**: o atributo BGP como caminho (sistema autônomo) lista todos os números de as que precisam ser percorridos para alcançar o local onde o prefixo ao qual o caminho está anexado, é anunciado.
 
-Para colocar isso em perspectiva, a primeira linha implica que o Hub leste dos EUA aprendeu a rota de 10.20.1.0/24 (ramificação 1) devido à conexão de *tipo de próximo salto* de VPN (' próximo salto ', gateway de VPN Instance0 IP 10.1.0.6, instance1 IP 10.1.0.7). A *origem da rota* aponta para a ID do recurso. As *path* indica o caminho as para a ramificação 1.
+### <a name="example"></a><a name="example"></a>Exemplo
 
-### <a name="hub-route-table"></a><a name="routetable"></a>Tabela de rotas do Hub
+Os valores na tabela de exemplo a seguir sugerem que a conexão do Hub virtual ou a tabela de rotas aprendeu a rota de 10.2.0.0/24 (um prefixo de ramificação). Ele aprendeu a rota devido ao tipo do **próximo salto da VPN** VPN_S2S_Gateway com a ID de recurso do gateway de VPN do **próximo salto** . A **origem da rota** aponta para a ID de recurso da conexão/tabela de rota/gateway de VPN de origem. As **path** indica o caminho as para a ramificação.
 
 Use a barra de rolagem na parte inferior da tabela para exibir o "caminho AS".
 
 | **Prefixo** |  **Tipo do próximo salto** | **Próximo salto** |  **Origem da rota** |**Caminho AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
-|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
-|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
-|10.4.0.0/16|Conexão de rede virtual| No link |  |  |
-|10.5.0.0/16| Endereço IP| 10.4.0.6|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
-|0.0.0.0/0| Endereço IP| `<Azure Firewall IP>` |/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
-|10.22.1.0/16| Hub remoto|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_| 4848-22000 |
-|10.9.0.0/16| Hub remoto|  No link |/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_1| |
+| 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /Providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
->[!NOTE]
-> Se o leste dos EUA e os hubs de Europa Ocidental não estivessem se comunicando entre si na topologia de exemplo, a rota aprendida (10.9.0.0/16) não existiria. Os hubs só anunciam redes que estão conectadas diretamente a elas.
->
+**Considere**
 
-## <a name="additional-information"></a><a name="additional"></a>Informações adicionais
+* Se você vir 0.0.0.0/0 na saída **obter rotas efetivas** , ele implica que a rota existe em uma das tabelas de rotas. No entanto, se essa rota foi configurada para Internet, um sinalizador adicional **"enableInternetSecurity": true** é necessário na conexão. A rota efetiva na NIC da VM não mostrará a rota se o sinalizador "enableInternetSecurity" na conexão for "false".
 
-### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>Sobre a tabela de rotas do Hub
-
-Você pode criar uma rota de hub virtual e aplicar a rota à tabela de rotas do hub virtual. Você pode aplicar várias rotas à tabela de rotas do hub virtual. Isso permite que você defina uma rota para VNet de destino por meio de um endereço IP (normalmente a NVA (solução de virtualização de rede) em uma VNet de spoke). Para obter mais informações sobre NVAs, consulte [rotear o tráfego de um hub virtual para um NVA](virtual-wan-route-table-portal.md).
-
-### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a>Sobre a rota padrão (0.0.0.0/0)
-
-Um hub virtual tem a capacidade de propagar uma rota padrão aprendida para uma rede virtual, uma VPN site a site e uma conexão de ExpressRoute se o sinalizador for ' Enabled ' na conexão. Esse sinalizador fica visível quando você edita uma conexão de rede virtual, uma conexão VPN ou uma conexão de ExpressRoute. ' EnableInternetSecurity ' é sempre false por padrão nas conexões VNet, ExpressRoute e VPN do Hub.
-
-A rota padrão não é originada no Hub WAN virtual. A rota padrão será propagada se já tiver sido aprendida pelo hub de WAN virtual como resultado da implantação de um firewall no Hub ou se outro site conectado tiver o túnel forçado habilitado.
+* O campo **propagar a rota padrão** é visto no portal de WAN virtual do Azure quando você edita uma conexão de rede virtual, uma conexão VPN ou uma conexão de ExpressRoute. Esse campo indica o sinalizador **enableInternetSecurity** , que é sempre por padrão "false" para conexões de EXPRESSROUTE e VPN, mas "true" para conexões de rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre WAN Virtual, confira a [Visão geral de WAN Virtual](virtual-wan-about.md).
+* Para obter mais informações sobre WAN virtual, consulte [visão geral da WAN virtual](virtual-wan-about.md).
+* Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).

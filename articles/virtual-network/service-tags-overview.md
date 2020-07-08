@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263173"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038031"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -96,7 +96,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **PowerQueryOnline** | Power Query Online. | Ambos | Não | Não |
 | **Barramento de Serviço** | O tráfego do Barramento de Serviço do Azure que usa a camada de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Observação:* essa marca representa o ponto de extremidade do serviço Service Fabric do plano de controle por região. Ele permite que os clientes executem operações de gerenciamento para os clusters do Service Fabric em sua VNET (ponto de extremidade, por exemplo, https:// westus.servicefabric.azure.com) | Ambos | Não | Não |
-| **Sql** | Banco de Dados SQL do Azure, Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL e Data Warehouse do Azure SQL.<br/><br/>*Observação:* essa marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. Essa marca não se aplica à instância gerenciada do SQL. | Saída | Sim | Sim |
+| **Sql** | Banco de Dados SQL do Azure, Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL e Data Warehouse do Azure SQL.<br/><br/>*Observação:* essa marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. Essa marca não se aplica ao SQL Instância Gerenciada. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gerenciamento para implantações dedicadas do SQL. | Ambos | Não | Sim |
 | **Storage** | Armazenamento do Microsoft Azure. <br/><br/>*Observação:* essa marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
 | **StorageSyncService** | Serviço de Sincronização de Armazenamento. | Ambos | Não | Não |
@@ -139,6 +139,8 @@ Você pode baixar arquivos JSON que contêm a lista atual de marcas de serviço 
 - [Governo dos EUA para Azure](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure China:](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)   
+
+Os intervalos de endereços IP nesses arquivos estão na notação CIDR. 
 
 > [!NOTE]
 >Um subconjunto com essas informações foi publicado em arquivos XML para o [Público do Azure](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064) e [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=54770). Esses downloads XML serão preteridos até 30 de junho de 2020 e não estarão mais disponíveis após essa data. Você deve migrar usando a API de Descoberta ou os downloads de arquivos JSON, como descrito nas seções anteriores.

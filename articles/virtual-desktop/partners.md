@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692222"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038048"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -33,12 +33,12 @@ A Citrix estende o valor da área de trabalho virtual do Windows com ferramentas
 
 ![Logotipo do VMware](./media/partners/vmware.png)
 
-A VMware horizonte Cloud no Microsoft Azure oferece às organizações a capacidade de conectar sua própria instância do Microsoft Azure ao plano de controle de nuvem simples e intuitivo, criando uma solução segura, abrangente e hospedada na nuvem para fornecer áreas de trabalho e aplicativos virtualizados do Windows. Com o lançamento da área de trabalho virtual do Windows, a VMware estabeleceu uma parceria com a Microsoft para ampliar a funcionalidade da área de trabalho virtual do Windows para clientes que usam a nuvem do horizonte no Microsoft Azure. Essa funcionalidade estará disponível no Tech Preview no final de 2019.
- 
-Como um provedor aprovado, os benefícios da área de trabalho virtual do Windows serão estendidos para a nuvem do VMware horizonte em Microsoft Azure clientes, incluindo Windows 10 Enterprise para várias sessões, Windows 7 com atualizações de segurança estendidas gratuitas por até três anos e FSLogix. Além disso, os clientes receberão os recursos de classe empresarial da nuvem de horizonte, como um amplo suporte a pontos de extremidade; Agente global e otimizado para nuvem; opções e configurações flexíveis da área de trabalho; gerenciamento de ambiente de usuário; e suporte para ambientes híbridos.
+O VMware horizonte Cloud no Microsoft Azure é um serviço de nuvem nativo que permite que as organizações implantem rapidamente áreas de trabalho e aplicativos remotos de suas assinaturas existentes do Microsoft Azure ao mesmo tempo em que aproveitam todos os recursos do VMware horizonte. A nuvem de horizonte usa o plano de controle de horizonte para fornecer uma única interface de gerenciamento para todos os ambientes de horizonte, no local ou na nuvem. Isso habilita a virtualização de desktop híbrida e permite que os clientes movam suas cargas de trabalho para o Azure em seu próprio ritmo.
 
-- [Registre-se para a visualização técnica da nuvem do horizonte no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+Como um provedor aprovado da área de trabalho virtual do Windows, o VMware pode ajudar os clientes que desejam usar a área de trabalho virtual do Windows enquanto aproveitam a funcionalidade adicional que acompanha o VMware Horizonte, como o gerenciamento de energia integrado e fácil de usar, o monitoramento baseado em nuvem e o protocolo da transmissão extrema. Esses recursos se adaptam à alteração das condições de rede em tempo real para fornecer uma experiência de usuário consistentemente excelente. A nuvem do VMware Horizonte também vem com volumes de aplicativos VMware e Gerenciador de ambiente dinâmico, que adicionam recursos avançados de gerenciamento de ambiente de usuário e aplicativo que funcionam com anexação de aplicativo MSIX e FSLogix.
+
 - [Acesse o site do parceiro](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+- [Leia a documentação técnica do VMware horizonte Cloud](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## <a name="10zig"></a>10ZiG
 
@@ -102,6 +102,28 @@ deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecn
 
 - [Acesse o site do parceiro](https://devicetrust.com/wvd).
 
+## <a name="ekran-system"></a>Sistema ekran
+
+![Logotipo do sistema ekran](./media/partners/ekran.png)
+
+O sistema ekran é um parceiro de valor de área de trabalho virtual do Windows que permite que as equipes de ti monitorem todas as atividades de usuário remotas em Microsoft Azure máquinas virtuais. Com o sistema ekran, você pode registrar a atividade na tela para cada sessão de usuário em aplicativos publicados ou áreas de trabalho virtuais, ao mesmo tempo em que coleta uma ampla gama de metadados ricos em contexto, como nomes de aplicativos, títulos de janelas ativos, URLs visitadas e pressionamentos de teclas. Recursos avançados oferecem visibilidade detalhada e tempos de resposta rápidos de incidentes, tornando o sistema ekran uma solução de conformidade e gerenciamento de ameaças Insider eficiente.  
+
+O licenciamento de ponto de extremidade flutuante exclusivo de clientes do sistema ekran é automatizado para dar suporte à alteração dinâmica de áreas de trabalho virtuais. O sistema ekran permite que você desatribua automaticamente licenças de áreas de trabalho virtuais não persistentes excluídas e as remova do banco de dados. O sistema ekran integra-se perfeitamente com Azure Active Directory e o Azure Sentinel.
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
+- [Acesse a página do parceiro](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="flexxible-it"></a>Flexxible-lo
+
+![Logotipo de ti Flexxible](./media/partners/flexxible.png)
+
+Flexxible é um parceiro de valor de área de trabalho virtual do Windows que oferece às organizações a capacidade de dimensionar, monitorar e gerenciar com eficiência a infraestrutura de área de trabalho virtual do Windows e do Citrix Workspace. Flexxible | O SUITE permite que os administradores de ti provisionem e gerenciem de forma inteligente cargas de trabalho de área de trabalho virtual do Windows e hospedadas no Azure.
+ 
+A tecnologia Flexxible IT estende o valor do espaço de trabalho virtual nativo do Windows e da Citrix, automatizando os processos comuns para simplificar a configuração da infraestrutura, o provisionamento da área de trabalho e o gerenciamento diário. Sem a necessidade de scripts complexos do PowerShell ou de processos manuais demorados, o pacote fornece implantação de área de trabalho escalonável, monitoramento e relatórios extensivos e gerenciamento seguro delegado. Esses recursos permitem que você se concentre em fornecer níveis aprimorados de serviço e uma experiência de área de trabalho virtual do Windows de qualidade para seus usuários.
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
+- [Acesse o site do parceiro](https://www.flexxible.com/suite-for-windows-virtual-desktop).
+
 ## <a name="hp"></a>HP
 
 ![Logotipo da HP](./media/partners/hp.png)
@@ -127,7 +149,7 @@ O sistema operacional IGEL dá suporte a todos os aplicativos virtuais populares
 
 ![Logotipo do Ivanti](./media/partners/ivanti.png)
 
-O Gerenciador de espaço de trabalho do usuário Ivanti é um serviço de valor agregado da área de trabalho virtual do Windows que facilita a implantação e o gerenciamento de desktops, separando os dados do usuário da área de trabalho para portabilidade Com o Ivanti, os usuários podem entregar projetos complexos, como migrar para o Windows 10, adotar o Office 365 ou mover serviços para a nuvem mais rapidamente. 
+O Gerenciador de espaço de trabalho do usuário Ivanti é um serviço de valor agregado da área de trabalho virtual do Windows que facilita a implantação e o gerenciamento de desktops, separando os dados do usuário da área de trabalho para portabilidade Com o Ivanti, os usuários podem entregar projetos complexos, como migrar para o Windows 10, adotar Microsoft 365 ou mover serviços para a nuvem mais rapidamente. 
 
 Quando usado com a área de trabalho virtual do Windows, o Gerenciador de espaço de trabalho do usuário Ivanti fornece gerenciamento contextual simples da experiência desktop do usuário, eliminando tempos de entrada longos e erradicando a política de grupo pesadelos. Os modelos prontos para uso do Gerenciador de espaço de trabalho do usuário Ivanti simplificam a instalação para usuários por meio de agentes e do console existente. O Gerenciador de espaço de trabalho de usuário do Ivanti fornece áreas responsivas e seguras que os usuários adoram, economizando em servidores, Gerenciando usuários com mais eficiência e reduzindo o risco de segurança do ponto de extremidade. 
 
@@ -163,6 +185,7 @@ O software de agregação e entrega de aplicativos liquit permite que empresas e
 
 Como um parceiro de integração certificado, o liquit ajuda a acelerar a transição para a nuvem sem um atraso de RIP e substituir. A área de trabalho virtual do Windows pode se conectar facilmente a um ambiente existente, criar um espaço de trabalho e entregar a área de trabalho. Você pode então levar seu tempo migrando de plataformas antigas e fazer alterações no back-end sem que os usuários percebam. Obter uma experiência consistente do usuário final, uma infraestrutura flexível e manter o controle de seus aplicativos, independentemente de onde estiverem.
 
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8).
 - [Acesse o site do parceiro](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>VSI de logon
@@ -236,6 +259,17 @@ As soluções Área de Trabalho Remota Commander do RDPSoft aprimoram a administ
 
 - [Acesse o site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
 
+## <a name="rimo3"></a>Rimo3
+
+![Logotipo da Rimo3](./media/partners/rimo3.png)
+
+O Rimo3 aprimora a experiência de área de trabalho virtual do Windows acelerando a implantação e melhorando o gerenciamento de alterações em andamento. O Rimo3 equipa as equipes de ti com o conhecimento de que precisam para dar suporte ao seu portfólio de aplicativos para a prontidão de migração do Azure de cargas de trabalho de aplicativos. Os usuários podem integrar aplicativos e testá-los em seu espaço de trabalho de área de trabalho virtual do Windows de destino de forma rápida e simples. Os usuários também podem entender proativamente o impacto de quaisquer alterações à medida que sua organização distribui novos aplicativos e atualizações. Por fim, os administradores de ti podem aproveitar o recurso de teste de fumaça inteligente Rimo3's e automatizar os testes de funcionalidade sem interromper as sessões do usuário.
+
+O Rimo3 oferece uma plataforma de teste de aplicativos fácil de usar, escalonável e automatizada. Essa plataforma inclui recursos para todos os três conceitos básicos de teste de aplicativos: compatibilidade, funcionalidade e desempenho. Ele permite que organizações, líderes e equipes aprimorem a continuidade dos negócios, adotem alterações mais rapidamente e otimizem a experiência do usuário.
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
+- [Acesse o site do parceiro](https://rimo3.com/outcomes/).
+
 ## <a name="sepago"></a>sepago
 
 ![logotipo do sepago](./media/partners/sepago.png)
@@ -245,7 +279,7 @@ sepago foi fundada em 2002 por quatro amigos no Cologne. Hoje, a sepago é uma c
 o laboratório de inovação e desenvolvimento de sepago cria soluções inteligentes usando as tecnologias Big Data e ia. Essas soluções se concentram em melhorar o negócio, a experiência do usuário e as administrações de produtos de parceiros, como a área de trabalho virtual do Windows.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
-- [Acesse o site do parceiro](https://www.sepago.de/wvd-value-add-tools/).
+- [Acesse o site do parceiro](https://www.sepago.de/en/).
 
 ## <a name="thinprint"></a>ThinPrint
 
