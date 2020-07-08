@@ -7,15 +7,15 @@ ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b77241b1413fea09e5a16e8bd5cbcda8db5b2327
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477117"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionar um Azure Active Directory usando os serviços conectados no Visual Studio
 
@@ -44,7 +44,7 @@ No momento, o serviço conectado do Active Directory não dá suporte a aplicati
 
     ![Página Introdução](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Na página **Logon único**, selecione um domínio na lista suspensa **Domínio**. A lista contém todos os domínios acessíveis pelas contas listadas na caixa de diálogo Configurações de conta do Visual Studio (**arquivo > configurações de conta...**). Como alternativa, você pode inserir um nome de domínio se não encontrar aquele que está procurando, como `mydomain.onmicrosoft.com`. Você pode escolher a opção para criar um novo aplicativo do Azure Active Directory ou usar as configurações de um aplicativo do Azure Active Directory existente. Quando terminar, escolha **Avançar**.
+1. Na página **Logon único**, selecione um domínio na lista suspensa **Domínio**. A lista contém todos os domínios acessíveis pelas contas listadas na caixa de diálogo Configurações de conta do Visual Studio (**arquivo > configurações de conta...**). Como alternativa, você pode inserir um nome de domínio se não encontrar aquele que está procurando, como `mydomain.onmicrosoft.com` . Você pode escolher a opção para criar um novo aplicativo do Azure Active Directory ou usar as configurações de um aplicativo do Azure Active Directory existente. Quando terminar, escolha **Avançar**.
 
     ![Página Logon único](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 
@@ -72,5 +72,5 @@ Quando você adiciona o serviço conectado ao assistente, o Visual Studio adicio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
-- [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

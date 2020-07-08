@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f72e16afd61d364a2dad634f3502c801f1b99380
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478137"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Novo guia de treinamento de registro de aplicativo do portal do Azure
 
@@ -56,8 +56,8 @@ A experiência herdada tinha uma página **Propriedades** . As **Propriedades** 
 
 - **Nome**
 - **ID do objeto**
-- **ID do aplicativo**
-- **URI da ID do Aplicativo**
+- **ID do Aplicativo**
+- **URI da ID do aplicativo**
 - **Logotipo**
 - **URL da home page**
 - **URL de logoff**
@@ -73,13 +73,13 @@ A nova experiência não tem essa página. Aqui está onde você pode encontrar 
 - A funcionalidade controlada pela alternância **multilocatário** na experiência herdada foi substituída por tipos de **conta com suporte** na página de **autenticação** . Para obter mais informações, consulte [início rápido: modificar as contas com suporte em um aplicativo](quickstart-modify-supported-accounts.md).
 - A **URL de logout** agora está na página de **autenticação** .
 - O **tipo de aplicativo** não é mais um campo válido. Em vez disso, redirecione URIs, que podem ser encontrados na página **autenticação** , determine quais tipos de aplicativo têm suporte.
-- O **URI da ID** do aplicativo agora é chamado de URI de ID do **aplicativo** e você pode encontrá-lo em **expor uma API**. Na experiência herdada, essa propriedade foi autoregistrada usando o seguinte formato `https://{tenantdomain}/{appID}`:, por exemplo `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b`,. Na nova experiência, ele é gerado automaticamente como `api://{appID}`, mas precisa ser explicitamente salvo. Em locatários Azure AD B2C, o `https://{tenantdomain}/{appID}` formato ainda é usado.
+- O **URI da ID** do aplicativo agora é chamado de URI de ID do **aplicativo** e você pode encontrá-lo em **expor uma API**. Na experiência herdada, essa propriedade foi autoregistrada usando o seguinte formato: `https://{tenantdomain}/{appID}` , por exemplo, `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b` . Na nova experiência, ele é gerado automaticamente como `api://{appID}` , mas precisa ser explicitamente salvo. Em locatários Azure AD B2C, o `https://{tenantdomain}/{appID}` formato ainda é usado.
 
 ### <a name="reply-urlsredirect-urls"></a>URLs de resposta/URls de redirecionamento
 
 Na experiência herdada, um aplicativo tinha uma página **URLs de resposta** . Na nova experiência, as URLs de resposta podem ser encontradas na página de **autenticação** de um aplicativo. Agora eles são chamados de **URIs de redirecionamento**.
 
-O formato de URIs de redirecionamento foi alterado. Eles precisam ser associados a um tipo de aplicativo, seja Web ou público. Por motivos de segurança, não há `http://` suporte para curingas e esquemas *http://localhost*, exceto para.
+O formato de URIs de redirecionamento foi alterado. Eles precisam ser associados a um tipo de aplicativo, seja Web ou público. Por motivos de segurança, não há suporte para curingas e `http://` esquemas, exceto para *http://localhost* .
 
 ### <a name="keyscertificates--secrets"></a>Chaves/certificados & segredos
 
@@ -118,8 +118,8 @@ As experiências herdadas e novas usam versões diferentes para o formato do JSO
 
 A nova experiência adiciona controles de interface do usuário para as seguintes propriedades:
 
-- A página de **autenticação** tem **fluxo de concessão implícito** (`oauth2AllowImplicitFlow`). Ao contrário da experiência herdada, você pode habilitar **tokens de acesso** ou **tokens de ID**, ou ambos.
-- A página **expor uma API** contém **escopos definidos por essa API** (`oauth2Permissions`) e **aplicativos cliente autorizados** (`preAuthorizedApplications`). Para obter mais informações sobre como configurar um aplicativo para ser uma API da Web e expor permissões/escopos, consulte [início rápido: configurar um aplicativo para expor APIs Web](quickstart-configure-app-expose-web-apis.md).
+- A página de **autenticação** tem **fluxo de concessão implícito** ( `oauth2AllowImplicitFlow` ). Ao contrário da experiência herdada, você pode habilitar **tokens de acesso** ou **tokens de ID**, ou ambos.
+- A página **expor uma API** contém **escopos definidos por essa API** ( `oauth2Permissions` ) e **aplicativos cliente autorizados** ( `preAuthorizedApplications` ). Para obter mais informações sobre como configurar um aplicativo para ser uma API da Web e expor permissões/escopos, consulte [início rápido: configurar um aplicativo para expor APIs Web](quickstart-configure-app-expose-web-apis.md).
 - A página **identidade visual** contém o **domínio do Publicador**. O domínio do Publicador é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md). Para obter mais informações, consulte [como configurar um domínio do Publicador de um aplicativo](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitações

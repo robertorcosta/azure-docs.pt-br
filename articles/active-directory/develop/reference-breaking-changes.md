@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477236"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação?
 
@@ -47,9 +47,9 @@ Nenhum agendado neste momento.  Veja abaixo as alterações que estão no ou que
 
 **Protocolo afetado**: todos os fluxos
 
-Em 1 de junho de 2018, a autoridade de Azure Active Directory oficial (AAD) para o `https://login-us.microsoftonline.com` Azure `https://login.microsoftonline.us`governamental mudou de para. Essa alteração também é aplicada a Microsoft 365 GCC High e DoD, que o AAD do Azure governamental também Services. Se você possui um aplicativo dentro de um locatário do governo dos EUA, você deve atualizar seu aplicativo para conectar usuários `.us` no ponto de extremidade.  
+Em 1 de junho de 2018, a autoridade de Azure Active Directory oficial (AAD) para o Azure governamental mudou de `https://login-us.microsoftonline.com` para `https://login.microsoftonline.us` . Essa alteração também é aplicada a Microsoft 365 GCC High e DoD, que o AAD do Azure governamental também Services. Se você possui um aplicativo dentro de um locatário do governo dos EUA, você deve atualizar seu aplicativo para conectar usuários no `.us` ponto de extremidade.  
 
-A partir de 1º de maio, o Azure AD começará a impor a alteração do ponto de extremidade, bloqueando os usuários do governo de entrar em aplicativos hospedados em locatários do governo dos EUA usando o ponto de extremidade público (`microsoftonline.com`).  Os aplicativos impactados começarão a ver `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`um erro. Esse erro indica que o aplicativo está tentando entrar em um usuário do governo dos EUA no ponto de extremidade de nuvem pública. Se seu aplicativo estiver em um locatário de nuvem pública e pretende oferecer suporte a usuários do governo dos EUA, você precisará [atualizar seu aplicativo para dar suporte a eles explicitamente](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Isso pode exigir a criação de um novo registro de aplicativo na nuvem do governo dos EUA. 
+A partir de 1º de maio, o Azure AD começará a impor a alteração do ponto de extremidade, bloqueando os usuários do governo de entrar em aplicativos hospedados em locatários do governo dos EUA usando o ponto de extremidade público ( `microsoftonline.com` ).  Os aplicativos impactados começarão a ver um erro `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Esse erro indica que o aplicativo está tentando entrar em um usuário do governo dos EUA no ponto de extremidade de nuvem pública. Se seu aplicativo estiver em um locatário de nuvem pública e pretende oferecer suporte a usuários do governo dos EUA, você precisará [atualizar seu aplicativo para dar suporte a eles explicitamente](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Isso pode exigir a criação de um novo registro de aplicativo na nuvem do governo dos EUA. 
 
 A imposição dessa alteração será feita usando uma distribuição gradual com base na frequência com que os usuários da nuvem do governo dos EUA entram na assinatura dos aplicativos de aplicativo em usuários do governo dos EUA que raramente verão a aplicação primeiro, e os aplicativos frequentemente usados pelos usuários do governo dos EUA terão a aplicação aplicada. Esperamos que a imposição seja concluída em todos os aplicativos em junho de 2020. 
 
@@ -104,7 +104,7 @@ A partir da semana de 9/2, as solicitações de autenticação que usam o métod
 
 Exemplo:
 
-Hoje, `?e=    "f"&g=h` o `?e=f&g=h` é analisado de forma `e`  ==  `f`idêntica.  Com essa alteração, agora ela seria analisada para que `e`  ==  `    "f"` , provavelmente, isso não seja um argumento válido, e a solicitação agora falharia.
+Hoje, `?e=    "f"&g=h` o é analisado de `?e=f&g=h` forma idêntica `e`  ==  `f` .  Com essa alteração, agora ela seria analisada para que, `e`  ==  `    "f"` provavelmente, isso não seja um argumento válido, e a solicitação agora falharia.
 
 
 ## <a name="july-2019"></a>Julho de 2019
@@ -117,7 +117,7 @@ Hoje, `?e=    "f"&g=h` o `?e=f&g=h` é analisado de forma `e`  ==  `f`idêntica.
 
 **Protocolo afetado**: [credenciais de cliente (tokens somente de aplicativo)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-Uma alteração de segurança entrou em 26 de julho que altera a maneira como os tokens somente de aplicativo (por meio da concessão de credenciais de cliente) são emitidos. Anteriormente, os aplicativos eram autorizados a obter tokens para chamar qualquer outro aplicativo, independentemente da presença no locatário ou das funções consentidas para esse aplicativo.  Esse comportamento foi atualizado para que, para recursos (às vezes chamados de APIs da Web) definido como um único locatário (o padrão), o aplicativo cliente deve existir dentro do locatário do recurso.  Observe que o consentimento existente entre o cliente e a API ainda não é necessário, e os aplicativos ainda devem estar fazendo suas próprias verificações de autorização para `roles` garantir que uma declaração esteja presente e contenha o valor esperado para a API.
+Uma alteração de segurança entrou em 26 de julho que altera a maneira como os tokens somente de aplicativo (por meio da concessão de credenciais de cliente) são emitidos. Anteriormente, os aplicativos eram autorizados a obter tokens para chamar qualquer outro aplicativo, independentemente da presença no locatário ou das funções consentidas para esse aplicativo.  Esse comportamento foi atualizado para que, para recursos (às vezes chamados de APIs da Web) definido como um único locatário (o padrão), o aplicativo cliente deve existir dentro do locatário do recurso.  Observe que o consentimento existente entre o cliente e a API ainda não é necessário, e os aplicativos ainda devem estar fazendo suas próprias verificações de autorização para garantir que uma `roles` declaração esteja presente e contenha o valor esperado para a API.
 
 A mensagem de erro para este cenário declara atualmente:
 
@@ -127,7 +127,7 @@ Para corrigir esse problema, use a experiência de consentimento do administrado
 
 #### <a name="example-request"></a>Solicitação de exemplo
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`Neste exemplo, o locatário (autoridade) do recurso é contoso.com, o aplicativo de recurso é um aplicativo de locatário único `gateway.contoso.com/api` chamado para o locatário da Contoso e o aplicativo cliente `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`é.  Se o aplicativo cliente tiver uma entidade de serviço dentro de Contoso.com, essa solicitação poderá continuar.  No entanto, se isso não acontecer, a solicitação falhará com o erro acima.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`Neste exemplo, o locatário (autoridade) do recurso é contoso.com, o aplicativo de recurso é um aplicativo de locatário único chamado `gateway.contoso.com/api` para o locatário da Contoso e o aplicativo cliente é `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Se o aplicativo cliente tiver uma entidade de serviço dentro de Contoso.com, essa solicitação poderá continuar.  No entanto, se isso não acontecer, a solicitação falhará com o erro acima.
 
 No entanto, se o aplicativo de gateway da Contoso fosse de vários locatários, a solicitação continuaria independentemente do aplicativo cliente ter uma entidade de serviço em Contoso.com.
 
@@ -139,7 +139,7 @@ No entanto, se o aplicativo de gateway da Contoso fosse de vários locatários, 
 
 **Protocolo afetado**: todos os fluxos
 
-Por [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), os aplicativos do Azure ad agora podem registrar e usar URIs de redirecionamento (resposta) com parâmetros `https://contoso.com/oauth2?idp=microsoft`de consulta estáticos (como) para solicitações do OAuth 2,0.  URIs de redirecionamento dinâmico ainda são proibidos, pois representam um risco de segurança, e isso não pode ser usado para reter informações de estado em uma solicitação `state` de autenticação-para isso, use o parâmetro.
+Por [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), os aplicativos do Azure ad agora podem registrar e usar URIs de redirecionamento (resposta) com parâmetros de consulta estáticos (como `https://contoso.com/oauth2?idp=microsoft` ) para solicitações do OAuth 2,0.  URIs de redirecionamento dinâmico ainda são proibidos, pois representam um risco de segurança, e isso não pode ser usado para reter informações de estado em uma solicitação de autenticação-para isso, use o `state` parâmetro.
 
 O parâmetro de consulta estática está sujeito à correspondência de cadeia de caracteres para URIs de redirecionamento como qualquer outra parte do URI de redirecionamento-se nenhuma cadeia de caracteres estiver registrada que corresponda à redirect_uri decodificada por URI, a solicitação será rejeitada.  Se o URI for encontrado no registro do aplicativo, a cadeia de caracteres inteira será usada para redirecionar o usuário, incluindo o parâmetro de consulta estática.
 
@@ -158,7 +158,7 @@ Observe que, neste momento (fim de julho de 2019), o UX de registro de aplicativ
 
 Às vezes, os aplicativos cliente podem se comportar, emitindo centenas da mesma solicitação de logon em um curto período de tempo.  Essas solicitações podem ou não ser bem-sucedidas, mas todas contribuem para a má experiência do usuário e cargas de trabalho aumentadas para o IDP, aumentando a latência para todos os usuários e reduzindo a disponibilidade do IDP.  Esses aplicativos estão operando fora dos limites de uso normal e devem ser atualizados para se comportarem corretamente.
 
-Os clientes que emitirem solicitações duplicadas várias vezes receberão `invalid_grant` um `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`erro:.
+Os clientes que emitirem solicitações duplicadas várias vezes receberão um `invalid_grant` erro: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` .
 
 A maioria dos clientes não precisará alterar o comportamento para evitar esse erro.  Somente clientes mal configurados (aqueles sem cache de token ou aqueles que exibem loops de prompt já) serão afetados por esse erro.  Os clientes são acompanhados em uma base por instância localmente (via cookie) nos seguintes fatores:
 
@@ -166,7 +166,7 @@ A maioria dos clientes não precisará alterar o comportamento para evitar esse 
 
 * Escopos ou recursos sendo solicitados
 
-* ID do cliente
+* ID do Cliente
 
 * URI de redirecionamento
 
@@ -174,7 +174,7 @@ A maioria dos clientes não precisará alterar o comportamento para evitar esse 
 
 Os aplicativos que fazem várias solicitações (15 +) em um curto período de tempo (5 minutos) receberão um `invalid_grant` erro explicando que eles estão em loop.  Os tokens que estão sendo solicitados têm tempos de vida de vida longa suficiente (10 minutos no mínimo, 60 minutos por padrão), portanto, solicitações repetidas nesse período de tempo são desnecessárias.
 
-Todos os aplicativos devem `invalid_grant` lidar com a exibição de um prompt interativo, em vez de solicitar silenciosamente um token.  Para evitar esse erro, os clientes devem garantir que eles estejam armazenando em cache corretamente os tokens recebidos.
+Todos os aplicativos devem lidar `invalid_grant` com a exibição de um prompt interativo, em vez de solicitar silenciosamente um token.  Para evitar esse erro, os clientes devem garantir que eles estejam armazenando em cache corretamente os tokens recebidos.
 
 
 ## <a name="october-2018"></a>Outubro de 2018
@@ -193,7 +193,7 @@ Se seu aplicativo reutiliza códigos de autorização para obter tokens para vá
 
 Para obter mais informações sobre tokens de atualização, consulte [Atualização de tokens de acesso](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Se usar a ADAL ou MSAL, isso é feito para você pela biblioteca – substituir a segunda instância de 'AcquireTokenByAuthorizationCodeAsync' por 'AcquireTokenSilentAsync'.
 
-## <a name="may-2018"></a>Maio de 2018
+## <a name="may-2018"></a>Mai 2018
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Os tokens de ID não podem ser usados para o fluxo OBO
 
@@ -209,5 +209,5 @@ Para contornar essa alteração, é possível fazer o seguinte:
 
 1. Crie uma API da Web para seu aplicativo, com um ou mais escopos. Esse ponto de entrada explícito permitirá que segurança e controle mais precisos.
 1. No manifesto do aplicativo, no [portal do Azure](https://portal.azure.com) ou no [portal de registro do aplicativo](https://apps.dev.microsoft.com), verifique se o aplicativo tem permissão para emitir tokens de acesso por meio do fluxo implícito. Isso é controlado pela chave `oauth2AllowImplicitFlow`.
-1. Quando o aplicativo cliente solicita uma id_token via `response_type=id_token`, solicite também um token de`response_type=token`acesso () para a API Web criada acima. Portanto, ao usar o ponto de extremidade v 2.0, o parâmetro `scope` deverá ser semelhante ao `api://GUID/SCOPE`. No ponto de extremidade v1.0, o parâmetro `resource` deve ser o URI da API do aplicativo Web.
+1. Quando o aplicativo cliente solicita uma id_token via `response_type=id_token` , solicite também um token de acesso ( `response_type=token` ) para a API Web criada acima. Portanto, ao usar o ponto de extremidade v 2.0, o parâmetro `scope` deverá ser semelhante ao `api://GUID/SCOPE`. No ponto de extremidade v1.0, o parâmetro `resource` deve ser o URI da API do aplicativo Web.
 1. Passe esse token de acesso para a camada intermediária no lugar de id_token.

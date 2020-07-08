@@ -6,16 +6,16 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: fe408e965c528db1d82b73ee7b20bbe3b3933657
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36479acca56aa97a5453a9ab99691ed1993daaf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476998"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introdução ao Active Directory do Azure (Projetos do ASP.NET MVC)
 
@@ -82,5 +82,5 @@ Para adicionar os controles SignIn/SignOut ao modo de exibição, você pode usa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
-- [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

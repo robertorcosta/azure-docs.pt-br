@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476828"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitar a Autenticação Multifator individual do Azure para proteção de acesso
 
 Há duas maneiras de proteger acessos dos usuários através da autenticação multifator no Azure AD. A primeira, e recomendada, é configurar uma política de Acesso Condicional que exige a autenticação multifator sob determinadas condições. A segunda é habilitar cada usuário para a Autenticação Multifator do Azure. Quando os usuários são habilitados individualmente, eles executam a autenticação multifator em cada acesso (com algumas exceções, como quando eles acessam a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado).
 
 > [!NOTE]
-> Habilitar a Autenticação Multifator do Azure usando políticas de Acesso Condicional é a abordagem recomendada. Não é mais recomendável alterar os estados do usuário, salvo se suas licenças não incluem o Acesso Condicional, pois elas exigem que os usuários executem a MFA em cada acesso.
+> Habilitar a Autenticação Multifator do Azure usando políticas de Acesso Condicional é a abordagem recomendada. Não é mais recomendável alterar os estados do usuário, salvo se suas licenças não incluem o Acesso Condicional, pois elas exigem que os usuários executem a MFA em cada acesso. Para começar a usar o Acesso Condicional, veja [Tutorial: proteger acessos do usuário com a Autenticação Multifator do Azure](tutorial-enable-azure-mfa.md).
 >
-> Para começar a usar o Acesso Condicional, veja [Tutorial: proteger acessos do usuário com a Autenticação Multifator do Azure](tutorial-enable-azure-mfa.md).
+> Para locatários gratuitos do Azure AD sem acesso condicional, você pode [usar os padrões de segurança para proteger os usuários](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Estados de usuário da Autenticação Multifator do Azure
 
@@ -39,7 +39,7 @@ As contas de usuário na Autenticação Multifator do Azure apresentam os três 
 | Status | Descrição | Aplicativos que não usam navegador afetados | Aplicativos que usam o navegador afetados | Autenticação moderna afetada |
 |:---:| --- |:---:|:--:|:--:|
 | Desabilitado | O estado padrão para um novo usuário não inscrito na Autenticação Multifator do Azure. | Não | Não | Não |
-| habilitado | O usuário foi inscrito na Autenticação Multifator do Azure, mas não foi registrado. Eles receberão uma solicitação para se registrarem na próxima vez que entrarem. | Não.  Eles continuarão a trabalhar até o processo ser concluído. | Sim. Depois que a sessão expirar, o registro da Autenticação Multifator do Azure será exigido.| Sim. Depois que o token de acesso expirar, o registro da Autenticação Multifator do Azure será exigido. |
+| habilitado | O usuário foi registrado na autenticação multifator do Azure, mas não registrou os métodos de autenticação. Eles receberão uma solicitação para se registrarem na próxima vez que entrarem. | Não.  Eles continuarão a trabalhar até o processo ser concluído. | Sim. Depois que a sessão expirar, o registro da Autenticação Multifator do Azure será exigido.| Sim. Depois que o token de acesso expirar, o registro da Autenticação Multifator do Azure será exigido. |
 | Imposto | O usuário foi inscrito e concluiu o processo de registro da Autenticação Multifator do Azure. | Sim. Os aplicativos exigem senhas de aplicativo. | Sim. A Autenticação Multifator do Azure é exigida para logon. | Sim. A Autenticação Multifator do Azure é exigida para logon. |
 
 O estado de um usuário reflete se um administrador o registrou na Autenticação Multifator do Azure e se ele concluiu o processo de registro.
@@ -84,7 +84,7 @@ Para alterar o estado do usuário usando o [PowerShell do Azure AD](/powershell/
 * *Imposto*
 * *Desabilitado*  
 
-Não mova os usuários diretamente para o estado *Imposto*. Caso o faça, os aplicativos que não são baseados em navegador deixarão de funcionar porque o usuário não passou pelo registro da Autenticação Multifator do Azure nem obteve uma [senha de aplicativo](howto-mfa-mfasettings.md#app-passwords).
+Não mova os usuários diretamente para o estado *Imposto*. Caso o faça, os aplicativos que não são baseados em navegador deixarão de funcionar porque o usuário não passou pelo registro da Autenticação Multifator do Azure nem obteve uma [senha de aplicativo](howto-mfa-app-passwords.md).
 
 Para começar, instale o módulo *MSOnline* usando [Install-Module](/powershell/module/powershellget/install-module) conforme a seguir:
 

@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477780"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD
 
@@ -65,7 +65,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
 1. Escolha **Salvar** para salvar essa alteração da configuração.
 
-### <a name="app-registration"></a>Registro do aplicativo
+### <a name="app-registration"></a>Registro de aplicativo
 
 1. Vá para a [**portal do Azure**](https://portal.azure.com/).
 1. Na barra superior, selecione a conta conectada. 
@@ -82,7 +82,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 
 Após configurar seu aplicativo para habilitar a atribuição de usuários, prossiga e atribua usuários e grupos ao aplicativo.
 
-1. Escolha o painel **Usuários e grupos** no menu de navegação esquerdo do aplicativo.
+1. Selecione o painel **usuários e grupos** no menu de navegação esquerdo do aplicativo.
 1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
 1. Clique no seletor **Usuários** do painel **Adicionar Atribuição**. 
 
@@ -96,7 +96,7 @@ Após configurar seu aplicativo para habilitar a atribuição de usuários, pros
 ## <a name="more-information"></a>Mais informações
 
 - [Como: adicionar funções de aplicativo em seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
-- [Adicionar autorização usando funções de aplicativo & declarações de funções para um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Adicionar autorização usando funções de aplicativo e declarações de funções a um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Manifesto do aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Manifesto de aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

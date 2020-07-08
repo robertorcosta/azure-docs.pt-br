@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 3b4362e4c5e69efddfbc99ef0f98ad3c5966165c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478120"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Como: Personalizar navegadores e webviews para iOS/macOS
 
@@ -36,13 +36,13 @@ Para iOS e macOS:
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-O MSAL para macOS só `WKWebView` dá suporte a versões mais antigas do sistema operacional. `ASWebAuthenticationSession`Só tem suporte no macOS 10,15 e superior. 
+O MSAL para macOS só dá suporte a `WKWebView` versões mais antigas do sistema operacional. `ASWebAuthenticationSession`Só tem suporte no macOS 10,15 e superior. 
 
 ## <a name="system-browsers"></a>Navegadores do sistema
 
-Para IOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`, e `SFSafariViewController` são considerados navegadores do sistema. Para macOS, somente `ASWebAuthenticationSession` está disponível. Em geral, os navegadores do sistema compartilham cookies e outros dados do site com o aplicativo de navegador do Safari.
+Para iOS, `ASWebAuthenticationSession` ,, `SFAuthenticationSession` e `SFSafariViewController` são considerados navegadores do sistema. Para macOS, somente `ASWebAuthenticationSession` está disponível. Em geral, os navegadores do sistema compartilham cookies e outros dados do site com o aplicativo de navegador do Safari.
 
-Por padrão, o MSAL detectará a versão do iOS dinamicamente e selecionará o navegador do sistema recomendado disponível nessa versão. No iOS 12, será `ASWebAuthenticationSession`. 
+Por padrão, o MSAL detectará a versão do iOS dinamicamente e selecionará o navegador do sistema recomendado disponível nessa versão. No iOS 12, será `ASWebAuthenticationSession` . 
 
 ### <a name="default-configuration-for-ios"></a>Configuração padrão para iOS
 
@@ -61,7 +61,7 @@ Por padrão, o MSAL detectará a versão do iOS dinamicamente e selecionará o n
 
 Os desenvolvedores também podem selecionar um navegador de sistema diferente para aplicativos MSAL:
 
-- `SFAuthenticationSession`é a versão do iOS 11 `ASWebAuthenticationSession`do.
+- `SFAuthenticationSession`é a versão do iOS 11 do `ASWebAuthenticationSession` .
 - `SFSafariViewController`é uma finalidade mais geral e fornece uma interface para navegar na Web e também pode ser usada para fins de logon. No iOS 9 e 10, os cookies e outros dados do site são compartilhados com o Safari, mas não no iOS 11 e posterior.
 
 ## <a name="in-app-browser"></a>Navegador no aplicativo
@@ -84,7 +84,7 @@ O navegador que você usa afeta a experiência de SSO devido à forma como eles 
 
 ## <a name="change-the-default-browser-for-the-request"></a>Alterar o navegador padrão para a solicitação
 
-Você pode usar um navegador no aplicativo ou um navegador de sistema específico, dependendo dos requisitos de sua experiência do seu UX, alterando a `MSALWebviewParameters`seguinte propriedade em:
+Você pode usar um navegador no aplicativo ou um navegador de sistema específico, dependendo dos requisitos de sua experiência do seu UX, alterando a seguinte propriedade em `MSALWebviewParameters` :
 
 ```objc
 @property (nonatomic) MSALWebviewType webviewType;
@@ -92,9 +92,9 @@ Você pode usar um navegador no aplicativo ou um navegador de sistema específic
 
 ## <a name="change-per-interactive-request"></a>Alterar por solicitação interativa
 
-Cada solicitação pode ser configurada para substituir o navegador padrão, `MSALInteractiveTokenParameters.webviewParameters.webviewType` alterando a propriedade antes de `acquireTokenWithParameters:completionBlock:` passá-la para a API.
+Cada solicitação pode ser configurada para substituir o navegador padrão, alterando a `MSALInteractiveTokenParameters.webviewParameters.webviewType` propriedade antes de passá-la para a `acquireTokenWithParameters:completionBlock:` API.
 
-Além disso, o MSAL dá suporte à `WKWebView` passagem de um `MSALInteractiveTokenParameters.webviewParameters.customWebView` personalizado, definindo a propriedade.
+Além disso, o MSAL dá suporte à passagem de um personalizado `WKWebView` , definindo a `MSALInteractiveTokenParameters.webviewParameters.customWebView` propriedade.
 
 Por exemplo:
 

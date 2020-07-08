@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f28d3722d56582bd925d31b43b4a0219bca2ae30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81534594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477797"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Manipular alterações de cookie SameSite no navegador Chrome
 
@@ -33,17 +33,17 @@ Por padrão, o `SameSite` valor não é definido em navegadores e é por isso qu
 
 ## <a name="samesite-changes-and-impact-on-authentication"></a>SameSite alterações e impacto na autenticação
 
-[As atualizações recentes dos padrões no SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) propõem a proteção de aplicativos, tornando o `SameSite` comportamento padrão de quando nenhum valor for definido como LAX. Essa mitigação significa que os cookies serão restritos em solicitações HTTP, exceto por serem obtidos de outros sites. Além disso, um valor de **nenhum** é introduzido para remover restrições em cookies que estão sendo enviados. Em breve, essas atualizações serão lançadas em uma versão futura do navegador Chrome.
+[As atualizações recentes dos padrões no SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) propõem a proteção de aplicativos, tornando o comportamento padrão de `SameSite` quando nenhum valor for definido como LAX. Essa mitigação significa que os cookies serão restritos em solicitações HTTP, exceto por serem obtidos de outros sites. Além disso, um valor de **nenhum** é introduzido para remover restrições em cookies que estão sendo enviados. Em breve, essas atualizações serão lançadas em uma versão futura do navegador Chrome.
 
-Quando os aplicativos Web são autenticados com a plataforma de identidade da Microsoft usando o modo de resposta "form_post", o servidor de logon responde ao aplicativo usando um HTTP POST para enviar os tokens ou o código de autenticação. Como essa solicitação é uma solicitação entre domínios (do `login.microsoftonline.com` ao seu domínio, por exemplo `https://contoso.com/auth`), os cookies que foram definidos pelo seu aplicativo agora se enquadram nas novas regras no Chrome. Os cookies que precisam ser usados em cenários entre sites são cookies que contêm os valores de *estado* e *nonce* , que também são enviados na solicitação de logon. Há outros cookies descartados pelo Azure AD para manter a sessão.
+Quando os aplicativos Web são autenticados com a plataforma de identidade da Microsoft usando o modo de resposta "form_post", o servidor de logon responde ao aplicativo usando um HTTP POST para enviar os tokens ou o código de autenticação. Como essa solicitação é uma solicitação entre domínios (do `login.microsoftonline.com` ao seu domínio, por exemplo `https://contoso.com/auth` ), os cookies que foram definidos pelo seu aplicativo agora se enquadram nas novas regras no Chrome. Os cookies que precisam ser usados em cenários entre sites são cookies que contêm os valores de *estado* e *nonce* , que também são enviados na solicitação de logon. Há outros cookies descartados pelo Azure AD para manter a sessão.
 
 Se você não atualizar seus aplicativos Web, esse novo comportamento resultará em falhas de autenticação.
 
 ## <a name="mitigation-and-samples"></a>Mitigação e amostras
 
-Para superar as falhas de autenticação, os aplicativos Web que se autenticam com a plataforma `SameSite` Microsoft Identity `None` podem definir a propriedade como para cookies que são usados em cenários entre domínios quando executados no navegador Chrome.
-Outros navegadores (consulte [aqui](https://www.chromium.org/updates/same-site/incompatible-clients) para obter uma lista completa) seguem o comportamento `SameSite` anterior de e não incluirá `SameSite=None` os cookies se estiver definido.
-É por isso que, para dar suporte à autenticação em vários navegadores, os aplicativos `SameSite` Web precisarão definir o valor para `None` somente no Chrome e deixar o valor vazio em outros navegadores.
+Para superar as falhas de autenticação, os aplicativos Web que se autenticam com a plataforma Microsoft Identity podem definir a `SameSite` propriedade como `None` para cookies que são usados em cenários entre domínios quando executados no navegador Chrome.
+Outros navegadores (consulte [aqui](https://www.chromium.org/updates/same-site/incompatible-clients) para obter uma lista completa) seguem o comportamento anterior de `SameSite` e não incluirá os cookies se `SameSite=None` estiver definido.
+É por isso que, para dar suporte à autenticação em vários navegadores, os aplicativos Web precisarão definir o `SameSite` valor para `None` somente no Chrome e deixar o valor vazio em outros navegadores.
 
 Essa abordagem é demonstrada em nossos exemplos de código abaixo.
 

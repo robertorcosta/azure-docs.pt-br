@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 18e1ab1d01394d585cfb06ced8c5fbac04114177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476760"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -43,7 +43,7 @@ Antes de trabalhar com chaves, segredos ou certificados em seu cofre de chaves, 
 - [Criar e gerenciar cofres de chaves com a porta do Azure](../secrets/quick-create-portal.md)
 - [Criar e gerenciar cofres de chaves com o Python](../secrets/quick-create-python.md)
 - [Criar e gerenciar cofres de chaves com Java](../secrets/quick-create-java.md)
-- [Criar e gerenciar cofres de chaves com o Node. js](../secrets/quick-create-node.md)
+- [Criar e gerenciar cofres de chaves com Node.js](../secrets/quick-create-node.md)
 - [Criar e gerenciar cofres de chaves com o .NET (SDK v4)](../secrets/quick-create-net.md)
 - [Criar um cofre de chaves e adicionar um segredo por meio de um modelo do Azure Resource Manager](../secrets/quick-create-template.md)
 - [Criar e gerenciar Cofres de Chaves com REST](/rest/api/keyvault/)
@@ -106,7 +106,6 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para 
 - [Como transmitir valores seguros (como senhas) durante a implantação](../../azure-resource-manager/templates/key-vault-parameter.md) - Quando você precisa transmitir um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível armazenar esse valor como um segredo em um Cofre de Chaves do Azure e fazer referência ao valor em outros modelos do Resource Manager.
 - [Como usar o Cofre de Chaves para o gerenciamento extensível de chaves com o SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - O Conector do SQL Server para o Cofre de Chaves do Azure permite que o SQL Server e o SQL em uma VM utilizem o serviço do Cofre de Chaves do Azure como um provedor EKM (gerenciamento extensível de chaves) para proteger suas chaves de criptografia para o vínculo de aplicativos; Transparent Data Encryption, Criptografia de Backup e Criptografia de Nível de Coluna.
 - [Como implantar certificados em VMs do Cofre de Chaves](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Um aplicativo em nuvem em execução em uma VM no Azure precisa de um certificado. Como você obtém esse certificado para essa VM atualmente?
-- [Configurar o Key Vault com a rotação de chaves e auditoria de ponta a ponta](../secrets/key-rotation-log-monitoring.md) – Explica como configurar a auditoria e a rotação de chaves com o Azure Key Vault.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Implantando o certificado de aplicativo Web do Azure por meio do Key Vault) fornece instruções passo a passo para implantar certificados armazenados no Key Vault como parte da oferta do [Certificado do Serviço de Aplicativo](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
 - [Conceder permissão para vários aplicativos acessarem um key vault](group-permissions-for-apps.md) política de controle de acesso do Key Vault dá suporte a até 1024 entradas. No entanto, você pode criar um grupo de segurança do Azure Active Directory. Adicione todas as entidades de serviço associadas a esse grupo de segurança e, em seguida, conceda a esse grupo de segurança acesso ao Key Vault.
 - Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, consulte os [Exemplos de modelo do Azure Resource Manager do Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
@@ -128,7 +127,7 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Ke
 - [Visão geral das chaves de conta de armazenamento Key Vault](../secrets/overview-storage-keys.md)) Descreve as chaves de contas de armazenamento do Azure de integração do Key Vault.
 - [Mundos de segurança do Key Vault](overview-security-worlds.md) descreve as relações entre regiões e áreas de segurança.
 
-## <a name="social"></a>Redes sociais
+## <a name="social"></a>Social
 
 - [Blog do Cofre de Chaves](https://aka.ms/kvblog)
 - [Fórum do Cofre de Chaves](https://aka.ms/kvforum)

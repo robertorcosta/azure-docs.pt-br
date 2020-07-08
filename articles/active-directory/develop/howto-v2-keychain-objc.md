@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06e197a6e445c7dc1179be696318905f2132ee36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77085855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477729"
 ---
 # <a name="configure-keychain"></a>Configurar conjunto de chaves
 
@@ -30,21 +30,21 @@ Este artigo aborda como configurar os direitos do aplicativo para que o MSAL pos
 
 ### <a name="ios"></a>iOS
 
-O MSAL no iOS usa `com.microsoft.adalcache` o grupo de acesso por padrão. Esse é o grupo de acesso compartilhado usado pelos SDKs do MSAL e da ADAL (biblioteca de autenticação do Azure AD) e garante a melhor experiência de SSO (logon único) entre vários aplicativos do mesmo editor.
+O MSAL no iOS usa o `com.microsoft.adalcache` grupo de acesso por padrão. Esse é o grupo de acesso compartilhado usado pelos SDKs do MSAL e da ADAL (biblioteca de autenticação do Azure AD) e garante a melhor experiência de SSO (logon único) entre vários aplicativos do mesmo editor.
 
-No Ios, adicione o `com.microsoft.adalcache` grupo de conjunto de chaves ao direito do seu aplicativo no Xcode em **configurações** > de projeto**recursos** > **compartilhamento** de conjunto de chaves
+No Ios, adicione o `com.microsoft.adalcache` grupo de conjunto de chaves ao direito do seu aplicativo no Xcode em **configurações de projeto**  >  **recursos**  >  **compartilhamento** de conjunto de chaves
 
 ### <a name="macos"></a>macOS
 
-O MSAL no macOS `com.microsoft.identity.universalstorage` usa o grupo de acesso por padrão.
+O MSAL no macOS usa o `com.microsoft.identity.universalstorage` grupo de acesso por padrão.
 
-Devido às limitações do conjunto de chaves do macOS `access group` , o MSAL não é convertido diretamente no atributo de grupo de acesso do chaveiro (consulte [KSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) no MacOS 10,14 e anterior. No entanto, ele se comporta da mesma forma de uma perspectiva de SSO, garantindo que vários aplicativos distribuídos pelo mesmo desenvolvedor da Apple possam ter SSO silencioso.
+Devido às limitações do conjunto de chaves do macOS, o MSAL `access group` não é convertido diretamente no atributo de grupo de acesso do chaveiro (consulte [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) no MacOS 10,14 e anterior. No entanto, ele se comporta da mesma forma de uma perspectiva de SSO, garantindo que vários aplicativos distribuídos pelo mesmo desenvolvedor da Apple possam ter SSO silencioso.
 
 No macOS 10,15 em diante (macOS Catalina), o MSAL usa o atributo de grupo de acesso de conjunto de chaves para obter o SSO silencioso, da mesma forma que o iOS.
 
 ## <a name="custom-keychain-access-group"></a>Grupo de acesso personalizado do conjunto de chaves
 
-Se você quiser usar um grupo de acesso de conjunto de chaves diferente, poderá passar seu grupo personalizado ao criar `MSALPublicClientApplicationConfig` antes de `MSALPublicClientApplication`criar, desta forma:
+Se você quiser usar um grupo de acesso de conjunto de chaves diferente, poderá passar seu grupo personalizado ao criar `MSALPublicClientApplicationConfig` antes de criar `MSALPublicClientApplication` , desta forma:
 
 # <a name="objective-c"></a>[Objective-C](#tab/objc)
 

@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f22ecb13284eaf6fb2a833791b5563351ca19147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477848"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
 
@@ -177,8 +177,8 @@ Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário
 
 * [Exemplo de aplicativo multilocatário](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [Diretrizes de identidade visual para aplicativos][AAD-App-Branding]
-* [Objetos de aplicativo e de entidade de serviço][AAD-App-SP-Objects]
-* [Integrar aplicativos com Azure Active Directory][AAD-Integrating-Apps]
+* [Objetos de aplicativo e objetos de entidade de serviço][AAD-App-SP-Objects]
+* [Integrando aplicativos com o Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral da estrutura de consentimento][AAD-Consent-Overview]
 * [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-permission-scopes]
 

@@ -8,22 +8,22 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 4974fe3b387683f662d7a7b4f3ccb4935153f07e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477185"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: solicitar declarações personalizadas usando o MSAL para iOS e macOS
 
 O OpenID Connect permite que você solicite opcionalmente o retorno de declarações individuais do ponto de extremidade de UserInfo e/ou no token de ID. Uma solicitação de declarações é representada como um objeto JSON que contém uma lista de declarações solicitadas. Consulte [OpenID Connect Core 1,0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) para obter mais detalhes.
 
-A MSAL (biblioteca de autenticação da Microsoft) para iOS e macOS permite solicitar declarações específicas em cenários de aquisição de tokens interativos e silenciosos. Ele faz isso por meio `claimsRequest` do parâmetro.
+A MSAL (biblioteca de autenticação da Microsoft) para iOS e macOS permite solicitar declarações específicas em cenários de aquisição de tokens interativos e silenciosos. Ele faz isso por meio do `claimsRequest` parâmetro.
 
 Há vários cenários em que isso é necessário. Por exemplo:
 
@@ -31,9 +31,9 @@ Há vários cenários em que isso é necessário. Por exemplo:
 - Solicitando combinações específicas das declarações padrão que não podem ser especificadas usando escopos para seu aplicativo. Por exemplo, se um token de acesso for rejeitado devido a declarações ausentes, o aplicativo poderá solicitar as declarações ausentes usando MSAL.
 
 > [!NOTE]
-> MSAL ignora o cache de token de acesso sempre que uma solicitação de declarações é especificada. É importante fornecer `claimsRequest` apenas o parâmetro quando declarações adicionais são necessárias (em vez de fornecer sempre o mesmo `claimsRequest` parâmetro em cada chamada à API MSAL).
+> MSAL ignora o cache de token de acesso sempre que uma solicitação de declarações é especificada. É importante fornecer apenas o `claimsRequest` parâmetro quando declarações adicionais são necessárias (em vez de fornecer sempre o mesmo `claimsRequest` parâmetro em cada chamada à API MSAL).
 
-`claimsRequest`pode ser especificado em `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters`:
+`claimsRequest`pode ser especificado em `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters` :
 
 ```objc
 /*!

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85448765"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
@@ -26,10 +26,10 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 
 |Regiões  |Número de zonas de disponibilidade com suporte para ultra disks  |
 |---------|---------|
-|Gov. dos EUA – Virgínia     |Não         |
-|Centro-Sul dos Estados Unidos     |Não         |
+|Gov. dos EUA – Virgínia     |Nenhum         |
+|Centro-Sul dos Estados Unidos     |Nenhum         |
 |Centro dos EUA     |Três zonas         |
-|Oeste dos EUA     |Não         |
+|Oeste dos EUA     |Nenhum         |
 |Oeste dos EUA 2    |Três zonas         |
 |Leste dos EUA     |Três zonas         |
 |Leste dos EUA 2     |Duas zonas         |
@@ -38,7 +38,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 |Europa Ocidental     |Três zonas          |
 |Sul do Reino Unido     |Três zonas          |
 |Leste do Japão     |Duas zonas         |
-
+|França Central    |Duas zonas        |
 
 
 - Há suporte apenas na seguinte série de VMs:
@@ -53,6 +53,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 - Só podem ser criados como discos vazios  
 - Atualmente não dá suporte a instantâneos de disco, imagens de VM, conjuntos de disponibilidade, hosts dedicados do Azure ou Azure Disk Encryption
 - Atualmente não dá suporte à integração com o backup do Azure ou Azure Site Recovery
+- Dá suporte apenas a leituras não armazenadas em cache e gravações não armazenadas em cache
 - O limite máximo atual para IOPS em VMs GA é 80.000.
 
 Os ultra discos do Azure oferecem até 16 TiB por região por assinatura por padrão, mas os ultra discos oferecem suporte à maior capacidade por solicitação. Para solicitar um aumento na capacidade, entre em contato com o suporte do Azure.

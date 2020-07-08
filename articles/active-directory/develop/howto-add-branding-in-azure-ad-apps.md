@@ -7,24 +7,24 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: c5b63fb0b66c78b33fb073eca919ed55bd05107c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c11bbe4aab064c8c1f32cf273cd3e0b6c2a3ae8f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478188"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
 Ao desenvolver aplicativos com o Azure AD (Azure Active Directory), você precisará direcionar os clientes quando eles quiserem usar sua conta corporativa ou de estudante (gerenciada no Azure AD) ou a conta pessoal para inscrição e conexão no seu aplicativo.
 
-Neste artigo, você vai:
+Neste artigo, você irá:
 
 - Saber sobre os dois tipos de contas de usuário gerenciadas pela Microsoft e como fazer referência às contas do Azure AD em seu aplicativo
 - Descobrir o que você precisa fazer para adicionar o logotipo da Microsoft para uso em seu aplicativo
@@ -63,7 +63,7 @@ Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as
 
 O link "obtenha o aplicativo" deve redirecionar o usuário para a página de concessão de acesso (autorização) do Azure AD, para permitir que o administrador da organização autorize seu aplicativo para ter acesso aos dados de sua organização que são hospedados pela Microsoft. Os detalhes sobre como solicitar acesso são debatidos no artigo [Integração de aplicativos com o Active Directory do Azure](quickstart-v1-integrate-apps-with-azure-ad.md) .
 
-Após o consentimento dos administradores para seu aplicativo, eles poderão optar por adicioná-lo à experiência do inicializador de aplicativos do Office 365 dos usuários ( [https://portal.office.com/myapps](https://portal.office.com/myapps)acessível a partir do waffle e de). Se você deseja anunciar essa funcionalidade, você pode usar termos como "Adicione esse aplicativo para sua organização" e mostrar um botão como o exemplo a seguir:
+Após o consentimento dos administradores para seu aplicativo, eles poderão optar por adicioná-lo à experiência do inicializador de aplicativos do Office 365 dos usuários (acessível a partir do waffle e de [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Se você deseja anunciar essa funcionalidade, você pode usar termos como "Adicione esse aplicativo para sua organização" e mostrar um botão como o exemplo a seguir:
 
 ![Botão que mostra o logotipo da Microsoft e o texto "Adicionar à minha organização"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 

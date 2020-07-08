@@ -1,30 +1,30 @@
 ---
-title: Passar o estado personalizado em solicitações de autenticação (MSAL. js) | Azure
+title: Passar o estado personalizado em solicitações de autenticação (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como passar um valor de parâmetro de estado personalizado na solicitação de autenticação usando a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js).
+description: Saiba como passar um valor de parâmetro de estado personalizado na solicitação de autenticação usando a biblioteca de autenticação da Microsoft para JavaScript (MSAL.js).
 services: active-directory
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 01/16/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1c05956f83ad3a6491627be8916fac2c8be2b7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477576"
 ---
-# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passar o estado personalizado em solicitações de autenticação usando MSAL. js
+# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passar o estado personalizado em solicitações de autenticação usando MSAL.js
 
-O parâmetro *State* , conforme definido pelo OAuth 2,0, está incluído em uma solicitação de autenticação e também é retornado na resposta do token para impedir ataques de solicitação entre sites forjado. Por padrão, a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) passa um valor de parâmetro de *estado* exclusivo gerado aleatoriamente nas solicitações de autenticação.
+O parâmetro *State* , conforme definido pelo OAuth 2,0, está incluído em uma solicitação de autenticação e também é retornado na resposta do token para impedir ataques de solicitação entre sites forjado. Por padrão, a biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) passa um valor de parâmetro de *estado* exclusivo gerado aleatoriamente nas solicitações de autenticação.
 
-O parâmetro State também pode ser usado para codificar informações do estado do aplicativo antes do redirecionamento. Você pode passar o estado do usuário no aplicativo, como a página ou a exibição em que eles estavam, como entrada para esse parâmetro. A biblioteca MSAL. js permite que você passe seu estado personalizado como parâmetro de estado no `Request` objeto:
+O parâmetro State também pode ser usado para codificar informações do estado do aplicativo antes do redirecionamento. Você pode passar o estado do usuário no aplicativo, como a página ou a exibição em que eles estavam, como entrada para esse parâmetro. A biblioteca de MSAL.js permite que você passe seu estado personalizado como parâmetro de estado no `Request` objeto:
 
 ```javascript
 // Request type
@@ -45,7 +45,7 @@ export type AuthenticationParameters = {
 ```
 
 > [!Note]
-> Se você quiser ignorar um token em cache e ir para o servidor, passe o booliano `forceRefresh` para o objeto AuthenticationParameters usado para fazer uma solicitação de logon/token.
+> Se você quiser ignorar um token em cache e ir para o servidor, passe o booliano para `forceRefresh` o objeto AuthenticationParameters usado para fazer uma solicitação de logon/token.
 > `forceRefresh`Não deve ser usado por padrão, devido ao impacto no desempenho em seu aplicativo.
 > Depender do cache dará aos seus usuários uma experiência melhor.
 > Ignorar o cache só deve ser usado em cenários em que você saiba que os dados atualmente armazenados em cache não têm informações atualizadas.
@@ -62,7 +62,7 @@ let loginRequest = {
 myMSALObj.loginPopup(loginRequest);
 ```
 
-O estado transmitido é acrescentado ao GUID exclusivo definido por MSAL. js ao enviar a solicitação. Quando a resposta é retornada, o MSAL. js verifica uma correspondência de estado e retorna o estado personalizado passado no `Response` objeto como. `accountState`
+O estado transmitido é acrescentado ao GUID exclusivo definido pelo MSAL.js ao enviar a solicitação. Quando a resposta é retornada, o MSAL.js verifica se há uma correspondência de estado e retorna o estado personalizado passado no `Response` objeto como `accountState` .
 
 ```javascript
 export type AuthResponse = {
@@ -78,4 +78,4 @@ export type AuthResponse = {
 };
 ```
 
-Para saber mais, leia sobre como [criar um aplicativo de página única (Spa) usando o](scenario-spa-overview.md) MSAL. js.
+Para saber mais, leia sobre como [criar um aplicativo de página única (Spa)](scenario-spa-overview.md) usando MSAL.js.

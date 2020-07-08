@@ -1,19 +1,14 @@
 ---
 title: Configure sua própria chave para criptografar dados do barramento de serviço do Azure em repouso
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST do barramento de serviço do Azure.
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: aschhab
-ms.openlocfilehash: 82a5fbef8c307d60d82b147f04a2a687b8b0433e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85475978"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
 O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -28,7 +23,7 @@ Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 >   * Esse recurso é suportado pela camada [Premium do barramento de serviço do Azure](service-bus-premium-messaging.md) . Ele não pode ser habilitado para namespaces de barramento de serviço da camada Standard.
 >   * A criptografia só pode ser habilitada para namespaces novos ou vazios. Se o namespace contiver dados, a operação de criptografia falhará.
 
-Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../key-vault/general/overview.md)
+Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 
 Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md).
 
@@ -98,7 +93,7 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
 
 ## <a name="rotate-your-encryption-keys"></a>Girar suas chaves de criptografia
 
-Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do Azure Key Vaults. Para obter mais informações, consulte [Configurar a rotação de chaves e a auditoria](../key-vault/secrets/key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço do barramento de serviço detectará novas versões de chave e começará a usá-las automaticamente.
+Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do Azure Key Vaults. As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço do barramento de serviço detectará novas versões de chave e começará a usá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
 
@@ -117,7 +112,7 @@ Esta seção mostra como realizar as tarefas a seguir usando **modelos de Azure 
 ### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Criar um namespace do barramento de serviço Premium com identidade de serviço gerenciada
 Esta seção mostra como criar um namespace do barramento de serviço do Azure com a identidade de serviço gerenciada usando um modelo de Azure Resource Manager e o PowerShell. 
 
-1. Crie um modelo de Azure Resource Manager para criar um namespace da camada Premium do barramento de serviço com uma identidade de serviço gerenciada. Nomeie o arquivo: **CreateServiceBusPremiumNamespace. JSON**: 
+1. Crie um modelo de Azure Resource Manager para criar um namespace da camada Premium do barramento de serviço com uma identidade de serviço gerenciada. Nomeie o arquivo: **CreateServiceBusPremiumNamespace.jsem**: 
 
     ```json
     {
@@ -165,7 +160,7 @@ Esta seção mostra como criar um namespace do barramento de serviço do Azure c
        }
     }
     ```
-2. Crie um arquivo de parâmetro de modelo chamado: **CreateServiceBusPremiumNamespaceParams. JSON**. 
+2. Crie um arquivo de parâmetro de modelo chamado: **CreateServiceBusPremiumNamespaceParams.jsem**. 
 
     > [!NOTE]
     > Substitua os seguintes valores: 
@@ -225,7 +220,7 @@ Você concluiu as seguintes etapas até agora:
 
 Nesta etapa, você atualizará o namespace do barramento de serviço com informações do Key Vault. 
 
-1. Crie um arquivo JSON chamado **UpdateServiceBusNamespaceWithEncryption. JSON** com o seguinte conteúdo: 
+1. Crie um arquivo JSON chamado **UpdateServiceBusNamespaceWithEncryption.js** com o seguinte conteúdo: 
 
     ```json
     {
@@ -288,7 +283,7 @@ Nesta etapa, você atualizará o namespace do barramento de serviço com informa
     }
     ``` 
 
-2. Crie um arquivo de parâmetro de modelo: **UpdateServiceBusNamespaceWithEncryptionParams. JSON**.
+2. Crie um arquivo de parâmetro de modelo: **UpdateServiceBusNamespaceWithEncryptionParams.jsem**.
 
     > [!NOTE]
     > Substitua os seguintes valores: 
@@ -327,6 +322,6 @@ Nesta etapa, você atualizará o namespace do barramento de serviço com informa
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 - [Visão geral do barramento de serviço](service-bus-messaging-overview.md)
-- [Visão geral do Key Vault](../key-vault/general/overview.md)
+- [Visão geral de Key Vault](../key-vault/general/overview.md)
 
 

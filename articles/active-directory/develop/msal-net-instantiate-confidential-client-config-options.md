@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1a520c5a1002e401f880fba84f8fc02a0a678133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a76935c5b826f8aa686167f702f7170522744155
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477457"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Criar uma instância de um aplicativo cliente confidencial com opções de configuração usando MSAL.NET
 
@@ -35,7 +35,7 @@ Antes de inicializar um aplicativo, primeiro você precisa [registrá](quickstar
 ## <a name="configure-the-application-from-the-config-file"></a>Configurar o aplicativo a partir do arquivo de configuração
 O nome das propriedades das opções em MSAL.NET corresponde ao nome das propriedades do `AzureADOptions` no ASP.NET Core, portanto, você não precisa escrever nenhum código de União.
 
-Uma configuração de aplicativo ASP.NET Core é descrita em um arquivo *appSettings. JSON* :
+Uma configuração de aplicativo ASP.NET Core é descrita em um *appsettings.jsno* arquivo:
 
 ```json
 {
@@ -60,7 +60,7 @@ Uma configuração de aplicativo ASP.NET Core é descrita em um arquivo *appSett
 
 A partir do MSAL.NET v3. x, você pode configurar seu aplicativo cliente confidencial do arquivo de configuração.
 
-Na classe em que você deseja configurar e instanciar seu aplicativo, você precisa declarar um `ConfidentialClientApplicationOptions` objeto.  Associe a configuração lida da origem (incluindo o arquivo AppConfig. JSON) à instância das opções de aplicativo, usando o `IConfigurationRoot.Bind()` método do [pacote NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Na classe em que você deseja configurar e instanciar seu aplicativo, você precisa declarar um `ConfidentialClientApplicationOptions` objeto.  Associe a configuração lida da origem (incluindo a appconfig.jsno arquivo) à instância das opções de aplicativo, usando o `IConfigurationRoot.Bind()` método do [Microsoft.Extensions.Configuração. Pacote NuGet do Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -70,7 +70,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Isso permite que o conteúdo da seção "AzureAD" do arquivo *appSettings. JSON* seja vinculado às propriedades correspondentes do `ConfidentialClientApplicationOptions` objeto.  Em seguida, crie `ConfidentialClientApplication` um objeto:
+Isso permite que o conteúdo da seção "AzureAD" do *appsettings.jsno* arquivo seja associado às propriedades correspondentes do `ConfidentialClientApplicationOptions` objeto.  Em seguida, crie um `ConfidentialClientApplication` objeto:
 
 ```csharp
 IConfidentialClientApplication app;

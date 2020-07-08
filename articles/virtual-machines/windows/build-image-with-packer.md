@@ -8,17 +8,17 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445518"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Windows no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Windows e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para os ambientes de sistema operacional e de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e compilar imagens personalizadas no Azure.
 
-Este artigo foi testado pela última vez em 21/02/2019 usando a versão 1.3.0 do [módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e a versão 1.3.4 do [Packer](https://www.packer.io/docs/install/index.html).
+Este artigo foi testado pela última vez em 21/02/2019 usando a versão 1.3.0 do [módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e a versão 1.3.4 do [Packer](https://www.packer.io/docs/install).
 
 > [!NOTE]
 > Agora, o Azure tem um serviço, o Construtor de Imagens de VM do Azure (versão prévia), para definir e criar suas próprias imagens personalizadas. O Construtor de Imagens de VM do Azure é compilado no Packer, para que você possa até mesmo usar com ele seus scripts de provisionamento de shell do Pack. Para começar a usar o Construtor de Imagens de VM do Azure, consulte [Criar uma VM do Windows com o Construtor de Imagens de VM do Azure](image-builder.md).
@@ -122,7 +122,7 @@ Este modelo cria uma VM Windows Server 2016, instala o IIS e generaliza a VM com
 
 
 ## <a name="build-packer-image"></a>Criar uma imagem do Packer
-Se você ainda não tiver o Packer instalado no computador local, [siga as instruções de instalação do Packer](https://www.packer.io/docs/install/index.html).
+Se você ainda não tiver o Packer instalado no computador local, [siga as instruções de instalação do Packer](https://learn.hashicorp.com/packer/getting-started/install).
 
 Crie a imagem abrindo um prompt de comando e especificando o arquivo de modelo do Packer da seguinte maneira:
 
