@@ -9,10 +9,10 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75392299"
 ---
 A tabela a seguir descreve cada uma das principais cotas, limites, padrões e limitações no Agendador do Azure.
@@ -30,7 +30,7 @@ A tabela a seguir descreve cada uma das principais cotas, limites, padrões e li
 | **Contagem de cabeçalho** | A contagem máxima de cabeçalhos é de 50 cabeçalhos. | 
 | **Tamanho do cabeçalho de agregação** | O tamanho máximo do cabeçalho agregado é de 4.096 caracteres. |
 | **Tempo Limite** | O tempo limite da solicitação é estático, ou seja, não configurável. e é de 60 segundos para ações HTTP. Para operações mais demoradas, siga os protocolos assíncronos do HTTP. Por exemplo, retornar um 202 imediatamente, mas continuar funcionando em segundo plano. | 
-| **Histórico de trabalhos** | O corpo máximo de resposta armazenado no histórico de trabalhos é de 2.048 bytes. |
+| **Histórico de trabalho** | O corpo máximo de resposta armazenado no histórico de trabalhos é de 2.048 bytes. |
 | **Retenção de histórico de trabalho** | O histórico de trabalhos é mantido por até dois meses ou até as últimas 1.000 execuções. | 
 | **Retenção de trabalhos concluídos e com falha** | Os trabalhos concluídos e com falha são retidos por 60 dias. |
 ||| 

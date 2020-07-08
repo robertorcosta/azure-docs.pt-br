@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888062"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objeto para blobs de blocos (versão prévia)
 
@@ -44,7 +44,7 @@ Depois de configurar a replicação de objeto, o Armazenamento do Azure verifica
 
 Ao configurar a replicação de objeto, uma política de replicação é criada na conta de origem e de destino por meio do provedor de Armazenamento do Azure. A política de replicação é identificada por uma ID de política. A política nas contas de origem e de destino deve ter a mesma ID de política para que a replicação ocorra.
 
-Uma conta de armazenamento pode servir como a conta de origem para até duas contas de destino. As contas de origem e de destino podem estar em regiões diferentes. É possível configurar políticas de replicação separadas para replicar dados para cada uma das contas de destino.
+Uma conta de armazenamento pode servir como a conta de origem para até duas contas de destino. E uma conta de destino pode não ter mais do que duas contas de origem. As contas de origem e de destino podem estar em regiões diferentes. É possível configurar políticas de replicação separadas para replicar dados para cada uma das contas de destino.
 
 ### <a name="replication-rules"></a>Regras de replicação
 
@@ -54,7 +54,7 @@ Quando você cria uma regra de replicação, por padrão, somente os novos blobs
 
 Você também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar blobs de blocos por prefixo. Quando você especifica um prefixo, somente os blobs que correspondem a esse prefixo no contêiner de origem serão copiados para o contêiner de destino.
 
-Os contêineres de origem e de destino devem existir para que você possa especificá-los em uma regra. Depois de criar a política de replicação, o contêiner de destino torna-se somente leitura. Qualquer tentativa de gravar no contêiner de destino falha com o código de erro 409 (conflito). No entanto, você pode chamar a operação [Definir Camada de Blob](/rest/api/storageservices/set-blob-tier) em um blob no contêiner de destino para movê-lo para uma camada de acesso diferente. Por exemplo, é possível mover os blobs no contêiner de destino para a camada de arquivo a fim de economizar custos.
+Os contêineres de origem e de destino devem existir para que você possa especificá-los em uma regra. Depois de criar a política de replicação, o contêiner de destino torna-se somente leitura. Qualquer tentativa de gravar no contêiner de destino falha com o código de erro 409 (conflito). No entanto, você pode chamar a operação [definir camada de blob](/rest/api/storageservices/set-blob-tier) em um blob no contêiner de destino para movê-lo para a camada de arquivo morto. Para obter mais informações sobre a camada de arquivo, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="about-the-preview"></a>Sobre a visualização
 
@@ -73,7 +73,9 @@ Durante a versão prévia, não há custos adicionais associados à replicação
 
 ### <a name="prerequisites-for-object-replication"></a>Pré-requisitos para replicação do objeto
 
-A replicação de objeto exige que os seguintes recursos de Armazenamento do Azure estejam habilitados:
+A replicação de objeto exige que os seguintes recursos de Armazenamento do Azure estejam habilitados: 
+- [Feed de alterações](storage-blob-change-feed.md)
+- [Controle de versão](versioning-overview.md)
 
 Antes de configurar a replicação de objeto, habilite seus pré-requisitos. O feed de alterações deve ser habilitado na conta de origem, e o controle de versão do blob deve ser habilitado na conta de origem e de destino. Para saber mais sobre como habilitar esses recursos, confira estes artigos:
 
@@ -157,3 +159,5 @@ Para fazer perguntas sobre a versão prévia de replicação de objeto ou para f
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar a replicação de objeto (versão prévia)](object-replication-configure.md)
+- [Suporte ao feed de alterações no Armazenamento de Blobs do Azure (versão prévia)](storage-blob-change-feed.md)
+- [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)

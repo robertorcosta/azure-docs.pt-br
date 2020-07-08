@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886639"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Descompasso de esquema no fluxo de dados de mapeamento
 
@@ -37,7 +37,7 @@ Este vídeo fornece uma introdução a algumas das soluções complexas que voc�
 
 ## <a name="schema-drift-in-source"></a>Descompasso de esquema na origem
 
-As colunas que entram em seu fluxo de dados da definição de origem são definidas como "descompassos" quando não estão presentes na projeção de origem. Você pode exibir a projeção de origem na guia projeção na transformação origem. Quando você seleciona um conjunto de um DataSet para sua origem, o ADF pegará automaticamente o esquema do conjunto de e criará um projeto a partir dessa definição de esquema de conjunto de banco de forma.
+As colunas que entram em seu fluxo de dados da definição de origem são definidas como "descompassos" quando não estão presentes na projeção de origem. Você pode exibir a projeção de origem na guia projeção na transformação origem. Quando você seleciona um conjunto de um DataSet para sua origem, o ADF pegará automaticamente o esquema do conjunto de e criará uma projeção da definição de esquema do conjunto de mesmos.
 
 Em uma transformação de origem, a descompasso de esquema é definida como uma leitura de colunas que não definem seu esquema de conjunto de linhas. Para habilitar a descompasso de esquema, marque **permitir descompasso de esquema** em sua transformação de origem.
 
@@ -59,7 +59,7 @@ Se a descompasso de esquema estiver habilitada, verifique se o controle deslizan
 
 Quando o fluxo de dados tiver colunas descompassos, você poderá acessá-las em suas transformações com os seguintes métodos:
 
-* Use as `byPosition` expressões `byName` e para referenciar explicitamente uma coluna por nome ou número de posição.
+* Use as `byPosition` `byName` expressões e para referenciar explicitamente uma coluna por nome ou número de posição.
 * Adicionar um padrão de coluna em uma coluna derivada ou transformação de agregação para corresponder a qualquer combinação de nome, fluxo, posição ou tipo
 * Adicionar mapeamento baseado em regra em uma transformação SELECT ou Sink para corresponder colunas perrespondidas a aliases de colunas por meio de um padrão
 
@@ -71,7 +71,7 @@ Para referenciar explicitamente colunas descompassos, você pode gerar rapidamen
 
 ![Mapa descompasso](media/data-flow/mapdrifted1.png "Mapa descompasso")
 
-Na transformação coluna derivada gerada, cada coluna descompasso é mapeada para seu nome e tipo de dados detectados. Na visualização de dados acima, a coluna ' MovieID ' é detectada como um inteiro. Depois que o **mapa** é clicado, o MovieID é definido na coluna derivada `toInteger(byName('movieId'))` como e incluído em exibições de esquema em transformações de downstream.
+Na transformação coluna derivada gerada, cada coluna descompasso é mapeada para seu nome e tipo de dados detectados. Na visualização de dados acima, a coluna ' MovieID ' é detectada como um inteiro. Depois que o **mapa** é clicado, o MovieID é definido na coluna derivada como `toInteger(byName('movieId'))` e incluído em exibições de esquema em transformações de downstream.
 
 ![Mapa descompasso](media/data-flow/mapdrifted2.png "Mapa descompasso")
 

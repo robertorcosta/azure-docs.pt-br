@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bab78d60e5007d9c3eb61afa7bc63a9b44e47aa1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942900"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888025"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca de Movimentação de Dados
 
@@ -49,7 +49,7 @@ Este documento demonstra como criar um aplicativo de console .NET Core que é ex
 
 ## <a name="add-the-data-movement-library-to-your-project"></a>Adicionar a biblioteca de movimentação de dados ao seu projeto
 
-1. Adicione a versão mais recente da biblioteca de movimentação de dados `dependencies` à seção do `<project-name>.csproj` seu arquivo. No momento da escrita, esta versão seria `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+1. Adicione a versão mais recente da biblioteca de movimentação de dados à `dependencies` seção do seu `<project-name>.csproj` arquivo. No momento da escrita, esta versão seria `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
 2. Deve ser exibido um prompt para restaurar seu projeto. Clique no botão "restaurar". Você também pode restaurar seu projeto na linha de comando digitando o comando `dotnet restore` na raiz do diretório do projeto.
 
 Modifique `<project-name>.csproj`:
@@ -525,7 +525,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, true, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)

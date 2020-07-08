@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888110"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurar a replicação de objeto para blobs de blocos (versão prévia)
 
@@ -28,7 +28,9 @@ Este artigo descreve como configurar a replicação de objeto para sua conta de 
 
 Antes de configurar a replicação de objeto, crie as contas de armazenamento de origem e de destino se elas ainda não existirem. Ambas as contas precisam ser contas de armazenamento de uso geral v2. Para saber mais informações, confira [Criar uma conta do Armazenamento do Azure](../common/storage-account-create.md).
 
-Verifique se você se registrou para as seguintes versões prévias dos recursos:
+Uma conta de armazenamento pode servir como a conta de origem para até duas contas de destino. E uma conta de destino pode não ter mais do que duas contas de origem. As contas de origem e de destino podem estar em regiões diferentes. É possível configurar políticas de replicação separadas para replicar dados para cada uma das contas de destino.
+
+Antes de começar, certifique-se de que você se registrou para as seguintes visualizações de recurso:
 
 - [Replicação de objeto (versão prévia)](object-replication-overview.md)
 - [Controle de versão de blob (versão prévia)](versioning-overview.md)
@@ -41,7 +43,7 @@ Antes de configurar a replicação de objeto no portal do Azure, crie os contêi
 Para criar uma política de replicação no portal do Azure, siga estas etapas:
 
 1. Navegue até a conta de armazenamento de origem no portal do Azure.
-1. Em **Configurações**, selecione **Replicação de objeto**.
+1. Em **serviço blob**, selecione **replicação de objeto**.
 1. Selecione **Configurar a replicação**.
 1. Selecione a assinatura de destino e a conta de armazenamento.
 1. Na seção **Pares de contêineres**, selecione um contêiner de origem da conta de origem e um contêiner de destino da conta de destino. Você pode criar até dez pares de contêineres por política de replicação.

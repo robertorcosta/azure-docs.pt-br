@@ -12,20 +12,20 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f28282a802e4b38fadc05c7090fa2a2af154de54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c41e14490842068895aea383d384007f308e9e1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74083149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887669"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerenciar a expiração do armazenamento de Blobs do Azure na CDN do Azure
 > [!div class="op_single_selector"]
 > * [Conteúdo da Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Armazenamento de BLOBs do Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -70,13 +70,13 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
    Essa regra de cache global define uma duração de cache de uma hora e afeta todas as solicitações para o ponto de extremidade. Ela substitui todos os cabeçalhos HTTP `Cache-Control` ou `Expires` que são enviados pelo servidor de origem especificado pelo ponto de extremidade.   
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
  
 **Para definir os cabeçalhos de Controle de Cache do arquivo de blob usando regras de cache personalizadas:**
 
 1. Em **Personalizar regras de cache**, crie duas condições de combinação:
 
-     A. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/blobcontainer1/*` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 4 na caixa **Horas**.
+     a. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/blobcontainer1/*` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 4 na caixa **Horas**.
 
     B. Para a segunda condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/blobcontainer1/blob1.txt` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 2 na caixa **Horas**.
 
@@ -84,7 +84,7 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
     A primeira regra de cache personalizada estabelece uma duração de cache de quatro horas para qualquer arquivo de blob na pasta `/blobcontainer1` no servidor de origem especificado pelo ponto de extremidade. A segunda regra substitui a primeira regra somente para o arquivo de blob `blob1.txt` e define uma duração de cache de duas horas para isso.
 
-2. Clique em **Salvar**.
+2. Selecione **Salvar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Configurando cabeçalhos de Cache-Control usando Azure PowerShell
@@ -173,8 +173,8 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>API REST de serviços de armazenamento do Azure
 Você pode usar o [API REST de serviços de armazenamento do Azure](/rest/api/storageservices/) para definir explicitamente a propriedade *x-ms-blob-cache-control* usando as seguintes operações em uma solicitação:
   
-   - [Colocar Blob](/rest/api/storageservices/Put-Blob)
-   - [Colocar lista de blocos](/rest/api/storageservices/Put-Block-List)
+   - [Put Blob](/rest/api/storageservices/Put-Blob)
+   - [Put Block List](/rest/api/storageservices/Put-Block-List)
    - [Set Blob Properties](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Testando o cabeçalho de Controle de Cache

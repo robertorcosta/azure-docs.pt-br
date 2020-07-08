@@ -2,16 +2,14 @@
 title: Girar certificados no serviço kubernetes do Azure (AKS)
 description: Saiba como girar seus certificados em um cluster do AKS (serviço kubernetes do Azure).
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: zarhoads
-ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817440"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Girar certificados no serviço kubernetes do Azure (AKS)
 
@@ -41,8 +39,7 @@ O AKS gera e usa os seguintes certificados, autoridades de certificação e cont
 > 
 > Além disso, você pode verificar a data de validade do certificado do cluster. Por exemplo, o comando a seguir exibe os detalhes do certificado para o cluster *myAKSCluster* .
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d > my-cert.crt
-> openssl x509 -in my-cert.crt -text
+> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
 
 ## <a name="rotate-your-cluster-certificates"></a>Girar seus certificados de cluster
@@ -63,16 +60,16 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 > [!IMPORTANT]
-> Pode levar até 30 minutos para `az aks rotate-certs` ser concluído. Se o comando falhar antes de concluir, `az aks show` use para verificar se o status do cluster é de *rotação de certificado*. Se o cluster estiver em um estado de falha, `az aks rotate-certs` execute novamente para girar os certificados novamente.
+> Pode levar até 30 minutos para `az aks rotate-certs` ser concluído. Se o comando falhar antes de concluir, use `az aks show` para verificar se o status do cluster é de *rotação de certificado*. Se o cluster estiver em um estado de falha, execute novamente `az aks rotate-certs` para girar os certificados novamente.
 
-Verifique se os certificados antigos não são mais válidos executando um `kubectl` comando. Como você não atualizou os certificados usados pelo `kubectl`, verá um erro.  Por exemplo:
+Verifique se os certificados antigos não são mais válidos executando um `kubectl` comando. Como você não atualizou os certificados usados pelo `kubectl` , verá um erro.  Por exemplo:
 
 ```console
 $ kubectl get no
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
-Atualize o certificado usado pelo `kubectl` executando `az aks get-credentials`.
+Atualize o certificado usado pelo `kubectl` executando `az aks get-credentials` .
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing

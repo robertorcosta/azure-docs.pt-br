@@ -10,16 +10,16 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887721"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure
 Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para ver um início rápido sobre como criar um perfil e um ponto de extremidade, confira [Início rápido: criar um ponto de extremidade e um perfil CDN do Azure](cdn-create-new-endpoint.md).
@@ -36,7 +36,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    
     O painel Perfil de CDN é exibido.
 
-2. Selecione o **Ponto de extremidade**.
+2. Selecione **ponto de extremidade**.
    
     ![Selecione ponto de extremidade CDN](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
    
@@ -44,7 +44,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    
     ![Adicionar página de ponto de extremidade](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Em **Nome**, insira um nome exclusivo para o novo ponto de extremidade de CDN. Esse nome é usado para acessar os recursos armazenados em cache no domínio _ \<de ponto de extremidade>_. azureedge.net.
+3. Em **Nome**, insira um nome exclusivo para o novo ponto de extremidade de CDN. Esse nome é usado para acessar os recursos armazenados em cache no domínio _\<endpointname>_ . azureedge.net.
 
 4. Para **Tipo de origem**, escolha um dos seguintes tipos de origem: 
    - **Armazenamento** para Armazenamento do Azure
@@ -62,7 +62,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    > Alguns tipos de origens, como o Armazenamento do Azure e Aplicativos Web, exigem que o cabeçalho de host corresponda ao domínio da origem. A menos que tenha uma origem que exija um cabeçalho de host diferente do seu domínio, você deverá deixar o valor padrão.
    > 
     
-8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos no servidor de origem. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS). Use o domínio fornecido pela CDN (_\<EndpointName>_. azureedge.net) para acessar o conteúdo HTTPS. 
+8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos no servidor de origem. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS). Use o domínio fornecido pela CDN ( _\<endpointname>_ . azureedge.net) para acessar o conteúdo HTTPS. 
    
    > [!NOTE]
    > O valor da **Porta de origem** determina somente a porta usada pelo ponto de extremidade para recuperar as informações do servidor de origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente do valor de **Porta de origem**.  
@@ -101,7 +101,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    
     Se você tentar usar o nome de domínio da CDN antes que a configuração do ponto de extremidade seja propagada para os servidores POP (ponto de presença), talvez você receba um status de resposta HTTP 404. Se passaram várias horas desde que você criou o ponto de extremidade e ainda está recebendo um status de resposta 404, confira [Solução de problemas dos pontos de extremidade da CDN do Azure que retornam o código de status 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Para excluir um ponto de extremidade quando ele não for mais necessário, selecione-o e, em seguida, clique em **Excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas

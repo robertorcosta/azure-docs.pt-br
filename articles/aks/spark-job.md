@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 962d0d6dd51bb30f5df9ca0b609acf932777ebcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887513"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar trabalhos do Apache Spark no AKS
 
-[Apache Spark][apache-spark] é um mecanismo rápido para processamento de dados em larga escala. A partir do [Spark versão 2.3.0][spark-latest-release], o Apache Spark fornece suporte para integração nativa com clusters de Kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
+[Apache Spark][apache-spark] é um mecanismo rápido para processamento de dados em larga escala. A partir do [Spark versão 2.3.0][spark-kubernetes-earliest-version], o Apache Spark fornece suporte para integração nativa com clusters de Kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,6 +25,7 @@ Para concluir as etapas deste artigo, você precisa dos itens a seguir.
 * Conta de [Hub do Docker][docker-hub] ou um [Registro de Contêiner do Azure][acr-create].
 * CLI do Azure [instalada][azure-cli] no sistema de desenvolvimento.
 * [JDK 8][java-install] instalado no sistema.
+* [Apache Maven][maven-install] instalado em seu sistema.
 * SBT ([Ferramenta de Compilação Scala][sbt-install]) instalada no sistema.
 * Ferramentas de linha de comando do Git instaladas no sistema.
 
@@ -46,7 +47,7 @@ Crie uma entidade de serviço para o cluster. Depois que ele for criado, você p
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Crie o cluster AKS com nós de tamanho `Standard_D3_v2`e os valores de AppID e senha passados como parâmetros de entidade de serviço e de cliente-segredo.
+Crie o cluster AKS com nós de tamanho `Standard_D3_v2` e os valores de AppID e senha passados como parâmetros de entidade de serviço e de cliente-segredo.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -293,7 +294,7 @@ Pi is roughly 3.152155760778804
 
 No exemplo acima, o arquivo Jar do Spark foi carregado no armazenamento do Azure. Outra opção é empacotar o arquivo Jar em imagens do Docker personalizadas internas.
 
-Para fazer isso, localize o diretório `dockerfile` da imagem do Spark localizada em `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Adicione uma `ADD` instrução para o trabalho `jar` do Spark em `WORKDIR` algum `ENTRYPOINT` lugar entre as declarações e.
+Para fazer isso, localize o diretório `dockerfile` da imagem do Spark localizada em `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Adicione uma `ADD` instrução para o trabalho do Spark em `jar` algum lugar entre as `WORKDIR` `ENTRYPOINT` declarações e.
 
 Atualize o caminho do Jar para o local do arquivo `SparkPi-assembly-0.1.0-SNAPSHOT.jar` no sistema de desenvolvimento. Também é possível utilizar seu próprio arquivo Jar personalizado.
 
@@ -340,9 +341,10 @@ Faça check-out da documentação do Spark para obter mais detalhes.
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: https://aka.ms/azure-jdks
+[maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
-[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 

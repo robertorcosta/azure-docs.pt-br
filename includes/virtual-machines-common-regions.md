@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76021169"
 ---
 É importante entender como e onde as VMs (máquinas virtuais) operam no Azure, juntamente com suas opções para maximizar o desempenho, a disponibilidade e a redundância. Este artigo fornece uma visão geral dos recursos de redundância e disponibilidade do Azure.
@@ -42,7 +42,7 @@ Cada região do Azure é emparelhada com outra região na mesma área geográfic
 
 Exemplos de pares de regiões incluem:
 
-| Primária | Secundário |
+| Primário | Secundário |
 |:--- |:--- |
 | Oeste dos EUA |Leste dos EUA |
 | Norte da Europa |Europa Ocidental |
@@ -56,7 +56,7 @@ Alguns serviços ou recursos de VM estão disponíveis somente em determinadas r
 ## <a name="storage-availability"></a>Disponibilidade de armazenamento
 Compreender as áreas e regiões do Azure torna-se importante quando você considera as opções de replicação de armazenamento disponíveis. Dependendo do tipo de armazenamento, você tem opções de replicação diferentes.
 
-**Managed Disks do Azure**
+**Azure Managed Disks**
 * Armazenamento com redundância local (LRS)
   * Replica seus dados três vezes dentro da região em que você criou sua conta de armazenamento.
 
@@ -78,12 +78,12 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 | Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
-Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para obter mais informações sobre discos gerenciados, consulte [visão geral do Azure Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Custos de armazenamento
 Os preços variam dependendo do tipo de armazenamento e da disponibilidade que você selecionar.
 
-**Managed Disks do Azure**
+**Azure Managed Disks**
 * Os Managed Disks Premium são compostos por unidades de estado sólido (SSDs) e os Managed Disks Standard são compostos por discos de rotação regular. Premium e padrão de discos gerenciados são cobrados com base na capacidade provisionada para o disco.
 
 **Discos não gerenciados**

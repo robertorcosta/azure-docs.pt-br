@@ -5,20 +5,23 @@ services: automation
 ms.subservice: update-management
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/11/2019
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 2bcf2518ab7f4e5a3648b508e42868fd5bb1a863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817217"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integração do Gerenciamento de Atualizações com o Windows Endpoint Configuration Manager
 
 Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem da força e maturidade dele no gerenciamento de atualizações de software como parte do ciclo de gerenciamento de atualizações de software (SUM).
 
 Você pode relatar e atualizar servidores Windows gerenciados criando e preparando previamente implantações de atualização de software no Windows Endpoint Configuration Manager, bem como obter o status detalhado de implantações de atualização concluídas, usando o [Gerenciamento de Atualizações](automation-update-management.md). Se usar o Windows Endpoint Configuration Manager para relatórios de conformidade de atualizações, mas não para gerenciar implantações de atualizações com os servidores Windows, você pode continuar a relatar para o Configuration Manager, enquanto as atualizações de segurança são gerenciadas com o Gerenciamento de Atualizações da Automação do Azure.
+
+>[!NOTE]
+>Embora Gerenciamento de Atualizações ofereça suporte à avaliação de atualização e aplicação de patches do Windows Server 2008 R2, ele não dá suporte a clientes gerenciados pelo ponto de extremidade Configuration Manager executar este sistema operacional.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

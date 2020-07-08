@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84883980"
 ---
 # <a name="azure-diagnostic-logs"></a>Logs de diagnóstico do Azure
 
@@ -27,7 +27,7 @@ Com os logs de diagnóstico do Azure, é possível exibir análises de núcleo e
 
  - Conta de Armazenamento do Azure
  - Hubs de eventos do Azure
- - [Espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Espaço de Trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Este recurso está disponível em pontos de extremidade CDN para todos os tipos de preço. 
 
@@ -87,7 +87,7 @@ Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 
 5. Depois de terminar de fazer as configurações de log de diagnóstico, selecione **salvar**.
 
-### <a name="logging-with-azure-monitor"></a>Registrando em log com Azure Monitor
+### <a name="logging-with-azure-monitor"></a>Registrar com o Azure Monitor
 
 Para usar Azure Monitor para armazenar os logs, siga estas etapas:
 
@@ -169,7 +169,7 @@ O exemplo a seguir mostra como habilitar os Logs de Diagnóstico por meio dos Cm
 ## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Consumir logs de diagnóstico do Armazenamento do Azure
 Esta seção descreve o esquema da análise de núcleo da CDN, como ele é organizado dentro de uma conta de armazenamento do Azure e oferece um exemplo de código para baixar os logs em um arquivo CSV.
 
-### <a name="using-microsoft-azure-storage-explorer"></a>Usando o Gerenciador de Armazenamento do Microsoft Azure
+### <a name="using-microsoft-azure-storage-explorer"></a>Usar o Gerenciador de Armazenamento do Microsoft Azure
 Antes de poder acessar os dados da análise principal da Conta de Armazenamento do Azure, primeiro você precisa de uma ferramenta para acessar o conteúdo em uma conta de armazenamento. Embora haja várias ferramentas disponíveis no mercado, a que recomendamos é o Gerenciador de Armazenamento do Microsoft Azure. Para baixar a ferramenta, consulte [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/). Depois de baixar e instalar o software, configure-o para usar a mesma conta de armazenamento do Azure que foi configurada como um destino para os Logs de diagnóstico da CDN.
 
 1.  Abrir **Gerenciador de armazenamento do Microsoft Azure**
@@ -221,7 +221,7 @@ Para usar Azure Monitor, você deve [habilitar o registro em log](#enable-loggin
 
  O diagrama a seguir mostra a arquitetura das entradas e saídas do repositório:
 
-![Espaço de trabalho do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Workspace do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 – Repositório do Log Analytics*
 

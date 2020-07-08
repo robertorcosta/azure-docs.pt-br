@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: azure-cdn
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887443"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
 
@@ -173,17 +173,17 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 3. Em **HTTP Grande**, selecione **Mecanismo de Regras**. Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](cdn-rules-engine-reference.md).
 
    1. Selecione uma regra existente ou crie uma nova regra para definir o ativo ou o caminho ao qual você deseja aplicar a autenticação de token. 
-   2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** na lista **Recursos** e, em seguida, selecione **Habilitado**. Selecione **Atualizar**, se você estiver atualizando uma regra ou **Adicionar**, se você estiver criando uma regra.
+   2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** na lista **Recursos** e, em seguida, selecione **Habilitado**. Selecione **Atualizar**, se você estiver atualizando uma regra ou **Adicionar**, se você estiver criando uma regra.
         
       ![Exemplo de habilitação de autenticação de token do mecanismo de regras da CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. O mecanismo de regras, você também pode habilitar recursos adicionais relacionados à autenticação de token. Para habilitar qualquer um dos recursos a seguir, selecione-o na lista **Recursos** e, em seguida, selecione **Habilitado**.
     
-   - **[Código de Negação de Autenticação de Token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Determina o tipo de resposta que é retornado a um usuário quando uma solicitação é negada. As regras definidas aqui substituem o código de resposta definido na seção **Tratamento de Negação Personalizado** na página de autenticação baseada em token.
+   - **[Código de Negação de Autenticação de Token](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)** : Determina o tipo de resposta que é retornado a um usuário quando uma solicitação é negada. As regras definidas aqui substituem o código de resposta definido na seção **Tratamento de Negação Personalizado** na página de autenticação baseada em token.
 
-   - **[Autenticação de Token Ignorar Maiúsculas e Minúsculas da URL](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Determina se a URL usada para validar o token diferencia maiúsculas de minúsculas.
+   - **[Autenticação de Token Ignorar Maiúsculas e Minúsculas da URL](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)** : Determina se a URL usada para validar o token diferencia maiúsculas de minúsculas.
 
-   - **[Parâmetro de Autenticação de Token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Renomeia o parâmetro de cadeia de caracteres de consulta de autenticação de token que aparece na URL solicitada. 
+   - **[Parâmetro de Autenticação de Token](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)** : Renomeia o parâmetro de cadeia de caracteres de consulta de autenticação de token que aparece na URL solicitada. 
         
      ![Exemplo de configurações de autenticação de token do mecanismo de regras da CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

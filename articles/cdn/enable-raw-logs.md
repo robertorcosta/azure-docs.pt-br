@@ -7,15 +7,15 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888651"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Logs brutos HTTP da CDN do Azure
 Os logs brutos fornecem informações avançadas sobre operações e erros importantes para auditoria e para solução de problemas. Os logs brutos são diferentes dos logs de atividades. Os logs de atividade fornecem visibilidade das operações realizadas nos recursos do Azure. Os logs brutos fornecem um registro das operações do seu recurso.
@@ -33,7 +33,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 Para configurar logs brutos para seu perfil da CDN do Azure da Microsoft: 
 
-1. No menu do portal do Azure, selecione **Todos os Recursos** >>  **\<seu-perfil-da-CDN>** .
+1. No menu portal do Azure, selecione **todos os recursos**  >>  **\<your-CDN-profile>** .
 
 2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 

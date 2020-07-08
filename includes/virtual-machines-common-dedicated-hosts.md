@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84902566"
 ---
 ## <a name="limitations"></a>Limitações
 
-- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
+- Os Conjuntos de Dimensionamento de Máquinas Virtuais não são compatíveis com hosts dedicados atualmente.
 
-## <a name="benefits"></a>Vantagens 
+## <a name="benefits"></a>Benefícios 
 
 Reservar o host inteiro oferece os seguintes benefícios:
 
@@ -71,8 +71,7 @@ O modelo de exemplo do Resource Manager encontrado [aqui](https://github.com/Azu
 
 O **controle de manutenção** fornece aos clientes uma opção para ignorar atualizações de plataforma regulares agendadas em seus hosts dedicados e, em seguida, aplicá-las no momento de sua escolha dentro de uma janela sem interrupção de 35 dias.
 
-> [!NOTE]
->  O controle de manutenção está atualmente em visualização pública. Para obter mais informações, consulte **controlar atualizações com o controle de manutenção usando a [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) ou o [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)**.
+Para obter mais informações, consulte [gerenciando atualizações de plataforma com o controle de manutenção](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
 
 ## <a name="capacity-considerations"></a>Considerações sobre a capacidade
 
@@ -106,7 +105,7 @@ Uma SKU é definida para um host e representa a série de tamanho da VM e o tipo
 
 O *tipo* é a geração de hardware. Tipos de hardware diferentes para a mesma série de VMs serão de fornecedores de CPU diferentes e terão diferentes gerações de CPU e número de núcleos. 
 
-Os tamanhos e tipos de hardware variam por região. Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
+Os tamanhos e tipos de hardware variam por região. Consulte a [página de preços](https://aka.ms/ADHPricing) do host para saber mais.
 
 
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
@@ -118,6 +117,6 @@ O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes 
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |
-| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoReplaceOnFailure` o estiver habilitado, suas máquinas virtuais serão reparadas *para o* hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
+| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoReplaceOnFailure` o estiver habilitado, suas máquinas virtuais *service healed* serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
 | Host desalocado  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
 

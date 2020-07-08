@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74013790"
 ---
 Gerenciador de Armazenamento 1.10.0 permite que os usuários carreguem, baixem e copiem discos gerenciados, bem como criem instantâneos. Por causa desses recursos adicionais, você pode usar Gerenciador de Armazenamento para migrar dados do local para o Azure e migrar dados entre regiões do Azure.
@@ -42,7 +42,7 @@ Se o Gerenciador de Armazenamento não estiver conectado ao Azure, você não po
 
 1. Selecione sua assinatura na lista e, em seguida, clique em **Aplicar**.
 
-    ![Selecione sua assinatura](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
+    ![Selecionar sua assinatura](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
 
 ## <a name="upload-a-managed-disk-from-an-on-prem-vhd"></a>Carregar um disco gerenciado de um VHD local
 
@@ -50,7 +50,7 @@ Se o Gerenciador de Armazenamento não estiver conectado ao Azure, você não po
 
     ![Selecionar grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. Selecione **Carregar**.
+1. Escolha **Carregar**.
 
     ![Selecionar Carregar](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
 

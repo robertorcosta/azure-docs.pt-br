@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77911731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817710"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box
 
@@ -45,7 +45,6 @@ O Data Box fornece uma solução segura para a proteção de dados, garantindo q
 O dispositivo do Data Box é protegido pelos seguintes recursos:
 
 - Uma caixa reforçada para o dispositivo que suporta choques, transporte adverso e condições ambientais. 
-- Selos invioláveis para indicar qualquer violação do dispositivo durante o trânsito de dispositivo.
 - Detecção de violação de hardware e software que impede operações do dispositivo.
 - Executa apenas o software específico do Data Box.
 - Inicializa em um estado bloqueado.
@@ -57,7 +56,7 @@ O dispositivo do Data Box é protegido pelos seguintes recursos:
 Os dados que entram e saem do Data Box são protegidos pelos seguintes recursos:
 
 - Criptografia de 256 bits AES para dados em repouso.
-- Protocolos criptografados podem ser usados para dados em trânsito.
+- Protocolos criptografados podem ser usados para dados em trânsito. Recomendamos que você use o SMB 3,0 com criptografia para proteger os dados ao copiá-los de seus servidores de dados.
 - Eliminação segura de dados do dispositivo após a conclusão do upload no Azure. A eliminação de dados está de acordo com as diretrizes no [Apêndice A para unidades de disco rígido ATA nos padrões NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). O evento de apagamento de dados é registrado no [histórico de pedidos](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Proteção de serviço do Data Box
@@ -79,7 +78,7 @@ O Azure Data Box reúne e exibe informações pessoais nas seguintes instâncias
 - **Detalhes do pedido** - após a ordem ser criada, o endereço de envio, email e as informações de contato dos usuários são armazenadas no portal do Azure. As informações salvas incluem:
 
   - Nome de contato
-  - Número do telefone
+  - Número de telefone
   - Email
   - Endereço
   - City

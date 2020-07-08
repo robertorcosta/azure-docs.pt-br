@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be6c1fdc5deb6d541656c198469822dae0a5f7c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77463200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887888"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações gerais e diretrizes de segurança corporativa no Azure HDInsight
 
@@ -20,7 +20,7 @@ Ao implantar um cluster HDInsight seguro, há algumas práticas recomendadas que
 
 ## <a name="use-of-secure-cluster"></a>Uso do cluster seguro
 
-### <a name="recommended"></a>Recomendadas
+### <a name="recommended"></a>Recomendado
 
 * O cluster será usado por vários usuários ao mesmo tempo.
 * Os usuários têm diferentes níveis de acesso aos mesmos dados.
@@ -43,9 +43,9 @@ Ao implantar um cluster HDInsight seguro, há algumas práticas recomendadas que
 
 * Quando o acesso a dados é feito por meio de um serviço onde a autorização está habilitada:
   * O plug-in de autorização do Ranger é invocado e recebe o contexto da solicitação.
-  * O Ranger aplica as políticas configuradas para o serviço. Se as políticas de Ranger falharem, a verificação de acesso será adiada para o sistema de arquivos. Alguns serviços como o MapReduce verificam apenas se o arquivo/pasta pertence ao mesmo usuário que está enviando a solicitação. Serviços como o Hive, verifique se há correspondência de propriedade ou permissões de`rwx`sistema de arquivos apropriadas ().
+  * O Ranger aplica as políticas configuradas para o serviço. Se as políticas de Ranger falharem, a verificação de acesso será adiada para o sistema de arquivos. Alguns serviços como o MapReduce verificam apenas se o arquivo/pasta pertence ao mesmo usuário que está enviando a solicitação. Serviços como o Hive, verifique se há correspondência de propriedade ou permissões de sistema de arquivos apropriadas ( `rwx` ).
 
-* Para o Hive, além de ter as permissões para criar/atualizar/excluir permissões, o usuário deve ter `rwx`permissões no diretório no armazenamento e em todos os subdiretórios.
+* Para o Hive, além de ter as permissões para criar/atualizar/excluir permissões, o usuário deve ter `rwx` permissões no diretório no armazenamento e em todos os subdiretórios.
 
 * As políticas podem ser aplicadas a grupos (preferível) em vez de indivíduos.
 
@@ -67,13 +67,13 @@ Quando o espaço de nome hierárquico não está habilitado:
 ### <a name="default-hdfs-permissions"></a>Permissões de HDFS padrão
 
 * Por padrão, os usuários não têm acesso à **/** pasta no HDFS (eles precisam estar na função de proprietário do blob de armazenamento para que o acesso tenha sucesso).
-* Para o diretório de preparo para o MapReduce e outros, um diretório específico do usuário é criado e `sticky _wx` recebe permissões. Os usuários podem criar arquivos e pastas abaixo, mas não podem olhar outros itens.
+* Para o diretório de preparo para o MapReduce e outros, um diretório específico do usuário é criado e recebe `sticky _wx` permissões. Os usuários podem criar arquivos e pastas abaixo, mas não podem olhar outros itens.
 
 ### <a name="url-auth"></a>Autenticação de URL
 
 Se a autenticação de URL estiver habilitada:
 
-* A configuração conterá os prefixos que serão abordados na autenticação de `adl://`URL (como).
+* A configuração conterá os prefixos que serão abordados na autenticação de URL (como `adl://` ).
 * Se o acesso for para essa URL, o Ranger verificará se o usuário está na lista de permissões.
 * O Ranger não verificará nenhuma das políticas refinadas.
 
@@ -119,7 +119,7 @@ O HDInsight não pode depender de controladores de domínio locais ou controlado
 
 ### <a name="azure-ad-ds-instance"></a>Instância de AD DS do Azure
 
-* Crie a instância com o `.onmicrosoft.com domain`. Dessa forma, não haverá vários servidores DNS servindo ao domínio.
+* Crie a instância com o `.onmicrosoft.com domain` . Dessa forma, não haverá vários servidores DNS servindo ao domínio.
 * Crie um certificado autoassinado para os LDAPs e carregue-o no Azure AD DS.
 * Usar uma rede virtual emparelhada para a implantação de clusters (quando você tiver várias equipes implantando clusters do HDInsight com o, isso será útil). Isso garante que você não precisa abrir portas (NSGs) na rede virtual com o controlador de domínio.
 * Configure o DNS para a rede virtual corretamente (o nome de domínio AD DS do Azure deve ser resolvido sem nenhuma entrada de arquivo de hosts).
@@ -159,6 +159,17 @@ Motivos mais comuns:
 * NSGs são muito restritivos, impedindo o ingresso no domínio.
 * A identidade gerenciada não tem permissões suficientes.
 * O nome do cluster não é exclusivo nos seis primeiros caracteres (com outro cluster ao vivo ou com um cluster excluído).
+
+## <a name="authentication-setup-and-configuration"></a>Instalação e configuração de autenticação
+
+### <a name="user-principal-name-upn"></a>Nome Principal do Usuário (UPN)
+
+* Use minúsculas para todos os serviços-os UPNs não diferenciam maiúsculas de minúsculas em clusters ESP, mas
+* O prefixo UPN deve corresponder a SAMAccountName no Azure AD-DS. A correspondência com o campo de email não é necessária.
+
+### <a name="ldap-properties-in-ambari-configuration"></a>Propriedades LDAP na configuração do Ambari
+
+Para obter uma lista completa das propriedades Ambari que afetam a configuração do cluster HDInsight, consulte [configuração de autenticação LDAP do Ambari](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 

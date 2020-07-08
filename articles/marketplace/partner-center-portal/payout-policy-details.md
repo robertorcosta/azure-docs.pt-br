@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6aa40d0914237a28c7bbd32b15bf0d8d02140192
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: cb939d223d0aa91b6da62d3045ccad919f1bd277
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887937"
 ---
 # <a name="payout-policy-details"></a>Detalhes da política de pagamento
 
@@ -25,9 +25,9 @@ No Partner Center, selecione **pagamento** na parte superior direita do portal:
 ![Ilustra o ícone de pagamento no canto superior direito do portal do Partner Center.](./media/payout-overview.png)
 
 > [!TIP]
-> Nem todas as funções de conta têm acesso às informações de pagamento. Para obter detalhes, consulte [funções e permissões para acessar o relatório de pagamento](./payout-summary.md).
+> Nem todas as funções de conta têm acesso às informações de pagamento. Para obter detalhes, consulte [funções e permissões para acessar o relatório de pagamento](./payout-summary-overview.md#roles-and-permissions).
 
-## <a name="payment-schedules"></a>Planos de pagamento
+## <a name="payment-schedules"></a>Agendamentos de pagamento
 
 As seções a seguir descrevem nosso processo de pagamentos.
 
@@ -102,12 +102,12 @@ Veja a seguir um exemplo de agendamento:
 | Data de pagamento de exemplo | 10/15/2020 | Marcado como **enviado** no histórico de transações e na seção de pagamentos no painel de pagamento |
 | <font color="red">Se o cliente não pagar a Microsoft</font> | 12/2/2020 – 12/5/2020 | Nenhuma alteração, igual à acima |
 | O cliente recebe o primeiro email de pagamento atrasado | 12/6/2020 | Nenhum |
-| O cliente recebe emails regulares de maior urgência | 12/7/2020 – 1/31/2020 | Nenhum |
-| A gravação notificada do Publicador é provavelmente | 1/7/2020 | Notificação por email enviada ao Publicador de que seu cliente ainda não enviou o pagamento. A ID da transação e o valor de dólar estão incluídos. |
-| O cliente recebe aviso de encerramento | 2/1/2020 | Nenhum |
-| O processo de coleta termina/fundos são gravados | 2/15/2020 | Notificação por email enviada ao Publicador de que os fundos foram gravados. A ID da transação e o valor de dólar estão incluídos. |
-| Pagamento deduzido | 3/1/2020 | O Publicador verá uma transação negativa na instrução pagamento do Partner Center |
-| Pagamento retido | 3/15/2020 | Pagamentos futuros serão mostrados na instrução pagamento do centro de parceiros. O Publicador não receberá o pagamento até que o saldo não seja mais negativo.  |
+| O cliente recebe emails regulares de maior urgência | 12/7/2020 – 1/31/2021 | Nenhum |
+| A gravação notificada do Publicador é provavelmente | 1/7/2021 | Notificação por email enviada ao Publicador de que seu cliente ainda não enviou o pagamento. A ID da transação e o valor de dólar estão incluídos. |
+| O cliente recebe aviso de encerramento | 2/1/2021 | Nenhum |
+| O processo de coleta termina/fundos são gravados | 2/15/2021 | Notificação por email enviada ao Publicador de que os fundos foram gravados. A ID da transação e o valor de dólar estão incluídos. |
+| Pagamento deduzido | 3/1/2021 | O Publicador verá uma transação negativa na instrução pagamento do Partner Center |
+| Pagamento retido | 3/15/2021 | Pagamentos futuros serão mostrados na instrução pagamento do centro de parceiros. O Publicador não receberá o pagamento até que o saldo não seja mais negativo.  |
 |||
 
 ## <a name="next-step"></a>Próxima etapa

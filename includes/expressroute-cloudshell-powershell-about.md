@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ff5a42150140035105298802a7ce8b4d0e25959c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75436930"
 ---
 Você pode usar Azure Cloud Shell para executar a maioria dos cmdlets do PowerShell e comandos da CLI, em vez de instalar o Azure PowerShell ou a CLI localmente. Azure Cloud Shell é um shell interativo gratuito que tem ferramentas comuns do Azure pré-instalado e está configurado para usar com sua conta.

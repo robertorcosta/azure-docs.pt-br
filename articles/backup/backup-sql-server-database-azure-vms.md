@@ -1,15 +1,14 @@
 ---
 title: Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 description: Neste artigo, saiba como fazer backup de bancos de dados do SQL Server em máquinas virtuais do Azure com o Backup do Azure.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3fd94dc6332d96f875c164dfeadff3a8ab2cad4e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817544"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 
@@ -34,9 +33,10 @@ Neste artigo, você aprenderá a:
 Antes de fazer backup de um banco de dados do SQL Server, verifique os seguintes critérios:
 
 1. Identifique ou crie um [cofre dos Serviços de Recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região e assinatura da VM que hospeda a Instância do SQL Server.
-2. Verifique se a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-3. Verifique se os bancos de dados do SQL Server seguem as [diretrizes de nomenclatura de banco de dados do Backup do Azure](#database-naming-guidelines-for-azure-backup).
-4. Verifique que não haja nenhuma outra solução de backup habilitada para o banco de dados. Desabilite todos os outros backups do SQL Server antes de você fazer backup do banco de dados.
+1. Verifique se a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Verifique se os bancos de dados do SQL Server seguem as [diretrizes de nomenclatura de banco de dados do Backup do Azure](#database-naming-guidelines-for-azure-backup).
+1. Certifique-se de que o comprimento combinado do nome da VM SQL Server e o nome do grupo de recursos não exceda 84 caracteres para VMs de Azure Resource Manager (ARM) (ou 77 caracteres para VMs clássicas). Essa limitação é porque alguns caracteres são reservados pelo serviço.
+1. Verifique que não haja nenhuma outra solução de backup habilitada para o banco de dados. Desabilite todos os outros backups do SQL Server antes de você fazer backup do banco de dados.
 
 > [!NOTE]
 > Você pode habilitar o Backup do Azure para uma VM do Azure e também para um banco de dados do SQL Server em execução na VM sem nenhum conflito.
@@ -258,13 +258,13 @@ Para criar uma política de backup:
 14. Depois de concluir as edições à política de backup, selecione **OK**.
 
 > [!NOTE]
-> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, diferencial diário e logs de duas horas. Todos eles são retidos por 30 dias. No entanto, o completo semanal poderá ser realmente limpo/excluído somente depois que o próximo backup completo estiver disponível, ou seja, após 30 + 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ele deve ser retido até 16 de dezembro. O último backup de log para esse completo ocorre antes do próximo completo agendado, em 22 de novembro. Até que esse log esteja disponível até 22 de dezembro, o completo de 16 de novembro não poderá ser excluído. Portanto, o completo de 16 de novembro é mantido até 22 de dezembro.
+> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, diferencial diário e logs de duas horas. Todos eles são retidos por 30 dias. No entanto, o completo semanal poderá ser realmente limpo/excluído somente depois que o próximo backup completo estiver disponível, ou seja, após 30 + 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse completo ocorre antes do próximo completo agendado, em 22 de novembro. Até que esse log esteja disponível até 22 de dezembro, o completo de 16 de novembro não poderá ser excluído. Portanto, o completo de 16 de novembro é mantido até 22 de dezembro.
 
 ## <a name="enable-auto-protection"></a>Habilitar a proteção automática  
 
 É possível habilitar a proteção automática para fazer backup automaticamente de todos os bancos de dados existentes e dos bancos de dados que serão adicionados no futuro a uma instância autônoma do SQL Server ou a um grupo de disponibilidade Always On.
 
-* Não há nenhum limite para o número de bancos de dados que podem ser selecionados para a proteção automática de uma só vez.
+* Não há limite para o número de bancos de dados que você pode selecionar para proteção automática de cada vez. A descoberta normalmente é executada a cada oito horas. No entanto, você pode descobrir e proteger novos bancos de dados imediatamente se executar uma descoberta manualmente selecionando a opção **redescobrir bancos** de dados.
 * Você não pode proteger bancos de dados seletivamente nem excluí-los da proteção em uma instância no momento em que habilita a proteção automática.
 * Se sua instância já inclui alguns bancos de dados protegidos, eles permanecerão protegidos sob as respectivas políticas mesmo depois de você ativar a proteção automática. Todos os bancos de dados desprotegidos adicionados posteriormente terão apenas uma política que você define no momento da habilitação da proteção automática, listada em **Configurar Backup**. No entanto, você pode alterar posteriormente a política associada a um banco de dados protegido automaticamente.  
 
