@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.topic: how-to
+ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512148"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usar o emulador azurite para desenvolvimento e teste do armazenamento local do Azure (versão prévia)
 
@@ -70,7 +70,7 @@ Há suporte para as seguintes configurações:
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instalar e executar o azurite usando o NPM
 
-Esse método de instalação requer que você tenha o [node. js versão 8,0 ou posterior](https://nodejs.org) instalado. O Gerenciador de pacotes de nó (NPM) é a ferramenta de gerenciamento de pacotes incluída em cada instalação do node. js. Depois de instalar o Node. js, execute o comando a seguir `npm` para instalar o azurite.
+Esse método de instalação requer que você tenha [Node.js versão 8,0 ou posterior](https://nodejs.org) instalada. O Gerenciador de pacotes de nó (NPM) é a ferramenta de gerenciamento de pacotes incluída em cada instalação do Node.js. Depois de instalar o Node.js, execute o comando a seguir `npm` para instalar o azurite.
 
 ```console
 npm install -g azurite
@@ -355,7 +355,7 @@ O azurite atualiza nomes de conta e chaves personalizadas da variável de ambien
 
 ### <a name="connection-strings"></a>Cadeias de conexão
 
-A maneira mais fácil de se conectar ao azurite de seu aplicativo é configurar uma cadeia de conexão no arquivo de configuração do aplicativo que faz referência ao atalho *UseDevelopmentStorage = true*. Aqui está um exemplo de uma cadeia de conexão em um arquivo *app. config* :
+A maneira mais fácil de se conectar ao azurite de seu aplicativo é configurar uma cadeia de conexão no arquivo de configuração do aplicativo que faz referência ao atalho *UseDevelopmentStorage = true*. Aqui está um exemplo de uma cadeia de conexão em um arquivo de *app.config* :
 
 ```xml
 <appSettings>
@@ -464,7 +464,7 @@ Em Gerenciador de Armazenamento, conecte-se ao azurite seguindo estas etapas:
  1. Selecione o ícone **gerenciar contas**
  1. Selecione **Adicionar uma conta**
  1. Selecione **anexar a um emulador local**
- 1. Selecione **Avançar**.
+ 1. Selecione **Avançar**
  1. Edite o campo **nome de exibição** para um nome de sua escolha
  1. Selecione **Avançar** novamente
  1. Selecione **conectar**
@@ -493,7 +493,7 @@ Siga estas etapas para adicionar azurite HTTPS ao Gerenciador de Armazenamento:
 1. Selecione **Avançar**.
 1. Insira um valor no campo **nome de exibição** .
 1. Insira a [cadeia de conexão HTTPS](#https-connection-strings) da seção anterior deste documento
-1. Selecione **Avançar**.
+1. Selecione **Avançar**
 1. Selecione **conectar**
 
 ## <a name="workspace-structure"></a>Estrutura do espaço de trabalho

@@ -3,19 +3,35 @@ title: Pré-requisitos de cache do Azure HPC
 description: Pré-requisitos para usar o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: d7a5bfe56a17ecc2377be7b59dcbe3254d813a0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513248"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para o cache HPC do Azure
 
 Antes de usar o portal do Azure para criar um novo cache do Azure HPC, verifique se o seu ambiente atende a esses requisitos.
+
+## <a name="video-overviews"></a>Visões gerais de vídeo
+
+Assista a esses vídeos para obter uma visão geral rápida dos componentes do sistema e o que eles precisam para trabalhar juntos.
+
+(Clique na imagem de vídeo ou no link para assistir.)
+
+* [Como funciona](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) – explica como o cache HPC do Azure interage com o armazenamento e os clientes
+
+  [![imagem de miniatura de vídeo: cache do HPC do Azure: como ele funciona (clique para visitar a página de vídeo)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+
+* [Prerequisites](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) -descreve os requisitos para armazenamento nas, armazenamento de BLOBs do Azure, acesso à rede e acesso de cliente
+
+  [![imagem de miniatura de vídeo: cache do HPC do Azure: pré-requisitos (clique para visitar a página de vídeo)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+
+Leia o restante deste artigo para obter recomendações específicas.
 
 ## <a name="azure-subscription"></a>Assinatura do Azure
 
@@ -113,7 +129,7 @@ Mais informações estão incluídas em [solucionar problemas de configuração 
 
   Verifique se todas as portas retornadas pela ``rpcinfo`` consulta permitem o tráfego irrestrito da sub-rede do cache HPC do Azure.
 
-  * Se você não puder usar `rpcinfo` o comando, verifique se essas portas comumente usadas permitem o tráfego de entrada e de saída:
+  * Se você não puder usar o `rpcinfo` comando, verifique se essas portas comumente usadas permitem o tráfego de entrada e de saída:
 
     | Protocolo | Porta  | Serviço  |
     |----------|-------|----------|
@@ -127,7 +143,7 @@ Mais informações estão incluídas em [solucionar problemas de configuração 
 
   * Verifique as configurações de firewall para garantir que elas permitam o tráfego em todas essas portas necessárias. Certifique-se de verificar os firewalls usados no Azure, bem como firewalls locais no seu data center.
 
-* **Acesso ao diretório:** Habilite `showmount` o comando no sistema de armazenamento. O cache HPC do Azure usa esse comando para verificar se a configuração de destino de armazenamento aponta para uma exportação válida e também para garantir que várias montagens não acessem os mesmos subdiretórios (um risco para a colisão de arquivos).
+* **Acesso ao diretório:** Habilite o `showmount` comando no sistema de armazenamento. O cache HPC do Azure usa esse comando para verificar se a configuração de destino de armazenamento aponta para uma exportação válida e também para garantir que várias montagens não acessem os mesmos subdiretórios (um risco para a colisão de arquivos).
 
   > [!NOTE]
   > Se o sistema de armazenamento NFS usar o sistema operacional ONTAP 9,2 da NetApp, não **habilite `showmount` **o. [Contate o serviço e suporte da Microsoft](hpc-cache-support-ticket.md) para obter ajuda.

@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513743"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usar a interface de usuário do StorSimple Snapshot Manager para gerenciar trabalhos de backup e catálogo de backups
 
@@ -76,7 +76,7 @@ A tabela a seguir descreve os itens que aparecem no menu **Arquivo**.
 | Adicionar/Remover Snap-in |Clique em **Adicionar/Remover Snap-in** para adicionar ou remover snap-ins e organizar nós no painel **Escopo**. Para obter mais informações, vá para [Adicionar, Remover e Organizar Snap-ins e Extensões no MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
 | Opções |Clique em **Opções** para alterar o ícone do console, especificar modos e permissões de acesso do usuário ou excluir arquivos do console para aumentar o espaço disponível em disco. |
 | Lista de caminhos de arquivo |Clique em um caminho na lista numerada para reabrir um arquivo que você abriu recentemente. |
-| Sair |Clique em **Sair** para fechar o menu **Arquivo**. |
+| Fechar |Clique em **Sair** para fechar o menu **Arquivo**. |
 
 ### <a name="action-menu"></a>Menu Ação
 Use o menu **Ação** para selecionar uma das ações disponíveis. Os itens disponíveis dependem da seleção feita nos painéis **Escopo** ou **Resultados**.
@@ -204,7 +204,7 @@ A barra de ferramentas, localizada abaixo da barra de menus, contém ícones de 
 ### <a name="icon-descriptions"></a>Descrições dos ícones
 A tabela a seguir descreve os ícones que aparecem na barra de ferramentas. 
 
-| ícone | Descrição |
+| Ícone | Descrição |
 |:--- |:--- |
 | ![Seta para a esquerda](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Clique no ícone de seta para a esquerda para retornar à página anterior. |
 | ![Seta para a direita](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Clique na seta para a direita para ir para a próxima página (se a seta estiver cinza, a ação estará indisponível). |
@@ -357,7 +357,7 @@ A tabela a seguir descreve as combinações de teclas de atalho da barra de menu
 | Atalho | Result | Tecla de atalho do menu | Result |
 |:--- |:--- |:--- |:--- |
 | ALT + F |Abre o menu **Arquivo**. |N |Abre uma nova instância do console. |
-|  |O  |Abre a página **Ferramentas administrativas**. | |
+|  |O |Abre a página **Ferramentas administrativas**. | |
 |  |S |Salva o console do StorSimple Snapshot Manager. | |
 |  |Um |Abre a página **Salvar como**. | |
 |  |M |Abre a página **Adicionar/Remover Snap-in**. | |
@@ -371,7 +371,7 @@ A tabela a seguir descreve as combinações de teclas de atalho da barra de menu
 | ALT+V |Abre o menu **Exibição**. |Um |Abre a página **Adicionar/Remover Colunas**. |
 |  |U |Abre a página **Exibição Personalizada**. | |
 | ALT+O |Abre o menu **Favoritos**. |Um |Abre a página **Adicionar aos favoritos**. |
-|  |O  |Abre a página **Organizar favoritos**. | |
+|  |O |Abre a página **Organizar favoritos**. | |
 | ALT+W |Abre o menu **Janela**. |N |Abre outra janela do StorSimple Snapshot Manager. |
 |  |C |Exibe todas as janelas de console abertas em um estilo em cascata. | |
 |  |T |Exibe todas as janelas de console abertas em um padrão de grade. | |
@@ -428,7 +428,7 @@ As tabelas a seguir mostra as combinações de tecla de atalho para cada nó do 
 | V |Abre o menu **Exibição**. |
 | W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes** . |
 | F |Atualiza o console do StorSimple Snapshot Manager. |
-| L |Abre a página **Exportar Lista**. |
+| L |Abre a página **Exportar lista**. |
 | H |Abre a Ajuda online. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Teclas de atalho do nó Catálogo de Backups

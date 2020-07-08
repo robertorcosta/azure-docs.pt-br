@@ -4,21 +4,21 @@ description: Como instalar uma ferramenta da interface do usuário com um modelo
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: abe9b060793983e42ab432924ca5d6d7f43d307d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514230"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento com um modelo do Azure Resource Manager
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 As instruções deste artigo lhe dirão como implantar a interface do usuário usando um modelo do Azure Resource Manager.
 
@@ -40,7 +40,7 @@ Antes de implantar a ferramenta de gerenciamento, você precisará que um usuár
 
 - Ter a (MFA) Autenticação Multifator do Azure desabilitada
 - Ter permissão para criar recursos em sua assinatura do Azure
-- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Depois de implantar e configurar a ferramenta de gerenciamento, é recomendável solicitar que um usuário inicie a interface do usuário de gerenciamento para verificar se tudo está funcionando. O usuário que inicia a interface do usuário de gerenciamento deve ter uma atribuição de função que permita exibir ou editar o locatário da Área de Trabalho Virtual do Windows.
 
@@ -52,7 +52,7 @@ Siga estas instruções para implantar o modelo do Azure Resource Manager:
 
 1. Vá até a [página de Modelos de RDS do Azure no GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Implantar o modelo no Azure.
-    - Se estiver implantando em uma assinatura Enterprise, role para baixo e selecione **Implantar no Azure**. 
+    - Se estiver implantando em uma assinatura Enterprise, role para baixo e selecione **Implantar no Azure**.
     - Se estiver implantando em uma assinatura de um Provedor de Soluções de Nuvem, siga estas instruções para implantar no Azure:
         1. Role para baixo e clique com o botão direito do mouse em **Implantar no Azure** e, em seguida, selecione **Copiar o link**.
         2. Abra um editor de texto, como o Bloco de Notas, e cole o link nele.
@@ -71,11 +71,13 @@ Após o modelo do Azure Resource Manager do GitHub ser concluído, você encontr
 
 Antes de entrar e usar a ferramenta de gerenciamento, você precisará fornecer consentimento ao novo aplicativo do Azure AD associado à ferramenta de gerenciamento. Ao fornecer consentimento, você permite que a ferramenta de gerenciamento faça chamadas de gerenciamento da Área de Trabalho Virtual do Windows em nome do usuário conectado atualmente à ferramenta.
 
-![Uma captura de tela mostrando as permissões sendo fornecidas quando você fornece consentimento para a ferramenta de gerenciamento da interface do usuário.](../media/management-ui-delegated-permissions.png)
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela mostrando as permissões sendo fornecidas quando você fornece consentimento para a ferramenta de gerenciamento da interface do usuário.](../media/management-ui-delegated-permissions.png)
 
 Para determinar qual usuário você pode usar para entrar na ferramenta, vá até sua [página de configurações do usuário do Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) e anote o valor correspondente a **Os usuários podem consentir que os aplicativos acessem dados da empresa em seus nomes**.
 
-![Uma captura de tela mostrando se os usuários podem dar consentimento a aplicativos apenas para seu usuário.](../media/management-ui-user-consent-allowed.png)
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela mostrando se os usuários podem dar consentimento a aplicativos apenas para seu usuário.](../media/management-ui-user-consent-allowed.png)
 
 - Se o valor estiver definido como **Sim**, você poderá entrar com qualquer conta de usuário no Azure Active Directory e fornecer consentimento somente para esse usuário. No entanto, se entrar na ferramenta de gerenciamento com um usuário diferente mais tarde, você deverá executar o mesmo consentimento novamente.
 - Se o valor estiver definido como **Não**, você precisará entrar como Administrador Global no Azure Active Directory e fornecer consentimento do administrador para todos os usuários no diretório. Nenhum outro usuário receberá uma solicitação de consentimento.
@@ -83,11 +85,12 @@ Para determinar qual usuário você pode usar para entrar na ferramenta, vá at�
 
 Após você decidir qual usuário vai usar para fornecer o consentimento, siga estas instruções para fornecer consentimento para a ferramenta:
 
-1. Vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net> .
 2. Entre usando a conta de usuário do Azure Active Directory apropriada.
 3. Se tiver feito a autenticação com um Administrador Global, agora você poderá marcar a caixa de seleção **Consentimento em nome de sua organização**. Selecione **Aceitar** para fornecer consentimento.
-   
-   ![Uma captura de tela mostrando a página de consentimento completa que o usuário ou administrador verá.](../media/management-ui-consent-page.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![Uma captura de tela mostrando a página de consentimento completa que o usuário ou administrador verá.](../media/management-ui-consent-page.png)
 
 Agora, você será levado à ferramenta de gerenciamento.
 
@@ -101,7 +104,7 @@ Siga estas instruções para iniciar a ferramenta:
 2. Entre usando suas credenciais da Área de Trabalho Virtual do Windows.
 3. Quando solicitado a escolher um Grupo de Locatários, selecione **Grupo de Locatários Padrão** na lista suspensa.
 4. Quando você seleciona **Grupo de Locatários Padrão**, um menu deve ser exibido no lado esquerdo da janela. Nesse menu, encontre o nome do seu grupo de locatários e selecione-o.
-  
+
   > [!NOTE]
   > Se tiver um grupo de locatários personalizado, digite o nome manualmente em vez de escolher na lista suspensa.
 

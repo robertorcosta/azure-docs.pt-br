@@ -1,23 +1,23 @@
 ---
 title: Habilitar exclusão reversível – Compartilhamentos de arquivo do Azure
-description: Saiba como habilitar a exclusão reversível nos compartilhamentos de arquivo do Azure para recuperação de dados e impedir a exclusão acidental.
+description: Saiba como habilitar a exclusão reversível (visualização) em compartilhamentos de arquivos do Azure para recuperação de dados e impedir a exclusão acidental.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 05/26/2020
+ms.topic: how-to
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 755ccd266b8a88471bf7dbc0d2deb790f35f3457
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510822"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitar exclusão reversível nos compartilhamentos de arquivo do Azure
 
-O Armazenamento do Azure agora oferece a exclusão reversível para compartilhamentos de arquivo para que você possa recuperar os dados mais facilmente quando eles forem excluídos erroneamente por outro usuário de conta de armazenamento ou um aplicativo. Para saber mais sobre a exclusão reversível, confira [Como impedir a exclusão acidental de compartilhamentos de arquivo do Azure](storage-files-prevent-file-share-deletion.md).
+O armazenamento do Azure oferece exclusão reversível para compartilhamentos de arquivos (versão prévia) para que você possa recuperar seus dados com mais facilidade quando eles forem excluídos erroneamente por um aplicativo ou outro usuário da conta de armazenamento. Para saber mais sobre a exclusão reversível, confira [Como impedir a exclusão acidental de compartilhamentos de arquivo do Azure](storage-files-prevent-file-share-deletion.md).
 
 As seguintes seções mostram como habilitar e usar a exclusão reversível para compartilhamentos de arquivo do Azure em uma conta de armazenamento existente:
 
@@ -97,3 +97,7 @@ Você pode usar o seguinte comando para desabilitar a exclusão reversível em s
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre uma outra forma de proteção e recuperação de dados, consulte nosso artigo [visão geral de instantâneos de compartilhamento para arquivos do Azure](storage-snapshots-files.md).

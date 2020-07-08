@@ -4,16 +4,16 @@ description: Saiba como reparar um trabalho de exportação criado e executado u
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10e209228ad12b377b729bc251eb761b51ff5378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74978008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514361"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de um trabalho de exportação
 Após a conclusão de um trabalho de exportação, você poderá executar a Ferramenta de Importação/Exportação do Microsoft Azure local para:  
@@ -155,5 +155,5 @@ Qualquer componente que falhar na verificação será baixado pela ferramenta e 
 * [Configurando a ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparando discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparando um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Solução de problemas da ferramenta de importação/exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)

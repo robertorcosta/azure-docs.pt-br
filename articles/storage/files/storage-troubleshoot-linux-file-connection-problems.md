@@ -3,16 +3,16 @@ title: Solucionar problemas de Arquivos do Azure no Linux | Microsoft Docs
 description: Solução de problemas de Arquivos do Azure no Linux
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512006"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
@@ -80,7 +80,7 @@ Verifique se regras de firewall e de rede virtual estão configuradas corretamen
 
 No Linux, você recebe uma mensagem de erro semelhante à seguinte:
 
-**\<nome de arquivo> [permissão negada] cota de disco excedida**
+**\<filename>[permissão negada] Cota de disco excedida**
 
 ### <a name="cause"></a>Causa
 
@@ -106,14 +106,14 @@ Para fechar identificadores abertos para um compartilhamento de arquivos, diret�
 - Use o método de cópia correto:
     - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para qualquer transferência entre dois compartilhamentos de arquivos.
     - Usar CP ou DD com Parallel pode melhorar a velocidade de cópia, o número de threads depende do seu caso de uso e da carga de trabalho. Os exemplos a seguir usam seis: 
-    - exemplo de CP (CP usará o tamanho de bloco padrão do sistema de arquivos como o tamanho da `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`parte):.
+    - exemplo de CP (CP usará o tamanho de bloco padrão do sistema de arquivos como o tamanho da parte): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - exemplo de DD (este comando define explicitamente o tamanho da parte como 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Ferramentas de terceiros de código aberto, como:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) -classifica os arquivos e os compacta em partições.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -usa fpart e uma ferramenta de cópia para gerar várias instâncias para migrar dados de src_dir para dst_url.
         - [Vários](https://github.com/pkolano/mutil) multithreaded CP e md5sum com base no GNU coreutils.
-- Definir o tamanho do arquivo com antecedência, em vez de fazer cada gravação de uma gravação de extensão, ajuda a melhorar a velocidade de cópia em cenários em que o tamanho do arquivo é conhecido. Se for necessário evitar gravações estendidas, você poderá definir um tamanho de arquivo de `truncate - size <size><file>` destino com o comando. Depois disso, `dd if=<source> of=<target> bs=1M conv=notrunc`o comando copiará um arquivo de origem sem precisar atualizar repetidamente o tamanho do arquivo de destino. Por exemplo, você pode definir o tamanho do arquivo de destino para cada arquivo que deseja copiar (Suponha que um compartilhamento seja montado em/mnt/share):
+- Definir o tamanho do arquivo com antecedência, em vez de fazer cada gravação de uma gravação de extensão, ajuda a melhorar a velocidade de cópia em cenários em que o tamanho do arquivo é conhecido. Se for necessário evitar gravações estendidas, você poderá definir um tamanho de arquivo de destino com o `truncate - size <size><file>` comando. Depois disso, `dd if=<source> of=<target> bs=1M conv=notrunc` o comando copiará um arquivo de origem sem precisar atualizar repetidamente o tamanho do arquivo de destino. Por exemplo, você pode definir o tamanho do arquivo de destino para cada arquivo que deseja copiar (Suponha que um compartilhamento seja montado em/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - e, em seguida, copiar arquivos sem estender gravações em paralelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
@@ -206,7 +206,7 @@ Em plataformas Linux / Unix, o comando **cp -p** falha se usuários diferentes p
 
 ### <a name="cause"></a>Causa
 
-O sinalizador de força **f** em COPYFILE resulta na execução de **cp -p -f** no Unix. Esse comando também não preserva o carimbo de data/hora do arquivo que você não possui.
+O sinalizador de força **f** em CopyFile resulta na execução de **CP-p-f** no UNIX. Esse comando também não preserva o carimbo de data/hora do arquivo que você não possui.
 
 ### <a name="workaround"></a>Solução alternativa
 
@@ -277,7 +277,7 @@ Esse problema de reconexão no kernel do Linux agora foi corrigido como parte da
 
 - [Corrigir a reconexão para não adiar a sessão smb3 por muito tempo após a reconexão do soquete](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Chamar o serviço de eco imediatamente após a reconexão do soquete](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: corrigir uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: corrija uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: corrigir um possível bloqueio duplo de mutex durante a reconexão (para kernel v4.9 e posterior)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 No entanto, essas alterações ainda podem não ter sido portadas para todas as distribuições do Linux. Se você estiver usando uma distribuição do Linux popular, poderá verificar em [usar os arquivos do Azure com o Linux](storage-how-to-use-files-linux.md) para ver qual versão da sua distribuição tem as alterações de kernel necessárias.

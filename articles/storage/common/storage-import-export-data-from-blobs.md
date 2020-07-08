@@ -4,16 +4,16 @@ description: Saiba como criar trabalhos de exportação no Portal do Azure para 
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513494"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 
@@ -27,7 +27,7 @@ Você deve:
 - Ter uma assinatura ativa do Azure que pode ser usada para o serviço de Importação/Exportação.
 - Ter pelo menos uma conta de Armazenamento do Microsoft Azure. Consulte a lista de [Contas de armazenamento e tipos de armazenamento com suporte para o serviço de Importação/Exportação](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-account-create.md).
 - Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks).
-- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações `adbops@microsoft.com`Azure data Box em.
+- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações Azure Data Box em `adbops@microsoft.com` .
   - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
   - Gerar um número de controle para o trabalho de exportação.
   - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
@@ -39,7 +39,7 @@ Você deve:
 
 Execute as etapas a seguir para criar um trabalho de exportação no portal do Azure.
 
-1. Faça logon em https://portal.azure.com/.
+1. Faça logon em <https://portal.azure.com/>.
 2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
 
     ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -83,7 +83,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 
 6. Em **Informações sobre a remessa de devolução**:
 
-    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações `adbops@microsoft.com` Azure data Box em com as informações sobre a transportadora que você planeja usar.
+    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com` com as informações sobre a transportadora que você planeja usar.
     - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usa essa conta para enviar as unidades de volta para você quando o trabalho de exportação estiver concluído.
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
@@ -129,7 +129,11 @@ A exportação foi concluída.
 
 Se estiver usando a versão 1.4.0.300 da ferramenta WAImportExport, use o seguinte comando para desbloquear a unidade:
 
-    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Aqui está um exemplo da entrada de exemplo.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Se estiver usando versões anteriores da ferramenta, use a caixa de diálogo do BitLocker para desbloquear a unidade.
 
@@ -143,11 +147,11 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
 2. Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
 3. Abra um PowerShell ou janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o comando a seguir:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Para verificar o número de discos necessários para os blobs selecionados, execute o seguinte comando:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Os parâmetros estão descritos na tabela a seguir:
 

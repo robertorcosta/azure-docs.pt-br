@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60363194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514340"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
 
@@ -58,10 +58,10 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
 3. No assistente **Adicionar Funções e Recursos**, execute as seguintes etapas:
    
    1. Na página **Antes de começar** , clique em **Avançar**.
-   2. Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Avançar**.
+   2. Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Próximo**.
    
        ![Adicionar Assistente de Funções e Recursos 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   3. Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor do pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Avançar**.
+   3. Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor do pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Próximo**.
    4. Na página **Selecionar funções de servidor**, clique em **Avançar**.
    5. Na página **Selecionar recursos**, selecione **Multipath I/O** e clique em **Avançar**.
    

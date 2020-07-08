@@ -3,15 +3,15 @@ title: Criar um pacote de suporte da série StorSimple 8000
 description: Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple da série 8000.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514039"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
 
@@ -40,7 +40,7 @@ Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte d
    1. No prompt de comando, insira:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. Na caixa de diálogo que é aberta, insira sua senha de administrador do dispositivo. A senha padrão é _Password1_.
+   2. Na caixa de diálogo que é aberta, insira sua senha de administrador do dispositivo. A senha padrão é _Senha1_.
      
       ![Caixa de diálogo da credencial do PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. Selecione **OK**.

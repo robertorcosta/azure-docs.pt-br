@@ -3,16 +3,16 @@ title: Migrar dados para Sincronização de Arquivos do Azure com Azure Data Box
 description: Migre dados em massa de forma que sejam compatíveis com Sincronização de Arquivos do Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d0331419de89775062f1309c5d854cd7325c68e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514380"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para Sincronização de Arquivos do Azure com o Azure Data Box
 Você pode migrar dados em massa para Sincronização de Arquivos do Azure de duas maneiras:
@@ -49,9 +49,9 @@ Veja como configurar Sincronização de Arquivos do Azure de forma que seja comp
 
 ![Diagrama mostrando como configurar Sincronização de Arquivos do Azure](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Etapa | Detalhes |
+| Etapa | Detalhe |
 |---|---------------------------------------------------------------------------------------|
-| ![Etapa 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Solicite o Data Box](../../databox/data-box-deploy-ordered.md). A família de Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Ao receber sua data Box, siga sua [documentação para copiar os dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esse caminho UNC no data Box: * \\<\>\<DeviceIPAddres StorageAccountName_AzFile\>\<ShareName\>*. Aqui, *ShareName* é o nome do compartilhamento de preparo. Envie o Data Box para o Azure. |
+| ![Etapa 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Solicite o Data Box](../../databox/data-box-deploy-ordered.md). A família de Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Ao receber sua Data Box, siga sua [documentação para copiar os dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esse caminho UNC no Data Box: * \\ \> \<StorageAccountName_AzFile\> \<ShareName\><DeviceIPAddres*. Aqui, *ShareName* é o nome do compartilhamento de preparo. Envie o Data Box para o Azure. |
 | ![Etapa 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que os arquivos apareçam nos compartilhamentos de arquivos do Azure que você escolheu como compartilhamentos temporários de preparo. *Não habilite a sincronização para esses compartilhamentos.* |
 | ![Etapa 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Crie um novo compartilhamento vazio para cada compartilhamento de arquivos que Data Box criado para você. Esse novo compartilhamento deve estar na mesma conta de armazenamento que o compartilhamento de Data Box. [Como criar um novo compartilhamento de arquivos do Azure](storage-how-to-create-file-share.md).</li><li>[Crie um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) em um serviço de sincronização de armazenamento. Referencie o compartilhamento vazio como um ponto de extremidade de nuvem. Repita essa etapa para cada compartilhamento de arquivos do Data Box. [Configurar sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md).</li></ul> |
 | ![Etapa 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Adicione seu diretório do servidor ao vivo como um ponto de extremidade do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que você moveu os arquivos para o Azure e faça referência aos compartilhamentos de preparo. Você pode habilitar ou desabilitar a disposição em camadas de nuvem conforme necessário. Ao criar um ponto de extremidade do servidor em seu servidor dinâmico, faça referência ao compartilhamento de preparo. Na folha **Adicionar ponto de extremidade do servidor** , em **transferência de dados offline**, selecione **habilitado**e, em seguida, selecione o compartilhamento de preparo que deve estar na mesma conta de armazenamento que o ponto de extremidade da nuvem. Aqui, a lista de compartilhamentos disponíveis é filtrada por conta de armazenamento e compartilhamentos que ainda não estão sincronizando. A captura de tela após esta tabela mostra como referenciar o compartilhamento data box durante a criação do ponto de extremidade do servidor no portal do Azure. |

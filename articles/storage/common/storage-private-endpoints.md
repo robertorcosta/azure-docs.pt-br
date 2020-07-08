@@ -5,17 +5,17 @@ description: Visão geral de pontos de extremidade privados para acesso seguro a
 services: storage
 author: santoshc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299049"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513279"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usar pontos de extremidade privados para o armazenamento do Azure
 
@@ -79,17 +79,17 @@ Quando você resolve a URL do ponto de extremidade de armazenamento de fora da V
 
 Para o exemplo ilustrado acima, os registros de recurso de DNS para a conta de armazenamento ' StorageAccountA ', quando resolvidos de fora da VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Type  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<ponto de extremidade público do serviço de armazenamento\>                   |
-| \<ponto de extremidade público do serviço de armazenamento\>                   | Um     | \<Endereço IP público do serviço de armazenamento\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| \<storage service public endpoint\>                   | Um     | \<storage service public IP address\>                 |
 
 Conforme mencionado anteriormente, você pode negar ou controlar o acesso para clientes fora da VNet por meio do ponto de extremidade público usando o firewall de armazenamento.
 
 Os registros de recurso DNS para StorageAccountA, quando resolvido por um cliente na VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Type  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | Um     | 10.1.1.5                                              |
@@ -107,8 +107,8 @@ Os nomes de zona DNS recomendados para pontos de extremidade privados para servi
 | :--------------------- | :----------------------------------- |
 | Serviço Blob           | `privatelink.blob.core.windows.net`  |
 | Armazenamento do Data Lake Gen2 | `privatelink.dfs.core.windows.net`   |
-| Serviço de arquivo           | `privatelink.file.core.windows.net`  |
-| serviço Fila          | `privatelink.queue.core.windows.net` |
+| Serviço de arquivos           | `privatelink.file.core.windows.net`  |
+| Serviço Fila          | `privatelink.queue.core.windows.net` |
 | Serviço tabela          | `privatelink.table.core.windows.net` |
 | Sites estáticos        | `privatelink.web.core.windows.net`   |
 
@@ -137,9 +137,9 @@ Essa restrição é um resultado das alterações de DNS feitas quando a conta a
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede para sub-redes com pontos de extremidade privados
 
-No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas ao ponto de extremidade privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
+No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas somente a outros pontos de extremidade (por exemplo, NICs) do que o ponto final privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurar redes virtuais e firewalls de armazenamento do Azure](storage-network-security.md)
-- [Recomendações de segurança para o armazenamento de BLOBs](../blobs/security-recommendations.md)
+- [Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure](storage-network-security.md)
+- [Recomendações de segurança para o armazenamento de blobs](../blobs/security-recommendations.md)

@@ -5,21 +5,20 @@ services: storsimple
 documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61481885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514026"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desativar e excluir um dispositivo StorSimple
 
@@ -36,28 +35,29 @@ Quando você desativa um dispositivo, todos os dados que foram armazenados local
 >
 > O processo de redefinição de fábrica exclui todos os dados que foram armazenados localmente no seu dispositivo. Por isso, é necessário criar um instantâneo de nuvem de todos os dados antes de desativar um dispositivo. Esse instantâneo permitirá que você recupere todos os dados em um estágio posterior.
 
+> [!NOTE]
+>
+> - Antes de desativar um dispositivo físico StorSimple, ou um dispositivo de nuvem, certifique-se de que os dados do contêiner de volume excluído tenham sido realmente excluídos do dispositivo. Você pode monitorar os gráficos de consumo da nuvem e, quando perceber uma queda na utilização da nuvem devido aos backups excluídos, desative o dispositivo. Se você desativar o dispositivo antes dessa queda, os dados ficarão presos na conta de armazenamento e acumularão encargos.
+>
+> - Antes de desativar um dispositivo físico ou da nuvem StorSimple, interrompa ou exclua os clientes e hosts que dependem dele.
+>
+> - Se as contas de armazenamento ou os contêineres na conta de armazenamento associados aos contêineres de volume já estiverem excluídos antes de excluir os dados do dispositivo, você receberá um erro e não poderá excluir os dados. Recomendamos que você exclua os dados no dispositivo antes de excluir a conta de armazenamento ou os contêineres contidos nele. No entanto, nessa situação, você precisará prosseguir com a desativação e a exclusão do dispositivo, supondo que os dados já tenham sido removidos da conta de armazenamento.
+
 Depois de ler este tutorial, você poderá:
 
-* Desativar um dispositivo e excluir os dados.
-* Desativar um dispositivo e manter os dados.
-
-> [!NOTE]
-> Antes de desativar um dispositivo físico ou da nuvem StorSimple, interrompa ou exclua os clientes e hosts que dependem dele.
-
+- Desativar um dispositivo e excluir os dados.
+- Desativar um dispositivo e manter os dados.
 
 ## <a name="deactivate-and-delete-data"></a>Desativar e excluir dados
 
 Se você estiver interessado em excluir o dispositivo completamente e não quiser manter os dados nele, conclua as etapas a seguir.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Para desativar o dispositivo e excluir os dados
+### <a name="to-deactivate-the-device-and-delete-the-data"></a>Para desativar o dispositivo e excluir os dados
 
-1. Antes de desativar um dispositivo, é necessário excluir todos os contêineres de volumes (e os próprios volumes) associados ao dispositivo. Você pode excluir os contêineres de volume somente depois que tiver excluído os backups associados.
-
-    > [!NOTE]
-    > Antes de desativar um dispositivo físico StorSimple, ou um dispositivo de nuvem, certifique-se de que os dados do contêiner de volume excluído tenham sido realmente excluídos do dispositivo. Você pode monitorar os gráficos de consumo da nuvem e, quando perceber uma queda na utilização da nuvem devido aos backups excluídos, desative o dispositivo. Se você desativar o dispositivo antes dessa queda, os dados ficarão presos na conta de armazenamento e acumularão encargos.
+1. Antes de desativar um dispositivo, é necessário excluir todos os contêineres de volumes (e os próprios volumes) associados ao dispositivo. Você pode excluir os contêineres de volume somente depois que tiver excluído os backups associados. Consulte a observação na visão geral acima antes de desativar um dispositivo físico StorSimple ou um dispositivo de nuvem.
 
 2. Desative o dispositivo como se segue:
-   
+
    1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Na folha **Dispositivos**, selecione o dispositivo que você deseja desativar, clique com o botão direito do mouse e clique em **Desativar**.
 
         ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
@@ -79,7 +79,8 @@ Se você estiver interessado em excluir o dispositivo completamente e não quise
 
 Se você tiver interesse em excluir o dispositivo, porém deseja manter os dados, execute as seguintes etapas:
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Para desativar um dispositivo e manter os dados
+### <a name="to-deactivate-a-device-and-retain-the-data"></a>Para desativar um dispositivo e manter os dados
+
 1. Desative o dispositivo. Todos os contêineres de volume e os instantâneos do dispositivo são mantidos.
    
    1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Na folha **Dispositivos**, selecione o dispositivo que você deseja desativar, clique com o botão direito do mouse e clique em **Desativar**.
@@ -99,7 +100,6 @@ Se você tiver interesse em excluir o dispositivo, porém deseja manter os dados
        ![Desativar o dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Você será notificado quando a exclusão for concluída com êxito. A lista de dispositivos também é atualizada para refletir a exclusão.
 
-     
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Desativar e excluir uma dispositivo de nuvem
 
 Para um Dispositivo de Nuvem StorSimple, a desativação do portal desaloca e exclui a máquina virtual e os recursos criados quando ele foi provisionado. Depois de desativado, o dispositivo de nuvem não poderá ser restaurado ao estado anterior.

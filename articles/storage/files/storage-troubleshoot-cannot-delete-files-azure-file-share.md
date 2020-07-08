@@ -7,15 +7,15 @@ ms.author: kartup
 manager: dcscontentpm
 ms.date: 10/25/2019
 ms.service: storage
-ms.subservice: common
+ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: d3a3763a8964810626bcdc47da230a9ee406f1f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74196475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511969"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Compartilhamento de arquivo do Azure – Falha ao excluir arquivos do compartilhamento de arquivo do Azure
 
@@ -44,7 +44,7 @@ Reduza o número de identificadores abertos simultâneos fechando alguns identif
 
 ### <a name="install-the-latest-azure-powershell-module"></a>Instalar o módulo de Azure PowerShell mais recente
 
-* [Instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Instalar módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Conectar-se ao Azure:
 
@@ -77,8 +77,8 @@ $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -Storag
 |259101229083|---|10.222.10.123|62758|2019-10-05|12:16:50Z|0|0|9507758546259807489|
 |259101229131|---|10.222.10.123|62758|2019-10-05|12:36:20Z|0|0|9507758546259807489|
 |259101229137|---|10.222.10.123|62758|2019-10-05|12:36:53Z|0|0|9507758546259807489|
-|259101229136|Nova pasta/Test. zip|10.222.10.123|62758|2019-10-05|12:36:29Z|13835132822072852480|9223446803645464576|9507758546259807489|
-|259101229135|Test. zip|37.222.22.143|62758|2019-10-05|12:36:24Z|11529250230440558592|0|9507758546259807489|
+|259101229136|Nova pasta/test.zip|10.222.10.123|62758|2019-10-05|12:36:29Z|13835132822072852480|9223446803645464576|9507758546259807489|
+|259101229135|test.zip|37.222.22.143|62758|2019-10-05|12:36:24Z|11529250230440558592|0|9507758546259807489|
 
 ### <a name="close-an-open-handle"></a>Fechar um identificador aberto:
 

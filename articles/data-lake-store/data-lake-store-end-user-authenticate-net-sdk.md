@@ -3,15 +3,15 @@ title: Autenticação do usuário final-.NET com Data Lake Storage Gen1-Azure
 description: Aprenda a obter autenticação de usuário final com o Azure Data Lake Storage Gen1 usando o Active Directory do Azure com o .NET SDK
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 37507f686ad2cf3fc66087b89ae77242ec79afdd
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 12f6e0fd34de96677693b7f0d159c7cf9032ca1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688150"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511285"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de usuário final com o Armazenamento de dados do Windows Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
 ## <a name="end-user-authentication"></a>Autenticação do usuário final
 Adicione este snippet no aplicativo cliente do .NET. Substitua os valores de espaço reservado pelos valores recuperados de um aplicativo nativo do Azure AD (listado como pré-requisito). Este snippet permite autenticar seu aplicativo **interativamente** com Gen1 de armazenamento do Data Lake, que significa que você for solicitado a inserir suas credenciais do Azure.
 
-Para facilitar o uso, o snippet a seguir usa valores padrão para a ID do cliente e o URI de redirecionamento que são válidos com qualquer assinatura do Azure. No snippet a seguir, você só precisa fornecer o valor da sua ID de locatário. Você pode recuperar a ID de locatário usando as instruções fornecidas em [Obter a ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+Para facilitar o uso, o snippet a seguir usa valores padrão para a ID do cliente e o URI de redirecionamento que são válidos com qualquer assinatura do Azure. No snippet a seguir, você só precisa fornecer o valor da sua ID de locatário. Você pode recuperar a ID de locatário usando as instruções fornecidas em [Obter a ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
     
 - Substitua a função Main() pelo código a seguir:
 

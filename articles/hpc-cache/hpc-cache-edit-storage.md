@@ -3,19 +3,22 @@ title: Atualizar destinos de armazenamento do cache HPC do Azure
 description: Como editar destinos de armazenamento do cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/08/2020
-ms.author: rohogue
-ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: v-erkel
+ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75867000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513849"
 ---
 # <a name="edit-storage-targets"></a>Editar destinos de armazenamento
 
 Você pode remover ou modificar um destino de armazenamento da página de **destinos de armazenamento** do cache.
+
+> [!TIP]
+> O [vídeo Gerenciando o cache HPC do Azure](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) mostra como editar um destino de armazenamento.
 
 ## <a name="remove-a-storage-target"></a>Remover um destino de armazenamento
 

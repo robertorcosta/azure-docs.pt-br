@@ -4,16 +4,16 @@ description: Compreenda os requisitos de hardware e software para o serviço de 
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255308"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512406"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
@@ -41,7 +41,7 @@ Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguinte
 
 O serviço de importação/exportação do Azure é compatível com os seguintes tipos de contas de armazenamento:
 
-- Contas de armazenamento V2 de Propósito Geral Padrão (recomendadas para a maioria dos cenários)
+- Contas de armazenamento Standard Uso Geral v2 (recomendado para a maioria dos cenários)
 - Contas de Armazenamento de Blobs
 - Contas de armazenamento v1 de Uso Geral (implantações clássicas ou do Azure Resource Manager)
 
@@ -50,7 +50,7 @@ Para saber mais sobre as contas de armazenamento, confira [Azure storage account
 Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-account-create.md).
 
 > [!IMPORTANT]
-> O serviço Azure Import Export não suporta contas de armazenamento onde o recurso [Depontos](../../virtual-network/virtual-network-service-endpoints-overview.md) finais de serviço de rede virtual foi ativado. 
+> O serviço de exportação de importação do Azure não dá suporte a contas de armazenamento em que o recurso de [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)foi   habilitado. 
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 
@@ -77,12 +77,14 @@ Os discos na lista a seguir têm suporte para uso com o serviço de Importação
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
-Os seguintes tipos de disco não são suportados:
-- Usbs.
-- HDD externo com adaptador USB embutido.
-- Discos que estão dentro do invólucro de um HDD externo.
+Não há suporte para os seguintes tipos de disco:
+
+- USBs.
+- HDD externo com adaptador USB interno.
+- Discos que estão dentro dos compartimentos de uma HDD externa.
 
 Um trabalho de importação/exportação único pode ter:
+
 - No máximo 10 HDD/SSDs.
 - Uma combinação de HDD/SSD de qualquer tamanho.
 
@@ -90,9 +92,6 @@ Um grande número de unidades pode ser distribuído em vários trabalhos e não 
 
 Ao preparar discos rígidos e copiar os dados usando a ferramenta WAImportExport, você pode usar os adaptadores USB externos a seguir. A maioria dos adaptadores disponíveis no mercado USB 3.0 ou posteriores deve funcionar.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
-* [Amostra de API de exportação de importação do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

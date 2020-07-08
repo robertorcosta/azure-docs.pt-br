@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: df261dbf8af8ffdb4ccb10626594626150245748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514431"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução do Azure para transferência de dados
 
@@ -35,7 +35,7 @@ A movimentação de dados pode ser dos seguintes tipos:
 
     - **Interface gráfica** - se você ocasionalmente transferir apenas alguns arquivos e não é necessário automatizar a transferência de dados, você pode escolher uma ferramenta de interface gráfica, como o Gerenciador de Armazenamento do Microsoft Azure ou uma ferramenta de exploração baseada na web no portal do Azure.
     - **Transferência programática ou com script** - você pode usar ferramentas de software otimizado fornecidas ou chamar nossas APIs REST/SDKs diretamente. Ferramentas programáveis disponíveis são AzCopy, Azure PowerShell e CLI do Azure. Para uma interface programática, use um dos SDKs para .NET, Java, Python, Node/JS, C++, Go, PHP ou Ruby.
-    - **Dispositivos locais** - fornecemos um dispositivo físico ou virtual que reside em seu datacenter e otimiza a transferência de dados pela rede. Esses dispositivos também fornecem um cache local dos arquivos usados com frequência. O dispositivo físico é a borda da caixa de dados e o dispositivo virtual é o Azure Data Box Gateway. Ambos executados permanentemente em suas instalações e se conectam ao Azure pela rede.
+    - **Dispositivos locais** - fornecemos um dispositivo físico ou virtual que reside em seu datacenter e otimiza a transferência de dados pela rede. Esses dispositivos também fornecem um cache local dos arquivos usados com frequência. O dispositivo físico é o Azure Stack Edge e o dispositivo virtual é o Gateway do Data Box. Ambos executados permanentemente em suas instalações e se conectam ao Azure pela rede.
     - **Pipeline de dados gerenciados** - você pode configurar um pipeline de nuvem para regularmente transferir arquivos entre vários serviços do Azure, no local ou uma combinação dos dois. Use o Azure Data Factory para configurar e gerenciar pipelines de dados e mover e transformar os dados para análise.
 
 O visual a seguir ilustra as diretrizes para escolher a transferência de dados do Azure de várias ferramentas de acordo com a largura de banda de rede disponível para transferência, tamanho dos dados destinado a transferência e a frequência da transferência.
@@ -72,14 +72,14 @@ Você também pode acessar sua conta de armazenamento do Azure em portal do Azur
 
 - [Obter uma introdução ao Armazenamento do Microsoft Azure](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [Leia uma visão geral do AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
-- [Início rápido: carregar, baixar e listar BLOBs com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-- [Início rápido: criar, baixar e listar BLOBs com CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
+- [Início Rápido: Carregar, baixar e listar blobs com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+- [Início Rápido: Criar, baixar e listar blobs com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Saiba mais sobre:
 
     - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box Gateway e Azure Data Box Edge para transferências online](https://docs.microsoft.com/azure/databox-online/).
+    - [Gateway do Azure data box e Azure Stack Edge para transferências online](https://docs.microsoft.com/azure/databox-online/).
 - [Saiba o que é o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
 - Use as APIs REST para transferir dados
 
     - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [No Java](https://docs.microsoft.com/java/api/overview/azure/storage)

@@ -4,16 +4,16 @@ description: Saiba como criar trabalhos de importação e exportação no portal
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 570c663861361a19190f6fb5d608b6aa029a0885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514221"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -34,7 +34,7 @@ Você deve:
 * [Baixe o WAImportExport versão 1 mais recente](https://www.microsoft.com/download/details.aspx?id=42659) no sistema Windows. A versão mais recente da ferramenta tem atualizações de segurança para permitir um protetor externo para a chave do BitLocker e o recurso modo de desbloqueio atualizado.
 
   * Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
-* Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações `adbops@microsoft.com`Azure data Box em.  
+* Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações Azure Data Box em `adbops@microsoft.com` .  
   * A conta deve ser válida, deve ter saldo e ter recursos de devolução.
   * Gerar um número de controle para o trabalho de exportação.
   * Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
@@ -85,9 +85,9 @@ Execute as etapas a seguir para preparar as unidades.
     |/bk:     |A chave do BitLocker para a unidade. O código de acesso da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra da unidade do disco a ser enviado seguida por `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contêiner de destino no Armazenamento do Microsoft Azure.         |
-    |/BlobType     |Esta opção especifica o tipo de BLOBs para os quais você deseja importar os dados. Para BLOBs de blocos, isso `BlockBlob` é e para BLOBs de páginas, `PageBlob`é.         |
+    |/BlobType     |Esta opção especifica o tipo de BLOBs para os quais você deseja importar os dados. Para BLOBs de blocos, isso é `BlockBlob` e para BLOBs de páginas, é `PageBlob` .         |
     |/skipwrite:     |A opção que especifica que não há novos dados necessários para serem copiados e que os dados existentes no disco devem ser preparados.          |
-    |/enablecontentmd5:     |A opção quando habilitado, garante que o MD5 é computado e `Content-md5` definido como propriedade em cada blob. Use esta opção somente se desejar usar o `Content-md5` campo depois que os dados forem carregados no Azure. <br> Essa opção não afeta a verificação de integridade de dados (que ocorre por padrão). A configuração aumenta o tempo necessário para carregar dados na nuvem.          |
+    |/enablecontentmd5:     |A opção quando habilitado, garante que o MD5 é computado e definido como `Content-md5` propriedade em cada blob. Use esta opção somente se desejar usar o `Content-md5` campo depois que os dados forem carregados no Azure. <br> Essa opção não afeta a verificação de integridade de dados (que ocorre por padrão). A configuração aumenta o tempo necessário para carregar dados na nuvem.          |
 8. Repita a etapa anterior para cada disco que precisa ser enviado. Um arquivo de diário com o nome fornecido é criado para cada execução da linha de comando.
 
     > [!IMPORTANT]
@@ -127,7 +127,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 6. Em **Informações sobre a remessa de devolução**:
 
-   * Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações `adbops@microsoft.com` Azure data Box em com as informações sobre a transportadora que você planeja usar.
+   * Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com` com as informações sobre a transportadora que você planeja usar.
    * Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
    * Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 

@@ -4,15 +4,15 @@ description: Configurar o MPIO no StorSimple conectado a um host Linux que estej
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76278354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511605"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
 Este artigo explica as etapas necessárias para a configuração do Multipathing IO (MPIO) em seu servidor host do Centos 6.6. O servidor host está conectado ao dispositivo Microsoft Azure StorSimple para alta disponibilidade por meio de iniciadores iSCSI. Ele descreve detalhadamente a descoberta automática de dispositivos de vários caminhos e a configuração específica somente para volumes do StorSimple.
@@ -328,17 +328,17 @@ Esta seção fornece algumas dicas úteis se você tiver algum problema durante 
 
 Q. Não vejo as alterações no arquivo `multipath.conf` entrarem em vigor.
 
-A. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando: 
+a. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando:
 
     service multipathd restart
 
 Q. Habilitei duas interfaces de rede no dispositivo StorSimple e duas interfaces de rede no host. Quando eu listo os caminhos disponíveis, vejo apenas dois caminhos. Eu esperava ver quatro caminhos disponíveis.
 
-A. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
+a. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
 
 Q. Quando eu listo os caminhos disponíveis, não vejo nenhuma saída.
 
-A. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
+a. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
 
 Também vale a pena verificar se você realmente pode ver alguns discos depois de se conectar ao destino, pois nenhuma resposta das listagens de vários caminhos também pode significar que você não tem discos.
 
@@ -364,14 +364,14 @@ Uma causa menos provável, mas possível, também poderia ser um pid iscsid obso
 
     iscsiadm -m node --logout -p <Target_IP>
 
-Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI, que é o seu dispositivo StorSimple. Depois de fazer logoff de todas as sessões iSCSI, use o IQN de destino iSCSI para restabelecer a sessão iSCSI. Digite o seguinte comando: 
+Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI, que é o seu dispositivo StorSimple. Depois de fazer logoff de todas as sessões iSCSI, use o IQN de destino iSCSI para restabelecer a sessão iSCSI. Digite o seguinte comando:
 
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
 Q. Não sei se meu dispositivo está na lista branca.
 
-A. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
+a. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
 
     multipathd -k
     multipathd> show devices
@@ -413,7 +413,7 @@ A. Para verificar se seu dispositivo está na lista branca, use o seguinte coman
 Para obter mais informações, acesse [solução de problemas para vários caminhos](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos úteis
-| Type | Comando | Descrição |
+| Tipo | Comando | Descrição |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Iniciar o serviço iSCSI |
 | &nbsp; |`service iscsid stop` |Parar o serviço iSCSI |

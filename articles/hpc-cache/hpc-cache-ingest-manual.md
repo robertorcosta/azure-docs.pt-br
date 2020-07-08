@@ -3,15 +3,15 @@ title: Ingestão de dados do cache HPC do Azure-cópia manual
 description: Como usar comandos CP para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 1d5f8e6b59a4ae0149f219738952b47ce399c2ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a5fdc3b76c330619601e171c152d7a2e583ae90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514484"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure-método de cópia manual
 
@@ -37,7 +37,7 @@ Depois de emitir esse comando, o comando `jobs` mostrará se os dois threads est
 
 Se os nomes de arquivo forem previsíveis, você poderá usar expressões para criar threads de cópia paralela.
 
-Por exemplo, se seu diretório contiver 1000 arquivos que são numerados sequencialmente `0001` de `1000`para, você poderá usar as seguintes expressões para criar 10 threads paralelos que cada cópia 100 arquivos:
+Por exemplo, se seu diretório contiver 1000 arquivos que são numerados sequencialmente de `0001` para `1000` , você poderá usar as seguintes expressões para criar 10 threads paralelos que cada cópia 100 arquivos:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \

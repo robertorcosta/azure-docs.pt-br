@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6eb983eb5e36c5f3ac6b6eca049239d12bc01a0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514625"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar componentes e status de hardware
 
@@ -79,7 +79,7 @@ Execute as etapas a seguir para exibir o status de hardware de um componente de 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes para o compartimento primário do dispositivo StorSimple
 A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento primário (presente nos modelos 8100 e 8600) do seu dispositivo StorSimple local.
 
-| Componente | Módulo | Type | Local | Unidade renovável (FRU)? | Descrição |
+| Componente | Módulo | Tipo | Location | Unidade renovável (FRU)? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das unidades SSD ou HDD no compartimento primário. |
 | Sensor de temperatura ambiente |Compartimento |Físico |Compartilhado |Não |Mede a temperatura dentro do chassi. |
@@ -93,18 +93,18 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Fonte de alimentação [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo. |
 | Resfriamento [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs. |
 | Bateria [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos módulos de bateria de backup que estão encaixados no PCM. |
-| Metis |N/D |Lógico |Compartilhado |N/D |Exibe o estado das baterias: se elas precisam de carregamento e estão no fim do tempo de vida. |
-| Cluster |N/D |Lógico |Compartilhado |N/D |Exibe o estado do cluster que é criado entre os dois módulos do controlador integrado. |
-| Nó de cluster |N/D |Lógico |Compartilhado |N/D |Indica o estado do controlador como parte do cluster. |
-| Quorum de cluster |N/D |Lógico | |N/D |Indica a presença da maioria da associação do disco no pool de armazenamento de HDD. |
-| Espaço de dados do HDD |N/D |Lógico |Compartilhado |N/D |O espaço de armazenamento que é usado para dados no pool de armazenamento de unidade de disco rígido (HDD). |
-| Espaço de gerenciamento de HDD |N/D |Lógico |Compartilhado |N/D |O espaço reservado no pool de armazenamento de HDD para tarefas de gerenciamento. |
-| Espaço de quorum do HDD |N/D |Lógico |Compartilhado |N/D |O espaço reservado no pool de armazenamento de HDD para quorum de cluster. |
-| Espaço de substituição do HDD |N/D |Lógico |Compartilhado |N/D |O espaço reservado no pool de armazenamento do HDD para substituição do controlador. |
-| Espaço de dados do SSD |N/D |Lógico |Compartilhado |N/D |O espaço de armazenamento usado para dados no pool de armazenamento de unidade estado sólido (SSD). |
-| Espaço SSD NVRAM |N/D |Lógico |Compartilhado |N/D |O espaço de armazenamento no pool de armazenamento SSD dedicado para lógica NVRAM. |
-| Pool de armazenamento do HDD |N/D |Lógico |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
-| Pool de armazenamento do SSD |N/D |Lógico |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos SSDs de dispositivo. |
+| Metis |N/D |Logical |Compartilhado |N/D |Exibe o estado das baterias: se elas precisam de carregamento e estão no fim do tempo de vida. |
+| Cluster |N/D |Logical |Compartilhado |N/D |Exibe o estado do cluster que é criado entre os dois módulos do controlador integrado. |
+| Nó de cluster |N/D |Logical |Compartilhado |N/D |Indica o estado do controlador como parte do cluster. |
+| Quorum de cluster |N/D |Logical | |N/D |Indica a presença da maioria da associação do disco no pool de armazenamento de HDD. |
+| Espaço de dados do HDD |N/D |Logical |Compartilhado |N/D |O espaço de armazenamento que é usado para dados no pool de armazenamento de unidade de disco rígido (HDD). |
+| Espaço de gerenciamento de HDD |N/D |Logical |Compartilhado |N/D |O espaço reservado no pool de armazenamento de HDD para tarefas de gerenciamento. |
+| Espaço de quorum do HDD |N/D |Logical |Compartilhado |N/D |O espaço reservado no pool de armazenamento de HDD para quorum de cluster. |
+| Espaço de substituição do HDD |N/D |Logical |Compartilhado |N/D |O espaço reservado no pool de armazenamento do HDD para substituição do controlador. |
+| Espaço de dados do SSD |N/D |Logical |Compartilhado |N/D |O espaço de armazenamento usado para dados no pool de armazenamento de unidade estado sólido (SSD). |
+| Espaço SSD NVRAM |N/D |Logical |Compartilhado |N/D |O espaço de armazenamento no pool de armazenamento SSD dedicado para lógica NVRAM. |
+| Pool de armazenamento do HDD |N/D |Logical |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
+| Pool de armazenamento do SSD |N/D |Logical |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos SSDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado do controlador e se ele está no modo ativo ou em espera dentro do chassi. |
 | Sensores de temperatura no controlador |E/S |Físico |Controller |Não |Vários sensores de temperatura, como o módulo de E/S, temperatura da CPU, sensores DIMM e PCI e têm seu estado exibido, que indica se a temperatura encontrada está ou não dentro da tolerância. |
 | Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor serial anexado SCSI (SAS), que é usado para conectar o armazenamento integrado ao controlador. |
@@ -120,7 +120,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes para o compartimento EBOD do dispositivo StorSimple
 A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento EBOD (apenas presente no modelo 8600) do seu dispositivo StorSimple local.
 
-| Componente | Módulo | Type | Local | FRU? | Descrição |
+| Componente | Módulo | Tipo | Location | FRU? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das unidades HDD na frente do compartimento EBOD. |
 | Sensor de temperatura ambiente |Compartimento |Físico |Compartilhado |Não |Mede a temperatura dentro do chassi. |
@@ -133,7 +133,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Sensores de temperatura em PCM |PCM |Físico |Compartilhado |Não |Vários sensores de temperatura, como de Entrada e Ponto de acesso, têm seu estado exibido, indicando se a temperatura medida está dentro da tolerância. |
 | Fonte de alimentação [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo. |
 | Resfriamento [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs. |
-| Armazenamento local [HDD] |N/D |Lógico |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
+| Armazenamento local [HDD] |N/D |Logical |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado dos controladores no módulo EBOD. |
 | Sensores de temperatura no EBOD |E/S |Físico |Controller |Não |Vários sensores de temperatura têm seu estado exibido, indicando se a temperatura encontrada está dentro da tolerância. |
 | Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor SAS, que é usado para conectar o armazenamento integrado ao controlador. |

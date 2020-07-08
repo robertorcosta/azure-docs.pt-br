@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60630539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512976"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
 
@@ -219,7 +219,7 @@ Você pode silenciar o alarme audível apertando o botão de mudo no painel de o
 A tabela a seguir descreve as várias condições de alarme.
 
 ### <a name="alarm-conditions"></a>Condições de alarme.
-| Status | Severity | Alarme | LED do painel de operações |
+| Status | Severidade | Alarme | LED do painel de operações |
 | --- | --- | --- | --- |
 | Alerta de PCM – perda de energia de CC de um único PCM |Falha – nenhuma perda de redundância |S1 |Falha do módulo |
 | Alerta de PCM – perda de energia de CC de um único PCM |Falha – perda de redundância |S1 |Falha do módulo |
@@ -239,7 +239,7 @@ A tabela a seguir descreve as várias condições de alarme.
 | Falha de controle de energia do drive |Aviso – nenhuma perda de energia no drive |S1 |Falha do módulo |
 | Falha de controle de energia do drive |Falha – crítica; perda de energia do drive |S1 |Falha do módulo |
 | Drive removido |Aviso |Nenhum |Falha do módulo |
-| Energia insuficiente disponível |Aviso |none |Falha do módulo |
+| Energia insuficiente disponível |Aviso |nenhum |Falha do módulo |
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os [componentes de hardware e o status do StorSimple](storsimple-8000-monitor-hardware-status.md).

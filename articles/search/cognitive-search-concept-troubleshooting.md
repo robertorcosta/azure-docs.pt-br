@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/08/2020
+ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510864"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para o enriquecimento de ia no Azure Pesquisa Cognitiva
 
@@ -49,7 +49,16 @@ Nesse caso, convém orientar o indexador a ignorar erros. Faça isso definindo *
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Dica 4: examine os bastidores dos documentos enriquecidos 
+> [!NOTE]
+> Como prática recomendada, defina maxFailedItems, maxFailedItemsPerBatch como 0 para cargas de trabalho de produção
+
+## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Dica 4: usar sessões de depuração para identificar e resolver problemas com seu qualificable 
+
+As Sessões de depuração são um editor visual que funciona com um conjunto de habilidades existente no portal do Azure. Em uma sessão de depuração, você pode identificar e resolver erros, validar alterações e confirmar alterações em um confirmante de produção no pipeline de enriquecimento de ia. Este é um recurso de visualização [Leia a documentação](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Para obter mais informações sobre conceitos e introdução, consulte [depurar sessões](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+
+As sessões de depuração funcionam em um único documento são uma ótima maneira de Compilar iterativamente pipelines de enriquecimento mais complexos.
+
+## <a name="tip-5-looking-at-enriched-documents-under-the-hood"></a>Dica 5: examinando os documentos aprimorados nos bastidores 
 Documentos enriquecidos são estruturas temporárias criadas durante enriquecimento e, em seguida, excluídos quando o processo é concluído.
 
 Para capturar um instantâneo do documento enriquecido criado durante a indexação, adicione um campo chamado ```enriched``` ao índice. O indexador despeja automaticamente no campo uma representação de cadeia de caracteres de todos os enriquecimentos do documento.
@@ -77,15 +86,15 @@ Adicione um campo ```enriched``` como parte da definição do índice para fins 
 }
 ```
 
-## <a name="tip-5-expected-content-fails-to-appear"></a>Dica 5: o conteúdo esperado não aparece
+## <a name="tip-6-expected-content-fails-to-appear"></a>Dica 6: falha na exibição do conteúdo esperado
 
 A falta de conteúdo pode ser resultado da remoção de documentos durante a indexação. As camadas Básica e Gratuita têm limites baixos de tamanho do documento. Qualquer arquivo que ultrapassar o limite será removido durante a indexação. Você pode verificar se há documentos removidos no portal do Azure. No painel do serviço de pesquisa, clique duas vezes no bloco Indexadores. Examine a proporção de documentos indexados com êxito. Se ela não for de 100%, você poderá clicar nela para obter mais detalhes. 
 
-Se o problema estiver relacionado ao tamanho do arquivo, você poderá ver um erro como este: "o \<nome do arquivo de blob>" tem o \<tamanho do tamanho do arquivo> bytes, o que excede o tamanho máximo para extração de documentos para sua camada de serviço atual. " Para obter mais informações sobre os limites de indexador, confira [Limites de serviço](search-limits-quotas-capacity.md).
+Se o problema estiver relacionado ao tamanho do arquivo, você poderá ver um erro como este: "o blob \<file-name> " tem o tamanho de \<file-size> bytes, que excede o tamanho máximo para extração de documentos para sua camada de serviço atual. " Para obter mais informações sobre os limites de indexador, confira [Limites de serviço](search-limits-quotas-capacity.md).
 
 Um segundo motivo para o conteúdo não aparecer pode ser a presença de erros de mapeamento de entrada/saída. Por exemplo, o nome da saída de destino é "People", mas o nome do campo de índice é "people", com letras minúsculas. O sistema pode retornar mensagens de êxito 201 para todo o pipeline, o que levará você a achar que a indexação foi bem-sucedida, quando na verdade um campo está vazio. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Dica 6: estenda o processamento além do tempo de execução máximo (janela de 24 horas)
+## <a name="tip-7-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Dica 7: estender o processamento além do tempo de execução máximo (janela de 24 horas)
 
 A análise de imagem faz uso intensivo de computação até mesmo em casos simples, de modo que quando as imagens são especialmente grandes ou complexas, os tempos de processamento podem ultrapassar o tempo máximo permitido. 
 
@@ -98,12 +107,12 @@ Para indexadores agendados, a indexação é retomada de acordo com a agenda no 
 
 Para a indexação baseada em portal (conforme descrita no guia de início rápido), escolher a opção "Executar uma vez" do indexador limita o processamento a 1 hora (`"maxRunTime": "PT1H"`). Você talvez queira estender a janela de processamento para um período mais longo.
 
-## <a name="tip-7-increase-indexing-throughput"></a>Dica 7: aumente a produtividade da indexação
+## <a name="tip-8-increase-indexing-throughput"></a>Dica 8: aumentar a taxa de transferência de indexação
 
 Para a [indexação paralela](search-howto-large-index.md), coloque os dados em vários contêineres ou várias pastas virtuais dentro do mesmo contêiner. Em seguida, crie vários pares de fonte de dados e indexador. Todos os indexadores podem usar o mesmo conjunto de habilidades e gravar no mesmo índice de pesquisa de destino, de modo que seu aplicativo de pesquisa não precisa estar ciente desse particionamento.
 Para obter mais informações, consulte [Indexando grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 + [Início rápido: criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: aprender sobre APIs REST de rericação de AI](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials) (Especificando credenciais de fonte de dados)

@@ -4,16 +4,16 @@ description: Saiba como configurar a ferramenta de preparação e reparo da unid
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/29/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7d2cac9402477090ae412dcf21265bec4609278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74979029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514175"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurando a Ferramenta de Importação/Exportação do Azure
 
@@ -49,7 +49,7 @@ Se estiver tentando **reparar uma exportação** com falha parcial, é necessár
 
 ## <a name="installing-the-azure-importexport-tool"></a>Instalando a ferramenta de Importação/Exportação do Azure
 
-Primeiro, [Baixe a ferramenta de importação/exportação do Azure](https://www.microsoft.com/download/details.aspx?id=55280) e extraia-a para um diretório em seu `c:\WAImportExport`computador, por exemplo.
+Primeiro, [Baixe a ferramenta de importação/exportação do Azure](https://www.microsoft.com/download/details.aspx?id=55280) e extraia-a para um diretório em seu computador, por exemplo `c:\WAImportExport` .
 
 A Ferramenta de Importação/Exportação do Azure consiste nos seguintes arquivos:
 
@@ -206,6 +206,6 @@ Examples:
 * [Preparando discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [Visualizando o uso da unidade de um trabalho de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)
 * [Revisão do status do trabalho com arquivos de log de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)
-* [Reparando um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)
+* [Reparação de um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)
-* [Solução de problemas da ferramenta de importação/exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)

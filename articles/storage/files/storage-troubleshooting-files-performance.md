@@ -3,16 +3,16 @@ title: Guia de solução de problemas de desempenho de arquivos do Azure
 description: Problemas de desempenho conhecidos com compartilhamentos de arquivos do Azure e soluções alternativas associadas.
 author: gunjanj
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511948"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
@@ -113,7 +113,7 @@ Falta de suporte para concessões de diretório.
 ### <a name="workaround"></a>Solução alternativa
 
 - Se possível, evite um excesso de identificadores de abertura/fechamento no mesmo diretório em um curto período de tempo.
-- Para VMs do Linux, aumente o tempo limite do cache de entrada de diretório especificando **actimeo =\<SEC>** como uma opção de montagem. Por padrão, é um segundo, portanto, um valor maior, como três ou cinco, pode ajudar.
+- Para VMs do Linux, aumente o tempo limite do cache de entrada de diretório especificando **actimeo = \<sec> ** como uma opção de montagem. Por padrão, é um segundo, portanto, um valor maior, como três ou cinco, pode ajudar.
 - Para VMs do Linux, atualize o kernel para 4,20 ou superior.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS baixo no CentOS/RHEL
@@ -187,7 +187,7 @@ Maior que a latência esperada Acessando arquivos do Azure para cargas de trabal
 6. Na folha **Configurar lógica de sinal** , vá para a **dimensão tipo de resposta** , clique na lista suspensa valores de **dimensão** e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST). 
 
   > [!NOTE]
-  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado.  Para adicionar o valor de dimensão, clique **+** na lista suspensa ao lado dos **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError**, clique em **OK** e repita a etapa #6.
+  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado.  Para adicionar o valor de dimensão, clique na **+** lista suspensa ao lado dos **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError**, clique em **OK** e repita a etapa #6.
 
 7. Vá para a dimensão de **compartilhamento de arquivos** , clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar. 
 

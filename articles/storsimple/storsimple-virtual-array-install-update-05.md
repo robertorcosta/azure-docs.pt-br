@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: e09ff4bcbc141b1a1f80bc278918a291639c1885
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 9b95593dd7ce7e10300ecef9b3636073a3096a7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61445235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513656"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.5 em sua StorSimple Virtual Array
 
@@ -57,7 +57,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para baixar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e navegue [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)até.
+1. Inicie o Internet Explorer e navegue até [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
@@ -90,7 +90,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Na interface do usuário da Web local, vá para **manutenção** > **atualização de software**.
+1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**.
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -106,7 +106,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção** > **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10290.0** para a Atualização 0.5.
+5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10290.0** para a Atualização 0.5.
    
    > [!NOTE]
    > Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal do Azure. Por exemplo, a interface do usuário da Web local informa **10.0.0.0.0.10290** e o portal do Azure informa **10.0.10290.0** para a mesma versão.

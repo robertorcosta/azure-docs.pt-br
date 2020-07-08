@@ -3,16 +3,16 @@ title: Habilitar e criar compartilhamentos de arquivos grandes-arquivos do Azure
 description: Neste artigo, você aprenderá a habilitar e a criar grandes compartilhamentos de arquivos.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/20/2019
+ms.topic: how-to
+ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510737"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitar e criar compartilhamentos de arquivos grandes
 
@@ -21,8 +21,8 @@ Quando você habilita grandes compartilhamentos de arquivos em sua conta de arma
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Se você pretende usar o CLI do Azure, [Instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Se você pretende usar Azure PowerShell, [Instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretende usar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -32,10 +32,10 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 
 ## <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
 
-### <a name="portal"></a>Portal
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Na portal do Azure, selecione **todos os serviços**. 
+1. No portal do Azure, clique em **Todos os serviços**. 
 1. Na lista de recursos, insira **contas de armazenamento**. A lista filtra com base em sua entrada, à medida que você digita. Selecione **contas de armazenamento**.
 1. Na janela **contas de armazenamento** que aparece, selecione **Adicionar**.
 1. Selecione a assinatura que você usará para criar a conta de armazenamento.
@@ -62,33 +62,34 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 
 1. Selecione **Criar**.
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Primeiro, [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para que você possa habilitar grandes compartilhamentos de arquivos.
 
-Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>`, `<yourResourceGroup>`e `<yourDesiredRegion>` pelas suas informações.
+Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 
 ```azurecli-interactive
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Primeiro, [Instale a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) para que você possa habilitar compartilhamentos de arquivos grandes.
 
-Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>`, `<yourResourceGroup>`e `<yourDesiredRegion>` pelas suas informações.
+Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 
 ```powershell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
+---
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Habilitar compartilhamentos de arquivos grandes em uma conta existente
 
 Você também pode habilitar compartilhamentos de arquivos grandes em suas contas existentes. Se você habilitar grandes compartilhamentos de arquivos, não será possível converter em GZRS, GRS, RA-GRS ou RA-GZRS. A habilitação de grandes compartilhamentos de arquivos é irreversível nessa conta de armazenamento.
 
-### <a name="portal"></a>Portal
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Abra o [portal do Azure](https://portal.azure.com)e vá para a conta de armazenamento onde você deseja habilitar grandes compartilhamentos de arquivos.
 1. Abra a conta de armazenamento e selecione **configuração**.
@@ -97,11 +98,9 @@ Você também pode habilitar compartilhamentos de arquivos grandes em suas conta
 
 ![Selecionando o botão de opção habilitado em uma conta de armazenamento existente no portal do Azure](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
-Agora você habilitou grandes compartilhamentos de arquivos em sua conta de armazenamento. Em seguida, você deve atualizar a cota do compartilhamento existente para tirar proveito da maior capacidade e escala.
+Agora você habilitou grandes compartilhamentos de arquivos em sua conta de armazenamento. Em seguida, você deve [atualizar a cota do compartilhamento existente](#expand-existing-file-shares) para tirar proveito da maior capacidade e escala.
 
-Se você receber a mensagem de erro "grandes compartilhamentos de arquivos não estão disponíveis para a conta ainda", sua região poderá estar no meio da conclusão de sua distribuição. Entre em contato com o suporte se você tiver uma necessidade urgente de grandes compartilhamentos de arquivos.
-
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para habilitar grandes compartilhamentos de arquivos em sua conta existente, use o comando a seguir. Substitua `<yourStorageAccountName>` e `<yourResourceGroup>` por suas informações.
 
@@ -109,7 +108,9 @@ Para habilitar grandes compartilhamentos de arquivos em sua conta existente, use
 az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
 ```
 
-### <a name="powershell"></a>PowerShell
+Agora você habilitou grandes compartilhamentos de arquivos em sua conta de armazenamento. Em seguida, você deve [atualizar a cota do compartilhamento existente](#expand-existing-file-shares) para tirar proveito da maior capacidade e escala.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para habilitar grandes compartilhamentos de arquivos em sua conta existente, use o comando a seguir. Substitua `<yourStorageAccountName>` e `<yourResourceGroup>` por suas informações.
 
@@ -117,11 +118,15 @@ Para habilitar grandes compartilhamentos de arquivos em sua conta existente, use
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
+Agora você habilitou grandes compartilhamentos de arquivos em sua conta de armazenamento. Em seguida, você deve [atualizar a cota do compartilhamento existente](#expand-existing-file-shares) para tirar proveito da maior capacidade e escala.
+
+---
+
 ## <a name="create-a-large-file-share"></a>Criar um compartilhamento de arquivos grande
 
 Depois de habilitar grandes compartilhamentos de arquivos em sua conta de armazenamento, você poderá criar compartilhamentos de arquivos nessa conta com cotas maiores. 
 
-### <a name="portal"></a>Portal
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 A criação de um compartilhamento de arquivos grande é quase idêntica à criação de um compartilhamento de arquivos padrão. A principal diferença é que você pode definir uma cota de até 100 TiB.
 
@@ -131,17 +136,17 @@ A criação de um compartilhamento de arquivos grande é quase idêntica à cria
 
 ![A interface do usuário do portal do Azure mostrando as caixas nome e cota](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para criar um compartilhamento de arquivos grande, use o comando a seguir. Substitua `<yourStorageAccountName>`, `<yourStorageAccountKey>`e `<yourFileShareName>` pelas suas informações.
+Para criar um compartilhamento de arquivos grande, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourStorageAccountKey>` e `<yourFileShareName>` pelas suas informações.
 
 ```azurecli-interactive
 az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para criar um compartilhamento de arquivos grande, use o comando a seguir. Substitua `<YourStorageAccountName>`, `<YourStorageAccountKey>`e `<YourStorageAccountFileShareName>` pelas suas informações.
+Para criar um compartilhamento de arquivos grande, use o comando a seguir. Substitua `<YourStorageAccountName>` , `<YourStorageAccountKey>` e `<YourStorageAccountFileShareName>` pelas suas informações.
 
 ```powershell
 ##Config
@@ -151,12 +156,13 @@ $shareName="<YourStorageAccountFileShareName>"
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 New-AzStorageShare -Name $shareName -Context $ctx
 ```
+---
 
 ## <a name="expand-existing-file-shares"></a>Expandir compartilhamentos de arquivos existentes
 
 Depois de habilitar grandes compartilhamentos de arquivos em sua conta de armazenamento, você também pode expandir os compartilhamentos de arquivos existentes nessa conta para a cota mais alta. 
 
-### <a name="portal"></a>Portal
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Em sua conta de armazenamento, selecione **compartilhamentos de arquivos**.
 1. Clique com o botão direito do mouse no compartilhamento de arquivos e selecione **cota**.
@@ -164,17 +170,17 @@ Depois de habilitar grandes compartilhamentos de arquivos em sua conta de armaze
 
 ![A interface do usuário do portal do Azure com cota de compartilhamentos de arquivos existentes](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
-### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para definir a cota para o tamanho máximo, use o comando a seguir. Substitua `<yourStorageAccountName>`, `<yourStorageAccountKey>`e `<yourFileShareName>` pelas suas informações.
+Para definir a cota para o tamanho máximo, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourStorageAccountKey>` e `<yourFileShareName>` pelas suas informações.
 
 ```azurecli-interactive
 az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para definir a cota para o tamanho máximo, use o comando a seguir. Substitua `<YourStorageAccountName>`, `<YourStorageAccountKey>`e `<YourStorageAccountFileShareName>` pelas suas informações.
+Para definir a cota para o tamanho máximo, use o comando a seguir. Substitua `<YourStorageAccountName>` , `<YourStorageAccountKey>` e `<YourStorageAccountFileShareName>` pelas suas informações.
 
 ```powershell
 ##Config
@@ -185,6 +191,7 @@ $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAcco
 # update quota
 Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

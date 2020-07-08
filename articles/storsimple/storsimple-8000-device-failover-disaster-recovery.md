@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511796"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e recuperação de desastre para seu dispositivo StorSimple da série 8000
 
@@ -108,19 +108,19 @@ Se você estiver planejando fazer failbacks ou failovers de teste, recomendamos 
 
 Q. **O que acontecerá se a DR falhar ou tiver êxito parcial?**
 
-A. Caso a DR falhe, recomendamos que você tente novamente. O segundo trabalho de failover do dispositivo está ciente do progresso do primeiro trabalho e inicia a partir desse ponto em diante.
+a. Caso a DR falhe, recomendamos que você tente novamente. O segundo trabalho de failover do dispositivo está ciente do progresso do primeiro trabalho e inicia a partir desse ponto em diante.
 
 Q. **Posso excluir um dispositivo enquanto o failover do dispositivo estiver em andamento?**
 
-A. Você não pode excluir um dispositivo enquanto uma DR está em andamento. Só é possível excluir o dispositivo após a conclusão da DR. Você pode monitorar o andamento do trabalho do failover do dispositivo na folha **Trabalhos**.
+a. Você não pode excluir um dispositivo enquanto uma DR está em andamento. Só é possível excluir o dispositivo após a conclusão da DR. Você pode monitorar o andamento do trabalho do failover do dispositivo na folha **Trabalhos**.
 
 Q. **Quando a coleta de lixo começa no dispositivo de origem para que os dados locais do dispositivo de origem sejam excluídos?**
 
-A. A coleta de lixo será habilitada no dispositivo de origem somente depois que o dispositivo estiver completamente limpo. A limpeza inclui limpar objetos que passaram pelo failover do dispositivo de origem, como volumes, objetos de backup (não dados), contêineres de volume e políticas.
+a. A coleta de lixo será habilitada no dispositivo de origem somente depois que o dispositivo estiver completamente limpo. A limpeza inclui limpar objetos que passaram pelo failover do dispositivo de origem, como volumes, objetos de backup (não dados), contêineres de volume e políticas.
 
 Q. **O que acontecerá se o trabalho de exclusão associado aos contêineres de volume no dispositivo de origem falhar?**
 
-A.  Se o trabalho de exclusão falhar, você poderá excluir manualmente os contêineres de volume. Na folha **Dispositivos**, selecione o dispositivo de origem e clique em **Contêineres de volume**. Selecione os contêineres de volume que passaram pelo failover e, na parte inferior da folha, clique em **Excluir**. Depois de ter excluído todos os contêineres de volume que passaram pelo failover no dispositivo de origem, você pode iniciar o failback. Para obter mais informações, acesse [Excluir um contêiner de volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
+a.  Se o trabalho de exclusão falhar, você poderá excluir manualmente os contêineres de volume. Na folha **Dispositivos**, selecione o dispositivo de origem e clique em **Contêineres de volume**. Selecione os contêineres de volume que passaram pelo failover e, na parte inferior da folha, clique em **Excluir**. Depois de ter excluído todos os contêineres de volume que passaram pelo failover no dispositivo de origem, você pode iniciar o failback. Para obter mais informações, acesse [Excluir um contêiner de volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>BCDR (recuperação de desastre de continuidade de negócios)
 
