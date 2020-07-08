@@ -3,16 +3,15 @@ title: Controle de manutenção para máquinas virtuais do Azure usando a CLI
 description: Saiba como controlar quando a manutenção é aplicada às suas VMs do Azure usando o controle de manutenção e a CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675849"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Controlar atualizações com o controle de manutenção e o CLI do Azure
 
@@ -35,11 +34,11 @@ az maintenance configuration create \
 
 Copie a ID de configuração da saída para usar mais tarde.
 
-O `--maintenanceScope host` uso de garante que a configuração de manutenção seja usada para controlar atualizações para o host.
+O uso de `--maintenanceScope host` garante que a configuração de manutenção seja usada para controlar atualizações para o host.
 
 Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, receberá um erro. Os nomes de configuração devem ser exclusivos para sua assinatura.
 
-Você pode consultar as configurações de manutenção disponíveis `az maintenance configuration list`usando.
+Você pode consultar as configurações de manutenção disponíveis usando `az maintenance configuration list` .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
@@ -51,7 +50,7 @@ Use `az maintenance assignment create` para atribuir a configuração à VM isol
 
 ### <a name="isolated-vm"></a>VM isolada
 
-Aplique a configuração a uma VM usando a ID da configuração. Especifique `--resource-type virtualMachines` e forneça o nome da VM para `--resource-name`, e o grupo de recursos para a VM no `--resource-group`, e o local da VM para. `--location` 
+Aplique a configuração a uma VM usando a ID da configuração. Especifique `--resource-type virtualMachines` e forneça o nome da VM para `--resource-name` , e o grupo de recursos para a VM no `--resource-group` , e o local da VM para `--location` . 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -66,7 +65,7 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Host dedicado
 
-Para aplicar uma configuração a um host dedicado, você precisa incluir `--resource-type hosts`, `--resource-parent-name` com o nome do grupo de hosts e. `--resource-parent-type hostGroups` 
+Para aplicar uma configuração a um host dedicado, você precisa incluir `--resource-type hosts` , `--resource-parent-name` com o nome do grupo de hosts e `--resource-parent-type hostGroups` . 
 
 O parâmetro `--resource-id` é a ID do host. Você pode usar [AZ VM host Get-Instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view) para obter a ID do host dedicado.
 
@@ -85,7 +84,7 @@ az maintenance assignment create \
 
 ## <a name="check-configuration"></a>Verificar configuração
 
-Você pode verificar se a configuração foi aplicada corretamente ou verificar qual configuração está aplicada no momento usando `az maintenance assignment list`.
+Você pode verificar se a configuração foi aplicada corretamente ou verificar qual configuração está aplicada no momento usando `az maintenance assignment list` .
 
 ### <a name="isolated-vm"></a>VM isolada
 
@@ -118,7 +117,7 @@ az maintenance assignment list \
 
 Use `az maintenance update list` para ver se há atualizações pendentes. Update--Subscription para ser a ID da assinatura que contém a VM.
 
-Se não houver nenhuma atualização, o comando retornará uma mensagem de erro, que conterá o texto: `Resource not found...StatusCode: 404`.
+Se não houver nenhuma atualização, o comando retornará uma mensagem de erro, que conterá o texto: `Resource not found...StatusCode: 404` .
 
 Se houver atualizações, apenas uma será retornada, mesmo se houver várias atualizações pendentes. Os dados desta atualização serão retornados em um objeto:
 
@@ -199,9 +198,9 @@ az maintenance applyupdate create \
 
 ## <a name="check-the-status-of-applying-updates"></a>Verificar o status da aplicação de atualizações 
 
-Você pode verificar o progresso das atualizações usando `az maintenance applyupdate get`. 
+Você pode verificar o progresso das atualizações usando `az maintenance applyupdate get` . 
 
-Você pode usar `default` como o nome da atualização para ver os resultados da última atualização ou substituir `myUpdateName` pelo nome da atualização que foi retornada quando você executou `az maintenance applyupdate create`.
+Você pode usar `default` como o nome da atualização para ver os resultados da última atualização ou substituir `myUpdateName` pelo nome da atualização que foi retornada quando você executou `az maintenance applyupdate create` .
 
 ```text
 Status         : Completed

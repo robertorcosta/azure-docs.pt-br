@@ -1,28 +1,26 @@
 ---
-title: Cobertura de mobilidade (trânsito) | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre a cobertura de mobilidade no Microsoft Azure Maps
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: Cobertura de mobilidade (trânsito)
+description: Neste artigo, você aprenderá sobre a cobertura de trânsito público no serviço de mobilidade do Microsoft Azure Maps.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85988d74d21c411586a368e12972450116259a45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2959a930ef2b3683cbd822eaee61a037fa0e9e29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673635"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade do Azure Maps
 
-O Azure Maps oferece um [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService). O serviço de mobilidade melhora o tempo de desenvolvimento de aplicativos com recursos de trânsito públicos, de bicicletas e de compartilhamento de motocicleta. Os recursos para trânsito público incluem pesquisa de estações próximas, pesquisa por interrupções, pesquisa de linhas de trânsito, recuperação de informações de agenda, recuperação de entradas de trânsito públicas em tempo real, lista de interrupções e guias de rota de lista. O serviço retorna informações de disponibilidade estáticas e em tempo real para veículos compartilhados, como carros, bicicletas e scooters. Além disso, o serviço de mobilidade fornece recursos de roteamento com opções de planejamento de viagem de multimodal. O planejamento de viagens multimodal incorpora opções de interciclo, Hailing e trânsito, tudo em uma viagem. Usuários Cam acesso detalhado e multimodal de itinerários passo a passo e alertas de serviço.
+O serviço de [mobilidade](https://aka.ms/AzureMapsMobilityService) do Azure Maps melhora o tempo de desenvolvimento para aplicativos com recursos de trânsito públicos, como roteamento de trânsito e pesquisa para interrupções de trânsito públicos próximos. Os usuários podem recuperar informações detalhadas sobre as interrupções de trânsito, linhas e agendas. O serviço de mobilidade também permite que os usuários recuperem geometrias de parada e de linha, alertas de interrupções, linhas e áreas de serviço, bem como entradas de trânsito e alertas de serviço em tempo real. Além disso, o serviço de mobilidade fornece recursos de roteamento com opções de planejamento de viagem de multimodal. O planejamento de viagens de multimodal incorpora opções de movimentação, semiciclo e trânsito público, tudo em uma viagem. Os usuários também podem acessar os roteiros passo a passo detalhados do multimodal. 
 
-O mapas do Azure não tem o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito depende da cidade. Além disso, os dados podem não incluir todas as opções de trânsito público e as agências que servem a cidade.
+O mapas do Azure não fornece o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito públicos depende da área de metrô. Além disso, os dados do mapa podem não incluir todas as opções de trânsito público e as agências que servem a área de metrô.
 
 A tabela a seguir fornece informações de cobertura para o serviço de mobilidade do Azure Maps.
-
 
 | Símbolo | Significado |
 |--------|---------|
@@ -30,12 +28,12 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="americas"></a>Américas
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, comcheiroe Rivadavia, nicaraguense, Corrientes, General RsFilter, La Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
 | Brasil         | <p>Angra dos reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Bage, Barretos, Bauru, Belém, Belo Horizonte, Blumenau, boa vista, Brasília, caldas novas, Campina moca, Campinas, campo belo, campo moca, Caraguatatuba, Cascavel, Cataguases, Caxias, Leopoldina e região, catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, dourados, estrela, feira de Santana, Fernando de Noronha, Florianópolis, fortaleza, Foz do Iguaçu, franca, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Ituiutaba, Jaraguá do Sul, joao pessoa, Joinville, Juazeiro do Norte, juiz de consiga, Jundiaí, Lages, Londrina, Macapa, Macaé, Maceió, Mafra e Rio Negro, Manaus, Manhuacu, Maringá, Marília, Monte Carmelo, montes claros, Mossoró, Natal, Osorio, Ourinhos, ouro preto, palmas, Paracatu, Paranaguá, Parnaíba, passo fundo , Passos, patos de minas, patrocínio, Pelotas, Piracicaba, pocos de Caldas, ponta grossa, Porto Alegre, Porto Ferreira, porto seguro, porto velho, praia moca, Recife, Ribeirão Preto, Rio, rio branco, Rondonópolis, Salinas, Salvador, Santa Cruz do Sul, Santa Maria, Santa Rita do Sapucaí, Santarem, Santos, são Gabriel do oeste, são joao del Rei, Tiradentes e regiao, são José do rio preto, são Mateus, são Paulo, Sorocaba, são Carlos, São Francisco do Sul, são José dos campos, São Lourenço, são Luís, Taubaté, telemaco borba, Teofilo Otoni, Teresina, caramba, três lagoas, Tucurui, Ubatuba, Uberaba, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, videira & Fraiburgo, vitória, vitória da conquista, voltar redonda e Votuporanga </p>|
-| Canada | Banff (AB), Brandon (MB), Calgary (AB), Comox valer (BC), Cowichan vale (BC), Edmonton (AB), Fort St. João, Fredericton (NB), maior Sudbury (ON), maior Vancouver (BC), Halifax (NS), Kamloops (BC), Kelowna (BC), Kingston (ON), London (ON), Moncton (NB), Montreal (QC), Nanaimo (BC), Ottawa (ON), Príncipe George (BC), Québec City (QC), Red Deer (AB), Regina (SK), Rimouski (QC), Saskatoon (SK), Sherbrooke (QC), Squamish (BC) , St. João (NL), costa sol, compartimento do Thunder (ON), Toronto (ON), Victoria (BC), Whistler (BC), Windsor (ON), Winnipeg (MB), Woodstock</p>|
+| Canadá | Banff (AB), Brandon (MB), Calgary (AB), Comox valer (BC), Cowichan vale (BC), Edmonton (AB), Fort St. João, Fredericton (NB), maior Sudbury (ON), maior Vancouver (BC), Halifax (NS), Kamloops (BC), Kelowna (BC), Kingston (ON), London (ON), Moncton (NB), Montreal (QC), Nanaimo (BC), Ottawa (ON), Príncipe George (BC), Québec City (QC), Red Deer (AB), Regina (SK), Rimouski (QC), Saskatoon (SK), Sherbrooke (QC), Squamish (BC) , St. João (NL), costa sol, compartimento do Thunder (ON), Toronto (ON), Victoria (BC), Whistler (BC), Windsor (ON), Winnipeg (MB), Woodstock</p>|
 | Chile  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Copiapó, Curicó, Iquique, la Serena y Coquimbo, Linares, Los Angeles (Chile), los Lagos, Punta Arenas, Rancagua, Santiago, Talca, Temuco, Valdivia, Valparaíso, Viña del mar</p>|
 | Colômbia | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, pasto, Popayán, Santa Marta, Sincelejo, Valledupar</p>|  
 | Costa Rica | José San|
@@ -52,7 +50,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |--------|---------|
 | Austrália      | <p>Adelaide, molas de Alice, Bowen, Brisbane, Bundaberg QLD, Burne, Cairns, Camberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay nesta, ilha magnética, Maryborough-Hervey Bay, Melbourne, novo Sul Gales, Perth, RockHampton, sudeste do Sul Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | China | <p> Changchun, Changsha, Chengdu, Chonquim, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanquim, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Xangai, Pequim, Guangzhou, Shenzhen, Zhengzhou</P>| 
@@ -73,12 +71,12 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="europe"></a>Europa
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Atenas         | Chios | 
 | Áustria        | Viena |
-| Belarus        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, Minsk, Rechytsa | 
+| Bielorrússia        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, Minsk, Rechytsa | 
 | Bélgica        | Bélgica |
 | Bolívia        | La paz, Santa Cruz de la Sierra | 
 | Bósnia e Herzegovina | Sarajevo | 
@@ -118,13 +116,13 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Suécia | Goteborg/Gothenburg/Jonkoping, Malmö kommun-Malmö, Norrköping och Linköping, Estocolmo, Sundsvall |
 | Suíça | Basel, Geneva, Yverdon-les-Bains, Zurique | 
 | Turquia | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Duzce, Elazig, Eskisehir, Istambul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
-| United Kingdom | Leste Anglia, leste Midlands, Londres e sudeste, leste do Norte, norte da Índia, Irlanda do Norte, Escócia, sudoeste do Sul, Gales, oeste Midlands, Yorkshire |
+| Reino Unido | Leste Anglia, leste Midlands, Londres e sudeste, leste do Norte, norte da Índia, Irlanda do Norte, Escócia, sudoeste do Sul, Gales, oeste Midlands, Yorkshire |
 | Ucrânia | Kharkiv, Zhytomyr, Kiev, Lviv, Chernivtsi |
 
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |---------|---------|
 | Bahrein | Bahrein |
 | Egito | Cairo    |

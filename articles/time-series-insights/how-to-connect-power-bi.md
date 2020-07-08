@@ -7,13 +7,12 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: ea46f37b0c09ca655b29ac3cfa2f168e18c85590
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052451"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizar dados no Time Series Insights no Power BI
 
@@ -67,7 +66,7 @@ Introdução:
        > [!NOTE]
        > Há um limite de contagem de eventos de 100-K para dados brutos de nível de evento.
 
-       [![Conectar](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Connect](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. Se você não tiver configurado sua instância de Time Series Insights para **armazenamento quente**, receberá um aviso.
 
@@ -111,8 +110,10 @@ Agora que você importou os dados para Power BI, é hora de criar um relatório 
     [![Selecione o modo de exibição de relatório](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1.  Na coluna **visualizações** , selecione seu visual de sua escolha. Por exemplo, selecione **gráfico de linhas**. Isso adicionará um gráfico de linhas em branco à tela.
- 
-1.  Na lista **campos** , selecione **carimbo de data/hora** e arraste-o para o campo **eixo** para exibir itens ao longo do eixo X.
+
+1.  Na lista **campos** , selecione **_Timestamp** e arraste-o para o campo **eixo** para exibir itens ao longo do eixo X. Certifique-se de mudar para **_Timestamp** como o valor do **eixo** (o padrão é a **hierarquia de data**).
+
+    [![Selecione o modo de exibição de relatório](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1.  Novamente, na lista **campos** , selecione **timeseriesid** e arraste-o para o campo **valores** para exibir itens ao longo do eixo Y.
 

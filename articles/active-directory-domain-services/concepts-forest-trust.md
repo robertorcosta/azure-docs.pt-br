@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476445"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040326"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para florestas de recursos no Azure Active Directory Domain Services
 
@@ -26,6 +25,10 @@ Para verificar essa relação de confiança, o sistema de segurança do Windows 
 Os mecanismos de controle de acesso fornecidos pelo AD DS e o modelo de segurança distribuída do Windows fornecem um ambiente para a operação de relações de confiança de domínio e floresta. Para que essas relações de confiança funcionem corretamente, cada recurso ou computador deve ter um caminho de confiança direto para um DC no domínio no qual ele está localizado.
 
 O caminho de confiança é implementado pelo serviço de logon de rede usando uma conexão de RPC (chamada de procedimento remoto) autenticada para a autoridade de domínio confiável. Um canal protegido também se estende a outros domínios de AD DS por meio de relações de confiança entre domínios. Esse canal protegido é usado para obter e verificar informações de segurança, incluindo identificadores de segurança (SIDs) para usuários e grupos.
+
+Para obter uma visão geral de como as relações de confiança se aplicam ao AD DS do Azure, consulte [conceitos e recursos da floresta de recursos][create-forest-trust].
+
+Para começar a usar as relações de confiança no Azure AD DS, [crie um domínio gerenciado que usa relações de confiança de floresta][tutorial-create-advanced].
 
 ## <a name="trust-relationship-flows"></a>Fluxos de relações de confiança
 
@@ -58,7 +61,7 @@ A transitividade determina se uma confiança pode ser estendida fora dos dois do
 
 Sempre que você cria um novo domínio em uma floresta, uma relação de confiança transitiva bidirecional é criada automaticamente entre o novo domínio e seu domínio pai. Se os domínios filho forem adicionados ao novo domínio, o caminho de confiança fluirá para cima na hierarquia de domínio, estendendo o caminho de confiança inicial criado entre o novo domínio e seu domínio pai. As relações de confiança transitivas seguem em direção ao topo de uma árvore de domínio formada, criando esse tipo de relação entre todos os domínios da árvore.
 
-As solicitações de autenticação seguem esses caminhos de confiança, portanto, as contas de qualquer domínio na floresta podem ser autenticadas por qualquer outro domínio na floresta. Com um processo de logon simples, as contas com as permissões apropriadas podem acessar os recursos em qualquer domínio da floresta.
+As solicitações de autenticação seguem esses caminhos de confiança, portanto, as contas de qualquer domínio na floresta podem ser autenticadas por qualquer outro domínio na floresta. Com um único processo de logon, as contas com as permissões adequadas podem acessar recursos em qualquer domínio na floresta.
 
 ## <a name="forest-trusts"></a>Relações de confiança de floresta
 
@@ -70,7 +73,7 @@ Uma relação de confiança de floresta só pode ser criada entre um domínio ra
 
 O diagrama a seguir mostra duas relações de confiança de floresta separadas entre três AD DS florestas em uma única organização.
 
-![Diagrama de relações de confiança de floresta em uma única organização](./media/concepts-forest-trust/forest-trusts.png)
+![Diagrama de relações de confiança de floresta em uma única organização](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 Esta configuração de exemplo fornece o seguinte acesso:
 
@@ -128,7 +131,7 @@ Se o cliente usar o Kerberos V5 para autenticação, ele solicitará um tíquete
 
 2. Existe uma relação de confiança transitiva entre o domínio atual e o próximo domínio no caminho de confiança?
     * Em caso afirmativo, envie ao cliente uma referência para o próximo domínio no caminho de confiança.
-    * Se não, envie ao cliente uma mensagem de logon negado.
+    * Se não, envie ao cliente uma mensagem de entrada negada.
 
 ### <a name="ntlm-referral-processing"></a>Processamento de referência NTLM
 
@@ -152,7 +155,7 @@ Quando duas florestas são conectadas por uma relação de confiança de florest
 
 Quando uma relação de confiança de floresta é estabelecida pela primeira vez, cada floresta coleta todos os namespaces confiáveis em sua floresta de parceiros e armazena as informações em um [objeto de domínio confiável](#trusted-domain-object). Os namespaces confiáveis incluem nomes de árvore de domínio, sufixos de nome principal de usuário (UPN), sufixos de SPN (nome da entidade de serviço) e namespaces de SID (ID de segurança) usados na outra floresta. Os objetos TDO são replicados para o catálogo global.
 
-Antes que os protocolos de autenticação possam seguir o caminho de confiança da floresta, o nome da entidade de serviço (SPN) do computador de recursos deve ser resolvido para um local na outra floresta. Um SPN pode ser um dos seguintes:
+Antes que os protocolos de autenticação possam seguir o caminho de confiança da floresta, o nome da entidade de serviço (SPN) do computador de recursos deve ser resolvido para um local na outra floresta. Um SPN pode ser um dos seguintes nomes:
 
 * O nome DNS de um host.
 * O nome DNS de um domínio.
@@ -162,9 +165,9 @@ Quando uma estação de trabalho em uma floresta tenta acessar dados em um compu
 
 O diagrama e as etapas a seguir fornecem uma descrição detalhada do processo de autenticação Kerberos usado quando os computadores que executam o Windows tentam acessar recursos de um computador localizado em outra floresta.
 
-![Diagrama do processo Kerberos em uma relação de confiança de floresta](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagrama do processo Kerberos em uma relação de confiança de floresta](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
-1. O *Usuário1* faz logon na *EstaçãoDeTrabalho1* usando credenciais do domínio *Europe.tailspintoys.com* . Em seguida, o usuário tenta acessar um recurso compartilhado no *FileServer1* localizado na floresta *usa.wingtiptoys.com* .
+1. O *Usuário1* entra na *EstaçãoDeTrabalho1* usando credenciais do domínio *Europe.tailspintoys.com* . Em seguida, o usuário tenta acessar um recurso compartilhado no *FileServer1* localizado na floresta *usa.wingtiptoys.com* .
 
 2. A *EstaçãoDeTrabalho1* entra em contato com o KDC do Kerberos em um controlador de domínio em seu domínio, *ChildDC1*e solicita um tíquete de serviço para o SPN do *FileServer1* .
 
@@ -228,7 +231,7 @@ Uma alteração de senha não é finalizada até que a autenticação usando a s
 
 Se a autenticação que usa a nova senha falhar porque a senha é inválida, o controlador de domínio confiante tentará autenticar usando a senha antiga. Se ele for autenticado com êxito com a senha antiga, ele retoma o processo de alteração de senha dentro de 15 minutos.
 
-As atualizações de senha de confiança precisam ser replicadas para os controladores de domínio de ambos os lados da relação de confiança dentro de 30 dias. Se a senha de confiança for alterada após 30 dias e um controlador de domínio tiver apenas a senha N-2, ele não poderá usar a relação de confiança do lado confiante e não poderá criar um canal seguro no lado confiável.
+As atualizações de senha de confiança precisam ser replicadas para os controladores de domínio de ambos os lados da relação de confiança dentro de 30 dias. Se a senha de confiança for alterada após 30 dias e um controlador de domínio tiver apenas a senha N-2, ele não poderá usar a relação de confiança do lado de confiança e não poderá criar um canal seguro no lado confiável.
 
 ## <a name="network-ports-used-by-trusts"></a>Portas de rede usadas por relações de confiança
 
@@ -276,7 +279,7 @@ Os administradores podem usar *Active Directory domínios e relações de confia
 
 Para saber mais sobre as florestas de recursos, consulte [como as relações de confiança de floresta funcionam no Azure AD DS?][concepts-trust]
 
-Para começar a criar um domínio gerenciado do Azure AD DS com uma floresta de recursos, consulte [criar e configurar um domínio gerenciado do azure AD DS][tutorial-create-advanced]. Em seguida, você pode [criar uma relação de confiança de floresta de saída para um domínio local (versão prévia)][create-forest-trust].
+Para começar a criar um domínio gerenciado com uma floresta de recursos, consulte [criar e configurar um domínio gerenciado do Azure AD DS][tutorial-create-advanced]. Em seguida, você pode [Criar uma relação de confiança da floresta de saída para um domínio local (versão prévia)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

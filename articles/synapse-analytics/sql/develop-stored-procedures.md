@@ -1,23 +1,22 @@
 ---
-title: Usando procedimentos armazenados
+title: Usar procedimentos armazenados
 description: Dicas para implementar procedimentos armazenados no pool Synapse SQL (data warehouse) para desenvolver soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a431df1ff4ef0984d1197933e7ca78979fa23089
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430975"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958371"
 ---
-# <a name="using-stored-procedures-in-sql-pool"></a>Usando procedimentos armazenados no pool do SQL
+# <a name="use-stored-procedures-in-sql-pool"></a>Usar procedimentos armazenados no pool do SQL
 
 Dicas para implementar procedimentos armazenados no pool Synapse SQL (data warehouse) para desenvolver soluções.
 
@@ -68,7 +67,7 @@ EXEC prc_nesting
 ```
 
 > [!NOTE]
-> No momento, o pool do SQL não dá suporte a [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). É necessário rastrear o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento, mas, se você fizer isso, será necessário trabalhar novamente em seu código para ajustar os níveis de aninhamento dentro desse limite.
+> No momento, o pool do SQL não dá suporte a [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). É necessário rastrear o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento, mas, se você fizer isso, será necessário trabalhar novamente em seu código para ajustar os níveis de aninhamento dentro desse limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
@@ -90,7 +89,7 @@ Eles são:
 * parâmetros somente leitura
 * parâmetros padrão
 * contextos de execução
-* instrução return
+* Instrução return
 
 ## <a name="next-steps"></a>Próximas etapas
 

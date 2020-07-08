@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799727"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja seus computadores e aplicativos
 Quando a central de segurança do Azure identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -122,12 +121,12 @@ Em um cenário em que você tem uma recomendação, siga as etapas na recomenda�
 
 
 
-### <a name="app-services"></a><a name="app-services"></a>Serviços de aplicativos
+### <a name="app-services"></a><a name="app-services"></a>Serviços de app
 Para exibir as informações do serviço de aplicativo, você deve estar no tipo de preço Standard da central de segurança e habilitar o serviço de aplicativo em sua assinatura. Para obter instruções sobre como habilitar esse recurso, consulte [proteger o serviço de aplicativo com a central de segurança do Azure](security-center-app-services.md).
 
 Em **Serviços de Aplicativos**, você encontra uma lista de seus ambientes do Serviço de Aplicativo e o resumo de integridade com base na avaliação executada pela Central de Segurança.
 
-![Serviços de aplicativos](./media/security-center-virtual-machine-recommendations/app-services.png)
+![Serviços de app](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 Há três tipos de serviços de aplicativo mostrados:
 
@@ -163,15 +162,13 @@ Ao abrir a guia **contêineres** , dependendo do seu ambiente, você poderá ver
 
 ![Host do contêiner](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) Hosts de contêiner-VMs executando o Docker 
 
-![Serviço do Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Clusters do AKS (serviço kubernetes do Azure)
+![](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)Clusters do AKS (serviço kubernetes do Azure kubernetes). [Saiba mais sobre o pacote AKS da central de segurança](azure-kubernetes-service-integration.md)
 
-![Registro de contêiner](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Registros de ACR (registro de contêiner do Azure) – mostrados somente quando você está no tipo de preço Standard e quando o pacote do registro de contêiner do Azure está habilitado.
+![Registros do ](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) ACR (registro de contêiner do Azure) do registro de contêiner. [Saiba mais sobre o pacote ACR da central de segurança](azure-container-registry-integration.md)
 
 Para obter instruções sobre como usar os recursos de segurança do contêiner, consulte [monitorando a segurança de seus contêineres](monitor-container-security.md).
 
-Os benefícios do pacote do registro de contêiner do Azure são explicados [aqui](azure-container-registry-integration.md)
 
-Os benefícios do pacote de serviços Kubernetess são explicados [aqui](azure-kubernetes-service-integration.md)
 
 [![Guia contêineres](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
@@ -199,7 +196,7 @@ A Central de Segurança examina as configurações do Docker e fornece visibilid
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes artigos:
+Para saber mais sobre as recomendações que se aplicam a outros tipos de recurso do Azure, confira os seguintes artigos:
 
 * [Lista de referências completa das recomendações de segurança da central de segurança do Azure](recommendations-reference.md)
 * [Monitorar identidade e acesso na Central de Segurança do Azure](security-center-identity-access.md)

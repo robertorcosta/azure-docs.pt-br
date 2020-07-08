@@ -3,17 +3,16 @@ title: Análise de Lote do Azure
 description: Os tópicos na Análise de lote contêm informações de referência para os eventos e alertas disponíveis para recursos de serviço em lotes.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: b07d362c3cc2d3b086cf0a82325025604907a393
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 9d0e5c90c7bade82d76c7dbdfd4276e9671c961c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726852"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958099"
 ---
 # <a name="batch-analytics"></a>Análise de lote
 Os tópicos na Análise de lote contêm informações de referência para os eventos e alertas disponíveis para recursos de serviço em lotes.
 
-Consulte [Registro em log de diagnóstico de Lote do Azure](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) para obter mais informações sobre como habilitar e consumir logs de diagnóstico de lote.
+Consulte [Registro em log de diagnóstico de Lote do Azure](./batch-diagnostics.md) para obter mais informações sobre como habilitar e consumir logs de diagnóstico de lote.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 

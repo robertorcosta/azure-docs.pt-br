@@ -3,15 +3,14 @@ title: Usar a automação do Azure para iniciar um trabalho no Gerenciador de Da
 description: Saiba como usar a Automação do Azure para disparar trabalhos do Gerenciador de Dados do StorSimple
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76273986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514922"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usar a Automação do Azure para disparar um trabalho
 
@@ -48,7 +47,7 @@ Antes de começar, verifique se você tem:
    1. Forneça o **Nome** da sua Conta de Automação.
    2. Selecione a **Assinatura** vinculada ao seu serviço de Gerenciador de Dados StorSimple.
    3. Crie um novo grupo de recursos ou selecione um existente.
-   4. Selecione um **local**.
+   4. Selecione um **Local**.
    5. Deixe a opção **Criar Conta Executar Como** padrão selecionada.
    6. Para obter um link de acesso rápido no painel, verifique **Fixar no painel**. Clique em **Criar**.
 
@@ -110,7 +109,7 @@ Execute as etapas a seguir para importar, publicar e executar o runbook para dis
 
     ![Adicionar Runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. **Iniciar** o runbook. Em **Iniciar runbook**, insira todos os parâmetros. Clique em **OK** para enviar e iniciar o trabalho de Transformação de Dados.
+9. **Inicie** o runbook. Em **Iniciar runbook**, insira todos os parâmetros. Clique em **OK** para enviar e iniciar o trabalho de Transformação de Dados.
 
 10. Para monitorar o andamento do trabalho no portal do Azure, vá para **Trabalhos** no seu serviço do Gerenciador de Dados StorSimple. Selecione e clique no trabalho para exibir os detalhes do trabalho.
 

@@ -3,15 +3,14 @@ title: Ingestão de dados do cache HPC do Azure – script de cópia paralela
 description: Como usar um script de cópia paralela para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5db04b3ee89ab5a0a4f85f3b833ea513310dce18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74166889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514792"
 ---
 # <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Ingestão de dados do cache HPC do Azure – método de script de cópia paralela
 
@@ -75,11 +74,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Exemplo de cópia paralela
 
-Este exemplo usa o script de cópia paralela para ``glibc`` compilar usando arquivos de origem no cache do HPC do Azure.
+Este exemplo usa o script de cópia paralela para compilar ``glibc`` usando arquivos de origem no cache do HPC do Azure.
 
 Os arquivos de origem são armazenados em cache no ponto de montagem do cache HPC do Azure e os arquivos de objeto são armazenados no disco rígido local.
 
-Este exemplo usa o script de cópia paralela com a ``-j`` opção ``make`` e para obter paralelização.
+Este exemplo usa o script de cópia paralela com a opção ``-j`` e ``make`` para obter paralelização.
 
 ```bash
 sudo apt-get update

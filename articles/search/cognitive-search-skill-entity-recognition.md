@@ -7,13 +7,12 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 6ef5952b6413563b2c2e16ff2218f709b414fb84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080857"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
 
@@ -22,7 +21,7 @@ A habilidade **Entity Recognition** extrai entidades de diferentes tipos do text
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
 >
-> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço da extração de imagem é descrito na [página de preços da Pesquisa Cognitiva do Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço da extração de imagem é descrito na [página de preços da Pesquisa Cognitiva do Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -37,35 +36,35 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| Categorias    | Matriz de categorias que devem ser extraídas.  Os tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
-|defaultLanguageCode |    Código de idioma do texto de entrada. Há suporte para os seguintes idiomas `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`:. Nem todas as categorias de entidade têm suporte para todos os idiomas; consulte a observação abaixo.|
-|minimumPrecision | Um valor entre 0 e 1. Se a pontuação de confiança (na `namedEntities` saída) for menor que esse valor, a entidade não será retornada. O padrão é 0. |
-|includeTypelessEntities | Defina como `true` se você quiser reconhecer entidades bem conhecidas que não se ajustam às categorias atuais. As `entities` entidades reconhecidas são retornadas no campo saída complexa. Por exemplo, "Windows 10" é uma entidade conhecida (um produto), mas como "produtos" não é uma categoria com suporte, essa entidade seria incluída no campo de saída de entidades. O padrão é `false` |
+| `categories`    | Matriz de categorias que devem ser extraídas.  Os tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
+| `defaultLanguageCode` |    Código de idioma do texto de entrada. Há suporte para os seguintes idiomas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans` . Nem todas as categorias de entidade têm suporte para todos os idiomas; consulte a observação abaixo.|
+| `minimumPrecision` | Um valor entre 0 e 1. Se a pontuação de confiança (na `namedEntities` saída) for menor que esse valor, a entidade não será retornada. O padrão é 0. |
+| `includeTypelessEntities` | Defina como `true` se você quiser reconhecer entidades bem conhecidas que não se ajustam às categorias atuais. As entidades reconhecidas são retornadas no `entities` campo saída complexa. Por exemplo, "Windows 10" é uma entidade conhecida (um produto), mas como "produtos" não é uma categoria com suporte, essa entidade seria incluída no campo de saída de entidades. O padrão é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
-| languageCode    | Opcional. O padrão é `"en"`.  |
-| text          | O texto para analisar.          |
+| `languageCode`    | Opcional. O padrão é `"en"`.  |
+| `text`          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 > [!NOTE]
-> Não há suporte para todas as categorias de entidade em todos os idiomas. Os `"Person"`tipos `"Location"`de categoria `"Organization"` de entidade,, e têm suporte para a lista completa de idiomas acima. Somente _de_, _en_, _es_, _fr_e _zh-Hans_ dão suporte à extração `"Datetime"`de `"URL"` `"Quantity"`tipos, `"Email"` , e. Para obter mais informações, consulte [suporte a idiomas e regiões para o API de análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> Não há suporte para todas as categorias de entidade em todos os idiomas. Os `"Person"` `"Location"` tipos de categoria de entidade,, e `"Organization"` têm suporte para a lista completa de idiomas acima. Somente _de_, _en_, _es_, _fr_e _zh-Hans_ dão suporte à extração de `"Quantity"` `"Datetime"` tipos,, `"URL"` e `"Email"` . Para obter mais informações, consulte [suporte a idiomas e regiões para o API de análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
 | Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
-| pessoas       | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
-| Locais  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
-| organizações  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa uma organização. |
-| quantidades  | Um array de strings onde cada cadeia de caracteres representa uma quantidade. |
-| dateTimes  | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um valor DateTime (como aparece no texto). |
-| urls | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um URL |
-| e-mails | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um e-mail |
-| namedEntities | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>category</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (maior valor significa que é mais uma entidade real)</li></ul> |
-| entidades | Uma matriz de tipos complexos que contém informações ricas sobre as entidades extraídas do texto, com os seguintes campos <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipedia para a entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subType (disponível apenas para algumas categorias; oferece uma exibição mais granular do tipo de entidade)</li><li> correspondências (uma coleção complexa que contém)<ul><li>texto (texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto de entidade)</li></ul></li></ul> |
+| `persons`       | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
+| `locations`  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
+| `organizations`  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa uma organização. |
+| `quantities`  | Um array de strings onde cada cadeia de caracteres representa uma quantidade. |
+| `dateTimes`  | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um valor DateTime (como aparece no texto). |
+| `urls` | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um URL |
+| `emails` | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um e-mail |
+| `namedEntities` | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>category</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (maior valor significa que é mais uma entidade real)</li></ul> |
+| `entities` | Uma matriz de tipos complexos que contém informações ricas sobre as entidades extraídas do texto, com os seguintes campos <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipedia para a entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subType (disponível apenas para algumas categorias; oferece uma exibição mais granular do tipo de entidade)</li><li> correspondências (uma coleção complexa que contém)<ul><li>texto (texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto de entidade)</li></ul></li></ul> |
 
 ##    <a name="sample-definition"></a>Definição de exemplo
 

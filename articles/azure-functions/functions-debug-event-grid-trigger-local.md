@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74227079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340867"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuração local do gatilho da Grade de Eventos do Azure Functions
 
@@ -62,7 +61,7 @@ Abra o portal do Azure, navegue até uma conta de armazenamento e clique na opç
 
 ![Adicionar evento da conta de armazenamento](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-Na janela *Eventos*, clique no botão **Assinatura de Evento**. Na janela *Até Assinatura*, clique na lista suspensa *Tipo de ponto de extremidade* e selecione **Web hook**.
+Na janela *Eventos*, clique no botão **Assinatura de Evento**. Na janela *assinatura de evento* , clique na lista suspensa *tipo de ponto de extremidade* e selecione **gancho da Web**.
 
 ![Selecionar tipo de assinatura](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
@@ -91,8 +90,8 @@ Abra o [Gerenciador de Armazenamento](https://azure.microsoft.com/features/stora
 - Clique com botão direito e selecione **Criar contêiner de Blob**.
 - Nomeie o contêiner **teste**
 - Selecione o contêiner *testar*
-- Clique no botão **Carregar**
-- Clique em **Carregar arquivos**
+- Clique no botão **carregar**
+- Clique em **carregar arquivos**
 - Selecione um arquivo e carregá-o para o contêiner de blob
 
 ## <a name="debug-the-function"></a>Depurar a função
@@ -101,7 +100,7 @@ Depois que a Grade de Eventos reconhece que um novo arquivo for carregado para o
 
 ![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar os recursos criados neste artigo, exclua o contêiner **Testar** em sua conta de armazenamento.
 

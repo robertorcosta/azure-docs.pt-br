@@ -1,19 +1,13 @@
 ---
 title: Usar o Barramento de Serviço do Azure para executar operações de dados no Barramento de Serviço (versão prévia)
 description: Este artigo fornece informações sobre como usar o Gerenciador do Barramento de Serviço do Azure baseado em portal para acessar os dados do Barramento do Serviço do Azure.
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: aschhab
-ms.openlocfilehash: 8f53b5e41c67ca1990edd011677b25f3a9a601d1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340544"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Usar o Gerenciador do Barramento de Serviço para realizar as operações de dados no Barramento de Serviço (versão prévia)
 

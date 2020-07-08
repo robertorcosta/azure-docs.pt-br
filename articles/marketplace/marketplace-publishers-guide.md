@@ -7,19 +7,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7ddea556ea4a9c7c0306ebdf1eca1f60769c5318
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657863"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958167"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>Guia de publicação do Commercial Marketplace
 
 O guia de publicação foi projetado para ajudar editores novos e existentes a saber mais sobre como listar aplicativo e serviços nas vitrines do Commercial Marketplace, no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [Microsoft AppSource](https://appsource.microsoft.com) para expandir os negócios em parceria com a Microsoft.
 
 >[!Note]
->O Marketplace nesse caso se refere ao Azure Marketplace e ao AppSource.  Veja [Um Marketplace, duas vitrines](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) para obter mais informações.
+>O Marketplace nesse caso se refere ao Azure Marketplace e ao AppSource.  Veja [Um Marketplace, duas vitrines](comparing-appsource-azure-marketplace.md) para obter mais informações.
 
 Este guia abrange os seguintes tópicos: 
 *   O que é o Marketplace e como funciona 
@@ -62,7 +61,7 @@ As novas listagens no Marketplace são qualificadas para um conjunto diversifica
 
 *   Venda conjunta: Comece ou impulsione sua jornada para vender com a Microsoft no Marketplace. Acesse programas e suporte para gerar vendas conjuntas com as equipes da Microsoft.
 
-Após [enviar a solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) ao Marketplace, nossa equipe de integração entrará em contato com você para auxiliá-lo na experiência de publicação.  Consulte [Como criar uma conta da Central de Parceiros](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Após [enviar a solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) ao Marketplace, nossa equipe de integração entrará em contato com você para auxiliá-lo na experiência de publicação.  Consulte [Como criar uma conta da Central de Parceiros](partner-center-portal/create-account.md).
 
 Saiba mais sobre os [benefícios do Commercial Marketplace](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 

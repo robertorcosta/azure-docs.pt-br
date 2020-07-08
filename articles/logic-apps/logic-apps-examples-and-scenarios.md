@@ -6,16 +6,15 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: ad5cc696892764ce68d4714ead98b8afd9c37669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 786655f8e8ee7e21f2615361b0bb1ea336ccb479
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144151"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84190731"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
 
-Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam a orquestrar e integrar serviços diferentes fornecendo [centenas de conectores prontos para uso](../connectors/apis-list.md), desde o SQL Server local ou o SAP para serviços cognitivas do Azure. O serviço de Aplicativos Lógicos é "sem servidor", portanto, você não precisa se preocupar sobre escala ou instâncias. Tudo o que você precisa fazer é definir o fluxo de trabalho com um gatilho e as ações que o fluxo de trabalho executa. A plataforma subjacente lida com a escala, disponibilidade e desempenho. Os aplicativos lógicos são especialmente úteis para casos de uso e cenários em que você precisa coordenar ações em vários sistemas e serviços.
+Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam a orquestrar e integrar serviços diferentes fornecendo [centenas de conectores prontos para uso](../connectors/apis-list.md), desde SQL Server ou SAP até serviços cognitivas do Azure. O serviço de Aplicativos Lógicos é "sem servidor", portanto, você não precisa se preocupar sobre escala ou instâncias. Tudo o que você precisa fazer é definir o fluxo de trabalho com um gatilho e as ações que o fluxo de trabalho executa. A plataforma subjacente lida com a escala, disponibilidade e desempenho. Os aplicativos lógicos são especialmente úteis para casos de uso e cenários em que você precisa coordenar ações em vários sistemas e serviços.
 
 Para ajudá-lo a saber mais sobre os recursos e padrões aos quais o aplicativo lógico do Azure dá suporte, este artigo descreve pontos de partida, exemplos e cenários comuns.
 
@@ -39,7 +38,7 @@ Aqui estão exemplos que descrevem os gatilhos comumente usados:
   * O gatilho **quando um email é recebido** permite que seu aplicativo lógico Verifique se há novos emails de qualquer provedor de email com suporte dos aplicativos lógicos, por exemplo, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/)e assim por diante.
 
     > [!IMPORTANT]
-    > Se você quiser usar o conector do Gmail, somente as contas de negócios do G-Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou pode [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, consulte [políticas de segurança e privacidade de dados para o Google Connectors em aplicativos lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+    > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
     Para saber mais, consulte esses tópicos:<p>
 
@@ -86,14 +85,14 @@ Para sistemas e serviços que não têm conectores publicados, você também pod
 Para soluções de integração corporativa e comunicação direta entre organizações, você pode criar fluxos de trabalho escalonáveis automatizados para esses cenários usando o Enterprise Integration Pack (EIP) com aplicativos lógicos do Azure. Embora as organizações usem diferentes protocolos e formatos, elas podem trocar mensagens eletronicamente. O EIP transforma formatos diferentes em um formato que os sistemas de sua organização podem processar e dá suporte a protocolos padrão do setor, incluindo AS2, X12, EDIFACT e RosettaNet. Para criar essas soluções, você cria uma conta de integração, que é um recurso separado do Azure que fornece um contêiner seguro, escalonável e gerenciável para os artefatos que você define e usa com seus fluxos de trabalho de aplicativo lógico. Por exemplo, os artefatos incluem parceiros comerciais, contratos, mapas, esquemas, certificados e configurações de lote.
 
 * [Visão geral: soluções de integração empresarial B2B com aplicativos lógicos do Azure e Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Criar e gerenciar contas de integração para integrações corporativas B2B em aplicativos lógicos do Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* [Criar e gerenciar contas de integração para integrações empresariais B2B nos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 ## <a name="access-azure-virtual-network-resources"></a>Acessar recursos de rede virtual do Azure
 
 Às vezes, seus aplicativos lógicos e contas de integração precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços que estão em uma rede virtual do Azure. Para configurar esse acesso, você pode criar um ambiente do serviço de integração (ISE) onde você pode compilar e executar seus aplicativos lógicos. Um ISE é uma instância privada e isolada do serviço de aplicativos lógicos que usa recursos dedicados, como armazenamento, e é executado separadamente do serviço de aplicativos lógicos de vários locatários público, "global". Separar sua instância privada isolada e a instância global pública também ajuda a reduzir o impacto que outros locatários do Azure podem ter no desempenho de seus aplicativos, que também é conhecido como efeito "vizinhos com ruído".
 
 * [Visão geral: acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
-* [Conectar-se a redes virtuais do Azure dos Aplicativos Lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Conectar-se a redes virtuais do Azure a partir do serviço Aplicativos Lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 ## <a name="deploy-manage-and-monitor-logic-apps"></a>Implantar, gerenciar e monitorar aplicativos lógicos
 
@@ -103,8 +102,8 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 
 * [Início rápido: criar tarefas, processos e fluxos de trabalho automatizados usando aplicativos lógicos do Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Visão geral: automatizar a implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Criar modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Implantar modelos de Azure Resource Manager para aplicativos lógicos do Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Criar modelos do Azure Resource Manager para automatizar a implantação para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Implantar modelos do Azure Resource Manager para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 * [Exemplo: conectar-se a filas do barramento de serviço do Azure de aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: conectar-se a contas de armazenamento do Azure de aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: configurar uma ação de aplicativo de funções para aplicativos lógicos do Azure e implantar com Azure Pipelines no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
@@ -117,7 +116,7 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 * [Criar e gerenciar contas de integração para integrações corporativas B2B](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Gerenciar o ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Monitor
+### <a name="monitor"></a>Monitoramento
 
 * [Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para aplicativos lógicos do Azure](../logic-apps/monitor-logic-apps.md)
 * [Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](../logic-apps/monitor-logic-apps-log-analytics.md)
@@ -128,8 +127,8 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 
 Você pode acessar, converter e transformar vários tipos de conteúdo usando diversas funções na [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs) dos Aplicativos Lógicos do Azure. Por exemplo, você pode converter entre uma cadeia de caracteres, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O mecanismo do Aplicativo Lógico preserva os tipos de conteúdo a fim de dar suporte à transferência de conteúdo entre serviços sem perdas.
 
-* [Manipule tipos de conteúdo em aplicativos lógicos do Azure](../logic-apps/logic-apps-content-type.md) `application/`, `application/octet-stream`como, e`multipart/formdata`
-* [Guia de referência para usar funções em expressões para aplicativos lógicos do Azure e automatizar energia](../logic-apps/workflow-definition-language-functions-reference.md)
+* [Manipule tipos de conteúdo em aplicativos lógicos do Azure](../logic-apps/logic-apps-content-type.md), como `application/` , `application/octet-stream` e`multipart/formdata`
+* [Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Esquema de linguagem de definição de fluxo de trabalho para os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-workflow-definition-language.md)
 
 ## <a name="other-integrations-and-capabilities"></a>Outros recursos e integrações
@@ -141,7 +140,7 @@ O aplicativo lógico do Azure integra-se a vários serviços, como Azure Functio
 * [Tutorial: criar um painel de informações do cliente de streaming com os aplicativos lógicos do Azure e Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Tutorial: criar uma função que se integre com os aplicativos lógicos do Azure e os serviços cognitivas do Azure para analisar as opiniões de postagem no Twitter](../azure-functions/functions-twitter-email.md)
 * [Tutorial: criar um painel social alimentado por ia usando Power BI e aplicativos lógicos do Azure](https://aka.ms/logicappsdemo)
-* [Tutorial: monitorar alterações de máquina virtual usando a grade de eventos do Azure e os aplicativos lógicos](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Tutorial: Monitorar as alterações de máquinas virtuais usando a Grade de Eventos do Azure e os Aplicativos Lógicos](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Tutorial: Monitoramento remoto IoT e notificações com Aplicativos Lógicos do Azure conectando o Hub IoT e a caixa de correio](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: chamar serviços SOAP usando aplicativos lógicos do Azure](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

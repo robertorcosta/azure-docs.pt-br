@@ -2,17 +2,16 @@
 title: Suporte a TLS no Hub IoT do Azure
 description: Melhores práticas no uso de conexões TLS seguras para dispositivos e serviços se comunicando com o Hub IoT
 services: iot-hub
-author: rezasherafat
+author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 01/10/2020
-ms.author: rezas
-ms.openlocfilehash: 5b9f6b993b0d0f527d041b4ee055bf51fefa1253
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/18/2020
+ms.author: jlian
+ms.openlocfilehash: 8c52037684215d1672ed813389d0bbace9a03e42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080614"
 ---
 # <a name="tls-support-in-iot-hub"></a>Suporte a TLS no Hub IoT
 
@@ -20,11 +19,17 @@ O Hub IoT usa o protocolo TLS para proteger as conexões contra dispositivos e s
 
 O TLS 1.0 e o 1.1 são considerados herdados e são planejados para substituição. Para obter mais informações, confira [Substituir TLS 1.0 e 1.1 para o Hub IoT](iot-hub-tls-deprecating-1-0-and-1-1.md). É altamente recomendável que você use o TLS 1.2 como a versão preferencial do TLS ao se conectar ao Hub IoT.
 
-## <a name="restrict-connections-to-tls-12-in-your-iot-hub-resource"></a>Restringir conexões ao TLS 1.2 em seu recurso de Hub IoT
+## <a name="tls-12-enforcement-available-in-select-regions"></a>Imposição de TLS 1,2 disponível em regiões selecionadas
 
-Para maior segurança, é aconselhável configurar seus Hub IoT para permitir *somente* conexões de cliente que usam a versão 1.2 do TLS e para impor o uso das [codificações recomendadas](#recommended-ciphers).
+Para aumentar a segurança, configure seus hubs IoT para permitir *somente* conexões de cliente que usam TLS versão 1,2 e para impor o uso de [codificações recomendadas](#recommended-ciphers). Este recurso só tem suporte nestas regiões:
 
-Para essa finalidade, provisione um novo Hub IoT em qualquer uma das [regiões compatíveis](#supported-regions) e defina a propriedade `minTlsVersion` como `1.2` na especificação de recurso do Hub IoT do modelo de Azure Resource Manager:
+* Leste dos EUA
+* Centro-Sul dos Estados Unidos
+* Oeste dos EUA 2
+* Governo dos EUA do Arizona
+* Gov. dos EUA – Virgínia
+
+Para essa finalidade, provisione um novo Hub IoT em qualquer uma das regiões compatíveis e defina a propriedade `minTlsVersion` como `1.2` na especificação de recurso do Hub IoT do modelo de Azure Resource Manager:
 
 ```json
 {
@@ -53,18 +58,7 @@ O recurso de Hub IoT criado usando essa configuração recusará clientes de dis
 
 > [!NOTE]
 > A propriedade `minTlsVersion` é somente leitura e não pode ser alterada depois que o recurso de Hub IoT é criado. Portanto, é essencial que você teste e valide corretamente e com antecedência que *todos* os dispositivos e serviços de IoT são compatíveis com o TLS 1.2 e com as [codificações recomendadas](#recommended-ciphers).
-
-## <a name="supported-regions"></a>Regiões com suporte
-
-Hubs IoT que exigem o uso de TLS 1.2 podem ser criadas nas seguintes regiões:
-
-* Leste dos EUA
-* Centro-Sul dos Estados Unidos
-* Oeste dos EUA 2
-* Governo dos EUA do Arizona
-* Gov. dos EUA – Virgínia
-
-> [!NOTE]
+> 
 > Após os failovers, a propriedade `minTlsVersion` de seu Hub IoT permanecerá efetiva na região emparelhada geograficamente após o failover.
 
 ## <a name="recommended-ciphers"></a>Codificações recomendadas

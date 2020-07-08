@@ -9,33 +9,32 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 5955f52cda73630f371a46f83ac0fb9a252b80e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 923502132fdbe0b4a56c0fc23c19475e9074b8ff
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655477"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040241"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Criar uma conta de serviço gerenciado de grupo (gMSA) no Azure AD Domain Services
+# <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Criar uma conta de serviço gerenciado de grupo (gMSA) no Azure Active Directory Domain Services
 
 Normalmente, os aplicativos e serviços precisam de uma identidade para se autenticar com outros recursos. Por exemplo, um serviço Web pode precisar se autenticar com um serviço de banco de dados. Se um aplicativo ou serviço tiver várias instâncias, como um farm de servidores Web, criar e configurar manualmente as identidades para esses recursos levará tempo.
 
 Em vez disso, uma conta de serviço gerenciado de grupo (gMSA) pode ser criada no domínio gerenciado Azure Active Directory Domain Services (Azure AD DS). O sistema operacional do Windows gerencia automaticamente as credenciais de um gMSA, o que simplifica o gerenciamento de grandes grupos de recursos.
 
-Este artigo mostra como criar um gMSA em um domínio gerenciado AD DS do Azure usando Azure PowerShell.
+Este artigo mostra como criar um gMSA em um domínio gerenciado usando Azure PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para concluir este artigo, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
     * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, conclua o tutorial para [criar e configurar um domínio Azure Active Directory Domain Services gerenciada][create-azure-ad-ds-instance].
 * Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
     * Se necessário, conclua o tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 
@@ -49,11 +48,11 @@ Para obter mais informações, consulte [visão geral de contas de serviço gere
 
 ## <a name="using-service-accounts-in-azure-ad-ds"></a>Usando contas de serviço no Azure AD DS
 
-Como os domínios gerenciados do Azure AD DS são bloqueados e gerenciados pela Microsoft, há algumas considerações ao usar contas de serviço:
+Como os domínios gerenciados são bloqueados e gerenciados pela Microsoft, há algumas considerações ao usar contas de serviço:
 
 * Crie contas de serviço em unidades organizacionais (UO) personalizadas no domínio gerenciado.
     * Você não pode criar uma conta de serviço nos UOs *AADDC usuários* internos ou *AADDC computadores* .
-    * Em vez disso, [crie uma UO personalizada][create-custom-ou] no domínio gerenciado AD DS do Azure e, em seguida, crie contas de serviço nessa UO personalizada.
+    * Em vez disso, [crie uma UO personalizada][create-custom-ou] no domínio gerenciado e, em seguida, crie contas de serviço nessa UO personalizada.
 * A chave raiz dos KDS (serviços de distribuição de chaves) foi criada previamente.
     * A chave raiz KDS é usada para gerar e recuperar senhas para gMSAs. No Azure AD DS, a raiz KDS é criada para você.
     * Você não tem privilégios para criar outro ou exibir a chave raiz padrão KDS.
@@ -65,7 +64,7 @@ Primeiro, crie uma UO personalizada usando o cmdlet [New-ADOrganizationalUnit][N
 > [!TIP]
 > Para concluir essas etapas para criar um gMSA, [Use sua VM de gerenciamento][tutorial-create-management-vm]. Essa VM de gerenciamento já deve ter os cmdlets do PowerShell do AD necessários e a conexão com o domínio gerenciado.
 
-O exemplo a seguir cria uma UO personalizada chamada *myNewOU* no domínio gerenciado AD DS do Azure chamado *aaddscontoso.com*. Use sua própria unidade organizacional e nome de domínio gerenciado:
+O exemplo a seguir cria uma UO personalizada chamada *myNewOU* no domínio gerenciado chamado *aaddscontoso.com*. Use sua própria unidade organizacional e nome de domínio gerenciado:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"

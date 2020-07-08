@@ -3,15 +3,14 @@ title: Usar o SDK do .NET para trabalhos do Microsoft Azure StorSimple Gerenciad
 description: Saiba como usar o SDK do .NET para iniciar trabalhos do Gerenciador de Dados StorSimple
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 316eddc98de78974bb2583f91ced635b148686c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514896"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usar o SDK do .NET para iniciar a transformação de dados
 
@@ -44,7 +43,7 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
 
 1. Para recuperar os parâmetros de configuração, execute as etapas a seguir:
     1. Baixe o `Get-ConfigurationParams.ps1` do script do repositório GitHub no local `C:\DataTransformation`.
-    1. Execute o script `Get-ConfigurationParams.ps1` do repositório GitHub. Digite o seguinte comando: 
+    1. Execute o script `Get-ConfigurationParams.ps1` do repositório GitHub. Digite o seguinte comando:
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
@@ -52,7 +51,7 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
         Você pode passar em todos os valores para ActiveDirectoryKey e AppName.
 
 2. Esse script gera como saída os seguintes valores:
-    * ID do cliente
+    * ID do Cliente
     * ID do locatário
     * Chave do Active Directory (a mesma inserida acima)
     * ID da assinatura
@@ -83,7 +82,7 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
 
        ![Adicionar dlls 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
-5. Adicione as seguintes instruções **using** ao arquivo de origem (Program.cs) no projeto.
+5. Adicione as seguintes declarações **using** ao arquivo de origem (Program.cs) no projeto.
 
     ```
     using System;

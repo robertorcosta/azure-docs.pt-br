@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079435"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicionar sinônimos para o Azure Pesquisa Cognitiva em C #
 
@@ -38,7 +37,7 @@ Os requisitos do tutorial incluem o seguinte:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Serviço de Pesquisa Cognitiva do Azure](search-create-service-portal.md)
-* [Biblioteca do .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
+* [Biblioteca do .NET Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 * [Como usar o Azure Pesquisa Cognitiva de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Visão geral
@@ -128,7 +127,7 @@ A habilitação dos sinônimos é um processo com duas etapas. Primeiro, definim
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   Um mapa de sinônimos deve estar de acordo com o formato padrão do código-fonte aberto`solr`. O formato é explicado em [sinônimos no Azure pesquisa cognitiva](search-synonyms.md) na seção `Apache Solr synonym format`.
+   Um mapa de sinônimos deve estar de acordo com o formato padrão do código-fonte aberto`solr`. O formato é explicado em [sinônimos no Azure pesquisa cognitiva](search-synonyms.md) na seção `Apache Solr synonym format` .
 
 2. Configure os campos de pesquisa para usar o mapa de sinônimos na definição do índice. Em `EnableSynonymsInHotelsIndex`, habilitamos os sinônimos nos dois campos `category` e `tags` definindo a propriedade `synonymMaps` para o nome do mapa de sinônimos recém-carregado.
    ```csharp
@@ -167,7 +166,7 @@ Adicionar sinônimos muda completamente a experiência de pesquisa. Neste exempl
 ## <a name="sample-application-source-code"></a>Código-fonte do aplicativo de exemplo
 Você pode encontrar o código-fonte completo do aplicativo de exemplo usado neste passo a passo no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 A maneira mais rápida de limpar após um exemplo é excluir o grupo de recursos que contém o serviço de Pesquisa Cognitiva do Azure. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço da Pesquisa Cognitiva do Azure.
 

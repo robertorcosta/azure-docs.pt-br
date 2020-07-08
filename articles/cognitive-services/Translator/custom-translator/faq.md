@@ -9,12 +9,11 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: fefd3fcd82454d505099f83944b0e251b71410f0
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996900"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957589"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Perguntas frequentes sobre o tradutor personalizado
 
@@ -41,7 +40,7 @@ A implantação geralmente leva menos de uma hora.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Como você acessa um sistema implantado?
 
-Os sistemas implantados podem ser acessados por meio do Microsoft Translator v3 especificando o CategoryID. Mais informações sobre o tradutor podem ser encontradas na página da Web de [referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+Os sistemas implantados podem ser acessados por meio do tradutor especificando o CategoryID. Mais informações sobre o tradutor podem ser encontradas na página da Web de [referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Como fazer alinhamento e a frase quebrar se meus dados já estão alinhado de frase?
 

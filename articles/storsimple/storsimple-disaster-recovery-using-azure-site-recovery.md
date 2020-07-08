@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514909"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 
@@ -91,7 +90,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
          > [!NOTE]
          > O nome do arquivo poderá mudar dependendo da versão.
       
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 1. Aceite os **Termos do Contrato** e, em seguida, clique em **Avançar**.
 1. Clique em **Concluir**.
 1. Crie os compartilhamentos de arquivos usando volumes criados fora do armazenamento do StorSimple. Para obter mais informações, confira [Usar o serviço StorSimple Manager para gerenciar volumes](storsimple-manage-volumes.md).
@@ -177,7 +176,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    - _RecoveryPlanName_**-DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na guia **Dispositivos** na seção do Gerenciador de Dispositivos do StorSimple &gt; **Configurações** &gt; **Rede grupo ** &gt; **Configurações de DNS**).
    - _RecoveryPlanName_**-VolumeContainers**: uma cadeia de caracteres separada por vírgulas de contêineres de volume presentes no dispositivo que precisa passar por failover; por exemplo: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: o dispositivo de nuvem StorSimple no qual os contêineres devem passar por failover.
-   - _RecoveryPlanName_**-TargetDeviceIpAddress**: o endereço IP do dispositivo de destino (isso pode ser encontrado na guia &gt; **rede** do grupo &gt; **configurações** da seção **máquina virtual** ).
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: o endereço IP do dispositivo de destino (isso pode ser encontrado na guia rede do grupo configurações da seção **máquina virtual** &gt; **Settings** &gt; **Networking** ).
    - _RecoveryPlanName_**-StorageAccountName**: o nome da conta de armazenamento na qual o script (que deve ser executado na VM com failover) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha espaço para armazenar o script temporariamente.
    - _RecoveryPlanName_**-StorageAccountKey**: a chave de acesso para a conta de armazenamento acima.
    - _RecoveryPlanName_**-VMGUIDS**: na proteção de uma VM, Azure site Recovery atribui a cada VM uma ID exclusiva que fornece os detalhes da VM com failover. Para obter o VMGUID, selecione a guia **Serviços de Recuperação** e clique em **Item protegido** &gt; **Grupos de Proteção** &gt; **Computadores** &gt; **Propriedades**. Se você tiver várias VMs, adicione os GUIDs como uma cadeia de caracteres separada por vírgulas.
@@ -321,7 +320,7 @@ Durante um failback, os contêineres de volume do StorSimple são submetidos ao 
    
    ![Iniciar o failback](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="best-practices"></a>Práticas Recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Planejamento da capacidade e avaliação de prontidão
 #### <a name="hyper-v-site"></a>Site do Hyper-V
 Use a [ferramenta Planejador de Capacidade do usuário](https://www.microsoft.com/download/details.aspx?id=39057) para projetar o servidor, o armazenamento e a infraestrutura de rede para o seu ambiente de Réplica do Hyper-V.

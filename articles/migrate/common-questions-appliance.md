@@ -2,13 +2,12 @@
 title: FAQ do dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo migrações para Azure.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078979"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -27,7 +26,7 @@ Veja mais informações sobre o dispositivo migrações para Azure:
 
 - O dispositivo é implantado localmente como uma VM ou uma máquina física.
 - O dispositivo descobre máquinas locais e envia continuamente metadados de máquina e dados de desempenho para migrações para Azure.
-- A descoberta do dispositivo é sem agente. Nada é instalado em computadores descobertos.
+- A descoberta do dispositivo é sem agente. Nada é instalado nos computadores descobertos.
 
 [Saiba mais](migrate-appliance.md) sobre o dispositivo.
 
@@ -107,7 +106,7 @@ Sim. Você pode adicionar o dispositivo migrações para Azure (usado para avali
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantas VMs ou servidores posso descobrir com um dispositivo?
 
-Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores físicos com um único dispositivo. Se você tiver mais computadores no seu ambiente local, leia sobre como [dimensionar uma avaliação do Hyper-V](scale-hyper-v-assessment.md), [dimensionando uma avaliação do VMware](scale-vmware-assessment.md)e [dimensionando uma avaliação de servidor físico](scale-physical-assessment.md).
+Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 1000 servidores físicos com um único dispositivo. Se você tiver mais computadores no seu ambiente local, leia sobre como [dimensionar uma avaliação do Hyper-V](scale-hyper-v-assessment.md), [dimensionando uma avaliação do VMware](scale-vmware-assessment.md)e [dimensionando uma avaliação de servidor físico](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>Posso excluir um dispositivo?
 

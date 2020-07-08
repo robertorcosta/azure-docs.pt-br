@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f0cb402741163c657b3e7961eb5a4f9c8e18dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673013"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -40,6 +39,7 @@ A avaliação de acesso contínuo é implementada habilitando serviços (provedo
 
 - A conta de usuário foi excluída ou desabilitada
 - A senha de um usuário é alterada ou redefinida
+- A MFA está habilitada para o usuário
 - O administrador revoga explicitamente todos os tokens de atualização para um usuário
 - Risco de usuário elevado detectado por Azure AD Identity Protection
 
@@ -50,13 +50,13 @@ No futuro, esperamos adicionar mais eventos, incluindo eventos como localizaçã
 Antes da avaliação de acesso contínuo, os clientes sempre tentarão repetir o token de acesso de seu cache, desde que ele não tenha expirado. Com o CAE, estamos introduzindo um novo caso que um provedor de recursos possa rejeitar um token, mesmo quando ele não tiver expirado. Para informar os clientes para ignorarem seu cache, mesmo que os tokens em cache não tenham expirado, apresentamos um mecanismo chamado **desafio de declaração**. O CAE requer uma atualização do cliente para entender o desafio da declaração. A versão mais recente dos seguintes aplicativos abaixo dá suporte ao desafio de declaração:
 
 - Outlook para Windows 
-- IOS do Outlook 
-- Android do Outlook 
-- Mac do Outlook 
+- Outlook para iOS 
+- Outlook para Android 
+- Outlook para Mac 
 - Teams para Windows
-- Equipes iOS 
-- Equipes Android 
-- Mac de equipes 
+- Equipes para iOS 
+- Equipes para Android 
+- Equipes para Mac 
 
 ## <a name="token-lifetime"></a>Tempo de vida do token
 
@@ -76,7 +76,7 @@ Aumentaremos o tempo de vida do token de acesso para 24 horas em sessões CAE. A
 1. Um token de acesso é apresentado ao provedor de recursos. O provedor de recursos avalia a validade do token e verifica se há qualquer evento de revogação para o usuário. O provedor de recursos usa essas informações para decidir conceder acesso ao recurso ou não.
 1. Nesse caso, o provedor de recursos nega o acesso e envia um desafio de declaração 401 + de volta para o cliente
 1. O cliente com capacidade de CAE compreende o desafio de declaração 401 +. Ele ignora os caches e volta para a etapa 1, enviando seu token de atualização junto com o desafio de declaração de volta para o Azure AD. O Azure AD reavaliará todas as condições e solicitará que o usuário se autentique novamente nesse caso.
- 
+
 ## <a name="faqs"></a>Perguntas frequentes
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Qual é o tempo de vida do meu token de acesso?

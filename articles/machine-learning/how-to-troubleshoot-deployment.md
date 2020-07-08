@@ -1,40 +1,25 @@
 ---
-title: Guia de solução de problemas de implantação
+title: Solução de problemas de implantação do Docker
 titleSuffix: Azure Machine Learning
-description: Aprenda a contornar ou solucionar os erros comuns de implantação do Docker com o Serviço de Kubernetes do Azure e as Instâncias de Contêiner do Azure usando o Microsoft Azure Machine Learning.
+description: Saiba como solucionar problemas, resolver e solucionar os erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure usando Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214359"
 ---
-# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas de implantação do Serviço de Kubernetes do Azure e das Instâncias de Contêiner do Azure
+# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Solucionar problemas de implantação do Docker de modelos com o serviço kubernetes do Azure e instâncias de contêiner do Azure 
 
-Aprenda a contornar ou resolver erros comuns de implantação do Docker com as Instâncias de Contêiner do Azure (ACI) e Serviço de Kubernetes do Azure (AKS) usando o Azure Machine Learning.
-
-Ao implantar um modelo no Azure Machine Learning, o sistema executa uma série de tarefas.
-
-A abordagem recomendada e mais atualizada para implantação de modelo é por meio da API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-), usando um objeto [Ambiente](how-to-use-environments.md) como parâmetro de entrada. Nesse caso, nosso serviço criará uma imagem base do Docker durante o estágio de implantação e montará os modelos necessários em uma única chamada. As tarefas básicas de implantação são:
-
-1. Registre o modelo no Registro de modelo do workspace.
-
-2. Definir configuração de inferência:
-    1. Crie um objeto [Ambiente](how-to-use-environments.md) com base nas dependências especificadas no arquivo YAML do ambiente ou use um dos nossos ambientes adquiridos.
-    2. Crie uma configuração de inferência (objeto InferenceConfig) com base no ambiente e no script de pontuação.
-
-3. Implante o modelo para o serviço da Instância de Contêiner do Azure (ACI) ou para o Serviço de Kubernetes do Azure (AKS).
-
-Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](concept-model-management-and-deployment.md).
+Saiba como solucionar problemas e resolver, ou contornar, erros comuns de implantação do Docker com ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,6 +30,22 @@ Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](conc
 * Para depurar localmente, você deve ter uma instalação do Docker em funcionamento no sistema local.
 
     Para verificar a instalação do Docker, use o comando `docker run hello-world` em um terminal ou prompt de comando. Para obter informações sobre a instalação do Docker ou solução de erros do Docker, confira a [Documentação do Docker](https://docs.docker.com/).
+
+## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Etapas para a implantação do Docker de modelos de aprendizado de máquina
+
+Ao implantar um modelo no Azure Machine Learning, o sistema executa uma série de tarefas.
+
+A abordagem recomendada para implantação de modelo é por meio da API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando um objeto de [ambiente](how-to-use-environments.md) como um parâmetro de entrada. Nesse caso, o serviço cria uma imagem base do Docker durante o estágio de implantação e monta os modelos necessários em uma única chamada. As tarefas básicas de implantação são:
+
+1. Registre o modelo no Registro de modelo do workspace.
+
+2. Definir configuração de inferência:
+    1. Crie um objeto [Ambiente](how-to-use-environments.md) com base nas dependências especificadas no arquivo YAML do ambiente ou use um dos nossos ambientes adquiridos.
+    2. Crie uma configuração de inferência (objeto InferenceConfig) com base no ambiente e no script de pontuação.
+
+3. Implante o modelo para o serviço da Instância de Contêiner do Azure (ACI) ou para o Serviço de Kubernetes do Azure (AKS).
+
+Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](concept-model-management-and-deployment.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -124,7 +125,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Observe que, se você estiver definindo seu próprio YAML de especificação, deverá listar azureml-defaults com a versão >= 1.0.45 como uma dependência pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
+Se você estiver definindo sua própria especificação Conda YAML, deverá listar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
 
 A essa altura, você pode trabalhar com o serviço normalmente. Por exemplo, o código a seguir demonstra o envio de dados para o serviço:
 
@@ -182,9 +183,9 @@ print(ws.webservices['mysvc'].get_logs())
 ```
 ## <a name="container-cannot-be-scheduled"></a>Não é possível agendar o contêiner
 
-Ao implantar um serviço em um destino de computação do Serviço de Kubernetes do Azure, o Azure Machine Learning tentará agendar o serviço com a quantidade solicitada de recursos. Se, após 5 minutos, não houver um nó disponível no cluster com a quantidade apropriada de recursos disponíveis, a implantação falhará com a mensagem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. É possível resolver esse erro adicionando mais nós, alterando a SKU dos nós ou alterando os requisitos de recursos do serviço. 
+Ao implantar um serviço em um destino de computação do Serviço de Kubernetes do Azure, o Azure Machine Learning tentará agendar o serviço com a quantidade solicitada de recursos. Se depois de 5 minutos, não houver nós disponíveis no cluster com a quantidade apropriada de recursos disponíveis, a implantação falhará com a mensagem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . É possível resolver esse erro adicionando mais nós, alterando a SKU dos nós ou alterando os requisitos de recursos do serviço. 
 
-A mensagem de erro normalmente indica qual recurso você precisa mais - por exemplo, se você vir uma mensagem de erro indicando `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` que significa que o serviço requer GPUs e existem 3 nós no cluster que não possuem GPUs disponíveis. Isso pode ser resolvido adicionando mais nós, se você estiver usando um SKU de GPU, alternando para um SKU habilitado para GPU, se não estiver, ou alterando o ambiente para não exigir GPUs.  
+A mensagem de erro normalmente indicará a qual recurso você precisa mais, por exemplo, se você vir uma mensagem de erro indicando `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` que significa que o serviço requer GPUs e que há três nós no cluster que não têm GPUs disponíveis. Isso pode ser resolvido adicionando mais nós, se você estiver usando um SKU de GPU, alternando para um SKU habilitado para GPU, se não estiver, ou alterando o ambiente para não exigir GPUs.  
 
 ## <a name="service-launch-fails"></a>Falhas na inicialização do serviço
 
@@ -275,7 +276,7 @@ Para obter mais informações sobre como definir `autoscale_target_utilization`,
 
 Um código de status 504 indica que a solicitação atingiu o tempo limite. O tempo limite padrão é 1 minuto.
 
-Você pode aumentar o tempo limite ou tentar acelerar o serviço, modificando o score.py para remover as chamadas desnecessárias. Se essas ações não corrigirem o problema, use as informações neste artigo para depurar o arquivo score.py. O código pode estar em um estado suspenso ou um loop infinito.
+Você pode aumentar o tempo limite ou tentar acelerar o serviço, modificando o score.py para remover as chamadas desnecessárias. Se essas ações não corrigirem o problema, use as informações neste artigo para depurar o arquivo score.py. O código pode estar em um estado sem resposta ou um loop infinito.
 
 ## <a name="advanced-debugging"></a>Depuração avançada
 

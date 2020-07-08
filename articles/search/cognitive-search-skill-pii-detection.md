@@ -7,13 +7,12 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 1/27/2020
-ms.openlocfilehash: f21200bc6f5b25f3330f5bb87c0843caa5a84e56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: bec993c2b59aa03195b78a02668baf3f5fac6695
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080742"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de PII
 
@@ -25,7 +24,7 @@ A habilidade de **detecção de PII** extrai informações de identificação pe
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
 >
-> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço da extração de imagem é descrito na [página de preços da Pesquisa Cognitiva do Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço da extração de imagem é descrito na [página de preços da Pesquisa Cognitiva do Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -40,25 +39,25 @@ Os parâmetros diferenciam maiúsculas de minúsculas e todos são opcionais.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| defaultLanguageCode |    Código de idioma do texto de entrada. Por enquanto, há `en` suporte apenas para. |
-| minimumPrecision | Um valor entre 0,0 e 1,0. Se a pontuação de confiança (na `piiEntities` saída) for menor do que o `minimumPrecision` valor definido, a entidade não será retornada nem mascarada. O padrão é 0.0. |
-| maskingMode | Um parâmetro que fornece várias maneiras de mascarar a PII detectada no texto de entrada. Há suporte para as seguintes opções: <ul><li>`none`(padrão): isso significa que nenhuma máscara será executada e a `maskedText` saída não será retornada. </li><li> `redact`: Esta opção removerá as entidades detectadas do texto de entrada e não as substituirá por nada. Observe que, nesse caso, o deslocamento na `piiEntities` saída será em relação ao texto original e não ao texto mascarado. </li><li> `replace`: Esta opção substituirá as entidades detectadas pelo caractere fornecido no `maskingCharacter` parâmetro.  O caractere será repetido para o comprimento da entidade detectada para que os deslocamentos correspondam corretamente ao texto de entrada, bem como à saída `maskedText`.</li></ul> |
-| maskingCharacter | O caractere que será usado para mascarar o texto se o `maskingMode` parâmetro for definido como. `replace` Há suporte para as seguintes opções `*` : (padrão) `#`, `X`,. Esse parâmetro só pode ser `null` se `maskingMode` não estiver definido como `replace`. |
+| `defaultLanguageCode` |    Código de idioma do texto de entrada. Por enquanto, há `en` suporte apenas para. |
+| `minimumPrecision` | Um valor entre 0,0 e 1,0. Se a pontuação de confiança (na `piiEntities` saída) for menor do que o `minimumPrecision` valor definido, a entidade não será retornada nem mascarada. O padrão é 0.0. |
+| `maskingMode` | Um parâmetro que fornece várias maneiras de mascarar a PII detectada no texto de entrada. Há suporte para as seguintes opções: <ul><li>`none`(padrão): isso significa que nenhuma máscara será executada e a `maskedText` saída não será retornada. </li><li> `redact`: Esta opção removerá as entidades detectadas do texto de entrada e não as substituirá por nada. Observe que, nesse caso, o deslocamento na `piiEntities` saída será em relação ao texto original e não ao texto mascarado. </li><li> `replace`: Esta opção substituirá as entidades detectadas pelo caractere fornecido no `maskingCharacter` parâmetro.  O caractere será repetido para o comprimento da entidade detectada para que os deslocamentos correspondam corretamente ao texto de entrada, bem como à saída `maskedText` .</li></ul> |
+| `maskingCharacter` | O caractere que será usado para mascarar o texto se o `maskingMode` parâmetro for definido como `replace` . Há suporte para as seguintes opções: `*` (padrão), `#` , `X` . Esse parâmetro só pode ser `null` se `maskingMode` não estiver definido como `replace` . |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
-| languageCode    | Opcional. O padrão é `en`.  |
-| text          | O texto para analisar.          |
+| `languageCode`    | Opcional. O padrão é `en`.  |
+| `text`          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 | Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
-| piiEntities | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>texto (a PII real como extraída)</li> <li>type</li><li>Subtipo</li><li>Score (maior valor significa que é mais provável que seja uma entidade real)</li><li>deslocamento (no texto de entrada)</li><li>comprimento</li></ul> </br> [Possíveis tipos e subtipos podem ser encontrados aqui.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
-| maskedText | Se `maskingMode` for definido como um valor diferente de `none`, essa saída será o resultado da cadeia de caracteres do mascaramento executado no texto de entrada, conforme descrito pelo `maskingMode`selecionado.  Se `maskingMode` for definido como `none`, essa saída não estará presente. |
+| `piiEntities` | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>texto (a PII real como extraída)</li> <li>tipo</li><li>Subtipo</li><li>Score (maior valor significa que é mais provável que seja uma entidade real)</li><li>deslocamento (no texto de entrada)</li><li>comprimento</li></ul> </br> [Possíveis tipos e subtipos podem ser encontrados aqui.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| `maskedText` | Se `maskingMode` for definido como um valor diferente de `none` , essa saída será o resultado da cadeia de caracteres do mascaramento executado no texto de entrada, conforme descrito pelo selecionado `maskingMode` .  Se `maskingMode` for definido como `none` , essa saída não estará presente. |
 
 ##    <a name="sample-definition"></a>Definição de exemplo
 

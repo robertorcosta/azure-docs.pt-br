@@ -1,19 +1,18 @@
 ---
 title: Filtros de segurança para cortar os resultados usando Active Directory
 titleSuffix: Azure Cognitive Search
-description: Controle de acesso no Azure Pesquisa Cognitiva conteúdo usando as identidades do AAD (filtros de segurança e Azure Active Directory).
+description: Privilégios de segurança no nível do documento para resultados da pesquisa do Azure Pesquisa Cognitiva, usando os filtros de segurança e as identidades do AAD (Azure Active Directory).
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/04/2020
+ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080501"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de segurança para aparar os resultados de Pesquisa Cognitiva do Azure usando identidades Active Directory
 
@@ -28,7 +27,7 @@ Este artigo aborda as seguintes tarefas:
 > - Emitir uma solicitação de pesquisa com filtro de identificadores de grupo
 > 
 > [!NOTE]
-> Os snippets de código de exemplo neste artigo são escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](https://aka.ms/search-dotnet-howto). 
+> Os snippets de código de exemplo neste artigo são escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,11 +41,11 @@ O aplicativo também deve ser registrado com o AAD, conforme descrito no procedi
 
 Essa etapa integra o seu aplicativo com o AAD com a finalidade de aceitação de entradas de usuário e contas de grupo. Se você não for um administrador do AAD na sua organização, você pode precisar [criar um novo locatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) para executar as etapas a seguir.
 
-1. Vá para o [**portal**](https://apps.dev.microsoft.com) >  de registro de aplicativos > **aplicativo convergido****Adicionar um aplicativo**.
+1. Vá para o [**portal de registro de aplicativos**](https://apps.dev.microsoft.com)  >   **aplicativo convergido**  >  **Adicionar um aplicativo**.
 2. Insira o nome para o seu aplicativo e clique em **Criar**. 
 3. Selecione seu aplicativo recentemente registrado na página Meus aplicativos.
-4. Na página de registro do aplicativo > **plataformas** > **Adicionar plataforma**, escolha **API Web**.
-5. Ainda na página de registro do aplicativo, vá para > **Microsoft Graph permissões** > **Adicionar**.
+4. Na página de registro do aplicativo > **plataformas**  >  **Adicionar plataforma**, escolha **API Web**.
+5. Ainda na página de registro do aplicativo, vá para > **Microsoft Graph permissões**  >  **Adicionar**.
 6. Em Selecionar Permissões, adicione as seguintes permissões delegadas e, em seguida, clique em **Ok**:
 
    + **Directory.ReadWrite.All**
@@ -186,7 +185,7 @@ A resposta inclui uma lista filtrada de documentos, que consiste naqueles que o 
 
 Neste tutorial, você aprendeu técnicas para usar entradas do AAD para filtrar documentos nos resultados de Pesquisa Cognitiva do Azure, aparando os resultados de documentos que não correspondem ao filtro fornecido na solicitação.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Controle de acesso baseado em identidade usando filtros de Pesquisa Cognitiva do Azure](search-security-trimming-for-azure-search.md)
 + [Filtros no Azure Pesquisa Cognitiva](search-filters.md)

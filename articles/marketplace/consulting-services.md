@@ -5,14 +5,13 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799857"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957980"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviço de consultoria
 
@@ -22,20 +21,11 @@ As ofertas de serviços de consultoria são os compromissos específicos ao clie
 
 ## <a name="compare-consulting-services"></a>Comparar os serviços de consultoria
 
-As vitrines do marketplace comercial, o Microsoft AppSource e o Azure Marketplace, estão alinhadas com os públicos e os produtos de nuvem para ajudar os clientes a encontrar o que precisam. Cada vitrine tem opções de publicação especializadas para ajudá-lo a maximizar seu investimento em publicação. A tabela a seguir resume essas opções:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Público      |Os profissionais de TI e desenvolvedores de nuvem|Os usuários empresariais e os tomadores de decisão de linha de negócios|
-|Relevância da solução      |Aplicativos técnicos criados para ou criados no Azure|Aplicativos de negócios que utilizam ou estendem o Dynamics 365, o Power BI, o Office 365, o Azure (aplicativos concluídos de suplemento ou complemento)|
-|Opções de publicação      |Entre em contato comigo, Avaliação, Transact ou Serviços para o Azure|Entre em contato comigo, Avaliação ou Serviços para o Dynamics 365 e o Power BI|
-|Experiência no produto      |Portal do Azure|Aplicativos cliente do Office, Dynamics 365, Office 365| 
-|Outros      |Publicação local via Azure Stack, serviços de consultoria para o Azure, serviços gerenciados para o Azure|Serviços de consultoria para o Dynamics 365 e o Power BI|
-||
+As vitrines do marketplace comercial, o Microsoft AppSource e o Azure Marketplace, estão alinhadas com os públicos e os produtos de nuvem para ajudar os clientes a encontrar o que precisam. Cada vitrine tem opções de publicação especializadas para ajudá-lo a maximizar seu investimento em publicação. Para saber mais sobre a diferença entre as duas vitrines, consulte [Comparando Microsoft AppSource e o Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 As ofertas de serviços de consultoria baseadas no Dynamics 365, no Power Apps e no Power BI se qualificam para serem listadas no AppSource. Para obter mais informações, baixe o arquivo PDF [Diretrizes da lista de serviços de consultoria do Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
-As ofertas de serviços de consultoria e de serviços gerenciados baseados no Microsoft Azure se qualificam para serem listadas no Azure Marketplace. Para obter mais informações, consulte [Publicar uma oferta de serviço de consultoria do Azure](./partner-center-portal/create-consulting-service-offer.md) e [Publicar uma oferta de serviços gerenciados no Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+As ofertas de serviços de consultoria e de serviços gerenciados baseados no Microsoft Azure se qualificam para serem listadas no Azure Marketplace. Para obter mais informações, consulte [Publicar uma oferta de serviço de consultoria do Azure](./partner-center-portal/create-consulting-service-offer.md) e [Publicar uma oferta de serviços gerenciados no Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Os serviços de consultoria no Azure Marketplace devem se concentrar em ofertas para um público técnico e enfatizar as soluções e os serviços técnicos do Azure.
@@ -79,21 +69,20 @@ Recursos adicionais e suporte:
 
 Para obter mais informações sobre competências, acesse a página [Competências do Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
-Os parceiros do integrador de sistemas podem enviar ofertas de serviço de consultoria para os 21 países/regiões a seguir:
+Os parceiros integradores de sistema podem enviar ofertas de serviço de consultoria para os 20 países/regiões a seguir:
 
-|   |   |   |   |
+| Países  | (continuação...)   | (continuação...)  | (continuação...)  |
 |---------|----------|----------|----------|
 | Austrália | Bélgica | Canada | Dinamarca |
 | Finlândia  | França | Alemanha  | Índia   |
 | Itália    | Japão  |  México  |  Países Baixos  |
 |  Nova Zelândia  |  Noruega  |  Polônia  | África do Sul |
-|  Espanha  | Suécia  | Suíça  |  Estados Unidos  |
-| United Kingdom  |
+|  Suécia  | Suíça  |  Estados Unidos  | United Kingdom  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registrar-se em serviços de consultoria no marketplace comercial
 
-Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) as informações da sua empresa no marketplace. Para obter uma lista de verificação completa dos requisitos de registro, consulte [Tornar-se um publicador no marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) as informações da sua empresa no marketplace. Para obter uma lista de verificação completa dos requisitos de registro, consulte [Tornar-se um publicador no marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparar os artefatos de publicação
 Antes do registro, você pode iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e solução para seu cliente-alvo. 

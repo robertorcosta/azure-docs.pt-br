@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/30/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a939eece83b94043f750d6f7f63db290f827da4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85077971"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -33,7 +32,7 @@ Você pode iniciar o processo de revisão de acesso do email de notificação ou
 - **Email**:
 
 >[!IMPORTANT]
-> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Lista azure-noreply@microsoft.com de permissões para certificar-se de que você está recebendo todos os emails.
+> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Lista de permissões para certificar-se de azure-noreply@microsoft.com que você está recebendo todos os emails.
 
 1. Procure um email da Microsoft solicitando que você examine o acesso. Aqui está um email de exemplo para examinar o acesso de um grupo.
 
@@ -43,7 +42,7 @@ Você pode iniciar o processo de revisão de acesso do email de notificação ou
 
 - **Se você não tiver o email**, poderá encontrar suas revisões de acesso pendentes seguindo estas etapas.
 
-    1. Entre no portal meus aplicativos em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+    1. Entre no portal meus aplicativos em [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
         ![Portal de meus aplicativos Listando aplicativos aos quais você tem permissões](./media/perform-access-review/myapps-access-panel.png)
 
@@ -113,7 +112,7 @@ Você pode chegar à nova experiência do revisor com a interface do usuário at
 
 ### <a name="my-apps-portal"></a>Portal de meus aplicativos
 
-1. Entre em meus aplicativos em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Entre em meus aplicativos em [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
     ![Portal de meus aplicativos Listando aplicativos aos quais você tem permissões](./media/perform-access-review/myapps-access-panel.png)
 
@@ -129,7 +128,7 @@ Você pode chegar à nova experiência do revisor com a interface do usuário at
 ### <a name="email"></a>Email
 
   >[!IMPORTANT]
-> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Lista azure-noreply@microsoft.com de permissões para certificar-se de que você está recebendo todos os emails.
+> Pode haver atrasos no recebimento de email e em alguns casos pode levar até 24 horas. Lista de permissões para certificar-se de azure-noreply@microsoft.com que você está recebendo todos os emails.
 
    1. Procure um email da Microsoft solicitando que você examine o acesso. Você pode ver um exemplo de mensagem de email abaixo:
 

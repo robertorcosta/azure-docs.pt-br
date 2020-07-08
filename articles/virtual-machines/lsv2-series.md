@@ -1,18 +1,17 @@
 ---
 title: Série Lsv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série Lsv2.
-services: virtual-machines
 author: sasha-melamed
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: bdb9e346b8deea71ef2af9f9f271ffa446be624e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 9db5f391635505c18c7fe7c868431a0abc943730
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675971"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -33,9 +32,9 @@ Armazenamento Premium: com suporte
 
 Armazenamento em cache Premium: sem suporte
 
-Migração ao Vivo: sem suporte
+Migração ao Vivo: Sem suporte
 
-Atualizações de preservação de memória: sem suporte
+Atualizações de preservação de memória: Sem suporte
 
 | Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Taxa de transferência de disco de NVMe<sup>3</sup> (IOPS de leitura/Mbps) | Taxa de transferência de disco de dados não armazenados em cache (IOPs/MBps)<sup>4</sup> | Taxa de transferência máxima de disco de dados não armazenados em cache (IOPs/MBps)<sup>5</sup>| Discos de dados máximos | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

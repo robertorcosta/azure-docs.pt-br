@@ -10,15 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674271"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre Redes Virtuais do Azure comece com as informações aqui: [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -118,16 +117,15 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso aos pontos de extremidade do SQL do Azure**                           | Interno e externo  |
 | * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência para registrar em [log a política de Hub de Eventos](api-management-howto-log-event-hubs.md) e o agente de monitoramento | Interno e externo  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência do Compartilhamento de Arquivos do Azure para [GIT](api-management-configuration-repository-git.md)                      | Interno e externo  |
-| * / 1886                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Necessário para publicar o status da Integridade no Resource Health          | Interno e externo  |
-| */443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicar [Logs de Diagnóstico e Métricas](api-management-howto-use-azure-monitor.md)                       | Interno e externo  |
-| * / 25                       | Saída           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conectar a retransmissão SMTP para enviar emails                    | Interno e externo  |
-| * / 587                      | Saída           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conectar a retransmissão SMTP para enviar emails                    | Interno e externo  |
-| * / 25028                    | Saída           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conectar a retransmissão SMTP para enviar emails                    | Interno e externo  |
-| * / 6381 - 6383              | Entrada e Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acessar o serviço Redis para [o limite de taxa](api-management-access-restriction-policies.md#LimitCallRateByKey) políticas entre computadores         | Interno e externo  |
+| */443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Extensão de integridade e monitoramento         | Interno e externo  |
+| */1886, 443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicar [logs de diagnóstico e métricas](api-management-howto-use-azure-monitor.md) e [Resource Health](../service-health/resource-health-overview.md)                     | Interno e externo  |
+| */25, 587, 25028                       | Saída           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conectar a retransmissão SMTP para enviar emails                    | Interno e externo  |
+| * / 6381 - 6383              | Entrada e Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acessar o serviço Redis para políticas de [cache](api-management-caching-policies.md) entre computadores         | Interno e externo  |
+| */4290              | Entrada e Saída | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sincronizar contadores para políticas de [limite de taxa](api-management-access-restriction-policies.md#LimitCallRateByKey) entre computadores         | Interno e externo  |
 | * / *                        | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Balanceador de carga de infraestrutura do Azure                          | Interno e externo  |
 
 >[!IMPORTANT]
-> As Portas para as quais a *Finalidade* é **negrito** são necessárias para o serviço de Gerenciamento de API ser implantado com êxito. No entanto, bloquear as outras portas causará degradação da capacidade de usar e monitorar o serviço em execução.
+> As Portas para as quais a *Finalidade* é **negrito** são necessárias para o serviço de Gerenciamento de API ser implantado com êxito. No entanto, bloquear as outras portas causará **degradação** na capacidade de usar e **monitorar o serviço em execução e fornecer o SLA confirmado**.
 
 + **Funcionalidade TLS**: Para habilitar a criação e validação de cadeia de certificados TLS/SSL o serviço Gerenciamento de API precisa de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Essa dependência não é necessária, se qualquer certificado que você carrega no Gerenciamento de API contém a cadeia completa para a raiz de CA.
 
@@ -167,7 +165,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
       - CAPTCHA do portal do desenvolvedor
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Solução de problemas
-* **Configuração inicial**: Quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Em seguida, acesse a área de trabalho remota na máquina virtual e valide se há conectividade a um de cada recurso abaixo em sua assinatura do azure
+* **Configuração inicial**: Quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Na próxima área de trabalho remota na máquina virtual e valide se há conectividade com um de cada recurso abaixo em sua assinatura do Azure
     * Azure Storage Blob
     * Banco de Dados SQL do Azure
     * Tabela de armazenamento do Azure

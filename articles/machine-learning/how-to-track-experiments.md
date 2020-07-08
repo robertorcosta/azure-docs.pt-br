@@ -9,15 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675195"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar métricas e execuções de experimento do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,6 +126,8 @@ Use o módulo __Executar script Python__ para adicionar o registro em log lógic
         run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
 
         # Log the mean absolute error to the parent run to see the metric in the run details page.
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
         run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
     
         return dataframe1,
@@ -207,9 +208,11 @@ Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()
 
 Quando a execução de um experimento estiver concluída, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico no [estúdio do Azure Machine Learning](https://ml.azure.com).
 
-Navegue até a guia Experimentos e selecione seu experimento. O painel de execução do experimento será exibido. Nele você verá as métricas e os gráficos acompanhados cujas execuções estão registradas em log. Neste caso, registramos em log MSE e os valores alfa.
+Navegue até a guia Experimentos e selecione seu experimento. O painel de execução do experimento será exibido. Nele você verá as métricas e os gráficos acompanhados cujas execuções estão registradas em log. 
 
-  ![Detalhes da execução no estúdio do Azure Machine Learning](./media/how-to-track-experiments/experiment-dashboard.png)
+Você pode editar a tabela de lista de execução para exibir o valor registrado por último, mínimo ou máximo para suas execuções. Você pode selecionar ou desmarcar várias execuções na lista de execução e as execuções selecionadas preencherão os gráficos com seus dados. Você também pode adicionar novos gráficos ou editar gráficos para comparar as métricas registradas (valores mínimo, máximo, último ou todos) entre várias execuções. Para explorar seus dados com mais eficiência, você também pode maximizar seus gráficos.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Detalhes da execução no estúdio do Azure Machine Learning":::
 
 Você pode fazer uma busca detalhada em uma execução específica para ver suas saídas ou logs, ou pode baixar o instantâneo do experimento que enviou para poder compartilhar a pasta do experimento com outras pessoas.
 

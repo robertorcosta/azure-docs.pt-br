@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75561860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676124"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions o processamento confiável de eventos
 
@@ -55,7 +54,7 @@ Esse comportamento revela alguns pontos importantes:
 
 ## <a name="handling-exceptions"></a>Tratamento de exceções
 
-Como regra geral, cada função deve incluir um [bloco try/catch](./functions-bindings-error-pages.md) no nível mais alto de código. Especificamente, todas as funções que consomem eventos de hubs `catch` de eventos devem ter um bloco. Dessa forma, quando uma exceção é gerada, o bloco catch trata o erro antes de o ponteiro progredir.
+Como regra geral, cada função deve incluir um [bloco try/catch](./functions-bindings-error-pages.md) no nível mais alto de código. Especificamente, todas as funções que consomem eventos de hubs de eventos devem ter um `catch` bloco. Dessa forma, quando uma exceção é gerada, o bloco catch trata o erro antes de o ponteiro progredir.
 
 ### <a name="retry-mechanisms-and-policies"></a>Mecanismos e políticas de repetição
 
@@ -91,7 +90,7 @@ Há duas partes necessárias para implementar um disjuntor em um processo de eve
 
 Os detalhes da implementação podem variar, mas para compartilhar o estado entre as instâncias, você precisa de um mecanismo de armazenamento. Você pode optar por armazenar o estado no armazenamento do Azure, um cache Redis ou qualquer outra conta que possa ser acessada por uma coleção de funções.
 
-Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ou as [entidades duráveis](./durable/durable-functions-overview.md) são uma opção natural para gerenciar o fluxo de trabalho e o estado do circuito. Outros serviços também podem funcionar, mas os aplicativos lógicos são usados para este exemplo. Usando aplicativos lógicos, você pode pausar e reiniciar a execução de uma função, dando a você o controle necessário para implementar o padrão de disjuntor.
+Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ou as [funções duráveis](./durable/durable-functions-overview.md) são uma opção natural para gerenciar o fluxo de trabalho e o estado do circuito. Outros serviços também podem funcionar, mas os aplicativos lógicos são usados para este exemplo. Usando aplicativos lógicos, você pode pausar e reiniciar a execução de uma função, dando a você o controle necessário para implementar o padrão de disjuntor.
 
 ### <a name="define-a-failure-threshold-across-instances"></a>Definir um limite de falha entre instâncias
 
@@ -123,7 +122,7 @@ Usando essa abordagem, nenhuma mensagem é perdida, todas as mensagens são proc
 ## <a name="resources"></a>Recursos
 
 - [Exemplos de processamento de eventos confiáveis](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Disjuntor de Durable Functions do Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Disjuntor de entidade durável do Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -131,4 +130,4 @@ Para saber mais, consulte os recursos a seguir:
 
 - [Tratamento de erros do Azure Functions](./functions-bindings-error-pages.md)
 - [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
-- [Criar uma função que se integra nos Aplicativos Lógicos do Azure](./functions-twitter-email.md)
+- [Criar uma função que se integra aos Aplicativos Lógicos do Azure](./functions-twitter-email.md)

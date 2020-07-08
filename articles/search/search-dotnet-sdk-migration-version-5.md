@@ -9,16 +9,15 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 32749037ac0abe3c55878c3adaaeff48183ae685
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72793033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080417"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Atualizar para Azure Search SDK do .NET versão 5
 
-Se você estiver usando a visualização da versão 4.0 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 5.
+Se você estiver usando a versão 4,0-Preview ou anterior do [SDK do .net](https://docs.microsoft.com/dotnet/api/overview/azure/search), este artigo o ajudará a atualizar seu aplicativo para usar a versão 5.
 
 Para obter uma explicação mais geral do SDK, incluindo exemplos, confira [Como usar o Azure Search de um aplicativo .NET](search-howto-dotnet-sdk.md).
 

@@ -3,12 +3,11 @@ title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 227fe70512536790d179797394b6fba22e7eb50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340905"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -16,19 +15,19 @@ Com Azure Monitor para contêineres, você pode usar os gráficos de desempenho 
 
 Este artigo ajuda você a entender as duas perspectivas e como Azure Monitor ajuda a avaliar, investigar e resolver problemas detectados rapidamente.
 
-Para obter informações sobre como habilitar o Azure Monitor para contêineres, consulte [Azure monitor integrado para contêineres](container-insights-onboard.md).
+Para saber mais sobre como habilitar o Azure Monitor para contêineres, confira [Integrar o Azure Monitor para contêineres](container-insights-onboard.md).
 
-Azure Monitor fornece uma exibição de vários clusters que mostra o status de integridade de todos os clusters kubernetes monitorados que executam o Linux e o Windows Server 2019 implantados em grupos de recursos em suas assinaturas. Ele mostra os clusters descobertos em todos os ambientes que não são monitorados pela solução. Você pode entender imediatamente a integridade do cluster e, a partir daqui, pode fazer uma busca detalhada na página de desempenho do nó e do controlador ou navegar para ver os gráficos de desempenho do cluster. Para clusters AKS que foram descobertos e identificados como não monitorados, você pode habilitar o monitoramento para eles a qualquer momento. 
+Azure Monitor fornece uma exibição de vários clusters que mostra o status de integridade de todos os clusters kubernetes monitorados que executam o Linux e o Windows Server 2019 implantados em grupos de recursos em suas assinaturas. Ele mostra os clusters descobertos em todos os ambientes que não são monitorados pela solução. Você pode entender imediatamente a integridade do cluster e, a partir daqui, pode fazer uma busca detalhada na página de desempenho do nó e do controlador ou navegar para ver os gráficos de desempenho do cluster. Para clusters AKS que foram descobertos e identificados como não monitorados, você pode habilitar o monitoramento para eles a qualquer momento.
 
 As principais diferenças no monitoramento de um cluster do Windows Server com Azure Monitor para contêineres em comparação com um cluster do Linux são descritas [aqui](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) no artigo Visão geral.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com). 
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Exibição de vários clusters do Azure Monitor
 
-Para exibir o status de integridade de todos os clusters do kubernetes implantados, selecione **Monitor** no painel esquerdo na portal do Azure. Na seção **Insights**, selecione **Contêineres**. 
+Para exibir o status de integridade de todos os clusters do kubernetes implantados, selecione **Monitor** no painel esquerdo na portal do Azure. Na seção **Insights**, selecione **Contêineres**.
 
 ![Exemplo de painel com vários clusters no Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview.png)
 
@@ -50,9 +49,9 @@ Na guia **clusters monitorados** , você aprende o seguinte:
 - Quantos nós e pods de sistema e de usuário são implantados por cluster.
 - Quanto espaço em disco está disponível e se há um problema de capacidade.
 
-Os status de integridade incluídos são: 
+Os status de integridade incluídos são:
 
-* **Íntegro**: nenhum problema é detectado para a VM e está funcionando conforme necessário. 
+* **Íntegro**: nenhum problema é detectado para a VM e está funcionando conforme necessário.
 * **Crítico**: é detectado um ou mais problemas críticos que devem ser resolvidos para restaurar o estado operacional normal conforme o esperado.
 * **Aviso**: um ou mais problemas detectados devem ser resolvidos ou a condição de integridade pode se tornar crítica.
 * **Desconhecido**: se o serviço não fosse capaz de fazer uma conexão com o nó ou Pod, o status é alterado para um estado desconhecido.
@@ -62,70 +61,70 @@ Os status de integridade incluídos são:
 * **Mal**configurado: Azure monitor para contêineres não foi configurado corretamente no espaço de trabalho especificado.
 * **Sem dados**: os dados não foram relatados para o espaço de trabalho nos últimos 30 minutos.
 
-O estado de integridade calcula o status geral do cluster como o *pior dos* três Estados com uma exceção. Se qualquer um dos três Estados for desconhecido, o estado geral do cluster mostrará **desconhecido**. 
+O estado de integridade calcula o status geral do cluster como o *pior dos* três Estados com uma exceção. Se qualquer um dos três Estados for desconhecido, o estado geral do cluster mostrará **desconhecido**.
 
 A tabela a seguir fornece uma análise do cálculo que controla os Estados de integridade de um cluster monitorado na exibição de vários clusters.
 
-| |Status |Disponibilidade |  
-|-------|-------|-----------------|  
-|**Pod do usuário**| | |  
-| |Íntegros |100% |  
-| |Aviso |90 – 99% |  
-| |Crítico |<90% |  
-| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |  
-|**Pod do sistema**| | |  
-| |Íntegros |100% |
+| |Status |Disponibilidade |
+|-------|-------|-----------------|
+|**Pod do usuário**| | |
+| |Healthy |100% |
+| |Aviso |90 – 99% |
+| |Crítico |<90% |
+| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
+|**Pod do sistema**| | |
+| |Healthy |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
-| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
 |**Nó** | | |
-| |Íntegros |>85% |
+| |Healthy |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
-| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
 
 Na lista de clusters, você pode fazer uma busca detalhada na página do **cluster** selecionando o nome do cluster. Em seguida, vá para a página de desempenho de **nós** selecionando o acúmulo de nós na coluna **nós** para esse cluster específico. Ou, você pode fazer uma busca detalhada na página de desempenho de **controladores** selecionando o acúmulo da coluna **pods do usuário** ou pods do **sistema** .
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Exibir o desempenho diretamente de um cluster
 
-O acesso a Azure monitor para contêineres está disponível diretamente de um cluster AKs selecionando o**cluster** **insights** > no painel esquerdo, ou quando você selecionou um cluster da exibição de vários clusters. As informações sobre o cluster são organizadas em quatro perspectivas:
+O acesso a Azure monitor para contêineres está disponível diretamente de um cluster AKs selecionando o cluster **insights**  >  **Cluster** no painel esquerdo, ou quando você selecionou um cluster da exibição de vários clusters. As informações sobre o cluster são organizadas em quatro perspectivas:
 
 - Cluster
-- Nós 
-- Controladores 
+- Nós
+- Controladores
 - Contêineres
 
 >[!NOTE]
->A experiência descrita no restante deste artigo também é aplicável para exibir o status de integridade e desempenho de seus clusters kubernetes hospedados em Azure Stack ou em outro ambiente quando selecionado na exibição de vários clusters. 
+>A experiência descrita no restante deste artigo também é aplicável para exibir o status de integridade e desempenho de seus clusters kubernetes hospedados em Azure Stack ou em outro ambiente quando selecionado na exibição de vários clusters.
 
-A página padrão é aberta e exibe quatro gráficos de desempenho de linha que mostram as principais métricas de desempenho do cluster. 
+A página padrão é aberta e exibe quatro gráficos de desempenho de linha que mostram as principais métricas de desempenho do cluster.
 
 ![Gráficos de desempenho de exemplo na guia de Cluster](./media/container-insights-analyze/containers-cluster-perfview.png)
 
 Os gráficos de desempenho exibem quatro métricas de desempenho:
 
-- **Utilização&nbsp;de CPU do nó**: uma perspectiva agregada da utilização da CPU para todo o cluster. Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados. 
-- **Utilização&nbsp;de memória do nó**: uma perspectiva agregada de utilização de memória para todo o cluster. Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados. 
-- **Contagem de nós**: uma contagem de nós e o status do Kubernetes. Os status dos nós de cluster representados são total, pronto e não pronto. Eles podem ser filtrados individualmente ou combinados no seletor acima do gráfico. 
-- **Contagem de Pod ativo**: uma contagem de Pod e o status de kubernetes. Os status dos pods representados são total, pendente, em execução, desconhecido, com êxito ou falha. Eles podem ser filtrados individualmente ou combinados no seletor acima do gráfico. 
+- Utilização de CPU do nó: uma perspectiva agregada da utilização da CPU para todo o cluster. ** &nbsp; % ** Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados.
+- Utilização de memória do nó: uma perspectiva agregada de utilização de memória para todo o cluster. ** &nbsp; % ** Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados.
+- **Contagem de nós**: uma contagem de nós e o status do Kubernetes. Os status dos nós de cluster representados são total, pronto e não pronto. Eles podem ser filtrados individualmente ou combinados no seletor acima do gráfico.
+- **Contagem de Pod ativo**: uma contagem de Pod e o status de kubernetes. Os status dos pods representados são total, pendente, em execução, desconhecido, com êxito ou falha. Eles podem ser filtrados individualmente ou combinados no seletor acima do gráfico.
 
 Use as teclas de seta para a esquerda e para a direita para percorrer cada ponto de dados no gráfico. Use as teclas de seta para cima e para baixo para percorrer as linhas percentuais. Selecione o ícone de pino no canto superior direito de qualquer um dos gráficos para fixar o gráfico selecionado no último painel do Azure exibido. No painel, você pode redimensionar e reposicionar o gráfico. Selecionar o gráfico no painel redireciona você para Azure Monitor para contêineres e carrega o escopo e a exibição corretos.
 
-O Azure Monitor para contêineres também dá suporte a Azure Monitor [métricas Explorer](../platform/metrics-getting-started.md), onde você pode criar seus próprios gráficos de plotagem, correlacionar e investigar tendências e fixar em painéis. No Metrics Explorer, você também pode usar os critérios definidos para visualizar suas métricas como a base de uma regra de [alerta baseada em métrica](../platform/alerts-metric.md). 
+O Azure Monitor para contêineres também dá suporte a Azure Monitor [métricas Explorer](../platform/metrics-getting-started.md), onde você pode criar seus próprios gráficos de plotagem, correlacionar e investigar tendências e fixar em painéis. No Metrics Explorer, você também pode usar os critérios definidos para visualizar suas métricas como a base de uma regra de [alerta baseada em métrica](../platform/alerts-metric.md).
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Exibir métricas de contêiner no Metrics Explorer
 
 No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod agregadas de Azure Monitor para contêineres. A tabela a seguir resume os detalhes para ajudá-lo a entender como usar os gráficos de métrica para visualizar as métricas de contêiner.
 
-|Namespace | Métrica | Descrição | 
+|Namespace | Métrica | Descrição |
 |----------|--------|-------------|
 | informações. contêiner/nós | |
-| | cpuUsageMillicores | Medição agregada da utilização da CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (Mili = 1000). Usado para determinar o uso de núcleos em um contêiner em que muitos aplicativos podem estar usando um núcleo.| 
+| | cpuUsageMillicores | Medição agregada da utilização da CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (Mili = 1000). Usado para determinar o uso de núcleos em um contêiner em que muitos aplicativos podem estar usando um núcleo.|
 | | cpuUsagePercentage | Utilização média de CPU agregada medida em percentual em todo o cluster.|
-| | memoryRssBytes | Memória RSS do contêiner usada em bytes.| 
+| | memoryRssBytes | Memória RSS do contêiner usada em bytes.|
 | | memoryRssPercentage | Memória RSS do contêiner usada em percentual.|
-| | memoryWorkingSetBytes | Memória do conjunto de trabalho do contêiner usada.| 
-| | memoryWorkingSetPercentage | Memória do conjunto de trabalho do contêiner usada em porcentagem. | 
+| | memoryWorkingSetBytes | Memória do conjunto de trabalho do contêiner usada.|
+| | memoryWorkingSetPercentage | Memória do conjunto de trabalho do contêiner usada em porcentagem. |
 | | nodesCount | Uma contagem de nós de kubernetes.|
 | percepções. Container/pods | |
 | | PodCount | Uma contagem de pod de kubernetes.|
@@ -145,25 +144,25 @@ Como expandir os objetos na hierarquia, as atualizações de painel de proprieda
 
 Use a opção **+ Adicionar filtro** na parte superior da página para filtrar os resultados da exibição por **serviço**, **nó**, **namespace**ou pool de **nós**. Depois de selecionar o escopo do filtro, selecione um dos valores mostrados no campo **Selecionar valor (es)** . Depois que o filtro é configurado, ele é aplicado globalmente ao exibir qualquer perspectiva do cluster AKS. A fórmula dá suporte apenas ao sinal de igual. Você pode adicionar mais filtros depois do primeiro para restringir ainda mais os resultados. Por exemplo, se você especificar um filtro por **nó**, só poderá selecionar **serviço** ou **namespace** para o segundo filtro.
 
-A especificação de um filtro em uma guia continua sendo aplicada quando você seleciona outra. Ele é excluído depois que você seleciona o símbolo **x** ao lado do filtro especificado. 
+A especificação de um filtro em uma guia continua sendo aplicada quando você seleciona outra. Ele é excluído depois que você seleciona o símbolo **x** ao lado do filtro especificado.
 
 Alterne para a guia **nós** e a hierarquia de linhas segue o modelo de objeto kubernetes, que começa com um nó no cluster. Expanda o nó para exibir um ou mais pods em execução no nó. Se mais de um contêiner for agrupado a um pod, eles serão exibidos como a última linha na hierarquia. Você também pode exibir quantas cargas de trabalho não-Pod estão em execução no host se o host tiver pressão de memória ou processador.
 
 ![Exemplo da hierarquia do nó kubernetes no modo de exibição de desempenho](./media/container-insights-analyze/containers-nodes-view.png)
 
-Os contêineres do Windows Server que executam o sistema operacional Windows Server 2019 são mostrados após todos os nós baseados em Linux na lista. Ao expandir um nó do Windows Server, você pode exibir um ou mais pods e contêineres que são executados no nó. Depois que um nó é selecionado, o painel Propriedades mostra informações de versão. As informações do agente são excluídas porque os nós do Windows Server não têm um agente instalado. 
+Os contêineres do Windows Server que executam o sistema operacional Windows Server 2019 são mostrados após todos os nós baseados em Linux na lista. Ao expandir um nó do Windows Server, você pode exibir um ou mais pods e contêineres que são executados no nó. Depois que um nó é selecionado, o painel Propriedades mostra informações de versão.
 
-![Hierarquia de nós de exemplo com nós do Windows Server listados](./media/container-insights-analyze/nodes-view-windows.png) 
+![Hierarquia de nós de exemplo com nós do Windows Server listados](./media/container-insights-analyze/nodes-view-windows.png)
 
 Instâncias de contêiner do Azure nós virtuais que executam o sistema operacional Linux são mostradas após o último nó de cluster AKS na lista. Quando você expande um nó virtual de instâncias de contêiner, é possível exibir um pods e contêineres de instâncias de contêiner que são executados no nó. As métricas não são coletadas e relatadas para nós, somente para pods.
 
 ![Hierarquia de nós de exemplo com Instâncias de Contêiner listadas](./media/container-insights-analyze/nodes-view-aci.png)
 
 Em um nó expandido, você pode fazer drill-down do Pod ou contêiner que é executado no nó para o controlador para exibir os dados de desempenho filtrados para esse controlador. Selecione o valor na coluna **controlador** para o nó específico.
- 
+
 ![Exemplo de drill down do nó para o controlador na exibição de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Selecione controladores ou contêineres na parte superior da página para examinar o status e a utilização de recursos para esses objetos. Para examinar a utilização de memória, na lista suspensa **métrica** , selecione **conjunto de trabalho** **memória RSS** ou memória. **RSS de Memória** só tem suporte para a versão do Kubernetes 1.8 e posteriores. Caso contrário, você exibirá valores para **min&nbsp; ** como *Nan&nbsp;*, que é um valor de tipo de dados numérico que representa um valor indefinido ou inrepresentado.
+Selecione controladores ou contêineres na parte superior da página para examinar o status e a utilização de recursos para esses objetos. Para examinar a utilização de memória, na lista suspensa **métrica** , selecione **conjunto de trabalho** **memória RSS** ou memória. **RSS de Memória** só tem suporte para a versão do Kubernetes 1.8 e posteriores. Caso contrário, você exibirá valores para **min &nbsp; % ** como *Nan &nbsp; % *, que é um valor de tipo de dados numérico que representa um valor indefinido ou inrepresentado.
 
 ![Exibição do desempenho de nós do contêiner](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -173,46 +172,46 @@ Selecione controladores ou contêineres na parte superior da página para examin
 
 - A memória virtual é um espaço reservado no disco rígido (cache) usado pelo sistema operacional para trocar dados da memória em disco quando sob pressão de memória e, em seguida, busque-os de volta para a memória quando necessário.
 
-Por padrão, os dados de desempenho são baseados nas últimas seis horas, mas você pode alterar a janela usando a opção **intervalo** de tempo no canto superior esquerdo. Você também pode filtrar os resultados dentro do intervalo de tempo selecionando **min**, **AVG**, **50 º**, **90 º**, **95 º**e **Max** no seletor de percentil. 
+Por padrão, os dados de desempenho são baseados nas últimas seis horas, mas você pode alterar a janela usando a opção **intervalo** de tempo no canto superior esquerdo. Você também pode filtrar os resultados dentro do intervalo de tempo selecionando **min**, **AVG**, **50 º**, **90 º**, **95 º**e **Max** no seletor de percentil.
 
 ![Seleção de percentil para filtragem de dados](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
 Quando você focaliza o gráfico de barras na coluna **tendência** , cada barra mostra o uso de CPU ou de memória, dependendo de qual métrica está selecionada, dentro de um período de exemplo de 15 minutos. Depois de selecionar o gráfico de tendências por meio de um teclado, use a tecla Alt + Page Up ou Alt + Page Down para percorrer cada barra individualmente. Você obterá os mesmos detalhes que faria se tiver focalizado a barra.
 
-![Exemplo de foco de gráfico de barra de tendência](./media/container-insights-analyze/containers-metric-trend-bar-01.png) 
+![Exemplo de foco de gráfico de barra de tendência](./media/container-insights-analyze/containers-metric-trend-bar-01.png)
 
 No próximo exemplo, para o primeiro nó na lista, *AKs-nodepool1-*, o valor para **contêineres** é 9. Esse valor é um ROLLUP do número total de contêineres implantados.
 
 ![ROLLUP de contêineres por exemplo por nó](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
-Essas informações podem ajudá-lo a identificar rapidamente se você tem um equilíbrio adequado de contêineres entre nós em seu cluster. 
+Essas informações podem ajudá-lo a identificar rapidamente se você tem um equilíbrio adequado de contêineres entre nós em seu cluster.
 
 As informações apresentadas quando você exibe a guia **nós** é descrita na tabela a seguir.
 
-| Coluna | Descrição | 
+| Coluna | Descrição |
 |--------|-------------|
 | Nome | O nome do host. |
 | Status | Exibição de Kubernetes do status do nó. |
-| Min&nbsp;%, AVG&nbsp;%, 50 º&nbsp;%, 90 º&nbsp;%, 95 º&nbsp;%, Max&nbsp;%  | Percentual médio de nós com base no percentil pela duração selecionada. |
+| Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%  | Percentual médio de nós com base no percentil pela duração selecionada. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | Valor real dos nós médios com base no percentil durante o tempo de duração selecionado. O valor médio é medido do limite de CPU/memória definido para um nó. Para pods e contêineres, é o valor médio relatado pelo host. |
 | Contêineres | Número de contêineres. |
 | Tempo de atividade | Representa a hora desde que um nó foi iniciado ou reiniciado. |
-| Controller | Somente para os contêineres e pods. Ele mostra em qual controlador ele reside. Nem todos os pods estão em um controlador, assim, alguns poderão exibir **N/D**. | 
-| % De&nbsp;tendência mín,&nbsp;média de%&nbsp;, 50 º%&nbsp;, 90 º%&nbsp;, 95 º%, máx&nbsp;% | Tendência de gráfico de barras representa o percentual médio de métrica de percentil do controlador. |
+| Controller | Somente para os contêineres e pods. Ele mostra em qual controlador ele reside. Nem todos os pods estão em um controlador, assim, alguns poderão exibir **N/D**. |
+| % De tendência mín &nbsp; , média &nbsp; de%, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, máx&nbsp;% | Tendência de gráfico de barras representa o percentual médio de métrica de percentil do controlador. |
 
 Você pode notar uma carga de trabalho depois de expandir um nó chamado **outro processo**. Ele representa processos não-contêineres que são executados no seu nó e inclui:
 
-* Processos não contêineres kubernetes autogerenciados ou gerenciados
+* Processos de Kubernetes autogerenciados ou gerenciados que não estão em contêineres
 
-* Processos de tempo de execução do contêiner  
+* Processos de tempo de execução do contêiner
 
-* Kubelet  
+* Kubelet
 
 * Processos do sistema em execução no seu nó
 
-* Outras cargas de trabalho não kubernetes em execução no hardware do nó ou VM
+* Outras cargas de trabalho que não são de Kubernetes em execução no hardware do nó ou em VM
 
-Ele é calculado por: *uso total do* - *uso de CAdvisor do processo em contêineres*.  
+Ele é calculado por: *uso total do*  -  *uso de CAdvisor do processo em contêineres*.
 
 No seletor, selecione **Controladores**.
 
@@ -232,21 +231,21 @@ Selecione o valor na coluna **nó** para o controlador específico.
 
 As informações exibidas quando você exibe controladores são descritas na tabela a seguir.
 
-| Coluna | Descrição | 
+| Coluna | Descrição |
 |--------|-------------|
 | Nome | O nome do controlador.|
 | Status | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado*ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
-| Min&nbsp;%, AVG&nbsp;%, 50 º&nbsp;%, 90 º&nbsp;%, 95 º&nbsp;%, Max&nbsp;%| Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
+| Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%| Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max  | Rollup da média de milinúcleo de CPU ou desempenho da memória do contêiner para o percentil selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
 | Contêineres | Número total de contêineres para o controlador ou pod. |
 | Reinícios | Rollup da contagem de reinicialização dos contêineres. |
 | Tempo de atividade | Representa o tempo desde o início de um contêiner. |
-| Nó | Somente para os contêineres e pods. Ele mostra em qual controlador ele reside. | 
-| % De&nbsp;tendência mín,&nbsp;média de%&nbsp;, 50 º%&nbsp;, 90 º%&nbsp;, 95 º%, máx&nbsp;% | A tendência de gráfico de barras representa a métrica percentil do controlador. |
+| Nó | Somente para os contêineres e pods. Ele mostra em qual controlador ele reside. |
+| % De tendência mín &nbsp; , média &nbsp; de%, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, máx&nbsp;% | A tendência de gráfico de barras representa a métrica percentil do controlador. |
 
 Os ícones no campo status indicam o status online dos contêineres.
- 
-| ícone | Status | 
+
+| Ícone | Status |
 |--------|-------------|
 | ![Ícone de status de execução pronto](./media/container-insights-analyze/containers-ready-icon.png) | Execução (Pronto)|
 | ![Ícone de status aguardando ou pausado](./media/container-insights-analyze/containers-waiting-icon.png) | Aguardando ou em pausa|
@@ -259,7 +258,7 @@ No seletor, selecione **Contêineres**.
 
 ![Selecionar exibição de contêineres](./media/container-insights-analyze/containers-containers-tab.png)
 
-Aqui, você pode exibir a integridade de desempenho de seus contêineres do Kubernetes do Azure e das Instâncias de Contêiner do Azure. 
+Aqui, você pode exibir a integridade de desempenho de seus contêineres do Kubernetes do Azure e das Instâncias de Contêiner do Azure.
 
 ![\<Exibição de desempenho de contêineres de nome>](./media/container-insights-analyze/containers-containers-view.png)
 
@@ -269,27 +268,27 @@ Em um contêiner, você pode fazer drill down até um pod ou nó para exibir dad
 
 As informações exibidas quando você exibe contêineres são descritas na tabela a seguir.
 
-| Coluna | Descrição | 
+| Coluna | Descrição |
 |--------|-------------|
 | Nome | O nome do controlador.|
 | Status | Status dos contêineres, se houver. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
-| Min&nbsp;%, AVG&nbsp;%, 50 º&nbsp;%, 90 º&nbsp;%, 95 º&nbsp;%, Max&nbsp;% | O rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
+| Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;% | O rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | O rollup da média do desempenho de memória ou do milinúcleo da CPU do contêiner para o percentual selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
-| Pod | Contêiner no qual reside o pod.| 
-| Nó |  Nó em que reside o contêiner. | 
+| Pod | Contêiner no qual reside o pod.|
+| Nó |  Nó em que reside o contêiner. |
 | Reinícios | Representa o tempo desde o início de um contêiner. |
 | Tempo de atividade | Representa a hora desde que um contêiner foi iniciado ou reiniciado. |
-| % De&nbsp;tendência mín,&nbsp;média de%&nbsp;, 50 º%&nbsp;, 90 º%&nbsp;, 95 º%, máx&nbsp;% | A tendência de gráfico de barras representa o percentual métrico médio do contêiner. |
+| % De tendência mín &nbsp; , média &nbsp; de%, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, máx&nbsp;% | A tendência de gráfico de barras representa o percentual métrico médio do contêiner. |
 
 Os ícones no campo status indicam os status online de pods, conforme descrito na tabela a seguir.
- 
-| ícone | Status |  
-|--------|-------------|  
-| ![Ícone de status de execução pronto](./media/container-insights-analyze/containers-ready-icon.png) | Execução (Pronto)|  
-| ![Ícone de status aguardando ou pausado](./media/container-insights-analyze/containers-waiting-icon.png) | Aguardando ou em pausa|  
-| ![Ícone do status de execução informado pela última vez](./media/container-insights-analyze/containers-grey-icon.png) | Relatado pela última vez como em execução, mas sem responder por mais de 30 minutos|  
-| ![Ícone de status encerrado](./media/container-insights-analyze/containers-terminated-icon.png) | Parou com sucesso ou houve falha ao parar|  
-| ![Ícone de status com falha](./media/container-insights-analyze/containers-failed-icon.png) | Estado com falha |  
+
+| Ícone | Status |
+|--------|-------------|
+| ![Ícone de status de execução pronto](./media/container-insights-analyze/containers-ready-icon.png) | Execução (Pronto)|
+| ![Ícone de status aguardando ou pausado](./media/container-insights-analyze/containers-waiting-icon.png) | Aguardando ou em pausa|
+| ![Ícone do status de execução informado pela última vez](./media/container-insights-analyze/containers-grey-icon.png) | Relatado pela última vez como em execução, mas sem responder por mais de 30 minutos|
+| ![Ícone de status encerrado](./media/container-insights-analyze/containers-terminated-icon.png) | Parou com sucesso ou houve falha ao parar|
+| ![Ícone de status com falha](./media/container-insights-analyze/containers-failed-icon.png) | Estado com falha |
 
 ## <a name="workbooks"></a>Pastas de trabalho
 
@@ -301,7 +300,7 @@ Azure Monitor para contêineres inclui quatro pastas de trabalho para você come
 
     - Percentual de uso de disco para todos os discos.
     - Espaço livre em disco para todos os discos.
-    - Uma grade que mostra o disco de cada nó, sua porcentagem de espaço usado, tendência de percentual de espaço usado, espaço livre em disco (GiB) e tendência de espaço livre em disco (GiB). Quando uma linha é selecionada na tabela, a porcentagem de espaço usado e espaço livre em disco (GiB) é mostrada abaixo da linha. 
+    - Uma grade que mostra o disco de cada nó, sua porcentagem de espaço usado, tendência de percentual de espaço usado, espaço livre em disco (GiB) e tendência de espaço livre em disco (GiB). Quando uma linha é selecionada na tabela, a porcentagem de espaço usado e espaço livre em disco (GiB) é mostrada abaixo da linha.
 
 - **E/s de disco**: apresenta gráficos de utilização de disco interativo para cada disco apresentado ao nó dentro de um contêiner pelas seguintes perspectivas:
 
@@ -323,6 +322,6 @@ Você acessa essas pastas de trabalho selecionando cada uma na lista suspensa **
 
 - Examine [criar alertas de desempenho com Azure monitor para contêineres](container-insights-alerts.md) para saber como criar alertas para alta utilização de CPU e memória para dar suporte aos procedimentos e processos DevOps ou operacionais.
 
-- Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.
+- Visualize [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas e exemplos predefinidos para avaliar ou personalizar para alertar, visualizar ou analisar seus clusters.
 
 - Exiba [monitorar a integridade do cluster](container-insights-health.md) para saber mais sobre como exibir o status de integridade do cluster kubernetes.

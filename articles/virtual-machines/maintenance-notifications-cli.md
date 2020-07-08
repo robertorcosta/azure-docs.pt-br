@@ -4,15 +4,14 @@ description: Exibir notificações de manutenção para máquinas virtuais em ex
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 289733c4cee23a37c26df0b613a470925756f0eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77920885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674832"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Manipulando notificações de manutenção planejada usando o CLI do Azure
 
@@ -28,7 +27,7 @@ az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintena
 
 ## <a name="start-maintenance"></a>Iniciar manutenção
 
-A chamada a seguir iniciará a manutenção em uma `IsCustomerInitiatedMaintenanceAllowed` VM se for definido como true.
+A chamada a seguir iniciará a manutenção em uma VM se `IsCustomerInitiatedMaintenanceAllowed` for definido como true.
 
 ```azurecli-interactive
 az vm perform-maintenance -g myResourceGroup -n myVM 

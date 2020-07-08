@@ -3,29 +3,28 @@ title: Transferir dados de ou para arquivos do Azure usando AzCopy v10 | Microso
 description: Transferir dados com o AzCopy e o armazenamento de arquivos.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7f47dd05035772744fb212ef8914b25979af61e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514961"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
-AzCopy é um utilitário de linha de comando que você pode usar para copiar BLOBs ou arquivos de ou para uma conta de armazenamento. Este artigo contém comandos de exemplo que funcionam com os arquivos do Azure.
+AzCopy é um utilitário de linha de comando que você pode usar para copiar blobs ou arquivos de ou para uma conta de armazenamento. Este artigo contém comandos de exemplo que funcionam com os arquivos do Azure.
 
 Antes de começar, consulte o artigo [introdução ao AzCopy](storage-use-azcopy-v10.md) para baixar o AzCopy e se familiarizar com a ferramenta.
 
 > [!TIP]
-> Os exemplos neste artigo incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+> Os exemplos neste artigo incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd.exe). Se você estiver usando um shell de comando do Windows (cmd.exe), coloque os argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 ## <a name="create-file-shares"></a>Criar compartilhamentos de arquivos
 
-Você pode usar o comando [azcopy Make](storage-ref-azcopy-make.md) para criar um compartilhamento de arquivos. O exemplo nesta seção cria um compartilhamento de arquivos chamado `myfileshare`.
+Você pode usar o comando [azcopy Make](storage-ref-azcopy-make.md) para criar um compartilhamento de arquivos. O exemplo nesta seção cria um compartilhamento de arquivos chamado `myfileshare` .
 
 |    |     |
 |--------|-----------|
@@ -51,15 +50,15 @@ Esta seção contém os seguintes exemplos:
 >
 > |Cenário|Sinalizador|
 > |---|---|
-> |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--Preserve-SMB-permissões**=\[verdadeiro\|falso\]|
-> |Copie informações de propriedade SMB junto com os arquivos.|**--Preserve-SMB-info**=\[true\|false\]|
-> |Carregar arquivos como BLOBs de acréscimo ou BLOBs de página.|**--blob-Type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |Carregue para uma camada de acesso específica (como a camada de arquivo morto).|**--Block-blob-camada**=\[nenhum\|arquivo\|frio\|quente\]|
+> |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--preserve-SMB-permissões** = \[ verdadeiro \| falso\]|
+> |Copie informações de propriedade SMB junto com os arquivos.|**--preserve-SMB-info** = \[ verdadeiro \| falso\]|
+> |Carregar arquivos como BLOBs de acréscimo ou BLOBs de página.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
+> |Carregue para uma camada de acesso específica (como a camada de arquivo morto).|**--bloco-blob-camada** = \[ Nenhum \| \| arquivo frio \| quente\]|
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
-> AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o `--put-md5` sinalizador a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na Propriedade do `Content-md5` arquivo corresponde ao hash calculado.
+> AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o `--put-md5` sinalizador a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na Propriedade do arquivo `Content-md5` corresponde ao hash calculado.
 
 ### <a name="upload-a-file"></a>Carregar um arquivo
 
@@ -68,7 +67,7 @@ Esta seção contém os seguintes exemplos:
 | **Sintaxe** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name><SAS-token>'` |
 | **Exemplo** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
-Você também pode carregar um arquivo usando um símbolo curinga (*) em qualquer lugar no caminho do arquivo ou nome do arquivo. Por exemplo: `'C:\myDirectory\*.txt'`, ou `C:\my*\*.txt`.
+Você também pode carregar um arquivo usando um símbolo curinga (*) em qualquer lugar no caminho do arquivo ou nome do arquivo. Por exemplo: `'C:\myDirectory\*.txt'` , ou `C:\my*\*.txt` .
 
 ### <a name="upload-a-directory"></a>Carregar um diretório
 
@@ -105,7 +104,7 @@ Você pode especificar nomes de arquivo completos ou usar nomes parciais com car
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificar vários nomes de arquivo completos
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes de arquivo individuais usando um ponto`;`-e-vírgula ().
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes de arquivo individuais usando um ponto-e-vírgula ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -118,7 +117,7 @@ Você também pode excluir arquivos usando a `--exclude-path` opção. Para sabe
 
 #### <a name="use-wildcard-characters"></a>Usar caracteres curinga
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um semicolin (`;`).
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -127,7 +126,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern
 
 Você também pode excluir arquivos usando a `--exclude-pattern` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As `--include-pattern` opções `--exclude-pattern` e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida `–include-pattern` , use `*.txt` o e especifique para obter todos os arquivos de texto.
+As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 ## <a name="download-files"></a>Baixar arquivos
 
@@ -146,14 +145,14 @@ Esta seção contém os seguintes exemplos:
 >
 > |Cenário|Sinalizador|
 > |---|---|
-> |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--Preserve-SMB-permissões**=\[verdadeiro\|falso\]|
-> |Copie informações de propriedade SMB junto com os arquivos.|**--Preserve-SMB-info**=\[true\|false\]|
+> |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--preserve-SMB-permissões** = \[ verdadeiro \| falso\]|
+> |Copie informações de propriedade SMB junto com os arquivos.|**--preserve-SMB-info** = \[ verdadeiro \| falso\]|
 > |Descompacte arquivos automaticamente.|**--descompactar**|
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
-> Se o `Content-md5` valor da propriedade de um arquivo contiver um hash, AzCopy calculará um hash MD5 para os dados baixados e verificará se o hash MD5 armazenado `Content-md5` na Propriedade do arquivo corresponde ao hash calculado. Se esses valores não corresponderem, o download falhará, a menos que você `--check-md5=NoCheck` substitua `--check-md5=LogOnly` esse comportamento acrescentando ou ao comando de cópia.
+> Se o `Content-md5` valor da propriedade de um arquivo contiver um hash, AzCopy calculará um hash MD5 para os dados baixados e verificará se o hash MD5 armazenado na Propriedade do arquivo `Content-md5` corresponde ao hash calculado. Se esses valores não corresponderem, o download falhará, a menos que você substitua esse comportamento acrescentando `--check-md5=NoCheck` ou `--check-md5=LogOnly` ao comando de cópia.
 
 ### <a name="download-a-file"></a>Baixar um arquivo
 
@@ -189,7 +188,7 @@ Você pode especificar nomes de arquivo completos ou usar nomes parciais com car
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificar vários nomes de arquivo completos
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes de arquivo individuais usando um semicolin`;`().
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes de arquivo individuais usando um semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -202,7 +201,7 @@ Você também pode excluir arquivos usando a `--exclude-path` opção. Para sabe
 
 #### <a name="use-wildcard-characters"></a>Usar caracteres curinga
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um semicolin (`;`).
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -211,13 +210,13 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern
 
 Você também pode excluir arquivos usando a `--exclude-pattern` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As `--include-pattern` opções `--exclude-pattern` e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida `–include-pattern` , use `*.txt` o e especifique para obter todos os arquivos de texto.
+As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 ## <a name="copy-files-between-storage-accounts"></a>Copiar arquivos entre as contas de armazenamento
 
 Você pode usar o AzCopy para copiar arquivos para outras contas de armazenamento. A operação de cópia é síncrona, portanto, quando o comando retorna, isso indica que todos os arquivos foram copiados.
 
-O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)de [servidor para servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da variável `AZCOPY_CONCURRENCY_VALUE` de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
+O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)de [servidor para servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
 
 Esta seção contém os seguintes exemplos:
 
@@ -232,10 +231,10 @@ Esta seção contém os seguintes exemplos:
 >
 > |Cenário|Sinalizador|
 > |---|---|
-> |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--Preserve-SMB-permissões**=\[verdadeiro\|falso\]|
-> |Copie informações de propriedade SMB junto com os arquivos.|**--Preserve-SMB-info**=\[true\|false\]|
-> |Copie arquivos como BLOBs de acréscimo ou BLOBs de página.|**--blob-Type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |Copie para uma camada de acesso específica (como a camada de arquivo morto).|**--Block-blob-camada**=\[nenhum\|arquivo\|frio\|quente\]|
+> |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--preserve-SMB-permissões** = \[ verdadeiro \| falso\]|
+> |Copie informações de propriedade SMB junto com os arquivos.|**--preserve-SMB-info** = \[ verdadeiro \| falso\]|
+> |Copie arquivos como BLOBs de acréscimo ou BLOBs de página.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
+> |Copie para uma camada de acesso específica (como a camada de arquivo morto).|**--bloco-blob-camada** = \[ Nenhum \| \| arquivo frio \| quente\]|
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
@@ -276,16 +275,16 @@ Você pode sincronizar o conteúdo de um compartilhamento de arquivos com outro 
 
 O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os últimos carimbos de data/hora. Defina o `--delete-destination` sinalizador opcional como um valor de `true` ou `prompt` para excluir arquivos no diretório de destino se esses arquivos não existirem mais no diretório de origem.
 
-Se você definir o `--delete-destination` sinalizador como `true` AzCopy exclui arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina `--delete-destination` o sinalizador `prompt`como.
+Se você definir o `--delete-destination` sinalizador como `true` AzCopy exclui arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o `--delete-destination` sinalizador como `prompt` .
 
 > [!TIP]
 > Você pode ajustar a operação de sincronização usando sinalizadores opcionais. Aqui estão alguns exemplos.
 >
 > |Cenário|Sinalizador|
 > |---|---|
-> |Especifique como os hashes MD5 estritamente devem ser validados durante o download.|**--check-MD5**=\[NOCHECK\|\|FailIfDifferent\|logon FailIfDifferentOrMissing\]|
+> |Especifique como os hashes MD5 estritamente devem ser validados durante o download.|**--verificação-MD5** = \[ NOCHECK \| FailIfDifferent logon \| \| FailIfDifferentOrMissing\]|
 > |Excluir arquivos com base em um padrão.|**--Exclude-caminho**|
-> |Especifique o quão detalhado você deseja que suas entradas de log relacionadas à sincronização sejam.|**--**=\[\|\|informações\|de erro de aviso em nível de log nenhum\]|
+> |Especifique o quão detalhado você deseja que suas entradas de log relacionadas à sincronização sejam.|**--nível** = \[ de log informações de erro de aviso \| \| \| nenhuma\]|
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-sync.md#options).
 

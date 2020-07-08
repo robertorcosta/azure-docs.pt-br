@@ -5,16 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: common
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515011"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de armazenamento do Azure para outra região
 
@@ -35,9 +34,9 @@ Neste artigo, você aprenderá a:
 
 - Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
 
-- Para recursos de visualização, verifique se sua assinatura está na lista de permissões para a região de destino.
+- Para obter as versões prévias do recurso, verifique se sua assinatura está na lista de permissões para a região de destino.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## <a name="prepare"></a>Preparar
 
@@ -49,7 +48,7 @@ Este modelo contém configurações que descrevem sua conta de armazenamento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para exportar um modelo usando portal do Azure:
+Para exportar um modelo com o portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
@@ -95,7 +94,7 @@ Para exportar um modelo usando o PowerShell:
 
 ### <a name="modify-the-template"></a>Modificar o modelo 
 
-Modifique o modelo alterando o nome da conta de armazenamento e a região.
+Para modificar o modelo, altere o nome da conta de armazenamento e a região.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -103,19 +102,19 @@ Para implantar o modelo usando portal do Azure:
 
 1. Na portal do Azure, selecione **criar um recurso**.
 
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **ENTER**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
 
-3. Selecione **Implantação de modelo**.
+3. Selecione **implantação de modelo**.
 
     ![Biblioteca de modelos do Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Selecione **Criar**.
 
-5. Selecione **Criar seu próprio modelo no editor**.
+5. Selecione **criar seu próprio modelo no editor**.
 
-6. Selecione **carregar arquivo**e siga as instruções para carregar o arquivo **Template. JSON** que você baixou na última seção.
+6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 
-7. No arquivo **Template. JSON** , nomeie a conta de armazenamento de destino definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor padrão do nome da conta de armazenamento como `mytargetaccount` .
+7. Na **template.jsem** arquivo, nomeie a conta de armazenamento de destino definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor padrão do nome da conta de armazenamento como `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -143,7 +142,7 @@ Para implantar o modelo usando portal do Azure:
 
 Para implantar o modelo usando o PowerShell:
 
-1. No arquivo **Template. JSON** , nomeie a conta de armazenamento de destino definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor padrão do nome da conta de armazenamento como `mytargetaccount` .
+1. Na **template.jsem** arquivo, nomeie a conta de armazenamento de destino definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor padrão do nome da conta de armazenamento como `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +155,7 @@ Para implantar o modelo usando o PowerShell:
     },
     ``` 
 
-2. Edite a propriedade **Location** no arquivo **Template. JSON** para a região de destino. Este exemplo define a região de destino como `eastus` .
+2. Edite a propriedade **Location** no **template.jsno** arquivo para a região de destino. Este exemplo define a região de destino como `eastus` .
 
     ```json
     "resources": [{
@@ -174,7 +173,7 @@ Para implantar o modelo usando o PowerShell:
     ```
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## <a name="move"></a>Mover
 
@@ -182,7 +181,7 @@ Implante o modelo para criar uma nova conta de armazenamento na região de desti
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Salve o arquivo **Template. JSON** .
+1. Salve o **template.jsno** arquivo.
 
 2. Insira ou selecione os valores de propriedade:
 
@@ -217,14 +216,14 @@ Implante o modelo para criar uma nova conta de armazenamento na região de desti
 
 Alguns recursos não serão exportados para um modelo, portanto, você precisará adicioná-los à nova conta de armazenamento. 
 
-A tabela a seguir lista esses recursos, juntamente com as diretrizes para adicioná-los à sua nova conta de armazenamento.
+A tabela a seguir lista esses recursos junto com as diretrizes para adicioná-los à sua nova conta de armazenamento.
 
-| Recurso    | Orientação    |
+| Recurso    | Diretrizes    |
 |--------|-----------|
 | **Políticas de gerenciamento do ciclo de vida** | [Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](../blobs/storage-lifecycle-management-concepts.md) |
-| **Sites estáticos** | [Hospedar um site estático no armazenamento do Azure](../blobs/storage-blob-static-website-how-to.md) |
-| **Assinaturas de evento** | [Reagir aos eventos de armazenamento de Blobs](../blobs/storage-blob-event-overview.md) |
-| **Alertas** | [Criar, exibir e gerenciar alertas do log de atividades usando Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Sites estáticos** | [Hospedar site estático no Armazenamento do Azure](../blobs/storage-blob-static-website-how-to.md) |
+| **Assinaturas de evento** | [Reagindo a eventos de Armazenamento de Blobs](../blobs/storage-blob-event-overview.md) |
+| **Alertas** | [Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
 | **CDN (Rede de Distribuição de Conteúdo)** | [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
@@ -232,14 +231,14 @@ A tabela a seguir lista esses recursos, juntamente com as diretrizes para adicio
 
 ### <a name="move-data-to-the-new-storage-account"></a>Mover dados para a nova conta de armazenamento
 
-AzCopy é a ferramenta preferida para mover seus dados. Ele é otimizado para desempenho.  Uma maneira mais rápida, é que os dados são copiados diretamente entre os servidores de armazenamento, portanto, o AzCopy não usa a largura de banda de rede do seu computador. Use AzCopy na linha de comando ou como parte de um script personalizado. Confira [Introdução ao AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy é a ferramenta preferida para mover seus dados. Ela é otimizada para desempenho.  Uma maneira mais rápida, é copiar os dados diretamente entre os servidores de armazenamento, para que o AzCopy não use a largura de banda da rede do seu computador. Use o AzCopy na linha de comando ou como parte de um script personalizado. Confira [Introdução ao AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Você também pode usar Azure Data Factory para mover seus dados. Ele fornece uma interface do usuário intuitiva. Para usar Azure Data Factory, consulte qualquer um destes links:. 
 
-  - [Copiar dados de ou para o armazenamento de BLOBs do Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Copiar dados de/para o Azure Data Lake Storage Gen2 usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copiar dados de ou para o Armazenamento de Arquivos do Azure usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Copiar dados para e do Armazenamento de Tabelas do Azure usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Copiar dados de/para o Armazenamento de Blobs do Azure usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+  - [Copiar dados de/para o Azure Data Lake Storage Gen2 com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copiar dados de/para o Armazenamento de Arquivos do Azure com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
+  - [Copiar dados de/para o Armazenamento de Tabelas do Azure com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -270,8 +269,8 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você moveu uma conta de armazenamento do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte:
+Neste tutorial, você moveu uma conta de armazenamento do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
 - [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

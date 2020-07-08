@@ -8,12 +8,11 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080817"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de Extração de Frases-Chave
 
@@ -24,7 +23,7 @@ Esse recurso é útil se você precisar identificar rapidamente os principais po
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
 >
-> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço da extração de imagem é descrito na [página de preços da Pesquisa Cognitiva do Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço da extração de imagem é descrito na [página de preços da Pesquisa Cognitiva do Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -39,24 +38,35 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Entradas                | Descrição |
 |---------------------|-------------|
-| defaultLanguageCode | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma.  Se o código de idioma padrão não for especificado, em inglês (en) será usado como o código de idioma padrão. <br/> Consulte [Lista completa dos idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
-| maxKeyPhraseCount   | (opcional) O número máximo de frases-chave para produzir. |
+| `defaultLanguageCode` | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma.  Se o código de idioma padrão não for especificado, em inglês (en) será usado como o código de idioma padrão. <br/> Consulte [Lista completa dos idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| `maxKeyPhraseCount`   | (opcional) O número máximo de frases-chave para produzir. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Entrada  | Descrição |
 |--------------------|-------------|
-| text | O texto a ser analisado.|
-| languageCode  |  Uma cadeia de caracteres que indica o idioma dos registros. Se esse parâmetro não for especificado, o código de idioma padrão será usado para analisar os registros. <br/>Consulte [Lista completa dos idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| `text` | O texto a ser analisado.|
+| `languageCode`    |  Uma cadeia de caracteres que indica o idioma dos registros. Se esse parâmetro não for especificado, o código de idioma padrão será usado para analisar os registros. <br/>Consulte [Lista completa dos idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Saída  | Descrição |
+| Saída     | Descrição |
 |--------------------|-------------|
-| keyPhrases | Uma lista de frases-chave extraídas do texto de entrada. As frases-chave são retornadas em ordem de importância. |
+| `keyPhrases` | Uma lista de frases-chave extraídas do texto de entrada. As frases-chave são retornadas em ordem de importância. |
 
 
 ##  <a name="sample-definition"></a>Definição de exemplo
+
+Considere um registro SQL que tenha os seguintes campos:
+
+```json
+{
+    "content": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
+    "language": "en"
+}
+```
+
+Em seguida, sua definição de habilidade pode ser assim:
 
 ```json
  {
@@ -68,7 +78,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
       },
       {
         "name": "languageCode",
-        "source": "/document/languagecode" 
+        "source": "/document/language" 
       }
     ],
     "outputs": [
@@ -80,33 +90,12 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
   }
 ```
 
-##  <a name="sample-input"></a>Entrada de exemplo
-
-```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "text": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
-             "language": "en"
-           }
-      }
-    ]
-```
-
-
 ##  <a name="sample-output"></a>Saída de exemplo
 
+Para o exemplo acima, a saída de suas habilidades será gravada em um novo nó na árvore aprimorada chamada "Document/myKeyPhrases", já que isso é o `targetName` que especificamos. Se você não especificar um `targetName` , então ele seria "documento/prefrases".
+
+#### <a name="documentmykeyphrases"></a>documento/myKeyPhrases 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-            "keyPhrases": 
             [
               "world’s glaciers", 
               "huge rivers of ice", 
@@ -115,12 +104,9 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
               "Mount Everest region",
               "Continued warming"
             ]
-           }
-      }
-    ]
-}
 ```
 
+Você pode usar "Document/myKeyPhrases" como entrada em outras habilidades ou como uma fonte de um [mapeamento de campo de saída](cognitive-search-output-field-mapping.md).
 
 ## <a name="errors-and-warnings"></a>Erros e avisos
 Se você fornecer um código de idioma sem suporte, será gerado um erro e frases-chave não são extraídos.
@@ -131,3 +117,4 @@ Se o texto for maior que 50.000 caracteres, somente os primeiros 50.000 caracter
 
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
++ [Como definir mapeamentos de campos de saída](cognitive-search-output-field-mapping.md)

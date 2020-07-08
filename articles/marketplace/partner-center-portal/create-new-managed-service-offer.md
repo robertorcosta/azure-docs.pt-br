@@ -8,16 +8,15 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847712"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957572"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de serviço gerenciado
 
-O serviço gerenciado oferece ajuda para habilitar cenários do [Azure Lighthouse](../../lighthouse/overview.md). Quando um cliente aceita uma oferta de serviço gerenciado, ele é capaz de integrar recursos para [gerenciamento de recursos delegado do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Antes de começar, [crie uma conta do marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa do marketplace comercial.
+O serviço gerenciado oferece ajuda para habilitar cenários do [Azure Lighthouse](../../lighthouse/overview.md). Quando um cliente aceita uma oferta de serviço gerenciado, ele é capaz de integrar recursos para [gerenciamento de recursos delegado do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Antes de começar, [crie uma conta do marketplace comercial no Partner Center](create-account.md) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa do marketplace comercial.
 
 Você deve ter um [nível de competência de plataforma de nuvem Prata ou Ouro](https://partner.microsoft.com/membership/cloud-platform-competency) ou ser um [MSP Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerenciado.
 
@@ -80,6 +79,17 @@ Esta página permite que você defina detalhes do Marketplace (como nome da ofer
 > [!NOTE]
 > O conteúdo de listagem de ofertas, como descrição, documentos, capturas de tela e termos de uso, não precisa estar em inglês, desde que a descrição da oferta comece com a frase "Este aplicativo está disponível apenas em [idioma que não seja inglês].” Também é aceitável fornecer uma *URL de link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem de ofertas.
 
+Aqui está um exemplo de como as informações de oferta são exibidas no portal do Azure:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Ilustra como essa oferta aparece na portal do Azure.":::
+
+#### <a name="call-out-descriptions"></a>Descrições de chamada
+
+1. Título
+2. Descrição
+3. Links úteis
+4. Capturas de tela
+
 ### <a name="name"></a>Nome
 
 O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas. Esse campo é preenchido previamente com o texto que você inseriu para o **Alias da oferta** quando você criou a oferta em questão, mas você pode alterar esse valor. Esse nome pode ser marcado (e você pode incluir os símbolos de marca registrada ou de copyright). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
@@ -127,9 +137,9 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 Forneça o logotipo de sua oferta em quatro tamanhos de pixel:
 
-- **Pequeno** (40 x 40)
+- **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (115 x 115)
+- **Grande** (216 x 216)
 - **Largo** (255 x 115)
 
 Siga estas diretrizes para seus logotipos:
@@ -151,9 +161,9 @@ Opcionalmente, você pode adicionar até cinco vídeos que demonstram sua oferta
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionais de listagem do marketplace
 
-- [Melhores práticas para listagens de oferta do marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Melhores práticas para listagens de oferta do marketplace](../gtm-offer-listing-best-practices.md)
 
-Selecione **Salvar rascunho** antes de continuar.
+Selecione **Salvar rascunho** para continuar.
 
 ## <a name="preview"></a>Visualização
 
@@ -243,9 +253,9 @@ Se for a primeira vez que você publicar essa oferta, você poderá:
 - Ver o status de conclusão de cada seção da oferta.
   - **Não iniciada** –  A seção não foi tocada e precisa ser concluída.
   - **Incompleta** –  A seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
-  - **Concluída** - A seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
+  - **Concluída**: a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
 - Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
-- Envie a oferta para publicação selecionando **Enviar**. Nós lhe enviaremos um e-mail quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Ativar** a oferta para publicar sua oferta para o público (ou, se uma oferta privada, para o público-alvo privado).
+- Envie a oferta para publicação selecionando **Enviar**. Nós enviaremos um e-mail a você quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Ativar** a oferta para publicar sua oferta para o público (ou, se uma oferta privada, para o público-alvo privado).
 
 ### <a name="customer-experience-and-offer-management"></a>Experiência do cliente e gerenciamento de ofertas
 

@@ -2,21 +2,20 @@
 title: Planejar uma implantação de provisionamento de usuário automático para Azure Active Directory
 description: Diretrizes para planejar e executar o provisionamento automático de usuário
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
-ms.author: martinco
+ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781626"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
 
@@ -26,7 +25,7 @@ O provisionamento automático de usuário do Azure Active Directory (AD do Azure
 
 Consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../app-provisioning/user-provisioning.md) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O provisionamento de usuário cria uma base para o controle de identidade contínuo e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -42,7 +41,7 @@ Os principais benefícios de habilitar o provisionamento automático de usuário
 
 * **Reduza o custo**. O provisionamento automático de usuário reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário, scripts e logs de auditoria desenvolvidos de fato personalizado.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licenças
 
 O Azure AD fornece integração de autoatendimento de qualquer aplicativo usando modelos fornecidos no menu da Galeria de aplicativos. Para obter uma lista completa dos requisitos de licença, consulte a [página de licenciamento do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -69,7 +68,7 @@ Este artigo usa os seguintes termos:
 | Recursos| Link e descrição |
 | - | - |
 | Webinars sob demanda| [Gerenciar seus aplicativos empresariais com o Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Saiba como o Azure AD pode ajudá-lo a obter o SSO para seus aplicativos SaaS corporativos e as práticas recomendadas para controlar o acesso. |
-| vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cursos online| SkillUp online: [Gerenciando identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitos aplicativos SaaS e proteger o acesso do usuário a esses aplicativos. |
 | Manuais| [Autenticação moderna com Azure Active Directory para aplicativos Web (referência do desenvolvedor) 1ª edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritativo e aprofundado para a criação de soluções de autenticação Active Directory para esses novos ambientes. |
 | Tutoriais| Consulte a [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure ad](../saas-apps/tutorial-list.md). |
@@ -131,9 +130,9 @@ Considere suas necessidades organizacionais para determinar a estratégia para i
 
 Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja participando dos participantes certos](https://aka.ms/deploymentplans) e que as funções de Stakeholder no projeto sejam bem compreendidas ao documentar os participantes e sua entrada e responsabilidades de projeto.
 
-### <a name="plan-communications"></a>Planejar a comunicação
+### <a name="plan-communications"></a>Planejar comunicações
 
-A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se de forma proativa com seus usuários como sua experiência será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas.
+A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique de forma proativa a seus usuários como e quando sua experiência será alterada e como obter suporte em caso de problemas.
 
 ### <a name="plan-a-pilot"></a>Planejar um piloto
 
@@ -171,7 +170,7 @@ A configuração do provisionamento automático de usuário é um processo por a
 
 A imagem abaixo mostra uma versão das credenciais de administrador necessárias:
 
-![Tela de provisionamento para gerenciar as configurações de provisionamento de conta de usuário](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
+![Tela Provisionamento para gerenciar as configurações de provisionamento de conta do usuário](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
 
 Embora alguns aplicativos exijam o nome de usuário e a senha do administrador, outros podem exigir um token de portador.
 
@@ -217,7 +216,7 @@ Considere o seguinte para reduzir os problemas após a implantação:
 
 * Os aplicativos podem ter restrições e/ou requisitos específicos que precisam ser atendidos para que o provisionamento de usuário funcione corretamente. Por exemplo, a margem de atraso trunca valores para determinados atributos. Consulte os [tutoriais de provisionamento automático de usuário](../saas-apps/tutorial-list.md) específicos para cada aplicativo.
 
-* Confirme a consistência do esquema entre os sistemas de origem e de destino. Problemas comuns incluem atributos como UPN ou email não correspondentes. Por exemplo, o UPN no Azure AD definido *john_smith@contoso.com* como e no aplicativo é *jsmith@contoso.com*. Para obter mais informações, consulte a [referência de esquema de usuário e grupo](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+* Confirme a consistência do esquema entre os sistemas de origem e de destino. Problemas comuns incluem atributos como UPN ou email não correspondentes. Por exemplo, o UPN no Azure AD definido como *john_smith@contoso.com* e no aplicativo é *jsmith@contoso.com* . Para obter mais informações, consulte a [referência de esquema de usuário e grupo](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Teste e segurança de planos
 
@@ -292,7 +291,7 @@ Os administradores devem verificar o relatório de Resumo de provisionamento par
 
 Recomendamos que você assuma a propriedade e consuma esses relatórios em uma cadência que atenda aos requisitos da sua organização. O Azure AD retém a maioria dos dados de auditoria por 30 dias.
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Consulte os links a seguir para solucionar quaisquer problemas que possam ser reativados durante o provisionamento:
 
@@ -310,7 +309,7 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 ### <a name="helpful-documentation"></a>Documentação útil
 
-* [Gravando expressões para mapeamentos de atributo](../app-provisioning/functions-for-customizing-application-data.md)
+* [Escrevendo expressões para mapeamentos de atributo](../app-provisioning/functions-for-customizing-application-data.md)
 
 * [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 

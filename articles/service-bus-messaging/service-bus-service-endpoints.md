@@ -1,21 +1,13 @@
 ---
 title: Configurar pontos de extremidade de serviço de rede virtual para o barramento de serviço do Azure
 description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço Microsoft. ServiceBus a uma rede virtual.
-services: service-bus
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
-ms.author: aschhab
-ms.openlocfilehash: d1766ffb579bb1a86da91ac73a396ce0d008f89e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340982"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurar pontos de extremidade de serviço de rede virtual para o barramento de serviço do Azure
 
@@ -63,10 +55,10 @@ A regra da rede virtual é uma associação do namespace de Barramento de Servi�
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
 Esta seção mostra como usar portal do Azure para adicionar um ponto de extremidade de serviço de rede virtual. Para limitar o acesso, você precisa integrar o ponto de extremidade de serviço de rede virtual para este namespace de hubs de eventos.
 
-1. Navegue até o **namespace do barramento de serviço** na [portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione a opção **rede** . Por padrão, a opção **todas as redes** é selecionada. Seu namespace aceita conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+1. Navegue até o **namespace do Barramento de Serviço** no [portal do Azure](https://portal.azure.com).
+2. No menu à esquerda, selecione a opção **Rede**. Por padrão, a opção **Todas as redes** está selecionada. Seu namespace aceita conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
-    ![Firewall – opção todas as redes selecionada](./media/service-endpoints/firewall-all-networks-selected.png)
+    ![Firewall – opção "Todas as redes" selecionada](./media/service-endpoints/firewall-all-networks-selected.png)
 1. Selecione a opção **redes selecionadas** na parte superior da página.
 2. Na seção **rede virtual** da página, selecione **+ Adicionar rede virtual existente**. 
 
@@ -81,7 +73,7 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 
     > [!NOTE]
     > Se não for possível habilitar o ponto de extremidade de serviço, você poderá ignorar o ponto de extremidade de serviço de rede virtual ausente usando o modelo do Resource Manager. Essa funcionalidade não está disponível no portal.
-6. Selecione **salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do Portal. O botão **salvar** deve ser desabilitado. 
+6. Selecione **Salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do Portal. O botão **salvar** deve ser desabilitado. 
 
     ![Salvar rede](./media/service-endpoints/save-vnet.png)
 
@@ -94,7 +86,7 @@ Parâmetros de modelo:
 * **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"**, que não restringe as conexões.
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
 > Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
 > de

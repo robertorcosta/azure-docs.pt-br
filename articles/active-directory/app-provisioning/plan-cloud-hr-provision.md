@@ -2,21 +2,20 @@
 title: Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 description: Este artigo descreve o processo de implantação de integração de sistemas de RH de nuvem, como workday e SuccessFactors, com Azure Active Directory. A integração do Azure AD ao seu sistema de RH na nuvem resulta em um sistema completo de gerenciamento do ciclo de vida da identidade.
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: martinco
+ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 86b858b628dc2ed9eac730d4c3f090f4d7d6c7e2
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781592"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -52,7 +51,7 @@ A integração do aplicativo de RH de nuvem com o provisionamento de usuário do
 - Exigir ingressar, mover e deixar os usuários serem sincronizados com um ou mais Active Directory florestas, domínios e UOs com base apenas nas informações de alteração detectadas no aplicativo de RH de nuvem.
 - Use o Office 365 para email.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O provisionamento de usuário cria uma base para a governança de identidade contínua. Ele aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -73,7 +72,7 @@ Esse recurso de provisionamento de ti controlado por RH oferece os seguintes ben
 - **Atender à conformidade e governança:** O Azure AD dá suporte a logs de auditoria nativos para solicitações de provisionamento de usuário executadas por aplicativos de sistemas de origem e de destino. Com a auditoria, você pode controlar quem tem acesso aos aplicativos de uma única tela.
 - **Gerenciar custo:** O provisionamento automático reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário desenvolvidas personalizadas criadas com o passar do tempo usando plataformas herdadas e desatualizadas.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licenças
 
 Para configurar o aplicativo de RH na nuvem para a integração de provisionamento de usuário do Azure AD, você precisa de uma [licença de Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para o aplicativo de RH de nuvem, como workday ou SuccessFactors.
 
@@ -81,20 +80,21 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Acesso de administrador global do Azure AD para configurar o agente de provisionamento do Azure AD Connect.
+- Administrador de [identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) do Azure ad para configurar o agente de provisionamento do Azure ad Connect.
+- Função de [administrador de aplicativos](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) do Azure ad para configurar o aplicativo de provisionamento no portal do Azure
 - Uma instância de teste e produção do aplicativo de RH de nuvem.
 - Permissões de administrador no aplicativo de RH de nuvem para criar um usuário de integração do sistema e fazer alterações para testar dados de funcionários para fins de teste.
-- Para o provisionamento de usuário para Active Directory, um servidor executando o Windows Server 2012 ou superior com o .NET 4.7.1 + Runtime é necessário para hospedar o [agente de provisionamento de Azure ad Connect](https://go.microsoft.com/fwlink/?linkid=847801).
+- Para o provisionamento de usuário para Active Directory, um servidor executando o Windows Server 2012 ou superior com o .NET 4.7.1 + Runtime é necessário para hospedar o agente de provisionamento de Azure AD Connect
 - [Azure ad Connect](../hybrid/whatis-azure-ad-connect.md) para sincronizar usuários entre o Active Directory e o Azure AD.
 
 ### <a name="training-resources"></a>Recursos de treinamento
 
 | **Recursos** | **Link e descrição** |
 |:-|:-|
-| vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
+| Vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Como implantar o provisionamento de usuário no Active Directory do Azure](https://youtu.be/pKzyts6kfrw) |
 | Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure AD](../saas-apps/tutorial-list.md) |
-| | [Tutorial: Configurar o Workday para provisionamento automático de usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| | [Tutorial: Configurar o Workday para provisionamento automático do usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 | Perguntas frequentes | [Provisionamento automatizado de usuários](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisionamento do WORKDAY para o Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
@@ -129,7 +129,7 @@ Quando os projetos de tecnologia falham, normalmente fazem isso devido a expecta
 
 Inclua um representante da organização de RH que possa fornecer entradas sobre processos de negócios e identidade de trabalho existentes, além de requisitos de processamento de dados de trabalho.
 
-### <a name="plan-communications"></a>Planejar a comunicação
+### <a name="plan-communications"></a>Planejar comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se proativamente com seus usuários sobre quando e como sua experiência será alterada. Avise-os sobre como obter suporte se eles tiverem problemas.
 
@@ -248,7 +248,7 @@ Por padrão, o atributo no aplicativo de RH de nuvem que representa a ID de func
 
 Você pode definir vários atributos correspondentes e atribuir precedência correspondente. Elas são avaliadas na precedência correspondente. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
 
-Você também pode [Personalizar os mapeamentos de atributo padrão](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), como alterar ou excluir mapeamentos de atributo existentes. Você também pode criar novos mapeamentos de atributo de acordo com suas necessidades de negócios. Para obter mais informações, consulte o tutorial do aplicativo de RH na nuvem (como [workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) para obter uma lista de atributos personalizados a serem mapeados.
+Você também pode [Personalizar os mapeamentos de atributo padrão](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), como alterar ou excluir mapeamentos de atributo existentes. Você também pode criar novos mapeamentos de atributo de acordo com suas necessidades de negócios. Para obter mais informações, consulte o tutorial do aplicativo de RH na nuvem (como [workday](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)) para obter uma lista de atributos personalizados a serem mapeados.
 
 ### <a name="determine-user-account-status"></a>Determinar o status da conta de usuário
 
@@ -256,7 +256,7 @@ Por padrão, o aplicativo do conector de provisionamento mapeia o status do perf
 
 Quando você inicia o processo dos emissores-periões, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processar | Requisitos |
 | - | - |
 | **Entradas** | De uma perspectiva do ciclo de vida da identidade, como lidar com recontratações? As recontratações mantêm suas IDs de funcionário antigas? |
 | | Você processa contratações no futuro e cria Active Directory contas com antecedência? Essas contas são criadas em um estado habilitado ou desabilitado? |
@@ -275,7 +275,7 @@ Cada aplicativo de RH na nuvem é fornecido com o aplicativo de RH de nuvem padr
 
 Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processar | Requisitos |
 | - | - |
 | **Entradas** | O processo de criação de conta Active Directory manual, automatizado ou parcialmente automatizado? |
 | | Você planeja propagar atributos personalizados do aplicativo de RH de nuvem para Active Directory? |
@@ -285,7 +285,7 @@ Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguint
 | | Quais datas efetivas são consideradas para processar o encerramento do usuário? |
 | | Como as conversões de funcionário e de operador contingent afetam as contas de Active Directory existentes? |
 
-Dependendo dos seus requisitos, você pode modificar os mapeamentos para atender às metas de integração. Para obter mais informações, consulte o tutorial específico do aplicativo de RH de nuvem (como [workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) para obter uma lista de atributos personalizados a serem mapeados.
+Dependendo dos seus requisitos, você pode modificar os mapeamentos para atender às metas de integração. Para obter mais informações, consulte o tutorial específico do aplicativo de RH de nuvem (como [workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)) para obter uma lista de atributos personalizados a serem mapeados.
 
 ### <a name="generate-a-unique-attribute-value"></a>Gerar um valor de atributo exclusivo
 
@@ -365,7 +365,9 @@ A implementação de provisionamento de usuário de RH na nuvem pode falhar ao f
 
 Escolha o aplicativo de RH de nuvem que se alinha aos seus requisitos de solução.
 
-**Workday**: para importar perfis de trabalho do WORKDAY para o Active Directory e o Azure AD, consulte [tutorial: configurar o WORKDAY para provisionamento automático de usuário](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcionalmente, você pode gravar novamente o endereço de email e o nome de usuário para workday.
+**Workday**: para importar perfis de trabalho do WORKDAY para o Active Directory e o Azure AD, consulte [tutorial: configurar o WORKDAY para provisionamento automático de usuário](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcionalmente, você pode fazer write-back do endereço de email, nome de usuário e número de telefone para workday.
+
+**SAP SuccessFactors**: para importar perfis de trabalho do SuccessFactors para o Active Directory e o Azure AD, consulte [tutorial: configurar o SAP SuccessFactors para provisionamento automático de usuário](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Opcionalmente, você pode gravar novamente o endereço de email e o nome de usuário em SuccessFactors.
 
 ## <a name="manage-your-configuration"></a>Gerenciar sua configuração
 
@@ -395,7 +397,7 @@ O agente de provisionamento do Azure AD Connect instalado no Windows Server cria
 
 O serviço de provisionamento do Azure AD não gera relatórios, executa análises ou fornece informações além de 30 dias, pois o serviço não armazena, processa nem mantém dados além de 30 dias.
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Para solucionar quaisquer problemas que possam ser reativados durante o provisionamento, consulte os seguintes artigos:
 
@@ -408,12 +410,12 @@ Para solucionar quaisquer problemas que possam ser reativados durante o provisio
 - [Configurar o Visualizador de Eventos do Windows para solucionar problemas do agente](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Configurar os logs de auditoria do portal do Azure para solucionar problemas de serviço](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Entender logs para operações de criação da conta de usuário do AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
-- [Noções básicas sobre logs para operações de atualização do Gerenciador](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
+- [Entender logs para operações de atualização do gerente](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolver erros comumente encontrados](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
 ### <a name="next-steps"></a>Próximas etapas
 
-- [Gravando expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
+- [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
 - [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 - [Ignorar a exclusão de contas de usuário que saem do escopo](skip-out-of-scope-deletions.md)
 - [Agente de provisionamento do Azure AD Connect: histórico de lançamento de versão](provisioning-agent-release-version-history.md)
