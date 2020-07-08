@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 6aa66ddc52665c22310fb58977fd516eea4e806a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6b9db450139c22fdf2df0875f36c65cdf684dfb3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856696"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
 Esta página fornece modelos de configuração de interface e roteamento para roteadores da série Cisco IOS-XE e Juniper MX ao trabalhar com o Azure ExpressRoute.
@@ -40,78 +40,90 @@ Você precisará de uma subinterface por emparelhamento em cada roteador conecta
 
 Esta amostra fornece a definição de subinterface para uma subinterface com uma ID de VLAN única. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     encapsulation dot1Q <VLAN_ID>
-     ip address <IPv4_Address><Subnet_Mask>
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ encapsulation dot1Q <VLAN_ID>
+ ip address <IPv4_Address><Subnet_Mask>
+```
 
 **Definição da interface QinQ**
 
 Esta amostra fornece a definição de subinterface para uma subinterface com duas IDs de VLAN. A ID da VLAN externa (marca s), se usada,permanece a mesma em todos os emparelhamentos. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
-     ip address <IPv4_Address><Subnet_Mask>
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ ip address <IPv4_Address><Subnet_Mask>
+```
 
 ### <a name="set-up-ebgp-sessions"></a>Configurar sessões eBGP
 Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. Configure uma sessão BGP usando a seguinte amostra. Se o endereço IPv4 usado para a sua subinterface era a.b.c.d, o endereço IP do vizinho BGP (Microsoft) será a.b.c.d + 1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-     neighbor <IP#2_used_by_Azure> activate
-     exit-address-family
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+ neighbor <IP#2_used_by_Azure> activate
+ exit-address-family
+!
+```
 
 ### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configurar prefixos a serem anunciados sobre a sessão BGP
 Configure seu roteador para anunciar prefixos selecionados para a Microsoft usando o exemplo a seguir.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      network <Prefix_to_be_advertised> mask <Subnet_mask>
-      neighbor <IP#2_used_by_Azure> activate
-     exit-address-family
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  network <Prefix_to_be_advertised> mask <Subnet_mask>
+  neighbor <IP#2_used_by_Azure> activate
+ exit-address-family
+!
+```
 
 ### <a name="route-maps"></a>Mapas de rotas
 Use mapas de rotas e listas de prefixo para prefixos de filtro propagados em sua rede. Veja a amostra a seguir e verifique se você tem as listas de prefixos apropriadas configuradas.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      network <Prefix_to_be_advertised> mask <Subnet_mask>
-      neighbor <IP#2_used_by_Azure> activate
-      neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
-     exit-address-family
-    !
-    route-map <MS_Prefixes_Inbound> permit 10
-     match ip address prefix-list <MS_Prefixes>
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  network <Prefix_to_be_advertised> mask <Subnet_mask>
+  neighbor <IP#2_used_by_Azure> activate
+  neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
+ exit-address-family
+!
+route-map <MS_Prefixes_Inbound> permit 10
+ match ip address prefix-list <MS_Prefixes>
+!
+```
 
 ### <a name="configure-bfd"></a>Configurar BFD
 
 Você configurará o BFD em dois locais: um no nível da interface e outro no nível do BGP. O exemplo aqui é para a interface QinQ. 
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     bfd interval 300 min_rx 300 multiplier 3
-     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
-     ip address <IPv4_Address><Subnet_Mask>
-    
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      neighbor <IP#2_used_by_Azure> activate
-      neighbor <IP#2_used_by_Azure> fall-over bfd
-     exit-address-family
-    !
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ bfd interval 300 min_rx 300 multiplier 3
+ encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ ip address <IPv4_Address><Subnet_Mask>
+
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  neighbor <IP#2_used_by_Azure> activate
+  neighbor <IP#2_used_by_Azure> fall-over bfd
+ exit-address-family
+!
+```
 
 
 ## <a name="juniper-mx-series-routers"></a>Roteadores da série Juniper MX
@@ -123,6 +135,7 @@ As amostras nesta seção aplicam-se a qualquer roteador da série Juniper MX.
 
 Esta amostra fornece a definição de subinterface para uma subinterface com uma ID de VLAN única. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
+```console
     interfaces {
         vlan-tagging;
         <Interface_Number> {
@@ -134,12 +147,14 @@ Esta amostra fornece a definição de subinterface para uma subinterface com uma
             }
         }
     }
+```
 
 
 **Definição da interface QinQ**
 
 Esta amostra fornece a definição de subinterface para uma subinterface com duas IDs de VLAN. A ID da VLAN externa (marca s), se usada,permanece a mesma em todos os emparelhamentos. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
+```console
     interfaces {
         <Interface_Number> {
             flexible-vlan-tagging;
@@ -151,10 +166,12 @@ Esta amostra fornece a definição de subinterface para uma subinterface com dua
             }                               
         }                                   
     }                           
+```
 
 ### <a name="set-up-ebgp-sessions"></a>Configurar sessões eBGP
 Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. Configure uma sessão BGP usando a seguinte amostra. Se o endereço IPv4 usado para a sua subinterface era a.b.c.d, o endereço IP do vizinho BGP (Microsoft) será a.b.c.d + 1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
+```console
     routing-options {
         autonomous-system <Customer_ASN>;
     }
@@ -167,10 +184,12 @@ Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. 
             }                               
         }                                   
     }
+```
 
 ### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configurar prefixos a serem anunciados sobre a sessão BGP
 Configure seu roteador para anunciar prefixos selecionados para a Microsoft usando o exemplo a seguir.
 
+```console
     policy-options {
         policy-statement <Policy_Name> {
             term 1 {
@@ -192,11 +211,12 @@ Configure seu roteador para anunciar prefixos selecionados para a Microsoft usan
             }                               
         }                                   
     }
-
+```
 
 ### <a name="route-policies"></a>Políticas de rotas
 Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propagados em sua rede. Veja a amostra a seguir e verifique se você tem as listas de prefixos apropriadas configuradas.
 
+```console
     policy-options {
         prefix-list MS_Prefixes {
             <IP_Prefix_1/Subnet_Mask>;
@@ -223,10 +243,12 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
             }                               
         }                                   
     }
+```
 
 ### <a name="configure-bfd"></a>Configurar BFD
 Configure o BFD apenas na seção BGP do protocolo.
 
+```console
     protocols {
         bgp { 
             group <Group_Name> { 
@@ -239,10 +261,12 @@ Configure o BFD apenas na seção BGP do protocolo.
             }                               
         }                                   
     }
+```
 
 ### <a name="configure-macsec"></a>Configurar o MACSec
 Para a configuração MACSec, a Chave de Associação de Conectividade (CAK) e o Nome da Chave de Associação de Conectividade (CKN) devem corresponder aos valores configurados por meio dos comandos do PowerShell.
 
+```console
     security {
         macsec {
             connectivity-association <Connectivity_Association_Name> {
@@ -260,6 +284,7 @@ Para a configuração MACSec, a Chave de Associação de Conectividade (CAK) e o
             }
         }
     }
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte as [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md) para obter mais detalhes.

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857206"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo no Serviço de Aplicativo do Azure usando o Visual Studio
 ## <a name="overview"></a>Visão geral
@@ -271,7 +271,7 @@ Nesta seção, você executará as seguintes tarefas:
 Para saber mais sobre como criar logs de aplicativo em Trabalhos Web, confira [Como trabalhar com o armazenamento de fila do Azure utilizando o SDK de Trabalhos Web: como gravar logs](https://github.com/Azure/azure-webjobs-sdk/wiki). As instruções a seguir para exibir logs e controlar como eles são armazenados no Azure também se aplicam a logs de aplicativos criados por Trabalhos Web.
 
 ### <a name="add-tracing-statements-to-the-application"></a>Adicionar instruções de rastreamento ao aplicativo
-1. Abra *Controllers\HomeController.cs* `Index`e substitua os métodos, `About`e `Contact` pelo código a seguir para `Trace` adicionar instruções e uma `using` instrução para: `System.Diagnostics`
+1. Abra *Controllers\HomeController.cs*e substitua os `Index` métodos, `About` e `Contact` pelo código a seguir para adicionar `Trace` instruções e uma `using` instrução para `System.Diagnostics` :
 
     ```csharp
     public ActionResult Index()
@@ -337,7 +337,7 @@ O `WebPageTraceListener` permite exibir a saída do rastreamento navegando até 
     ```
 
 1. Pressione CTRL+F5 para executar o aplicativo.
-1. Na barra de endereços da janela do navegador, adicione *trace. axd* à URL e pressione Enter (a URL é semelhante a `http://localhost:53370/trace.axd`).
+1. Na barra de endereços da janela do navegador, adicione *trace. axd* à URL e pressione Enter (a URL é semelhante a `http://localhost:53370/trace.axd` ).
 1. Na página de **Rastreamento do aplicativo**, clique em **Exibir detalhes** na primeira linha (não a linha BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -348,7 +348,9 @@ O `WebPageTraceListener` permite exibir a saída do rastreamento navegando até 
 
     Por padrão, `trace.axd` só está disponível localmente. Se quisesse disponibilizá-lo em um aplicativo remoto, você poderia adicionar `localOnly="false"` ao elemento `trace` no arquivo *Web.config*, conforme mostrado no seguinte exemplo:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```
 
     No entanto, habilitar `trace.axd` em um aplicativo de produção não é recomendado por motivos de segurança. Nas seções a seguir, você verá uma maneira mais fácil de ler os logs de rastreamento em um aplicativo do Serviço de Aplicativo.
 

@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7d7e04c526f7327a000ac26e255d2c8363c01f5c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918764"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -69,8 +69,8 @@ O [ponto de extremidade compatível com o hub de eventos interno](iot-hub-devgui
 O [filtro de IP](iot-hub-ip-filtering.md) do Hub IoT também não controla o acesso público ao ponto de extremidade interno. Para bloquear completamente o acesso da rede pública ao seu hub IoT, você deve: 
 
 1. Configurar o acesso ao ponto de extremidade privado para o Hub IoT
-1. Desativar o acesso à rede pública usando o filtro de IP para bloquear todos os IPs
-1. Desativar o ponto de extremidade do hub de eventos interno [configurando o roteamento para não enviar dados para ele](iot-hub-devguide-messages-d2c.md)
+1. Desligar o [acesso à rede pública](iot-hub-public-network-access.md) ou usar o filtro IP para bloquear todos os IP
+1. Parar de usar o ponto de extremidade do hub de eventos interno [Configurando o roteamento para não enviar dados para ele](iot-hub-devguide-messages-d2c.md)
 1. Desativar a [rota de fallback](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Configurar a saída para outros recursos do Azure usando o [serviço confiável da Microsoft](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
@@ -91,6 +91,76 @@ Para permitir que outros serviços localizem seu hub IoT como um serviço confi�
 1. Em **Status**, selecione **Ativado** e, em seguida, clique em **Salvar**.
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Captura de tela que mostra como ativar a identidade gerenciada para o Hub IoT":::
+
+### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Atribuir identidade gerenciada ao Hub IoT no momento da criação usando o modelo ARM
+
+Para atribuir identidade gerenciada ao Hub IoT no tempo de provisionamento de recursos, use o modelo ARM abaixo:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "sku": {
+                "name": "<your-hubs-SKU-name>",
+                "tier": "<your-hubs-SKU-tier>",
+                "capacity": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+Depois de substituir os valores do recurso `name` , `location` `SKU.name` e `SKU.tier` , você pode usar CLI do Azure para implantar o recurso em um grupo de recursos existente usando:
+
+```azurecli-interactive
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+```
+
+Depois que o recurso for criado, você poderá recuperar a identidade de serviço gerenciada atribuída ao seu hub usando CLI do Azure:
+
+```azurecli-interactive
+az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
+```
 
 ### <a name="pricing-for-managed-identity"></a>Preço para identidade gerenciada
 

@@ -2,13 +2,13 @@
 title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
 ms.date: 03/30/2020
-ms.topic: conceptual
-ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919136"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
@@ -44,7 +44,7 @@ Como esse é um nível amplo de acesso, recomendamos que você atribua essa fun�
 
 - [Crie uma nova conta de entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) para ser usada somente para essa função, em vez de atribuir essa função a uma entidade de serviço existente usada para outra automação.
 - Certifique-se de que essa entidade de serviço não tenha acesso a nenhum recurso de cliente delegado.
-- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limite os usuários que têm acesso ao Act em nome da entidade de serviço.
 
 Use um dos métodos a seguir para fazer as atribuições de escopo raiz.
@@ -73,7 +73,7 @@ Depois de criar sua conta de entidade de serviço e atribuir a função leitor d
 
 Depois de criar uma nova conta de entidade de serviço com acesso de leitor de monitoramento ao escopo raiz do seu locatário de gerenciamento, você poderá usá-la para consultar e relatar a atividade de delegação em seu locatário. 
 
-[Este script de Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) pode ser usado para consultar o último dia de atividade e relatórios sobre quaisquer delegações adicionadas ou removidas (ou tentativas que não foram bem-sucedidas). Ele consulta os dados do [log de atividades do locatário](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) e, em seguida, constrói os seguintes valores para relatar as delegações adicionadas ou removidas:
+[Este script de Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) pode ser usado para consultar o último dia de atividade e relatórios sobre quaisquer delegações adicionadas ou removidas (ou tentativas que não foram bem-sucedidas). Ele consulta os dados do [log de atividades do locatário](/rest/api/monitor/TenantActivityLogs/List) e, em seguida, constrói os seguintes valores para relatar as delegações adicionadas ou removidas:
 
 - **DelegatedResourceId**: a ID da assinatura delegada ou grupo de recursos
 - **CustomerTenantId**: a ID de locatário do cliente

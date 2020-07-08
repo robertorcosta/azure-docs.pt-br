@@ -4,29 +4,25 @@ description: Integre um aplicativo ao Serviço de Aplicativo do Azure com as red
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 7b6b310cdc03cb45fba6ba06dbcf2add9818f6cf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857031"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 
-Este artigo descreve o recurso de Integração VNET do Serviço de Aplicativo do Azure e como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Com as VNETs ([Redes Virtuais do Azure][VNETOverview]) você pode colocar muitos dos seus recursos do Azure em uma rede não roteável para a Internet.
+Este artigo descreve o recurso de Integração VNET do Serviço de Aplicativo do Azure e como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Com as VNETs ([Redes Virtuais do Azure][VNETOverview]) você pode colocar muitos dos seus recursos do Azure em uma rede não roteável para a Internet. O recurso integração VNet permite que seus aplicativos acessem recursos no ou por meio de uma VNet. A integração VNet não permite que seus aplicativos sejam acessados em particular.
 
-O Serviço de Aplicativo do Azure tem duas variações:
+O serviço de Azure App tem duas variações no recurso de integração VNet:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>Habilitar a Integração VNET
-
-> [!NOTE]
-> Se a folha "Rede" estiver desabilitada (esmaecida) no menu dos aplicativos do Linux, isso indicará que o recurso não está disponível no momento.
->
 
 1. Acesse a interface do usuário da **Rede** no portal do Serviço de Aplicativo. Em **Integração VNET**, selecione **Clique aqui para configurar**.
 
@@ -75,8 +71,8 @@ A Integração VNET exigida pelo gateway dá suporte à conexão com uma VNET em
 
 Não é possível usar a Integração VNET exigida pelo gateway:
 
-* Com aplicativos do Linux.
 * Com uma VNET conectada ao Azure ExpressRoute.
+* De um aplicativo Linux
 * Para acessar os recursos protegidos pelo ponto de extremidade de serviço.
 * Com um gateway de coexistência que dê suporte ao ExpressRoute e a VPNs ponto a site ou site a site.
 
@@ -155,25 +151,27 @@ Três custos estão relacionados ao uso do recurso de Integração VNET exigido 
 
 O suporte à CLI está disponível para a Integração VNET regional. Para acessar os comandos a seguir, [instale a CLI do Azure][installCLI].
 
-        az webapp vnet-integration --help
+```azurecli
+az webapp vnet-integration --help
 
-        Group
-            az webapp vnet-integration : Methods that list, add, and remove virtual network integrations
-            from a webapp.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            add    : Add a regional virtual network integration to a webapp.
-            list   : List the virtual network integrations on a webapp.
-            remove : Remove a regional virtual network integration from webapp.
+Group
+    az webapp vnet-integration : Methods that list, add, and remove virtual network
+    integrations from a webapp.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a regional virtual network integration to a webapp.
+    list   : List the virtual network integrations on a webapp.
+    remove : Remove a regional virtual network integration from webapp.
 
-        az appservice vnet-integration --help
+az appservice vnet-integration --help
 
-        Group
-            az appservice vnet-integration : A method that lists the virtual network integrations used in an
-            appservice plan.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            list : List the virtual network integrations used in an appservice plan.
+Group
+    az appservice vnet-integration : A method that lists the virtual network
+    integrations used in an appservice plan.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    list : List the virtual network integrations used in an appservice plan.
+```
 
 Para a Integração VNET exigida pelo gateway, você pode integrar o Serviço de Aplicativo a uma rede virtual do Azure usando o PowerShell. Para obter um script pronto para uso, confira [Conectar um aplicativo no Serviço de Aplicativo do Azure a uma rede virtual do Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 

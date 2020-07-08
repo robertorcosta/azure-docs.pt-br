@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919920"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo
 
-O armazenamento do Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objeto de BLOB da maneira mais econômica. As camadas de acesso disponíveis incluem:
+O Armazenamento do Azure oferece diferentes camadas de acesso que permitem armazenar dados de objeto Blob da maneira mais econômica. As camadas de acesso disponíveis incluem:
 
 - Otimizado para o **armazenamento de dados** que são acessados com frequência.
 - **Cool** Muito otimizado para armazenar dados que são acessados com pouca frequência e armazenados por pelo menos 30 dias.
@@ -59,9 +59,9 @@ A camada de acesso frio reduz os custos de armazenamento e os custos de acesso m
 
 ## <a name="archive-access-tier"></a>Camada de acesso ao arquivo
 
-A camada de acesso de arquivamento tem o menor custo de armazenamento. Mas ele tem custos de recuperação de dados mais altos em comparação com as camadas quente e fria. Os dados na camada de arquivo podem levar várias horas para serem recuperados. Os dados devem permanecer na camada de arquivo por pelo menos 180 dias ou estar sujeitos a uma cobrança de exclusão antecipada.
+A camada de acesso de arquivamento tem o menor custo de armazenamento. Mas ele tem custos de recuperação de dados mais altos em comparação com as camadas quente e fria. Os dados devem permanecer na camada de arquivo por pelo menos 180 dias ou estar sujeitos a uma cobrança de exclusão antecipada. Os dados na camada de arquivo podem levar várias horas para serem recuperados, dependendo da prioridade do reidratação. Para objetos pequenos, um reidratar de alta prioridade pode recuperar o objeto do arquivo em menos de uma hora. Consulte [dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md) para saber mais.
 
-Enquanto um blob está no armazenamento de arquivo morto, os dados de blob ficam offline e não podem ser lidos, substituídos ou modificados. Para ler ou baixar um blob no arquivo morto, você deve primeiro reidratar-lo a uma camada online. Não é possível tirar instantâneos de um blob no armazenamento de arquivos. No entanto, os metadados de blob permanecem online e disponíveis, permitindo que você liste o blob e suas propriedades. Para BLOBs no arquivo morto, as únicas operações válidas são getblobproperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob e DeleteBlob. Consulte [dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md) para saber mais.
+Enquanto um blob está no armazenamento de arquivo morto, os dados de blob ficam offline e não podem ser lidos, substituídos ou modificados. Para ler ou baixar um blob no arquivo morto, você deve primeiro reidratar-lo a uma camada online. Não é possível tirar instantâneos de um blob no armazenamento de arquivos. No entanto, os metadados de blob permanecem online e disponíveis, permitindo que você liste o blob, suas propriedades, metadados e marcas de índice de BLOB. Não é permitido definir ou modificar os metadados de blob no arquivo morto; no entanto, você pode definir e modificar as marcas de índice de BLOB. Para BLOBs no arquivo morto, as únicas operações válidas são getblobproperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier, CopyBlob e DeleteBlob.
 
 Os cenários de uso de exemplo para a camada de acesso de arquivamento incluem:
 
@@ -82,7 +82,7 @@ A camada no nível do blob permite que você carregue dados para a camada de ace
 A hora da última alteração na camada de blob é exposta por meio da propriedade do blob **Acessar Hora de Alteração da Camada**. Ao substituir um blob na camada quente ou fria, o blob recém-criado herda a camada do blob que foi substituído, a menos que a nova camada de acesso de blob seja definida explicitamente na criação. Se um blob estiver na camada de arquivo morto, ele não poderá ser substituído, portanto, carregar o mesmo BLOB não será permitido nesse cenário. 
 
 > [!NOTE]
-> O armazenamento de arquivos e as camadas no nível do blob só oferecem suporte aos blobs de bloco. Você também não pode alterar atualmente a camada de um blob de blocos que tenha instantâneos.
+> O armazenamento de arquivos e as camadas no nível do blob só oferecem suporte aos blobs de bloco.
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
 
@@ -119,10 +119,10 @@ A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
 | **Disponibilidade** <br> **(Leituras de RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |
-| **Encargos de uso**                         | Custos de armazenamento mais altos, menor acesso e custo da transação | Custos de armazenamento maiores, custos de acesso e de transações menores | Custos de armazenamento menores, custos de acesso e de transações maiores | Custos de armazenamento mais baixos, custos de acesso e de transações mais altos |
+| **Encargos de uso**                         | Custos de armazenamento mais altos, acesso menor e custo de transação | Custos de armazenamento maiores, custos de acesso e de transações menores | Custos de armazenamento menores, custos de acesso e de transações maiores | Custos de armazenamento mais baixos, custos de acesso e de transações mais altos |
 | **Tamanho mínimo de objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Duração mínima de armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias
-| **Latency** <br> **(Tempo até o primeiro byte)** | Milissegundos de dígito único | milissegundos | milissegundos        | horas<sup>2</sup> |
+| **Latência** <br> **(Tempo até o primeiro byte)** | Milissegundos de dígito único | milissegundos | milissegundos        | horas<sup>2</sup> |
 
 <sup>1</sup> os objetos na camada fria em contas GPv2 têm uma duração de retenção mínima de 30 dias. As contas de armazenamento de BLOBs não têm uma duração de retenção mínima para a camada fria.
 
@@ -143,7 +143,7 @@ Nesta seção, os cenários a seguir são demonstrados usando o portal do Azure 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Na portal do Azure, procure e selecione **todos os recursos**.
+1. No portal do Azure, pesquise e selecione **Todos os recursos**.
 
 1. Selecione sua conta de armazenamento.
 
@@ -156,7 +156,7 @@ Nesta seção, os cenários a seguir são demonstrados usando o portal do Azure 
 ![Alterar a camada da conta de armazenamento](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-O script do PowerShell a seguir pode ser usado para alterar a camada de conta. A `$rgName` variável deve ser inicializada com o nome do grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da conta de armazenamento. 
+O script do PowerShell a seguir pode ser usado para alterar a camada de conta. A variável `$rgName` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento. 
 ```powershell
 #Initialize the following with your resource group and storage account names
 $rgName = ""
@@ -171,22 +171,22 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Na portal do Azure, procure e selecione **todos os recursos**.
+1. No portal do Azure, pesquise e selecione **Todos os recursos**.
 
 1. Selecione sua conta de armazenamento.
 
-1. Selecione seu contêiner e, em seguida, selecione seu BLOB.
+1. Selecione o contêiner e clique no blob.
 
-1. Nas **Propriedades do blob**, selecione **alterar camada**.
+1. Nas **Propriedades de blob**, selecione **Alterar camada**.
 
 1. Selecione a camada de acesso **quente**, **fria**ou de **arquivamento** . Se o blob estiver atualmente no arquivo morto e você quiser reidratar-lo em uma camada online, você também poderá selecionar uma prioridade reidratar de **padrão** ou **alta**.
 
-1. Selecione **salvar** na parte inferior.
+1. Selecione **Salvar** na parte inferior.
 
 ![Alterar a camada da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-O script do PowerShell a seguir pode ser usado para alterar a camada de BLOB. A `$rgName` variável deve ser inicializada com o nome do grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da conta de armazenamento. A `$containerName` variável deve ser inicializada com o nome do contêiner. A `$blobName` variável deve ser inicializada com o nome do blob. 
+O script do PowerShell a seguir pode ser usado para alterar a camada de BLOB. A variável `$rgName` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento. A variável `$containerName` deve ser inicializada com o nome do contêiner. A variável `$blobName` deve ser inicializada com o nome do blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -252,7 +252,7 @@ Os BLOBs na camada de acesso frio têm um SLA (nível de serviço) de disponibil
 
 **As operações entre as camadas quente, fria e de arquivo são as mesmas?**
 
-Todas as operações entre frequente e esporádica são 100% consistentes. Todas as operações de arquivamento válidas, incluindo getblobproperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob, são de 100% consistentes com a quente e a fria. Os dados de BLOB não podem ser lidos ou modificados enquanto estiverem na camada de arquivo até a operação; somente as operações de leitura de metadados de blob têm suporte durante o arquivamento.
+Todas as operações entre frequente e esporádica são 100% consistentes. Todas as operações de arquivamento válidas, incluindo getblobproperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier e DeleteBlob, são de 100% consistentes com a quente e a fria. Os dados de BLOB não podem ser lidos ou modificados enquanto estiverem na camada de arquivo até a operação; somente as operações de leitura de metadados de blob têm suporte durante o arquivamento. No entanto, as marcas de índice de blob podem ser lidas, definidas ou modificadas durante o arquivamento.
 
 **Ao reidratar um blob da camada de arquivo para a camada frequente ou esporádica, como vou saber quando a reidratação estiver concluída?**
 

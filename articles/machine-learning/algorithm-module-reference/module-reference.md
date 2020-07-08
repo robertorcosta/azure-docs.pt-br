@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 53cfb983579c8a02ed6c1d80ff4821efa5950298
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856893"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referência de módulo e de algoritmo para o designer do Azure Machine Learning (versão preliminar)
 
@@ -34,7 +34,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 
 | Funcionalidade | Descrição | Módulo |
 | --- |--- | --- |
-| Dados de entrada e saída | Mova dados de fontes de nuvem para seu pipeline. Durante a execução de um pipeline, é possível não apenas usar o armazenamento em nuvem para trocar dados entre os pipelines, mas também gravar os resultados ou dados intermediários no Armazenamento do Microsoft Azure, em um banco de dados SQL ou em um Hive.  | [Inserir dados manualmente](enter-data-manually.md) <br/> [Exportar dados](export-data.md) <br/> [Importar dados](import-data.md) |
+| Dados de entrada e saída | Mova dados de fontes de nuvem para seu pipeline. Grave seus resultados ou dados intermediários no armazenamento do Azure, banco de dados SQL ou Hive, durante a execução de um pipeline ou use o armazenamento em nuvem para trocar dados entre pipelines.  | [Inserir dados manualmente](enter-data-manually.md) <br/> [Exportar dados](export-data.md) <br/> [Importar dados](import-data.md) |
 | Transformação de dados | Operações em dados que são exclusivos para o aprendizado de máquina, tais como normalização ou compartimentalização de dados, redução de dimensionalidade e conversão de dados entre vários formatos de arquivo.| [Adicionar Colunas](add-columns.md) <br/> [Adicionar Linhas](add-rows.md) <br/> [Aplicar Operação Matemática](apply-math-operation.md) <br/> [Aplicar Transformação SQL](apply-sql-transformation.md) <br/> [Limpar Dados Ausentes](clean-missing-data.md) <br/> [Recortar Valores](clip-values.md) <br/> [Converter em CSV](convert-to-csv.md) <br/> [Converter em Conjunto de Dados](convert-to-dataset.md) <br/> [Converter em Valores de Indicador](convert-to-indicator-values.md) <br/> [Editar Metadados](edit-metadata.md) <br/> [Agrupar Dados em Compartimentos](group-data-into-bins.md) <br/> [Unir Dados](join-data.md) <br/> [Normalizar Dados](normalize-data.md) <br/> [Particionar e Gerar Amostra](partition-and-sample.md)  <br/> [Remover Linhas Duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selecionar Colunas para Transformação](select-columns-transform.md) <br/> [Projetar Colunas no Conjunto de Dados](select-columns-in-dataset.md) <br/> [Dividir Dados](split-data.md) |
 | Seleção de recursos | Escolha um subconjunto de recursos relevantes e úteis a serem usados na criação de um modelo analítico. | [Seleção de Recursos Baseada em Filtro](filter-based-feature-selection.md) <br/> [Importância do Recurso de Permuta](permutation-feature-importance.md) |
 | Funções estatísticas | Forneça uma ampla variedade de métodos estatísticos relacionados à ciência de dados. | [Resumir Dados](summarize-data.md)|
@@ -51,12 +51,13 @@ Para obter ajuda com a escolha de algoritmos, consulte
 
 | Funcionalidade | Descrição | Módulo |
 | --- |--- | --- |
-| Treinamento de modelo | Execute os dados por meio do algoritmo. |  [Treinar Modelo de Clustering](train-clustering-model.md) <br/> [Treinar Modelo](train-model.md)  <br/> [Ajustar os Hiperparâmetros de Modelo](tune-model-hyperparameters.md) |
-| Pontuação e Avaliação do Modelo | Medir a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Atribuir Dados a Clusters](assign-data-to-clusters.md) <br/> [Modelo de Validação Cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Pontuar Modelo](score-model.md) |
+| Treinamento de modelo | Execute os dados por meio do algoritmo. |  [Treinar Modelo de Clustering](train-clustering-model.md) <br/> [Treinar Modelo](train-model.md) <br/> [Treinar modelo de Pytorch](train-pytorch-model.md) <br/> [Ajustar os Hiperparâmetros de Modelo](tune-model-hyperparameters.md) |
+| Pontuação e Avaliação do Modelo | Medir a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Atribuir Dados a Clusters](assign-data-to-clusters.md) <br/> [Modelo de Validação Cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Pontuar Modelo de Imagem](score-image-model.md) <br/> [Pontuar Modelo](score-model.md) |
 | Linguagem Python | Grave o código e incorpore-o em um módulo para integrar o Python ao seu pipeline. | [Criar Modelo Python](create-python-model.md) <br/> [Executar Script do Python](execute-python-script.md) |
 | Linguagem R | Grave o código e incorpore-o em um módulo para integrar o R ao seu pipeline. | [Executar Script R](execute-r-script.md) |
-| Análise de texto | Disponibilize ferramentas computacionais especializadas para trabalhar com texto estruturado e não estruturado. |  [Converter Palavra em Vetor](convert-word-to-vector.md) <br/> [Extrair Recursos N-Gram do Texto](extract-n-gram-features-from-text.md) <br/> [Hash de Recursos](feature-hashing.md) <br/> [Pré-processar Texto](preprocess-text.md) <br/> [Alocação de Dirichlet Latente](latent-dirichlet-allocation.md) |
-| Recomendação | Criar modelos de recomendação. | [Avaliar o Sistema de Recomendação](evaluate-recommender.md) <br/> [Pontuar o Sistema de Recomendação SVD](score-svd-recommender.md) <br/> [Treinar o Sistema de Recomendação SVD](train-SVD-recommender.md) |
+| Análise de texto | Disponibilize ferramentas computacionais especializadas para trabalhar com texto estruturado e não estruturado. |  [Converter Palavra em Vetor](convert-word-to-vector.md) <br/> [Extrair Recursos N-Gram do Texto](extract-n-gram-features-from-text.md) <br/> [Hash de Recursos](feature-hashing.md) <br/> [Pré-processar Texto](preprocess-text.md) <br/> [Alocação de Dirichlet Latente](latent-dirichlet-allocation.md) <br/> [Pontuar o modelo Vowpal Wabbit](score-vowpal-wabbit-model.md) <br/> [Treinar o modelo Vowpal Wabbit](train-vowpal-wabbit-model.md)|
+| Pesquisa Visual Computacional | Módulos relacionados ao pré-processamento de dados de imagem e ao reconhecimento de imagem. |  [Aplicar Transformação de Imagem](apply-image-transformation.md) <br/> [Converter em Diretório de Imagem](convert-to-image-directory.md) <br/> [Transformação da Imagem de Inicialização](init-image-transformation.md) <br/> [Dividir Diretório de Imagens](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Recomendação | Criar modelos de recomendação. | [Avaliar o Sistema de Recomendação](evaluate-recommender.md) <br/> [Pontuar o Sistema de Recomendação SVD](score-svd-recommender.md) <br/> [Pontuar o sistema de recomendação grande e profundo](score-wide-and-deep-recommender.md)<br/> [Treinar o Sistema de Recomendação SVD](train-SVD-recommender.md) <br/> [Treinar o sistema de recomendação grande e profundo](train-wide-and-deep-recommender.md)|
 | Detecção de anomalias | Modelos de detecção de anomalias treinados. | [Detecção de Anomalias Baseada em PCA](pca-based-anomaly-detection.md) <br/> [Treinar um Modelo de Detecção de Anomalias](train-anomaly-detection-model.md) |
 
 

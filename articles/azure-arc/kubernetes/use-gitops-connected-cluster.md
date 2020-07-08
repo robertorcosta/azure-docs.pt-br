@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usar o GitOps para configurar um cluster habilitado para Azure Arc (versão prévia)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: 954c77503e8adacc4cd27b25b68b50cac1f80458
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856992"
 ---
 # <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Usar o GitOps para configuração habilitada para Azure Arc (versão prévia)
 
@@ -167,7 +167,7 @@ Observe que o recurso `sourceControlConfiguration` é atualizado com status de c
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 {
   "complianceStatus": {
-    "complianceState": "Compliant",
+    "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
     "message": "...",
     "messageLevel": "3"
@@ -201,8 +201,8 @@ Durante a criação de `sourceControlConfiguration`, algumas coisas acontecem no
 Enquanto o processo de provisionamento ocorre, `sourceControlConfiguration` passa por algumas alterações de estado. Monitore o progresso com o comando `az k8sconfiguration show ...` acima:
 
 1. `complianceStatus` -> `Pending`: representa os estados inicial e em andamento
-1. `complianceStatus` -> `Compliant`: o `config-agent` conseguiu configurar o cluster com êxito e implantar `flux` sem erros
-1. `complianceStatus` -> `Noncompliant`: o `config-agent` encontrou um erro ao implantar o `flux`; os detalhes devem estar disponíveis no corpo da resposta `complianceStatus.message`
+1. `complianceStatus` -> `Installed`: o `config-agent` conseguiu configurar o cluster com êxito e implantar `flux` sem erros
+1. `complianceStatus` -> `Failed`: o `config-agent` encontrou um erro ao implantar o `flux`; os detalhes devem estar disponíveis no corpo da resposta `complianceStatus.message`
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Aplicar a configuração de um repositório git privado
 

@@ -3,12 +3,12 @@ title: Atualizações da imagem de base-tarefas
 description: Saiba mais sobre imagens base para imagens de contêiner de aplicativo e sobre como uma atualização de imagem de base pode disparar uma tarefa de registro de contêiner do Azure.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918509"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre as atualizações de imagem base para tarefas ACR
 
@@ -39,6 +39,13 @@ Para builds de imagem com base em um Dockerfile, uma tarefa do ACR detecta depen
 
 Se a imagem base especificada na `FROM` instrução residir em um desses locais, a tarefa ACR adicionará um gancho para garantir que a imagem seja recriada sempre que sua base for atualizada.
 
+## <a name="base-image-notifications"></a>Notificações de imagem base
+
+O tempo entre o momento em que uma imagem base é atualizada e quando a tarefa dependente é disparada depende do local da imagem base:
+
+* **Imagens base de um repositório público no Docker Hub ou MCR** -para imagens base em repositórios públicos, uma tarefa ACR verifica se há atualizações de imagem em um intervalo aleatório entre 10 e 60 minutos. As tarefas dependentes são executadas de acordo.
+* **Imagens base de um registro de contêiner do Azure** -para imagens base em registros de contêiner do Azure, uma tarefa ACR dispara imediatamente uma execução quando sua imagem base é atualizada. A imagem base pode estar no mesmo ACR em que a tarefa é executada ou em um ACR diferente em qualquer região.
+
 ## <a name="additional-considerations"></a>Considerações adicionais
 
 * **Imagens base para imagens de aplicativo** – atualmente, uma tarefa ACR rastreia apenas as atualizações de imagem base para imagens de aplicativo (*tempo de execução*). Elas não rastreiam atualizações de imagem base para imagens intermediárias (*buildtime*) usadas em Dockerfiles de vários estágios.  
@@ -51,7 +58,7 @@ Se a imagem base especificada na `FROM` instrução residir em um desses locais,
 
 * **Gatilho para rastrear dependências** – para habilitar uma tarefa ACR para determinar e controlar as dependências de uma imagem de contêiner – que incluem sua imagem base--você deve primeiro disparar a tarefa para criar a imagem **pelo menos uma vez**. Por exemplo, disparar a tarefa manualmente usando o comando [az acr task run][az-acr-task-run].
 
-* **Marca estável para a imagem base** – para disparar uma tarefa na atualização da imagem base, a imagem base deve ter uma marca *estável* , `node:9-alpine`como. Essa marcação é típica de uma imagem base que é atualizada com o sistema operacional e patches de estrutura para uma versão estável mais recente. Se a imagem base é atualizada com uma nova marca de versão, ela não dispara uma tarefa. Para obter mais informações sobre a marcação de imagens, confira as [diretrizes de práticas recomendadas](container-registry-image-tag-version.md). 
+* **Marca estável para a imagem base** – para disparar uma tarefa na atualização da imagem base, a imagem base deve ter uma marca *estável* , como `node:9-alpine` . Essa marcação é típica de uma imagem base que é atualizada com o sistema operacional e patches de estrutura para uma versão estável mais recente. Se a imagem base é atualizada com uma nova marca de versão, ela não dispara uma tarefa. Para obter mais informações sobre a marcação de imagens, confira as [diretrizes de práticas recomendadas](container-registry-image-tag-version.md). 
 
 * **Outros gatilhos de tarefa** – em uma tarefa disparada por atualizações de imagem base, você também pode habilitar gatilhos com base na [confirmação do código-fonte](container-registry-tutorial-build-task.md) ou em [uma agenda](container-registry-tasks-scheduled.md). Uma atualização de imagem de base também pode disparar uma [tarefa de várias etapas](container-registry-tasks-multi-step.md).
 

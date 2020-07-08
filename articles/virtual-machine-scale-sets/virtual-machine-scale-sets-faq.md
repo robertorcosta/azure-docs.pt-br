@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: faq
-ms.date: 05/24/2019
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855585"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -64,7 +64,7 @@ Um conjunto de dimensionamento regional (não zonal) usa *grupos de veiculaçõe
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Os conjuntos de dimensionamento funcionam com as zonas de disponibilidade do Azure?
 
-Sim. Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
+Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -226,7 +226,7 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
 
 Nome do elemento linuxConfiguration | Obrigatório | Type | Descrição
 --- | --- | --- | ---
-ssh | Não | Coleta | Especifica a configuração da chave SSH para um SO Linux
+ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
 path | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | String | Especifica uma chave pública SSH codificada em base64
 
@@ -234,7 +234,7 @@ Para obter um exemplo, consulte [o modelo de início rápido do GitHub 101-vm-ss
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando executo `Update-AzVmss` depois de adicionar mais de um certificado no mesmo cofre de chaves, posso ver a seguinte mensagem:
 
->Update-AzVmss: a lista secreta contém instâncias repetidas de/subscriptions/ \< My-subscription-id>/resourcegroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, que não é permitido.
+>Update-AzVmss: o segredo da lista contém instâncias repetidas de/subscriptions/ \<my-subscription-id> /resourceGroups/Internal-RG-dev/Providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, que não é permitido.
 
 Isso poderá ocorrer se você tentar adicionar novamente o mesmo cofre, em vez de usar um novo certificado de cofre para o cofre de origem existente. O comando `Add-AzVmssSecret` não funcionará corretamente se você estiver adicionando segredos adicionais.
 
@@ -332,7 +332,7 @@ Os conjuntos de dimensionamento de máquinas virtuais são uma camada de API fin
 
 De uma perspectiva de conformidade, os conjuntos de dimensionamento de máquinas virtuais são uma parte fundamental da plataforma de computação do Azure. Eles compartilham uma equipe, ferramentas, processos, metodologia de implantação, controles de segurança, compilação JIT (just-in-time), monitoramento, alertas e outros, com o próprio CRP. Os conjuntos de dimensionamento de máquinas virtuais são compatíveis com o PCI (Payment Card Industry) porque o CRP faz parte do atestado DSS (Data Security Standard) do PCI atual.
 
-Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+Para obter mais informações, consulte [a central de confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>[ identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funcionam com conjuntos de escala de máquina virtual?
 
@@ -523,7 +523,7 @@ Para implantar um conjunto de dimensionamento de máquinas virtuais para uma red
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Posso usar conjuntos de escala com Rede Acelerada?
 
-Sim. Para usar a rede acelerada, defina enableAcceleratedNetworking como true nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo
+Sim. Para usar a rede acelerada, defina enableAcceleratedNetworking como true nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo,
 
 ```json
 "networkProfile": {

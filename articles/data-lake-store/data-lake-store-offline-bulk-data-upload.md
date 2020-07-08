@@ -3,15 +3,15 @@ title: Carregar um conjunto de dados grandes em métodos Azure Data Lake Storage
 description: Use o serviço de importação/exportação para copiar dados do armazenamento de BLOBs do Azure para Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: aa3eb0bcd9ddd2a094563efe326f7af7e9e8708a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: d04a5c0e53e9a5db8bba03a5a9e9d95b87a8b5a3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73839304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855683"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Usar o serviço de importação/exportação do Azure para cópia offline de dados para Data Lake Storage Gen1
 
@@ -31,17 +31,16 @@ Antes de começar, você deverá ter o seguinte:
 
 Antes de usar o serviço de Importação/Exportação, divida o arquivo de dados a ser transferido **em cópias de menos de 200 GB** de tamanho. A ferramenta de importação não funciona em arquivos com mais de 200 GB. Neste artigo, dividimos o arquivo em partes de 100 GB cada. Você pode fazer isso usando o [Cygwin](https://cygwin.com/install.html). O Cygwin dá suporte a comandos do Linux. Nesse caso, use o seguinte comando:
 
-    split -b 100m 319GB.tsv
+```console
+split -b 100m 319GB.tsv
+```
 
 A operação de divisão cria arquivos com os nomes a seguir.
 
-    319GB.tsv-part-aa
-
-    319GB.tsv-part-ab
-
-    319GB.tsv-part-ac
-
-    319GB.tsv-part-ad
+* *319GB. tsv-parte-AA*
+* *319GB. tsv-Part-AB*
+* *319GB. tsv-parte-AC*
+* *319GB. tsv-parte-AD*
 
 ## <a name="get-disks-ready-with-data"></a>Prepare os discos com dados
 

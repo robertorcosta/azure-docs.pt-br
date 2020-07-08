@@ -5,15 +5,15 @@ description: Saiba mais sobre a arquitetura de rede de trânsito global para WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856380"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
 
@@ -47,7 +47,7 @@ Na arquitetura WAN virtual do Azure, os hubs de WAN virtuais são provisionados 
 
 Você pode estabelecer uma WAN virtual criando um único Hub de WAN virtual na região que tem o maior número de spokes (branches, VNets, Users) e, em seguida, conectando os spokes que estão em outras regiões ao Hub. Essa é uma boa opção quando uma superfície corporativa está em grande parte de uma região com alguns spokes remotos.  
   
-## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Conectividade de Hub para Hub (versão prévia)
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Conectividade Hub para Hub
 
 Uma superfície de nuvem corporativa pode abranger várias regiões de nuvem e é ideal (de latência) acessar a nuvem de uma região mais próxima de seu site físico e usuários. Um dos principais princípios da arquitetura de rede de trânsito global é habilitar a conectividade entre regiões entre todos os pontos de extremidade de rede local e na nuvem. Isso significa que o tráfego de um Branch que está conectado à nuvem em uma região pode alcançar outro Branch ou uma VNet em uma região diferente usando conectividade de Hub para Hub habilitada pela [rede global do Azure](https://azure.microsoft.com/global-infrastructure/global-network/).
 

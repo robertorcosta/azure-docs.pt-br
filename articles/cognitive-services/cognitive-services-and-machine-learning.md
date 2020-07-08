@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856728"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizado de máquina
 
@@ -73,7 +73,7 @@ Os serviços cognitivas, como um grupo de serviços, podem exigir nenhum, alguns
 
 ### <a name="no-additional-training-data-required"></a>Nenhum dado de treinamento adicional é necessário
 
-Os serviços que fornecem um modelo totalmente treinado podem ser tratados como uma _caixa preta_. Você não precisa saber como eles funcionam ou quais dados foram usados para treiná-los. Você coloca seus dados em um modelo totalmente treinado para obter uma previsão. 
+Os serviços que fornecem um modelo totalmente treinado podem ser tratados como uma _caixa opaca_. Você não precisa saber como eles funcionam ou quais dados foram usados para treiná-los. Você coloca seus dados em um modelo totalmente treinado para obter uma previsão. 
 
 ### <a name="some-or-all-training-data-required"></a>Alguns ou todos os dados de treinamento necessários
 
@@ -91,11 +91,11 @@ Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que el
 
 |Serviço cognitiva|Nenhum dado de treinamento necessário|Você fornece alguns ou todos os dados de treinamento|Coleta de dados em tempo real ou quase em tempo real|
 |--|--|--|--|
-|[Detector de Anomalias](./Anomaly-Detector/overview.md)|x|x|x|
+|[Detector de anomalias](./Anomaly-Detector/overview.md)|x|x|x|
 |Pesquisa do Bing |x|||
 |[Pesquisa Visual Computacional](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Visão Personalizada](./Custom-Vision-Service/home.md)||x||
 |[Detecção Facial](./Face/Overview.md)|x|x||
 |[Reconhecimento de Formulários](./form-recognizer/overview.md)||x||
 |[Leitura Avançada](./immersive-reader/overview.md)|x|||
@@ -129,7 +129,7 @@ Serviços cognitivas que fornecem modelos exportados para outras ferramentas de 
 
 |Serviço cognitiva|Informações do modelo|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
+|[Visão Personalizada](./custom-vision-service/home.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
 
 ## <a name="learn-more"></a>Saiba mais
 

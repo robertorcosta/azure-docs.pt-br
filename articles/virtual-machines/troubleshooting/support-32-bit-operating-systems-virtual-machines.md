@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71846531"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856957"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Suporte para sistemas operacionais de 32 bits em máquinas virtuais do Azure
 
-O Microsoft Azure agora permite que os usuários tragam seus sistemas operacionais Windows de 32 bits para o Azure. Como alguns desses sistemas operacionais já atingiram seu contrato de suporte de fim de vida útil, a Microsoft pode não oferecer suporte adicional para eles. O suporte também não é oferecido para sistemas operacionais baseados em Linux ou Berkeley de distribuição de software (BSD) que são executados em uma VM (máquina virtual) Microsoft Azure.
+O Microsoft Azure agora permite que os usuários tragam seus sistemas operacionais Windows de 32 bits para o Azure. Somente VHDs especializados têm suporte e imagens generalizadas não funcionarão no Azure. Como alguns desses sistemas operacionais já atingiram seu contrato de suporte de fim de vida útil, a Microsoft pode não oferecer suporte adicional para eles. O suporte também não é oferecido para sistemas operacionais baseados em Linux ou Berkeley de distribuição de software (BSD) que são executados em uma VM (máquina virtual) Microsoft Azure.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -43,4 +43,4 @@ Para obter mais informações sobre sistemas operacionais com suporte em máquin
 
 Se precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Como alternativa, arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

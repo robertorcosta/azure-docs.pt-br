@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 843cd74c85c619dbbd2b11a32fccf75d030b5613
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855931"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de Segurança coleta dados das VMs (máquinas virtuais) do Azure, dos Conjuntos de Dimensionamento de Máquinas Virtuais, dos contêineres de IaaS e de computadores não Azure (inclusive os locais) para monitorar as vulnerabilidades e ameaças de segurança. Os dados são coletados usando o agente do Log Analytics, que lê uma variedade de configurações e logs de eventos relacionados à segurança do computador e copia os dados para o seu workspace visando a análise. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado.
@@ -199,7 +199,7 @@ Se o workspace configurado for do usuário (e não o workspace padrão da Centra
 <br>
 Em computadores Linux, a hospedagem múltipla do Agente não é compatível. Portanto, se uma instalação de agente existente for detectada, o provisionamento automático não ocorrerá e a configuração do computador não será alterada.
 <br>
-Em computadores existentes nas assinaturas integradas à Central de Segurança antes de 17/03/2019, quando um agente existente for detectado, a extensão do agente do Log Analytics não será instalada e o computador não será afetado. No caso desses computadores, confira a recomendação "Resolver problemas de integridade do agente de monitoramento nos seus computadores" para solucionar problemas de instalação de agente.
+Para computadores existentes nas assinaturas integradas à central de segurança antes de 17 de março de 2019, quando um agente existente for detectado, a extensão do agente de Log Analytics não será instalada e o computador não será afetado. No caso desses computadores, confira a recomendação "Resolver problemas de integridade do agente de monitoramento nos seus computadores" para solucionar problemas de instalação de agente.
 
   
 - O agente do System Center Operations Manager está instalado no computador<br>
@@ -237,58 +237,44 @@ Há diversas maneiras de instalar o agente do Log Analytics manualmente. Verifiq
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Implantação de extensão de VM do Operations Management Suite 
 
 É possível instalar manualmente o agente do Log Analytics para que a Central de Segurança possa coletar dados de segurança das suas VMs e fazer recomendações e alertas.
-1. Selecione o Provisionamento automático – Desativado.
-2. Crie um workspace e defina o tipo de preço para o workspace que você pretende definir no agente do Log Analytics:
 
-   a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
-     
-   b.  Selecione o Workspace ao qual você pretende conectar o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
-       ![Selecione o workspace][8]
-3. Defina o tipo de preço.
-   ![Selecione o tipo de preço][9] 
-   >[!NOTE]
-   >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
+1. Desabilite o provisionamento automático.
+
+1. Opcionalmente, crie um espaço de trabalho.
+
+1. Defina o espaço de trabalho no qual você está instalando o agente de Log Analytics para o tipo de preço Standard:
+
+    1. No menu da central de segurança, selecione **preços & configurações**.
+
+    1. Defina o espaço de trabalho no qual você está instalando o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
+
+    1. Defina o tipo de preço padrão e selecione **salvar**.
+
+        ![Definir um espaço de trabalho para o tipo de preço Standard](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+
+       >[!NOTE]
+       >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
    > 
 
-4. Se você quiser implantar os agentes em novas VMs usando um modelo do Resource Manager, instale a extensão de máquina virtual do OMS:
+1. Se você quiser implantar os agentes em novas VMs usando um modelo do Resource Manager, instale o agente de Log Analytics:
 
-   a.  [Instalar a extensão da máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Instalar o agente de Log Analytics para Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Instalar a extensão da máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
-5. Para implantar as extensões em VMs existentes, siga as instruções em [Coletar dados sobre Máquinas Virtuais do Microsoft Azure](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [Instalar o agente de Log Analytics para Linux](../virtual-machines/extensions/oms-linux.md)
+
+1. Para implantar as extensões em VMs existentes, siga as instruções em [Coletar dados sobre Máquinas Virtuais do Microsoft Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]
    > A seção **Coletar dados de desempenho e eventos** é opcional.
    >
-6. Para usar o PowerShell e implantar a extensão, utilize o exemplo a seguir do PowerShell:
-   
-   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-   
-   1. Acesse o **Log Analytics** e clique em **Configurações avançadas**.
-    
-      ![Definir o Log Analytics][11]
 
-   2. Copie os valores de **WorkspaceID** e **Chave primária**.
-  
-      ![Copiar valores][12]
+1. Para usar o PowerShell para implantar a extensão, use as instruções da documentação de máquinas virtuais:
 
-   3. Popule a configuração pública e a configuração privada com estes valores:
-     
-           $PublicConf = @{
-               "workspaceId"= "<WorkspaceID value>"
-           }
- 
-           $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>"
-           }
+    - [Para computadores Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-      - Ao instalar em uma VM do Windows:
-        
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
-    
-      - Ao instalar em uma VM do Linux:
-        
-            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+    - [Para computadores Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+
+
 
 > [!NOTE]
 > Para obter instruções sobre como integrar a Central de Segurança usando o PowerShell, consulte [Automatizar a integração da Central de Segurança do Azure usando o PowerShell](security-center-powershell-onboarding.md).

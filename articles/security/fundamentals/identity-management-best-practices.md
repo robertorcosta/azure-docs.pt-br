@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855895"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
@@ -167,7 +167,7 @@ Estas são as opções e benefícios para habilitar a verificação em duas etap
 * Exigir desafio de MFA por meio do Microsoft Authenticator para todos os usuários
 * Restringir protocolos de autenticação herdados.
 
-Esse método está disponível a todos os níveis de licenciamento, mas não pode ser misturado com políticas de acesso condicional existentes. Você pode encontrar mais informações em padrões de segurança do Azure Active Directory
+Esse método está disponível a todos os níveis de licenciamento, mas não pode ser misturado com políticas de acesso condicional existentes. Você pode encontrar mais informações nos [padrões de segurança do Azure ad](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 **Opção 2**: [Habilitar a Autenticação Multifator alterando o estado do usuário](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefício**: Esse é o método tradicional para exigir a verificação em duas etapas. Funciona com ambos [Autenticação Multifator do Azure na nuvem e o Servidor de Autenticação Multifator do Microsoft Azure](/azure/active-directory/authentication/concept-mfa-whichversion). O uso desse método exigirá que os usuários realizem a verificação em duas etapas sempre que entrarem e substituírem as políticas de acesso condicional.
@@ -189,7 +189,7 @@ Essa é a maneira mais flexível para habilitar a verificação em duas etapas p
 Este método usa a avaliação de risco do Azure AD Identity Protection para determinar se a verificação em duas etapas é necessária com base no usuário e risco de entrada para todos os aplicativos de nuvem. Este método requer o licenciamento do Azure Active Directory P2. Você pode encontrar mais informações sobre esse método no [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> A opção 1, que habilita a Autenticação Multifator do Microsoft Azure alterando o estado do usuário, substitui as políticas de acesso condicionais. Como opções 2 e 3 usam políticas de acesso condicional, você não pode usar a opção 1 com eles.
+> A opção 2, permitindo a autenticação multifator alterando o estado do usuário, substitui as políticas de acesso condicional. Como as opções 3 e 4 usam políticas de acesso condicional, você não pode usar a opção 2 com elas.
 
 As organizações que não adicionam camadas adicionais de proteção de identidade, como verificação em duas etapas, são mais suscetíveis a ataques de roubo de credencial. Um ataque de roubo de credencial pode levar ao comprometimento de dados.
 

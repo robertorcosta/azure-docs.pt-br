@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 51716bdd6ab7f5b5102ccba3e6d57855dee5df33
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73904618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855916"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ajustar Azure Data Lake Storage Gen1 para desempenho
 
@@ -53,7 +53,7 @@ Depois de solucionar os afunilamentos de conectividade de rede e hardware de ori
 
 Quando os dados são armazenados em Data Lake Storage Gen1, o tamanho do arquivo, o número de arquivos e a estrutura de pastas afetam o desempenho. A seção a seguir descreve as práticas recomendadas nessas áreas.
 
-### <a name="file-size"></a>Tamanho de arquivo
+### <a name="file-size"></a>Tamanho do arquivo
 
 Normalmente os mecanismos de análise, tais como HDInsight e Azure Data Lake Analytics, têm uma sobrecarga por arquivo. Se você armazenar os dados como vários arquivos pequenos, isso poderá afetar negativamente o desempenho.
 
@@ -65,15 +65,11 @@ Em geral, organize seus dados em arquivos de tamanhos maior para melhorar o dese
 
 Para cargas de trabalho do hive e do ADLA, a remoção de partições de dados de série temporal pode ajudar algumas consultas a ler apenas um subconjunto dos dados, o que melhora o desempenho.
 
-Esses pipelines que ingerim dados de série temporal, geralmente colocam seus arquivos com uma nomenclatura estruturada para arquivos e pastas. Veja a seguir um exemplo comum que vemos para dados estruturados por data:
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+Esses pipelines que ingerim dados de série temporal, geralmente colocam seus arquivos com uma nomenclatura estruturada para arquivos e pastas. Veja a seguir um exemplo comum que vemos para dados que são estruturados por data: *\dataset\yyyy\mm\dd\ datafile_YYYY_MM_DD. tsv*.
 
 Observe que as informações de data e hora são exibidas tanto como pastas quanto no nome de arquivo.
 
-Para data e hora, o padrão a seguir é comum
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+Para data e hora, o seguinte é um padrão comum: *\dataset\yyyy\mm\dd\hh\mm\ datafile_YYYY_MM_DD_HH_mm. tsv*.
 
 Novamente, a escolha que você fizer com a pasta e organização do arquivo deverá otimizar para os maiores tamanhos de arquivo e um número razoável de arquivos em cada pasta.
 
@@ -135,7 +131,7 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [MapReduce no HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

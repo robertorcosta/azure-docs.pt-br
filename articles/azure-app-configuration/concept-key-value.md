@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77523597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856675"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
@@ -25,19 +25,23 @@ Aqui estão dois exemplos de nomes de chave estruturados em uma hierarquia:
 
 * Com base em serviços de componentes
 
+```aspx
         AppName:Service1:ApiEndpoint
         AppName:Service2:ApiEndpoint
+```
 
 * Com base em regiões de implantação
 
+```aspx
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+```
 
-O uso de dados de configuração em estruturas de aplicativo pode ditar esquemas de nomenclatura específicos para valores de chave. Por exemplo, a estrutura Spring Cloud do Java `Environment` define recursos que fornecem configurações para um aplicativo Spring.  Eles são parametrizados por variáveis que incluem o *nome do aplicativo* e o *perfil*. As chaves dos dados de configuração relacionados ao Spring Cloud normalmente começarão com esses dois elementos, separadamente por um delimitador.
+O uso de dados de configuração em estruturas de aplicativo pode ditar esquemas de nomenclatura específicos para valores de chave. Por exemplo, a estrutura Spring Cloud do Java define `Environment` recursos que fornecem configurações para um aplicativo Spring.  Eles são parametrizados por variáveis que incluem o *nome do aplicativo* e o *perfil*. As chaves dos dados de configuração relacionados ao Spring Cloud normalmente começarão com esses dois elementos, separadamente por um delimitador.
 
 As chaves armazenadas na Configuração de Aplicativo são cadeias de caracteres baseadas em Unicode que diferenciam maiúsculas de minúsculas. As chaves *app1* e *App1* são distintas em um repositório de Configuração de Aplicativos. Tenha isso em mente ao usar definições de configuração em um aplicativo, pois algumas estruturas manipulam as chaves de configuração sem diferenciar maiúsculas de minúsculas. Não recomendamos o uso de maiúsculas e minúsculas para diferenciar as chaves.
 
-Você pode usar qualquer caractere Unicode em nomes de chave, `*`exceto `,`para, `\`e.  Se você precisar incluir um desses caracteres reservados, use o escape para usá `\{Reserved Character}`-lo. 
+Você pode usar qualquer caractere Unicode em nomes de chave, exceto para `*` , `,` e `\` .  Se você precisar incluir um desses caracteres reservados, use o escape para usá-lo `\{Reserved Character}` . 
 
 Há um limite de tamanho combinado de 10 KB em um par chave-valor. Esse limite inclui todos os caracteres na chave, seu valor e todos os atributos opcionais associados. Dentro desse limite, você pode ter vários níveis hierárquicos para chaves.
 
@@ -53,13 +57,15 @@ Você pode organizar as chaves na Configuração de Aplicativo hierarquicamente 
 
 ### <a name="label-keys"></a>Chaves de rótulo
 
-Valores de chave na Configuração de Aplicativo podem, opcionalmente, ter um atributo de rótulo. Os rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com rótulos *A* e *B* forma duas chaves separadas em um repositório de Configuração de Aplicativos. Por padrão, um valor de chave não tem nenhum rótulo. Para referenciar explicitamente um valor de chave sem um rótulo `\0` , use (URL `%00`codificado como).
+Valores de chave na Configuração de Aplicativo podem, opcionalmente, ter um atributo de rótulo. Os rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com rótulos *A* e *B* forma duas chaves separadas em um repositório de Configuração de Aplicativos. Por padrão, um valor de chave não tem nenhum rótulo. Para referenciar explicitamente um valor de chave sem um rótulo, use `\0` (URL codificado como `%00` ).
 
 O rótulo fornece uma maneira conveniente de criar variantes de uma chave. Um uso comum dos rótulos é especificar vários ambientes para a mesma chave:
 
+```aspx
     Key = AppName:DbEndpoint & Label = Test
     Key = AppName:DbEndpoint & Label = Staging
     Key = AppName:DbEndpoint & Label = Production
+```
 
 ### <a name="version-key-values"></a>Valores de chave de versão
 
