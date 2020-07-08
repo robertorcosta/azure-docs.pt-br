@@ -7,25 +7,25 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/28/2019
+ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f95a1a08189668e5b6f88941069566b00a73bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 433ccecdc5eee5314114d020571761ee82afd6b9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499169"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024087"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar minhas funções do Azure AD no PIM
 
 O Azure AD (Azure Active Directory) PIM (Privileged Identity Management) simplifica a forma como as empresas gerenciam o acesso privilegiado a recursos no Azure AD e em outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
 
-Se você tiver se tornado elegível para uma função administrativa, isso significa que você poderá ativar essa função quando precisar executar ações que demandam privilégios. Por exemplo, se você ocasionalmente gerencia recursos do Office 365, administradores de função com privilégios de sua organização podem não o tornar um Administrador Global permanente, pois essa função também afeta outros serviços. Em vez disso, eles o tornam qualificado para funções do Azure AD, como Administrador do Exchange Online. Você pode solicitar a ativação da função quando precisar de seus privilégios e terá controle de administrador por um período predeterminado.
+Se você tiver se tornado qualificado para uma função administrativa, deverá ativar a atribuição de função quando precisar executar ações privilegiadas. Por exemplo, se você ocasionalmente gerencia recursos do Office 365, administradores de função com privilégios de sua organização podem não o tornar um Administrador Global permanente, pois essa função também afeta outros serviços. Em vez disso, eles o tornam qualificado para funções do Azure AD, como Administrador do Exchange Online. Você pode solicitar a ativação da função quando precisar de seus privilégios e terá controle de administrador por um período predeterminado.
 
 Este artigo é para os administradores que precisam ativar sua função do Azure AD no Privileged Identity Management.
 
@@ -42,7 +42,7 @@ A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Id
 
 ## <a name="activate-a-role"></a>Ativar uma função
 
-Quando você precisa assumir uma função do Azure AD, você pode solicitar a ativação usando a opção de navegação **minhas funções** no Privileged Identity Management.
+Quando você precisar assumir uma função do Azure AD, poderá solicitar a ativação abrindo **minhas funções** no Privileged Identity Management.
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -56,7 +56,7 @@ Quando você precisa assumir uma função do Azure AD, você pode solicitar a at
 
     ![Funções do Azure AD – minha lista de funções qualificadas](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Selecione **Ativar** para abrir o painel ativar.
+1. Selecione **Ativar** para abrir a página ativar.
 
     ![Funções do Azure AD – a página ativação contém a duração e o escopo](./media/pim-how-to-activate-role/activate-page.png)
 
@@ -76,29 +76,9 @@ Quando você precisa assumir uma função do Azure AD, você pode solicitar a at
 
 1. Selecione **Ativar**.
 
-    Se a função não exigir aprovação, ela já estará ativada e a função será exibida na lista de funções ativas. Se você quiser usar a função, siga as etapas na próxima seção.
-
-    ![Preenchimento do painel de ativação com escopo, hora de início, duração e motivo](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
-
     Se a [função exigir aprovação](pim-resource-roles-approval-workflow.md) para ser ativada, uma notificação será exibida no canto superior direito do seu navegador informando que a solicitação está com a aprovação pendente.
 
     ![Notificação de aprovação pendente da solicitação de ativação](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Usar uma função imediatamente após a ativação
-
-No caso de qualquer atraso após a ativação, siga estas etapas depois de ativar o para usar suas funções do Azure AD imediatamente.
-
-1. Abra o Azure AD Privileged Identity Management.
-
-1. Selecione **minhas funções** para ver uma lista de suas funções qualificadas do Azure AD e funções de recurso do Azure.
-
-1. Selecione **funções do Azure ad**.
-
-1. Selecione a guia **funções ativas** .
-
-1. Quando a função estiver ativa, saia do portal e entre novamente.
-
-    A função agora deve estar disponível para uso.
 
 ## <a name="view-the-status-of-your-requests"></a>Exibir o status de suas solicitações
 
@@ -133,8 +113,6 @@ Caso não precise da ativação de uma função que requer aprovação, você po
 Quando você ativa uma função no Privileged Identity Management, a ativação pode não ser propagada instantaneamente para todos os portais que exigem a função privilegiada. Às vezes, mesmo quando a alteração é propagada, o cache da web em um portal pode fazer com que a alteração não entre em vigor de imediato. Se a ativação estiver atrasada, aqui está o que você deve fazer.
 
 1. Saia do portal do Azure e entre novamente.
-
-    Quando você ativar uma função do Azure AD, verá os estágios da ativação. Quando todas as fases forem concluídas, você verá um link **Sair**. Você pode usar este link para sair. Isso irá resolver a maioria dos casos de atraso de ativação.
 
 1. Em Privileged Identity Management, verifique se você está listado como o membro da função.
 

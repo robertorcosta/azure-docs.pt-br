@@ -2,22 +2,22 @@
 title: Logon único do SAML – Aplicativos não existentes na galeria – Plataforma de identidade da Microsoft | Microsoft Docs
 description: Configure o SSO (logon único) para aplicativos não existentes na galeria na plataforma de identidade da Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758360"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024224"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurar logon único baseado em SAML para aplicativos não existentes na galeria
 
@@ -41,6 +41,8 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confir
    - Para pesquisar o aplicativo, no menu **Tipo de Aplicativo**, selecione **Todos os aplicativos** e, em seguida, **Aplicar**. Insira o nome do aplicativo na caixa de pesquisa e, em seguida, selecione o aplicativo nos resultados.
 
 3. Na seção **Gerenciar**, selecione **Logon único**. 
+
+   - Observe que há alguns cenários em que a opção **logon único** não estará presente. Por exemplo, se o aplicativo foi registrado usando **registros de aplicativo** , o recurso de logon único é configurado para usar o OIDC OAuth por padrão. Nesse caso, a opção de **logon único** não aparecerá na navegação em **aplicativos empresariais**. Ao usar **registros de aplicativo** para adicionar seu aplicativo personalizado, você configura opções no arquivo de manifesto. Para saber mais sobre o arquivo de manifesto, consulte ( https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) . Para saber mais sobre os padrões de SSO, consulte ( https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) . Outros cenários em que o **logon único** ficará ausente da navegação incluem quando um aplicativo é hospedado em outro locatário ou se sua conta não tem as permissões necessárias (administrador global, administrador de aplicativos de nuvem, administrador de aplicativos ou proprietário da entidade de serviço). As permissões também podem causar um cenário em que você pode abrir o **logon único** , mas não poderá salvar. Para saber mais sobre as funções administrativas do Azure AD, consulte ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
 4. Selecione **SAML**. A página **Configurar logon único com SAML – Visualização** será exibida.
 
@@ -122,9 +124,9 @@ No Azure AD, você pode baixar o certificado ativo no formato Base64 ou Raw dire
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Etapa 4. Configurar o aplicativo para usar o Azure AD
 
-A seção **Configurar o \<nome_do_aplicativo>** lista os valores que precisam ser configurados no aplicativo, de modo que ele use o Azure AD como um provedor de identidade SAML. Os valores necessários variam de acordo com o aplicativo. Para obter detalhes, consulte a documentação do aplicativo SAML. Para encontrar a documentação, vá para o cabeçalho **Configurar \<nome do aplicativo >** e selecione **Visualizar instruções passo a passo**. A documentação é exibida na página **Configurar logon**. Essa página orienta você a preencher os valores de **URL de login**, **Identificador do Azure AD** e **URL de logout** no cabeçalho **Configurar \<nome do aplicativo >** .
+A seção **Configurar \<applicationName> ** lista os valores que precisam ser configurados no aplicativo para que ele use o Azure ad como um provedor de identidade SAML. Os valores necessários variam de acordo com o aplicativo. Para obter detalhes, consulte a documentação do aplicativo SAML. Para encontrar a documentação, vá para o título **Configurar \<application name> ** e selecione **exibir instruções passo a passo**. A documentação é exibida na página **Configurar logon**. Essa página o orienta a preencher a **URL de logon**, o **identificador do Azure ad**e ** \<application name> ** os valores de **URL de logout** no título configurar.
 
-1. Role para baixo até a seção **Configurar \<applicationName >** . 
+1. Role a página para baixo até a seção **Configurar o \<applicationName>**. 
    
    ![Etapa 4 Configurar o aplicativo](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

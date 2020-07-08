@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
-ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77664687"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984617"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -45,7 +45,7 @@ Antes de começar, examine os detalhes a seguir para verificar se você atende a
 
 A tabela a seguir descreve a orquestração do Docker e o suporte ao monitoramento do sistema operacional de inventário de contêiner, desempenho e logs com Azure Monitor.   
 
-| | ACS | Linux | Windows | Contêiner<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contêiner<br>Desempenho | Contêiner<br>Evento | Evento<br>Log | Contêiner<br>Log |
+| | ACS | Linux | Windows | Contêiner<br>Inventário | Image<br>Inventário | Nó<br>Inventário | Contêiner<br>Desempenho | Contêiner<br>Evento | Evento<br>Log | Contêiner<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -116,7 +116,7 @@ Examine o artigo [Mecanismo do Docker no Windows](https://docs.microsoft.com/vir
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar hosts de contêiner do Linux
 
-Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu espaço de trabalho do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu espaço de trabalho, clique em **início rápido** > **computadores** para exibir a **ID do espaço de trabalho** e a **chave primária**.  Copie e cole os dois em seu editor favorito.
+Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu espaço de trabalho do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu espaço de trabalho, clique em **início rápido**  >  **computadores** para exibir a **ID do espaço de trabalho** e a **chave primária**.  Copie e cole os dois em seu editor favorito.
 
 **Para todos os hosts de contêiner do Linux, exceto CoreOS:**
 
@@ -618,7 +618,6 @@ Quando você estiver solucionando um erro específico, pode ajudar ver onde ele 
 - **KubeEvents_CL** Use este tipo para ver os eventos de Kubernetes.
 - **KubePodInventory_CL** Use este tipo quando quiser entender as informações de hierarquia do cluster.
 
-
 ### <a name="to-query-logs-for-container-data"></a>Para consultar logs de dados de contêiner
 
 * Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory**. Por exemplo, pesquise por `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
@@ -628,7 +627,7 @@ Quando você estiver solucionando um erro específico, pode ajudar ver onde ele 
 
 ## <a name="example-log-queries"></a>Exemplo de consultas de log
 
-Costuma ser útil criar consultas começando com um ou dois exemplos e, em seguida, modificá-los de acordo com seu ambiente. Como ponto de partida, você pode experimentar com a área **Consultas de Exemplo** para ajudar você a criar consultas mais avançadas.
+Costuma ser útil criar consultas começando com um ou dois exemplos e, em seguida, modificá-los de acordo com seu ambiente. Como ponto de partida, você pode experimentar a área de **consultas de exemplo** na extrema direita da página da solução, para ajudá-lo a criar consultas mais avançadas.
 
 ![Consultas de contêineres](./media/containers/containers-queries.png)
 

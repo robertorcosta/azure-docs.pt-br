@@ -9,12 +9,13 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683001"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985728"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 
@@ -29,7 +30,7 @@ O Azure Machine Learning fornece várias maneiras de treinar seus modelos, desde
     | [Avaliadores](#estimators) | As classes avaliadoras **facilitam o treinamento de modelos com base em estruturas populares de machine learning**. Há classes de avaliadores para o **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer** e **Ray RLlib**. Também há um avaliador genérico que pode ser usado com estruturas que ainda não têm uma classe de avaliador dedicada. Você não precisa se preocupar em definir uma configuração de execução ao usar avaliadores. |
     | [Pipeline de machine learning](#machine-learning-pipeline) | Pipelines não são um método de treinamento diferente, mas uma **forma de definir um fluxo de trabalho usando etapas modulares e reutilizáveis**, que podem incluir treinamento como parte do fluxo de trabalho. Os pipelines de machine learning dão suporte ao uso de machine learning automatizado, avaliadores e da configuração de execução para treinar modelos. Como os pipelines não estão voltados especificamente para o treinamento, os motivos para usar um pipeline são mais variados do que os outros métodos de treinamento. Geralmente, você pode usar um pipeline quando:<br>* Deseja **agendar processos autônomos** como preparação de dados ou trabalhos de treinamento de execução prolongada.<br>* Usa **várias etapas** coordenadas em recursos de computação heterogêneos e locais de armazenamento.<br>* Use o pipeline como um **modelo reutilizável** para cenários específicos, como retreinamento ou pontuação de lote.<br>* **Fontes de dados de acompanhamento e versão, entradas e saídas** para seu fluxo de trabalho.<br>* O fluxo de trabalho é **implementado por equipes diferentes que trabalham em etapas específicas independentemente**. As etapas podem ser unidas em um pipeline para implementar o fluxo de trabalho. |
 
-+ [SDK do Azure Machine Learning para Python](#r-sdk): o SDK usa o pacote reticulate para se associar ao SDK do Python do Azure Machine Learning. Isso permite que você acesse os principais objetos e métodos implementados no SDK do Python de qualquer ambiente do R.
++ [Azure Machine Learning SDK para r](#r-sdk): o SDK para r usa o pacote reticulate para associar ao SDK do Python Azure Machine Learning. Isso permite que você acesse os principais objetos e métodos implementados no SDK do Python de qualquer ambiente do R.
 
 + **Designer**: o designer do Azure Machine Learning (versão prévia) fornece um ponto de entrada fácil para o machine learning para a criação de provas de conceito ou para usuários com pouca experiência em codificação. Ele permite treinar modelos usando uma interface do usuário baseada na Web do tipo “arrastar e soltar”. Você pode usar o código do Python como parte do design ou treinar modelos sem escrever nenhum código.
 
@@ -105,7 +106,7 @@ Para obter mais informações, consulte os seguintes artigos:
 O designer permite treinar modelos usando uma interface do tipo “arrastar e soltar” em seu navegador da Web.
 
 + [O que é o designer?](concept-designer.md)
-+ [Tutorial: Prever preços de automóveis](tutorial-designer-automobile-price-train-score.md)
++ [Tutorial: prever o preço do automóvel](tutorial-designer-automobile-price-train-score.md)
 + [Regressão: Prever o preço](how-to-designer-sample-regression-automobile-price-basic.md)
 + [Classificação: Prever o rendimento](how-to-designer-sample-classification-predict-income.md)
 + [Classificação: Prever a rotatividade, a desejo e a venda vertical](how-to-designer-sample-classification-churn.md)

@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74023142"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023850"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Ativar minhas funções de recurso do Azure no Privileged Identity Management
 
@@ -42,13 +42,15 @@ Quando precisar tomar uma função de recurso do Azure, você poderá solicitar 
 
 1. Selecione **funções de recurso do Azure** para ver uma lista de suas funções de recurso do Azure qualificadas.
 
-   ![Minhas funções – página funções de recurso do Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Minhas funções – página funções de recurso do Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. Na lista **Funções de recursos do Azure**, encontre a função que você deseja ativar.
 
     ![Funções de recurso do Azure – minha lista de funções qualificadas](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. Selecione **Ativar** para abrir o painel ativar.
+1. Selecione **Ativar** para abrir a página ativar.
+
+     ![O painel ativar aberto com escopo, hora de início, duração e motivo](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Se sua função exigir autenticação multifator, selecione **Verificar sua identidade antes de prosseguir**. Você só precisa se autenticar uma vez por sessão.
 
@@ -72,27 +74,9 @@ Quando precisar tomar uma função de recurso do Azure, você poderá solicitar 
 
 1. Selecione **Ativar**.
 
-    Se a função não exigir aprovação, ela já estará ativada e a função será exibida na lista de funções ativas. Se você quiser usar a função, siga as etapas na próxima seção.
-
     Se a [função exigir aprovação](pim-resource-roles-approval-workflow.md) para ser ativada, uma notificação será exibida no canto superior direito do seu navegador informando que a solicitação está com a aprovação pendente.
 
     ![Notificação de aprovação pendente da solicitação de ativação](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Usar uma função imediatamente após a ativação
-
-No caso de qualquer atraso após a ativação, siga estas etapas depois de ativar para usar suas funções de recurso do Azure imediatamente.
-
-1. Abra o Azure AD Privileged Identity Management.
-
-1. Selecione **minhas funções** para ver uma lista de suas funções qualificadas do Azure AD e funções de recurso do Azure.
-
-1. Selecione **funções de recurso do Azure**.
-
-1. Selecione a guia **funções ativas** .
-
-1. Quando a função estiver ativa, saia do portal e entre novamente.
-
-    A função agora deve estar disponível para uso.
 
 ## <a name="view-the-status-of-your-requests"></a>Exibir o status de suas solicitações
 
@@ -127,9 +111,6 @@ Caso não precise da ativação de uma função que requer aprovação, você po
 Quando você ativa uma função no Privileged Identity Management, a ativação pode não ser propagada instantaneamente para todos os portais que exigem a função privilegiada. Às vezes, mesmo quando a alteração é propagada, o cache da web em um portal pode fazer com que a alteração não entre em vigor de imediato. Se a ativação estiver atrasada, aqui está o que você deve fazer.
 
 1. Saia do portal do Azure e entre novamente.
-
-    Quando você ativar uma função de recurso do Azure, verá os estágios da ativação. Quando todas as fases forem concluídas, você verá um link **Sair**. Você pode usar este link para sair. Isso irá resolver a maioria dos casos de atraso de ativação.
-
 1. Em Privileged Identity Management, verifique se você está listado como o membro da função.
 
 ## <a name="next-steps"></a>Próximas etapas

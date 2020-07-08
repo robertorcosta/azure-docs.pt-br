@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295299"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024376"
 ---
 # <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional Comum
 
-[Os padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md) são ótimos para algumas, mas muitas organizações precisam de mais flexibilidade do que oferecem. Por exemplo, muitas precisam da capacidade de excluir contas específicas como suas contas de acesso de emergência ou de administração de interrupções de políticas de acesso condicional que exigem autenticação multifator. Para essas organizações, as políticas comuns referenciadas neste artigo podem ser usadas.
+[Os padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md) são ótimos para algumas, mas muitas organizações precisam de mais flexibilidade do que oferecem. Por exemplo, muitas organizações precisam da capacidade de excluir contas específicas como suas contas de acesso de emergência ou de administração de interrupções de políticas de acesso condicional que exigem autenticação multifator. Para essas organizações, as políticas comuns referenciadas neste artigo podem ser usadas.
 
 ![Políticas de acesso condicional no portal do Azure](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
@@ -38,11 +38,12 @@ Mais informações sobre contas de acesso de emergência e por que elas são imp
 * [Exigir MFA para gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Essas quatro políticas quando configuradas juntas podem imitar a funcionalidade habilitada por [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
+\*Essas quatro políticas quando configuradas juntas, imitam a funcionalidade habilitada por [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Políticas adicionais
 
-* [Acesso condicional baseado em risco (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Acesso condicional baseado em risco de logon (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Acesso condicional baseado em risco do usuário (requer Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Exigir local confiável para registro de MFA](howto-conditional-access-policy-registration.md)
 * [Bloquear o acesso por local](howto-conditional-access-policy-location.md)
 * [Exigir dispositivo em conformidade](howto-conditional-access-policy-compliant-device.md)

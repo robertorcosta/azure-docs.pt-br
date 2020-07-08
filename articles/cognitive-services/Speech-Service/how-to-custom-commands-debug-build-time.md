@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604685"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023118"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Erros de depuração ao criar um aplicativo de comandos personalizados
 
@@ -35,17 +35,17 @@ Ao excluir um aplicativo de comandos personalizados, os comandos personalizados 
 Se a exclusão do aplicativo LUIS falhou, vá para sua conta do [Luis](https://www.luis.ai/) para excluí-los manualmente.
 
 ### <a name="toomanyrequests"></a>TooManyRequests
-Quando você tenta excluir uma grande quantidade de aplicativos de uma só vez, é provável que você veja os erros ' TooManyRequests '. Isso significa que suas solicitações de exclusão são limitadas pelo Azure. 
+Quando você tenta excluir um grande número de aplicativos de uma só vez, é provável que você veja os erros ' TooManyRequests '. Esses erros significam que suas solicitações de exclusão são limitadas pelo Azure. 
 
 Atualize sua página e tente excluir menos aplicativos.
 
 ## <a name="errors-when-modifying-an-application"></a>Erros ao modificar um aplicativo
 
 ### <a name="cant-delete-a-parameter-or-a-web-endpoint"></a>Não é possível excluir um parâmetro ou um ponto de extremidade da Web
-Você não tem permissão para excluir um parâmetro quando ele está sendo usado. Remova qualquer referência do parâmetro em quaisquer respostas de fala, frases de exemplo, condições, ações e tente novamente.
+Você não tem permissão para excluir um parâmetro quando ele está sendo usado. Remova qualquer referência do parâmetro em qualquer resposta de fala, sentenças de exemplo, condições, ações e tente novamente.
 
 ### <a name="cant-delete-a-web-endpoint"></a>Não é possível excluir um ponto de extremidade da Web
-Você não tem permissão para excluir um ponto de extremidade da Web quando ele está sendo usado. Remova qualquer ação de **ponto de extremidade da Web de chamada** que use este ponto de extremidade da Web antes de remover um ponto de extremidade da Web
+Você não tem permissão para excluir um ponto de extremidade da Web quando ele está sendo usado. Remova qualquer ação de **ponto de extremidade Web de chamada** que usa esse ponto de extremidade da Web antes de remover um ponto de extremidade da Web
 
 ## <a name="errors-when-training-an-application"></a>Erros ao treinar um aplicativo
 ### <a name="built-in-intents"></a>Propósitos internos
@@ -64,7 +64,7 @@ Verifique se você não tem frases de exemplo comuns compartilhadas entre comand
 Para obter uma prática recomendada de balanceamento de frases de exemplo em diferentes comandos, consulte a [prática recomendada do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ### <a name="empty-sample-sentences"></a>Sentenças de exemplo vazias
-Você precisa ter pelo menos 1 frase de exemplo para cada comando.
+Você precisa ter pelo menos uma frase de exemplo para cada comando.
 
 ### <a name="undefined-parameter-in-sample-sentences"></a>Parâmetro indefinido em sentenças de exemplo
 Um ou mais parâmetros são usados nas sentenças de exemplo, mas não definidos.
@@ -82,13 +82,15 @@ Por exemplo, você pode definir um parâmetro {veículo} para as sentenças de e
 | Reservar um voo | Agendar um {veículo} |
 | Agendar um táxi | Agendar um {veículo} |
 
-Para obter uma prática recomendada de treinamento de LUIS, consulte a [prática recomendada do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Para obter a melhor prática do treinamento do LUIS, consulte a [prática recomendada do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ## <a name="cant-update-luis-key"></a>Não é possível atualizar a chave LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Reatribuir ao recurso de criação de E0
 LUIS não dá suporte à reatribuição do aplicativo LUIS ao recurso de criação de E0.
 
-Se você precisar alterar o recurso de criação de F0 para E0 ou alterar para um recurso de E0 diferente, recrie o aplicativo.
+Se você precisar alterar o recurso de criação de F0 para E0 ou alterar para um recurso E0 diferente, recrie o aplicativo. 
+
+Para exportar rapidamente um aplicativo existente e importá-lo para um novo aplicativo, consulte [implantação contínua com o Azure DevOps](./how-to-custom-commands-deploy-cicd.md).
 
 ### <a name="save-button-is-disabled"></a>O botão salvar está desabilitado
 Se você nunca atribuir um recurso de previsão LUIS ao seu aplicativo, o botão salvar será desabilitado quando você tentar alterar o recurso de criação sem adicionar um recurso de previsão.

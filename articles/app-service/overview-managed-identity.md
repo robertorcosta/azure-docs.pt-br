@@ -6,12 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: d206ff114cd08f2ab3f2068076bf7cadb047a689
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258446"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985745"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
@@ -42,7 +43,7 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 
 > [!NOTE] 
-> Para localizar a identidade gerenciada para seu aplicativo Web ou de slot no portal do Azure, vá para a seção Configurações do usuário em Aplicativos Empresariais.
+> Para localizar a identidade gerenciada para seu aplicativo Web ou de slot no portal do Azure, em **aplicativos empresariais**, procure na seção **configurações do usuário** . Normalmente, o nome do slot é semelhante a `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure

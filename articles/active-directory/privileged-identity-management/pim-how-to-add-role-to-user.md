@@ -7,18 +7,18 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048cefaae10cd55091dd72f0b73a3cf9d731a35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253267"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024139"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções do Azure AD no Privileged Identity Management
 
@@ -53,15 +53,13 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
     ![Funções do Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Selecione **Adicionar membro** para abrir a página **nova atribuição** .
+1. Selecione **Adicionar atribuições** para abrir a página **Adicionar atribuições** .
 
-1. Selecione **selecionar uma função** para abrir a página Selecionar uma função.
+1. Selecione **selecionar uma função** para abrir a página **selecionar uma função** .
 
     ![Novo painel de atribuição](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Selecione uma função que você deseja atribuir e clique em **Selecionar**.
-
-1. Selecione um membro a quem você deseja atribuir à função e, em seguida, selecione **selecionar**.
+1. Selecione uma função que você deseja atribuir, selecione um membro a quem você deseja atribuir à função e, em seguida, selecione **Avançar**.
 
 1. Na lista **tipo de atribuição** , no **painel configurações de associação** , selecione **qualificado** ou **ativo**.
 
@@ -69,15 +67,11 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
     - As atribuições **ativas** não exigem que o membro execute qualquer ação para usar a função. Membros atribuídos como ativos sempre possuem privilégios atribuídos pela função.
 
-1. Se a atribuição deve ser permanente (permanentemente qualificada ou permanentemente atribuída), marque a caixa de seleção **permanentemente** .
-
-    Dependendo das configurações de função, a caixa de seleção poderá não aparecer ou não ser modificável.
-
-1. Para especificar uma duração de atribuição específica, desmarque a caixa de seleção e modifique as caixas de data e hora de início e/ou término. Quando terminar, selecione **concluído**.
+1. Para especificar uma duração de atribuição específica, adicione as caixas de data e hora de início e término. Quando terminar, selecione **atribuir** para criar a nova atribuição de função.
 
     ![Configurações de associação - data e hora](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Para criar a nova atribuição de função, selecione **Adicionar**. Uma notificação do status é exibida.
+1. Depois que a função é atribuída, uma notificação de status de atribuição é exibida.
 
     ![Nova atribuição - Notificação](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
 1. Agora que o usuário está qualificado para a função, avise-o de que ele pode ativá-lo de acordo com as instruções em [Ativar minhas funções do Azure AD no Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Os administradores qualificados são solicitados a registrar na MFA (Autenticação Multifator do Microsoft Azure) durante a ativação. Se um usuário não puder se registrar para MFA ou estiver usando um conta Microsoft (como @outlook.com), você precisará torná-los permanentes em todas as suas funções.
+    Os administradores qualificados são solicitados a se registrar para a autenticação multifator do Azure durante a ativação. Se um usuário não puder se registrar para MFA ou estiver usando um conta Microsoft (como @outlook.com ), você precisará torná-los permanentes em todas as suas funções.
 
 ## <a name="make-a-role-assignment-permanent"></a>Tornar uma atribuição de função permanente
 

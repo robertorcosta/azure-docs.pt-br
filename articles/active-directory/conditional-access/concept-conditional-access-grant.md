@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583201"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024430"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -28,7 +28,7 @@ Em uma política de acesso condicional, um administrador pode fazer uso de contr
 
 O bloco leva em conta quaisquer atribuições e impede o acesso com base na configuração da política de acesso condicional.
 
-O bloco é um controle poderoso que deve ser atraente com o conhecimento apropriado. É algo que os administradores devem usar o [modo somente de relatório](concept-conditional-access-report-only.md) para testar antes de habilitar.
+O bloco é um controle poderoso que deve ser atraente com o conhecimento apropriado. Políticas com instruções de bloco podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes de habilitar em escala. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
 ## <a name="grant-access"></a>Conceder acesso
 
@@ -37,8 +37,9 @@ Os administradores podem optar por impor um ou mais controles ao conceder acesso
 - [Exigir autenticação multifator (autenticação multifator do Azure)](../authentication/concept-mfa-howitworks.md)
 - [Exigir que o dispositivo seja marcado como em conformidade (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Exigir dispositivo ingressado no Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md)
-- [Exigir o aplicativo cliente aprovado](app-based-conditional-access.md)
+- [Exigir um aplicativo cliente aprovado](app-based-conditional-access.md)
 - [Requer política de proteção do aplicativo](app-protection-based-conditional-access.md)
+- [Exigir alteração de senha](#require-password-change)
 
 Quando os administradores optam por combinar essas opções, eles podem escolher os seguintes métodos:
 
@@ -59,11 +60,13 @@ Um dispositivo pode ser marcado como compatível pelo Intune (para qualquer sist
 
 Os dispositivos devem ser registrados no Azure AD antes que possam ser marcados como em conformidade. Mais informações sobre o registro de dispositivo podem ser encontradas no artigo [o que é uma identidade de dispositivo](../devices/overview.md).
 
-### <a name="require-hybrid-azure-ad-joined-device"></a>Exigir dispositivo ingressado no Azure AD híbrido
+### <a name="require-hybrid-azure-ad-joined-device"></a>Exigir um dispositivo ingressado no Azure AD híbrido
 
 As organizações podem optar por usar a identidade do dispositivo como parte de sua política de acesso condicional. As organizações podem exigir que os dispositivos sejam ingressados no Azure AD híbrido usando essa caixa de seleção. Para obter mais informações sobre identidades de dispositivo, consulte o artigo [o que é uma identidade de dispositivo?](../devices/overview.md).
 
-### <a name="require-approved-client-app"></a>Exigir o aplicativo cliente aprovado
+Ao usar o [fluxo OAuth do código do dispositivo](../develop/v2-oauth2-device-code.md), a condição exigir controle de concessão de dispositivo gerenciado ou estado do dispositivo não é suportada. Isso ocorre porque o dispositivo que executa a autenticação não pode fornecer o estado do dispositivo para o dispositivo que fornece um código e o estado do dispositivo no token está bloqueado para o dispositivo que executa a autenticação. Em vez disso, use o controle exigir autenticação multifator.
+
+### <a name="require-approved-client-app"></a>Exigir um aplicativo cliente aprovado
 
 As organizações podem exigir que uma tentativa de acesso aos aplicativos de nuvem selecionados precise ser feita de um aplicativo cliente aprovado. Esses aplicativos cliente aprovados dão suporte a [políticas de proteção de aplicativo do Intune](/intune/app-protection-policy) independentemente de qualquer solução de MDM (gerenciamento de dispositivo móvel).
 
@@ -133,6 +136,21 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 Consulte o artigo [como: exigir a política de proteção de aplicativo e um aplicativo cliente aprovado para acesso de aplicativo de nuvem com acesso condicional](app-protection-based-conditional-access.md) para exemplos de configuração.
 
+### <a name="require-password-change"></a>Exigir alteração de senha 
+
+Quando o risco do usuário é detectado, usando as condições da política de risco do usuário, os administradores podem optar por fazer com que o usuário altere a senha com segurança usando a redefinição de senha de autoatendimento do Azure AD. Se o risco do usuário for detectado, os usuários poderão executar uma redefinição de senha de autoatendimento para corrigir automaticamente, isso fechará o evento de risco do usuário para evitar ruídos desnecessários para os administradores. 
+
+Quando um usuário for solicitado a alterar sua senha, primeiro será necessário concluir a autenticação multifator. Você desejará ter certeza de que todos os usuários se registraram para autenticação multifator, para que eles estejam preparados caso o risco seja detectado para sua conta.  
+
+> [!WARNING]
+> Os usuários devem ter se registrado previamente para redefinição de senha self-service antes de disparar a política de risco do usuário. 
+
+Existem algumas restrições em vigor quando você configura uma política usando o controle de alteração de senha.  
+
+1. A política deve ser atribuída a ' todos os aplicativos de nuvem '. Isso impede que um invasor use um aplicativo diferente para alterar a senha do usuário e redefinir o risco da conta, simplesmente entrando em um aplicativo diferente. 
+1. Exigir alteração de senha não pode ser usado com outros controles, como exigir um dispositivo compatível.  
+1. O controle de alteração de senha só pode ser usado com a condição de atribuição de usuário e grupo, condição de atribuição de aplicativo de nuvem (que deve ser definida como todos) e condições de risco do usuário. 
+
 ### <a name="terms-of-use"></a>Termos de uso
 
 Se sua organização tiver criado termos de uso, opções adicionais poderão estar visíveis em conceder controles. Essas opções permitem que os administradores exijam a confirmação dos termos de uso como uma condição de acessar os recursos protegidos pela política. Mais informações sobre os termos de uso podem ser encontradas no artigo [Azure Active Directory termos de uso](terms-of-use.md).
@@ -141,6 +159,6 @@ Se sua organização tiver criado termos de uso, opções adicionais poderão es
 
 - [Acesso condicional: controles de sessão](concept-conditional-access-session.md)
 
-- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+- [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
 - [Modo somente relatório](concept-conditional-access-report-only.md)

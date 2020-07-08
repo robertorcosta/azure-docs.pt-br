@@ -6,25 +6,27 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 1a027eb4cb3351934738319f342afac8d8407e6f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: c3cd5ed952ddb40157ee16246d4d1669d47ed6b9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848797"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984496"
 ---
-# <a name="create-an-azure-container-offer"></a>Criar uma oferta de contêiner do Azure
+# <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
 
-Este artigo descreve como criar e publicar uma oferta de contêiner para o Azure Marketplace. Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa do marketplace comercial.
+Este artigo descreve como criar e publicar uma oferta de contêiner para o Azure Marketplace. Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](create-account.md) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa do marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
+
 2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral**.
+
 3. Na página Visão geral, selecione **+ Nova oferta** > **Contêiner do Azure**.
 
-    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-container.png)
+   ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > Depois que uma oferta for publicada, as edições feitas nela no Partner Center aparecerão somente em frentes de loja após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
@@ -50,10 +52,10 @@ A página **Visão geral da oferta** mostra uma representação visual das etapa
 
 Essa página mostra links diferentes com base no status atual da oferta. Por exemplo:
 
-- Se a oferta for um rascunho – [Excluir oferta rascunho](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Se a oferta estiver ativa – [Parar de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em versão prévia – [Ativar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Se você ainda não concluiu a desconexão do editor – [Cancelar publicação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Se a oferta for um rascunho – [Excluir oferta rascunho](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta estiver ativa – [Parar de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em versão prévia – [Ativar](publishing-status.md#publisher-approval)
+- Se você ainda não concluiu a desconexão do editor – [Cancelar publicação](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração da oferta
 
@@ -65,12 +67,12 @@ Ao publicar sua oferta no marketplace comercial com o Partner Center, você pode
 
 1. **Escolha um destino de cliente potencial para o qual você deseja que enviemos vendas potenciais de clientes.** O Partner Center dá suporte aos seguintes sistemas de CRM:
 
-   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+   - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+   - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
    > [!NOTE]
-   > Se seu sistema de CRM não estiver listado acima, use a [tabela do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [ponto de extremidade Https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar dados de clientes potenciais e depois exporte os dados para seu sistema de CRM.
+   > Se seu sistema de CRM não estiver listado acima, use a [tabela do Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [ponto de extremidade Https](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de clientes potenciais e depois exporte os dados para seu sistema de CRM.
 
 2. Conecte sua oferta ao destino do cliente potencial ao publicá-la no Partner Center.
 3. Confirme que a conexão com o destino do cliente potencial está configurada corretamente. Depois de publicá-la no Partner Center, validaremos a conexão e enviaremos um cliente potencial de teste para você. Ao colocar a oferta em versão prévia antes de ela ficar ativa, você também pode testar a conexão do cliente potencial tentando comprar a oferta por conta própria no ambiente de versão prévia.
@@ -78,9 +80,9 @@ Ao publicar sua oferta no marketplace comercial com o Partner Center, você pode
 
 Veja alguns recursos adicionais de gerenciamento de clientes potenciais:
 
-- [Visão geral do gerenciamento de clientes potenciais](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Perguntas frequentes sobre gerenciamento de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros comuns de configuração de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Visão geral do gerenciamento de clientes potenciais](commercial-marketplace-get-customer-leads.md)
+- [Perguntas frequentes sobre gerenciamento de leads](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Erros comuns de configuração de leads](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
 - [Visão geral do gerenciamento de clientes potenciais](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) em PDF (desative seu bloqueador de pop-up)
 
 Selecione **Salvar rascunho** antes de continuar.
@@ -91,7 +93,12 @@ Essa página permite que você defina as categorias usadas para agrupar sua ofer
 
 #### <a name="category"></a>Categoria
 
-Selecione no mínimo uma e no máximo cinco categorias. Essas categorias são usadas para posicionar sua oferta nas áreas de pesquisa do marketplace apropriadas e são mostradas na página de detalhes da oferta. Na descrição da oferta, explique como sua oferta dá suporte a essas categorias. Os contêineres aparecem em **Contêineres** e, em seguida, aparece a categoria **Imagens de Contêiner**.
+Selecione categorias e subcategorias para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. Selecione:
+
+- Pelo menos uma e até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável**.
+
+Veja a lista completa de categorias e subcategorias nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md). Os contêineres sempre aparecem sob **contêineres** e, em seguida, na categoria **imagens de contêiner** .
 
 #### <a name="legal"></a>Legal
 
@@ -100,13 +107,13 @@ Você deve fornecer os termos e as condições da oferta. Há duas opções:
 - Usar o Contrato Standard para o marketplace comercial da Microsoft.
 - Fornecer seus próprios termos e condições.
 
-##### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato Standard para o marketplace comercial da Microsoft
+#### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato Standard para o marketplace comercial da Microsoft
 
 Oferecemos um modelo de Contrato Standard para ajudar a facilitar as transações no marketplace comercial. Você pode optar por oferecer sua solução sob o Contrato Standard, o qual os clientes precisam verificar e aceitar apenas uma vez. Essa é uma boa opção caso você não queira criar termos e condições personalizados.
 
-Para saber mais sobre o Contrato Standard, consulte [Usar o Contrato Standard para o marketplace comercial da Microsoft](https://docs.microsoft.com/azure/marketplace/standard-contract). Você também pode baixar o arquivo PDF do [Contrato Standard](https://go.microsoft.com/fwlink/?linkid=2041178) (verifique se seu bloqueador de pop-ups está desativado).
+Para saber mais sobre o Contrato Standard, consulte [Usar o Contrato Standard para o marketplace comercial da Microsoft](../standard-contract.md). Você também pode baixar o arquivo PDF do [Contrato Standard](https://go.microsoft.com/fwlink/?linkid=2041178) (verifique se seu bloqueador de pop-ups está desativado).
 
-Para usar o Contrato Standard, marque a caixa de seleção **Usar o Contrato Standard para o marketplace comercial da Microsoft** e clique em **Aceitar**.
+Para usar o contrato padrão, selecione o * * usar o contrato padrão do Marketplace comercial da Microsoft] (.. /standard-contract.md)
 
 > [!NOTE]
 > Depois de publicar uma oferta usando o Contrato Standard para o marketplace comercial da Microsoft, você não poderá mais usar seus termos e condições personalizados. Ofereça uma solução sob o Contrato Standard ou sob seus próprios termos e condições.
@@ -177,7 +184,7 @@ Na seção **Contato do Programa CSP**, forneça o link (**Materiais de marketin
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionais de listagem do marketplace
 
-Para saber mais sobre a criação de listagens de ofertas, consulte [Práticas recomendadas de listagem de ofertas](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+Para saber mais sobre a criação de listagens de ofertas, consulte [Práticas recomendadas de listagem de ofertas](../gtm-offer-listing-best-practices.md)
 
 ### <a name="marketplace-images"></a>Imagens do Marketplace
 
@@ -239,9 +246,6 @@ Especifique o público-alvo da versão prévia usando por GUIDs de ID da assinat
 
 Adicione pelo menos uma ID da assinatura do Azure, seja individualmente (até 10) ou carregando um arquivo CSV (até 100). Ao adicionar essas IDs de assinatura, você determina quem pode ter acesso à versão prévia de sua oferta antes que ela seja publicada como ativa. Caso sua oferta já esteja ativa, você poderá escolher um público-alvo da versão prévia para testar alterações ou atualizações da oferta.
 
-> [!NOTE]
-> O público-alvo da versão prévia difere de um público-alvo privado. O público-alvo da **versão prévia** público pode ver e confirmar todos os planos de oferta antes que eles sejam ativados no marketplace, incluindo aqueles que serão publicados somente a um público-alvo **privado** (definido na guia Disponibilidade).
-
 Selecione **Salvar rascunho** antes de continuar.
 
 ### <a name="plan-overview"></a>Visão geral do plano
@@ -276,22 +280,20 @@ Na caixa **Nome do plano**, insira um nome para esse plano. Os clientes veem ess
 
 Essa guia permite que você escolha em quais nuvens o plano ficará disponível. Suas respostas nessa guia afetam quais campos serão exibidos em outras guias.
 
-#### <a name="cloud-availability"></a>Disponibilidade de nuvem
+#### <a name="azure-regions"></a>Regiões do Azure
 
-Seu plano precisa estar disponível em pelo menos uma nuvem.
+Todos os planos para ofertas de contêiner do Azure são disponibilizados automaticamente no **Azure global**.  Seu plano pode ser usado por clientes em todas as regiões globais do Azure que usam o Marketplace comercial. Para obter mais informações, consulte [Disponibilidade geográfica e suporte a moeda](../marketplace-geo-availability-currencies.md).
 
-Selecione a opção **Azure Global** para que seu plano possa ser usado por clientes em todas as regiões globais do Azure que usam o marketplace comercial. Para obter mais informações, consulte [Disponibilidade geográfica e suporte a moeda](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Selecione a opção [**Azure governamental**](../../azure-government/documentation-government-welcome.md) para que sua solução apareça aqui. Esta é uma nuvem de comunidade governamental com acesso controlado para clientes dos EUA Federal, S] (.. /Marketplace-geo-Availability-currencies.MD) em. Por ser o editor, você é responsável por eventuais controles de conformidade, medidas de segurança e melhores práticas dessa comunidade de nuvem. O Azure Governamental usa datacenters isolados fisicamente e redes (localizadas apenas nos EUA).
 
-Selecione a opção [**Nuvem do Azure Governamental**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) para que sua solução seja exibida aqui. Essa é uma nuvem de comunidade governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais do governo dos EUA, bem como parceiros qualificados para atendê-las. Por ser o editor, você é responsável por eventuais controles de conformidade, medidas de segurança e melhores práticas dessa comunidade de nuvem. O Azure Governamental usa datacenters isolados fisicamente e redes (localizadas apenas nos EUA).
-
-Antes de [publicar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) no Azure Governamental, teste e confirme sua solução dentro dessa área, pois os resultados podem ser diferentes. Para criar e testar sua solução, solicite uma conta de avaliação em [Avaliação do Microsoft Azure Governamental](https://azure.microsoft.com/global-infrastructure/government/request/).
+Antes de [publicar](../../azure-government/documentation-government-manage-marketplace-partners.md) no Azure Governamental, teste e confirme sua solução dentro dessa área, pois os resultados podem ser diferentes. Para criar e testar sua solução, solicite uma conta de avaliação em [Avaliação do Microsoft Azure Governamental](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Depois que o plano for publicado e estiver disponível em uma nuvem específica, você não poderá remover essa nuvem.
+> Depois que o plano for publicado e disponível em uma região específica, você não poderá remover essa região.
 
-#### <a name="azure-government-cloud-certifications"></a>Certificações da nuvem do Azure Governamental
+#### <a name="azure-government-certifications"></a>Certificações do Azure Government
 
-Essa opção só poderá ser vista se a **Nuvem do Azure Governamental** estiver selecionada em **Disponibilidade de nuvem**.
+Essa opção só poderá ser vista se o **Azure governamental** estiver selecionado em **disponibilidade de nuvem**.
 
 Os serviços do Azure Governamental manipulam os dados que estão sujeitos a determinadas normas e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.
 
@@ -333,7 +335,7 @@ Caso queira ocultar sua oferta publicada para que os clientes não possam pesqui
 
 Esse campo é usado quando:
 
-- A oferta se destinar a ser usada indiretamente quando for referenciada em outro aplicativo.
+- A oferta destina-se a ser usada indiretamente quando referenciada por outro aplicativo.
 - A oferta não deva ser adquirida individualmente.
 - O plano for usado para o teste inicial e não for mais relevante.
 - O plano tiver sido usado para ofertas temporárias ou sazonais e não deva mais ser oferecido.
@@ -342,7 +344,7 @@ Esse campo é usado quando:
 
 As imagens de contêiner devem ser hospedadas em um [Registro de Contêiner do Azure](https://azure.microsoft.com/services/container-registry/) que seja privado. Na guia **Configuração Técnica**, forneça informações de referência para seu repositório de imagens de contêiner dentro do Registro de Contêiner do Azure.
 
-Assim que a oferta for publicada, a imagem de contêiner será copiada para o Azure Marketplace em um registro de contêiner público específico. Todas as solicitações para usar sua imagem de contêiner são ofertadas no registro de contêiner público do Azure Marketplace e não no seu registro privado. Para obter detalhes, consulte [Preparar seus ativos técnicos do Contêiner do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Assim que a oferta for publicada, a imagem de contêiner será copiada para o Azure Marketplace em um registro de contêiner público específico. Todas as solicitações para usar sua imagem de contêiner são ofertadas no registro de contêiner público do Azure Marketplace e não no seu registro privado. Para obter detalhes, consulte [Preparar seus ativos técnicos do Contêiner do Azure](create-azure-container-technical-assets.md).
 
 ### <a name="image-repository-details"></a>Detalhes do repositório de imagens
 
@@ -350,11 +352,11 @@ Forneça as informações a seguir na guia **Detalhes do repositório de imagens
 
 **ID da assinatura do Azure** – forneça a ID da assinatura na qual o uso é relatado e os serviços são cobrados para o Registro de Contêiner do Azure que inclui sua imagem de contêiner. É possível encontrar essa ID na [página Assinaturas](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 
-**Nome do grupo de recursos do Azure** – forneça o nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) que contém o Registro de Contêiner do Azure com a imagem de contêiner. O grupo de recursos deve poder ser acessado na ID da assinatura (acima). Você pode encontrar o nome na página [Grupos de recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal do Azure.
+**Nome do grupo de recursos do Azure** – forneça o nome do [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contém o Registro de Contêiner do Azure com a imagem de contêiner. O grupo de recursos deve poder ser acessado na ID da assinatura (acima). Você pode encontrar o nome na página [Grupos de recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal do Azure.
 
-**Nome do Registro de Contêiner do Azure** – forneça o nome do [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro) que tenha sua imagem de contêiner. O registro de contêiner deve estar no grupo de recursos do Azure que fornecido anteriormente. Inclua somente o nome do registro, não o nome completo do servidor de logon. Lembre-se de omitir o **azurecr.io** do nome. Você pode encontrar o nome do registro na [página Registros de Contêiner](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal do Azure.
+**Nome do Registro de Contêiner do Azure** – forneça o nome do [Registro de Contêiner do Azure](../../container-registry/container-registry-intro.md) que tenha sua imagem de contêiner. O registro de contêiner deve estar no grupo de recursos do Azure que fornecido anteriormente. Inclua somente o nome do registro, não o nome completo do servidor de logon. Lembre-se de omitir o **azurecr.io** do nome. Você pode encontrar o nome do registro na [página Registros de Contêiner](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal do Azure.
 
-**Nome de usuário do administrador para o registro de contêiner do Azure** – forneça o [nome de usuário do administrador](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) vinculado ao Registro de Contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (Interface de Linha de Comando) do Azure. Como opção, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
+**Nome de usuário do administrador para o registro de contêiner do Azure** – forneça o [nome de usuário do administrador](../../container-registry/container-registry-authentication.md#admin-account)) vinculado ao registro de contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao Registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (Interface de Linha de Comando) do Azure. Como opção, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a caixa de diálogo Atualizar registro de contêiner.":::
 
@@ -362,7 +364,7 @@ Forneça as informações a seguir na guia **Detalhes do repositório de imagens
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra o menu Chave de Acesso.":::
 
-**Nome do repositório no Registro de Contêiner do Azure**. Forneça o nome do repositório do Registro de Contêiner do Azure que tem sua imagem. Inclua o nome do repositório quando enviar a imagem por push para o registro. Você pode encontrar o nome do repositório acessando a página [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/) > **Repositórios**. Para obter mais informações, consulte [Exibir repositórios de registro de contêiner no portal do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
+**Nome do repositório no Registro de Contêiner do Azure**. Forneça o nome do repositório do Registro de Contêiner do Azure que tem sua imagem. Inclua o nome do repositório quando enviar a imagem por push para o registro. Você pode encontrar o nome do repositório acessando a página [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/) > **Repositórios**. Para obter mais informações, consulte [Exibir repositórios de registro de contêiner no portal do Azure](../../container-registry/container-registry-repositories.md).
 
 > [!NOTE]
 > Depois de definir o nome, ele não poderá mais ser alterado. Use um nome exclusivo para cada oferta presente em sua conta.
@@ -375,7 +377,7 @@ Os clientes devem ser capazes de obter as atualizações automaticamente do Azur
 
 Esse campo deve incluir uma tag de **última** que aponta para a última versão da sua imagem em todas as plataformas com suporte. Ela também deve incluir uma tag de versão (por exemplo, começando com xx.xx.xx, em que xx é um número). Os clientes devem usar [tags de manifesto](https://github.com/estesp/manifest-tool) para segmentar várias plataformas. Todas as marcas referenciadas por uma marca de manifesto também deverão ser adicionadas para que possamos enviá-las.
 
-Todas as marcas de manifesto (exceto a tag última) devem começar com X.Y **-** ou X.Y.Z-, em que X, Y, Z são inteiros. Por exemplo, se uma tag **última** pontos para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, essas seis tags precisarão ser adicionadas a esse campo. Para obter detalhes, consulte [Preparar seus ativos técnicos do Contêiner do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Todas as marcas de manifesto (exceto a tag última) devem começar com X.Y **-** ou X.Y.Z-, em que X, Y, Z são inteiros. Por exemplo, se uma tag **última** pontos para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, essas seis tags precisarão ser adicionadas a esse campo. Para obter detalhes, consulte [Preparar seus ativos técnicos do Contêiner do Azure](create-azure-container-technical-assets.md).
 
 > [!NOTE]
 > Lembre-se de adicionar uma tag de teste à sua imagem para que você possa identificar a imagem durante o teste.
@@ -398,8 +400,8 @@ Para enviar a oferta para publicação, selecione **Publicar**.
 
 Enviaremos um email para que você saiba quando uma versão prévia da oferta estiver disponível para revisão e aprovação.
 
-Para disponibilizar sua oferta ao público (ou, se uma oferta privada, a um público privado), acesse o Partner Center e selecione **Ativar**.
+Para publicar sua oferta no público, vá para o Partner Center e selecione **Go-Live**.
 
 ## <a name="next-step"></a>Próxima etapa
 
-- [Atualizar uma oferta existente no marketplace comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Atualizar uma oferta existente no marketplace comercial](update-existing-offer.md)

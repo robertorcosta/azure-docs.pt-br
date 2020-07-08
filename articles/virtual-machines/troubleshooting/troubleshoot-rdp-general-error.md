@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71058012"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985799"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solucionar um problema de erro geral de protocolo RDP em uma VM do Azure
 
@@ -60,13 +60,13 @@ O ouvinte RDP está configurado incorretamente.
 
 ## <a name="solution"></a>Solução
 
-Para resolver esse problema, [faça backup do disco do sistema operacional](../windows/snapshot-copy-managed-disk.md) e [anexe o disco do sistema operacional a uma VM de resgate](troubleshoot-recovery-disks-portal-windows.md), depois siga as etapas.
+Antes de seguir essas etapas, tire um instantâneo do disco do SO da VM afetada como um backup. Para resolver esse problema, use o controle serial ou repare a VM offline.
 
 ### <a name="serial-console"></a>Console Serial
 
 #### <a name="step-1-open-cmd-instance-in-serial-console"></a>Etapa 1: instância CMD aberta no Console serial
 
-1. Acesse o [console serial](serial-console-windows.md) selecionando **suporte & solução de problemas** > **console serial (versão prévia)**. Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
+1. Acesse o [console serial](serial-console-windows.md) selecionando **suporte & solução**  >  **de problemas console serial (versão prévia)**. Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
 
 2. Crie um novo canal para uma instância de CMD. Digite **CMD** para iniciar o canal e obter o nome do canal.
 
@@ -78,29 +78,37 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
 
 #### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Etapa 2: Verifique os valores das chaves de registro do RDP:
 
-1. Verifique se o RDP está desabilitado por políticas.
+1. Verifique se o RDP está desabilitado por políticas de grupo.
 
-      ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
+    ```
+    REM Get the group policy 
+    reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
+    ```
+    Se a política de grupo indicar que o RDP está desabilitado (o valor de fDenyTSConnections é 0x1), execute o comando a seguir para habilitar o serviço do TermService. Se a chave do registro não for encontrada, não há nenhuma política de grupo configurada para desabilitar o RDP. Você pode passar para a próxima etapa.
 
-      REM Get the domain policy if any
-      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-      ```
+    ```
+    REM update the fDenyTSConnections value to enable TermService service
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+    ```
+    > [!NOTE]
+    > Esta etapa habilita o serviço do TermService temporariamente. A alteração será redefinida quando as configurações da política de grupo forem atualizadas. Para resolver o problema, você precisa verificar se o serviço do TermService está desabilitado pela política de grupo local ou pela política de grupo de domínio e, em seguida, atualizar as configurações de política de forma correspondente.
+    
+2. Verifique a configuração da conexão remota atual.
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+    ```
+    Se o comando retornar 0x1, a VM não permitirá a conexão remota. Em seguida, permita a conexão remota usando o seguinte comando:
+     ```
+     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+     ```
+    
+1. Verifique a configuração atual do servidor Host da Sessão da Área de Trabalho Remota.
 
-      - Se a política de domínio existir, a configuração na política local será substituída.
-      - Se a política de domínio declara que o RDP está desabilitado (1), atualize a política do AD por meio do controlador de domínio.
-      - Se a política de domínio indica que o RDP está habilitado (0), nenhuma atualização é necessária.
-      - Se a política de domínio não existe e a política local declara que o RDP está desabilitado (1), habilite o RDP usando o seguinte comando: 
-      
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-                  
-
-2. Verifique a configuração atual do servidor Host da Sessão da Área de Trabalho Remota.
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-      ```
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
+    ```
 
       Se o comando retornar 0, o servidor Host da Sessão da Área de Trabalho Remota estará desabilitado. Em seguida, habilite o servidor Host da Sessão da Área de Trabalho Remota da seguinte maneira:
 
@@ -177,7 +185,7 @@ Para obter mais informações, confira [A Área de Trabalho Remota se desconecta
 
 1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
-3. Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do SO anexado.
+3. Verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 4. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 5. Abra uma sessão de prompt de comando com privilégios elevados (**Executar como administrador**). Execute os scripts a seguir. Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
 

@@ -3,15 +3,15 @@ title: SDK do Java-operações do sistema de arquivos no Data Lake Storage Gen1-
 description: Use o SDK do Java para Azure Data Lake Storage Gen1 executar operações de sistema de arquivos em Data Lake Storage Gen1 como criar pastas e carregar e baixar arquivos de dados.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 6f97443e4bcf6689f0bf49917774f662d5462566
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 777f2dfdf9e9e6d80814a47101730ccb3f5ece68
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691785"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985950"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do Java
 > [!div class="op_single_selector"]
@@ -37,35 +37,39 @@ O exemplo de código disponível [no GitHub](https://azure.microsoft.com/documen
 
 1. Crie um projeto do Maven usando [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) na linha de comando ou usando um IDE. Para obter instruções sobre como criar um projeto Java usando IntelliJ, veja [aqui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para obter instruções sobre como criar um projeto usando o Eclipse, veja [aqui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
-2. Adicione as dependências a seguir para o arquivo **pom.xml** do Maven. Adicione o seguinte trecho antes da marca de ** \<>/Project** :
+2. Adicione as dependências a seguir para o arquivo **pom.xml** do Maven. Adicione o seguinte trecho antes da **\</project>** marca:
    
-        <dependencies>
-          <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.5</version>
-          </dependency>
-          <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.7.21</version>
-          </dependency>
-        </dependencies>
+    ```xml
+    <dependencies>
+        <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-data-lake-store-sdk</artifactId>
+        <version>2.1.5</version>
+        </dependency>
+        <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-nop</artifactId>
+        <version>1.7.21</version>
+        </dependency>
+    </dependencies>
+    ```
    
     A primeira dependência é usar o SDK do Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência serve para especificar qual estrutura de registros (`slf4j-nop`) usar para o aplicativo. O SDK do Data Lake Storage Gen1 usa a fachada de log [SLF4J](https://www.slf4j.org/) , que permite que você escolha entre várias estruturas de log populares, como Log4J, log Java, Logback, etc., ou nenhum registro em log. Para este exemplo, desabilitamos o registro em log, por isso, usamos a associação **slf4j-nop**. Para usar outras opções de log em seu aplicativo, veja [aqui](https://www.slf4j.org/manual.html#projectDep).
 
 3. Adicione as seguintes instruções import ao seu aplicativo.
 
-        import com.microsoft.azure.datalake.store.ADLException;
-        import com.microsoft.azure.datalake.store.ADLStoreClient;
-        import com.microsoft.azure.datalake.store.DirectoryEntry;
-        import com.microsoft.azure.datalake.store.IfExists;
-        import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
-        import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
+    ```java
+    import com.microsoft.azure.datalake.store.ADLException;
+    import com.microsoft.azure.datalake.store.ADLStoreClient;
+    import com.microsoft.azure.datalake.store.DirectoryEntry;
+    import com.microsoft.azure.datalake.store.IfExists;
+    import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
+    import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
 
-        import java.io.*;
-        import java.util.Arrays;
-        import java.util.List;
+    import java.io.*;
+    import java.util.Arrays;
+    import java.util.List;
+    ```
 
 ## <a name="authentication"></a>Autenticação
 
@@ -75,8 +79,10 @@ O exemplo de código disponível [no GitHub](https://azure.microsoft.com/documen
 ## <a name="create-a-data-lake-storage-gen1-client"></a>Criar um cliente do Data Lake Storage Gen1
 A criação de um objeto [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) exige a especificação do nome da conta do Data Lake Storage Gen1 e o provedor de token gerado durante a autenticação com o Data Lake Storage Gen1 (consulte a seção [Autenticação](#authentication)). O nome da conta do Data Lake Storage Gen1 deve ser um nome de domínio totalmente qualificado. Por exemplo, substitua **FILL-IN-HERE** por algo como **mydatalakestoragegen1.azuredatalakestore.net**.
 
-    private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
-    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
+```java
+private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
+ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
+```
 
 Os snippets de código nas seções a seguir contêm exemplos de algumas operações comuns de filesystem. Você pode examinar os [documentos de API do SDK do Java do Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/) completos do objeto **ADLStoreClient** para ver outras operações.
 
@@ -84,33 +90,39 @@ Os snippets de código nas seções a seguir contêm exemplos de algumas operaç
 
 O snippet a seguir cria uma estrutura de diretório na raiz da conta do Data Lake Storage Gen1 especificada.
 
-    // create directory
-    client.createDirectory("/a/b/w");
-    System.out.println("Directory created.");
+```java
+// create directory
+client.createDirectory("/a/b/w");
+System.out.println("Directory created.");
+```
 
 ## <a name="create-a-file"></a>Criar um arquivo
 
 O snippet a seguir cria um arquivo (c.txt) na estrutura de diretório e grava alguns dados no arquivo.
 
-    // create file and write some content
-    String filename = "/a/b/c.txt";
-    OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
-    PrintStream out = new PrintStream(stream);
-    for (int i = 1; i <= 10; i++) {
-        out.println("This is line #" + i);
-        out.format("This is the same line (%d), but using formatted output. %n", i);
-    }
-    out.close();
-    System.out.println("File created.");
+```java
+// create file and write some content
+String filename = "/a/b/c.txt";
+OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+PrintStream out = new PrintStream(stream);
+for (int i = 1; i <= 10; i++) {
+    out.println("This is line #" + i);
+    out.format("This is the same line (%d), but using formatted output. %n", i);
+}
+out.close();
+System.out.println("File created.");
+```
 
 Você também pode criar um arquivo (d.txt) usando matrizes de byte.
 
-    // create file using byte arrays
-    stream = client.createFile("/a/b/d.txt", IfExists.OVERWRITE);
-    byte[] buf = getSampleContent();
-    stream.write(buf);
-    stream.close();
-    System.out.println("File created using byte array.");
+```java
+// create file using byte arrays
+stream = client.createFile("/a/b/d.txt", IfExists.OVERWRITE);
+byte[] buf = getSampleContent();
+stream.write(buf);
+stream.close();
+System.out.println("File created using byte array.");
+```
 
 A definição para a função `getSampleContent` usada no snippet de código anterior está disponível como parte do exemplo [no GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/). 
 
@@ -118,11 +130,13 @@ A definição para a função `getSampleContent` usada no snippet de código ant
 
 O snippet a seguir acrescenta o conteúdo a um arquivo existente.
 
-    // append to file
-    stream = client.getAppendStream(filename);
-    stream.write(getSampleContent());
-    stream.close();
-    System.out.println("File appended.");
+```java
+// append to file
+stream = client.getAppendStream(filename);
+stream.write(getSampleContent());
+stream.close();
+System.out.println("File appended.");
+```
 
 A definição para a função `getSampleContent` usada no snippet de código anterior está disponível como parte do exemplo [no GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/).
 
@@ -130,62 +144,74 @@ A definição para a função `getSampleContent` usada no snippet de código ant
 
 O snippet a seguir lê conteúdo de um arquivo na conta do Data Lake Storage Gen1.
 
-    // Read File
-    InputStream in = client.getReadStream(filename);
-    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-    String line;
-    while ( (line = reader.readLine()) != null) {
-        System.out.println(line);
-    }
-    reader.close();
-    System.out.println();
-    System.out.println("File contents read.");
+```java
+// Read File
+InputStream in = client.getReadStream(filename);
+BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+String line;
+while ( (line = reader.readLine()) != null) {
+    System.out.println(line);
+}
+reader.close();
+System.out.println();
+System.out.println("File contents read.");
+```
 
 ## <a name="concatenate-files"></a>Concatenar arquivos
 
 O snippet a seguir concatena dois arquivos em uma conta do Data Lake Storage Gen1. Se houver êxito, o arquivo concatenado substituirá os dois arquivos existentes.
 
-    // concatenate the two files into one
-    List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
-    client.concatenateFiles("/a/b/f.txt", fileList);
-    System.out.println("Two files concatenated into a new file.");
+```java
+// concatenate the two files into one
+List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
+client.concatenateFiles("/a/b/f.txt", fileList);
+System.out.println("Two files concatenated into a new file.");
+```
 
 ## <a name="rename-a-file"></a>Renomear um arquivo
 
 O snippet a seguir renomeia um arquivo em uma conta do Data Lake Storage Gen1.
 
-    //rename the file
-    client.rename("/a/b/f.txt", "/a/b/g.txt");
-    System.out.println("New file renamed.");
+```java
+//rename the file
+client.rename("/a/b/f.txt", "/a/b/g.txt");
+System.out.println("New file renamed.");
+```
 
 ## <a name="get-metadata-for-a-file"></a>Obter metadados de um arquivo
 
 O snippet a seguir recupera os metadados de um arquivo em uma conta do Data Lake Storage Gen1.
 
-    // get file metadata
-    DirectoryEntry ent = client.getDirectoryEntry(filename);
-    printDirectoryInfo(ent);
-    System.out.println("File metadata retrieved.");
+```java
+// get file metadata
+DirectoryEntry ent = client.getDirectoryEntry(filename);
+printDirectoryInfo(ent);
+System.out.println("File metadata retrieved.");
+```
 
 ## <a name="set-permissions-on-a-file"></a>Definir permissões em um arquivo
 
 O snippet a seguir define permissões no arquivo que você criou na seção anterior.
 
-    // set file permission
-    client.setPermission(filename, "744");
-    System.out.println("File permission set.");
+```java
+// set file permission
+client.setPermission(filename, "744");
+System.out.println("File permission set.");
+```
 
 ## <a name="list-directory-contents"></a>Listar conteúdo do diretório
 
 O snippet a seguir lista o conteúdo de um diretório, recursivamente.
 
-    // list directory contents
-    List<DirectoryEntry> list = client.enumerateDirectory("/a/b", 2000);
-    System.out.println("Directory listing for directory /a/b:");
-    for (DirectoryEntry entry : list) {
-        printDirectoryInfo(entry);
-    }
-    System.out.println("Directory contents listed.");
+```java
+// list directory contents
+List<DirectoryEntry> list = client.enumerateDirectory("/a/b", 2000);
+System.out.println("Directory listing for directory /a/b:");
+for (DirectoryEntry entry : list) {
+    printDirectoryInfo(entry);
+}
+System.out.println("Directory contents listed.");
+```
 
 A definição para a função `printDirectoryInfo` usada no snippet de código anterior está disponível como parte do exemplo [no GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/).
 
@@ -193,10 +219,12 @@ A definição para a função `printDirectoryInfo` usada no snippet de código a
 
 O snippet a seguir exclui os arquivos e pastas especificados em uma conta do Data Lake Storage Gen1, de forma recursiva.
 
-    // delete directory along with all the subdirectories and files in it
-    client.deleteRecursive("/a");
-    System.out.println("All files and folders deleted recursively");
-    promptEnterKey();
+```java
+// delete directory along with all the subdirectories and files in it
+client.deleteRecursive("/a");
+System.out.println("All files and folders deleted recursively");
+promptEnterKey();
+```
 
 ## <a name="build-and-run-the-application"></a>Compile e execute o aplicativo
 1. Para executar por meio de um IDE, localize e pressione o botão **Executar**. Para executar por meio do Maven, use [exec:exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).

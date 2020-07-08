@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160708"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024429"
 ---
-# <a name="conditional-access-conditions"></a>Acesso condicional: condições
+# <a name="conditional-access-conditions"></a>Acesso Condicional: condições
 
 Em uma política de acesso condicional, um administrador pode usar sinais de condições como risco, plataforma de dispositivo ou local para aprimorar suas decisões de política. 
 
@@ -32,6 +32,10 @@ Por exemplo, ao acessar um aplicativo confidencial, um administrador pode fatora
 
 Para clientes com acesso à [proteção de identidade](../identity-protection/overview-identity-protection.md), o risco de entrada pode ser avaliado como parte de uma política de acesso condicional. O risco de entrada representa a probabilidade de que uma determinada solicitação de autenticação não seja autorizada pelo proprietário da identidade. Mais informações sobre o risco de entrada podem ser encontradas nos artigos, [o que é risco](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) e [como: configurar e habilitar políticas de risco](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
+## <a name="user-risk"></a>Risco do usuário 
+
+Para clientes com acesso à [proteção de identidade](../identity-protection/overview-identity-protection.md), o risco do usuário pode ser avaliado como parte de uma política de acesso condicional. Risco do usuário representa a probabilidade de que uma determinada identidade ou conta seja comprometida. Mais informações sobre o risco do usuário podem ser encontradas nos artigos, [o que é risco](../identity-protection/concept-identity-protection-risks.md#user-risk) e [como: configurar e habilitar políticas de risco](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+
 ## <a name="device-platforms"></a>Plataformas de dispositivo
 
 A plataforma do dispositivo é caracterizada pelo sistema operacional executado em um dispositivo. O Azure AD identifica a plataforma usando as informações fornecidas pelo dispositivo, como cadeias de caracteres do agente do usuário. Como as cadeias de caracteres do agente do usuário podem ser modificadas, essas informações não são verificadas. A plataforma do dispositivo deve ser usada em conjunto com Microsoft Intune políticas de conformidade do dispositivo ou como parte de uma instrução de bloco. O padrão é aplicar a todas as plataformas de dispositivo.
@@ -43,9 +47,6 @@ O acesso condicional do Azure AD dá suporte às seguintes plataformas de dispos
 - Windows Phone
 - Windows
 - macOS
-
-> [!WARNING]
-> A Microsoft está ciente de um problema com políticas de acesso condicional e dispositivos com base no macOS 10.15.4. Mais informações podem ser encontradas na postagem do blog, [problema conhecido: acesso condicional bloqueando inesperadamente o cliente de email nativo do MacOS 10.15.4/outros aplicativos](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 Se você bloquear a autenticação herdada usando a condição **outros clientes** , também poderá definir a condição de plataforma do dispositivo.
 
@@ -59,7 +60,7 @@ Por exemplo, algumas organizações podem optar por não exigir a autenticação
 
 Mais informações sobre locais podem ser encontradas no artigo, [qual é a condição de local em Azure Active Directory acesso condicional](location-condition.md).
 
-## <a name="client-apps-preview"></a>Aplicativos cliente (visualização)
+## <a name="client-apps-preview"></a>Aplicativos do cliente (versão prévia)
 
 Por padrão, as políticas de acesso condicional se aplicam a aplicativos e aplicativos baseados em navegador que utilizam protocolos de autenticação modernos. Além desses aplicativos, os administradores podem optar por incluir clientes do Exchange ActiveSync e outros clientes que utilizem protocolos herdados.
 
@@ -73,17 +74,17 @@ Por padrão, as políticas de acesso condicional se aplicam a aplicativos e apli
       - Quando a política bloqueia o uso do Exchange ActiveSync, o usuário afetado receberá um único email de quarentena. Este email com fornece informações sobre por que eles estão bloqueados e incluem instruções de correção, se possível.
    - Outros clientes
       - Essa opção inclui clientes que usam protocolos de autenticação básica/herdados que não dão suporte à autenticação moderna.
-         - SMTP autenticado-usado pelo cliente POP e IMAP para enviar mensagens de email.
-         - Descoberta automática-usada pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.
-         - Exchange Online PowerShell-usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, consulte [conectar-se ao Exchange Online PowerShell usando a autenticação multifator](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
-         - Serviços Web do Exchange (EWS)-uma interface de programação usada pelo Outlook, Outlook para Mac e aplicativos de terceiros.
+         - SMTP autenticado - usado por clientes POP e IMAP para enviar mensagens de email.
+         - Descoberta automática - usada pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.
+         - Exchange Online PowerShell - usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Serviços Web do Exchange (EWS) - uma interface de programação usada pelo Outlook, pelo Outlook para Mac e por aplicativos de terceiros.
          - IMAP4 – usado por clientes de email IMAP.
          - MAPI sobre HTTP (MAPI/HTTP) – usado pelo Outlook 2010 e posterior.
          - OAB (catálogo de endereços offline) – uma cópia das coleções de listas de endereços que são baixadas e usadas pelo Outlook.
-         - Outlook Anywhere (RPC sobre HTTP) – usado pelo Outlook 2016 e anterior.
+         - Outlook em Qualquer Lugar (RPC por HTTP) - usado pelo Outlook 2016 e anterior.
          - Serviço do Outlook – usado pelo aplicativo de email e calendário para Windows 10.
-         - POP3-usado por clientes de email POP.
-         - Serviços Web de relatórios-usados para recuperar dados de relatório no Exchange Online.
+         - POP3 - usado por clientes de email POP.
+         - Serviços Web de relatórios - usados para recuperar dados de relatório no Exchange Online.
 
 Essas condições são normalmente usadas quando se requer um dispositivo gerenciado, bloqueando a autenticação herdada e bloqueando aplicativos Web, mas permitindo aplicativos móveis ou de desktop.
 
@@ -115,21 +116,17 @@ Para obter suporte ao Chrome na **atualização do Windows 10 para criadores (ve
 
 Para implantar automaticamente essa extensão para os navegadores Chrome, crie a seguinte chave do registro:
 
-|    |    |
-| --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Nome | 1 |
-| Tipo | REG_SZ (String) |
-| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/Service/Update2/CRX |
+- Caminho HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- Nome 1
+- Tipo REG_SZ (cadeia de caracteres)
+- Ppnbnpeolgkicgegkbkbjmhlideopiji de dados; https \: //clients2.google.com/Service/Update2/CRX
 
 Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
 
-|    |    |
-| --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Nome | 1 |
-| Tipo | REG_SZ (String) |
-| Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+- Caminho HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- Nome 1
+- Tipo REG_SZ (cadeia de caracteres)
+- Data {"Pattern": " https://device.login.microsoftonline.com ", "filtro": {"emissor": {"CN": "MS-Organization-Access"}}}
 
 Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falha caso o navegador esteja sendo executado em modo privado.
 
@@ -144,7 +141,7 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 | Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
 | Política de localização e MFA para aplicativos. Não há suporte para políticas baseadas em dispositivo.| Qualquer serviço de aplicativo de Meus Aplicativos | Android e iOS |
-| Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web | Equipes da Microsoft | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
+| Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | Aplicativos do Office 2016, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Aplicativos do Office 2016, aplicativos do Universal Office, Office 2013 (com autenticação moderna), [cliente de sincronização do onedrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (somente Word, Excel, PowerPoint, OneNote). | Office 365 SharePoint Online | macOS |
@@ -154,7 +151,7 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 | Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
 | Outlook 2016 (Office para macOS) | Office 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
-| Aplicativo móvel do Outlook | Office 365 Exchange Online | Android, iOS |
+| Aplicativo Outlook Mobile | Office 365 Exchange Online | Android, iOS |
 | Aplicativo do Power BI | Serviço do Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
 | Skype for Business | Office 365 Exchange Online| Android, iOS |
 | Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
@@ -187,4 +184,4 @@ Por exemplo, *todos os usuários* que acessam o aplicativo de nuvem de *Gerencia
 
 - [Acesso condicional: Grant](concept-conditional-access-grant.md)
 
-- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+- [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
