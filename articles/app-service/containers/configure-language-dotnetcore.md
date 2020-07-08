@@ -3,13 +3,13 @@ title: Configurar aplicativos de ASP.NET Core do Linux
 description: Saiba como configurar um contêiner de ASP.NET Core predefinido para seu aplicativo. Este artigo mostra as tarefas de configuração mais comuns.
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/13/2019
-ms.openlocfilehash: b1d9e59109f5ace25abb9840b48e44ff03d394e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: e009f5b1fc656f700b3f0e76dda6e545aed535d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905758"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurar um aplicativo de ASP.NET Core do Linux para Azure App Service
 
@@ -39,16 +39,16 @@ Execute o seguinte comando na [Cloud Shell](https://shell.azure.com) para defini
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
 
-## <a name="customize-build-automation"></a>Personalizar a automação de compilação
+## <a name="customize-build-automation"></a>Personalizar a automação de build
 
-Se você implantar seu aplicativo usando pacotes git ou zip com a automação de compilação ativada, a automação de compilação do serviço de aplicativo passará por meio da seguinte sequência:
+Se você implantar seu aplicativo usando pacotes Git ou zip com a automação de build ativada, a automação de build do Serviço de Aplicativo percorrerá a seguinte sequência:
 
 1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
 1. Execute `dotnet restore` para restaurar as dependências do NuGet.
 1. Execute `dotnet publish` para criar um binário para produção.
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
 
-`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` são variáveis de ambiente vazias por padrão. Para executar comandos de pré-compilação, `PRE_BUILD_COMMAND`defina. Para executar comandos de pós-compilação, `POST_BUILD_COMMAND`defina.
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis de ambiente vazias por padrão. Para executar comandos pré-build, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-build, defina `POST_BUILD_COMMAND`.
 
 O exemplo a seguir especifica as duas variáveis para uma série de comandos, separados por vírgulas.
 
@@ -57,7 +57,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-Para obter variáveis de ambiente adicionais para personalizar a automação de compilação, consulte [configuração do Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+Para obter variáveis de ambiente adicionais para personalizar a automação de build, confira [Configuração do Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
 Para obter mais informações sobre como o serviço de aplicativo é executado e compila ASP.NET Core aplicativos no Linux, consulte [a documentação do Oryx: como os aplicativos .NET Core são detectados e compilados](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
 
@@ -81,8 +81,8 @@ namespace SomeNamespace
     
         public SomeMethod()
         {
-            // retrieve App Service app setting
-            var myAppSetting = _configuration["MySetting"];
+            // retrieve nested App Service app setting
+            var myHierarchicalConfig = _configuration["My:Hierarchical:Config:Data"];
             // retrieve App Service connection string
             var myConnString = _configuration.GetConnectionString("MyDbConnection");
         }
@@ -90,11 +90,18 @@ namespace SomeNamespace
 }
 ```
 
-Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e em *appSettings. JSON*, por exemplo, o valor do serviço de aplicativo terá precedência sobre o valor *appSettings. JSON* . O valor local *appSettings. JSON* permite depurar o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
+Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *appsettings.jsem*, por exemplo, o valor do serviço de aplicativo terá precedência sobre a *appsettings.jsno* valor. O *appsettings.jslocal no* valor permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
+
+> [!NOTE]
+> Observe que os [dados de configuração hierárquica](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) no *appsettings.jsem* é acessado usando o `:` delimitador padrão para o .NET Core. Para substituir uma definição de configuração hierárquica específica no serviço de aplicativo, defina o nome da configuração do aplicativo com o mesmo formato delimitado na chave. Você pode executar o exemplo a seguir no [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
+```
 
 ## <a name="get-detailed-exceptions-page"></a>Página obter exceções detalhadas
 
-Quando seu aplicativo ASP.NET gera uma exceção no depurador do Visual Studio, o navegador exibe uma página de exceção detalhada, mas no serviço de aplicativo essa página é substituída por um erro genérico **HTTP 500** ou **ocorreu um erro ao processar sua solicitação.** mensagem. Para exibir a página de exceção detalhada no serviço de aplicativo, `ASPNETCORE_ENVIRONMENT` adicione a configuração do aplicativo ao seu aplicativo executando o comando a seguir no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Quando seu aplicativo ASP.NET gera uma exceção no depurador do Visual Studio, o navegador exibe uma página de exceção detalhada, mas no serviço de aplicativo essa página é substituída por um erro genérico **HTTP 500** ou **ocorreu um erro ao processar sua solicitação.** mensagem. Para exibir a página de exceção detalhada no serviço de aplicativo, adicione a `ASPNETCORE_ENVIRONMENT` configuração do aplicativo ao seu aplicativo executando o comando a seguir no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -154,7 +161,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Usando configurações do aplicativo
 
-No <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>, adicione uma configuração de aplicativo ao aplicativo do serviço de aplicativo executando o comando da CLI a seguir. Substitua * \<app-Name>*, * \<Resource-Group-Name>* e * \<Project-Name>* pelos valores apropriados.
+No <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>, adicione uma configuração de aplicativo ao aplicativo do serviço de aplicativo executando o comando da CLI a seguir. Substitua *\<app-name>* , *\<resource-group-name>* e *\<project-name>* pelos valores apropriados.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -162,7 +169,26 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="access-diagnostic-logs"></a>Acessar logs de diagnóstico
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+ASP.NET Core fornece um [provedor de registro em log interno para o serviço de aplicativo](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). Em *Program.cs* do seu projeto, adicione o provedor ao seu aplicativo por meio do `ConfigureLogging` método de extensão, conforme mostrado no exemplo a seguir:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureLogging(logging =>
+        {
+            logging.AddAzureWebAppDiagnostics();
+        })
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+Em seguida, você pode configurar e gerar logs com o [padrão .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)padrão.
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+Para obter mais informações sobre como solucionar problemas de aplicativos ASP.NET Core no serviço de aplicativo, consulte [solucionar problemas ASP.NET Core no serviço Azure app e IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
 
 ## <a name="open-ssh-session-in-browser"></a>Abra a sessão SSH aberta no navegador
 

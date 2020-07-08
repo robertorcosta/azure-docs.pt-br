@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907458"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
@@ -222,7 +222,10 @@ Para permitir que o Pacemaker se comunique com a API de gerenciamento do Azure, 
 
 ## <a name="other-solutions"></a>Outras soluções
 
-Se o tráfego de saída for encaminhado por meio de firewall de terceiros, verifique se a configuração do firewall permite a conectividade de saída com a API de gerenciamento do Azure: `https://management.azure.com` e `https://login.microsoftonline.com`.  
+Se o tráfego de saída for roteado por meio de firewall de terceiros:
+
+- Se estiver usando o agente de isolamento do Azure, verifique se a configuração do firewall permite a conectividade de saída com a API de gerenciamento do Azure: `https://management.azure.com` e`https://login.microsoftonline.com`   
+- se usar a infraestrutura de atualização de nuvem pública do Azure do SUSE para aplicar atualizações e patches, consulte [infraestrutura de atualização de nuvem pública do azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

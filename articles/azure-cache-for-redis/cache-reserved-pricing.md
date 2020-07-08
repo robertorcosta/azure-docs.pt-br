@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77530296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974833"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo cache do Azure para recursos de computação Redis com capacidade reservada
 
@@ -30,15 +30,15 @@ Para obter detalhes sobre como clientes corporativos e clientes pagos conforme o
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>Determinar o tamanho de cache correto antes da compra
 
-O tamanho da reserva deve ser baseado na quantidade total de computação usada pelo cache existente ou em breve para ser implantado em uma região específica e usando a mesma camada de serviço.
+O tamanho da reserva deve ser baseado na quantidade total de tamanho de memória usada pelo cache existente ou em breve para ser implantado em uma região específica e usando a mesma camada de serviço.
 
-Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 – cache vCore de 32 e dois caches com otimização de memória, Gen5 – 16. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – servidor de banco de dados vCore de 32 e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
+Por exemplo, vamos supor que você esteja executando dois caches-um a 13 GB e o outro em 26 GB. Você precisará de ambos por pelo menos um ano. Além disso, vamos supor que você planeje dimensionar os caches de 13 GB existentes para 26 GB para um mês a fim de atender à sua demanda sazonal e, em seguida, reduzir novamente. Nesse caso, você pode comprar um cache P1 e um cache de 1 P2 ou 3 caches P1 em uma reserva de um ano para maximizar a economia. Você receberá um desconto na quantidade total de memória de cache reservada, independentemente de como essa quantidade é alocada em seus caches.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Comprar o cache do Azure para capacidade reservada do Redis
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione **todas as** > **reservas**de serviços.
+2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **cache do Azure para Redis** para comprar uma nova reserva para seus caches.
 4. Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de seu cache do Azure para instâncias Redis que obtém o desconto depende do escopo e da quantidade selecionada.
 
@@ -59,13 +59,13 @@ A tabela a seguir descreve os campos obrigatórios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="cache-size-flexibility"></a>Flexibilidade do tamanho do cache
 
 A flexibilidade do tamanho do cache ajuda a escalar ou reduzir verticalmente dentro de uma camada de serviço e região, sem perder o benefício de capacidade reservada.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -77,7 +77,7 @@ O desconto de reserva é aplicado automaticamente ao cache do Azure para instân
 
 * Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-    * [O que são as reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+    * [O que são Reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
     * [Gerenciar Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
     * [Compreender o desconto de Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
     * [Entender o uso de reserva para a sua assinatura paga conforme o uso](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)

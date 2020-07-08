@@ -4,18 +4,18 @@ description: Saiba como mover os recursos do serviço de aplicativo de uma regi�
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77925703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945470"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Mover um aplicativo do serviço de aplicativo para outra região
 
 Este artigo descreve como mover os recursos do serviço de aplicativo para uma região diferente do Azure. Você pode mover seus recursos para outra região por vários motivos. Por exemplo, para aproveitar uma nova região do Azure, para implantar recursos ou serviços disponíveis somente em regiões específicas, para atender aos requisitos internos de políticas e governança, ou em resposta aos requisitos de planejamento de capacidade.
 
-Os recursos do serviço de aplicativo são específicos da região e não podem ser movidos entre regiões. Você deve criar uma cópia dos recursos do serviço de aplicativo existentes na região de destino, mover o conteúdo para o novo aplicativo. Se o aplicativo de origem usar um domínio personalizado, você poderá [migrá-lo para o novo aplicativo na região de destino](manage-custom-dns-migrate-domain.md) quando tiver terminado.
+Os recursos do serviço de aplicativo são específicos da região e não podem ser movidos entre regiões. Você deve criar uma cópia dos recursos do serviço de aplicativo existentes na região de destino e, em seguida, mover o conteúdo para o novo aplicativo. Se o aplicativo de origem usar um domínio personalizado, você poderá [migrá-lo para o novo aplicativo na região de destino](manage-custom-dns-migrate-domain.md) quando tiver terminado.
 
 Para facilitar a cópia do seu aplicativo, você pode [clonar um aplicativo de serviço de aplicativo individual](app-service-web-app-cloning.md) em um plano do serviço de aplicativo em outra região, mas ele tem [limitações](app-service-web-app-cloning.md#current-restrictions), especialmente que ele não dá suporte a aplicativos do Linux.
 
@@ -36,7 +36,7 @@ Identifique todos os recursos do serviço de aplicativo que você está usando n
 - [Certificados SSL](configure-ssl-certificate.md)
 - [Integração de rede virtual do Azure](web-sites-integrate-with-vnet.md)
 - [Conexões híbridas](app-service-hybrid-connections.md).
-- [Identidades gerenciadas](overview-managed-identity.md)
+- [identidades gerenciadas](overview-managed-identity.md)
 - [Configurações de backup](manage-backup.md)
 
 Determinados recursos, como certificados importados ou conexões híbridas, contêm integração com outros serviços do Azure. Para obter informações sobre como mover esses recursos entre regiões, consulte a documentação para os respectivos serviços.
@@ -46,7 +46,7 @@ Determinados recursos, como certificados importados ou conexões híbridas, cont
 1. [Crie um backup do aplicativo de origem](manage-backup.md).
 1. [Crie um aplicativo em um novo plano do serviço de aplicativo, na região de destino](app-service-plan-manage.md#create-an-app-service-plan).
 2. [Restaurar o backup no aplicativo de destino](web-sites-restore.md)
-2. Se você usar um domínio personalizado, [associe-o preventivamente ao aplicativo](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) de destino `awverify.` com e [habilite o domínio no aplicativo de destino](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+2. Se você usar um domínio personalizado, [associe-o preventivamente ao aplicativo de destino](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) com `awverify.` e [habilite o domínio no aplicativo de destino](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
 3. Configure tudo o mais em seu aplicativo de destino para ser o mesmo que o aplicativo de origem e verifique sua configuração.
 4. Quando você estiver pronto para o domínio personalizado apontar para o aplicativo de destino, [remapeie o nome de domínio](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 

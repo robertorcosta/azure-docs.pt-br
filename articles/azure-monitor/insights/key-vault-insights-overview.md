@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945453"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoramento do serviço do Key Vault com Azure Monitor para Key Vault (versão prévia)
 O Azure Monitor para Key Vault (versão prévia) fornece monitoramento abrangente de key vaults, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault.
@@ -158,55 +158,51 @@ Você pode configurar as pastas de trabalho Visão geral ou Falhas de várias as
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
+Para obter diretrizes gerais de solução de problemas, consulte o [artigo de solução de problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
+
 Esta seção ajuda no diagnóstico e na solução de alguns dos problemas mais comuns que você pode encontrar ao usar o Azure Monitor para Key Vault (versão prévia). Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas ou falhas de desempenho
 
 Para ajudar a solucionar os problemas relacionados ao key vault identificados com o Azure Monitor para Key Vault (versão prévia), confira a documentação [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-### <a name="why-can-i-only-see-200-key-vaults"></a>Por que posso ver somente 200 key vaults?
+### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver os cofres de chaves 200
 
 Há um limite de 200 key vaults que podem ser selecionados e exibidos. Independentemente do número de assinaturas selecionadas, o número de key vaults selecionados tem um limite de 200.
 
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>O que acontece ao clicar em um item fixado?
-
-Ao clicar em um item fixado no painel, ele abre uma das duas opções a seguir:
-* Se os Insights foram salvos - ele abre a instância dos insights em que a fixação foi salva.
-* Se os insights não foram salvos, ele abre uma nova instância de insights padrão.
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Por que não posso ver todas as minhas assinaturas no seletor de assinatura?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Por que não vejo todas as minhas assinaturas no seletor de assinatura
 
 Mostramos apenas as assinaturas que contêm key vaults, escolhidas no filtro de assinatura selecionado, que são selecionadas no "Diretório + Assinatura" no cabeçalho do portal do Azure.
 
 ![Captura de tela do filtro de assinatura](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Estou recebendo uma mensagem de erro informando que a "consulta excede o número máximo de espaços de trabalho/regiões permitidos". O que devo fazer agora?
+### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Estou recebendo uma mensagem de erro informando que a "consulta excede o número máximo de espaços de trabalho/regiões permitidos", o que fazer agora
 
 No momento, há um limite para 25 regiões e 200 espaços de trabalho para exibir os dados. Será necessário reduzir o número de assinaturas e/ou grupos de recursos.
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar outras visualizações ao Key Vault Insights. Como posso fazer isso?
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais a Key Vault insights, como fazer isso
 
 Para fazer alterações, selecione o "Modo de edição" para modificar a pasta de trabalho e, em seguida, você pode salvar seu trabalho como uma nova pasta de trabalho vinculada a uma assinatura e um grupo de recursos designados.
 
-### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual é o intervalo de agregação depois de fixarmos qualquer parte das Pastas de Trabalho?
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual é o refinamento de tempo depois de fixarmos qualquer parte das pastas de trabalho
 
 Utilizamos o intervalo de agregação "Automático" e, portanto, depende do intervalo de tempo selecionado.
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando alguma parte da pasta de trabalho é fixada?
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte da pasta de trabalho é fixada
 
 O intervalo de tempo dependerá das configurações do painel.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Por que não posso ver os dados do meu Key Vault nas seções Operações e latência?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Por que não vejo nenhum dado para meu Key Vault nas seções de latência de & de operações
 
 Para exibir os dados baseados em logs, é necessário habilitar os logs de cada um dos key vaults que deseja monitorar. Isso pode ser feito nas configurações de diagnóstico para cada key vault. É necessário enviar os dados para um workspace do Log Analytics designado.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Já habilitei os logs para o meu Key Vault. Por que ainda não consigo ver meus dados em Operações e latência?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Já habilitei os logs para o meu Key Vault, por que ainda não consigo ver meus dados em operações & latência
 
 No momento, os logs de diagnóstico não funcionam retroativamente, portanto, os dados só começarão a aparecer depois que ações forem realizados nos seus key vaults. Portanto, pode levar algum tempo, variando de horas a um dia, dependendo do volume de atividade do key vault.
 
 Além disso, se você tiver um grande número de key vaults e assinaturas selecionados, talvez não seja possível exibir seus dados devido às limitações de consulta. Para exibir seus dados, talvez seja necessário reduzir o número de assinaturas ou key vaults selecionados. 
 
-### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>E se eu quiser ver outros dados ou fazer minhas próprias visualizações? Como posso fazer alterações no Key Vault Insights?
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>E se eu quiser ver outros dados ou fazer minhas próprias visualizações? Como fazer alterações no Key Vault insights
 
 Você pode editar a pasta de trabalho existente usando o modo de edição e, em seguida, salvar seu trabalho como uma nova pasta de trabalho que terá todas as novas alterações.
 

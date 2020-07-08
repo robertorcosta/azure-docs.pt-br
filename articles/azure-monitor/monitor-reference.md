@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/17/2020
-ms.openlocfilehash: d154029e20ed952ca371685b00d5520f9d7850c8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.date: 06/15/2020
+ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945368"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -31,7 +31,7 @@ O Insights fornece uma experiência de monitoramento personalizada para aplicati
 | [Azure Monitor para Redes (versão prévia)](insights/network-insights-overview.md) | Fornece uma visão abrangente da integridade e das métricas para todos os seus recursos de rede. O recurso de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do site. |
 [Azure Monitor para Grupos de Recursos (versão prévia)](insights/resource-group-insights.md) |  Facilita a triagem e o diagnóstico de quaisquer problemas encontrados pelos recursos individuais, oferecendo contexto sobre a integridade e o desempenho do grupo de recursos como um todo. |
 | [Azure Monitor para Armazenamento](insights/storage-insights-overview.md) | Fornece monitoramento abrangente das contas do Armazenamento do Azure proporcionando uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços do Armazenamento. |
-| [Azure Monitor para VMs](insights/container-insights-overview.md) | Monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
+| [Azure Monitor para VMs](insights/vminsights-overview.md) | Monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
 | [Azure Monitor para Key Vault (versão prévia)](insights/key-vaults-insights-overview.md) | Fornece monitoramento abrangente de cofres de chaves, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault. |
 | [Azure Monitor para Cache do Azure para Redis (versão prévia)](insights/redis-cache-insights-overview.md) |  Fornece uma exibição unificada e interativa de desempenho geral, falhas, capacidade e integridade operacional. |
 
@@ -137,8 +137,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Hubs de Notificação | Sim | Não | Não |  |
 |Conjuntos de dados em aberto | Não | Não | Não |  |
 |Política | Não | Não | Não |  |
-|Power BI | Sim | Sim | Não |  |
-|Power BI Embedded | Não | Não | Não |  |
+|Power BI Embedded | Sim | Sim | Não |  |
 |Link Privado | Não | Não | Não |  |
 |Plataforma de comunicação do spool do projeto | Não | Não | Não |  |
 |Red Hat OpenShift | Não | Não | Não |  |
@@ -201,7 +200,7 @@ Outras soluções estão disponíveis para monitorar diferentes aplicativos e se
 |:---|:---|
 | [Verificação de integridade do Active Directory](insights/ad-assessment.md) | Avalie o risco e a integridade de ambientes do Active Directory. |
 | [Status de replicação do Active Directory](insights/ad-replication-status.md) | Monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação. |
-| [Análise do Log de Atividades](platform/activity-log-view.md#azure-portal) | Exiba entradas de log de atividades. |
+| [Análise do Log de Atividades](platform/activity-log.md#activity-log-analytics-monitoring-solution) | Exiba entradas de log de atividades. |
 | [Análise de DNS (versão prévia)](insights/dns-analytics.md) | Coleta, analisa e correlaciona logs de auditoria e analíticos de DNS do Windows, bem como outros dados relacionados de seus servidores DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Colete, exiba e analise a integridade do sistema Cloud Foundry e as métricas de desempenho do CF em várias implantações. |
 | [Contêineres](insights/containers.md) | Exiba e gerencie hosts de contêiner do Docker e do Windows. |

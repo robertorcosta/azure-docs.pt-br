@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
 ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75541797"
 ---
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com).
@@ -26,7 +26,7 @@ ms.locfileid: "75541797"
     
 1. Vá para a seção designer do espaço de trabalho para exibir sua lista de rascunhos de pipeline. 
     
-    Os serviços Web convertidos podem ser encontrados navegando para pontos de extremidade em**tempo real**de **pontos de extremidade** > .
+    Os serviços Web convertidos podem ser encontrados navegando para pontos de extremidade em **Endpoints**  >  **tempo real**de pontos de extremidade.
 
 1. Selecione um rascunho de pipeline para abri-lo.
 

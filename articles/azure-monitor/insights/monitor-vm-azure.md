@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945385"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorar máquinas virtuais do Azure com o Azure Monitor
 Este artigo descreve como usar o Azure Monitor para coletar e analisar dados de monitoramento de máquinas virtuais do Azure para manter sua integridade. As máquinas virtuais podem ser monitoradas quanto à disponibilidade e ao desempenho com Azure Monitor como qualquer [outro recurso do Azure](monitor-azure-resource.md), mas são exclusivas de outros recursos, já que você também precisa monitorar o sistema operacional e as cargas de trabalho convidadas que são executadas nelas. 
@@ -105,9 +105,9 @@ Instale a extensão de diagnóstico para uma única máquina virtual do Windows 
 Consulte [Instalar e configurar o Telegraf](../platform/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf) para obter detalhes sobre como configurar os agentes do Telegraf em máquinas virtuais do Linux. A opção de menu **Configuração de diagnóstico** está disponível para Linux, mas só permitirá que você envie dados para o armazenamento do Azure.
 
 ### <a name="collect-platform-metrics-and-activity-log"></a>Coletar métricas de plataforma e o log de atividades
-Você pode exibir as métricas de plataforma e o log de atividades coletados para cada host de máquina virtual na portal do Azure. Colete esses dados no mesmo espaço de trabalho do Log Analytics como Azure Monitor para VMs para analisá-los com os outros dados de monitoramento coletados para a máquina virtual. Essa coleta é configurada com uma [configuração de diagnóstico](../platform/diagnostic-settings.md). Colete o log de atividades com uma [configuração de diagnóstico para a de assinatura](../platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal).
+Você pode exibir as métricas de plataforma e o log de atividades coletados para cada host de máquina virtual na portal do Azure. Colete esses dados no mesmo espaço de trabalho do Log Analytics como Azure Monitor para VMs para analisá-los com os outros dados de monitoramento coletados para a máquina virtual. Essa coleta é configurada com uma [configuração de diagnóstico](../platform/diagnostic-settings.md). Colete o log de atividades com uma [configuração de diagnóstico para a de assinatura](../platform/diagnostic-settings.md#create-in-azure-portal).
 
-Colete métricas de plataforma com uma configuração de diagnóstico para a máquina virtual. Ao contrário de outros recursos do Azure, você não pode criar uma configuração de diagnóstico para uma máquina virtual no portal do Azure, mas deve usar [outro método](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). Os exemplos a seguir mostram como coletar métricas para uma máquina virtual usando o PowerShell e a CLI.
+Colete métricas de plataforma com uma configuração de diagnóstico para a máquina virtual. Ao contrário de outros recursos do Azure, você não pode criar uma configuração de diagnóstico para uma máquina virtual no portal do Azure, mas deve usar [outro método](../platform/diagnostic-settings.md#create-using-powershell). Os exemplos a seguir mostram como coletar métricas para uma máquina virtual usando o PowerShell e a CLI.
 
 ```powershell
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"

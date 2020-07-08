@@ -1,17 +1,17 @@
 ---
 title: Como criar Alertas de métrica para logs no Azure Monitor
 description: Tutorial sobre como criar alertas de métrica quase em tempo real para dados populares do Log Analytics.
-author: yanivlavi
-ms.author: yalavi
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b21f228858954292e7a3bc5561d5e86fcfaaf41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c9998488013ce89b17a30a6c3948a02407d06bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80055173"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945317"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor
 
@@ -163,7 +163,7 @@ Para obter o mesmo resultado, é possível usar o exemplo de modelo do Azure Res
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -452,7 +452,7 @@ Para obter o mesmo resultado, é possível usar o exemplo de modelo do Azure Res
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {

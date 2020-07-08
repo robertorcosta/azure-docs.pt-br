@@ -3,12 +3,12 @@ title: Conceitos-nuvens e clusters privados
 description: Saiba mais sobre os principais recursos dos data centers definidos pelo software Azure VMware e clusters vSphere na solução VMware no Azure pela VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f51b76b654a43d690aa5c97fa9df99fad1f47d7a
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906982"
 ---
 # <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Computação da solução VMware do Azure (AVS) Preview privada e conceitos de cluster
 
@@ -61,10 +61,10 @@ As políticas e os processos de atualização gerais para o software da platafor
 
 A manutenção do host e o gerenciamento do ciclo de vida são feitos sem afetar a capacidade ou o desempenho de clusters de nuvem privada. Exemplos de manutenção automatizada do host incluem atualizações de firmware e reparo ou substituição de hardware.
 
-A Microsoft é responsável pelo gerenciamento do ciclo de vida de dispositivos de NSX-T, como o NSX-T Manager e as bordas do NSX-T. A Microsoft também é responsável por inicializar a configuração de rede, como a criação do gateway de camada 0 e a habilitação do roteamento norte-sul. Como administrador de sua nuvem privada de AVS, você é responsável pela configuração de SDN do NSX-T, como segmentos de rede, regras de firewall distribuídas, gateways de camada 1 e balanceadores de carga.
+A Microsoft é responsável pelo gerenciamento do ciclo de vida de dispositivos NSX-T, como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável por inicializar a configuração de rede, como a criação do gateway de camada 0 e a habilitação do roteamento norte-sul. Como administrador de sua nuvem privada de AVS, você é responsável pela configuração de SDN do NSX-T, como segmentos de rede, regras de firewall distribuídas, gateways de camada 1 e balanceadores de carga.
 
 > [!IMPORTANT]
-> Um administrador de AVS não deve modificar a configuração de bordas do NSX-T ou do gateway de camada 0. Isso pode resultar em uma perda de serviço.
+> Um administrador da AVS não deve modificar a configuração do gateway da camada 0 ou da borda do NSX-T. Isso pode resultar em uma perda de serviço.
 
 ## <a name="backup-and-restoration"></a>Backup e restauração
 

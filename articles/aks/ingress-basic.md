@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX bá
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: e5b3d1c94de8406c12222eea59beafd7277d646d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 049df92fcbc6126516fef5cf463b1485b1d19b0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945538"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no AKS (Serviço de Kubernetes do Azure)
 
@@ -41,7 +41,7 @@ O controlador de entrada também precisa ser agendado em um nó do Linux. Os nó
 > O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário.
 
 > [!TIP]
-> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu `--set controller.service.externalTrafficPolicy=Local` cluster, adicione ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem SSL não funcionará.
+> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -72,7 +72,7 @@ Nenhuma regra de ingresso foi criada ainda, portanto, a página 404 padrão do c
 
 ## <a name="run-demo-applications"></a>Executar aplicativos de demonstração
 
-Para ver o controlador de entrada em ação, execute dois aplicativos de demonstração no cluster AKS. Neste exemplo, você usa `kubectl apply` o para implantar duas instâncias de um aplicativo *Hello World* simples.
+Para ver o controlador de entrada em ação, execute dois aplicativos de demonstração no cluster AKS. Neste exemplo, você usa o `kubectl apply` para implantar duas instâncias de um aplicativo *Hello World* simples.
 
 Crie um arquivo *AKs-HelloWorld-One. YAML* e copie no seguinte exemplo YAML:
 
@@ -80,7 +80,7 @@ Crie um arquivo *AKs-HelloWorld-One. YAML* e copie no seguinte exemplo YAML:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   replicas: 1
   selector:
@@ -103,7 +103,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   type: ClusterIP
   ports:
@@ -118,7 +118,7 @@ Crie um arquivo *AKs-HelloWorld-Two. YAML* e copie no seguinte exemplo YAML:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   replicas: 1
   selector:
@@ -141,7 +141,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   type: ClusterIP
   ports:
@@ -150,7 +150,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-Execute os dois aplicativos de demonstração `kubectl apply`usando:
+Execute os dois aplicativos de demonstração usando `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -161,7 +161,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Ambos os aplicativos agora estão em execução no cluster do Kubernetes. Para rotear o tráfego para cada aplicativo, crie um recurso de entrada do Kubernetes. O recurso de entrada configura as regras que roteiam o tráfego para um dos dois aplicativos.
 
-No exemplo a seguir, o tráfego para *EXTERNAL_IP* é roteado para o `aks-helloworld-one`serviço chamado. O tráfego para *EXTERNAL_IP/Hello-World-Two* é roteado `aks-helloworld-two` para o serviço. O tráfego para *EXTERNAL_IP/static* é roteado para o `aks-helloworld-one` serviço chamado para ativos estáticos.
+No exemplo a seguir, o tráfego para *EXTERNAL_IP* é roteado para o serviço chamado `aks-helloworld-one` . O tráfego para *EXTERNAL_IP/Hello-World-Two* é roteado para o `aks-helloworld-two` serviço. O tráfego para *EXTERNAL_IP/static* é roteado para o serviço chamado `aks-helloworld-one` para ativos estáticos.
 
 Crie um arquivo chamado `hello-world-ingress.yaml` e copie-o no YAML de exemplo a seguir.
 
@@ -169,8 +169,7 @@ Crie um arquivo chamado `hello-world-ingress.yaml` e copie-o no YAML de exemplo 
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-world-ingress
-  namespace: ingress-basic
+  name: hello-world-ingress  
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -226,13 +225,13 @@ Agora, adicione o caminho */Hello-World-Two* ao endereço IP, como *EXTERNAL_IP/
 
 ![Segundo aplicativo em execução por trás do controlador de entrada](media/ingress-basic/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso e os aplicativos de amostra. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Excluir o namespace de exemplo e todos os recursos
 
-Para excluir o namespace de exemplo inteiro, use `kubectl delete` o comando e especifique o nome do namespace. Todos os recursos no namespace são excluídos.
+Para excluir o namespace de exemplo inteiro, use o `kubectl delete` comando e especifique o nome do namespace. Todos os recursos no namespace são excluídos.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -240,7 +239,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Excluir recursos individualmente
 
-Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Liste as versões Helm com `helm list` o comando. Procure gráficos nomeados *nginx -gresso* e *aks-helloworld*, conforme mostrado na saída do exemplo a seguir:
+Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Liste as versões Helm com o `helm list` comando. Procure gráficos nomeados *nginx -gresso* e *aks-helloworld*, conforme mostrado na saída do exemplo a seguir:
 
 ```
 $ helm list --namespace ingress-basic
@@ -249,7 +248,7 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
-Desinstale as versões com `helm uninstall` o comando. O exemplo a seguir desinstala a implantação de entrada do NGINX.
+Desinstale as versões com o `helm uninstall` comando. O exemplo a seguir desinstala a implantação de entrada do NGINX.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic

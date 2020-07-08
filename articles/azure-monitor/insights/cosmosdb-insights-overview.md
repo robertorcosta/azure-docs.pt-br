@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945487"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorar o Azure Monitor para o Azure Cosmos DB
 
@@ -119,6 +119,10 @@ Já que essa experiência foi criada sobre os modelos de pasta de trabalho Azure
 As pastas de trabalho são salvas em um grupo de recursos, seja na seção **Meus Relatórios**, que é particular a você, ou na seção **Relatórios Compartilhados**, que é acessível a todos com acesso ao grupo de recursos. Depois de salvar a pasta de trabalho personalizada, você precisa ir para a galeria de pastas de trabalho para iniciá-la.
 
 ![Iniciar galeria de pastas de trabalho na barra de comandos](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Para obter diretrizes de solução de problemas, consulte o artigo dedicado de solução de [problemas](troubleshoot-workbooks.md)com base na pasta de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

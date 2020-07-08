@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171597"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -27,7 +27,7 @@ Você pode definir até 252 propriedades personalizadas para uma entidade.
 
 ### <a name="add-table-entities"></a>Adicionar entidades de tabela
 
-Adicione entidades a uma tabela usando **Add-AzTableRow**. Esses exemplos usam chaves de partição com `partition1` valores `partition2`e chaves de linha iguais a abreviações de estado. As propriedades em cada entidade são `username` e `userid`. 
+Adicione entidades a uma tabela usando **Add-AzTableRow**. Esses exemplos usam chaves de partição com valores `partition1` e `partition2` chaves de linha iguais a abreviações de estado. As propriedades em cada entidade são `username` e `userid` . 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Este comando gera resultados semelhantes à seguinte tabela:
 
-| userid | username | partition | rowkey |
+| userid | Nome de Usuário | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Os resultados são parecidos com a seguinte tabela:
 
-| userid | username | partition | rowkey |
+| userid | Nome de Usuário | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -104,7 +104,7 @@ Essa consulta recupera um registro.
 |field|value|
 |----|----|
 | userid | 1 |
-| username | Chris |
+| Nome de Usuário | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -121,7 +121,7 @@ Essa consulta recupera um registro.
 |field|value|
 |----|----|
 | userid | 1 |
-| username | Chris |
+| Nome de Usuário | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -156,7 +156,7 @@ Os resultados mostram o registro Jessie2.
 |field|value|
 |----|----|
 | userid | 2 |
-| username | Jessie2 |
+| Nome de Usuário | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

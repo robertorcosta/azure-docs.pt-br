@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 6d00c7d7cc88427a3500b28891ec70bb8a4bbb43
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945606"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas automatizadas, processos e fluxos de trabalho recorrentes com Aplicativos Lógicos do Azure
 
@@ -52,9 +52,9 @@ Você pode iniciar o fluxo de trabalho do aplicativo lógico usando o gatilho de
 
 Estas são as diferenças entre esses gatilhos:
 
-* **Recorrência**: executa o fluxo de trabalho em intervalos de tempo regulares com base no agendamento especificado. Se as recorrências forem perdidas, o gatilho de recorrência não processará as recorrências perdidas, mas reiniciará as recorrências com o próximo intervalo agendado. Você pode especificar uma data e hora de início, bem como o fuso horário. Se você selecionar "dia", poderá especificar horas do dia e minutos da hora, por exemplo, todos os dias às 2:30. Se você selecionar "semana", também poderá selecionar dias da semana, como quarta-feira e sábado. Para obter mais informações, consulte [criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência](../connectors/connectors-native-recurrence.md).
+* **Recorrência**: executa o fluxo de trabalho em intervalos de tempo regulares com base no agendamento especificado. Se as recorrências forem perdidas, por exemplo, devido a interrupções ou fluxos de trabalho desabilitados, o gatilho de recorrência não processará as recorrências perdidas, mas reiniciará as recorrências com o próximo intervalo agendado. Você pode especificar uma data e hora de início, bem como o fuso horário. Se você selecionar "dia", poderá especificar horas do dia e minutos da hora, por exemplo, todos os dias às 2:30. Se você selecionar "semana", também poderá selecionar dias da semana, como quarta-feira e sábado. Para obter mais informações, consulte [criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência](../connectors/connectors-native-recurrence.md).
 
-* **Janela deslizante**: executa o fluxo de trabalho em intervalos de tempo regulares que manipulam dados em partes contínuas. Se as recorrências forem perdidas, o gatilho da janela deslizante voltará e processará as recorrências perdidas. Você pode especificar uma data e hora de início, fuso horário e uma duração para atrasar cada recorrência em seu fluxo de trabalho. Esse gatilho não dá suporte a agendamentos avançados, por exemplo, horas específicas do dia, minutos da hora e dias da semana. Para obter mais informações, consulte [criar, agendar e executar tarefas recorrentes e fluxos de trabalho com o gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md).
+* **Janela deslizante**: executa o fluxo de trabalho em intervalos de tempo regulares que manipulam dados em partes contínuas. Se as recorrências forem perdidas, por exemplo, devido a interrupções ou fluxos de trabalho desabilitados, o gatilho de janela deslizante voltará e processará as recorrências perdidas. Você pode especificar uma data e hora de início, fuso horário e uma duração para atrasar cada recorrência em seu fluxo de trabalho. Esse gatilho não dá suporte a agendamentos avançados, por exemplo, horas específicas do dia, minutos da hora e dias da semana. Para obter mais informações, consulte [criar, agendar e executar tarefas recorrentes e fluxos de trabalho com o gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 

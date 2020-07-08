@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75371762"
 ---
 Uma SAS (assinatura de acesso compartilhado) permite que você conceda acesso limitado a contêineres e blobs em sua conta de armazenamento. Ao criar uma SAS, você especifica suas restrições, incluindo quais recursos de armazenamento do Azure um cliente tem permissão para acessar, quais permissões eles têm nesses recursos e por quanto tempo a SAS é válida.

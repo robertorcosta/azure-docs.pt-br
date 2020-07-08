@@ -5,18 +5,18 @@ description: Saiba como chamar um ponto de extremidade de serviço Web que foi g
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974663"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,15 +34,15 @@ O fluxo de trabalho geral para a criação de um cliente que usa um serviço web
 > [!TIP]
 > Os exemplos neste documento são criados manualmente sem o uso de especificações de OpenAPI (Swagger). Se você habilitou uma especificação OpenAPI para sua implantação, poderá usar ferramentas como o [Swagger-CodeGen](https://github.com/swagger-api/swagger-codegen) para criar bibliotecas de cliente para seu serviço.
 
-## <a name="connection-information"></a>informações de conexão
+## <a name="connection-information"></a>Informações de conexão
 
 > [!NOTE]
 > Use o SDK do Azure Machine Learning para obter as informações do serviço Web. Esse é um SDK de Python. Você pode usar qualquer linguagem para criar um cliente para o serviço.
 
 A classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornece as informações necessárias para criar um cliente. As seguintes propriedades `Webservice` que são úteis para criar um aplicativo cliente:
 
-* `auth_enabled`-Se a autenticação de chave estiver `True`habilitada,; caso contrário `False`,.
-* `token_auth_enabled`-Se a autenticação de token estiver `True`habilitada,; caso contrário `False`,.
+* `auth_enabled`-Se a autenticação de chave estiver habilitada, `True` caso contrário, `False` .
+* `token_auth_enabled`-Se a autenticação de token estiver habilitada, `True` caso contrário, `False` .
 * `scoring_uri` -O endereço da API REST.
 * `swagger_uri`-O endereço da especificação OpenAPI. Esse URI estará disponível se você tiver habilitado a geração de esquema automática. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -80,7 +80,7 @@ Se você protegeu o serviço Web implantado usando um certificado TLS/SSL, você
 > [!IMPORTANT]
 > Os serviços Web implantados pelo Azure Machine Learning só oferecem suporte a TLS versão 1,2. Ao criar um aplicativo cliente, verifique se ele dá suporte a essa versão.
 
-Para obter mais informações, consulte [usar o TLS para proteger um serviço Web por meio de Azure Machine Learning](how-to-secure-web-service.md).
+Para obter mais informações, consulte [Usar o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Autenticação para serviços
 
@@ -88,10 +88,10 @@ O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviç
 
 |Método de autenticação|ACI|AKS|
 |---|---|---|
-|Chave|Desabilitado por padrão| Habilitado por padrão|
+|Chave|Desabilitadas por padrão| Habilitado por padrão|
 |Token| Não disponível| Desabilitado por padrão |
 
-Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token devem ser formatados `Bearer <key-or-token>`como `<key-or-token>` , em que é o valor da chave ou do token.
+Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token devem ser formatados como `Bearer <key-or-token>` , em que `<key-or-token>` é o valor da chave ou do token.
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves
 
@@ -110,7 +110,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se você precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+> Se você precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) .
 
 #### <a name="authentication-with-tokens"></a>Autenticação com tokens
 
@@ -119,17 +119,25 @@ Quando você habilita a autenticação de token para um serviço Web, um usuári
 * A autenticação de token é desabilitada por padrão quando você está implantando no serviço kubernetes do Azure.
 * Não há suporte para autenticação de token quando você está implantando em instâncias de contêiner do Azure.
 
-Para controlar a autenticação de token, `token_auth_enabled` use o parâmetro ao criar ou atualizar uma implantação.
+Para controlar a autenticação de token, use o `token_auth_enabled` parâmetro ao criar ou atualizar uma implantação.
 
-Se a autenticação de token estiver habilitada, você `get_token` poderá usar o método para recuperar um token de portador e o tempo de expiração dos tokens:
+Se a autenticação de token estiver habilitada, você poderá usar o `get_token` método para recuperar um token de portador e o tempo de expiração dos tokens:
 
 ```python
 token, refresh_by = service.get_token()
 print(token)
 ```
 
+Se você tiver o [CLI do Azure e a extensão de Machine Learning](reference-azure-machine-learning-cli.md), poderá usar o seguinte comando para obter um token:
+
+```azurecli
+az ml service get-access-token -n <service-name>
+```
+
 > [!IMPORTANT]
-> Será necessário solicitar um novo token após a hora do `refresh_by` token. 
+> Atualmente, a única maneira de recuperar o token é usando o SDK do Azure Machine Learning ou a extensão de Machine Learning do CLI do Azure.
+
+Será necessário solicitar um novo token após a hora do token `refresh_by` . 
 
 ## <a name="request-data"></a>Dados de solicitação
 

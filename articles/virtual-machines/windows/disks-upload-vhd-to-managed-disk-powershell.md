@@ -3,17 +3,17 @@ title: Carregar um VHD no Azure ou copiar um disco entre regiões-Azure PowerShe
 description: Saiba como carregar um VHD em um disco gerenciado do Azure e copiar um disco gerenciado entre regiões, usando Azure PowerShell, por meio do carregamento direto.
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 6242baf5a541231d367d456450388ef455312780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182507"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944620"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carregar um VHD no Azure ou copiar um disco gerenciado para outra região-Azure PowerShell
 
@@ -42,11 +42,14 @@ Esse tipo de disco gerenciado tem dois Estados exclusivos:
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
 
-Para poder criar um HDD padrão vazio para carregamento, você precisará do tamanho do arquivo do VHD que deseja carregar, em bytes. O código de exemplo o levará para você, mas, para você mesmo, você pode `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`usar:. Esse valor é usado ao especificar o parâmetro **-UploadSizeInBytes** .
+Para poder criar um HDD padrão vazio para carregamento, você precisará do tamanho do arquivo do VHD que deseja carregar, em bytes. O código de exemplo o levará para você, mas, para você mesmo, você pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` . Esse valor é usado ao especificar o parâmetro **-UploadSizeInBytes** .
 
 Agora, no Shell local, crie um HDD padrão vazio para carregamento, especificando a configuração de **carregamento** no parâmetro **-createoption** , bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Em seguida, chame [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco.
 
-Substitua `<yourdiskname>`, `<yourresourcegroupname>`e `<yourregion>` execute os seguintes comandos:
+Substitua `<yourdiskname>` , `<yourresourcegroupname>` e `<yourregion>` Execute os seguintes comandos:
+
+> [!TIP]
+> Se você estiver criando um disco do sistema operacional, adicione-HyperVGeneration ' <yourGeneration> ' a `New-AzDiskConfig` .
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -60,7 +63,7 @@ Se você quiser carregar um SSD Premium ou um SSD padrão, substitua **Standard_
 
 Agora que você criou um disco gerenciado vazio que está configurado para o processo de carregamento, você pode carregar um VHD para ele. Para carregar um VHD no disco, você precisará de uma SAS gravável, para que você possa referenciá-lo como o destino do upload.
 
-Para gerar uma SAS gravável de seu disco gerenciado vazio, substitua `<yourdiskname>`e `<yourresourcegroupname>`, em seguida, use os seguintes comandos:
+Para gerar uma SAS gravável de seu disco gerenciado vazio, substitua `<yourdiskname>` e `<yourresourcegroupname>` , em seguida, use os seguintes comandos:
 
 ```powershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -DurationInSecond 86400 -Access 'Write'
@@ -82,7 +85,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlo
 
 Depois que o upload for concluído e você não precisar mais gravar mais dados no disco, revogue a SAS. A revogação da SAS alterará o estado do disco gerenciado e permitirá que você anexe o disco a uma VM.
 
-Substitua `<yourdiskname>`e `<yourresourcegroupname>`, em seguida, execute o seguinte comando:
+Substitua `<yourdiskname>` e `<yourresourcegroupname>` , em seguida, execute o seguinte comando:
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
@@ -97,7 +100,10 @@ O script a seguir fará isso para você, o processo é semelhante às etapas des
 > [!IMPORTANT]
 > Você precisa adicionar um deslocamento de 512 quando estiver fornecendo o tamanho do disco em bytes de um disco gerenciado do Azure. Isso ocorre porque o Azure omite o rodapé ao retornar o tamanho do disco. A cópia falhará se você não fizer isso. O script a seguir já faz isso para você.
 
-Substitua o `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` `<yourOSTypeHere>` e `<yourTargetLocationHere>` (um exemplo de um valor de local seria uswest2) por seus valores e, em seguida, execute o script a seguir para copiar um disco gerenciado.
+Substitua o `<sourceResourceGroupHere>` , `<sourceDiskNameHere>` , `<targetDiskNameHere>` , `<targetResourceGroupHere>` `<yourOSTypeHere>` e `<yourTargetLocationHere>` (um exemplo de um valor de local seria uswest2) por seus valores e, em seguida, execute o script a seguir para copiar um disco gerenciado.
+
+> [!TIP]
+> Se você estiver criando um disco do sistema operacional, adicione-HyperVGeneration ' <yourGeneration> ' a `New-AzDiskConfig` .
 
 ```powershell
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945402"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explorar o Azure Monitor para Cache do Azure para Redis (versão prévia)
 
@@ -179,6 +179,10 @@ As pastas de trabalho são salvas em um grupo de recursos na seção **Meus Rela
 Depois de salvar uma pasta de trabalho personalizada, acesse a galeria de pastas de trabalho para abri-la.
 
 ![Uma barra de comandos com Galeria realçado](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Para obter diretrizes de solução de problemas, consulte o artigo dedicado de solução de [problemas](troubleshoot-workbooks.md)com base na pasta de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

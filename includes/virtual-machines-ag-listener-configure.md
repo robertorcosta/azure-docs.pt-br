@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75468860"
 ---
 O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade do SQL Server escuta. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
@@ -84,7 +84,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
     >Você pode validar se as dependências estão configuradas corretamente. No Gerenciador de Cluster de Failover, vá para funções, clique no grupo de disponibilidade, clique em **Mais Ações**e clique em **Mostrar Relatório de Dependências**. Quando as dependências são configuradas corretamente, o grupo de disponibilidade é dependente do nome da rede e o nome da rede depende do endereço IP. 
 
 
-1. <a name="setparam"></a>Definir os parâmetros do cluster no PowerShell.
+1. <a name="setparam"></a>Defina os parâmetros de cluster no PowerShell.
 
    a. Copie o script do PowerShell a seguir em uma de suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
 
@@ -118,7 +118,7 @@ Se necessário, repita as etapas acima para definir os parâmetros do cluster pa
 
 1. Copie o **Nome** do endereço IP. Pode ser `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Definir os parâmetros do cluster no PowerShell.
+1. <a name="setwsfcparam"></a>Defina os parâmetros de cluster no PowerShell.
   
    a. Copie o script do PowerShell a seguir em uma de suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
 

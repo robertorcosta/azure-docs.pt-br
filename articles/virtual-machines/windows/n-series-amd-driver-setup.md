@@ -1,19 +1,19 @@
 ---
 title: Configuração de driver de GPU AMD da série N do Azure para Windows
 description: Como configurar drivers de GPU AMD para VMs da série N executando Windows Server ou Windows no Azure
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: c4ab6f8dd1c2484ca560fd570f88476f31897b28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975173"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalação de drivers de GPU AMD em VMs da série N executando Windows
 
@@ -38,9 +38,11 @@ Para especificações básicas, capacidades de armazenamento e detalhes de disco
 
 1. Conecte-se pela Área de Trabalho Remota a cada VM da série NVv4.
 
-2. Baixe e instale o driver mais recente.
+2. Se você precisar desinstalar a versão anterior do driver, baixe o utilitário de limpeza AMD [aqui](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) , não use o utilitário fornecido com a versão anterior do driver.
 
-3. Reinicialize a VM.
+3. Baixe e instale o driver mais recente.
+
+4. Reinicialize a VM.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 
@@ -50,7 +52,7 @@ Para especificações básicas, capacidades de armazenamento e detalhes de disco
 
 Use dxdiag para verificar as propriedades de exibição da GPU, incluindo a RAM de vídeo. O exemplo a seguir mostra a metade de uma partição placa Radeon Instinct MI25 em uma VM da série NVv4 do Azure.
 <br />
-![Propriedades do driver da GPU](./media/n-series-amd-driver-setup/dxdiag-output.png)
+![Propriedades do driver da GPU](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Se estiver executando o Windows 10 build 1903 ou superior, então dxdiag não mostrará nenhuma informação na guia “Exibição”. Use a opção “Salvar todas as informações” na parte inferior e o arquivo de saída mostrará as informações relacionadas à GPU AMD MI25.
 

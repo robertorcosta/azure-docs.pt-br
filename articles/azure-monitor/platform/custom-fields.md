@@ -6,17 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906795"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor (visualização)
 
 > [!NOTE]
 > Este artigo descreve como analisar dados de texto em um espaço de trabalho Log Analytics como ele é coletado. É recomendável analisar dados de texto em um filtro de consulta depois que ele é coletado seguindo as diretrizes descritas em [analisar dados de texto em Azure monitor](../log-query/parse-text.md). Ele fornece várias vantagens em relação ao uso de campos personalizados.
+
+> [!IMPORTANT]
+> Os campos personalizados aumentam a quantidade de dados coletados no espaço de trabalho Log Analytics, o que pode aumentar seu custo. Confira [Gerenciar o uso e os custos com os Logs do Azure Monitor](manage-cost-storage.md#pricing-model) para obter detalhes.
 
 O recurso **campos personalizados** do Azure monitor permite que você estenda os registros existentes em seu espaço de trabalho log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.
 
@@ -50,7 +53,7 @@ A primeira etapa é identificar os registros que obterão o campo personalizado.
 ### <a name="step-2---perform-initial-extract"></a>Etapa 2: Executar a extração inicial.
 Depois de identificar os registros que terão o campo personalizado, você identifica os dados que deseja extrair.  O Log Analytics usará essas informações para identificar padrões semelhantes em registros semelhantes.  Na próxima etapa, você poderá validar os resultados e fornecer mais detalhes para o Log Analytics usar em suas análises.
 
-1. Realce o texto no registro de exemplo que você deseja para popular o campo personalizado.  Em seguida, você verá uma caixa de diálogo para fornecer um nome e um tipo de dados para o campo e para executar a extração inicial.  Os caracteres ** \_CF** serão anexados automaticamente.
+1. Realce o texto no registro de exemplo que você deseja para popular o campo personalizado.  Em seguida, você verá uma caixa de diálogo para fornecer um nome e um tipo de dados para o campo e para executar a extração inicial.  Os caracteres ** \_ CF** serão anexados automaticamente.
 2. Clique em **Extrair** para executar uma análise dos registros coletados.  
 3. As seções **Resumo** e **Resultados da Pesquisa** exibem os resultados de extração para que você possa inspecionar sua precisão.  **Resumo** exibe os critérios usados para identificar registros e uma contagem de cada um dos valores de dados identificados.  **Resultados da Pesquisa** fornece uma lista detalhada dos registros que correspondem aos critérios.
 

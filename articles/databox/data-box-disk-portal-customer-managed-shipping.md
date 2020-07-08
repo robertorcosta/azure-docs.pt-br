@@ -5,15 +5,15 @@ services: databox
 author: priestlg
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 74828bfd3a110739afc211a530c11c74387b70ed
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 81fc8de7e5a70ebb95e06a8e362cda41f8bfe1aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945011"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Use a remessa autogerenciada para Azure Data Box Disk no portal do Azure
 
@@ -28,6 +28,7 @@ A remessa autogerenciada está disponível como uma opção quando você [Compra
 * Japão
 * Singapura
 * Coreia do Sul
+* Índia (versão prévia)
 
 ## <a name="use-self-managed-shipping"></a>Usar remessa autogerenciada
 
@@ -43,7 +44,7 @@ Ao fazer o pedido do Data Box Disk, você pode escolher a opção de remessa aut
 
    ![Remessa autogerenciada](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Depois que o dispositivo tiver sido preparado, você poderá agendar um recebimento. Em seu pedido do Azure Data Box Disk, acesse **Visão geral** e, em seguida, selecione **Agendar retirada**.
+4. Depois que o dispositivo tiver sido preparado e você receber uma notificação por email, você poderá agendar uma retirada. Em seu pedido do Azure Data Box Disk, acesse **Visão geral** e, em seguida, selecione **Agendar retirada**.
 
    ![Pedir um dispositivo Data Box para retirada](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
@@ -57,11 +58,11 @@ Ao fazer o pedido do Data Box Disk, você pode escolher a opção de remessa aut
 
    Anote este **Código de autorização**.
 
-   De acordo com os requisitos de segurança, no momento do agendamento de retirada e devolução, é necessário apresentar o nome da pessoa fará a retirada.
+   De acordo com os requisitos de segurança, no momento da retirada do agendamento, é necessário apresentar o nome da pessoa que vai chegar à escolha.
 
    Você também precisa fornecer detalhes de quem vai para o datacenter para retirada. Você ou o ponto de contato deve estar com uma ID de foto oficial que será validada no datacenter.
 
-   Além disso, a pessoa que está pegando o dispositivo também precisa ter o **Código de autorização**. O código de autorização é validado no datacenter na hora da retirada.
+   Além disso, a pessoa que está pegando o dispositivo também precisa ter o **Código de autorização**. O código de autorização é exclusivo para uma retirada ou uma redistribuição e é validado no datacenter.
 
 7. Seu pedido será movido automaticamente para o estado **Retirado** depois que o dispositivo tiver sido obtido do datacenter.
 

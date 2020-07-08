@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974510"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
-Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que facilita o trabalho com os dados do armazenamento do Azure no Windows, no macOS e no Linux. O aplicativo pode se conectar a contas de armazenamento hospedadas no Azure, nuvens nacionais e Azure Stack.
+O Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que facilita o trabalho com dados do Armazenamento do Azure no Windows, macOS e Linux. O aplicativo pode conectar contas de armazenamento hospedadas no Azure, em nuvens nacionais e no Azure Stack.
 
 Este guia resume soluções para problemas que normalmente são vistos em Gerenciador de Armazenamento.
 
@@ -48,7 +48,7 @@ Você deve receber pelo menos uma função que conceda acesso para ler dados de 
 
 O armazenamento do Azure tem duas camadas de acesso: _Gerenciamento_ e _dados_. As assinaturas e as contas de armazenamento são acessadas por meio da camada de gerenciamento. Contêineres, BLOBs e outros recursos de dados são acessados por meio da camada de dados. Por exemplo, se você quiser obter uma lista de suas contas de armazenamento do Azure, envie uma solicitação para o ponto de extremidade de gerenciamento. Se você quiser uma lista de contêineres de BLOB em uma conta, envie uma solicitação para o ponto de extremidade de serviço apropriado.
 
-As funções RBAC podem conter permissões para acesso à camada de dados ou gerenciamento. A função leitor, por exemplo, concede acesso somente leitura aos recursos da camada de gerenciamento.
+As funções RBAC podem conceder permissões para acesso à camada de dados ou gerenciamento. A função leitor, por exemplo, concede acesso somente leitura aos recursos da camada de gerenciamento.
 
 Estritamente falando, a função leitor não fornece nenhuma permissão de camada de dados e não é necessária para acessar a camada de dados.
 
@@ -58,7 +58,14 @@ Se você não tiver uma função que conceda permissões de camada de gerenciame
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não conseguir obter as permissões da camada de gerenciamento que preciso do meu administrador?
 
-No momento, não temos uma solução relacionada a RBAC para esse problema. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Se você quiser acessar contêineres ou filas de BLOB, poderá anexar a esses recursos usando suas credenciais do Azure.
+
+1. Abra a caixa de diálogo Conectar.
+2. Selecione "adicionar um recurso via Azure Active Directory (Azure AD). Clique em Avançar.
+3. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Clique em Avançar.
+4. Selecione o tipo de recurso, insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Clique em Avançar. Clique em Conectar.
+
+Para outros tipos de recursos, atualmente não temos uma solução relacionada a RBAC. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-built-in-rbac-roles"></a>Funções RBAC internas recomendadas
 
@@ -75,13 +82,13 @@ Há várias funções RBAC internas que podem fornecer as permissões necessári
 
 Normalmente, os erros de certificado ocorrem em uma das seguintes situações:
 
-- O aplicativo é conectado por meio de um _proxy transparente_, o que significa que um servidor (como o servidor da empresa) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado autoassinado.
+- O aplicativo é conectado por meio de um _proxy transparente_. Isso significa que um servidor (como o servidor da empresa) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado autoassinado.
 - Você está executando um aplicativo que está injetando um certificado TLS/SSL autoassinado nas mensagens HTTPS recebidas. Exemplos de aplicativos que inserem certificados incluem software antivírus e de inspeção de tráfego de rede.
 
 Quando Gerenciador de Armazenamento vê um certificado autoassinado ou não confiável, ele não sabe mais se a mensagem HTTPS recebida foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá instruir Gerenciador de Armazenamento a confiar, seguindo estas etapas:
 
 1. Obtenha uma cópia X. 509 (. cer) codificada em base-64 do certificado.
-2. Vá para **Editar** > certificados**SSL** > **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
+2. Vá para **Editar**certificados  >  **SSL**  >  **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
 
 Esse problema também pode ocorrer se houver vários certificados (raiz e intermediário). Para corrigir esse erro, ambos os certificados devem ser adicionados.
 
@@ -91,12 +98,12 @@ Se você não tiver certeza de onde o certificado provém, siga estas etapas par
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): qualquer uma das versões leves deve ser suficiente.
     * Mac e Linux: devem ser incluídos no seu sistema operacional.
 2. Execute o OpenSSL.
-    * Windows: Abra o diretório de instalação, selecione **/bin/** e clique duas vezes em **OpenSSL. exe**.
+    * Windows: Abra o diretório de instalação, selecione **/bin/** e clique duas vezes em **openssl.exe**.
     * Mac e Linux: executar `openssl` de um terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
-4. Procurar certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, anote em qualquer lugar que o `("s:")` assunto e o `("i:")` emissor sejam os mesmos.
-5. Quando você encontrar certificados autoassinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` por `-----END CERTIFICATE-----` meio de um novo arquivo. cer.
-6. Abra Gerenciador de armazenamento e acesse **Editar** > certificados**SSL** > **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
+4. Procurar certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, anote em qualquer lugar que o assunto `("s:")` e o emissor `("i:")` sejam os mesmos.
+5. Quando você encontrar certificados autoassinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` por meio de `-----END CERTIFICATE-----` um novo arquivo. cer.
+6. Abra Gerenciador de armazenamento e acesse **Editar**certificados  >  **SSL**  >  **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
 
 Se você não encontrar certificados autoassinados seguindo estas etapas, entre em contato conosco por meio da ferramenta de comentários. Você também pode abrir Gerenciador de Armazenamento na linha de comando usando o `--ignore-certificate-errors` sinalizador. Quando aberto com esse sinalizador, Gerenciador de Armazenamento ignora erros de certificado.
 
@@ -106,10 +113,10 @@ Se você não encontrar certificados autoassinados seguindo estas etapas, entre 
 
 Caixas de diálogo de entrada em branco ocorrem com mais frequência quando Serviços de Federação do Active Directory (AD FS) (AD FS) solicita Gerenciador de Armazenamento para executar um redirecionamento, o que não é suportado pelo de todos os. Para contornar esse problema, você pode tentar usar o fluxo de código do dispositivo para entrar. Para fazer isso, siga estas etapas:
 
-1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para**entrada do** **aplicativo** > . Habilitar **usar entrada de fluxo de código de dispositivo**.
+1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para **Application**  >  **entrada do**aplicativo. Habilitar **usar entrada de fluxo de código de dispositivo**.
 2. Abra a caixa de diálogo **conectar** (por meio do ícone de plugue na barra vertical do lado esquerdo ou selecionando **adicionar conta** no painel de conta).
 3. Escolha o ambiente no qual você deseja entrar.
-4. Selecione **Entrar**.
+4. Selecione **Entrar.**
 5. Siga as instruções no painel seguinte.
 
 Se você não puder entrar na conta que deseja usar porque seu navegador padrão já está conectado a uma conta diferente, siga um destes procedimentos:
@@ -125,7 +132,7 @@ Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma d
 2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
 3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
 
-### <a name="conditional-access"></a>Acesso condicional
+### <a name="conditional-access"></a>Acesso Condicional
 
 Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Armazenamento, o acesso condicional não tem suporte quando Gerenciador de Armazenamento está sendo usado no Windows 10, Linux ou macOS.
 
@@ -231,7 +238,7 @@ Se você vir as chaves de conta, execute um problema no GitHub para que possamos
 
 Se você receber essa mensagem de erro ao tentar adicionar uma conexão personalizada, os dados de conexão armazenados no Gerenciador de credenciais local poderão estar corrompidos. Para contornar esse problema, tente excluir as conexões locais corrompidas e, em seguida, adicione-as novamente:
 
-1. Iniciar Gerenciador de Armazenamento. No menu, vá para **ajuda** > **alternar ferramentas para desenvolvedores**.
+1. Iniciar Gerenciador de Armazenamento. No menu, vá para **ajuda**  >  **alternar ferramentas para desenvolvedores**.
 2. Na janela aberta, na guia **aplicativo** , vá para **armazenamento local** (lado esquerdo) > **file://**.
 3. Dependendo do tipo de conexão com a qual você está tendo um problema, procure sua chave e copie seu valor em um editor de texto. O valor é uma matriz de seus nomes de conexão personalizados, como o seguinte:
     * Contas de armazenamento
@@ -245,7 +252,7 @@ Se você receber essa mensagem de erro ao tentar adicionar uma conexão personal
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabelas
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. Depois de salvar os nomes de conexão atuais, defina o valor em Ferramentas para Desenvolvedores `[]`como.
+4. Depois de salvar os nomes de conexão atuais, defina o valor em Ferramentas para Desenvolvedores como `[]` .
 
 Se desejar preservar as conexões que não estão corrompidas, você poderá usar as etapas a seguir para localizar as conexões corrompidas. Se você não se lembrar de perder todas as conexões existentes, poderá ignorar essas etapas e seguir as instruções específicas da plataforma para limpar os dados de conexão.
 
@@ -259,13 +266,13 @@ Depois de passar por todas as suas conexões, para todos os nomes de conexões q
 
 1. No menu **Iniciar** , pesquise por **Gerenciador de credenciais** e abra-o.
 2. Vá para **credenciais do Windows**.
-3. Em **credenciais genéricas**, procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Em **credenciais genéricas**, procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Exclua essas entradas e adicione novamente as conexões.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Abra o Spotlight (Command + barra de espaços) e pesquise por acesso ao conjunto de **chaves**.
-2. Procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Exclua essas entradas e adicione novamente as conexões.
 
 # <a name="linux"></a>[Linux](#tab/Linux)
@@ -273,7 +280,7 @@ Depois de passar por todas as suas conexões, para todos os nomes de conexões q
 O gerenciamento de credenciais locais varia dependendo da distribuição do Linux. Se sua distribuição do Linux não fornecer uma ferramenta interna de GUI para o gerenciamento de credenciais local, você poderá instalar uma ferramenta de terceiros para gerenciar suas credenciais locais. Por exemplo, você pode usar o [macavalo](https://wiki.gnome.org/Apps/Seahorse/), uma ferramenta de GUI de software livre para gerenciar as credenciais locais do Linux.
 
 1. Abra sua ferramenta de gerenciamento de credenciais local e localize suas credenciais salvas.
-2. Procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Exclua essas entradas e adicione novamente as conexões.
 ---
 
@@ -290,12 +297,14 @@ Se você estiver se conectando a um serviço por meio de uma URL SAS e ocorrendo
 Se você anexou acidentalmente usando uma URL SAS inválida e agora não puder desanexar, siga estas etapas:
 
 1. Quando estiver executando Gerenciador de Armazenamento, pressione F12 para abrir a janela Ferramentas para Desenvolvedores.
-2. Na guia **aplicativo** , selecione **armazenamento** > local**file://** na árvore à esquerda.
+2. Na guia **aplicativo** , selecione **armazenamento local**  >  **file://** na árvore à esquerda.
 3. Localize a chave associada ao tipo de serviço do URI SAS problemático. Por exemplo, se o URI da SAS incorreta for para um contêiner de blob, procure a chave nomeada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4. O valor da chave deve ser uma matriz JSON. Localize o objeto associado ao URI inadequado e, em seguida, exclua-o.
 5. Pressione Ctrl+R para recarregar o Gerenciador de Armazenamento.
 
 ## <a name="linux-dependencies"></a>Dependências do Linux
+
+### <a name="snap"></a>Snap
 
 Gerenciador de Armazenamento 1.10.0 e posterior está disponível como um snap do repositório de snap. O Gerenciador de Armazenamento snap instala todas as suas dependências automaticamente e é atualizado quando uma nova versão do snap está disponível. Instalar o Gerenciador de Armazenamento snap é o método recomendado de instalação.
 
@@ -305,64 +314,83 @@ Gerenciador de Armazenamento requer o uso de um Gerenciador de senhas, que talve
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### <a name="targz-file"></a>Arquivo. tar. gz
+
 Você também pode baixar o aplicativo como um arquivo. tar. gz, mas precisará instalar as dependências manualmente.
 
-> [!IMPORTANT]
-> Gerenciador de Armazenamento conforme fornecido no download. tar. gz tem suporte apenas para distribuições do Ubuntu. Outras distribuições não foram verificadas e podem exigir pacotes adicionais ou alternativos.
+Gerenciador de Armazenamento conforme fornecido no download. tar. gz tem suporte apenas nas seguintes versões do Ubuntu. Gerenciador de Armazenamento pode funcionar em outras distribuições do Linux, mas não têm suporte oficial.
 
-Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento no Linux:
+- Ubuntu 20, 4 x64
+- Ubuntu 18, 4 x64
+- Ubuntu 16, 4 x64
 
-* [Tempo de execução do .NET Core 2,2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` ou `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+Gerenciador de Armazenamento requer que o .NET Core seja instalado em seu sistema. Recomendamos o .NET Core 2,1, mas Gerenciador de Armazenamento também funcionará com 2,2.
 
 > [!NOTE]
-> Gerenciador de Armazenamento versão 1.7.0 e anteriores exigem o .NET Core 2,0. Se você tiver uma versão mais recente do .NET Core instalada, terá que [corrigir Gerenciador de armazenamento](#patching-storage-explorer-for-newer-versions-of-net-core). Se estiver executando o Gerenciador de Armazenamento 1.8.0 ou posterior, você poderá usar o até o .NET Core 2,2. As versões além de 2,2 não foram verificadas para funcionar neste momento.
+> Gerenciador de Armazenamento versão 1.7.0 e anteriores exigem o .NET Core 2,0. Se você tiver uma versão mais recente do .NET Core instalada, terá que [corrigir Gerenciador de armazenamento](#patching-storage-explorer-for-newer-versions-of-net-core). Se você estiver executando o Gerenciador de Armazenamento 1.8.0 ou posterior, será necessário pelo menos o .NET Core 2,1.
 
-# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Execute o seguinte comando:
+1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
+2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Execute o seguinte comando:
+1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
+2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Execute o seguinte comando:
+1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
+2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
-
-1. Baixar Gerenciador de Armazenamento.
-2. Instale o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Execute o seguinte comando:
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Muitas bibliotecas exigidas pelo Gerenciador de Armazenamento vêm pré-instalados com as instalações padrão da Canonical do Ubuntu. Ambientes personalizados podem não ter algumas dessas bibliotecas. Se você tiver problemas ao iniciar o Gerenciador de Armazenamento, é recomendável verificar se os seguintes pacotes estão instalados em seu sistema:
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg-utils
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Aplicação de patch Gerenciador de Armazenamento para versões mais recentes do .NET Core
 
 Para Gerenciador de Armazenamento 1.7.0 ou anterior, talvez seja necessário corrigir a versão do .NET Core usada pelo Gerenciador de Armazenamento:
 
 1. Baixe a versão 1.5.43 do StreamJsonRpc [do NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Procure o link "baixar pacote" no lado direito da página.
-2. Depois de baixar o pacote, altere sua extensão de arquivo `.nupkg` de `.zip`para.
+2. Depois de baixar o pacote, altere sua extensão de arquivo de `.nupkg` para `.zip` .
 3. Descompacte o pacote.
 4. Abra a pasta `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Copie `StreamJsonRpc.dll` para os seguintes locais na pasta gerenciador de armazenamento:

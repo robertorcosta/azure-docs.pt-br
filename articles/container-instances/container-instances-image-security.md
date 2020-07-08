@@ -1,15 +1,15 @@
 ---
-title: Segurança para instâncias de contêiner
+title: Considerações de segurança para instâncias de contêiner
 description: Recomendações para proteger imagens e segredos para instâncias de contêiner do Azure e considerações de segurança geral para qualquer plataforma de contêiner
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907016"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança para instâncias de contêiner do Azure
 
@@ -18,6 +18,9 @@ Este artigo apresenta considerações de segurança para usar instâncias de con
 > [!div class="checklist"]
 > * **Recomendações de segurança** para o gerenciamento de imagens e segredos para instâncias de contêiner do Azure
 > * **Considerações para o ecossistema de contêiner** ao longo do ciclo de vida do contêiner, para qualquer plataforma de contêiner
+
+Para obter recomendações abrangentes que irão ajudá-lo a melhorar a postura de segurança de sua implantação, consulte a [linha de base de segurança do Azure para instâncias de contêiner](security-baseline.md).
+
 
 ## <a name="security-recommendations-for-azure-container-instances"></a>Recomendações de segurança para instâncias de contêiner do Azure
 
@@ -140,6 +143,8 @@ Mantenha uma trilha de auditoria precisa do acesso administrativo ao seu ecossis
 * Logs de recursos para [instâncias de contêiner do Azure](container-instances-log-analytics.md) e registro de [contêiner do Azure](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Próximas etapas
+
+* Consulte a [linha de base de segurança do Azure para instâncias de contêiner](security-baseline.md) para obter recomendações abrangentes que ajudarão você a melhorar a postura de segurança de sua implantação.
 
 * Saiba mais sobre como usar a [central de segurança do Azure](../security-center/container-security.md) para detecção de ameaças em tempo real em seus ambientes em contêineres.
 

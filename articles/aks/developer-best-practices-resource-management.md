@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 538db1f2a757dd5216839ac9ac37ad0c06c5e9ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976058"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os desenvolvedores de aplicativos gerenciarem os recursos no serviço de Kubernetes do Azure (AKS)
 
@@ -76,9 +76,7 @@ Para obter mais informações a respeito de medidas de recursos e atribuições,
 
 **Diretrizes de práticas recomendadas** - as equipes de desenvolvimento devem implantar e depurar em um cluster AKS usando espaços de desenvolvimento. Este modelo de desenvolvimento certifica-se de que as necessidades de armazenamento, rede ou controles de acesso baseado em função sejam implementadas antes que o aplicativo seja implantado para produção.
 
-Com Azure Dev Spaces, você desenvolve, depura e testa os aplicativos diretamente em relação ao cluster AKS. Os desenvolvedores dentro de uma equipe trabalham juntos para compilar e testar em todo o ciclo de vida do aplicativo. Você pode continuar a usar as ferramentas existentes, como o Visual Studio ou Visual Studio Code. Uma extensão é instalada para espaços de desenvolvimento que oferece uma opção para executar e depurar o aplicativo em um cluster AKS:
-
-![Depurar aplicativos em um cluster do AKS com os espaços de desenvolvimento](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+Com Azure Dev Spaces, você desenvolve, depura e testa os aplicativos diretamente em relação ao cluster AKS. Os desenvolvedores dentro de uma equipe trabalham juntos para compilar e testar em todo o ciclo de vida do aplicativo. Você pode continuar a usar as ferramentas existentes, como o Visual Studio ou Visual Studio Code. Uma extensão é instalada para espaços de desenvolvimento que oferece uma opção para executar e depurar o aplicativo em um cluster AKS.
 
 Esse processo de desenvolvimento e teste integrado com espaços de desenvolvimento reduz a necessidade de ambientes de teste local, como [minikube][minikube]. Em vez disso, você pode desenvolver e testar em relação a um cluster do AKS. Esse cluster pode ser protegido e isolado, conforme observado na seção anterior sobre o uso de namespaces para isolar logicamente um cluster. Quando seus aplicativos estão prontos para implantar em produção, você pode implantar com confiança conforme seu desenvolvimento foi feito em relação a um cluster AKS real.
 
@@ -94,11 +92,11 @@ A [extensão do Visual Studio Code para o Kubernetes][vscode-kubernetes] ajuda v
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Verificar regularmente os problemas de aplicativos com o kube-advisor
 
-**Diretrizes de práticas recomendadas** -execute regularmente a versão `kube-advisor` mais recente da ferramenta de software livre para detectar problemas no cluster. Se você aplicar cotas de recursos em um cluster AKS existente, execute `kube-advisor` primeiro para localizar os pods que não têm solicitações de recursos e limites definidos.
+**Diretrizes de práticas recomendadas** -execute regularmente a versão mais recente da ferramenta de software livre `kube-advisor` para detectar problemas no cluster. Se você aplicar cotas de recursos em um cluster AKS existente, execute `kube-advisor` primeiro para localizar os pods que não têm solicitações de recursos e limites definidos.
 
 A ferramenta [Kube-Advisor][kube-advisor] é um projeto de código-fonte aberto AKs associado que examina um cluster kubernetes e relata os problemas encontrados. Uma verificação útil é identificar os pods que não têm limites e solicitações de recurso em vigor.
 
-A ferramenta Kube-Advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta Kube-Advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
+A ferramenta kube-advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta kube-advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
 
 Em um cluster AKS que hospeda várias equipes de desenvolvimento e aplicativos, pode ser difícil de controlar os pods sem solicitações desses recursos e limita o conjunto. Como prática recomendada, executar regularmente `kube-advisor` em seus clusters AKS.
 
@@ -119,7 +117,7 @@ Para implementar algumas dessas práticas recomendadas, consulte os seguintes ar
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/get-started-netcore.md
+[dev-spaces]: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

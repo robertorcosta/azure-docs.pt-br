@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975785"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada usando o Azure PowerShell
 
@@ -41,7 +41,7 @@ Com a rede acelerada, o tráfego de rede chega à NIC (interface de rede) da VM 
 
 Os benefícios da rede acelerada só se aplicam à VM em que ela está habilitada. Para obter os melhores resultados, habilite esse recurso em pelo menos duas VMs conectadas à mesma rede virtual do Azure. Ao se comunicar entre redes virtuais ou conectar-se localmente, esse recurso tem um impacto mínimo sobre a latência geral.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 - **Latência mais baixa/pacotes maiores por segundo (PPS)**: a eliminação do comutador virtual do caminho de dados remove o tempo que os pacotes gastam no host para o processamento da política. Ele também aumenta o número de pacotes que podem ser processados dentro da VM.
 
@@ -49,7 +49,7 @@ Os benefícios da rede acelerada só se aplicam à VM em que ela está habilitad
 
 - **Redução da utilização da CPU**: ignorar o comutador virtual no host leva a menos utilização de CPU para processar o tráfego de rede.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 As distribuições a seguir têm suporte diretamente da galeria do Azure:
 
@@ -66,6 +66,10 @@ A rede acelerada tem suporte na maioria dos tamanhos de instância de uso geral 
 Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com quatro ou mais vCPUs. As séries com suporte são: D/Dsv3, D/Dsv4, E/Esv3, ea/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Para obter mais informações sobre instâncias de VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Imagens personalizadas
+
+Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, verifique se você tem os drivers necessários que funcionam com NICs Mellanox ConnectX-3 e ConnectX-4 LX no Azure.
 
 ### <a name="regions"></a>Regiões
 
@@ -192,7 +196,7 @@ Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus pró
 
 ### <a name="create-a-vm-and-attach-the-network-interface"></a>Criar uma VM e anexar a interface de rede
 
-1. Defina suas credenciais de VM para `$cred` a variável usando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential), que solicita que você entre:
+1. Defina suas credenciais de VM para a `$cred` variável usando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential), que solicita que você entre:
 
     ```azurepowershell
     $cred = Get-Credential
@@ -244,7 +248,7 @@ Depois de criar a VM no Azure, conecte-se à VM e confirme se o controlador Ethe
 
 3. Na página Visão geral da VM, se o **status** da VM estiver listado como **criando**, aguarde até que o Azure termine de criar a VM. O **status** será alterado para **em execução** após a conclusão da criação da VM.
 
-4. Na barra de ferramentas visão geral da VM, selecione **conectar** > **RDP** > **baixar arquivo RDP**.
+4. Na barra de ferramentas visão geral da VM, selecione **conectar**  >  **RDP**  >  **baixar arquivo RDP**.
 
 5. Abra o arquivo. RDP e entre na VM com as credenciais que você inseriu na seção [criar uma VM e anexar a interface de rede](#create-a-vm-and-attach-the-network-interface) . Se você nunca se conectou a uma VM do Windows no Azure, consulte [Conectar-se a máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
@@ -327,7 +331,7 @@ Um conjunto de dimensionamento de máquinas virtuais é ligeiramente diferente, 
 3. Defina as atualizações aplicadas como automáticas para que as alterações sejam imediatamente selecionadas:
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

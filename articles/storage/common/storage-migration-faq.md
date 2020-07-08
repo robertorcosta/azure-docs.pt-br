@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1d8275d11b845df43238dce82beabe89d6464799
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944688"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -215,19 +215,20 @@ Não há solução de backup. No entanto, Os Arquivos do Azure também dão supo
 - De um compartilhamento para um contêiner de blobs dentro de uma conta de armazenamento ou para uma conta de armazenamento diferente.
 
 Para saber mais, confira [Transferir dados com o AzCopy no Windows](storage-use-azcopy.md).
+
 ## <a name="configuration"></a>Configuração
 
 **Como alterar o local secundário de uma conta de armazenamento para a região da Europa?**
 
 Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações sobre o GRS, consulte [Armazenamento com redundância geográfica (GRS): Replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy.md).
 
-**Onde posso saber mais sobre o SSE (Criptografia do Serviço de Armazenamento) do Azure?**  
+**Onde posso obter mais informações sobre a criptografia de armazenamento do Azure?**  
 
 Veja os artigos a seguir:
 
--  [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md)
-
--  [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+- [Usar chaves gerenciadas pelo cliente com Azure Key Vault para gerenciar a criptografia de armazenamento do Azure](encryption-customer-managed-keys.md)
+- [Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs (visualização)](encryption-customer-provided-keys.md)
 
 **Como posso criptografar dados em uma conta de armazenamento?**
 
@@ -253,19 +254,19 @@ Se você tiver máquinas virtuais, precisará executar etapas adicionais antes d
 
 Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
--   Use um token SAS (assinatura de acesso compartilhado) para fornecer acesso a um recurso.
+- Use um token SAS (assinatura de acesso compartilhado) para fornecer acesso a um recurso.
 
--   Forneça a um usuário a chave primária ou secundária da conta de armazenamento. Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento](storage-account-keys-manage.md).
+- Forneça a um usuário a chave primária ou secundária da conta de armazenamento. Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento](storage-account-keys-manage.md).
 
--   Altere a política de acesso para permitir o acesso anônimo. Para saber mais, confira [Conceder permissões de usuário anônimo a contêineres e blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+- Altere a política de acesso para permitir o acesso anônimo. Para saber mais, confira [Conceder permissões de usuário anônimo a contêineres e blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 **Onde o AzCopy é instalado?**
 
--   Se você acessar o AzCopy da linha de comando do Armazenamento do Microsoft Azure, digite **AzCopy**. A linha de comando é instalada junto com o AzCopy.
+- Se você acessar o AzCopy da linha de comando do Armazenamento do Microsoft Azure, digite **AzCopy**. A linha de comando é instalada junto com o AzCopy.
 
--   Se você tiver instalado a versão de 32 bits, ela estará aqui: **%ProgramFiles(x86)%\\SDKs do Microsoft\\Azure\\AzCopy**.
+- Se você tiver instalado a versão de 32 bits, ela estará aqui: **%ProgramFiles(x86)%\\SDKs do Microsoft\\Azure\\AzCopy**.
 
--   Se você tiver instalado a versão de 64 bits, ela estará aqui: **%ProgramFiles%\\SDKs do Microsoft\\Azure\\AzCopy**.
+- Se você tiver instalado a versão de 64 bits, ela estará aqui: **%ProgramFiles%\\SDKs do Microsoft\\Azure\\AzCopy**.
 
 **Como usar um domínio personalizado de HTTPS com minha conta de armazenamento? Por exemplo, como faço para "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" aparecer como "https:\//www.contoso.com/images/image.gif"?**
 
@@ -284,15 +285,15 @@ O armazenamento com redundância geográfica com acesso de leitura é necessári
 
 **Para uma conta de armazenamento replicado (como armazenamento com redundância de zona, armazenamento com redundância geográfica ou armazenamento com redundância geográfica com acesso de leitura), como fazer para acessar dados armazenados na região secundária?**
 
--   Se você estiver usando um armazenamento com redundância de zona ou armazenamento com redundância geográfica, não poderá acessar dados da região secundária, a menos que você inicie um failover a uma região. Para saber mais sobre o processo de failover, confira [Recuperação de desastre e failover da conta de armazenamento](storage-disaster-recovery-guidance.md).
+- Se você estiver usando um armazenamento com redundância de zona ou armazenamento com redundância geográfica, não poderá acessar dados da região secundária, a menos que você inicie um failover a uma região. Para saber mais sobre o processo de failover, confira [Recuperação de desastre e failover da conta de armazenamento](storage-disaster-recovery-guidance.md).
 
--   Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos métodos a seguir:  
+- Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos métodos a seguir:  
 
-    - **AzCopy**: Acrescente **-secundário** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
+  - **AzCopy**: Acrescente **-secundário** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
 
       `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
-    - **Token SAS**: Use um Token SAS para acessar dados do ponto de extremidade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-sas-overview.md).
+  - **Token SAS**: Use um Token SAS para acessar dados do ponto de extremidade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-sas-overview.md).
 
 **Como usar o FTP para acessar dados que estão em uma conta de armazenamento?**
 
@@ -300,6 +301,6 @@ Não é possível acessar uma conta de armazenamento diretamente por meio de FTP
 
 Se você quiser só baixar os dados sem a necessidade de usar o Gerenciador de Armazenamento ou um aplicativo semelhante, talvez seja possível usar um token SAS. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-sas-overview.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

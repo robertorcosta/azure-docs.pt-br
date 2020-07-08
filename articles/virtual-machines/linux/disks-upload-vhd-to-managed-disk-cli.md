@@ -4,16 +4,16 @@ description: Saiba como carregar um VHD em um disco gerenciado do Azure e copiar
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c32915617d3149eee42bfdfd03d22f9ce5799ef2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945623"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Carregar um VHD no Azure ou copiar um disco gerenciado para outra região-CLI do Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "82580234"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Baixe a versão mais recente [do AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Instale o CLI do Azure](/cli/azure/install-azure-cli).
+- [Instale a CLI do Azure](/cli/azure/install-azure-cli).
 - Se você pretende carregar um VHD do local: um VHD de tamanho fixo que foi [preparado para o Azure](../windows/prepare-for-upload-vhd-image.md), armazenado localmente.
 - Ou, um disco gerenciado no Azure, se você pretende executar uma ação de cópia.
 
@@ -42,11 +42,14 @@ Esse tipo de disco gerenciado tem dois Estados exclusivos:
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
 
-Para poder criar um HDD padrão vazio para carregamento, você precisará do tamanho do arquivo do VHD que deseja carregar, em bytes. Para obtê-lo, você pode usar `wc -c <yourFileName>.vhd` o `ls -al <yourFileName>.vhd`ou o. Esse valor é usado ao especificar o parâmetro **--upload-size-bytes** .
+Para poder criar um HDD padrão vazio para carregamento, você precisará do tamanho do arquivo do VHD que deseja carregar, em bytes. Para obtê-lo, você pode usar o `wc -c <yourFileName>.vhd` ou o `ls -al <yourFileName>.vhd` . Esse valor é usado ao especificar o parâmetro **--upload-size-bytes** .
 
 Crie um HDD padrão vazio para carregamento, especificando o parâmetro **-– para-upload** e o parâmetro **--upload-size-bytes** em um cmdlet Create de [disco](/cli/azure/disk#az-disk-create) :
 
-Substitua `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` com os valores de sua escolha. O `--upload-size-bytes` parâmetro contém um valor de exemplo `34359738880`de, substitua-o por um valor apropriado para você.
+Substitua `<yourdiskname>` , `<yourresourcegroupname>` , `<yourregion>` com os valores de sua escolha. O `--upload-size-bytes` parâmetro contém um valor de exemplo de `34359738880` , substitua-o por um valor apropriado para você.
+
+> [!TIP]
+> Se você estiver criando um disco do sistema operacional, adicione--Hyper-v-Generation <yourGeneration> ao `az disk create` .
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -56,7 +59,7 @@ Se você quiser carregar um SSD Premium ou um SSD padrão, substitua **standard_
 
 Agora que você criou um disco gerenciado vazio que está configurado para o processo de carregamento, você pode carregar um VHD para ele. Para carregar um VHD no disco, você precisará de uma SAS gravável, para que você possa referenciá-lo como o destino do upload.
 
-Para gerar uma SAS gravável de seu disco gerenciado vazio, substitua `<yourdiskname>`e `<yourresourcegroupname>`, em seguida, use o seguinte comando:
+Para gerar uma SAS gravável de seu disco gerenciado vazio, substitua `<yourdiskname>` e `<yourresourcegroupname>` , em seguida, use o seguinte comando:
 
 ```azurecli
 az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
@@ -84,7 +87,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 Depois que o upload for concluído e você não precisar mais gravar mais dados no disco, revogue a SAS. A revogação da SAS alterará o estado do disco gerenciado e permitirá que você anexe o disco a uma VM.
 
-Substitua `<yourdiskname>`e `<yourresourcegroupname>`, em seguida, use o seguinte comando para tornar o disco utilizável:
+Substitua `<yourdiskname>` e `<yourresourcegroupname>` , em seguida, use o seguinte comando para tornar o disco utilizável:
 
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
@@ -99,7 +102,10 @@ O script a seguir fará isso para você, o processo é semelhante às etapas des
 > [!IMPORTANT]
 > Você precisa adicionar um deslocamento de 512 quando estiver fornecendo o tamanho do disco em bytes de um disco gerenciado do Azure. Isso ocorre porque o Azure omite o rodapé ao retornar o tamanho do disco. A cópia falhará se você não fizer isso. O script a seguir já faz isso para você.
 
-Substitua o `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`e `<yourTargetLocationHere>` (um exemplo de um valor de local seria uswest2) por seus valores e, em seguida, execute o script a seguir para copiar um disco gerenciado.
+Substitua o `<sourceResourceGroupHere>` , `<sourceDiskNameHere>` , `<targetDiskNameHere>` , `<targetResourceGroupHere>` e `<yourTargetLocationHere>` (um exemplo de um valor de local seria uswest2) por seus valores e, em seguida, execute o script a seguir para copiar um disco gerenciado.
+
+> [!TIP]
+> Se você estiver criando um disco do sistema operacional, adicione--Hyper-v-Generation <yourGeneration> ao `az disk create` .
 
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>

@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81008312"
 ---
 ## <a name="limitations"></a>Limitações
@@ -27,12 +27,12 @@ ms.locfileid: "81008312"
 
 ### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Implantar um SSD Premium como um disco compartilhado
 
-Para implantar um disco gerenciado com o recurso de disco compartilhado habilitado, use a nova `maxShares` Propriedade e defina um valor maior que 1. Isso torna o disco compartilhável entre várias VMs.
+Para implantar um disco gerenciado com o recurso de disco compartilhado habilitado, use a nova propriedade `maxShares` e defina um valor maior que 1. Isso torna o disco compartilhável entre várias VMs.
 
 > [!IMPORTANT]
-> O valor de `maxShares` só pode ser definido ou alterado quando um disco é desmontado de todas as VMs. Consulte os [tamanhos de disco](#disk-sizes) para os valores permitidos `maxShares`para.
+> O valor de `maxShares` só pode ser definido ou alterado quando um disco é desmontado de todas as VMs. Consulte os [tamanhos de disco](#disk-sizes) para os valores permitidos para `maxShares` .
 
-Antes de usar o modelo a seguir `[parameters('dataDiskName')]`, `[resourceGroup().location]`substitua `[parameters('dataDiskSizeGB')]`,, `[parameters('maxShares')]` e pelos seus próprios valores.
+Antes de usar o modelo a seguir, substitua `[parameters('dataDiskName')]` ,, `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` e `[parameters('maxShares')]` pelos seus próprios valores.
 
 ```json
 { 
@@ -77,10 +77,10 @@ Antes de usar o modelo a seguir `[parameters('dataDiskName')]`, `[resourceGroup(
 
 #### <a name="cli"></a>CLI
 
-Para implantar um disco gerenciado com o recurso de disco compartilhado habilitado, altere `maxShares` o parâmetro para um valor maior que 1. Isso torna o disco compartilhável entre várias VMs.
+Para implantar um disco gerenciado com o recurso de disco compartilhado habilitado, altere o `maxShares` parâmetro para um valor maior que 1. Isso torna o disco compartilhável entre várias VMs.
 
 > [!IMPORTANT]
-> O valor de `maxShares` só pode ser definido ou alterado quando um disco é desmontado de todas as VMs. Consulte os [tamanhos de disco](#disk-sizes) para os valores permitidos `maxShares`para.
+> O valor de `maxShares` só pode ser definido ou alterado quando um disco é desmontado de todas as VMs. Consulte os [tamanhos de disco](#disk-sizes) para os valores permitidos para `maxShares` .
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -95,12 +95,12 @@ az disk show -g rg1 -n clidisk
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Para implantar um disco gerenciado com o recurso de disco compartilhado habilitado, use a `maxShares` Propriedade e defina um valor maior que 1. Isso torna o disco compartilhável entre várias VMs.
+Para implantar um disco gerenciado com o recurso de disco compartilhado habilitado, use a propriedade `maxShares` e defina um valor maior que 1. Isso torna o disco compartilhável entre várias VMs.
 
 > [!IMPORTANT]
-> O valor de `maxShares` só pode ser definido ou alterado quando um disco é desmontado de todas as VMs. Consulte os [tamanhos de disco](#disk-sizes) para os valores permitidos `maxShares`para.
+> O valor de `maxShares` só pode ser definido ou alterado quando um disco é desmontado de todas as VMs. Consulte os [tamanhos de disco](#disk-sizes) para os valores permitidos para `maxShares` .
 
-Antes de usar o modelo a seguir `[parameters('dataDiskName')]`, `[resourceGroup().location]`substitua `[parameters('dataDiskSizeGB')]`, `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]`,,,,, `[parameters('diskMBpsReadOnly')]` e pelos seus próprios valores.
+Antes de usar o modelo a seguir, substitua,,,,,, `[parameters('dataDiskName')]` `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` e `[parameters('diskMBpsReadOnly')]` pelos seus próprios valores.
 
 ```json
 {
@@ -170,7 +170,7 @@ Antes de usar o modelo a seguir `[parameters('dataDiskName')]`, `[resourceGroup(
 
 ### <a name="using-azure-shared-disks-with-your-vms"></a>Usando discos compartilhados do Azure com suas VMs
 
-Depois de implantar um disco compartilhado com `maxShares>1`o, você pode montar o disco em uma ou mais de suas VMs.
+Depois de implantar um disco compartilhado com `maxShares>1` o, você pode montar o disco em uma ou mais de suas VMs.
 
 > [!IMPORTANT]
 > Todas as VMs que compartilham um disco devem ser implantadas no mesmo [grupo de posicionamento de proximidade](../articles/virtual-machines/windows/proximity-placement-groups.md).

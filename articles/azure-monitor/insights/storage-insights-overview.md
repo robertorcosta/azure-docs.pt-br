@@ -3,15 +3,15 @@ title: Monitore os serviços de Armazenamento do Microsoft Azure com o Azure Mon
 description: Este artigo descreve o recurso Azure Monitor for Storage, que permite aos administradores entenderem rapidamente questões de desempenho e utilização de suas contas do Armazenamento do Azure.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944484"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorando seu serviço de armazenamento com o Azure Monitor for Storage
 
@@ -228,6 +228,8 @@ Neste exemplo, trabalharemos com a pasta de trabalho de capacidade da conta de a
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
+Para obter diretrizes gerais de solução de problemas, consulte o [artigo de solução de problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
+
 Esta seção o ajudará no diagnóstico e na solução de alguns dos problemas mais comuns que você pode encontrar ao usar o Azure Monitor for Storage. Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Resolvendo problemas de desempenho, capacidade ou disponibilidade
@@ -237,24 +239,6 @@ Para ajudar na solução de problemas relacionados ao armazenamento que você id
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Por que só posso ver 200 contas de armazenamento?
 
 O número de contas de armazenamento selecionadas terá como limite 200, independentemente do número de assinaturas que forem selecionadas.
-
-### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>O que ocorrerá quando eu clicar em um bloco recentemente afixado no painel?
-
-* Se você clicar em qualquer lugar do bloco, ele o levará para a guia em que foi afixado. Por exemplo, se você afixar um gráfico na guia "Visão Geral da Conta de Armazenamento", quando clicar nesse bloco no painel, ele abrirá esse modo de exibição padrão. No entanto, se você afixar um gráfico de sua própria cópia salva, ele abrirá a exibição da cópia salva.
-* O ícone de filtro na parte superior esquerda do título abre a guia "Definir configurações de bloco".
-* O ícone de elipse no canto superior direito fornecerá as opções "Personalizar dados de título", "personalizar", "atualizar" e "remover do painel".
-
-### <a name="what-happens-when-i-save-a-workbook"></a>O que acontece quando eu salvo uma pasta de trabalho?
-
-* Quando salvamos uma pasta de trabalho, isso nos permite criar uma nova cópia da pasta com nossas edições e alterar o título. Salvar não substitui a pasta de trabalho, a pasta de trabalho atual sempre será a exibição padrão.
-* Uma pasta de trabalho **não salva** é apenas a exibição padrão.
-
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Por que não posso ver todas as minhas assinaturas no portal?
-
-O portal mostrará apenas os dados das assinaturas selecionadas na sua inicialização. Para alterar as assinaturas que estarão selecionadas, vá até o canto superior direito e clique no bloco de notas com um ícone de filtro. Isso exibirá a guia Diretório + assinaturas.
-
-![Diretório + assinatura](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Como alterar as cores e o limite da disponibilidade?
 
@@ -273,7 +257,7 @@ Atualmente, até três tipos diferentes de erros são mostrados e o restante dos
 
     ![Vá para métricas e clique em editar e em "transações, Somas"](./media/storage-insights-overview/fqa7.png)
 
-1. Em seguida, altere o Número de Divisões.
+3. Em seguida, altere o Número de Divisões.
 
     ![Selecione parâmetros de métrica"](./media/storage-insights-overview/fqa7-2.png)
 
@@ -282,37 +266,6 @@ Se quiser ver n tipos de erros diferentes, especifique splitByLimit como n + 1, 
 ###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Salvei minha pasta de trabalho enquanto estava em alguma Conta de Armazenamento. Por que não consigo encontrá-la agora?
 
 Cada pasta de trabalho será salva na conta de armazenamento na qual você a salvou. Tente localizar a Conta de Armazenamento específica na qual o usuário salvou a pasta de trabalho. Caso contrário, não há como localizar uma pasta de trabalho específica sem conhecer o recurso (conta de armazenamento).
-
-### <a name="what-is-time-range"></a>O que é intervalo de tempo?
-
-O intervalo de tempo mostra os dados de um determinado período. Por exemplo, se o intervalo de tempo for de 24 horas, ele mostrará dados das últimas 24 horas.
-
-### <a name="what-is-time-granularity-time-grain"></a>O que é granularidade de tempo (intervalo de agregação)?
-
-Granularidade de tempo é a diferença de tempo entre dois pontos de dados. Por exemplo, se o intervalo de agregação for definido com 1 segundo, isso significa que as métricas serão coletadas a cada segundo.
-
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Qual será a granularidade de tempo depois de afixarmos qualquer parte das pastas de trabalho em um painel?
-
-Quando a granularidade de tempo padrão é configurada como automática, ela não pode ser alterada no momento atual.
-
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Como faço para alterar o período/intervalo de tempo da etapa da pasta de trabalho em meu painel?
-
-Por padrão, o período/intervalo de tempo do bloco do painel é configurado com 24 horas; para alterá-lo, clique nas reticências no canto superior direito, selecione **Personalizar dados de bloco** , marque a caixa "substituir as configurações de tempo do painel no nível de bloco" e selecione um período de tempo usando o menu suspenso.  
-
-![Selecione as reticências no canto direito do bloco e escolha Personalizar estes dados](./media/storage-insights-overview/fqa-data-settings.png)
-
-![Em Definir configurações de bloco, selecione o menu suspenso de períodos de tempo para alterar o período/intervalo de tempo](./media/storage-insights-overview/fqa-timespan.png)
-
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Como faço para alterar o título da pasta de trabalho ou uma etapa dela que afixei em um painel?
-
-O título da pasta de trabalho ou a etapa que foi afixada em um painel retém o mesmo nome que tinha na pasta de trabalho. Para alterar o título, você deve salvar sua própria cópia da pasta de trabalho. Em seguida, poderá nomear a pasta de trabalho antes de pressionar salvar.
-
-![Selecione salvar na parte superior para salvar uma cópia da pasta de trabalho e alterar o nome dela](./media/storage-insights-overview/fqa-change-workbook-name.png)
-
-Para alterar o nome de uma etapa na pasta de trabalho salva, selecione editar na etapa e, em seguida, selecione a engrenagem na parte inferior das configurações.
-
-![Selecione editar na parte inferior de uma etapa da pasta de trabalho para abrir as configurações](./media/storage-insights-overview/fqa-edit.png)
-![Em configurações, selecione a engrenagem na parte inferior para poder alterar o nome da etapa](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

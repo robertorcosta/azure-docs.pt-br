@@ -9,10 +9,10 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80632068"
 ---
 ### <a name="portal"></a>Portal
@@ -21,10 +21,10 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 
 #### <a name="setting-up-your-azure-key-vault"></a>Configurando sua Azure Key Vault
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 1. Procure e selecione **cofres de chaves**.
 
-    [![SSE-Key-Vault-portal-Search. png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
+    [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > Seu cofre de chaves do Azure, conjunto de criptografia de disco, VM, discos e instantâneos devem estar na mesma região e assinatura para que a implantação tenha sucesso.
@@ -38,7 +38,7 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 
 1. Depois que o cofre de chaves concluir a implantação, selecione-o.
 1. Selecione **chaves** em **configurações**.
-1. Selecione **gerar/importar**.
+1. Selecione **Gerar/Importar**.
 
     ![Captura de tela do painel configurações de recurso Key Vault. Mostra o botão gerar/importar dentro das configurações.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 

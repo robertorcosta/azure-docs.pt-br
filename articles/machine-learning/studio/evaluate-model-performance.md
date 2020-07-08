@@ -1,37 +1,39 @@
 ---
-title: Avaliar desempenho do modelo
+title: Avaliar & modelos de validação cruzada
 titleSuffix: ML Studio (classic) - Azure
-description: Saiba como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico) e sobre as métricas disponíveis para essa tarefa.
+description: Saiba mais sobre as métricas que você pode usar para monitorar o desempenho do modelo no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3c041834b9ad191817cdf1380b0a75efc7639bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd6c291cd703d56f86dc26c041eb39023bba0578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945096"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
+# <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+Neste artigo, você pode aprender sobre as métricas que você pode usar para monitorar o desempenho do modelo no Azure Machine Learning Studio (clássico).  Avaliar o desempenho de um modelo é um dos estágios principais do processo de ciência de dados. Indica o êxito da pontuação (previsões) de um conjunto de dados feitas por meio de um modelo treinado. Azure Machine Learning Studio (clássico) dá suporte à avaliação de modelo por meio de dois módulos de aprendizado de máquina principais: 
++ [Avaliar Modelo][evaluate-model] 
++ [Modelo de validação cruzada][cross-validate-model]
 
-Este artigo demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio (clássico) e fornece uma breve explicação sobre as métricas disponíveis para essa tarefa. Três cenários comuns de aprendizado supervisionado são apresentados: 
+Esses módulos permitem que você veja como o seu modelo é executado em termos de um número de métricas que são usados normalmente em estatísticas e aprendizado de máquina.
 
+A avaliação de modelos deve ser considerada em conjunto com:
++ [Otimização de parâmetros para algoritmos](algorithm-parameters-optimize.md)
++ [Interpretabilidade do modelo](interpret-model-results.md)
+
+Três cenários comuns de aprendizado supervisionado são apresentados: 
 * regressão
 * classificação binária 
 * classificação multiclasse
 
-
-
-Avaliar o desempenho de um modelo é um dos estágios principais do processo de ciência de dados. Indica o êxito da pontuação (previsões) de um conjunto de dados feitas por meio de um modelo treinado. 
-
-Azure Machine Learning Studio (clássico) dá suporte à avaliação de modelo por meio de dois dos seus principais módulos de aprendizado de máquina: [avaliar modelo][evaluate-model] e [modelo de validação cruzada][cross-validate-model]. Esses módulos permitem que você veja como o seu modelo é executado em termos de um número de métricas que são usados normalmente em estatísticas e aprendizado de máquina.
 
 ## <a name="evaluation-vs-cross-validation"></a>Avaliação versus Validação cruzada
 Avaliação e Validação cruzada são as formas padrão de medir o desempenho do seu modelo. Ambas geram métricas de avaliação que você pode inspecionar ou comparar com os outros modelos.

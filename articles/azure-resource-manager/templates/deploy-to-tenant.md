@@ -2,13 +2,13 @@
 title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/08/2020
+ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945436"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
@@ -72,7 +72,7 @@ Para CLI do Azure, use [az deployment tenant create](/cli/azure/deployment/tenan
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 Para Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
@@ -81,7 +81,7 @@ Para Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resour
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 Para REST API, use [Implantações – Criar ou atualizar no escopo do locatário](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -117,7 +117,7 @@ Para implantações de locatário, há algumas considerações importantes ao us
 
 ## <a name="create-management-group"></a>Criar grupo de gerenciamento
 
-O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) cria um grupo de recursos vazio.
+O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) cria um grupo de recursos vazio.
 
 ```json
 {
@@ -143,7 +143,7 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 
 ## <a name="assign-role"></a>Atribuir função
 
-O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) atribui uma função no escopo do locatário.
+O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) atribui uma função no escopo do locatário.
 
 ```json
 {
