@@ -10,11 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702815"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de nuvem privada do VMware
 
@@ -48,7 +47,7 @@ o dispositivo vCenter Server (VCSA) fornece as funções de autenticação, gere
 
 ### <a name="vcenter-single-sign-on"></a>logon único do vCenter
 
-O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de logon único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um usuário **CloudOwner@cloudsimple.com** padrão é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](set-vcenter-identity.md).
+O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de logon único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um usuário padrão **CloudOwner@cloudsimple.com** é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>armazenamento vSAN
 
@@ -82,7 +81,7 @@ O NSX Data Center fornece recursos de virtualização de rede, micro segmentaç�
 
 ## <a name="vsphere-cluster"></a>cluster vSphere
 
-Os hosts ESXi são configurados como um cluster para garantir a alta disponibilidade da nuvem privada.  Quando você cria uma nuvem privada, os componentes de gerenciamento do vSphere são implantados no primeiro cluster.  Um pool de recursos é criado para componentes de gerenciamento e todas as VMs de gerenciamento são implantadas nesse pool de recursos. O primeiro cluster não pode ser excluído para reduzir a nuvem privada.  o cluster vSphere fornece alta disponibilidade para VMs usando o **VSPHERE ha**.  As falhas a serem toleradas são baseadas no número de nós disponíveis no cluster.  Você pode usar a fórmula ```Number of nodes = 2N+1``` em ```N``` que é o número de falhas a tolerar.
+Os hosts ESXi são configurados como um cluster para garantir a alta disponibilidade da nuvem privada.  Quando você cria uma nuvem privada, os componentes de gerenciamento do vSphere são implantados no primeiro cluster.  Um pool de recursos é criado para componentes de gerenciamento e todas as VMs de gerenciamento são implantadas nesse pool de recursos. O primeiro cluster não pode ser excluído para reduzir a nuvem privada.  o cluster vSphere fornece alta disponibilidade para VMs usando o **VSPHERE ha**.  As falhas a serem toleradas são baseadas no número de nós disponíveis no cluster.  Você pode usar a fórmula ```Number of nodes = 2N+1``` em que ```N``` é o número de falhas a tolerar.
 
 ### <a name="vsphere-cluster-limits"></a>limites de cluster vSphere
 

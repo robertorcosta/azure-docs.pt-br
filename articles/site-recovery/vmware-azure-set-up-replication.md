@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699593"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurar e gerenciar políticas de replicação para a recuperação de desastres do VMware
 
@@ -20,7 +19,7 @@ Este artigo descreve como configurar uma política de replicação quando você 
 
 ## <a name="create-a-policy"></a>Criar uma política
 
-1. Selecione **gerenciar** > **infraestrutura de site Recovery**.
+1. Selecione **gerenciar**  >  **infraestrutura de site Recovery**.
 2. Em **Para o VMware e Computadores físicos**, selecione **Políticas de replicação**.
 3. Clique em **+Política de replicação** e especifique o nome da política.
 4. Em **limite de RPO**, especifique o limite de RPO. Os alertas serão gerados quando a replicação contínua excede esse limite.
@@ -49,11 +48,11 @@ Você pode modificar uma política de replicação depois de criá-la.
 - Se você quiser associar computadores replicados a uma política de replicação diferente, será necessário desabilitar e reabilitar a proteção para os computadores relevantes.
 
 Edite uma política da seguinte maneira:
-1. Selecione **gerenciar** > **site Recovery** > **políticas de replicação**de infraestrutura.
+1. Selecione **gerenciar**  >  **site Recovery**  >  **políticas de replicação**de infraestrutura.
 2. Selecione a política de replicação que você deseja modificar.
 3. Clique em **Editar configurações**e atualize os campos tempo de retenção do ponto de recuperação/limite de RPO/frequência de instantâneos consistentes com o aplicativo, conforme necessário.
 4. Se você quiser desativar a geração de pontos de consistência do aplicativo, escolha o valor "desativado" na lista suspensa do campo **frequência do instantâneo consistente com o aplicativo**.
-5. Clique em **Salvar**. A política deve ser atualizada em 30 a 60 segundos.
+5. Clique em **Save** (Salvar). A política deve ser atualizada em 30 a 60 segundos.
 
 
 

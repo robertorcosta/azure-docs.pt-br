@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257869"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699916"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação de desastre de servidores físicos no Azure
 
@@ -36,7 +35,7 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 ## <a name="choose-your-protection-goals"></a>Escolher as metas de proteção
 
 1. No Portal do Azure, vá até a folha de cofres dos **Serviços de Recuperação** e selecione seu cofre.
-2. No menu de **recursos** do cofre, clique em **introdução** > **site Recovery** > **etapa 1: preparar a infraestrutura** > **meta de proteção**.
+2. No menu de **recursos** do cofre, clique em **introdução**  >  **site Recovery**  >  **etapa 1: preparar a infraestrutura**  >  **meta de proteção**.
 
     ![Escolher metas](./media/physical-azure-set-up-source/choose-goals.png)
 3. Em **Meta de proteção**, escolha **Para o Azure** e **Não virtualizado/Outro** e clique em **OK**.

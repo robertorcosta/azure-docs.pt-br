@@ -5,21 +5,20 @@ description: Habilitar o serviço de emparelhamento do Azure em um emparelhament
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
-ms.openlocfilehash: 625a17e5acff00f78c5a19725653eec629936f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700035"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Habilitar o serviço de emparelhamento do Azure em um emparelhamento direto usando o portal do Azure
 
 Este artigo descreve como habilitar o [serviço de emparelhamento](overview-peering-service.md) do Azure em um emparelhamento direto usando o portal do Azure.
 
-Se preferir, você pode concluir este guia usando o [PowerShell](howto-peering-service-powershell.md).
+Se preferir, conclua este guia usando o [PowerShell](howto-peering-service-powershell.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 * Examine os [pré-requisitos](prerequisites.md) antes de começar a configuração.
@@ -43,7 +42,7 @@ Para modificar as configurações de conexão, consulte a seção "modificar um 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar ou modificar o emparelhamento do Exchange usando o portal](howto-exchange-portal.md)
+* [Criar ou modificar um emparelhamento do Exchange usando o portal](howto-exchange-portal.md)
 * [Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o portal](howto-legacy-exchange-portal.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais

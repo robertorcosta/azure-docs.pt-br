@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700490"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 
@@ -42,7 +41,7 @@ Você pode usar as ferramentas de Data Lake para Visual Studio para enviar topol
 
 1. Na janela **Iniciar**, selecione **Criar projeto**.
 
-1. Na janela **criar um novo projeto** , selecione a caixa Pesquisar e digite `Storm`. Em seguida, escolha **exemplo do Storm** na lista de resultados e selecione **Avançar**.
+1. Na janela **criar um novo projeto** , selecione a caixa Pesquisar e digite `Storm` . Em seguida, escolha **exemplo do Storm** na lista de resultados e selecione **Avançar**.
 
 1. Na janela **configurar seu novo projeto** , insira um **nome de projeto**e vá para ou crie um **local** para salvar o novo projeto. Em seguida, selecione **Criar**.
 
@@ -59,7 +58,7 @@ Você pode usar as ferramentas de Data Lake para Visual Studio para enviar topol
 
 ## <a name="submit-a-topology-using-ssh-and-the-storm-command"></a>Enviar uma topologia usando SSH e o comando Storm
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -74,9 +73,9 @@ Você pode usar as ferramentas de Data Lake para Visual Studio para enviar topol
     Esse comando inicia a topologia de WordCount de exemplo no cluster. Essa topologia gera frases aleatoriamente e conta a ocorrência de cada palavra nas frases.
 
     > [!NOTE]  
-    > Ao enviar a topologia para o cluster, você deve primeiro copiar o arquivo. jar que contém o cluster antes de `storm` usar o comando. Para copiar o arquivo para o cluster, é possível usar o comando `scp`. Por exemplo, insira `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
+    > Ao enviar a topologia para o cluster, você deve primeiro copiar o arquivo. jar que contém o cluster antes de usar o `storm` comando. Para copiar o arquivo para o cluster, é possível usar o comando `scp`. Por exemplo, insira `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
     >
-    > O exemplo de *WordCount* e outros exemplos do Storm Starter já estão incluídos no cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+    > O exemplo de *WordCount* e outros exemplos do Storm Starter já estão incluídos no cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/` .
 
 ## <a name="submit-a-topology-programmatically"></a>Enviar uma topologia programaticamente
 
@@ -89,7 +88,7 @@ Quando você envia uma topologia usando o Visual Studio, a janela **exibição d
 ![Monitorar topologia, janela de exibição de topologias Storm, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
-> Você também pode exibir **topologias Storm** do **Gerenciador de Servidores**. Expanda **Azure** > **HDInsight**, clique com o botão direito do mouse em um cluster Storm no HDInsight e selecione **Exibir topologias Storm**.
+> Você também pode exibir **topologias Storm** do **Gerenciador de Servidores**. Expanda **Azure**  >  **HDInsight**, clique com o botão direito do mouse em um cluster Storm no HDInsight e selecione **Exibir topologias Storm**.
 
 Escolha a forma dos spouts ou bolts para exibir informações sobre esses componentes. Uma dica de ferramenta com informações de componente é exibida para o item selecionado.
 
@@ -228,7 +227,7 @@ Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes i
 | Estatísticas *de saída (período)* | Informações sobre os fluxos emitidos pelo spout ou pelo bolt. |
 | Criação de perfil e depuração | Controles para criação de perfil e depuração dos componentes nesta página. Você pode definir o valor de **status/tempo limite (minutos)** e pode selecionar botões para **JStack**, **reiniciar o trabalho**e **heap**. |
 | Executores *(período)* | Informações sobre as instâncias do spout ou bolt. Para exibir um log das informações de diagnóstico produzidas para essa instância, selecione a entrada **porta** para um executor específico. Você também pode ver os recursos de trabalho associados a um executor específico selecionando seu link na coluna **host** . |
-| Errors | Qualquer informação de erro para o spout ou bolt. |
+| Erros | Qualquer informação de erro para o spout ou bolt. |
 
 A página de Resumo de parafusos do Storm é semelhante a esta página da Web:
 
@@ -245,14 +244,14 @@ Para obter mais informações, veja [API REST da interface do usuário do Apache
 
 ### <a name="base-uri"></a>URI de base
 
-O URI de base para a API REST em clusters HDInsight baseados em Linux está disponível no endereço `https://HEADNODEFQDN:8744/api/v1/`URL, onde você substitui *HEADNODEFQDN* pelo nó de cabeçalho. O nome de domínio do nó principal é gerado durante a criação do cluster e não é estático.
+O URI de base para a API REST em clusters HDInsight baseados em Linux está disponível no endereço URL `https://HEADNODEFQDN:8744/api/v1/` , onde você substitui *HEADNODEFQDN* pelo nó de cabeçalho. O nome de domínio do nó principal é gerado durante a criação do cluster e não é estático.
 
 Você pode encontrar o FQDN (nome de domínio totalmente qualificado) para o nó principal do cluster de várias maneiras:
 
 | Método de descoberta de FQDN | Descrição |
 | --- | --- |
 | Sessão SSH | Use o comando `headnode -f` de uma sessão SSH para o cluster. |
-| Ambari Web | Na página da Web do cluster Ambari`https://CLUSTERNAME.azurehdinsight.net`(), selecione **Serviços** na parte superior da página e, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página. |
+| Ambari Web | Na página da Web do cluster Ambari ( `https://CLUSTERNAME.azurehdinsight.net` ), selecione **Serviços** na parte superior da página e, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página. |
 | API REST do Ambari | Use o comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó em que a interface do usuário do Storm e a API REST estão em execução. Substitua as duas instâncias de *ClusterName* pelo nome do cluster. Quando solicitado, insira a senha para a conta de usuário (administrador). Na resposta, a entrada "host_name" da saída JSON contém o FQDN do nó. |
 
 ### <a name="authentication"></a>Autenticação

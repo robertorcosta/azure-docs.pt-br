@@ -15,11 +15,10 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702168"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário (versão prévia)
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../app-provisioning/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central.
@@ -69,7 +68,7 @@ Esta seção descreve a arquitetura da solução de provisionamento do usuário 
 
 1. A equipe de RH executa transações de trabalho (junções/movimentadores/pertraçãos ou novas contratações/transferências/encerramentos) no SuccessFactors Employee central
 2. O serviço de provisionamento do Azure AD executa sincronizações agendadas de identidades do SuccessFactors EC e identifica as alterações que precisam ser processadas para sincronização com Active Directory locais.
-3. O serviço de provisionamento do Azure AD invoca o agente de provisionamento local Azure AD Connect com uma carga de solicitação que contém as operações criar/atualizar/habilitar/desabilitar conta do AD.
+3. O Serviço de Provisionamento do Azure AD invoca o Agente de Provisionamento do Azure AD Connect local com um conteúdo de solicitação que contém operações de criar/atualizar/habilitar/desabilitar contas do AD.
 4. O Agente de Provisionamento do Azure AD Connect usa uma conta de serviço para adicionar/atualizar dados de conta do AD.
 5. O mecanismo de sincronização Azure AD Connect executa a sincronização Delta para efetuar pull de atualizações no AD.
 6. As atualizações do Active Directory são sincronizadas com o Azure Active Directory.
@@ -152,13 +151,13 @@ Trabalhe com sua equipe de administração do SuccessFactors ou com o parceiro d
 
 Esta seção fornece etapas para o provisionamento de contas de usuário do SuccessFactors para cada domínio Active Directory dentro do escopo da sua integração.
 
-* [Adicionar o aplicativo do conector de provisionamento e baixar o agente de provisionamento](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Adicionar o aplicativo do conector de provisionamento e baixar o Agente de Provisionamento](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 * [Instalar e configurar Agentes de Provisionamento locais](#part-2-install-and-configure-on-premises-provisioning-agents)
 * [Configurar a conectividade com o SuccessFactors e o Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory)
 * [Configurar mapeamentos de atributos](#part-4-configure-attribute-mappings)
 * [Habilitar e iniciar o provisionamento de usuário](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Parte 1: Adicionar o aplicativo do conector de provisionamento e baixar o agente de provisionamento
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Parte 1: Adicionar o aplicativo do conector de provisionamento e baixar o Agente de Provisionamento
 
 **Para configurar o SuccessFactors para Active Directory provisionamento:**
 
@@ -172,30 +171,30 @@ Esta seção fornece etapas para o provisionamento de contas de usuário do Succ
 
 5. Pesquise **SuccessFactors para Active Directory provisionamento de usuário**e adicione esse aplicativo da galeria.
 
-6. Após adicionar o aplicativo e a tela de detalhes do aplicativo for exibida, selecione **Provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
 
-7. Altere o **Modo de** **Provisionamento** para **Automático**
+7. Alterar o **Provisioning** **modo** de provisionamento para **automático**
 
-8. Clique na faixa de informações exibida para baixar o agente de provisionamento. 
+8. Clique na faixa de informações exibida para baixar o Agente de Provisionamento. 
    > [!div class="mx-imgBorder"]
-   > ![Agente de download](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Tela de download do agente")
+   > ![Baixar Agente](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Tela Baixar Agente")
 
 
-### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: instalar e configurar agente (s) de provisionamento local
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: Instalar e configurar Agentes de Provisionamento local
 
-Para provisionar para Active Directory local, o agente de provisionamento deve ser instalado em um servidor que tenha o .NET 4.7.1 + estrutura e acesso de rede aos domínios de Active Directory desejados.
+Para provisionar no Active Directory local, o agente de Provisionamento deverá ser instalado em um servidor que tenha o .NET Framework 4.7.1+ e acesso à rede para o(s) domínio(s) do Active Directory desejado(s).
 
 > [!TIP]
 > Você pode verificar a versão do .NET Framework em seu servidor usando as instruções fornecidas [aqui](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Se o servidor não tiver o .NET 4.7.1 ou superior instalado, você poderá baixá-lo [aqui](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
-Transfira o instalador do agente baixado para o host do servidor e siga as etapas fornecidas abaixo para concluir a configuração do agente.
+Transfira o instalador do agente baixado para o host do servidor e siga as etapas exibidas abaixo para concluir a configuração do agente.
 
-1. Entre no Windows Server em que você deseja instalar o novo agente.
+1. Conecte-se ao Windows Server em que você deseja instalar o novo agente.
 
-1. Inicie o instalador do agente de provisionamento, concorde com os termos e clique no botão **instalar** .
+1. Inicie o Instalador do Agente de Provisionamento, aceite os termos e clique no botão **Instalar**.
 
-   ![Tela de instalação](./media/workday-inbound-tutorial/pa_install_screen_1.png "Tela de instalação")
+   ![Tela de Instalação](./media/workday-inbound-tutorial/pa_install_screen_1.png "Tela de instalação")
    
 1. Após a instalação ser concluída, o assistente será iniciado e você verá a tela **Conectar o Azure AD**. Clique no botão **Autenticar** para se conectar à sua instância do Azure AD.
 
@@ -203,14 +202,14 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
    
 1. Autentique-se na instância do Azure AD usando Credenciais de Administrador Global.
 
-   ![Autenticação de administrador](./media/workday-inbound-tutorial/pa_install_screen_3.png "Autenticação de administrador")
+   ![Autenticação de Administrador](./media/workday-inbound-tutorial/pa_install_screen_3.png "Autenticação de Administrador")
 
    > [!NOTE]
    > As credenciais de administrador do AD do Azure são usadas apenas para se conectar ao seu locatário do Azure AD. O agente não armazena as credenciais localmente no servidor.
 
 1. Após a autenticação bem-sucedida no Azure AD, você verá a tela **Conectar o Active Directory**. Nesta etapa, insira seu nome de domínio do AD e clique no botão **Adicionar Diretório**.
 
-   ![Adicionar diretório](./media/workday-inbound-tutorial/pa_install_screen_4.png "Adicionar diretório")
+   ![Adicionar Diretório](./media/workday-inbound-tutorial/pa_install_screen_4.png "Adicionar diretório")
   
 1. Agora, será solicitado que você insira as credenciais necessárias para se conectar ao domínio do AD. Na mesma tela, você pode usar **Selecionar prioridade do controlador de domínio** para especificar os controladores de domínio que o agente deve usar para enviar solicitações de provisionamento.
 
@@ -218,7 +217,7 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
    
 1. Depois de configurar o domínio, o instalador exibe uma lista de domínios configurados. Nessa tela, você pode repetir as etapas 5 e 6 para adicionar mais domínios ou clicar em **Avançar** para prosseguir para o registro do agente.
 
-   ![Domínios configurados](./media/workday-inbound-tutorial/pa_install_screen_6.png "Domínios configurados")
+   ![Domínios Configurados](./media/workday-inbound-tutorial/pa_install_screen_6.png "Domínios configurados")
 
    > [!NOTE]
    > Se você tiver vários domínios do AD (por exemplo, na.contoso.com, emea.contoso.com), adicione cada domínio individualmente à lista.
@@ -226,15 +225,15 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
    
 1. Examine os detalhes de configuração e clique em **Confirmar** para registrar o agente.
   
-   ![Confirmar tela](./media/workday-inbound-tutorial/pa_install_screen_7.png "Confirmar tela")
+   ![Confirmar Tela](./media/workday-inbound-tutorial/pa_install_screen_7.png "Confirmar tela")
    
 1. O assistente de configuração exibe o progresso do registro do agente.
   
-   ![Registro de Agente](./media/workday-inbound-tutorial/pa_install_screen_8.png "Registro de Agente")
+   ![Registro do Agente](./media/workday-inbound-tutorial/pa_install_screen_8.png "Registro de Agente")
    
 1. Depois que o registro do agente for bem-sucedido, você poderá clicar em **Sair** para sair do Assistente.
   
-   ![Sair da tela](./media/workday-inbound-tutorial/pa_install_screen_9.png "Sair da tela")
+   ![Sair da Tela](./media/workday-inbound-tutorial/pa_install_screen_9.png "Sair da tela")
    
 1. Verifique a instalação do Agente e certifique-se de que ele esteja em execução abrindo o Snap-In de “Serviços” e procurando pelo Serviço chamado “Agente de Provisionamento do Microsoft Azure AD Connect”
   
@@ -247,7 +246,7 @@ Nesta etapa, estabelecemos a conectividade com SuccessFactors e Active Directory
 
 1. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
-   * **Nome** de usuário do administrador – insira o nome de usu of the SuccessFactors API User Account, com a ID da empresa anexada. Ele tem o formato: **username\@CompanyID**
+   * **Nome** de usuário do administrador – insira o nome de usu of the SuccessFactors API User Account, com a ID da empresa anexada. Ele tem o formato: **username \@ CompanyID**
 
    * **Senha de administrador –** Insira a senha da conta de usuário da API do SuccessFactors. 
 
@@ -260,7 +259,7 @@ Nesta etapa, estabelecemos a conectividade com SuccessFactors e Active Directory
         > [!NOTE]
         > Essa configuração só entra em vigor para criações de contas de usuário quando o atributo *parentDistinguishedName* não está configurado nos mapeamentos de atributo. Essa configuração não é usada para operações de atualização e pesquisa de usuários. A subárvore de todo o domínio se enquadra no escopo da operação de pesquisa.
 
-   * **Email de notificação –** digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
+   * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
     > [!NOTE]
     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
@@ -270,7 +269,7 @@ Nesta etapa, estabelecemos a conectividade com SuccessFactors e Active Directory
 
    * Depois que as credenciais forem salvas com êxito, a seção **mapeamentos** exibirá o mapeamento padrão **sincronizar usuários do SuccessFactors no local Active Directory**
 
-### <a name="part-4-configure-attribute-mappings"></a>Parte 4: configurar mapeamentos de atributo
+### <a name="part-4-configure-attribute-mappings"></a>Parte 4: Configurar mapeamentos de atributos
 
 Nesta seção, você configurará como os dados do usuário fluem do SuccessFactors para o Active Directory.
 
@@ -282,21 +281,21 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
 
       * Atributo: personIdExternal
 
-      * Operador: COINCIDIR.EXREG
+      * Operador: Coincidir EXREG
 
       * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Exemplo: somente funcionários e não trabalhadores contingentes
+   * Exemplo: Apenas funcionários e trabalhadores não contingentes
 
       * Atributo: EmployeeID
 
-      * Operador: NÃO NULO
+      * Operador: IS NOT NULL
 
    > [!TIP]
    > Quando você estiver configurando o aplicativo de provisionamento de aplicativo pela primeira vez, você precisará testar e verificar seus mapeamentos de atributo e expressões para certificar-se de que ele está dando a você o resultado desejado. A Microsoft recomenda usar os filtros de escopo no **escopo do objeto de origem** para testar seus mapeamentos com alguns usuários de teste do SuccessFactors. Após ter verificado que os mapeamentos funcionam, você pode remover o filtro ou expandi-lo gradualmente para incluir mais usuários.
 
    > [!CAUTION] 
-   > O comportamento padrão do mecanismo de provisionamento é desabilitar/excluir usuários que saem do escopo. Isso pode não ser desejável em sua integração do SuccessFactors com o AD. Para substituir esse comportamento padrão, consulte o artigo [ignorar a exclusão de contas de usuário que saem do escopo](../app-provisioning/skip-out-of-scope-deletions.md)
+   > O comportamento padrão do mecanismo de provisionamento é desabilitar/excluir usuários fora do escopo. Isso pode não ser desejável em sua integração do SuccessFactors com o AD. Para substituir esse comportamento padrão, consulte o artigo [Ignorar a exclusão de contas de usuário fora do escopo](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. No campo **Ações do objeto de destino** é possível filtrar globalmente quais ações são executadas no Active Directory. **Criar** e **Atualizar** são as mais comuns.
 
@@ -331,9 +330,9 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
 
          * **Sempre** – aplicar esse mapeamento nas ações de criação e atualização do usuário
 
-         * **Somente durante a criação** -aplique este mapeamento somente em ações de criação de usuário
+         * **Somente durante a criação** – aplicar esse mapeamento somente nas ações de criação de usuário
 
-1. Para salvar seus mapeamentos, clique em **salvar** na parte superior da seção de mapeamento de atributos.
+1. Para salvar seus mapeamentos, clique em **Salvar** na parte superior da seção Mapeamento de Atributos.
 
 Uma vez concluída a configuração do mapeamento de atributo, você pode agora [habilitar e iniciar o serviço de provisionamento de usuário](#enable-and-launch-user-provisioning).
 
@@ -346,7 +345,7 @@ Depois que as configurações do aplicativo de provisionamento do SuccessFactors
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
 
-2. Clique em **Salvar**.
+2. Clique em **Save** (Salvar).
 
 3. Esta operação iniciará a sincronização inicial, que pode usar um número variável de horas dependendo de quantos usuários estiverem no locatário SuccessFactors. Você pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 

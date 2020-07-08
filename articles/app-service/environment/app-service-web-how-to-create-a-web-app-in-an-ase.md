@@ -8,11 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701822"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1
 
@@ -40,7 +39,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
     Se você tiver várias assinaturas, lembre-se de que, para criar um aplicativo no Ambiente de Serviço de Aplicativo, precisará usar a mesma assinatura que usou ao criar o ambiente. 
 3. Selecione ou crie um grupo de recursos.
    
-    Os *grupos de recursos* permitem gerenciar recursos do Azure relacionados como uma unidade e são úteis ao estabelecer regras de RBAC (controle de *acesso baseado em função* ) para seus aplicativos. Para obter mais informações, consulte [Azure Resource Manager visão geral][ResourceGroups]. 
+    Os *grupos de recursos* permitem gerenciar recursos do Azure relacionados como uma unidade e são úteis ao estabelecer regras de RBAC (controle de *acesso baseado em função* ) para seus aplicativos. Para saber mais, consulte [Visão geral do Azure Resource Manager][ResourceGroups]. 
 4. Selecione ou crie um plano do Serviço de Aplicativo.
    
     *planos do Serviço de Aplicativo* são conjuntos gerenciados de aplicativos Web.  Normalmente, quando você seleciona os preços, o preço cobrado é aplicado a um plano do serviço de aplicativo em vez de aplicado aos aplicativos individuais. Em um ASE você paga pelas instâncias de computação alocadas para o ASE em vez do que foi listado com o ASP.  Para aumentar o número de instâncias de um aplicativo Web, você aumenta as instâncias do seu plano do Serviço de Aplicativo e isso afeta todos os aplicativos Web nesse plano.  Alguns recursos, como slots de site ou integração de VNET, também têm restrições de quantidade dentro do plano.  Para obter mais informações, consulte [visão geral dos planos de serviço Azure app](../overview-hosting-plans.md)

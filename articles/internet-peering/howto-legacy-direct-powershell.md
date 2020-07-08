@@ -5,15 +5,14 @@ description: Converter um emparelhamento direto herdado para um recurso do Azure
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 5d2a8c910c9e384e137785bc1cd491bc85c7e7a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 803d2a09fb4114dae36dcb6147139c7b657501f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700120"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Converter um emparelhamento direto herdado para um recurso do Azure usando o PowerShell
 
@@ -22,12 +21,12 @@ Este artigo descreve como converter um emparelhamento direto herdado existente p
 Se preferir, você pode concluir este guia usando o [portal](howto-legacy-direct-portal.md)do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Examine os [pré-requisitos](prerequisites.md) e o [passo a passos de emparelhamento direto](walkthrough-direct-all.md) antes de começar a configuração.
+* Examine os [pré-requisitos](prerequisites.md) e o [Guia passo a passo de emparelhamento Direto](walkthrough-direct-all.md) antes de começar a configuração.
 
 ### <a name="work-with-azure-powershell"></a>Trabalhar com Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Converter um emparelhamento direto herdado para um recurso do Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Converter um emparelhamento direto herdado em um recurso do Azure
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Entre na sua conta do Azure e selecione sua assinatura
 [!INCLUDE [Account](./includes/account-powershell.md)]
@@ -118,7 +117,7 @@ Você pode obter descrições detalhadas de todos os parâmetros executando este
 Get-Help Get-AzPeering -detailed
 ```
 
-Para obter mais informações, consulte [perguntas frequentes sobre emparelhamento da Internet](faqs.md).
+Para obter mais informações, confira [Perguntas frequentes sobre emparelhamento de Internet](faqs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

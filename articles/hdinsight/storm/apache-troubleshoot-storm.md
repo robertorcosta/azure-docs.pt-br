@@ -10,11 +10,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700358"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Storm usando o Azure HDInsight
 
@@ -46,9 +45,9 @@ Quando desenvolve topologias que leem os Hubs de Eventos do Azure usando o arqui
 
 Os dados de ponto de verificação para deslocamentos são armazenados pelo spout do hub de eventos no ZooKeeper em dois caminhos raiz:
 
-- Pontos de verificação de Spout não transacionais `/eventhubspout`são armazenados em.
+- Pontos de verificação de Spout não transacionais são armazenados em `/eventhubspout` .
 
-- Os dados transacionais do ponto de verificação `/transactional`Spout são armazenados em.
+- Os dados transacionais do ponto de verificação Spout são armazenados em `/transactional` .
 
 ### <a name="how-to-restore"></a>Como restaurar
 
@@ -65,7 +64,7 @@ O comando de exportação grava os metadados em um caminho de HDFS (Sistema de A
 #### <a name="export-offset-metadata"></a>Exportar metadados de deslocamento
 
 1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser exportado.
-2. Execute o comando a seguir (depois de atualizar a cadeia de caracteres de versão do HDP) para exportar `/stormmetadta/zkdata` os dados de deslocamento ZooKeeper para o caminho HDFS:
+2. Execute o comando a seguir (depois de atualizar a cadeia de caracteres de versão do HDP) para exportar os dados de deslocamento ZooKeeper para o `/stormmetadta/zkdata` caminho HDFS:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +73,7 @@ O comando de exportação grava os metadados em um caminho de HDFS (Sistema de A
 #### <a name="import-offset-metadata"></a>Importar metadados de deslocamento
 
 1. Use SSH para ir até o cluster do ZooKeeper no cluster do qual o deslocamento do ponto de verificação precisa ser importado.
-2. Execute o comando a seguir (depois de atualizar a cadeia de caracteres de versão do HDP) para importar os dados `/stormmetadata/zkdata` de deslocamento ZooKeeper do caminho HDFS para o servidor ZooKeeper no cluster de destino:
+2. Execute o comando a seguir (depois de atualizar a cadeia de caracteres de versão do HDP) para importar os dados de deslocamento ZooKeeper do caminho HDFS `/stormmetadata/zkdata` para o servidor ZooKeeper no cluster de destino:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +90,9 @@ O comando de exportação grava os metadados em um caminho de HDFS (Sistema de A
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Como fazer para localizar binários do Storm em um cluster?
 
-Os binários do Storm para a pilha HDP `/usr/hdp/current/storm-client`atual estão em. O local é o mesmo para nós de cabeçalho e para nós de trabalho.
+Os binários do Storm para a pilha HDP atual estão em `/usr/hdp/current/storm-client` . O local é o mesmo para nós de cabeçalho e para nós de trabalho.
 
-Pode haver vários binários para versões específicas do HDP em/usr/HDP (por exemplo `/usr/hdp/2.5.0.1233/storm`,). A `/usr/hdp/current/storm-client` pasta é symlinked para a versão mais recente que está em execução no cluster.
+Pode haver vários binários para versões específicas do HDP em/usr/HDP (por exemplo, `/usr/hdp/2.5.0.1233/storm` ). A `/usr/hdp/current/storm-client` pasta é symlinked para a versão mais recente que está em execução no cluster.
 
 Para obter mais informações, consulte [Conectar um cluster HDInsight usando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Apache Storm](https://storm.apache.org/).
 
@@ -157,13 +156,13 @@ Para identificar os arquivos de configuração do [Apache Log4j 2](https://loggi
 
 ### <a name="on-head-nodes"></a>Em nós de cabeçalho
 
-A configuração de Nimbus Log4J é lida `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`de.
+A configuração de Nimbus Log4J é lida de `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
 ### <a name="on-worker-nodes"></a>Em nós de trabalho
 
-A configuração de Log4J do supervisor é `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`lida de.
+A configuração de Log4J do supervisor é lida de `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
-O arquivo de configuração do Log4J de trabalho `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`é lido de.
+O arquivo de configuração do Log4J de trabalho é lido de `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
 
 Disso`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
@@ -172,9 +171,9 @@ Disso`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 ## <a name="not-a-leader-exception"></a>Não é uma exceção de líder
 
-Ao enviar uma topologia, o usuário pode receber uma mensagem de erro semelhante a `Topology submission exception, cause not a leader, the current leader is NimbusInfo`:.
+Ao enviar uma topologia, o usuário pode receber uma mensagem de erro semelhante a: `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-Para resolver, o usuário pode precisar arquivar um tíquete para que os nós sejam reiniciados/reinicializados. Para obter mais informações, [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)consulte.
+Para resolver, o usuário pode precisar arquivar um tíquete para que os nós sejam reiniciados/reinicializados. Para obter mais informações, consulte [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 
@@ -182,8 +181,8 @@ Para resolver, o usuário pode precisar arquivar um tíquete para que os nós se
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-- Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+- Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-- Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

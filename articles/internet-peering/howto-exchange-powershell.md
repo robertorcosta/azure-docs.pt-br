@@ -5,15 +5,14 @@ description: Criar ou modificar um emparelhamento do Exchange usando o PowerShel
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 23c905f148da614c7785b61b76abed191206cd90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c0620875e7da4582156080c4a52fd6fbe0e573c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700239"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Criar ou modificar um emparelhamento do Exchange usando o PowerShell
 
@@ -22,7 +21,7 @@ Este artigo descreve como criar um emparelhamento do Microsoft Exchange usando c
 Se preferir, você pode concluir este guia usando o [portal](howto-exchange-portal.md)do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Examine os [pré-requisitos](prerequisites.md) e o [passo a passos de emparelhamento do Exchange](walkthrough-exchange-all.md) antes de começar a configuração.
+* Examine os [pré-requisitos](prerequisites.md) e o [Guia passo a passo de emparelhamento do Exchange](walkthrough-exchange-all.md) antes de começar a configuração.
 * Se você já tiver emparelhamentos do Exchange com a Microsoft que não são convertidos em recursos do Azure, consulte [converter um emparelhamento do Exchange herdado em um recurso do Azure usando o PowerShell](howto-legacy-exchange-powershell.md).
 
 ### <a name="work-with-azure-powershell"></a>Trabalhar com Azure PowerShell
@@ -61,4 +60,4 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 Get-Help Get-AzPeering -detailed
 ```
 
-Para obter mais informações, consulte [perguntas frequentes sobre emparelhamento da Internet](faqs.md).
+Para obter mais informações, confira [Perguntas frequentes sobre emparelhamento de Internet](faqs.md).

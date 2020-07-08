@@ -8,15 +8,14 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699899"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
-O serviço de [Azure site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastres Gerenciando e orquestrando a replicação, o failover e o failback de máquinas locais e VMs (máquinas virtuais) do Azure.
+O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastre ao gerenciar e orquestrar a replicação, o failover e o failback de computadores locais e de VMs (máquinas virtuais) do Azure.
 
 Este tutorial mostra como configurar a recuperação de desastre de servidores Windows e Linux físicos locais para o Azure. Neste tutorial, você aprenderá como:
 
@@ -34,7 +33,7 @@ Para concluir este tutorial:
 - Verifique se você entende os [componentes e a arquitetura](physical-azure-architecture.md) para este cenário.
 - Examine os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) para todos os componentes.
 - Verifique se os servidores que você deseja replicar estão em conformidade com os [requisitos de VM do Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
-- Prepare o Azure. Você precisa de uma assinatura do Azure, de uma rede virtual do Azure e de uma conta de armazenamento.
+- Preparar o Azure. Você precisa de uma assinatura do Azure, de uma rede virtual do Azure e de uma conta de armazenamento.
 - Prepare uma conta para a instalação automática do serviço de Mobilidade em cada servidor que você deseja replicar.
 
 Antes de começar, observe se:
@@ -105,7 +104,7 @@ Selecione o que será replicado e para onde será replicado.
 
 Defina o servidor de configuração, registre-o no cofre e descubra VMs.
 
-1. Clique em **site Recovery** > **preparar a infraestrutura** > **origem**.
+1. Clique em **site Recovery**  >  **preparar a infraestrutura**  >  **origem**.
 2. Se não tiver um servidor de configuração, clique em **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se **Servidor de Configuração** aparece em **Tipo de servidor**.
 4. Baixe o arquivo de instalação Configuração Unificada da Recuperação de Site.
@@ -131,12 +130,12 @@ As regras de firewall baseadas em endereço IP devem permitir a comunicação co
 - **IPs comerciais** – permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443). Permita que os intervalos de endereços IP para a região do Azure de sua assinatura deem suporte ao AAD, ao Backup, à Replicação e às URLs de Armazenamento.  
 - **IPs Governamentais** – permita os [Intervalos de IP do Datacenter do Azure Governamental](https://www.microsoft.com/en-us/download/details.aspx?id=57063) e a porta HTTPS (443) em todas as regiões US Gov (Virgínia, Texas, Arizona e Iowa) para dar suporte ao AAD, ao Backup, à Replicação e às URLs de Armazenamento.  
 
-#### <a name="run-setup"></a>Executar a instalação
+#### <a name="run-setup"></a>Executar instalação
 Execute a Instalação Unificada como Administrador Local, para instalar o servidor de configuração. O servidor de processo e o servidor de destino mestre também são instalados, por padrão, no servidor de configuração.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após a conclusão do registro, o servidor de configuração é exibido na página de **configurações** > de**servidores** no cofre.
+Após a conclusão do registro, o servidor de configuração é exibido na página de **configurações**de  >  **servidores** no cofre.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de origem
 
@@ -151,7 +150,7 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em **site Recovery infraestrutura** > **políticas** > de replicação **+ política de replicação**.
+1. Para criar uma nova política de replicação, clique em **site Recovery infraestrutura**  >  **políticas de replicação**  >  **+ política de replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limite de RPO**, especifique o limite de RPO (objetivo de pontos de recuperação). Esse valor especifica com que frequência os pontos de recuperação de dados são criados. Um alerta será gerado se a replicação contínua exceder esse limite.
 4. Em **Retenção do ponto de recuperação**, especifique qual será a duração (em horas) da janela de retenção para cada ponto de recuperação. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela. Há suporte para retenção de até 24 horas para máquinas replicadas para armazenamento premium e 72 horas para o armazenamento padrão.
@@ -169,21 +168,21 @@ Habilite a replicação para cada servidor.
 - O Site Recovery instalará o serviço de Mobilidade quando a replicação for habilitada.
 - Quando você habilitar a replicação para um servidor, poderá levar 15 minutos ou mais para que as alterações entrem em vigor e apareçam no portal.
 
-1. Clique em **replicar** > **origem**do aplicativo.
+1. Clique em **Replicar aplicativo** > **Origem**.
 2. Em **Origem**, selecione o servidor de configuração.
 3. Em **Tipo de computador**, selecione **Máquinas físicas**.
 4. Selecione o servidor de processo (o servidor de configuração). Em seguida, clique em **OK**.
 5. Em **destino**, selecione a assinatura e o grupo de recursos no qual você deseja criar as VMs do Azure após o failover. Escolha o modelo de implantação que você deseja usar no Azure (clássico ou gerenciamento de recurso).
 6. Selecione a conta de armazenamento do Azure que você deseja usar para replicar os dados. 
 7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem criadas após o failover.
-8. Selecione **Configurar agora para computadores selecionados**, para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **configurar mais tarde** para selecionar a rede do Azure por computador. 
+8. Selecione **Configurar agora para computadores selecionados**, para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador. 
 9. Em **Computadores físicos**, clique em **+ Computador físico**. Especifique o nome e o endereço IP. Selecione o sistema operacional do computador que você deseja replicar. Levará alguns minutos para que os servidores sejam descobertos e listados. 
-10. Em **Propriedades** > **Configurar Propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
-11. Em **configurações** > de replicação**definir configurações de replicação**, verifique se a política de replicação correta está selecionada. 
-12. Clique em **habilitar replicação**. Você pode acompanhar o progresso do trabalho **habilitar proteção** em **configurações** > **trabalhos** > **site Recovery trabalhos**. Depois que o trabalho **finalizar proteção** for executado, o computador estará pronto para failover.
+10. Em **Propriedades**  >  **Configurar Propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
+11. Em **Configurações de replicação** > **Definir configurações de replicação**, verifique se a política de replicação correta está selecionada. 
+12. Clique em **habilitar replicação**. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Depois que o trabalho **finalizar proteção** for executado, o computador estará pronto para failover.
 
 
-Para monitorar os servidores adicionados, você pode verificar a hora da última descoberta para eles em **servidores** > de configuração**último contato em**. Para adicionar computadores sem esperar por um período de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
+Para monitorar os servidores adicionados, você pode verificar a hora da última descoberta para eles em **servidores de configuração**  >  **último contato em**. Para adicionar computadores sem esperar por um período de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
