@@ -4,20 +4,20 @@ description: Como instalar e personalizar o Office em uma imagem mestra de área
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b93f26a6799a50868feb1f3350a3dc4a73a0b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200521"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office em uma imagem de VHD mestre
 
-Este artigo mostra como instalar o Office 365 ProPlus, o OneDrive e outros aplicativos comuns em uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure. Se os usuários precisarem acessar determinados aplicativos de LOB (linha de negócios), recomendamos que você os instale depois de concluir as instruções neste artigo.
+Este artigo mostra como instalar Microsoft 365 aplicativos para Enterprise, OneDrive e outros aplicativos comuns em uma imagem de disco rígido virtual (VHD) mestre para carregar no Azure. Se os usuários precisarem acessar determinados aplicativos de LOB (linha de negócios), recomendamos que você os instale depois de concluir as instruções neste artigo.
 
 Este artigo pressupõe que você já criou uma VM (máquina virtual). Caso contrário, consulte [preparar e personalizar uma imagem mestre VHD](set-up-customize-master-image.md#create-a-vm)
 
@@ -28,46 +28,47 @@ Este artigo também pressupõe que você tenha acesso elevado na VM, seja provis
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Instalar o Office no modo de ativação do computador compartilhado
 
-A ativação de computador compartilhado permite implantar o Office 365 ProPlus em um computador em sua organização que é acessado por vários usuários. Para obter mais informações sobre a ativação do computador compartilhado, consulte [visão geral da ativação do computador compartilhado para o Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
+A ativação de computador compartilhado permite que você implante Microsoft 365 aplicativos para empresas em um computador em sua organização que é acessado por vários usuários. Para obter mais informações sobre a ativação do computador compartilhado, consulte [visão geral da ativação do computador compartilhado para aplicativos Microsoft 365](/deployoffice/overview-shared-computer-activation).
 
 Use a [ferramenta de implantação do Office](https://www.microsoft.com/download/details.aspx?id=49117) para instalar o Office. O Windows 10 Enterprise Multi-Session dá suporte apenas às seguintes versões do Office:
-- Office 365 ProPlus
-- Office 365 Business que vem com uma assinatura Microsoft 365 Business
+
+   - Microsoft 365 Apps para Grandes Empresas
+   - Microsoft 365 aplicativos para negócios que acompanham uma assinatura do Microsoft 365 Business Premium
 
 A ferramenta de implantação do Office requer um arquivo XML de configuração. Para personalizar o exemplo a seguir, consulte as [Opções de configuração para a ferramenta de implantação do Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 Este XML de configuração de exemplo que fornecemos fará o seguinte:
 
-- Instale o Office do canal mensal e forneça atualizações do canal mensal quando elas forem executadas.
-- Use a arquitetura x64.
-- Desabilite as atualizações automáticas.
-- Remova todas as instalações existentes do Office e migre suas configurações.
-- Habilite a ativação do computador compartilhado.
+   - Instale o Office do canal corporativo mensal e forneça atualizações do canal corporativo mensal.
+   - Use a arquitetura x64.
+   - Desabilite as atualizações automáticas.
+   - Remova todas as instalações existentes do Office e migre suas configurações.
+   - Habilite a ativação do computador compartilhado.
 
 >[!NOTE]
 >O recurso de pesquisa de estêncil do Visio pode não funcionar conforme o esperado na área de trabalho virtual do Windows.
 
 Veja o que este XML de configuração de exemplo não fará:
 
-- Instalar o Skype for Business
-- Instale o OneDrive no modo por usuário. Para saber mais, confira [instalar o onedrive no modo por máquina](#install-onedrive-in-per-machine-mode).
+   - Instalar o Skype for Business
+   - Instale o OneDrive no modo por usuário. Para saber mais, confira [instalar o onedrive no modo por máquina](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->A ativação do computador compartilhado pode ser configurada por meio de objetos de Política de Grupo (GPOs) ou configurações do registro. O GPO está localizado em **políticas\\\\de configuração do\\computador Modelos Administrativos Microsoft Office 2016 (\\máquina) configurações de licenciamento**
+>A ativação do computador compartilhado pode ser configurada por meio de objetos de Política de Grupo (GPOs) ou configurações do registro. O GPO está localizado em **políticas de \\ configuração \\ do computador Modelos Administrativos \\ Microsoft Office 2016 (máquina) \\ configurações de licenciamento**
 
-A ferramenta de implantação do Office contém setup. exe. Para instalar o Office, execute o seguinte comando em uma linha de comando:
+A ferramenta de implantação do Office contém setup.exe. Para instalar o Office, execute o seguinte comando em uma linha de comando:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>Exemplo de Configuration. xml
+#### <a name="sample-configurationxml"></a>configuration.xml de exemplo
 
-O exemplo de XML a seguir instalará a versão mensal.
+O exemplo de XML a seguir instalará a versão mensal do canal empresarial.
 
 ```xml
 <Configuration>
-  <Add OfficeClientEdition="64" Channel="Monthly">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-US" />
       <Language ID="MatchOS" />
@@ -116,12 +117,12 @@ O OneDrive normalmente é instalado por usuário. Nesse ambiente, ele deve ser i
 
 Veja como instalar o OneDrive no modo por máquina:
 
-1. Primeiro, crie um local para preparar o instalador do OneDrive. Um local de pasta de disco\\\\local ou [UNC] (file://UNC) está bem.
+1. Primeiro, crie um local para preparar o instalador do OneDrive. Um local de pasta de disco local ou [ \\ \\ UNC] (file://UNC) está bem.
 
-2. Baixe o OneDriveSetup. exe em seu local de preparação com este link:<https://aka.ms/OneDriveWVD-Installer>
+2. Baixe OneDriveSetup.exe em seu local de preparação com este link:<https://aka.ms/OneDriveWVD-Installer>
 
-3. Se você instalou o Office com o onedrive omitindo ** \<ExcludeApp ID = "onedrive"\>/**, desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
-    
+3. Se você instalou o Office com o OneDrive omitindo **\<ExcludeApp ID="OneDrive" /\>** , desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
+
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
@@ -156,9 +157,11 @@ Veja como instalar o OneDrive no modo por máquina:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>Equipes e Skype
+## <a name="microsoft-teams-and-skype-for-business"></a>Microsoft Teams e Skype for Business
 
-A área de trabalho virtual do Windows não dá suporte ao Skype for Business e às equipes.
+A área de trabalho virtual do Windows não dá suporte ao Skype for Business.
+
+Para obter ajuda com a instalação do Microsoft Teams, consulte [usar o Microsoft Teams na área de trabalho virtual do Windows](teams-on-wvd.md). A otimização de mídia para o Microsoft Teams no Windows Virtual Desktop está disponível em versão prévia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

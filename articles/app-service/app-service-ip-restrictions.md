@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207117"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App restrições de acesso de serviço
 
@@ -30,7 +30,7 @@ A capacidade de restringir o acesso ao seu aplicativo Web de uma VNet (rede virt
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Adicionando e editando regras de restrição de acesso no portal ##
 
-Para adicionar uma regra de restrição de acesso ao seu aplicativo, use o menu para abrir**restrições de acesso** à **rede**>e clique em **Configurar restrições de acesso**
+Para adicionar uma regra de restrição de acesso ao seu aplicativo, use o menu para abrir restrições de acesso à **rede** > **Access Restrictions** e clique em **Configurar restrições de acesso**
 
 ![Opções de rede do Serviço de Aplicativo do Azure](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -59,6 +59,10 @@ Os pontos de extremidade de serviço permitem restringir o acesso às sub-redes 
 Os pontos de extremidade de serviço não podem ser usados para restringir o acesso a aplicativos executados em um Ambiente do Serviço de Aplicativo. Quando seu aplicativo estiver em um Ambiente do Serviço de Aplicativo, você poderá controlar o acesso ao seu aplicativo com as regras de acesso de IP. 
 
 Com os pontos de extremidade de serviço, você pode configurar seu aplicativo com gateways de aplicativo ou outros dispositivos WAF. Você também pode configurar aplicativos de várias camadas com back-ends seguros. Para obter mais detalhes sobre algumas das possibilidades, leia [recursos de rede e](networking-features.md) integração do serviço de aplicativo e do [Gateway de aplicativo com pontos de extremidade de serviço](networking/app-gateway-with-service-endpoints.md).
+
+> [!NOTE]
+> Atualmente, não há suporte para pontos de extremidade de serviço para aplicativos Web que usam IP SSL VIP (IP virtual). 
+>
 
 ## <a name="managing-access-restriction-rules"></a>Gerenciando regras de restrição de acesso
 

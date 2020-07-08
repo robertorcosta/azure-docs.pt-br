@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc869a8ab905275c8082c4fd375f8f6d6d48d97e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205451"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Noções básicas sobre o arquivo de configuração local (agente C#)
 
@@ -30,9 +30,9 @@ O agente de segurança lê o arquivo de configuração uma vez quando o agente �
 
 O agente de segurança do C# usa vários arquivos de configuração:
 
-- **Geral. config** -configurações relacionadas ao agente.
-- **Authentication. config** -configuração relacionada à autenticação (incluindo detalhes de autenticação).
-- **SecurityIotInterface. config** -configurações relacionadas a IOT.
+- Configurações relacionadas ao **General.config** Agent.
+- **Authentication.config** -configuração relacionada à autenticação (incluindo detalhes de autenticação).
+- Configurações relacionadas a **SecurityIotInterface.config** -IOT.
 
 Os arquivos de configuração contêm a configuração padrão. A configuração de autenticação é populada durante a instalação do agente e as alterações no arquivo de configuração são feitas quando o agente é reiniciado.
 
@@ -40,13 +40,13 @@ Os arquivos de configuração contêm a configuração padrão. A configuração
 
 Para Linux:
 
-- Os arquivos de configuração do sistema operacional `/var/ASCIoTAgent`estão localizados em.
+- Os arquivos de configuração do sistema operacional estão localizados em `/var/ASCIoTAgent` .
 
 Para Windows:
 
 - Os arquivos de configuração do sistema operacional estão localizados no diretório do agente de segurança.
 
-### <a name="generalconfig-configurations"></a>Configurações gerais. config
+### <a name="generalconfig-configurations"></a>Configurações de General.config
 
 | Nome da configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
@@ -62,9 +62,9 @@ Para Windows:
 | logFilePath | Caminho para o arquivo | Se fileLogLevel > desativado, os logs serão gravados nesse arquivo. |
 | defaultEventPriority | "Alta", "baixa", "desativado" | Prioridade de evento padrão. |
 
-### <a name="generalconfig-example"></a>Exemplo de. config geral
+### <a name="generalconfig-example"></a>Exemplo de General.config
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <General>
   <add key="agentId" value="da00006c-dae9-4273-9abc-bcb7b7b4a987" />
@@ -81,24 +81,24 @@ Para Windows:
 </General>
 ```
 
-### <a name="authenticationconfig"></a>Authentication. config
+### <a name="authenticationconfig"></a>Authentication.config
 
 | Nome da configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
-| moduleName | cadeia de caracteres | Nome da identidade do módulo de segurança. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
-| deviceId | cadeia de caracteres | ID do dispositivo (como registrado no Hub IoT do Azure). || schedulerInterval | Cadeia de TimeSpan | Intervalo do Agendador interno. |
-| gatewayHostname | cadeia de caracteres | Nome do host do Hub IOT do Azure. Geralmente <meu Hub>. azure-devices.net |
+| moduleName | string | Nome da identidade do módulo de segurança. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
+| deviceId | string | ID do dispositivo (como registrado no Hub IoT do Azure). || schedulerInterval | Cadeia de TimeSpan | Intervalo do Agendador interno. |
+| gatewayHostname | string | Nome do host do Hub IOT do Azure. Geralmente <meu Hub>. azure-devices.net |
 | filePath | Cadeia de caracteres-caminho para o arquivo | Caminho para o arquivo que contém o segredo de autenticação.|
-| type | "SymmetricKey", "SelfSignedCertificate" | O segredo do usuário para autenticação. Escolha *SymmetricKey* se o segredo do usuário for uma chave simétrica, escolha *certificado autoassinado* se o segredo for um certificado autoassinado. |
+| tipo | "SymmetricKey", "SelfSignedCertificate" | O segredo do usuário para autenticação. Escolha *SymmetricKey* se o segredo do usuário for uma chave simétrica, escolha *certificado autoassinado* se o segredo for um certificado autoassinado. |
 | identidade | "DPS", "módulo", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, módulo se a autenticação for feita usando credenciais de módulo ou dispositivo se a autenticação for feita usando as credenciais do dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se o certificado estiver armazenado em um arquivo, armazenará se o certificado estiver localizado em um repositório de certificados. |
-| idScope | cadeia de caracteres | Escopo da ID do DPS |
-| registrationId | cadeia de caracteres  | ID de registro do dispositivo DPS. |
+| idScope | string | Escopo da ID do DPS |
+| registrationId | string  | ID de registro do dispositivo DPS. |
 |
 
-### <a name="authenticationconfig-example"></a>Exemplo de Authentication. config
+### <a name="authenticationconfig-example"></a>Exemplo de Authentication.config
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
   <add key="moduleName" value="azureiotsecurity"/>
@@ -113,16 +113,16 @@ Para Windows:
 </Authentication>
 ```
 
-### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
 
 | Nome da configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "MQTT" | Tipo de transporte do Hub IoT. |
 |
 
-### <a name="securityiotinterfaceconfig-example"></a>Exemplo de SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig-example"></a>Exemplo de SecurityIotInterface.config
 
-```XML
+```xml
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
   <add key="transportType" value="Amqp"/>

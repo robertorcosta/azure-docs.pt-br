@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202289"
 ---
 # <a name="display-controls"></a>Controles de exibição
 
@@ -34,7 +34,7 @@ A imagem a seguir ilustra uma página de inscrição autodeclarada com dois cont
 
  Na seção de [metadados](self-asserted-technical-profile.md#metadata) de um [perfil técnico autodeclarado](self-asserted-technical-profile.md), o [ContentDefinition](contentdefinitions.md) referenciado precisa ter `DataUri` definido como a versão do contrato de página 2.0.0 ou superior. Por exemplo:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ A imagem a seguir ilustra uma página de inscrição autodeclarada com dois cont
 
 O elemento **DisplayControl** contém os seguintes atributos:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
 | UserInterfaceControlType | Sim | O tipo do controle de exibição. Atualmente, há suporte para [VerificationControl](display-control-verification.md) |
@@ -66,7 +66,7 @@ Em um controle de exibição, você pode usar elementos **InputClaims** para pre
 
 O exemplo a seguir popula o endereço de email a ser verificado com o endereço já presente.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -78,11 +78,11 @@ O exemplo a seguir popula o endereço de email a ser verificado com o endereço 
 
 Cada tipo de controle de exibição requer um conjunto diferente de declarações de exibição, [declarações de saída](#output-claims)e [ações](#display-control-actions) a serem executadas.
 
-Semelhante às **declarações de exibição** definidas em um [perfil técnico autodeclarado](self-asserted-technical-profile.md#display-claims), as declarações de exibição representam as declarações a serem coletadas do usuário dentro do controle de exibição. O elemento **ClaimType** referenciado precisa especificar o elemento **userinputtype** para um tipo de entrada de usuário com suporte pelo Azure ad B2C `TextBox` , `DropdownSingleSelect`como ou. Se um valor de declaração de exibição for exigido por uma **ação**, defina o atributo `true` **Required** como para forçar o usuário a fornecer um valor para essa declaração de exibição específica.
+Semelhante às **declarações de exibição** definidas em um [perfil técnico autodeclarado](self-asserted-technical-profile.md#display-claims), as declarações de exibição representam as declarações a serem coletadas do usuário dentro do controle de exibição. O elemento **ClaimType** referenciado precisa especificar o elemento **userinputtype** para um tipo de entrada de usuário com suporte pelo Azure ad B2C, como `TextBox` ou `DropdownSingleSelect` . Se um valor de declaração de exibição for exigido por uma **ação**, defina o atributo **Required** como `true` para forçar o usuário a fornecer um valor para essa declaração de exibição específica.
 
 Determinadas declarações de exibição são necessárias para determinados tipos de controle de exibição. Por exemplo, **VerificationCode** é necessário para o controle de exibição do tipo **VerificationControl**. Use o atributo **ControlClaimType** para especificar qual DisplayClaim é designado para essa declaração necessária. Por exemplo:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -100,7 +100,7 @@ Uma ação define uma lista de **perfis técnicos de validação**. Eles são us
 
 O exemplo a seguir envia um código no email ou SMS com base na seleção do usuário da Declaração **mfaType** .
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -131,7 +131,7 @@ Os controles de exibição são referenciados nas [declarações de exibição](
 
 Por exemplo:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>

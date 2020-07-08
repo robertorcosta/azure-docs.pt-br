@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201269"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de declarações boolianas
 
@@ -36,7 +36,7 @@ Executa uma operação And de dois inputClaims boolianos e define o outputClaim 
 
 A transformação de declarações a seguir demonstra como executar And em dois ClaimTypes boolianos: `isEmailNotExist`, e `isSocialAccount`. A declaração de saída `presentEmailSelfAsserted` será definida como `true` se o valor de ambas as declarações de entrada for `true`. Em uma etapa de orquestração, você poderá usar uma pré-condição para predefinir uma página autodeclarada, somente se o email da conta social estiver vazio.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -48,7 +48,7 @@ A transformação de declarações a seguir demonstra como executar And em dois 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-of-andclaims"></a>Exemplo de AndClaims
 
 - Declarações de entrada:
     - **inputClaim1**: true
@@ -72,7 +72,7 @@ A transformação de declarações **AssertBooleanClaimIsEqualToValue** é sempr
 
 A transformação de declarações a seguir demonstra como verificar o valor de um ClaimType booliano com um valor `true`. Se o valor de ClaimType `accountEnabled` for false, uma mensagem de erro será gerada.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -85,7 +85,8 @@ A transformação de declarações a seguir demonstra como verificar o valor de 
 
 
 O perfil técnico de validação `login-NonInteractive` chama a transformação de declarações `AssertAccountEnabledIsTrue`.
-```XML
+
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -96,7 +97,7 @@ O perfil técnico de validação `login-NonInteractive` chama a transformação 
 
 O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive** de validação.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -107,7 +108,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-of-assertbooleanclaimisequaltovalue"></a>Exemplo de AssertBooleanClaimIsEqualToValue
 
 - Declarações de entrada:
     - **inputClaim**: false
@@ -124,10 +125,9 @@ Verifica se o valor booliano de uma declaração é igual a `true` ou `false` e 
 | InputParameter |valueToCompareTo | booleano | O valor a ser comparado (true ou false). |
 | OutputClaim | compareResult | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
-
 A transformação de declarações a seguir demonstra como verificar o valor de um ClaimType booliano com um valor `true`. Se o valor do ClaimType `IsAgeOver21Years` for igual a `true`, a transformação de declarações retornará `true`, caso contrário, `false`.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -141,7 +141,7 @@ A transformação de declarações a seguir demonstra como verificar o valor de 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-of-comparebooleanclaimtovalue"></a>Exemplo de CompareBooleanClaimToValue
 
 - Declarações de entrada:
     - **inputClaim**: false
@@ -149,8 +149,6 @@ A transformação de declarações a seguir demonstra como verificar o valor de 
     - **valueToCompareTo**: true
 - Declarações de saída:
     - **compareResult**: false
-
-
 
 ## <a name="notclaims"></a>NotClaims
 
@@ -163,7 +161,7 @@ Executa uma operação Not do inputClaim booliano e define o outputClaim com o r
 
 Use essa transformação de declaração para realizar a negação lógica em uma declaração.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -174,7 +172,7 @@ Use essa transformação de declaração para realizar a negação lógica em um
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-of-notclaims"></a>Exemplo de não reivindicações
 
 - Declarações de entrada:
     - **inputClaim**: false
@@ -193,7 +191,7 @@ Calcula um Or entre dois inputClaims boolianos e define o outputClaim com o resu
 
 A transformação de declarações a seguir demonstra como executar `Or` em dois ClaimTypes boolianos. Na etapa de orquestração, você poderá usar uma pré-condição para predefinir uma página autodeclarada se o valor de uma das declarações for `true`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
@@ -205,7 +203,7 @@ A transformação de declarações a seguir demonstra como executar `Or` em dois
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example-of-orclaims"></a>Exemplo de OrClaims
 
 - Declarações de entrada:
     - **inputClaim1**: true

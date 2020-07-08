@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201439"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitar um token de acesso no Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Este artigo mostra como solicitar um token de acesso para um aplicativo e uma AP
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
-- Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-application.md).
+- Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-api-application.md).
 
 ## <a name="scopes"></a>Escopos
 
@@ -49,7 +49,7 @@ O exemplo a seguir mostra os escopos codificados em uma URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Se você solicitar mais escopos do que o permitido para o aplicativo cliente, a chamada terá sucesso se pelo menos uma permissão for concedida. A declaração **scp** no token de acesso resultante é preenchida apenas com as permissões que foram concedidas com êxito. O padrão de OpenID Connect especifica vários valores especiais de escopo. Os escopos a seguir representam a permissão para acessar o perfil do usuário:
+Se você solicitar mais escopos do que o permitido para o aplicativo cliente, a chamada terá sucesso se pelo menos uma permissão for concedida. A declaração **scp** no token de acesso resultante é preenchida apenas com as permissões que foram concedidas com êxito. O padrão de OpenID Connect especifica vários valores especiais de escopo. Os seguintes escopos representam a permissão para acessar o perfil do usuário:
 
 - **openid** - Solicita um token de ID.
 - **offline_access** - Solicita um token de atualização usando [fluxos de Código de autenticação](authorization-code-flow.md).
@@ -67,7 +67,7 @@ Substitua esses valores no exemplo a seguir:
 - `<application-ID>` – O identificador de aplicativo do aplicativo cliente que você registrou para oferecer suporte ao fluxo de usuário.
 - `<redirect-uri>` – O **URI de redirecionamento** que você inseriu ao registrar o aplicativo cliente.
 
-```HTTP
+```http
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
@@ -84,7 +84,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 Depois de receber o código de autorização com êxito, use-o para solicitar um token de acesso:
 
-```HTTP
+```http
 POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -99,7 +99,7 @@ grant_type=authorization_code
 
 Você deverá ver algo semelhante à resposta a seguir:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -113,7 +113,7 @@ Você deverá ver algo semelhante à resposta a seguir:
 
 Ao usar https://jwt.ms para examinar o token de acesso retornado, você verá algo semelhante ao exemplo a seguir:
 
-```JSON
+```json
 {
   "typ": "JWT",
   "alg": "RS256",

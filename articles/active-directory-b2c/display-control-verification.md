@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202307"
 ---
 # <a name="verification-display-control"></a>Controle de exibição de verificação
 
@@ -40,12 +40,12 @@ O controle de exibição de verificação consiste em duas etapas (ações):
 
 O **VerificationControl** deve conter os seguintes elementos:
 
-- O tipo de `DisplayControl` é `VerificationControl`.
+- O tipo de `DisplayControl` é `VerificationControl` .
 - `DisplayClaims`
   - **Enviar para** -uma ou mais declarações especificando para onde enviar o código de verificação. Por exemplo, *email* ou *código do país* e *número de telefone*.
-  - **Código de verificação** -a declaração de código de verificação que o usuário fornece depois que o código foi enviado. Essa declaração deve ser definida conforme necessário e `ControlClaimType` deve ser definida como. `VerificationCode`
+  - **Código de verificação** -a declaração de código de verificação que o usuário fornece depois que o código foi enviado. Essa declaração deve ser definida conforme necessário e `ControlClaimType` deve ser definida como `VerificationCode` .
 - Declaração de saída (opcional) a ser retornada para a página autodeclarada após o usuário concluir o processo de verificação. Por exemplo, *email* ou *código do país* e *número de telefone*. O perfil técnico autodeclarado usa as declarações para persistir os dados ou emergir as declarações de saída para a próxima etapa de orquestração.
-- Dois `Action`s com os seguintes nomes:
+- Dois `Action` s com os seguintes nomes:
   - **SendCode** – envia um código para o usuário. Essa ação geralmente contém dois perfis técnicos de validação, para gerar um código e enviá-lo.
   - **VerifyCode** -verifica o código. Essa ação geralmente contém um único perfil técnico de validação.
 
@@ -53,7 +53,7 @@ No exemplo a seguir, uma caixa de texto de **email** é exibida na página. Quan
 
 Em seguida, o usuário insere o **verificationCode** e seleciona **VerifyCode** para disparar a ação **VerifyCode** no back-end. Se todas as validações forem aprovadas, o **VerificationControl** será considerado concluído e o usuário poderá continuar para a próxima etapa.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

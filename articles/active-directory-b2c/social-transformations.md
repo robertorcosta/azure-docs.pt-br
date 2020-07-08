@@ -11,20 +11,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb713651aca266ab2546ff26c3cd0175a4cbc289
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203377"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformações de declarações de contas sociais
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), as identidades de conta social são `userIdentities` armazenadas em um atributo de um tipo de Declaração **alternativeSecurityIdCollection** . Cada item no **alternativeSecurityIdCollection** especifica o emissor (nome do provedor de identidade) como facebook.com e o `issuerUserId`, que é um identificador de usuário único para o emissor.
+No Azure Active Directory B2C (Azure AD B2C), as identidades de conta social são armazenadas em um `userIdentities` atributo de um tipo de Declaração **alternativeSecurityIdCollection** . Cada item no **alternativeSecurityIdCollection** especifica o emissor (nome do provedor de identidade) como facebook.com e o `issuerUserId`, que é um identificador de usuário único para o emissor.
 
-```JSON
+```json
 "userIdentities": [{
     "issuer": "google.com",
     "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
@@ -43,13 +43,13 @@ Cria uma declaração JSON da propriedade alternativeSecurityId do usuário que 
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | chave | cadeia de caracteres | O ClaimType que especifica o identificador de usuário único usado pelo provedor de identidade social. |
-| InputClaim | identityProvider | cadeia de caracteres | O ClaimType que especifica o nome do provedor de identidade de conta social, como facebook.com. |
-| OutputClaim | alternativeSecurityId | cadeia de caracteres | O ClaimType produzido depois de invocar ClaimsTransformation. Contém informações sobre a identidade de um usuário da conta social. O **emissor** é o valor da declaração `identityProvider`. O **issuerUserId** é o valor da declaração `key` no formato base64. |
+| InputClaim | chave | string | O ClaimType que especifica o identificador de usuário único usado pelo provedor de identidade social. |
+| InputClaim | identityProvider | string | O ClaimType que especifica o nome do provedor de identidade de conta social, como facebook.com. |
+| OutputClaim | alternativeSecurityId | string | O ClaimType produzido depois de invocar ClaimsTransformation. Contém informações sobre a identidade de um usuário da conta social. O **emissor** é o valor da declaração `identityProvider`. O **issuerUserId** é o valor da declaração `key` no formato base64. |
 
 Use essa transformação de declarações para gerar um ClaimType `alternativeSecurityId`. Ele é usado por todos os perfis técnicos do provedor de identidade, como `Facebook-OAUTH`. A transformação de declarações a seguir recebe a ID de conta social do usuário e o nome do provedor de identidade. A saída desse perfil técnico é um formato de cadeia de caracteres JSON que pode ser usado em serviços de diretório do Azure AD.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
@@ -75,7 +75,7 @@ Adiciona um `AlternativeSecurityId` a uma declaração `alternativeSecurityIdCol
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | cadeia de caracteres | O ClaimType a ser adicionado à declaração de saída. |
+| InputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
 | InputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes usados pela transformação de declarações se disponíveis na política. Se fornecida, a transformação de declarações adiciona o `item` no final da coleção. |
 | OutputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. A nova coleção que contém os itens de entrada `collection` e `item`. |
 
@@ -86,7 +86,7 @@ O exemplo a seguir vincula uma nova identidade social com uma conta existente. P
 1. Chame a transformação de declarações **AddItemToAlternativeSecurityIdCollection** para adicionar a declaração **AlternativeSecurityId2** à declaração **AlternativeSecurityIds** existente.
 1. Persistir a declaração **alternativeSecurityIds** para a conta de usuário
 
-```XML
+```xml
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
@@ -117,7 +117,7 @@ Retorna a lista de emissores da declaração **alternativeSecurityIdCollection**
 
 A transformação de declarações a seguir lê a declaração **alternativeSecurityIds** do usuário e extrai a lista de nomes de provedores de identidade associada à conta. Usar a saída **identityProvidersCollection** para mostrar ao usuário a lista de provedores de identidade associada à conta. Ou, na página de seleção do provedor de identidade, filtre a lista de provedores de identidade com base na declaração **identityProvidersCollection** de saída. Portanto, o usuário pode selecionar para vincular a nova identidade social que ainda não esteja associada à conta.
 
-```XML
+```xml
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="alternativeSecurityIds" TransformationClaimType="alternativeSecurityIdCollection" />
@@ -139,7 +139,7 @@ Remove um **AlternativeSecurityId** de uma declaração **alternativeSecurityIdC
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | cadeia de caracteres | O ClaimType que contém o nome do provedor de identidade a ser removido da coleção. |
+| InputClaim | identityProvider | string | O ClaimType que contém o nome do provedor de identidade a ser removido da coleção. |
 | InputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes usados pela transformação de declarações. A transformação de declarações remove o identityProvider da coleção. |
 | OutputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. A nova coleção, depois de remover o identityProvider da coleção. |
 
@@ -149,7 +149,7 @@ O exemplo a seguir desvincula uma das identidades sociais de uma conta existente
 3. Chame um perfil técnico de transformação de declarações que chama a transformação de declarações **RemoveAlternativeSecurityIdByIdentityProvider**, que removeu a identidade social selecionada, usando o nome do provedor de identidade.
 4. Persistir a Declaração **alternativeSecurityIds** para a conta de usuário.
 
-```XML
+```xml
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
     <InputClaims>
         <InputClaim ClaimTypeReferenceId="secondIdentityProvider" TransformationClaimType="identityProvider" />

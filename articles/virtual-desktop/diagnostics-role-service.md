@@ -1,43 +1,43 @@
 ---
-title: Problemas de diagnóstico de área de trabalho virtual do Windows – Azure
-description: Como usar o recurso de diagnóstico de área de trabalho virtual do Windows para diagnosticar problemas.
+title: Problemas de diagnóstico da Área de Trabalho Virtual do Windows - Azure
+description: Como usar o recurso de diagnóstico da Área de Trabalho Virtual do Windows para diagnosticar problemas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cffc6393ef6f5c1a33be615d9d5d4b8729ab711f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 2ead16c655d4790e81931371e67da8106dabf83e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200538"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A área de trabalho virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. Para saber mais sobre os recursos de diagnóstico da área de trabalho virtual do Windows, confira [usar o log Analytics para o recurso de diagnóstico](diagnostics-log-analytics.md).
-  
-As conexões que não chegam à área de trabalho virtual do Windows não aparecerão nos resultados do diagnóstico porque o próprio serviço de função de diagnóstico faz parte da área de trabalho virtual do Windows. Problemas de conexão de área de trabalho virtual do Windows podem ocorrer quando o usuário final está enfrentando problemas de conectividade de rede.
+A Área de Trabalho Virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. Para saber mais sobre os recursos de diagnóstico da área de trabalho virtual do Windows, confira [usar o log Analytics para o recurso de diagnóstico](diagnostics-log-analytics.md).
+
+As conexões que não acessam a Área de Trabalho Virtual do Windows não são exibidas nos resultados do diagnóstico porque o próprio serviço da função de diagnóstico faz parte da Área de Trabalho Virtual do Windows. Problemas de conexão da Área de Trabalho Virtual do Windows podem ocorrer quando o usuário final enfrenta problemas de conectividade de rede.
 
 ## <a name="common-error-scenarios"></a>Cenários de erro comuns
 
-Os cenários de erro são categorizados em interno ao serviço e externos à área de trabalho virtual do Windows.
+Os cenários de erro são categorizados como internos ao serviço e externos à Área de Trabalho Virtual do Windows.
 
 * Problema interno: especifica cenários que não podem ser mitigados pelo cliente e precisam ser resolvidos como um problema de suporte. Ao fornecer comentários por meio da [comunidade de tecnologia de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), inclua a ID de correlação e o período de tempo aproximado de quando o problema ocorreu.
-* Problema externo: relaciona-se a cenários que podem ser atenuados pelo cliente. Eles são externos à área de trabalho virtual do Windows.
+* Problema externo: relaciona-se a cenários que podem ser atenuados pelo cliente. São externos à Área de Trabalho Virtual do Windows.
 
-A tabela a seguir lista os erros comuns que seus administradores podem encontrar.
+A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 
 >[!NOTE]
->Essa lista inclui erros mais comuns e é atualizada em uma cadência regular. Para garantir que você tenha as informações mais atualizadas, certifique-se de verificar este artigo pelo menos uma vez por mês.
+>Essa lista inclui os erros mais comuns e é atualizada regularmente. Para garantir que você tenha as informações mais atualizadas, verifique este artigo pelo menos uma vez por mês.
 
 ## <a name="management-errors"></a>Erros de gerenciamento
 
@@ -55,19 +55,19 @@ A tabela a seguir lista os erros comuns que seus administradores podem encontrar
 
 |Código numérico|Código do erro|Solução sugerida|
 |---|---|---|
-|-2147467259|ConnectionFailedAdTrustedRelationshipFailure|O host da sessão não está ingressado corretamente no Active Directory.|
+|-2147467259|ConnectionFailedAdTrustedRelationshipFailure|O host da sessão não entrou corretamente no Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|As conexões falharam porque o host da sessão não está disponível. Verifique a integridade do host da sessão.|
-|-2146233088|ConnectionFailedClientDisconnect|Se você vir esse erro com frequência, verifique se o computador do usuário está conectado à rede.|
-|-2146233088|ConnectionFailedNoHealthyRdshAvailable|A sessão à qual o usuário do host tentou se conectar não está íntegra. Depure a máquina virtual.|
-|-2146233088|ConnectionFailedUserNotAuthorized|O usuário não tem permissão para acessar o aplicativo ou a área de trabalho publicada. O erro pode aparecer depois que o administrador removeu os recursos publicados. Peça ao usuário para atualizar o feed no aplicativo Área de Trabalho Remota.|
+|-2146233088|ConnectionFailedClientDisconnect|Se você observar esse erro com frequência, verifique se o computador do usuário está conectado à rede.|
+|-2146233088|ConnectionFailedNoHealthyRdshAvailable|A sessão à qual o usuário do host tentou se conectar não está íntegra. Depurar a máquina virtual.|
+|-2146233088|ConnectionFailedUserNotAuthorized|O usuário não tem permissão para acessar a área de trabalho ou o aplicativo publicado. O erro pode aparecer depois que o administrador removeu os recursos publicados. Peça ao usuário para atualizar o feed no aplicativo da Área de Trabalho Remota.|
 |2|FileNotFound|O aplicativo que o usuário tentou acessar foi instalado incorretamente ou definido como um caminho incorreto.<br><br>Ao publicar novos aplicativos enquanto o usuário tem uma sessão ativa, o usuário não poderá acessar esse aplicativo. A sessão deve ser desligada e reiniciada para que o usuário possa acessar o aplicativo. |
-|3|InvalidCredentials|O nome de usuário ou a senha digitada pelo usuário não corresponde a nenhum nome de usuários ou senhas existentes. Examine as credenciais para erros de digitação e tente novamente.|
-|8|ConnectionBroken|A conexão entre o cliente e o gateway ou o servidor foi descartada. Nenhuma ação é necessária, a menos que ocorra inesperadamente.|
-|14|UnexpectedNetworkDisconnect|A conexão com a rede foi descartada. Peça ao usuário para se conectar novamente.|
+|3|InvalidCredentials|O nome de usuário ou a senha digitada pelo usuário não corresponde aos nomes de usuário ou senhas existentes. Examine as credenciais quanto a erros de digitação e tente novamente.|
+|8|ConnectionBroken|A conexão entre o cliente e o gateway ou o servidor caiu. Nenhuma ação necessária, a menos que isso ocorra inesperadamente.|
+|14|UnexpectedNetworkDisconnect|A conexão com a rede caiu. Peça ao usuário para se conectar novamente.|
 |24|ReverseConnectFailed|A máquina virtual do host não tem uma linha de visão direta para o gateway de área de trabalho remota. Verifique se o endereço IP do gateway pode ser resolvido.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as funções na área de trabalho virtual do Windows, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
+Para saber mais sobre as funções na Área de Trabalho Virtual do Windows, confira [ambiente da Área de Trabalho Virtual do Windows](environment-setup.md).
 
-Para ver uma lista de cmdlets do PowerShell disponíveis para a área de trabalho virtual do Windows, consulte a [referência do PowerShell](/powershell/windows-virtual-desktop/overview).
+Para ver uma lista dos cmdlets do PowerShell disponíveis para a Área de Trabalho Virtual do Windows, confira a [referência do PowerShell](/powershell/windows-virtual-desktop/overview).

@@ -6,17 +6,17 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205077"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Restauração geográfica para o pool SQL
 
@@ -26,7 +26,7 @@ Neste artigo, você aprende a restaurar o pool SQL de um backup geográfico por 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifique sua capacidade de DTU.** Cada pool do SQL é hospedado por um SQL Server (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão. Verifique se o SQL Server tem uma cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifique sua capacidade de DTU.** Cada pool do SQL é hospedado por um [SQL Server lógico](../../azure-sql/database/logical-servers.md) (por exemplo, MyServer.Database.Windows.net) que tem uma cota de DTU padrão. Verifique se o SQL Server tem uma cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurar de uma região geográfica do Azure por meio do PowerShell
 
@@ -49,7 +49,7 @@ Para restaurar de um backup geográfico, use o cmdlet [Get-AzSqlDatabaseGeoBacku
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different logical server.
+$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different server.
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -81,7 +81,7 @@ Siga as etapas descritas abaixo para restaurar um pool SQL de um backup geográf
 
    ![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Clique em **bancos de dados** e * * Azure Synapse Analytics (anteriormente conhecido como SQL DW) * *.
+3. Clique em **bancos de dados** e em **Azure Synapse Analytics (anteriormente conhecido como SQL DW)**.
 
    ![Novo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
@@ -89,7 +89,7 @@ Siga as etapas descritas abaixo para restaurar um pool SQL de um backup geográf
 
    ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. Para usar o parâmetro de **dados existente** , selecione **backup** e selecione o backup apropriado nas opções de rolagem para baixo. Clique em **revisar + criar**.
+5. Para usar o parâmetro de **dados existente** , selecione **backup** e selecione o backup apropriado nas opções de rolagem para baixo. Clique em **Examinar + Criar**.
 
    ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 

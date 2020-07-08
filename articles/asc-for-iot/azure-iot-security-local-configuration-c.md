@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 842a69c27ceb0d56df5a7b49eb9922b88d8d4b32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206930"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Noções básicas sobre o arquivo LocalConfiguration.json – agente do C
 
@@ -29,7 +29,7 @@ O agente de segurança lê a configuração uma vez, na inicialização do agent
 A configuração encontrada no arquivo de configuração local contém a configuração de autenticação e outras configurações relacionadas ao agente.
 O arquivo contém configurações em pares de "chave-valor" na notação JSON e as configurações são preenchidas quando o agente é instalado.
 
-Por padrão, o arquivo está localizado em:/var/ASCIoTAgent/LocalConfiguration.json
+Por padrão, o arquivo está localizado em:/var/ASCIoTAgent/LocalConfiguration.jsem
 
 As alterações feitas no arquivo de configuração ocorrem quando o agente é reiniciado.
 
@@ -44,18 +44,18 @@ As alterações feitas no arquivo de configuração ocorrem quando o agente é r
 | Identidade | "DPS", "SecurityModule", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, SecurityModule se a autenticação for feita por meio de credenciais do módulo de segurança ou dispositivo se a autenticação for feita com as credenciais do dispositivo |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | o segredo do usuário para autenticação-escolha SasToken se o segredo de uso for uma chave simétrica, escolha certificado autoassinado se o segredo for um certificado autoassinado  |
 | FilePath | Caminho para o arquivo (cadeia de caracteres) | Caminho para o arquivo que contém o segredo de autenticação |
-| HostName | cadeia de caracteres | O nome do host do Hub IOT do Azure. geralmente <meu Hub>. azure-devices.net |
-| DeviceId | cadeia de caracteres | A ID do dispositivo (como registrado no Hub IoT do Azure) |
+| HostName | string | O nome do host do Hub IOT do Azure. geralmente <meu Hub>. azure-devices.net |
+| DeviceId | string | A ID do dispositivo (como registrado no Hub IoT do Azure) |
 | DPS | JsonObject | Configurações relacionadas a DPS |
-| IDScope | cadeia de caracteres | Escopo da ID do DPS |
-| RegistrationId | cadeia de caracteres  | ID de registro do dispositivo DPS |
-| Registrando em log | JsonObject | Configurações relacionadas ao agente de log |
+| IDScope | string | Escopo da ID do DPS |
+| RegistrationId | string  | ID de registro do dispositivo DPS |
+| Registro em log | JsonObject | Configurações relacionadas ao agente de log |
 | SystemLoggerMinimumSeverity | 0 <= número <= 4 | mensagens de log iguais e superiores a essa gravidade serão registradas em/var/log/syslog (0 é a severidade mais baixa) |
 | DiagnosticEventMinimumSeverity | 0 <= número <= 4 | as mensagens de log iguais e superiores a essa gravidade serão enviadas como eventos de diagnóstico (0 é a severidade mais baixa) |
 
 ## <a name="security-agent-configurations-code-example"></a>Exemplo de código de configurações do agente de segurança
 
-```JSON
+```json
 {
     "Configuration" : {
         "AgentId" : "b97faf0a-0f57-471f-9dab-46a8e1764946",

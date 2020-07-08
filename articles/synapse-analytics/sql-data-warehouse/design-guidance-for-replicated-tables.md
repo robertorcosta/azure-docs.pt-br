@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201694"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Diretrizes de design para usar tabelas replicadas no pool de SQL do Synapse
 
@@ -126,7 +126,7 @@ Recriamos `DimDate` e `DimSalesTerritory` como tabelas replicadas e executamos a
 
 O pool de SQL implementa uma tabela replicada, mantendo uma versão mestre da tabela. Ele copia a versão mestre para o primeiro banco de dados de distribuição em cada nó de computação. Quando há uma alteração, a versão mestre é atualizada primeiro e depois as tabelas em cada nó de computação são recompiladas. Uma recompilação de uma tabela replicada inclui copiar a tabela para cada nó de computação e, em seguida, compilar os índices.  Por exemplo, uma tabela replicada em um DW2000c tem 5 cópias dos dados.  Uma cópia mestre e uma cópia completa em cada nó de Computação.  Todos os dados são armazenados em bancos de dados de distribuição. O pool de SQL usa esse modelo para dar suporte a instruções de modificação de dados mais rápidas e operações de dimensionamento flexíveis.
 
-As recompilações são necessárias depois que:
+Recompilações assíncronas são disparadas pela primeira consulta em relação à tabela replicada após:
 
 - Os dados são carregados ou modificados
 - A instância do SQL do Synapse é dimensionada para um nível diferente

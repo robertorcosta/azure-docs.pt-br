@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203139"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -24,7 +24,7 @@ ms.locfileid: "79264304"
 
 Um elemento **TechnicalProfiles** contém um conjunto de perfis técnicos com suporte no provedor de declarações. Cada provedor de declarações precisa ter um ou mais perfis técnicos que determinam os pontos de extremidade e os protocolos necessários para a comunicação com o provedor de declarações. Um provedor de declarações pode ter vários perfis técnicos.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Display name</DisplayName>
   <TechnicalProfiles>
@@ -111,7 +111,7 @@ O elemento **Protocol** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OAuth1`, `OAuth2` `SAML2` `OpenIdConnect` `Proprietary`,,, ou `None`. |
+| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` ou `None` . |
 | Manipulador | Não | Quando o nome do protocolo for definido como `Proprietary`, especifique o nome totalmente qualificado do assembly usado pelo Azure AD B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados
@@ -201,7 +201,7 @@ O elemento **DisplayClaim** contém os seguintes atributos:
 | DisplayControlReferenceId | Não | O identificador de um [controle de exibição](display-controls.md) já definido na seção de ClaimsSchema no arquivo de política ou de política pai. |
 | Obrigatório | Não | Indica se a declaração de exibição é necessária. |
 
-O **DisplayClaim** requer que você especifique um `ClaimTypeReferenceId` ou `DisplayControlReferenceId`o.
+O **DisplayClaim** requer que você especifique um `ClaimTypeReferenceId` ou o `DisplayControlReferenceId` .
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
@@ -310,7 +310,7 @@ O uso de **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** ou **
 
 O seguinte perfil técnico é executado somente quando a coleção de cadeia de caracteres **identityProviders** contém o valor de `facebook.com`:
 
-```XML
+```xml
 <TechnicalProfile Id="UnLink-Facebook-OAUTH">
   <DisplayName>Unlink Facebook</DisplayName>
 ...

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4aa9f4839c8bfc04cee4bb03ea0eac98cb8b25c0
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 4824b64236270c422f22809e9eeb191ee3be27fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202561"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
@@ -57,7 +57,7 @@ O `<OutputClaims>` é usado para recuperar as declarações da sessão.
 
 Como o nome indica, este provedor não faz nada. Esse provedor pode ser usado para suprimir o comportamento de SSO para um determinado perfil técnico. O perfil técnico `SM-Noop` a seguir está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-Noop">
   <DisplayName>Noop Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.NoopSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -68,7 +68,7 @@ Como o nome indica, este provedor não faz nada. Esse provedor pode ser usado pa
 
 Esse provedor pode ser usado para armazenar as declarações em uma sessão. Normalmente, esse provedor é referenciado em um perfil técnico usado para gerenciar contas locais e federadas. O perfil técnico `SM-AAD` a seguir está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-AAD">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -89,7 +89,7 @@ Esse provedor pode ser usado para armazenar as declarações em uma sessão. Nor
 
 O perfil técnico `SM-MFA` a seguir está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. Esse perfil técnico gerencia a sessão de autenticação multifator.
 
-```XML
+```xml
 <TechnicalProfile Id="SM-MFA">
   <DisplayName>Session Mananagement Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -106,7 +106,7 @@ O perfil técnico `SM-MFA` a seguir está incluído no [pacote de início de pol
 
 Esse provedor é usado para suprimir a tela "escolher provedor de identidade" e sair de um provedor de identidade federada. Normalmente, ele é referenciado em um perfil técnico configurado para um provedor de identidade federada, como o Facebook ou o Azure Active Directory. O perfil técnico `SM-SocialLogin` a seguir está incluído no [pacote de início de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-SocialLogin">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -140,7 +140,7 @@ Esse provedor é usado para gerenciar as sessões de Azure AD B2C entre uma terc
 
 Esse provedor é usado para gerenciar as sessões de SAML do Azure AD B2C entre um aplicativo de terceira parte confiável ou um provedor de identidade federada SAML. Ao usar o provedor SSO para armazenar uma sessão de provedor de identidade SAML, o `RegisterServiceProviders` precisa ser definido como `false`. O perfil técnico `SM-Saml-idp` a seguir é usado pelo [perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
 
-```XML
+```xml
 <TechnicalProfile Id="SM-Saml-idp">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -154,7 +154,7 @@ Ao usar o provedor para armazenar a sessão de SAML do B2C, o `RegisterServicePr
 
 O perfil técnico `SM-Saml-issuer` a seguir é usado pelo [perfil técnico do emissor de SAML](saml-issuer-technical-profile.md)
 
-```XML
+```xml
 <TechnicalProfile Id="SM-Saml-issuer">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>

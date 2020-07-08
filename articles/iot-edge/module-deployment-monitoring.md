@@ -8,12 +8,12 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194783"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala
 
@@ -47,7 +47,7 @@ Um manifesto de implantação é um documento JSON que descreve os módulos a se
 Os metadados de configuração para cada módulo incluem:
 
 * Versão
-* Type
+* Tipo
 * Status (por exemplo, em execução ou parado)
 * Política de reinicialização
 * Imagem ou registro de contêiner
@@ -69,7 +69,7 @@ Exemplos de condições de destino:
 * tags.environment ='prod'
 * tags.environment = 'prod' E tags.location = 'westus'
 * tags.environment = 'prod' OU tags.location = 'westus'
-* tags.operator = 'John' E tags.environment = 'prod' NÃO deviceId = 'linuxprod1'
+* Tags. Operator = ' John ' e Tags. Environment = ' prod ' e NOT DeviceID = ' linuxprod1 '
 * Properties. Reported. devicemodel = ' 4000x '
 
 Considere estas restrições ao construir uma condição de destino:
@@ -142,7 +142,7 @@ Por exemplo, em uma implantação padrão, você pode adicionar o módulo sensor
 }
 ```
 
-Em uma implantação em camadas que tem como destino alguns ou todos os mesmos dispositivos, você pode adicionar uma propriedade que informa ao sensor simulado para enviar mensagens 1000 e, em seguida, parar. Você não quer substituir as propriedades existentes, portanto, você cria uma nova seção dentro das propriedades desejadas chamadas `layeredProperties`, que contém a nova propriedade:
+Em uma implantação em camadas que tem como destino alguns ou todos os mesmos dispositivos, você pode adicionar uma propriedade que informa ao sensor simulado para enviar mensagens 1000 e, em seguida, parar. Você não quer substituir as propriedades existentes, portanto, você cria uma nova seção dentro das propriedades desejadas chamadas `layeredProperties` , que contém a nova propriedade:
 
 ```json
 "SimulatedTemperatureSensor": {

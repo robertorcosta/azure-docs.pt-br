@@ -4,16 +4,16 @@ description: Como configurar o tipo de atribuição para um pool de hosts da ár
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ddfd9346f4a72ceb2e8bf5c336fb3de9b5c8c5c7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 376f9d78f508c245bec2d066863566ace68eff0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204856"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição do pool de hosts da área de trabalho pessoal
 
@@ -31,7 +31,7 @@ A atribuição automática é o tipo de atribuição padrão para novos pools de
 
 Para atribuir usuários automaticamente, primeiro atribua-os ao pool de hosts da área de trabalho pessoal para que eles possam ver a área de trabalho no próprio feed. Quando um usuário atribuído iniciar a área de trabalho no feed, ele solicitará um host de sessão disponível, se ainda não tiver se conectado ao pool de hosts, o que concluirá o processo de atribuição.
 
-Antes de começar, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/), caso ainda não tenha feito isso. 
+Antes de começar, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/), caso ainda não tenha feito isso.
 
 > [!NOTE]
 > Verifique se você instalou a versão 1.0.1534.2001 ou posterior do módulo do PowerShell da Área de Trabalho Virtual do Windows antes de seguir estas instruções.

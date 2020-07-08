@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78397818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201354"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -23,7 +23,7 @@ ms.locfileid: "78397818"
 
 O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. O esquema de declarações é o lugar em que você declara suas declarações. Uma declaração pode ser um primeiro nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém uma lista de elementos **ClaimType**. O elemento **ClaimType** contém o atributo **Id**, que é o nome da declaração.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="Id">
@@ -66,16 +66,16 @@ PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateVal
 
 O elemento **DataType** dá suporte aos seguintes valores:
 
-| Type | Descrição |
+| Tipo | Description |
 | ------- | ----------- |
 |booleano|Representa um valor booliano (`true` ou `false`).|
 |date| Representa um instante no tempo, normalmente expresso como uma data de um dia. O valor da data segue a Convenção ISO 8601.|
 |dateTime|Representa um momento no tempo, geralmente expresso como uma data e hora do dia. O valor da data segue a Convenção ISO 8601.|
-|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato de é `PnYnMnDTnHnMnS`, onde `P` indica positivo ou `N` para um valor negativo. `nY`é o número de anos seguido por um literal `Y`. `nMo`é o número de meses seguido por um literal `Mo`. `nD`é o número de dias seguido por um literal `D`. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo`representa um ano e dois meses. `P1Y2Mo5D`representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S`representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
+|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato de é `PnYnMnDTnHnMnS` , onde `P` indica positivo ou `N` para um valor negativo. `nY`é o número de anos seguido por um literal `Y` . `nMo`é o número de meses seguido por um literal `Mo` . `nD`é o número de dias seguido por um literal `D` . Exemplos: `P21Y` representa 21 anos. `P1Y2Mo`representa um ano e dois meses. `P1Y2Mo5D`representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S`representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
 |phoneNumber|Representa um número de telefone. |
 |INT| Representa o número entre-2.147.483.648 e 2.147.483.647|
 |long| Representa o número entre-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
-|cadeia de caracteres| Representa o texto como uma sequência de unidades de código UTF-16.|
+|string| Representa o texto como uma sequência de unidades de código UTF-16.|
 |stringCollection|Representa uma coleção de `string`.|
 |userIdentity| Representa uma identidade de usuário.|
 |useridentitycollection|Representa uma coleção de `userIdentity`.|
@@ -97,7 +97,7 @@ O elemento **Protocol** contém os seguintes atributos:
 
 No exemplo a seguir, quando o Identity Experience Framework interage com um provedor de identidade SAML2 ou com o aplicativo de terceira parte confiável, a declaração **surname** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a declaração é mapeada para `family_name`.
 
-```XML
+```xml
 <ClaimType Id="surname">
   <DisplayName>Surname</DisplayName>
   <DataType>string</DataType>
@@ -111,7 +111,7 @@ No exemplo a seguir, quando o Identity Experience Framework interage com um prov
 
 Como resultado, o token JWT emitido pelo B2C do Azure AD emite `family_name` ao invés do nome de ClaimType **surname**.
 
-```JSON
+```json
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   "auth_time": 1535013501,
@@ -128,11 +128,11 @@ O elemento **Mask** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O valor `Regex` indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o valor `Regex` for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
-| `Regex` | Não | Se **`Type`** for definido como `Regex`, especifique a expressão regular a ser usada.
+| `Regex` | Não | Se **`Type`** for definido como `Regex` , especifique a expressão regular a ser usada.
 
 O exemplo a seguir configura uma declaração **PhoneNumber** com a máscara `Simple`:
 
-```XML
+```xml
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
@@ -147,7 +147,7 @@ O Identity Experience Framework renderiza o número de telefone enquanto oculta 
 
 O exemplo a seguir configura uma declaração **AlternateEmail** com a máscara `Regex`:
 
-```XML
+```xml
 <ClaimType Id="AlternateEmail">
   <DisplayName>Please verify the secondary email linked to your account</DisplayName>
   <DataType>string</DataType>
@@ -178,7 +178,7 @@ O elemento **Restriction** contém os seguintes elementos:
 
 #### <a name="enumeration"></a>Enumeração
 
-O elemento **Enumeration** define as opções disponíveis para o usuário selecionar para uma declaração na interface do usuário, como um valor em um `CheckboxMultiSelect`, `DropdownSingleSelect`ou. `RadioSingleSelect` Como alternativa, você pode definir e localizar as opções disponíveis com o elemento [LocalizedCollections](localization.md#localizedcollections) . Para pesquisar um item de uma coleção de **Enumeração** de declaração, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) Claims Transformation.
+O elemento **Enumeration** define as opções disponíveis para o usuário selecionar para uma declaração na interface do usuário, como um valor em um `CheckboxMultiSelect` , `DropdownSingleSelect` ou `RadioSingleSelect` . Como alternativa, você pode definir e localizar as opções disponíveis com o elemento [LocalizedCollections](localization.md#localizedcollections) . Para pesquisar um item de uma coleção de **Enumeração** de declaração, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) Claims Transformation.
 
 O elemento **Enumeration** contém os seguintes atributos:
 
@@ -190,7 +190,7 @@ O elemento **Enumeration** contém os seguintes atributos:
 
 O exemplo a seguir configura uma declaração de lista suspensa **city** com um valor padrão definido como `New York`:
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
   <DataType>string</DataType>
@@ -218,7 +218,7 @@ O elemento **Pattern** pode conter os seguintes atributos:
 
 O exemplo a seguir configura uma declaração **email** com o texto de ajuda e a validação de entrada de expressão regular:
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -262,7 +262,7 @@ O tipo de entrada do usuário **TextBox** é usado para fornecer uma caixa de te
 
 ![Caixa de texto mostrando as propriedades especificadas no tipo de declaração](./media/claimsschema/textbox.png)
 
-```XML
+```xml
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
@@ -277,7 +277,7 @@ O tipo de entrada do usuário **EmailBox** é usado para fornecer um campo de en
 
 ![EmailBox mostrando as propriedades especificadas no tipo de declaração](./media/claimsschema/emailbox.png)
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -295,7 +295,7 @@ O tipo de entrada do usuário **Password** é usado para registrar uma senha ins
 
 ![Usando o tipo de declaração com password](./media/claimsschema/password.png)
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -310,7 +310,7 @@ O tipo de entrada do usuário **DateTimeDropdown** é usado para fornecer um con
 
 ![Usando o tipo de declaração com datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
@@ -325,7 +325,7 @@ O tipo de entrada do usuário **RadioSingleSelect** é usado para fornecer uma c
 
 ![Usando o tipo de declaração com radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="color">
   <DisplayName>Preferred color</DisplayName>
   <DataType>string</DataType>
@@ -344,7 +344,7 @@ O tipo de entrada do usuário **DropdownSingleSelect** é usado para fornecer um
 
 ![Usando o tipo de declaração com dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
@@ -363,7 +363,7 @@ O tipo de entrada do usuário **CheckboxMultiSelect** é usado para fornecer uma
 
 ![Usando o tipo de declaração com checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
 
-```XML
+```xml
 <ClaimType Id="languages">
   <DisplayName>Languages you speak</DisplayName>
   <DataType>string</DataType>
@@ -382,7 +382,7 @@ O tipo de entrada do usuário **Readonly** é usado para fornecer um campo somen
 
 ![Usando o tipo de declaração com readonly](./media/claimsschema/readonly.png)
 
-```XML
+```xml
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
   <DataType>string</DataType>
@@ -394,11 +394,11 @@ O tipo de entrada do usuário **Readonly** é usado para fornecer um campo somen
 
 #### <a name="paragraph"></a>Paragraph
 
-O tipo de entrada do usuário **Paragraph** é usado para fornecer um campo que mostra texto apenas em uma marca de parágrafo.  Por exemplo, &lt;p&gt;texto&lt;/p&gt;. Um **Paragraph** tipo `OutputClaim` de entrada de usuário de parágrafo do perfil técnico autodeclarado, deve definir `Required` o `false` atributo (padrão).
+O tipo de entrada do usuário **Paragraph** é usado para fornecer um campo que mostra texto apenas em uma marca de parágrafo.  Por exemplo, &lt;p&gt;texto&lt;/p&gt;. Um **Paragraph** tipo `OutputClaim` de entrada de usuário de parágrafo do perfil técnico autodeclarado, deve definir o `Required` atributo `false` (padrão).
 
 ![Usando o tipo de declaração com paragraph](./media/claimsschema/paragraph.png)
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>

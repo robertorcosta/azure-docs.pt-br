@@ -4,12 +4,12 @@ description: Fornece orientação para solução de problemas para ajudá-lo a d
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c229bd836029226a1e042de9bfe706654f97dc26
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194018"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 
@@ -96,7 +96,7 @@ Os seguintes indicadores podem ajudá-lo a entender o gargalo e funcionam adequa
 * **A interface do usuário está mostrando o progresso para a transferência de dados**. Os dados ainda estão sendo transferidos. A largura de banda de rede ou o tamanho dos dados podem estar causando atrasos.
 * **A interface do usuário não está mostrando o progresso para a transferência de dados**. Abra os logs localizados em C:\Arquivos de Programas\Agente de Serviços de Recuperação do Microsoft Azure\Temp e, em seguida, verifique a entrada FileProvider::EndData nos logs. Essa entrada significa que a transferência de dados foi concluída e a operação de catálogo está ocorrendo. Não cancele os trabalhos de backup. Em vez disso, espere um pouco mais até a conclusão da operação de catálogo. Se o problema persistir, contate o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Se você estiver tentando fazer backup de discos grandes, é recomendável usar o [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box)] para o primeiro backup (Replicação Inicial).  Se você não puder usar o Data Box, problemas de rede transitórios que estejam ocorrendo em seu ambiente durante transferências de dados longas pela rede poderão causar falhas de backup.  Para proteger-se contra essas falhas, você pode adicionar algumas pastas ao backup inicial e adicionar de modo incremental mais pastas até que tenha sido feito o backup bem-sucedido de todas as pastas no Azure.  Os backups incrementais posteriores serão relativamente mais rápidos.
+Se você estiver tentando fazer backup de discos grandes, é recomendável usar [Azure data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) para o primeiro backup (replicação inicial).  Se você não puder usar o Data Box, problemas de rede transitórios que estejam ocorrendo em seu ambiente durante transferências de dados longas pela rede poderão causar falhas de backup.  Para proteger-se contra essas falhas, você pode adicionar algumas pastas ao backup inicial e adicionar de modo incremental mais pastas até que tenha sido feito o backup bem-sucedido de todas as pastas no Azure.  Os backups incrementais posteriores serão relativamente mais rápidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

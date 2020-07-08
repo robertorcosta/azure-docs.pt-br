@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203853"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de fator de telefone em uma Azure Active Directory B2C política personalizada
 
@@ -36,7 +36,7 @@ O atributo **Name** do elemento **Protocol** precisa ser definido como `Propriet
 
 O exemplo a seguir mostra um perfil técnico de fator de telefone para registro e validação:
 
-```XML
+```xml
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
   <DisplayName>PhoneFactor</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -45,7 +45,7 @@ O exemplo a seguir mostra um perfil técnico de fator de telefone para registro 
 
 ## <a name="input-claims-transformations"></a>Transformações de declarações de entrada
 
-O elemento InputClaimsTransformations pode conter uma coleção de transformações de declarações de entrada que são usadas para modificar as declarações de entrada ou gerar novas. A transformação de declarações de entrada a `UserId` seguir gera uma declaração que é usada posteriormente na coleção de declarações de entrada.
+O elemento InputClaimsTransformations pode conter uma coleção de transformações de declarações de entrada que são usadas para modificar as declarações de entrada ou gerar novas. A transformação de declarações de entrada a seguir gera uma `UserId` declaração que é usada posteriormente na coleção de declarações de entrada.
 
 ```xml
 <InputClaimsTransformations>
@@ -57,14 +57,14 @@ O elemento InputClaimsTransformations pode conter uma coleção de transformaç�
 
 O elemento InputClaims deve conter as declarações a seguir. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do fator de telefone. 
 
-|  Tipo de dados| Necessária | Descrição |
+|  Tipo de dados| Obrigatório | Descrição |
 | --------- | -------- | ----------- | 
-| string| Sim | Um identificador exclusivo do usuário. O nome da declaração ou PartnerClaimType deve ser definido como `UserId`. Essa declaração não deve conter informações de identificação pessoal.|
-| cadeia de caracteres| Sim | Lista de tipos de declaração. Cada declaração contém um número de telefone. Se qualquer uma das declarações de entrada não contiverem um número de telefone, o usuário será solicitado a registrar e verificar um novo número de telefone. O número de telefone validado é retornado como uma declaração de saída. Se uma das declarações de entrada contiver um número de telefone, o usuário será solicitado a verificá-lo. Se várias declarações de entrada contiverem um número de telefone, o usuário será solicitado a escolher e verificar um dos números de telefone. |
+| string| Sim | Um identificador exclusivo do usuário. O nome da declaração ou PartnerClaimType deve ser definido como `UserId` . Essa declaração não deve conter informações de identificação pessoal.|
+| string| Sim | Lista de tipos de declaração. Cada declaração contém um número de telefone. Se qualquer uma das declarações de entrada não contiverem um número de telefone, o usuário será solicitado a registrar e verificar um novo número de telefone. O número de telefone validado é retornado como uma declaração de saída. Se uma das declarações de entrada contiver um número de telefone, o usuário será solicitado a verificá-lo. Se várias declarações de entrada contiverem um número de telefone, o usuário será solicitado a escolher e verificar um dos números de telefone. |
 
 O exemplo a seguir demonstra como usar vários números de telefone. Para obter mais informações, consulte [exemplo de política](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
   <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
@@ -76,10 +76,10 @@ O exemplo a seguir demonstra como usar vários números de telefone. Para obter 
 
 O elemento OutputClaims contém uma lista de declarações retornadas pelo perfil técnico do fator de telefone.
 
-|  Tipo de dados| Necessária | Descrição |
+|  Tipo de dados| Obrigatório | Descrição |
 |  -------- | ----------- |----------- |
 | booleano | Sim | Indica se o novo número de telefone foi inserido pelo usuário. O nome da declaração ou PartnerClaimType deve ser definido como`newPhoneNumberEntered`|
-| cadeia de caracteres| Sim | O número de telefone verificado. O nome da declaração ou PartnerClaimType deve ser definido como `Verified.OfficePhone`.|
+| string| Sim | O número de telefone verificado. O nome da declaração ou PartnerClaimType deve ser definido como `Verified.OfficePhone` .|
 
 O elemento OutputClaimsTransformations pode conter uma coleção de elementos OutputClaimsTransformation que são usados para modificar as declarações de saída ou gerar novas.
 
@@ -90,12 +90,12 @@ O elemento **CryptographicKeys** não será usado.
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Sim | O identificador da [definição de conteúdo](contentdefinitions.md) associada com este perfil técnico. |
-| ManualPhoneNumberEntryAllowed| Não | Especifique se um usuário tem ou não permissão para inserir manualmente um número de telefone. Valores possíveis: `true`ou `false` (padrão).|
-| Configurando. AuthenticationMode | Não | O método para validar o número de telefone. Valores possíveis: `sms`, `phone`ou `mixed` (padrão).|
-| configuração. AutoDial| Não| Especifique se o perfil técnico deve discar automaticamente ou enviar automaticamente um SMS. Valores possíveis: `true`ou `false` (padrão). A discagem automática `setting.authenticationMode` exige que os metadados `sms`sejam definidos `phone`como, ou. A coleção de declarações de entrada deve ter um único número de telefone. |
+| ManualPhoneNumberEntryAllowed| Não | Especifique se um usuário tem ou não permissão para inserir manualmente um número de telefone. Valores possíveis: `true` ou `false` (padrão).|
+| Configurando. AuthenticationMode | Não | O método para validar o número de telefone. Valores possíveis: `sms` , `phone` ou `mixed` (padrão).|
+| configuração. AutoDial| Não| Especifique se o perfil técnico deve discar automaticamente ou enviar automaticamente um SMS. Valores possíveis: `true` ou `false` (padrão). A discagem automática exige que os `setting.authenticationMode` metadados sejam definidos como `sms` , ou `phone` . A coleção de declarações de entrada deve ter um único número de telefone. |
 
 ### <a name="ui-elements"></a>Elementos da interface do usuário
 

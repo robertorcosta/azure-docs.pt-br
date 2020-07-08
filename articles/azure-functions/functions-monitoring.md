@@ -4,12 +4,13 @@ description: Saiba como usar o Azure Application Insights com o Azure Functions 
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207000"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -245,7 +246,7 @@ Conforme observado na seção anterior, o runtime agrega dados sobre as execuç�
 
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
-O Application Insights tem um recurso de [amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em execuções concluídas em horários de pico de carregamento. Quando a taxa de execuções de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente algumas das execuções de entrada. A configuração padrão para o número máximo de execuções por segundo é 20 (cinco na versão 1.x). Você pode configurar a amostragem em [host. JSON].  Aqui está um exemplo:
+O Application Insights tem um recurso de [amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em execuções concluídas em horários de pico de carregamento. Quando a taxa de execuções de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente algumas das execuções de entrada. A configuração padrão para o número máximo de execuções por segundo é 20 (cinco na versão 1.x). Você pode configurar a amostragem em [host. JSON](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Aqui está um exemplo:
 
 ### <a name="version-2x-and-later"></a>Versão 2.x e posterior
 
@@ -255,12 +256,15 @@ O Application Insights tem um recurso de [amostragem](../azure-monitor/app/sampl
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+Na versão 2. x, você pode excluir determinados tipos de telemetria da amostragem. No exemplo acima, os dados do tipo `Request` são excluídos da amostragem. Isso garante que *todas as* execuções de função (solicitações) sejam registradas enquanto outros tipos de telemetria permanecerão sujeitos à amostragem.
 
 ### <a name="version-1x"></a>Versão 1.x 
 
@@ -313,7 +317,7 @@ Aqui está uma representação JSON de exemplo de dados `customDimensions`:
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
@@ -683,6 +687,28 @@ Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
+
+## <a name="scale-controller-logs"></a>Dimensionar logs do controlador
+
+O [controlador de escala de Azure Functions](./functions-scale.md#runtime-scaling) monitora as instâncias de host de função que executam seu aplicativo e toma decisões sobre quando adicionar ou remover instâncias de host de função. Se você precisar entender as decisões que o controlador de escala está fazendo em seu aplicativo, você pode configurá-lo para emitir logs para Application Insights ou para o armazenamento de BLOBs.
+
+> [!WARNING]
+> Esse recurso está em visualização. Não recomendamos deixar esse recurso habilitado indefinidamente e, em vez disso, você deve habilitá-lo quando precisar das informações coletadas e, em seguida, desabilitá-lo.
+
+Para habilitar esse recurso, adicione uma nova configuração de aplicativo chamada `SCALE_CONTROLLER_LOGGING_ENABLED` . O valor dessa configuração deve estar no formato `{Destination}:{Verbosity}` , em que:
+* `{Destination}`Especifica o destino para o qual os logs serão enviados e deve ser `AppInsights` ou `Blob` .
+* `{Verbosity}`Especifica o nível de registro em log desejado e deve ser um de `None` , `Warning` ou `Verbose` .
+
+Por exemplo, para registrar em log informações detalhadas do controlador de escala para Application Insights, use o valor `AppInsights:Verbose` .
+
+> [!NOTE]
+> Se você habilitar o `AppInsights` tipo de destino, deverá garantir que configure [Application insights para seu aplicativo de funções](#enable-application-insights-integration).
+
+Se você definir o destino como `Blob` , os logs serão criados em um contêiner de blob nomeado na `azure-functions-scale-controller` conta de armazenamento definida na `AzureWebJobsStorage` configuração do aplicativo.
+
+Se você definir o detalhamento como `Verbose` , o controlador de escala registrará um motivo para cada alteração na contagem de trabalho, bem como informações sobre os gatilhos que participam das decisões do controlador de escala. Por exemplo, os logs incluirão avisos de gatilho, e os hashes usados pelos gatilhos antes e depois do controlador de escala são executados.
+
+Para desabilitar o registro em log do controlador de escala, defina o valor da `{Verbosity}` `None` configuração para ou remova o `SCALE_CONTROLLER_LOGGING_ENABLED` aplicativo.
 
 ## <a name="disable-built-in-logging"></a>Desabilitar o registro em log interno
 

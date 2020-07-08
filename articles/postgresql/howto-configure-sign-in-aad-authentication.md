@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 91435c2c5ca825793988e002c1ab9f6caacf2b17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 7df9c40980d7a35c1eab0f892c3aca0a30938f57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194103"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usar o Azure Active Directory para autenticação com o PostgreSQL
 
@@ -54,21 +54,19 @@ No momento, testamos os clientes a seguir:
 
 Estas são as etapas que um usuário/aplicativo precisará fazer a autenticação no Azure Active Directory descrito abaixo:
 
+### <a name="prerequisites"></a>Pré-requisitos
+
+Você pode acompanhar em Azure Cloud Shell, uma VM do Azure ou em seu computador local. Garanta que você tem o [CLI do Azure instalado](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Etapa 1: Autenticar com o Azure AD
 
-Garanta que você tem o [CLI do Azure instalado](/cli/azure/install-azure-cli).
+Comece Autenticando com o Azure AD usando a ferramenta de CLI do Azure. Esta etapa não é necessária no Azure Cloud Shell.
 
-Invoque a ferramenta de CLI do Azure para autenticar-se no Azure Active Directory. Ele exige que você forneça a ID de usuário e a senha do Azure Active Directory.
-
-```azurecli-interactive
+```
 az login
 ```
 
-Esse comando abrirá uma janela do navegador na página de autenticação do Azure Active Directory.
-
-> [!NOTE]
-> Você também pode usar o Azure Cloud Shell para executar essas etapas.
-> Lembre-se de que, ao recuperar o token de acesso do Azure Active Directory no Azure Cloud Shell, você precisará chamar explicitamente `az login` e entrar novamente (na janela separada com um código). Depois, o comando `get-access-token` funcionará conforme o esperado.
+O comando iniciará uma janela do navegador na página de autenticação do Azure AD. Ele exige que você forneça a ID de usuário e a senha do Azure Active Directory.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Etapa 2: Recuperar um token de acesso do Azure Active Directory
 
@@ -117,8 +115,12 @@ Ao usar o cliente de linha de comando `psql`, o token de acesso precisa ser pass
 
 Exemplo do Windows:
 
-```shell
+```cmd
 set PGPASSWORD=<copy/pasted TOKEN value from step 2>
+```
+
+```PowerShell
+$env:PGPASSWORD='<copy/pasted TOKEN value from step 2>'
 ```
 
 Exemplo do Linux/macOS:
@@ -132,6 +134,15 @@ Agora, você pode iniciar uma conexão com o Banco de Dados do Azure para Postgr
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
+
+Considerações importantes ao se conectar:
+
+* `user@tenant.onmicrosoft.com`é o nome do usuário ou grupo do Azure AD ao qual você está tentando se conectar
+* Sempre acrescentar o nome do servidor após o nome de usuário/grupo do Azure AD (por exemplo, `@mydb` )
+* Certifique-se de usar a maneira exata de que o nome de usuário ou grupo do Azure AD está escrito
+* Os nomes de usuário e grupo do Azure AD diferenciam maiúsculas de minúsculas
+* Ao conectar-se como um grupo, use apenas o nome do grupo (por exemplo, `GroupName@mydb` )
+* Se o nome contiver espaços, use `\` antes de cada espaço para escapar
 
 Você já está autenticado no servidor PostgreSQL usando a autenticação do Azure Active Directory.
 

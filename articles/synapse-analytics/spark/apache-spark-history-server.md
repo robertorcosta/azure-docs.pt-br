@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4f03033942517f4778192e0b12f84610df8fd469
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194987"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar Apache Spark aplicativos
 
@@ -106,7 +106,7 @@ Você pode ver uma visão geral do seu trabalho no grafo de trabalho gerado. Por
 
 ![Aplicativo Spark e ID do trabalho do grafo do trabalho](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-### <a name="display"></a>Exibição
+### <a name="display"></a>Monitor
 
 Por padrão, a exibição de **progresso** é selecionada. Você pode verificar o fluxo de dados selecionando **ler** ou **gravado** na lista suspensa **Exibir** .
 
@@ -149,7 +149,7 @@ Use a rolagem do mouse para ampliar e reduzir no grafo do trabalho ou selecione 
 
 ![Ajuste de zoom do grafo de trabalho e aplicativo Spark](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
-### <a name="tooltips"></a>Dicas de Ferramenta
+### <a name="tooltips"></a>Dicas de ferramenta
 
 Focalize o nó do grafo para ver a dica de ferramenta quando houver tarefas com falha e selecione um estágio para abrir sua página de estágio.
 
@@ -182,7 +182,7 @@ O nó do gráfico de trabalho exibe as seguintes informações de cada estágio:
     >  
     > O tamanho dos dados de leitura e gravação é 1MB = 1000 KB = 1000 * 1000 bytes.
 
-### <a name="provide-feedback"></a>Envie comentários
+### <a name="provide-feedback"></a>Fornecer comentários
 
 Envie comentários com problemas selecionando **fornecer comentários**.
 
@@ -214,7 +214,7 @@ Quando você seleciona a guia **distorção de dados** , as tarefas distorcidas 
 
 A guia **Distorção de Tempo** exibe tarefas distorcidas com base no tempo de execução da tarefa.
 
-* **Especificar parâmetros** – a primeira seção exibe os parâmetros, que são usados para detectar a distorção de tempo. Os critérios padrão para detectar a distorção de tempo são: o tempo de execução da tarefa é maior do que três vezes o tempo médio de execução e o tempo de execução da tarefa é maior que 30 segundos. Você pode alterar os parâmetros com base em suas necessidades. A **Fase Distorcida** e o **Gráfico de Distorção** exibem as informações sobre as fases e as tarefas correspondentes, assim como a guia **Distorção de Dados** acima.
+* **Especificar Parâmetros** – a primeira seção exibe os parâmetros, que são usados para detectar a Distorção de tempo. Os critérios padrão para detectar a distorção de tempo são: o tempo de execução da tarefa é maior do que três vezes o tempo médio de execução e o tempo de execução da tarefa é maior que 30 segundos. Você pode alterar os parâmetros com base em suas necessidades. A **Fase Distorcida** e o **Gráfico de Distorção** exibem as informações sobre as fases e as tarefas correspondentes, assim como a guia **Distorção de Dados** acima.
 
 * Selecione **distorção de tempo**e o resultado filtrado é exibido na seção de **estágio distorcido** de acordo com os parâmetros definidos na seção **especificar parâmetros**. Selecione um item na seção **estágio inclinado** , o gráfico correspondente é exibido em section3 e os detalhes da tarefa são exibidos no painel inferior direito.
 

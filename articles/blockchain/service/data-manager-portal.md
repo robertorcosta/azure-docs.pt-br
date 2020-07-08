@@ -2,14 +2,14 @@
 title: Configurar Gerenciador de Dados Blockchain usando portal do Azure-serviço Blockchain do Azure
 description: Criar e gerenciar Blockchain Gerenciador de Dados para o serviço Blockchain do Azure usando o portal do Azure.
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200674"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Gerenciador de Dados Blockchain usando o portal do Azure
 
@@ -40,7 +40,7 @@ Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do A
 
     Insira os seguintes detalhes:
 
-    Configuração | Descrição
+    Setting | Descrição
     --------|------------
     Nome | Insira um nome exclusivo para um Gerenciador de Dados do Blockchain conectado. O nome de Gerenciador de Dados Blockchain pode conter letras minúsculas e números e tem um comprimento máximo de 20 caracteres.
     Nó de transação | Escolha um nó de transação. Somente os nós de transação aos quais você tem acesso de leitura são listados.
@@ -119,7 +119,7 @@ O Gerenciador de Dados do Blockchain requer que os arquivos de código de bytes 
 
     ![Carregar blob](./media/data-manager-portal/upload-blobs.png)
 
-    Selecione **Carregar**.
+    Escolha **Carregar**.
 
 #### <a name="generate-url"></a>Gerar a URL
 
@@ -144,7 +144,7 @@ Para cada blob, gere uma assinatura de acesso compartilhado.
 
     Insira o nome do aplicativo de blockchain, a URL da ABI do contrato inteligente e a URL do código de bytes.
 
-    Configuração | Descrição
+    Setting | Descrição
     --------|------------
     Nome | Insira um nome exclusivo para o aplicativo de blockchain rastrear.
     ABI do Contrato | Caminho da URL para o arquivo da ABI do contrato. Para obter mais informações, confira [Criar a ABI do contrato e a URL do código de bytes](#create-contract-abi-and-bytecode-url).

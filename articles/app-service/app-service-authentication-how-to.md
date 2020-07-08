@@ -4,12 +4,12 @@ description: Saiba como personalizar o recurso de autenticação e autorização
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280827"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205638"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -35,7 +35,7 @@ Em **Ação a tomar quando a solicitação não está autenticada**, selecione *
 
 Na página de entrada, na barra de navegação, ou em qualquer outro local do aplicativo, adicione um link de entrada a cada um dos provedores que você habilitou (`/.auth/login/<provider>`). Por exemplo:
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -47,7 +47,7 @@ Quando o usuário clica em um dos links, a respectiva página de entrada é aber
 
 Para redirecionar o usuário pós-entada para uma URL personalizada, use o parâmetro de cadeia de caracteres de consulta `post_login_redirect_url` (não deve ser confundido com o URI de redirecionamento na configuração do provedor de identidade). Por exemplo, para orientar o usuário para `/Home/Index` após entrar, use o seguinte código HTML:
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -103,7 +103,7 @@ Os usuários podem iniciar uma saída, enviando uma `GET` solicitação ao ponto
 
 Aqui está um link de saída simples em uma página da Web:
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
@@ -176,9 +176,9 @@ Quando o token de acesso do seu provedor (não o [token de sessão](#extend-sess
 - **Microsoft Account**: quando [definir configurações de autenticação de conta Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo `wl.offline_access`.
 - **Azure Active Directory**: em [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
     1. Na parte superior da página, selecione **Ler/Gravar**.
-    2. No navegador esquerdo, **navegue até** > **_\<assinaturas nome\__** > da assinatura**resourceGroups** > **_\<nome do grupo\_\_de recursos>_**  >  **provedores** > **Microsoft. Web** > **sites** > **_\<nome\_do aplicativo>_**  >  **config** > **authsettings**. 
+    2. No navegador esquerdo, navegue até **assinaturas** > * *_ \<subscription\_name_** > **resourceGroups** > *_* * * \<resource\_group\_name> _> **provedores**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
     3. Clique em **Editar**.
-    4. Modifique a propriedade a seguir. Substitua _ \<a\_ID do aplicativo>_ pela ID do aplicativo Azure Active Directory do serviço que você deseja acessar.
+    4. Modifique a propriedade a seguir. Substitua _\<app\_id>_ pela ID de aplicativo Azure Active Directory do serviço que você deseja acessar.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
@@ -188,9 +188,9 @@ Quando o token de acesso do seu provedor (não o [token de sessão](#extend-sess
 
 Depois que seu provedor estiver configurado, você poderá [ encontrar o token de atualização e o tempo de expiração do token de acesso ](#retrieve-tokens-in-app-code) na loja do token. 
 
-Para atualizar seu token de acesso a qualquer momento, basta `/.auth/refresh` chamar em qualquer idioma. O snippet a seguir usa o jQuery para atualizar seus tokens de acesso de um cliente JavaScript.
+Para atualizar seu token de acesso a qualquer momento, basta chamar `/.auth/refresh` em qualquer idioma. O snippet a seguir usa o jQuery para atualizar seus tokens de acesso de um cliente JavaScript.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limite do domínio de contas de entrada
 
-A Conta da Microsoft e o Microsoft Azure Active Directory permitem a entrada de vários domínios. Por exemplo, a Conta da Microsoft permite contas de _outlook.com_, _live.com_ e _hotmail.com_. O Azure AD permite qualquer número de domínios personalizados para as contas de entrada. No entanto, talvez você queira acelerar seus usuários diretamente para sua própria página de entrada do Azure AD com marca (como `contoso.com`). Para sugerir o nome de domínio das contas de entrada, siga estas etapas.
+A Conta da Microsoft e o Microsoft Azure Active Directory permitem a entrada de vários domínios. Por exemplo, a Conta da Microsoft permite contas de _outlook.com_, _live.com_ e _hotmail.com_. O Azure AD permite qualquer número de domínios personalizados para as contas de entrada. No entanto, talvez você queira acelerar seus usuários diretamente para sua própria página de entrada do Azure AD com marca (como `contoso.com` ). Para sugerir o nome de domínio das contas de entrada, siga estas etapas.
 
-No [https://resources.azure.com](https://resources.azure.com), **navegue até** > **_\<assinaturas nome\__** > **sites** > **resourceGroups** >   >  **providers** >   >  **config** > **authsettings****_\_da assinatura\<resourceGroups nome do\_grupo de recursos>_** provedores**Microsoft. Web**sites**_\_nome do aplicativo>config authsettings.\< _** >  
+No [https://resources.azure.com](https://resources.azure.com) , navegue até **assinaturas** > * *_ \<subscription\_name_** > **resourceGroups** > *_* * * \<resource\_group\_name> _> **provedores**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
 
-Clique em **Editar**, modifique a propriedade a seguir e, em seguida, clique em **Put**. Certifique-se de _ \<substituir\_o nome de domínio>_ pelo domínio desejado.
+Clique em **Editar**, modifique a propriedade a seguir e, em seguida, clique em **Put**. Certifique-se de substituir _\<domain\_name>_ pelo domínio desejado.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ Embora o serviço de aplicativo se encarrega do caso de autorização mais simpl
 
 ### <a name="server-level-windows-apps-only"></a>Nível do servidor (somente aplicativos do Windows)
 
-Para qualquer aplicativo do Windows, você pode definir o comportamento de autorização do servidor Web do IIS, editando o arquivo *Web. config* . Os aplicativos do Linux não usam o IIS e não podem ser configurados por meio do *Web. config*.
+Para qualquer aplicativo do Windows, você pode definir o comportamento de autorização do servidor Web do IIS, editando o arquivo de *Web.config* . Os aplicativos do Linux não usam o IIS e não podem ser configurados por meio de *Web.config*.
 
 1. Navegue até `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. No Gerenciador de navegador de seus arquivos do serviço de aplicativo, navegue até *site/wwwroot*. Se um *Web. config* não existir, crie-o selecionando **+**  >  **novo arquivo**. 
+1. No Gerenciador de navegador de seus arquivos do serviço de aplicativo, navegue até *site/wwwroot*. Se um *Web.config* não existir, crie-o selecionando **+**  >  **novo arquivo**. 
 
-1. Selecione o lápis para *Web. config* para editá-lo. Adicione o código de configuração a seguir e clique em **salvar**. Se o *Web. config* já existir, basta adicionar `<authorization>` o elemento a tudo nele. Adicione as contas que você deseja permitir no `<allow>` elemento.
+1. Selecione o lápis para *Web.config* para editá-lo. Adicione o código de configuração a seguir e clique em **salvar**. Se *Web.config* já existir, basta adicionar o `<authorization>` elemento a tudo nele. Adicione as contas que você deseja permitir no `<allow>` elemento.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -281,5 +281,5 @@ Se qualquer um dos outros níveis não fornecer a autorização de que você pre
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: autenticar e autorizar os usuários tutorial de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md)
-> [: autenticar e autorizar usuários de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: autenticar e autorizar usuários de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md) 
+>  [Tutorial: autenticar e autorizar usuários de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)

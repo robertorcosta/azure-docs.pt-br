@@ -4,16 +4,16 @@ description: Como configurar o método de balanceamento de carga para um ambient
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 447de339d3ceef7aeb1c232605b0e30bbbb1e7d8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204332"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurar o método de balanceamento de carga da Área de Trabalho Virtual do Windows
 
@@ -33,15 +33,15 @@ O balanceamento de carga da primeira amplitude é a configuração padrão para 
 Para configurar um pool de hosts para executar o balanceamento de carga de primeira amplitude sem ajustar o limite máximo de sessão, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst'
 ```
 
-Depois disso, para certificar-se de que você definiu o método de balanceamento de carga da primeira amplitude, execute o seguinte cmdlet: 
+Depois disso, para certificar-se de que você definiu o método de balanceamento de carga da primeira amplitude, execute o seguinte cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType
 
-Name             : hostpoolname 
+Name             : hostpoolname
 LoadBalancerType : BreadthFirst
 ```
 
@@ -58,13 +58,13 @@ O balanceamento de carga em profundidade distribui novas sessões de usuário pa
 Para configurar um pool de hosts para executar o balanceamento de carga de profundidade primeiro, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ### 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
 
 Para verificar se a configuração foi atualizada, execute este cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit
 
 Name             : hostpoolname
 LoadBalancerType : DepthFirst
@@ -77,10 +77,10 @@ Você também pode configurar o balanceamento de carga com o portal do Azure.
 
 Para configurar o balanceamento de carga:
 
-1. Entre no portal do Azure em: https://portal.azure.com. 
-2. Procure e selecione **área de trabalho virtual do Windows** em serviços. 
+1. Entre no portal do Azure em: https://portal.azure.com.
+2. Procure e selecione **área de trabalho virtual do Windows** em serviços.
 3. Na página área de trabalho virtual do Windows, selecione **pools de hosts**.
 4. Selecione o nome do pool de hosts que você deseja editar.
 5. Selecione **Propriedades**.
 6. Insira o **limite máximo de sessão** no campo e selecione o **algoritmo de balanceamento de carga** desejado para esse pool de hosts no menu suspenso.
-7. Clique em **Salvar**. Isso aplica as novas configurações de balanceamento de carga.
+7. Selecione **Salvar**. Isso aplica as novas configurações de balanceamento de carga.

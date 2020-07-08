@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f50373b0841b7626bc405f121015c15ae1587a97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80108569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201405"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico de Application Insights em uma política personalizada de Azure AD B2C
 
@@ -45,9 +45,9 @@ O exemplo a seguir mostra o perfil técnico Application Insights comum. Outros p
 
 ## <a name="input-claims"></a>Declarações de entrada
 
-O elemento **InputClaims** contém uma lista de declarações a serem enviadas para Application insights. Você também pode mapear o nome da sua declaração para um nome que você prefira que apareça em Application Insights. O exemplo a seguir mostra como enviar telemetrias para Application Insights. As propriedades de um evento são adicionadas por `{property:NAME}`meio da sintaxe, em que Name é a propriedade que está sendo adicionada ao evento. DefaultValue pode ser um valor estático ou um valor que é resolvido por um dos [resolvedores de declaração](claim-resolver-overview.md)com suporte.
+O elemento **InputClaims** contém uma lista de declarações a serem enviadas para Application insights. Você também pode mapear o nome da sua declaração para um nome que você prefira que apareça em Application Insights. O exemplo a seguir mostra como enviar telemetrias para Application Insights. As propriedades de um evento são adicionadas por meio da sintaxe `{property:NAME}` , em que Name é a propriedade que está sendo adicionada ao evento. DefaultValue pode ser um valor estático ou um valor que é resolvido por um dos [resolvedores de declaração](claim-resolver-overview.md)com suporte.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
   <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
@@ -73,7 +73,7 @@ O elemento CryptographicKeys não será usado.
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | InstrumentationKey| Sim | A [chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)de Application insights, que será usada para registrar os eventos em log. | 
 | DeveloperMode| Não | Um booliano que indica se o modo de desenvolvedor está habilitado. Valores possíveis: `true` ou `false` (padrão). Esses metadados controlam como os eventos são armazenados em buffer. Em um ambiente de desenvolvimento com volume mínimo de eventos, habilitar o modo de desenvolvedor resulta em eventos enviados imediatamente para Application Insights.|  
@@ -82,5 +82,5 @@ O elemento CryptographicKeys não será usado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um recurso de Application Insights](../azure-monitor/app/create-new-resource.md)
+- [Criar um recurso do Application Insights](../azure-monitor/app/create-new-resource.md)
 - Saiba como [acompanhar o comportamento do usuário no Azure Active Directory B2C usando Application insights](analytics-with-application-insights.md)

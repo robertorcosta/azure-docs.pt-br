@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194698"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure
 
@@ -130,7 +130,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-O script do PowerShell a seguir pode ser usado para adicionar uma política à sua conta de armazenamento. A `$rgname` variável deve ser inicializada com o nome do grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da conta de armazenamento.
+O script do PowerShell a seguir pode ser usado para adicionar uma política à sua conta de armazenamento. A variável `$rgname` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento.
 
 ```powershell
 #Install the latest module
@@ -226,18 +226,18 @@ Uma política de gerenciamento do ciclo de vida é uma coleção de regras em um
 
 Uma política é uma coleção de regras:
 
-| Nome do parâmetro | Tipo de parâmetro | Anotações |
+| Nome do parâmetro | Tipo de parâmetro | Observações |
 |----------------|----------------|-------|
 | `rules`        | Uma matriz de objetos de regra | Pelo menos uma regra é necessária em uma política. Você pode definir até 100 regras em uma política.|
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Anotações | Necessária |
+| Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | Cadeia de caracteres |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | verdadeiro |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
 | `enabled`      | Boolean | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
-| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | verdadeiro |
-| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | verdadeiro |
+| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | True |
+| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
 
 ## <a name="rules"></a>Regras
 
@@ -245,7 +245,7 @@ Cada definição de regra inclui um conjunto de filtros e um conjunto de ações
 
 ### <a name="sample-rule"></a>Regra de exemplo
 
-A regra de exemplo a seguir filtra a conta para executar as ações em objetos que `container1` existem dentro e `foo`começa com.  
+A regra de exemplo a seguir filtra a conta para executar as ações em objetos que existem dentro `container1` e começa com `foo` .  
 
 >[!NOTE]
 >O gerenciamento do ciclo de vida dá suporte apenas ao tipo de blob de blocos  
@@ -289,14 +289,14 @@ Os filtros limitam as ações de regra a um subconjunto de blobs na conta de arm
 
 Filtros incluem:
 
-| Nome do filtro | Tipo do filtro | Anotações | Obrigatório |
+| Nome do filtro | Tipo do filtro | Observações | Obrigatório |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá `blockBlob`suporte ao. | Sim |
-| prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs `https://myaccount.blob.core.windows.net/container1/foo/...` em para uma regra, o prefixMatch `container1/foo`será. | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento.  | Não |
-| blobIndexMatch | Uma matriz de valores de dicionário que consiste na chave de marca de índice de BLOB e condições de valor a serem correspondidas. Cada regra pode definir até 10 condições de marca de índice de BLOB. Por exemplo, se você quiser corresponder a todos os BLOBs `Project = Contoso` com `https://myaccount.blob.core.windows.net/` em para uma regra, o blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}`será. | Se você não definir blobIndexMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
+| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá suporte ao `blockBlob` . | Sim |
+| prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo` . | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento.  | Não |
+| blobIndexMatch | Uma matriz de valores de dicionário que consiste na chave de marca de índice de BLOB e condições de valor a serem correspondidas. Cada regra pode definir até 10 condições de marca de índice de BLOB. Por exemplo, se você quiser corresponder a todos os BLOBs com `Project = Contoso` em `https://myaccount.blob.core.windows.net/` para uma regra, o blobIndexMatch será `{"name": "Project","op": "==","value": "Contoso"}` . | Se você não definir blobIndexMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
 
 > [!NOTE]
-> O índice de blob está em visualização pública e está disponível nas regiões da **França central** e **do Sul da França** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, consulte [gerenciar e localizar dados no armazenamento de BLOBs do Azure com o índice de BLOB (versão prévia)](storage-manage-find-blobs.md).
+> O Índice de Blob está em visualização pública e está disponível nas regiões **França Central** e **Sul da França**. Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Ações de regra
 
@@ -354,10 +354,10 @@ Este exemplo mostra como fazer a transição de blobs de blocos prefixados com `
 
 ### <a name="archive-data-after-ingest"></a>Arquivar dados após a ingestão
 
-Alguns dados permanecem ociosos na nuvem e raramente ou nunca são acessados depois de armazenados. A política de ciclo de vida a seguir é configurada para arquivar dados logo após sua ingestão. Este exemplo faz a transição de blobs de blocos na conta de `archivecontainer` armazenamento dentro do contêiner para uma camada de arquivo morto. A transição é realizada agindo em BLOBs 0 dias após a hora da última modificação:
+Alguns dados permanecem ociosos na nuvem e raramente ou nunca são acessados depois de armazenados. A política de ciclo de vida a seguir é configurada para arquivar dados logo após sua ingestão. Este exemplo faz a transição de blobs de blocos na conta de armazenamento dentro do contêiner `archivecontainer` para uma camada de arquivo morto. A transição é realizada agindo em BLOBs 0 dias após a hora da última modificação:
 
 > [!NOTE] 
-> É recomendável carregar seus BLOBs diretamente a camada de arquivo para ser mais eficiente. Você pode usar o cabeçalho x-MS-acesso-Tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) com a versão REST 2018-11-09 e mais recente ou nossas bibliotecas de cliente de armazenamento de blob mais recentes. 
+> É recomendável carregar seus BLOBs diretamente a camada de arquivo para ser mais eficiente. Você pode usar o cabeçalho x-MS-Access-Tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) com a versão REST 2018-11-09 e mais recente ou nossas bibliotecas de cliente de armazenamento de blob mais recentes. 
 
 ```json
 {
@@ -410,7 +410,7 @@ Espera-se que alguns dados expirem dias ou meses após a criação. Configure um
 ```
 
 ### <a name="delete-data-with-blob-index-tags"></a>Excluir dados com marcas de índice de BLOB
-Alguns dados só devem ser expirados se explicitamente marcados para exclusão. Você pode configurar uma política de gerenciamento de ciclo de vida para expirar dados marcados com atributos de chave/valor de índice de BLOB. O exemplo a seguir mostra uma política que exclui todos os blobs de `Project = Contoso`bloco marcados com. Para saber mais sobre o índice de BLOB, consulte [gerenciar e localizar dados no armazenamento de BLOBs do Azure com o índice de BLOB (versão prévia)](storage-manage-find-blobs.md).
+Alguns dados só devem ser expirados se explicitamente marcados para exclusão. Você pode configurar uma política de gerenciamento de ciclo de vida para expirar dados marcados com atributos de chave/valor de índice de BLOB. O exemplo a seguir mostra uma política que exclui todos os blobs de bloco marcados com `Project = Contoso` . Para saber mais sobre o Índice de Blob, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
 
 ```json
 {

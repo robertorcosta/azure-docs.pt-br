@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203445"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ O atributo **Name** do elemento **Protocol** precisa ser definido como `Propriet
 
 O exemplo a seguir mostra um perfil técnico autodeclarado para email de inscrição:
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -40,7 +40,7 @@ O exemplo a seguir mostra um perfil técnico autodeclarado para email de inscri�
 
 Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims** e **InputClaimsTransformations** para pré-popular o valor das declarações que aparecem na página autodeclarada (Exibir declarações). Por exemplo, na política de edição de perfil, o percurso do usuário primeiro lê o perfil do usuário do serviço de diretório do Azure AD B2C. Em seguida, o perfil técnico autodeclarado define as declarações de entrada com os dados do usuário armazenados no perfil do usuário. Essas declarações são coletadas do perfil do usuário e, em seguida, apresentadas a ele, que poderá editar os dados existentes.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
 ...
   <InputClaims>
@@ -57,7 +57,7 @@ O recurso Exibir declarações está em **Visualização**no momento.
 
 O elemento **DisplayClaims** contém uma lista de declarações a serem apresentadas na tela para coletar dados do usuário. Para preencher previamente os valores de declarações de exibição, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão.
 
-A ordem das declarações em **DisplayClaims** especifica a ordem na qual Azure ad B2C renderiza as declarações na tela. Para forçar o usuário a fornecer um valor para uma declaração específica, defina o atributo **Required** do elemento **DisplayClaim** como `true`.
+A ordem das declarações em **DisplayClaims** especifica a ordem na qual Azure ad B2C renderiza as declarações na tela. Para forçar o usuário a fornecer um valor para uma declaração específica, defina o atributo **Required** do elemento **DisplayClaim** como `true` .
 
 O elemento **ClaimType** na coleção **DisplayClaims** precisa definir o elemento **userinputtype** como qualquer tipo de entrada de usuário com suporte pelo Azure ad B2C. Por exemplo, `TextBox` ou `DropdownSingleSelect`.
 
@@ -65,13 +65,13 @@ O elemento **ClaimType** na coleção **DisplayClaims** precisa definir o elemen
 
 Na coleção exibir declarações, você pode incluir uma referência a um [DisplayControl](display-controls.md) que você criou. Um controle de exibição é um elemento de interface do usuário que tem funcionalidade especial e interage com o serviço de back-end Azure AD B2C. Ele permite que o usuário execute ações na página que invocam um perfil técnico de validação no back-end. Por exemplo, verificar um endereço de email, número de telefone ou número de fidelidade do cliente.
 
-O exemplo `TechnicalProfile` a seguir ilustra o uso de declarações de exibição com controles de exibição.
+O exemplo a seguir `TechnicalProfile` ilustra o uso de declarações de exibição com controles de exibição.
 
 * A primeira declaração de exibição faz uma referência ao `emailVerificationControl` controle de exibição, que coleta e verifica o endereço de email.
 * A quinta declaração de exibição faz uma referência ao `phoneVerificationControl` controle de exibição, que coleta e verifica um número de telefone.
 * As outras declarações de exibição são ClaimTypes a serem coletadas do usuário.
 
-```XML
+```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
@@ -91,9 +91,9 @@ Como mencionado, uma declaração de exibição com uma referência a um control
 
 Se você especificar um ou mais elementos **DisplayClaim** em um perfil técnico autodeclarado, deverá usar um DisplayClaim para *cada* declaração que você deseja exibir na tela e coletar do usuário. Nenhuma declaração de saída é exibida por um perfil técnico autodeclarado que contém pelo menos uma declaração de exibição.
 
-Considere o exemplo a seguir no qual `age` uma declaração é definida como uma declaração de **saída** em uma política de base. Antes de adicionar qualquer declaração de exibição ao perfil técnico autodeclarado, a `age` declaração é exibida na tela para coleta de dados do usuário:
+Considere o exemplo a seguir no qual uma `age` declaração é definida como uma declaração de **saída** em uma política de base. Antes de adicionar qualquer declaração de exibição ao perfil técnico autodeclarado, a `age` declaração é exibida na tela para coleta de dados do usuário:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="age" />
@@ -103,7 +103,7 @@ Considere o exemplo a seguir no qual `age` uma declaração é definida como uma
 
 Se uma política de folha que herda essa base subsequentemente especificar `officeNumber` como uma declaração de **exibição** :
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="officeNumber" />
@@ -120,7 +120,7 @@ A `age` declaração na política de base não é mais apresentada na tela ao us
 
 O elemento **OutputClaims** contém uma lista de declarações a serem retornadas para a próxima etapa de orquestração. O atributo **DefaultValue** terá efeito somente se a declaração nunca tiver sido definida. Se ele foi definido em uma etapa de orquestração anterior, o valor padrão não terá efeito mesmo que o usuário deixe o valor vazio. Para forçar o uso de um valor padrão, defina o atributo **AlwaysUseDefaultValue** como `true`.
 
-Por motivos de segurança, um valor de Declaração`UserInputType` de senha `Password`(definido como) está disponível somente para os perfis técnicos de validação do perfil técnico autodeclarado. Você não pode usar a declaração de senha nas próximas etapas de orquestração. 
+Por motivos de segurança, um valor de declaração de senha ( `UserInputType` definido como `Password` ) está disponível somente para os perfis técnicos de validação do perfil técnico autodeclarado. Você não pode usar a declaração de senha nas próximas etapas de orquestração. 
 
 > [!NOTE]
 > Em versões anteriores do IEF (Identity Experience Framework), as declarações de saída eram usadas para coletar dados do usuário. Para coletar dados do usuário, use uma coleção **DisplayClaims** em vez disso.
@@ -140,7 +140,7 @@ Use declarações de saída quando:
 
 O exemplo a seguir demonstra o uso de um perfil técnico autodeclarado que usa declarações de exibição e declarações de saída.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -189,7 +189,7 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Setting. Operations <sup>1</sup>| Não | Em uma página de entrada, essa propriedade controla o comportamento do campo nome de usuário, como validação de entradas e mensagens de erro. Valores esperados: `Username` ou `Email`.  |
 | AllowGenerationOfClaimsWithNullValues| Não| Permitir para gerar uma declaração com valor nulo. Por exemplo, em um caso, o usuário não marca uma caixa de seleção.|
@@ -200,13 +200,13 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 | setting.showCancelButton | Não | Mostra o botão cancelar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showContinueButton | Não | Mostra o botão continuar. Valores possíveis: `true` (padrão) ou `false` |
 | configuração. showSignupLink <sup>2</sup>| Não | Mostra o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
-| configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterInput` (padrão) o link é exibido na parte inferior da página ou `None` remove o link de senha esquecida.|
+| configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterInput` (padrão) o link é exibido na parte inferior da página ou `None` Remove o link de senha esquecida.|
 | configuração. enableRememberMe <sup>2</sup>| Não| Exibe a caixa de seleção [manter-me conectado](custom-policy-keep-me-signed-in.md) . Valores possíveis: `true` ou `false` (padrão). |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false`  (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true`. |
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
 
 Observações:
-1. Disponível para a definição [DataUri](contentdefinitions.md#datauri) de conteúdo DataUri `unifiedssp`tipo de `unifiedssd`, ou.
-1. Disponível para a definição [DataUri](contentdefinitions.md#datauri) de conteúdo DataUri `unifiedssp`tipo de `unifiedssd`, ou. [Layout de página versão](page-layout.md) 1.1.0 e posterior.
+1. Disponível para a definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` .
+1. Disponível para a definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` . [Layout de página versão](page-layout.md) 1.1.0 e posterior.
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 

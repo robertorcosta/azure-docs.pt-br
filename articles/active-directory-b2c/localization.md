@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69368ecd7234912bcaf5eb606545f62ddb7b30a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681408"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204176"
 ---
 # <a name="localization"></a>Localização
 
@@ -26,7 +26,7 @@ O elemento **Localization** permite que você dê suporte a várias localidades 
 - Configure a lista explícita de idiomas com suporte em uma política e escolha um idioma padrão.
 - Forneça coleções e cadeias de caracteres específicas a um idioma.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -41,7 +41,7 @@ O elemento **Localization** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| habilitado | Não | Valores possíveis: `true` ou `false`. |
+| Habilitada | Não | Valores possíveis: `true` ou `false`. |
 
 O elemento **Localization** contém os seguintes elementos XML
 
@@ -116,7 +116,7 @@ O elemento **Item** contém os seguintes atributos:
 
 O exemplo a seguir mostra o uso do elemento **LocalizedCollections**. Ele contém dois elementos **LocalizedCollection**, um para inglês e outro para espanhol. Ambos definem a coleção de **Restrição** da declaração `Gender` com uma lista de itens para inglês e espanhol.
 
-```XML
+```xml
 <LocalizedResources Id="api.selfasserted.en">
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -147,7 +147,7 @@ O elemento **LocalizedString** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ElementType | Sim | Valores possíveis: [claimproperties](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predicado](#predicate), [InputValidation](#inputvalidation)ou [UxElement](#uxelement).   | 
-| ElementId | Sim | Se **ElementType** for definido como `ClaimType`, `Predicate`ou `InputValidation`, esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. |
+| ElementId | Sim | Se **ElementType** for definido como `ClaimType` , `Predicate` ou `InputValidation` , esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. |
 | StringId | Sim | Se **ElementType** for definido como `ClaimType`, esse elemento conterá uma referência a um atributo de um tipo de declaração. Valores possíveis: `DisplayName`, `AdminHelpText` ou `PatternHelpText`. O valor `DisplayName` é usado para definir o nome de exibição de declaração. O valor `AdminHelpText` é usado para definir o nome de texto de ajuda do usuário de declaração. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de declaração. Se **ElementType** for definido como `UxElement`, esse elemento conterá uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** for definido como `ErrorMessage`, esse elemento especificará o identificador de uma mensagem de erro. Veja [IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa de identificadores `UxElement`.|
 
 ## <a name="elementtype"></a>ElementType
@@ -157,10 +157,10 @@ A referência ElementType para um tipo de declaração, uma transformação de d
 | Elemento a ser localizado | ElementType | ElementId |StringId |
 | --------- | -------- | ----------- |----------- |
 | Nome do provedor de identidade |`ClaimsProvider`| | A ID do elemento ClaimsExchange|
-| Atributos de tipo de declaração|`ClaimType`|Nome do tipo de declaração| O atributo da declaração a ser localizada. Valores possíveis: `AdminHelpText`, `DisplayName`, `PatternHelpText`e `UserHelpText`.|
+| Atributos de tipo de declaração|`ClaimType`|Nome do tipo de declaração| O atributo da declaração a ser localizada. Valores possíveis: `AdminHelpText` , `DisplayName` , `PatternHelpText` e `UserHelpText` .|
 |Mensagem de erro|`ErrorMessage`||A ID da mensagem de erro |
 |Copia cadeias de caracteres localizadas em declarações|`GetLocalizedStringsTra nsformationClaimType`||O nome da declaração de saída|
-|Mensagem de usuário de predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores possíveis: `HelpText`.|
+|Mensagem de usuário de predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores possíveis: `HelpText` .|
 |Mensagem de usuário do grupo de predicado|`InputValidation`|A ID do elemento PredicateValidation.|A ID do elemento de predicado. O grupo de predicado deve ser um filho do elemento de validação de predicado, conforme definido no ElementID.|
 |Elementos da interface do usuário |`UxElement` | | A ID do elemento de interface do usuário a ser localizado.|
 
@@ -205,7 +205,7 @@ O valor ClaimType é usado para localizar um dos atributos de declaração.
 
 O exemplo a seguir mostra como localizar os atributos DisplayName, userhelptext e PatternHelpText do tipo de declaração de email.
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
@@ -228,7 +228,7 @@ O valor ErrorMessage é usado para localizar uma das mensagens de erro do sistem
 O exemplo a seguir mostra como localizar a mensagem de erro UserMessageIfClaimsPrincipalAlreadyExists.
 
 
-```XML
+```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
@@ -319,7 +319,7 @@ O valor InputValidation é usado para localizar uma das mensagens de erro do gru
 
 O exemplo a seguir mostra como localizar um texto de ajuda do grupo de validação de predicado.
 
-```XML
+```xml
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
@@ -327,7 +327,7 @@ O exemplo a seguir mostra como localizar um texto de ajuda do grupo de validaç�
 
 O valor UxElement é usado para localizar um dos elementos da interface do usuário. O exemplo a seguir mostra como localizar os botões continue e Cancel.
 
-```XML
+```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```

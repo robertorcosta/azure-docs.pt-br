@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 410f413fc8450c0ee33c3ca95e860a3e8de34107
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8486241d4de0025603b22b591f4a8f62901bd7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203649"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ O atributo **Name** do elemento **Protocol** precisa ser definido como `Propriet
 
 O exemplo a seguir mostra um perfil técnico RESTful:
 
-```XML
+```xml
 <TechnicalProfile Id="REST-UserMembershipValidator">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -41,7 +41,7 @@ O exemplo a seguir mostra um perfil técnico RESTful:
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas para a API REST. Você também pode mapear o nome de sua declaração para o nome definido na API REST. O exemplo a seguir mostra o mapeamento entre sua política e a API REST. A declaração **givenName** é enviada para a API REST como **firstName**, enquanto **surname** é enviado como **lastName**. O A declaração de **email** é definida como está.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="email" />
   <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
@@ -59,14 +59,14 @@ Para enviar uma carga JSON complexa:
 
 1. Crie sua carga JSON com a transformação declarações [GenerateJson](json-transformations.md) .
 1. No perfil técnico da API REST:
-    1. Adicione uma transformação de declarações de entrada com uma referência `GenerateJson` à transformação declarações.
+    1. Adicione uma transformação de declarações de entrada com uma referência à `GenerateJson` transformação declarações.
     1. Defina a `SendClaimsIn` opção de metadados como`body`
     1. Defina a `ClaimUsedForRequestPayload` opção de metadados como o nome da declaração que contém a carga JSON.
     1. Na declaração de entrada, adicione uma referência à declaração de entrada que contém a carga JSON.
 
-O exemplo `TechnicalProfile` a seguir envia um email de verificação usando um serviço de email de terceiros (neste caso, SendGrid).
+O exemplo a seguir `TechnicalProfile` envia um email de verificação usando um serviço de email de terceiros (neste caso, SendGrid).
 
-```XML
+```xml
 <TechnicalProfile Id="SendGrid">
   <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -75,6 +75,7 @@ O exemplo `TechnicalProfile` a seguir envia um email de verificação usando um 
     <Item Key="AuthenticationType">Bearer</Item>
     <Item Key="SendClaimsIn">Body</Item>
     <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
+    <Item Key="DefaultUserMessageIfRequestFailed">Cannot process your request right now, please try again later.</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
@@ -111,24 +112,35 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | A URL do ponto de extremidade da API REST. |
 | AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`, `Bearer` ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, por exemplo Azure AD B2C, podem acessar sua API. O `Bearer` valor indica que a API REST restringe o acesso usando o token de portador OAuth2 do cliente. |
-| AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido como `none` no ambiente de produção`DeploymentMode` (de [TrustFrameworkPolicy](trustframeworkpolicy.md) é definido como `Production`, ou não especificado). Valores possíveis: true ou false (padrão). |
+| AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido como `none` no ambiente de produção ( `DeploymentMode` de [TrustFrameworkPolicy](trustframeworkpolicy.md) é definido como `Production` , ou não especificado). Valores possíveis: true ou false (padrão). |
 | SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header` ou `QueryString`. O valor `Body` é a declaração de entrada enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de entrada enviada no cabeçalho da solicitação. O valor `QueryString` é a declaração de entrada enviada na cadeia de caracteres de consulta da solicitação. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: Postar</li><li>`Form`: Postar</li><li>`Header`: Obter</li><li>`QueryString`: Obter</li></ul> |
 | ClaimsFormat | Não | Não usado no momento, pode ser ignorado. |
 | ClaimUsedForRequestPayload| Não | Nome de uma declaração de cadeia de caracteres que contém a carga a ser enviada para a API REST. |
-| DebugMode | Não | Executa o perfil técnico no modo de depuração. Valores possíveis: `true`ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-error-message) . |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false`  (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true`. |
-| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true`ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized`, ou `data.0.to.0.email`.|
+| DebugMode | Não | Executa o perfil técnico no modo de depuração. Valores possíveis: `true` ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-validation-error-message) . |
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
+| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
 | UseClaimAsBearerToken| Não| O nome da declaração que contém o token de portador.|
+
+## <a name="error-handling"></a>Tratamento de erros
+
+Os metadados a seguir podem ser usados para configurar as mensagens de erro exibidas na falha da API REST. A mensagem de erro pode ser [localizada](localization-string-ids.md#restful-service-error-messages).
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| DefaultUserMessageIfRequestFailed | Não | Uma mensagem de erro personalizada padrão para todas as exceções da API REST.|
+| UserMessageIfCircuitOpen | Não | Mensagem de erro quando a API REST não está acessível. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. |
+| UserMessageIfDnsResolutionFailed | Não | Mensagem de erro para a exceção de resolução de DNS. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. | 
+| UserMessageIfRequestTimeout | Não | Mensagem de erro quando a conexão atingir o tempo limite. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. | 
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
 Se o tipo de autenticação for definido como `None`, o elemento **CryptographicKeys** não será usado.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -142,14 +154,14 @@ Se o tipo de autenticação for definido como `None`, o elemento **Cryptographic
 
 Se o tipo de autenticação for definido como `Basic`, o elemento **CryptographicKeys** conterá os seguintes atributos:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sim | O nome de usuário usado para autenticar. |
 | BasicAuthenticationPassword | Sim | A senha usada para autenticar. |
 
 O exemplo a seguir mostra um perfil técnico com a autenticação Básica:
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -167,11 +179,11 @@ O exemplo a seguir mostra um perfil técnico com a autenticação Básica:
 
 Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **CryptographicKeys** conterá o seguinte atributo:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. |
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -188,11 +200,11 @@ Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **
 
 Se o tipo de autenticação for definido como `Bearer`, o elemento **CryptographicKeys** conterá o seguinte atributo:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | Não | O token de portador OAuth 2,0. |
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -207,11 +219,11 @@ Se o tipo de autenticação for definido como `Bearer`, o elemento **Cryptograph
 </TechnicalProfile>
 ```
 
-## <a name="returning-error-message"></a>Mensagem de erro retornada
+## <a name="returning-validation-error-message"></a>Retornando mensagem de erro de validação
 
 A API REST talvez precise retornar uma mensagem de erro, como "O usuário não foi encontrado no sistema CRM". Se ocorrer um erro, a API REST deverá retornar uma mensagem de erro HTTP 4xx, como o código de status de resposta 400 (solicitação inadequada) ou 409 (conflito). O corpo da resposta contém a mensagem de erro formatada em JSON:
 
-```JSON
+```json
 {
   "version": "1.0.0",
   "status": 409,
@@ -223,7 +235,7 @@ A API REST talvez precise retornar uma mensagem de erro, como "O usuário não f
 }
 ```
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | version | Sim | Sua versão da API REST. Por exemplo: 1.0.1 |
 | status | Sim | Deve ser 409 |
@@ -251,10 +263,10 @@ public class ResponseContent
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte os seguintes artigos para obter exemplos de como usar um perfil técnico RESTful:
+Confira os seguintes artigos para obter exemplos de como usar um perfil técnico RESTful:
 
-- [Integrar as trocas de declarações da API REST em sua política personalizada de Azure AD B2C](custom-policy-rest-api-intro.md)
-- [Walkthrough: integrar as trocas de declarações da API REST no percurso do usuário Azure AD B2C como validação da entrada do usuário](custom-policy-rest-api-claims-validation.md)
-- [Walkthrough: Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
-- [Proteja seus serviços de API REST](secure-rest-api.md)
+- [Integrar trocas de declarações da API REST em sua política personalizada no Azure AD B2C](custom-policy-rest-api-intro.md)
+- [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário](custom-policy-rest-api-claims-validation.md)
+- [Passo a passo: Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
+- [Proteger seus serviços de API REST](secure-rest-api.md)
 

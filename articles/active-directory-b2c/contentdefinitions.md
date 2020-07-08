@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202850"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -30,7 +30,7 @@ O elemento **ContentDefinitions** contém as URLs para modelos de HTML5 que pode
 
 O exemplo a seguir mostra o identificador de definição de conteúdo e a definição de recursos localizados:
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ O exemplo a seguir mostra o identificador de definição de conteúdo e a defini
 
 Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail** contêm o identificador de definição de conteúdo **ContentDefinitionReferenceId** definido como `api.localaccountsignup`
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -61,7 +61,7 @@ Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail
 
 O elemento **ContentDefinition** contém o seguinte atributo:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
 
@@ -70,7 +70,7 @@ O elemento **ContentDefinition** contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Uma cadeia de caracteres que contém a URL da página HTML5 para a definição de conteúdo. |
-| RecoveryUri | 1:1 | Uma cadeia de caracteres que contém a URL da página HTML para exibir um erro relacionado à definição de conteúdo. Não usado no momento, o valor deve `~/common/default_page_error.html`ser. |
+| RecoveryUri | 1:1 | Uma cadeia de caracteres que contém a URL da página HTML para exibir um erro relacionado à definição de conteúdo. Não usado no momento, o valor deve ser `~/common/default_page_error.html` . |
 | DataUri | 1:1 | Uma cadeia de caracteres que contém a URL relativa de um arquivo HTML que fornece a experiência do usuário a ser invocada para a etapa. |
 | Metadados | 0:1 | Uma coleção de pares chave/valor que contém os metadados utilizados pela definição de conteúdo. |
 | LocalizedResourcesReferences | 0:1 | Uma coleção de referências de recursos localizados. Use esse elemento para personalizar a localização de um atributo de declarações e a interface do usuário. |
@@ -90,13 +90,13 @@ O elemento **DataUri** é usado para especificar o identificador de página. O A
 
 ### <a name="select-a-page-layout"></a>Selecionar um layout de página
 
-Você pode habilitar o [código do lado do cliente JavaScript](javascript-samples.md) `contract` inserindo `elements` entre e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Você pode habilitar o [código do lado do cliente JavaScript](javascript-samples.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 A parte da [versão](page-layout.md) do `DataUri` especifica o pacote de conteúdo que contém HTML, CSS e JavaScript para os elementos da interface do usuário em sua política. Se você pretende habilitar o código JavaScript do lado do cliente, os elementos dos quais você baseia seu JavaScript devem ser imutáveis. Se não forem imutáveis, as alterações poderão causar um comportamento inesperado nas páginas do usuário. Para evitar esses problemas, aplique o uso de um layout de página e especifique uma versão de layout de página. Isso garante que todas as definições de conteúdo com base no seu JavaScript sejam imutáveis. Mesmo que você não pretenda habilitar o JavaScript, ainda precisará especificar a versão de layout da página para suas páginas.
 
-O exemplo a seguir mostra **DataUri** o DataUri `selfasserted` da `1.2.0`versão:
+O exemplo a seguir mostra o **DataUri** da `selfasserted` versão `1.2.0` :
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -111,7 +111,7 @@ O exemplo a seguir mostra **DataUri** o DataUri `selfasserted` da `1.2.0`versão
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract`: _urn: com: Microsoft: AAD: B2C: Elements:p**contract**age-Name: Version_. Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
+O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD: B2C: elements:p**contract**age-Name: Version_. Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
 
 | Valor antigo de DataUri | Novo valor de DataUri |
 | ----------------- | ----------------- |
@@ -137,7 +137,7 @@ Um elemento **Metadata** contém os seguintes elementos:
 
 O elemento **Item** do elemento **Metadata** contém os seguintes atributos:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Chave | Sim | A chave de metadados.  |
 
@@ -145,7 +145,7 @@ O elemento **Item** do elemento **Metadata** contém os seguintes atributos:
 
 A definição de conteúdo dá suporte aos seguintes itens de metadados:
 
-| Chave | Necessária | Descrição |
+| Chave | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | DisplayName | Não | Uma cadeia de caracteres que contém o nome da definição de conteúdo. |
 
@@ -159,14 +159,14 @@ O elemento **LocalizedResourcesReferences** contém os seguintes elementos:
 
 O elemento **LocalizedResourcesReference** contém os seguintes atributos:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Linguagem | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
 | LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources**. |
 
 O exemplo a seguir mostra uma definição de conteúdo de entrada ou inscrição com uma referência à localização para inglês, francês e espanhol:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

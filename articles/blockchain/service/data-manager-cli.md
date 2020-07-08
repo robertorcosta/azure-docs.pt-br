@@ -2,14 +2,14 @@
 title: Configurar Gerenciador de Dados Blockchain usando CLI do Azure-serviço Blockchain do Azure
 description: Criar e gerenciar um Gerenciador de Dados Blockchain para o serviço Blockchain do Azure usando CLI do Azure
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200453"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Gerenciador de Dados Blockchain usando a CLI do Azure
 
@@ -25,7 +25,7 @@ Para configurar uma instância de Gerenciador de Dados do Blockchain, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) mais recente e conectado usando `az login`.
+* Instale o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) mais recente e conectado usando `az login` .
 * Conclua o [início rápido: Use Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium](connect-vscode.md). A camada *Standard* do serviço Blockchain do Azure é recomendada ao usar o Blockchain Gerenciador de dados.
 * Criar um [tópico de grade de eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Aprenda sobre [Manipuladores de eventos na Grade de Eventos do Azure](../../event-grid/event-handlers.md)
@@ -133,7 +133,7 @@ az resource create \
 
 ### <a name="input-examples"></a>Exemplos de entrada
 
-Exemplo de JSON de configuração para criar um recurso de entrada na região *leste dos EUA* que \<está conectada ao membro\>Blockchain.
+Exemplo de JSON de configuração para criar um recurso de entrada na região *leste dos EUA* que está conectada ao \<Blockchain member\> .
 
 ``` json
 {
@@ -151,7 +151,7 @@ Exemplo de JSON de configuração para criar um recurso de entrada na região *l
 |---------|-------------|
 | local | Região onde criar o recurso de entrada. |
 | inputType | Tipo de razão do membro do serviço Blockchain do Azure. Atualmente, há suporte para **Ethereum** . |
-| resourceId | Nó de transação ao qual a entrada está conectada. Substitua \<ID\>de assinatura \<, grupo\>de recursos \<e membro\> Blockchain pelos valores do recurso de nó de transação. A entrada se conecta ao nó de transação padrão para o membro do serviço Blockchain do Azure. |
+| resourceId | Nó de transação ao qual a entrada está conectada. Substitua \<Subscription ID\> , \<Resource group\> e \<Blockchain member\> pelos valores do recurso de nó de transação. A entrada se conecta ao nó de transação padrão para o membro do serviço Blockchain do Azure. |
 
 Crie uma entrada chamada *MyInput* para *myassister* usando uma cadeia de caracteres JSON para configuração.
 
@@ -205,7 +205,7 @@ az resource create \
 
 ### <a name="output-examples"></a>Exemplos de saída
 
-Exemplo de JSON de configuração para criar um recurso de saída na região *leste dos EUA* que está conectada a um \<tópico da grade\>de eventos chamado tópico da grade de eventos.
+Exemplo de JSON de configuração para criar um recurso de saída na região *leste dos EUA* que está conectada a um tópico de grade de eventos chamado \<event grid topic\> .
 
 ``` json
 {
@@ -223,7 +223,7 @@ Exemplo de JSON de configuração para criar um recurso de saída na região *le
 |---------|-------------|
 | local | Região onde criar o recurso de saída. |
 | outputType | Tipo de saída. Atualmente, há suporte para **EventGrid** . |
-| resourceId | Recurso ao qual a saída está conectada. Substitua \<ID\>da assinatura \<, grupo\>de recursos \<e membro\> Blockchain pelos valores do recurso da grade de eventos. |
+| resourceId | Recurso ao qual a saída está conectada. Substitua \<Subscription ID\> , \<Resource group\> e \<Blockchain member\> pelos valores do recurso de grade de eventos. |
 
 Crie uma saída chamada *MyOutput* para *myassister* que se conecta a um tópico da grade de eventos usando uma cadeia de caracteres de configuração JSON.
 
@@ -348,7 +348,7 @@ az resource invoke-action \
 | Parâmetro | Descrição |
 |-----------|-------------|
 | ação | Use **Iniciar** para executar o Inspetor. |
-| ids | ID do recurso do Inspetor. Substitua \<ID\>da assinatura \<, grupo\>de recursos \<e nome\> do Inspetor pelos valores do recurso do Inspetor.|
+| ids | ID do recurso do Inspetor. Substitua \<Subscription ID\> , \<Resource group\> e \<Watcher name\> pelos valores do recurso do Inspetor.|
 
 ### <a name="start-instance-example"></a>Exemplo de inicialização de instância
 
@@ -373,7 +373,7 @@ az resource invoke-action \
 | Parâmetro | Descrição |
 |-----------|-------------|
 | ação | Use **parar** para interromper o Inspetor. |
-| ids | Nome do Inspetor. Substitua \<ID\>da assinatura \<, grupo\>de recursos \<e nome\> do Inspetor pelos valores do recurso do Inspetor. |
+| ids | Nome do Inspetor. Substitua \<Subscription ID\> , \<Resource group\> e \<Watcher name\> pelos valores do recurso do Inspetor. |
 
 ### <a name="stop-watcher-example"></a>Parar exemplo do observador
 

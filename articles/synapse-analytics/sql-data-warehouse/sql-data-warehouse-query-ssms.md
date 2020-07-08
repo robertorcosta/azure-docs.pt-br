@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0d65ea9b684439cab384bbaa09fcdef1302b6bcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 772e4253244f5e13a60f155549d5f5513695e5fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200742"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Conectar-se ao Azure Synapse Analytics com o SQL Server Management Studio (SSMS)
 
@@ -41,7 +41,7 @@ Para usar este tutorial, você precisará de:
 ## <a name="1-connect-to-your-sql-pool"></a>1. conectar-se ao seu pool do SQL
 
 1. Abra o SSMS.
-2. Abra o pesquisador de objetos selecionando **arquivo** > **conectar**pesquisador de objetos.
+2. Abra o pesquisador de objetos selecionando **arquivo**conectar pesquisador de  >  **objetos**.
 
     ![Pesquisador de Objetos do SQL Server](./media/sql-data-warehouse-query-ssms/connect-object-explorer.png)
 3. Preencha os campos na janela Conectar ao Servidor.
@@ -56,7 +56,7 @@ Para usar este tutorial, você precisará de:
 
    ![Explorar o AdventureWorksWeb](./media/sql-data-warehouse-query-ssms/explore-tables.png)
 
-## <a name="2-run-a-sample-query"></a>2. executar uma consulta de exemplo
+## <a name="2-run-a-sample-query"></a>2. Executar uma consulta de exemplo
 
 Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma consulta.
 
@@ -70,7 +70,7 @@ Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma c
    SELECT COUNT(*) FROM dbo.FactInternetSales;
    ```
 
-4. Execute a consulta clicando `Execute` ou use o seguinte atalho:. `F5`
+4. Execute a consulta clicando `Execute` ou use o seguinte atalho: `F5` .
 
    ![Executar consulta](./media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Examine os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
@@ -79,4 +79,4 @@ Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você pode se conectar e consultar, tente [visualizar os dados com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Para configurar seu ambiente para Azure Active Directory autenticação, confira [autenticar no pool do SQL](sql-data-warehouse-authentication.md).
+Agora que você pode se conectar e consultar, tente [visualizar os dados com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Para configurar seu ambiente para a autenticação do Azure Active Directory, confira [Autenticar no pool de SQL](sql-data-warehouse-authentication.md).

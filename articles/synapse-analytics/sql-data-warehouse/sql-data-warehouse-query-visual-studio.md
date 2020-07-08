@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 444cb2c8378ad873beb61116c5c4387ad3c59761
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a3e8ea3b0ed2840e5eee7a046fa3a145f82884dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200691"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Conectar-se ao Azure Synapse Analytics com o Visual Studio e o SSDT
 > [!div class="op_single_selector"]
@@ -28,13 +28,13 @@ ms.locfileid: "83200352"
 > 
 > 
 
-Use o Visual Studio para consultar um pool do SQL no Azure Synapse em apenas alguns minutos. Esse método usa a extensão SQL Server Data Tools (SSDT) no Visual Studio 2019. 
+Use o Visual Studio para consultar um pool do SQL no Azure Synapse em apenas alguns minutos. Esse método usa a extensão SSDT (SQL Server Data Tools) no Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar este tutorial, você precisará de:
 
 * Um pool SQL existente. Para criar um, confira [Criar um pool de SQL](create-data-warehouse-portal.md).
-* SSDT para Visual Studio. Se você tiver o Visual Studio, provavelmente já terá o SSDT para o Visual Studio. Para obter instruções e opções de instalação, confira [Instalar o Visual Studio e o SSDT](sql-data-warehouse-install-visual-studio.md).
+* SSDT para Visual Studio. Se você tiver o Visual Studio, provavelmente já terá o SSDT para o Visual Studio. Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e o SSDT](sql-data-warehouse-install-visual-studio.md).
 * O nome de servidor SQL totalmente qualificado. Para encontrar essas informações, consulte [conectar-se ao pool do SQL](../sql/connect-overview.md).
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. conectar-se ao seu pool do SQL
@@ -57,7 +57,7 @@ Para usar este tutorial, você precisará de:
    
     ![Explorar o AdventureWorksWeb](./media/sql-data-warehouse-query-visual-studio/explore-sample.png)
 
-## <a name="2-run-a-sample-query"></a>2. executar uma consulta de exemplo
+## <a name="2-run-a-sample-query"></a>2. Executar uma consulta de exemplo
 Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma consulta.
 
 1. Clique com o botão direito do mouse em seu banco de dados no Gerenciador de Objetos do SQL Server.
@@ -69,7 +69,7 @@ Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma c
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Execute a consulta clicando na seta verde ou use o seguinte atalho: `CTRL` + `SHIFT` + `E` .
+4. Execute a consulta clicando na seta verde ou use o seguinte atalho: `CTRL`+`SHIFT`+`E`.
    
     ![Executar consulta](./media/sql-data-warehouse-query-visual-studio/run-query.png)
 5. Examine os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
@@ -79,4 +79,4 @@ Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma c
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você pode se conectar e consultar, tente [visualizar os dados com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
-Para configurar seu ambiente para Azure Active Directory autenticação, confira [autenticar no pool do SQL](sql-data-warehouse-authentication.md).
+Para configurar seu ambiente para a autenticação do Azure Active Directory, confira [Autenticar no pool de SQL](sql-data-warehouse-authentication.md).

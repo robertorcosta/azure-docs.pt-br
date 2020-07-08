@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 5670be6d4c45644ac8318702822c37ed82a81caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70071696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205740"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar políticas de Gerenciamento de API do Azure
 
@@ -41,7 +41,7 @@ Para definir ou editar uma política, siga as etapas a seguir:
 7. Selecione o **</>** ícone (editor de código) na seção **processamento de entrada** ou processamento de **saída** .
 8. Cole o código de política desejado em um dos blocos adequados.
 
-    ```XML
+    ```xml
     <policies>
         <inbound>
             <base />

@@ -4,18 +4,18 @@ description: Saiba mais sobre o impacto que as políticas de segurança e privac
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: 590ad6a52d768c7e59d8d97691e146205e43cadd
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.topic: conceptual
+ms.date: 06/05/2020
+ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194959"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Políticas de segurança de dados e privacidade para o Google Connectors em aplicativos lógicos do Azure
 
-A partir de **1º de maio de 2020**, alterações devido às [políticas de privacidade e segurança de dados](https://www.blog.google/technology/safety-security/project-strobe/) do Google podem afetar os fluxos de trabalho do aplicativo lógico que usam o conector do [gmail](https://docs.microsoft.com/connectors/gmail/). Se seus aplicativos lógicos usam o conector do Gmail com uma conta de consumidor do gmail (endereço @gmail.com de @googlemail.comemail que termina com ou), seus aplicativos lógicos podem usar somente [gatilhos, ações e conectores aprovados pelo Google](#approved-connectors)específicos. 
+A partir de **1º de maio de 2020**, alterações devido às [políticas de privacidade e segurança de dados](https://www.blog.google/technology/safety-security/project-strobe/) do Google podem afetar os fluxos de trabalho do aplicativo lógico que usam o conector do [gmail](https://docs.microsoft.com/connectors/gmail/). Se seus aplicativos lógicos usam o conector do Gmail com uma conta de consumidor do gmail (endereço de email que termina com @gmail.com ou @googlemail.com ), seus aplicativos lógicos podem usar somente [gatilhos, ações e conectores aprovados pelo Google](#approved-connectors)específicos.
 
 > [!NOTE]
 > Se seus aplicativos lógicos usarem o conector do Gmail com uma conta de negócios do G-Suite (endereço de email com um domínio personalizado), seus aplicativos lógicos não serão afetados e não terão restrições quanto ao uso do conector do gmail.
@@ -36,11 +36,31 @@ Nessa política, quando você usa uma conta de consumidor do Gmail, você pode u
 
 * Gatilhos e ações internos de aplicativos lógicos: lote, controle, operações de dados, data e hora, arquivo simples, Liquid, solicitação, agendamento, variáveis e XML
 
+  Gatilhos internos e ações que não são aprovadas pelo Google, como HTTP, Azure Functions, aplicativos lógicos do Azure e outros, tornam um aplicativo lógico não compatível com o conector do Gmail porque o aplicativo pode enviar ou receber dados de qualquer lugar.
+
 * Serviços do Google: gmail, Google Agenda, contatos do Google, Google Drive, Google sheets e tarefas do Google
 
 * Serviços da Microsoft aprovados: Dynamics 365, Excel online, Microsoft Teams, Office 365, OneDrive e SharePoint Online
 
 * Conectores para fontes de dados gerenciadas pelo cliente: FTP, RSS, SFTP, SMTP e SQL Server
+
+## <a name="non-compliant-examples"></a>Exemplos em não conformidade
+
+Aqui estão alguns exemplos que usam o conector do Gmail com gatilhos e ações internas ou conectores gerenciados que não são aprovados pelo Google:
+
+* Esse aplicativo lógico usa o conector do Gmail com o gatilho interno HTTP:
+
+  ![Aplicativo lógico não compatível-exemplo 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+  
+  O aplicativo lógico também usa o conector do Google Agenda, que é aprovado.
+
+* Este aplicativo lógico usa o conector do Gmail com o conector de armazenamento de BLOBs do Azure:
+
+  ![Aplicativo lógico não compatível-exemplo 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
+
+* Este aplicativo lógico usa o conector do Gmail com o conector do Twitter:
+
+  ![Aplicativo lógico não compatível-exemplo 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
 Para obter as informações mais recentes, consulte a [documentação de referência técnica do conector do Gmail](https://docs.microsoft.com/connectors/gmail/).
 
@@ -70,7 +90,7 @@ Para usar a ID do cliente e o segredo do cliente do seu aplicativo cliente do Go
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. Se você estiver adicionando um novo gatilho ou ação do Gmail e criando uma conexão totalmente nova, vá para a próxima etapa. Caso contrário, no gatilho ou na ação do Gmail, selecione **alterar conexão** > **Adicionar novo**, por exemplo:
+1. Se você estiver adicionando um novo gatilho ou ação do Gmail e criando uma conexão totalmente nova, vá para a próxima etapa. Caso contrário, no gatilho ou na ação do Gmail, selecione **alterar conexão**  >  **Adicionar novo**, por exemplo:
 
    ![Selecione "alterar conexão" > "Adicionar novo"](./media/connectors-google-data-security-privacy-policy/change-gmail-connection.png)
 
@@ -81,8 +101,8 @@ Para usar a ID do cliente e o segredo do cliente do seu aplicativo cliente do Go
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Tipo de autenticação** | **Traga seu próprio aplicativo** | Especifica que você usará seu próprio aplicativo cliente para autenticação. |
-   | **ID do Cliente** | <*ID do cliente*> | A ID do cliente do seu aplicativo cliente do Google |
-   | **Segredo do cliente** | <*segredo do cliente*> | O segredo do cliente do seu aplicativo cliente do Google |
+   | **ID do Cliente** | <*client-ID*> | A ID do cliente do seu aplicativo cliente do Google |
+   | **Segredo do Cliente** | <*segredo do cliente*> | O segredo do cliente do seu aplicativo cliente do Google |
    ||||
 
 1. Quando terminar, selecione **entrar**.

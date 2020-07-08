@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201168"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Para usar um resolvedor de declaração em uma declaração de entrada ou saída
 
 No exemplo a seguir, um tipo de declaração denominado `correlationId` é definido com um **DataType** de `string`.
 
-```XML
+```xml
 <ClaimType Id="correlationId">
   <DisplayName>correlationId</DisplayName>
   <DataType>string</DataType>
@@ -36,7 +36,7 @@ No exemplo a seguir, um tipo de declaração denominado `correlationId` é defin
 
 No perfil técnico, mapeie o resolvedor de declaração para o tipo de declaração. O Azure AD B2C preenche o valor do resolvedor de declaração `{Context:CorrelationId}` para a declaração `correlationId` e envia a declaração para o perfil técnico.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
@@ -94,7 +94,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 | Declaração | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Declaração: tipo de declaração} | Um identificador de um tipo de declaração já definido na seção de ClaimsSchema no arquivo de política ou de política pai.  Por exemplo: `{Claim:displayName}`, ou `{Claim:objectId}`. | Um valor de tipo de declaração.|
+| {Declaração: tipo de declaração} | Um identificador de um tipo de declaração já definido na seção de ClaimsSchema no arquivo de política ou de política pai.  Por exemplo: `{Claim:displayName}` , ou `{Claim:objectId}` . | Um valor de tipo de declaração.|
 
 
 ### <a name="oauth2-key-value-parameters"></a>Parâmetros de chave-valor de OAuth2
@@ -121,9 +121,9 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | ----- | ----------- | --------|
 | {SAML: AuthnContextClassReferences} | O `AuthnContextClassRef` valor do elemento, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | O `Format` atributo, do `NameIDPolicy` elemento da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
-| {SAML: emissor} |  O valor `Issuer` do elemento SAML da solicitação SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | verdadeiro |
-| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | verdadeiro |
+| {SAML: emissor} |  O `Issuer` valor do elemento SAML da solicitação SAML.| `https://contoso.com` |
+| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | True |
+| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | True |
 | {SAML: ProviderName} | O `ProviderName` valor do atributo, do `AuthnRequest` elemento da solicitação SAML.| Contoso.com |
 | {SAML: Relaystate} | O parâmetro de cadeia de caracteres da consulta `RelayState`.| 
 
@@ -146,8 +146,8 @@ Você pode usar resolvedores de declarações com os seguintes elementos:
 |Perfil técnico do [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
 Configurações:
-1. Os `IncludeClaimResolvingInClaimsHandling` metadados devem ser definidos como `true`.
-1. O atributo `AlwaysUseDefaultValue` de declarações de entrada ou saída deve ser `true`definido como.
+1. Os `IncludeClaimResolvingInClaimsHandling` metadados devem ser definidos como `true` .
+1. O atributo de declarações de entrada ou saída `AlwaysUseDefaultValue` deve ser definido como `true` .
 
 ## <a name="claim-resolvers-samples"></a>Exemplos de resolvedores de declaração
 
@@ -157,7 +157,7 @@ Em um perfil técnico [RESTful](restful-technical-profile.md), você talvez quei
 
 O exemplo a seguir mostra um perfil técnico RESTful com este cenário:
 
-```XML
+```xml
 <TechnicalProfile Id="REST">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -185,9 +185,9 @@ Usando resolvedores de declaração, você pode preencher previamente o nome de 
 
 Azure AD B2C permite passar parâmetros de cadeia de caracteres de consulta para seus pontos de extremidade de definição de conteúdo HTML para renderizar dinamicamente o conteúdo da página. Por exemplo, esse recurso permite a capacidade de modificar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro personalizado que você passa de seu aplicativo Web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
 
-O exemplo a seguir passa o parâmetro de cadeia de caracteres de consulta chamado **campaignid** com um `Hawaii`valor de, um código de **idioma** `en-US`, e o **aplicativo** que representa a ID do cliente:
+O exemplo a seguir passa o parâmetro de cadeia de caracteres de consulta chamado **campaignid** com um valor de `Hawaii` , um código de **idioma** `en-US` , e o **aplicativo** que representa a ID do cliente:
 
-```XML
+```xml
 <UserJourneyBehaviors>
   <ContentDefinitionParameters>
     <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -205,9 +205,9 @@ Como resultado, Azure AD B2C envia os parâmetros acima para a página de conte�
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-Em um [ContentDefinition](contentdefinitions.md) `LoadUri`, você pode enviar resolvedores de declaração para efetuar pull de conteúdo de locais diferentes, com base nos parâmetros usados.
+Em um [ContentDefinition](contentdefinitions.md) `LoadUri` , você pode enviar resolvedores de declaração para efetuar pull de conteúdo de locais diferentes, com base nos parâmetros usados.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
@@ -218,7 +218,7 @@ Em um [ContentDefinition](contentdefinitions.md) `LoadUri`, você pode enviar re
 
 Com o Azure Application Insights e resolvedores de declaração, você pode obter insights sobre o comportamento do usuário. No perfil técnico do Application Insights, você envia declarações de entrada que persistem no Azure Application Insights. Para obter mais informações, confira [Acompanhar o comportamento do usuário em jornadas do Azure AD B2C usando o Application Insights](analytics-with-application-insights.md). O exemplo a seguir envia a ID de política, a ID de correlação, o idioma e a ID do cliente para o Azure Application Insights.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureInsights-Common">
   <DisplayName>Alternate Email</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -236,7 +236,7 @@ Com o Azure Application Insights e resolvedores de declaração, você pode obte
 
 Em um perfil técnico de política de terceira parte [confiável](relyingparty.md) , talvez você queira enviar a ID de locatário ou a ID de correlação para o aplicativo de terceira parte confiável dentro do JWT.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">

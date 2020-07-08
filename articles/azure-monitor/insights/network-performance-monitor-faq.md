@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096218"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193996"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas da Solução do Monitor de Desempenho de Rede
 
@@ -149,19 +149,19 @@ Para informações de nível de emparelhamento MS, use a consulta abaixo mencion
 
     NetworkMonitoring 
      | where SubType == "ERMSPeeringUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
     
 Para obter informações de nível de emparelhamento privado, use a consulta abaixo mencionada na pesquisa de logs
 
     NetworkMonitoring 
      | where SubType == "ERVNetConnectionUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
   
 Para informações de nível de circuito, use a consulta abaixo mencionada na pesquisa de logs
 
     NetworkMonitoring 
         | where SubType == "ERCircuitTotalUtilization"
-        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | project CircuitName, BitsInPerSecond, BitsOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Quais regiões têm suporte para o Monitor de desempenho do NPM?
 O NPM pode monitorar a conectividade entre redes em qualquer parte do mundo, de um workspace que está hospedado em uma das [regiões com suporte](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -213,7 +213,7 @@ Isso pode acontecer se o firewall do host ou o firewall intermediário (firewall
 * Para verificar se um firewall de rede intermediário ou o NSG do Azure não está bloqueando a comunicação na porta necessária, use o utilitário de PsPing de terceiros usando as instruções abaixo:
   * o utilitário psping está disponível para download [aqui](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Execute o seguinte comando do nó de origem.
-    * psping -n 15 \<endereço IP do nó de destino\>: portNumber por padrão o NPM usa a porta 8084. Caso você tenha mudado explicitamente usando o script EnableRules.ps1, insira o número de porta personalizada, que você está usando). Esse é um ping de máquina do Azure para local
+    * psping-n 15 \<destination node IPAddress\> :P Ortnumber por padrão NPM usa a porta 8084. Caso você tenha mudado explicitamente usando o script EnableRules.ps1, insira o número de porta personalizada, que você está usando). Esse é um ping de máquina do Azure para local
 * Verifique se os pings forem bem-sucedidos. Caso contrário, em seguida, ele indica se um firewall de rede intermediários ou o NSG do Azure está bloqueando o tráfego nesta porta.
 * Agora, execute o comando a partir do nó de destino para o IP do nó de origem.
 
@@ -222,7 +222,7 @@ Isso pode acontecer se o firewall do host ou o firewall intermediário (firewall
 Como os caminhos de rede entre A para B podem ser diferentes do que os caminhos de rede entre B para A, valores diferentes para a perda e latência podem ser observados.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Por que todos os meus circuitos do ExpressRoute e conexões de emparelhamento não estão sendo descobertos?
-O Monitor de Desempenho de Rede agora detecta circuitos do ExpressRoute e conexões de emparelhamento em todas as assinaturas às quais o usuário tem acesso. Escolha todas as assinaturas em que seus recursos do ExpressRoute estão vinculados e habilite o monitoramento para cada recurso descoberto. O Monitor de Desempenho de Rede procura objetos de conexão ao descobrir um emparelhamento privado; portanto, verifique se uma rede virtual está associada ao emparelhamento.
+O Monitor de Desempenho de Rede agora detecta circuitos do ExpressRoute e conexões de emparelhamento em todas as assinaturas às quais o usuário tem acesso. Escolha todas as assinaturas em que seus recursos do ExpressRoute estão vinculados e habilite o monitoramento para cada recurso descoberto. O Monitor de Desempenho de Rede procura objetos de conexão ao descobrir um emparelhamento privado; portanto, verifique se uma rede virtual está associada ao emparelhamento. O NPM não detecta circuitos e emparelhamento que estão em um locatário diferente do espaço de trabalho Log Analytics.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>O recurso de Monitor de ER apresentará uma mensagem de diagnóstico "O tráfego não está passando por meio de qualquer circuito". O que isso significa?
 
@@ -233,6 +233,12 @@ Isso pode ocorrer se:
 * O circuito estiver inoperante.
 * Os filtros de rota são configurados de modo que eles dão prioridade a outras rotas (como uma conexão VPN ou outro circuito do ExpressRoute) no circuito do ExpressRoute pretendido. 
 * Os nós no local e Azure escolhidos para monitoramento do circuito ExpressRoute na configuração de monitoramento, não têm conectividade um com o outro sobre o circuito do ExpressRoute pretendido. Certifique-se de que você escolheu os nós que tenham conectividade entre si no circuito do ExpressRoute que você pretende monitorar.
+
+### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Por que o ExpressRoute monitor relata meu circuito/emparelhamento como não íntegro quando ele está disponível e passando dados.
+O monitor do ExpressRoute compara os valores de desempenho de rede (perda, latência e largura de banda exportamos) relatados pelos agentes/serviço com os limites definidos durante a configuração. Para um circuito, se o exportamos de largura de banda relatado for maior que o limite definido na configuração, o circuito será marcado como não íntegro. Para emparelhamentos, se o exportamos de perda, latência ou largura de banda relatado for maior do que o limite definido na configuração, o emparelhamento será marcado como não íntegro. NPM não Utilise métricas ou qualquer outra forma de dados para o estado de integridade do deicde.
+
+### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Por que o ExpressRoute Monitor'bandwidth exportamos relata um valor diferente de entrada/saída de bits de métricas
+Para o monitor do ExpressRoute, a largura de banda utiliation é a média de largura de banda de entrada e saída nos últimos 20 minutos que é expressa em bits/s. Para métricas de rota expressa, entrada/saída de bit são pontos de dados por minuto. Internamente, o DataSet usado para ambos é o mesmo, mas o valies de agregação entre as métricas NPM e ER. Para monitoramento granular, minutos por minuto e alertas rápidos, é recomendável definir alertas diretamente em métricas ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Ao configurar o monitoramento do meu circuito do ExpressRoute, os nós do Azure não estão sendo detectados.
 Isso pode acontecer se os nós do Azure são conectados por meio do Operations Manager. O recurso de Monitor do ExpressRoute dá suporte a apenas os nós do Azure que estão conectados como Agentes Diretos.

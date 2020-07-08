@@ -4,16 +4,16 @@ description: Como criar um pool de host na Área de Trabalho Virtual do Windows 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1d312417017676d0b0bc53e3e16e229e45f1aa17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 79bd13deb66998c8a1acde28774b47fd567d368c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204703"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 
@@ -71,7 +71,7 @@ Agora você pode criar uma máquina virtual do Azure que pode ser unida ao seu p
 >[!NOTE]
 >Se você estiver implantando uma máquina virtual usando o Windows 7 como o SO host, o processo de criação e implantação será um pouco diferente. Para obter mais detalhes, confira [Implantar uma máquina virtual do Windows 7 na Área de Trabalho Virtual do Windows](deploy-windows-7-virtual-machine.md).
 
-Depois de criar as máquinas virtuais do host da sessão, [aplique uma licença do Windows a uma VM de host da sessão](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) para executar suas máquinas virtuais Windows ou Windows Server sem pagar por outra licença. 
+Depois de criar as máquinas virtuais do host da sessão, [aplique uma licença do Windows a uma VM de host da sessão](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) para executar suas máquinas virtuais Windows ou Windows Server sem pagar por outra licença.
 
 ## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparar as máquinas virtuais para instalações do agente de Área de Trabalho Virtual do Windows
 

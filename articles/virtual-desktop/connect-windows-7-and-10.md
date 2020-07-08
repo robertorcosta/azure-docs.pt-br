@@ -4,16 +4,16 @@ description: Como se conectar à área de trabalho virtual do Windows usando o c
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b16818856ca8196b82eb8f618cf22b5fc1b6854
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d333b2f8bbb660e9fd71339159d942c0520f4f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201541"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conectar-se ao Cliente de Área de Trabalho do Windows
 
@@ -22,7 +22,7 @@ ms.locfileid: "82612683"
 Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise usando o cliente de área de trabalho do Windows.
 
 >[!NOTE]
->O cliente do Windows padroniza automaticamente para a versão de área de trabalho virtual do Windows no outono 2019. No entanto, se o cliente detectar que o usuário também tem recursos de Azure Resource Manager, ele adicionará automaticamente os recursos ou notificará o usuário de que eles estão disponíveis. 
+>O cliente do Windows padroniza automaticamente para a versão de área de trabalho virtual do Windows no outono 2019. No entanto, se o cliente detectar que o usuário também tem recursos de Azure Resource Manager, ele adicionará automaticamente os recursos ou notificará o usuário de que eles estão disponíveis.
 
 > [!IMPORTANT]
 > A Área de Trabalho Virtual do Windows não dá suporte ao cliente de RADC (Conexões de RemoteApp e Área de Trabalho) nem ao cliente de Conexão de Área de Trabalho Remota (MSTSC).
@@ -60,7 +60,7 @@ Você pode iniciar recursos por um dos dois métodos.
 - Inicie um recurso como faria normalmente com outros aplicativos no menu iniciar.
   - Você também pode pesquisar os aplicativos na barra de pesquisa.
 
-Após a assinatura de um feed, o conteúdo do feed é atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
+Após a assinatura de um feed, o conteúdo do feed é atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações realizadas pelo seu administrador.
 
 ## <a name="next-steps"></a>Próximas etapas
 

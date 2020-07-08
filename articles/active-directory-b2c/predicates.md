@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203802"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -42,7 +42,7 @@ O elemento **Predicados** contém o seguinte elemento:
 
 O elemento **Predicado** contém os seguintes atributos:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para o predicado. Outros elementos podem usar esse identificador na política. |
 | Método | Sim | O tipo de método a ser usado para validação. Os valores possíveis: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) ou [IsDateRange](#isdaterange).  |
@@ -73,15 +73,15 @@ O elemento **Parâmetro** contém os seguintes atributos:
 
 O método IsLengthRange verifica se o comprimento de um valor de declaração de cadeia de caracteres está dentro do intervalo de parâmetros mínimo e máximo especificados. O elemento Predicate oferece suporte aos seguintes parâmetros:
 
-| Parâmetro | Necessária | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
 | Máximo | Sim | O número máximo de caracteres que podem ser inseridos. |
 | Mínimo | Sim | O número mínimo de caracteres que devem ser inseridos. |
 
 
-O exemplo a seguir mostra um método IsLengthRange com os `Minimum` parâmetros `Maximum` e que especificam o intervalo de comprimento da cadeia de caracteres:
+O exemplo a seguir mostra um método IsLengthRange com os parâmetros `Minimum` e `Maximum` que especificam o intervalo de comprimento da cadeia de caracteres:
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -94,13 +94,13 @@ O exemplo a seguir mostra um método IsLengthRange com os `Minimum` parâmetros 
 
 O método MatchesRegex verifica se um valor de declaração de cadeia de caracteres corresponde a uma expressão regular. O elemento Predicate oferece suporte aos seguintes parâmetros:
 
-| Parâmetro | Necessária | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
 | RegularExpression | Sim | O padrão de expressão regular para correspondência. |
 
 O exemplo a seguir mostra um método `MatchesRegex` com o parâmetro `RegularExpression` que especifica uma expressão regular:
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -112,13 +112,13 @@ O exemplo a seguir mostra um método `MatchesRegex` com o parâmetro `RegularExp
 
 O método IncludesCharacters verifica se um valor de declaração de cadeia de caracteres contém um conjunto de caracteres. O elemento Predicate oferece suporte aos seguintes parâmetros:
 
-| Parâmetro | Necessária | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| CharacterSet | Sim | O conjunto de caracteres que pode ser inserido. Por `a-z`exemplo, caracteres minúsculos, caracteres `A-Z`maiúsculos, `0-9`dígitos ou uma lista de símbolos, como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`. |
+| CharacterSet | Sim | O conjunto de caracteres que pode ser inserido. Por exemplo, caracteres minúsculos `a-z` , caracteres maiúsculos `A-Z` , dígitos `0-9` ou uma lista de símbolos, como `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 O exemplo a seguir mostra um método `IncludesCharacters` com o parâmetro `CharacterSet` que especifica o conjunto de caracteres:
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -130,14 +130,14 @@ O exemplo a seguir mostra um método `IncludesCharacters` com o parâmetro `Char
 
 O método IsDateRange verifica se um valor de declaração de data está entre um intervalo de parâmetros mínimo e máximo especificados. O elemento Predicate oferece suporte aos seguintes parâmetros:
 
-| Parâmetro | Necessária | Descrição |
+| Parâmetro | Obrigatório | Descrição |
 | ------- | ----------- | ----------- |
-| Máximo | Sim | A maior data possível que pode ser inserida. O formato da Convenção de data `yyyy-mm-dd` a seguir ou `Today`. |
-| Mínimo | Sim | A menor data possível que pode ser inserida. O formato da Convenção de data `yyyy-mm-dd` a seguir ou `Today`.|
+| Máximo | Sim | A maior data possível que pode ser inserida. O formato da Convenção de data a seguir `yyyy-mm-dd` ou `Today` . |
+| Mínimo | Sim | A menor data possível que pode ser inserida. O formato da Convenção de data a seguir `yyyy-mm-dd` ou `Today` .|
 
 O exemplo a seguir mostra um método `IsDateRange` com os parâmetros `Minimum` e `Maximum` que especificam o intervalo de datas com um formato de `yyyy-mm-dd` e `Today`.
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -152,7 +152,7 @@ Embora os predicados definam a validação para verificar um tipo de declaraçã
 
 O elemento **PredicateValidations** deve aparecer diretamente após o elemento **predicados** dentro do elemento [BuildingBlocks](buildingblocks.md) .
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -178,7 +178,7 @@ O elemento **PredicateValidations** contém o seguinte elemento:
 
 O elemento **PredicateValidation** contém o seguinte atributo:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para a validação do predicado. O elemento **ClaimType** pode usar esse identificador na política. |
 
@@ -196,7 +196,7 @@ O elemento **PredicateGroups** contém o seguinte elemento:
 
 O elemento **PredicateGroup** contém o seguinte atributo:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para o grupo de predicados.  |
 
@@ -209,7 +209,7 @@ O elemento **PredicateGroup** contém os seguintes elementos:
 
 O elemento **PredicateReferences** contém os seguintes atributos:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Não | Especifica que o valor deve corresponder a pelo menos à quantidade de definições de predicado para a entrada ser aceita. Se não for especificado, o valor deverá corresponder a todas as definições de predicado. |
 
@@ -221,7 +221,7 @@ O elemento **PredicateReferences** contém os seguintes elementos:
 
 O elemento **PredicateReference** contém os seguintes atributos:
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para a validação do predicado.  |
 
@@ -239,7 +239,7 @@ Com **Predicados** e **PredicateValidationsInput**, é possível controlar os re
 - **AllowedAADCharacters** usando o método `MatchesRegex`, valida que o único caractere inválido da senha foi fornecido.
 - **DisallowedWhitespace** usando o método `MatchesRegex`, valida que a senha não começa ou termina com um caractere de espaço em branco.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -297,7 +297,7 @@ Após definir as validações básicas, você poderá combiná-las e criar um co
 - **StrongPassword** valida DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. O último grupo `CharacterClasses` executa um conjunto adicional de predicados com `MatchAtLeast` definido como 3. A senha do usuário precisa ter entre 8 e 16 caracteres e três dos seguintes caracteres: minúsculas, maiúsculas, números ou símbolos.
 - **CustomPassword** valida somente DisallowedWhitespace, AllowedAADCharacters. Portanto, o usuário pode fornecer qualquer senha com qualquer comprimento, desde que os caracteres sejam válidos.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -367,7 +367,7 @@ Após definir as validações básicas, você poderá combiná-las e criar um co
 
 No seu tipo de declaração, adicione o elemento **PredicateValidationReference** e especifique o identificador como uma das validações de predicado, como SimplePassword, StrongPassword ou CustomPassword.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -386,7 +386,7 @@ O exemplo a seguir mostra como os elementos são organizados quando o Azure AD B
 
 Com os elementos **Predicates** e **PredicateValidations**, é possível controlar os valores de data mínimos e máximos do **UserInputType** usando um `DateTimeDropdown`. Para fazer isso, crie um **Predicado** com o `IsDateRange` método e forneça os parâmetros mínimos e máximos.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -399,7 +399,7 @@ Com os elementos **Predicates** e **PredicateValidations**, é possível control
 
 Adicione um **PredicateValidation** com uma referência ao predicado `DateRange`.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -415,7 +415,7 @@ Adicione um **PredicateValidation** com uma referência ao predicado `DateRange`
 
 No seu tipo de declaração, adicione o elemento **PredicateValidationReference** e especifique o identificador como `CustomDateRange`.
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>
