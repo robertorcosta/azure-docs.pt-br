@@ -4,20 +4,20 @@ description: Azure Active Directory Propriedades e Estados do usuário convidado
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 03/19/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f5002e361653614c966dc43301afa83eb7b200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050805"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386616"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -28,7 +28,7 @@ Dependendo das necessidades da organização que convida, um usuário de colabor
 - Estado 1: hospedado em uma instância externa do AD do Azure, representado como um usuário convidado na organização que convida. Nesse caso, o usuário B2B entra usando uma conta do Azure AD que pertence ao locatário convidado. Se a organização do parceiro não usar o Azure AD, o usuário convidado no Azure AD ainda será criado. Os requisitos são o resgate do convite e a verificação do endereço de email pelo Azure AD. Essa disposição também é chamada de locação JIT (just-in-time) ou, às vezes, de locação "viral".
 
    > [!IMPORTANT]
-   > A **partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure ad não gerenciado para cenários de colaboração B2B. Na preparação, incentivamos os clientes a aceitarem o [email de autenticação de senha de uso único](one-time-passcode.md). Agradecemos seus comentários sobre esse recurso de visualização pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+   > **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 - Estado 2: hospedado em uma conta da Microsoft ou outra e representada como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta Microsoft ou uma conta social (google.com ou semelhante). A identidade do usuário convidado é criada como uma conta Microsoft no diretório da organização que fez o convite durante o resgate de oferta.
 
@@ -71,7 +71,7 @@ Essa propriedade indica a relação entre o usuário e o locatário do host. Ess
   > [!NOTE]
   > O UserType não tem nenhuma relação com o tipo de acesso do usuário, nem com a função do diretório do usuário e assim por diante. Essa propriedade só indica a relação do usuário com a organização host, e permite que a organização aplique as políticas que dependem desse atributo.
 
-### <a name="source"></a>Fonte
+### <a name="source"></a>Origem
 Essa propriedade indica o tipo de acesso do usuário.
 
 - Usuário convidado: esse usuário foi convidado, mas ainda não resgatou seu convite.
@@ -104,10 +104,14 @@ Em alguns casos, talvez você queira dar privilégios mais altos aos usuários c
 ![Captura de tela mostrando a opção usuários externos nas configurações do usuário](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
-Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter mais detalhes, confira **É possível tornar os objetos convidados visíveis na lista de endereços global?** em [Gerenciar acesso para convidado em Grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list). 
+Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter mais detalhes, confira **É possível tornar os objetos convidados visíveis na lista de endereços global?** em [Gerenciar acesso para convidado em Grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+
+## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de email de um usuário convidado?
+
+Se um usuário convidado aceitar seu convite e, posteriormente, alterar seu endereço de email, o novo email não será sincronizado automaticamente com o objeto de usuário convidado em seu diretório. A propriedade mail é criada por meio da [API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Você pode atualizar a propriedade mail por meio do centro de administração do Exchange ou do [PowerShell do Exchange Online](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps), e a alteração será refletida no objeto de usuário convidado do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+* [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Tokens de usuário de colaboração B2B](user-token.md)
 * [Mapeamento de declarações de usuário de colaboração B2B](claims-mapping.md)

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f5400b47c1e0b4657e40d2c57f8212711bbdaf3f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ed10a9258590f8f9037a574bd0322a82dd309a5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385239"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -38,8 +38,8 @@ Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém o locatário Azure ad B2C.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-4. Selecione **fluxos de usuário (políticas)**.
-5. Abra o fluxo de usuário que você criou anteriormente.
+4. Selecione **Fluxos de usuários (políticas)** .
+5. Abra o fluxo de usuários criado anteriormente.
 6. Selecione **Propriedades**.
 7. Configure a **vida útil da sessão do aplicativo Web (minutos)**, o **tempo limite da sessão do aplicativo Web**, **a configuração de logon único**e **exija o token de ID em solicitações de logout** , conforme necessário.
 
@@ -49,4 +49,4 @@ Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Azure ad B2C sessão](session-overview.md).
+- Saiba mais sobre a [sessão do Azure AD B2C](session-overview.md).

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6dad52c8a3e63c64bb8e0e0030e8c50b5bab42c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383998"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configure a redefinição de senha de autoatendimento para seus clientes
 
@@ -32,7 +32,7 @@ Por padrão, o diretório não tem a redefinição de senha de autoatendimento a
 2. Abra o **Azure Active Directory** (na barra de navegação à esquerda).
 3. Role para baixo na folha opções e selecione **redefinição de senha**.
 4. Configure a **Redefinição de senha de autoatendimento habilitada** como **Tudo**.
-5. Clique em **Salvar** na parte superior da página. Pronto!
+5. Clique em **Salvar** na parte superior da página. Concluído!
 
 Para testar, use o recurso "Executar agora" em qualquer fluxo de usuário de entrada que tenha contas locais como um provedor de identidade. Na página de entrada da conta local (na qual você insere um endereço de email e a senha ou um nome de usuário e a senha), clique em **Não consegue acessar sua conta?** para verificar a experiência do cliente.
 

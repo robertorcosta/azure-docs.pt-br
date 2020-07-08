@@ -4,19 +4,19 @@ description: Saiba como habilitar a Colaboração B2B externa do Active Director
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: c6a2c1a9b908503ee5afc2687ebef473ffed626a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387172"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a Colaboração B2B externa e gerenciar quem pode enviar convites
 
@@ -48,6 +48,9 @@ Por padrão, todos os usuários, incluindo convidados, podem enviar convites.
    - **Convidados podem convidar**: Para permitir que convidados convidem outros convidados, defina essa política como **Sim**.
    - **Habilitar senha avulsa por email para convidados (versão prévia)** : Para obter mais informações sobre o recurso de senha avulsa, confira [Autenticação por senha avulsa por email (versão prévia)](one-time-passcode.md).
    - **Restrições de colaboração**: Para obter mais informações sobre como permitir ou bloquear convites em domínios específicos, confira [Permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md).
+   
+   > [!NOTE]
+   > Se **os membros puderem convidar** for definido como **não** e **Administradores e os usuários na função de convite do convidado puderem convidar** estiver definido como **Sim**, os usuários na função emissor de **convite do convidado** ainda poderão convidar convidados.
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Atribuir a função Emissor de convites independente a um usuário
 
@@ -66,5 +69,4 @@ Consulte os seguintes artigos na colaboração B2B do Azure AD:
 - [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Adicionar usuários convidados da colaboração B2B sem um convite](add-user-without-invite.md)
 - [Adicionar um usuário de colaboração B2B a uma função](add-guest-to-role.md)
-
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/11/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c5ef550af0c7e19531ea19093ea937880f7dcf14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 165529697949bba0233567b89c5a8a077d48a28b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78185634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384015"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar os requisitos de complexidade de senhas fornecidas no Azure Active Directory B2C
 
@@ -38,9 +38,9 @@ Se estiver usando políticas personalizadas, você poderá ([configurar a comple
 ## <a name="configure-password-complexity"></a>Configurar a complexidade de senha
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
-3. Na portal do Azure, procure e selecione **Azure ad B2C**.
-4. Selecione **fluxos de usuário (políticas)**.
+2. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
+3. No portal do Azure, pesquise e selecione **Azure AD B2C**.
+4. Selecione **Fluxos de usuários (políticas)** .
 2. Selecione um fluxo de usuário e clique em **Propriedades**.
 3. Em **Complexidade da senha**, altere a complexidade da senha para esse fluxo de usuário para **Simples**, **Forte** ou **Personalizada**.
 
@@ -61,7 +61,7 @@ Permite que você aceite somente dígitos (pins) ou o conjunto completo de carac
 - **Somente números** permite somente dígitos (0-9) ao digitar uma senha.
 - **Todos** permite qualquer letra, número ou símbolo.
 
-### <a name="length"></a>Comprimento
+### <a name="length"></a>Tamanho
 
 Permite que você controle as exigências de comprimento da senha.
 

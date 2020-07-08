@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385375"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir as transformações de declarações de número de telefone no Azure AD B2C
 
@@ -37,7 +37,7 @@ Converte um tipo de dados `phoneNumber` em um tipo de dados `string`.
 
 Neste exemplo, a declaração cellPhoneNumber com um tipo de valor `phoneNumber` é convertida em uma declaração cellPhone com um tipo de valor `string`.
 
-```XML
+```xml
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
@@ -72,7 +72,7 @@ A transformação de declarações **ConvertStringToPhoneNumberClaim** é sempre
 
 Você pode usar essa transformação de declarações para garantir que a declaração de cadeia de caracteres fornecida seja um número de telefone válido. Caso contrário, uma mensagem de erro será gerada. O exemplo a seguir verifica se o ClaimType **phoneString** é, de fato, um número de telefone válido e, em seguida, retorna o número de telefone no formato padrão do Azure AD B2C. Caso contrário, uma mensagem de erro será gerada.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
@@ -86,7 +86,7 @@ Você pode usar essa transformação de declarações para garantir que a declar
 
 O perfil técnico autodeclarado que chama o perfil técnico de validação que contém essa transformação de declarações pode definir a mensagem de erro.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
@@ -132,7 +132,7 @@ Você pode usar essa transformação de declarações para dividir um número de
 
 O exemplo a seguir tenta dividir o número de telefone em um número nacional e o código de país/região. Se o número de telefone for válido, ele será substituído pelo número nacional. Se o número de telefone não for válido, uma exceção não será lançada, e o número de telefone ainda terá seu valor original.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
@@ -150,7 +150,7 @@ O exemplo a seguir tenta dividir o número de telefone em um número nacional e 
 
 O perfil técnico autodeclarado que chama o perfil técnico de validação que contém essa transformação de declarações pode definir a mensagem de erro.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfPhoneNumberParseFailure">Custom error message if the phone number is not valid.</Item>

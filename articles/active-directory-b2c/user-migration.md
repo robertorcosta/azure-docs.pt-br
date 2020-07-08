@@ -1,35 +1,35 @@
 ---
 title: Abordagens de migração de usuário
 titleSuffix: Azure AD B2C
-description: Migre contas de usuário de outro provedor de identidade para Azure AD B2C usando os métodos de importação em massa ou migração direta.
+description: Migre contas de usuário de outro provedor de identidade para Azure AD B2C usando os métodos pré-migração de migração ou migração prévia.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332344"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383964"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuários para Azure AD B2C
 
-Migrar de outro provedor de identidade para Azure Active Directory B2C (Azure AD B2C) também pode exigir a migração de contas de usuário existentes. Dois métodos de migração são discutidos aqui, *importação em massa* e *migração direta*. Com qualquer abordagem, você precisa escrever um aplicativo ou script que usa a [API Microsoft Graph](manage-user-accounts-graph-api.md) para criar contas de usuário no Azure ad B2C.
+Migrar de outro provedor de identidade para Azure Active Directory B2C (Azure AD B2C) também pode exigir a migração de contas de usuário existentes. Dois *métodos de migração* são discutidos aqui, pré-migração migração e *migração ininterrupta*. Com qualquer abordagem, você precisa escrever um aplicativo ou script que usa a [API Microsoft Graph](manage-user-accounts-graph-api.md) para criar contas de usuário no Azure ad B2C.
 
-## <a name="bulk-import"></a>Importação em massa
+## <a name="pre-migration"></a>Pré-migração
 
-No fluxo de importação em massa, o aplicativo de migração executa estas etapas para cada conta de usuário:
+No fluxo de pré-migração, seu aplicativo de migração executa estas etapas para cada conta de usuário:
 
 1. Leia a conta de usuário do provedor de identidade antigo, incluindo suas credenciais atuais (nome de usuário e senha).
 1. Crie uma conta correspondente no diretório Azure AD B2C com as credenciais atuais.
 
-Use o fluxo de importação em massa em uma dessas duas situações:
+Use o fluxo de pré-migração em uma destas duas situações:
 
 - Você tem acesso às credenciais de texto não criptografado de um usuário (seu nome e senha).
 - As credenciais são criptografadas, mas você pode descriptografá-las.
@@ -43,25 +43,25 @@ Use o fluxo de migração contínuo se as senhas de texto não criptografado no 
 - A senha é armazenada em um formato criptografado unidirecional, como com uma função de hash.
 - A senha é armazenada pelo provedor de identidade herdado de forma que você não possa acessar o. Por exemplo, quando o provedor de identidade valida as credenciais chamando um serviço Web.
 
-O fluxo de migração contínuo ainda requer a migração em massa de contas de usuário, mas usa uma [política personalizada](custom-policy-get-started.md) para consultar uma [API REST](custom-policy-rest-api-intro.md) (que você cria) para definir a senha de cada usuário na primeira entrada.
+O fluxo de migração contínuo ainda requer a migração prévia de contas de usuário, mas, em seguida, usa uma [política personalizada](custom-policy-get-started.md) para consultar uma [API REST](custom-policy-rest-api-intro.md) (que você cria) para definir a senha de cada usuário na primeira entrada.
 
-Assim, o fluxo de migração contínuo tem duas fases: importação e *definição de credenciais* *em massa* .
+Assim, o fluxo de migração contínuo tem duas fases: *pré-migração* e *definir credenciais*.
 
-### <a name="phase-1-bulk-import"></a>Fase 1: importação em massa
+### <a name="phase-1-pre-migration"></a>Fase 1: pré-migração
 
 1. O aplicativo de migração lê as contas de usuário do provedor de identidade antigo.
 1. O aplicativo de migração cria contas de usuário correspondentes no diretório Azure AD B2C, mas não *define senhas*.
 
 ### <a name="phase-2-set-credentials"></a>Fase 2: definir credenciais
 
-Depois que a migração em massa das contas for concluída, sua política personalizada e a API REST executarão o seguinte quando um usuário entrar:
+Após a conclusão da migração das contas, sua política personalizada e a API REST executarão o seguinte quando um usuário entrar:
 
 1. Leia a conta de usuário Azure AD B2C correspondente ao endereço de email inserido.
 1. Verifique se a conta está sinalizada para migração avaliando um atributo de extensão booliano.
-    - Se o atributo de extensão `True`retornar, chame sua API REST para validar a senha em relação ao provedor de identidade herdado.
+    - Se o atributo de extensão retornar `True` , chame sua API REST para validar a senha em relação ao provedor de identidade herdado.
       - Se a API REST determinar que a senha está incorreta, retorne um erro amigável ao usuário.
-      - Se a API REST determinar que a senha está correta, grave a senha na conta de Azure AD B2C e altere o atributo de extensão `False`booliano para.
-    - Se o atributo de extensão booliano retornar `False`, continue o processo de entrada normalmente.
+      - Se a API REST determinar que a senha está correta, grave a senha na conta de Azure AD B2C e altere o atributo de extensão booliano para `False` .
+    - Se o atributo de extensão booliano retornar `False` , continue o processo de entrada normalmente.
 
 Para ver um exemplo de política personalizada e API REST, consulte o [exemplo de migração de usuário contínuo](https://aka.ms/b2c-account-seamless-migration) no github.
 
@@ -73,7 +73,7 @@ Para ver um exemplo de política personalizada e API REST, consulte o [exemplo d
 
 A abordagem de migração direta usa sua própria API REST personalizada para validar as credenciais de um usuário no provedor de identidade herdado.
 
-**Você deve proteger sua API REST contra ataques de força bruta.** Um invasor pode enviar várias senhas na esperança de eventualmente adivinhar as credenciais de um usuário. Para ajudar a anular esses ataques, pare de atender solicitações à sua API REST quando o número de tentativas de entrada passa por um certo limite. Além disso, proteja a comunicação entre Azure AD B2C e sua API REST. Para saber como proteger suas APIs RESTful para produção, consulte [Secure RESTFUL API](secure-rest-api.md).
+**Você deve proteger sua API REST contra ataques de força bruta.** Um invasor pode enviar várias senhas na esperança de eventualmente adivinhar as credenciais de um usuário. Para ajudar a anular esses ataques, pare de atender solicitações à sua API REST quando o número de tentativas de entrada passa por um certo limite. Além disso, proteja a comunicação entre Azure AD B2C e sua API REST. Para saber como proteger suas APIs RESTful para produção, confira [Proteger API RESTful](secure-rest-api.md).
 
 ### <a name="user-attributes"></a>Atributos de usuário
 

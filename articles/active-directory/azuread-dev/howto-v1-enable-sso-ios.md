@@ -9,18 +9,18 @@ ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383692"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como habilitar o SSO entre aplicativos no iOS usando a ADAL
 
@@ -230,7 +230,7 @@ Quando os direitos estiverem configurados corretamente, você deverá ver um arq
 </plist>
 ```
 
-Depois que você tiver o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e estiver pronto para usar o SSO, informe ao SDK de identidade sobre seu conjunto de chaves usando a seguinte `ADAuthenticationSettings` configuração em seu com a seguinte configuração:
+Depois que você tiver o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e estiver pronto para usar o SSO, informe ao SDK de identidade sobre seu conjunto de chaves usando a seguinte configuração em seu `ADAuthenticationSettings` com a seguinte configuração:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Quando você compartilha um conjunto de chaves em seus aplicativos, qualquer aplicativo pode excluir usuários, ou pior, excluir todos os tokens em seu aplicativo. Isso é particularmente desastroso se você tiver aplicativos que dependem dos tokens para o trabalho em segundo plano. O compartilhamento do conjunto de chaves significa que você deve ter muito cuidado com toda e qualquer operação de remoção por meio dos SDKs de identidade.
 
-Pronto! O SDK agora compartilhará as credenciais om todos os seus aplicativos. A lista de usuários também será compartilhada entre instâncias do aplicativo.
+É isso! O SDK agora compartilhará as credenciais om todos os seus aplicativos. A lista de usuários também será compartilhada entre instâncias do aplicativo.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ativar o SSO assistido por agente
 
@@ -309,7 +309,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Etapa 4: adicione um parâmetro de configuração ao aplicativo
 
-O ADAL usa – canOpenURL: para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. Será necessário adicionar "msauth" à seção LSApplicationQueriesSchemes do seu `info.plist file`.
+O ADAL usa – canOpenURL: para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. Será necessário adicionar "msauth" à seção LSApplicationQueriesSchemes do seu `info.plist file` .
 
 ```
     <key>LSApplicationQueriesSchemes</key>

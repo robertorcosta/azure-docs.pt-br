@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c9ed0e329b498112feafaf21c34e85ea436cbb77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385936"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico do Azure MFA em uma política personalizada de Azure AD B2C
 
@@ -42,7 +42,7 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 O exemplo a seguir mostra um perfil técnico do Azure MFA:
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
     <DisplayName>Send Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -57,7 +57,7 @@ O primeiro modo deste perfil técnico é gerar um código e enviá-lo. As opçõ
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas para o Azure MFA. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do MFA.
 
-| ClaimReferenceId | Necessária | Descrição |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | userPrincipalName | Sim | O identificador do usuário que possui o número de telefone. |
 | phoneNumber | Sim | O número de telefone para o qual enviar um código SMS. |
@@ -68,21 +68,21 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 ### <a name="output-claims"></a>Declarações de saída
 
-O provedor de protocolo MFA do Azure não retorna nenhum **OutputClaims**, portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de identidade do Azure MFA contanto `DefaultValue` que você defina o atributo.
+O provedor de protocolo MFA do Azure não retorna nenhum **OutputClaims**, portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de identidade do Azure MFA contanto que você defina o `DefaultValue` atributo.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
 ### <a name="metadata"></a>Metadados
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | Deve ser **OneWaySMS**.  |
 
 #### <a name="ui-elements"></a>Elementos da interface do usuário
 
-Os metadados a seguir podem ser usados para configurar as mensagens de erro exibidas no envio de falha de SMS. Os metadados devem ser configurados no perfil técnico [autodeclarado](self-asserted-technical-profile.md) . As mensagens de erro podem ser [localizadas](localization-string-ids.md#azure-mfa-error-messages).
+Os metadados a seguir podem ser usados para configurar as mensagens de erro exibidas no envio de falha de SMS. Os metadados devem ser configurados no perfil técnico [autodeclarado](self-asserted-technical-profile.md) . A mensagem de erro pode ser [localizada](localization-string-ids.md#azure-mfa-error-messages).
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | UserMessageIfCouldntSendSms | Não | Mensagem de erro do usuário se o número de telefone fornecido não aceitar SMS. |
 | UserMessageIfInvalidFormat | Não | Mensagem de erro do usuário se o número de telefone fornecido não for um número de telefone válido. |
@@ -93,7 +93,7 @@ Os metadados a seguir podem ser usados para configurar as mensagens de erro exib
 
 O exemplo a seguir mostra um perfil técnico do Azure MFA que é usado para enviar um código via SMS.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
   <DisplayName>Send Sms</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -119,7 +119,7 @@ O segundo modo desse perfil técnico é verificar um código. As opções a segu
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas para o Azure MFA. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do MFA.
 
-| ClaimReferenceId | Necessária | Descrição |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| Sim | Mesmo número de telefone usado anteriormente para enviar um código. Ele também é usado para localizar uma sessão de verificação de telefone. |
 | verificationCode  | Sim | O código de verificação fornecido pelo usuário a ser verificado |
@@ -128,21 +128,21 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 ### <a name="output-claims"></a>Declarações de saída
 
-O provedor de protocolo MFA do Azure não retorna nenhum **OutputClaims**, portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de identidade do Azure MFA contanto `DefaultValue` que você defina o atributo.
+O provedor de protocolo MFA do Azure não retorna nenhum **OutputClaims**, portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de identidade do Azure MFA contanto que você defina o `DefaultValue` atributo.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
 ### <a name="metadata"></a>Metadados
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | Deve ser **verificar** |
 
 #### <a name="ui-elements"></a>Elementos da interface do usuário
 
-Os metadados a seguir podem ser usados para configurar as mensagens de erro exibidas na falha de verificação de código. Os metadados devem ser configurados no perfil técnico [autodeclarado](self-asserted-technical-profile.md) . As mensagens de erro podem ser [localizadas](localization-string-ids.md#azure-mfa-error-messages).
+Os metadados a seguir podem ser usados para configurar as mensagens de erro exibidas na falha de verificação de código. Os metadados devem ser configurados no perfil técnico [autodeclarado](self-asserted-technical-profile.md) . A mensagem de erro pode ser [localizada](localization-string-ids.md#azure-mfa-error-messages).
 
-| Atributo | Necessária | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | UserMessageIfMaxAllowedCodeRetryReached| Não | Mensagem de erro do usuário se o usuário tiver tentado um código de verificação muitas vezes. |
 | UserMessageIfServerError | Não | Mensagem de erro do usuário se o servidor tiver encontrado um erro interno. |
@@ -153,7 +153,7 @@ Os metadados a seguir podem ser usados para configurar as mensagens de erro exib
 
 O exemplo a seguir mostra um perfil técnico do Azure MFA usado para verificar o código.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">
     <DisplayName>Verify Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

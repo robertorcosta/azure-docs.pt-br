@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385409"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteger uma API de Gerenciamento de API do Azure com Azure AD B2C
 
@@ -35,23 +35,23 @@ Você precisará dos seguintes recursos em vigor antes de continuar com as etapa
 
 Ao proteger uma API no Gerenciamento de API do Azure com Azure AD B2C, você precisa de vários valores para a [política de entrada](../api-management/api-management-howto-policies.md) que você cria no APIM. Primeiro, registre a ID de um aplicativo que você criou anteriormente em seu locatário do Azure AD B2C. Se você estiver usando o aplicativo criado nos pré-requisitos, use a ID do aplicativo para *webbapp1*.
 
-Você pode usar a experiência **Aplicativos** atual ou nossa nova experiência **Registros de aplicativo (versão prévia)** unificada para obter a ID do aplicativo. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a nossa nova experiência unificada de **Registros de aplicativos** ou a nossa experiência herdada **Aplicativos (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
-
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
-1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Em **Gerenciar**, selecione **Aplicativos**.
-1. Registre o valor na coluna **ID DO APLICATIVO** para *webapp1* ou outro aplicativo que você criou anteriormente.
-
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Selecione **Registros de aplicativo (versão prévia)** e a guia **Aplicativos próprios**.
+1. Selecione **registros de aplicativo**e, em seguida, selecione a guia **aplicativos pertencentes** .
 1. Registre o valor na coluna **ID do aplicativo (cliente)** para *webapp1* ou outro aplicativo que você criou anteriormente.
+
+#### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
+1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
+1. Em **gerenciar**, selecione **aplicativos (herdados)**.
+1. Registre o valor na coluna **ID DO APLICATIVO** para *webapp1* ou outro aplicativo que você criou anteriormente.
 
 * * *
 
@@ -171,7 +171,7 @@ Com o token de acesso e a chave de assinatura APIM registrada, agora você está
 
 1. Selecione o botão **Enviar** no Postman para executar a solicitação. Se você tiver configurado tudo corretamente, deverá receber uma resposta JSON com uma coleção de palestrantes (mostrados aqui truncados):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ Agora que você fez uma solicitação bem-sucedida, teste o caso de falha para g
 
 1. Selecione o botão **Enviar** para executar a solicitação. Com um token inválido, o resultado esperado é um código de status não-autorizado `401`:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ Caso você veja o código de status `401`, isso significa que verificou que some
 
 Normalmente, vários aplicativos interagem com uma única API REST. Para habilitar sua API para aceitar tokens destinados a vários aplicativos, adicione as IDs de aplicativo ao elemento `<audiences>` na política de entrada do APIM.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ Normalmente, vários aplicativos interagem com uma única API REST. Para habilit
 
 Da mesma forma, para dar suporte a vários emissores de token, adicione os URIs de ponto de extremidade ao elemento `<issuers>` na política de entrada do APIM.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ Você pode seguir este processo geral para executar uma migração em etapas:
 
 O exemplo de política de entrada do APIM a seguir ilustra como aceitar tokens emitidos por b2clogin.com e login.microsoftonline.com. Além disso, ele dá suporte a solicitações de API de dois aplicativos.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

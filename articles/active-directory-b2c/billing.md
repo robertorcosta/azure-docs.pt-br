@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30ecb1e6faa29482a8d69dd1d08e4f127f515596
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386055"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
 
@@ -94,7 +94,7 @@ Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobr
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e selecione o diretório que contém a assinatura do Azure que você gostaria de usar (*não* o diretório que contém o locatário Azure ad B2C).
 1. Selecione **criar um recurso**, insira `Active Directory B2C` no campo **Pesquisar no Marketplace** e, em seguida, selecione **Azure Active Directory B2C**.
-1. Selecione **criar**
+1. Escolha **Criar**
 1. Selecione **vincular um locatário existente do Azure ad B2C à minha assinatura do Azure**.
 1. Selecione um **locatário Azure ad B2C** na lista suspensa. Somente os locatários para os quais você é um administrador global e que ainda não estão vinculados a uma assinatura são mostrados. O campo **nome do recurso de Azure ad B2C** é populado com o nome de domínio do locatário de Azure ad B2C que você selecionar.
 1. Selecione uma **assinatura** ativa do Azure da qual você é um administrador.

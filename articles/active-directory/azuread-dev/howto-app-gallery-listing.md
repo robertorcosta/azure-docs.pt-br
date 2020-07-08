@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383862"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -79,7 +79,7 @@ O usuário convidado é federado a um locatário inicial que também é um Azure
  
 **Soluções seguras:**
 
-* Os usuários convidados registrados do MFA recorrem seus próprios riscos de usuário. Isso pode ser feito pelo usuário convidado executando uma alteração ou redefinição de senha segurahttps://aka.ms/sspr) (em seu locatário inicial (isso precisa de MFA e SSPR no locatário inicial). A alteração ou redefinição de senha protegida deve ser iniciada no Azure AD e não no local.
+* Os usuários convidados registrados do MFA recorrem seus próprios riscos de usuário. Isso pode ser feito pelo usuário convidado executando uma alteração ou redefinição de senha segura ( https://aka.ms/sspr) em seu locatário inicial (isso precisa de MFA e SSPR no locatário inicial). A alteração ou redefinição de senha protegida deve ser iniciada no Azure AD e não no local.
 
 * Os usuários convidados têm seus administradores para corrigir seus riscos. Nesse caso, o administrador executará uma redefinição de senha (geração de senha temporária). Isso não precisa de proteção de identidade. O administrador do usuário convidado pode ir para https://aka.ms/RiskyUsers e clicar em ' Redefinir senha '.
 
@@ -136,7 +136,7 @@ Para atualizar ou remover um aplicativo existente na Galeria de aplicativos do A
 
 ## <a name="list-requests-by-customers"></a>Listar solicitações por clientes
 
-Os clientes podem enviar uma solicitação para listar um aplicativo selecionando **solicitações de aplicativo por clientes** > **Enviar nova solicitação**.
+Os clientes podem enviar uma solicitação para listar um aplicativo selecionando **solicitações de aplicativo por clientes**  >  **Enviar nova solicitação**.
 
 ![Mostra o bloco aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -156,4 +156,4 @@ A linha do tempo para o processo de listagem de um aplicativo do OpenID Connect 
 
 ## <a name="escalations"></a>Escalonamentos
 
-Para qualquer escalonamento, envie um email para a [equipe de integração de SSO do Azure ad](mailto:SaaSApplicationIntegrations@service.microsoft.com) em SaaSApplicationIntegrations@service.microsoft.come responderemos assim que possível.
+Para qualquer escalonamento, envie um email para a [equipe de integração de SSO do Azure ad](mailto:SaaSApplicationIntegrations@service.microsoft.com) em SaaSApplicationIntegrations@service.microsoft.com e responderemos assim que possível.

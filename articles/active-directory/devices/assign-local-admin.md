@@ -4,29 +4,29 @@ description: Saiba como atribuir funções do Azure para o grupo de administrado
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386361"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
 Para gerenciar um dispositivo Windows, você precisa ser um membro do grupo Administradores local. Como parte do processo de junção do Azure Active Directory (Azure AD), o Azure AD atualiza os membros desse grupo em um dispositivo. Você pode personalizar a atualização de associação para satisfazer seus requisitos de negócios. Uma atualização de associação é, por exemplo, útil se você quiser habilitar sua equipe de assistência técnica para realizar tarefas que exigem direitos de administrador em um dispositivo.
 
-Este artigo explica como a atualização de associação funciona e como é possível personalizá-la durante um ingresso no Azure AD. O conteúdo deste artigo não aplica-se a um ingresso no Azure AD **híbrido**.
+Este artigo explica como a atualização de associação de administradores locais funciona e como você pode personalizá-la durante uma junção do Azure AD. O conteúdo deste artigo não se aplica a um dispositivo **ingressado no Azure ad híbrido** .
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
-Quando você conectar um dispositivo Windows com o Microsoft Azure AD usando uma junção do Microsoft Azure AD, o Microsoft Azure AD adiciona os seguintes princípios de segurança ao grupo Administradores local no dispositivo:
+Quando você conecta um dispositivo Windows com o Azure AD usando uma junção do Azure AD, o Azure AD adiciona as seguintes entidades de segurança ao grupo local de administradores no dispositivo:
 
 - Função de administrador global do Microsoft Azure Active Directory
 - Função de administrador de dispositivo do Microsoft Azure Active Directory 
@@ -59,10 +59,13 @@ Para modificar a função de administrador do dispositivo, configure **Administr
 >[!NOTE]
 > Essa opção exige um locatário do Azure AD Premium. 
 
-Administradores do dispositivo são atribuídos a todos os dispositivos ingressados do Microsoft Azure AD. Não é possível definir o escopo de administradores do dispositivo para um conjunto específico de dispositivos. Atualizar a função de administrador do dispositivo não tem necessariamente um impacto imediato sobre os usuários afetados. Em dispositivos em que um usuário já está conectado, a atualização de privilégio ocorre quando *ambas* as ações abaixo acontecem:
+Administradores do dispositivo são atribuídos a todos os dispositivos ingressados do Microsoft Azure AD. Não é possível definir o escopo de administradores do dispositivo para um conjunto específico de dispositivos. Atualizar a função de administrador do dispositivo não tem necessariamente um impacto imediato sobre os usuários afetados. Em dispositivos em que um usuário já está conectado, a elevação de privilégio ocorre quando *ambas* as ações abaixo acontecem:
 
-- 4 horas passaram para o Azure AD emitir um novo token de atualização primário com os privilégios apropriados. 
+- Até 4 horas passaram para o Azure AD emitir um novo token de atualização primário com os privilégios apropriados. 
 - O usuário sai e faz logon, não bloqueia/desbloqueie, para atualizar seu perfil.
+
+>[!NOTE]
+> As ações acima não são aplicáveis a usuários que não entraram no dispositivo relevante anteriormente. Nesse caso, os privilégios de administrador são aplicados imediatamente após sua primeira entrada no dispositivo. 
 
 ## <a name="manage-regular-users"></a>Gerenciar usuários regulares
 
@@ -88,7 +91,7 @@ Você não pode atribuir grupos à função de administrador do dispositivo, som
 
 Administradores do dispositivo são atribuídos a todos os dispositivos ingressados do Microsoft Azure Active Directory. Eles não podem ser limitados a um conjunto específico de dispositivos.
 
-Quando você remove os usuários da função de administrador do dispositivo, ele ainda tem o privilégio de administrador local em um dispositivo, desde que eles se conectem a ele. O privilégio é revogado durante o próximo logon, ou após 4 horas, quando um novo token de atualização principal é emitido.
+Quando você remove os usuários da função de administrador do dispositivo, ele ainda tem o privilégio de administrador local em um dispositivo, desde que eles se conectem a ele. O privilégio é revogado durante a próxima entrada quando um novo token de atualização primário é emitido. Essa revogação, semelhante à elevação de privilégio, pode levar até 4 horas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

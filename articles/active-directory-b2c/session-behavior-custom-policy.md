@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f6af5e8e1cfadd302eadfedf189a6710ac4aeca
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385256"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão usando políticas personalizadas no Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos
 
 Para alterar o comportamento da sessão e as configurações de SSO, você adiciona um elemento **UserJourneyBehaviors** dentro do elemento [RelyingParty](relyingparty.md).  O elemento **UserJourneyBehaviors** deve vir logo após o **DefaultUserJourney**. O elemento **UserJourneyBehavors** deve ser semelhante a este exemplo:
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -60,7 +60,7 @@ Quando você redireciona o usuário para o ponto de extremidade de saída do Azu
 Para dar suporte ao logout único, os perfis técnicos do emissor do token para JWT e SAML devem especificar:
 
 - O nome do protocolo, como`<Protocol Name="OpenIdConnect" />`
-- A referência ao perfil técnico da sessão, como `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- A referência ao perfil técnico da sessão, como `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 O exemplo a seguir ilustra os emissores JWT e token SAML com Logout único:
 
@@ -74,7 +74,7 @@ O exemplo a seguir ilustra os emissores JWT e token SAML com Logout único:
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->
@@ -103,4 +103,4 @@ O exemplo a seguir ilustra os emissores JWT e token SAML com Logout único:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Azure ad B2C sessão](session-overview.md).
+- Saiba mais sobre a [sessão do Azure AD B2C](session-overview.md).

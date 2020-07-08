@@ -1,22 +1,22 @@
 ---
-title: API de colaboração B2B e personalização - Azure Active Directory
+title: API de colaboração B2B e personalização-Azure Active Directory
 description: A colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: reference
+ms.topic: how-to
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387194"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalização da colaboração B2B do Azure Active Directory
 
@@ -115,13 +115,13 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Verifique se você possui a versão mais recente do módulo do PowerShell do AzureAD ou do módulo PowerShell do AzureADPreview. 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
-Confira o convite de [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)referência da API em .
+Confira a referência da API de convite em [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é a colaboração Azure AD B2B?](what-is-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Os elementos do email de convite para colaboração B2B](invitation-email-elements.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)
 - [Adicionar usuários de colaboração B2B sem um convite](add-user-without-invite.md)

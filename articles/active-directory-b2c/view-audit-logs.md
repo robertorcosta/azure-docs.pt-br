@@ -6,18 +6,18 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383930"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -100,9 +100,9 @@ Depois de registrar um aplicativo com as permissões apropriadas, consulte a se�
 
 ### <a name="access-the-api"></a>Acessar a API
 
-Para baixar Azure AD B2C eventos do log de auditoria por meio da API, filtre os `B2C` logs na categoria. Para filtrar por categoria, use o `filter` parâmetro de cadeia de caracteres de consulta ao chamar o ponto de extremidade da API de relatórios do Azure AD.
+Para baixar Azure AD B2C eventos do log de auditoria por meio da API, filtre os logs na `B2C` categoria. Para filtrar por categoria, use o `filter` parâmetro de cadeia de caracteres de consulta ao chamar o ponto de extremidade da API de relatórios do Azure AD.
 
-```HTTP
+```http
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
 ```
 
@@ -158,7 +158,7 @@ if ($oauth.access_token -ne $null) {
 
 Aqui está a representação JSON do evento de atividade de exemplo mostrado anteriormente neste artigo:
 
-```JSON
+```json
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",

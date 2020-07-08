@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25e62e7c6865f91daa242a33a0f491f8015be41a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672530"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385970"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Rastrear o comportamento do usuário no Azure Active Directory B2C usando o Application Insights
 
@@ -29,7 +29,7 @@ O Azure Active Directory B2C (Azure AD B2C) dá suporte ao envio de dados de eve
 * Medir o desempenho.
 * Criar notificações do Application Insights.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 O perfil técnico [Application insights](application-insights-technical-profile.md) define um evento de Azure ad B2C. O perfil especifica o nome do evento, as reivindicações registradas e a chave de instrumentação. Para postar um evento, o perfil técnico é adicionado como uma etapa de orquestração em uma [jornada do usuário](userjourneys.md).
 
@@ -57,12 +57,12 @@ Quando você estiver usando o Application Insights com o Azure AD B2C, tudo o qu
 
 ## <a name="define-claims"></a>Definir declarações
 
-Uma declaração fornece um armazenamento temporário de dados durante uma execução de política de Azure AD B2C. O [esquema de declarações](claimsschema.md) é o local onde você declara suas declarações.
+Uma declaração fornece um armazenamento temporário de dados durante uma execução de política de Azure AD B2C. O [esquema de declarações](claimsschema.md) é o lugar em que você declara suas declarações.
 
-1. Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
-1. Localize o elemento [ClaimsSchema](claimsschema.md) . Se o elemento não existir, adicione-o.
-1. Adicione as declarações a seguir ao elemento **ClaimsSchema** . 
+1. Localize o elemento [ClaimsSchema](claimsschema.md). Se o elemento não existir, adicione-o.
+1. Adicione as seguintes declarações ao elemento **ClaimsSchema**. 
 
 ```xml
 <ClaimType Id="EventType">
@@ -171,7 +171,7 @@ Chame `AppInsights-SignInRequest` como etapa de orquestração 2 para rastrear s
 
 ```xml
 <!-- Track that we have received a sign in request -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AppInsights-SignInRequest" />
   </ClaimsExchanges>
@@ -220,7 +220,7 @@ Imediatamente após a etapa de orquestração `SendClaims` chame `AppInsights-Si
 Faça upload do arquivo *TrustFrameworkExtensions.xml* no seu locatário. Em seguida, chame a política da terceira parte confiável de seu aplicativo ou use **Executar agora** no portal do Azure. Em segundos, os eventos estarão disponíveis no Application Insights.
 
 1. Abra o recurso do **Application Insights** no locatário do Azure Active Directory.
-2. Selecione **Usage** > **eventos**de uso.
+2. Selecione **Usage**  >  **eventos**de uso.
 3. Defina **Durante** para **Última hora** e **Por** para **3 minutos**.  Talvez você precise selecionar **Atualizar** para exibir os resultados.
 
 ![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
@@ -233,7 +233,7 @@ Adicione tipos de declarações e eventos ao percurso do usuário para ajustar �
 - **PartnerClaimType** é o nome da propriedade que é exibido no Azure Insights. Use a sintaxe da `{property:NAME}`, onde `NAME` é a propriedade que está sendo adicionada ao evento.
 - **DefaultValue** usa qualquer valor de cadeia ou o resolvedor de reclamações.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
 <InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 <InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />

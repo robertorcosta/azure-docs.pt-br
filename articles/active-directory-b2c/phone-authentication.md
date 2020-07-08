@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eadac0e973b361b1fdee63dcc9cfa848a0b2bacb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385341"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurar a inscrição e a entrada do telefone com políticas personalizadas no Azure AD B2C (versão prévia)
 
@@ -48,31 +48,31 @@ As etapas a seguir pressupõem que você concluiu os [pré-requisitos](#prerequi
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. Em cada arquivo, substitua a cadeia `yourtenant` de caracteres pelo nome do seu locatário de Azure ad B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias `yourtenant.onmicrosoft.com` de `contosob2c.onmicrosoft.com`se tornarão.
+1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário de Azure ad B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com` .
 
-1. Conclua as etapas na seção [adicionar IDs de aplicativo à política personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de introdução [às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md). `/phone-number-passwordless/` **`Phone_Email_Base.xml`** Nesse caso, atualize com as **IDs de aplicativo (cliente)** dos dois aplicativos que você registrou ao concluir os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
+1. Conclua as etapas na seção [adicionar IDs de aplicativo à política personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de introdução [às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md). Nesse caso, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com as **IDs de aplicativo (cliente)** dos dois aplicativos que você registrou ao concluir os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Carregar os arquivos de política
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o locatário do Azure ad B2C.
-1. Em **políticas**, selecione **estrutura de experiência de identidade**.
-1. Selecione **carregar política personalizada**.
+1. Em **Políticas**, selecione **Identity Experience Framework**.
+1. Selecione **Carregar política personalizada**.
 1. Carregue os arquivos de política na seguinte ordem:
-    1. *Phone_Email_Base. xml*
-    1. *SignUpOrSignInWithPhone. xml*
-    1. *SignUpOrSignInWithPhoneOrEmail. xml*
-    1. *ProfileEditPhoneOnly. xml*
-    1. *ProfileEditPhoneEmail. xml*
-    1. *ChangePhoneNumber. xml*
-    1. *PasswordResetEmail. xml*
+    1. *Phone_Email_Base.xml*
+    1. *SignUpOrSignInWithPhone.xml*
+    1. *SignUpOrSignInWithPhoneOrEmail.xml*
+    1. *ProfileEditPhoneOnly.xml*
+    1. *ProfileEditPhoneEmail.xml*
+    1. *ChangePhoneNumber.xml*
+    1. *PasswordResetEmail.xml*
 
-À medida que você carrega cada arquivo, o Azure `B2C_1A_`adiciona o prefixo.
+À medida que você carrega cada arquivo, o Azure adiciona o prefixo `B2C_1A_` .
 
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
 1. Em **políticas personalizadas**, selecione **B2C_1A_SignUpOrSignInWithPhone**.
 1. Em **Selecionar aplicativo**, selecione o aplicativo *webapp1* que você registrou ao concluir os pré-requisitos.
-1. Para **selecionar URL de resposta**, `https://jwt.ms`escolha.
+1. Para **selecionar URL de resposta**, escolha `https://jwt.ms` .
 1. Selecione **executar agora** e se inscrever usando um endereço de email ou um número de telefone.
 1. Selecione **executar agora** novamente e entre com a mesma conta para confirmar que você tem a configuração correta.
 

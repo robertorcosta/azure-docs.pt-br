@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386208"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
 
@@ -25,8 +25,8 @@ Use Azure Monitor para rotear logs de entrada e [auditoria](view-audit-logs.md) 
 Você pode rotear eventos de log para:
 
 * Uma [conta de armazenamento](../storage/blobs/storage-blobs-introduction.md)do Azure.
-* Um [Hub de eventos](../event-hubs/event-hubs-about.md) do Azure (e integre com suas instâncias de lógica Splunk e do resumo).
 * Um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analisar dados, criar painéis e alertar sobre eventos específicos).
+* Um [Hub de eventos](../event-hubs/event-hubs-about.md) do Azure (e integre com suas instâncias de lógica Splunk e do resumo).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -59,7 +59,7 @@ Em seguida, reúna as seguintes informações:
 **ID de diretório** do seu diretório de Azure ad B2C (também conhecido como a ID do locatário).
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um usuário com a função de *administrador de usuário* (ou superior).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
 1. Selecione **Azure Active Directory**, selecione **Propriedades**.
 1. Registre a **ID do diretório**.
 
@@ -72,7 +72,7 @@ Para facilitar o gerenciamento, é recomendável usar *grupos* de usuários do A
 
 ### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo do Azure Resource Manager
 
-Para carregar seu locatário do Azure AD (o **cliente**), crie um [modelo de Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) para sua oferta com as informações a seguir. Os `mspOfferName` valores `mspOfferDescription` e são visíveis quando você exibe detalhes da oferta na [página provedores de serviço](../lighthouse/how-to/view-manage-service-providers.md) do portal do Azure.
+Para carregar seu locatário do Azure AD (o **cliente**), crie um [modelo de Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) para sua oferta com as informações a seguir. Os `mspOfferName` `mspOfferDescription` valores e são visíveis quando você exibe detalhes da oferta na [página provedores de serviço](../lighthouse/how-to/view-manage-service-providers.md) do portal do Azure.
 
 | Campo   | Definição |
 |---------|------------|
@@ -87,9 +87,9 @@ Baixe o modelo de Azure Resource Manager e os arquivos de parâmetro:
 - [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
 - [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Em seguida, atualize o arquivo de parâmetros com os valores que você registrou anteriormente. O trecho JSON a seguir mostra um exemplo de um arquivo de parâmetros de Azure Resource Manager template. Para `authorizations.value.roleDefinitionId`, use o valor da [função interna](../role-based-access-control/built-in-roles.md) para a *função colaborador*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+Em seguida, atualize o arquivo de parâmetros com os valores que você registrou anteriormente. O trecho JSON a seguir mostra um exemplo de um arquivo de parâmetros de Azure Resource Manager template. Para `authorizations.value.roleDefinitionId` , use o valor da [função interna](../role-based-access-control/built-in-roles.md) para a *função colaborador*, `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -141,7 +141,7 @@ Em seguida, alterne para a assinatura que você deseja projetar no locatário Az
 Select-AzSubscription <subscription ID>
 ```
 
-Por fim, implante o modelo de Azure Resource Manager e os arquivos de parâmetro que você baixou e atualizou anteriormente. Substitua os `Location`valores `TemplateFile`, e `TemplateParameterFile` adequadamente.
+Por fim, implante o modelo de Azure Resource Manager e os arquivos de parâmetro que você baixou e atualizou anteriormente. Substitua os `Location` `TemplateFile` valores, e `TemplateParameterFile` adequadamente.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -193,13 +193,13 @@ Parameters              :
 
 Depois de implantar o modelo, pode levar alguns minutos para que a projeção de recursos seja concluída. Talvez seja necessário aguardar alguns minutos (normalmente não mais do que cinco) antes de passar para a próxima seção para selecionar a assinatura.
 
-## <a name="select-your-subscription"></a>Selecione sua assinatura
+## <a name="select-your-subscription"></a>Selecionar sua assinatura
 
 Depois de implantar o modelo e ter aguardado alguns minutos para que a projeção de recursos seja concluída, associe sua assinatura ao seu diretório Azure AD B2C com as etapas a seguir.
 
 1. **Saia** do portal do Azure se você estiver conectado no momento. Isso e a etapa a seguir são feitas para atualizar suas credenciais na sessão do Portal.
 1. Entre no [portal do Azure](https://portal.azure.com) com sua conta administrativa do Azure ad B2C.
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do Portal.
+1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal.
 1. Selecione o diretório que contém sua assinatura.
 
     ![Mudar diretório](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
@@ -213,7 +213,7 @@ As configurações de diagnóstico definem onde os logs e as métricas de um rec
 
 - [Conta de armazenamento do Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
 - Soluções de [hubs de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
-- [Espaço de trabalho do Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Espaço de Trabalho do Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 Se você ainda não fez isso, crie uma instância do tipo de destino escolhido no grupo de recursos especificado no [modelo de Azure Resource Manager](#create-an-azure-resource-manager-template).
 
@@ -224,7 +224,7 @@ Você está pronto para [criar configurações de diagnóstico](../active-direct
 Para definir configurações de monitoramento para Azure AD B2C logs de atividades:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
 1. Selecionar **Azure Active Directory**
 1. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 1. Se houver configurações existentes no recurso, você verá uma lista de configurações já configuradas. Selecione **Adicionar configuração de diagnóstico** para adicionar uma nova configuração ou **Editar** configuração para editar uma existente. Cada configuração não pode ter mais de um de cada um dos tipos de destino.
@@ -234,7 +234,7 @@ Para definir configurações de monitoramento para Azure AD B2C logs de atividad
 1. Dê um nome à sua configuração se ela ainda não tiver uma.
 1. Marque a caixa para cada destino para enviar os logs. Selecione **Configurar** para especificar suas configurações, conforme descrito na tabela a seguir.
 
-    | Configuração | Descrição |
+    | Setting | Descrição |
     |:---|:---|
     | Arquivar em uma conta de armazenamento | Nome da conta de armazenamento. |
     | Transmitir para um hub de eventos | O namespace em que o Hub de eventos é criado (se esta for a primeira vez que os logs de streaming) ou transmitido (se já houver recursos que estão transmitindo essa categoria de log para esse namespace).

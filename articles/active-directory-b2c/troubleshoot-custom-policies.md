@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384950"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas de políticas personalizadas do Azure AD B2C e da Estrutura de Experiência de Identidade
 
@@ -52,13 +52,13 @@ Os erros comuns de validação incluem o seguinte:
 
 > Snippet de código de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Verifique se o valor de Tenantid nos `<TrustFrameworkPolicy\>` elementos `<BasePolicy\>` e corresponde ao seu locatário de Azure ad B2C de destino.
+* Verifique se o valor de Tenantid nos `<TrustFrameworkPolicy\>` `<BasePolicy\>` elementos e corresponde ao seu locatário de Azure ad B2C de destino.
 
 ## <a name="troubleshoot-the-runtime"></a>Solucionar problemas de runtime
 
 * Use **executar agora** e `https://jwt.ms` para testar suas políticas independentemente de seu aplicativo Web ou móvel. Este site funciona como um aplicativo de terceira parte confiável. Ele exibe o conteúdo do JSON Web token (JWT) que é gerado pela sua política de Azure AD B2C.
 
-    Para criar um aplicativo de teste que possa ser `https://jwt.ms` Redirecionado para para inspeção de token:
+    Para criar um aplicativo de teste que possa ser redirecionado para `https://jwt.ms` para inspeção de token:
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
