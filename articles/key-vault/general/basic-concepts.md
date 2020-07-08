@@ -10,12 +10,11 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 14eda137d386146d96b6b9aa54e1ed57021db19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84167291"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos do Azure Key Vault
 
@@ -77,7 +76,7 @@ Os desenvolvedores também podem gerenciar as chaves diretamente, por meio de AP
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [proteger seu cofre](secure-your-key-vault.md)).
+Saiba como [proteger seu cofre](secure-your-key-vault.md).
 
 <!--Image references-->
 [1]: ../media/key-vault-whatis/AzureKeyVault_overview.png

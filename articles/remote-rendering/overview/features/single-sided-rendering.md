@@ -5,29 +5,28 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022753"
 ---
-# <a name="single-sided-rendering"></a>Renderização de um lado
+# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided":::tratamento
 
 A maioria dos renderizadores usa [rejeição trivial](https://en.wikipedia.org/wiki/Back-face_culling) para melhorar o desempenho. No entanto, quando as malhas estão cortadas abertas com [planos de corte](cut-planes.md), os usuários costumam examinar o verso dos triângulos. Se esses triângulos forem descartados, o resultado não parecerá convincente.
 
 A maneira de evitar esse problema de modo confiável é renderizar triângulos *em dois lados*. Não usar a rejeição trivial tem implicações de desempenho, por isso, o Azure Remote Rendering muda para renderização em dois lados, por padrão, apenas no caso de malhas que fazem interseção com um plano de recorte.
 
-A configuração de *renderização de uma lado* permite que você personalize esse comportamento.
+A configuração de * :::no-loc text="single-sided"::: renderização* permite que você personalize esse comportamento.
 
 > [!CAUTION]
-> A configuração de renderização de um lado é um recurso experimental. Ele pode ser removido novamente no futuro. Não mude a configuração padrão, a menos que ela realmente resolva um problema crítico em seu aplicativo.
+> A :::no-loc text="single-sided"::: configuração de renderização é um recurso experimental. Ele pode ser removido novamente no futuro. Não mude a configuração padrão, a menos que ela realmente resolva um problema crítico em seu aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A configuração de renderização de um lado tem efeito apenas em malhas que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a opção `opaqueMaterialDefaultSidedness` definida como `SingleSided`. Por padrão, essa opção fica definida como `DoubleSided`.
+A :::no-loc text="single-sided"::: configuração de renderização só tem um efeito para malhas que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a `opaqueMaterialDefaultSidedness` opção definida como `SingleSided` . Por padrão, essa opção fica definida como `DoubleSided`.
 
-## <a name="single-sided-rendering-setting"></a>Configuração de renderização de um lado
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided":::configuração de renderização
 
 Há três modos diferentes:
 
@@ -35,9 +34,9 @@ Há três modos diferentes:
 
 **DynamicDoubleSiding:** nesse modo, quando um plano de corte cruza uma malha, ele muda automaticamente para renderização em dois lados. Esse modo é o padrão.
 
-**AlwaysDoubleSided:** força para que toda a geometria de um lado seja renderizada duas vezes. Esse modo é exposto principalmente para que você possa comparar facilmente o impacto de desempenho entre renderização de um e dois lados.
+**AlwaysDoubleSided:** força para que toda a geometria de um lado seja renderizada duas vezes. Esse modo é exposto principalmente para que você possa comparar facilmente o impacto no desempenho entre :::no-loc text="single-sided"::: e :::no-loc text="double-sided"::: renderizar.
 
-A alteração das configurações de renderização de um lado pode ser feita da seguinte maneira:
+A alteração das :::no-loc text="single-sided"::: configurações de renderização pode ser feita da seguinte maneira:
 
 ```cs
 void ChangeSingleSidedRendering(AzureSession session)

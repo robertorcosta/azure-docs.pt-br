@@ -1,7 +1,7 @@
 ---
 title: 'Funções personalizadas: SQL Server online para migrações de instância gerenciada do SQL'
 titleSuffix: Azure Database Migration Service
-description: Aprenda a usar as funções personalizadas para SQL Server para migrações online de instância gerenciada do banco de dados SQL do Azure.
+description: Aprenda a usar as funções personalizadas para SQL Server para migrações do SQL Instância Gerenciada online do Azure.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d9f222818726fa81dd28fe70042cbfc51162e27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78254935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84187461"
 ---
-# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para migrações online de instância gerenciada do banco de dados SQL
+# <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para migrações do SQL Instância Gerenciada online do Azure
 
 O serviço de migração de banco de dados do Azure usa uma ID de aplicativo para interagir com os serviços do Azure. A ID do aplicativo requer a função de colaborador no nível da assinatura (que muitos departamentos de segurança corporativa não permitirão) ou a criação de funções personalizadas que concedem as permissões específicas que o serviço de migrações de banco de dados do Azure exige. Como há um limite de 2.000 funções personalizadas em Azure Active Directory, talvez você queira combinar todas as permissões necessárias especificamente pela ID do aplicativo em uma ou duas funções personalizadas e, em seguida, conceder à ID do aplicativo a função personalizada em objetos ou grupos de recursos específicos (vs. no nível da assinatura). Se o número de funções personalizadas não for uma preocupação, você poderá dividir as funções personalizadas por tipo de recurso, para criar três funções personalizadas no total, conforme descrito abaixo.
 
@@ -30,7 +29,7 @@ A seção AssignableScopes da cadeia de caracteres JSON de definição de funç�
 No momento, é recomendável criar no mínimo duas funções personalizadas para a ID do aplicativo, uma no nível de recurso e outra no nível de assinatura.
 
 > [!NOTE]
-> O último requisito de função personalizada pode eventualmente ser removido, pois o novo código de instância gerenciada do banco de dados SQL é implantado no Azure.
+> O último requisito de função personalizada pode eventualmente ser removido, pois o novo código do SQL Instância Gerenciada é implantado no Azure.
 
 **Função personalizada para a ID do aplicativo**. Essa função é necessária para a migração do serviço de migração de banco de dados do Azure no nível de *recurso* ou *grupo de recursos* (para obter mais informações sobre a ID do aplicativo, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
 
@@ -87,14 +86,14 @@ Para obter mais informações, consulte o artigo [funções personalizadas para 
 
 Depois de criar essas funções personalizadas, você deve adicionar atribuições de função aos usuários e às IDs do aplicativo aos recursos ou grupos de recursos apropriados:
 
-* A função "DMS função-ID do aplicativo" deve ser concedida à ID do aplicativo que será usada para as migrações e também na conta de armazenamento, instância do serviço de migração de banco de dados do Azure e níveis de recurso de instância gerenciada do banco de dados SQL.
+* A função "DMS função-ID do aplicativo" deve ser concedida à ID do aplicativo que será usada para as migrações e também na conta de armazenamento, instância do serviço de migração de banco de dados do Azure e níveis de recurso do SQL Instância Gerenciada.
 * A função "função DMS-ID do aplicativo-sub" deve ser concedida à ID do aplicativo no nível da assinatura (a concessão do recurso ou do grupo de recursos falhará). Esse requisito é temporário até que uma atualização de código seja implantada.
 
 ## <a name="expanded-number-of-roles"></a>Número expandido de funções
 
 Se o número de funções personalizadas na sua Azure Active Directory não for uma preocupação, recomendamos que você crie um total de três funções. Você ainda precisará da função "DMS de ID do aplicativo – sub", mas a função "DMS da função de diretório" acima é dividida por tipo de recurso em duas funções diferentes.
 
-**Função personalizada para a ID do aplicativo para instância gerenciada do banco de dados SQL**
+**Função personalizada para a ID do aplicativo para o SQL Instância Gerenciada**
 
 ```json
 {

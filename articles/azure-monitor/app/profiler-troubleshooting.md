@@ -6,12 +6,11 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81640954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84148337"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -70,9 +69,9 @@ Para o Profiler funcionar corretamente:
 
     |Configurações de Aplicativo    | Valor    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para seu recurso do Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
 * O trabalho Web **ApplicationInsightsProfiler3** precisa estar em execução. Para verificar o trabalho Web:
@@ -87,7 +86,7 @@ Para o Profiler funcionar corretamente:
 
       ![Criador de perfil de trabalho Web de log]
 
-Se você não conseguir descobrir por que o criador de perfil não está funcionando para você, poderá baixar o log e enviá-lo para serviceprofilerhelp@microsoft.comnossa equipe para obter assistência. 
+Se você não conseguir descobrir por que o criador de perfil não está funcionando para você, poderá baixar o log e enviá-lo para nossa equipe para obter assistência serviceprofilerhelp@microsoft.com . 
     
 ### <a name="manual-installation"></a>Instalação manual
 
@@ -102,9 +101,9 @@ Quando você configura o Profiler, são feitas atualizações nas configuraçõe
 
     |Configurações de Aplicativo    | Valor    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para seu recurso do Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Número excessivo de sessões de criação de perfil ativas
 
@@ -114,7 +113,7 @@ No momento, é possível habilitar o Profiler em no máximo quatro aplicativos W
 
 Se estiver reimplementando seu aplicativo Web em um recurso de Aplicativos Web com o Profiler habilitado, você poderá ver a seguinte mensagem:
 
-*Diretório não vazio ' d\\:\\site\\inicial\\wwwroot\\App_Data trabalhos '*
+*Diretório não vazio ' d \\ : \\ site inicial \\ wwwroot \\ App_Data \\ trabalhos '*
 
 Este erro ocorrerá se você executar a Implantação da Web de scripts ou do pipeline de implantação do Azure DevOps. A solução é adicionar os seguintes parâmetros de implantação adicionados à tarefa de Implantação da Web:
 
@@ -128,7 +127,7 @@ Esses parâmetros excluem a pasta usada pelo Application Insights Profiler e des
 
 O Profiler é executado como um trabalho Web contínuo no aplicativo Web. Você pode abrir o recurso de aplicativo Web no [portal do Azure](https://portal.azure.com). Se o painel **WebJobs**, verifique o status de **ApplicationInsightsProfiler**. Se ele não estiver em execução, abra **Logs** para obter mais informações.
 
-## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Solucionar problemas com o Profiler e o Diagnóstico do Azure
+## <a name="troubleshoot-vms-and-cloud-services"></a>Solucionar problemas de VMs e serviços de nuvem
 
 >**O bug no criador de perfil que acompanha o WAD para serviços de nuvem foi corrigido.** A versão mais recente do WAD (1.12.2.0) para serviços de nuvem funciona com todas as versões recentes do SDK do App insights. Os hosts do serviço de nuvem atualizarão automaticamente o WAD, mas não será imediato. Para forçar uma atualização, você pode reimplantar o serviço ou reinicializar o nó.
 
@@ -141,27 +140,45 @@ Para ver se o Profiler está configurado corretamente pelo Diagnóstico do Azure
 
 Para verificar as configurações que foram usadas para configurar o Diagnóstico do Azure:
 
-1. Entre na máquina virtual (VM) e, em seguida, abra o arquivo de log neste local. (A unidade pode ser c: ou d: e a versão do plug-in pode ser diferente.)
-
-    ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
-    ```
-    ou
+1. Entre na máquina virtual (VM) e, em seguida, abra o arquivo de log neste local. A versão do plug-in pode ser mais nova no seu computador.
+    
+    Para VMs:
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
+    ```
+    
+    Para Serviços de Nuvem:
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
 
 1. No arquivo, você pode pesquisar pela cadeia de caracteres **WadCfg** para encontrar as configurações que foram passadas para a VM para configurar o Diagnóstico do Azure. Você pode verificar se a iKey utilizado pelo coletor do Profiler está correta.
 
-1. Verifique a linha de comando que é usada para iniciar o Profiler. Os argumentos que são usados para iniciar o profiler estão no arquivo a seguir. (A unidade pode ser c: ou d:)
+1. Verifique a linha de comando que é usada para iniciar o Profiler. Os argumentos que são usados para iniciar o profiler estão no arquivo a seguir. (A unidade pode ser c: ou d: e o diretório pode estar oculto.)
 
+    Para VMs:
+    ```
+    C:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+    
+    para serviços de nuvem:
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
 
 1. Verifique se o iKey na linha de comando do Profiler está correto. 
 
-1. Usando o caminho encontrado no arquivo *config.json* acima, verifique o arquivo de log do Profiler. Ele exibe as informações de depuração que indicam as configurações que o Profiler está usando. Ele também exibe mensagens de erro e de status do Profiler.  
+1. Usando o caminho encontrado noconfig.jsanterior *no* arquivo, verifique o arquivo de log do criador de perfil, chamado **bootstrapn. log**. Ele exibe as informações de depuração que indicam as configurações que o Profiler está usando. Ele também exibe mensagens de erro e de status do Profiler.  
+
+    Para VMs, o arquivo geralmente está aqui:
+    ```
+    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
+
+    Para Serviços de Nuvem:
+    ```
+    C:\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
 
     Se o profiler estiver em execução enquanto seu aplicativo estiver recebendo solicitações, a seguinte mensagem será exibida: *atividade detectada em iKey*. 
 

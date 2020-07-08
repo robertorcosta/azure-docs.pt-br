@@ -5,13 +5,12 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84170266"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTPS em aplicativos lógicos do Azure
 
@@ -148,7 +147,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 * [Aceite valores por meio de parâmetros Get](#get-parameters) ou parâmetros de URL.
 
-  Esses valores são passados como pares de nome-valor na URL do ponto de extremidade. Para essa opção, você precisa usar o método GET em seu gatilho de solicitação. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho usando `triggerOutputs()` a função em uma expressão.
+  Esses valores são passados como pares de nome-valor na URL do ponto de extremidade. Para essa opção, você precisa usar o método GET em seu gatilho de solicitação. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho usando a `triggerOutputs()` função em uma expressão.
 
 * [Aceite valores por meio de um caminho relativo](#relative-path) para parâmetros em seu gatilho de solicitação.
 
@@ -164,7 +163,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 1. No gatilho de solicitação, adicione a ação em que você deseja usar o valor do parâmetro. Para este exemplo, adicione a ação de **resposta** .
 
-   1. No gatilho de solicitação, selecione **nova etapa** > **Adicionar uma ação**.
+   1. No gatilho de solicitação, selecione **nova etapa**  >  **Adicionar uma ação**.
    
    1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
 
@@ -190,11 +189,11 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
       `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
 
-      Por exemplo, suponha que você deseja passar um valor para um parâmetro chamado `postalCode`. A propriedade **Body** especifica a cadeia de `Postal Code: ` caracteres, com um espaço à direita, seguido pela expressão correspondente:
+      Por exemplo, suponha que você deseja passar um valor para um parâmetro chamado `postalCode` . A propriedade **Body** especifica a cadeia de caracteres, `Postal Code: ` com um espaço à direita, seguido pela expressão correspondente:
 
       ![Adicione a expressão "triggerOutputs ()" de exemplo para disparar](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
 
-1. Para testar seu ponto de extremidade chamável, copie a URL de retorno de chamada do gatilho de solicitação e cole a URL em outra janela do navegador. Na URL, adicione o nome do parâmetro e o valor seguindo o ponto de`?`interrogação () à URL no formato a seguir e pressione Enter.
+1. Para testar seu ponto de extremidade chamável, copie a URL de retorno de chamada do gatilho de solicitação e cole a URL em outra janela do navegador. Na URL, adicione o nome do parâmetro e o valor seguindo o ponto de interrogação ( `?` ) à URL no formato a seguir e pressione Enter.
 
    `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
@@ -204,15 +203,18 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    ![Resposta de envio de solicitação para URL de retorno de chamada](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-1. Para colocar o nome e o valor do parâmetro em uma posição diferente dentro da URL, use o e comercial (`&`) como um prefixo, por exemplo:
+1. Para colocar o nome e o valor do parâmetro em uma posição diferente dentro da URL, use o e comercial ( `&` ) como um prefixo, por exemplo:
 
    `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
 
-   Este exemplo mostra a URL de retorno de chamada com o nome do `postalCode=123456` parâmetro de exemplo e o valor em posições diferentes dentro da URL:
+   Este exemplo mostra a URL de retorno de chamada com o nome do parâmetro de exemplo e o valor `postalCode=123456` em posições diferentes dentro da URL:
 
    * 1ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
    * 2ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+> [!NOTE]
+> Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI, use esta versão codificada em vez disso:`%25%23`
 
 <a name="relative-path"></a>
 
@@ -222,19 +224,19 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    ![Adicionar a propriedade "caminho relativo" para disparar](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. Na propriedade **caminho relativo** , especifique o caminho relativo para o parâmetro no esquema JSON que você deseja que a URL aceite, por exemplo, `/address/{postalCode}`.
+1. Na propriedade **caminho relativo** , especifique o caminho relativo para o parâmetro no esquema JSON que você deseja que a URL aceite, por exemplo, `/address/{postalCode}` .
 
    ![Especifique o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 1. No gatilho de solicitação, adicione a ação em que você deseja usar o valor do parâmetro. Para este exemplo, adicione a ação de **resposta** .
 
-   1. No gatilho de solicitação, selecione **nova etapa** > **Adicionar uma ação**.
+   1. No gatilho de solicitação, selecione **nova etapa**  >  **Adicionar uma ação**.
 
    1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
 
 1. Na propriedade **Body** da ação de resposta, inclua o token que representa o parâmetro que você especificou no caminho relativo do gatilho.
 
-   Por exemplo, suponha que você deseja que a ação de resposta `Postal Code: {postalCode}`seja retornada.
+   Por exemplo, suponha que você deseja que a ação de resposta seja retornada `Postal Code: {postalCode}` .
 
    1. Na propriedade **corpo** , insira `Postal Code: ` com um espaço à direita. Mantenha o cursor dentro da caixa de edição para que a lista de conteúdo dinâmico permaneça aberta.
 
@@ -252,11 +254,14 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Para testar seu ponto de extremidade chamável, copie a URL de retorno de chamada atualizada do gatilho de solicitação, Cole a URL `{postalCode}` em outra janela do `123456`navegador, substitua na URL por e pressione Enter.
+1. Para testar seu ponto de extremidade chamável, copie a URL de retorno de chamada atualizada do gatilho de solicitação, Cole a URL em outra janela do navegador, substitua `{postalCode}` na URL por `123456` e pressione Enter.
 
    O navegador retorna uma resposta com este texto:`Postal Code: 123456`
 
    ![Resposta de envio de solicitação para URL de retorno de chamada](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+> [!NOTE]
+> Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI, use esta versão codificada em vez disso:`%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Chamar aplicativo lógico por meio da URL do ponto de extremidade
 
@@ -268,7 +273,7 @@ Depois de criar o ponto de extremidade, você pode disparar o aplicativo lógico
 
 Quando você fornece um esquema JSON no gatilho de solicitação, o designer do aplicativo lógico gera tokens para as propriedades nesse esquema. Assim, você pode usar esses tokens para transmitir dados por meio do fluxo de trabalho do aplicativo lógico.
 
-Por exemplo, se você adicionar mais propriedades, como `"suite"`, ao seu esquema JSON, os tokens para essas propriedades estarão disponíveis para uso nas etapas posteriores para seu aplicativo lógico. Veja a seguir o esquema JSON completo:
+Por exemplo, se você adicionar mais propriedades, como `"suite"` , ao seu esquema JSON, os tokens para essas propriedades estarão disponíveis para uso nas etapas posteriores para seu aplicativo lógico. Veja a seguir o esquema JSON completo:
 
 ```json
    {
@@ -302,7 +307,7 @@ Por exemplo, se você adicionar mais propriedades, como `"suite"`, ao seu esquem
 
 Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outros aplicativos lógicos que podem receber solicitações. Para incluir esses aplicativos lógicos, siga estas etapas:
 
-1. Na etapa em que você deseja chamar outro aplicativo lógico, selecione **nova etapa** > **Adicionar uma ação**.
+1. Na etapa em que você deseja chamar outro aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**.
 
 1. Em **Escolha uma ação**, selecione **Interno**. Na caixa de pesquisa, insira `logic apps` como o filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
 
@@ -316,9 +321,9 @@ Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outro
 
 ## <a name="reference-content-from-an-incoming-request"></a>Fazer referência ao conteúdo de uma solicitação de entrada
 
-Se o tipo de conteúdo da solicitação de `application/json`entrada for, você poderá fazer referência às propriedades na solicitação de entrada. Caso contrário, esse conteúdo é tratado como uma única unidade binária que você pode passar para outras APIs. Para fazer referência a esse conteúdo dentro do fluxo de trabalho do aplicativo lógico, primeiro você precisa converter esse conteúdo.
+Se o tipo de conteúdo da solicitação de entrada for `application/json` , você poderá fazer referência às propriedades na solicitação de entrada. Caso contrário, esse conteúdo é tratado como uma única unidade binária que você pode passar para outras APIs. Para fazer referência a esse conteúdo dentro do fluxo de trabalho do aplicativo lógico, primeiro você precisa converter esse conteúdo.
 
-Por exemplo, se você estiver passando o conteúdo que `application/xml` tem o tipo, poderá usar a [ `@xpath()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#xpath) para executar uma extração de XPath ou usar a [ `@json()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#json) para converter XML em JSON. Saiba mais sobre como trabalhar com [tipos de conteúdo](../logic-apps/logic-apps-content-type.md)com suporte.
+Por exemplo, se você estiver passando o conteúdo que tem `application/xml` o tipo, poderá usar a [ `@xpath()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#xpath) para executar uma extração de XPath ou usar a [ `@json()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#json) para converter XML em JSON. Saiba mais sobre como trabalhar com [tipos de conteúdo](../logic-apps/logic-apps-content-type.md)com suporte.
 
 Para obter a saída de uma solicitação de entrada, você pode usar a [ `@triggerOutputs` expressão](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs). Por exemplo, suponha que você tenha uma saída semelhante a este exemplo:
 
@@ -333,7 +338,7 @@ Para obter a saída de uma solicitação de entrada, você pode usar a [ `@trigg
 }
 ```
 
-Para acessar especificamente a `body` Propriedade, você pode usar a [ `@triggerBody()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) como um atalho.
+Para acessar especificamente a `body` propriedade, você pode usar a [ `@triggerBody()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) como um atalho.
 
 ## <a name="respond-to-requests"></a>Responder às solicitações
 
@@ -345,17 +350,17 @@ Para aplicativos lógicos aninhados, o aplicativo lógico pai continua aguardand
 
 ### <a name="construct-the-response"></a>Construir a resposta
 
-No corpo da resposta, você pode incluir vários cabeçalhos e qualquer tipo de conteúdo. Por exemplo, o cabeçalho dessa resposta especifica que o tipo de conteúdo da resposta `application/json` é e que o corpo contém valores para `town` as `postalCode` Propriedades e, com base no esquema JSON descrito anteriormente neste tópico para o gatilho de solicitação.
+No corpo da resposta, você pode incluir vários cabeçalhos e qualquer tipo de conteúdo. Por exemplo, o cabeçalho dessa resposta especifica que o tipo de conteúdo da resposta é `application/json` e que o corpo contém valores para `town` as `postalCode` Propriedades e, com base no esquema JSON descrito anteriormente neste tópico para o gatilho de solicitação.
 
 ![Fornecer conteúdo de resposta para a ação de resposta HTTPS](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 As respostas têm estas propriedades:
 
-| Propriedade (exibição) | Property (JSON) | Descrição |
+| Propriedade (exibição) | Propriedade (JSON) | Descrição |
 |--------------------|-----------------|-------------|
 | **Código de status** | `statusCode` | O código de status HTTPS a ser usado na resposta para a solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
-| **Conector** | `headers` | Um ou mais cabeçalhos a serem incluídos na resposta |
-| **Conteúdo** | `body` | Um objeto Body que pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo conteúdo binário referenciado de uma etapa anterior |
+| **Cabeçalhos** | `headers` | Um ou mais cabeçalhos a serem incluídos na resposta |
+| **Corpo** | `body` | Um objeto Body que pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo conteúdo binário referenciado de uma etapa anterior |
 ||||
 
 Para exibir a definição de JSON para a ação de resposta e a definição JSON completa do aplicativo lógico, na barra de ferramentas do designer do aplicativo lógico, selecione **exibição de código**.
@@ -378,7 +383,7 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 }
 ```
 
-## <a name="q--a"></a>Perguntas e Respostas
+## <a name="q--a"></a>Perguntas e respostas
 
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 

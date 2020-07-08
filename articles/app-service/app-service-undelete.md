@@ -5,12 +5,11 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 440f46cbeebee1b552e64eba4ebc8787a47edf56
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: d147c87e8fb0fa9e01ba2dbaf732adaae082bcd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84167784"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar o aplicativo Serviço de Aplicativo excluído usando o PowerShell
 
@@ -66,7 +65,7 @@ As entradas para o comando são:
 - **Name**: O nome do aplicativo que deve ser globalmente exclusivo.
 - **TargetAppServicePlanName**: Plano do Serviço de Aplicativo vinculado ao aplicativo
 
-Por padrão, `Restore-AzDeletedWebApp` restaurará a configuração do seu aplicativo, bem como um conteúdo. Se você quiser restaurar apenas o conteúdo, use o sinalizador `-RestoreContentOnly` com esse commandlet.
+Por padrão, `Restore-AzDeletedWebApp` o restaurará a configuração do aplicativo, bem como qualquer conteúdo. Se você quiser restaurar apenas o conteúdo, use o sinalizador `-RestoreContentOnly` com esse commandlet.
 
 > [!NOTE]
 > Se o aplicativo foi hospedado em e, em seguida, excluído de um Ambiente do Serviço de Aplicativo, ele só poderá ser restaurado se o Ambiente do Serviço de Aplicativo correspondente ainda existir.

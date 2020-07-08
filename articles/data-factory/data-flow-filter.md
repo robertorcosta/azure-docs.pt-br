@@ -7,19 +7,20 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: 32a40f3d4da93318c6d2ec25295c89a7b53141e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/26/2020
+ms.openlocfilehash: 8189228d6707812fb943e9925dc2bbf1b6da4972
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84112806"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Transformação de filtro no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 As transformações de filtro permitem a filtragem de linha com base em uma condição. O fluxo de saída inclui todas as linhas que correspondem à condição de filtragem. A transformação de filtro é semelhante a uma cláusula WHERE no SQL.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
 ## <a name="configuration"></a>Configuração
 
@@ -40,9 +41,9 @@ Use o construtor de expressões de fluxo de dados para inserir uma expressão pa
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação de filtro `FilterBefore1960` chamada que usa o fluxo `CleanData`de entrada. A condição de filtro é a `year <= 1960`expressão.
+O exemplo abaixo é uma transformação de filtro chamada `FilterBefore1960` que usa o fluxo de entrada `CleanData` . A condição de filtro é a expressão `year <= 1960` .
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+No UX do Data Factory, essa transformação é semelhante à imagem abaixo:
 
 ![Transformação de filtro](media/data-flow/filter1.png "Transformação de filtro")
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: twooley
-ms.openlocfilehash: c9451afaefdd220b5f87d4650c7844f06926b03a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e591a6c1fbf91bb034ec57673f79c549bbec4672
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84170079"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualizar seu dispositivo do StorSimple série 8000
 > [!NOTE]
@@ -84,22 +83,22 @@ Se você precisar aplicar atualizações do modo de Manutenção, receberá um a
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>Etapa 1: Conectar-se ao console serial <a name="step1">
+### <a name="step-1-connect-to-the-serial-console"></a>Etapa 1: Conectar-se ao console serial <a name="step1"></a>
 Primeiro, use um aplicativo como o PuTTY para acessar o console serial. O procedimento a seguir explica como usar o PuTTY para se conectar ao console serial.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Etapa 2: Entrar no modo de Manutenção <a name="step2">
+### <a name="step-2-enter-maintenance-mode"></a>Etapa 2: Entrar no modo de Manutenção <a name="step2"></a>
 Depois de se conectar ao console, determine se há atualizações a serem instaladas e entre no modo de manutenção para instalá-las.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates-a-namestep3"></a>Etapa 3: Instalar as atualizações <a name="step3">
+### <a name="step-3-install-your-updates"></a>Etapa 3: Instalar as atualizações <a name="step3"></a>
 Em seguida, instale as atualizações.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Etapa 4: Sair do modo de Manutenção <a name="step4">
+### <a name="step-4-exit-maintenance-mode"></a>Etapa 4: Sair do modo de Manutenção <a name="step4"></a>
 Por fim, saia do modo de Manutenção.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

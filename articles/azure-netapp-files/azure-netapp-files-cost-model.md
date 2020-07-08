@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70995111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84142139"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de custo para o Azure NetApp Files 
 
@@ -50,6 +49,8 @@ O diagrama a seguir ilustra esses conceitos.
 ## <a name="overage-in-capacity-consumption"></a>Excedente no consumo de capacidade  
 
 Quando a capacidade total usada de um pool excede sua capacidade provisionada, as gravações de dados ainda são permitidas.  Após o período de carência (uma hora), se a capacidade usada do pool ainda exceder sua capacidade provisionada, o tamanho do pool será aumentado automaticamente em incrementos de 1 TiB até que a capacidade provisionada seja maior que a capacidade total usada.  Por exemplo, na ilustração acima, se o volume 3 continuar crescendo e o consumo real atingir 1,2 TiB, depois do período de carência, o pool será automaticamente redimensionado para 5 TiB.  O resultado é que a capacidade do pool provisionado (5 TiB) excede a capacidade usada (4,2 TiB).  
+
+Embora o tamanho do pool de capacidade cresça automaticamente para atender à demanda do volume, ele não é automaticamente reduzido quando o tamanho do volume diminui. Se você quiser diminuir o tamanho do pool de capacidade após a diminuição do tamanho do volume (por exemplo, após a limpeza de dados de um volume), será necessário reduzir _manualmente_ o tamanho do pool de capacidade.
 
 ## <a name="manual-changes-of-the-pool-size"></a>Alterações manuais do tamanho do pool  
 
@@ -91,4 +92,4 @@ O consumo de capacidade de instantâneos no Azure NetApp Files é cobrado em rel
 
 * [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Níveis de serviço do Azure NetApp Files](azure-netapp-files-service-levels.md)
-* [Limites de recursos no Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)

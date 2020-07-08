@@ -4,12 +4,11 @@ description: Saiba mais sobre o Armazenamento nos Serviços do Kubernetes do Azu
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77595987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171371"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -55,10 +54,12 @@ Um PersistentVolume pode ser *estaticamente* criado por um administrador de clus
 
 Para definir diferentes camadas de armazenamento, como Premium e Standard, você pode criar uma *StorageClass*. O StorageClass também define a *reclaimPolicy*. Este reclaimPolicy controla o comportamento do recurso de armazenamento do Azure subjacente quando o pod é excluído e o volume persistente talvez não seja mais necessário. O recurso de armazenamento subjacente pode ser excluído ou retido para uso com um pod futuro.
 
-No AKS, dois StorageClasses inicias são criados:
+Em AKS, quatro StorageClasses iniciais são criadas:
 
-- *padrão* - usa o armazenamento do Azure Standard para criar um Disco Gerenciado. A política de recuperação indica que o disco do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
+- *padrão* – usa o armazenamento StandardSSD do Azure para criar um disco gerenciado. A política de recuperação indica que o disco do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
 - *managed-premium* - usa o Armazenamento do Premium do Azure para criar Discos Gerenciados. A política de recuperação novamente indica que o disco do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
+- *azurefile* – usa o armazenamento standard do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação indica que o compartilhamento de arquivos do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
+- *azurefile-Premium* -usa o armazenamento Premium do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação indica que o compartilhamento de arquivos do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
 
 Se nenhum StorageClass for especificado para um volume persistente, o padrão StorageClass será usado. Tome cuidado ao solicitar volumes persistentes, para que eles usem o armazenamento adequado, que você precisa. Você pode criar um StorageClass para necessidades adicionais usando `kubectl`. O exemplo a seguir usa o Managed Disks Premium e especifica que o Azure Disk subjacente deve ser *retidos* quando o pod é excluído:
 
@@ -120,7 +121,7 @@ spec:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups em AKs][operator-best-practices-storage].
+Para obter as práticas recomendadas associadas, veja [Práticas recomendadas para armazenamento e backups no AKS][operator-best-practices-storage].
 
 Para ver como criar volumes dinâmicos e estáticos que usam Discos do Azure ou Arquivos do Azure, consulte os artigos de instruções a seguir:
 
@@ -131,11 +132,11 @@ Para ver como criar volumes dinâmicos e estáticos que usam Discos do Azure ou 
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
-- [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
-- [Kubernetes / escala de AKS][aks-concepts-identity]
+- [Clusters e cargas de trabalho do Kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Identidade do Kubernetes/AKS][aks-concepts-identity]
 - [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / redes virtuais do AKS][aks-concepts-network]
-- [Kubernetes / escala de AKS][aks-concepts-scale]
+- [Redes virtuais do Kubernetes/AKS][aks-concepts-network]
+- [Escala do Kubernetes/AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

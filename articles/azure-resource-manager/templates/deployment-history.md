@@ -3,17 +3,18 @@ title: Histórico de implantações
 description: Descreve como exibir as operações de implantação do Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.date: 05/26/2020
+ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117843"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Exibir histórico de implantação com o Azure Resource Manager
 
-O Azure Resource Manager permite que você veja seu histórico de implantação e examine operações específicas em implantações anteriores. Você pode ver os recursos que foram implantados e obter informações sobre erros.
+Azure Resource Manager permite que você exiba seu histórico de implantação. Você pode examinar operações específicas nas implantações anteriores e ver quais recursos foram implantados. Este histórico contém informações sobre quaisquer erros.
+
+O histórico de implantação de um grupo de recursos é limitado a implantações de 800. À medida que você se aproximar do limite, as implantações serão excluídas automaticamente do histórico. Para obter mais informações, consulte [exclusões automáticas do histórico de implantação](deployment-history-deletions.md).
 
 Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](common-deployment-errors.md).
 
@@ -117,7 +118,7 @@ Cada implantação pode incluir várias operações. Para ver mais detalhes sobr
 
 1. No resumo para uma implantação, selecione **Detalhes da operação**.
 
-    ![Selecionar operações de implantação](./media/deployment-history/get-operation-details.png)
+    ![Selecionar detalhes da operação](./media/deployment-history/get-operation-details.png)
 
 1. Você verá os detalhes dessa etapa da implantação. Quando ocorre um erro, os detalhes incluem a mensagem de erro.
 
@@ -210,6 +211,6 @@ A resposta inclui uma mensagem de erro.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para saber mais sobre como usar os logs de atividades para monitorar outros tipos de ação, confira [View activity logs to manage Azure resources](../management/view-activity-logs.md) (Exibir logs de atividades para gerenciar recursos do Azure).
+* Para saber mais sobre como as implantações são gerenciadas no histórico, consulte [exclusões automáticas do histórico de implantação](deployment-history-deletions.md).
 * Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](deploy-powershell.md).
 

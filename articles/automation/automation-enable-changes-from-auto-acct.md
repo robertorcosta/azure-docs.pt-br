@@ -5,12 +5,11 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 28c61e637a37c158dcd80c0f02b748b4813945fb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171116"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Habilitar Controle de Alterações e Inventário de uma conta de Automação
 
@@ -37,17 +36,13 @@ Entre no Azure em https://portal.azure.com.
 
     ![Habilitar Controle de Alterações e Inventário](media/automation-enable-changes-from-auto-acct/onboardsolutions.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Verificar a configuração de escopo
-
-O Controle de Alterações e Inventário usa uma configuração de escopo dentro do workspace a fim de definir os computadores que receberão alterações. A configuração de escopo é um grupo de uma ou mais pesquisas salvas utilizadas para limitar o escopo do recurso a computadores específicos. Para obter mais informações, confira [Trabalhar com configurações de escopo para o Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
-
 ## <a name="enable-azure-vms"></a>Habilitar VMs do Azure
 
 1. Na sua conta de Automação, selecione **Inventário** ou **Controle de Alterações** em **Gerenciamento de Configuração**.
 
 2. Clique em **+ Adicionar VMs do Azure** e selecione uma ou mais VMs na lista. Máquinas virtuais que não podem ser habilitadas ficam esmaecidas e não podem ser selecionadas. As VMs do Azure podem existir em qualquer região, independentemente do local da sua conta de Automação. 
 
-3. Clique em **Habilitar** para adicionar as VMs selecionadas à pesquisa salva do grupo de computadores para o recurso. Para obter mais informações, confira [Trabalhar com configurações de escopo para o Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
+3. Clique em **Habilitar** para adicionar as VMs selecionadas à pesquisa salva do grupo de computadores para o recurso. Para obter mais informações, consulte [limitar controle de alterações e escopo de implantação de estoque](automation-scope-configurations-change-tracking.md).
 
     ![Habilitar VMs do Azure](media/automation-enable-changes-from-auto-acct/enable-azure-vms.png)
 
@@ -73,15 +68,11 @@ Computadores instalados manualmente ou que já relatam para seu workspace precis
 
 4. Para ativar o recurso para todos os computadores disponíveis e futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui as pesquisas salvas e as configurações de escopo do workspace e abre o recurso para todos os computadores do Azure e não Azure que se comunicam com o workspace. Quando selecionada, essa ação desabilita o botão **Gerenciar computadores** permanentemente, pois não há configuração de escopo à esquerda.
 
-5. Se necessário, você pode adicionar de novo as configurações de escopo. Para isso, volte a adicionar as pesquisas salvas iniciais. Para obter mais informações, confira [Trabalhar com configurações de escopo para o Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
+5. Se necessário, você pode adicionar de novo as configurações de escopo. Para isso, volte a adicionar as pesquisas salvas iniciais. Para obter mais informações, consulte [limitar controle de alterações e escopo de implantação de estoque](automation-scope-configurations-change-tracking.md).
 
-6. Para habilitar o recurso em um ou mais computadores, selecione **Habilitar nos computadores selecionados** e clique em **Adicionar** próximo a cada computador que você quer habilitar ao recurso. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para o recurso.
+6. Para habilitar a funcionalidade em um ou mais computadores, selecione **Habilitar nos computadores selecionados** e clique em **Adicionar** próximo a cada computador em que você quer habilitar a funcionalidade. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para o recurso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter detalhes do recurso, consulte [Gerenciar Controle de Alterações e Inventário](change-tracking-file-contents.md).
-* Para obter mais informações sobre as configurações de escopo, veja [Trabalhar com configurações de escopo para Controle de Alterações e Inventário](automation-scope-configurations-change-tracking.md).
-* Para saber como usar o recurso para identificar o software instalado em seu ambiente, veja [Descobrir qual software está instalado em suas VMs](automation-tutorial-installed-software.md).
-* Se você não quiser integrar sua conta de Automação a um workspace do Log Analytics ao habilitar o recurso, veja [Desvincular o workspace da conta de Automação](automation-unlink-workspace-change-tracking.md).
-* Quando concluir a implantação de alterações nas VMs, remova-as conforme descrito em [Remover VMs do Controle de Alterações e Inventário](automation-remove-vms-from-change-tracking.md).
+* Para trabalhar com o recurso, consulte [gerenciar controle de alterações e inventário](change-tracking-file-contents.md).
 * Para solucionar problemas gerais com o recurso, veja [Solucionar problemas de Controle de Alterações e Inventário](troubleshoot/change-tracking.md).

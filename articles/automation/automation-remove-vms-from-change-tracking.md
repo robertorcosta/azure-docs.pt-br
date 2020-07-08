@@ -5,16 +5,17 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 22cb49c414e21e5c47330f2c67fc2cf30e3364b2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 8e9b80c60c098e4daf247db07fa48baa322aa7f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84169447"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Remover VMs do Controle de Alterações e do Inventário
 
 Quando terminar de implantar atualizações nas VMs em seu ambiente, remova-as dos recursos [Controle de Alterações e Inventário](change-tracking.md).
+
+## <a name="to-remove-your-vms"></a>Para remover suas VMs
 
 1. Na sua conta de Automação, selecione **Controle de Alterações** ou **Inventário** em **Gerenciamento de Configuração**.
 
@@ -24,7 +25,7 @@ Quando terminar de implantar atualizações nas VMs em seu ambiente, remova-as d
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. No workspace do Log Analytics, em **Geral**, acesse as pesquisas salvas.
+3. Em seu espaço de trabalho do Log Analytics em **geral**, acesse as pesquisas salvas para a configuração do escopo `MicrosoftDefaultScopeConfig-ChangeTracking` .
 
 4. Para a pesquisa salva `MicrosoftDefaultComputerGroup`, clique nas reticências à direita e selecione **Editar**. 
 

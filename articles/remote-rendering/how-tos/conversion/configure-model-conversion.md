@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 83f80f893620a225c928be2ad7ad1679b3a9c465
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84147929"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelo
 
@@ -74,7 +73,7 @@ O fator de dimensionamento final será aplicado aos vértices de geometria e às
 A centralização será importante caso o modelo de origem seja inserido longe da origem, pois, nesse caso, problemas de precisão do ponto flutuante podem gerar artefatos de renderização.
 
 * `opaqueMaterialDefaultSidedness` – o mecanismo de renderização pressupõe que os materiais opacos têm dois lados.
-Caso esse não seja o comportamento pretendido, esse parâmetro deverá ser definido como “SingleSided”. Para obter mais informações, consulte [renderização de um lado](../../overview/features/single-sided-rendering.md).
+Caso esse não seja o comportamento pretendido, esse parâmetro deverá ser definido como “SingleSided”. Para obter mais informações, consulte [ :::no-loc text="single sided"::: renderização](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Substituições de material
 
@@ -90,7 +89,7 @@ O mecanismo de renderização espera que os valores de cores estejam em um espa�
 Caso um modelo seja definido por meio do uso do espaço gama, essas opções deverão ser definidas como true.
 
 * `gammaToLinearMaterial` – converte cores de material do espaço gama para um espaço linear.
-* `gammaToLinearVertex` – converte cores de vértice do espaço gama para um espaço linear.
+* `gammaToLinearVertex`-Converter :::no-loc text="vertex"::: cores de espaço gama em espaço linear
 
 > [!NOTE]
 > Em arquivos FBX, essas configurações são definidas como `true` por padrão. Em todos os outros tipos de arquivo, o padrão é `false`.
@@ -127,12 +126,12 @@ O modo `none` tem a menor sobrecarga do runtime, além de tempos de carregamento
 
 * `axis` – para substituir os vetores de unidade do sistema de coordenadas. Os valores padrão são `["+x", "+y", "+z"]`. Teoricamente, o formato FBX tem um cabeçalho no qual esses vetores são definidos, e a conversão usa essas informações para transformar a cena. O formato glTF também define um sistema de coordenadas fixo. Na prática, alguns ativos têm informações incorretas em seus cabeçalhos ou foram salvos com uma convenção de sistema de coordenadas diferente. Essa opção permite que você substitua o sistema de coordenadas como forma de compensação. Por exemplo: `"axis" : ["+x", "+z", "-y"]` trocará o eixo Z e o eixo Y e manterá a destreza do sistema de coordenadas ao inverter a direção do eixo Y.
 
-### <a name="vertex-format"></a>Formato de vértice
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::ao
 
-É possível ajustar o formato de vértice para uma malha para trocar a precisão pela economia de memória. Um volume de memória menor permite que você carregue modelos maiores ou obtenha um melhor desempenho. Porém, dependendo dos seus dados, o formato incorreto pode afetar significativamente a qualidade da renderização.
+É possível ajustar o :::no-loc text="vertex"::: formato para uma malha, a fim de trocar a precisão pela economia de memória. Um volume de memória menor permite que você carregue modelos maiores ou obtenha um melhor desempenho. Porém, dependendo dos seus dados, o formato incorreto pode afetar significativamente a qualidade da renderização.
 
 > [!CAUTION]
-> A alteração do formato de vértice deve ser usada com um dos últimos recursos quando os modelos não couberem mais na memória ou ao fazer a otimização para o melhor desempenho possível. As alterações podem introduzir artefatos de renderização facilmente, tanto os óbvios quanto os sutis. A menos que saiba o que deve procurar, você não deve alterar o padrão.
+> A alteração do :::no-loc text="vertex"::: formato deve ser um último recurso quando os modelos não se ajustam mais à memória ou ao otimizar o melhor desempenho possível. As alterações podem introduzir artefatos de renderização facilmente, tanto os óbvios quanto os sutis. A menos que saiba o que deve procurar, você não deve alterar o padrão.
 
 Os seguintes ajustes são possíveis:
 
@@ -159,11 +158,11 @@ A seção `vertex` a seguir do arquivo `.json` é opcional. Para cada parte que 
 
 Ao forçar um componente a `NONE`, garante-se que a malha de saída não terá o respectivo fluxo.
 
-#### <a name="component-formats-per-vertex-stream"></a>Formatos de componentes por fluxo de vértice
+#### <a name="component-formats-per-no-loc-textvertex-stream"></a>Formatos de componente por :::no-loc text="vertex"::: fluxo
 
 Os formatos a seguir são permitidos para os respectivos componentes:
 
-| Componente de vértice | Formatos com suporte (negrito = padrão) |
+| componente :::no-loc text="Vertex"::: | Formatos com suporte (negrito = padrão) |
 |:-----------------|:------------------|
 |position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE |
@@ -178,7 +177,7 @@ Os formatos a seguir são permitidos para os respectivos componentes:
 
 Os volumes de memória dos formatos são os seguintes:
 
-| Formatar | Descrição | Bytes por vértice |
+| Formatar | Descrição | Bytes por:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|Precisão do ponto flutuante completo de dois componentes|8
 |16_16_FLOAT|Precisão de meio ponto flutuante de dois componentes|4
@@ -197,11 +196,56 @@ Os volumes de memória dos formatos são os seguintes:
 
 #### <a name="example"></a>Exemplo
 
-Suponha que você tenha um modelo de fotogrametria, o qual tenha iluminação nas texturas. Tudo de que você precisa para renderizar o modelo são as posições de vértice e as coordenadas de textura.
+Suponha que você tenha um modelo de fotogrametria, o qual tenha iluminação nas texturas. Tudo o que é necessário para renderizar o modelo são :::no-loc text="vertex"::: posições e coordenadas de textura.
 
-Por padrão, o conversor deve pressupor que você talvez queira usar os materiais de PBR em um modelo em algum momento, assim, ele gerará os dados `normal`, `tangent` e `binormal` para você. Consequentemente, a memória usada por vértice será de `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 bytes) = 32 bytes. Modelos maiores desse tipo podem facilmente ter muitos milhões de vértices, o que resulta em modelos que podem ocupar vários gigabytes de memória. Essas grandes quantidades de dados afetarão o desempenho, podendo até levar à falta de memória.
+Por padrão, o conversor deve pressupor que você talvez queira usar os materiais de PBR em um modelo em algum momento, assim, ele gerará os dados `normal`, `tangent` e `binormal` para você. Consequentemente, a memória usada por vértice será de `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 bytes) = 32 bytes. Modelos maiores desse tipo podem facilmente ter muitos milhões de :::no-loc text="vertices"::: resultados resultantes de modelos que podem ocupar vários gigabytes de memória. Essas grandes quantidades de dados afetarão o desempenho, podendo até levar à falta de memória.
 
-Sabendo que você nunca precisa de iluminação dinâmica no modelo e sabendo que todas as coordenadas de textura estão no intervalo de `[0; 1]`, você poderá definir `normal`, `tangent` e `binormal` para `NONE` e `texcoord0` à metade da precisão (`16_16_FLOAT`), resultando em apenas 16 bytes por vértice. Cortar os dados de malha pela metade permite que você carregue modelos maiores e potencialmente melhore o desempenho.
+Sabendo que você nunca precisa de iluminação dinâmica no modelo e sabendo que todas as coordenadas de textura estão no `[0; 1]` intervalo, você pode definir `normal` , `tangent` e `binormal` para `NONE` e `texcoord0` a metade de precisão ( `16_16_FLOAT` ), resultando em apenas 16 bytes por :::no-loc text="vertex"::: . Cortar os dados de malha pela metade permite que você carregue modelos maiores e potencialmente melhore o desempenho.
+
+## <a name="memory-optimizations"></a>Otimizações de memória
+
+O consumo de memória do conteúdo carregado pode se tornar um afunilamento no sistema de renderização. Se a carga de memória ficar muito grande, ela poderá comprometer o desempenho de renderização ou fazer com que o modelo não seja totalmente carregado. Este parágrafo discute algumas estratégias importantes para reduzir o volume de memória.
+
+### <a name="instancing"></a>Instanciação
+
+A instanciação é um conceito em que as malhas são reutilizadas para partes com transformações espaciais distintas, em oposição a cada parte que faz referência a sua própria geometria exclusiva. A instanciação tem um impacto significativo na superfície da memória.
+Exemplos de casos de uso para instanciação são os parafusos em um modelo de mecanismo ou cadeiras em um modelo de arquitetura.
+
+> [!NOTE]
+> A instanciação pode melhorar o consumo de memória (e, portanto, o tempo de carregamento) significativamente, no entanto, as melhorias no lado do desempenho de renderização são insignificantes.
+
+O serviço de conversão respeita a instanciação se as partes estiverem marcadas adequadamente no arquivo de origem. No entanto, a conversão não executa uma análise profunda adicional de dados de malha para identificar partes reutilizáveis. Portanto, a ferramenta de criação de conteúdo e seu pipeline de exportação são os critérios decisivos para a configuração de instanciação adequada.
+
+Uma maneira simples de testar se as informações de instanciação são preservadas durante a conversão é dar uma olhada nas [Estatísticas de saída](get-information.md#example-info-file), especificamente o `numMeshPartsInstanced` membro. Se o valor de `numMeshPartsInstanced` for maior que zero, ele indica que as malhas são compartilhadas entre instâncias.
+
+#### <a name="example-instancing-setup-in-3ds-max"></a>Exemplo: configuração de instanciação em 3ds Max
+
+O [Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) tem modos de clonagem de objeto distintos chamados **`Copy`** , **`Instance`** , e **`Reference`** que se comportam de forma diferente com relação à instanciação no arquivo exportado `.fbx` .
+
+![Clonagem em 3ds Max](./media/3dsmax-clone-object.png)
+
+* **`Copy`**: Nesse modo, a malha é clonada, portanto, nenhuma instanciação é usada ( `numMeshPartsInstanced` = 0).
+* **`Instance`**: Os dois objetos compartilham a mesma malha, portanto, a instanciação é usada ( `numMeshPartsInstanced` = 1).
+* **`Reference`**: Modificadores distintos podem ser aplicados às geometrias, portanto, o exportador escolhe uma abordagem conservadora e não usa instanciação ( `numMeshPartsInstanced` = 0).
+
+
+### <a name="depth-based-composition-mode"></a>Modo de composição com base em profundidade
+
+Se a memória for uma preocupação, configure o renderizador com o [modo de composição baseado em profundidade](../../concepts/rendering-modes.md#depthbasedcomposition-mode). Nesse modo, a carga de GPU é distribuída entre várias GPUs.
+
+### <a name="decrease-vertex-size"></a>Diminuir tamanho do vértice
+
+Conforme discutido na seção [práticas recomendadas para alterações de formato de componente](configure-model-conversion.md#best-practices-for-component-format-changes) , ajustar o formato de vértice pode diminuir o volume de memória. No entanto, essa opção deve ser o último recurso.
+
+### <a name="texture-sizes"></a>Tamanhos de textura
+
+Dependendo do tipo de cenário, a quantidade de dados de textura pode exceder a memória usada para dados de malha. Os modelos Photogrammetry são candidatos.
+A configuração de conversão não fornece uma maneira de reduzir verticalmente as texturas automaticamente. Se necessário, o dimensionamento de textura deve ser feito como uma etapa de pré-processamento do lado do cliente. No entanto, a etapa de conversão escolhe um [formato de compactação de textura](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)adequado:
+
+* `BC1`para texturas de cores opacas
+* `BC7`para texturas de cores de origem com canal alfa
+
+Como `BC7` o formato tem duas vezes o espaço de memória comparado a `BC1` , é importante certificar-se de que as texturas de entrada não forneçam um canal alfa desnecessariamente.
 
 ## <a name="typical-use-cases"></a>Casos de uso típicos
 
@@ -215,7 +259,7 @@ Há certas classes de casos de uso qualificadas para otimizações específicas.
 
 * Quando precisar mover partes, isso normalmente também significa que você precisará de suporte para raycasts ou outras [consultas espaciais](../../overview/features/spatial-queries.md), de modo que você possa começar escolhendo essas partes. Por outro lado, caso não pretenda mover algo, é muito provável que você também não precise disso para participar de consultas espaciais e, portanto, pode desativar o sinalizador `generateCollisionMesh`. Essa opção tem um impacto significativo nos tempos de conversão, de carregamento e também nos custos de atualização por quadro do runtime.
 
-* Caso o aplicativo não use [planos de corte](../../overview/features/cut-planes.md), o sinalizador `opaqueMaterialDefaultSidedness` deverá ser desativado. O ganho de desempenho geralmente é de 20 a 30%. Os planos de recorte ainda podem ser usados, mas não haverá faces traseiras ao examinar as partes internas de objetos, o que parece um contador intuitivo. Para obter mais informações, consulte [renderização de um lado](../../overview/features/single-sided-rendering.md).
+* Caso o aplicativo não use [planos de corte](../../overview/features/cut-planes.md), o sinalizador `opaqueMaterialDefaultSidedness` deverá ser desativado. O ganho de desempenho geralmente é de 20 a 30%. Os planos de recorte ainda podem ser usados, mas não haverá faces traseiras ao examinar as partes internas de objetos, o que parece um contador intuitivo. Para obter mais informações, consulte [ :::no-loc text="single sided"::: renderização](../../overview/features/single-sided-rendering.md).
 
 ### <a name="use-case-photogrammetry-models"></a>Caso de uso: Modelos de fotogrametria
 

@@ -13,12 +13,11 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0023bcc4a7c31a0e337683fa3d3080a45445fc49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117904"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime em um agendamento
 
@@ -91,7 +90,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
    
 2. Na caixa de ferramentas **Atividades**, expanda o menu **Geral** e arraste e solte uma atividade da **Web** na superfície do designer de pipeline. Na guia **Geral** da janela Propriedades da atividade, altere o nome da atividade para **startMyIR**. Alterne para a guia **Configurações** e realize as seguintes ações.
 
-    1. Para **URL**, insira a URL a seguir para a API REST que inicia Azure-SSIS ir `{subscriptionId}`, `{resourceGroupName}`substituindo `{factoryName}`, `{integrationRuntimeName}` , e pelos valores reais para o ir `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` : como alternativa, você também pode copiar & colar a ID de recurso do ir de sua página de monitoramento no aplicativo de interface do usuário do ADF para substituir a seguinte parte da URL acima:`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. Para **URL**, insira a URL a seguir para a API REST que inicia Azure-SSIS ir, substituindo `{subscriptionId}` ,, `{resourceGroupName}` `{factoryName}` e `{integrationRuntimeName}` pelos valores reais para o ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` como alternativa, você também pode copiar & colar a ID de recurso do ir de sua página de monitoramento no aplicativo de interface do usuário do ADF para substituir a seguinte parte da URL acima:`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ID do Recurso de SSIS IR do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -104,7 +103,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
   
 3. Clone o primeiro pipeline para criar um segundo, alterando o nome da atividade para **stopMyIR** e substituindo as propriedades a seguir.
 
-    1. Para **URL**, insira a URL a seguir para a API REST que interrompe Azure-SSIS ir `{subscriptionId}`, `{resourceGroupName}`substituindo `{factoryName}`, `{integrationRuntimeName}` , e pelos valores reais para o ir:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
+    1. Para **URL**, insira a URL a seguir para a API REST que interrompe Azure-SSIS ir, substituindo `{subscriptionId}` ,, `{resourceGroupName}` `{factoryName}` e `{integrationRuntimeName}` pelos valores reais para o ir:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. Para **Corpo**, insira `{"message":"Stop my IR"}`. 
 
@@ -133,12 +132,12 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
     
 2. Para testar o terceiro pipeline, inicie o SSMS (SQL Server Management Studio). Na janela **Conectar ao Servidor**, execute as seguintes ações. 
 
-    1. Para **Nome do servidor**, insira **&lt;nome do servidor do Banco de Dados SQL do Azure&gt;.database.windows.net**.
+    1. Para **nome do servidor**, insira ** &lt; o nome do servidor &gt; . Database.Windows.net**.
     2. Selecione **Opções >>**.
     3. Para **Conectar um banco de dados**, selecione **SSISDB**.
     4. Selecione **Conectar**. 
-    5. Expanda **Integration Services catálogos** -> **SSISDB** -> seus **projetos** de > de pasta-> seus **pacotes**de > de projeto do SSIS. 
-    6. Clique com o botão direito do mouse no pacote SSIS especificado para executar e selecione **relatórios** -> **Standard relata** -> **todas as execuções**. 
+    5. Expanda **Integration Services catálogos**  ->  **SSISDB** -> seus **projetos** de > de pasta-> seus **pacotes**de > de projeto do SSIS. 
+    6. Clique com o botão direito do mouse no pacote SSIS especificado para executar e selecione **relatórios**  ->  **Standard relata**  ->  **todas as execuções**. 
     7. Verifique se que ele foi executado. 
 
    ![Verificar a execução do pacote SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
@@ -244,7 +243,7 @@ Se você ainda não tiver uma conta de Automação do Azure, crie uma seguindo a
 
 ### <a name="import-adf-modules"></a>Importar módulos do ADF
 
-1. Selecione **módulos** na seção **recursos compartilhados** no menu à esquerda e verifique se você tem **AZ. datafactory** + **AZ. Profile** na lista de módulos.
+1. Selecione **módulos** na seção **recursos compartilhados** no menu à esquerda e verifique se você tem **AZ. datafactory**  +  **AZ. Profile** na lista de módulos.
 
    ![Verificar os módulos necessários](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 

@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1340c205477b256e3d96ff7ccacb64e575725c2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84188302"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "80065398"
 
 O Gateway de Gerenciamento de Dados é um agente cliente que você deve instalar no seu ambiente local para copiar dados entre a nuvem e os repositórios de dados locais. Os repositórios de dados locais compatíveis com o Data Factory estão listados na seção [Fontes de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
-Este artigo complementa o passo a passo do artigo [Mover dados entre repositórios de dados locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) . Neste passo a passo, você cria um pipeline que usa o gateway para mover dados de um banco de dados SQL Server local para um blob do Azure. Este artigo fornece informações detalhadas sobre o Gateway de Gerenciamento de Dados.
+Este artigo complementa o passo a passo do artigo [Mover dados entre repositórios de dados locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) . No passo a passo, você cria um pipeline que usa o gateway para mover dados de um banco de SQL Server para um blob do Azure. Este artigo fornece informações detalhadas sobre o Gateway de Gerenciamento de Dados.
 
 Você pode escalar horizontalmente um Gateway de Gerenciamento de Dados por meio da associação de vários computadores locais com o gateway. Você pode escalar verticalmente com o aumento do número de trabalhos de movimentação de dados que podem ser executados simultaneamente em um nó. Esse recurso também está disponível para um gateway lógico com um único nó. Consulte o artigo [Escalar o Gateway de Gerenciamento de Dados no Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) para obter detalhes.
 
@@ -161,10 +160,10 @@ Verifique se as regras de firewall estão habilitadas corretamente no firewall c
 Por exemplo, para copiar de **um repositório de dados local para um coletor do Banco de Dados SQL do Azure ou um coletor do SQL Data Warehouse do Azure**, siga as etapas abaixo:
 
 * Permita a comunicação **TCP** de saída na porta **1433** para o Firewall do Windows e o firewall corporativo.
-* Configurar as definições de firewall do SQL Server do Azure para adicionar o endereço IP do computador do gateway à lista de endereços IP permitidos.
+* Defina as configurações de firewall do SQL Server lógico para adicionar o endereço IP do computador do gateway à lista de endereços IP permitidos.
 
 > [!NOTE]
-> Se o firewall não permitir a porta de saída 1433, o Gateway não poderá acessar diretamente o Azure SQL. Nesse caso, use [Cópia em Etapas](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) para o Banco de Dados SQL do Azure/DW SQL do Azure. Neste cenário, você exigiria apenas HTTPS (porta 443) para a movimentação de dados.
+> Se o firewall não permitir a porta de saída 1433, o Gateway não poderá acessar diretamente o Azure SQL. Nesse caso, você pode usar a [cópia em etapas](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) para o banco de dados SQL/SQL Instância Gerenciada/SQL Azure DW. Neste cenário, você exigiria apenas HTTPS (porta 443) para a movimentação de dados.
 >
 >
 
@@ -180,8 +179,8 @@ O gateway usa o servidor proxy para se conectar ao serviço de nuvem. Clique no 
 Há três opções de configuração:
 
 * **Não usar proxy**: o gateway não usa explicitamente qualquer proxy para se conectar aos serviços de nuvem.
-* **Usar o proxy do sistema**: o gateway usa a configuração de proxy configurada em diahost. exe. config e diawp. exe. config. Se nenhum proxy estiver configurado em diahost. exe. config e diawp. exe. config, o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy.
-* **Usar proxy personalizado**: defina a configuração de proxy http a ser usada para o gateway, em vez de usar as configurações em diahost. exe. config e diawp. exe. config. O endereço e a porta são necessários. O Nome de Usuário e Senha são opcionais, dependendo da configuração de autenticação do proxy. Todas as configurações são criptografadas com o certificado de credencial do gateway e armazenadas localmente no computador host do gateway.
+* **Usar o proxy do sistema**: o gateway usa a configuração de proxy configurada em diahost.exe.config e diawp.exe.config. Se nenhum proxy estiver configurado no diahost.exe.config e diawp.exe.config, o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy.
+* **Usar proxy personalizado**: defina a configuração de proxy http a ser usada para o gateway, em vez de usar as configurações em diahost.exe.config e diawp.exe.config. O endereço e a porta são necessários. O Nome de Usuário e Senha são opcionais, dependendo da configuração de autenticação do proxy. Todas as configurações são criptografadas com o certificado de credencial do gateway e armazenadas localmente no computador host do gateway.
 
 O Serviço de Host do Gateway de Gerenciamento de Dados é reiniciado automaticamente depois que você salva as configurações de proxy atualizadas.
 
@@ -202,10 +201,10 @@ Você pode exibir e atualizar o proxy HTTP usando a ferramenta Gerenciador de Co
 >
 
 ### <a name="configure-proxy-server-settings"></a>Definir configurações do servidor proxy
-Se você selecionar **usar** configuração de proxy do sistema para o proxy http, o gateway usará a configuração de proxy em diahost. exe. config e diawp. exe. config. Se nenhum proxy for especificado em diahost. exe. config e diawp. exe. config, o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy. O procedimento a seguir fornece instruções para atualizar o arquivo diahost.exe.config.
+Se você selecionar **usar** configuração de proxy do sistema para o proxy http, o gateway usará a configuração de proxy em diahost.exe.config e diawp.exe.config. Se nenhum proxy for especificado em diahost.exe.config e diawp.exe.config, o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy. O procedimento a seguir fornece instruções para atualizar o arquivo diahost.exe.config.
 
-1. No explorador de arquivos, faça uma cópia segura de *C\\\\: arquivos\\de programas Microsoft\\gerenciamento de dados\\gateway\\2,0 Shared diahost. exe. config* para fazer backup do arquivo original.
-2. Inicie o notepad. exe em execução como administrador e abra o arquivo de texto *\\\\C\\: Arquivos de\\programas\\Microsoft\\gerenciamento de dados gateway 2,0 Shared diahost. exe. config*. Você encontra a marca padrão para system.net, conforme mostrado no código a seguir:
+1. No explorador de arquivos, faça uma cópia segura de *C: \\ \\ arquivos de programas \\ Microsoft gerenciamento de dados gateway \\ 2,0 \\ Shared \\diahost.exe.config* para fazer backup do arquivo original.
+2. Inicie o Notepad.exe em execução como administrador e abra o arquivo de texto *C: \\ \\ arquivos de programas \\ Microsoft gerenciamento de dados gateway \\ 2,0 \\ Shared \\diahost.exe.config*. Você encontra a marca padrão para system.net, conforme mostrado no código a seguir:
 
     ```
     <system.net>
@@ -231,7 +230,7 @@ Se você selecionar **usar** configuração de proxy do sistema para o proxy htt
 3. Salve o arquivo de configuração no local original e reinicie o Serviço de Host do Gateway de Gerenciamento de Dados, que assimila as alterações. Para reiniciar o serviço: use o miniaplicativo de serviços no painel de controle ou no Gerenciador de **Configurações do Gateway de Gerenciamento de Dados** > clique no botão **Parar Serviço** e depois em **Iniciar Serviço**. Se o serviço não iniciar, é provável que uma sintaxe de marca XML incorreta tenha sido adicionada ao arquivo de configuração de aplicativo que foi editado.
 
 > [!IMPORTANT]
-> Não se esqueça **de atualizar diahost** . exe. config e diawp. exe. config.
+> Não se esqueça **de atualizar diahost.exe.config** e diawp.exe.config.
 
 Além dos desses pontos, você também precisa verificar se o Microsoft Azure está lista de autorizados da empresa. Baixe a lista de endereços IP válidos do Microsoft Azure no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -279,7 +278,7 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
 
 [Para o gateway de nó único]
 1. Inicie o Windows PowerShell no computador do gateway.
-2. Alterne para a pasta *C\\\\: Program\\files\\Microsoft Integration Runtime\\ \\3,0 PowerShellScript*
+2. Alterne para a pasta *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ *
 3. Execute o seguinte comando para DESATIVAR (desabilitar) o recurso de atualização automática.
 
     ```powershell
@@ -292,7 +291,7 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
     ```
    [Para vários nós altamente disponíveis e gateway escalonável](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie o Windows PowerShell no computador do gateway.
-2. Alterne para a pasta *C\\\\: Program\\files\\Microsoft Integration Runtime\\ \\3,0 PowerShellScript*
+2. Alterne para a pasta *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ *
 3. Execute o seguinte comando para DESATIVAR (desabilitar) o recurso de atualização automática.
 
     Para o gateway com o recurso de alta disponibilidade, um parâmetro AuthKey adicional é necessário.
@@ -305,13 +304,13 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Configuration Manager
+## <a name="configuration-manager"></a>Gerenciador de Configurações
 Depois de instalar o gateway, você pode iniciar o Gerenciador de Configuração de Gateway de Gerenciamento de Dados de uma das seguintes maneiras:
 
 1. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário.
-2. Execute o executável *configmanager. exe* na pasta: *C\\\\: arquivos\\de programas Microsoft gerenciamento de dados gateway\\2,0\\compartilhado*.
+2. Execute o executável *ConfigManager.exe* na pasta: *C: \\ \\ arquivos de programas \\ Microsoft gerenciamento de dados gateway \\ 2,0 \\ compartilhado*.
 
-### <a name="home-page"></a>Página inicial
+### <a name="home-page"></a>Home page
 A home page permite que você realize as seguintes ações:
 
 * Exibir o status do gateway (conectado ao serviço de nuvem etc.).
@@ -320,7 +319,7 @@ A home page permite que você realize as seguintes ações:
 * **Agende atualizações** em um momento específico de dias.
 * Veja a data em que o gateway foi **atualizado pela última vez**.
 
-### <a name="settings-page"></a>Página Configurações
+### <a name="settings-page"></a>Página de configurações
 A página Configurações permite que você realize as seguintes ações:
 
 * Veja, altere e exporte o **certificado** usado pelo gateway. Esse certificado é usado para criptografar credenciais de fonte de dados.
@@ -420,7 +419,7 @@ Esta seção fornece etapas para movimentação do cliente do gateway de um comp
     ![Configurar página](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Mantenha o **Gerenciador de Configuração de Gateway do Gerenciamento de Dados da Microsoft**
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Gerenciador de Configurações](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Na página **Configurar no portal**, clique em **Recriar chave** na barra de comandos e clique em **Sim** para a mensagem de aviso. Clique no **botão copiar** ao lado do texto da chave, que copia a chave para a área de transferência. O gateway no computador antigo deixa de funcionar assim que você recria a chave.
 
     ![Recriar chave](./media/data-factory-data-management-gateway/RecreateKey.png)
@@ -510,7 +509,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Em Azure PowerShell, alterne para a pasta: *C:\\\\arquivos\\de programas\\Microsoft Integration Runtime\\3,0\\PowerShellScript*. Execute *RegisterGateway.ps1* associado à variável local **$Key**, conforme mostrado no comando a seguir. Esse script registra o agente cliente instalado no computador com o gateway lógico criado anteriormente.
+1. Em Azure PowerShell, alterne para a pasta: *C: \\ \\ arquivos de \\ programas \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript*. Execute *RegisterGateway.ps1* associado à variável local **$Key**, conforme mostrado no comando a seguir. Esse script registra o agente cliente instalado no computador com o gateway lógico criado anteriormente.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -543,4 +542,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte o artigo [Mover os dados entre os armazenamentos de dados local e de nuvem](data-factory-move-data-between-onprem-and-cloud.md) . Neste passo a passo, você cria um pipeline que usa o gateway para mover dados de um banco de dados SQL Server local para um blob do Azure.
+* Consulte o artigo [Mover os dados entre os armazenamentos de dados local e de nuvem](data-factory-move-data-between-onprem-and-cloud.md) . No passo a passo, você cria um pipeline que usa o gateway para mover dados de um banco de SQL Server para um blob do Azure.

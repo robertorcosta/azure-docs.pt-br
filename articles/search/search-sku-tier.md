@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84119216"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -41,7 +40,7 @@ As camadas são diferenciadas por:
 
 A camada selecionada determina a taxa faturável. A captura de tela a seguir de portal do Azure mostra as camadas disponíveis, menos preços (que você pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Gratuita**, **básica**e **Standard** são as camadas mais comuns.
 
-**Gratuito** cria um serviço de pesquisa limitado para projetos menores, incluindo guias de início rápido e tutoriais. Internamente, réplicas e partições compartilhadas entre vários assinantes. Você não pode dimensionar um serviço gratuito ou executar cargas de trabalho significativas.
+**Gratuito** cria um serviço de pesquisa limitado para projetos menores, incluindo guias de início rápido e tutoriais. Internamente, as réplicas e as partições são compartilhadas entre vários assinantes. Você não pode dimensionar um serviço gratuito ou executar cargas de trabalho significativas.
 
 **Básico** e **Standard** são as camadas faturáveis usadas com mais frequência, com **padrão** sendo o padrão. Com recursos dedicados sob seu controle, você pode implantar projetos maiores, otimizar o desempenho e definir a capacidade.
 

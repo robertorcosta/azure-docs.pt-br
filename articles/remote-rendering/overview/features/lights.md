@@ -1,18 +1,17 @@
 ---
-title: Luzes
+title: Iluminação de cena
 description: Descrição e propriedades da fonte de luz
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022139"
 ---
-# <a name="lights"></a>Luzes
+# <a name="scene-lighting"></a>Iluminação de cena
 
 Por padrão, os objetos renderizados remotamente são acesos usando uma [luz céu](sky.md). Para a maioria dos aplicativos, isso já é suficiente, mas você pode adicionar mais fontes de luz à cena.
 
@@ -24,7 +23,7 @@ Por padrão, os objetos renderizados remotamente são acesos usando uma [luz cé
 
 ## <a name="common-light-component-properties"></a>Propriedades comuns do componente de luz
 
-Todos os tipos de luz derivam da classe `LightComponent` base abstrata e compartilham essas propriedades:
+Todos os tipos de luz derivam da classe base abstrata `LightComponent` e compartilham essas propriedades:
 
 * **Cor:** A cor da luz no [espaço gama](https://en.wikipedia.org/wiki/SRGB). Alfa é ignorado.
 
@@ -40,7 +39,7 @@ Na renderização remota do Azure `PointLightComponent` , o pode não apenas emi
 
 * **Comprimento:** Se ambos `Length` e `Radius` forem diferentes de zero, a luz agirá como uma luz de tubo. Isso pode ser usado para simular tubos de neon.
 
-* **AttenuationCutoff:** Se esquerda para (0, 0) a atenuação da luz depende apenas de seu `Intensity`. No entanto, você pode fornecer distâncias mínimas/máximas personalizadas em que a intensidade da luz é dimensionada linearmente para 0. Esse recurso pode ser usado para impor um intervalo menor de influência de uma luz específica.
+* **AttenuationCutoff:** Se esquerda para (0, 0) a atenuação da luz depende apenas de seu `Intensity` . No entanto, você pode fornecer distâncias mínimas/máximas personalizadas em que a intensidade da luz é dimensionada linearmente para 0. Esse recurso pode ser usado para impor um intervalo menor de influência de uma luz específica.
 
 * **ProjectedCubemap:** Se for definido como um [cubemap](../../concepts/textures.md)válido, a textura será projetada na geometria ao redor da luz. A cor da cubemap é modulada com a cor da luz.
 
@@ -50,13 +49,13 @@ O `SpotLightComponent` é semelhante a `PointLightComponent` , mas a luz é rest
 
 ### <a name="spotlightcomponent-properties"></a>Propriedades de SpotLightComponent
 
-* **Raio:** O mesmo que para `PointLightComponent`o.
+* **Raio:** O mesmo que para o `PointLightComponent` .
 
 * **SpotAngleDeg:** Esse intervalo define o ângulo interno e externo do cone, medido em graus. Tudo dentro do ângulo interno é iluminado com brilho completo. Uma queda é aplicada em direção ao ângulo externo que gera um efeito semelhante a penumbra.
 
 * **FalloffExponent:** Define a nitidez da transição entre o ângulo do cone interno e o exterior. Um valor mais alto resulta em uma transição mais nítida. O padrão de 1,0 resulta em uma transição linear.
 
-* **AttenuationCutoff:** O mesmo que para `PointLightComponent`o.
+* **AttenuationCutoff:** O mesmo que para o `PointLightComponent` .
 
 * **Projected2dTexture:** Se for definido como uma [textura 2D](../../concepts/textures.md)válida, a imagem será projetada em geometry em que a luz se destaca. A cor da textura é modulada com a cor da luz.
 
@@ -73,4 +72,4 @@ Fontes de luz têm um impacto significativo no desempenho de renderização. Use
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Materiais](../../concepts/materials.md)
-* [Celeste](sky.md)
+* [Céu](sky.md)

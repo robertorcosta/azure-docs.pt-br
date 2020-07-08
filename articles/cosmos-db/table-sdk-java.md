@@ -8,12 +8,11 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: b9b5d51d0d35284d9854bd048396df84881266d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c562aa462248ffcf7c71ad247e05f0a7de15cdb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76771416"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84168039"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de tabela do Azure Cosmos DB para Java: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -26,7 +25,7 @@ ms.locfileid: "76771416"
 
 |   |   |
 |---|---|
-|**Download do SDK**|[Opções de Download](https://github.com/azure/azure-storage-java#download)|
+|**Baixe o SDK**|[Opções de download](https://github.com/azure/azure-storage-java#download)|
 |**Documentação da API**|[Documentação de referência de API Java](https://azure.github.io/azure-storage-java/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
@@ -36,7 +35,7 @@ ms.locfileid: "76771416"
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Versão de disponibilidade geral
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
