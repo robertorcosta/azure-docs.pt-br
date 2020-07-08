@@ -8,14 +8,14 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 06/27/2020
+ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601439"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,10 +51,12 @@ Para criar um notebook:
 1. Selecione um diretório de arquivos.
 1. Selecione **Criar**.
 
-> [!TIP]
-> Você também pode criar arquivos de texto.  Selecione **Texto** como o tipo de arquivo e adicione a extensão ao nome (por exemplo, myfile.py ou myfile. txt)  
+Você também pode criar arquivos de texto.  Selecione **Texto** como o tipo de arquivo e adicione a extensão ao nome (por exemplo, myfile.py ou myfile. txt)  
 
 Você também pode carregar pastas e arquivos, incluindo notebooks, com as ferramentas na parte superior da página Notebooks.  Os notebooks e a maioria dos tipos de arquivo de texto são exibidos na seção de versão prévia.  Nenhuma versão prévia está disponível para a maioria dos outros tipos de arquivo.
+
+> [!IMPORTANT]
+> O conteúdo em blocos de anotações e scripts pode potencialmente ler dados de suas sessões e acessar dados sem sua organização no Azure.  Carregar somente arquivos de fontes confiáveis. Para obter mais informações, consulte [proteger práticas recomendadas de código](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### <a name="clone-samples"></a>Clonar amostras
 
@@ -95,15 +97,37 @@ Copie e cole o URL para compartilhar um notebook ou arquivo.  Somente outros usu
 
 Para editar um notebook, abra qualquer notebook localizado na seção **Arquivos de usuário** do workspace. Clique na célula que você deseja editar. 
 
-Quando uma instância de computação em execução estiver em execução, você também poderá usar a conclusão de código, da plataforma [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), em qualquer Python Notebook.
+Você pode editar o bloco de anotações sem se conectar a uma instância de computação.  Quando você quiser executar as células no bloco de anotações, selecione ou crie uma instância de computação.  Se você selecionar uma instância de computação interrompida, ela será iniciada automaticamente quando você executar a primeira célula.
+
+Quando uma instância de computação está em execução, você também pode usar auto-completar de código, da plataforma [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), em qualquer notebook Python.
 
 Você também pode iniciar o Jupyter ou o JupyterLab na barra de ferramentas Notebook.  O Azure Machine Learning não fornece atualizações nem corrige bugs do Jupyter ou do JupyterLab, pois são produtos de software livre fora do limite do Suporte da Microsoft.
+
+### <a name="use-intellisense"></a>Usar o IntelliSense
+
+O [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um recurso de conclusão de código que inclui uma série de recursos: membros da lista, informações de parâmetro, informações rápidas e palavra completa. Essas funcionalidades ajudam você a aprender mais sobre o código que está usando, a manter o acompanhamento dos parâmetros que está digitando e a adicionar chamadas a métodos e propriedades pressionando apenas algumas teclas.  
+
+Ao digitar o código, use Ctrl + espaço para disparar o IntelliSense.
+
+### <a name="save-and-checkpoint-a-notebook"></a>Salvar e ponto de verificação de um notebook
+
+Azure Machine Learning cria um arquivo de ponto de verificação quando você cria um arquivo *ipynb*   .
+
+Na barra de ferramentas do bloco de anotações, selecione o menu e, em seguida, **arquivo &gt; salvar e ponto de verificação** para salvar o bloco de anotações manualmente e ele adicionará um arquivo de ponto de verificação associado ao bloco de anotações.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Captura de tela da ferramenta salvar na barra de ferramentas do bloco de anotações":::
+
+Cada bloco de anotações é salvo AutoSalva a cada 30 segundos.O salvamento automático atualiza apenas o arquivo *ipynb*inicial   , não o arquivo de ponto de verificação.
+ 
+Selecione **pontos de verificação** no menu do bloco de anotações para criar um ponto de verificação nomeado e reverter o bloco de anotações para um ponto de verificação salvo.
+
 
 ### <a name="useful-keyboard-shortcuts"></a>Atalhos de teclado úteis
 
 |Teclado  |Ação  |
 |---------|---------|
 |Shift+Enter     |  Executar uma célula       |
+|Ctrl+Space | Ativar o IntelliSense |
 |Ctrl+M(Windows)     |  Habilitar/desabilitar o trapping de tabulação no notebook.       |
 |Ctrl+Shift+M(Mac e Linux)     |    Habilitar/desabilitar o trapping de tabulação no notebook.     |
 |Tab (quando a captura de guias está habilitada) | Adicionar um caractere '\t' (recuo)
@@ -174,7 +198,7 @@ Qualquer um dos [Kernels do Jupyter disponíveis](https://github.com/jupyter/jup
 
 Um indicador ao lado do menu suspenso **Computação** mostra o status.  O status também é mostrado no menu suspenso em si.  
 
-|Color |Status da computação |
+|Cor |Status da computação |
 |---------|---------| 
 | Verde | Execução de computação |
 | Vermelho |Falha na computação | 

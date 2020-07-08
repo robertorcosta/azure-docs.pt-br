@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 948090d0ee956ca1798d7b0f46bb33276c4d6354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570114"
 ---
 Nesta etapa, você está avaliando Quantos compartilhamentos de arquivos do Azure são necessários. Uma única instância do Windows Server (ou cluster) pode sincronizar até 30 compartilhamentos de arquivos do Azure.
 
@@ -58,7 +58,7 @@ Outro aspecto importante do Sincronização de Arquivos do Azure e de um desempe
 > [!IMPORTANT]
 > O vetor de escala mais importante para Sincronização de Arquivos do Azure é o número de itens (arquivos e pastas) que precisam ser sincronizados.
 
-O Sincronização de Arquivos do Azure dá suporte à sincronização de até 100.000 itens para um único compartilhamento de arquivos do Azure. Esse limite pode ser excedido e mostra apenas o que a equipe de Sincronização de Arquivos do Azure testa regularmente.
+O Sincronização de Arquivos do Azure dá suporte à sincronização de até 100 milhões itens para um único compartilhamento de arquivos do Azure. Esse limite pode ser excedido e mostra apenas o que a equipe de Sincronização de Arquivos do Azure testa regularmente.
 
 É uma prática recomendada manter o número de itens por escopo de sincronização baixo. Esse é um fator importante a ser considerado no mapeamento de pastas para compartilhamentos de arquivos do Azure.
 

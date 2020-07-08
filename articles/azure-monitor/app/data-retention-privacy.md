@@ -2,13 +2,13 @@
 title: Retenção de dados e armazenamento no Azure Application Insights | Microsoft Docs
 description: Declaração de política de privacidade e retenção
 ms.topic: conceptual
-ms.date: 09/29/2019
-ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601353"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta de dados, retenção e armazenamento no Application Insights
 
@@ -18,8 +18,8 @@ Primeiro, a resposta curta:
 
 * Os módulos de telemetria padrão que executam "prontos de fábrica" têm pouca probabilidade de enviar dados confidenciais para o serviço. A telemetria está relacionada a carga, a métricas de desempenho e uso, a relatórios de exceção e a outros dados de diagnóstico. Os principais dados de usuário visíveis nos relatórios de diagnóstico são as URLs; mas seu aplicativo, em qualquer caso, não deve colocar dados confidenciais em texto sem formatação em uma URL.
 * Você pode escrever código que envie a telemetria personalizada adicional para ajudá-lo com o uso de monitoramento e diagnóstico. (Essa extensibilidade é um grande recurso do Application Insights.) Seria possível, por engano, escrever esse código para que ele inclua dados confidenciais e pessoais. Se seu aplicativo funciona com esses dados, você deve aplicar um processo de revisão completo a todo o código que você escreve.
-* Ao desenvolver e testar seu aplicativo, é fácil inspecionar o que está sendo enviado pelo SDK. Os dados aparecem nas janelas de saída de depuração do IDE e do navegador. 
-* Os dados são mantidos em servidores do [Microsoft Azure](https://azure.com) nos EUA ou na Europa. (Mas seu aplicativo pode ser executado em qualquer lugar). O Azure tem [processos fortes de segurança e atende a uma ampla gama de padrões de conformidade](https://azure.microsoft.com/support/trust-center/). Somente você e a sua equipe designada têm acesso aos seus dados. A equipe da Microsoft pode ter acesso restrito a eles apenas em circunstâncias limitadas específicas e com o seu conhecimento. Ele é criptografado em trânsito e em repouso.
+* Ao desenvolver e testar seu aplicativo, é fácil inspecionar o que está sendo enviado pelo SDK. Os dados aparecem nas janelas de saída de depuração do IDE e do navegador.
+* Quando você cria um novo recurso do Application Insights, você pode selecionar o local. Saiba mais sobre a disponibilidade de Application Insights por região [aqui](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 *   Examine os dados coletados, pois isso pode incluir dados permitidos em algumas circunstâncias, mas não em outros.  Um bom exemplo disso é o nome do dispositivo. O nome do dispositivo de um servidor não tem impacto de privacidade e é útil, mas um nome de dispositivo de um telefone ou laptop pode ter um impacto de privacidade e ser menos útil. Um SDK desenvolvido principalmente para servidores de destino, coletaria o nome do dispositivo por padrão, e isso pode precisar ser substituído em eventos normais e exceções.
 
 O restante deste artigo aborda mais detalhadamente essas respostas. Ele foi projetado para ser independente, para que possa mostrá-lo aos colegas que não fazem parte de sua equipe.
@@ -52,7 +52,7 @@ As principais categorias são:
 * [Páginas da Web](../../azure-monitor/app/javascript.md) - contagens de página, usuário e sessão. Tempos de carregamento de página. Exceções. Chamadas Ajax.
 * Contadores de desempenho - memória, CPU, E/S, ocupação de rede.
 * Contexto de cliente e servidor - sistema operacional, localidade, tipo de dispositivo, navegador, resolução da tela.
-* [Exceções](../../azure-monitor/app/asp-net-exceptions.md) e falhas – **despejos**de pilha `build id`,, tipo de CPU. 
+* [Exceções](../../azure-monitor/app/asp-net-exceptions.md) e falhas – **despejos de pilha**, `build id` , tipo de CPU. 
 * [Dependências](../../azure-monitor/app/asp-net-dependencies.md) - chamadas a serviços externos, como REST, SQL, AJAX. Cadeia de conexão ou URI, duração, sucesso, comando.
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) - duração do teste e etapas, respostas.
 * [Logs de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) e [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) - **qualquer elemento que você codifique nos seus logs ou telemetria**.
@@ -173,13 +173,13 @@ O prefixo de pasta `appInsights-node` pode ser substituído, alterando o valor d
 
 ### <a name="javascript-browser"></a>JavaScript (navegador)
 
-O [armazenamento de sessão HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) é usado para manter os dados. Dois buffers separados são usados: `AI_buffer` e `AI_sent_buffer`. A telemetria que está em lote e aguardando para ser enviada `AI_buffer`é armazenada em. A telemetria que acabou de ser enviada `AI_sent_buffer` é colocada até que o servidor de ingestão responda que foi recebido com êxito. Quando a telemetria é recebida com êxito, ela é removida de todos os buffers. Em falhas transitórias (por exemplo, um usuário perde a conectividade de rede), `AI_buffer` a telemetria permanece em até que seja recebida com êxito ou o servidor de ingestão responda que a telemetria é inválida (esquema incorreto ou muito antigo, por exemplo).
+O [armazenamento de sessão HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) é usado para manter os dados. Dois buffers separados são usados: `AI_buffer` e `AI_sent_buffer` . A telemetria que está em lote e aguardando para ser enviada é armazenada em `AI_buffer` . A telemetria que acabou de ser enviada é colocada `AI_sent_buffer` até que o servidor de ingestão responda que foi recebido com êxito. Quando a telemetria é recebida com êxito, ela é removida de todos os buffers. Em falhas transitórias (por exemplo, um usuário perde a conectividade de rede), a telemetria permanece em `AI_buffer` até que seja recebida com êxito ou o servidor de ingestão responda que a telemetria é inválida (esquema incorreto ou muito antigo, por exemplo).
 
-Os buffers de telemetria podem ser [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) desabilitados definindo como `false`. Quando o armazenamento de sessão é desativado, uma matriz local é usada como armazenamento persistente. Como o SDK do JavaScript é executado em um dispositivo cliente, o usuário tem acesso a esse local de armazenamento por meio das ferramentas de desenvolvedor do navegador.
+Os buffers de telemetria podem ser desabilitados definindo [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) como `false` . Quando o armazenamento de sessão é desativado, uma matriz local é usada como armazenamento persistente. Como o SDK do JavaScript é executado em um dispositivo cliente, o usuário tem acesso a esse local de armazenamento por meio das ferramentas de desenvolvedor do navegador.
 
 ### <a name="opencensus-python"></a>OpenCensus Python
 
-Por padrão, o SDK do Python OpenCensus usa a `%username%/.opencensus/.azure/`pasta do usuário atual. As permissões para acessar essa pasta são restritas ao usuário atual e aos Administradores. (Consulte a [implementação](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) aqui.) A pasta com os dados persistentes será nomeada após o arquivo Python que gerou a telemetria.
+Por padrão, o SDK do Python OpenCensus usa a pasta do usuário atual `%username%/.opencensus/.azure/` . As permissões para acessar essa pasta são restritas ao usuário atual e aos Administradores. (Consulte a [implementação](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) aqui.) A pasta com os dados persistentes será nomeada após o arquivo Python que gerou a telemetria.
 
 Você pode alterar o local do arquivo de armazenamento passando o `storage_path` parâmetro no construtor do exportador que você está usando.
 
@@ -202,11 +202,11 @@ Não recomendamos definir explicitamente seu aplicativo para usar apenas o TLS 1
 
 |Plataforma/linguagem | Suporte | Mais informações |
 | --- | --- | --- |
-| Serviços de Aplicativo do Azure  | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Aplicativos de Funções do Azure | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Serviços de Aplicativo do Azure  | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
+| Aplicativos de Funções do Azure | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Configuração com suporte varia de acordo com a versão. | Para obter informações de configuração detalhadas para o .NET 4,7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de status | Configuração com suporte exigida | Status monitor conta com a [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuração do .net](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) de configuração do so para dar suporte a TLS 1,2.
-|Node.js |  Configuração com suporte no v10.5.0 pode ser necessária. | Use a [documentação oficial do TLS/SSL do node. js](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
+|Monitor de status | Configuração com suporte exigida | Status monitor conta com a [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  +  [configuração do .net](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) de configuração do so para dar suporte a TLS 1,2.
+|Node.js |  Configuração com suporte no v10.5.0 pode ser necessária. | Use a [documentação oficial Node.js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
 |Java | Com suporte, foi adicionado suporte do JDK para o TLS 1.2 no [atualização do JDK 6 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
 | Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
@@ -247,9 +247,9 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 
 | Sua ação | Classes de dados coletados (consulte a tabela a seguir) |
 | --- | --- |
-| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Session<br/>usuários |
+| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Session<br/>users |
 | [Instalar o Monitor de Status no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>usuários |
+| [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>users |
 | [Adicionar SDK do JavaScript à página da Web][client] |ClientContext  <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
@@ -277,7 +277,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus respectivos docume
 | Requests |URL, duração, código de resposta |
 | Dependências |Tipo (SQL, HTTP,...), Cadeia de conexão, URI, sincronização/Async, duração, êxito, instrução SQL (com Status Monitor) |
 | **Exceções** |Tipo, **mensagem**, pilhas de chamadas, arquivo de origem, número de linha,`thread id` |
-| Falhas |`Process id`, `parent process id`, `crash thread id`; patch do aplicativo `id`,, Build;  tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços de início e término binários, nome e caminho binários, tipo de CPU |
+| Falhas |`Process id`, `parent process id` , `crash thread id` ; patch do aplicativo, `id` , Build;  tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços de início e término binários, nome e caminho binários, tipo de CPU |
 | Trace |**Mensagem** e nível de severidade |
 | Contadores de desempenho |Tempo do processador, memória disponível, taxa de solicitação, taxa de exceções, bytes particulares do processo, taxa de E/S, duração da solicitação, comprimento da fila de solicitações |
 | Disponibilidade |Código de resposta de teste da Web, duração de cada etapa de teste, nome do teste, carimbo de data/hora, sucesso, tempo de resposta, local de teste |
@@ -289,7 +289,7 @@ Você pode [desativar alguns dos dados editando ApplicationInsights.config][conf
 > O IP do cliente é usado para inferir a localização geográfica mas, por padrão, os dados do IP não são mais armazenados e todos os zeros são gravados no campo associado. Para compreender mais sobre tratamento de dados pessoais, recomendamos este [artigo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Se você precisar armazenar dados de endereço IP, nosso [artigo de coleção de endereços IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) o guiará pelas suas opções.
 
 ## <a name="credits"></a>Credits
-Este produto inclui dados de GeoLite2 criados pelo MaxMind, disponíveis [https://www.maxmind.com](https://www.maxmind.com)no.
+Este produto inclui dados de GeoLite2 criados pelo MaxMind, disponíveis no [https://www.maxmind.com](https://www.maxmind.com) .
 
 
 

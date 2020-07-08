@@ -1,6 +1,6 @@
 ---
 title: Conectar dados do Check Point ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar dados do Check Point ao Azure Sentinel.
+description: Configure seu dispositivo de verificação de ponto para encaminhar mensagens de syslog no formato CEF para seu espaço de trabalho do Azure Sentinel por meio do agente de syslog.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 70836ec557eff1be035d92e8e7db30a882e05fc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566055"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Conectar ponto de verificação ao Azure Sentinel
 
@@ -37,7 +37,7 @@ Configure seu dispositivo de verificação de ponto para encaminhar mensagens de
      - Substitua o **nome** e o **endereço IP do servidor de destino** na CLI pelo nome do agente de syslog e pelo endereço IP.
      - Defina o formato como **CEF**.
 1. Se você estiver usando a versão R 77.30 ou R 80.10, role até **instalações** e siga as instruções para instalar um exportador de log para sua versão.
-1. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
+1. Prossiga para a [ETAPA 3: Validar a conectividade](connect-cef-verify.md).
  
 
 ## <a name="next-steps"></a>Próximas etapas

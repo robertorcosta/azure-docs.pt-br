@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601625"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
 
@@ -46,7 +46,7 @@ Os recursos de registro para métodos de autenticação com senha contam com o r
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticação de entrada por telefone sem senha
 
 1. Entre no [Portal do Azure](https://portal.azure.com)
-1. Pesquise *Azure Active Directory* e selecione-o. Selecionar **Security** > **Authentication methods**métodos > **de autenticação de segurança política de método de autenticação (versão prévia)**
+1. Pesquise *Azure Active Directory* e selecione-o. Selecionar **Security**  >  **métodos**  >  **de autenticação de segurança política de método de autenticação (versão prévia)**
 1. Em **entrada no telefone sem senha**, escolha as seguintes opções
    1. **Habilitar** -Sim ou não
    1. **Destino** -todos os usuários ou Selecionar usuários
@@ -82,9 +82,9 @@ O administrador pode optar por permitir que o usuário use a entrada por telefon
 
 ### <a name="ad-fs-integration"></a>Integração do AD FS
 
-Quando um usuário tiver habilitado a credencial sem senha do Microsoft Authenticator, a autenticação para esse usuário sempre enviará como padrão uma notificação de aprovação. Essa lógica impede que os usuários em um locatário híbrido sejam direcionados ao ADFS para verificação de entrada sem que o usuário execute uma etapa adicional para clicar em "usar sua senha". Esse processo também ignorará quaisquer políticas de Acesso Condicional locais e fluxos de autenticação de Passagem. 
+Quando um usuário tiver habilitado a credencial sem senha do Microsoft Authenticator, a autenticação para esse usuário sempre enviará como padrão uma notificação de aprovação. Essa lógica impede que os usuários em um locatário híbrido sejam direcionados para AD FS para verificação de entrada sem que o usuário execute uma etapa adicional para clicar em "usar sua senha". Esse processo também ignorará quaisquer políticas de Acesso Condicional locais e fluxos de autenticação de Passagem. 
 
-Se um usuário tiver uma verificação de entrada de telefone sem senha não respondida pendente e tentar entrar novamente, o usuário poderá ser levado ao ADFS para inserir uma senha.  
+Se um usuário tiver uma verificação de entrada de telefone sem senha não respondida pendente e tentar entrar novamente, o usuário poderá ser levado a AD FS para inserir uma senha em vez disso.  
 
 ### <a name="azure-mfa-server"></a>Servidor MFA do Azure
 
@@ -103,7 +103,7 @@ Os usuários finais que estão sujeitos a uma política que exige o gerenciament
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[O que é sem senha?](concept-authentication-passwordless.md)
+[Saiba como funciona a autenticação com senha](concept-authentication-passwordless.md)
 
 [Saiba mais sobre registro de dispositivo](../devices/overview.md#getting-devices-in-azure-ad)
 

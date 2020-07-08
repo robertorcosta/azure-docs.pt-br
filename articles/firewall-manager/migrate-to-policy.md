@@ -1,22 +1,20 @@
 ---
-title: Migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia) usando o PowerShell
-description: Saiba como migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia)
+title: Migrar configurações de firewall do Azure para a política de firewall do Azure usando o PowerShell
+description: Saiba como migrar configurações de firewall do Azure para a política de firewall do Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9dadc875e5e6d35a78930b4a02c48e9cbb6f6ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601319"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrar configurações de firewall do Azure para a política de firewall do Azure (versão prévia) usando o PowerShell
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-using-powershell"></a>Migrar configurações de firewall do Azure para a política de firewall do Azure usando o PowerShell
 
 Você pode usar um script de Azure PowerShell para migrar as configurações existentes do firewall do Azure para um recurso de política de firewall do Azure. Você pode usar o Gerenciador de firewall do Azure para implantar a política.
 
@@ -161,4 +159,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a implantação do Gerenciador de firewall do Azure: [visão geral da implantação do Azure firewall Manager Preview](deployment-overview.md).
+Saiba mais sobre a implantação do Gerenciador de firewall do Azure: [visão geral da implantação do Gerenciador de firewall do Azure](deployment-overview.md).

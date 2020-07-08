@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601371"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
 
@@ -388,23 +388,7 @@ Em contraste com a sintaxe do PowerShell, a CLI não exige que o usuário forne�
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Desabilitar criptografia para VMs do Linux
-É possível desabilitar a criptografia usando o Azure PowerShell, a CLI do Azure ou com um modelo do Resource Manager. 
-
->[!IMPORTANT]
->Desabilitar criptografia com Azure Disk Encryption em VMs do Linux tem suporte apenas para volumes de dados. Não haverá suporte em dados ou volumes de SO, se o volume de SO tiver sido criptografado.  
-
-- **Desabilitar a criptografia de disco com o Azure PowerShell:** para desabilitar a criptografia, use o cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Desabilitar a criptografia com a CLI do Azure:** para desabilitar a criptografia, use o comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Desabilitar criptografia com um modelo do Resource Manager:** Use o modelo [Desabilitar a criptografia em uma VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) para desabilitar a criptografia.
-     1. Clique em **Implantar no Azure**.
-     2. Selecione a assinatura, o grupo de recursos, o local, a VM, os termos legais e o contrato.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
@@ -412,7 +396,7 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 
 - criptografia de VM de camada básica ou VMs criadas por meio do método de criação de VM clássico.
 - Desabilitação da criptografia em uma unidade do sistema operacional ou unidade de dados de uma VM Linux quando a unidade do sistema operacional é criptografada.
-- Criptografia da unidade do sistema operacional para conjuntos de dimensionamento de máquinas virtuais do Linux.
+- Criptografando a unidade do sistema operacional para conjuntos de dimensionamento de máquinas virtuais do Linux.
 - Criptografia de imagens personalizadas em VMs Linux.
 - Integração ao sistema de gerenciamento de chaves local.
 - Arquivos do Azure (sistema de arquivo compartilhado).
@@ -420,12 +404,15 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - Volumes dinâmicos.
 - Discos do SO Efêmero.
 - Criptografia de sistemas de arquivos compartilhados/distribuídos como (mas não se limitando a): DFS, GFS, DRDB e CephFS.
-- Mover uma VM criptografada para outra assinatura.
+- Movendo uma VM criptografada para outra assinatura ou região.
+- Criar uma imagem ou um instantâneo de uma VM criptografada e usá-la para implantar VMs adicionais.
 - Kdump (kernel de despejo de memória).
 - Oracle ACFS (Sistema de Arquivos de Cluster do ASM).
 - VMs Gen2 (consulte: [Suporte para VMs de geração 2 no Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - VMs da série Lsv2 (consulte: [Lsv2-series](../lsv2-series.md)).
 - Uma VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem em um só caminho (como "/1stmountpoint/data/2stmountpoint").
+- Uma VM com uma unidade de dados montada na parte superior de uma pasta do sistema operacional.
+- VMs da série M com discos Acelerador de Gravação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

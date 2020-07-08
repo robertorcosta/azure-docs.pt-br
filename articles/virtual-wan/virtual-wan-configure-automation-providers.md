@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565955"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros de WAN virtual
 
@@ -38,7 +38,7 @@ Um dispositivo de branch (um dispositivo VPN local do cliente ou CPE SDWAN) norm
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) para conectar um VPNSite a um hub de VPN do Azure
 * [Políticas IPsec padrão](#default)
 
-## <a name="customer-experience"></a><a name ="ae"></a>Experiência do cliente
+## <a name="customer-experience"></a><a name ="ae"></a>Experiência do usuário
 
 Entenda a experiência esperada do cliente em conjunto com a WAN Virtual do Azure.
 
@@ -54,7 +54,7 @@ Entenda a experiência esperada do cliente em conjunto com a WAN Virtual do Azur
 
 ###  <a name="access-control"></a><a name="access"></a>Controle de acesso
 
-Os clientes devem ser capazes de configurar o controle de acesso apropriado para WAN Virtual na interface do usuário do dispositivo. Para isso, é recomendável usar uma Entidade de Serviço do Azure. O acesso baseado em entidade de serviço fornece a autenticação apropriada do controlador de dispositivo para carregar informações de branch. Para saber mais, confira [Criar entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Embora essa funcionalidade esteja fora da oferta de WAN Virtual do Azure, listamos abaixo as etapas típicas para configurar o acesso no Azure, após as quais os detalhes relevantes são inseridos no painel de gerenciamento do dispositivo
+Os clientes devem ser capazes de configurar o controle de acesso apropriado para WAN Virtual na interface do usuário do dispositivo. Para isso, é recomendável usar uma Entidade de Serviço do Azure. O acesso baseado em entidade de serviço fornece a autenticação apropriada do controlador de dispositivo para carregar informações de branch. Para saber mais, confira [Criar entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Embora essa funcionalidade esteja fora da oferta de WAN Virtual do Azure, listamos abaixo as etapas típicas para configurar o acesso no Azure, após as quais os detalhes relevantes são inseridos no painel de gerenciamento do dispositivo
 
 * Criar um aplicativo do Azure Active Directory para o controlador de dispositivo local.
 * Obter chave de autenticação e ID do aplicativo

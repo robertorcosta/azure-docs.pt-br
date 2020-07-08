@@ -1,24 +1,24 @@
 ---
 title: Compreender dispositivos gêmeos no Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ use dispositivos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
-author: wesmc7777
+author: ash2017
 manager: philmea
-ms.author: wesmc
+ms.author: asrastog
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.custom: mqtt
-ms.openlocfilehash: 3bec3d19ed68b7eb8bb50baa8f6c11135ef778cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601846"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
-*Dispositivos gêmeos* são documentos JSON que armazenam informações do estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. 
+*Dispositivos gêmeos* são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -53,11 +53,11 @@ O ciclo de vida de um dispositivo gêmeo está vinculado à [identidade do dispo
 
 Um dispositivo gêmeo é um documento JSON que inclui:
 
-* **Marcações**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcas não ficam visíveis para os aplicativos do dispositivo.
+* **Marcas**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcas não ficam visíveis para os aplicativos do dispositivo.
 
 * **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração de dispositivo ou condições. O back-end da solução pode definir as propriedades desejadas e o aplicativo de dispositivo pode lê-las. O aplicativo do dispositivo também pode receber notificações de alterações nas propriedades desejadas.
 
-* **Propriedades relatadas**. Usado junto com as propriedades desejadas para sincronizar a configuração de dispositivo ou condições. O aplicativo de dispositivo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
+* **Propriedades reportadas**. Usado junto com as propriedades desejadas para sincronizar a configuração de dispositivo ou condições. O aplicativo de dispositivo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
 
 * **Propriedades de identidade do dispositivo**. A raiz do documento JSON do dispositivo gêmeo contém as propriedades somente leitura da identidade do dispositivo correspondente armazenada no [registro identidade](iot-hub-devguide-identity-registry.md). Propriedades `connectionStateUpdatedTime` e `generationId` não serão incluídas.
 
@@ -288,7 +288,7 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
 
 ## <a name="device-twin-size"></a>Tamanho do dispositivo gêmeo
 
-O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com `properties/desired` o `properties/reported`valor de e. Esses totais são exclusivos de elementos somente leitura como `$etag`, `$version`e. `$metadata/$lastUpdated`
+O Hub IoT impõe um limite de tamanho de 8 KB no valor de e `tags` um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported` . Esses totais são exclusivos de elementos somente leitura como `$etag` , `$version` e `$metadata/$lastUpdated` .
 
 O tamanho do papel é calculado da seguinte maneira:
 
@@ -302,7 +302,7 @@ O tamanho do papel é calculado da seguinte maneira:
 
 * Valores de propriedade complexos (objetos aninhados) são calculados com base no tamanho agregado das chaves de propriedade e dos valores de propriedade que eles contêm.
 
-O Hub IOT rejeita com um erro todas as operações que aumentariam o tamanho dos `tags`documentos `properties/desired`, ou `properties/reported` acima do limite.
+O Hub IoT rejeita com um erro todas as operações que aumentariam o tamanho dos `tags` `properties/desired` documentos, ou `properties/reported` acima do limite.
 
 ## <a name="device-twin-metadata"></a>Metadados do dispositivo gêmeo
 

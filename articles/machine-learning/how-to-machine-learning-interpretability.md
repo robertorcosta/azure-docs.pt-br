@@ -5,17 +5,17 @@ description: Saiba como explicar por que seu modelo faz previsões usando o SDK 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/30/2020
+ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601676"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretabilidade de modelo no Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,13 +44,11 @@ As classes de interpretação são disponibilizadas por meio de vários pacotes 
 
 * `azureml.contrib.interpret`, visualização e funcionalidades experimentais que você pode tentar.
 
-* `azureml.train.automl.automlexplainer`pacote para interpretar modelos de aprendizado de máquina automatizados.
-
-Use `pip install azureml-interpret` e `pip install azureml-interpret-contrib` para uso geral e `pip install azureml-interpret-contrib` para AutoML use para obter os pacotes de interpretação.
+Use `pip install azureml-interpret` e `pip install azureml-interpret-contrib` para uso geral e `pip install azureml-contrib-interpret` para AutoML use para obter os pacotes de interpretação.
 
 
 > [!IMPORTANT]
-> O `contrib` conteúdo no namespace não tem suporte completo. Como as funcionalidades experimentais se tornam maduras, elas serão gradualmente movidas para o namespace principal.
+> O conteúdo no `contrib` namespace não tem suporte completo. Como as funcionalidades experimentais se tornam maduras, elas serão gradualmente movidas para o namespace principal.
 .
 
 
@@ -84,7 +82,7 @@ Saiba mais sobre técnicas de interpretação com suporte, modelos de aprendizad
 
 
 
-Além das técnicas de interpretação descritas acima, damos suporte a outro explicador baseado em SHAP `TabularExplainer`, chamado. Dependendo do modelo, `TabularExplainer` o usa um dos explicadores de shap com suporte:
+Além das técnicas de interpretação descritas acima, damos suporte a outro explicador baseado em SHAP, chamado `TabularExplainer` . Dependendo do modelo, `TabularExplainer` o usa um dos explicadores de shap com suporte:
 
 * TreeExplainer para todos os modelos baseados em árvore
 * DeepExplainer para modelos de DNN
@@ -109,7 +107,7 @@ O `azureml.interpret` pacote do SDK dá suporte a modelos treinados com os segui
 - `iml.datatypes.DenseData`
 - `scipy.sparse.csr_matrix`
 
-As funções de explicação aceitam modelos e pipelines como entrada. Se um modelo for fornecido, o modelo deverá implementar a função `predict` de previsão ou `predict_proba` estar em conformidade com a Convenção Scikit. Se o modelo não oferecer suporte a isso, você poderá encapsular o modelo em uma função que gera o mesmo `predict` resultado `predict_proba` que ou em Scikit e usar essa função de wrapper com o explicador selecionado. Se um pipeline for fornecido, a função de explicação assumirá que o script de pipeline em execução retorna uma previsão. Usando essa técnica de encapsulamento, `azureml.interpret` o pode dar suporte a modelos treinados por meio de estruturas de aprendizado profundo PyTorch, TensorFlow e Keras, bem como modelos de aprendizado de máquina clássicos.
+As funções de explicação aceitam modelos e pipelines como entrada. Se um modelo for fornecido, o modelo deverá implementar a função de previsão `predict` ou estar `predict_proba` em conformidade com a Convenção Scikit. Se o modelo não oferecer suporte a isso, você poderá encapsular o modelo em uma função que gera o mesmo resultado que `predict` ou `predict_proba` em Scikit e usar essa função de wrapper com o explicador selecionado. Se um pipeline for fornecido, a função de explicação assumirá que o script de pipeline em execução retorna uma previsão. Usando essa técnica de encapsulamento, o `azureml.interpret` pode dar suporte a modelos treinados por meio de estruturas de aprendizado profundo PyTorch, TensorFlow e Keras, bem como modelos de aprendizado de máquina clássicos.
 
 ## <a name="local-and-remote-compute-target"></a>Destino de computação local e remota
 

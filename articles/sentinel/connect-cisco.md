@@ -1,6 +1,6 @@
 ---
 title: Conectar dados Cisco ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar dados Cisco ao Azure Sentinel.
+description: Saiba como conectar seu dispositivo Cisco ASA ao Azure Sentinel para exibir painéis, criar alertas personalizados e melhorar a investigação.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8a64dd3e47384ba2bf7579f8052177252634622
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566046"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Conectar o Cisco ASA ao Azure Sentinel
 
@@ -38,9 +38,9 @@ O Cisco ASA não dá suporte a CEF, portanto, os logs são enviados como syslog 
     - Defina **porta** como 514 ou a porta que você definiu no agente.
     - Defina **syslog_ip** para o endereço IP do agente.
 
-1. Para usar o esquema relevante no Log Analytics para os eventos Cisco, procure `CommonSecurityLog`.
+1. Para usar o esquema relevante no Log Analytics para os eventos Cisco, procure `CommonSecurityLog` .
 
-1. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
+1. Prossiga para a [ETAPA 3: Validar a conectividade](connect-cef-verify.md).
 
 
 

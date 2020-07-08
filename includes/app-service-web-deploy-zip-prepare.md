@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 6b5aa4f409b8c2f5a9125ab01e8587f4ac9c4ee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570132"
 ---
 ## <a name="create-a-project-zip-file"></a>Criar um projeto de arquivo zip
 
@@ -25,9 +25,9 @@ Em uma janela do terminal local, navegue até o diretório raiz do projeto do ap
 
 Esse diretório deve conter o arquivo de entrada no seu aplicativo Web, como _index.html_, _index.php_ e _app.js_. Além disso, é possível conter arquivos de gerenciamento de pacotes como _project.json_, _composer.json_, _package.json_, _bower.json_ e _requirements.txt_.
 
-A menos que você queira que o serviço de aplicativo execute a automação de implantação para você, execute todas as `npm`tarefas `bower`de `gulp`compilação `composer`(por `pip`exemplo,,,, e) e verifique se você tem todos os arquivos necessários para executar o aplicativo. Esta etapa será necessária se você quiser [executar o pacote diretamente](../articles/app-service/deploy-run-package.md).
+A menos que você queira que o serviço de aplicativo execute a automação de implantação para você, execute todas as tarefas de compilação (por exemplo,,,, `npm` `bower` `gulp` `composer` e `pip` ) e verifique se você tem todos os arquivos necessários para executar o aplicativo. Esta etapa será necessária se você quiser [executar o pacote diretamente](../articles/app-service/deploy-run-package.md).
 
-Criar um arquivo zip de tudo em seu projeto. O comando a seguir usa a ferramenta padrão em seu terminal:
+Criar um arquivo zip de tudo em seu projeto. Para `dotnet` projetos, essa pasta é a pasta de saída do `dotnet publish` comando. O comando a seguir usa a ferramenta padrão em seu terminal:
 
 ```
 # Bash
