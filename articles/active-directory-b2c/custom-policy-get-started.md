@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32ec55a2ed6e0158a05f81067dc834fdc1e6e765
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389285"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -74,22 +74,9 @@ Você precisa registrar apenas uma vez esses dois aplicativos em seu locatário 
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar o aplicativo IdentityExperienceFramework
 
-Para registrar um aplicativo no locatário do Azure Active Directory B2C, você pode usar a experiência **Registros de aplicativo (Herdados)** ou a nossa nova experiência unificada, **Registros de aplicativo (versão prévia)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Para registrar um aplicativo em seu locatário do Azure AD B2C, você pode usar a experiência do **registros de aplicativo** .
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
-
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Na portal do Azure, procure e selecione **Azure Active Directory**.
-1. No menu de visão geral do **Azure Active Directory**, em **Gerenciar**, selecione **Registros de aplicativo (Herdados)** .
-1. Selecione **Novo registro de aplicativo**.
-1. Para **Nome**, insira `IdentityExperienceFramework`.
-1. Para **Tipo de aplicativo**, escolha **Aplicativo Web/API**.
-1. Para **URL de logon**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, em que `your-tenant-name` é o nome de domínio de locatário do Azure AD B2C. Agora todas as URLs devem estar usando [b2clogin.com](b2clogin.md).
-1. Selecione **Criar**. Após a criação, copie a ID do aplicativo e salve-a para uso posterior.
-
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
-
-1. Escolha **Registros de Aplicativo (versão prévia)** e depois selecione **Novo Registro**.
+1. Escolha **Registros de aplicativo** e **Novo registro**.
 1. Para **Nome**, insira `IdentityExperienceFramework`.
 1. Em **Tipos de contas com suporte**, selecione **Contas somente neste diretório organizacional**.
 1. Em **URI de redirecionamento**, selecione **Web** e digite `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, em que `your-tenant-name` é o nome de domínio do locatário do Azure AD B2C.
@@ -111,21 +98,7 @@ Em seguida, exponha a API adicionando um escopo:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrar o aplicativo ProxyIdentityExperienceFramework
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
-
-1. Em **Registros de aplicativo (herdados)** , selecione **Novo registro de aplicativo**.
-1. Para **Nome**, insira `ProxyIdentityExperienceFramework`.
-1. Para **Tipo de aplicativo**, escolha **Nativo**.
-1. No **URI de redirecionamento**, insira `myapp://auth`.
-1. Selecione **Criar**. Após a criação, copie a ID do aplicativo e salve-a para uso posterior.
-1. Selecione **Configurações**, **Permissões necessárias** e depois **Adicionar**.
-1. Escolha **Selecionar uma API**, pesquise e selecione **IdentityExperienceFramework**, depois clique em **Selecionar**.
-1. Marque a caixa de seleção ao lado de **Acessar IdentityExperienceFramework**, clique em **Selecionar** e, em seguida, clique em **Concluído**.
-1. Selecione **Conceder permissões** e, em seguida, confirme selecionando **Sim**.
-
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
-
-1. Escolha **Registros de Aplicativo (versão prévia)** e depois selecione **Novo Registro**.
+1. Escolha **Registros de aplicativo** e **Novo registro**.
 1. Para **Nome**, insira `ProxyIdentityExperienceFramework`.
 1. Em **Tipos de contas com suporte**, selecione **Contas somente neste diretório organizacional**.
 1. Em **URI de Redirecionamento**, use a lista suspensa para selecionar **Cliente Público/Nativo (móvel e área de trabalho)** .
@@ -137,7 +110,6 @@ Em seguida, exponha a API adicionando um escopo:
 Em seguida, especifique que o aplicativo deve ser tratado como um cliente público:
 
 1. Em **Gerenciar**, selecione **Autenticação**.
-1. Selecione **Experimentar a nova experiência** (se mostrado).
 1. Em **Configurações avançadas**, habilite **Tratar aplicativo como um cliente público** (selecione **Sim**). Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
 1. Clique em **Salvar**.
 
@@ -151,7 +123,7 @@ Agora conceda permissões ao escopo da API que você expôs anteriormente no reg
 1. Selecione **Fornecer o consentimento do administrador para (nome do seu locatário)** .
 1. Selecione a conta de administrador conectada no momento ou entre com uma conta no seu locatário do Azure AD B2C que tenha recebido, pelo menos, a função *Administrador de aplicativos de nuvem*.
 1. Selecione **Aceitar**.
-1. Selecione **Atualizar** e, em seguida, verifique se "Concedido para..." aparece em **Status** para ambos os escopos. Pode levar alguns minutos para que as permissões sejam propagadas.
+1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para os escopos-offline_access, openid e user_impersonation. Pode levar alguns minutos para que as permissões sejam propagadas.
 
 * * *
 

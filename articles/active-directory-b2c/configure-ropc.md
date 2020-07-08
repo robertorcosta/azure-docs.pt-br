@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636408"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389591"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -50,9 +50,9 @@ O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo d
 ## <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
 Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de API e analise a resposta para depurar seu fluxo de usuário. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
-- Substitua *\<tenant-name>.onmicrosoft.com* pelo nome do seu locatário B2C.
-- Substitua *\<B2C_1A_ROPC_Auth >* com o nome completo da política de credenciais de senha do proprietário do recurso.
-- Substitua *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* pela ID do aplicativo de seu registro.
+- Substitua * \<tenant-name> . onmicrosoft.com* pelo nome do seu locatário B2C.
+- Substitua *\<B2C_1A_ROPC_Auth>* pelo nome completo da política de credenciais de senha do proprietário do recurso.
+- Substitua *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* pela ID do aplicativo do seu registro.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
@@ -61,7 +61,7 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 | Nome de Usuário | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
+| scope | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 

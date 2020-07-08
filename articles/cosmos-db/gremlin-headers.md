@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72755088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390849"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB cabeçalhos de resposta do servidor Gremlin
 Este artigo aborda os cabeçalhos que o servidor Gremlin do Cosmos DB retorna ao chamador mediante a execução da solicitação. Esses cabeçalhos são úteis para solucionar problemas de desempenho de solicitação, por meio da criação de um aplicativo que se integra nativamente ao serviço Cosmos DB e simplificação do atendimento ao cliente.
@@ -21,7 +21,7 @@ Tenha em mente que assumir a dependência desses cabeçalhos você está limitan
 
 ## <a name="headers"></a>headers
 
-| Cabeçalho | Type | Valor de exemplo | Quando incluído | Explicação |
+| parâmetro | Tipo | Valor de exemplo | Quando incluído | Explicação |
 | --- | --- | --- | --- | --- |
 | **x-MS-Request-encargos** | double | 11,3243 | Êxito e Falha | Quantidade de produtividade de coleta ou banco de dados consumida em [unidades de solicitação (ru/s ou RUs)](request-units.md) para uma mensagem de resposta parcial. Esse cabeçalho está presente em cada continuação para solicitações que têm várias partes. Ele reflete a cobrança de uma parte de resposta específica. Somente para solicitações que consistem em uma única parte de resposta, esse cabeçalho corresponde ao custo total de passagem. No entanto, para a maioria das passagens complexas, esse valor representa um custo parcial. |
 | **x-MS-total-solicitação-encargo** | double | 423,987 | Êxito e Falha | Quantidade de produtividade de coleta ou banco de dados consumida em [unidades de solicitação (ru/s ou RUs)](request-units.md) para toda a solicitação. Esse cabeçalho está presente em cada continuação para solicitações que têm várias partes. Indica a cobrança cumulativa desde o início da solicitação. O valor desse cabeçalho na última parte indica o encargo de solicitação completo. |
@@ -38,19 +38,19 @@ Os códigos de status mais comuns retornados pelo servidor são listados abaixo.
 
 | Status | Explicação |
 | --- | --- |
-| **401** | A mensagem `"Unauthorized: Invalid credentials provided"` de erro é retornada quando a senha de autenticação não corresponde Cosmos DB chave de conta. Navegue até sua conta do Cosmos DB Gremlin no portal do Azure e confirme se a chave está correta.|
+| **401** | A mensagem de erro `"Unauthorized: Invalid credentials provided"` é retornada quando a senha de autenticação não corresponde Cosmos DB chave de conta. Navegue até sua conta do Cosmos DB Gremlin no portal do Azure e confirme se a chave está correta.|
 | **404** | Operações simultâneas que tentam excluir e atualizar a mesma borda ou vértice simultaneamente. A mensagem de erro `"Owner resource does not exist"` indica que a coleção ou o banco de dados especificado  está incorreto nos parâmetros de conexão no formato `/dbs/<database name>/colls/<collection or graph name>`.|
 | **408** | `"Server timeout"`indica que a passagem demorou mais de **30 segundos** e foi cancelada pelo servidor. Otimize seus atravessamentos para serem executados rapidamente filtrando vértices ou bordas em cada salto de passagem para restringir o escopo da pesquisa.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."`Isso geralmente acontece quando já existe um vértice ou uma borda com um identificador no gráfico.| 
-| **412** | O código de status é complementado com `"PreconditionFailedException": One of the specified pre-condition is not met`a mensagem de erro. Esse erro é um indicativo de uma violação de controle de simultaneidade otimista entre ler uma borda ou um vértice e gravá-lo de volta no repositório após a modificação. As situações mais comuns quando esse erro ocorre são a modificação da propriedade `g.V('identifier').property('name','value')`, por exemplo. O mecanismo de Gremlinia ler o vértice, modificá-lo e escrevê-lo novamente. Se houver outra passagem em execução em paralelo tentando gravar o mesmo vértice ou uma borda, um deles receberá esse erro. O aplicativo deve enviar passagem para o servidor novamente.| 
+| **412** | O código de status é complementado com a mensagem de erro `"PreconditionFailedException": One of the specified pre-condition is not met` . Esse erro é um indicativo de uma violação de controle de simultaneidade otimista entre ler uma borda ou um vértice e gravá-lo de volta no repositório após a modificação. As situações mais comuns quando esse erro ocorre são a modificação da propriedade, por exemplo `g.V('identifier').property('name','value')` . O mecanismo de Gremlinia ler o vértice, modificá-lo e escrevê-lo novamente. Se houver outra passagem em execução em paralelo tentando gravar o mesmo vértice ou uma borda, um deles receberá esse erro. O aplicativo deve enviar passagem para o servidor novamente.| 
 | **429** | A solicitação foi limitada e deve ser repetida após o valor em **x-ms-retry-after-ms**| 
 | **500** | A mensagem de erro que contém `"NotFoundException: Entity with the specified id does not exist in the system."` indica que um banco de dados e/ou coleção foi recriado com o mesmo nome. Este erro desaparecerá dentro de 5 minutos, à medida que a alteração se propaga e invalida os caches em diferentes componentes do Cosmos DB. Para evitar esse problema, use nomes de bancos de dados e coleções exclusivos sempre.| 
 | **1000** | Esse código de status é retornado quando o servidor analisa com êxito uma mensagem, mas não foi capaz de executar. Normalmente, isso indica um problema com a consulta.| 
 | **1.001** | Esse código é retornado quando o servidor conclui a execução de passagem, mas falha ao serializar a resposta de volta para o cliente. Esse erro pode ocorrer quando a passagem gera um resultado complexo, que é muito grande ou não está de acordo com a especificação do protocolo TinkerPop. O aplicativo deve simplificar a passagem quando encontrar esse erro. | 
 | **1.003** | `"Query exceeded memory limit. Bytes Consumed: XXX, Max: YYY"`é retornado quando a passagem excede o limite de memória permitido. O limite de memória é de **2 GB** por passagem.| 
 | **1.004** | Esse código de status indica uma solicitação de grafo malformada. A solicitação pode ser malformada quando falha na desserialização; o tipo de não valor está sendo desserializado como tipo de valor ou operação Gremlin sem suporte solicitada. O aplicativo não deve repetir a solicitação porque não será bem-sucedido. | 
-| **1.007** | Normalmente, esse código de status é retornado com `"Could not process request. Underlying connection has been closed."`a mensagem de erro. Essa situação pode ocorrer se o driver do cliente tentar usar uma conexão que está sendo fechada pelo servidor. O aplicativo deve repetir a passagem em uma conexão diferente.
-| **1.008** | Cosmos DB servidor Gremlin pode encerrar conexões para reequilibrar o tráfego no cluster. Os drivers de cliente devem lidar com essa situação e usar somente conexões dinâmicas para enviar solicitações ao servidor. Ocasionalmente, os drivers de cliente podem não detectar que a conexão foi fechada. Quando o aplicativo encontra um erro `"Connection is too busy. Please retry after sometime or open more connections."` , ele deve repetir a passagem em uma conexão diferente.
+| **1.007** | Normalmente, esse código de status é retornado com a mensagem de erro `"Could not process request. Underlying connection has been closed."` . Essa situação pode ocorrer se o driver do cliente tentar usar uma conexão que está sendo fechada pelo servidor. O aplicativo deve repetir a passagem em uma conexão diferente.
+| **1.008** | Cosmos DB servidor Gremlin pode encerrar conexões para reequilibrar o tráfego no cluster. Os drivers de cliente devem lidar com essa situação e usar somente conexões dinâmicas para enviar solicitações ao servidor. Ocasionalmente, os drivers de cliente podem não detectar que a conexão foi fechada. Quando o aplicativo encontra um erro, `"Connection is too busy. Please retry after sometime or open more connections."` ele deve repetir a passagem em uma conexão diferente.
 
 ## <a name="samples"></a>Exemplos
 
@@ -107,6 +107,6 @@ try {
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Códigos de status HTTP para Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
-* [Cabeçalhos de resposta REST Azure Cosmos DB comuns](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
+* [Códigos de status HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
+* [Cabeçalhos de resposta REST Azure Cosmos DB comuns](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
 * [Requisitos do provedor de driver do TinkerPop Graph]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)

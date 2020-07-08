@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388877"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -34,10 +34,10 @@ Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-
 
 Para configurar a personalização da interface do usuário, copie o **ContentDefinition** e seus elementos filho do arquivo base para o arquivo de extensões.
 
-1. Abra o arquivo base da sua política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>. Esse arquivo base é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Esse arquivo base é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Pesquise e copie todo o conteúdo do elemento **ContentDefinitions**.
 1. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions.xml*. Pesquise o elemento **BuildingBlocks**. Se o elemento não existir, adicione-o.
-1. Cole todo o conteúdo do elemento **ContentDefinitions** que você copiou como filho do elemento **BuildingBlocks**.
+1. Cole todo o conteúdo do elemento **ContentDefinitions** que você copiou como um filho do elemento **BuildingBlocks** .
 1. Pesquise o elemento **ContentDefinition** que contém `Id="api.signuporsignin"` no XML copiado.
 1. Altere o valor de **LoadUri** para a URL do arquivo HTML que você carregou no armazenamento. Por exemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
@@ -65,27 +65,27 @@ Para configurar a personalização da interface do usuário, copie o **ContentDe
 #### <a name="51-upload-the-custom-policy"></a>5,1 carregar a política personalizada
 
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
-1. Procure e selecione **Azure ad B2C**.
-1. Em **políticas**, selecione **estrutura de experiência de identidade**.
-1. Selecione **carregar política personalizada**.
+1. Pesquise e selecione **Azure AD B2C**.
+1. Em **Políticas**, selecione **Identity Experience Framework**.
+1. Selecione **Carregar política personalizada**.
 1. Carregue o arquivo de extensões que você alterou anteriormente.
 
 #### <a name="52-test-the-custom-policy-by-using-run-now"></a>5,2 testar a política personalizada usando **executar agora**
 
-1. Selecione a política que você carregou e, em seguida, selecione **executar agora**.
+1. Selecione a política que você carregou e, em seguida, selecione **Executar agora**.
 1. Você deverá conseguir se inscrever usando um endereço de email.
 
 [!INCLUDE [active-directory-b2c-html-templates](../../includes/active-directory-b2c-html-templates.md)]
 
 ## <a name="configure-dynamic-custom-page-content-uri"></a>Configurar URI de conteúdo de página personalizada dinâmica
 
-Ao usar Azure AD B2C políticas personalizadas, você pode enviar um parâmetro no caminho da URL ou uma cadeia de caracteres de consulta. Passando o parâmetro para seu ponto de extremidade HTML, é possível alterar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro passado do seu aplicativo Web ou móvel. O parâmetro pode ser qualquer [resolvedor de declaração](claim-resolver-overview.md), como a ID do aplicativo, ID de idioma ou parâmetro de cadeia de caracteres `campaignId`de consulta personalizada, como.
+Ao usar Azure AD B2C políticas personalizadas, você pode enviar um parâmetro no caminho da URL ou uma cadeia de caracteres de consulta. Passando o parâmetro para seu ponto de extremidade HTML, é possível alterar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro passado do seu aplicativo Web ou móvel. O parâmetro pode ser qualquer [resolvedor de declaração](claim-resolver-overview.md), como a ID do aplicativo, ID de idioma ou parâmetro de cadeia de caracteres de consulta personalizada, como `campaignId` .
 
 ### <a name="sending-query-string-parameters"></a>Enviando parâmetros de cadeia de caracteres de consulta
 
-Para enviar parâmetros de cadeia de caracteres de consulta, na [política](relyingparty.md)de terceira parte `ContentDefinitionParameters` confiável, adicione um elemento, conforme mostrado abaixo.
+Para enviar parâmetros de cadeia de caracteres de consulta, na política de terceira parte [confiável](relyingparty.md), adicione um `ContentDefinitionParameters` elemento, conforme mostrado abaixo.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
@@ -99,9 +99,9 @@ Para enviar parâmetros de cadeia de caracteres de consulta, na [política](rely
 </RelyingParty>
 ```
 
-Em sua definição de conteúdo, altere o valor `LoadUri` de `https://<app_name>.azurewebsites.net/home/unified`para. Sua política `ContentDefinition` personalizada deve ser semelhante ao seguinte trecho de código:
+Em sua definição de conteúdo, altere o valor de `LoadUri` para `https://<app_name>.azurewebsites.net/home/unified` . Sua política personalizada `ContentDefinition` deve ser semelhante ao seguinte trecho de código:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
   ...
@@ -118,14 +118,14 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 O conteúdo pode ser extraído de locais diferentes com base nos parâmetros usados. No ponto de extremidade habilitado para CORS, configure uma estrutura de pastas para hospedar conteúdo. Por exemplo, você pode organizar o conteúdo na estrutura a seguir. *Pasta/pasta raiz por idioma/seus arquivos HTML*. Por exemplo, o URI da página personalizada pode ser semelhante a:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
 </ContentDefinition>
 ```
 
-Azure AD B2C envia o código ISO de duas letras para a linguagem `fr` , para francês:
+Azure AD B2C envia o código ISO de duas letras para a linguagem, `fr` para francês:
 
 ```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e99b5717cdcc32d8fd138d1edf5fe1bd3283c70e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08aa7e4af6dc5d5e5bff470bc4c5d023e25b3014
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387874"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Weibo usando o Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78187892"
 
 ## <a name="create-a-weibo-application"></a>Criar um aplicativo Weibo
 
-Para usar uma conta do Weibo como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do Weibo, poderá se inscrever [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us)em.
+Para usar uma conta do Weibo como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do Weibo, poderá se inscrever em [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Acesse o [portal do desenvolvedor do Weibo](https://open.weibo.com/) com suas credenciais de conta do Weibo.
 1. Depois de entrar, selecione seu nome para exibição no canto superior direito.
@@ -49,11 +49,11 @@ Para usar uma conta do Weibo como um provedor de identidade no Azure Active Dire
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Configurar a conta do Weibo como um provedor de identidade
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador global do seu locatário Azure ad B2C.
+1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **provedores de identidade**e, em seguida, selecione **Weibo (versão prévia)**.
-1. Insira um **nome**. Por exemplo, *Weibo*.
+1. Insira um **Nome**. Por exemplo, *Weibo*.
 1. Para a **ID do cliente**, insira a chave de aplicativo do aplicativo Weibo que você criou anteriormente.
-1. Para o **segredo do cliente**, insira o segredo do aplicativo que você registrou.
-1. Selecione **Salvar**.
+1. Para **Segredo do cliente**, insira o Segredo do Aplicativo que você registrou.
+1. Clique em **Salvar**.

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388928"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrar trocas de declarações da API REST em sua política personalizada no Azure AD B2C
 
@@ -32,6 +32,9 @@ Usando o Azure AD B2C, é possível adicionar sua própria lógica de negócios 
 - **Executar a lógica de negócios personalizada**. Você pode enviar notificações por push, atualizar bancos de dados corporativos, executar um processo de migração de usuário, gerenciar permissões, auditar bancos de dados e realizar qualquer outro fluxo de trabalho.
 
 ![Diagrama de uma troca de declarações do serviço RESTful](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
+
+> [!NOTE]
+> Se houver lentidão ou nenhuma resposta do serviço RESTful para Azure AD B2C, o tempo limite será de 30 segundos e a contagem de repetições será 2 vezes (o que significa que há 3 tentativas no total). As configurações de tempo limite e número de tentativas não são configuráveis no momento.
 
 ## <a name="calling-a-restful-service"></a>Chamando um serviço RESTful
 
@@ -142,7 +145,7 @@ Sua API REST pode ser baseada em qualquer plataforma e escrita em qualquer lingu
 ## <a name="localize-the-rest-api"></a>Localizar a API REST
 Em um perfil técnico RESTful, talvez você queira enviar o idioma/localidade da sessão atual e, se necessário, gerar uma mensagem de erro localizada. Usando o [resolvedor de declarações](claim-resolver-overview.md), você pode enviar uma declaração contextual, como o idioma do usuário. O exemplo a seguir mostra um perfil técnico RESTful demonstrando esse cenário.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -162,7 +165,7 @@ Em um perfil técnico RESTful, talvez você queira enviar o idioma/localidade da
 
 ## <a name="handling-error-messages"></a>Tratamento de mensagens de erro
 
-A API REST talvez precise retornar uma mensagem de erro, como "O usuário não foi encontrado no sistema CRM". Se um erro ocorrer, a API REST deverá retornar uma mensagem de erro HTTP 409 (código de status de resposta de Conflito). Para saber mais, confira [Perfil técnico RESTful](restful-technical-profile.md#returning-error-message).
+A API REST talvez precise retornar uma mensagem de erro, como "O usuário não foi encontrado no sistema CRM". Se um erro ocorrer, a API REST deverá retornar uma mensagem de erro HTTP 409 (código de status de resposta de Conflito). Para saber mais, confira [Perfil técnico RESTful](restful-technical-profile.md#returning-validation-error-message).
 
 Isso só pode ser obtido com a chamada de um perfil técnico da API REST de um perfil técnico de validação. Isso permite que o usuário corrija os dados na página e execute a validação novamente no envio da página.
 

@@ -1,24 +1,24 @@
 ---
 title: Criar um contêiner no Azure Cosmos DB
-description: Saiba como criar um contêiner em Azure Cosmos DB usando portal do Azure, .net, Java, Python, Node. js e outros SDKs.
+description: Saiba como criar um contêiner em Azure Cosmos DB usando portal do Azure, .net, Java, Python, Node.js e outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 809ebe848e38a7c99c96ef44f130da917fb35942
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 22c51497a9c9a331f1337134fbaf7c781b9c8ba7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390883"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contêiner do Azure Cosmos
 
 Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmos (coleção, tabela ou grafo). Para esse fim, você pode usar o portal do Azure, a CLI do Azure ou SDKs compatíveis. Este artigo demonstra como criar um contêiner, especificar a chave de partição e a taxa de transferência de provisionamento.
 
 > [!NOTE]
-> Ao criar contêineres, certifique-se de não criar dois contêineres com o mesmo nome, mas com maiúsculas e minúsculas diferentes. Isso porque algumas partes da plataforma Azure não diferenciam maiúsculas de minúsculas e isso pode resultar em confusão/colisão de telemetria e ações em contêineres com tais nomes.
+> Ao criar contêineres, não crie dois contêineres com o mesmo nome, mas com maiúsculas e minúsculas diferentes. Isso porque algumas partes da plataforma Azure não diferenciam maiúsculas de minúsculas, o que pode resultar em confusão/colisão de telemetria e ações em contêineres com tais nomes.
 
 ## <a name="create-a-container-using-azure-portal"></a>Criar um contêiner usando o portal do Azure
 
@@ -36,7 +36,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
    * Selecione **OK**.
 
-    ![Captura de tela do painel de Data Explorer, com o novo contêiner realçado](./media/how-to-create-container/partitioned-collection-create-sql.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Captura de tela do painel de Data Explorer, com o novo contêiner realçado":::
 
 ### <a name="azure-cosmos-db-api-for-mongodb"></a><a id="portal-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
@@ -52,9 +52,9 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
    * Selecione **OK**.
 
-    ![Captura de tela da API Azure Cosmos DB para MongoDB, caixa de diálogo Adicionar contêiner](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Captura de tela da API Azure Cosmos DB para MongoDB, caixa de diálogo Adicionar contêiner":::
 
-### <a name="cassandra-api"></a><a id="portal-cassandra"></a>API Cassandra
+### <a name="cassandra-api"></a><a id="portal-cassandra"></a>API do Cassandra
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -68,7 +68,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
    * Selecione **OK**.
 
-    ![Captura de tela da API do Cassandra, caixa de diálogo Adicionar tabela](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Captura de tela da API do Cassandra, caixa de diálogo Adicionar tabela":::
 
 > [!NOTE]
 > Para a API do Cassandra, a chave primária é usada como a chave de partição.
@@ -88,7 +88,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
    * Selecione **OK**.
 
-    ![Captura de tela da API do Gremlin, caixa de diálogo Adicionar grafo](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Captura de tela da API do Gremlin, caixa de diálogo Adicionar grafo":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>API de Tabela
 
@@ -102,7 +102,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
    * Selecione **OK**.
 
-    ![Captura de tela da API de Tabela, caixa de diálogo Adicionar tabela](./media/how-to-create-container/partitioned-collection-create-table.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Captura de tela da API de Tabela, caixa de diálogo Adicionar tabela":::
 
 > [!Note]
 > Para a API de Tabela, a chave de partição é especificada sempre que você adiciona uma nova linha.
@@ -133,6 +133,8 @@ Para obter uma lista de todos os exemplos de CLI do Azure em todas as APIs de Az
 
 ## <a name="create-a-container-using-net-sdk"></a>Criar um contêiner usando o SDK do .NET
 
+Se você encontrar uma exceção de tempo limite ao criar uma coleção, faça uma operação de leitura para validar se a coleção foi criada com êxito. A operação de leitura gera uma exceção até que a operação de criação da coleção seja bem-sucedida. Para obter a lista de códigos de status com suporte pela operação de criação, consulte os [códigos de status HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) artigo.
+
 ### <a name="sql-api-and-gremlin-api"></a><a id="dotnet-sql-graph"></a>API de SQL e API do Gremlin
 
 ```csharp
@@ -157,7 +159,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 > [!Note]
 > O protocolo de transmissão do MongoDB não compreende o conceito de [Unidades de Solicitação](request-units.md). Para criar uma coleção contendo taxa de transferência provisionada, use o portal do Azure ou os SDKs do Cosmos DB para a API do SQL.
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API do Cassandra
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.
@@ -169,7 +171,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Particionamento no BD Cosmos do Azure](partitioning-overview.md)
-* [Unidades de solicitação no Azure Cosmos DB](request-units.md)
-* [Aprovisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
+* [Particionamento no Azure Cosmos DB](partitioning-overview.md)
+* [Unidades de Solicitação no Azure Cosmos DB](request-units.md)
+* [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
 * [Como trabalhar com a conta do Azure Cosmos](account-overview.md)

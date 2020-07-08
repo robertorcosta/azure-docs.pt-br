@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389183"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C
 
@@ -34,9 +34,9 @@ Os usuários não devem habilitar essa opção em computadores públicos.
 
 ## <a name="configure-the-page-identifier"></a>Configurar o identificador de página
 
-Para habilitar o KMSI, defina o elemento `DataUri` de definição de conteúdo para [identificador](contentdefinitions.md#datauri) `unifiedssp` de página e [página versão](page-layout.md) *1.1.0* ou superior.
+Para habilitar o KMSI, defina o elemento de definição de conteúdo `DataUri` para [identificador de página](contentdefinitions.md#datauri) `unifiedssp` e [página versão](page-layout.md) *1.1.0* ou superior.
 
-1. Abra o arquivo de extensão da sua política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>. Esse arquivo de extensão é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](custom-policy-get-started.md).
+1. Abra o arquivo de extensão da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Esse arquivo de extensão é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](custom-policy-get-started.md).
 1. Pesquise o elemento **BuildingBlocks**. Se o elemento não existir, adicione-o.
 1. Adicione o elemento **ContentDefinitions** ao elemento **BuildingBlocks** da política.
 
@@ -59,7 +59,7 @@ Para adicionar a caixa de seleção KMSI à página de inscrição e entrada, de
 1. Localize o elemento ClaimsProviders. Se o elemento não existir, adicione-o.
 1. Adicione o seguinte provedor de declarações ao elemento ClaimsProviders:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -79,10 +79,10 @@ Para adicionar a caixa de seleção KMSI à página de inscrição e entrada, de
 Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
 
 1. Abra o arquivo de política personalizada. Por exemplo, *SignUpOrSignin.xml*.
-1. Se ele ainda não existir, adicione um `<UserJourneyBehaviors>` nó filho ao `<RelyingParty>` nó. Ele deve estar localizado imediatamente após `<DefaultUserJourney ReferenceId="User journey Id" />`, por exemplo: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
+1. Se ele ainda não existir, adicione um `<UserJourneyBehaviors>` nó filho ao `<RelyingParty>` nó. Ele deve estar localizado imediatamente após `<DefaultUserJourney ReferenceId="User journey Id" />` , por exemplo: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .
 1. Adicione o seguinte nó como um filho do elemento `<UserJourneyBehaviors>`.
 
-    ```XML
+    ```xml
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
       <SessionExpiryType>Absolute</SessionExpiryType>
@@ -90,17 +90,17 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** -indica como a sessão é estendida pelo tempo especificado em `SessionExpiryInSeconds` e `KeepAliveInDays`. O `Rolling` valor (padrão) indica que a sessão é estendida toda vez que o usuário executa a autenticação. O `Absolute` valor indica que o usuário é forçado a autenticar novamente após o período de tempo especificado.
+    - **SessionExpiryType** -indica como a sessão é estendida pelo tempo especificado em `SessionExpiryInSeconds` e `KeepAliveInDays` . O `Rolling` valor (padrão) indica que a sessão é estendida toda vez que o usuário executa a autenticação. O `Absolute` valor indica que o usuário é forçado a autenticar novamente após o período de tempo especificado.
 
     - **SessionExpiryInSeconds** -o tempo de vida de cookies de sessão quando se *mantém conectado* não está habilitado, ou se um usuário não seleciona *manter-me conectado*. A sessão expira após `SessionExpiryInSeconds` ter passado ou o navegador é fechado.
 
-    - **KeepAliveInDays** -o tempo de vida de cookies de sessão quando se *mantém conectado* está habilitado e o usuário seleciona *Mantenha-me conectado*.  O valor de `KeepAliveInDays` tem precedência sobre `SessionExpiryInSeconds` o valor e determina o tempo de expiração da sessão. Se um usuário fechar o navegador e abri-lo novamente mais tarde, ele ainda poderá entrar silenciosamente, desde que esteja dentro do período de tempo KeepAliveInDays.
+    - **KeepAliveInDays** -o tempo de vida de cookies de sessão quando se *mantém conectado* está habilitado e o usuário seleciona *Mantenha-me conectado*.  O valor de `KeepAliveInDays` tem precedência sobre o `SessionExpiryInSeconds` valor e determina o tempo de expiração da sessão. Se um usuário fechar o navegador e abri-lo novamente mais tarde, ele ainda poderá entrar silenciosamente, desde que esteja dentro do período de tempo KeepAliveInDays.
 
     Para obter mais informações, consulte [comportamentos de jornada do usuário](relyingparty.md#userjourneybehaviors).
 
 Recomendamos que você defina o valor de SessionExpiryInSeconds como um período curto (1200 segundos), enquanto o valor de KeepAliveInDays pode ser definido como um período relativamente longo (30 dias), conforme mostrado no exemplo a seguir:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <UserJourneyBehaviors>
@@ -131,7 +131,7 @@ Recomendamos que você defina o valor de SessionExpiryInSeconds como um período
 1. Para testar a política personalizada que você carregou, na portal do Azure, vá até a página de política e selecione **executar agora**.
 1. Digite seu **nome de usuário** e **senha**, selecione **Mantenha-me conectado**e, em seguida, clique em **entrar**.
 1. Retorne ao portal do Azure. Vá para a página de política e, em seguida, selecione **copiar** para copiar a URL de entrada.
-1. Na barra de endereços do navegador, remova `&prompt=login` o parâmetro de cadeia de caracteres de consulta, que força o usuário a inserir suas credenciais nessa solicitação.
+1. Na barra de endereços do navegador, remova o `&prompt=login` parâmetro de cadeia de caracteres de consulta, que força o usuário a inserir suas credenciais nessa solicitação.
 1. No navegador, clique em **ir**. Agora Azure AD B2C emitirá um token de acesso sem solicitar que você entre novamente. 
 
 ## <a name="next-steps"></a>Próximas etapas

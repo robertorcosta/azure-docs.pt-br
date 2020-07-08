@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 997a6941e2ccc26dabe1a593fe938094099bc98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388979"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Passo a passo: Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C
 
@@ -123,7 +123,7 @@ Os comentários acima de `AuthenticationType` e `AllowInsecureAuthInProduction` 
 1. Cole o `<UserJourneys>` no arquivo de extensões, após o fechamento do elemento `<ClaimsProviders>`.
 1. Localize o `<UserJourney Id="SignUpOrSignIn">` e adicione a etapa de orquestração a seguir antes da última.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -133,7 +133,7 @@ Os comentários acima de `AuthenticationType` e `AllowInsecureAuthInProduction` 
 
 1. Refatore a última etapa de orquestração alterando `Order` para `8`. Suas duas etapas finais de orquestração devem ser semelhantes a estas:
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />

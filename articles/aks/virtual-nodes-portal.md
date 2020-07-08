@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: e27a920aea18affd78f840d3063b8082f716745b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 6706d9c1c683cdf46fe42822cad67a49a69843a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389812"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar nós virtuais no portal do Azure
 
@@ -59,7 +59,7 @@ As seguintes regiões têm suporte para implantações de nó virtual:
 * Oeste dos EUA 2 (westus2)
 
 ## <a name="known-limitations"></a>Limitações conhecidas
-A funcionalidade de Nós Virtuais é altamente dependente do conjunto de recursos de ACI. Os cenários a seguir ainda não têm suporte com Nós Virtuais
+A funcionalidade de Nós Virtuais é altamente dependente do conjunto de recursos de ACI. Além das [cotas e dos limites das instâncias de contêiner do Azure](../container-instances/container-instances-quotas.md), os seguintes cenários ainda não têm suporte com nós virtuais:
 
 * Usando a entidade de serviço para efetuar pull de imagens do ACR. A [solução alternativa](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) é usar [segredos do Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
 * [Limitações de Rede Virtual](../container-instances/container-instances-vnet.md) incluindo o emparelhamento de redes virtuais, políticas de rede do Kubernetes e o tráfego de saída para a Internet com grupos de segurança de rede.
@@ -67,7 +67,7 @@ A funcionalidade de Nós Virtuais é altamente dependente do conjunto de recurso
 * [Alias de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para exec em ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não implantará pods no nó virtual
-* Os nós virtuais dão suporte ao agendamento de pods do Linux. Você pode instalar manualmente o provedor de [ACI de Kubelet Virtual](https://github.com/virtual-kubelet/azure-aci) para agendar contêineres do Windows Server para ACI. 
+* Os nós virtuais dão suporte ao agendamento de pods do Linux. Você pode instalar manualmente o provedor de [ACI de Kubelet Virtual](https://github.com/virtual-kubelet/azure-aci) para agendar contêineres do Windows Server para ACI.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c434ad6a724ba513caf7923916997600097b43f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387857"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de uma politica personalizada para seu aplicativo no Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ O Azure AD B2C é compatível com passagem do token de acesso dos provedores de 
 
 1. Abre seu arquivo *TrustframeworkExtensions.xml* e adicione o seguinte elemento **ClaimType** com um identificador de `identityProviderAccessToken` para o elemento **ClaimsSchema**:
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="identityProviderAccessToken">
@@ -47,7 +47,7 @@ O Azure AD B2C é compatível com passagem do token de acesso dos provedores de 
 
 2. Adicione o elemento **OutputClaim** ao elemento **TechnicalProfile** para cada provedor de identidade do OAuth 2.0 que você gostaria de ter o token de acesso. O exemplo a seguir mostra o elemento adicionado ao perfil técnico do Facebook:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Facebook</DisplayName>
       <TechnicalProfiles>
@@ -64,7 +64,7 @@ O Azure AD B2C é compatível com passagem do token de acesso dos provedores de 
 3. Salve o arquivo *TrustFrameworkExtensions.xml*.
 4. Abra seu arquivo de política de terceira parte confiável, como *Signuporsignin*e adicione o elemento **OutputClaim** para **TechnicalProfile**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
       <TechnicalProfile Id="PolicyProfile">
@@ -90,7 +90,7 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 4. Selecione **Estrutura de Experiência de Identidade**.
 5. Na página de políticas personalizadas, clique em **Carregar Política**.
 6. Habilite **Substituir a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
-7. Selecione **Carregar**.
+7. Escolha **Carregar**.
 8. Repita as etapas 5 a 7 para o arquivo de terceira parte confiável, como *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>Executar a política

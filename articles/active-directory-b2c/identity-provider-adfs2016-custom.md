@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 12845f09ac2eb2342cdb1ab82b703ebd3a67c706
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 20cb5f70a5844cb2d56fc9ff357fcaf640a6c56b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388571"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para uma conta de usuário do ADFS usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C). Habilite a entrada adicionando um [perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
+Este artigo mostra como habilitar a entrada para uma conta de usuário do ADFS usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C). Você habilita a credencial adicionando um [perfil técnico de provedor de identidade do SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Este artigo mostra como habilitar a entrada para uma conta de usuário do ADFS u
 Você precisa armazenar o certificado em seu locatário do Azure AD B2C.
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário do Azure AD B2C. Escolha o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
 5. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
@@ -48,7 +48,7 @@ Você precisa armazenar o certificado em seu locatário do Azure AD B2C.
 
 Se você quiser que os usuários entrem usando uma conta do ADFS, defina a conta como um provedor de declarações com o qual o Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
-Você pode definir uma conta do ADFS como um provedor de declarações adicionando-o ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, consulte [definir um perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
+Você pode definir uma conta do ADFS como um provedor de declarações adicionando-o ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, confira [definir um perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
 
 1. Abra *TrustFrameworkExtensions.xml*.
 1. Localize o elemento **ClaimsProviders**. Se ele não existir, adicione-o sob o elemento raiz.
@@ -95,9 +95,9 @@ Você pode definir uma conta do ADFS como um provedor de declarações adicionan
 
 1. Substitua `your-ADFS-domain` pelo nome do domínio do ADFS e substitua o valor da declaração de saída **identityProvider** pelo DNS (valor arbitrário que indica o domínio).
 
-1. Localize a `<ClaimsProviders>` seção e adicione o trecho de código XML a seguir. Se sua política já contiver `SM-Saml-idp` o perfil técnico, pule para a próxima etapa. Para obter mais informações, consulte [Gerenciamento de sessão de logon único](custom-policy-reference-sso.md).
+1. Localize a seção `<ClaimsProviders>` e adicione o snippet XML a seguir. Se sua política já contiver o perfil técnico `SM-Saml-idp`, pule para a próxima etapa. Para saber mais, confira [gerenciamento de sessão de logon único](custom-policy-reference-sso.md).
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Session Management</DisplayName>
       <TechnicalProfiles>
@@ -144,7 +144,7 @@ O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de id
 1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada do usuário que você criou.
 2. Em **ClaimsProviderSelections**, adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `ContosoExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
@@ -155,11 +155,11 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. A a�
 1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
 2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que você use o mesmo valor para a ID que você usou para **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
 
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico criado anteriormente. Por exemplo, `Contoso-SAML2`.
+    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico você já criou. Por exemplo, `Contoso-SAML2`.
 
 3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
@@ -208,7 +208,7 @@ Abra um navegador e navegue até a URL. Certifique-se de digitar a URL correta e
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
 
-A comunicação com Azure AD B2C ocorre por meio de um aplicativo que você registra em seu locatário B2C. Esta seção lista etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
+A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você registra em seu locatário B2C. Esta seção lista etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

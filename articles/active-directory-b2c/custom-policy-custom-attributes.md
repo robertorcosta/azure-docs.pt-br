@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389319"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: habilitar atributos personalizados em uma política de perfil Personalizada
 
@@ -36,11 +36,11 @@ Seu diretório de Azure AD B2C é fornecido com um [conjunto interno de atributo
 * Um provedor de identidade tem um identificador de usuário exclusivo, **uniqueUserGUID**, que deve ser persistido.
 * Uma jornada de usuário personalizado precisa manter o estado do usuário, **migrationStatus**, para que outra lógica opere.
 
-Azure AD B2C permite que você estenda o conjunto de atributos armazenados em cada conta de usuário. Você também pode ler e gravar esses atributos usando a [API Microsoft Graph](manage-user-accounts-graph-api.md).
+Azure AD B2C permite que você estenda o conjunto de atributos armazenados em cada conta de usuário. Você também pode ler e gravar esses atributos usando a [API do Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ## <a name="azure-ad-b2c-extensions-app"></a>Aplicativo de extensões de Azure AD B2C
 
-Atributos de extensão só podem ser registrados em um objeto de aplicativo, mesmo que possam conter dados para um usuário. O atributo de extensão é anexado ao aplicativo chamado B2C-Extensions-app. Não modifique esse aplicativo, pois ele é usado pelo Azure AD B2C para armazenar dados do usuário. Você pode encontrar esse aplicativo em Azure AD B2C, registros de aplicativo.
+Atributos de extensão só podem ser registrados em um objeto de aplicativo, mesmo que possam conter dados para um usuário. O atributo de extensão é anexado ao aplicativo chamado b2c-extensions-app. Não modifique esse aplicativo, pois ele é usado pelo Azure AD B2C para armazenar dados do usuário. Você pode encontrar esse aplicativo em Azure AD B2C, registros de aplicativo.
 
 Os termos *propriedade de extensão*, *atributo personalizado* e *declaração personalizada*, se referem à mesma coisa no contexto deste artigo. O nome varia dependendo do contexto, como o aplicativo, objeto ou política.
 
@@ -49,7 +49,7 @@ Os termos *propriedade de extensão*, *atributo personalizado* e *declaração p
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione **todos os aplicativos**.
+1. Selecione **registros de aplicativo**e, em seguida, selecione **todos os aplicativos**.
 1. Selecione o `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` aplicativo.
 1. Copiar os identificadores a seguir para a sua área de transferência e salve-os:
     * **ID do aplicativo**. Exemplo: `11111111-1111-1111-1111-111111111111`.
@@ -59,9 +59,9 @@ Os termos *propriedade de extensão*, *atributo personalizado* e *declaração p
 
 Para habilitar atributos personalizados em sua política, forneça a **ID do aplicativo** e a ID de **objeto** do aplicativo nos metadados do perfil técnico comum do AAD. O perfil técnico do *AAD-comum* é encontrado na base [Azure Active Directory](active-directory-technical-profile.md) perfil técnico e fornece suporte para o gerenciamento de usuários do Azure AD. Outros perfis técnicos do Azure AD incluem o AAD-Common para aproveitar sua configuração. Substitua o perfil técnico do AAD-comum no arquivo de extensão.
 
-1. Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Localize o elemento ClaimsProviders. Adicione um novo Claimprovider ao elemento ClaimsProviders.
-1. Substitua `ApplicationObjectId` pela ID de objeto que você registrou anteriormente. Em seguida `ClientId` , substitua pela ID do aplicativo que você registrou anteriormente no trecho abaixo.
+1. Substitua `ApplicationObjectId` pela ID de objeto que você registrou anteriormente. Em seguida, substitua `ClientId` pela ID do aplicativo que você registrou anteriormente no trecho abaixo.
 
     ```xml
     <ClaimsProvider>
@@ -85,7 +85,7 @@ Para habilitar atributos personalizados em sua política, forneça a **ID do apl
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário de Azure ad B2C.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Estrutura de Experiência de Identidade**.
-5. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política TrustFrameworkExtensions. XML que você alterou.
+5. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política de TrustFrameworkExtensions.xml que você alterou.
 
 > [!NOTE]
 > Na primeira vez que o perfil técnico do Azure AD persistir a declaração para o diretório, ele verificará se o atributo personalizado existe. Caso contrário, ele cria o atributo personalizado.  
@@ -96,7 +96,7 @@ Os mesmos atributos de extensão são compartilhados entre políticas internas e
 
 Você pode criar esses atributos usando a interface do usuário do portal antes ou depois de usá-los em suas políticas personalizadas. Siga as orientações sobre como [definir atributos personalizados no Azure Active Directory B2C](user-flow-custom-attributes.md). Ao criar um atributo **lealdadeid** no portal, você deve consultá-lo da seguinte maneira:
 
-|Name     |Usado em |
+|Nome     |Usado em |
 |---------|---------|
 |`extension_loyaltyId`  | Política personalizada|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [API do Microsoft Graph](manage-user-accounts-graph-api.md)|

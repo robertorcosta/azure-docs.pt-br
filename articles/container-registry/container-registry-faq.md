@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390356"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
 
@@ -220,7 +220,7 @@ O ACR aceita [funções personalizadas](container-registry-roles.md) que fornece
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  Ou, atribua a função a um princípio de serviço identificado pela ID do aplicativo:
+  Ou, atribua a função a uma entidade de serviço identificada por sua ID de aplicativo:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -269,6 +269,7 @@ Atualmente, a configuração de um registro de contêiner do Azure para acesso d
 - [Por que o portal do Azure não lista todos os meus repositórios ou tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Por que a portal do Azure não busca os repositórios ou tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Por que minha solicitação de pull ou push falha com a operação não permitida?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Formato de repositório inválido ou sem suporte](#repository-format-is-invalid-or-unsupported)
 - [Como posso coletar rastreamentos de http no Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Verificar integridade com `az acr check-health`
@@ -438,6 +439,13 @@ Estes são alguns cenários em que as operações podem não ser permitidas:
 * Os registros clássicos não são mais compatíveis. Atualize para uma [camada de serviço](https://aka.ms/acr/skus) com suporte usando o [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou o portal do Azure.
 * A imagem ou o repositório pode estar bloqueado para que não possa ser excluído ou atualizado. Você pode usar o comando [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) para exibir os atributos atuais.
 * Algumas operações não serão permitidas se a imagem estiver em quarentena. Saiba mais sobre a [quarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* O registro pode ter atingido seu [limite de armazenamento](container-registry-skus.md#service-tier-features-and-limits).
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>Formato de repositório inválido ou sem suporte
+
+Se você vir um erro como "formato de repositório sem suporte", "formato inválido" ou "os dados solicitados não existem" ao especificar um nome de repositório em operações de repositório, verifique a ortografia e o caso do nome. Os nomes de repositório válidos só podem incluir caracteres alfanuméricos minúsculos, pontos, traços, sublinhados e barras invertidas. 
+
+Para obter as regras de nomenclatura completas do repositório, consulte a [especificação de distribuição da iniciativa Open container](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Como posso coletar rastreamentos de http no Windows?
 

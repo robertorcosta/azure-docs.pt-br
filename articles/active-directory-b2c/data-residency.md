@@ -7,16 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/26/2019
+ms.topic: reference
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188840"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388707"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Residência de dados e disponibilidade de região
 
@@ -40,7 +41,7 @@ O Azure AD B2C armazena dados do usuário nas regiões Estados Unidos, Europa ou
 
 A residência de dados é determinada pelo país/região que você selecionar ao [criar um locatário de Azure ad B2C](tutorial-create-tenant.md):
 
-![Captura de tela de um locatário de visualização](./media/data-residency/data-residency-b2c-tenant.png)
+![Captura de tela de um formulário criar locatário, escolhendo país ou região.](./media/data-residency/data-residency-b2c-tenant.png)
 
 Os dados residem no **Estados Unidos** para os seguintes países/regiões:
 
@@ -68,4 +69,4 @@ Não **há nenhum caminho de migração** de um locatário do B2C de visualizaç
 
 Há problemas conhecidos quando você exclui um locatário do B2C de visualização e cria um locatário B2C de escala de produção com o mesmo nome de domínio. *Você deve criar um locatário B2C de escala de produção com um nome de domínio diferente*.
 
-![Captura de tela de um locatário de visualização](./media/data-residency/preview-b2c-tenant.png)
+![Captura de tela de um tipo de locatário, como locatário de visualização.](./media/data-residency/preview-b2c-tenant.png)

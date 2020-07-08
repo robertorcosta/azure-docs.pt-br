@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7eea37cbd926046c6b923b003cd47e0a0c2b0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387619"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerenciar Azure AD B2C contas de usuário com Microsoft Graph
 
@@ -46,7 +46,7 @@ As seguintes operações de gerenciamento de usuário estão disponíveis na [AP
 
 ### <a name="display-name-property"></a>Propriedade de nome de exibição
 
-O `displayName` é o nome a ser exibido em portal do Azure gerenciamento de usuário para o usuário e no token de acesso Azure ad B2C retorna ao aplicativo. Essa propriedade é obrigatória.
+O `displayName` é o nome a ser exibido em portal do Azure gerenciamento de usuário para o usuário e no token de acesso Azure ad B2C retorna ao aplicativo. Esta propriedade é necessária.
 
 ### <a name="identities-property"></a>Propriedade Identities
 
@@ -59,15 +59,15 @@ Um usuário com uma conta de cliente pode entrar com várias identidades. Por ex
 
 Na API Microsoft Graph, as identidades local e federada são armazenadas no atributo User `identities` , que é do tipo [objectidentity][graph-objectIdentity]. A `identities` coleção representa um conjunto de identidades usadas para entrar em uma conta de usuário. Essa coleção permite que o usuário entre na conta de usuário com qualquer uma de suas identidades associadas.
 
-| Propriedade   | Type |Descrição|
+| Propriedade   | Tipo |Descrição|
 |:---------------|:--------|:----------|
-|signInType|cadeia de caracteres| Especifica os tipos de entrada do usuário em seu diretório. Para conta local: `emailAddress`, `emailAddress1` `emailAddress2` `emailAddress3` `userName`,,, ou qualquer outro tipo que você desejar. A conta social deve ser definida `federated`como.|
-|emissor|cadeia de caracteres|Especifica o emissor da identidade. Para contas locais (em que **signInType** não `federated`é), essa propriedade é o nome de domínio padrão do locatário B2C local `contoso.onmicrosoft.com`, por exemplo. Para a identidade social ( **signInType** em que `federated`signInType é), o valor é o nome do emissor, por exemplo`facebook.com`|
-|issuerAssignedId|cadeia de caracteres|Especifica o identificador exclusivo atribuído ao usuário pelo emissor. A combinação de **emissor** e **issuerAssignedId** deve ser exclusiva em seu locatário. Para conta local, quando **signInType** é definido como `emailAddress` ou `userName`, ele representa o nome de entrada para o usuário.<br>Quando **signInType** é definido como: <ul><li>`emailAddress`(ou começa com `emailAddress` like `emailAddress1`) **issuerAssignedId** deve ser um endereço de email válido</li><li>`userName`(ou qualquer outro valor), **issuerAssignedId** deve ser uma [parte local válida de um endereço de email](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** representa o identificador exclusivo da conta federada</li></ul>|
+|signInType|string| Especifica os tipos de entrada do usuário em seu diretório. Para conta local:,,,, `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3` `userName` ou qualquer outro tipo que você desejar. A conta social deve ser definida como `federated` .|
+|emissor|string|Especifica o emissor da identidade. Para contas locais (em que **signInType** não é `federated` ), essa propriedade é o nome de domínio padrão do locatário B2C local, por exemplo `contoso.onmicrosoft.com` . Para a identidade social (em que **signInType** é `federated` ), o valor é o nome do emissor, por exemplo`facebook.com`|
+|issuerAssignedId|string|Especifica o identificador exclusivo atribuído ao usuário pelo emissor. A combinação de **emissor** e **issuerAssignedId** deve ser exclusiva em seu locatário. Para conta local, quando **signInType** é definido como `emailAddress` ou `userName` , ele representa o nome de entrada para o usuário.<br>Quando **signInType** é definido como: <ul><li>`emailAddress`(ou começa com `emailAddress` like `emailAddress1` ) **issuerAssignedId** deve ser um endereço de email válido</li><li>`userName`(ou qualquer outro valor), **issuerAssignedId** deve ser uma [parte local válida de um endereço de email](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** representa o identificador exclusivo da conta federada</li></ul>|
 
 A propriedade **Identities** a seguir, com uma identidade de conta local com um nome de entrada, um endereço de email como entrada e com uma identidade social. 
 
- ```JSON
+ ```json
  "identities": [
      {
        "signInType": "userName",
@@ -91,11 +91,11 @@ Para identidades federadas, dependendo do provedor de identidade, o **issuerAssi
 
 ### <a name="password-profile-property"></a>Propriedade de perfil de senha
 
-Para uma identidade local, a propriedade **passwordProfile** é necessária e contém a senha do usuário. A `forceChangePasswordNextSignIn` propriedade deve ser definida `false`como.
+Para uma identidade local, a propriedade **passwordProfile** é necessária e contém a senha do usuário. A `forceChangePasswordNextSignIn` propriedade deve ser definida como `false` .
 
 Para uma identidade federada (social), a propriedade **passwordProfile** não é necessária.
 
-```JSON
+```json
 "passwordProfile" : {
     "password": "password-value",
     "forceChangePasswordNextSignIn": false
@@ -108,7 +108,7 @@ A política de senha de Azure AD B2C (para contas locais) é baseada na Azure Ac
 
 Em cenários de migração de usuário, se as contas que você deseja migrar tiverem uma intensidade de senha mais fraca do que a [força de senha forte](../active-directory/authentication/concept-sspr-policy.md) imposta por Azure ad B2C, você poderá desabilitar o requisito de senha forte. Para alterar a política de senha padrão, defina a propriedade `passwordPolicies` como `DisableStrongPassword`. Por exemplo, você pode modificar a solicitação de criação de usuário da seguinte maneira:
 
-```JSON
+```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
@@ -116,9 +116,9 @@ Em cenários de migração de usuário, se as contas que você deseja migrar tiv
 
 Cada aplicativo voltado para o cliente tem requisitos exclusivos para que as informações sejam coletadas. Seu locatário de Azure AD B2C vem com um conjunto interno de informações armazenadas em Propriedades, como nome, sobrenome, cidade e CEP fornecidos. Com Azure AD B2C, você pode estender o conjunto de propriedades armazenadas em cada conta de cliente. Para obter mais informações sobre como definir atributos personalizados, consulte [atributos personalizados (fluxos de usuário)](user-flow-custom-attributes.md) e [atributos personalizados (políticas personalizadas)](custom-policy-custom-attributes.md).
 
-Microsoft Graph API dá suporte à criação e atualização de um usuário com atributos de extensão. Atributos de extensão na API do Graph são nomeados usando a convenção `extension_ApplicationObjectID_attributename`. Por exemplo:
+A API do Microsoft Graph dá suporte à criação e à atualização de um usuário com atributos de extensão. Atributos de extensão na API do Graph são nomeados usando a convenção `extension_ApplicationObjectID_attributename`. Por exemplo:
 
-```JSON
+```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
@@ -134,8 +134,8 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 Depois de obter o exemplo de código, configure-o para o seu ambiente e, em seguida, compile o projeto:
 
 1. Abra o projeto no [Visual Studio](https://visualstudio.microsoft.com) ou [Visual Studio Code](https://code.visualstudio.com).
-1. Abra o `src/appsettings.json`.
-1. Na `appSettings` seção, `your-b2c-tenant` substitua pelo nome do seu locatário e `Application (client) ID` `Client secret` com os valores para o registro do aplicativo de gerenciamento (consulte a seção [registrar um aplicativo de gerenciamento](#register-a-management-application) deste artigo).
+1. Abra `src/appsettings.json`.
+1. Na `appSettings` seção, substitua `your-b2c-tenant` pelo nome do seu locatário e `Application (client) ID` `Client secret` com os valores para o registro do aplicativo de gerenciamento (consulte a seção [registrar um aplicativo de gerenciamento](#register-a-management-application) deste artigo).
 1. Abra uma janela de console no seu clone local do repositório, alterne para o `src` diretório e, em seguida, compile o projeto:
     ```console
     cd src
@@ -157,7 +157,7 @@ Qualquer solicitação para a API de Microsoft Graph requer um token de acesso p
 
 O `RunAsync` método no arquivo _Program.cs_ :
 
-1. Lê as configurações do aplicativo do arquivo _appSettings. JSON_
+1. Lê as configurações do aplicativo do _appsettings.jsno_ arquivo
 1. Inicializa o provedor de autenticação usando o fluxo de [concessão de credenciais de cliente do OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Com o fluxo de concessão de credenciais de cliente, o aplicativo é capaz de obter um token de acesso para chamar a API de Microsoft Graph.
 1. Configura o cliente do serviço de Microsoft Graph com o provedor de autenticação:
 
@@ -202,7 +202,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Faça chamadas à API usando os SDKs de Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) inclui informações sobre como ler e gravar informações de Microsoft Graph, `$select` usar para controlar as propriedades retornadas, fornecer parâmetros de consulta personalizados e `$filter` usar `$orderBy` os parâmetros de consulta e.
+[Faça chamadas à API usando os SDKs de Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) inclui informações sobre como ler e gravar informações de Microsoft Graph, usar `$select` para controlar as propriedades retornadas, fornecer parâmetros de consulta personalizados e usar os `$filter` parâmetros de `$orderBy` consulta e.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388894"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -154,7 +154,7 @@ A tabela abaixo lista os fragmentos de HTML que o Azure AD B2C mescla ao element
 | Inscrição da conta local | Contém um formulário para inscrições de conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter diferentes controles de entrada como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla. |
 | Inscrição de conta social | Pode aparecer ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou Google. Ele é usado quando informações adicionais devem ser coletadas do cliente usando um formulário de inscrição. |
 | Inscrição ou entrada unificada | Controla tanto a inscrição quanto a entrada de clientes, que podem usar provedores de identidade social como Facebook, Google ou contas locais. |
-| Autenticação Multifator | Os clientes podem verificar seus números de telefone (usando mensagem de texto ou de voz) durante a inscrição ou entrada. |
+| Autenticação multifator | Os clientes podem verificar seus números de telefone (usando mensagem de texto ou de voz) durante a inscrição ou entrada. |
 | Erro | Fornece informações de erro para o cliente. |
 
 ## <a name="company-branding-preview"></a>Identidade visual da empresa (versão prévia)
@@ -171,7 +171,7 @@ Comece definindo o logotipo de faixa, a imagem de tela de fundo e a cor da tela 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
-1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. No portal do Azure, pesquise e selecione **Azure AD B2C**.
 1. Em **gerenciar**, selecione **identidade visual da empresa**.
 1. Siga as etapas em [Adicionar identidade visual à página de entrada Azure Active Directory de sua organização](../active-directory/fundamentals/customize-branding.md).
 
@@ -186,11 +186,11 @@ Lembre-se destas coisas ao configurar a identidade visual da empresa no Azure AD
 Depois de configurar a identidade visual da empresa, habilite-a em seus fluxos de usuário.
 
 1. No menu à esquerda da portal do Azure, selecione **Azure ad B2C**.
-1. Em **políticas**, selecione **fluxos de usuário (políticas)**.
+1. Em **Políticas**, selecione **Fluxos de usuários (políticas)** .
 1. Selecione o fluxo de usuário para o qual você deseja habilitar a identidade visual da empresa. A identidade visual da empresa **não tem suporte** para os tipos de fluxo de usuário *Sign in v1* e de *edição de perfil v1* .
 1. Em **Personalizar**, selecione **layouts de página**e, em seguida, selecione o layout que você deseja marcar. Por exemplo, selecione **página de inscrição ou inscrição unificada**.
 1. Para a **versão de layout de página (visualização)**, escolha a versão **1.2.0** ou superior.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se você quiser marcar todas as páginas no fluxo do usuário, defina a versão de layout da página para cada layout de página no fluxo do usuário.
 
@@ -202,7 +202,7 @@ Este exemplo anotado mostra um logotipo de faixa personalizado e uma imagem de t
 
 ### <a name="use-company-branding-assets-in-custom-html"></a>Usar ativos de identidade visual da empresa em HTML personalizado
 
-Para usar os ativos de identidade visual da empresa em HTML personalizado, adicione as seguintes marcas `<div id="api">` fora da marca:
+Para usar os ativos de identidade visual da empresa em HTML personalizado, adicione as seguintes marcas fora da `<div id="api">` marca:
 
 ```HTML
 <img data-tenant-branding-background="true" />
@@ -213,19 +213,19 @@ A origem da imagem é substituída pela imagem de plano de fundo e pelo logotipo
 
 ## <a name="localize-content"></a>Conteúdo de localização
 
-Você localiza seu conteúdo HTML habilitando a [personalização de idioma](user-flow-language-customization.md) em seu locatário do Azure AD B2C. Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro `ui-locales` OpenID Connect para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
+Você localiza seu conteúdo HTML habilitando a [personalização de idioma](user-flow-language-customization.md) em seu locatário do Azure AD B2C. Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro OpenID Connect `ui_locales` para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
 
 O conteúdo pode ser extraído de diferentes locais com base na localidade usada. No ponto de extremidade habilitado para CORS, você configura uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará adequadamente se usar o valor curinga `{Culture:RFC5646}`.
 
 Por exemplo, o URI da página personalizada pode ser semelhante a:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
 Você pode carregar a página em francês Obtendo conteúdo de:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 

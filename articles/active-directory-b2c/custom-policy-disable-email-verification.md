@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389302"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Desabilitar a verificação de email durante a inscrição do cliente usando uma política personalizada no Azure Active Directory B2C
 
@@ -28,17 +28,17 @@ Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Adicionar os metadados ao perfil técnico autodeclarado
 
-O perfil técnico do **LocalAccountSignUpWithLogonEmail** é uma [declaração automática](self-asserted-technical-profile.md), que é invocada durante o fluxo de inscrição. Para desabilitar a verificação de email, defina `EnforceEmailVerification` os metadados como false. Substitua os perfis técnicos do LocalAccountSignUpWithLogonEmail no arquivo de extensão. 
+O perfil técnico do **LocalAccountSignUpWithLogonEmail** é uma [declaração automática](self-asserted-technical-profile.md), que é invocada durante o fluxo de inscrição. Para desabilitar a verificação de email, defina os `EnforceEmailVerification` metadados como false. Substitua os perfis técnicos do LocalAccountSignUpWithLogonEmail no arquivo de extensão. 
 
-1. Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Localize o elemento `ClaimsProviders`. Se o elemento não existir, adicione-o.
 1. Adicione o seguinte provedor de declarações ao `ClaimsProviders` elemento:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
       </Metadata>
@@ -50,7 +50,7 @@ O perfil técnico do **LocalAccountSignUpWithLogonEmail** é uma [declaração a
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
+2. Verifique se você está usando o diretório que contém o locatário do Azure Active Directory escolhendo o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário do Azure Active Directory.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Estrutura de Experiência de Identidade**.
 5. Selecione **Carregar política personalizada** e carregue os dois arquivos de política alterados.

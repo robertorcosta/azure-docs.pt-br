@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 62a283efb93987d3c4a6564c9b25d2031c269559
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e07be01a0fb6d74b4dcef5cbc6ec129f95fd2e7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387925"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Twitter usando o Azure Active Directory B2C
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 
-Para usar o Twitter como provedor de identidade no Azure AD B2C, você precisará criar um aplicativo do Twitter. Se você ainda não tiver uma conta do Twitter, poderá se inscrever [https://twitter.com/signup](https://twitter.com/signup)em.
+Para usar o Twitter como provedor de identidade no Azure AD B2C, você precisará criar um aplicativo do Twitter. Se você ainda não tiver uma conta do Twitter, poderá se inscrever em [https://twitter.com/signup](https://twitter.com/signup) .
 
 1. Entre no site [Desenvolvedores do Twitter](https://developer.twitter.com/en/apps) com suas credencias de conta do Twitter.
 1. Selecione **Criar um aplicativo**.
@@ -35,11 +35,11 @@ Para usar o Twitter como provedor de identidade no Azure AD B2C, você precisar�
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Configurar o Twitter como um provedor de identidade em seu locatário
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador global do seu locatário Azure ad B2C.
+1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **provedores de identidade**e, em seguida, selecione **Twitter**.
-1. Insira um **nome**. Por exemplo, *Twitter*.
+1. Insira um **Nome**. Por exemplo, *Twitter*.
 1. Para a **ID do cliente**, insira a chave de API do consumidor do aplicativo do Twitter que você criou anteriormente.
 1. Para o **segredo do cliente**, insira a chave secreta da API do consumidor que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.

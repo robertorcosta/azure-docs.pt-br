@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c159e78d0aa065b53b1164e01309e770302fb1ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389013"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração da senha usando políticas personalizadas no Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Active Direc
 
 1. Abre seu arquivo *TrustframeworkExtensions.xml* e adicione o seguinte elemento **ClaimType** com um identificador de `oldPassword` para o elemento [ClaimsSchema](claimsschema.md):
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="oldPassword">
@@ -47,7 +47,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Active Direc
 
 2. Um elemento [ClaimsProvider](claimsproviders.md) contém o perfil técnico que autentica o usuário. Adicione os seguintes provedores de declarações ao elemento **ClaimsProviders**:
 
-    ```XML
+    ```xml
     <ClaimsProviders>
       <ClaimsProvider>
         <DisplayName>Local Account SignIn</DisplayName>
@@ -125,7 +125,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Active Direc
 
 3. O elemento [UserJourney](userjourneys.md) define o caminho usado pelo usuário ao interagir com seu aplicativo. Adicione o elemento **UserJourneys** se ele não existir com o **UserJourney** identificado como `PasswordChange`:
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="PasswordChange">
         <OrchestrationSteps>

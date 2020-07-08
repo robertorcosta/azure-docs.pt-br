@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c53210939358255b20d0e976df9c4bff88580a80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 462e33c836d8ca0a904e8f7b2e833dc7103311fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184427"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387891"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do WeChat usando o Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78184427"
 
 ## <a name="create-a-wechat-application"></a>Criar um aplicativo WeChat
 
-Para usar uma conta do WeChat como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do WeChat, poderá obter informações em [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
+Para usar uma conta do WeChat como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do WeChat, poderá obter informações em [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html) .
 
 ### <a name="register-a-wechat-application"></a>Registrar um aplicativo WeChat
 
@@ -36,11 +36,11 @@ Para usar uma conta do WeChat como um provedor de identidade no Azure Active Dir
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configurar o WeChat como um provedor de identidade em seu locatário
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador global do seu locatário Azure ad B2C.
+1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **provedores de identidade**e, em seguida, selecione **WeChat (versão prévia)**.
-1. Insira um **nome**. Por exemplo, *WeChat*.
+1. Insira um **Nome**. Por exemplo, *WeChat*.
 1. Para a **ID do cliente**, insira a ID do aplicativo WeChat que você criou anteriormente.
 1. Para o **segredo do cliente**, insira a chave do aplicativo que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.

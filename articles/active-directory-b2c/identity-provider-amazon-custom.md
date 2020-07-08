@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 90b107b2335bd5f08eeb0b9aa66c7a9db9b74eb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388554"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o logon com uma conta da Amazon usando políticas personalizadas no Azure Active Directory B2C
 
@@ -27,14 +27,14 @@ Este artigo mostra como habilitar a entrada para usuários de uma conta do Amazo
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-get-started.md).
-- Se você ainda não tiver uma conta do Amazon, crie uma [https://www.amazon.com/](https://www.amazon.com/)em.
+- Se você ainda não tiver uma conta do Amazon, crie uma em [https://www.amazon.com/](https://www.amazon.com/) .
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Criar um aplicativo no console do desenvolvedor do Amazon
 
-Para usar uma conta da Amazon como um provedor de identidade federada no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seus [serviços de desenvolvedor e tecnologias do Amazon](https://developer.amazon.com). Se você ainda não tiver uma conta do Amazon, poderá se inscrever [https://www.amazon.com/](https://www.amazon.com/)em.
+Para usar uma conta da Amazon como um provedor de identidade federada no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seus [serviços de desenvolvedor e tecnologias do Amazon](https://developer.amazon.com). Se você ainda não tiver uma conta do Amazon, poderá se inscrever em [https://www.amazon.com/](https://www.amazon.com/) .
 
 > [!NOTE]  
-> Use as URLs a seguir na **etapa 8** abaixo, `your-tenant-name` substituindo pelo nome do seu locatário. Ao inserir o nome do locatário, use todas as letras minúsculas, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
+> Use as URLs a seguir na **etapa 8** abaixo, substituindo `your-tenant-name` pelo nome do seu locatário. Ao inserir o nome do locatário, use todas as letras minúsculas, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
 > - Para **origens permitidas**, insira`https://your-tenant-name.b2clogin.com` 
 > - Para **URLs de retorno permitidas**, insira`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
 
@@ -133,7 +133,7 @@ O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de id
 1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada do usuário que você criou.
 2. Em **ClaimsProviderSelects**, adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `AmazonExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AmazonExchange" />
     ```
 
@@ -144,17 +144,17 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
 2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que você use o mesmo valor para a ID que você usou para **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico criado anteriormente. Por exemplo, `Amazon-OAuth`.
+    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico você já criou. Por exemplo, `Amazon-OAuth`.
 
 3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
 
-A comunicação com Azure AD B2C ocorre por meio de um aplicativo que você registra em seu locatário B2C. Esta seção lista etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
+A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você registra em seu locatário B2C. Esta seção lista etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

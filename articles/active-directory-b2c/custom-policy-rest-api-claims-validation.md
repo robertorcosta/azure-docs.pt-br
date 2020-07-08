@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388911"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Walkthrough: integrar as trocas de declarações da API REST em sua jornada do usuário Azure AD B2C para validar a entrada do usuário
 
@@ -31,13 +31,13 @@ Você também pode criar a interação como uma etapa de orquestração. Isso é
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada funcional para inscrição e conexão com contas locais.
-- Saiba como [integrar as trocas de declarações da API REST em sua Azure ad B2C política personalizada](custom-policy-rest-api-intro.md).
+- Saiba como [Integrar trocas de declarações da API REST em sua política personalizada no Azure AD B2C](custom-policy-rest-api-intro.md).
 
-## <a name="prepare-a-rest-api-endpoint"></a>Preparar um ponto de extremidade de API REST
+## <a name="prepare-a-rest-api-endpoint"></a>Preparar um ponto de extremidade da API REST
 
 Para esta explicação, você deve ter uma API REST que valida se um endereço de email está registrado em seu sistema de back-end com uma ID de fidelidade. Se registrado, a API REST deve retornar um código de promoção de registro, que o cliente pode usar para comprar bens dentro de seu aplicativo. Caso contrário, a API REST deverá retornar uma mensagem de erro HTTP 409: "a ID de fidelidade ' {ID de fidelidade} ' não está associada ao endereço de email ' {email} '.".
 
-O código JSON a seguir ilustra os dados Azure AD B2C serão enviados para o ponto de extremidade da API REST. 
+O código JSON a seguir ilustra os dados que o Azure AD B2C enviará para o ponto de extremidade da API REST. 
 
 ```json
 {
@@ -47,7 +47,7 @@ O código JSON a seguir ilustra os dados Azure AD B2C serão enviados para o pon
 }
 ```
 
-Depois que a API REST valida os dados, ele deve retornar um HTTP 200 (OK), com os seguintes dados JSON:
+Depois que a API REST validar os dados, ela deverá retornar um HTTP 200 (Ok), com os seguintes dados JSON:
 
 ```json
 {
@@ -65,16 +65,16 @@ Se a validação falhar, a API REST deverá retornar um HTTP 409 (conflito), com
 }
 ```
 
-A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) . Você pode acessar o código completo da função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo do [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir declarações
 
-Uma declaração fornece armazenamento temporário de dados durante uma execução de política de Azure AD B2C. Você pode declarar declarações dentro da seção de [esquema de declarações](claimsschema.md) . 
+Uma declaração fornece armazenamento temporário de dados durante uma execução de política do Azure AD B2C. Você pode definir declarações na seção de [esquema de declarações](claimsschema.md). 
 
-1. Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
-1. Localize o elemento [ClaimsSchema](claimsschema.md) . Se o elemento não existir, adicione-o.
-1. Adicione as declarações a seguir ao elemento **ClaimsSchema** .  
+1. Localize o elemento [ClaimsSchema](claimsschema.md). Se o elemento não existir, adicione-o.
+1. Adicione as seguintes declarações ao elemento **ClaimsSchema**.  
 
 ```xml
 <ClaimType Id="loyaltyId">
@@ -95,7 +95,7 @@ Uma declaração fornece armazenamento temporário de dados durante uma execuç�
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico da API RESTful 
 
-Um [perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface do seu próprio serviço RESTful. Azure AD B2C envia dados para o serviço RESTful em uma `InputClaims` coleção e recebe dados de volta em `OutputClaims` uma coleção. Localize o elemento **ClaimsProviders** e adicione um novo provedor de declarações da seguinte maneira:
+Um [perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface do seu próprio serviço RESTful. O Azure AD B2C envia dados para o serviço RESTful em uma coleção`InputClaims` e recebe dados de volta em uma coleção`OutputClaims`. Localize o elemento **ClaimsProviders** e adicione um novo provedor de declarações da seguinte maneira:
 
 ```xml
 <ClaimsProvider>
@@ -128,15 +128,15 @@ Um [perfil técnico RESTful](restful-technical-profile.md) fornece suporte para 
 </ClaimsProvider>
 ```
 
-Neste exemplo, o `userLanguage` será enviado para o serviço REST como `lang` dentro da carga JSON. O valor da `userLanguage` declaração contém a ID de idioma atual do usuário. Para obter mais informações, consulte [resolvedor de declaração](claim-resolver-overview.md).
+Neste exemplo, `userLanguage` será enviado para o serviço REST como `lang` no conteúdo do JSON. O valor da declaração `userLanguage` contém a ID de idioma do usuário atual. Para obter mais informações, confira [resolvedor de declarações](claim-resolver-overview.md).
 
-Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [Secure RESTFUL API](secure-rest-api.md).
+Os comentários acima de `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, confira [Proteger API RESTful](secure-rest-api.md).
 
 ## <a name="validate-the-user-input"></a>Validar a entrada do usuário
 
-Para obter o número de fidelidade do usuário durante a inscrição, você deve permitir que o usuário insira esses dados na tela. Adicione a declaração de saída do **lealdadeid** à página de inscrição adicionando-a ao elemento da `OutputClaims` seção de perfil técnico de inscrição existente. Especifique a lista completa de declarações de saída para controlar a ordem em que as declarações são apresentadas na tela.  
+Para obter o número de fidelidade do usuário durante a inscrição, você deve permitir que o usuário insira esses dados na tela. Adicione a declaração de saída do **lealdadeid** à página de inscrição adicionando-a ao elemento da seção de perfil técnico de inscrição existente `OutputClaims` . Especifique a lista completa de declarações de saída para controlar a ordem em que as declarações são apresentadas na tela.  
 
-Adicione a referência de perfil técnico de validação ao perfil técnico de inscrição, que chama o `REST-ValidateProfile`. O novo perfil técnico de validação será adicionado à parte superior da `<ValidationTechnicalProfiles>` coleção definida na política de base. Esse comportamento significa que somente após a validação bem-sucedida, Azure AD B2C se move para criar a conta no diretório.   
+Adicione a referência de perfil técnico de validação ao perfil técnico de inscrição, que chama o `REST-ValidateProfile` . O novo perfil técnico de validação será adicionado à parte superior da `<ValidationTechnicalProfiles>` coleção definida na política de base. Esse comportamento significa que somente após a validação bem-sucedida, Azure AD B2C se move para criar a conta no diretório.   
 
 1. Localize o elemento **ClaimsProviders**. Adicione um novo provedor de declarações da seguinte maneira:
 
@@ -192,7 +192,7 @@ Adicione a referência de perfil técnico de validação ao perfil técnico de i
 
 ## <a name="include-a-claim-in-the-token"></a>Incluir uma declaração no token 
 
-Para retornar a declaração de código promocional de volta para o aplicativo de terceira parte confiável, adicione uma declaração <em> `SocialAndLocalAccounts/` </em> de saída ao arquivo. A declaração de saída permitirá que a declaração seja adicionada ao token após um percurso de usuário bem-sucedido e será enviada para o aplicativo. Modifique o elemento de perfil técnico na seção terceira parte confiável para adicionar o `promoCode` como uma declaração de saída.
+Para retornar a declaração de código promocional de volta para o aplicativo de terceira parte confiável, adicione uma declaração de saída ao <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> arquivo. A declaração de saída permitirá que a declaração seja adicionada ao token após um percurso de usuário bem-sucedido e será enviada para o aplicativo. Modifique o elemento de perfil técnico na seção terceira parte confiável para adicionar o `promoCode` como uma declaração de saída.
  
 ```xml
 <RelyingParty>
@@ -218,10 +218,10 @@ Para retornar a declaração de código promocional de volta para o aplicativo d
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
+1. Verifique se você está usando o diretório que contém o locatário do Azure Active Directory escolhendo o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário do Azure Active Directory.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 1. Selecione **Estrutura de Experiência de Identidade**.
-1. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política que você alterou: *TrustFrameworkExtensions. xml*e *SignUpOrSignin. xml*. 
+1. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política que você alterou: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
 1. Selecione a política de inscrição ou de entrada carregada e clique no botão **Executar agora**.
 1. Você deverá conseguir se inscrever usando um endereço de email.
 1. Clique no link **inscrever-se agora** .
@@ -255,8 +255,8 @@ Para retornar a declaração de código promocional de volta para o aplicativo d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como proteger suas APIs, consulte os seguintes artigos:
+Para saber mais sobre como proteger suas APIs, confira os seguintes arquivos:
 
-- [Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](custom-policy-rest-api-claims-exchange.md)
+- [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](custom-policy-rest-api-claims-exchange.md)
 - [Proteger sua API RESTful](secure-rest-api.md)
-- [Referência: perfil técnico RESTful](restful-technical-profile.md)
+- [Referência: Perfil técnico RESTful](restful-technical-profile.md)

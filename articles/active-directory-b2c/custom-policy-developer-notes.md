@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90d9c6a2ebf445ba492f2e1634e57910cd235aed
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 7defc33f8e3e2daca60fa5c15c41c62333ffc2d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389251"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Active Directory B2C
 
@@ -101,7 +101,7 @@ Os recursos de política personalizada/Identity Experience Framework estão em c
 | [Senha de uso único](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) como diretório local |  |  | X |  |
 | Subsistema de email do Azure para verificação de email |  |  | X |  |
-| [Provedores de serviço de email de terceiros](custom-email.md) |  |X  |  |  |
+| [Provedores de serviço de email de terceiros](custom-email-mailjet.md) |  |X  |  |  |
 | [Suporte a vários idiomas](localization.md)|  |  | X |  |
 | [Validações de predicado](predicates.md) |  |  | X | Por exemplo, complexidade de senha. |
 | [Controles de exibição](display-controls.md) |  |X  |  |  |

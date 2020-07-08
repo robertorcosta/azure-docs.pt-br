@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0b460d5a3c5535b74e349fa46c6a2ad55fc3a8d8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3a35662a3f21aec1306b7b6994e7a08f9cbd467e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389523"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerenciar a personalização de SSO e de token usando políticas personalizadas no Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Insira o elemento ClaimsProviders entre o elemento BasePolicy e o elemento Relyi
 
 Nele, você precisará colocar as informações que afetam os tempos de vida de token. O XML se parece com este exemplo:
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <DisplayName>Token Issuer</DisplayName>
@@ -61,7 +61,7 @@ Os seguintes valores são definidos no exemplo anterior:
 
     No elemento **ClaimsSchema**, adicione esse elemento:
 
-    ```XML
+    ```xml
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
@@ -70,7 +70,7 @@ Os seguintes valores são definidos no exemplo anterior:
 
     No elemento **OutputClaims**, adicione este elemento:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
@@ -78,18 +78,18 @@ Os seguintes valores são definidos no exemplo anterior:
 
 - **Declaração sub (Subject)** – essa opção é padronizada para a ObjectID. Se você quer mudar essa configuração para `Not Supported`, substitua esta linha:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
 
     com esta linha:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Azure ad B2C sessão](session-overview.md).
-- Saiba como [Configurar o comportamento da sessão em políticas personalizadas](session-behavior-custom-policy.md).
+- Saiba mais sobre a [sessão do Azure AD B2C](session-overview.md).
+- Saiba como [configurar o comportamento da sessão em políticas personalizadas](session-behavior-custom-policy.md).
 - Referência: [JwtIssuer](jwt-issuer-technical-profile.md).

@@ -2,13 +2,13 @@
 title: Sobre repositórios & imagens
 description: Introdução aos principais conceitos de registros de contêiner do Azure, repositórios e imagens de contêiner.
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247053"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390441"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registros, repositórios e imagens
 
@@ -24,13 +24,11 @@ Além das imagens de contêiner do Docker, o registro de contêiner do Azure dá
 
 O endereço de um artefato em um registro de contêiner do Azure inclui os elementos a seguir. 
 
-`[loginUrl]/[namespace]/[artifact:][tag]`
+`[loginUrl]/[repository:][tag]`
 
 * **LoginUrl** -o nome totalmente qualificado do host do registro. O host do registro em um registro de contêiner do Azure está no formato *myregistry*. azurecr.IO (todas as letras minúsculas). Você deve especificar o loginUrl ao usar o Docker ou outras ferramentas de cliente para efetuar pull ou enviar artefatos por push para um registro de contêiner do Azure. 
-* **namespace** – agrupamento lógico delimitado por barra de imagens ou artefatos relacionados – por exemplo, para um grupo de trabalho ou aplicativo
-* **artefato** -o nome de um repositório para uma imagem ou um artefato específico
-* **marca** -uma versão específica de uma imagem ou um artefato armazenado em um repositório
-
+* **Repository** -nome de um agrupamento lógico de uma ou mais imagens ou artefatos relacionados – por exemplo, as imagens de um aplicativo ou de um sistema operacional de base. Pode incluir o caminho do *namespace* . 
+* identificador de **marca** de uma versão específica de uma imagem ou artefato armazenado em um repositório.
 
 Por exemplo, o nome completo de uma imagem em um registro de contêiner do Azure pode parecer com o seguinte:
 
@@ -40,14 +38,14 @@ Consulte as seções a seguir para obter detalhes sobre esses elementos.
 
 ## <a name="repository-name"></a>Nome do repositório
 
-Os registros de contêiner gerenciam *repositórios*, coleções de imagens de contêiner ou outros artefatos com o mesmo nome, mas marcas diferentes. Por exemplo, as três imagens a seguir estão no repositório "acr-helloworld":
+Um *repositório* é uma coleção de imagens de contêiner ou outros artefatos com o mesmo nome, mas marcas diferentes. Por exemplo, as três imagens a seguir estão no repositório "acr-helloworld":
 
 
 - *ACR-HelloWorld: Latest*
 - *ACR-HelloWorld: v1*
 - *ACR-HelloWorld: v2*
 
-Também podem incluir nomes de repositório [namespaces](container-registry-best-practices.md#repository-namespaces). Os namespaces permitem que você agrupe imagens usando nomes de repositório delimitados por barra, por exemplo:
+Também podem incluir nomes de repositório [namespaces](container-registry-best-practices.md#repository-namespaces). Os namespaces permitem que você identifique os repositórios relacionados e a propriedade do artefato em sua organização usando nomes delimitados por barra. No entanto, o registro gerencia todos os repositórios de forma independente, não como uma hierarquia. Por exemplo:
 
 - *Marketing/campaign10-18/Web: v2*
 - *Marketing/campaign10-18/API: V3*
@@ -55,7 +53,11 @@ Também podem incluir nomes de repositório [namespaces](container-registry-best
 - *retorno de produto/envio da Web: 20180604*
 - *produto-Returns/Legacy-Integrator: 20180715*
 
-## <a name="image"></a>Imagem
+Os nomes de repositórios só podem incluir caracteres alfanuméricos minúsculos, pontos, traços, sublinhados e barras. 
+
+Para obter as regras de nomenclatura completas do repositório, consulte a [especificação de distribuição da iniciativa Open container](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
+
+## <a name="image"></a>Image
 
 Uma imagem de contêiner ou outro artefato dentro de um registro é associado a uma ou mais marcas, tem uma ou mais camadas e é identificado por um manifesto. Entender como esses componentes se relacionam entre si pode ajudá-lo a gerenciar seu registro com eficiência.
 
@@ -63,9 +65,11 @@ Uma imagem de contêiner ou outro artefato dentro de um registro é associado a 
 
 A *marca* para uma imagem ou outro artefato especifica sua versão. Um único artefato dentro de um repositório pode ser atribuído a uma ou várias marcas e também pode ser "não marcado". Ou seja, você pode excluir todas as marcas de uma imagem, enquanto os dados da imagem (suas camadas) permanecem no registro.
 
-O repositório (ou repositório e namespace) mais uma tag define o nome de uma imagem. Você pode empurrar e puxar uma imagem especificando seu nome na operação push ou pull.
+O repositório (ou repositório e namespace) mais uma tag define o nome de uma imagem. Você pode empurrar e puxar uma imagem especificando seu nome na operação push ou pull. A marca `latest` será usada por padrão se você não fornecer um nos comandos do Docker.
 
 A maneira como você marca as imagens de contêiner é guiada por seus cenários para desenvolver ou implantá-las. Por exemplo, marcas estáveis são recomendadas para manter suas imagens base e marcas exclusivas para a implantação de imagens. Para obter mais informações, consulte [recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md).
+
+Para regras de nomenclatura de marca, consulte a [documentação do Docker](https://docs.docker.com/engine/reference/commandline/tag/).
 
 ### <a name="layer"></a>Camada
 
@@ -75,7 +79,7 @@ Também é o compartilhamento de camada otimiza a distribuição de camada para 
 
 Para fornecer isolamento seguro e proteção contra possíveis manipulações de camada, as camadas não são compartilhadas entre registros.
 
-### <a name="manifest"></a>Manifest
+### <a name="manifest"></a>Manifesto
 
 Cada imagem de contêiner ou artefato enviado por push para um registro de contêiner é associado a um *manifesto*. O manifesto, gerado pelo registro quando a imagem é enviada, identifica de forma exclusiva a imagem e especifica suas camadas. Você pode listar os manifestos de um repositório com o comando da CLI do Azure [az acr repository show-manifests ][az-acr-repository-show-manifests]:
 

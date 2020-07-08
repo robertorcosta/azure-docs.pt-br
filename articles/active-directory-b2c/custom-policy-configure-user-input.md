@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389353"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -41,17 +41,17 @@ Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-
 
 ## <a name="define-a-claim"></a>Definir uma declaração
 
-Uma declaração fornece um armazenamento temporário de dados durante uma execução de política de Azure AD B2C. O [esquema de declarações](claimsschema.md) é o local onde você declara suas declarações. Os elementos a seguir são usados para definir a declaração:
+Uma declaração fornece um armazenamento temporário de dados durante uma execução de política de Azure AD B2C. O [esquema de declarações](claimsschema.md) é o lugar em que você declara suas declarações. Os elementos a seguir são usados para definir a declaração:
 
 - **DisplayName** – Uma cadeia de caracteres que define o rótulo voltado para o usuário.
 - [DataType](claimsschema.md#datatype) -o tipo da declaração.
 - **UserHelpText** – Ajuda o usuário a entender o que é necessário.
 - [Userinputtype](claimsschema.md#userinputtype) – o tipo de controle de entrada, como caixa de texto, seleção de rádio, lista suspensa ou várias seleções.
 
-Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
-1. Localize o elemento [ClaimsSchema](claimsschema.md) . Se o elemento não existir, adicione-o.
+1. Localize o elemento [ClaimsSchema](claimsschema.md). Se o elemento não existir, adicione-o.
 1. Adicione a declaração de cidade ao elemento **ClaimsSchema** .  
 
 ```xml
@@ -75,7 +75,7 @@ Os seguintes perfis técnicos são [autodeclarados](self-asserted-technical-prof
 - **SelfAsserted-social** -entrada do usuário da primeira vez da conta federada.
 - **SelfAsserted-ProfileUpdate** -editar fluxo de perfil.
 
-Para coletar a declaração de cidade durante a `LocalAccountSignUpWithLogonEmail` inscrição, ela deve ser adicionada como uma declaração de saída ao perfil técnico. Substitua esse perfil técnico no arquivo de extensão. Especifique a lista completa de declarações de saída para controlar a ordem em que as declarações são apresentadas na tela. Localize o elemento **ClaimsProviders**. Adicione um novo ClaimsProviders da seguinte maneira:
+Para coletar a declaração de cidade durante a inscrição, ela deve ser adicionada como uma declaração de saída ao `LocalAccountSignUpWithLogonEmail` perfil técnico. Substitua esse perfil técnico no arquivo de extensão. Especifique a lista completa de declarações de saída para controlar a ordem em que as declarações são apresentadas na tela. Localize o elemento **ClaimsProviders**. Adicione um novo ClaimsProviders da seguinte maneira:
 
 ```xml
 <ClaimsProvider>
@@ -98,7 +98,7 @@ Para coletar a declaração de cidade durante a `LocalAccountSignUpWithLogonEmai
 <ClaimsProvider>
 ```
 
-Para coletar a declaração de cidade após a entrada inicial com uma conta federada, ela deve ser adicionada como uma declaração de saída ao `SelfAsserted-Social` perfil técnico. Para que os usuários da conta federada e local possam editar seus dados de perfil posteriormente, adicione a declaração de saída `SelfAsserted-ProfileUpdate` ao perfil técnico. Substitua esses perfis técnicos no arquivo de extensão. Especifique a lista completa das declarações de saída para controlar a ordem em que as declarações são apresentadas na tela. Localize o elemento **ClaimsProviders**. Adicione um novo ClaimsProviders da seguinte maneira:
+Para coletar a declaração de cidade após a entrada inicial com uma conta federada, ela deve ser adicionada como uma declaração de saída ao `SelfAsserted-Social` perfil técnico. Para que os usuários da conta federada e local possam editar seus dados de perfil posteriormente, adicione a declaração de saída ao `SelfAsserted-ProfileUpdate` perfil técnico. Substitua esses perfis técnicos no arquivo de extensão. Especifique a lista completa das declarações de saída para controlar a ordem em que as declarações são apresentadas na tela. Localize o elemento **ClaimsProviders**. Adicione um novo ClaimsProviders da seguinte maneira:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -172,7 +172,7 @@ Substitua esses perfis técnicos no arquivo de extensão. Localize o elemento **
 
 ## <a name="include-a-claim-in-the-token"></a>Incluir uma declaração no token 
 
-Para retornar a declaração de cidade de volta para o aplicativo de terceira parte confiável, adicione uma declaração <em> `SocialAndLocalAccounts/` </em> de saída ao arquivo. A declaração de saída será adicionada ao token após um percurso de usuário bem-sucedido e será enviada para o aplicativo. Modifique o elemento de perfil técnico na seção terceira parte confiável para adicionar a cidade como uma declaração de saída.
+Para retornar a declaração de cidade de volta para o aplicativo de terceira parte confiável, adicione uma declaração de saída ao <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> arquivo. A declaração de saída será adicionada ao token após um percurso de usuário bem-sucedido e será enviada para o aplicativo. Modifique o elemento de perfil técnico na seção terceira parte confiável para adicionar a cidade como uma declaração de saída.
  
 ```xml
 <RelyingParty>
@@ -198,7 +198,7 @@ Para retornar a declaração de cidade de volta para o aplicativo de terceira pa
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
+2. Verifique se você está usando o diretório que contém o locatário do Azure Active Directory escolhendo o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário do Azure Active Directory.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Estrutura de Experiência de Identidade**.
 5. Selecione **Carregar política personalizada** e carregue os dois arquivos de política alterados.

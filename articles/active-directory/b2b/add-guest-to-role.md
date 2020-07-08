@@ -4,7 +4,7 @@ description: Adicionar um usuário convidado a uma função no Azure Active Dire
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703e68994a9d156ccf3e74a5df4a2f4ee2f062cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74268547"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387364"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
 
@@ -37,5 +37,5 @@ Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Propriedades de usuário de colaboração B2B](user-properties.md)

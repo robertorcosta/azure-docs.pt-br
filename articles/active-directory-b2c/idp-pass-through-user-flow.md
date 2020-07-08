@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0446dd9e316e145cf93c503ab9634d4eedbc299b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387823"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de um fluxo de usuário para seu aplicativo no Azure Active Directory B2C
 
 Um [fluxo de usuário](user-flow-overview.md) no Azure Active Directory B2C (Azure ad B2C) fornece aos usuários de seu aplicativo uma oportunidade de se inscrever ou entrar com um provedor de identidade. Quando a jornada é iniciada, o Azure AD B2C recebe um [token de acesso](tokens-overview.md) do provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. Habilitar uma declaração no seu fluxo de usuário para passar o token por meio para os aplicativos que você se registrar no Azure AD B2C.
 
-O Azure Active Directory B2C atualmente suporta apenas passar o token de acesso dos provedores de identidade do [OAuth 2.0](authorization-code-flow.md), que incluem [Facebook](identity-provider-facebook.md) e [Google](identity-provider-google.md). Para todos os outros provedores de identidade, a declaração é retornada em branco.
+Atualmente, Azure AD B2C só dá suporte à passagem do token de acesso dos provedores de identidade [OAuth 2,0](authorization-code-flow.md) , que incluem o [Facebook](identity-provider-facebook.md) e o [Google](identity-provider-google.md). Para todos os outros provedores de identidade, a declaração é retornada em branco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,8 +31,8 @@ O Azure Active Directory B2C atualmente suporta apenas passar o token de acesso 
 
 ## <a name="enable-the-claim"></a>Habilitar a declaração
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador global do seu locatário Azure ad B2C.
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
+1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
+2. Verifique se você está usando o diretório que contém seu locatário do Azure AD B2C. Escolha o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Selecione **fluxos de usuário (políticas)** e, em seguida, selecione seu fluxo de usuário. Por exemplo, **B2C_1_signupsignin1**.
 5. Selecione **Declarações do aplicativo**.

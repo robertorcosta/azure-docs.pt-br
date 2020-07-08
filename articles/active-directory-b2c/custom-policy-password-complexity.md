@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ab196e894fc53b1243ac363f9863d5c7d4e328f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138427"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388996"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a complexidade da senha usando políticas personalizadas no Azure Active Directory B2C
 
@@ -31,13 +31,13 @@ Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-
 
 ## <a name="add-the-elements"></a>Adicionar os elementos
 
-Para configurar a complexidade da senha, substitua `newPassword` os `reenterPassword` [tipos de declaração](claimsschema.md) e por uma referência a [validações de predicado](predicates.md#predicatevalidations). O elemento PredicateValidations agrupa um conjunto de predicados para formar uma validação de entrada de usuário que pode ser aplicada a um tipo de declaração. Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+Para configurar a complexidade da senha, substitua `newPassword` os `reenterPassword` [tipos de declaração](claimsschema.md) e por uma referência a [validações de predicado](predicates.md#predicatevalidations). O elemento PredicateValidations agrupa um conjunto de predicados para formar uma validação de entrada de usuário que pode ser aplicada a um tipo de declaração. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
-1. Localize o elemento [ClaimsSchema](claimsschema.md) . Se o elemento não existir, adicione-o.
-1. Adicione as `newPassword` declarações `reenterPassword` e ao elemento **ClaimsSchema** .
+1. Localize o elemento [ClaimsSchema](claimsschema.md). Se o elemento não existir, adicione-o.
+1. Adicione as `newPassword` `reenterPassword` declarações e ao elemento **ClaimsSchema** .
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -48,7 +48,7 @@ Para configurar a complexidade da senha, substitua `newPassword` os `reenterPass
 
 1. Os [predicados](predicates.md) definem uma validação básica para verificar o valor de um tipo de declaração e retorna true ou false. A validação é feita usando um elemento de método especificado e um conjunto de parâmetros relevantes para o método. Adicione os seguintes predicados ao elemento **BuildingBlocks** imediatamente após o fechamento do `</ClaimsSchema>` elemento:
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -86,7 +86,7 @@ Para configurar a complexidade da senha, substitua `newPassword` os `reenterPass
 
 1. Adicione as validações predicadas a seguir ao elemento **BuildingBlocks** imediatamente após o fechamento do `</Predicates>` elemento:
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -111,7 +111,7 @@ Para configurar a complexidade da senha, substitua `newPassword` os `reenterPass
 
 1. Os perfis técnicos a seguir são [Active Directory perfis técnicos](active-directory-technical-profile.md), que lêem e gravam dados em Azure Active Directory. Substitua esses perfis técnicos no arquivo de extensão. Use `PersistedClaims` para desabilitar a política de senha forte. Localize o elemento **ClaimsProviders**.  Adicione os seguintes provedores de declaração da seguinte maneira:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -140,7 +140,7 @@ Para configurar a complexidade da senha, substitua `newPassword` os `reenterPass
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Selecione **Estrutura de Experiência de Identidade**.
 5. Na página de políticas personalizadas, clique em **Carregar Política**.
-6. Selecione **substituir a política, se ela existir**, e, em seguida, procure e selecione o arquivo *TrustFrameworkExtensions. xml* .
+6. Selecione **substituir a política, se ela existir**, e, em seguida, procure e selecione o arquivo de *TrustFrameworkExtensions.xml* .
 7. Clique em **Carregar**.
 
 ### <a name="run-the-policy"></a>Executar a política

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 816d1f762698deeed38afe01899916b491809db2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390458"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança por meio de um [link privado](../private-link/private-link-overview.md) sem passar pela Internet pública. O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu tópico ou domínio. Para obter mais informações conceituais, consulte [segurança de rede](network-security.md).
@@ -37,37 +37,37 @@ Esta seção mostra como usar o portal do Azure para criar um ponto de extremida
     5. Em seguida, selecione o botão **>de recursos** na parte inferior da página. 
 
       ![Ponto de extremidade privado-página noções básicas](./media/configure-private-endpoints/basics-page.png)
-3. Na página de **recursos** , siga estas etapas: 
+3. Na página **Recurso**, siga estas etapas: 
     1. Para o método de conexão, se você selecionar **conectar a um recurso do Azure em meu diretório**, siga estas etapas. Este exemplo mostra como se conectar a um recurso do Azure em seu diretório. 
         1. Selecione a **assinatura do Azure** na qual seu **tópico/domínio** existe. 
         1. Para **tipo de recurso**, selecione **Microsoft. EventGrid/topics** ou **Microsoft. EventGrid/Domains** para o **tipo de recurso**.
         2. Para **recurso**, selecione um tópico/domínio na lista suspensa. 
         3. Confirme se o **subrecurso de destino** está definido como **tópico** ou **domínio** (com base no tipo de recurso selecionado).    
-        4. Selecione **Avançar: botão de configuração >** na parte inferior da página. 
+        4. Selecione **Avançar: Botão Configuração >** na parte inferior da página. 
 
             ![Ponto de extremidade privado – página de recursos](./media/configure-private-endpoints/resource-page.png)
     2. Se você selecionar **conectar-se a um recurso usando uma ID de recurso ou um alias**, siga estas etapas:
         1. Insira a ID do recurso. Por exemplo: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. Para **recurso**, insira o **tópico** ou o **domínio**. 
         3. adicional Adicione uma mensagem de solicitação. 
-        4. Selecione **Avançar: botão de configuração >** na parte inferior da página. 
+        4. Selecione **Avançar: Botão Configuração >** na parte inferior da página. 
 
             ![Ponto de extremidade privado – página de recursos](./media/configure-private-endpoints/connect-azure-resource-id.png)
-4. Na página **configuração** , selecione a sub-rede em uma rede virtual na qual você deseja implantar o ponto de extremidade privado. 
-    1. Selecione uma **rede virtual**. Somente as redes virtuais na assinatura e no local selecionados são listadas na lista suspensa. 
-    2. Selecione uma **sub-rede** na rede virtual que você selecionou. 
-    3. Selecione **Avançar: marca >** botão na parte inferior da página. 
+4. Na página **Configuração**, selecione a sub-rede em uma rede virtual na qual você deseja implantar o ponto de extremidade privado. 
+    1. Selecione uma **rede virtual**. São listadas somente as redes virtuais na assinatura e na localização selecionadas no momento na lista suspensa. 
+    2. Selecione uma **sub-rede** na rede virtual selecionada. 
+    3. Selecione **Avançar: Botão Marcas >** na parte inferior da página. 
 
     ![Ponto de extremidade privado – página de configuração](./media/configure-private-endpoints/configuration-page.png)
-5. Na página **marcas** , crie quaisquer marcas (nomes e valores) que você deseja associar ao recurso de ponto de extremidade privado. Em seguida, selecione o botão **revisar + criar** na parte inferior da página. 
-6. Na **revisão + criar**, examine todas as configurações e selecione **criar** para criar o ponto de extremidade privado. 
+5. Na página **Marcas**, crie quaisquer marcas (nomes e valores) que você deseja associar ao recurso de ponto de extremidade privado. Em seguida, selecione o botão **Revisar + criar** na parte inferior da página. 
+6. Em **Revisar + criar**, examine todas as configurações e selecione **Criar** para criar o ponto de extremidade privado. 
 
     ![Ponto de extremidade privado – examinar & criar página](./media/configure-private-endpoints/review-create-page.png)
     
 
 ### <a name="manage-private-link-connection"></a>Gerenciar conexão de link privado
 
-Quando você cria um ponto de extremidade privado, a conexão deve ser aprovada. Se o recurso para o qual você está criando um ponto de extremidade privado estiver em seu diretório, você poderá aprovar a solicitação de conexão desde que tenha permissões suficientes. Se você estiver se conectando a um recurso do Azure em outro diretório, deverá aguardar o proprietário desse recurso para aprovar sua solicitação de conexão.
+Quando você cria um ponto de extremidade privado, a conexão deve ser aprovada. Se o recurso para o qual você está criando um ponto de extremidade privado estiver em seu diretório, você pode aprovar a solicitação de conexão desde que tenha permissões suficientes. Se estiver se conectando a um recurso do Azure em outro diretório, você deve aguardar o proprietário desse recurso aprovar a sua solicitação de conexão.
 
 Há quatro estados de provisionamento:
 
@@ -84,7 +84,7 @@ As seções a seguir mostram como aprovar ou rejeitar uma conexão de ponto de e
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Na barra de pesquisa, digite **Tópicos da grade de eventos** ou domínios da grade de **eventos**.
 1. Selecione o **tópico** ou **domínio** que você deseja gerenciar.
-1. Selecione a guia **rede** .
+1. Selecione a guia **Rede**.
 1. Se houver conexões pendentes, você verá uma conexão listada com **pendente** no estado de provisionamento. 
 
 ### <a name="to-approve-a-private-endpoint"></a>Para aprovar um ponto de extremidade privado
@@ -140,8 +140,8 @@ az network private-endpoint create \
 
 Para obter descrições dos parâmetros usados no exemplo, consulte a documentação para [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a serem observados neste exemplo são: 
 
-- Para `private-connection-resource-id`, ESPECIFIQUE a ID de recurso do **tópico** ou do **domínio**. O exemplo anterior usa o tópico Type:.
-- para `group-ids`, especifique `topic` ou `domain`. No exemplo anterior, `topic` é usado. 
+- Para `private-connection-resource-id` , especifique a ID de recurso do **tópico** ou do **domínio**. O exemplo anterior usa o tópico Type:.
+- para `group-ids` , especifique `topic` ou `domain` . No exemplo anterior, `topic` é usado. 
 
 Para excluir um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , conforme mostrado no exemplo a seguir:
 
@@ -184,8 +184,8 @@ az network private-endpoint create \
 
 Para obter descrições dos parâmetros usados no exemplo, consulte a documentação para [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a serem observados neste exemplo são: 
 
-- Para `private-connection-resource-id`, ESPECIFIQUE a ID de recurso do **tópico** ou do **domínio**. O exemplo anterior usa o tópico Type:.
-- para `group-ids`, especifique `topic` ou `domain`. No exemplo anterior, `topic` é usado. 
+- Para `private-connection-resource-id` , especifique a ID de recurso do **tópico** ou do **domínio**. O exemplo anterior usa o tópico Type:.
+- para `group-ids` , especifique `topic` ou `domain` . No exemplo anterior, `topic` é usado. 
 
 Para excluir um ponto de extremidade privado, use o método [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , conforme mostrado no exemplo a seguir:
 
@@ -299,7 +299,7 @@ az eventgrid topic private-endpoint-connection reject \
     --description "Connection rejected"
 ```
 
-### <a name="disable-public-network-access"></a>Desabilitar o acesso à rede pública
+### <a name="disable-public-network-access"></a>Desabilitar o acesso de redes públicas
 Por padrão, o acesso à rede pública é habilitado para um tópico ou domínio da grade de eventos. Para permitir o acesso somente por meio de pontos de extremidade privados, desabilite o acesso à rede pública executando o seguinte comando:  
 
 ```azurecli-interactive
@@ -437,7 +437,7 @@ Ao verificar se o ponto de extremidade foi criado, você verá o resultado semel
 }
 ```
 
-### <a name="approve-a-private-endpoint-connection"></a>Aprovar uma conexão de ponto de extremidade particular
+### <a name="approve-a-private-endpoint-connection"></a>Aprovação de uma conexão de ponto de extremidade privado
 O trecho do PowerShell de exemplo a seguir mostra como aprovar um ponto de extremidade privado. 
 
 > [!NOTE]
@@ -459,7 +459,7 @@ Invoke-RestMethod -Method 'Get'  `
 
 ```
 
-### <a name="reject-a-private-endpoint-connection"></a>Rejeitar uma conexão de ponto de extremidade particular
+### <a name="reject-a-private-endpoint-connection"></a>Rejeição de uma conexão de ponto de extremidade privado
 O exemplo a seguir mostra como rejeitar um ponto de extremidade privado usando o PowerShell. Você pode obter o GUID para o ponto de extremidade privado do resultado do comando GET anterior. 
 
 > [!NOTE]
@@ -484,4 +484,5 @@ Invoke-RestMethod -Method 'Get'
 Você pode aprovar a conexão mesmo depois que ela for rejeitada via API. Se você usar portal do Azure, não poderá aprovar um ponto de extremidade que foi rejeitado. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como definir as configurações de firewall IP, consulte [Configurar o firewall de IP para os tópicos ou domínios da grade de eventos do Azure](configure-firewall.md).
+* Para saber mais sobre como definir as configurações de firewall IP, consulte [Configurar o firewall de IP para os tópicos ou domínios da grade de eventos do Azure](configure-firewall.md).
+* Para solucionar problemas de conectividade de rede, consulte [solucionar](troubleshoot-network-connectivity.md) problemas de conectividade de rede

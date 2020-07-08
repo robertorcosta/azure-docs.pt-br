@@ -4,7 +4,7 @@ description: Mostra como um administrador pode usar o Portal do Azure ou o Power
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74273417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387279"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
 
@@ -42,7 +42,7 @@ Esse é o cenário mais comum, onde sua organização deseja trabalhar com quase
 Adicionar uma lista de negações:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory** > **configurações de usuário****dos usuários** > .
+2. Selecione **Azure Active Directory**  >  configurações de usuário**dos usuários**  >  **User settings**.
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Negar convites para os domínios especificados**.
 5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
@@ -63,7 +63,7 @@ Se você quiser usar uma lista de permissões, certifique-se de avaliar completa
 Para adicionar uma lista de permissões:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory** > **configurações de usuário****dos usuários** > .
+2. Selecione **Azure Active Directory**  >  configurações de usuário**dos usuários**  >  **User settings**.
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Permitir convites somente para os domínios especificados (mais restritivos)**.
 5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
