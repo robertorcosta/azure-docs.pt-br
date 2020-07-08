@@ -4,15 +4,15 @@ description: Este artigo ajuda você a conectar um gateway de rede virtual do Az
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 688183bc07aa14d5e5df182d7de0897cec93f0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5880f76ffd3a85d4b3cec8e01f58ae5c024a58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749689"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conectar um gateway de VPN (gateway de rede virtual) à WAN virtual
 
@@ -31,7 +31,7 @@ WAN Virtual do Azure
 
 Rede Virtual do Azure
 
-* Crie uma rede virtual sem nenhum gateway de rede virtual. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o [Início Rápido](../virtual-network/quick-create-portal.md).
+* Crie uma rede virtual sem nenhum gateway de rede virtual. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o guia de [início rápido](../virtual-network/quick-create-portal.md).
 
 ## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. criar um gateway de rede virtual do Azure
 
@@ -81,7 +81,7 @@ Nesta seção, você baixa o arquivo de configuração de VPN para cada um dos s
 
 1. Na parte superior da página **sites VPN** da WAN virtual, selecione o **site**e selecione **baixar configuração de VPN site a site**. O Azure cria um arquivo de configuração com as configurações.
 
-   ![baixar arquivo de configuração](./media/connect-virtual-network-gateway-vwan/download.png "download")
+   ![baixar arquivo de configuração](./media/connect-virtual-network-gateway-vwan/download.png "baixar")
 2. Baixe e abra o arquivo de configuração.
 3. Repita essas etapas para o segundo site. Quando os dois arquivos de configuração estiverem abertos, você poderá prosseguir para a próxima seção.
 
@@ -118,7 +118,7 @@ Nesta seção, você cria uma conexão entre os gateways de rede local do gatewa
 3. Clique em **OK** para criar sua conexão.
 4. Você pode exibir a conexão na página **Conexões** do seu gateway de rede virtual.
 
-   ![Conexão](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
+   ![Conexão](./media/connect-virtual-network-gateway-vwan/connect.png "conexão")
 5. Repita as etapas anteriores para criar uma segunda conexão. Para a segunda conexão, selecione o outro gateway de rede local que você criou.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. testar conexões

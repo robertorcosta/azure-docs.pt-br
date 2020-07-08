@@ -3,25 +3,25 @@ title: Problema ao entrar no site do painel de acesso | Microsoft Docs
 description: Orientação para solução de problemas que você pode encontrar ao tentar entrar e usar o Painel de Acesso
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 4f2ad4db231c616b3022ecafc62b12d6d81b67fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760806"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema ao entrar no site do painel de acesso
 
@@ -98,7 +98,7 @@ O acesso ao Painel de Acesso pode ser bloqueado devido a um problema com a conta
 
 Para verificar se a conta de um usuário está presente, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -116,7 +116,7 @@ Para verificar se a conta de um usuário está presente, siga estas etapas:
 
 Para verificar o status da conta de um usuário, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -136,7 +136,7 @@ Para verificar o status da conta de um usuário, siga estas etapas:
 
 Para redefinir a senha de um usuário, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -168,7 +168,7 @@ Para habilitar a redefinição de senha por autoatendimento, siga estas etapas d
 
 Para verificar o status da Autenticação Multifator de um usuário, siga estas etapas:
 
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -195,7 +195,7 @@ Para verificar o status da Autenticação Multifator de um usuário, siga estas 
 
 Para verificar as informações de contato de autenticação do usuário usadas para Autenticação Multifator, Acesso Condicional, Proteção de Identidade e Redefinição de Senha, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -217,7 +217,7 @@ Para verificar as informações de contato de autenticação do usuário usadas 
 
 Para verificar as associações de grupo de um usuário, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -235,7 +235,7 @@ Para verificar as associações de grupo de um usuário, siga estas etapas:
 
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -253,7 +253,7 @@ Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
 Para atribuir uma licença a um usuário, siga estas etapas:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 

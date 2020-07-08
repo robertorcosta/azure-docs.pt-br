@@ -4,16 +4,16 @@ description: Saiba como rotear o tráfego de web baseado na URL para especificar
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ca5c411db5644182f7e87f1ee1c63f3cbc4d2e9
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73200409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805989"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Rotear o tráfego da web baseado na URL usando Azure PowerShell
 
@@ -422,11 +422,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testar a URL de base no gateway de aplicativo](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-Altere a URL para http://&lt;IP-address&gt;: 8080/images/test.htm, substituindo seu endereço IP &lt;por IP-&gt;address e você verá algo semelhante ao exemplo a seguir:
+Altere a URL para http:// &lt; IP-address &gt; : 8080/images/test.htm, substituindo seu endereço IP para &lt; endereço IP &gt; e você deverá ver algo semelhante ao exemplo a seguir:
 
 ![Testar a URL de imagens no gateway de aplicativo](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-Altere a URL para http://&lt;IP-address&gt;: 8080/Video/Test.htm, substituindo seu endereço IP &lt;por IP-&gt;address e você verá algo semelhante ao exemplo a seguir:
+Altere a URL para http:// &lt; IP-address &gt; : 8080/vídeo/test.htm, substituindo seu endereço IP para &lt; endereço IP &gt; e você deverá ver algo semelhante ao exemplo a seguir:
 
 ![Testar a URL de vídeo no gateway de aplicativo](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 

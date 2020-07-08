@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 4bca41effc4e9834f8c76308556facb0681717cd
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753596"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Logs de recursos para o Firewall do aplicativo Web do Azure
 
@@ -42,11 +42,11 @@ Você tem três opções para armazenar os logs:
 
 O log de atividade é habilitado automaticamente para todos os recursos do Resource Manager. Você deve habilitar o log de acesso e de desempenho para começar a coletar os dados disponíveis por meio desses logs. Para habilitar o log, use as seguintes etapas:
 
-1. Anote a ID do recurso da conta de armazenamento, na qual os dados de log são armazenados. Esse valor tem o formato /subscriptions/\<subscriptionId\>/resourceGroups/\<grupo de recursos name\>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento\>. Use qualquer conta de armazenamento em sua assinatura. Use o portal do Azure para encontrar essas informações.
+1. Anote a ID do recurso da conta de armazenamento, na qual os dados de log são armazenados. Esse valor está no formato:/subscriptions/ \<subscriptionId\> /ResourceGroups/ \<resource group name\> /Providers/Microsoft.Storage/storageAccounts/ \<storage account name\> . Use qualquer conta de armazenamento em sua assinatura. Use o portal do Azure para encontrar essas informações.
 
     ![Portal: ID do recurso da conta de armazenamento](../media/web-application-firewall-logs/diagnostics1.png)
 
-2. Anote a ID do Recurso do gateway de aplicativo para o qual o log está habilitado. Esse valor tem o formato /subscriptions/\<subscriptionId\>/resourceGroups/\<grupo de recursos name\>/providers/Microsoft.Network/applicationGateways/\<nome do gateway de aplicativo\>. Use o portal para encontrar essas informações.
+2. Anote a ID do Recurso do gateway de aplicativo para o qual o log está habilitado. Esse valor está no formato:/subscriptions/ \<subscriptionId\> /ResourceGroups/ \<resource group name\> /Providers/Microsoft.Network/applicationGateways/ \<application gateway name\> . Use o portal para encontrar essas informações.
 
     ![Portal: ID do recurso do gateway de aplicativo](../media/web-application-firewall-logs/diagnostics2.png)
 
@@ -108,7 +108,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
+    "timestamp": "2017-04-26T19:27:38Z",
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",
@@ -231,7 +231,7 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 |ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | Versão utilizada do conjunto de regras. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID da Regra do evento de gatilho.        |
-|mensagem     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
+|message     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
 |ação     |  Ação executada na solicitação. Os valores disponíveis são Bloqueada e Permitida.      |
 |site     | Site para o qual o log foi gerado. No momento, somente Global é listado porque as regras são globais.|
 |detalhes     | Detalhes do evento de gatilho.        |

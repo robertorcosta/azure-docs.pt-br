@@ -3,24 +3,24 @@ title: Como configurar a atribuição de aplicativo de autoatendimento | Microso
 description: Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e09fd63ee6121ac9bf7f3c2be00f0ac22f752f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2a59343d4eafaa0e11f56636daa7471e748abf2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763135"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicativo de autoatendimento
 
@@ -53,9 +53,9 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador global.
 
-2. Selecione **Azure Active Directory**. No menu de navegação à esquerda, selecione **aplicativos empresariais**.
+2. Selecione **Azure Active Directory**. No menu de navegação esquerdo, selecione **Aplicativos empresariais**.
 
-3. Selecione o aplicativo na lista. Se você não vir o aplicativo, comece a digitar seu nome na caixa de pesquisa. Ou use os controles de filtro para selecionar o tipo de aplicativo, o status ou a visibilidade e, em seguida, selecione **aplicar**.
+3. Selecione o aplicativo na lista. Se você não encontrar o aplicativo, comece a digitar o nome dele na caixa de pesquisa. Outra opção é usar os controles de filtro para selecionar o tipo, o status ou a visibilidade do aplicativo e, em seguida, selecionar **Aplicar**.
 
 4. No menu de navegação à esquerda, selecione **autoatendimento**.
 

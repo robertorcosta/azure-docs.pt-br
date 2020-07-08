@@ -8,31 +8,31 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: de1a22ed6e9707767c0d097a9250f0bdd31414d5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b49dc6ef2bfee311bc3ca524a5ccb0a4e4b5ca9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84793668"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
 Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. 
 
-Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços.   Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
+Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços.   Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
 
-Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria um grupo de recursos chamado Galeria chamado *myGalleryRG* no *leste dos EUA*e uma galeria chamada *myGallery*.
+Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria um grupo de recursos da galeria chamado *myGalleryRG* no *Leste dos EUA*, bem como uma galeria chamada *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-## <a name="share-the-gallery"></a>Compartilhar a Galeria
+## <a name="share-the-gallery"></a>Compartilhar a galeria
 
-Você pode compartilhar imagens entre assinaturas usando o RBAC (controle de acesso baseado em função). Você pode compartilhar imagens na Galeria, definição de imagem ou versão de imagem leve. Qualquer usuário que tenha permissões de leitura para uma versão de imagem, mesmo entre assinaturas, poderá implantar uma VM usando a versão da imagem.
+Você pode compartilhar imagens entre assinaturas usando o RBAC (Controle de Acesso Baseado em Função). Você pode compartilhar imagens na Galeria, na definição da imagem ou no nível da versão da imagem. Qualquer usuário que tenha permissões de leitura para uma versão de imagem, mesmo entre assinaturas, poderá implantar uma VM usando a versão da imagem.
 
-Recomendamos que você compartilhe com outros usuários no nível da galeria. Para obter a ID de objeto da galeria, use [AZ SIG show](/cli/azure/sig#az-sig-show).
+Recomendamos que você compartilhe com outros usuários no nível da galeria. Para obter a ID do objeto da galeria, use [az sig show](/cli/azure/sig#az-sig-show).
 
 ```azurecli-interactive
 az sig show \
@@ -41,7 +41,7 @@ az sig show \
    --query id
 ```
 
-Use a ID de objeto como um escopo, juntamente com um endereço de email e a [criação de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-create) para conceder a um usuário acesso à galeria de imagens compartilhadas. Substitua `<email-address>` e `<gallery iD>` pelas suas próprias informações.
+Use a ID do objeto como um escopo, juntamente com um endereço de email e [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para conceder a um usuário acesso à galeria de imagens compartilhadas. Substitua `<email-address>` e `<gallery iD>` pelas suas informações.
 
 ```azurecli-interactive
 az role assignment create \

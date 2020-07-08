@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: 518a1b01f52edcf5fa365e2275d4b995ffd719c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68721277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805179"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como usar o Armazenamento de fila do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Configurar uma conexão de armazenamento do Azure
-O módulo do Azure lerá as variáveis de **ambiente\_Azure\_storage Account** e **\_Azure\_Storage ACCESS_KEY** para obter informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::QueueService** com o seguinte código:
+O módulo do Azure lerá as variáveis de ambiente **Azure \_ Storage \_ Account** e **Azure \_ Storage \_ ACCESS_KEY** para obter informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::QueueService** com o seguinte código:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -86,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Como: espiar a próxima mensagem
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages()**. Por padrão, **inspecionar\_mensagens ()** exibe uma única mensagem. Você também pode especificar quantas mensagens deseja inspecionar.
+Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages()**. Por padrão, **inspecionar \_ mensagens ()** exibe uma única mensagem. Você também pode especificar quantas mensagens deseja inspecionar.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -99,7 +99,7 @@ result = azure_queue_service.peek_messages("test-queue",
 1. Quando você chamar **list\_messages()**, receberá a próxima mensagem em uma fila por padrão. Você também pode especificar quantas mensagens deseja obter. As mensagens retornadas de **list\_messages()** se tornam invisíveis para todas as outras mensagens de leitura de código da fila. Passe o tempo limite de visibilidade em segundos como um parâmetro.
 2. Para concluir a remoção da mensagem da fila, você também deve chamar **Delete_message ()**.
 
-Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **excluir\_mensagem ()** logo após a mensagem ser processada.
+Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **excluir \_ mensagem ()** logo após a mensagem ser processada.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)

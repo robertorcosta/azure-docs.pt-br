@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762115"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -28,7 +28,7 @@ Quando uma instância de orquestração precisa ser executada, as linhas corresp
 
 A tabela de **instâncias** é outra tabela de armazenamento do Azure que contém os status de todas as instâncias de orquestração e entidade em um hub de tarefas. Conforme as instâncias são criadas, novas linhas são adicionadas a essa tabela. A chave de partição desta tabela é a ID da instância de orquestração ou a chave de entidade e a chave de linha é uma constante fixa. Há uma linha por orquestração ou instância de entidade.
 
-Essa tabela é usada para satisfazer solicitações de consulta de instância `GetStatusAsync` das APIs (.NET `getStatus` ) e (JavaScript), bem como a [API http de consulta de status](durable-functions-http-api.md#get-instance-status). Isso é mantido finalmente consistente com o conteúdo da tabela **Histórico** mencionada anteriormente. O uso de uma tabela separada do Armazenamento do Microsoft Azure para atender com eficiência as operações de consulta de instância dessa maneira é influenciado pelo [padrão de Comando e Segregação de Reponsabilidade (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Essa tabela é usada para satisfazer solicitações de consulta de instância das `GetStatusAsync` APIs (.net) e `getStatus` (JavaScript), bem como a [API http de consulta de status](durable-functions-http-api.md#get-instance-status). Isso é mantido finalmente consistente com o conteúdo da tabela **Histórico** mencionada anteriormente. O uso de uma tabela separada do Armazenamento do Microsoft Azure para atender com eficiência as operações de consulta de instância dessa maneira é influenciado pelo [padrão de Comando e Segregação de Reponsabilidade (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Gatilhos de fila interna
 
@@ -48,16 +48,23 @@ Filas de controle contêm uma variedade de tipos de mensagem de ciclo de vida de
 
 A extensão de tarefa durável implementa um algoritmo de retirada exponencial aleatória para reduzir o efeito da sondagem de fila ociosa nos custos de transação de armazenamento. Quando uma mensagem é encontrada, o tempo de execução verifica imediatamente se há outra mensagem; quando nenhuma mensagem é encontrada, ela aguarda um período de tempo antes de tentar novamente. Após as tentativas subsequentes falharem em obter uma mensagem da fila, o tempo de espera continuará aumentando até atingir o tempo de espera máximo, cujo padrão é 30 segundos.
 
-O atraso máximo de sondagem é configurável `maxQueuePollingInterval` por meio da propriedade no [arquivo host. JSON](../functions-host-json.md#durabletask). Definir essa propriedade com um valor mais alto pode resultar em latências de processamento de mensagens mais altas. As latências mais altas seriam esperadas somente após períodos de inatividade. Definir essa propriedade com um valor mais baixo pode resultar em custos de armazenamento mais altos devido a maiores transações de armazenamento.
+O atraso máximo de sondagem é configurável por meio da `maxQueuePollingInterval` propriedade no [host.jsno arquivo](../functions-host-json.md#durabletask). Definir essa propriedade com um valor mais alto pode resultar em latências de processamento de mensagens mais altas. As latências mais altas seriam esperadas somente após períodos de inatividade. Definir essa propriedade com um valor mais baixo pode resultar em custos de armazenamento mais altos devido a maiores transações de armazenamento.
 
 > [!NOTE]
 > Durante a execução nos planos de consumo Azure Functions e Premium, o [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondará cada controle e a fila de itens de trabalho uma vez a cada 10 segundos. Essa sondagem adicional é necessária para determinar quando ativar instâncias do aplicativo de funções e tomar decisões de escala. No momento da gravação, esse intervalo de 10 segundos é constante e não pode ser configurado.
 
+### <a name="orchestration-start-delays"></a>Atrasos de início da orquestração
+As instâncias de orquestrações são iniciadas colocando uma `ExecutionStarted` mensagem em uma das filas de controle do hub de tarefas. Em determinadas condições, você pode observar atrasos de vários segundos entre quando uma orquestração está agendada para ser executada e quando ela realmente começa a ser executada. Durante esse intervalo de tempo, a instância de orquestração permanece no `Pending` estado. Há duas causas potenciais desse atraso:
+
+1. **Filas de controle de registro**posterior: se a fila de controle dessa instância contiver um grande número de mensagens, pode levar tempo antes que a `ExecutionStarted` mensagem seja recebida e processada pelo tempo de execução. Os registros de pendências de mensagem podem ocorrer quando orquestrações estão processando muitos eventos simultaneamente. Os eventos que entram na fila de controle incluem eventos de início de orquestração, conclusões de atividade, temporizadores duráveis, encerramento e eventos externos. Se esse atraso ocorrer em circunstâncias normais, considere a criação de um novo hub de tarefas com um número maior de partições. A configuração de mais partições fará com que o tempo de execução crie mais filas de controle para a distribuição de carga.
+
+2. **Desfazer atrasos de sondagem**: outra causa comum de atrasos de orquestração é o [comportamento de sondagem de retirada descrito anteriormente para filas de controle](#queue-polling). No entanto, esse atraso só é esperado quando um aplicativo é escalado horizontalmente para duas ou mais instâncias. Se houver apenas uma instância de aplicativo ou se a instância do aplicativo que inicia a orquestração também for a mesma instância que está sondando a fila de controle de destino, não haverá um atraso de sondagem de fila. Os atrasos de sondagem podem ser reduzidos atualizando o **host.jsem** configurações, conforme descrito anteriormente.
+
 ## <a name="storage-account-selection"></a>Seleção da conta de armazenamento
 
-As filas, as tabelas e os BLOBs usados pelo Durable Functions são criados em uma conta de armazenamento do Azure configurada. A conta a ser usada pode ser especificada usando `durableTask/storageProvider/connectionStringName` a configuração ( `durableTask/azureStorageConnectionStringName` ou a configuração no Durable Functions 1. x) no arquivo **host. JSON** .
+As filas, as tabelas e os BLOBs usados pelo Durable Functions são criados em uma conta de armazenamento do Azure configurada. A conta a ser usada pode ser especificada usando a `durableTask/storageProvider/connectionStringName` configuração (ou a `durableTask/azureStorageConnectionStringName` configuração no Durable Functions 1. x) na **host.jsno** arquivo.
 
-### <a name="durable-functions-2x"></a>Durable Functions 2. x
+### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
 ```json
 {
@@ -71,7 +78,7 @@ As filas, as tabelas e os BLOBs usados pelo Durable Functions são criados em um
 }
 ```
 
-### <a name="durable-functions-1x"></a>Durable Functions 1. x
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -87,9 +94,9 @@ Se não estiver especificado, a conta de armazenamento `AzureWebJobsStorage` pad
 
 ## <a name="orchestrator-scale-out"></a>Expansão do orquestrador
 
-As funções de atividade são sem estado e são expandidas automaticamente adicionando VMs. As funções e entidades do Orchestrator, por outro lado, são *particionadas* em uma ou mais filas de controle. O número de filas do controle é definido no arquivo **host.json**. O trecho de código host. JSON de exemplo `durableTask/storageProvider/partitionCount` a seguir define `durableTask/partitionCount` a propriedade (ou no Durable Functions 1 `3`. x) como.
+As funções de atividade são sem estado e são expandidas automaticamente adicionando VMs. As funções e entidades do Orchestrator, por outro lado, são *particionadas* em uma ou mais filas de controle. O número de filas do controle é definido no arquivo **host.json**. O exemplo a seguir host.jsno trecho de código define a `durableTask/storageProvider/partitionCount` Propriedade (ou `durableTask/partitionCount` no Durable Functions 1. x) como `3` .
 
-### <a name="durable-functions-2x"></a>Durable Functions 2. x
+### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
 ```json
 {
@@ -103,7 +110,7 @@ As funções de atividade são sem estado e são expandidas automaticamente adic
 }
 ```
 
-### <a name="durable-functions-1x"></a>Durable Functions 1. x
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -150,7 +157,7 @@ As funções de entidade também são executadas em um único thread e as opera�
 
 O Azure Functions suporta a execução de várias funções simultaneamente em uma instância de aplicativo único. Essa execução simultânea ajuda a aumentar o paralelismo e minimiza o número de "frios" que um aplicativo típico terá ao longo do tempo. No entanto, a alta simultaneidade pode esgotar os recursos do sistema por VM, tais como conexões de rede ou memória disponível. Dependendo das necessidades do aplicativo de função, pode ser necessário aumentar a simultaneidade por instância para evitar a possibilidade de falta de memória em situações de carga alta.
 
-Os limites de simultaneidade da atividade, do Orchestrator e da função de entidade podem ser configurados no arquivo **host. JSON** . As configurações relevantes são `durableTask/maxConcurrentActivityFunctions` para funções de atividade `durableTask/maxConcurrentOrchestratorFunctions` e para o orquestrador e para as funções de entidade.
+Os limites de simultaneidade da atividade, do Orchestrator e da função de entidade podem ser configurados no **host.jsno** arquivo. As configurações relevantes são `durableTask/maxConcurrentActivityFunctions` para funções de atividade e `durableTask/maxConcurrentOrchestratorFunctions` para o orquestrador e para as funções de entidade.
 
 ### <a name="functions-20"></a>Funções 2,0
 
@@ -185,7 +192,7 @@ No exemplo anterior, um máximo de 10 funções de orquestrador ou entidade e 10
 
 As sessões estendidas são uma configuração que mantém orquestrações e entidades na memória mesmo depois de concluir o processamento de mensagens. O efeito típico de habilitar sessões estendidas é E/S reduzidas em relação à conta de Armazenamento do Microsoft Azure e maior taxa de transferência geral.
 
-Você pode habilitar as sessões estendidas `durableTask/extendedSessionsEnabled` definindo `true` como no arquivo **host. JSON** . A `durableTask/extendedSessionIdleTimeoutInSeconds` configuração pode ser usada para controlar quanto tempo uma sessão ociosa será mantida na memória:
+Você pode habilitar as sessões estendidas definindo `durableTask/extendedSessionsEnabled` como `true` na **host.jsno** arquivo. A `durableTask/extendedSessionIdleTimeoutInSeconds` configuração pode ser usada para controlar quanto tempo uma sessão ociosa será mantida na memória:
 
 **Funções 2,0**
 ```json
@@ -214,13 +221,13 @@ Há duas desvantagens potenciais dessa configuração a serem consideradas:
 1. Há um aumento geral no uso de memória do aplicativo de funções.
 2. Pode haver uma redução geral na taxa de transferência se houver muitas execuções simultâneas de função de entidade ou orquestrador de curta duração.
 
-Por exemplo, se `durableTask/extendedSessionIdleTimeoutInSeconds` é definido como 30 segundos, um orquestrador de curta duração ou um episódio de função de entidade que é executado em menos de 1 segundo ainda ocupa a memória por 30 segundos. Ele também conta com relação `durableTask/maxConcurrentOrchestratorFunctions` à cota mencionada anteriormente, potencialmente impedindo que outras funções de orquestrador ou entidade sejam executadas.
+Por exemplo, se `durableTask/extendedSessionIdleTimeoutInSeconds` é definido como 30 segundos, um orquestrador de curta duração ou um episódio de função de entidade que é executado em menos de 1 segundo ainda ocupa a memória por 30 segundos. Ele também conta com relação à `durableTask/maxConcurrentOrchestratorFunctions` cota mencionada anteriormente, potencialmente impedindo que outras funções de orquestrador ou entidade sejam executadas.
 
 Os efeitos específicos das sessões estendidas no Orchestrator e nas funções de entidade são descritos nas próximas seções.
 
 ### <a name="orchestrator-function-replay"></a>Reprodução de função do Orchestrator
 
-Conforme mencionado anteriormente, as funções do orquestrador são repetidas usando o conteúdo da tabela **Histórico**. Por padrão, o código de função do orquestrador é repetido sempre que um lote de mensagens for removido da fila de uma fila de controle. Mesmo se você estiver usando o padrão Fan-out e Fan-in e estiver aguardando que todas as tarefas sejam concluídas (por exemplo `Task.WhenAll` , usando o `context.df.Task.all` no .net ou em JavaScript), haverá repetições que ocorrem à medida que os lotes de respostas de tarefa são processados ao longo do tempo. Quando as sessões estendidas são habilitadas, as instâncias de função de orquestrador são mantidas em memória por mais tempo e novas mensagens podem ser processadas sem uma reprodução de histórico completo.
+Conforme mencionado anteriormente, as funções do orquestrador são repetidas usando o conteúdo da tabela **Histórico**. Por padrão, o código de função do orquestrador é repetido sempre que um lote de mensagens for removido da fila de uma fila de controle. Mesmo se você estiver usando o padrão Fan-out e Fan-in e estiver aguardando que todas as tarefas sejam concluídas (por exemplo, usando o `Task.WhenAll` no .net ou `context.df.Task.all` em JavaScript), haverá repetições que ocorrem à medida que os lotes de respostas de tarefa são processados ao longo do tempo. Quando as sessões estendidas são habilitadas, as instâncias de função de orquestrador são mantidas em memória por mais tempo e novas mensagens podem ser processadas sem uma reprodução de histórico completo.
 
 A melhoria de desempenho de sessões estendidas é geralmente observada nas seguintes situações:
 

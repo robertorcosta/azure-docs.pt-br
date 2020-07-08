@@ -1,5 +1,5 @@
 ---
-title: Agrupar dados em compartimentos
+title: 'Agrupar dados em compartimentos: referência de módulo'
 titleSuffix: Azure Machine Learning
 description: Saiba como usar o módulo Agrupar dados em compartimentos para agrupar números ou alterar a distribuição de dados contínuos.
 services: machine-learning
@@ -9,106 +9,110 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: b33aa3d2ab22fc986100d6141dd03d5547ef1862
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751712"
 ---
-# <a name="group-data-into-bins"></a>Agrupar dados em compartimentos
+# <a name="group-data-into-bins-module"></a>Agrupar dados em um módulo de compartimentos
 
-Este artigo descreve como usar o módulo [Agrupar dados em compartimentos](group-data-into-bins.md) no designer do Azure Machine Learning (versão prévia), para agrupar números ou alterar a distribuição de dados contínuos.
+Este artigo descreve como usar o módulo Agrupar dados em compartimentos no designer do Azure Machine Learning (versão prévia), para agrupar números ou alterar a distribuição de dados contínuos.
 
-O módulo [Agrupar dados em compartimentos](group-data-into-bins.md) dá suporte a várias opções para dados compartimentalização. Você pode personalizar como as bordas de compartimento são definidas e como os valores são particionados nos compartimentos. Por exemplo, você pode:  
+O módulo Agrupar dados em compartimentos dá suporte a várias opções para dados compartimentalização. Você pode personalizar como as bordas de compartimento são definidas e como os valores são particionados nos compartimentos. Por exemplo, você pode:  
 
 + Digite manualmente uma série de valores para servir como limites de compartimento.  
 + Atribua valores aos compartimentos usando *quantis* ou classificações de percentil.  
 + Force uma distribuição uniforme de valores nos compartimentos.  
 
-### <a name="more-about-binning-and-grouping"></a>Mais sobre compartimentalização e agrupamento
+## <a name="more-about-binning-and-grouping"></a>Mais sobre compartimentalização e agrupamento
 
-*Compartimentalização* ou agrupamento de dados (às vezes chamados de *quantização*) é uma ferramenta importante para preparar dados numéricos para aprendizado de máquina e é útil em cenários como estes:
+O *compartimentalização* ou o agrupamento de dados (às vezes chamado de *quantização*) é uma ferramenta importante para preparar dados numéricos para o aprendizado de máquina. Ele é útil em cenários como estes:
 
-+ Uma coluna de números contínuos tem muitos valores exclusivos para modelar com eficiência, de modo que você atribui automática ou manualmente os valores a grupos, para criar um conjunto menor de intervalos discretos.
++ Uma coluna de números contínuos tem muitos valores exclusivos para modelar com eficiência. Portanto, você atribui automaticamente ou manualmente os valores a grupos, para criar um conjunto menor de intervalos discretos.
 
-+ Substitua uma coluna de números por valores categóricos que representem intervalos específicos.
++ Você deseja substituir uma coluna de números por valores categóricos que representem intervalos específicos.
 
     Por exemplo, você pode querer agrupar valores em uma coluna de idade especificando intervalos personalizados como 1 a 15, 16 a 22, 23 a 30 e assim por diante para os dados demográficos do usuário.
 
-+ Um conjunto de dados tem alguns valores extremos, tudo bem fora do intervalo esperado, e esses valores têm uma influência muito grande no modelo treinado. Para reduzir a tendência no modelo, você pode transformar os dados em uma distribuição uniforme, usando o método quantis.
++ Um conjunto de dados tem alguns valores extremos, tudo bem fora do intervalo esperado, e esses valores têm uma influência muito grande no modelo treinado. Para reduzir a tendência no modelo, você pode transformar os dados em uma distribuição uniforme usando o método quantis.
 
-    Com esse método, o módulo [Agrupar dados em compartimentos](group-data-into-bins.md) determina os locais de compartimentos e as larguras de compartimento ideais para garantir que aproximadamente o mesmo número de amostras se enquadrem em cada compartimento. Em seguida, dependendo do método de normalização escolhido, os valores nos compartimentos são transformados em percentis ou mapeados para um número de compartimento.
+    Com esse método, o módulo Agrupar dados em compartimentos determina os locais de compartimentos e as larguras de compartimento ideais para garantir que aproximadamente o mesmo número de amostras se enquadrem em cada compartimento. Em seguida, dependendo do método de normalização que você escolher, os valores nos compartimentos serão transformados em percentuais ou mapeados para um número de compartimento.
 
 ### <a name="examples-of-binning"></a>Exemplos de compartimentalização
 
-O diagrama a seguir mostra a distribuição de valores numéricos antes e depois da compartimentalização com o método **quantis**. Observe que, em comparação com os dados brutos à esquerda, os dados foram compartimentalizados e transformados em uma escala normal de unidade.  
+O diagrama a seguir mostra a distribuição de valores numéricos antes e depois da compartimentalização com o método *quantis*. Observe que, em comparação com os dados brutos à esquerda, os dados foram compartimentalizados e transformados em uma escala normal de unidade.  
 
-'Um exemplo pode ser encontrado a partir do resultado desta execução de pipeline: https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net '
+Você pode encontrar um [exemplo do resultado dessa execução de pipeline](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
 
 Como há muitas maneiras de agrupar dados, tudo personalizável, recomendamos que você teste com diferentes métodos e valores. 
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Como configurar Agrupar dados em compartimentos
 
-1. Adicione o módulo **Agrupar dados em compartimentos** ao seu pipeline no designer (versão prévia). Você pode encontrar esse módulo na categoria **Transformação de Dados**.
+1. Adicione os dados do grupo ao módulo de **compartimentos** ao seu pipeline no designer (versão prévia). Você pode encontrar esse módulo na categoria **Transformação de Dados**.
 
-2. Conecte o conjunto de dados que tem os valores numéricos ao compartimento.  A quantificação pode ser aplicada somente a colunas que contêm dados numéricos. 
+2. Conecte o conjunto de dados que tem os valores numéricos ao compartimento. A quantificação só pode ser aplicada a colunas que contêm dados numéricos. 
 
     Se o conjunto de dados contiver colunas não numéricas, use o módulo [Selecionar Colunas no Conjunto de Dados](select-columns-in-dataset.md) para selecionar um subconjunto de colunas com o qual trabalhar.
 
-3. Especifique o modo de compartimentalização. O modo de compartimentalização determina outros parâmetros; portanto, selecione a opção **Modo de compartimentalização** primeiro. Há suporte para os seguintes tipos de compartimentalização:
+3. Especifique o modo de compartimentalização. O modo compartimentalização determina outros parâmetros, portanto, certifique-se de selecionar a opção de **modo compartimentalização** primeiro. Há suporte para os seguintes tipos de compartimentalização:
 
-    **Quantis**: O método quantile atribui valores aos compartimentos com base nas classificações percentuais. Quantis também é conhecido como compartimentalização de mesma altura.
+    - **Quantis**: O método quantile atribui valores aos compartimentos com base nas classificações percentuais. Esse método também é conhecido como compartimentalização de altura igual.
 
-    **Mesma largura**: Com essa opção, você deve especificar o número total de compartimentos. Os valores da coluna de dados são colocados em compartimentos, de modo que cada um tenha o mesmo intervalo entre os valores inicial e final. Como resultado, alguns compartimentos podem ter mais valores se os dados estiverem concentrados em torno de um determinado ponto.
+    - **Largura igual**: com essa opção, você deve especificar o número total de compartimentos. Os valores da coluna de dados são colocados em compartimentos, de modo que cada compartimento tenha o mesmo intervalo entre os valores inicial e final. Como resultado, alguns compartimentos podem ter mais valores se os dados estiverem concentrados em torno de um determinado ponto.
 
-    **Bordas personalizadas**: Você pode especificar os valores que iniciam cada compartimento. O valor de borda sempre é o limite inferior do compartimento.  Por exemplo, suponha que você deseja agrupar valores em dois compartimentos, um com valores maiores que 0 e outro com valores menores que ou iguais a 0. Nesse caso, para bordas de compartimento, você digitará 0 em uma **Lista separada por vírgulas de bordas de compartimento**. A saída do módulo seria 1 e 2, indicando o índice de compartimento para cada valor de linha. Observe que a lista de valores separados por vírgulas deve estar em ordem crescente, como 1, 3, 5, 7.
+    - **Bordas personalizadas**: Você pode especificar os valores que iniciam cada compartimento. O valor de borda sempre é o limite inferior do compartimento. 
+    
+      Por exemplo, suponha que você deseja agrupar valores em dois compartimentos. Um terá valores maiores que 0 e um terá valores menores ou iguais a 0. Nesse caso, para bordas de compartimento, você insere **0** na **lista separada por vírgulas de bordas de compartimento**. A saída do módulo será 1 e 2, indicando o índice de compartimento para cada valor de linha. Observe que a lista de valores separados por vírgulas deve estar em ordem crescente, como 1, 3, 5, 7.
 
-4. **Número de compartimentos**: Se você estiver usando os modos de compartimentalização **Quantis** e **Mesma largura**, use essa opção para especificar quantos compartimentos ou *quantis* você deseja criar.
+4. Se você estiver usando os modos de compartimentalização **quantis** e de **largura igual** , use a opção **número de compartimentos** para especificar quantos compartimentos ou *quantis*deseja criar.
 
-5. Para **Colunas a agrupar**, use o seletor de coluna para escolher as colunas que têm os valores que você deseja guardar. As colunas devem ser um tipo de dados numérico.
+5. Para **colunas para o compartimento**, use o seletor de coluna para escolher as colunas que têm os valores que você deseja bandeja. As colunas devem ser um tipo de dados numérico.
 
-    A mesma regra compartimentalização é aplicada a todas as colunas aplicáveis que você escolher. Portanto, se você precisar agrupar colunas usando um método diferente, use uma instância separada de [Agrupar dados em compartimentos](group-data-into-bins.md) para cada conjunto de colunas.
+    A mesma regra compartimentalização é aplicada a todas as colunas aplicáveis que você escolher. Se você precisar desagrupar algumas colunas usando um método diferente, use uma instância separada dos dados do grupo em um módulo de compartimentos para cada conjunto de colunas.
 
     > [!WARNING]
     > Se você escolher uma coluna que não seja um tipo permitido, um erro de tempo de execução será gerado. O módulo retorna um erro assim que encontra qualquer coluna de um tipo não permitido. Se você receber um erro, examine todas as colunas selecionadas. O erro não lista todas as colunas inválidas.
 
-6. Para o **Modo de saída**, indique como você deseja gerar os valores quantificados.
+6. Para o **modo de saída**, indique como você deseja gerar os valores quantificados:
 
-      + **Append**: Cria uma nova coluna com os valores guardados e anexa para aquela tabela de entrada.
+    + **Append**: cria uma nova coluna com os valores de compartimentalizados e acrescenta isso à tabela de entrada.
 
-      + **Inplace**: Substitui os valores originais com os novos valores no conjunto de dados.
+    + **Inplace**: Substitui os valores originais com os novos valores no conjunto de dados.
 
-      + **ResultOnly**: Retorna apenas as colunas de resultados.
+    + **ResultOnly**: Retorna apenas as colunas de resultados.
 
-7. Se você selecionar o modo de compartimentalização **Quantis**, use a opção **Normalização de quantis** para determinar como os valores são normalizados antes da classificação para quantis. Observe que a normalização de valores transforma os valores, mas não afeta o número final de compartimentos.
+7. Se você selecionar o modo **quantis** compartimentalização, use a opção de **normalização de Quantil** para determinar como os valores são normalizados antes da classificação em quantis. Observe que a normalização de valores transforma os valores, mas não afeta o número final de compartimentos.
 
     Os seguintes tipos de normalização são compatíveis:
 
-    + **Percent**: Os valores são normalizados dentro do intervalo [0,100]
+    + **Porcentagem**: os valores são normalizados dentro do intervalo [0100].
 
-    + **PQuantile**: Os valores são normalizados dentro do intervalo [0,1]
+    + **PQuantile**: os valores são normalizados dentro do intervalo [0, 1].
 
-    + **QuantileIndex**:  Os valores são normalizados dentro do intervalo [1, número de compartimentos]
+    + **QuantileIndex**: os valores são normalizados dentro do intervalo [1, número de compartimentos].
 
-8. Se você escolher a opção **Bordas personalizadas**, digite uma lista separada por vírgulas de números a serem usados como *limites de compartimentalização* na caixa de texto + **Lista de limites de compartimentalização separados por vírgula**.  Os valores marcam o ponto que divide os compartimentos; portanto, se você digitar um valor de limite de compartimentalização, serão gerados dois compartimentos; se você digitar dois valores de limite de compartimentalização, três compartimentos serão gerados e assim por diante.
+8. Se você escolher a opção **bordas personalizadas** , insira uma lista separada por vírgulas de números para usar como *bordas de compartimento* na caixa de texto **lista separada por vírgulas de bordas do compartimento** . 
 
-    Os valores devem ser classificados para que os compartimentos sejam criados, do menor para o maior.
+    Os valores marcam o ponto que divide os compartimentos. Por exemplo, se você inserir um valor de borda de compartimento, serão gerados dois compartimentos. Se você inserir dois valores de borda de compartimento, três compartimentos serão gerados.
 
-10. **Colunas de marcas como categóricas**: Selecione esta opção para indicar que as colunas quantificadas devem ser tratadas como variáveis categóricas.
+    Os valores devem ser classificados na ordem em que os compartimentos são criados, do mais baixo para o mais alto.
+
+10. Selecione as **colunas de marca como opção categórica** para indicar que as colunas quantificadas devem ser tratadas como variáveis categóricas.
 
 11. Enviar o pipeline.
 
-### <a name="results"></a>Resultados
+## <a name="results"></a>Resultados
 
-O módulo [Agrupar dados em compartimentos](group-data-into-bins.md) retorna um conjunto de dados em que cada elemento foi guardado de acordo com o modo especificado. 
+O módulo Agrupar dados em compartimentos retorna um conjunto de dados em que cada elemento foi guardado de acordo com o modo especificado. 
 
-Ele também retorna uma **Compartimentação de transformação**, que é uma função que pode ser passada para o módulo [Aplicar Transformação](apply-transformation.md) para guardar novos exemplos de dados usando o mesmo modo e os parâmetros de compartimentalização.  
+Ele também retorna uma *transformação compartimentalização*. Essa função pode ser passada para o módulo [aplicar transformação](apply-transformation.md) para novos exemplos de dados do compartimento usando o mesmo modo de compartimentalização e parâmetros.  
 
 > [!TIP]
-> Lembre-se de que, se você usar a compartimentalização em seus dados de treinamento, deverá usar o mesmo método de compartimentalização nos dados que você usa para teste e previsão. Isso inclui o método de compartimentalização, os locais de compartimentos e as larguras de compartimento. 
+> Se você usar o compartimentalização em seus dados de treinamento, deverá usar o mesmo método compartimentalização nos dados que você usa para teste e previsão. Você também deve usar os mesmos locais de compartimento e larguras de compartimento. 
 > 
-> Para garantir que os dados sempre sejam transformados usando o mesmo método de compartimentalização, recomendamos que você salve transformações de dados úteis e, em seguida, aplique-os a outros conjuntos de dados usando o módulo [Aplicar Transformação](apply-transformation.md).
+> Para garantir que os dados sempre sejam transformados usando o mesmo método compartimentalização, recomendamos que você salve as transformações de dados úteis. Em seguida, aplique-os a outros conjuntos de valores usando o módulo [aplicar transformação](apply-transformation.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

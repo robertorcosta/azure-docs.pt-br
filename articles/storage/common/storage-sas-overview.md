@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 680c1b036b9b41edb1115f478fd5dc8f63ea1d02
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b853817b670f59bbfeef9ecd81c70dc63cbd367b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804611"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
@@ -43,7 +43,7 @@ O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso comp
 Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
 - **SAS ad hoc:** Quando você cria uma SAS ad hoc, a hora de início, a hora de expiração e as permissões para a SAS são todas especificadas no URI de SAS (ou implícita, se a hora de início for omitida). Qualquer tipo de SAS pode ser uma SAS ad hoc.
-- **SAS de serviço com política de acesso armazenada:** Uma política de acesso armazenada é definida em um contêiner de recursos, que pode ser um contêiner de BLOBs, uma tabela, uma fila ou um compartilhamento de arquivos. A política de acesso armazenada pode ser usada para gerenciar restrições para uma ou mais assinaturas de acesso compartilhado do serviço. Quando você associa uma SAS de serviço a uma política de acesso armazenada, a SAS&mdash;herda as restrições de hora de início, hora de&mdash;expiração e permissões definidas para a política de acesso armazenada.
+- **SAS de serviço com política de acesso armazenada:** Uma política de acesso armazenada é definida em um contêiner de recursos, que pode ser um contêiner de BLOBs, uma tabela, uma fila ou um compartilhamento de arquivos. A política de acesso armazenada pode ser usada para gerenciar restrições para uma ou mais assinaturas de acesso compartilhado do serviço. Quando você associa uma SAS de serviço a uma política de acesso armazenada, a SAS herda as restrições &mdash; de hora de início, hora de expiração e permissões &mdash; definidas para a política de acesso armazenada.
 
 > [!NOTE]
 > Uma SAS de delegação de usuário ou uma SAS de conta deve ser uma SAS ad hoc. As políticas de acesso armazenadas não têm suporte para a SAS de delegação de usuário ou a SAS da conta.

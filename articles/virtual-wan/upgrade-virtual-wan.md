@@ -4,15 +4,15 @@ description: Você pode atualizar seu tipo de WAN virtual para obter mais funcio
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 83fd5bafb5496908403c50dc0e000fd33a836c95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 769aa6c0d546b7a9bcbe355136bad811fb4f47b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73515805"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753317"
 ---
 # <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Atualizar uma WAN virtual do básico para o Standard
 

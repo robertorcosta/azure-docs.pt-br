@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c7091592f8806b6f6655315ae1faace286c2c1f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78207687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805492"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizar o acesso a dados de BLOB ou de fila com CLI do Azure
 
@@ -26,15 +26,15 @@ O armazenamento do Azure fornece extensões para CLI do Azure que permitem espec
 
 ## <a name="specify-how-data-operations-are-authorized"></a>Especificar como as operações de dados são autorizadas
 
-CLI do Azure comandos para ler e gravar dados de BLOB e de fila incluem `--auth-mode` o parâmetro opcional. Especifique esse parâmetro para indicar como uma operação de dados deve ser autorizada:
+CLI do Azure comandos para ler e gravar dados de BLOB e de fila incluem o `--auth-mode` parâmetro opcional. Especifique esse parâmetro para indicar como uma operação de dados deve ser autorizada:
 
 - Defina o `--auth-mode` parâmetro como `login` para entrar usando uma entidade de segurança do Azure AD (recomendado).
-- Defina o `--auth-mode` parâmetro para o valor `key` herdado para tentar recuperar a chave de acesso da conta a ser usada para autorização. Se você omitir `--auth-mode` o parâmetro, o CLI do Azure também tentará recuperar a chave de acesso.
+- Defina o `--auth-mode` parâmetro para o valor herdado `key` para tentar recuperar a chave de acesso da conta a ser usada para autorização. Se você omitir o `--auth-mode` parâmetro, o CLI do Azure também tentará recuperar a chave de acesso.
 
 Para usar o `--auth-mode` parâmetro, certifique-se de ter instalado CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para verificar sua versão instalada.
 
 > [!IMPORTANT]
-> Se você omitir `--auth-mode` o parâmetro ou defini- `key`lo como, o CLI do Azure tentará usar a chave de acesso da conta para autorização. Nesse caso, a Microsoft recomenda que você forneça a chave de acesso no comando ou na variável de ambiente **AZURE_STORAGE_KEY** . Para obter mais informações sobre variáveis de ambiente, consulte a seção intitulada [definir variáveis de ambiente para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
+> Se você omitir o `--auth-mode` parâmetro ou defini-lo como `key` , o CLI do Azure tentará usar a chave de acesso da conta para autorização. Nesse caso, a Microsoft recomenda que você forneça a chave de acesso no comando ou na variável de ambiente **AZURE_STORAGE_KEY** . Para obter mais informações sobre variáveis de ambiente, consulte a seção intitulada [definir variáveis de ambiente para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
 >
 > Se você não fornecer a chave de acesso, a CLI do Azure tentará chamar o provedor de recursos de armazenamento do Azure para recuperá-la para cada operação. Executar muitas operações de dados que exigem uma chamada para o provedor de recursos pode resultar em limitação. Para obter mais informações sobre os limites do provedor de recursos, consulte [escalabilidade e metas de desempenho para o provedor de recursos de armazenamento do Azure](scalability-targets-resource-provider.md).
 
@@ -54,7 +54,7 @@ Para obter detalhes sobre as permissões necessárias para cada operação de ar
 
 O exemplo a seguir mostra como criar um contêiner a partir de CLI do Azure usando suas credenciais do Azure AD. Para criar o contêiner, você precisará fazer logon no CLI do Azure, e precisará de um grupo de recursos e uma conta de armazenamento. Para saber como criar esses recursos, consulte [início rápido: criar, baixar e listar BLOBs com CLI do Azure](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Antes de criar o contêiner, atribua a função de [colaborador de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Embora você seja o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o contêiner, atribua a função [Colaborador de Dados do Blob de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Embora você seja o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > As atribuições de função do RBAC podem levar alguns minutos para serem propagadas.
@@ -103,7 +103,7 @@ Você pode especificar parâmetros de autorização em variáveis de ambiente pa
 |    AZURE_STORAGE_KEY                  |    A chave da conta de armazenamento. Essa variável deve ser usada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                                          |
 |    AZURE_STORAGE_CONNECTION_STRING    |    Uma cadeia de conexão que inclui a chave da conta de armazenamento ou um token SAS. Essa variável deve ser usada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                       |
 |    AZURE_STORAGE_SAS_TOKEN            |    Um token de SAS (assinatura de acesso compartilhado). Essa variável deve ser usada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores permitidos `login` são (recomendado) `key`ou. Se você especificar `login`, o CLI do Azure usará suas credenciais do Azure ad para autorizar a operação de dados. Se você especificar o modo `key` herdado, o CLI do Azure tentará consultar a chave de acesso da conta e autorizar o comando com a chave.    |
+|    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores permitidos são `login` (recomendado) ou `key` . Se você especificar `login` , o CLI do Azure usará suas credenciais do Azure ad para autorizar a operação de dados. Se você especificar o modo herdado `key` , o CLI do Azure tentará consultar a chave de acesso da conta e autorizar o comando com a chave.    |
 
 ## <a name="next-steps"></a>Próximas etapas
 

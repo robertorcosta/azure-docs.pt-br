@@ -3,25 +3,25 @@ title: Problema ao usar o acesso de aplicativo de autoatendimento | Microsoft Do
 description: Solucione problemas relacionados ao acesso de aplicativo de autoatendimento
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a981dfb1d72c21eccf2ad7119ea219114ed15aed
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 8a8a748b11e695041aa6baece381bc8d7d068992
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784272"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760908"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problema ao usar o acesso de aplicativo de autoatendimento
 
@@ -53,7 +53,7 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione na lista o aplicativo ao qual você deseja habilitar o acesso do autoatendimento.
 

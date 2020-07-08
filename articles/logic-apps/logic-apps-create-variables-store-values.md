@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456688"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753263"
 ---
-# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Armazenar e gerenciar valores usando variáveis em aplicativos lógicos do Azure
+# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Salvar e gerenciar valores usando variáveis em Aplicativos Lógicos do Azure
 
 Este artigo mostra como criar e trabalhar com variáveis que você usa para armazenar valores em seu aplicativo lógico. Por exemplo, as variáveis podem ajudá-lo a acompanhar o número de vezes que um loop é executado. Para iterar em uma matriz ou verificar uma matriz de um item específico, você pode usar uma variável para fazer referência ao número de índice de cada item da matriz.
 
@@ -22,7 +22,7 @@ Você pode criar variáveis para tipos de dados, como inteiro, float, booliano, 
 * Obter ou consultar o valor da variável.
 * Aumentar ou diminuir a variável em um valor constante, também conhecido como *incremento* e *decremento*.
 * Atribuir um valor diferente para a variável.
-* Inserir ou *acrescentar* o valor da variável como a última vez em uma cadeia de caracteres ou matriz.
+* Inserir ou *acrescentar* o valor da variável como o último item em uma cadeia de caracteres ou matriz.
 
 As variáveis existem e são globais apenas dentro da instância de aplicativo lógico que as cria. Além disso, elas persistem em quaisquer iterações de loop dentro de uma instância de aplicativo lógico. Quando você faz referência a uma variável, use o nome da variável como o token, não o nome da ação, que é a maneira usual de fazer referência a saídas de uma ação.
 
@@ -57,7 +57,7 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
 
      ![Adicionar ação](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal de**+** adição () seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre etapas, mova o mouse sobre a seta de conexão para que o sinal de adição ( **+** ) seja exibido. Selecione o sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
 1. Em **Escolher uma ação**, na caixa de pesquisa, insira `variables` como o filtro. Na lista ações, selecione **inicializar variável**.
 
@@ -76,7 +76,7 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
 
    ![Inicializar variável](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-1. Agora, continue adicionando as ações que você quer. Quando terminar, na barra de ferramentas do designer, selecione **salvar**.
+1. Agora, continue adicionando as ações que você quer. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
 
 Se você alternar do designer para o editor de modo de exibição de código, aqui está a maneira como a ação **inicializar variável** aparece em sua definição de aplicativo lógico, que está no formato JavaScript Object Notation (JSON):
 
@@ -215,7 +215,7 @@ Para aumentar ou *incrementar* uma variável por um valor constante, adicione a 
 
    ![Exemplo de valor de incremento](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
-1. Quando terminar, na barra de ferramentas do designer, selecione **salvar**.
+1. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
 
 Se você alternar do designer para o editor de modo de exibição de código, aqui está a maneira como a ação de **variável de incremento** aparece dentro de sua definição de aplicativo lógico, que está no formato JSON:
 
@@ -247,7 +247,7 @@ As variáveis são usadas normalmente para contar o número de vezes que um loop
 
    ![Procurar e incluir anexos](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. Adicione a [ação **Inicializar variável**](#create-variable). Crie uma variável de inteiro `Count` chamada que tenha um valor de início zero.
+1. Adicione a [ação **Inicializar variável**](#create-variable). Crie uma variável de inteiro chamada `Count` que tenha um valor de início zero.
 
    ![Adicione a ação para "Inicializar variável"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 

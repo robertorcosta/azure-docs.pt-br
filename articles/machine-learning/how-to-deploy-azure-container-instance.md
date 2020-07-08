@@ -5,17 +5,17 @@ description: Saiba como implantar seus modelos de Azure Machine Learning como um
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/27/2019
-ms.openlocfilehash: d460112394d7c7b7d2da4e8af41c0085b67226ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: dc2acefd69695e34fcf60877591faf4f838ab695
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753177"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo nas Instâncias de Contêiner do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Para obter informações sobre a disponibilidade de cota e região para ACI, con
 
     Para obter mais informações sobre como definir essas variáveis, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- Os trechos de código da __CLI__ neste artigo pressupõem que você `inferenceconfig.json` criou um documento. Para obter mais informações sobre como criar este documento, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+- Os trechos de código da __CLI__ neste artigo pressupõem que você criou um `inferenceconfig.json` documento. Para obter mais informações sobre como criar este documento, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ## <a name="deploy-to-aci"></a>Implantar no ACI
 
@@ -94,7 +94,7 @@ Consulte [implantar seus modelos com vs Code](tutorial-train-deploy-image-classi
 
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Usar o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
+* [Use o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

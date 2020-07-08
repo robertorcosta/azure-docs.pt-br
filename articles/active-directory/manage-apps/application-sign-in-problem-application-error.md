@@ -3,25 +3,25 @@ title: A mensagem de erro aparece na página do aplicativo depois que você entr
 description: Como resolver problemas com a entrada do Azure AD quando o aplicativo retorna uma mensagem de erro.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77185488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759531"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicativo mostra uma mensagem de erro após o usuário entrar
 
@@ -60,9 +60,9 @@ Para adicionar um atributo na configuração do Azure AD que será enviada na re
 
    Para adicionar um atributo:
 
-   1. Selecione **Adicionar Atributo**. Insira o **nome**e selecione o **valor** na lista suspensa.
+   1. Selecione **Adicionar atributo**. Insira o **nome**e selecione o **valor** na lista suspensa.
 
-   1.  Clique em **Salvar**. Você verá o novo atributo na tabela.
+   1.  Selecione **Salvar**. Você verá o novo atributo na tabela.
 
 9. Salve a configuração.
 

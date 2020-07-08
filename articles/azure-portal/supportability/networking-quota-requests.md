@@ -4,15 +4,15 @@ description: Aumento de limite de rede
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76547688"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764258"
 ---
 # <a name="networking-limit-increase"></a>Aumento de limite de rede
 
@@ -69,7 +69,7 @@ Siga as instruções abaixo para criar uma solicitação de suporte usando **aju
 
 Siga estas instruções para criar uma solicitação de suporte usando o **uso + cota** no portal do Azure.
 
-1. Em https://portal.azure.com, procure e selecione **assinaturas**.
+1. Em https://portal.azure.com , procure e selecione **assinaturas**.
 
     ![Assinaturas](./media/networking-quota-request/search-for-suscriptions.png)
 
@@ -77,11 +77,11 @@ Siga estas instruções para criar uma solicitação de suporte usando o **uso +
 
     ![Selecionar uma assinatura](./media/networking-quota-request/select-subscription-change-quota.png)
 
-1. Selecione **Uso + cotas**
+1. Selecionar **uso + cotas**
 
     ![Selecione uso e cotas](./media/networking-quota-request/select-usage-plus-quotas.png)
 
-1. No canto superior direito, selecione **Solicitar Aumento**.
+1. No canto superior direito, selecione **solicitar aumento**.
 
     ![Solicitar Aumento](./media/networking-quota-request/request-increase-from-subscription.png)
 

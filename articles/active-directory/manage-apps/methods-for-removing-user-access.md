@@ -3,24 +3,24 @@ title: Como remover o acesso de um usuário a um aplicativo | Microsoft Docs
 description: Compreenda como remover o acesso de um usuário a um aplicativo
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b69502995eff88df53af3671a8e611809f83e59
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 6f9626c256755e2fce81b593d95b8680f4bb55ee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65826109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763152"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um usuário a um aplicativo
 
@@ -48,7 +48,7 @@ Para **excluir um aplicativo**, siga estas instruções:
 
 5. Clique em **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
 
-   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
+   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
 6. Selecione o aplicativo que deseja excluir.
 
@@ -60,7 +60,7 @@ Desabilitar o consentimento do usuário para todo o seu diretório impede que os
 
 Para **desabilitar todas as futuras operações de consentimento do usuário no diretório inteiro**, siga estas instruções:
 
-1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
 2.  Abra a **Extensão do Azure Active Directory** 
 
@@ -73,4 +73,4 @@ Para **desabilitar todas as futuras operações de consentimento do usuário no 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Gerenciando o acesso a aplicativos](what-is-access-management.md)
+[Gerenciamento do acesso aos aplicativos](what-is-access-management.md)

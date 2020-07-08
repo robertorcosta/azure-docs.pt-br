@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: virtual-machines
-author: jonbeck7
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67171917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84793710"
 ---
 Algumas cargas de trabalho de banco de dados como o SQL Server ou Oracle exigem alto de memória, armazenamento e largura de banda I/O, mas não número alto de núcleos. Muitas cargas de trabalho do banco de dados não são de uso intensivo de CPU. O Azure oferece determinados tamanhos de VM, onde você pode restringir a contagem de vCPU VM para reduzir o custo de licenciamento de software, mantendo a mesma memória, armazenamento e largura de banda I/O.
 
@@ -24,7 +24,7 @@ Por exemplo, o tamanho da VM atual Standard_GS5 acompanha 32 vCPUs, 448 GB de RA
 Os valores de licenciamento cobrados para SQL Server ou Oracle são restritos à nova contagem de vCPU e outros produtos devem ser cobrados com base na contagem de vCPU nova. Isso resulta em um aumento de 50% a 75% na razão entre as especificações VM para vCPUs ativas (Faturável). Esses novos tamanhos de VM permitem que as cargas de trabalho dos clientes usem a mesma memória, armazenamento e largura de banda de e/s ao mesmo tempo em que otimizam seu custo de licenciamento de software. Neste momento, o custo de computação, que inclui o licenciamento do sistema operacional, permanece o mesmo com o tamanho original. Para obter mais informações, consulte [tamanhos de VM do Azure para cargas de trabalho do banco de dados mais econômicos](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
-| Name                | vCPU | Especificações           |
+| Nome                | vCPU | Especificações           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | Mesmo que M8ms    |
 | Standard_M8-4ms     | 4    | Mesmo que M8ms    |
@@ -45,6 +45,24 @@ Os valores de licenciamento cobrados para SQL Server ou Oracle são restritos à
 | Standard_E32-8s_v3  | 8    | O mesmo que E32s_v3 |
 | Standard_E64-32s_v3 | 32   | O mesmo que E64s_v3 |
 | Standard_E64-16s_v3 | 16   | O mesmo que E64s_v3 |
+| Standard_E4-2s_v4   | 2    | O mesmo que E4s_v4  |
+| Standard_E8-4s_v4   | 4    | O mesmo que E8s_v4  |
+| Standard_E8-2s_v4   | 2    | O mesmo que E8s_v4  |
+| Standard_E16-8s_v4  | 8    | O mesmo que E16s_v4 |
+| Standard_E16-4s_v4  | 4    | O mesmo que E16s_v4 |
+| Standard_E32-16s_v4 | 16   | O mesmo que E32s_v4 |
+| Standard_E32-8s_v4  | 8    | O mesmo que E32s_v4 |
+| Standard_E64-32s_v4 | 32   | O mesmo que E64s_v4 |
+| Standard_E64-16s_v4 | 16   | O mesmo que E64s_v4 |
+| Standard_E4-2ds_v4  | 2    | O mesmo que E4ds_v4 |
+| Standard_E8-4ds_v4  | 4    | O mesmo que E8ds_v4 |
+| Standard_E8-2ds_v4  | 2    | O mesmo que E8ds_v4 |
+| Standard_E16-8ds_v4 | 8    | O mesmo que E16ds_v4|
+| Standard_E16-4ds_v4 | 4    | O mesmo que E16ds_v4|
+| Standard_E32-16ds_v4| 16   | O mesmo que E32ds_v4|
+| Standard_E32-8ds_v4 | 8    | O mesmo que E32ds_v4|
+| Standard_E64-32ds_v4| 32   | O mesmo que E64ds_v4|
+| Standard_E64-16ds_v4| 16   | O mesmo que E64ds_v4|
 | Standard_GS4-8      | 8    | O mesmo que GS4     |
 | Standard_GS4-4      | 4    | O mesmo que GS4     |
 | Standard_GS5-16     | 16   | O mesmo que GS5     |

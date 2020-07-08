@@ -4,15 +4,15 @@ description: Como solicitar um aumento no limite de cota de vCPU para uma regiã
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9236989f7bbb4695db24f86a2a049f5bb58f302a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd4a770aee43709c46ab4c1baf965941d8d2c3ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763849"
 ---
 # <a name="standard-quota-increase-limits-by-region"></a>Cota padrão: aumentar os limites por região
 
@@ -42,15 +42,15 @@ Você pode solicitar um aumento no limite de cota padrão do vCPU por região de
 
 Para solicitar um aumento de cota de vCPU por região de **ajuda + suporte**:
 
-1. No menu [portal do Azure](https://portal.azure.com) , selecione **ajuda + suporte**.
+1. No menu do [Portal do Azure](https://portal.azure.com), selecione **Ajuda + suporte**.
 
    ![O link "ajuda + suporte"](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. Em **ajuda + suporte**, selecione **nova solicitação de suporte**.
+1. Em **Ajuda + suporte**, selecione **Nova solicitação de suporte**.
 
     ![Nova solicitação de suporte](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Para **tipo de problema**, selecione **Limites de serviço e assinatura (cotas)**.
+1. Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)**.
 
    ![Selecione um tipo de problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 

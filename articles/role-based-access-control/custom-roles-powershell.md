@@ -8,27 +8,27 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ffb53bff4e70fbeb80e518fe13aaeaa8b396cfac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790204"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Criar ou atualizar funções personalizadas do Azure usando o Azure PowerShell
 
 > [!IMPORTANT]
-> A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
+> A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando Azure PowerShell.
+Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar funções personalizadas próprias. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando Azure PowerShell.
 
 Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [tutorial: criar uma função personalizada do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md).
 
@@ -302,7 +302,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-O exemplo a seguir adiciona um grupo de `AssignableScopes` gerenciamento para a função personalizada *operador de máquina virtual* . A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
+O exemplo a seguir adiciona um grupo de gerenciamento para `AssignableScopes` a função personalizada *operador de máquina virtual* . A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
 
 ```azurepowershell
 Get-AzManagementGroup
@@ -401,6 +401,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: criar uma função personalizada do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Criar uma função personalizada do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas do Azure](custom-roles.md)
 - [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3cab4909937bbf5ccb0f72b194b08810c0487c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75750685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792006"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Habilitar registro em log com as configurações de diagnóstico
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o Hub IOT.
+1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
 
-2. Selecione **configurações de diagnóstico**.
+2. Selecionar **configurações de Diagnóstico**.
 
 3. Selecione **Ativar diagnóstico**.
 
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Configurações de diagnóstico**. Para obter mais informações sobre como configurar o diagnóstico, consulte [Coletar e consumir dados de log com os recursos do Azure](../articles/azure-monitor/platform/platform-logs-overview.md).
+As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Configurações de diagnóstico**. Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](../articles/azure-monitor/platform/platform-logs-overview.md).

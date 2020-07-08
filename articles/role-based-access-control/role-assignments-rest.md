@@ -11,16 +11,16 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f9a8b35b07a4149fa2d6b9f8e6698e41f3e6870c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790839"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Adicionar ou remover atribuições de função do Azure usando a API REST
 
@@ -34,7 +34,7 @@ Para adicionar ou remover atribuições de função, você deve ter:
 
 ## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
-No RBAC do Azure, para conceder acesso, você adiciona uma atribuição de função. Para adicionar uma atribuição de função, use as [atribuições de função-criar](/rest/api/authorization/roleassignments/create) API REST e especifique a entidade de segurança, a definição de função e o escopo. Para chamar essa API, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/write`. Das funções internas, somente [Proprietário](built-in-roles.md#owner) e [Administrador do Acesso do Usuário](built-in-roles.md#user-access-administrator) recebem permissão para acessar essa operação.
+Para conceder acesso no Azure RBAC, adicione uma atribuição de função. Para adicionar uma atribuição de função, use as [atribuições de função-criar](/rest/api/authorization/roleassignments/create) API REST e especifique a entidade de segurança, a definição de função e o escopo. Para chamar essa API, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/write`. Das funções internas, somente [Proprietário](built-in-roles.md#owner) e [Administrador do Acesso do Usuário](built-in-roles.md#user-access-administrator) recebem permissão para acessar essa operação.
 
 1. Use a API REST [Definições de Função - Listar](/rest/api/authorization/roledefinitions/list) ou veja as [Funções internas](built-in-roles.md) para obter o identificador da definição de função que você deseja atribuir.
 
@@ -58,7 +58,7 @@ No RBAC do Azure, para conceder acesso, você adiciona uma atribuição de funç
 1. Dentro do URI, substitua *{scope}* pelo escopo da atribuição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -72,7 +72,7 @@ No RBAC do Azure, para conceder acesso, você adiciona uma atribuição de funç
 1. No corpo da solicitação, substitua *{Scope}* pelo escopo da atribuição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -119,7 +119,7 @@ O texto a seguir mostra um exemplo da saída:
 
 ## <a name="remove-a-role-assignment"></a>Excluir uma atribuição de função
 
-No RBAC do Azure, para remover o acesso, você remove uma atribuição de função. Para remover uma atribuição de função, use a API REST [Atribuição de Função – Excluir](/rest/api/authorization/roleassignments/delete). Para chamar essa API, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/delete`. Das funções internas, somente [Proprietário](built-in-roles.md#owner) e [Administrador do Acesso do Usuário](built-in-roles.md#user-access-administrator) recebem permissão para acessar essa operação.
+No RBAC do Azure, para remover o acesso, você deve remover uma atribuição de função. Para remover uma atribuição de função, use a API REST [Atribuição de Função – Excluir](/rest/api/authorization/roleassignments/delete). Para chamar essa API, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/delete`. Das funções internas, somente [Proprietário](built-in-roles.md#owner) e [Administrador do Acesso do Usuário](built-in-roles.md#user-access-administrator) recebem permissão para acessar essa operação.
 
 1. Obtenha o identificador da atribuição de função (GUID). Esse identificador retorna quando você cria pela primeira vez a atribuição de função, ou você pode obtê-lo listando as atribuições de função.
 
@@ -132,7 +132,7 @@ No RBAC do Azure, para remover o acesso, você remove uma atribuição de funç�
 1. Dentro do URI, substitua *{scope}* pelo escopo para remoção da atribuição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |

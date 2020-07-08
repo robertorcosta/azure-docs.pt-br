@@ -1,24 +1,24 @@
 ---
 title: Obter informações sobre um modelo convertido
-description: Descrição de todos os parâmetros de conversão de modelo
+description: Descrição de todos os parâmetros da conversão de modelo
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805004"
 ---
 # <a name="get-information-about-a-converted-model"></a>Obter informações sobre um modelo convertido
 
-O arquivo arrAsset produzido pelo serviço de conversão destina-se exclusivamente ao consumo pelo serviço de renderização. No entanto, pode haver ocasiões em que você deseja acessar informações sobre um modelo sem iniciar uma sessão de renderização. Portanto, o serviço de conversão coloca um arquivo JSON ao lado do arquivo arrAsset no contêiner de saída. Por exemplo, se um arquivo `buggy.gltf` for convertido, o contêiner de saída conterá um arquivo `buggy.info.json` chamado ao lado do `buggy.arrAsset`ativo convertido. Ele contém informações sobre o modelo de origem, o modelo convertido e sobre a conversão em si.
+O arquivo arrAsset produzido pelo serviço de conversão destina-se exclusivamente ao consumo pelo serviço de renderização. No entanto, pode haver ocasiões em que você deseja acessar informações sobre um modelo sem iniciar uma sessão de renderização. Portanto, o serviço de conversão coloca um arquivo JSON ao lado do arquivo arrAsset no contêiner de saída. Por exemplo, se um arquivo `buggy.gltf` for convertido, o contêiner de saída conterá um arquivo chamado `buggy.info.json` ao lado do ativo convertido `buggy.arrAsset` . Ele contém informações sobre o modelo de origem, o modelo convertido e sobre a conversão em si.
 
 ## <a name="example-info-file"></a>Arquivo de *informações* de exemplo
 
-Aqui está um arquivo de *informações* de exemplo produzido pela conversão de `buggy.gltf`um arquivo chamado:
+Aqui está um arquivo de *informações* de exemplo produzido pela conversão de um arquivo chamado `buggy.gltf` :
 
 ```JSON
 {
@@ -100,7 +100,7 @@ Esta seção registra informações sobre o formato do arquivo de origem.
 Esta seção fornece informações sobre a cena de origem. Em geral, haverá discrepâncias entre os valores nesta seção e os valores equivalentes na ferramenta que criou o modelo de origem. Essas diferenças são esperadas, pois o modelo é modificado durante as etapas de exportação e conversão.
 
 * `numMeshes`: O número de partes de malha, onde cada parte pode fazer referência a um único material.
-* `numFaces`: O número total de _triângulos_ em todo o modelo. Observe que a malha está triangulada durante a conversão.
+* `numFaces`: O número total de _triângulos_ em todo o modelo. Observe que a malha está triangulada durante a conversão. Esse número contribui para o limite do polígono no [tamanho da VM de renderização padrão](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: O número total de vértices em todo o modelo.
 * `numMaterial`: O número total de materiais em todo o modelo.
 * `numFacesSmallestMesh`: O número de triângulos na menor malha do modelo.
@@ -120,7 +120,7 @@ Esta seção registra informações gerais sobre a saída gerada.
 
 Esta seção registra as informações calculadas do ativo convertido.
 
-* `numMeshPartsCreated`: O número de malhas no arrAsset. Ele pode ser diferente `numMeshes` da `inputStatistics` seção, pois a instanciação é afetada pelo processo de conversão.
+* `numMeshPartsCreated`: O número de malhas no arrAsset. Ele pode ser diferente da `numMeshes` `inputStatistics` seção, pois a instanciação é afetada pelo processo de conversão.
 * `numMeshPartsInstanced`: O número de malhas reutilizadas no arrAsset.
 * `recenteringOffset`: Quando a `recenterToOrigin` opção no [ConversionSettings](configure-model-conversion.md) está habilitada, esse valor é a conversão que moveria o modelo convertido de volta para sua posição original.
 * `boundingBox`: Os limites do modelo.

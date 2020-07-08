@@ -4,15 +4,15 @@ description: Esta página descreve como você pode aproveitar a WAN virtual do A
 services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: ce212b5da90906966025674b58884d0e2f5bb064
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753778"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>WAN virtual do Azure e suporte ao trabalho remoto
 
@@ -27,7 +27,7 @@ Você precisa que seus usuários remotos possam acessar recursos por trás de um
 Você tem a necessidade de os usuários acessarem recursos intra Cloud sem a necessidade de configurar a conectividade entre regiões?
 Como esse pandemia global cria alterações sem precedentes em nosso lugar, a equipe de WAN virtual do Azure está aqui para que você atenda às suas necessidades de conectividade.
 
-A WAN virtual do Azure é um serviço de rede que traz muitas funcionalidades de rede, segurança e roteamento para fornecer uma única interface operacional. Essas funcionalidades incluem conectividade de ramificação (por meio da automação de conectividade de dispositivos de parceiros de WAN virtuais, como SD-WAN ou VPN CPE), conectividade VPN site a site, conectividade VPN de usuário remoto (ponto a site), conexão privada (ExpressRoute), conectividade de nuvem interna (conectividade transitiva para redes virtuais), VPN ExpressRoute interconectividade, roteamento, firewall do Azure, criptografia para conectividade Você não precisa ter todos esses casos de uso para começar a usar a WAN virtual. Você pode começar com apenas um caso de uso e ajustar sua rede à medida que ela evolui.
+A WAN Virtual do Azure é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma interface operacional. Essas funcionalidades incluem conectividade de ramificação (por meio da automação de conectividade de dispositivos de parceiros de WAN virtuais, como SD-WAN ou VPN CPE), conectividade VPN site a site, conectividade VPN de usuário remoto (ponto a site), conexão privada (ExpressRoute), conectividade de nuvem interna (conectividade transitiva para redes virtuais), VPN ExpressRoute interconectividade, roteamento, firewall do Azure, criptografia para conectividade Você não precisa ter todos esses casos de uso para começar a usar a WAN virtual. Você pode começar com apenas um caso de uso e ajustar sua rede à medida que ela evolui.
 
 ![Diagrama de WAN virtual](./media/virtual-wan-about/virtualwan1.png)
 
@@ -51,7 +51,7 @@ A WAN virtual básica fornece somente VPN site a site. Para que os usuários rem
 
 ## <a name="additional-information"></a><a name="other considerations"></a>Informações adicionais
 
-A WAN virtual dá suporte a um hub por região/local. Para obter informações de localização, consulte o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md). Cada Hub dá suporte a até 10.000 conexões de usuário remoto, 1.000 conexão de ramificação, quatro circuitos de ExpressRoute e até 500 conexões de rede virtual. Ao escalar verticalmente os usuários remotos, se você tiver dúvidas, não hesite em buscar ajuda enviando um email para azurevirtualwan@microsoft.com. Se você precisar de suporte técnico, não se esqueça de abrir um tíquete de suporte na portal do Azure e a ajuda estará a caminho.
+A WAN virtual dá suporte a um hub por região/local. Para obter informações de localização, consulte o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md). Cada Hub dá suporte a até 10.000 conexões de usuário remoto, 1.000 conexão de ramificação, quatro circuitos de ExpressRoute e até 500 conexões de rede virtual. Ao escalar verticalmente os usuários remotos, se você tiver dúvidas, não hesite em buscar ajuda enviando um email para azurevirtualwan@microsoft.com . Se você precisar de suporte técnico, não se esqueça de abrir um tíquete de suporte na portal do Azure e a ajuda estará a caminho.
 
 ## <a name="faq"></a><a name="faq"></a>Perguntas frequentes
 

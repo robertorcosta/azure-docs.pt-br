@@ -3,20 +3,19 @@ title: Suporte para migração de servidor físico nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de servidor físico nas migrações para Azure.
 ms.topic: conceptual
 ms.custom: fasttrack-edit
-ms.date: 01/07/2020
-ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/14/2020
+ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80520276"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770332"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidor físico
 
 Este artigo resume as configurações de suporte e as limitações para a migração de servidores físicos com o [migrações para Azure: migração de servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) . Se você estiver procurando informações sobre como avaliar servidores físicos para migração para o Azure, examine a [matriz de suporte de avaliação](migrate-support-matrix-physical.md).
 
-
-## <a name="overview"></a>Visão geral
+## <a name="migrating-machines-as-physical"></a>Migrando computadores como físicos
 
 Você pode migrar computadores locais como servidores físicos, usando a replicação baseada em agente. Usando essa ferramenta, você pode migrar uma ampla variedade de computadores para o Azure:
 
@@ -49,15 +48,15 @@ A tabela resume o suporte para servidores físicos que você deseja migrar usand
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por computador.
 **Discos/volumes criptografados** |  Computadores com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Não há suporte.
-**Discos independentes** |  Com suporte.
-**Discos de passagem** |  Com suporte.
+**Cluster de disco compartilhado** | Sem suporte.
+**Discos independentes** | Com suporte.
+**Discos de passagem** | Com suporte.
 **NFS** | Volumes NFS montados como volumes nos computadores não serão replicados.
 **destinos iSCSI** | Não há suporte para computadores com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Não há suporte.
+**E/s de vários caminhos** | Sem suporte.
 **VMotion de armazenamento** | Com suporte
-**NICs agrupadas** | Não há suporte.
-**Protocolo** | Não há suporte.
+**NICs agrupadas** | Sem suporte.
+**IPv6** | Sem suporte.
 
 
 
@@ -66,7 +65,7 @@ A tabela resume o suporte para servidores físicos que você deseja migrar usand
 Se você configurar o dispositivo de replicação manualmente em um servidor físico, verifique se ele está em conformidade com os requisitos resumidos na tabela. Quando você configura o dispositivo de replicação de migrações para Azure como uma VM VMware usando o modelo OVA fornecido no Hub migrações para Azure, o dispositivo é configurado com o Windows Server 2016 e está em conformidade com os requisitos de suporte. 
 
 - Saiba mais sobre [os requisitos do dispositivo de replicação](migrate-replication-appliance.md#appliance-requirements).
-- O MySQL deve estar instalado no dispositivo. Saiba mais sobre [as opções de instalação](migrate-replication-appliance.md#mysql-installation).
+- MySQL deve estar instalado no dispositivo. Saiba mais sobre [as opções de instalação](migrate-replication-appliance.md#mysql-installation).
 - Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) que o dispositivo de replicação precisa acessar.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
@@ -82,11 +81,11 @@ Contagem do disco do sistema operacional | 1 | A verificação falha se não tiv
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falha se não tiver suporte.
 Adaptadores de Rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Não há suporte. | A verificação falha se não tiver suporte.
-Disco FC | Não há suporte. | A verificação falha se não tiver suporte.
-BitLocker | Não há suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
+VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
+Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
+BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
 Nome da VM | De 1 a 63 caracteres.<br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
-Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/> -Antes de a migração habilitar o RDP na VM local. Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall** -> do Windows tenha**aplicativos e recursos permitidos** para redes privadas e de **domínio** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
+Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/> -Antes de a migração habilitar o RDP na VM local. Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall do Windows**tenha  ->  **aplicativos e recursos permitidos** para redes privadas e de **domínio** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  
 
 

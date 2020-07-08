@@ -8,14 +8,14 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c8a5555c5c33255fdc5902a115e7e9103a4e936f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79410058"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805310"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs (visualização)
 
@@ -25,7 +25,7 @@ Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a o
 
 Quando um aplicativo cliente fornece uma chave de criptografia na solicitação, o armazenamento do Azure executa criptografia e descriptografia de forma transparente ao ler e gravar dados de BLOB. O armazenamento do Azure grava um hash SHA-256 da chave de criptografia ao lado do conteúdo do blob. O hash é usado para verificar se todas as operações subsequentes no blob usam a mesma chave de criptografia.
 
-O armazenamento do Azure não armazena ou gerencia a chave de criptografia que o cliente envia com a solicitação. A chave é descartada com segurança assim que o processo de criptografia ou descriptografia estiver concluído.
+O armazenamento do Azure não armazena ou gerencia a chave de criptografia que o cliente envia com a solicitação. A chave será descartada com segurança assim que o processo de criptografia ou descriptografia estiver concluído.
 
 Quando um cliente cria ou atualiza um BLOB usando uma chave fornecida pelo cliente na solicitação, as solicitações de leitura e gravação subsequentes para esse blob também devem fornecer a chave. Se a chave não for fornecida em uma solicitação para um blob que já foi criptografado com uma chave fornecida pelo cliente, a solicitação falhará com o código de erro 409 (conflito).
 
@@ -39,7 +39,7 @@ Cada instantâneo de blob pode ter sua própria chave de criptografia.
 
 Para chamadas REST, os clientes podem usar os seguintes cabeçalhos para transmitir informações de chave de criptografia com segurança em uma solicitação para o armazenamento de BLOBs:
 
-|Cabeçalho da Solicitação | Descrição |
+|Cabeçalho da solicitação | Descrição |
 |---------------|-------------|
 |`x-ms-encryption-key` |Necessário para solicitações de gravação e leitura. Um valor de chave de criptografia AES-256 codificado na base64. |
 |`x-ms-encryption-key-sha256`| Necessário para solicitações de gravação e leitura. A SHA256 codificada em base64 da chave de criptografia. |
@@ -51,15 +51,15 @@ A especificação de chaves de criptografia na solicitação é opcional. No ent
 
 As operações de armazenamento de blob a seguir dão suporte ao envio de chaves de criptografia fornecidas pelo cliente em uma solicitação:
 
-- [Colocar Blob](/rest/api/storageservices/put-blob)
-- [Colocar lista de blocos](/rest/api/storageservices/put-block-list)
-- [Colocar bloco](/rest/api/storageservices/put-block)
+- [Put Blob](/rest/api/storageservices/put-blob)
+- [Put Block List](/rest/api/storageservices/put-block-list)
+- [Put Block](/rest/api/storageservices/put-block)
 - [Colocar bloco da URL](/rest/api/storageservices/put-block-from-url)
 - [Colocar Página](/rest/api/storageservices/put-page)
-- [Colocar página da URL](/rest/api/storageservices/put-page-from-url)
+- [Colocar Página da URL](/rest/api/storageservices/put-page-from-url)
 - [Acrescentar Bloco](/rest/api/storageservices/append-block)
 - [Set Blob Properties](/rest/api/storageservices/set-blob-properties)
-- [Definir Metadados de Blob](/rest/api/storageservices/set-blob-metadata)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
@@ -77,4 +77,4 @@ Para girar uma chave de criptografia que foi usada para criptografar um blob, ba
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Especifique uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs com o .NET](../blobs/storage-blob-customer-provided-key.md)
-- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)

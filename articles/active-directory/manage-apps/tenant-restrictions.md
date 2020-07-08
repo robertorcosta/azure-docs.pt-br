@@ -3,8 +3,8 @@ title: Usar restrições de locatário para gerenciar o acesso aos aplicativos S
 description: Como usar restrições de locatário para gerenciar quais usuários podem acessar aplicativos com base em seu locatário do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763016"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -74,7 +74,7 @@ Para cada solicitação de entrada para login.microsoftonline.com, login.microso
 
 Os cabeçalhos devem incluir os seguintes elementos:
 
-- Para *Restrict-Access-To-Tenants*, use um valor de \<permitted tenant list\>, que é uma lista separada por vírgulas dos locatários para permitir que os usuários acessem. Qualquer domínio que é registrado com um locatário pode ser usado para identificar o locatário nessa lista. Por exemplo, para permitir o acesso aos locatários Contoso e Fabrikam, o par nome/valor é semelhante a: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- Para *restringir o acesso-para-locatários*, use um valor de \<permitted tenant list\> , que é uma lista separada por vírgulas de locatários que você deseja permitir que os usuários acessem. Qualquer domínio que é registrado com um locatário pode ser usado para identificar o locatário nessa lista. Por exemplo, para permitir o acesso aos locatários Contoso e Fabrikam, o par nome/valor é semelhante a: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - Para *Restrict-Access-Context*, use um valor de uma ID de diretório, declarando qual locatário está configurando as restrições de locatário. Por exemplo, para declarar Contoso como o locatário que define a política de restrições de locatário, o par nome/valor é semelhante a: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -155,7 +155,7 @@ O Fiddler é um proxy de depuração da Web gratuito que pode ser usado para cap
 
    1. Na ferramenta Depurador da Web Fiddler Web, selecione o menu **Regras** e selecione **Personalizar Regras...** para abrir o arquivo CustomRules.
 
-   2. Adicione as seguintes linhas no início da função `OnBeforeRequest`. Substitua \<tenant domain\> por um domínio registrado com seu locatário (por exemplo, `contoso.onmicrosoft.com`). Substitua \<directory ID\> pelo identificador de GUID do Azure AD do locatário.
+   2. Adicione as seguintes linhas no início da função `OnBeforeRequest`. Substituir \<tenant domain\> por um domínio registrado com seu locatário (por exemplo, `contoso.onmicrosoft.com` ). Substitua \<directory ID\> pelo identificador de GUID do Azure AD do locatário.
 
       ```JScript.NET
       if (

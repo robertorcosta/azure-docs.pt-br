@@ -3,23 +3,23 @@ title: Proxy de Aplicativo Azure AD e Qlik Sense | Microsoft Docs
 description: Ative o Proxy de Aplicativo no Portal do Azure e instale os Conectores para o proxy reverso.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760041"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de Aplicativo e Qlik Sense 
 O Proxy de Aplicativo do Azure Active Directory e a Qlik Sense fizeram uma parceria para garantir que você possa facilmente usar o Proxy de Aplicativo para fornecer acesso remoto para sua implantação do Qlik Sense.  
@@ -38,7 +38,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 
 
 1. Entre no Portal do Azure como um administrador global. 
-2. Selecione **Azure Active Directory** > **aplicativos empresariais**. 
+2. Selecione **Azure Active Directory**  >  **aplicativos empresariais**. 
 3. Selecione **Adicionar** na parte superior da folha. 
 4. Selecione **Aplicativo local**. 
 5. Preencha os campos obrigatórios com informações sobre seu novo aplicativo. Use as diretrizes a seguir para as configurações: 
@@ -47,7 +47,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 1. Selecione **Adicionar** na parte inferior da folha. Seu aplicativo é adicionado e abre o menu de início rápido. 
 2. No menu de início rápido, selecione **Atribuir um usuário para teste** e adicione pelo menos um usuário para o aplicativo. Verifique se essa conta de teste tem acesso ao aplicativo local. 
 3. Selecione **Atribuir** para salvar a atribuição do usuário de teste. 
-4. (Opcional) Na folha de gerenciamento do aplicativo, selecione Logon único. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios, com base na sua configuração do Qlik. Clique em **Salvar**. 
+4. (Opcional) Na folha de gerenciamento do aplicativo, selecione Logon único. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios, com base na sua configuração do Qlik. Selecione **Salvar**. 
 
 ### <a name="application-2"></a>Aplicativo nº 2: 
 Siga as mesmas etapas do aplicativo nº 1, com as seguintes exceções: 

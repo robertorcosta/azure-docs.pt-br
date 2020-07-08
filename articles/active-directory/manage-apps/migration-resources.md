@@ -2,22 +2,22 @@
 title: Recursos para migrar aplicativos para o Azure Active Directory | Microsoft Docs
 description: Recursos para ajudá-lo a migrar o acesso e a autenticação de aplicativos para o Azure AD (Azure Active Directory).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/29/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b30469858a5dd83f7f5f707f74466302b3000510
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3fe21b6509080e88c63d9c02c8116f3882fb64dd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763101"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para migrar aplicativos para o Azure Active Directory
 

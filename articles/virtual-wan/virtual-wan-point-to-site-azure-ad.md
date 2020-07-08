@@ -4,21 +4,21 @@ description: Saiba como configurar a autenticação de Azure Active Directory pa
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 703b832d58f2374eac131cfd380ba27f2c890618
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753959"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurar a autenticação de Azure Active Directory para VPN de usuário
 
 Este artigo mostra como configurar a autenticação do Azure AD para VPN de usuário na WAN virtual para se conectar aos seus recursos no Azure por meio de uma conexão VPN OpenVPN. A Autenticação Azure Active Directory só está disponível para gateways usando o protocolo OpenVPN e clientes que executam o Windows.
 
-Esse tipo de conexão exige que um cliente seja configurado no computador cliente. Para saber mais sobre WAN Virtual, confira a [Visão geral de WAN Virtual](virtual-wan-about.md).
+Esse tipo de conexão exige que um cliente seja configurado no computador cliente. Para obter mais informações sobre WAN virtual, consulte [visão geral da WAN virtual](virtual-wan-about.md).
 
 Neste artigo, você aprenderá como:
 
@@ -38,7 +38,7 @@ Neste artigo, você aprenderá como:
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
-* Você tem uma rede virtual à qual deseja se conectar. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o [Início Rápido](../virtual-network/quick-create-portal.md).
+* Você tem uma rede virtual à qual deseja se conectar. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o guia de [início rápido](../virtual-network/quick-create-portal.md).
 
 * Sua rede virtual não tem gateways de rede virtual. Se sua rede virtual tem um gateway (VPN ou ExpressRoute), remova todos os gateways. Essa configuração requer que as redes virtuais sejam conectadas ao gateway do hub da WAN Virtual.
 
@@ -60,7 +60,7 @@ Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre co
    * **Grupo de recursos**: crie um novo ou use um existente.
    * **Localização do grupo de recursos**: escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
    * **Nome**: digite o nome que você quer dar à sua WAN.
-   * **Tipo:** Standardization. Se você criar uma WAN básica, poderá criar apenas um hub básico. Os hubs básicos são capazes somente de conectividade VPN site a site.
+   * **Tipo:** Standard. Se você criar uma WAN básica, poderá criar apenas um hub básico. Os hubs básicos são capazes somente de conectividade VPN site a site.
 4. Quando terminar de preencher os campos, selecione **Examinar + Criar**.
 5. Depois que a validação for aprovada, selecione **Criar** para criar a WAN Virtual.
 
@@ -108,7 +108,7 @@ Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
    ![novo site](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
 5. Insira o **Pool de endereços** do qual os endereços IP serão atribuídos aos clientes VPN.
-6. Clique em **confirmar**.
+6. Clique em **Confirmar**.
 7. Essa operação pode demorar até 30 minutos para ser concluída.
 
 ## <a name="download-vpn-profile"></a><a name="device"></a>Baixar o perfil de VPN
@@ -125,7 +125,7 @@ Use o perfil VPN para configurar seus clientes.
 Para se conectar, você precisará baixar o Cliente VPN do Azure e importar o perfil do cliente VPN baixado nas etapas anteriores em cada computador que deseja se conectar à VNet.
 
 > [!NOTE]
-> A autenticação do Azure AD tem suporte apenas&reg; para conexões de protocolo OpenVPN.
+> A autenticação do Azure AD tem suporte apenas para &reg; conexões de protocolo OpenVPN.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Para baixar o Cliente VPN do Azure
@@ -136,23 +136,23 @@ Use este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 
 1. Na página, selecione **Importar**.
 
-    ![importar](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
+    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
 
 2. Navegue até o arquivo XML do perfil e selecione-o. Com o arquivo selecionado, selecione **Abrir**.
 
-    ![importar](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
+    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
 
 3. Especifique o nome do perfil e selecione **Salvar**.
 
-    ![importar](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
+    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
 
 4. Selecione **Conectar** para se conectar à VPN.
 
-    ![importar](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
+    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
 
 5. Uma vez conectado, o ícone ficará verde e mostrará o texto **Conectado**.
 
-    ![importar](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
+    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para excluir um perfil de cliente
 
@@ -189,7 +189,7 @@ Use este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 3. Na seção Hubs e conexões, você pode exibir status do hub, site, região, status de conexão de VPN e bytes de entrada e saída.
 
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
 
 Quando não precisar mais desses recursos, você poderá utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 

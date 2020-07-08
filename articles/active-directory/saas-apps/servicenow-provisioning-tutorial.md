@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: da62efff5db5c71b087657b0eec93f8dd4702665
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780520"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751496"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configurar o ServiceNow para o provisionamento automático de usuários
 
@@ -54,12 +54,19 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 1. Identifique o nome da instância do ServiceNow. O nome da instância pode ser encontrado na URL que você usa para acessar o ServiceNow. No exemplo a seguir, o nome da instância é dev35214.
 
-![Instância do ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Instância do ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-    
 2. Obtenha as credenciais de um administrador no ServiceNow. Navegue até o perfil do usuário no ServiceNow e verifique se o usuário tem a função de administrador. 
 
-![Função de administrador do ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![Função de administrador do ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. Verifique se as seguintes configurações estão **desabilitadas** no ServiceNow:
+
+   1. Selecione **segurança do sistema**  >  **configurações de alta segurança**  >  **exigir autenticação básica para solicitações de esquema de entrada**.
+   2. Selecione **Propriedades do sistema**  >  **Serviços Web**  >  **exigem autorização básica para solicitações SOAP de entrada**.
+     
+   > [!IMPORTANT]
+   > Se essas configurações estiverem *habilitadas*, o mecanismo de provisionamento não conseguirá se comunicar com o ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicione o ServiceNow por meio da galeria de aplicativos do Azure AD
 
@@ -133,8 +140,8 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
-1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não.
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir.
+1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
+2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
@@ -142,6 +149,14 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * **EntryJoiningPropertyValueIsMissing:** examine os [mapeamentos de atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para identificar o atributo correspondente. Esse valor precisa estar presente no usuário ou no grupo que você quer provisionar. 
 * Examine a [API SOAP do ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para entender os requisitos ou as limitações (por exemplo, o formato para especificar o código de país de um usuário).
 * As solicitações de provisionamento são enviadas por padrão para https://{nome-da-instância}.service-now.com/{nome-da-tabela}. Se você precisar de uma URL de locatário personalizada, forneça a URL completa no campo de nome da instância.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   Esse erro indica um problema de comunicação com a instância do ServiceNow. Verifique se as seguintes configurações estão *desabilitadas* no ServiceNow:
+   
+   1. Selecione **segurança do sistema**  >  **configurações de alta segurança**  >  **exigir autenticação básica para solicitações de esquema de entrada**.
+   2. Selecione **Propriedades do sistema**  >  **Serviços Web**  >  **exigem autorização básica para solicitações SOAP de entrada**.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

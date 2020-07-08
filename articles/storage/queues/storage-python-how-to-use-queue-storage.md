@@ -6,21 +6,24 @@ ms.author: mhopkins
 ms.date: 09/17/2019
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.custom: seo-javascript-october2019
-ms.openlocfilehash: ca0831fd7554058d21e315b67d6965579af1d38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.custom: seo-javascript-october2019, tracking-python
+ms.openlocfilehash: 46d144a95708ac834478871ca27763f0ebd3b201
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805253"
 ---
-# <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como usar o armazenamento de filas do Azure v 2.1 do Python
+# <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como usar o armazenamento de Filas do Azure v2.1 do Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Este artigo demonstra cenários comuns usando o serviço de armazenamento de filas do Azure. Os cenários abordados incluem inserção, inspeção, obtenção e exclusão de mensagens da fila e criação e exclusão de filas.
+
+> [!IMPORTANT]
+> Este artigo refere-se à versão herdada da biblioteca de cliente do armazenamento do Azure para Python. Para começar a usar a versão mais recente, consulte [início rápido: biblioteca de cliente de armazenamento de fila do Azure para Python](storage-quickstart-queues-python.md)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
@@ -32,7 +35,7 @@ Os exemplos neste artigo são escritos em Python e usam o [SDK do armazenamento 
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="download-and-install-azure-storage-sdk-for-python"></a>Baixe e instale o SDK do armazenamento do Azure para Python
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Baixe e instale o SDK do Armazenamento do Azure para Python
 
 O [SDK do armazenamento do Azure para Python](https://github.com/azure/azure-storage-python) requer o python versão 2,7, 3,3 ou posterior.
  
@@ -57,7 +60,7 @@ Para executar o aplicativo de exemplo, verifique se você instalou os pacotes `a
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-O objeto [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) permite que você trabalhe com filas. O código a seguir cria `QueueService` um objeto. Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
+O objeto [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) permite que você trabalhe com filas. O código a seguir cria um `QueueService` objeto. Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
 
 ```python
 from azure.storage.queue import QueueService
@@ -108,7 +111,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
-Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir `get_messages` usa o método para obter 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
+Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o `get_messages` método para obter 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
 
 ```python
 messages = queue_service.get_messages(
@@ -131,7 +134,7 @@ for message in messages:
 
 ## <a name="get-the-queue-length"></a>Obter o tamanho da fila
 
-Você pode obter uma estimativa do número de mensagens em uma fila. O método [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) solicita que o serviço fila retorne metadados sobre a fila e o `approximate_message_count`. O resultado é aproximado apenas porque as mensagens podem ser adicionadas ou removidas depois que o serviço de fila responde à sua solicitação.
+Você pode obter uma estimativa do número de mensagens em uma fila. O método [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) solicita que o serviço fila retorne metadados sobre a fila e o `approximate_message_count` . O resultado é aproximado apenas porque as mensagens podem ser adicionadas ou removidas depois que o serviço de fila responde à sua solicitação.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')
@@ -151,8 +154,8 @@ queue_service.delete_queue('taskqueue')
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais.
 
 * [Referência da API do Python das filas do Azure](/python/api/azure-storage-queue)
-* [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
-* [Azure Storage Services REST API Reference](https://msdn.microsoft.com/library/azure/dd179355) (Referência de API REST dos Serviços de Armazenamento do Azure)
+* [Central de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
+* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355)
 
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python

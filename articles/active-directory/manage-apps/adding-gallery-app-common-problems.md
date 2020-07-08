@@ -3,24 +3,24 @@ title: Problema ao adicionar um aplicativo da Galeria do Azure AD | Microsoft Do
 description: Entenda os problemas comuns que as pessoas enfrentam durante a adição de aplicativos da Galeria do Azure AD e o que você pode fazer para resolvê-los
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4387a3ca02297311cd9ab025c315ca3324cbbbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65784438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760398"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar um aplicativo da Galeria do Azure AD
 
@@ -99,7 +99,7 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
 - **UPN** – o usuário que realizou a operação
 
-  -   Exemplo – **tperkins\@f128.info**
+  -   Exemplo – **tperkins \@ f128.info**
 
 - **ID do locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
 
@@ -125,7 +125,7 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
 -   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-    -   Exemplo – a **URL `https://bing.com/` interna é inválida porque já está em uso**
+    -   Exemplo – a **URL interna `https://bing.com/` é inválida porque já está em uso**
 
 -   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um suporte ou grupo de produtos 
 -   engenheiro

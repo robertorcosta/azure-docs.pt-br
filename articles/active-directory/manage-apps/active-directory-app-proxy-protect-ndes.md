@@ -3,22 +3,22 @@ title: Integrar com Proxy de Aplicativo do AD em um servidor NDES
 titleSuffix: Azure Active Directory
 description: Orientação sobre como implantar um Proxy de Aplicativo do Azure Active Directory para proteger seu servidor NDES.
 services: active-directory
-author: CelesteDG
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/17/2020
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 4ccd8834671725ace72497391090f81eb197ad6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77032251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760789"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrar com o Azure Proxy de Aplicativo do AD em um servidor NDES (serviço de registro de dispositivo de rede)
 
@@ -45,18 +45,18 @@ O Proxy de Aplicativo do AD do Azure é criado no Azure. Ele oferece uma grande 
 1. Leia os Termos de serviço. Quando estiver pronto, escolha **Aceitar termos e baixar**.
 1. Copie o arquivo de instalação do conector do Azure Proxy de Aplicativo do AD para o servidor NDES. 
    > Você pode instalar o conector em qualquer servidor dentro de sua rede corporativa com acesso ao NDES. Você não precisa instalá-lo no próprio servidor de NDES.
-1. Execute o arquivo de instalação, como *AADApplicationProxyConnectorInstaller. exe*. Aceite os termos de licença de software.
+1. Execute o arquivo de instalação, como *AADApplicationProxyConnectorInstaller.exe*. Aceite os termos de licença de software.
 1. Durante a instalação, você será solicitado a registrar o conector com o proxy de aplicativo no seu diretório do Azure AD.
    * Forneça as credenciais para um administrador global ou de aplicativo em seu diretório do Azure AD. As credenciais globais do Azure AD ou do administrador do aplicativo podem ser diferentes das suas credenciais do Azure no Portal.
 
         > [!NOTE]
         > A conta global ou de administrador de aplicativos usada para registrar o conector deve pertencer ao mesmo diretório em que você habilita o serviço de proxy de aplicativo.
         >
-        > Por exemplo, se o domínio do Azure AD for *contoso.com*, o administrador global/do aplicativo `admin@contoso.com` deverá ser ou outro alias válido nesse domínio.
+        > Por exemplo, se o domínio do Azure AD for *contoso.com*, o administrador global/do aplicativo deverá ser `admin@contoso.com` ou outro alias válido nesse domínio.
 
    * Se a configuração de segurança reforçada do Internet Explorer estiver ativada para o servidor em que você instalar o conector, a tela de registro poderá ser bloqueada. Para permitir o acesso, siga as instruções na mensagem de erro ou desative a segurança aprimorada do Internet Explorer durante o processo de instalação.
    * Se o registro do conector falhar, consulte [solucionar problemas do Application Proxy](application-proxy-troubleshoot.md).
-1. No final da instalação, uma observação é mostrada para ambientes com um proxy de saída. Para configurar o conector de Proxy de Aplicativo do AD do Azure para trabalhar com o proxy de saída, execute o script fornecido `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`, como.
+1. No final da instalação, uma observação é mostrada para ambientes com um proxy de saída. Para configurar o conector de Proxy de Aplicativo do AD do Azure para trabalhar com o proxy de saída, execute o script fornecido, como `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1` .
 1. Na página proxy de aplicativo no portal do Azure, o novo conector é listado com o status *ativo*, conforme mostrado no exemplo a seguir:
 
     ![O novo conector de Proxy de Aplicativo do AD do Azure mostrado como ativo no portal do Azure](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
@@ -83,7 +83,7 @@ O Proxy de Aplicativo do AD do Azure é criado no Azure. Ele oferece uma grande 
 
 1. Teste se você pode acessar seu servidor NDES por meio do proxy de aplicativo do Azure AD colando o link copiado na etapa 10 em um navegador. Você deverá ver uma página de boas-vindas do IIS padrão.
 
-1. Como um teste final, adicione o caminho *MSCEP. dll* à URL existente colada na etapa anterior:
+1. Como um teste final, adicione o caminho *mscep.dll* à URL existente colada na etapa anterior:
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 

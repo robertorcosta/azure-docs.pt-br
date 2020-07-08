@@ -3,17 +3,17 @@ title: Usar o Visualizador de Erros de Desenho do Azure Mapas
 description: Neste artigo, você aprenderá como visualizar avisos e erros retornados pela API de conversão do criador.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791105"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Usando o Visualizador de Erros de Desenho do Azure Mapas
 
@@ -78,15 +78,15 @@ Abra o arquivo _index.html_ usando qualquer um dos navegadores abaixo, com o res
 
 Depois de iniciar a ferramenta Visualizador de Erros de Desenho, você verá a página de carregamento. A página de carregamento contém uma caixa de arrastar e soltar. A caixa de arrastar e soltar também funciona como um botão que inicia uma caixa de diálogo do Explorador.
 
-![Aplicativo Visualizador de Erros de Desenho — Página Inicial](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="Aplicativo Visualizador de Erros de Desenho — Página Inicial":::
 
 O arquivo _ConversionWarningsAndErrors.json_ foi colocado na raiz do diretório baixado. Para carregar o _ConversionWarningsAndErrors.json_ você pode arrastar e soltar o arquivo na caixa ou clicar na caixa, localizar o arquivo na caixa de diálogo do Explorador de Arquivos e, em seguida, carregar o arquivo.
 
-![Aplicativo Visualizador de Erros de Desenho — arrastar e soltar para carregar dados](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplicativo Visualizador de Erros de Desenho — arrastar e soltar para carregar dados":::
 
-Depois que o arquivo _ConversionWarningsAndErrors.json_ for carregado, você verá uma lista de erros e avisos do pacote de desenho. Cada erro ou aviso é especificado pela camada, nível e uma mensagem detalhada. Agora você pode navegar por cada erro para saber mais detalhes sobre como resolver o erro.  
+Depois que o arquivo _ConversionWarningsAndErrors.json_ for carregado, você verá uma lista de erros e avisos do pacote de desenho. Cada erro ou aviso é especificado pela camada, nível e uma mensagem detalhada. Para exibir informações detalhadas sobre um erro ou aviso, clique no link **detalhes** . Uma seção inmanejável será exibida abaixo da lista. Agora você pode navegar por cada erro para saber mais detalhes sobre como resolver o erro.
 
-![Aplicativo Visualizador de Erros de Desenho — erros e avisos](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplicativo Visualizador de Erros de Desenho — erros e avisos":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

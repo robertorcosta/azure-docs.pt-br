@@ -4,15 +4,15 @@ description: Isso ajuda você a trabalhar com o arquivo de perfil do cliente
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: b88be5cccdaeb452288a2cb2f1dd4b4690a8b274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c64e7988094612077131029547682c7ae3d25c98
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753137"
 ---
 # <a name="working-with-user-vpn-client-profiles"></a>Trabalhando com perfis de cliente VPN de usuário
 
@@ -20,7 +20,7 @@ O arquivo de perfil baixado contém informações necessárias para configurar u
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* A **pasta OpenVPN** contém o perfil *ovpn* que precisa ser modificado para incluir a chave e o certificado. Para obter mais informações, consulte [configurar clientes do OpenVPN](../virtual-wan/howto-openvpn-clients.md#windows).
+* A pasta **OpenVPN** contém o perfil *ovpn* que precisa ser modificado para incluir a chave e o certificado. Para obter mais informações, consulte [configurar clientes do OpenVPN](../virtual-wan/howto-openvpn-clients.md#windows).
 
 ## <a name="next-steps"></a>Próximas etapas
 

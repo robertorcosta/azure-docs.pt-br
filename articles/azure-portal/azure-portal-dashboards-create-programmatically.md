@@ -7,17 +7,17 @@ author: adamabmsft
 manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ec9a4daad139a4930174ba9e3445e1cda1f8c54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764036"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -387,7 +387,7 @@ Este exemplo mostra o que você pode esperar para ver se você seguiu este artig
 
 ### <a name="template-representation-of-our-example-dashboard"></a>A representação de modelo do nosso painel de exemplo
 
-A versão de modelo do painel definiu três parâmetros chamados `virtualMachineName`, `virtualMachineResourceGroup`e `dashboardName`.  Os parâmetros permitem que você aponte este painel em uma máquina virtual do Azure diferente toda vez que implantar. Esse painel pode ser configurado e implantado programaticamente para apontar para qualquer máquina virtual do Azure. Para testar esse recurso, copie o modelo a seguir e cole-o na [página de implantação do modelo de portal do Azure](https://portal.azure.com/#create/Microsoft.Template).
+A versão de modelo do painel definiu três parâmetros chamados `virtualMachineName` , `virtualMachineResourceGroup` e `dashboardName` .  Os parâmetros permitem que você aponte este painel em uma máquina virtual do Azure diferente toda vez que implantar. Esse painel pode ser configurado e implantado programaticamente para apontar para qualquer máquina virtual do Azure. Para testar esse recurso, copie o modelo a seguir e cole-o na [página de implantação do modelo de portal do Azure](https://portal.azure.com/#create/Microsoft.Template).
 
 Este exemplo implanta um painel por si só, mas a linguagem do modelo permite que você implante vários recursos e agrupe um ou mais painéis ao lado deles.
 

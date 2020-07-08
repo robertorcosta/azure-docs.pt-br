@@ -6,15 +6,15 @@ keywords: configurações, tempo limite
 author: mgblythe
 ms.author: mblythe
 ms.date: 02/10/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2efee29ba709607e1e7935215ca7689a39966de1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764155"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Definir tempo limite de inatividade no nível do diretório
 
@@ -48,6 +48,6 @@ A configuração entra em vigor para novas sessões. Ele não será aplicado ime
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Definir suas preferências do portal do Azure](set-preferences.md)
+* [Configure suas preferências no portal Azure](set-preferences.md)
 * [Exportar ou excluir configurações do usuário](azure-portal-export-delete-settings.md)
 * [Ativar alto contraste ou alterar tema](azure-portal-change-theme-high-contrast.md)

@@ -4,15 +4,15 @@ description: Saiba como criar um gateway de aplicativo com o tráfego redirecion
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804346"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
 
@@ -172,7 +172,7 @@ Por fim, você deve atualizar o conjunto de dimensionamento com essas alteraçõ
 1. Selecione o conjunto de dimensionamento **myvmss**.
 2. Em **Configurações**, selecione **Instâncias**.
 3. Selecione ambas as instâncias e selecione **Atualizar**.
-4. Selecione **Sim** para confirmar.
+4. Clique em **Sim** para confirmar.
 5. Depois que isso for concluído, volte para **myAppGateway** e selecione **Pools de back-end**. Agora você deve ver que o **appGatewayBackendPool** tem dois destinos, e **myAppGatewaymyvmss** não tem destinos.
 6. Selecione **myAppGatewaymyvmss**e selecione **Excluir**.
 7. Selecione **OK** para confirmar.
@@ -206,7 +206,7 @@ Depois de alterar as instâncias com o IIS, você deve atualizar novamente o con
 1. Selecione o conjunto de dimensionamento **myvmss**.
 2. Em **Configurações**, selecione **Instâncias**.
 3. Selecione ambas as instâncias e selecione **Atualizar**.
-4. Selecione **Sim** para confirmar.
+4. Clique em **Sim** para confirmar.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 

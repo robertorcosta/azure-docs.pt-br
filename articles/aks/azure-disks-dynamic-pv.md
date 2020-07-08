@@ -5,12 +5,12 @@ description: Saiba como criar dinamicamente um volume persistente com discos do 
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 9ac41b1738d1691f6547f508d1a38dec89b0bb79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751349"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e usar dinamicamente um volume persistente com discos do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -19,13 +19,13 @@ Um volume persistente representa uma parte do armazenamento que foi provisionada
 > [!NOTE]
 > Um disco do Azure somente pode ser montado com o *modo de Aceso* tipo *ReadWriteOnce*, que o torna disponível para apenas um único pod no AKS. Se for necessário compartilhar um volume persistente em vários pods, use [Arquivos do Azure][azure-files-pvc].
 
-Para obter mais informações sobre volumes kubernetes, consulte [Opções de armazenamento para aplicativos em AKs][concepts-storage].
+Para obter mais informações sobre o Kubernetes, veja [Opções de armazenamento para aplicativos no AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Classes de armazenamento internas
 
@@ -38,7 +38,11 @@ Cada cluster AKS inclui duas classes de armazenamento criadas previamente, ambas
 * A classe de armazenamento *managed-premium* provisiona um disco premium do Azure.
     * Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. Se os nós do AKS no cluster usarem o armazenamento premium, selecione a classe *managed-premium*.
     
-Essas classes de armazenamento padrão não permitem que você atualize o tamanho do volume depois de criado. Para habilitar essa capacidade, adicione a linha *allowVolumeExpansion: true* a uma das classes de armazenamento padrão ou crie sua própria classe de armazenamento personalizada. Você pode editar uma classe de armazenamento existente usando `kubectl edit sc` o comando. Para obter mais informações sobre classes de armazenamento e criar suas próprias, consulte [Opções de armazenamento para aplicativos no AKs][storage-class-concepts].
+Se você usar uma das classes de armazenamento padrão, não poderá atualizar o tamanho do volume depois que a classe de armazenamento for criada. Para poder atualizar o tamanho do volume depois que uma classe de armazenamento é criada, adicione a linha `allowVolumeExpansion: true` a uma das classes de armazenamento padrão ou você pode criar sua própria classe de armazenamento personalizada. Você pode editar uma classe de armazenamento existente usando o `kubectl edit sc` comando. 
+
+Por exemplo, se você quiser usar um disco de tamanho 4 TiB, deverá criar uma classe de armazenamento que defina `cachingmode: None` porque o [cache de disco não tem suporte em discos 4 TIB e maiores](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+
+Para obter mais informações sobre classes de armazenamento e como criar sua própria classe de armazenamento, consulte [Opções de armazenamento para aplicativos no AKs][storage-class-concepts].
 
 Use o comando [kubectl get sc][kubectl-get] para ver as classes de armazenamento pré-criadas. A exemplo a seguir mostra as classes de armazenamento criadas previamente disponíveis dentro de um cluster do AKS:
 
@@ -86,7 +90,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Usar o volume persistente
 
-Quando a declaração do volume persistente tiver sido criada e o disco tiver sido provisionado com êxito, um pod poderá ser criado com acesso ao disco. O manifesto a seguir cria um pod NGINX básico que usa a declaração de volume persistente chamada *azure-managed-disk* para montar o disco do Azure no caminho `/mnt/azure`. Para contêineres do Windows Server, especifique um *mountPath* usando a Convenção de caminho do Windows, como *: '*.
+Quando a declaração do volume persistente tiver sido criada e o disco tiver sido provisionado com êxito, um pod poderá ser criado com acesso ao disco. O manifesto a seguir cria um pod NGINX básico que usa a declaração de volume persistente chamada *azure-managed-disk* para montar o disco do Azure no caminho `/mnt/azure`. Para contêineres do Windows Server, especifique um *mountPath* usando a convenção de caminho do Windows, como *“D:”* .
 
 Crie um arquivo chamado `azure-pvc-disk.yaml` e copie-o para o manifesto a seguir.
 
@@ -251,7 +255,7 @@ Volumes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups em AKs][operator-best-practices-storage].
+Para obter as práticas recomendadas associadas, veja [Práticas recomendadas para armazenamento e backups no AKS][operator-best-practices-storage].
 
 Saiba mais sobre volumes persistentes Kubernetes usando os discos do Azure.
 

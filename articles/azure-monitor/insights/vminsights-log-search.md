@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803977"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar logs do Azure Monitor para VMs
 
@@ -47,11 +47,11 @@ Os seguintes campos e convenções se aplicam a VMConnection e VMBoundPort:
 
 Para gerenciar o custo e a complexidade, os registros de conexão não representam as conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica, o que é refletido na respectiva tabela.  Ou seja, os registros na tabela *VMConnection* representam um agrupamento lógico, não as conexões físicas individuais sendo observadas. As conexões de rede física que compartilham o mesmo valor para os atributos a seguir durante o intervalo especificado de um minuto são agregadas em um único registro lógico em *VMConnection*. 
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 |Direção |Direção da conexão, o valor é *entrada* ou *saída* |
 |Computador |O FQDN do computador |
-|Processo |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
+|Processar |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
 |SourceIp |Endereço IP da origem |
 |DestinationIp |Endereço IP do destino |
 |DestinationPort |Número da porta de destino |
@@ -59,7 +59,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 Para levar em conta o impacto do agrupamento, são fornecidas informações sobre o número de conexões físicas agrupadas nas seguintes propriedades do registro:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 |LinksEstablished |O número de conexões de rede física que foram estabelecidas durante o intervalo de tempo de geração de relatórios |
 |LinksTerminated |O número de conexões de rede física que foram terminadas durante o intervalo de tempo de geração de relatórios |
@@ -70,7 +70,7 @@ Para levar em conta o impacto do agrupamento, são fornecidas informações sobr
 
 Além das métricas de contagem de conexões, as informações sobre o volume de dados enviados e recebidos em determinada conexão lógica ou porta de rede também estão incluídas nas seguintes propriedades do registro:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 |BytesSent |Número total de bytes enviados durante o intervalo de tempo de geração de relatórios |
 |BytesReceived |Número total de bytes recebidos durante o intervalo de tempo de geração de relatórios |
@@ -98,7 +98,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 *VMConnection* também inclui informações de localização geográfica para a extremidade remota de cada registro de conexão nas seguintes propriedades do registro: 
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 |RemoteCountry |O nome do país/região que hospeda o RemoteIp.  Por exemplo: *Estados Unidos* |
 |RemoteLatitude |A latitude da localização geográfica. Por exemplo: *47,68* |
@@ -108,7 +108,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um conjunto de IPs com atividades maliciosas conhecidas. Se RemoteIp for identificado como malicioso, as propriedades a seguir serão preenchidas (elas ficam em branco quando o IP não é considerado malicioso) nas seguintes propriedades do registro:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
 |MaliciousIP |Endereço de RemoteIp |
 |IndicatorThreadType |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -128,9 +128,9 @@ As portas em um computador que aceitam ativamente o tráfego de entrada ou podem
 
 Cada registro em VMBoundPort é identificado pelos seguintes campos: 
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--|:--|
-|Processo | Identidade do processo (ou grupos de processos) com os quais a porta está associada.|
+|Processar | Identidade do processo (ou grupos de processos) com os quais a porta está associada.|
 |IP | Endereço IP da porta (pode ser IP de curinga, *0.0.0.0*) |
 |Porta |O número da porta |
 |Protocolo | O protocolo.  Exemplo, *TCP* ou *UDP* (somente *TCP* tem suporte no momento).|
@@ -168,7 +168,7 @@ Os registros com um tipo de *VMComputer* têm dados de inventário para servidor
 |FullDisplayName | Nome de exibição completo | 
 |HostName | O nome do computador sem o nome de domínio |
 |Boottime | A hora de inicialização do computador (UTC) |
-|timeZone | O fuso horário normalizado |
+|TimeZone | O fuso horário normalizado |
 |Virtualizationstate | *virtual*, *hipervisor*, *físico* |
 |Ipv4Addresses | Matriz de endereços IPv4 | 
 |Ipv4SubnetMasks | Matriz de máscaras de sub-rede IPv4 (na mesma ordem que Ipv4Addresses). |
@@ -226,7 +226,7 @@ Os registros com um tipo de *VMProcess* têm dados de inventário para processos
 |Computador | O FQDN do computador | 
 |AgentId | A ID exclusiva do agente de Log Analytics |
 |Computador | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}*, em que *GUID* é o mesmo GUID que agentID. | 
-|Processo | O identificador exclusivo do processo de Mapa do Serviço. Ele está no formato *p-{GUID}*. 
+|Processar | O identificador exclusivo do processo de Mapa do Serviço. Ele está no formato *p-{GUID}*. 
 |Executávelname | O nome do processo executável | 
 |DisplayName | Nome de exibição do processo |
 |Função | Função de processo: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
@@ -442,19 +442,19 @@ Os registros com um tipo de *InsightsMetrics* têm dados de desempenho do sistem
 |Computador | O FQDN do computador | 
 |Origem | *vm.azm.ms* |
 |Namespace | Categoria do contador de desempenho | 
-|Name | Nome do contador de desempenho |
+|Nome | Nome do contador de desempenho |
 |Val | Valor coletado | 
 |Marcas | Detalhes relacionados sobre o registro. Consulte a tabela abaixo para ver as marcas usadas com diferentes tipos de registro.  |
 |AgentId | Identificador exclusivo para o agente de cada computador |
-|Type | *InsightsMetrics* |
+|Tipo | *InsightsMetrics* |
 |_Identificação_ | ID de recurso da máquina virtual |
 
 Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* são listados na tabela a seguir:
 
-| Namespace | Name | Descrição | Unidade | Marcas |
+| Namespace | Nome | Descrição | Unidade | Marcas |
 |:---|:---|:---|:---|:---|
 | Computador    | Pulsação             | Pulsação do computador                        | | |
-| Memória      | AvailableMB           | Memória-bytes disponíveis                    | Bytes          | memorySizeMB-tamanho total da memória|
+| Memória      | AvailableMB           | Memória-bytes disponíveis                    | Megabytes      | memorySizeMB-tamanho total da memória|
 | Rede     | WriteBytesPerSecond   | Bytes de gravação de rede por segundo            | BytesPerSecond | NetworkDeviceId-ID do dispositivo<br>bytes-total de bytes enviados |
 | Rede     | ReadBytesPerSecond    | Bytes de leitura de rede por segundo             | BytesPerSecond | networkDeviceId-ID do dispositivo<br>bytes-total de bytes recebidos |
 | Processador   | UtilizationPercentage | Porcentagem de utilização do processador          | Porcentagem        | totalCpus-total de CPUs |
@@ -467,7 +467,7 @@ Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* sã
 | LogicalDisk | ReadLatencyMs         | Milissegundo de latência de leitura de disco lógico     | MilliSeconds   | mountid-ID de montagem do dispositivo |
 | LogicalDisk | ReadBytesPerSecond    | Bytes de leitura de disco lógico por segundo        | BytesPerSecond | mountid-ID de montagem do dispositivo |
 | LogicalDisk | FreeSpacePercentage   | Porcentagem de espaço livre no disco lógico        | Porcentagem        | mountid-ID de montagem do dispositivo |
-| LogicalDisk | FreeSpaceMB           | Bytes de espaço livre no disco lógico             | Bytes          | mountid-ID de montagem do dispositivo<br>diskSizeMB-tamanho total do disco |
+| LogicalDisk | FreeSpaceMB           | Bytes de espaço livre no disco lógico             | Megabytes      | mountid-ID de montagem do dispositivo<br>diskSizeMB-tamanho total do disco |
 | LogicalDisk | BytesPerSecond        | Bytes de disco lógico por segundo             | BytesPerSecond | mountid-ID de montagem do dispositivo |
 
 

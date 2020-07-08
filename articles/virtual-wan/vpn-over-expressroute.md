@@ -4,15 +4,15 @@ description: Neste tutorial, saiba como usar a WAN virtual do Azure para criar u
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: b1e6305d142530ab19849f61f12a122d0c6434aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749595"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Criptografia do ExpressRoute: IPsec sobre ExpressRoute para WAN virtual
 
@@ -222,7 +222,7 @@ Se você precisar de instruções para configurar o dispositivo, poderá usar as
 ## <a name="5-view-your-virtual-wan"></a><a name="viewwan"></a>5. exibir sua WAN virtual
 
 1. Vá para a WAN virtual.
-1. Na página **Visão Geral**, cada ponto no mapa representa um hub.
+1. Na página **visão geral** , cada ponto no mapa representa um Hub.
 1. Na seção **hubs e conexões** , você pode exibir o status do Hub, do site, da região e da conexão VPN. Você também pode exibir bytes de entrada e saída.
 
 ## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. monitorar uma conexão

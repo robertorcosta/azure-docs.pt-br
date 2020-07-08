@@ -2,21 +2,21 @@
 title: Configurar como os usuários finais consentem nos aplicativos que usam o Azure AD
 description: Saiba como gerenciar como e quando os usuários podem consentir nos aplicativos que terão acesso aos dados da sua organização.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0a508e52189938447ea6fc1928d441d81deab392
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763458"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar como os usuários finais consentem nos aplicativos
 
@@ -49,7 +49,7 @@ Para definir as configurações de consentimento do usuário por meio do portal 
 1. Em **Consentimento do usuário para aplicativos**, selecione a configuração de consentimento que você deseja configurar para todos os usuários.
 1. Selecione **salvar** para salvar suas configurações.
 
-![Configurações de consentimento do usuário](./media/configure-user-consent/setting-for-all-users.png)
+:::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Configurações de consentimento do usuário":::
 
 > [!TIP]
 > Considere [habilitar o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md) para permitir que os usuários solicitem o exame e a aprovação do administrador de um aplicativo no qual o usuário não tenha permissão para consentir, por exemplo, quando o consentimento do usuário foi desabilitado ou quando um aplicativo está solicitando permissões que o usuário não tem permissão para conceder.
@@ -102,7 +102,7 @@ As classificações de permissão permitem que você identifique o impacto que a
 
 Neste exemplo, classificamos o conjunto mínimo de permissões obrigatórias para o logon único:
 
-![Classificações de permissão](./media/configure-user-consent/permission-classifications.png)
+:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Classificações de permissão":::
 
 > [!TIP]
 > Para a API do Microsoft Graph, as permissões mínimas necessárias para fazer logon único básico são `openid`, `profile`, `User.Read` e `offline_access`. Com essas permissões, um aplicativo pode ler os detalhes do perfil do usuário conectado e manter esse acesso mesmo quando o usuário não está mais usando o aplicativo.
@@ -192,7 +192,7 @@ Você pode configurar quais usuários têm permissão para consentir nos aplicat
 
 Neste exemplo, todos os proprietários de grupo têm permissão para dar consentimento aos aplicativos que acessam os dados de seus grupos:
 
-![Classificações de permissão](./media/configure-user-consent/group-owner-consent.png)
+:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Configurações de consentimento do proprietário do grupo":::
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Configurar o consentimento do proprietário do grupo usando o PowerShell
 

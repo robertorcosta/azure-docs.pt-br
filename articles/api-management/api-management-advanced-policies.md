@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 388f05c2af1516a0477392f37763a0480c7ad413
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128826"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751255"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
@@ -288,7 +288,7 @@ O exemplo a seguir demonstra como limitar o número de solicitações encaminhad
   <backend>
     <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
-    <limit-concurrency/>
+    </limit-concurrency>
   </backend>
   <outbound>…</outbound>
 </policies>
@@ -333,7 +333,7 @@ A política `log-to-eventhub` envia mensagens no formato especificado para um Hu
 
 ### <a name="example"></a>Exemplo
 
-Qualquer cadeia de caracteres pode ser usada como o valor a ser registrado em Hubs de Eventos. Neste exemplo, a data e hora, o nome do serviço de implantação, a ID da solicitação, o endereço IP e o nome da operação para todas as chamadas de entrada são registrados `contoso-logger` no agente do hub de eventos registrado com a ID
+Qualquer cadeia de caracteres pode ser usada como o valor a ser registrado em Hubs de Eventos. Neste exemplo, a data e hora, o nome do serviço de implantação, a ID da solicitação, o endereço IP e o nome da operação para todas as chamadas de entrada são registrados no agente do hub de eventos registrado com a `contoso-logger` ID
 
 ```xml
 <policies>
@@ -415,7 +415,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 
 ## <a name="retry"></a><a name="Retry"></a>Repita
 
-A `retry` política executa suas políticas filho uma vez e, em seguida, tenta novamente a execução `condition` até `false` que a `count` nova tentativa se torne ou tente se esgotar.
+A `retry` política executa suas políticas filho uma vez e, em seguida, tenta novamente a execução até que a nova tentativa `condition` se torne `false` ou tente se `count` esgotar.
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -585,7 +585,7 @@ Essa política de exemplo mostra um exemplo de uso da política `send-one-way-re
 | send-one-way-request       | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se mode=copy, caso contrário, sim. |
 | method                     | O método HTTP para a solicitação.                                                                            | Não se mode=copy, caso contrário, sim. |
-| cabeçalho                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                              |
+| header                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                              |
 | body                       | O corpo da solicitação.                                                                                           | Não                              |
 | authentication-certificate | [Certificado a ser usado para autenticação de cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
 
@@ -669,7 +669,7 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 | send-request               | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se mode=copy, caso contrário, sim. |
 | method                     | O método HTTP para a solicitação.                                                                            | Não se mode=copy, caso contrário, sim. |
-| cabeçalho                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                              |
+| header                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                              |
 | body                       | O corpo da solicitação.                                                                                           | Não                              |
 | authentication-certificate | [Certificado a ser usado para autenticação de cliente](api-management-authentication-policies.md#ClientCertificate) | Não                              |
 
@@ -678,7 +678,7 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 | Atributo                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, mode=copy não inicializa o corpo da solicitação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Não       | Novo      |
-| response-variable-name="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, ela será criada após a execução bem-sucedida da política e ficará acessível por meio [`context.Variable`](api-management-policy-expressions.md#ContextVariables) da coleção.                                                                                                                                                                                                                                                                                                                          | Sim      | N/D      |
+| response-variable-name="string" | O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, ela será criada após a execução bem-sucedida da política e ficará acessível por meio da [`context.Variable`](api-management-policy-expressions.md#ContextVariables) coleção.                                                                                                                                                                                                                                                                                                                          | Sim      | N/D      |
 | timeout="integer"               | O intervalo de tempo limite em segundos antes de a chamada para a URL falhar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Não       | 60       |
 | ignore-error                    | Se for true e a solicitação resultar em um erro:<br /><br /> -Se o nome da variável de resposta tiver sido especificado, ele conterá um valor nulo.<br />-Se Response-variável-name não tiver sido especificado, Context. A solicitação não será atualizada.                                                                                                                                                                                                                                                                                                                                                                                   | Não       | false    |
 | name                            | Especifica o nome do cabeçalho a ser definido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sim      | N/D      |
@@ -916,8 +916,8 @@ As expressões usadas na política `set-variable` devem retornar um dos seguinte
 
 A `trace` política adiciona um rastreamento personalizado à saída do Inspetor de API, Application insights telemetrias e/ou logs de recursos.
 
--   A política adiciona um rastreamento personalizado à saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando o rastreamento é disparado, ou seja, o cabeçalho da `Ocp-Apim-Trace` solicitação `Ocp-Apim-Subscription-Key` está presente e definido como true e o cabeçalho da solicitação está presente e contém uma chave válida que permite o rastreamento.
--   A política cria uma telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) no Application insights, quando [Application insights integração](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) está habilitada e o `severity` nível especificado na política é em ou superior `verbosity` ao nível especificado na configuração de diagnóstico.
+-   A política adiciona um rastreamento personalizado à saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando o rastreamento é disparado, ou seja, o cabeçalho da `Ocp-Apim-Trace` solicitação está presente e definido como true e `Ocp-Apim-Subscription-Key` o cabeçalho da solicitação está presente e contém uma chave válida que permite o rastreamento.
+-   A política cria uma telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) no Application insights, quando [Application insights integração](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) está habilitada e o `severity` nível especificado na política é em ou superior ao `verbosity` nível especificado na configuração de diagnóstico.
 -   A política adiciona uma propriedade na entrada de log quando [os logs de recursos](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) estão habilitados e o nível de severidade especificado na política é ou superior ao nível de detalhes especificado na configuração de diagnóstico.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -945,7 +945,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 | Elemento  | Descrição                                                                                                                                          | Obrigatório |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rastreamento    | Elemento raiz.                                                                                                                                        | Sim      |
-| mensagem  | Uma cadeia de caracteres ou expressão a ser registrada.                                                                                                                 | Sim      |
+| message  | Uma cadeia de caracteres ou expressão a ser registrada.                                                                                                                 | Sim      |
 | metadata | Adiciona uma propriedade personalizada à telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) de Application insights. | Não       |
 
 ### <a name="attributes"></a>Atributos
@@ -953,7 +953,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 | Atributo | Descrição                                                                                                               | Obrigatório | Padrão |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Literal de cadeia de caracteres significativo para o visualizador de rastreamento e especificando a fonte da mensagem.                                   | Sim      | N/D     |
-| severidade  | Especifica o nível de severidade do rastreamento. Os valores permitidos `verbose`são `information`, `error` , (do mais baixo ao mais alto). | Não       | Detalhado |
+| severidade  | Especifica o nível de severidade do rastreamento. Os valores permitidos são `verbose` , `information` , `error` (do mais baixo ao mais alto). | Não       | Detalhado |
 | name      | Nome da propriedade.                                                                                                     | Sim      | N/D     |
 | value     | Valor da propriedade.                                                                                                    | Sim      | N/D     |
 
@@ -1025,7 +1025,7 @@ No exemplo a seguir há duas políticas `choose` como políticas filho imediatas
 
 | Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório | Padrão |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
+| para       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
 
 ### <a name="usage"></a>Uso
 

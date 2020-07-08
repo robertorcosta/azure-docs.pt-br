@@ -1,28 +1,26 @@
 ---
-title: Séries Ddv4 e Ddsv4 – Máquinas Virtuais do Azure
+title: Séries Ddv4 e Ddsv4
 description: Especificações das VMs séries Dv4, Ddv4, Dsv4 e Ddsv4.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 42b42a7477326196546ad445367691192f00569a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: 28963f7b8d6b7fd7361d114935a401a00b6683a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753665"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 e Ddsv4
 
-As séries Ddv4 e Ddsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded, fornecendo uma proposta de valor melhor para as cargas de trabalho de uso geral. Elas apresentam uma velocidade de clock Turbo sustentável em todos os núcleos de 3,4 GHz, com Tecnologia [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Tecnologia Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Esses novos tamanhos de VM terão um armazenamento local 50% maior, bem como um melhor IOPS de disco local para leitura e gravação em comparação com os tamanhos [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) com [VMs Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+As séries Ddv4 e Ddsv4 são executadas nos processadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) em uma configuração hyper-threaded, fornecendo uma proposta de valor melhor para as cargas de trabalho de uso geral. Elas apresentam uma velocidade de clock Turbo sustentável em todos os núcleos de 3,4 GHz, com Tecnologia [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Tecnologia Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Eles também dão suporte ao [ &reg; aumento de aprendizado profundo da Intel](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Esses novos tamanhos de VM terão um armazenamento local 50% maior, bem como um melhor IOPS de disco local para leitura e gravação em comparação com os tamanhos [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) com [VMs Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 Os casos de uso da série D incluem aplicativos de nível empresarial, bancos de dados relacionais, cache em memória e análises.
-
-> [!IMPORTANT]
-> Se você estiver implantando uma nova Máquina Virtual usando a série Ddv4 ou Ddsv4 e pretender usar uma imagem do Linux, será necessário usar o RHEL 8.x, o CentOS 8.x, o Oracle 7.x ou mais recente. Se escolher o RHEL 7.x, CentOS 7.x ou Orcale 6.x, haverá um erro Kernel Panic. A Microsoft está implantando ativamente uma correção. Somente o RHEL, o CentOS e o Oracle são afetados. 
 
 ## <a name="ddv4-series"></a>Série Ddv4
 
@@ -69,7 +67,7 @@ Migração ao Vivo: Com suporte
 
 Atualizações de preservação de memória: Com suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3000/48 | 2/1000 |
 | Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 2/2000 |

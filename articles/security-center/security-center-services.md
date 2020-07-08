@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2020
+ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d048bb348b8093db7d3bf92ef0fc93aead35055
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762285"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -81,7 +81,7 @@ As tabelas a seguir mostram os recursos da central de segurança do Azure que es
 
 
 > [!TIP]
->Para experimentar os recursos que estão disponíveis apenas no tipo de preço Standard, os usuários da camada gratuita podem se registrar em uma avaliação de 30 dias. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+>Para experimentar os recursos que estão disponíveis apenas no tipo de preço Standard, os usuários da camada gratuita podem se registrar em uma avaliação de 30 dias. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de ponto de extremidade com suporte<a name="endpoint-supported"></a>
@@ -97,7 +97,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| Sim |
 | System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | Sim |
-| Trend Micro – todas as versões * | Família Windows Server  | Não | Sim |
+| Trend Micro – segurança profunda | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família de servidores Linux  | Não | Ok**\*** |
@@ -106,15 +106,11 @@ Para obter informações sobre quando as recomendações são geradas para cada 
  **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no espaço de trabalho Log Analytics associado às suas assinaturas protegidas. Ele não é refletido no portal da central de segurança do Azure.
 
 > [!NOTE]
-> - A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 exige que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).
-> - Há suporte para a detecção da proteção Trend Micro para agentes de segurança profundas.  Não há suporte para agentes do OfficeScan.
+> A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell (v 3.0 ou mais recente).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [a central de segurança coleta dados e o agente de log Analytics](security-center-enable-data-collection.md).
 - Saiba como a [central de segurança gerencia e protege os dados](security-center-data-security.md).
-- Saiba como [planejar e entender as considerações de design para adotar a central de segurança do Azure](security-center-planning-and-operations-guide.md).
 - Examine as [plataformas que dão suporte à central de segurança](security-center-os-coverage.md).
-- Saiba mais sobre [a proteção contra ameaças para computadores Windows e Linux na central de segurança do Azure](threat-protection.md#windows-machines).
-- Encontre [perguntas frequentes sobre a central de segurança do Azure](faq-general.md).
