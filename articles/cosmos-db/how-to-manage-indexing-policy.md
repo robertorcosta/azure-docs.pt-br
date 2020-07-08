@@ -3,15 +3,16 @@ title: Gerenciar políticas de indexação no Azure Cosmos DB
 description: Saiba como gerenciar políticas de indexação, incluir ou excluir uma propriedade da indexação, como definir a indexação usando diferentes SDKs de Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: b913ba58252f4cb84d010aea39d371316582bd6d
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261504"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerenciar políticas de indexação no Azure Cosmos DB
 
@@ -42,7 +43,7 @@ Aqui estão alguns exemplos de políticas de indexação mostradas em [seu forma
     }
 ```
 
-Essa política de indexação é equivalente à seguinte que define ```kind```manualmente, ```dataType```e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
+Essa política de indexação é equivalente à seguinte que define manualmente ```kind``` , ```dataType``` e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
 
 ```json
     {
@@ -96,7 +97,7 @@ Essa política de indexação é equivalente à seguinte que define ```kind```ma
     }
 ```
 
-Essa política de indexação é equivalente à seguinte que define ```kind```manualmente, ```dataType```e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
+Essa política de indexação é equivalente à seguinte que define manualmente ```kind``` , ```dataType``` e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
 
 ```json
     {
@@ -175,7 +176,7 @@ Essa política de indexação é equivalente à seguinte que define ```kind```ma
 Além de incluir ou excluir caminhos para as propriedades individuais, você também pode especificar um índice composto. Se quiser executar uma consulta que tem uma `ORDER BY` cláusula para várias propriedades, será necessário um [índice composto](index-policy.md#composite-indexes) com essas propriedades. Além disso, os índices compostos terão um benefício de desempenho para consultas que têm um filtro e têm uma cláusula ORDER BY em propriedades diferentes.
 
 > [!NOTE]
-> Os caminhos compostos têm um `/?` implícito, pois apenas o valor escalar nesse caminho é indexado. Não `/*` há suporte para o curinga em caminhos compostos. Você não deve `/?` especificar `/*` ou em um caminho composto.
+> Os caminhos compostos têm um implícito `/?` , pois apenas o valor escalar nesse caminho é indexado. `/*`Não há suporte para o curinga em caminhos compostos. Você não deve especificar `/?` ou `/*` em um caminho composto.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Índice composto definido para (nome asc, idade desc):
 
@@ -323,7 +324,7 @@ Essa política pode ser usada em situações em que o [recurso TTL (Time-to-Live
 
 ### <a name="no-indexing"></a>Nenhuma indexação
 
-Esta política desativará a indexação. Se `indexingMode` é definido como `none`, você não pode definir um TTL no contêiner.
+Esta política desativará a indexação. Se `indexingMode` é definido como `none` , você não pode definir um TTL no contêiner.
 
 ```json
     {
@@ -361,7 +362,7 @@ Contêineres do Azure Cosmos armazenam sua política de indexação como um docu
 
 1. Clique em **Salvar** quando terminar.
 
-![Gerenciar a indexação usando o portal do Azure](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Gerenciar a indexação usando portal do Azure":::
 
 ## <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 
@@ -373,9 +374,9 @@ Para criar um contêiner com uma política de indexação personalizada, consult
 
 ## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a>Usar o SDK do .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-O `DocumentCollection` objeto do [SDK do .net v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expõe uma `IndexingPolicy` propriedade que permite alterar `IndexingMode` e adicionar ou remover `IncludedPaths` e. `ExcludedPaths`
+O `DocumentCollection` objeto do [SDK do .net v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expõe uma `IndexingPolicy` propriedade que permite alterar `IndexingMode` e adicionar ou remover `IncludedPaths` e `ExcludedPaths` .
 
 ```csharp
 // Retrieve the container's details
@@ -403,9 +404,9 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-O `ContainerProperties` objeto do [SDK do .net v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (consulte [este guia de início rápido](create-sql-api-dotnet.md) sobre seu uso `IndexingPolicy` ) expõe uma propriedade que permite `IndexingMode` alterar e adicionar ou `IncludedPaths` remover `ExcludedPaths`e.
+O `ContainerProperties` objeto do [SDK do .net v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (consulte [este guia de início rápido](create-sql-api-dotnet.md) sobre seu uso) expõe uma `IndexingPolicy` propriedade que permite alterar `IndexingMode` e adicionar ou remover `IncludedPaths` e `ExcludedPaths` .
 
 ```csharp
 // Retrieve the container's details
@@ -429,7 +430,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-Para acompanhar o progresso da transformação do índice, `RequestOptions` passe um objeto que `PopulateQuotaInfo` define a `true`propriedade para e, em seguida, `x-ms-documentdb-collection-index-transformation-progress` recupere o valor do cabeçalho de resposta.
+Para acompanhar o progresso da transformação do índice, passe um `RequestOptions` objeto que define a `PopulateQuotaInfo` propriedade para `true` e, em seguida, recupere o valor do `x-ms-documentdb-collection-index-transformation-progress` cabeçalho de resposta.
 
 ```csharp
 // retrieve the container's details

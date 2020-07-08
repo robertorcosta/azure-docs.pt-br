@@ -1,17 +1,17 @@
 ---
 title: Opções de migração de Cosmos DB
 description: Este documento descreve as várias opções para migrar seus dados locais ou na nuvem para Azure Cosmos DB
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
-ms.author: bharathb
-ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1b8ddba84920d8d3b6871ab404081d3b24c72e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261963"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar seus dados locais ou na nuvem para Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Você pode carregar dados de várias fontes de dados para Azure Cosmos DB. Além
 Os seguintes fatores determinam a escolha da ferramenta de migração:
 * **Migração online vs offline**: muitas ferramentas de migração fornecem um caminho para fazer uma única migração única. Isso significa que os aplicativos que acessam o banco de dados podem apresentar um período de tempo de inatividade. Algumas soluções de migração fornecem uma maneira de fazer uma migração ao vivo em que há um pipeline de replicação configurado entre a origem e o destino.
 
-* **Fonte de dados**: os dados existentes podem estar em várias fontes de dados, como Oracle DB2, Datastax Cassanda, Azure SQL Server, PostgreSQL, etc. Os dados também podem estar em uma conta de Azure Cosmos DB existente e a intenção de migração pode ser alterar o modelo de dados ou reparticionar os dados em um contêiner com uma chave de partição diferente.
+* **Fonte de dados**: os dados existentes podem estar em várias fontes de dados, como Oracle DB2, Datastax Cassanda, banco de dados SQL do Azure, PostgreSQL, etc. Os dados também podem estar em uma conta de Azure Cosmos DB existente e a intenção de migração pode ser alterar o modelo de dados ou reparticionar os dados em um contêiner com uma chave de partição diferente.
 
 * **API de Azure Cosmos DB**: para a API do SQL no Azure Cosmos DB, há uma variedade de ferramentas desenvolvidas pela equipe de Azure Cosmos DB que auxiliam nos diferentes cenários de migração. Todas as outras APIs têm seu próprio conjunto especializado de ferramentas desenvolvidas e mantidas pela Comunidade. Como o Azure Cosmos DB dá suporte a essas APIs em um nível de protocolo de conexão, essas ferramentas devem funcionar como estão enquanto migram dados para o Azure Cosmos DB também. No entanto, eles podem exigir manipulação personalizada para restrições, pois esse conceito é específico para Azure Cosmos DB.
 
@@ -33,9 +33,9 @@ Os seguintes fatores determinam a escolha da ferramenta de migração:
 ## <a name="azure-cosmos-db-sql-api"></a>API do SQL do Azure Cosmos DB
 |**Tipo de migração**|**Solução**|**Considerações**|
 |---------|---------|---------|
-|Offline|[Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Fácil de configurar e dar suporte a várias fontes <br/>&bull;Não é adequado para grandes conjuntos de altos|
-|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e dar suporte a várias fontes <br/>&bull;Usa a biblioteca de executores em massa Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de altos <br/>&bull;Falta de ponto de verificação-isso significa que, se ocorrer um problema durante a migração, você precisará reiniciar todo o processo de migração<br/>&bull;Falta de uma fila de mensagens mortas-isso significa que alguns arquivos errados podem parar todo o processo de migração.|
-|Offline|[Azure Cosmos DB conector do Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull;Usa a biblioteca de executores em massa Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de altos <br/>&bull;Precisa de uma instalação personalizada do Spark <br/>&bull;O Spark é sensível a inconsistências de esquema e pode ser um problema durante a migração |
+|Offline|[Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Fácil de configurar e suporta várias fontes <br/>&bull;Não é adequado para grandes conjuntos de altos|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull; Fácil de configurar e suporta várias fontes <br/>&bull; Usa a biblioteca de executores em massa do Azure Cosmos DB <br/>&bull; Adequada para grandes conjuntos de dados <br/>&bull;Falta de ponto de verificação-isso significa que, se ocorrer um problema durante a migração, você precisará reiniciar todo o processo de migração<br/>&bull;Falta de uma fila de mensagens mortas-isso significa que alguns arquivos errados podem parar todo o processo de migração.|
+|Offline|[Azure Cosmos DB conector do Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull; Usa a biblioteca de executores em massa do Azure Cosmos DB <br/>&bull; Adequada para grandes conjuntos de dados <br/>&bull;Precisa de uma instalação personalizada do Spark <br/>&bull;O Spark é sensível a inconsistências de esquema e pode ser um problema durante a migração |
 |Offline|[Ferramenta personalizada com Cosmos DB biblioteca de executores em massa](https://docs.microsoft.com/azure/cosmos-db/migrate-cosmosdb-data)|&bull;Fornece recursos de ponto de verificação e mensagens mortas que aumentam a resiliência da migração <br/>&bull;Adequado para conjuntos de grandes volumes (10 TB +)  <br/>&bull;Requer a instalação personalizada dessa ferramenta em execução como um serviço de aplicativo |
 |Online|[Funções de Cosmos DB + API ChangeFeed](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions)|&bull;Fácil de configurar <br/>&bull;Funciona somente se a origem for um contêiner Azure Cosmos DB <br/>&bull;Não é adequado para grandes conjuntos de altos <br/>&bull;Não captura exclusões do contêiner de origem |
 |Online|[Serviço de migração personalizado usando ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)|&bull;Fornece acompanhamento de progresso <br/>&bull;Funciona somente se a origem for um contêiner Azure Cosmos DB <br/>&bull;Também funciona para conjuntos de valores maiores <br/>&bull;Requer que o usuário configure um serviço de aplicativo para hospedar o processador do feed de alterações <br/>&bull;Não captura exclusões do contêiner de origem|
@@ -44,10 +44,10 @@ Os seguintes fatores determinam a escolha da ferramenta de migração:
 ## <a name="azure-cosmos-db-mongo-api"></a>API do Mongo Azure Cosmos DB
 |**Tipo de migração**|**Solução**|**Considerações**|
 |---------|---------|---------|
-|Offline|[Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Fácil de configurar e dar suporte a várias fontes <br/>&bull;Não é adequado para grandes conjuntos de altos|
-|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e dar suporte a várias fontes <br/>&bull;Usa a biblioteca de executores em massa Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de altos <br/>&bull;A falta de ponto de verificação significa que qualquer problema durante o curso da migração exigiria uma reinicialização do processo de migração inteiro<br/>&bull;A falta de uma fila de mensagens mortas significa que alguns arquivos errados poderiam parar todo o processo de migração <br/>&bull;Precisa de código personalizado para aumentar a taxa de transferência de leitura para determinadas fontes de dados|
-|Offline|[Ferramentas de Mongo existentes (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;Fácil de configurar e integrar <br/>&bull;Precisa de manipulação personalizada para limitação|
-|Online|[Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull;Usa a biblioteca de executores em massa Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de altos e cuida da replicação de alterações dinâmicas <br/>&bull;Funciona somente com outras fontes do MongoDB|
+|Offline|[Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Fácil de configurar e suporta várias fontes <br/>&bull;Não é adequado para grandes conjuntos de altos|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull; Fácil de configurar e suporta várias fontes <br/>&bull; Usa a biblioteca de executores em massa do Azure Cosmos DB <br/>&bull; Adequada para grandes conjuntos de dados <br/>&bull; A falta de pontos de verificação significa que qualquer problema durante o curso da migração exigiria uma reinicialização de todo o processo de migração<br/>&bull; A falta de uma fila de mensagens mortas significa que alguns arquivos errados poderiam parar todo o processo de migração <br/>&bull; Precisa de código personalizado para aumentar a taxa de transferência de leitura para determinadas fontes de dados|
+|Offline|[Ferramentas do Mongo existentes (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Fácil de configurar e de integrar <br/>&bull; Precisa de manipulação personalizada para limitações|
+|Online|[Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull; Usa a biblioteca de executores em massa do Azure Cosmos DB <br/>&bull; Adequado para grandes conjuntos de dados e cuida da replicação de alterações dinâmicas <br/>&bull; Funciona somente com outras fontes do MongoDB|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>API do Cassandra do Azure Cosmos DB
 |**Tipo de migração**|**Solução**|**Considerações**|

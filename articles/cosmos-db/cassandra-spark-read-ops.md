@@ -2,20 +2,20 @@
 title: Leia os dados da tabela de API do Apache Cassandra usando Apache Spark
 titleSufix: Azure Cosmos DB
 description: Este artigo descreve como ler dados de tabelas de API do Cassandra no Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60893379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85257407"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Ler dados das tabelas de API do Cassandra do Azure Cosmos DB usando Spark
 
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Aplicar filtros
 
-Atualmente, o pushdown de predicado não é suportado. Os exemplos abaixo refletem a filtragem no lado do cliente. 
+Você pode enviar predicados para o banco de dados para permitir melhores consultas do Spark otimizadas. Um predicado é uma condição em uma consulta que retorna true ou false, normalmente localizada na cláusula WHERE. Uma ação de predicado filtra os dados na consulta do banco de dados, reduzindo o número de entradas recuperadas do banco e melhorando o desempenho da consulta. Por padrão, a API do conjunto de dados do Spark enviará automaticamente cláusulas de WHERE válidas para o Database. 
 
 ```scala
 val readBooksDF = spark
@@ -102,6 +102,10 @@ readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+A seção PushedFilters do plano físico inclui o filtro GreaterThan Push Down. 
+
+:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates.png" alt-text="Elas":::
 
 ## <a name="rdd-api"></a>API DE RDD
 

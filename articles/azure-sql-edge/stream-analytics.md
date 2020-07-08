@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254065"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Usar trabalhos do Azure Stream Analytics com o SQL no Edge
 
@@ -52,7 +52,7 @@ O SQL do Azure no Edge tem uma implementação nativa do runtime do Stream Analy
     |Campo      | Descrição |
     |---------------|-------------|
     |Alias de saída | Nome do alias da saída.|
-    |Banco de dados | Nome do banco de dados SQL. Precisa ser um nome válido de um banco de dados que exista na instância do SQL no Edge.|
+    |Banco de dados | Nome do banco de dados. Precisa ser um nome válido de um banco de dados que exista na instância do SQL no Edge.|
     |Nome do servidor | Nome (ou endereço IP) e detalhes do número da porta para a instância do SQL. Para uma implantação do SQL no Edge, você pode usar **tcp:.,1433** para o nome do servidor.|
     |Nome de Usuário | Conta de entrada do SQL que tem o acesso de leitor e gravador de dados ao banco de dados especificado anteriormente.|
     |Senha | Senha para a conta de entrada do SQL especificada anteriormente.|

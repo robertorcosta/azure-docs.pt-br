@@ -3,15 +3,15 @@ title: Usar o gerenciador do Azure Cosmos DB para gerenciar os dados
 description: O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que permite exibir e gerenciar os dados armazenados no Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261878"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com os dados usando o Azure Cosmos Explorer 
 
@@ -41,7 +41,7 @@ O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que p
 
    Escolha o tipo de acesso com o qual gostaria de abrir a conta e clique em **Abrir**. Após abrir o gerenciador, a experiência é a mesma que você tinha com a guia Data Explorer no portal do Azure.   
 
-   ![Abrir o gerenciador do Azure Cosmos DB](./media/data-explorer/open-data-explorer-with-access-url.png)
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Abrir Azure Cosmos DB Explorer":::
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

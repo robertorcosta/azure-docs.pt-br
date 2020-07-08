@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255221"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -104,16 +104,16 @@ Na seção a seguir você configurará a solução para usar os recursos de nuve
 Você seguirá as etapas abaixo para executar o aplicativo na nuvem:
 
 * Criar um serviço de nuvem do Azure.
-* Criar um banco de dados SQL do Azure.
+* Crie um banco de dados no Banco de Dados SQL do Azure.
 * Crie uma conta de armazenamento do Azure.
-* Configurar a solução para usar seu banco de dados SQL do Azure quando ele for executado no Azure.
+* Configure a solução para usar seu banco de dados quando ele for executado no Azure.
 * Configurar a solução para usar sua conta de armazenamento do Azure quando ela for executada no Azure.
 * Implantar o projeto em seu serviço de nuvem do Azure.
 
 ### <a name="create-an-azure-cloud-service"></a>Criar um serviço de nuvem do Azure
 Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 
-1. No navegador, abra o [portal do Azure](https://portal.azure.com).
+1. No seu navegador, abra o [portal do Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso > Computação > Serviço de Nuvem**.
 
 3. Na caixa de entrada do nome DNS, digite um prefixo de URL para o serviço de nuvem.
@@ -130,7 +130,7 @@ Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 
     ![Novo serviço de nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Criar um banco de dados SQL do Azure
+### <a name="create-a-database-in-azure-sql-database"></a>Criar um banco de dados no Banco de Dados SQL do Azure
 Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na nuvem.
 
 1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso > Bancos de Dados > Banco de Dados SQL**.
@@ -152,7 +152,7 @@ Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na
 8. Marque a opção **Permitir que os serviços do Azure acessem o servidor**.
 9. Clique em **Selecionar** no novo servidor.
 
-    ![Novo servidor do Banco de Dados SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Novo servidor](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Clique em **Criar**.
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
@@ -182,8 +182,9 @@ Em um aplicativo do mundo real, geralmente você cria contas separadas para dado
 
     Na imagem, uma conta de armazenamento é criada com a URL `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configurar a solução para usar seu banco de dados SQL do Azure quando ele for executado no Azure
-O projeto Web e o projeto de função de trabalho possuem suas próprias cadeias de conexão de banco de dados, e cada uma precisa apontar para o banco de dados SQL do Azure quando o aplicativo é executado no Azure.
+### <a name="configure-the-solution-to-use-your-database-in-azure-sql-database-when-it-runs-in-azure"></a>Configurar a solução para usar seu banco de dados no banco de dados SQL do Azure quando ele for executado no Azure
+
+O projeto Web e o projeto de função de trabalho têm sua própria cadeia de conexão de banco de dados e cada um precisa apontar para o banco de dados no banco de dados SQL do Azure quando o aplicativo é executado no Azure.
 
 Você usará uma [transformação de Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para a função de trabalho e uma configuração de ambiente de serviço de nuvem para a função de trabalho.
 
@@ -331,7 +332,7 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
     ![Novo Projeto de Serviço de Nuvem](./media/cloud-services-dotnet-get-started/newcsproj.png)
 5. Quando a caixa de diálogo **Novo Projeto ASP.NET** da função web for exibida, selecione o modelo MVC e então clique em **Alterar Autenticação**.
 
-    ![Alterar Autenticação](./media/cloud-services-dotnet-get-started/chgauth.png)
+    ![Alterar a autenticação](./media/cloud-services-dotnet-get-started/chgauth.png)
 6. Na caixa de diálogo **Alterar Autenticação**, escolha **Sem Autenticação** e clique em **OK**.
 
     ![Sem Autenticação](./media/cloud-services-dotnet-get-started/noauth.png)
@@ -353,7 +354,7 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
 6. Encontre o pacote NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instale-o no projeto de função de trabalho.
 
 ### <a name="set-project-references"></a>Definir referências de projeto
-1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito do mouse no projeto ContosoAdsWeb e clique em **referências** - **Adicionar referências**. Na caixa de diálogo **Gerenciador de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e depois clique em **OK**.
+1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito do mouse no projeto ContosoAdsWeb e clique em **referências**  -  **Adicionar referências**. Na caixa de diálogo **Gerenciador de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e depois clique em **OK**.
 2. No projeto ContosoAdsWorker, defina uma referência ao projeto ContosoAdsCommon.
 
     ContosoAdsCommon conterá o modelo de dados e a classe de contexto de Entity Framework, que serão usados por front-end e back-end.
@@ -398,12 +399,12 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 ### <a name="add-code-files"></a>Adicionar arquivos de código
 Nesta seção, você copiará códigos da solução baixada para a nova solução. As seções a seguir mostrarão e explicarão as partes principais desse código.
 
-Para adicionar arquivos a um projeto ou uma pasta, clique com o botão direito do mouse no projeto ou na pasta e clique em **Adicionar** - **Item existente**. Selecione os arquivos que deseja e então clique em **Adicionar**. Se receber uma solicitação para confirmar se deseja substituir os arquivos existentes, clique em **Sim**.
+Para adicionar arquivos a um projeto ou uma pasta, clique com o botão direito do mouse no projeto ou na pasta e clique em **Adicionar**  -  **Item existente**. Selecione os arquivos que deseja e então clique em **Adicionar**. Se receber uma solicitação para confirmar se deseja substituir os arquivos existentes, clique em **Sim**.
 
 1. No projeto ContosoAdsCommon, exclua o arquivo *Class1.cs* e substitua-o pelos arquivos *Ad.cs* e *ContosoAdscontext.cs* do projeto baixado.
 2. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
 
-   * *Global.asax.cs*  
+   * *Global.asax.cs*.  
    * Na pasta *Views\Shared*: *\_Layout.cshtml*.
    * Na pasta *views\home* : *index. cshtml*.
    * Na pasta *controladores* : *AdController.cs*.
@@ -530,7 +531,7 @@ O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os li
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 No arquivo *AdController.cs*, o construtor chama o método `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas.
 
-Em seguida, o código obtém uma referência ao contêiner de blobs de *imagens* como visto anteriormente em *global.asax.cs*. Enquanto faz isso ele define uma [política de recuperação](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda três segundos após cada tentativa, até três tentativas.
+Em seguida, o código obtém uma referência ao contêiner de blobs de *imagens* como visto anteriormente em *global.asax.cs*. Enquanto faz isso ele define uma [política de recuperação](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de repetição de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas para uma falha transitória. A política de recuperação especificada aqui aguarda três segundos após cada tentativa, até três tentativas.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -776,6 +777,3 @@ Para saber mais, consulte os recursos a seguir:
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

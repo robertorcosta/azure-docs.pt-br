@@ -3,15 +3,15 @@ title: Estimar custos usando o planejador de capacidade Azure Cosmos DB
 description: O planejador de capacidade Azure Cosmos DB permite estimar a taxa de transferência (RU/s) necessária e o custo da sua carga de trabalho. Este artigo descreve como usar a nova versão do planejador de capacidade para estimar a taxa de transferência e o custo necessário.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: f10ace47f774e31b586f7736f5fb8e5dfea0c948
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68707624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261844"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimar RU/s usando o planejador de capacidade Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Para obter uma estimativa rápida para sua carga de trabalho usando o modo bási
 
 Depois de preencher os detalhes necessários, selecione **calcular**. A guia **estimativa de custo** mostra o custo total para armazenamento e taxa de transferência provisionada. Você pode expandir o link **Mostrar detalhes** nesta guia para obter a análise da taxa de transferência necessária para solicitações de leitura e gravação. Cada vez que você alterar o valor de qualquer campo, selecione **calcular** para calcular novamente o custo estimado. 
 
-![Modo básico do planejador de capacidade](./media/estimate-ru-with-capacity-planner/basic-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Modo básico do planejador de capacidade":::
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-advanced-mode"></a>Estimar a taxa de transferência e o custo provisionados usando o modo avançado
 
@@ -62,7 +62,7 @@ Depois de entrar, você pode ver campos adicionais em comparação com os campos
 
 Você também pode usar o botão **salvar estimativa** para baixar um arquivo CSV que contém a estimativa atual. 
 
-![Modo avançado do planejador de capacidade](./media/estimate-ru-with-capacity-planner/advanced-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modo avançado do planejador de capacidade":::
 
 Os preços mostrados no planejador de capacidade Azure Cosmos DB são estimativas com base nas taxas de preços públicas para taxa de transferência e armazenamento. Todos os preços são mostrados em dólares americanos. Consulte a [página de preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para ver todas as taxas por região.  
 
@@ -70,7 +70,7 @@ Os preços mostrados no planejador de capacidade Azure Cosmos DB são estimativa
 
 A calculadora de capacidade do Azure Cosmos pressupõe leituras de ponto (uma leitura de um único item, por exemplo, Document, por ID e valor de chave de partição) e gravações para a carga de trabalho. Para estimar a taxa de transferência necessária para consultas, execute sua consulta em um conjunto de dados representativos em um contêiner Cosmos e [obtenha a cobrança de ru](find-request-unit-charge.md). Multiplique a cobrança de RU pelo número de consultas que você prevê executar por segundo para obter o total de RU/s necessário. 
 
-Por exemplo, se sua carga de trabalho exigir uma ``SELECT * FROM c WHERE c.id = 'Alice'`` consulta, que é executada 100 vezes por segundo, e a carga de ru da consulta for 10 RUs, você precisará de 100 consulta/s * 10 ru/query = 1000 ru/s no total para atender a essas solicitações. Adicione esses RU/s aos RU/s necessários para que as leituras ou gravações ocorram em sua carga de trabalho.
+Por exemplo, se sua carga de trabalho exigir uma consulta, ``SELECT * FROM c WHERE c.id = 'Alice'`` que é executada 100 vezes por segundo, e a carga de ru da consulta for 10 RUs, você precisará de 100 consulta/s * 10 ru/Query = 1000 ru/s no total para atender a essas solicitações. Adicione esses RU/s aos RU/s necessários para que as leituras ou gravações ocorram em sua carga de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

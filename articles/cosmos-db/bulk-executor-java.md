@@ -5,22 +5,22 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/28/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260586"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como usar a biblioteca Java do executor em massa do Azure Cosmos DB para importar e atualizar Azure Cosmos DB documentos. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você cria um aplicativo Java que gera documentos aleatórios e eles são importados em massa em um contêiner Cosmos do Azure. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
 
-Atualmente, a biblioteca de executores em massa tem suporte apenas por Azure Cosmos DB contas da API do SQL e da API do Gremlin. Este artigo descreve como usar a biblioteca Java do executor em massa com contas da API do SQL. Para saber mais sobre como usar a biblioteca do .NET de executor em massa com a API do Gremlin, consulte [executar operações em massa na API do Gremlin do Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Atualmente, a biblioteca de executores em massa tem suporte apenas por Azure Cosmos DB contas da API do SQL e da API do Gremlin. Este artigo descreve como usar a biblioteca Java do executor em massa com contas da API do SQL. Para saber mais sobre como usar a biblioteca do .NET de executor em massa com a API do Gremlin, consulte [executar operações em massa na API do Gremlin do Azure Cosmos DB](bulk-executor-graph-dotnet.md). A biblioteca de executores em massa descrita está disponível somente para o [SDK do Azure Cosmos DB Java Sync v2](sql-api-sdk-java.md) e é a solução atual recomendada para o suporte em massa em Java. No momento, ele não está disponível para o 3. x, 4. x ou outras versões mais altas do SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,8 +118,8 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    |int getNumberOfDocumentsImported()  |   O número total de documentos que foram importados com êxito sem os documentos fornecidos para a chamada de API de importação em massa.      |
    |double getTotalRequestUnitsConsumed()   |  O total de unidades de solicitação (RU) consumidas pela chamada de API de importação em massa.       |
    |Duration getTotalTimeTaken()   |    O tempo total gasto pela chamada de API de importação em massa para concluir a execução.     |
-   |Listar\<exceção> GetErrors () |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de importação em massa que não falharam em ser inseridos.       |
-   |Listar\<objeto> getBadInputDocuments ()  |    A lista de documentos com formato inválido que não foram importados com êxito na chamada de API de importação em massa. O usuário deve corrigir os documentos retornados e repetir a importação. Os documentos com formato inválido incluem documentos cujo valor de ID não é uma cadeia de caracteres (null ou qualquer outro tipo de dados é considerado inválido).     |
+   |List\<Exception> getErrors() |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de importação em massa que não falharam em ser inseridos.       |
+   |List\<Object> getBadInputDocuments()  |    A lista de documentos com formato inválido que não foram importados com êxito na chamada de API de importação em massa. O usuário deve corrigir os documentos retornados e repetir a importação. Os documentos com formato inválido incluem documentos cujo valor de ID não é uma cadeia de caracteres (null ou qualquer outro tipo de dados é considerado inválido).     |
 
 5. Depois de ter o aplicativo de importação em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
 
@@ -182,7 +182,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
    |int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizados com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |double getTotalRequestUnitsConsumed() |  O total de unidades de solicitação (RU) consumidas pela chamada de API de atualização em massa.       |
    |Duration getTotalTimeTaken()  |   O tempo total gasto pela chamada de API de atualização em massa para concluir a execução.      |
-   |Listar\<exceção> GetErrors ()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
+   |List\<Exception> getErrors()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
 
 3. Depois de ter o aplicativo de atualização em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
 

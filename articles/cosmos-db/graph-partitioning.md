@@ -5,15 +5,15 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261759"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Usando um gráfico particionado no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Um dos principais recursos da API do Gremlin no Azure Cosmos DB é a capacidade 
 
 O **particionamento será necessário** se o contêiner for para armazenar mais de 20 GB de tamanho ou se você quiser alocar mais de 10.000 unidades de solicitação por segundo (RUs). Os mesmos princípios gerais do [Azure Cosmos DB mecanismo de particionamento](partition-data.md) se aplicam a algumas otimizações específicas de grafo descritas abaixo.
 
-![Particionamento de grafo.](./media/graph-partitioning/graph-partitioning.png)
+:::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Particionamento de grafo." border="false":::
 
 ## <a name="graph-partitioning-mechanism"></a>Mecanismo de particionamento de grafo
 
@@ -29,11 +29,11 @@ As diretrizes a seguir descrevem como a estratégia de particionamento no Azure 
 
 - **Os vértices e as bordas são armazenados como documentos JSON**.
 
-- **Vértices exigem uma chave de partição**. Essa chave determina em qual partição o vértice será armazenado por meio de um algoritmo de hash. O nome da propriedade de chave de partição é definido ao criar um novo contêiner e ele tem `/partitioning-key-name`um formato:.
+- **Vértices exigem uma chave de partição**. Essa chave determina em qual partição o vértice será armazenado por meio de um algoritmo de hash. O nome da propriedade de chave de partição é definido ao criar um novo contêiner e ele tem um formato: `/partitioning-key-name` .
 
 - **Bordas serão armazenadas com o vértice de origem**. Em outras palavras, para cada vértice, sua chave de partição definirá o local em que ele será armazenado junto com suas bordas de saída. Essa otimização é feita para evitar consultas entre partições ao usar a `out()` cardinalidade em consultas de grafo.
 
-- **As bordas contêm referências aos vértices para os quais apontam**. Todas as bordas são armazenadas com as chaves de partição e as IDs dos vértices aos quais estão apontando. Essa computação faz com `out()` que todas as consultas de direção sempre sejam uma consulta particionada com escopo e não uma consulta de partição cruzada. 
+- **As bordas contêm referências aos vértices para os quais apontam**. Todas as bordas são armazenadas com as chaves de partição e as IDs dos vértices aos quais estão apontando. Essa computação faz com que todas as `out()` consultas de direção sempre sejam uma consulta particionada com escopo e não uma consulta de partição cruzada. 
 
 - **Consultas de gráfico precisam especificar uma chave de partição**. Para aproveitar ao máximo o particionamento horizontal no Azure Cosmos DB, a chave de partição deve ser especificada quando um único vértice for selecionado, sempre que possível. A seguir estão as consultas para selecionar os vários vértices em um gráfico particionado:
 

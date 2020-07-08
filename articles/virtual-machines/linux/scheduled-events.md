@@ -1,18 +1,19 @@
 ---
 title: Eventos Agendados para VMs Linux no Azure
 description: Agendar eventos usando o Serviço de Metadados do Azure para nas máquinas virtuais do Linux.
-author: mimckitt
-ms.service: virtual-machines-windows
-ms.topic: article
+author: EricRadzikowskiMSFT
+ms.service: virtual-machines-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: mimckitt
-ms.openlocfilehash: c888a28607101cdf41fcd9b47cf25a2fc5da6337
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.author: ericrad
+ms.reviewer: mimckitt
+ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262099"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -53,7 +54,12 @@ Os eventos agendados são entregues a:
 - Máquinas virtuais autônomas.
 - Todas as VMs em um serviço de nuvem.
 - Todas as VMs em um conjunto de disponibilidade.
+- Todas as VMs em uma zona de disponibilidade. 
 - Todas as VMs em um grupo de posicionamento do conjunto de dimensionamento. 
+
+> [!NOTE]
+> Específico para VMs em uma zona de disponibilidade, os eventos agendados vão para VMs únicas em uma zona.
+> Por exemplo, se você tiver 100 VMs em um conjunto de disponibilidade e houver uma atualização para uma delas, o evento agendado vai para todos os 100, enquanto que, se houver 100 VMs únicas em uma zona, o evento será acessado apenas para a VM que está sendo afetada.
 
 Como resultado, verifique o campo `Resources` no evento para identificar quais VMs são afetadas.
 
@@ -69,11 +75,11 @@ O serviço de Eventos Agendados tem controle de versão. As versões são obriga
 
 | Versão | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - | 
-| 01-08-2019 | Disponibilidade geral | Todos | <li> Adição de suporte para o EventSource |
+| 01-08-2019 | Disponibilidade geral | Tudo | <li> Adição de suporte para o EventSource |
 | 01-04-2019 | Disponibilidade geral | Todos | <li> Adição de suporte para a Descrição do Evento |
-| 2019-01-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para conjuntos de dimensionamento de máquinas virtuais EventType “Terminate” |
-| 2017-11-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para o EventType de remoção de VM spot “Preempt”<br> | 
-| 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
+| 2019-01-01 | Disponibilidade geral | Tudo | <li> Suporte adicionado para conjuntos de dimensionamento de máquinas virtuais EventType “Terminate” |
+| 2017-11-01 | Disponibilidade geral | Tudo | <li> Suporte adicionado para o EventType de remoção de VM spot “Preempt”<br> | 
+| 2017-08-01 | Disponibilidade geral | Tudo | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | Visualização | Todos | <li>Versão inicial |
 
 

@@ -7,44 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 06/23/2020
+ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260977"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa de termo parcial e padrões com caracteres especiais (curinga, Regex, padrões)
 
-Uma *pesquisa de termo parcial* refere-se a consultas que consistem em fragmentos de termo, em que em vez de um termo inteiro, você pode ter apenas o início, o meio ou o fim do termo (às vezes chamados de prefixo, infixo ou consultas de sufixo). Um *padrão* pode ser uma combinação de fragmentos, geralmente com caracteres especiais, como traços ou barras que fazem parte da cadeia de caracteres de consulta. Os casos de uso comuns incluem a consulta de partes de um número de telefone, URL, pessoas ou códigos de produto ou palavras compostas.
+Uma *pesquisa de termo parcial* refere-se a consultas que consistem em fragmentos de termo, em que em vez de um termo inteiro, você pode ter apenas o início, o meio ou o fim do termo (às vezes chamados de prefixo, infixo ou consultas de sufixo). Uma pesquisa de termo parcial pode incluir uma combinação de fragmentos, geralmente com caracteres especiais, como traços ou barras que fazem parte da cadeia de caracteres de consulta. Casos de uso comuns incluem partes de um número de telefone, URL, códigos ou palavras compostas com hifenização.
 
-A pesquisa parcial e de padrão pode ser problemática se o índice não tiver termos no formato esperado. Durante a [fase de análise lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis) da indexação (supondo o analisador padrão padrão), os caracteres especiais são descartados, as cadeias composta e composto são divididas e o espaço em branco é excluído; tudo isso pode causar falha nas consultas de padrão quando nenhuma correspondência é encontrada. Por exemplo, um número de telefone `+1 (425) 703-6214` como (indexado `"1"`como `"425"`, `"703"`, `"6214"`,) não aparecerá em `"3-62"` uma consulta porque esse conteúdo não existe realmente no índice. 
+A pesquisa de termo parcial e as cadeias de consulta que incluem caracteres especiais podem ser problemáticas se o índice não tiver tokens no formato esperado. Durante a [fase de análise lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis) da indexação (supondo o analisador padrão padrão), os caracteres especiais são descartados, as palavras compostas são divididas e o espaço em branco é excluído; tudo isso pode causar falha nas consultas quando nenhuma correspondência é encontrada. Por exemplo, um número de telefone como `+1 (425) 703-6214` (indexado como `"1"` ,, `"425"` `"703"` , `"6214"` ) não aparecerá em uma `"3-62"` consulta porque esse conteúdo não existe realmente no índice. 
 
-A solução é invocar um analisador que preserva uma cadeia de caracteres completa, incluindo espaços e caracteres especiais, se necessário, para que você possa corresponder a termos e padrões parciais. Criar um campo adicional para uma cadeia de caracteres intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
+A solução é invocar um analisador durante a indexação que preserva uma cadeia de caracteres completa, incluindo espaços e caracteres especiais, se necessário, para que você possa incluir os espaços e os caracteres na cadeia de caracteres de consulta. Da mesma forma, ter uma cadeia de caracteres completa que não é indexada em partes menores permite a correspondência de padrões para consultas "começa com" ou "termina com", em que o padrão que você fornece pode ser avaliado em relação a um termo que não é transformado pela análise lexical. Criar um campo adicional para uma cadeia de caracteres intacta, além de usar um analisador de preservação de conteúdo que emite tokens de termo inteiro, é a solução para a correspondência de padrões e para correspondência em cadeias de consulta que incluem caracteres especiais.
 
 > [!TIP]
-> Familiarizado com as APIs de postmaster e REST? [Baixe a coleção de exemplos de consulta](https://github.com/Azure-Samples/azure-search-postman-samples/) para consultar os termos parciais e os caracteres especiais descritos neste artigo.
+> Se você estiver familiarizado com as APIs de postmaster e REST, [Baixe a coleção de exemplos de consulta](https://github.com/Azure-Samples/azure-search-postman-samples/) para consultar os termos parciais e os caracteres especiais descritos neste artigo.
 
-## <a name="what-is-partial-search-in-azure-cognitive-search"></a>O que é a pesquisa parcial no Azure Pesquisa Cognitiva
+## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>O que é a pesquisa de termo parcial no Azure Pesquisa Cognitiva
 
-No Azure Pesquisa Cognitiva, a pesquisa parcial e o padrão estão disponíveis nestes formulários:
+O Azure Pesquisa Cognitiva examina os termos com token completo no índice e não encontrará uma correspondência em um termo parcial, a menos que você inclua operadores de espaço reservado curinga ( `*` e `?` ) ou formate a consulta como uma expressão regular. Os termos parciais são especificados usando estas técnicas:
 
-+ [Pesquisa de prefixo](query-simple-syntax.md#prefix-search), como `search=cap*`, correspondência em "orla marítima Estalagem da Jack Cap'n" ou "GACC capital". Você pode usar a sintaxe de consulta simples ou a sintaxe de consulta Lucene completa para a pesquisa de prefixo.
++ [Consultas de expressões regulares](query-lucene-syntax.md#bkmk_regex) podem ser qualquer expressão regular que seja válida no Apache Lucene. 
 
-+ [Pesquisa de curinga](query-lucene-syntax.md#bkmk_wildcard) ou [expressões regulares](query-lucene-syntax.md#bkmk_regex) que pesquisam um padrão ou partes de uma cadeia de caracteres inserida. O curinga e as expressões regulares exigem a sintaxe completa do Lucene. As consultas de sufixo e índice são formuladas como uma expressão regular.
++ Os [operadores curinga com correspondência de prefixo](query-simple-syntax.md#prefix-search) referem-se a um padrão geralmente reconhecido que inclui o início de um termo, seguido por `*` operadores de sufixo ou, como `?` `search=cap*` correspondência em "Cap'n orla marítima Estalagem" ou "GACC capital". Há suporte para a prefixação da correspondência na sintaxe de consulta do Lucene simples e completa.
 
-  Alguns exemplos de pesquisa de termo parcial incluem o seguinte. Para uma consulta de sufixo, dado o termo "alfanumérico", você usaria uma pesquisa curinga (`search=/.*numeric.*/`) para encontrar uma correspondência. Para um termo parcial que inclui caracteres interiores, como um fragmento de URL, talvez seja necessário adicionar caracteres de escape. No JSON, uma barra `/` invertida é recortada com `\`uma barra invertida. Como tal, `search=/.*microsoft.com\/azure\/.*/` é a sintaxe para o fragmento de URL "Microsoft.com/Azure/".
++ O [curinga com infixo e correspondência de sufixo](query-lucene-syntax.md#bkmk_wildcard) coloca os `*` `?` operadores e dentro de ou no início de um termo e requer a sintaxe de expressão regular (onde a expressão está entre as barras "/"). Por exemplo, a cadeia de caracteres de consulta ( `search=/.*numeric*./` ) retorna resultados em "alfanuméricos" e "alfanuméricos" como correspondências de sufixo e infixo.
 
-Conforme observado, todos os itens acima exigem que o índice contenha cadeias de caracteres em um formato que conduza à correspondência de padrões, que o analisador padrão não fornece. Seguindo as etapas neste artigo, você pode garantir que exista o conteúdo necessário para dar suporte a esses cenários.
+Para pesquisa de termo parcial ou padrão e alguns outros formulários de consulta, como pesquisa difusa, os analisadores não são usados no momento da consulta. Para esses formulários de consulta, que o analisador detecta pela presença de operadores e delimitadores, a cadeia de caracteres de consulta é passada para o mecanismo sem análise léxica. Para esses formulários de consulta, o analisador especificado no campo é ignorado.
+
+> [!NOTE]
+> Quando uma cadeia de caracteres de consulta parcial inclui caracteres, como barras em um fragmento de URL, talvez seja necessário adicionar caracteres de escape. No JSON, uma barra invertida `/` é recortada com uma barra invertida `\` . Como tal, `search=/.*microsoft.com\/azure\/.*/` é a sintaxe para o fragmento de URL "Microsoft.com/Azure/".
 
 ## <a name="solving-partialpattern-search-problems"></a>Resolvendo problemas de pesquisa de padrão parcial
 
-Quando você precisar pesquisar em fragmentos ou padrões ou caracteres especiais, poderá substituir o analisador padrão por um analisador personalizado que opera com regras de geração de tokens mais simples, retendo toda a cadeia de caracteres. Voltando um pouco, a abordagem é parecida com esta:
+Quando você precisar pesquisar em fragmentos ou padrões ou caracteres especiais, poderá substituir o analisador padrão por um analisador personalizado que opera sob regras de geração de tokens mais simples, retendo toda a cadeia de caracteres no índice. Voltando um pouco, a abordagem é parecida com esta:
 
-+ Defina um campo para armazenar uma versão intacta da cadeia de caracteres (supondo que você deseja texto analisado e não analisado)
-+ Escolha um analisador predefinido ou defina um analisador personalizado para gerar uma cadeia de caracteres intacta não analisada
-+ Atribuir o analisador personalizado ao campo
++ Definir um campo para armazenar uma versão intacta da cadeia de caracteres (supondo que você deseja texto analisado e não analisado no momento da consulta)
++ Avaliar e escolher entre os vários analisadores que emitem tokens no nível certo de granularidade
++ Atribuir o analisador ao campo
 + Criar e testar o índice
 
 > [!TIP]
@@ -52,7 +55,7 @@ Quando você precisar pesquisar em fragmentos ou padrões ou caracteres especiai
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para cenários diferentes
 
-Os analisadores são atribuídos por campo, o que significa que você pode criar campos em seu índice para otimizar para cenários diferentes. Especificamente, você pode definir "featureCode" e "featureCodeRegex" para dar suporte à pesquisa de texto completo regular na primeira e à correspondência de padrão avançada no segundo.
+Os analisadores determinam como os termos são indexados em um índice. Como os analisadores são atribuídos por campo, você pode criar campos em seu índice para otimizar para cenários diferentes. Por exemplo, você pode definir "featureCode" e "featureCodeRegex" para dar suporte à pesquisa de texto completo regular na primeira e à correspondência de padrão avançada no segundo. Os analisadores atribuídos a cada campo determinam como o conteúdo de cada campo é indexado no índice.  
 
 ```json
 {
@@ -79,14 +82,14 @@ Ao escolher um analisador que produz tokens de termo inteiro, os seguintes anali
 |----------|-----------|
 | [Analisadores de idioma](index-add-language-analyzers.md) | Preserva hifens em palavras compostas ou cadeias de caracteres, mutações de vogal e formas de verbo. Se os padrões de consulta incluírem traços, usar um analisador de linguagem pode ser suficiente. |
 | [chaves](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | O conteúdo de todo o campo é indexado como um único termo. |
-| [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa somente em espaços em branco. Os termos que incluem traços ou outros caracteres são tratados como um único token. |
+| [diferente](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa somente em espaços em branco. Os termos que incluem traços ou outros caracteres são tratados como um único token. |
 | [analisador personalizado](index-add-custom-analyzers.md) | aconselhável A criação de um analisador personalizado permite especificar o filtro de token e criador. Os analisadores anteriores devem ser usados no estado em que se encontram. Um analisador personalizado permite que você escolha quais filtros de criadores e token usar. <br><br>Uma combinação recomendada é a [palavra-chave criador](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) com um [filtro de token em](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)minúsculas. Por si só, o [analisador de palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinido não faz minúsculas em texto em letras maiúsculas, o que pode fazer com que as consultas falhem. Um analisador personalizado oferece um mecanismo para adicionar o filtro de token em minúsculas. |
 
 Se você estiver usando uma ferramenta de teste de API da Web como o postmaster, poderá adicionar a [chamada REST do analisador de teste](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspecionar a saída com tokens.
 
-Você deve ter um índice existente com o qual trabalhar. Dado um índice existente e um campo contendo traços ou termos parciais, você pode experimentar vários analisadores sobre termos específicos para ver quais tokens são emitidos.  
+Você deve ter um índice preenchido com o qual trabalhar. Dado um índice existente e um campo contendo traços ou termos parciais, você pode experimentar vários analisadores sobre termos específicos para ver quais tokens são emitidos.  
 
-1. Verifique o analisador padrão para ver como os termos são indexados por padrão.
+1. Primeiro, verifique o analisador padrão para ver como os termos são indexados por padrão.
 
    ```json
    {
@@ -95,7 +98,7 @@ Você deve ter um índice existente com o qual trabalhar. Dado um índice existe
    }
     ```
 
-1. Avalie a resposta para ver como o texto é indexado no índice. Observe como cada termo é inferior e dividido.
+1. Avalie a resposta para ver como o texto é indexado no índice. Observe como cada termo é inferior e dividido. Somente as consultas que correspondem a esses tokens retornarão este documento nos resultados. Uma consulta que inclui "10-NOR" falhará.
 
     ```json
     {
@@ -121,7 +124,7 @@ Você deve ter um índice existente com o qual trabalhar. Dado um índice existe
         ]
     }
     ```
-1. Modifique a solicitação para usar o `whitespace` analisador ou `keyword` :
+1. Agora, modifique a solicitação para usar `whitespace` o `keyword` analisador ou:
 
     ```json
     {
@@ -130,7 +133,7 @@ Você deve ter um índice existente com o qual trabalhar. Dado um índice existe
     }
     ```
 
-1. Agora, a resposta consiste em um único token, com maiúsculas e minúsculas, com traços preservados como parte da cadeia de caracteres. Se você precisar pesquisar em um padrão ou em um termo parcial, o mecanismo de consulta agora terá a base para encontrar uma correspondência.
+1. Agora, a resposta consiste em um único token, com maiúsculas e minúsculas, com traços preservados como parte da cadeia de caracteres. Se você precisar pesquisar em um padrão ou em um termo parcial, como "10-NOR", o mecanismo de consulta agora terá a base para encontrar uma correspondência.
 
 
     ```json
@@ -147,7 +150,7 @@ Você deve ter um índice existente com o qual trabalhar. Dado um índice existe
     }
     ```
 > [!Important]
-> Lembre-se de que os analisadores de consulta geralmente são os termos minúsculos em uma expressão de pesquisa ao criar a árvore de consulta. Se você estiver usando um analisador que não faz entradas de texto em letras minúsculas e não estiver obtendo resultados esperados, isso pode ser o motivo. A solução é adicionar um filtro de token de caso inferior, conforme descrito na seção "usar analisadores personalizados" abaixo.
+> Lembre-se de que os analisadores de consulta geralmente são os termos minúsculos em uma expressão de pesquisa ao criar a árvore de consulta. Se você estiver usando um analisador que não usa entradas de texto em letras minúsculas durante a indexação e não estiver obtendo resultados esperados, isso pode ser o motivo. A solução é adicionar um filtro de token de caso inferior, conforme descrito na seção "usar analisadores personalizados" abaixo.
 
 ## <a name="configure-an-analyzer"></a>Configurar um analisador
  
@@ -155,7 +158,7 @@ Se você estiver avaliando analisadores ou avançando com uma configuração esp
 
 ### <a name="use-built-in-analyzers"></a>Usar analisadores internos
 
-Os analisadores internos ou predefinidos podem ser especificados pelo nome em `analyzer` uma propriedade de uma definição de campo, sem nenhuma configuração adicional necessária no índice. O exemplo a seguir demonstra como você definiria `whitespace` o analisador em um campo. 
+Os analisadores internos ou predefinidos podem ser especificados pelo nome em uma `analyzer` propriedade de uma definição de campo, sem nenhuma configuração adicional necessária no índice. O exemplo a seguir demonstra como você definiria o `whitespace` analisador em um campo. 
 
 Para outros cenários e para saber mais sobre outros analisadores internos, consulte a [lista de analisadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
@@ -211,7 +214,7 @@ O exemplo a seguir ilustra um analisador personalizado que fornece a palavra-cha
 ```
 
 > [!NOTE]
-> O `keyword_v2` criador e `lowercase` o filtro de token são conhecidos pelo sistema e usando suas configurações padrão, motivo pelo qual você pode referenciá-los por nome sem precisar defini-los primeiro.
+> O `keyword_v2` criador e o `lowercase` filtro de token são conhecidos pelo sistema e usando suas configurações padrão, motivo pelo qual você pode referenciá-los por nome sem precisar defini-los primeiro.
 
 ## <a name="build-and-test"></a>Build e teste
 
@@ -229,17 +232,17 @@ As seções anteriores explicam a lógica. Esta seção percorre cada API que vo
 
 + [Documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) explica como construir uma solicitação de consulta, usando [sintaxe simples](query-simple-syntax.md) ou a [sintaxe Lucene completa](query-lucene-syntax.md) para caracteres curinga e expressões regulares.
 
-  Para consultas de termo parcial, como consultar "3-6214" para encontrar uma correspondência em "+ 1 (425) 703-6214", você pode usar a sintaxe simples: `search=3-6214&queryType=simple`.
+  Para consultas de termo parcial, como consultar "3-6214" para encontrar uma correspondência em "+ 1 (425) 703-6214", você pode usar a sintaxe simples: `search=3-6214&queryType=simple` .
 
   Para consultas infixos e de sufixo, como consultar "num" ou "numeric para encontrar uma correspondência em" alfanumérico ", use a sintaxe Lucene completa e uma expressão regular:`search=/.*num.*/&queryType=full`
 
-## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
-
-### <a name="tune-query-performance"></a>Desempenho de consulta de ajuste
+## <a name="tune-query-performance"></a>Desempenho de consulta de ajuste
 
 Se você implementar a configuração recomendada que inclui o keyword_v2 criador e o filtro de token em letras minúsculas, poderá notar uma redução no desempenho da consulta devido ao processamento adicional de filtro de token sobre os tokens existentes no índice. 
 
-O exemplo a seguir adiciona um [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) para fazer correspondências de prefixo mais rapidamente. Tokens adicionais são gerados em combinações de caracteres de 2-25 que incluem caracteres: (não apenas MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). Como você pode imaginar, a geração de tokens adicional resulta em um índice maior.
+O exemplo a seguir adiciona um [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) para fazer correspondências de prefixo mais rapidamente. Tokens adicionais são gerados em combinações de caracteres de 2-25 que incluem caracteres: (não apenas MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). 
+
+Como você pode imaginar, a geração de tokens adicional resulta em um índice maior. Se você tiver capacidade suficiente para acomodar o índice maior, essa abordagem com seu tempo de resposta mais rápido poderá ser uma solução melhor.
 
 ```json
 {
@@ -276,20 +279,6 @@ O exemplo a seguir adiciona um [EdgeNGramTokenFilter](https://lucene.apache.org/
   "side": "front"
   }
 ]
-```
-
-### <a name="use-different-analyzers-for-indexing-and-query-processing"></a>Usar analisadores diferentes para indexação e processamento de consulta
-
-Os analisadores são chamados durante a indexação e durante a execução da consulta. É comum usar o mesmo analisador para ambos, mas você pode configurar analisadores personalizados para cada carga de trabalho. As substituições do analisador são especificadas na definição `analyzers` de [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) em uma seção e, em seguida, referenciadas em campos específicos. 
-
-Quando a análise personalizada é necessária apenas durante a indexação, você pode aplicar o analisador personalizado para apenas indexar e continuar a usar o analisador Lucene padrão (ou outro analisador) para consultas.
-
-Para especificar a análise específica de função, você pode definir propriedades no campo para cada uma, definindo `indexAnalyzer` e `searchAnalyzer` em vez da propriedade `analyzer` padrão.
-
-```json
-"name": "featureCode",
-"indexAnalyzer":"my_customanalyzer",
-"searchAnalyzer":"standard",
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

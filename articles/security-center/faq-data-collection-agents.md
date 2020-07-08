@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 79b6d7f84cd54979421357efa94c5c6de38fb4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261385"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -39,6 +39,25 @@ Para saber mais sobre preços, confira [preços da Central de Segurança](https:
 > O tipo de preço do Log Analytics para workspaces criados pela Central de Segurança não afeta a cobrança da Central de Segurança.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+## <a name="what-is-the-log-analytics-agent"></a>O que é o agente de Log Analytics?
+
+Para monitorar vulnerabilidades de segurança e ameaças, a central de segurança do Azure depende do [agente de log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) – esse é o mesmo agente usado pelo serviço de Azure monitor. 
+
+O agente, às vezes, é chamado de Microsoft Monitoring Agent (ou "MMA"). 
+
+O agente coleta vários detalhes de configuração relacionados à segurança e logs de eventos de computadores conectados e, em seguida, copia os dados para o espaço de trabalho do Log Analytics para análise posterior. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado.
+
+Verifique se os computadores estão executando um dos sistemas operacionais com suporte para o agente, conforme descrito nas páginas a seguir:
+
+* [Agente de Log Analytics para sistemas operacionais com suporte do Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+
+* [Agente de Log Analytics para sistemas operacionais com suporte do Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+
+Saiba mais sobre os [dados coletados pelo agente de log Analytics](security-center-enable-data-collection.md).
+
+
 
 
 ## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>O que qualifica uma VM para o provisionamento automático da instalação do agente do Log Analytics?
@@ -65,6 +84,14 @@ O local do workspace padrão depende da região do Azure:
 - Para VMs no Japão, o local do workspace é Japão
 - Para VMs na China, o local do workspace é China
 - Para VMs na Austrália, o local do workspace é Austrália
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quais dados são coletados pelo agente de Log Analytics?
+
+Para obter uma lista completa dos aplicativos e serviços monitorados pelo agente, consulte [o que é monitorado pelo Azure monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+
+> [!IMPORTANT]
+> Observe que, para alguns serviços, como o Firewall do Azure, se você tiver habilitado o registro em log e escolhido um recurso informativo para registrar (por exemplo, definir o log como *detalhado*), poderá encontrar impactos significativos em suas necessidades de armazenamento log Analytics espaço de trabalho. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Posso excluir os workspaces padrão criados pela Central de Segurança?
@@ -201,9 +228,17 @@ Para remover manualmente o agente:
 
 ## <a name="how-do-i-disable-data-collection"></a>Como desabilitar a coleta de dados?
 
-O provisionamento automático é desativado por padrão. Você pode desabilitar o provisionamento automático de recursos a qualquer momento, desativando essa configuração na política de segurança. O provisionamento automático é altamente recomendável a fim de obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades do sistema operacional e proteção do ponto de extremidade.
+O provisionamento automático é altamente recomendável a fim de obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades do sistema operacional e proteção do ponto de extremidade. Por padrão, o provisionamento automático está desabilitado.
 
-Para desabilitar a coleta de dados, [Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Selecionar política**. Selecione a assinatura em que você deseja desabilitar o provisionamento automático. Quando você seleciona uma assinatura **Política de segurança - coleta de dados** é exibido. Em **Provisionamento automático**, selecione **Desabilitado**.
+Se você o habilitou, mas agora deseja desabilitá-lo:
+
+1. No [portal do Azure](https://portal.azure.com), abra **central de segurança** e selecione **política de segurança**.
+
+1. Selecione a assinatura na qual você deseja desabilitar o provisionamento automático.
+
+    **Política de segurança-a coleta de dados** é aberta.
+
+1. Em **Provisionamento automático**, selecione **Desabilitado**.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Como habilitar a coleta de dados?
@@ -233,9 +268,6 @@ Para coletar os dados, cada VM e servidor deve ser conectado à Internet usando 
 O agente consome uma quantidade nominal de recursos do sistema e devem causar pouco impacto sobre o desempenho. Para obter mais informações sobre o impacto no desempenho, bem como o agente e a extensão, consulte o [guia de planejamento e operações](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 
-## <a name="where-is-my-data-stored"></a>Onde meus dados são armazenados?
-
-Os dados coletados desse agente são armazenados no espaço de trabalho do Log Analytics existente associado à sua assinatura do Azure ou a novos espaços de trabalho. Para obter mais informações, consulte [Segurança de Dados](security-center-data-security.md).
 
 
 <!--Image references-->

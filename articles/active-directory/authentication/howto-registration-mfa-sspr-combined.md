@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40266f1b340ebe0ab665c576ff3be0e62ba7c705
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7feb69b2ea53794b780a983ed8ab4ba5874ac022
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260841"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Habilitar o registro combinado de informações de segurança no Azure Active Directory
 
@@ -48,6 +48,9 @@ Se você tiver configurado a Lista de Atribuições de Sites a Zonas no Internet
 ## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de acesso condicional para o registro combinado
 
 A proteção de quando e como os usuários se registram para a Autenticação Multifator do Microsoft Azure e a redefinição de senha self-service agora é possível através de ações do usuário na política de acesso condicional. Esse recurso está disponível para as organizações que habilitaram o [recurso de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações que desejam que os usuários se registrem para a Autenticação Multifator do Microsoft Azure e a SSPR de um local central, como um local de rede confiável durante a integração de RH.
+
+> [!NOTE]
+> Essa política se aplica somente quando um usuário acessa uma página de registro combinada. Essa política não impõe o registro de MFA quando um usuário acessa outros aplicativos. Você pode criar uma política de registro de MFA usando [a proteção de identidade do Azure – configurar a política de MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md).
 
 Para mais informações sobre como criar locais confiáveis no Acesso Condicional, confira o artigo [O que é a condição de localização no Acesso Condicional do Azure Active Directory?](../conditional-access/location-condition.md#named-locations)
 

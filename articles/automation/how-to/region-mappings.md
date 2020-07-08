@@ -6,15 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 24ff69e76736ffa93cecb795be563f172c422355
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261181"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões compatíveis com o workspace do Log Analytics vinculado
 
@@ -29,23 +30,25 @@ A tabela abaixo mostra os mapeamentos com suporte:
 |**EUA**||
 |EastUS<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestCentralUS|WestCentralUS|
 |**Canadá**||
 |Canadá Central|Canadá Central|
 |**Pacífico Asiático**||
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
+|ChinaEast2<sup>2</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
+|USGovArizona<sup>2</sup>|USGovArizona|
 
 <sup>1</sup> O mapeamento EastUS para workspaces do Log Analytics para contas de Automação não é um mapeamento exato de região para região, mas é o mapeamento correto.
 
-<sup>2</sup> Devido a restrições de capacidade, a região não está disponível durante a criação de novos recursos. Isso inclui contas de Automação e workspaces do Log Analytics. No entanto, os recursos vinculados preexistentes na região continuarão funcionando.
+<sup>2</sup> nessa região, somente gerenciamento de atualizações tem suporte e outros recursos como controle de alterações e inventário não estão disponíveis no momento.
 
 ## <a name="unlink-a-workspace"></a>Desvincular um workspace
 

@@ -4,15 +4,15 @@ description: Este artigo descreve como configurar os componentes do gateway de A
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254660"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -20,7 +20,7 @@ Aplicativo Azure gateway consiste em vários componentes que podem ser configura
 
 ![Gráfico de fluxo de componentes do gateway de aplicativo](./media/configuration-overview/configuration-overview1.png)
 
-Esta imagem ilustra um aplicativo que tem três ouvintes. Os dois primeiros são ouvintes multissite para `http://acme.com/*` e `http://fabrikam.com/*`, respectivamente. Ambos escutam na porta 80. O terceiro é um ouvinte básico que tem terminação de TLS (segurança de camada de transporte) de ponta a ponta, anteriormente conhecido como terminação de protocolo SSL (SSL).
+Esta imagem ilustra um aplicativo que tem três ouvintes. Os dois primeiros são ouvintes multissite para `http://acme.com/*` e `http://fabrikam.com/*` , respectivamente. Ambos escutam na porta 80. O terceiro é um ouvinte básico que tem terminação de TLS (segurança de camada de transporte) de ponta a ponta, anteriormente conhecido como terminação de protocolo SSL (SSL).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,7 +48,7 @@ Recomendamos que você use um tamanho de sub-rede de pelo menos/28. Esse tamanho
 
 Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Mas há algumas restrições:
 
-- Você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como qualquer e origem como **uma** marca de serviço do **gatewaymanager** . Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem se comunicar nesses pontos de extremidade.
+- Você precisa permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para a SKU do Gateway de Aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como **Qualquer** e a origem como a marca de serviço **GatewayManager**. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem se comunicar nesses pontos de extremidade.
 
 - A conectividade de internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que você:
 
@@ -219,14 +219,12 @@ Ao criar um gateway de aplicativo usando o portal do Azure, você cria uma regra
 
 Ao criar uma regra, você escolhe entre [ *básica* e *baseada em caminho*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
-- Escolha básico se desejar encaminhar todas as solicitações no ouvinte associado (por exemplo, *blog<i></i>. contoso.com/\*)* a um único pool de back-ends.
+- Escolha básico se desejar encaminhar todas as solicitações no ouvinte associado (por exemplo, *blog <i></i> . contoso.com/ \* )* a um único pool de back-ends.
 - Escolha baseado em caminho se desejar rotear solicitações de caminhos de URL específicos para pools de back-end específicos. O padrão de caminho é aplicado somente ao caminho da URL, não aos seus parâmetros de consulta.
 
 #### <a name="order-of-processing-rules"></a>Ordem das regras de processamento
 
-Para a SKU v1, a correspondência de padrões de solicitações de entrada é processada na ordem em que os caminhos são listados no mapa de caminho de URL da regra com base no caminho. Se uma solicitação corresponder ao padrão em dois ou mais caminhos no mapa de caminho, o caminho listado primeiro será correspondido. E a solicitação é encaminhada para o back-end associado a esse caminho.
-
-Para a SKU v2, uma correspondência exata é de prioridade mais alta que a ordem de caminho no mapa de caminho de URL. Se uma solicitação corresponder ao padrão em dois ou mais caminhos, a solicitação será encaminhada para o back-end associado ao caminho que corresponde exatamente à solicitação. Se o caminho na solicitação de entrada não corresponder exatamente a nenhum caminho no mapa, a correspondência de padrões da solicitação será processada na lista de ordem do mapa de caminho para a regra com base no caminho.
+Para a SKU v1 e v2, a correspondência de padrões de solicitações de entrada é processada na ordem em que os caminhos são listados no mapa de caminho de URL da regra com base no caminho. Se uma solicitação corresponder ao padrão em dois ou mais caminhos no mapa de caminho, o caminho listado primeiro será correspondido. E a solicitação é encaminhada para o back-end associado a esse caminho.
 
 ### <a name="associated-listener"></a>Ouvinte associado
 
@@ -250,7 +248,7 @@ Para uma regra com base em caminho, adicione várias configurações de HTTP de 
 
 ### <a name="redirection-setting"></a>Configuração de redirecionamento
 
-Se o redirecionamento estiver configurado para uma regra básica, todas as solicitações no ouvinte associado serão redirecionadas para o destino. Esse é o redirecionamento *global* . Se o redirecionamento estiver configurado para uma regra baseada em caminho, somente as solicitações em uma área específica do site serão redirecionadas. Um exemplo é uma área de carrinho de compras que é denotada por */cart/\**. Esse é o redirecionamento *baseado em caminho* .
+Se o redirecionamento estiver configurado para uma regra básica, todas as solicitações no ouvinte associado serão redirecionadas para o destino. Esse é o redirecionamento *global* . Se o redirecionamento estiver configurado para uma regra baseada em caminho, somente as solicitações em uma área específica do site serão redirecionadas. Um exemplo é uma área de carrinho de compras que é denotada por */cart/ \* *. Esse é o redirecionamento *baseado em caminho* .
 
 Para obter mais informações sobre redirecionamentos, consulte [visão geral do redirecionamento do gateway de aplicativo](redirect-overview.md).
 
@@ -309,7 +307,7 @@ Observe que o nome do cookie de afinidade padrão é *ApplicationGatewayAffinity
 
 ### <a name="connection-draining"></a>Descarregamento de conexão
 
-O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end continuem a manter as conexões existentes e atendem a solicitações em andamento para um tempo limite configurável e não recebam novas solicitações ou conexões. A única exceção a isso são solicitações associadas para cancelar o registro de instâncias devido à afinidade de sessão gerenciada pelo gateway e continuarão sendo encaminhadas para as instâncias de cancelamento de registro. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
+O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends habilitando a descarga da conexão na configuração de HTTP. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end continuem a manter as conexões existentes e atendem a solicitações em andamento para um tempo limite configurável e não recebam novas solicitações ou conexões. A única exceção a isso são solicitações associadas para cancelar o registro de instâncias devido à afinidade de sessão gerenciada pelo gateway e continuarão sendo encaminhadas para as instâncias de cancelamento de registro. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
 
 ### <a name="protocol"></a>Protocolo
 
@@ -378,7 +376,7 @@ Para um domínio personalizado cujo nome DNS personalizado existente está mapea
 
 Esse recurso substitui o cabeçalho de *host* na solicitação de entrada no gateway de aplicativo pelo nome de host que você especificar.
 
-Por exemplo, se *www.contoso.com* for especificado na configuração do **nome do host** , a solicitação original`https://appgw.eastus.cloudapp.azure.com/path1` * será alterada para`https://www.contoso.com/path1` * quando a solicitação for encaminhada para o servidor back-end.
+Por exemplo, se *www.contoso.com* for especificado na configuração do **nome do host** , a solicitação original * `https://appgw.eastus.cloudapp.azure.com/path1` será alterada para * `https://www.contoso.com/path1` quando a solicitação for encaminhada para o servidor back-end.
 
 ## <a name="back-end-pool"></a>Pool de back-end
 

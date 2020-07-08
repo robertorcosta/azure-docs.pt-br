@@ -1,6 +1,6 @@
 ---
-title: Criar um trabalho de streaming no T-SQL do SQL do Azure no Edge (Versão Prévia)
-description: Saiba mais sobre como criar trabalhos do Stream Analytics no SQL do Azure no Edge (Versão Prévia)
+title: Criar um trabalho de streaming do T-SQL no Azure SQL Edge (versão prévia)
+description: Saiba mais sobre como criar trabalhos de Stream Analytics no Azure SQL Edge (versão prévia).
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,34 +9,31 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 323ec00667350917e6b16827f908ac1abeee77d6
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: fc6ab2c9c844350e83674ed96a0e79289c7f5b43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233321"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255408"
 ---
-# <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Criar um trabalho do Stream Analytics no SQL do Azure no Edge (Versão Prévia) 
+# <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Criar um trabalho de Azure Stream Analytics no Azure SQL Edge (versão prévia) 
 
-Este artigo explica como criar um trabalho de streaming no T-SQL do SQL do Azure no Edge (Versão Prévia). Para criar um trabalho de streaming no SQL no Edge, as etapas a seguir são necessárias
-
-1. Criar os objetos de entrada e saída de fluxo externo
-2. Defina a consulta de trabalho de streaming como parte da criação do trabalho de streaming.
+Este artigo explica como criar um trabalho de streaming T-SQL no Azure SQL Edge (versão prévia). Você cria os objetos de entrada e saída de fluxo externo e, em seguida, define a consulta do trabalho de streaming como parte da criação do trabalho de streaming.
 
 > [!NOTE]
-> Para habilitar o recurso de streaming T-SQL no SQL do Azure no Edge, habilite o TF 11515 como uma opção de inicialização ou use o comando [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). Para obter mais informações sobre como habilitar sinalizadores de rastreamento usando o arquivo mssql.conf, consulte [Configurar usando o arquivo mssql.conf](configure.md#configure-using-mssqlconf-file). Esse requisito será removido em atualizações futuras do SQL do Azure no Edge (versão prévia).
+> Para habilitar o recurso de streaming do T-SQL no Azure SQL Edge, habilite o TF 11515 como uma opção de inicialização ou use o comando [DBCC traceize]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) . Para obter mais informações sobre como habilitar sinalizadores de rastreamento usando um arquivo MSSQL. conf, consulte [Configurar usando um arquivo MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file).
 
-## <a name="configure-an-external-stream-input-and-output-object"></a>Configurar o objeto de entrada ou saída de um fluxo externo
+## <a name="configure-the-external-stream-input-and-output-objects"></a>Configurar os objetos de entrada e saída de fluxo externo
 
-O streaming no T-SQL usa a funcionalidade de fonte de dados externa do SQL Server para definir as fontes de dados associadas às entradas e saídas do fluxo externo do trabalho de streaming. Os comandos de T-SQL a seguir são necessários para criar um objeto de entrada ou saída de um fluxo externo.
+O streaming T-SQL usa a funcionalidade de fonte de dados externa do SQL Server para definir as fontes de dados associadas às entradas e saídas do fluxo externo do trabalho de streaming. Use os seguintes comandos T-SQL para criar um objeto de entrada ou saída de fluxo externo:
 
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-[CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
 
-[CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-sql-database)
+- [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Além disso, no caso do SQL no Edge (ou SQL Server, SQL do Azure) que está sendo usado como um fluxo de saída, o comando de T-SQL [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) é necessário para definir as credenciais para acessar o banco de dados SQL.
+Além disso, se o Azure SQL Edge, o SQL Server ou o banco de dados SQL do Azure for usado como um fluxo de saída, você precisará da [credencial criar escopo do banco de dados (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Esse comando T-SQL define as credenciais para acessar o banco de dados.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Fontes de dados de fluxo de entrada e saída com suporte
 
@@ -44,16 +41,16 @@ O SQL do Azure no Edge atualmente oferece suporte apenas às fontes de dados a s
 
 | Tipo de fonte de dados | Entrada | Saída | Descrição |
 |------------------|-------|--------|------------------|
-| Hub do Azure IoT Edge | S | S | Fonte de dados para ler/gravar dados de streaming em um hub do Azure IoT Edge. Para obter mais informações sobre o hub do Azure IoT Edge, consulte [Hub do IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| Banco de Dados SQL | N | S | Conexão de fonte de dados para gravar dados de streaming no banco de dado SQL. O banco de dados SQL pode ser um banco de dados SQL no Edge local, um SQL Server remoto ou um banco de dados SQL do Azure|
-| Armazenamento do Blobs do Azure | N | S | Fonte de dados para gravar dados em um blob em uma conta de armazenamento do Azure. |
-| Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico Kafka. Atualmente, esse adaptador está disponível apenas para a versão Intel/AMD do SQL do Azure no Edge e não está disponível para a versão ARM64 do SQL no Edge.|
+| Hub de Azure IoT Edge | S | S | Fonte de dados para ler e gravar dados de streaming em um hub de Azure IoT Edge. Para obter mais informações, consulte [IOT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Banco de Dados SQL | N | S | Conexão de fonte de dados para gravar dados de streaming no banco de dado SQL. O banco de dados pode ser um banco de dados local no Azure SQL Edge ou um banco de dados remoto no SQL Server ou no banco de dados SQL do Azure.|
+| Armazenamento de Blobs do Azure | N | S | Fonte de dados para gravar dados em um blob em uma conta de armazenamento do Azure. |
+| Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico Kafka. Atualmente, esse adaptador só está disponível para as versões Intel ou AMD do Azure SQL Edge. Ele não está disponível para a versão ARM64 do Azure SQL Edge.|
 
-### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exemplo: Criar um objeto de entrada/saída de fluxo externo para o hub do Azure IoT Edge
+### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exemplo: criar um objeto de entrada/saída de fluxo externo para Azure IoT Edge Hub
 
-O exemplo a seguir cria um objeto de fluxo externo para o hub do Edge. Para criar uma fonte de dados de entrada/saída de fluxo externo para o hub do Azure IoT Edge, primeiro você precisa criar um formato de arquivo externo para que o SQL entenda também o layout dos dados que estão sendo lidos/gravados.
+O exemplo a seguir cria um objeto de fluxo externo para Azure IoT Edge Hub. Para criar uma fonte de dados de entrada/saída de fluxo externo para Azure IoT Edge Hub, primeiro você precisa criar um formato de arquivo externo para o layout dos dados que estão sendo lidos ou gravados também.
 
-1. Crie um formato de arquivo externo com o tipo de formato JSON.
+1. Crie um formato de arquivo externo do tipo JSON.
 
     ```sql
     Create External file format InputFileFormat
@@ -63,7 +60,7 @@ O exemplo a seguir cria um objeto de fluxo externo para o hub do Edge. Para cria
     go
     ```
 
-2. Crie uma fonte de dados externa para o hub do IoT Edge. O script T-SQL abaixo cria uma conexão de fonte de dados com um hub do Edge em execução no mesmo host do docker que o SQL no Edge.
+2. Crie uma fonte de dados externa para Azure IoT Edge Hub. O script T-SQL a seguir cria uma conexão de fonte de dados com um hub IoT Edge que é executado no mesmo host do Docker que o Azure SQL Edge.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE EdgeHubInput WITH (
@@ -72,7 +69,7 @@ O exemplo a seguir cria um objeto de fluxo externo para o hub do Edge. Para cria
     go
     ```
 
-3. Crie o objeto de fluxo externo para o hub do IoT Edge. O script T-SQL abaixo cria um objeto de fluxo para o hub do Edge. No caso de um objeto de fluxo do hub do Edge, o parâmetro LOCATION é o nome do tópico/canal do hub do Edge no qual está sendo feita a leitura ou gravação.
+3. Crie o objeto de fluxo externo para Azure IoT Edge Hub. O script T-SQL a seguir cria um objeto de fluxo para o Hub de IoT Edge. No caso de um objeto de fluxo de IoT Edge Hub, o parâmetro LOCATION é o nome do tópico do hub de IoT Edge ou do canal que está sendo lido ou gravado.
 
     ```sql
     CREATE EXTERNAL STREAM MyTempSensors WITH (
@@ -85,9 +82,9 @@ O exemplo a seguir cria um objeto de fluxo externo para o hub do Edge. Para cria
     go
     ```
 
-### <a name="example-create-an-external-stream-object-sql-database"></a>Exemplo: Criar um banco de dados SQL de objeto de fluxo externo
+### <a name="example-create-an-external-stream-object-to-azure-sql-database"></a>Exemplo: criar um objeto de fluxo externo para o banco de dados SQL do Azure
 
-O exemplo a seguir cria um objeto de fluxo externo para o banco de dados SQL no Edge local. 
+O exemplo a seguir cria um objeto de fluxo externo para o banco de dados local no Azure SQL Edge. 
 
 1. Crie uma chave mestra no banco de dados. Isso é necessário para criptografar o segredo da credencial.
 
@@ -95,7 +92,7 @@ O exemplo a seguir cria um objeto de fluxo externo para o banco de dados SQL no 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<<Strong_Password_For_Master_Key_Encryption>>';
     ```
 
-2. Crie uma credencial no escopo do banco de dados para acessar a fonte do SQL Server. O exemplo a seguir cria uma credencial para a fonte de dados externa com IDENTITY = “nome de usuário” e SECRET = “senha”.
+2. Crie uma credencial no escopo do banco de dados para acessar a fonte de SQL Server. O exemplo a seguir cria uma credencial para a fonte de dados externa, com IDENTITY = username e segredo = password.
 
     ```sql
     CREATE DATABASE SCOPED CREDENTIAL SQLCredential
@@ -105,9 +102,9 @@ O exemplo a seguir cria um objeto de fluxo externo para o banco de dados SQL no 
 
 3. Crie uma fonte de dados externa, usando CREATE EXTERNAL DATA SOURCE. O exemplo a seguir:
 
-    * Cria uma fonte de dados externa chamada LocalSQLOutput
-    * Identifica a fonte de dados externa (LOCATION = '<vendor>://<server>[:<port>]'). No exemplo, ela aponta para uma instância local do SQL no Edge.
-    * Por fim, o exemplo usa a credencial criada anteriormente.
+    * Cria uma fonte de dados externa chamada *LocalSQLOutput*.
+    * Identifica a fonte de dados externa (LOCATION = '<vendor>://<server>[:<port>]'). No exemplo, ele aponta para uma instância local do Azure SQL Edge.
+    * Usa a credencial criada anteriormente.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
@@ -117,7 +114,7 @@ O exemplo a seguir cria um objeto de fluxo externo para o banco de dados SQL no 
     go
     ```
 
-4. Crie o objeto de fluxo externo. O exemplo a seguir cria um objeto de fluxo externo apontando para uma tabela *dbo. TemperatureMeasurements* no banco de dados *MySQLDatabase*.
+4. Crie o objeto de fluxo externo. O exemplo a seguir cria um objeto de fluxo externo apontando para uma tabela *dbo. TemperatureMeasurements*, no banco de dados *MySQLDatabase*.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements WITH (
@@ -130,19 +127,19 @@ O exemplo a seguir cria um objeto de fluxo externo para o banco de dados SQL no 
 
 ## <a name="create-the-streaming-job-and-the-streaming-queries"></a>Criar o trabalho de streaming e as consultas de streaming
 
-Use o procedimento armazenado do sistema **sys. sp_create_streaming_job** para definir as consultas de streaming e criar o trabalho de streaming. O procedimento armazenado **sp_create_streaming_job** usa dois parâmetros
+Use o `sys.sp_create_streaming_job` procedimento armazenado do sistema para definir as consultas de streaming e criar o trabalho de streaming. O `sp_create_streaming_job` procedimento armazenado usa os seguintes parâmetros:
 
-- job_name - Nome do trabalho de streaming. Os nomes de trabalhos de streaming são exclusivos em toda a instância.
-- statement - instruções de consulta de streaming baseadas na [linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+- `job_name`: O nome do trabalho de streaming. Os nomes de trabalhos de streaming são exclusivos em toda a instância.
+- `statement`: [Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)instruções de consulta de streaming baseadas em linguagem de consulta.
 
-O exemplo a seguir cria um trabalho de streaming simples com uma consulta de streaming. Essa consulta lê as entradas do hub do Edge e grava em *dbo.TemperatureMeasurements* no banco de dados.
+O exemplo a seguir cria um trabalho de streaming simples com uma consulta de streaming. Essa consulta lê as entradas do hub de IoT Edge e grava `dbo.TemperatureMeasurements` no banco de dados.
 
 ```sql
 EXEC sys.sp_create_streaming_job @name=N'StreamingJob1',
 @statement= N'Select * INTO TemperatureMeasurements from MyEdgeHubInput'
 ```
 
-O exemplo a seguir cria um trabalho de streaming mais complexo com várias consultas diferentes, incluindo uma consulta que usa a função interna AnomalyDetection_ChangePoint para identificar anomalias nos dados de temperatura.
+O exemplo a seguir cria um trabalho de streaming mais complexo com várias consultas diferentes. Essas consultas incluem uma que usa a `AnomalyDetection_ChangePoint` função interna para identificar anomalias nos dados de temperatura.
 
 ```sql
 EXEC sys.sp_create_streaming_job @name=N'StreamingJob2', @statement=
@@ -164,28 +161,28 @@ go
 
 ## <a name="start-stop-drop-and-monitor-streaming-jobs"></a>Iniciar, parar, remover e monitorar trabalhos de streaming
 
-Para iniciar um trabalho de streaming no SQL no Edge, execute o procedimento armazenado **sys. sp_start_streaming_job**. O procedimento armazenado requer que o mesmo trabalho de streaming seja iniciado, como entrada.
+Para iniciar um trabalho de streaming no Azure SQL Edge, execute o `sys.sp_start_streaming_job` procedimento armazenado. O procedimento armazenado requer que o nome do trabalho de streaming seja iniciado, como entrada.
 
 ```sql
 exec sys.sp_start_streaming_job @name=N'StreamingJob1'
 go
 ```
 
-Para parar um trabalho de streaming no SQL no Edge, execute o procedimento armazenado **sys. sp_stop_streaming_job**. O procedimento armazenado requer que o mesmo trabalho de streaming seja parado, como entrada.
+Para interromper um trabalho de streaming, execute o `sys.sp_stop_streaming_job` procedimento armazenado. O procedimento armazenado requer que o nome do trabalho de streaming seja interrompido, como entrada.
 
 ```sql
 exec sys.sp_stop_streaming_job @name=N'StreamingJob1'
 go
 ```
 
-Para descartar (ou excluir) um trabalho de streaming no SQL no Edge, execute o procedimento armazenado **sys. sp_drop_streaming_job**. O procedimento armazenado requer que o mesmo trabalho de streaming seja descartado, como entrada.
+Para descartar (ou excluir) um trabalho de streaming, execute o `sys.sp_drop_streaming_job` procedimento armazenado. O procedimento armazenado exige que o nome do trabalho de streaming seja descartado, como entrada.
 
 ```sql
 exec sys.sp_drop_streaming_job @name=N'StreamingJob1'
 go
 ```
 
-Para obter o status atual de um trabalho de streaming no SQL no Edge, execute o procedimento armazenado **sys. sp_get_streaming_job**. O procedimento armazenado requer que o mesmo trabalho de streaming seja descartado, como entrada e gera o nome e o status atual do trabalho de streaming.
+Para obter o status atual de um trabalho de streaming, execute o `sys.sp_get_streaming_job` procedimento armazenado. O procedimento armazenado exige que o nome do trabalho de streaming seja descartado, como entrada. Ele gera o nome e o status atual do trabalho de streaming.
 
 ```sql
 exec sys.sp_get_streaming_job @name=N'StreamingJob1'
@@ -198,17 +195,17 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 )
 ```
 
-O trabalho de streaming pode estar em qualquer um dos seguintes status
+O trabalho de streaming pode ter um dos seguintes status:
 
 | Status | Descrição |
 |--------| ------------|
-| Criado | O trabalho de fluxo foi criado, mas ainda não foi iniciado |
-| Iniciando | O trabalho de streaming está na fase inicial |
-| Idle | O trabalho de streaming está em execução, porém não há nenhuma entrada para processar |
-| Processando | O trabalho de streaming está em execução e processando as entradas. Indica um estado de integridade para o trabalho de streaming |
-| Degradado | O trabalho de streaming está em execução, porém, houve erros de serialização/desserialização de entrada/saída não fatal durante o processamento da entrada. O trabalho de entrada continuará em execução, mas descartará as entradas que encontrarem erros |
-| Parado | O trabalho de streaming foi interrompido |
-| Falhou | O trabalho de streaming falhou. Em geral indica um erro fatal durante o processamento |
+| Criado | O trabalho de streaming foi criado, mas ainda não foi iniciado. |
+| Iniciando | O trabalho de fluxo está na fase inicial. |
+| Idle | O trabalho de streaming está em execução, mas não há nenhuma entrada para processar. |
+| Processando | O trabalho de streaming está em execução e processando as entradas. Indica um estado de integridade para o trabalho de fluxo. |
+| Degradado | O trabalho de streaming está em execução, mas houve alguns erros não fatais durante o processamento de entrada. O trabalho de entrada continuará em execução, mas removerá as entradas que encontrar erros. |
+| Parado | O trabalho de fluxo foi interrompido. |
+| Falhou | Falha no trabalho de streaming. Em geral indica um erro fatal durante o processamento. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

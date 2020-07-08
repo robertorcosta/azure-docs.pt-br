@@ -5,17 +5,18 @@ description: Saiba como usar Azure Machine Learning para implantar um modelo em 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/27/2019
-ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.date: 06/23/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 4795db914f776b14fa87ddc5db65362a48535324
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82651922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261317"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -103,7 +104,7 @@ Para obter mais informações sobre a configuração de inferência, consulte [i
 Para criar a imagem do Docker que é implantada no serviço Azure App, use [Model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). O trecho de código a seguir demonstra como criar uma nova imagem a partir do modelo e da configuração de inferência:
 
 > [!NOTE]
-> O trecho de código pressupõe `model` que contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
+> O trecho de código pressupõe que `model` contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -114,14 +115,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. Quando o processo for concluído, a imagem terá sido criada no registro de contêiner do Azure para seu espaço de trabalho. Depois que a imagem tiver sido criada, o local no registro de contêiner do Azure será exibido. O local retornado está no formato `<acrinstance>.azurecr.io/package@sha256:<imagename>`. Por exemplo, `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+Quando `show_output=True` , a saída do processo de Build do Docker é mostrada. Quando o processo for concluído, a imagem terá sido criada no registro de contêiner do Azure para seu espaço de trabalho. Depois que a imagem tiver sido criada, o local no registro de contêiner do Azure será exibido. O local retornado está no formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Por exemplo, `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Salve as informações de local, pois elas são usadas durante a implantação da imagem.
 
 ## <a name="deploy-image-as-a-web-app"></a>Implantar imagem como um aplicativo Web
 
-1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<acrinstance>` pelo valor retornado anteriormente de `package.location`:
+1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<acrinstance>` pelo valor retornado anteriormente de `package.location` :
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -154,10 +155,10 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    Neste exemplo, um tipo de preço __básico__ (`--sku B1`) é usado.
+    Neste exemplo, um tipo de preço __básico__ ( `--sku B1` ) é usado.
 
     > [!IMPORTANT]
-    > As imagens criadas por Azure Machine Learning usam o Linux, portanto, você `--is-linux` deve usar o parâmetro.
+    > As imagens criadas por Azure Machine Learning usam o Linux, portanto, você deve usar o `--is-linux` parâmetro.
 
 1. Para criar o aplicativo Web, use o comando a seguir. Substituir `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagename>` pelos valores de retornado `package.location` anteriormente:
 
@@ -234,7 +235,7 @@ Neste ponto, o aplicativo Web começa a carregar a imagem.
 > az webapp log tail --name <app-name> --resource-group myresourcegroup
 > ```
 >
-> Depois que a imagem for carregada e o site estiver ativo, o log exibirá uma mensagem afirmando `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`.
+> Depois que a imagem for carregada e o site estiver ativo, o log exibirá uma mensagem afirmando `Container <container name> for site <app-name> initialized successfully and is ready to serve requests` .
 
 Depois que a imagem for implantada, você poderá encontrar o nome do host usando o seguinte comando:
 
@@ -242,11 +243,11 @@ Depois que a imagem for implantada, você poderá encontrar o nome do host usand
 az webapp show --name <app-name> --resource-group myresourcegroup
 ```
 
-Esse comando retorna informações semelhantes ao nome de host a `<app-name>.azurewebsites.net`seguir:. Use esse valor como parte da __URL base__ para o serviço.
+Esse comando retorna informações semelhantes ao nome de host a seguir: `<app-name>.azurewebsites.net` . Use esse valor como parte da __URL base__ para o serviço.
 
 ## <a name="use-the-web-app"></a>Usar o aplicativo Web
 
-O serviço Web que passa solicitações para o modelo está localizado em `{baseurl}/score`. Por exemplo, `https://<app-name>.azurewebsites.net/score`. O código Python a seguir demonstra como enviar dados para a URL e exibir a resposta:
+O serviço Web que passa solicitações para o modelo está localizado em `{baseurl}/score` . Por exemplo, `https://<app-name>.azurewebsites.net/score`. O código Python a seguir demonstra como enviar dados para a URL e exibir a resposta:
 
 ```python
 import requests

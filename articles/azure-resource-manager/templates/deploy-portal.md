@@ -3,12 +3,12 @@ title: Implantar recursos com portal do Azure
 description: Use portal do Azure e o gerenciamento de recursos do Azure para implantar seus recursos em um grupo de recursos em sua assinatura.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255255"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implantar recursos com modelos ARM e portal do Azure
 
@@ -86,7 +86,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 1. Você verá várias opções para criar um modelo:
 
     - Crie **seu próprio modelo no editor**: Crie um modelo usando o editor de modelos de Portal.  O editor é capaz de adicionar um esquema de modelo de recurso.
-    - **Modelos comuns**: há quatro modelos comuns para criar uma máquina virtual Linux, uma máquina virtual do Windows, um aplicativo Web e um banco de dados SQL do Azure.
+    - **Modelos comuns**: há quatro modelos comuns para criar uma máquina virtual Linux, uma máquina virtual do Windows, um aplicativo Web e um banco de dados no banco de dados SQL do Azure.
     - **Carregar um modelo de início rápido do GitHub**: use [modelos de início rápido](https://azure.microsoft.com/resources/templates/)existentes.
 
    ![Opções de exibição](./media/deploy-portal/see-options.png)
@@ -118,7 +118,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
     - **Local**: selecione um local do Azure.
     - **Tipo de conta de armazenamento**: Use o valor padrão.
     - **Local**: Use o valor padrão.
-    - **Concordo com os termos e as condições declarados acima**: (selecionar)
+    - **Eu concordo com os termos e condições declarados acima**: (SELECT)
 
 1. Selecione **Comprar**.
 

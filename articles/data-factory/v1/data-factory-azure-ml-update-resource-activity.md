@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0204a2873b288dcb2082dbd5c9c984d29fa6d456
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254915"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizando os modelos do Machine Learning do Azure usando a Atividade de Recurso de Atualização
 
@@ -29,8 +29,8 @@ ms.locfileid: "82930447"
 > * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics atividade U-SQL](data-factory-usql-activity.md)
-> * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
+> * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
+> * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 
 > [!NOTE]
@@ -47,18 +47,18 @@ Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM
 A tabela a seguir descreve os serviços Web usados neste exemplo.  Consulte [readaptação de modelos de Machine Learning Studio (clássico) programaticamente](../../machine-learning/studio/retrain-machine-learning-model.md) para obter detalhes.
 
 - **Treinamento do serviço Web** - recebe dados de treinamento e produz modelos treinados. A saída do novo treinamento é um arquivo .ilearner em um Armazenamento de Blobs do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão.
-- **Pontuação do serviço Web** - recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. 
+- **Pontuação do serviço Web** - recebe exemplos de dados sem rótulo de e faz previsões. A saída da previsão pode ter várias formas, como um arquivo. csv ou linhas no banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. 
 
 A figura a seguir descreve o relacionamento entre os pontos de extremidade de treinamento e de pontuação no AM do Azure.
 
-![SERVIÇOS WEB](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+![Serviços da Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
 Você pode invocar o **training web service** usando o **Atividade de Execução de Lote do AM do Azure**. A invocação de um serviço Web de treinamento é igual à invocação de um serviço Web do AM do Azure ML (serviço Web de pontuação) para pontuação de dados. As seções anteriores abordam em detalhes como invocar um serviço Web de AM do Azure de um pipeline do Azure Data Factory. 
 
 Você pode invocar o **scoring web service** usando o **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado. Os exemplos a seguir fornecem as definições de serviço vinculado: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Serviço web de pontuação é um serviço web clássico
-Se o serviço Web de pontuação for um **serviço Web clássico**, crie o segundo **ponto de extremidade não padrão e atualizável** usando o portal do Azure. Confira o artigo [Criar pontos de extremidade](../../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, execute as seguintes etapas:
+Se o serviço Web de pontuação for um **serviço Web clássico**, crie o segundo **ponto de extremidade não padrão e atualizável** usando o portal do Azure. Confira o artigo [Criar pontos de extremidade](../../machine-learning/studio/create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, execute as seguintes etapas:
 
 * Clique em **EXECUÇÃO EM LOTE** para obter o valor do URI para a propriedade JSON **mlEndpoint**.
 * Clique no link **ATUALIZAR RECURSO** para obter o valor do URI para a propriedade JSON **updateResourceEndpoint**. A chave de API está na própria página do ponto de extremidade (no canto inferior direito).

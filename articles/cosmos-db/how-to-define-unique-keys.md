@@ -3,15 +3,16 @@ title: Definir chaves exclusivas para um contêiner do Azure Cosmos
 description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .net, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 056cd77104fe73f19588f3d13e11dc06fd93c3f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261538"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner do Azure Cosmos
 
@@ -33,7 +34,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
 1. Se necessário, adicione mais entradas de chave exclusiva, clicando em **+ Adicionar chave exclusiva**
 
-    ![Captura de tela de entrada de restrição de chave exclusiva no portal do Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Captura de tela de entrada de restrição de chave exclusiva no portal do Azure":::
 
 ## <a name="use-powershell"></a>Usar o Powershell
 
@@ -41,7 +42,7 @@ Para criar um contêiner com chaves exclusivas, consulte [criar um contêiner Co
 
 ## <a name="use-the-net-sdk"></a>Usar o SDK .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 Ao criar um novo contêiner usando o [SDK do .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), um objeto `UniqueKeyPolicy` pode ser usado para definir restrições de chave exclusiva.
 
@@ -61,7 +62,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 Ao criar um novo contêiner usando o [SDK do .net v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), use a API Fluent do SDK para declarar chaves exclusivas de maneira concisa e legível.
 

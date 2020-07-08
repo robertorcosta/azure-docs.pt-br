@@ -3,15 +3,15 @@ title: Migrar da biblioteca de executores em massa para o suporte em massa em Az
 description: Saiba como migrar seu aplicativo do usando a biblioteca de executores em massa para o suporte em massa no Azure Cosmos DB SDK v3
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261419"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de executores em massa para o suporte em massa em Azure Cosmos DB SDK do .NET v3
 
@@ -19,7 +19,7 @@ Este artigo descreve as etapas necessárias para migrar um código de aplicativo
 
 ## <a name="enable-bulk-support"></a>Habilitar suporte em massa
 
-Habilite o suporte em `CosmosClient` massa na instância por meio da configuração [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
+Habilite o suporte em massa na `CosmosClient` instância por meio da configuração [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
@@ -33,15 +33,15 @@ Por exemplo, se a entrada inicial for uma lista de itens em que cada item tem o 
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Se desejar fazer a importação em massa (semelhante ao uso de BulkExecutor. BulkImportAsync), você precisará ter chamadas simultâneas `CreateItemAsync`para. Por exemplo:
+Se desejar fazer a importação em massa (semelhante ao uso de BulkExecutor. BulkImportAsync), você precisará ter chamadas simultâneas para `CreateItemAsync` . Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Se desejar fazer uma *atualização* em massa (semelhante ao uso de [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), você precisará ter chamadas simultâneas `ReplaceItemAsync` para o método depois de atualizar o valor do item. Por exemplo:
+Se desejar fazer uma *atualização* em massa (semelhante ao uso de [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), você precisará ter chamadas simultâneas para `ReplaceItemAsync` o método depois de atualizar o valor do item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-E se desejar fazer a *exclusão* em massa (semelhante ao uso de [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), você precisará ter chamadas simultâneas `DeleteItemAsync`para, com `id` a chave de partição e de cada item. Por exemplo:
+E se desejar fazer a *exclusão* em massa (semelhante ao uso de [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), você precisará ter chamadas simultâneas para `DeleteItemAsync` , com a `id` chave de partição e de cada item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -80,18 +80,18 @@ O `BulkOperationResponse` contém:
 
 ## <a name="retry-configuration"></a>Repetir configuração
 
-A biblioteca de executores em massa tinha [diretrizes](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) que `MaxRetryWaitTimeInSeconds` mencionaram para definir o e `MaxRetryAttemptsOnThrottledRequests` o [retryoptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) para `0` delegar controle à biblioteca.
+A biblioteca de executores em massa tinha [diretrizes](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) que mencionaram para definir o `MaxRetryWaitTimeInSeconds` e o `MaxRetryAttemptsOnThrottledRequests` [retryoptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) para `0` delegar controle à biblioteca.
 
 Para suporte em massa no SDK do .NET, não há nenhum comportamento oculto. Você pode configurar as opções de repetição diretamente por meio de [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
 > Nos casos em que as unidades de solicitação provisionadas são muito menores do que o esperado com base na quantidade de dados, talvez você queira considerar defini-los como valores altos. A operação em massa levará mais tempo, mas terá uma chance maior de ser concluída com sucesso devido às mais altas tentativas.
 
-## <a name="performance-improvements"></a>Melhorias de desempenho
+## <a name="performance-improvements"></a>Aprimoramentos de desempenho
 
 Assim como acontece com outras operações com o SDK do .NET, o uso das APIs de fluxo resulta em um melhor desempenho e evita qualquer serialização desnecessária. 
 
-O uso de APIs de fluxo só é possível se a natureza dos dados que você usa corresponder à de um fluxo de bytes (por exemplo, fluxos de arquivo). Nesses `CreateItemStreamAsync`casos, usar os métodos, `ReplaceItemStreamAsync`, ou `DeleteItemStreamAsync` e trabalhar com `ResponseMessage` (em vez de `ItemResponse`) aumenta a taxa de transferência que pode ser obtida.
+O uso de APIs de fluxo só é possível se a natureza dos dados que você usa corresponder à de um fluxo de bytes (por exemplo, fluxos de arquivo). Nesses casos, usar os `CreateItemStreamAsync` métodos, `ReplaceItemStreamAsync` , ou `DeleteItemStreamAsync` e trabalhar com `ResponseMessage` (em vez de `ItemResponse` ) aumenta a taxa de transferência que pode ser obtida.
 
 ## <a name="next-steps"></a>Próximas etapas
 

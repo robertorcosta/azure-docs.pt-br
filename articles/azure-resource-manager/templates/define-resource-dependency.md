@@ -3,16 +3,16 @@ title: Definir ordem de implantação para recursos
 description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos sejam implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255204"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem de implantação de recursos em modelos ARM
 
-Ao implantar um recurso, talvez seja necessário ter certeza de que existem outros recursos antes de implantá-los. Por exemplo, você precisa de um SQL Server antes de implantar um banco de dados SQL. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**.
+Ao implantar um recurso, talvez seja necessário ter certeza de que existem outros recursos antes de implantá-los. Por exemplo, você precisa de um SQL Server lógico antes de implantar um banco de dados. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**.
 
 O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Você só precisa definir as dependências para recursos que são implantados no mesmo modelo.
 
@@ -59,7 +59,7 @@ A propriedade resources permite especificar os recursos filho relacionados ao re
 
 Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
 
-O exemplo a seguir mostra um SQL Server e um Banco de Dados SQL. Observe que uma dependência explícita é definida entre o Banco de Dados SQL e o SQL Server, ainda que o banco de dados seja um filho do servidor.
+O exemplo a seguir mostra um SQL Server e um banco de dados lógicos. Observe que uma dependência explícita é definida entre o banco de dados e o servidor, embora o banco de dados seja um filho do servidor.
 
 ```json
 "resources": [

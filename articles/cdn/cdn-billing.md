@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: d3a2dfba98f83d34c3e83ec865e3b692f7dbacd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3240151937a8ad758e4afe765341261069fd60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254558"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
 
@@ -115,6 +115,7 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Repositório Azure Data Lake
 - Azure Machine Learning 
 - Banco de Dados SQL do Azure
+- Instância Gerenciada do Azure SQL
 - Cache Redis do Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como gerencio meus custos com mais eficiência?

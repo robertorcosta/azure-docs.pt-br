@@ -6,15 +6,15 @@ author: luisbosquez
 manager: kfile
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faacaf6700b14ba068d5cf0a48ea851f562e2302
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261793"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como usar a etapa de perfil de execução para avaliar suas consultas do Gremlin
 
@@ -32,7 +32,7 @@ Por exemplo:
     g.V('mary').out().executionProfile()
 ```
 
-Depois de chamar `executionProfile()` a etapa, a resposta será um objeto JSON que inclui a etapa Gremlin executada, o tempo total que levou e uma matriz do cosmos DB operadores de tempo de execução que a instrução resultou.
+Depois de chamar a `executionProfile()` etapa, a resposta será um objeto JSON que inclui a etapa Gremlin executada, o tempo total que levou e uma matriz do cosmos DB operadores de tempo de execução que a instrução resultou.
 
 > [!NOTE]
 > Esta implementação para o perfil de execução não está definida na especificação do Apache Tinkerpop. É específico para Azure Cosmos DB implementação da API Gremlin.
@@ -134,7 +134,7 @@ Este é um exemplo anotado da saída que será retornada:
 ```
 
 > [!NOTE]
-> A etapa executionProfile executará a consulta Gremlin. Isso inclui as `addV` etapas `addE`ou, que resultarão na criação e confirmarão as alterações especificadas na consulta. Como resultado, as unidades de solicitação geradas pela consulta Gremlin também serão cobradas.
+> A etapa executionProfile executará a consulta Gremlin. Isso inclui as `addV` `addE` etapas ou, que resultarão na criação e confirmarão as alterações especificadas na consulta. Como resultado, as unidades de solicitação geradas pela consulta Gremlin também serão cobradas.
 
 ## <a name="execution-profile-response-objects"></a>Objetos de resposta do perfil de execução
 
@@ -149,7 +149,7 @@ A resposta de uma função executionProfile () produzirá uma hierarquia de obje
     - `time`: Quantidade de tempo, em milissegundos, que um determinado operador levou.
     - `annotations`: Contém informações adicionais, específicas para o operador que foi executado.
     - `annotations.percentTime`: Porcentagem do tempo total necessário para executar o operador específico.
-    - `counts`: Número de objetos que foram retornados da camada de armazenamento por este operador. Isso está contido no valor `counts.resultCount` escalar dentro de.
+    - `counts`: Número de objetos que foram retornados da camada de armazenamento por este operador. Isso está contido no `counts.resultCount` valor escalar dentro de.
     - `storeOps`: Representa uma operação de armazenamento que pode abranger uma ou várias partições.
     - `storeOps.fanoutFactor`: Representa o número de partições que essa operação de armazenamento específico acessou.
     - `storeOps.count`: Representa o número de resultados que essa operação de armazenamento retornou.
@@ -219,17 +219,17 @@ Suponha a seguinte resposta de perfil de execução de um **grafo particionado**
 ```
 
 As seguintes conclusões podem ser feitas a partir dela:
-- A consulta é uma pesquisa de ID única, uma vez que a instrução Gremlin `g.V('id')`segue o padrão.
+- A consulta é uma pesquisa de ID única, uma vez que a instrução Gremlin segue o padrão `g.V('id')` .
 - Julgamento da `time` métrica, a latência dessa consulta parece estar alta, pois é [mais de 10 ms para uma única operação de leitura de ponto](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Se olharmos para o `storeOps` objeto, podemos ver que o é `fanoutFactor` `5`, o que significa que [5 partições](https://docs.microsoft.com/azure/cosmos-db/partition-data) foram acessadas por essa operação.
+- Se olharmos para o `storeOps` objeto, podemos ver que o `fanoutFactor` é `5` , o que significa que [5 partições](https://docs.microsoft.com/azure/cosmos-db/partition-data) foram acessadas por essa operação.
 
-Como uma conclusão dessa análise, podemos determinar que a primeira consulta está acessando mais partições do que o necessário. Isso pode ser resolvido especificando-se a chave de particionamento na consulta como um predicado. Isso resultará em menos latência e menos custo por consulta. Saiba mais sobre o [particionamento de grafo](graph-partitioning.md). Uma consulta mais ideal seria `g.V('tt0093640').has('partitionKey', 't1001')`.
+Como uma conclusão dessa análise, podemos determinar que a primeira consulta está acessando mais partições do que o necessário. Isso pode ser resolvido especificando-se a chave de particionamento na consulta como um predicado. Isso resultará em menos latência e menos custo por consulta. Saiba mais sobre o [particionamento de grafo](graph-partitioning.md). Uma consulta mais ideal seria `g.V('tt0093640').has('partitionKey', 't1001')` .
 
 ### <a name="unfiltered-query-patterns"></a>Padrões de consulta não filtrados
 
 Compare as duas respostas de perfil de execução a seguir. Para simplificar, esses exemplos usam um único grafo particionado.
 
-Essa primeira consulta recupera todos os vértices com `tweet` o rótulo e, em seguida, obtém seus vértices vizinhos:
+Essa primeira consulta recupera todos os vértices com o rótulo `tweet` e, em seguida, obtém seus vértices vizinhos:
 
 ```json
 [
@@ -306,7 +306,7 @@ Essa primeira consulta recupera todos os vértices com `tweet` o rótulo e, em s
 ]
 ```
 
-Observe o perfil da mesma consulta, mas agora com um filtro adicional, `has('lang', 'en')`, antes de explorar os vértices adjacentes:
+Observe o perfil da mesma consulta, mas agora com um filtro adicional, `has('lang', 'en')` , antes de explorar os vértices adjacentes:
 
 ```json
 [

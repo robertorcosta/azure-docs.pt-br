@@ -3,21 +3,21 @@ title: Criar vários gatilhos de Azure Functions independentes para Cosmos DB
 description: Saiba como configurar vários gatilhos independentes do Azure Functions para o Cosmos DB a fim de criar arquiteturas orientadas a eventos.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77604947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261589"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos do Azure Functions para o Cosmos DB
 
 Este artigo descreve como você pode configurar vários gatilhos do Azure Functions para o Cosmos DB a fim de funcionarem em paralelo e reagirem de modo independente a alterações.
 
-![Funções baseadas em evento sem servidor operando com o gatilho do Azure Functions para o Cosmos DB e compartilhando um contêiner de concessões](./media/change-feed-functions/multi-trigger.png)
+:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Funções baseadas em evento sem servidor operando com o gatilho do Azure Functions para o Cosmos DB e compartilhando um contêiner de concessões" border="false":::
 
 ## <a name="event-based-architecture-requirements"></a>Requisitos de arquitetura baseada em evento
 

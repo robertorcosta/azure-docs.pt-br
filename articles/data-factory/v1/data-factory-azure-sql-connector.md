@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7fc0b2822195d952c2a4f9c02bf3758c0e2b809a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf731b09115558fc4280fe322d7e952ccb420c03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254864"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados de e para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -51,8 +51,8 @@ Você também pode usar as seguintes ferramentas para criar um pipeline: **Visua
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
 1. Crie um **Data Factory**. Um data factory pode conter um ou mais pipelines.
-2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você está copiando dados de um Armazenamento de Blobs do Azure para um Banco de Dados SQL do Azure, crie dois serviços vinculados para vincular sua Conta de Armazenamento do Azure e o Banco de Dados SQL do Azure ao data factory. Para propriedades do serviço vinculado que são específicas do Banco de Dados SQL do Azure, consulte a seção [propriedades do serviço vinculado](#linked-service-properties).
-3. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blobs e a pasta que contém os dados de entrada. Em seguida, você cria outro conjunto de dados para especificar a tabela SQL no Banco de Dados SQL do Azure que contém os dados copiados do Armazenamento de Blobs. Para propriedades do conjunto de dados que são específicas do Azure Data Lake Store, consulte a seção [propriedades do conjunto de dados](#dataset-properties).
+2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você estiver copiando dados de um armazenamento de BLOBs do Azure para o banco de dados SQL do Azure, crie dois serviços vinculados para vincular sua conta de armazenamento do Azure e o banco de dados SQL do Azure ao seu data factory. Para propriedades do serviço vinculado que são específicas do Banco de Dados SQL do Azure, consulte a seção [propriedades do serviço vinculado](#linked-service-properties).
+3. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blobs e a pasta que contém os dados de entrada. Além disso, você cria outro conjunto de dados para especificar a tabela SQL no banco de dado SQL do Azure que mantém a data copiada do armazenamento de BLOBs. Para propriedades do conjunto de dados que são específicas do Azure Data Lake Store, consulte a seção [propriedades do conjunto de dados](#dataset-properties).
 4. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e SqlSink como coletor para a atividade de cópia. De modo similar, se estiver copiando do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure, você usará SqlSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do Banco de Dados SQL do Azure, consulte a seção [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o armazenamento de dados.
 
 Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um Banco de Dados SQL do Azure, confira a seção [Exemplos de JSON](#json-examples-for-copying-data-to-and-from-sql-database) neste artigo.
@@ -60,9 +60,9 @@ Ao usar o assistente, as definições de JSON para essas entidades do Data Facto
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas para um Banco de Dados SQL do Azure:
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
-Um serviço vinculado do SQL do Azure vincula um banco de dados SQL do Azure ao seu data factory. A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de vinculado de SQL Azure.
+Um serviço vinculado do SQL do Azure vincula o banco de dados SQL do Azure ao seu data factory. A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de vinculado de SQL Azure.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade Type deve ser definida como: **AzureSqlDatabase** |Sim |
 | connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |Sim |
@@ -71,13 +71,13 @@ Um serviço vinculado do SQL do Azure vincula um banco de dados SQL do Azure ao 
 > Configure o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) do servidor de banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando os dados para o Banco de Dados SQL do Azure de fora do Azure, inclusive a partir das fontes de dados locais com o gateway do data factory, configure o devido intervalo de endereços IP do computador que está enviando os dados para o Banco de Dados SQL do Azure.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para especificar um conjunto de dados de modo a representar dados de entrada ou saída em um banco de dados SQL do Azure, defina a propriedade de tipo do conjunto de dados para: **AzureSqlTable**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do SQL do Azure.
+Para especificar um DataSet para representar dados de entrada ou de saída no Azure SQL Database, você define a propriedade Type do conjunto para: **AzureSqlTable**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do SQL do Azure.
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** do conjunto de dados do tipo **AzureSqlTable** tem as propriedades a seguir:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Necessária |
 | --- | --- | --- |
 | tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL do Azure à qual o serviço vinculado se refere. |Sim |
 
@@ -89,12 +89,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Por outro lado, as propriedades disponíveis na seção **typeProperties** da atividade variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
 
-Se você estiver movendo dados de um banco de dados SQL do Azure, defina o tipo de origem na atividade de cópia como **SqlSource**. Da mesma forma você estiver movendo dados para um banco de dados SQL do Azure, defina o tipo de coletor na atividade de cópia como **SqlSink**. Esta seção fornece uma lista das propriedades com suporte de SqlSource e SqlSink.
+Se você estiver movendo dados do banco de dados SQL do Azure, defina o tipo de fonte na atividade de cópia como **sqlsource**. Da mesma forma, se você estiver movendo os dados para o Azure SQL Database, defina o tipo de coletor na atividade de cópia como **sqlsink**. Esta seção fornece uma lista das propriedades com suporte de SqlSource e SqlSink.
 
 ### <a name="sqlsource"></a>SqlSource
 Na atividade de cópia, quando a fonte é do tipo **SqlSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Exemplo: `select * from MyTable`. |Não |
 | sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
@@ -144,7 +144,7 @@ GO
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/>  Exemplo: "00:30:00" (30 minutos). |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
@@ -183,7 +183,7 @@ O mesmo define as entidades do Data Factory a seguir:
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [Blob do Azure](data-factory-azure-blob-connector.md#dataset-properties).
 5. Um [pipeline](data-factory-create-pipelines.md) com uma Atividade de Cópia que usa [SqlSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O exemplo copia os dados da série temporal (por hora, dia etc.) de uma tabela no banco de dados SQL do Azure para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
+O exemplo copia os dados de série temporal (por hora, diariamente, etc.) de uma tabela no Azure SQL Database para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
 **Serviço vinculado do banco de dados SQL do Azure:**
 
@@ -375,7 +375,7 @@ O exemplo define as entidades do Data Factory a seguir:
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureSqlTable](#dataset-properties).
 5. Um [pipeline](data-factory-create-pipelines.md) com a atividade de Cópia que usa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [SqlSink](#copy-activity-properties).
 
-O exemplo copia os dados da série temporal (por hora, dia etc.) de um blob do Azure para uma tabela no banco de dados SQL do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
+O exemplo copia dados de série temporal (por hora, diariamente, etc.) do blob do Azure para uma tabela no banco de dados SQL do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
 **Serviço vinculado do SQL do Azure:**
 
@@ -638,7 +638,7 @@ Ao mover dados bidirecionalmente no Banco de Dados SQL do Azure, os mapeamentos 
 | --- | --- |
 | BIGINT |Int64 |
 | binary |Byte[] |
-| bit |Booliano |
+| bit |Boolean |
 | char |String, Char[] |
 | date |Datetime |
 | Datetime |Datetime |

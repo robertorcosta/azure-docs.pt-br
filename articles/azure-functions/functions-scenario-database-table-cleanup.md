@@ -4,12 +4,12 @@ description: Use o Azure Functions para agendar uma tarefa que se conecta ao ban
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254269"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
 
@@ -21,13 +21,13 @@ Se esta for sua primeira experiência trabalhando com funções C#, você dever�
 
 + Conclua as etapas no artigo [criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de função local que tenha como destino a versão 2. x ou uma versão posterior do tempo de execução. Você também precisa ter publicado seu projeto em um aplicativo de funções no Azure.
 
-+ Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza em massa na tabela **SalesOrderHeader** no banco de dados de amostra AdventureWorksLT. Para criar o banco de dados de amostra AdventureWorksLT, conclua as etapas no artigo [Criar um Banco de Dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started-portal.md).
++ Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza em massa na tabela **SalesOrderHeader** no banco de dados de amostra AdventureWorksLT. Para criar o banco de dados de exemplo AdventureWorksLT, conclua as etapas no artigo [criar um banco de dados no banco de dados SQL do Azure usando o portal do Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Você precisa adicionar uma [regra de firewall no nível do servidor](../sql-database/sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que usou para este início rápido. Essa regra é necessária para que seja possível acessar a instância do Banco de Dados SQL do seu computador local.  
++ Você precisa adicionar uma [regra de firewall no nível do servidor](../sql-database/sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que usou para este início rápido. Essa regra é necessária para poder acessar a instância do banco de dados SQL do computador local.  
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
-Você precisa obter a cadeia de conexão para o banco de dados que você criou quando concluiu [Criar um Banco de Dados SQL do Azure no Portal do Azure](../sql-database/sql-database-get-started-portal.md).
+Você precisa obter a cadeia de conexão para o banco de dados criado quando concluiu a [criação de um banco de dados no banco de dados SQL do Azure usando o portal do Azure](../azure-sql/database/single-database-create-quickstart.md).
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -43,7 +43,7 @@ Um aplicativo de funções hospeda a execução de suas funções no Azure. Como
 
 Você precisa ter publicado o aplicativo anteriormente no Azure. Se você ainda não fez isso, [publique o aplicativo de funções no Azure](functions-develop-vs.md#publish-to-azure).
 
-1. Em Gerenciador de soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **publicar** > **Editar Azure app configurações do serviço**. Selecione **Adicionar configuração**, em **Novo nome de configuração do aplicativo**, digite `sqldb_connection` e selecione **OK**.
+1. Em Gerenciador de soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **publicar**  >  **Editar Azure app configurações do serviço**. Selecione **Adicionar configuração**, em **Novo nome de configuração do aplicativo**, digite `sqldb_connection` e selecione **OK**.
 
     ![Configurações de aplicativo para o aplicativo de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -55,7 +55,7 @@ Você precisa ter publicado o aplicativo anteriormente no Azure. Se você ainda 
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>Adicione o pacote do SqlClient ao projeto
 
-Você precisa adicionar o pacote do NuGet que contém a biblioteca do SqlClient. Essa biblioteca de acesso a dados é necessária para se conectar a um banco de dados SQL.
+Você precisa adicionar o pacote do NuGet que contém a biblioteca do SqlClient. Essa biblioteca de acesso a dados é necessária para conectar-se ao SQL Database.
 
 1. Abra seu projeto de aplicativo de função local no Visual Studio 2019.
 
@@ -73,7 +73,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 
 ## <a name="add-a-timer-triggered-function"></a>Adicionar uma função disparada por temporizador
 
-1. Em Gerenciador de soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **Adicionar** > **nova função do Azure**.
+1. Em Gerenciador de soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **Adicionar**  >  **nova função do Azure**.
 
 1. Com o modelo do **Azure Functions** selecionado, nomeie o novo item algo semelhante a `DatabaseCleanup.cs` e selecione **Adicionar**.
 

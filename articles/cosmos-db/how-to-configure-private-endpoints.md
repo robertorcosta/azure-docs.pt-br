@@ -3,15 +3,15 @@ title: Configurar o Link Privado do Azure para uma conta do Azure Cosmos
 description: Saiba como configurar o Link Privado do Azure para acessar uma conta do Azure Cosmos usando um endereço IP privado em uma rede virtual.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/14/2020
+ms.topic: how-to
+ms.date: 06/11/2020
 ms.author: thweiss
-ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261623"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurar o Link Privado do Azure para uma conta do Azure Cosmos
 
@@ -31,7 +31,7 @@ Use as seguintes etapas para criar um ponto de extremidade privado para uma cont
 
 1. Selecione **Conexões de Ponto de Extremidade Privado** na lista de configurações e selecione **Ponto de extremidade privado**:
 
-   ![Seleções para criar um ponto de extremidade privado no portal do Azure](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Seleções para criar um ponto de extremidade privado no portal do Azure":::
 
 1. No painel **Criar um ponto de extremidade privado – Noções básicas**, insira ou selecione os seguintes detalhes:
 
@@ -94,7 +94,7 @@ Depois que o ponto de extremidade privado for provisionado, você poderá consul
 1. Pesquise o ponto de extremidade privado que você criou anteriormente. Nesse caso, é **cdbPrivateEndpoint3**.
 1. Selecione a guia **Visão Geral** para ver as configurações de DNS e os endereços IP.
 
-![Endereços IP privados no portal do Azure](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Endereços IP privados no portal do Azure":::
 
 Vários endereços IP são criados por ponto de extremidade privado:
 
@@ -407,7 +407,7 @@ Para essas contas, você deve criar um ponto de extremidade privado para cada ti
 
 Depois que o modelo for implantado com êxito, você poderá ver uma saída semelhante à que a imagem a seguir mostra. O valor `provisioningState` será `Succeeded` se os pontos de extremidade privados estiverem configurados corretamente.
 
-![Saída de implantação para o modelo do Resource Manager](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Saída de implantação para o modelo do Resource Manager":::
 
 Depois que o modelo é implantado, os endereços IP privados são reservados na sub-rede. A regra de firewall da conta do Azure Cosmos é configurada para aceitar conexões apenas do ponto de extremidade privado.
 
@@ -618,13 +618,19 @@ As seguintes situações e resultados são possíveis quando você usa o Link Pr
 
 * Se você não configurar nenhuma regra de firewall, por padrão, todo o tráfego poderá acessar uma conta do Azure Cosmos.
 
-* Se você configurar o tráfego público ou um ponto de extremidade de serviço e criar pontos de extremidade privados, os tipos diferentes de tráfego de entrada serão autorizados pelo tipo correspondente de regra de firewall.
+* Se você configurar o tráfego público ou um ponto de extremidade de serviço e criar pontos de extremidade privados, os tipos diferentes de tráfego de entrada serão autorizados pelo tipo correspondente de regra de firewall. Se um ponto de extremidade privado estiver configurado em uma sub-rede na qual o ponto de extremidade de serviço também está configurado:
+  * o tráfego para a conta de banco de dados mapeada pelo ponto de extremidade privado é roteado por meio do ponto de extremidade privado,
+  * o tráfego para outras contas de banco de dados da sub-rede é roteado por meio do ponto de extremidade de serviço.
 
-* Se você não configurar nenhum tráfego público ou ponto de extremidade de serviço e criar pontos de extremidades privados, a conta do Azure Cosmos poderá ser acessada somente por meio dos pontos de extremidade privados. Se você não configurar um tráfego público ou um ponto de extremidade de serviço, depois que todos os pontos de extremidade privados aprovados forem rejeitados ou excluídos, a conta estará aberta para toda a rede.
+* Se você não configurar nenhum tráfego público ou ponto de extremidade de serviço e criar pontos de extremidades privados, a conta do Azure Cosmos poderá ser acessada somente por meio dos pontos de extremidade privados. Se você não configurar o tráfego público ou um ponto de extremidade de serviço, depois que todos os pontos de extremidades particulares aprovados forem rejeitados ou excluídos, a conta será aberta para toda a rede, a menos que PublicNetworkAccess esteja definido como desabilitado (consulte a seção abaixo).
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Bloquear o acesso à rede pública durante a criação da conta
 
 Conforme descrito na seção anterior, e a menos que regras de firewall específicas tenham sido definidas, a adição de um ponto de extremidade privado torna sua conta do Azure Cosmos acessível somente por pontos de extremidade privados. Isso significa que a conta do Azure Cosmos poderá ser acessada do tráfego público depois de ser criada e antes de um ponto de extremidade privado ser adicionado. Para verificar se o acesso à rede pública está desabilitado mesmo antes da criação de pontos de extremidade privados, você pode definir o sinalizador `publicNetworkAccess` como `Disabled` durante a criação da conta. Confira [este modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para ver um exemplo que mostra como usar esse sinalizador.
+
+## <a name="port-range-when-using-direct-mode"></a>Intervalo de portas ao usar o modo direto
+
+Quando você estiver usando um link privado com uma conta do Azure Cosmos por meio de uma conexão de modo direto, será necessário garantir que o intervalo completo de portas TCP (0-65535) esteja aberto.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Atualizar um ponto de extremidade privado ao adicionar ou remover uma região
 
@@ -640,7 +646,9 @@ Você pode usar as mesmas etapas ao remover uma região. Após remover a região
 
 As seguintes limitações se aplicam quando você está usando o Link Privado com uma conta do Azure Cosmos:
 
-* Quando você estiver usando um Link Privado com uma conta do Azure Cosmos usando uma conexão de modo direto, poderá usar apenas o protocolo TCP. No momento, não há suporte para o protocolo HTTP.
+* Você não pode ter mais de 200 pontos de extremidade privados em uma única conta do Azure Cosmos.
+
+* Quando você estiver usando um link privado com uma conta do Azure Cosmos por meio de uma conexão de modo direto, poderá usar apenas o protocolo TCP. No momento, não há suporte para o protocolo HTTP.
 
 * Quando você estiver usando a API do Azure Cosmos DB para contas do MongoDB, haverá suporte para um ponto de extremidade privado para contas somente na versão 3.6 do servidor (ou seja, contas que usam o ponto de extremidade no formato `*.mongo.cosmos.azure.com`). Não há suporte para o Link Privado em contas na versão 3.2 do servidor (ou seja, contas que usam o ponto de extremidade no formato `*.documents.azure.com`). Para usar o Link Privado, você deve migrar contas antigas para a nova versão.
 

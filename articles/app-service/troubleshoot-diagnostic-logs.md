@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: e945fd77c2615e6f5213a9aa4fc996f0c4d2f3dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261334"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -23,7 +23,7 @@ Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure p
 >
 >
 
-|Type|Plataforma|Local|Descrição|
+|Digite|Plataforma|Location|Descrição|
 |-|-|-|-|
 | Registro em log do aplicativo | Windows, Linux | Sistema de arquivos do serviço de aplicativo e/ou BLOBs de armazenamento do Azure | Registra as mensagens geradas pelo código do aplicativo. As mensagens podem ser geradas pela estrutura da Web que você escolher ou do código do aplicativo diretamente usando o padrão de log padrão do seu idioma. Cada mensagem recebe uma das seguintes categorias: **crítico**, **erro**, **aviso**, **informações**, **depuração**e **rastreamento**. Você pode selecionar o quão detalhado deseja que o log seja definindo o nível de severidade ao habilitar o log do aplicativo.|
 | Log do servidor Web| Windows | Sistema de arquivos do serviço de aplicativo ou BLOBs de armazenamento do Azure| Dados de solicitação HTTP brutos no [formato de arquivo de log estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de log inclui dados como o método HTTP, o URI de recurso, o IP do cliente, a porta do cliente, o agente do usuário, o código de resposta e assim por diante. |
@@ -32,7 +32,7 @@ Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure p
 | Log de implantação | Windows, Linux | Sistema de arquivos do serviço de aplicativo | Registra quando você publica o conteúdo em um aplicativo. O log de implantação ocorre automaticamente e não há configurações configuráveis para o log de implantação. Ele ajuda a determinar por que uma implantação falhou. Por exemplo, se você usar um [script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), poderá usar o log de implantação para determinar por que o script está falhando. |
 
 > [!NOTE]
-> O serviço de aplicativo fornece uma ferramenta de diagnósticos dedicada e interativa para ajudá-lo a solucionar problemas de seu aplicativo. Para obter mais informações, consulte [visão geral do diagnóstico de serviço Azure app](overview-diagnostics.md).
+> O serviço de aplicativo fornece uma ferramenta de diagnósticos dedicada e interativa para ajudá-lo a solucionar problemas de seu aplicativo. Para obter mais informações, confira [Visão geral de diagnóstico do Serviço de Aplicativo do Azure](overview-diagnostics.md).
 >
 > Além disso, você pode usar outros serviços do Azure para aprimorar os recursos de log e monitoramento do seu aplicativo, como [Azure monitor](../azure-monitor/app/azure-web-apps.md).
 >
@@ -46,10 +46,10 @@ Para habilitar o log de aplicativos para aplicativos do Windows no [portal do Az
 
 Selecione **ativado** para o **registro em log do aplicativo (Filesystem)** ou **log de aplicativo (BLOB)** ou ambos. 
 
-A opção **FileSystem** é para fins de depuração temporária e fica desativada em 12 horas. A opção **blob** é para o log de longo prazo e precisa de um contêiner de armazenamento de BLOBs no qual os logs serão gravados.  A opção **blob** também inclui informações adicionais nas mensagens de log, como a ID da instância de VM de origem da mensagem de log (`InstanceId`), ID de thread`Tid`() e um carimbo de data/[`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)hora mais granular ().
+A opção **FileSystem** é para fins de depuração temporária e fica desativada em 12 horas. A opção **blob** é para o log de longo prazo e precisa de um contêiner de armazenamento de BLOBs no qual os logs serão gravados.  A opção **blob** também inclui informações adicionais nas mensagens de log, como a ID da instância de VM de origem da mensagem de log ( `InstanceId` ), ID de thread ( `Tid` ) e um carimbo de data/hora mais granular ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
-> No momento, somente logs de aplicativo do .NET podem ser gravados no Armazenamento de Blobs. Java, PHP, Node. js, os logs de aplicativo do Python só podem ser armazenados no sistema de arquivos do serviço de aplicativo (sem modificações de código para gravar logs no armazenamento externo).
+> No momento, somente logs de aplicativo do .NET podem ser gravados no Armazenamento de Blobs. Os logs de aplicativos Java, PHP, Node.js, Python só podem ser armazenados no sistema de arquivos do serviço de aplicativo (sem modificações de código para gravar logs no armazenamento externo).
 >
 > Além disso, se você [regenerar as chaves de acesso da sua conta de armazenamento](../storage/common/storage-create-storage-account.md), deverá redefinir a respectiva configuração de registro em log para usar as chaves de acesso atualizadas. Para fazer isso:
 >
@@ -62,13 +62,13 @@ Selecione o **nível**ou o nível de detalhes para o log. A tabela a seguir most
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desabilitada** | Nenhum |
+|**Desabilitado** | Nenhum |
 |**Erro** | Erro, Crítico |
-|**Alerta** | Aviso, Erro, Crítico|
-|**Informações do** | Informações, Aviso, Erro, Crítico|
+|**Aviso** | Aviso, Erro, Crítico|
+|**Informações** | Informações, Aviso, Erro, Crítico|
 |**Verbose** | Rastreamento, Depuração, Informações, Aviso, Erro, Crítico (todas as categorias) |
 
-Quando terminar, selecione **salvar**.
+Quando terminar, selecione **Avançar**.
 
 ## <a name="enable-application-logging-linuxcontainer"></a>Habilitar o log de aplicativo (Linux/contêiner)
 
@@ -78,7 +78,7 @@ Em **log do aplicativo**, selecione **sistema de arquivos**.
 
 Em **cota (MB)**, especifique a cota de disco para os logs do aplicativo. Em **período de retenção (dias)**, defina o número de dias que os logs devem ser retidos.
 
-Quando terminar, selecione **salvar**.
+Quando terminar, selecione **Avançar**.
 
 ## <a name="enable-web-server-logging"></a>Habilitar o log de servidor web
 
@@ -96,7 +96,7 @@ Em **período de retenção (dias)**, defina o número de dias que os logs devem
 >
 >
 
-Quando terminar, selecione **salvar**.
+Quando terminar, selecione **Avançar**.
 
 ## <a name="log-detailed-errors"></a>Erros detalhados de log
 
@@ -171,7 +171,7 @@ Para aplicativos do Windows, o arquivo ZIP contém o conteúdo do diretório *D:
 | **Logs de aplicativo** |*/LogFiles/Application/* | Contém um ou mais arquivos de texto. O formato das mensagens de log depende do provedor de log que você usa. |
 | **Rastreamentos de solicitação com falha** | */LogFiles/W3SVC # # # # # # # # #/* | Contém arquivos XML e um arquivo XSL. Você pode exibir os arquivos XML formatados no navegador. |
 | **Logs de erros detalhados** | */LogFiles/DetailedErrors/* | Contém arquivos de erro HTM. Você pode exibir os arquivos HTM no navegador.<br/>Outra maneira de exibir os rastreamentos de solicitação com falha é navegar até a página do aplicativo no Portal. No menu à esquerda, selecione **diagnosticar e resolver problemas**, em seguida, procure **logs de rastreamento de solicitação com falha**, clique no ícone para procurar e exibir o rastreamento desejado. |
-| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O serviço de `s-computername`aplicativo não dá `s-ip`suporte aos `cs-version` campos, ou. |
+| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O serviço de aplicativo não dá suporte aos `s-computername` `s-ip` campos, ou `cs-version` . |
 | **Logs de implantação** | */LogFiles/git/* e */Deployments/* | Conter logs gerados pelos processos de implantação internos, bem como logs para implantações do git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Enviar logs para Azure Monitor (versão prévia)
@@ -193,9 +193,11 @@ A tabela a seguir mostra os tipos de log e as descrições com suporte:
 | AppServiceAuditLogs | Sim | Sim | Atividade de logon via FTP e kudu |
 | AppServiceFileAuditLogs | Sim | TBD | Alterações de arquivo via FTP e kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativo |
+| AppServiceIPSecAuditLogs  | Sim | Sim | Solicitações de regras de IP |
+| AppServicePlatformLogs  | TBA | Sim | Logs de contêiner |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas
-* [Logs de consulta com Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Consultar logs com o Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Como monitorar aplicativos no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analisar logs de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

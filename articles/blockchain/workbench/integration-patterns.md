@@ -4,12 +4,12 @@ description: Visão geral dos padrões de integração do contrato inteligente n
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254626"
 ---
 # <a name="smart-contract-integration-patterns"></a>Padrões de integração e contratos inteligentes
 
@@ -31,7 +31,7 @@ Os recursos no aplicativo web gerado do Azure Blockchain Workbench são expostos
 
 A API REST é usada principalmente para clientes interativos, como web, móvel e aplicativos de bot.
 
-Esta seção examina os padrões focados nos aspectos da API REST que envia transações em um Razão distribuído e padrões que consultam dados sobre transações no Banco de Dados SQL *off chain* do Azure Blockchain Workbench.
+Esta seção analisa os padrões focados nos aspectos da API REST que enviam transações para um razão distribuído e padrões que consultam dados sobre transações do banco de dados de *cadeia fora* do Azure Blockchain Workbench.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>Enviar transações a uma razão distribuída de um sistema externo
 
@@ -204,7 +204,7 @@ A integração de dados é bem conhecida:
 
 -   O Azure Blockchain Workbench armazena metadados sobre aplicativos, fluxos de trabalho, contratos e transações como parte do comportamento de operação normal.
 -   Os sistemas externos ou ferramentas fornecem uma ou mais caixas de diálogo para facilitar a coleta de informações sobre o banco de dados, como nome do servidor de banco de dados, o nome do banco de dados, o tipo de autenticação, as credenciais de logon e exibições de banco de dados a serem utilizadas.
--   As consultas são gravadas em exibições de banco de dados SQL para facilitar o consumo de downstream por sistemas externos, serviços, relatórios, ferramentas de desenvolvedor e ferramentas de produtividade da empresa.
+-   As consultas são gravadas em exibições de banco de dados para facilitar o consumo de downstream por sistemas externos, serviços, relatórios, ferramentas de desenvolvedor e ferramentas de produtividade corporativa.
 
 ## <a name="storage-integration"></a>Integração de armazenamento
 

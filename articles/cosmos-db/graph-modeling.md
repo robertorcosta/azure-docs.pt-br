@@ -4,15 +4,15 @@ description: Saiba como modelar um banco de dados de grafo usando a API do Greml
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261810"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
 
@@ -47,13 +47,13 @@ Estas são as melhores práticas para as propriedades nos objetos de grafo:
 
 | Objeto | Propriedade | Type | Observações |
 | --- | --- | --- |  --- |
-| Vértice | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
-| Vértice | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
+| Vértice | ID | String | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
+| Vértice | label | String | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
 | Vértice | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada vértice. |
 | Vértice | partition key | Cadeia de caracteres, booliano, numérico | Essa propriedade define em que local o vértice e suas bordas de saída serão armazenados. Leia mais sobre o [particionamento de grafo](graph-partitioning.md). |
-| Microsoft Edge | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
-| Microsoft Edge | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
-| Microsoft Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
+| Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
+| Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
+| Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
 
 > [!NOTE]
 > As bordas não exigem um valor de chave de partição, pois seu valor é atribuído automaticamente com base no vértice de origem. Saiba mais no artigo [Particionamento de grafo](graph-partitioning.md).
@@ -73,11 +73,11 @@ Uma armadilha comum é mapear propriedades de uma única entidade como vértices
 
 * **Propriedades baseadas em vértice**: nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar em latência adicionada, complexidade da consulta e custo de computação. Esse modelo também pode apresentar desafios no particionamento.
 
-![Modelo de entidade com vértices para propriedades.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
 * **Vértices inseridos na propriedade**: essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade dentro de um vértice. Ela fornece complexidade reduzida do modelo, o que leva a consultas mais simples e travessias mais econômicas.
 
-![Modelo de entidade com vértices para propriedades.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
 > [!NOTE]
 > Os exemplos acima mostram um modelo de grafo simplificado para mostrar apenas a comparação entre as duas formas de dividir as propriedades da entidade.
@@ -105,7 +105,7 @@ O uso de rótulos de relação descritivos pode melhorar a eficiência das opera
 * Use termos não genéricos para rotular uma relação.
 * Associe o rótulo do vértice de origem ao rótulo do vértice de destino com o nome da relação.
 
-![Exemplos de rotulagem de relação.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exemplos de rotulagem de relação." border="false":::
 
 Quanto mais específico o rótulo que o atravessador usará para filtrar as bordas, melhor. Essa decisão também pode ter um impacto significativo no custo da consulta. Você pode avaliar o custo da consulta a qualquer momento [usando a etapa executionProfile](graph-execution-profile.md).
 

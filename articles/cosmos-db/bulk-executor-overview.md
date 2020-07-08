@@ -3,20 +3,20 @@ title: Visão geral da biblioteca bulk executor do Azure Cosmos DB
 description: Execute as operações em massa no Azure Cosmos DB por meio da importação em massa e APIs oferecidas pela biblioteca de executor em massa de atualização em massa.
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260603"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Visão geral da biblioteca bulk executor do Azure Cosmos DB
  
-O Azure Cosmos DB é um serviço de banco de dados rápido, flexível e distribuído globalmente que foi projetado para elasticidade de expansão para dar suporte a: 
+O Azure Cosmos DB é um serviço de banco de dados rápido, flexível e distribuído globalmente que foi projetado para elasticidade de escalonamento horizontal para dar suporte a: 
 
 * Grandes taxas de transferência de leitura e gravação (em milhões de operações por segundo).  
 * Armazenamento de grandes volumes de transações e dados operacionais (centenas de terabytes ou mais) com latência previsível de milissegundo.  
@@ -42,7 +42,7 @@ A biblioteca de executor em massa ajuda você a aproveitar essa enorme produtivi
 
 Quando uma operação em massa para importar ou atualizar documentos é disparada com um lote de entidades, eles são inicialmente embaralhados em segmentos correspondentes aos seus intervalos de chaves de partição do Azure Cosmos DB. Dentro de cada partição que corresponde a um intervalo de chave de partição, eles são divididos em minilotes e cada minilote atua como uma carga que é confirmada no lado do servidor. A biblioteca bulk executor criou otimizações para execução simultânea desses minilotes dentro e entre os intervalos de chave de partição. A imagem a seguir ilustra como bulk executor divide os dados de lotes em chaves de partição diferentes:  
 
-![Arquitetura do BulkExecutor](./media/bulk-executor-overview/bulk-executor-architecture.png)
+:::image type="content" source="./media/bulk-executor-overview/bulk-executor-architecture.png" alt-text="Arquitetura do BulkExecutor" :::
 
 A biblioteca de executores em massa garante o uso máximo da taxa de transferência alocada para uma coleção. Ela usa um  [mecanismo de controle de congestionamento do estilo AIMD](https://tools.ietf.org/html/rfc5681) para cada intervalo de chave de partição do Azure Cosmos DB para tratar com eficiência a limitação e os tempos limite. 
 

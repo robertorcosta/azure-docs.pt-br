@@ -3,15 +3,15 @@ title: Consultar contêineres no Azure Cosmos DB
 description: Saiba como consultar contêineres em Azure Cosmos DB usando consultas em partição e entre partições
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 299980b67caaea85fbfb40cb1a30ee50fa32d0f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131390"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261249"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consultar um contêiner do Azure Cosmos
 
@@ -21,13 +21,13 @@ Este artigo explica como consultar um contêiner (coleção, grafo ou tabela) no
 
 Quando você consulta dados de contêineres, se a consulta tiver um filtro de chave de partição especificado, Azure Cosmos DB otimizará automaticamente a consulta. Ele roteia a consulta para as [partições físicas](partition-data.md#physical-partitions) correspondentes aos valores de chave de partição especificados no filtro.
 
-Por exemplo, considere a consulta abaixo com um filtro de igualdade `DeviceId`ativado. Se executarmos essa consulta em um contêiner particionado `DeviceId`, essa consulta será filtrada para uma única partição física.
+Por exemplo, considere a consulta abaixo com um filtro de igualdade ativado `DeviceId` . Se executarmos essa consulta em um contêiner particionado `DeviceId` , essa consulta será filtrada para uma única partição física.
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
-Assim como no exemplo anterior, essa consulta também filtrará uma única partição. A adição do filtro adicional `Location` em não altera isso:
+Assim como no exemplo anterior, essa consulta também filtrará uma única partição. A adição do filtro adicional em não `Location` altera isso:
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
@@ -41,7 +41,7 @@ Aqui está uma consulta que tem um filtro de intervalo na chave de partição e 
 
 ## <a name="cross-partition-query"></a>Consulta entre partições
 
-A consulta a seguir não tem um filtro na chave de partição`DeviceId`(). Portanto, ele deve fazer o Fan-out para todas as partições físicas onde ele é executado no índice de cada partição:
+A consulta a seguir não tem um filtro na chave de partição ( `DeviceId` ). Portanto, ele deve fazer o Fan-out para todas as partições físicas onde ele é executado no índice de cada partição:
 
 ```sql
     SELECT * FROM c WHERE c.Location = 'Seattle`
@@ -57,7 +57,7 @@ Os SDKs do Azure Cosmos DB 1.9.0 e versões superiores dão suporte a opções d
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- **MaxConcurrency**: define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como `-1`, o SDK gerenciará o grau de paralelismo. Se `MaxConcurrency` definido como `0`, há uma única conexão de rede para as partições do contêiner.
+- **MaxConcurrency**: define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como `-1` , o SDK gerenciará o grau de paralelismo. Se  `MaxConcurrency` definido como `0` , há uma única conexão de rede para as partições do contêiner.
 
 - **MaxBufferedItemCount**: negocia a latência da consulta em comparação com a utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
 
@@ -83,7 +83,7 @@ Se o driver de entrega não souber o apartamento complexo (partição física) c
 
 ### <a name="cross-partition-query-scoped-to-only-a-few-physical-partitions"></a>Consulta entre partições (com escopo para apenas algumas partições físicas)
 
-Se o driver de entrega souber que todos os destinatários do pacote residem em alguns poucos complexos, eles não precisarão se dirigir a cada um. Embora a condução de algumas complexidades de apartamento ainda exija mais trabalho do que visitar apenas um único edifício, o driver de entrega ainda economiza tempo e esforço significativos. Se uma consulta tiver a chave de partição em seu filtro com `IN` a palavra-chave, ela só verificará os índices de dados da partição física relevante.
+Se o driver de entrega souber que todos os destinatários do pacote residem em alguns poucos complexos, eles não precisarão se dirigir a cada um. Embora a condução de algumas complexidades de apartamento ainda exija mais trabalho do que visitar apenas um único edifício, o driver de entrega ainda economiza tempo e esforço significativos. Se uma consulta tiver a chave de partição em seu filtro com a `IN` palavra-chave, ela só verificará os índices de dados da partição física relevante.
 
 ## <a name="avoiding-cross-partition-queries"></a>Evitando consultas entre partições
 
@@ -103,5 +103,5 @@ Você deve tentar evitar consultas entre partições se sua carga de trabalho at
 
 Consulte os seguintes artigos para saber mais sobre o particionamento no Azure Cosmos DB:
 
-- [Particionamento no BD Cosmos do Azure](partitioning-overview.md)
+- [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 - [Chaves de partição sintética no Azure Cosmos DB](synthetic-partition-keys.md)

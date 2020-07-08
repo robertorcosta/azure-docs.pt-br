@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: notificação por push, notificações por push, notificações por push do iOS, notificações por push do android, push do ios, push do android
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -17,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255119"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 
@@ -56,7 +54,7 @@ Para camadas Basic e Standard dos Hubs de Notificação, os aplicativos configur
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Como atualizar ou fazer downgrade do meu hub ou namespace para uma camada diferente?
 
-Vá para o **[portal do Azure]** > **namespaces dos hubs de notificação** ou **hubs de notificação**. Selecione o recurso que você deseja atualizar e vá para **Tipo de Preço**. Observe os seguintes requisitos:
+Vá para o **[portal do Azure]**  >  **namespaces dos hubs de notificação** ou **hubs de notificação**. Selecione o recurso que você deseja atualizar e vá para **Tipo de Preço**. Observe os seguintes requisitos:
 
 * O tipo de preço atualizado se aplica a *todos* os hubs no namespace com o qual você está trabalhando.
 * Se a contagem de dispositivos exceder o limite da camada que você estiver fazendo downgrade para, você precisa excluir dispositivos antes de você fazer o downgrade.
@@ -69,7 +67,7 @@ Os SDKs do servidor estão disponíveis para .NET, Java, Node. js, PHP e Python.
 
 ### <a name="which-client-platforms-do-you-support"></a>A quais plataformas de cliente você oferece suporte?
 
-As notificações por push têm suporte para [Ios](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([Ios](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para saber mais, vá para a página [tutoriais de Introdução aos Hubs de Notificação].
+As notificações por push têm suporte para [Ios](ios-sdk-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin [Ios](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para obter mais informações, consulte a página de [tutoriais de introdução de hubs de notificação](ios-sdk-get-started.md) .
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Há suporte para notificações de Web, email ou mensagem de texto?
 
@@ -79,7 +77,7 @@ Os hubs de notificação enviam notificações para dispositivos que executam ap
 
 Veja a página [Preços dos Hubs de Notificação] para obter detalhes sobre o número de dispositivos com suporte.
 
-Se precisar de suporte para mais de 10 milhões dispositivos registrados, você deverá particionar seus dispositivos em vários hubs.
+Se precisar de suporte para mais de 10 milhões dispositivos registrados, você deverá particionar seus dispositivos em vários namespaces.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Quantas notificações por push posso enviar?
 
@@ -206,7 +204,6 @@ Você também pode acessar métricas programaticamente. Para obter mais informa�
 [Preços dos Hubs de Notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [APIs REST dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Tutoriais de Introdução aos Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Diretrizes de registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Diretrizes de registro de back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

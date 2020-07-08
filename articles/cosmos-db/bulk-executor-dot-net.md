@@ -5,16 +5,16 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478856"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260654"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET do executor em massa para executar operações em massa no Azure Cosmos DB
 
@@ -23,7 +23,7 @@ ms.locfileid: "80478856"
 
 > Se você estiver usando atualmente a biblioteca de executores em massa e planeja migrar para o suporte em massa no SDK mais recente, use as etapas no [Guia de migração](how-to-migrate-from-bulk-executor-library.md) para migrar seu aplicativo.
 
-Este tutorial fornece instruções sobre como usar a biblioteca .NET do executor em massa para importar e atualizar documentos para um contêiner Cosmos do Azure. Para saber mais sobre a biblioteca de executores em massa e como ela ajuda a aproveitar a produtividade e o armazenamento maciços, consulte o artigo [visão geral da biblioteca de executores em massa](bulk-executor-overview.md) . Neste tutorial, você verá um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente em um contêiner Cosmos do Azure. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
+Este tutorial fornece instruções de como usar a biblioteca .NET do executor em massa para importar e atualizar documentos no contêiner do Azure Cosmos. Para saber mais sobre a biblioteca de executores em massa e como ela ajuda a aproveitar a produtividade e o armazenamento maciços, consulte o artigo [visão geral da biblioteca de executores em massa](bulk-executor-overview.md) . Neste tutorial, você verá um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente em um contêiner Cosmos do Azure. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
 
 Atualmente, a biblioteca de executores em massa é suportada apenas pela API do SQL Azure Cosmos DB e por contas de API Gremlin. Este artigo descreve como usar a biblioteca .NET do executor em massa com contas da API do SQL. Para saber mais sobre como usar a biblioteca .NET do executor em massa com contas da API do Gremlin, consulte [executar operações em massa na API do Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
 
@@ -33,7 +33,7 @@ Atualmente, a biblioteca de executores em massa é suportada apenas pela API do 
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-* Você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso. Ou, você pode usar o [emulador](https://docs.microsoft.com/azure/cosmos-db/local-emulator) de Azure Cosmos DB `https://localhost:8081` com o ponto de extremidade. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).
+* Você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso. Ou, você pode usar o [emulador de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` ponto de extremidade. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).
 
 * Crie uma conta de API SQL do Azure Cosmos DB usando as etapas descritas na seção [criar conta de banco de dados](create-sql-api-dotnet.md#create-account) do artigo de início rápido do .NET.
 
@@ -45,7 +45,7 @@ Agora, vamos mudar para trabalhar com código baixando um aplicativo .NET de exe
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-O repositório clonado contém dois exemplos "BulkImportSample" e "BulkUpdateSample". Você pode abrir qualquer um dos aplicativos de exemplo, atualizar as cadeias de conexão no arquivo app. config com as cadeias de conexão de sua conta Azure Cosmos DB, compilar a solução e executá-la.
+O repositório clonado contém dois exemplos "BulkImportSample" e "BulkUpdateSample". Você pode abrir qualquer um dos aplicativos de exemplo, atualizar as cadeias de conexão no arquivo App.config com as cadeias de conexão da sua conta do Azure Cosmos DB, compilar a solução e executá-la.
 
 O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em massa para sua conta do Azure Cosmos. O aplicativo "BulkUpdateSample" atualiza em massa os documentos importados, especificando os patches como operações a serem executadas em campos de documento específicos. Nas próximas seções, você examinará o código em cada um desses aplicativos de exemplo.
 
@@ -53,7 +53,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
 
 1. Navegue até a pasta "BulkImportSample" e abra o arquivo "BulkImportSample.sln".  
 
-2. As cadeias de conexão do Azure Cosmos DB são recuperadas do arquivo app. config, conforme mostrado no código a seguir:  
+2. As cadeias de conexão do Azure Cosmos DB são recuperadas do arquivo de App.config, conforme mostrado no código a seguir:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -63,7 +63,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   O importador em massa cria um novo banco de dados e um contêiner com o nome do banco de dados, o nome do contêiner e os valores de taxa de transferência especificados no arquivo app. config.
+   O importador em massa cria um novo banco de dados e um contêiner com o nome do banco de dados, o nome do contêiner e os valores de taxa de transferência especificados no arquivo de App.config.
 
 3. Em seguida, o objeto DocumentClient é inicializado com o modo de conexão Direct TCP:  
 
@@ -120,7 +120,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
    |NumberOfDocumentsImported (long)   |  O número total de documentos que foram importados com êxito do total de documentos fornecidos para a chamada à API de importação em massa.       |
    |TotalRequestUnitsConsumed (double)   |   O total de unidades de solicitação (RU) consumidas pela chamada de API de importação em massa.      |
    |TotalTimeTaken (TimeSpan)    |   O tempo total gasto pela chamada à API de importação em massa para concluir a execução.      |
-   |BadInputDocuments (>\<de objeto de lista)   |     A lista de documentos com formato inválido que não foram importados com êxito na chamada de API de importação em massa. Corrija os documentos retornados e tente importar novamente. Os documentos com formato inválido incluem documentos cujo valor de ID não é uma cadeia de caracteres (null ou qualquer outro tipo de dados é considerado inválido).    |
+   |BadInputDocuments (List\<object>)   |     A lista de documentos com formato inválido que não foram importados com êxito na chamada de API de importação em massa. Corrija os documentos retornados e tente importar novamente. Os documentos com formato inválido incluem documentos cujo valor de ID não é uma cadeia de caracteres (null ou qualquer outro tipo de dados é considerado inválido).    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Atualizar dados em massa em sua conta do Azure Cosmos
 
@@ -128,7 +128,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
 
 1. Navegue até a pasta "BulkUpdateSample" e abra o arquivo "BulkUpdateSample.sln".  
 
-2. Defina os itens de atualização junto com as operações de atualização de campo correspondentes. Neste exemplo `SetUpdateOperation` , você usará para atualizar o `Name` campo e `UnsetUpdateOperation` remover o `Description` campo de todos os documentos. Você também pode executar outras operações, como incremento de um campo de documento por um valor específico, efetuar push de valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização em massa, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Defina os itens de atualização junto com as operações de atualização de campo correspondentes. Neste exemplo, você usará `SetUpdateOperation` para atualizar o `Name` campo e `UnsetUpdateOperation` remover o `Description` campo de todos os documentos. Você também pode executar outras operações, como incremento de um campo de documento por um valor específico, efetuar push de valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização em massa, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -176,11 +176,11 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca de exe
 
 * Para obter o melhor desempenho, execute o aplicativo de uma máquina virtual do Azure que esteja na mesma região que a região de gravação da sua conta do Azure Cosmos.  
 
-* É recomendável que você crie uma instância `BulkExecutor` de um único objeto para todo o aplicativo em uma única máquina virtual que corresponda a um contêiner Cosmos específico do Azure.  
+* É recomendável que você crie uma instância de um único `BulkExecutor` objeto para todo o aplicativo em uma única máquina virtual que corresponda a um contêiner Cosmos específico do Azure.  
 
 * Como uma única execução de API de operação em massa consome uma grande parte da CPU da máquina do cliente e da e/s de rede (isso acontece pela geração de várias tarefas internamente). Evite a geração de várias tarefas simultâneas no processo do aplicativo que executam chamadas à API de operação em massa. Se uma única chamada à API de operação em massa que está sendo executada em uma única máquina virtual não puder consumir a taxa de transferência do contêiner inteiro (se a taxa de transferência do contêiner > 1 milhão RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente as chamadas à API da operação em massa.  
 
-* Verifique se `InitializeAsync()` o método é invocado depois de instanciar um objeto BulkExecutor para buscar o mapa de partição do contêiner de Cosmos de destino.  
+* Verifique se o `InitializeAsync()` método é invocado depois de instanciar um objeto BulkExecutor para buscar o mapa de partição do contêiner de Cosmos de destino.  
 
 * No App.Config do aplicativo, certifique-se de **gcServer** esteja habilitado para melhor desempenho
   ```xml  
@@ -188,7 +188,7 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca de exe
     <gcServer enabled="true" />
   </runtime>
   ```
-* A biblioteca emite rastreamentos que podem ser coletados em um arquivo de log ou no console. Para habilitar ambos, adicione o código a seguir ao arquivo app. config do seu aplicativo.
+* A biblioteca emite rastreamentos que podem ser coletados em um arquivo de log ou no console. Para habilitar ambos, adicione o código a seguir ao arquivo de App.Config do seu aplicativo.
 
   ```xml
   <system.diagnostics>

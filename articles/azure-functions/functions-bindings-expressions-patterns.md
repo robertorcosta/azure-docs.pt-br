@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261062"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
@@ -37,7 +37,8 @@ Expressões de associação de configuração do aplicativo são identificadas d
 
 Quando uma função é executada localmente, os valores de configuração do aplicativo são provenientes do arquivo *local.settings.json*.
 
-Observe que a propriedade `connection` dos gatilhos e associações é um caso especial e resolve automaticamente os valores de configurações do aplicativo, sem os sinais de porcentagem. 
+> [!NOTE]
+> A `connection` propriedade de gatilhos e associações é um caso especial e resolve automaticamente os valores como configurações do aplicativo, sem sinais de porcentagem. 
 
 O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma configuração de aplicativo `%input-queue-name%` para definir a fila em que o gatilho é disparado.
 

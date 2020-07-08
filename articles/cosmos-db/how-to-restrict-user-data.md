@@ -3,15 +3,15 @@ title: Restringir o acesso do usuário a operações de dados somente com Azure 
 description: Saiba como restringir o acesso a operações de dados somente com Azure Cosmos DB
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 03cad9e4c3752b5f35be785a6280bf18aaa14860
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74980368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261215"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Restringir o acesso do usuário apenas às operações de dados
 
@@ -19,7 +19,9 @@ No Azure Cosmos DB, há duas maneiras de autenticar suas interações com o serv
 - usando sua identidade de Azure Active Directory ao interagir com o portal do Azure,
 - usar [chaves](secure-access-to-data.md#master-keys) de Azure Cosmos DB ou [tokens de recurso](secure-access-to-data.md#resource-tokens) ao emitir chamadas de APIs e SDKs.
 
-Cada método de autenticação fornece acesso a diferentes conjuntos de operações, com alguma sobreposição: ![divisão de operações por tipo de autenticação](./media/how-to-restrict-user-data/operations.png)
+Cada método de autenticação dá acesso a diferentes conjuntos de operações, com alguma sobreposição:
+
+:::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="Divisão de operações por tipo de autenticação" border="false":::
 
 Em alguns cenários, talvez você queira restringir alguns usuários da sua organização para executar operações de dados (que são solicitações e consultas CRUD) apenas. Normalmente, esse é o caso para os desenvolvedores que não precisam criar ou excluir recursos, ou alterar a taxa de transferência provisionada dos contêineres em que estão trabalhando.
 
@@ -36,7 +38,7 @@ Nos scripts do PowerShell nas próximas seções, substitua os seguintes espaço
 - `$MySubscriptionId`-A ID da assinatura que contém a conta do Azure Cosmos em que você deseja limitar as permissões. Por exemplo: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
 - `$MyResourceGroupName`-O grupo de recursos que contém a conta do Azure Cosmos. Por exemplo: `myresourcegroup`.
 - `$MyAzureCosmosDBAccountName`-O nome da sua conta do Azure Cosmos. Por exemplo: `mycosmosdbsaccount`.
-- `$MyUserName`-O logon (username@domain) do usuário para o qual você deseja limitar o acesso. Por exemplo: `cosmosdbuser@contoso.com`.
+- `$MyUserName`-O logon ( username@domain ) do usuário para o qual você deseja limitar o acesso. Por exemplo: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Selecionar sua assinatura do Azure
 
@@ -49,7 +51,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## <a name="create-the-custom-azure-active-directory-role"></a>Criar a função de Azure Active Directory personalizada
 
-O script a seguir cria uma atribuição de função Azure Active Directory com o acesso "chave somente" para contas do Azure Cosmos. A função é baseada em [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md) e [ações granulares para Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Essas funções e ações fazem parte do namespace `Microsoft.DocumentDB` Azure Active Directory.
+O script a seguir cria uma atribuição de função Azure Active Directory com o acesso "chave somente" para contas do Azure Cosmos. A função é baseada em [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md) e [ações granulares para Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Essas funções e ações fazem parte do `Microsoft.DocumentDB` namespace Azure Active Directory.
 
 1. Primeiro, crie um documento JSON chamado `AzureCosmosKeyOnlyAccess.json` com o seguinte conteúdo:
 

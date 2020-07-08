@@ -9,16 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: ad4ffa71480a5af06c31872cbafcaab7719c55e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253752"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-create-pipelines.md)
 > * [Versão atual](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,7 +28,7 @@ Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e
 ## <a name="overview"></a>Visão geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerir e limpar dados de log e, em seguida, disparar um fluxo de dados de mapeamento para analisar os dados de log. O pipeline permite que você gerencie as atividades como um conjunto, em vez de cada uma individualmente. Você implanta e agenda o pipeline em vez das atividades de forma independente.
 
-As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um SQL Server local para um Armazenamento de Blobs do Azure. Em seguida, use uma atividade de fluxo de dados ou uma atividade do databricks Notebook para processar e transformar dados do armazenamento de BLOBs em um pool do Azure Synapse Analytics sobre o qual business intelligence soluções de relatório são criadas.
+As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de SQL Server para um armazenamento de BLOBs do Azure. Em seguida, use uma atividade de fluxo de dados ou uma atividade do databricks Notebook para processar e transformar dados do armazenamento de BLOBs em um pool do Azure Synapse Analytics sobre o qual business intelligence soluções de relatório são criadas.
 
 Data Factory tem três agrupamentos de atividades: [atividades de movimentação de dados](copy-activity-overview.md), [atividades de transformação de dados](transform-data.md)e atividades de [controle](control-flow-web-activity.md). Uma atividade pode usar zero ou mais [conjuntos](concepts-datasets-linked-services.md) de dados de entrada e produzir um ou mais [conjuntos](concepts-datasets-linked-services.md)de resultados de saída. O seguinte diagrama mostra a relação entre pipeline, atividade e conjunto de dados no Data Factory:
 
@@ -50,13 +50,13 @@ O Azure Data Factory dá suporte às seguintes atividades de transformação, qu
 Atividades de transformação de dados | Ambiente de computação
 ---------------------------- | -------------------
 [Fluxo de Dados](control-flow-execute-data-flow-activity.md) | Azure Databricks gerenciado por Azure Data Factory
-[Função do Azure](control-flow-azure-function-activity.md) | Funções do Azure
+[Azure Function](control-flow-azure-function-activity.md) | Funções do Azure
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Streaming do Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Atividades de Machine Learning: execução do Lote e recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
+[Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
 [Procedimento armazenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
 [Atividade personalizada](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
@@ -106,7 +106,7 @@ Veja como um pipeline é definido no formato JSON:
 }
 ```
 
-Marca | Descrição | Type | Necessária
+Marca | Descrição | Type | Obrigatório
 --- | ----------- | ---- | --------
 name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | String | Sim
 descrição | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
@@ -143,7 +143,7 @@ A seguinte tabela descreve as propriedades na definição de JSON da atividade:
 
 Marca | Descrição | Obrigatório
 --- | ----------- | ---------
-name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com um número de letra ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sim</li></ul>
+name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com um número de letra ou um sublinhado ( \_ )</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sim</li></ul>
 descrição | Texto que descreve para que a atividade é usada | Sim
 type | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-flow-activities) para diferentes tipos de atividade. | Sim
 linkedServiceName | Nome do serviço vinculado usado pela atividade.<br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. | Sim para Atividade de HDInsight, Atividade de Pontuação de Lote do Azure Machine Learning e Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outros
@@ -268,7 +268,7 @@ Por exemplo, se um pipeline tem atividade A -> atividade B, os diferentes cenár
 `"
 
 ## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
 
 ```json
 {
@@ -358,7 +358,7 @@ No pipeline de exemplo a seguir, há uma atividade do tipo **HDInsightHive** in 
 Observe os seguintes pontos:
 
 - Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **HDInsightHive**.
-- O arquivo de script do hive, **partitionweblogs. HQL**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, chamado AzureStorageLinkedService) e na pasta de script no `adfgetstarted`contêiner.
+- O arquivo de script do hive, **partitionweblogs. HQL**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, chamado AzureStorageLinkedService) e na pasta de script no contêiner `adfgetstarted` .
 - A seção `defines` é usada para especificar as configurações de runtime passadas para o script do hive como valores de configuração de Hive (por exemplo, $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 A seção **typeProperties** é diferente para cada atividade de transformação. Para saber mais sobre as propriedades de tipo com suporte para uma atividade de transformação, clique na atividade de transformação nas [Atividades de transformação de dados](#data-transformation-activities).

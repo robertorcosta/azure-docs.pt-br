@@ -4,16 +4,16 @@ description: Este artigo apresenta o SKU do Aplicativo Azure Standard_v2 e WAF_v
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 03/24/2020
+ms.topic: conceptual
+ms.date: 06/06/2020
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254337"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
@@ -32,7 +32,7 @@ O novo SKU v2 inclui os seguintes aprimoramentos:
 - **Aprimoramentos de desempenho**: O SKU v2 oferece um desempenho de descarregamento de TLS até 5 vezes melhor que o SKU Standard/WAF.
 - **Menor tempo de implementação e atualização** O SKU v2 oferece menor tempo de implantação e atualização em comparação ao SKU Standard/WAF. Isso também inclui alterações na configuração do WAF.
 
-![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+![Diagrama da zona de dimensionamento automático.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
@@ -45,7 +45,7 @@ Com o SKU v2, o modelo de preço é orientado pelo consumo e não é mais anexad
 - **Preço fixo** - Este é o preço por hora (ou hora parcial) para provisionar um Gateway Standard_v2 ou WAF_v2. Observe que a ausência de instâncias mínimas adicionais ainda garante a alta disponibilidade do serviço, que está sempre inclusa no preço fixo.
 - **Preço da unidade de capacidade** - Este é um custo baseado no consumo que é cobrado junto com o custo fixo. O preço da unidade de capacidade também é calculado por hora ou hora parcial. Há três dimensões para a unidade de capacidade - unidade de computação, conexões persistentes e taxa de transferência. A unidade de computação é uma medida da capacidade do processador consumida. Entre os fatores que afetam a unidade de computação, estão as conexões TLS/s, as computações de reescrita de URL e o processamento de regra WAF. A conexão persistente é uma medida de conexões TCP estabelecidas com o gateway de aplicativo em determinado intervalo de cobrança. A taxa de transferência é a média de Megabits/segundo processados pelo sistema em determinado intervalo de cobrança.  A cobrança é realizada no nível da Unidade de capacidade para qualquer coisa acima da contagem de instâncias reservadas.
 
-Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2.22 Mbps.
+Cada unidade de capacidade é composta de no máximo: 1 unidade de computação, 2500 conexões persistentes e taxa de transferência de 2,22 Mbps.
 
 Diretrizes da unidade de computação:
 

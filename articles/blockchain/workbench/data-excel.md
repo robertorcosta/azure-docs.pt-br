@@ -2,14 +2,14 @@
 title: Usar dados do Azure Blockchain Workbench no Microsoft Excel
 description: Saiba como carregar e exibir dados do SQL DB de visualização do Azure Blockchain Workbench no Microsoft Excel.
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: mmercuri
-ms.openlocfilehash: a84858ead83782cc9b6ef1b1d7f905172600fb8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4dd941abdded6a93510f4a71119769cd73855bcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74326060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253538"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Exibir dados do Azure Blockchain Workbench com o Microsoft Excel
 
@@ -27,7 +27,7 @@ Para se conectar a um banco de dados do Blockchain Workbench:
 2. Na guia **Dados**, escolha **Obter Dados**.
 3. Selecione **Do Azure** e depois selecione **Do Banco de Dados SQL do Azure**.
 
-   ![Conectar banco de dados SQL do Azure](./media/data-excel/connect-sql-db.png)
+   ![Conectar-se ao Banco de Dados SQL do Azure](./media/data-excel/connect-sql-db.png)
 
 4. Na caixa de diálogo **Banco de dados SQL Server**:
 

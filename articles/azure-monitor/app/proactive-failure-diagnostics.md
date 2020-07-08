@@ -4,12 +4,12 @@ description: Alerta para alterações incomuns na taxa de solicitações com fal
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e4a629b4c33c22bf5663d6f8e8b9d0ba11ac24dc
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254779"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](../../azure-monitor/app/app-insights-overview.md) alertará você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Nas solicitações, as solicitações com falha geralmente têm códigos de resposta de 400 ou superior. Para ajudar você na triagem e no diagnóstico do problema, uma análise das características das falhas e dados relacionados do aplicativo são fornecidos nos detalhes do alerta. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -304,7 +304,7 @@ Você pode decidir a urgência do problema com base na porcentagem de solicitaç
 
 Em muitos casos, você poderá diagnosticar o problema rapidamente pelo nome da solicitação, exceção, falha de dependência e pelos dados de rastreamento fornecidos.
 
-Neste exemplo, houve uma exceção do banco de dados SQL porque o limite de solicitações foi alcançado.
+Neste exemplo, houve uma exceção do banco de dados SQL devido ao limite de solicitação ser atingido.
 
 [![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 

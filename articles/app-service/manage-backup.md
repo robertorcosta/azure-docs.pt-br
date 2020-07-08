@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: d611be27d8d576748019dee46022ca4cb70e966a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253436"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups para que sejam mantidos até um período indefinido. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -74,7 +74,7 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 
 4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, será possível criar uma nova conta de armazenamento ou um novo contêiner nas respectivas páginas. Quando terminar, clique em **Selecionar**.
 
-5. Na página **Configuração de backup** que ainda está aberta, é possível configurar o **Banco de dados de backup**, então selecione os bancos de dados que deseja incluir nos backups (banco de dados SQL ou MySQL) e clique em **OK**.
+5. Na página **configuração de backup** que ainda é deixada aberta, você pode configurar o **banco de dados de backup**e, em seguida, selecionar os bancos que deseja incluir nos backups (banco de dados SQL ou MySQL) e clicar em **OK**.
 
     ![Escolher uma conta de armazenamento](./media/manage-backup/configure-database.png)
 
@@ -150,7 +150,7 @@ Execute backups da mesma maneira que faria normalmente, de modo [manual](#create
 ## <a name="how-backups-are-stored"></a>Como os backups são armazenados
 Depois de ter feito um ou mais backups para seu aplicativo, os backups estarão visíveis na página **Contêineres** de sua conta de armazenamento e em seu aplicativo. Na conta de armazenamento, cada backup é formado por um arquivo `.zip` que contém os dados de backup e um arquivo `.xml` que contém um manifesto do conteúdo do arquivo `.zip`. Será possível descompactar e procurar esses arquivos se você quiser acessar seus backups sem realmente executar uma restauração do aplicativo.
 
-O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um banco de dados SQL com base na exportação do BACPAC, veja [Importar um arquivo BACPAC para criar um novo banco de dados de usuário](https://technet.microsoft.com/library/hh710052.aspx).
+O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. Para o banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um banco de dados no banco de dados SQL do Azure com base na exportação de BACPAC, consulte [importar um arquivo BACPAC para criar um banco de dados no banco de dados SQL do Azure](../azure-sql/database/database-import.md).
 
 > [!WARNING]
 > A alteração de qualquer um dos arquivos no contêiner **websitebackups** pode fazer com que o backup se torne inválido e, portanto, não restaurável.

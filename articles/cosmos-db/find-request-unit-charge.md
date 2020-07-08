@@ -3,15 +3,15 @@ title: Localizar o encargo de RU (Unidade de Solicitação) no Azure Cosmos DB
 description: Saiba como encontrar o preço de RU (Unidade de Solicitação) para qualquer operação executada em um contêiner do Azure Cosmos.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: e5420b9b765fffcf7b4ccd6775d05795b1b13871
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261827"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontrar o preço de Unidade de Solicitação no Azure Cosmos DB
 
@@ -37,11 +37,11 @@ Atualmente, você pode encontrar o preço de solicitação no portal do Azure so
 
 1. Selecione **Estatísticas da Consulta** para exibir o preço de solicitação real da solicitação executada.
 
-![Captura de tela do preço de solicitação de uma consulta SQL no portal do Azure](./media/find-request-unit-charge/portal-sql-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Captura de tela do preço de solicitação de uma consulta SQL no portal do Azure":::
 
 ### <a name="use-the-net-sdk"></a>Usar o SDK .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 Os objetos retornados do [SDK do .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expõem uma propriedade `RequestCharge`:
 
@@ -76,7 +76,7 @@ while (query.HasMoreResults)
 }
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 Os objetos retornados do [SDK do .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) expõem uma propriedade `RequestCharge`:
 
@@ -149,7 +149,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-Para obter mais informações, consulte [início rápido: criar um aplicativo node. js usando uma conta Azure Cosmos DB API do SQL](create-sql-api-nodejs.md). 
+Para obter mais informações, consulte [início rápido: criar um aplicativo Node.js usando uma conta da API do SQL Azure Cosmos DB](create-sql-api-nodejs.md). 
 
 ### <a name="use-the-python-sdk"></a>Usar o SDK do Python
 
@@ -187,7 +187,7 @@ Atualmente, você pode encontrar o preço de solicitação no portal do Azure so
 
 1. Selecione **Estatísticas da Consulta** para exibir o preço de solicitação real da solicitação executada.
 
-![Captura de tela do preço de solicitação de consulta MongoDB no portal do Azure](./media/find-request-unit-charge/portal-mongodb-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de tela do preço de solicitação de consulta MongoDB no portal do Azure":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Usar o driver do .NET do MongoDB
 
@@ -231,7 +231,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-Para obter mais informações, consulte [início rápido: migrar um aplicativo Web node. js do MongoDB existente para Azure Cosmos DB](create-mongodb-nodejs.md).
+Para obter mais informações, consulte [início rápido: migrar um aplicativo web Node.js MongoDB existente para Azure Cosmos DB](create-mongodb-nodejs.md).
 
 ## <a name="cassandra-api"></a>API Cassandra
 
@@ -312,6 +312,6 @@ Para saber mais sobre como otimizar o consumo de RU, confira estes artigos:
 * [Otimizar a taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
 * [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
-* [Aprovisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
+* [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
 * [Provisionar a taxa de transferência para um contêiner](how-to-provision-container-throughput.md)
 * [Monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md)

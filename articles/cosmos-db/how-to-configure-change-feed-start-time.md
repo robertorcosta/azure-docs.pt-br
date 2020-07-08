@@ -3,15 +3,15 @@ title: Como configurar a hora de início do processador do feed de alterações 
 description: Saiba como configurar o processador do feed de alterações para começar a ler de uma data e hora específicas
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3d9af1b8cbda3f0fa2ff4650fef4602f7812f79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77586267"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261708"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Como configurar a hora de início do processador do feed de alterações
 
@@ -54,4 +54,4 @@ O processador do feed de alterações será inicializado e começará a ler as a
 Agora continue para saber mais sobre o processador do feed de alterações nos seguintes artigos:
 
 * [Visão geral do processador do feed de alterações](change-feed-processor.md)
-* [Usar o estimador do feed de alterações](how-to-use-change-feed-estimator.md)
+* [Como usar o avaliador do feed de alterações](how-to-use-change-feed-estimator.md)

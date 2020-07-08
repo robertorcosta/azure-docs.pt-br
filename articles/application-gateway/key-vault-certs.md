@@ -1,22 +1,22 @@
 ---
 title: Terminação de TLS com certificados de Azure Key Vault
-description: Saiba como você pode integrar Aplicativo Azure gateway com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
+description: Saiba como você pode integrar o Gateway de Aplicativo do Azure com o Key Vault para certificados de servidor que estejam anexados a ouvintes habilitados para HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: a214dae7c80cbc520fc6aff5a492466a77261167
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255357"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminação de TLS com certificados de Key Vault
 
-[Azure Key Vault](../key-vault/general/overview.md) é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados TLS/SSL. Aplicativo Azure gateway dá suporte à integração com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado à SKU v2 do gateway de aplicativo.
+[Azure Key Vault](../key-vault/general/overview.md) é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados TLS/SSL. O Gateway de Aplicativo v2 do Azure dá suporte à integração com o Key Vault para certificados de servidor que estejam anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado à SKU v2 do gateway de aplicativo.
 
 A integração do Key Vault oferece dois modelos para terminação de TLS:
 
@@ -41,7 +41,7 @@ O gateway de aplicativo atualmente dá suporte apenas a certificados validados p
 
 A integração do gateway de aplicativo com o Key Vault requer um processo de configuração de três etapas:
 
-1. **Criar uma identidade gerenciada atribuída pelo usuário**
+1. **Criar uma identidade gerenciada atribuída ao usuário**
 
    Você cria ou reutiliza uma identidade gerenciada atribuída pelo usuário existente, que o gateway de aplicativo usa para recuperar certificados de Key Vault em seu nome. Para saber mais, confira [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md). Esta etapa cria uma nova identidade no locatário Azure Active Directory. A identidade é confiável para a assinatura que é usada para criar a identidade.
 
@@ -52,7 +52,7 @@ A integração do gateway de aplicativo com o Key Vault requer um processo de co
    > [!NOTE]
    > Se você implantar o gateway de aplicativo por meio de um modelo ARM, usando o CLI do Azure ou o PowerShell, ou por meio de um aplicativo do Azure implantado no portal do Azure, o certificado SSL será armazenado no cofre de chaves como um arquivo PFX codificado em base64. Você deve concluir as etapas em [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). 
    >
-   > É particularmente importante definir `enabledForTemplateDeployment` como. `true` O certificado pode ser com senha ou pode ter uma senha. No caso de um certificado com uma senha, o exemplo a seguir mostra uma configuração possível para a `sslCertificates` entrada no `properties` para a configuração do modelo ARM para um gateway de aplicativo. Os valores de `appGatewaySSLCertificateData` e `appGatewaySSLCertificatePassword` são pesquisados no cofre de chaves, conforme descrito na seção [segredos de referência com ID dinâmica](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Siga as referências para trás `parameters('secretName')` do para ver como a pesquisa ocorre. Se o certificado não tiver senha, omita a `password` entrada.
+   > É particularmente importante definir `enabledForTemplateDeployment` como `true` . O certificado pode ser com senha ou pode ter uma senha. No caso de um certificado com uma senha, o exemplo a seguir mostra uma configuração possível para a `sslCertificates` entrada no `properties` para a configuração do modelo ARM para um gateway de aplicativo. Os valores de `appGatewaySSLCertificateData` e `appGatewaySSLCertificatePassword` são pesquisados no cofre de chaves, conforme descrito na seção [segredos de referência com ID dinâmica](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Siga as referências para trás do `parameters('secretName')` para ver como a pesquisa ocorre. Se o certificado não tiver senha, omita a `password` entrada.
    >   
    > ```
    > "sslCertificates": [

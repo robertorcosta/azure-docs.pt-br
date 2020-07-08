@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253487"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores que influenciam o desempenho do Azure AD Connect
 
@@ -96,7 +96,7 @@ As operações a seguir estão incluídas em um ciclo de sincronização complet
 > [!NOTE]
 > Planejamento cuidadoso é necessário ao fazer atualizações em massa para vários objetos no seu Active Directory ou Azure AD. Atualizações em massa farão com que o processo de sincronização delta levar mais tempo ao importar, já que muitos objetos foram alterados. Importações longas podem acontecer mesmo que a atualização em massa não influencie o processo de sincronização. Por exemplo, atribuir licenças a muitos usuários no Azure Active Directory causará um ciclo longe de importação do Azure Active Directory, mas não resultará em mudanças de atributo no Active Directory.
 
-### <a name="synchronization"></a>Synchronization
+### <a name="synchronization"></a>Sincronização
 
 O runtime do processo de sincronização tem as seguintes características de desempenho:
 
@@ -143,7 +143,7 @@ As organizações podem impedir que determinados atributos fluam para o Microsof
 
 ## <a name="azure-ad-connect-dependency-factors"></a>Fatores de dependência do Microsoft Azure Active Directory Connect
 
-O desempenho do Microsoft Azure Active Directory Connect é depende do desempenho dos diretórios conectados, ele importa e exporta. Por exemplo, o tamanho do Active Directory, é necessário importar ou a latência de rede para o serviço do Azure AD. O banco de dados SQL que usa o mecanismo de provisionamento também afeta o desempenho geral do ciclo de sincronização.
+O desempenho do Microsoft Azure Active Directory Connect é depende do desempenho dos diretórios conectados, ele importa e exporta. Por exemplo, o tamanho do Active Directory, é necessário importar ou a latência de rede para o serviço do Azure AD. O banco de dados SQL que o mecanismo de provisionamento usa também afeta o desempenho geral do ciclo de sincronização.
 
 ### <a name="active-directory-factors"></a>Fatores do Active Directory
 
@@ -172,7 +172,7 @@ O tamanho da sua topologia do Active Directory de origem influenciará o desempe
 
 - Organizações com mais de 100.000 usuários podem reduzir latências de rede pela colocação banco de dados SQL e o mecanismo de provisionamento no mesmo servidor.
 - Devido ao disco alta de entrada e saída requisitos de (E/S) do processo de sincronização, use unidades de estado sólido (SSD) para o banco de dados SQL do mecanismo de provisionamento para obter melhores resultados, se não for possível, considere as configurações RAID 0 ou RAID 1.
-- Não faça uma sincronização completa preventivamente; causa variação desnecessária e tempos de resposta mais lentos.
+- Não faça uma sincronização completa preemptiva; Isso causa uma rotatividade desnecessária e tempos de resposta mais lentos.
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -190,4 +190,4 @@ Para otimizar o desempenho da sua implementação do Azure AD Connect, considere
 - Monitor a integridade da [sincronização do Azure AD Connect](how-to-connect-health-agent-install.md) no Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
