@@ -5,13 +5,12 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 38b6f797541ef07fa3fb5e1dc71029a4cbcf5d22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/8/2020
+ms.openlocfilehash: 3f0df02b58835ce4b43d6ba172e79f872a9fae1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608376"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade no banco de dados do Azure para MariaDB
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MariaDB e também como o tráfego é direcionado para a instância do banco de dados do Azure para MariaDB de clientes dentro e fora do Azure.
@@ -46,6 +45,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Leste dos EUA | 40.121.158.30, 191.238.6.43  |
 | Leste dos EUA 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | França Central | 40.79.137.0, 40.79.129.1  |
+| Sul da França | 40.79.177.0     |
 | Alemanha Central | 51.4.144.100     |
 | Nordeste da Alemanha | 51.5.144.179  |
 | Centro da Índia | 104.211.96.159     |
@@ -70,6 +70,17 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Oeste dos EUA | 104.42.238.205, 23.99.34.75  |
 | Oeste dos EUA 2 | 13.66.226.202  |
 ||||
+
+## <a name="connection-redirection"></a>Redirecionamento de conexão
+
+O banco de dados do Azure para MariaDB dá suporte a uma política de conexão adicional, **redirecionamento**, que ajuda a reduzir a latência de rede entre aplicativos cliente e servidores MariaDB. Com esse recurso, depois que a sessão TCP inicial é estabelecida com o banco de dados do Azure para o servidor MariaDB, o servidor retorna o endereço de back-end do nó que hospeda o servidor MariaDB para o cliente. Depois disso, todos os pacotes subsequentes fluem diretamente para o servidor, ignorando o gateway. À medida que os pacotes fluem diretamente para o servidor, a latência e a taxa de transferência têm desempenho aprimorado.
+
+Esse recurso tem suporte no banco de dados do Azure para servidores MariaDB com versões de mecanismo 10,2 e 10,3.
+
+O suporte para redirecionamento está disponível na extensão de [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) do PHP, desenvolvida pela Microsoft e está disponível em [PECL](https://pecl.php.net/package/mysqlnd_azure). Consulte o artigo [Configurando o redirecionamento](./howto-redirection.md) para obter mais informações sobre como usar o redirecionamento em seus aplicativos.
+
+> [!IMPORTANT]
+> No momento, o suporte para redirecionamento na extensão [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) do PHP está na versão prévia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

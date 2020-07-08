@@ -3,18 +3,17 @@ title: Conceitos-interconectividade de rede
 description: Saiba mais sobre os principais aspectos e casos de uso de rede e interconectividade na solução VMware do Azure (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 82e5497c30bf02313e5ff8ad24167af569a153c2
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629201"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da solução do Azure VMware (AVS) Preview
 
 A interconectividade de rede entre suas nuvens privadas da AVS (solução do Azure VMware) e ambientes locais ou redes virtuais no Azure permite que você acesse e use sua nuvem privada. Alguns conceitos importantes de rede e de interconectividade que estabelecem a base da interconectividade são descritos neste artigo.
 
-Uma perspectiva útil na interconectividade é considerar os dois tipos de implementações de nuvem privada de AVS. As implementações com a interconectividade básica somente do Azure e as implementações com a interconectividade completa de local para nuvem privada.
+Uma perspectiva útil na interconectividade é considerar os dois tipos de implementações de nuvem privada de AVS: implementações com a interconectividade básica somente do Azure e implementações com a interconectividade completa de local para nuvem privada.
 
 Os casos de uso para nuvens do AVS privado incluem:
 - novas cargas de trabalho de VM VMware na nuvem
@@ -25,7 +24,7 @@ Os casos de uso para nuvens do AVS privado incluem:
 
  Todos os casos de uso do serviço AVS são habilitados com conectividade de nuvem local para privada. O modelo de interconectividade básica é mais adequado para avaliações de AVS ou implementações que não exigem acesso de ambientes locais.
 
-Os dois tipos de interconectividade de nuvem privada de AVS são descritos nas seções a seguir.  A interconectividade mais básica é "conectividade de rede virtual do Azure" e permite que você gerencie e use sua nuvem privada com apenas uma única rede virtual no Azure. A interconectividade descrita em "conectividade local" estende a conectividade de rede virtual para incluir também a interconectividade entre os ambientes locais e as nuvens privadas da AVS.
+Os dois tipos de interconectividade de nuvem privada de AVS são descritos nas seções a seguir.  A interconectividade mais básica é "conectividade de rede virtual do Azure"; Ele permite que você gerencie e use sua nuvem privada com apenas uma única rede virtual no Azure. A interconectividade descrita em "conectividade local" estende a conectividade de rede virtual para incluir também a interconectividade entre os ambientes locais e as nuvens privadas da AVS.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Interconectividade de rede virtual do Azure
 
@@ -62,16 +61,16 @@ Uma vez vinculado com Alcance Global, os dois circuitos de ExpressRoute rotearã
 
 Para habilitar a conectividade completa, uma chave de autorização e uma ID de emparelhamento privado para Alcance Global podem ser solicitadas no portal do Azure. Você usa a chave e a ID para estabelecer Alcance Global entre um circuito do ExpressRoute em sua assinatura e o circuito do ExpressRoute para sua nova nuvem privada. O [tutorial para criar uma nuvem privada](tutorial-create-private-cloud.md) fornece os procedimentos para solicitar e usar a chave e a ID.
 
-Os requisitos de roteamento da solução exigem que você planeje espaços de endereço de rede de nuvem privada para evitar sobreposições com outras redes virtuais e redes locais. As nuvens privadas da AVS exigem um mínimo `/22` de um bloco de endereço de rede CIDR para sub-redes, mostrado abaixo. Essa rede complementa suas redes locais. Para se conectar a ambientes locais e redes virtuais, isso deve ser um bloco de endereço de rede não sobreposto.
+Os requisitos de roteamento da solução exigem que você planeje espaços de endereço de rede de nuvem privada para evitar sobreposições com outras redes virtuais e redes locais. As nuvens privadas da AVS exigem pelo menos um bloco de endereços de rede CIDR `/22` para sub-redes, mostrado abaixo. Essa rede complementa suas redes locais. Para conectar-se a ambientes locais e redes virtuais, deve ser um bloco de endereço de rede não sobreposto.
 
-Bloco `/22` de endereços de rede CIDR de exemplo:`10.10.0.0/22`
+Exemplo de bloco de endereço de rede CIDR `/22`: `10.10.0.0/22`
 
 As sub-redes:
 
-| Uso da rede             | Sub-rede | Exemplo        |
+| Uso de rede             | Sub-rede | Exemplo        |
 | ------------------------- | ------ | -------------- |
 | Gerenciamento de nuvem privada            | `/24`    | `10.10.0.0/24`   |
-| rede do vMotion       | `/24`    | `10.10.1.0/24`   |
+| Rede do vMotion       | `/24`    | `10.10.1.0/24`   |
 | Cargas de trabalho de VM | `/24`   | `10.10.2.0/24`   |
 | Emparelhamento do ExpressRoute | `/24`    | `10.10.3.8/30`   |
 

@@ -2,18 +2,17 @@
 title: Segurança e autenticação da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: babanisa
-ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559021"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizando o acesso aos recursos da grade de eventos
 A Grade de Eventos do Azure permite que você controle o nível de acesso concedido a usuários diferentes para execução de várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. O Event Grid usa o controle de acesso baseado em função (RBAC) do Azure.
@@ -182,7 +181,7 @@ Você pode criar funções personalizadas com [PowerShell](../role-based-access-
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
-Todos os eventos ou dados gravados no disco pelo serviço de grade de eventos são criptografados por uma chave gerenciada pela Microsoft, garantindo que ele seja criptografado em repouso. Além disso, o período máximo de tempo que os eventos ou os dados retidos é de 24 horas em conformidade com a [política de repetição de grade de eventos](delivery-and-retry.md). A grade de eventos excluirá automaticamente todos os eventos ou dados após 24 horas ou a vida útil do evento, o que for menor.
+Todos os eventos ou dados gravados no disco pelo serviço Grade de Eventos são criptografados por uma chave gerenciada pela Microsoft, garantindo que estejam criptografados quando inativos. Além disso, o período máximo de retenção dos eventos ou dados é de 24 horas, em conformidade com a [Política de repetição da Grade de Eventos](delivery-and-retry.md). A Grade de Eventos excluirá automaticamente todos os eventos ou dados após 24 horas ou a vida útil do evento, o que for menor.
 
 ## <a name="permissions-for-event-subscriptions"></a>Permissões para assinaturas de evento
 Se você estiver usando um manipulador de eventos que não seja um WebHook (como um armazenamento de fila ou hub de eventos), será necessário acesso de gravação a esse recurso. Essa verificação de permissões impede que um usuário não autorizado envie eventos para seu recurso.
@@ -203,4 +202,4 @@ Por exemplo, para assinar um tópico personalizado chamado **mytopic**, você pr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução à grade de eventos, consulte [sobre a grade de eventos](overview.md)
+* Para ver uma introdução à Grade de Eventos, confira [Sobre a Grade de Eventos](overview.md)

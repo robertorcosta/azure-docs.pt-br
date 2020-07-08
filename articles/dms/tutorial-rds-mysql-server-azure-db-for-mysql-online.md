@@ -11,13 +11,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609243"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: migrar o RDS MySQL para o banco de dados do Azure para MySQL online usando DMS
 
@@ -67,6 +66,7 @@ Para concluir este tutorial, você precisará:
 
 1. Para criar um grupo de parâmetros, siga as instruções fornecidas pelo AWS no artigo [Arquivos de log do banco de dados MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html), na seção **Formato de log binário**.
 2. Crie um grupo de parâmetros com a seguinte configuração:
+    * log_bin = ON
     * binlog_format = row
     * binlog_checksum = NONE
 3. Salve o novo grupo de parâmetros.
@@ -143,7 +143,7 @@ Para concluir este tutorial, você precisará:
 
     ![Exibir provedores de recursos](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-resource-provider.png)
 
-3. Procure migração e, à direita de **Microsoft. Datamigration**, selecione **registrar**.
+3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
 
     ![Registrar provedor de recursos](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 
@@ -197,7 +197,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     > [!NOTE]
     > Como alternativa, você pode escolher **Criar somente o projeto** para criar o projeto de migração agora e executar a migração posteriormente.
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 7. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 

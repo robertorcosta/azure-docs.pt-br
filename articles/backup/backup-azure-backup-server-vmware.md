@@ -2,13 +2,12 @@
 title: Faça backup de VMs VMware com o Servidor de Backup do Azure
 description: Neste artigo, saiba como usar Servidor de Backup do Azure para fazer backup de VMs VMware em execução em um servidor VMware vCenter/ESXi.
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/24/2020
+ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628462"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Faça backup de VMs VMware com o Servidor de Backup do Azure
 
@@ -26,6 +25,10 @@ Este artigo explica como:
 
 - Verifique se você está executando uma versão do vCenter/ESXi com suporte para backup. Consulte a matriz de suporte [aqui](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Verifique se que você configurou o Servidor de Backup do Azure. Caso contrário, [faça isso](backup-azure-microsoft-azure-backup.md) antes de começar. Você deve estar executando o Servidor de Backup do Azure com as atualizações mais recentes.
+- Verifique se as seguintes portas de rede estão abertas:
+    - TCP 443 entre MABS e vCenter
+    - TCP 443 e TCP 902 entre MABS e host ESXi
+
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Criar uma conexão segura com o servidor vCenter
 
@@ -58,7 +61,7 @@ Configure um canal seguro da seguinte maneira:
 
 4. Salve o arquivo no computador do Servidor de Backup do Azure com uma extensão .zip.
 
-5. Clique com o botão direito do mouse em **baixar. zip** > **extrair tudo**. O arquivo .zip extrai seu conteúdo para a pasta **certs** que contém:
+5. Clique com o botão direito do mouse em **download.zip**  >  **extrair tudo**. O arquivo .zip extrai seu conteúdo para a pasta **certs** que contém:
    - O arquivo de certificado raiz com uma extensão que começa com uma sequência numerada como .0 e .1.
    - O arquivo da CRL tem uma extensão que começa com uma sequência como .r0 ou .r1. O arquivo da CRL é associado a um certificado.
 
@@ -94,7 +97,7 @@ Configure um canal seguro da seguinte maneira:
 
 Se você tiver limites de segurança em sua organização e não quiser usar o protocolo HTTPS entre servidores VMware e o computador Servidor de Backup do Azure, desabilite o HTTPS da seguinte maneira:
 
-1. Copie e cole o texto a seguir em um aquivo .txt.
+1. Copie e cole o texto a seguir em um arquivo .txt.
 
     ```text
     Windows Registry Editor Version 5.00
@@ -115,11 +118,11 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
     ![Administração](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. Em **Administration** > **funções**de administração, clique no ícone Adicionar função (o símbolo +).
+3. Em **Administration**  >  **funções**de administração, clique no ícone Adicionar função (o símbolo +).
 
     ![Adicionar função](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. Em **criar** > **nome da função**de função, insira *BackupAdminRole*. O nome da função pode ser o que você quiser, mas deve ser reconhecível para o objetivo da função.
+4. Em **criar**  >  **nome da função**de função, insira *BackupAdminRole*. O nome da função pode ser o que você quiser, mas deve ser reconhecível para o objetivo da função.
 
 5. Selecione os privilégios conforme resumidos na tabela a seguir e, em seguida, clique em **OK**.  A nova função é exibida na lista no painel **Funções**.
    - Clique no ícone ao lado do rótulo pai para expandi-lo e exibir os privilégios filho.
@@ -132,7 +135,7 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
 | Privilégios para a conta de usuário do vCenter 6,7                     | Privilégios para a conta de usuário do vCenter 6,5                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Cluster de repositório de armazenamento. Configurar um cluster datatstore            | Cluster de repositório de armazenamento. Configurar um cluster datatstore            |
+| cluster.Configdo repositório de armazenamento lhar um cluster datatstore            | cluster.Configdo repositório de armazenamento lhar um cluster datatstore            |
 | Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
 | Datastore.Browse datastore                                   | Datastore.Browse datastore                                   |
 | Datastore.Low-level file operations                          | Datastore.Low-level file operations                          |
@@ -148,29 +151,29 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 | vApp.Add virtual machine                                     | vApp.Add virtual machine                                     |
 | vApp.Assign resource pool                                    | vApp.Assign resource pool                                    |
 | vApp.Unregister                                              | vApp.Unregister                                              |
-| VirtualMachine. Configuration. Adicionar ou remover dispositivo          | VirtualMachine. Configuration. Adicionar ou remover dispositivo          |
-| Máquina virtual. Configuração. adquirir concessão de disco            | Virtual machine.Configuration.Disk lease                     |
+| VirtualMachine.Configuration. Adicionar ou remover dispositivo          | VirtualMachine.Configuration. Adicionar ou remover dispositivo          |
+| Uração virtual machine.Config. Adquirir concessão de disco            | Virtual machine.Configuration.Disk lease                     |
 | Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Add new disk                   |
-| Máquina virtual. Configuração. configuração avançada        | Virtual machine.Configuration.Advanced                       |
-| Máquina virtual. Configuração. alternar controle de alterações do disco   | Máquina virtual. Configuração. controle de alterações de disco          |
-| Máquina virtual. Configuração. configurar o dispositivo USB do host     | Máquina virtual. Dispositivo USB de configuração. host               |
-| Máquina virtual. Configuração. estender disco virtual           | Máquina virtual. Configuração. estender disco virtual           |
-| Máquina virtual. Configuração. consulta de arquivos sem proprietário           | Máquina virtual. Configuração. consulta de arquivos sem proprietário           |
-| Máquina virtual. Configuração. alterar posicionamento do Swapfile     | Máquina virtual. Configuração de colocação de. Swapfile            |
+| Uração virtual machine.Config. Configuração avançada        | Virtual machine.Configuration.Advanced                       |
+| Uração virtual machine.Config. Alternar controle de alterações do disco   | Uração virtual machine.Config. Controle de alterações do disco          |
+| Dispositivo USB do virtual machine.Configuration.Configlhar host     | Uração virtual machine.Config. Dispositivo USB do host               |
+| Uração virtual machine.Config. Estender disco virtual           | Uração virtual machine.Config. Estender disco virtual           |
+| Uração virtual machine.Config. Consultar arquivos sem proprietário           | Uração virtual machine.Config. Consultar arquivos sem proprietário           |
+| Uração virtual machine.Config. Alterar o posicionamento do Swapfile     | Uração virtual machine.Config. Posicionamento do Swapfile            |
 | Máquina virtual. Operações de convidado. execução do programa de operação de convidado | Máquina virtual. Operações de convidado. execução do programa de operação de convidado |
 | Máquina virtual. Operações de convidado. modificações de operação de convidado | Máquina virtual. Operações de convidado. modificações de operação de convidado |
 | Máquina virtual. Operações de convidado. consultas de operação de convidado    | Máquina virtual. Operações de convidado. consultas de operação de convidado    |
 | Máquina virtual. Inter. Conexão do dispositivo             | Máquina virtual. Inter. Conexão do dispositivo             |
 | Máquina virtual. Inter. Gerenciamento do sistema operacional convidado pela API do VIX | Máquina virtual. Inter. Gerenciamento do sistema operacional convidado pela API do VIX |
-| Máquina virtual. Inter. Desligar                      | Máquina virtual. Inter. Desligar                      |
-| Máquina virtual. Inventário. criar novo                        | Máquina virtual. Inventário. criar novo                        |
+| Virtual machine .Interaction .Power Off                      | Virtual machine .Interaction .Power Off                      |
+| Virtual machine .Inventory.Create new                        | Virtual machine .Inventory.Create new                        |
 | Virtual machine .Inventory.Remove                            | Virtual machine .Inventory.Remove                            |
 | Virtual machine .Inventory.Register                          | Virtual machine .Inventory.Register                          |
 | Máquina virtual. Provisionamento. permitir acesso ao disco             | Máquina virtual. Provisionamento. permitir acesso ao disco             |
 | Máquina virtual. Provisionamento. permitir acesso a arquivos             | Máquina virtual. Provisionamento. permitir acesso a arquivos             |
 | Máquina virtual. Provisionamento. permitir acesso ao disco somente leitura   | Máquina virtual. Provisionamento. permitir acesso ao disco somente leitura   |
 | Máquina virtual. Provisionamento. permitir download da máquina virtual | Máquina virtual. Provisionamento. permitir download da máquina virtual |
-| Virtual machine .Snapshot management.  Criar instantâneo       | Virtual machine .Snapshot management.  Criar instantâneo       |
+| Virtual machine .Snapshot management.  Create snapshot       | Virtual machine .Snapshot management.  Create snapshot       |
 | Máquina virtual. Gerenciamento de instantâneo. Remover instantâneo        | Máquina virtual. Gerenciamento de instantâneo. Remover instantâneo        |
 | Máquina virtual. Gerenciamento de instantâneo. Reverter para instantâneo     | Máquina virtual. Gerenciamento de instantâneo. Reverter para instantâneo     |
 
@@ -184,14 +187,14 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 | Operações de host. local. Criar máquina virtual              | VirtualMachine.State.RemoveSnapshot         |
 | Network.  Assign network                                   | VirtualMachine.State.CreateSnapshot         |
 | Resource.  Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Máquina virtual. Configuração. Adicionar novo disco                | VirtualMachine.Interact.PowerOff            |
-| Máquina virtual. Configuração. avançado                    | VirtualMachine.Inventory.Create             |
-| Máquina virtual. Configuração. controle de alterações de disco        | VirtualMachine.Config.AddNewDisk            |
-| Máquina virtual. Dispositivo USB de configuração. host             | VirtualMachine.Config.HostUSBDevice         |
-| Máquina virtual. Configuração. consulta de arquivos sem proprietário         | VirtualMachine.Config.AdvancedConfig        |
-| Máquina virtual. Configuração de colocação de. Swapfile          | VirtualMachine.Config.SwapPlacement         |
+| Uração virtual machine.Config. Adicionar novo disco                | VirtualMachine.Interact.PowerOff            |
+| Uração virtual machine.Config. Avançadas                    | VirtualMachine.Inventory.Create             |
+| Uração virtual machine.Config. Controle de alterações do disco        | VirtualMachine.Config.AddNewDisk            |
+| Uração virtual machine.Config. Dispositivo USB do host             | VirtualMachine.Config.HostUSBDevice         |
+| Uração virtual machine.Config. Consultar arquivos sem proprietário         | VirtualMachine.Config.AdvancedConfig        |
+| Uração virtual machine.Config. Posicionamento do Swapfile          | VirtualMachine.Config.SwapPlacement         |
 | Máquina virtual. Interação. desligar                     | Global.ManageCustomFields                   |
-| Máquina virtual. Levantamento. Criar Novo                     |                                             |
+| Máquina virtual. Levantamento. Create new                     |                                             |
 | Máquina virtual. Provisionamento. permitir acesso ao disco            |                                             |
 | Máquina virtual. Provisionamento. Allow read-only disk access |                                             |
 | Máquina virtual. Gerenciamento de instantâneo. Criar instantâneo       |                                             |
@@ -237,7 +240,7 @@ Na guia **Gerenciar** no painel **Permissões Globais**, a nova conta de usuári
 
     ![Ícone do Servidor de Backup do Azure](./media/backup-azure-backup-server-vmware/mabs-icon.png)
 
-2. No console do servidor de backup do Azure, clique em **Gerenciamento** >  **servidores** > de produção**gerenciar VMware**.
+2. No console do servidor de backup do Azure, clique em **Gerenciamento**  >   **servidores de produção**  >  **gerenciar VMware**.
 
     ![Console do Servidor de Backup do Azure](./media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
@@ -257,11 +260,11 @@ Na guia **Gerenciar** no painel **Permissões Globais**, a nova conta de usuári
 
 Adicionar vCenter Server para o Servidor de Backup do Azure.
 
-1. No console do servidor de backup do Azure, clique em **Gerenciamento** > **servidores** > de produção**Adicionar**.
+1. No console do servidor de backup do Azure, clique em **Gerenciamento**  >  **servidores de produção**  >  **Adicionar**.
 
     ![Abra o Assistente de Adição de Servidor de Produção](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. No **Assistente** > de adição de servidor de produção, selecione a página**tipo de servidor de produção** , selecione **servidores VMware**e clique em **Avançar**.
+2. No **Assistente de adição de servidor de produção**  >  , selecione a página**tipo de servidor de produção** , selecione **servidores VMware**e clique em **Avançar**.
 
     ![Assistente de Adição de Servidor de Produção](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -275,7 +278,7 @@ Adicionar vCenter Server para o Servidor de Backup do Azure.
 
     ![Especificar credencial](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Clique em **Adicionar** para adicionar o servidor VMware à lista de servidores. Em seguida, clique em **Próximo**.
+6. Clique em **Adicionar** para adicionar o servidor VMware à lista de servidores. Clique em **Avançar**.
 
     ![Adicionar servidor do VMware e a credencial](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -303,14 +306,14 @@ Adicione VMs do VMware para o backup. Grupos de proteção reúnem várias VMs e
 
 1. Na página **Selecionar tipo de grupo de Proteção**, selecione **Servidores** e, depois, clique em **Avançar**. A página **Selecionar membros do grupo** é exibida.
 
-1. Em **selecionar membros do grupo**, selecione as VMs (ou pastas de VM) das quais você deseja fazer backup. Em seguida, clique em **Próximo**.
+1. Em **selecionar membros do grupo**, selecione as VMs (ou pastas de VM) das quais você deseja fazer backup. Clique em **Avançar**.
 
     - Quando você seleciona uma pasta, VMs ou pastas dentro dessa pasta também são selecionadas para backup. Você pode desmarcar as pastas ou VMs das quais não deseja fazer backup.
 1. Se já estiver sendo feito backup de uma VM ou pasta, você não poderá selecioná-la. Isso garante que os pontos de recuperação duplicados não sejam criados para uma VM.
 
     ![Selecionar membros do grupo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Na página **Selecionar Método de Proteção de Dados**, insira um nome para o grupo de proteção e as configurações de proteção. Para fazer backup do Azure, defina a proteção de curto prazo como **Disco** e habilite a proteção online. Em seguida, clique em **Próximo**.
+1. Na página **Selecionar Método de Proteção de Dados**, insira um nome para o grupo de proteção e as configurações de proteção. Para fazer backup do Azure, defina a proteção de curto prazo como **Disco** e habilite a proteção online. Clique em **Avançar**.
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -341,17 +344,17 @@ Adicione VMs do VMware para o backup. Grupos de proteção reúnem várias VMs e
 
     ![Escolher método de criação de réplica](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. Em **Opções de Verificação de Consistência**, selecione como e quando automatizar as verificações de consistência. Em seguida, clique em **Próximo**.
+1. Em **Opções de Verificação de Consistência**, selecione como e quando automatizar as verificações de consistência. Clique em **Avançar**.
       - Você pode executar verificações de consistência quando dados de réplica se tornam inconsistentes ou de acordo com um agendamento definido.
       - Se você não desejar configurar verificações de consistência automáticas, poderá executar uma verificação manual. Para fazer isso, clique com o botão direito do mouse no grupo de proteção > **Executar Verificação de Consistência**.
 
-1. Na página **Especificar Dados de Proteção Online**, selecione as VMs ou as pastas da VM das quais você deseja fazer backup. Você pode selecionar os membros individualmente ou clicar em **Selecionar tudo** para escolher todos os membros. Em seguida, clique em **Próximo**.
+1. Na página **Especificar Dados de Proteção Online**, selecione as VMs ou as pastas da VM das quais você deseja fazer backup. Você pode selecionar os membros individualmente ou clicar em **Selecionar tudo** para escolher todos os membros. Clique em **Avançar**.
 
     ![Especificar dados de proteção online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Na página **Especificar Agendamento de Backup Online**, especifique a frequência com que você deseja fazer backup de dados do armazenamento local para o Azure.
 
-    - Pontos de recuperação de nuvem para os dados serão gerados acordo com o agendamento. Em seguida, clique em **Próximo**.
+    - Pontos de recuperação de nuvem para os dados serão gerados acordo com o agendamento. Clique em **Avançar**.
     - Quando o ponto de recuperação é gerado, ele é transferido para o cofre dos Serviços de Recuperação no Azure.
 
     ![Especifique o cronograma do backup online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
@@ -366,6 +369,21 @@ Adicione VMs do VMware para o backup. Grupos de proteção reúnem várias VMs e
 1. Na página **Resumo**, examine as configurações e clique em **Criar Grupo**.
 
     ![Resumo da configuração e do membro do grupo de proteção](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+
+## <a name="vmware-parallel-backups"></a>Backups paralelos de VMware
+
+>[!NOTE]
+> Esse recurso é aplicável para MABS v3 UR1.
+
+Com versões anteriores do MABS, os backups paralelos eram realizados somente em grupos de proteção. Com o MABS v3 UR1, todos os backups de VMs VMWare em um único grupo de proteção são paralelos, levando a backups de VM mais rápidos. Todos os trabalhos de replicação delta do VMWare são executados em paralelo. Por padrão, o número de trabalhos a serem executados em paralelo é definido como 8.
+
+Você pode modificar o número de trabalhos usando a chave do registro, conforme mostrado abaixo (não presente por padrão, você precisa adicioná-lo):
+
+**Caminho da chave**:`Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Tipo de chave**: valor DWORD (32 bits).
+
+> [!NOTE]
+> Você pode modificar o número de trabalhos para um valor mais alto. Se você definir o número de trabalhos como 1, os trabalhos de replicação são executados em série. Para aumentar o número para um valor mais alto, você deve considerar o desempenho do VMWare. Considere o número de recursos em uso e uso adicional necessário no VMWare vSphere Server e determine o número de trabalhos de replicação delta a serem executados em paralelo. Além disso, essa alteração afetará apenas os grupos de proteção recém-criados. Para grupos de proteção existentes, você deve adicionar temporariamente outra VM ao grupo de proteção. Isso deve atualizar a configuração do grupo de proteção de acordo. Você pode remover essa VM do grupo de proteção após a conclusão do procedimento.
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
@@ -396,6 +414,126 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
 "SystemDefaultTlsVersions"=dword:00000001
 "SchUseStrongCrypto"=dword:00000001
+```
+
+## <a name="exclude-disk-from-vmware-vm-backup"></a>Excluir disco do backup de VM do VMware
+
+> [!NOTE]
+> Esse recurso é aplicável para MABS v3 UR1.
+
+Com o MABS v3 UR1, você pode excluir o disco específico do backup de VM do VMware. O **ExcludeDisk.ps1** de script de configuração está localizado no `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
+
+Para configurar a exclusão de disco, siga as etapas abaixo:
+
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Identificar a VM do VMWare e os detalhes do disco a excluir
+
+  1. No console do VMware, vá para configurações de VM para as quais você deseja excluir o disco.
+  2. Selecione o disco a ser excluído e anote o caminho para esse disco.
+
+        Por exemplo, para excluir o Disco Rígido 2 do TestVM4, o caminho para o Disco Rígido 2 é **[datastore1] TestVM4/TestVM4\_1.vmdk**.
+
+        ![Disco rígido a ser excluído](./media/backup-azure-backup-server-vmware/test-vm.png)
+
+### <a name="configure-mabs-server"></a>Configurar o servidor MABS
+
+Navegue até o servidor MABS onde a VM VMware está configurada para proteção para configurar a exclusão de disco.
+
+  1. Obtenha os detalhes do host do VMware que está protegido no servidor MABS.
+
+        ```powershell
+        $psInfo = get-DPMProductionServer
+        $psInfo
+        ```
+
+        ```output
+        ServerName   ClusterName     Domain            ServerProtectionState
+        ----------   -----------     ------            ---------------------
+        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+        ```
+
+  2. Selecione o host do VMware e liste a proteção de VMs para o host do VMware.
+
+        ```powershell
+        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+        $vmDsInfo
+        ```
+
+        ```output
+        Computer     Name     ObjectType
+        --------     ----     ----------
+        Vcentervm1  TestVM2      VMware
+        Vcentervm1  TestVM1      VMware
+        Vcentervm1  TestVM4      VMware
+        ```
+
+  3. Selecione a VM cujo disco você deseja excluir.
+
+        ```powershell
+        $vmDsInfo[2]
+        ```
+
+        ```output
+        Computer     Name      ObjectType
+        --------     ----      ----------
+        Vcentervm1   TestVM4   VMware
+        ```
+
+  4. Para excluir o disco, navegue até a `Bin` pasta e execute o script de *ExcludeDisk.ps1* com os seguintes parâmetros:
+
+        > [!NOTE]
+        > Antes de executar esse comando, interrompa o serviço DPMRA no servidor MABS. Caso contrário, o script retornará êxito, mas não atualizará a lista de exclusão. Verifique se não há trabalhos em andamento antes de interromper o serviço.
+
+     **Para adicionar/remover o disco da exclusão, execute o seguinte comando:**
+
+      ```powershell
+      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+      ```
+
+     **Exemplo**:
+
+     Para adicionar a exclusão de disco para TestVM4, execute o seguinte comando:
+
+       ```powershell
+      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+       ```
+
+      ```output
+       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+      ```
+
+  5. Verifique se o disco foi adicionado para exclusão.
+
+     **Para adicionar a exclusão existente para VMs específicas, execute o seguinte comando:**
+
+        ```powershell
+        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+        ```
+
+     **Exemplo**
+
+        ```powershell
+        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+        ```
+
+        ```output
+        <VirtualMachine>
+        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+        </VirtualMachine>
+        ```
+
+     Depois de configurar a proteção para essa VM, o disco excluído não será listado durante a proteção.
+
+        > [!NOTE]
+        > Se estiver executando essas etapas para uma VM já protegida, você precisará executar a verificação de consistência manualmente depois de adicionar o disco para exclusão.
+
+### <a name="remove-the-disk-from-exclusion"></a>Remover o disco da exclusão
+
+Para remover o disco da exclusão, execute o seguinte comando:
+
+```powershell
+C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

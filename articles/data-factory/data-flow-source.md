@@ -7,13 +7,12 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: b2f533e8bd9199025260aaca9cff587b13adce64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/05/2020
+ms.openlocfilehash: e106f5b615cd667551ef3d597a45b522320eed6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610166"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformação de origem no fluxo de dados de mapeamento 
 
@@ -23,22 +22,36 @@ Uma transformação de origem configura sua fonte de dados para o fluxo de dados
 
 Cada fluxo de dados requer pelo menos uma transformação de origem, mas você pode adicionar quantas fontes forem necessárias para concluir as transformações de dados. Você pode unir essas fontes junto com uma transformação junção, pesquisa ou União.
 
-Cada transformação de origem é associada a exatamente um conjunto de Data Factory. O DataSet define a forma e o local dos dados que você deseja gravar ou ler. Se estiver usando um conjunto de informações baseado em arquivo, você poderá usar curingas e listas de arquivos em sua fonte para trabalhar com mais de um arquivo por vez.
+Cada transformação de origem é associada a exatamente um conjunto de um DataSet ou serviço vinculado. O DataSet define a forma e o local dos dados que você deseja gravar ou ler. Se estiver usando um conjunto de informações baseado em arquivo, você poderá usar curingas e listas de arquivos em sua fonte para trabalhar com mais de um arquivo por vez.
 
-## <a name="supported-source-connectors-in-mapping-data-flow"></a>Conectores de origem com suporte no fluxo de dados de mapeamento
+## <a name="inline-datasets"></a>Conjuntos de valores embutidos
+
+A primeira decisão que você faz ao criar uma transformação de origem é se suas informações de origem são definidas dentro de um objeto de conjunto de dados ou dentro da transformação de origem. A maioria dos formatos só está disponível em um ou outro. Consulte o documento do conector apropriado para saber como usar um conector específico.
+
+Quando há suporte para um formato tanto para dentro quanto para um objeto DataSet, há benefícios para ambos. Objetos DataSet são entidades reutilizáveis que podem ser aproveitadas em outros fluxos de dados e atividades como Copy. Eles são especialmente úteis ao usar um esquema protegido. Os conjuntos de dado não são baseados no Spark e, ocasionalmente, talvez seja necessário substituir certas configurações ou projeção de esquema na transformação de origem.
+
+Os conjuntos de linhas embutidos são recomendados ao usar esquemas flexíveis, instâncias de origem única ou fontes com parâmetros. Se sua fonte estiver muito parametrizada, os conjuntos de linhas embutidos permitem que você não crie um objeto "fictício". Os conjuntos de dados embutidos são baseados no Spark e suas propriedades são nativas para o fluxo.
+
+Para usar um conjunto de linhas embutido, selecione o formato desejado no seletor de **tipo de origem** . Em vez de selecionar um conjunto de fonte de origem, selecione o serviço vinculado ao qual você deseja se conectar.
+
+![Conjunto de linhas embutido](media/data-flow/inline-selector.png "Conjunto de linhas embutido")
+
+##  <a name="supported-source-types"></a><a name="supported-sources"></a>Tipos de origem com suporte
 
 O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, transformação (ELT) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de origem:
-    
-* [Armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
-* [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
-* [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [CosmosDB do Azure](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-As configurações específicas para esses conectores estão localizadas na guia **Opções de origem** . as informações sobre essas configurações estão localizadas na documentação do conector. 
+| Conector | Formatar | Conjunto de linhas/embutido |
+| --------- | ------ | -------------- |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Modelo de dados comuns (visualização)](format-common-data-model.md#source-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [CosmosDB do Azure (API do SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 
-Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para incluir dados dessas outras fontes em seu fluxo de dados, use a atividade de cópia para carregar esses dados em uma das áreas de preparo com suporte.
+As configurações específicas para esses conectores estão localizadas na guia **Opções de origem** . exemplos de script de fluxo de dados e informações nessas configurações estão localizados na documentação do conector. 
+
+O Azure Data Factory tem acesso a aproximadamente [90 conectores nativos](connector-overview.md). Para incluir dados dessas outras fontes em seu fluxo de dados, use a atividade de cópia para carregar esses dados em uma das áreas de preparo com suporte.
 
 ## <a name="source-settings"></a>Configurações de origem
 
@@ -46,6 +59,10 @@ Depois de adicionar uma fonte, configure por meio da guia **configurações de o
 
 ![Guia Configurações de origem](media/data-flow/source1.png "Guia Configurações de origem")
 
+**Nome do fluxo de saída:** O nome da transformação de origem.
+
+**Tipo de origem:** Escolha se deseja usar um conjunto de linhas ou um objeto DataSet existente.
+ 
 **Testar conexão:** Teste se o serviço Spark do fluxo de dados pode ou não se conectar com êxito ao serviço vinculado usado no conjunto de dados de origem. O modo de depuração deve estar ativado para que este recurso seja habilitado.
 
 **Descompasso de esquema:** a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade do data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações na coluna.
@@ -60,12 +77,14 @@ Depois de adicionar uma fonte, configure por meio da guia **configurações de o
 
 **Amostragem:** Habilite a amostragem para limitar o número de linhas de sua origem. Use essa configuração quando você testar ou criar amostras de dados de sua fonte para fins de depuração.
 
-**Linhas multilinha:** Selecione linhas multilinha se o arquivo de texto de origem contiver valores de cadeia de caracteres que abranjam várias linhas, ou seja, linhas novas dentro de um valor. Essa configuração só está disponível em conjuntos de DelimitedText.
-
 Para validar se a fonte está configurada corretamente, ative o modo de depuração e busque uma visualização de dados. Para obter mais informações, consulte [modo de depuração](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
 > Quando o modo de depuração estiver ativado, a configuração de limite de linha nas configurações de depuração substituirá a configuração de amostragem na origem durante a visualização de dados.
+
+## <a name="source-options"></a>Opções de origem
+
+A guia Opções de origem contém configurações específicas para o conector e o formato escolhido. Para obter mais informações e exemplos, consulte a [documentação do conector](#supported-sources)relevante.
 
 ## <a name="projection"></a>Projeção
 
@@ -83,26 +102,18 @@ Você pode modificar os tipos de dados de coluna em uma transformação de colun
 
 O botão **importar esquema** na guia **projeção** permite que você use um cluster de depuração ativo para criar uma projeção de esquema. Disponível em cada tipo de fonte, a importação do esquema aqui substituirá a projeção definida no conjunto de um. O objeto DataSet não será alterado.
 
-Isso é útil em conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas não exigem que definições de esquema existam no DataSet.
+Isso é útil em conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas não exigem que definições de esquema existam no DataSet. Para conjuntos de itens embutidos, essa é a única maneira de fazer referência a metadados de coluna sem descompasso de esquema.
 
 ## <a name="optimize-the-source-transformation"></a>Otimizar a transformação de origem
 
-Na guia **otimizar** da transformação origem, você poderá ver um tipo de partição de **origem** . Essa opção só está disponível quando sua origem é o banco de dados SQL do Azure. Isso ocorre porque Data Factory tenta fazer conexões paralelas para executar consultas grandes em sua origem do banco de dados SQL.
+A guia **otimizar** permite a edição de informações de partição em cada etapa de transformação. Na maioria dos casos, o **uso do particionamento atual** otimizará a estrutura de particionamento ideal para uma origem.
+
+Se você estiver lendo de uma fonte de banco de dados SQL do Azure, o particionamento de **origem** personalizado provavelmente lerá os dados de forma mais rápida. O ADF lerá consultas grandes fazendo conexões com seu banco de dados em paralelo. Esse particionamento de origem pode ser feito em uma coluna ou usando uma consulta.
 
 ![Configurações de partição de origem](media/data-flow/sourcepart3.png "particionamento")
-
-Você não precisa Particionar dados em sua origem do banco do dados SQL, mas as partições são úteis para consultas grandes. Você pode basear sua partição em uma coluna ou em uma consulta.
-
-### <a name="use-a-column-to-partition-data"></a>Usar uma coluna para particionar dados
-
-Na tabela de origem, selecione uma coluna na qual particionar. Defina também o número de partições.
-
-### <a name="use-a-query-to-partition-data"></a>Usar uma consulta para particionar dados
-
-Você pode optar por particionar as conexões com base em uma consulta. Insira o conteúdo de um predicado WHERE. Por exemplo, digite year > 1980.
 
 Para obter mais informações sobre a otimização no fluxo de dados de mapeamento, consulte a [guia otimizar](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Comece a criar uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação selecionar](data-flow-select.md).
+Comece a criar seu fluxo de dados com uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação Select](data-flow-select.md).

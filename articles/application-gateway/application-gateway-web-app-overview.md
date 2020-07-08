@@ -6,14 +6,13 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628683"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte do gateway de aplicativo para back-ends de vários locatários, como o serviço de aplicativo
 
@@ -42,7 +41,7 @@ Com essa funcionalidade, os clientes especificam as opções de configuração a
 
 ### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>Término de TLS e TLS de ponta a ponta com serviços multilocatários
 
-A rescisão de TLS e a criptografia TLS de ponta a ponta têm suporte com serviços multilocatários. Para terminação TLS no gateway de aplicativo, o certificado TLS continua a ser adicionado ao ouvinte do gateway de aplicativo. No entanto, no caso de TLS de ponta a ponta, os serviços confiáveis do Azure, como os aplicativos Web do serviço Azure App, não exigem a lista de permissões de back-ends no gateway de aplicativo. Portanto, não há necessidade de adicionar certificados de autenticação. 
+A rescisão de TLS e a criptografia TLS de ponta a ponta têm suporte com serviços multilocatários. Para terminação TLS no gateway de aplicativo, o certificado TLS continua a ser adicionado ao ouvinte do gateway de aplicativo. No entanto, no caso de TLS de ponta a ponta, os serviços confiáveis do Azure, como Azure App aplicativos Web do serviço, não exigem a permissão de back-ends no gateway de aplicativo. Portanto, não há necessidade de adicionar certificados de autenticação. 
 
 ![TLS de ponta a ponta](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

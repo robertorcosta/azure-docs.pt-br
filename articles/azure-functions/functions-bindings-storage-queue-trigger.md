@@ -5,13 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 74ca984232bef979062221a451d0ee10a6965bc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: cc996988-fb4f-47, tracking-python
+ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559908"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de filas do Azure para Azure Functions
 
@@ -146,7 +145,7 @@ A seção [uso](#usage) explica `myQueueItem`, que é chamado pela `name` propri
 
 O exemplo a seguir demonstra como ler uma mensagem de fila passada para uma função por meio de um gatilho.
 
-Um gatilho de fila de armazenamento é definido em *Function. JSON* , em que `queueTrigger` *Type* é definido como.
+Um gatilho de fila de armazenamento é definido em *function.jsem* que o *tipo* está definido como `queueTrigger` .
 
 ```json
 {
@@ -163,7 +162,7 @@ Um gatilho de fila de armazenamento é definido em *Function. JSON* , em que `qu
 }
 ```
 
-O código * _ \_init_\_. py* declara um parâmetro como `func.ServiceBusMessage`, que permite que você leia a mensagem da fila em sua função.
+O código * _ \_ init_ \_ . py* declara um parâmetro como `func.ServiceBusMessage` , que permite que você leia a mensagem da fila em sua função.
 
 ```python
 import logging
@@ -192,7 +191,7 @@ def main(msg: func.QueueMessage):
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo de Java a seguir mostra uma função de gatilho de fila de armazenamento, que registra a `myqueuename`mensagem disparada colocada na fila.
+O exemplo de Java a seguir mostra uma função de gatilho de fila de armazenamento, que registra a mensagem disparada colocada na fila `myqueuename` .
 
  ```java
  @FunctionName("queueprocessor")
@@ -240,7 +239,7 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguin
   }
   ```
 
-  Para obter um exemplo completo, consulte [exemplo](#example).
+  Para ver um exemplo completo, confira o [exemplo](#example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -268,19 +267,19 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A `QueueTrigger` anotação fornece acesso à fila que dispara a função. O exemplo a seguir torna a mensagem da fila disponível para a função `message` por meio do parâmetro.
+A `QueueTrigger` anotação fornece acesso à fila que dispara a função. O exemplo a seguir torna a mensagem da fila disponível para a função por meio do `message` parâmetro.
 
 ```java
 package com.function;
@@ -299,7 +298,7 @@ public class QueueTriggerDemo {
 }
 ```
 
-| Propriedade    | Descrição |
+| Property    | Descrição |
 |-------------|-----------------------------|
 |`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é disparada, o valor desse parâmetro tem o conteúdo da mensagem da fila. |
 |`queueName`  | Declara o nome da fila na conta de armazenamento. |
@@ -309,15 +308,15 @@ public class QueueTriggerDemo {
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `QueueTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `QueueTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | N/D| Deve ser definido como `queueTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direção**| N/D | Apenas no arquivo *function.json*. Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | N/D |O nome da variável que contém o conteúdo do item de fila no código da função.  |
+|**direction**| N/D | Apenas no arquivo *function.json*. Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | n/d |O nome da variável que contém o conteúdo do item de fila no código da função.  |
 |**queueName** | **QueueName**| O nome da fila a ser controlada. |
-|**connection** | **Conexão** |O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "mystorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.|
+|**connection** | **Conexão** |O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "Mystorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -325,7 +324,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Acesse os dados da mensagem usando um parâmetro de método `string paramName`, como. É possível associar a qualquer um dos seguintes tipos:
+Acesse os dados da mensagem usando um parâmetro de método, como `string paramName` . É possível associar a qualquer um dos seguintes tipos:
 
 * Objeto - o runtime do Functions desserializa um conteúdo JSON em uma instância de uma classe arbitrária definida em seu código. 
 * `string`
@@ -336,7 +335,7 @@ Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, cer
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Acesse os dados da mensagem usando um parâmetro de método `string paramName`, como. O `paramName` é o valor especificado na `name` propriedade de *Function. JSON*. É possível associar a qualquer um dos seguintes tipos:
+Acesse os dados da mensagem usando um parâmetro de método, como `string paramName` . O `paramName` é o valor especificado na `name` propriedade de *function.jsem*. É possível associar a qualquer um dos seguintes tipos:
 
 * Objeto - o runtime do Functions desserializa um conteúdo JSON em uma instância de uma classe arbitrária definida em seu código. 
 * `string`
@@ -347,7 +346,7 @@ Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, cer
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A carga do item de fila está `context.bindings.<NAME>` disponível `<NAME>` por meio de onde corresponde ao nome definido em *Function. JSON*. Se a carga for JSON, o valor será desserializado em um objeto.
+A carga do item de fila está disponível por meio `context.bindings.<NAME>` `<NAME>` de onde corresponde ao nome definido no *function.jsem*. Se a carga for JSON, o valor será desserializado em um objeto.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -363,9 +362,9 @@ A anotação [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.az
 
 O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. As propriedades são membros da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Propriedade|Type|Descrição|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma `QueueTrigger` cadeia de caracteres, o terá o mesmo valor que `name` a variável nomeada pela propriedade em *Function. JSON*.|
+|`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma cadeia de caracteres, `QueueTrigger` o terá o mesmo valor que a variável nomeada pela `name` propriedade em *function.js*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
 |`ExpirationTime`|`DateTimeOffset`|A hora em que a mensagem expira.|
 |`Id`|`string`|ID da mensagem da fila.|
@@ -375,7 +374,7 @@ O gatilho de fila fornece várias propriedades de [metadados](./functions-bindin
 
 ## <a name="poison-messages"></a>Mensagens suspeitas
 
-Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes para uma determinada mensagem da fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução do Functions adicionará uma mensagem a uma fila chamada * &lt;originalqueuename>-suspeita*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
+Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes para uma determinada mensagem da fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução do Functions adicionará uma mensagem a uma fila chamada * &lt; originalqueuename>-suspeita*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
 
 Para tratar mensagens suspeitas manualmente, verifique o [dequeueCount](#message-metadata) da mensagem de fila.
 
@@ -402,9 +401,9 @@ O tamanho do lote e o limite para obtenção de um novo lote são configuráveis
 
 O gatilho de fila impede automaticamente que uma função processe uma mensagem da fila várias vezes; as funções não precisam ser escritas para ser idempotentes.
 
-## <a name="hostjson-properties"></a>Propriedades de host. JSON
+## <a name="hostjson-properties"></a>host.jsem Propriedades
 
-O arquivo [host.json](functions-host-json.md#queues) contém configurações que controlam o comportamento de gatilho de fila. Consulte a seção [configurações do host. JSON](functions-bindings-storage-queue-output.md#hostjson-settings) para obter detalhes sobre as configurações disponíveis.
+O arquivo [host.json](functions-host-json.md#queues) contém configurações que controlam o comportamento de gatilho de fila. Consulte a [host.jsna seção Configurações](functions-bindings-storage-queue-output.md#hostjson-settings) para obter detalhes sobre as configurações disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

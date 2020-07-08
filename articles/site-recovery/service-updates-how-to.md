@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 483d2152f3af13c82830528ea73e837fe3788ca4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629381"
 ---
 # <a name="service-updates-in-site-recovery"></a>Atualizações de serviço no Site Recovery
 
@@ -48,7 +47,7 @@ Site Recovery notifica sobre os componentes expirados (ou próximos à expiraç�
 
 As notificações de emails são enviadas da seguinte maneira.
 
-**Momento** | **Frequência**
+**Hora** | **Frequência**
 --- | ---
 60 dias antes da expiração do componente | Uma vez por semana
 Próximos 53 dias | Uma vez por semana
@@ -90,14 +89,13 @@ Nesse cenário, é altamente recomendável que você [habilite as atualizações
 - Durante o processo de habilitação de replicação.
 - Definindo as configurações de atualização de extensão no cofre.
 
-Se você quiser gerenciar manualmente as atualizações, faça o seguinte:
+Se você quiser gerenciar manualmente as atualizações, poderá escolher uma das seguintes opções:
 
-1. No cofre > **itens replicados**, clique nessa notificação na parte superior da tela: 
+1. Quando uma nova atualização de agente estiver disponível, Site Recovery fornecerá uma notificação no cofre em direção à parte superior da página. No cofre > **itens replicados**, clique nessa notificação na parte superior da tela: 
     
-    **O novo Site Recovery atualização do agente de replicação está disponível. Clique para instalar->**
+    **O novo Site Recovery atualização do agente de replicação está disponível. Clique para instalar->** <br/><br/>Selecione as VMs para as quais você deseja aplicar a atualização e clique em **OK**.
 
-4. Selecione as VMs para as quais você deseja aplicar a atualização e clique em **OK**.
-
+2. Na página Visão geral da recuperação de desastre da VM, você encontrará o campo "status do agente", que dirá "atualização crítica" se o agente estiver prestes a expirar. Clique nele e siga as instruções subsequentes para atualizar manualmente a máquina virtual.
 
 ## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Recuperação de desastre do servidor físico/VM do VMware no Azure
 
@@ -113,7 +111,7 @@ Uma reinicialização não é obrigatória, a menos que a diferença entre a ver
 
 O exemplo na tabela mostra como isso funciona.
 
-|**Versão do agente (última reinicialização)** | **Atualizar para o** | **Reinicialização obrigatória?**|
+|**Versão do agente (última reinicialização)** | **Fazer upgrade para** | **Reinicialização obrigatória?**|
 |---------|---------|---------|
 |9.16 |  9.18 | Não obrigatório|
 |9.16 | 9.19 | Não obrigatório|

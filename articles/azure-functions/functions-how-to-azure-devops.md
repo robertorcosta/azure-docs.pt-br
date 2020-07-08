@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 0e47078e9f7620e72524ccf91e942d4e15a6b5bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559117"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua usando o Azure DevOps
 
@@ -25,7 +25,7 @@ Você tem duas opções para definir seu pipeline:
 
 Para criar um pipeline baseado em YAML, primeiro crie seu aplicativo e, em seguida, implante o aplicativo.
 
-### <a name="build-your-app"></a>Compilar seu aplicativo
+### <a name="build-your-app"></a>Criar seu aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para implantar seu aplicativo de funções no Azure.
 
@@ -172,7 +172,7 @@ steps:
 
 ---
 
-### <a name="deploy-your-app"></a>Implantar seu aplicativo
+### <a name="deploy-your-app"></a>Implante seu aplicativo
 
 Você deve incluir um dos exemplos de YAML a seguir no arquivo YAML, dependendo do sistema operacional de hospedagem.
 
@@ -215,7 +215,7 @@ steps:
 
 Os modelos no Azure DevOps são grupos predefinidos de tarefas que criam ou implantam um aplicativo.
 
-### <a name="build-your-app"></a>Compilar seu aplicativo
+### <a name="build-your-app"></a>Criar seu aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para atualizar seu aplicativo de funções no Azure.
 
@@ -237,7 +237,7 @@ Se seu aplicativo JavaScript tiver uma dependência em módulos nativos do Windo
 
 ![Atualizar a versão do pool de agentes](media/functions-how-to-azure-devops/change-agent.png)
 
-### <a name="deploy-your-app"></a>Implantar seu aplicativo
+### <a name="deploy-your-app"></a>Implante seu aplicativo
 
 Ao criar um novo pipeline de lançamento, pesquise o modelo de versão Azure Functions.
 
@@ -247,7 +247,7 @@ Não há suporte para a implantação em um slot de implantação no modelo de v
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Criar um pipeline de compilação usando o CLI do Azure
 
-Para criar um pipeline de compilação no Azure, use `az functionapp devops-pipeline create` o [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). O pipeline de compilação é criado para compilar e liberar quaisquer alterações de código feitas em seu repositório. O comando gera um novo arquivo YAML que define o pipeline de compilação e versão e, em seguida, o confirma para seu repositório. Os pré-requisitos para esse comando dependem do local do seu código.
+Para criar um pipeline de compilação no Azure, use o `az functionapp devops-pipeline create` [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). O pipeline de compilação é criado para compilar e liberar quaisquer alterações de código feitas em seu repositório. O comando gera um novo arquivo YAML que define o pipeline de compilação e versão e, em seguida, o confirma para seu repositório. Os pré-requisitos para esse comando dependem do local do seu código.
 
 - Se o seu código estiver no GitHub:
 

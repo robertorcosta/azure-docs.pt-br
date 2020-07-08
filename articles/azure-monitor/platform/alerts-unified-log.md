@@ -6,16 +6,15 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0e81d48f4e709a9a0bb8ebb33c7029d3841167b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665214"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609039"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
-Este artigo fornece detalhes sobre os alertas de Log, que são um dos tipos de alertas com suporte nos [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e que permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
+Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](../../azure-monitor/platform/alerts-overview.md). Os alertas de log permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
 
 O Alerta de Log consiste em regras de Pesquisa de Logs criadas para o [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) ou o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre seu uso, consulte [Criar alertas de log no Azure](../../azure-monitor/platform/alerts-log.md)
 
@@ -169,5 +168,5 @@ Além disso, para os recursos ocultos do scheduleQueryRules criados para a cobra
 * Saiba mais sobre a [criação de alertas de log no Azure](../../azure-monitor/platform/alerts-log.md).
 * Entenda os [webhooks nos alertas de log no Azure](alerts-log-webhook.md).
 * Saiba mais sobre os [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
-* Saiba mais sobre [Application insights](../../azure-monitor/app/analytics.md).
+* Saiba mais sobre o [Application Insights](../../azure-monitor/app/analytics.md).
 * Saiba mais sobre [log Analytics](../../azure-monitor/log-query/log-query-overview.md).

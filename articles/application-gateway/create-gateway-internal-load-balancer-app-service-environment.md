@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 06/09/2020
 ms.author: genli
-ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8861e850e168169762d95c44a54b6a88a036f396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628527"
 ---
-# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>O certificado de servidor back-end não está na lista de permissões para um gateway de aplicativo usando um Balanceador de Carga Interno com um ambiente de serviço de aplicativo
+# <a name="back-end-server-certificate-is-not-allow-listed-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>O certificado de servidor back-end não é permitido listado para um gateway de aplicativo usando um Load Balancer interno com um Ambiente do Serviço de Aplicativo
 
-Este artigo soluciona o problema a seguir: um certificado não está na lista de permissões quando você cria um gateway de aplicativo usando um Load Balancer interno (ILB) junto com um Ambiente do Serviço de Aplicativo (ASE) no back-end ao usar o TLS de ponta a ponta no Azure.
+Este artigo soluciona o problema a seguir: um certificado não é permitido listado quando você cria um gateway de aplicativo usando um Load Balancer interno (ILB) junto com um Ambiente do Serviço de Aplicativo (ASE) no back-end ao usar o TLS de ponta a ponta no Azure.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -41,7 +40,7 @@ Quando você cria um gateway de aplicativo usando um ILB com um ASE no back-end,
 - **Porta:**: 443
 - **Investigação personalizada:** nome do host – test.appgwtestase.com
 - **Certificado de autenticação:** .cer do test.appgwtestase.com
-- **Integridade de back-end:** Não íntegro – O certificado do servidor back-end não está na lista de permissões do Gateway de Aplicativo.
+- **Integridade do back-end:** Não íntegro – o certificado do servidor back-end não é permitido listado com o gateway de aplicativo.
 
 **Configuração do ASE:**
 
@@ -68,7 +67,7 @@ Quando você usar um FQDN (nome de domínio totalmente qualificado) para acessar
 
 - Desmarque a opção **Uso para serviço de aplicativo** para o gateway de aplicativo, caso você esteja usando o endereço IP do ILB.
 
-Para reduzir a sobrecarga, você poderá carregar o certificado ILB nas configurações de HTTP para fazer com que o caminho da investigação funcione. (Esta etapa é apenas para lista de permissões. Ele não será usado para comunicação TLS.) Você pode recuperar o certificado ILB acessando o ILB com seu endereço IP do seu navegador em HTTPS e exportando o certificado TLS/SSL em um formato CER codificado em base-64 e carregando o certificado nas respectivas configurações de HTTP.
+Para reduzir a sobrecarga, você poderá carregar o certificado ILB nas configurações de HTTP para fazer com que o caminho da investigação funcione. (Esta etapa é apenas para a listagem de permissão. Ele não será usado para comunicação TLS.) Você pode recuperar o certificado ILB acessando o ILB com seu endereço IP do seu navegador em HTTPS e exportando o certificado TLS/SSL em um formato CER codificado em base-64 e carregando o certificado nas respectivas configurações de HTTP.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

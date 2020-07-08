@@ -2,34 +2,33 @@
 title: Tópicos de parceiro da Grade de Eventos do Azure
 description: Envie eventos de parceiros de PaaS e SaaS da Grade de Eventos de terceiros diretamente para os serviços do Azure com a Grade de Eventos do Azure.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: 4546874b8a6cd8a7e45c3e6957a5181d66c7433f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 5327efea8af734c723ba76d1a00b72c08f5c88b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83690032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560266"
 ---
-# <a name="partner-topics-in-azure-event-grid-preview"></a>Tópicos de Parceiros na Grade de Eventos do Azure (versão prévia)
-Os Tópicos de Parceiros permitem que você conecte fontes origens do evento de terceiros diretamente à Grade de Eventos. Essa integração permite que você assine eventos de parceiros da mesma maneira que assina eventos dos serviços do Azure. 
+# <a name="partner-topics-in-azure-event-grid-preview"></a>Tópicos de parceiro na grade de eventos do Azure (visualização)
+Usando tópicos de parceiros, você pode conectar fontes de eventos de terceiros diretamente à grade de eventos do Azure. Essa integração permite que você assine eventos de parceiros da mesma maneira que assina eventos dos serviços do Azure. 
 
 ## <a name="available-partners"></a>Parceiros disponíveis
-O primeiro parceiro disponível por meio de Tópicos de Parceiros da Grade de Eventos é Auth0. O [tópico de parceiros do Auth0](auth0-overview.md) permitem que você conecte suas contas do Auth0 e do Azure. A integração para reagir a eventos do Auth0, bem como registrá-los e monitorá-los em tempo real.
+O primeiro parceiro disponível por meio de tópicos de parceiros de grade de eventos é Auth0. Você pode usar o [tópico de parceiro do Auth0](auth0-overview.md) para conectar suas contas do Auth0 e do Azure. A integração permite reagir, registrar e monitorar eventos Auth0 em tempo real.
 
-[Experimente](auth0-how-to.md) hoje mesmo fazendo logon em sua conta do Auth0 e criando uma integração da Grade de Eventos. Depois de clicar em criar no Auth0, você verá um tópico do Auth0 pendente em sua conta do Azure. Clique em ativar e você poderá criar Assinaturas de Evento, rotear, filtrar e entregar seus eventos assim como você faz com qualquer outra origem do evento.
+[Para experimentar](auth0-how-to.md), entre em sua conta do Auth0 e crie uma integração da grade de eventos. Depois de selecionar **criar** no Auth0, você verá um tópico de Auth0 pendente em sua conta do Azure. Selecione **Ativar**e você pode criar assinaturas de grade de eventos para rotear, filtrar e entregar seus eventos da mesma forma que qualquer outra fonte de evento.
 
 ## <a name="pricing"></a>Preços
 Os tópicos de parceiros são cobrados com a mesma taxa de operação que os tópicos do sistema.
 
 ## <a name="limits"></a>limites
-Os Tópicos de Parceiros estão em versão prévia pública. Durante a versão prévia pública, os Tópicos de Parceiros estão sujeitos aos [mesmos limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) que os tópicos do sistema e os tópicos personalizados.
+Os tópicos de parceiros estão em visualização pública. Durante a visualização pública, os tópicos de parceiros estão sujeitos aos [mesmos limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) que os tópicos do sistema e os tópicos personalizados.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Como fazer para eu me tornar um parceiro da Grade de Eventos?
-A infraestrutura criada para dar suporte a esse lançamento torna fácil e rápido a integração de funcionalidades de eventos de novos parceiros com a Grade de Eventos. Leia a [documentação de integração do parceiro](partner-onboarding-overview.md) para saber mais.
+A infraestrutura criada para dar suporte a esse lançamento torna fácil e rápido a integração de funcionalidades de eventos de novos parceiros com a Grade de Eventos. Para obter mais informações, consulte a [documentação de integração do parceiro](partner-onboarding-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

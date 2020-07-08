@@ -9,12 +9,11 @@ ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6ffc92fe8d17970e1408262387140331189d6e51
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84607339"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Entender as IDs de instância para VMs do conjunto de dimensionamento de VMs do Azure
 Este artigo descreve as IDs de instância para conjuntos de dimensionamento e as suas várias formas de exibição.
@@ -23,7 +22,7 @@ Este artigo descreve as IDs de instância para conjuntos de dimensionamento e as
 
 Cada VM em um conjunto de dimensionamento obtém uma ID de instância que a identifica com exclusividade. Essa ID de instância é usada nas APIs do conjunto de dimensionamento para realizar operações em uma determinada VM no conjunto de dimensionamento. Por exemplo, você pode especificar uma ID de instância específica para refazer a imagem ao usar a API de recriação de imagem:
 
-API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para obter mais informações, consulte a [Documentação da API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
+API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (para obter mais informações, consulte a [Documentação da API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage))
 
 Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para obter mais informações, consulte a [Documentação do Powershell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
 

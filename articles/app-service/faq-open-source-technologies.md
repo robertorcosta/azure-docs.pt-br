@@ -8,13 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: seodec18
-ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559569"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
 
@@ -26,15 +25,15 @@ Este artigo apresenta perguntas frequentes (FAQs) sobre problemas com tecnologia
 
 Para ativar o registro em log de PHP:
 
-1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
-2. No menu superior, selecione **console** > de depuração**cmd**.
+1. Entre no site do **kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
+2. No menu superior, selecione **console de depuração**  >  **cmd**.
 3. Selecione a pasta **Site**.
 4. Selecione a pasta **wwwroot**.
 5. Selecione o **+** ícone e, em seguida, selecione **novo arquivo**.
 6. Defina o nome de arquivo para **.user.ini**.
 7. Selecione o ícone de lápis ao lado de **.user.ini**.
 8. No arquivo, adicione este código:`log_errors=on`
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 10. Selecione o ícone de lápis ao lado de **wp-config.php**.
 11. Adicione o texto para o código a seguir:
     ```php
@@ -56,7 +55,7 @@ Para alterar a versão do aplicativo Node.js, você pode usar uma das seguintes 
   1. No portal do Azure, vá para seu aplicativo web.
   2. Na folha **Configurações**, selecione **Configurações do aplicativo**.
   3. Em **Configurações do aplicativo**, você pode incluir WEBSITE_NODE_DEFAULT_VERSION como a chave e a versão do Node.js que desejar como o valor.
-  4. Vá para o **console** do kudu`https://*yourwebsitename*.scm.azurewebsites.net`().
+  4. Vá para o **console do kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
   5. Para verificar a versão do Node.js, digite o seguinte comando:  
      ```
      node -v
@@ -91,7 +90,7 @@ Se você vir esse erro nos arquivos de debug.log ou php_errors.log, seu aplicati
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Como depurar um aplicativo Node.js que está hospedado no Serviço de Aplicativo?
 
-1.  Vá para o **console** do kudu`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`().
+1.  Vá para o **console do kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` ).
 2.  Vá para a pasta de logs de aplicativo (D:\home\LogFiles\Application).
 3.  No arquivo logging_errors.txt, verifique se há conteúdo.
 
@@ -138,7 +137,7 @@ Para resolver o erro:
 
 1. Remova o arquivo sqljdbc*.jar da pasta do app/lib.
 2. Se você estiver usando o servidor web Tomcat personalizado ou o Azure Marketplace Tomcat, copie esse arquivo. jar para a pasta lib Tomcat.
-3. Se você estiver habilitando Java do portal do Azure (selecione**servidor Tomcat**do **Java 1,8** > ), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath para o arquivo web.config:
+3. Se você estiver habilitando Java do portal do Azure (selecione **Java 1.8**  >  **servidor Tomcat**do Java 1,8), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath para o arquivo web.config:
 
     ```xml
     <httpPlatform>

@@ -1,19 +1,18 @@
 ---
 title: Manipuladores de eventos e destinos – grade de eventos do Azure IoT Edge | Microsoft Docs
 description: Manipuladores de eventos e destinos na grade de eventos no Edge
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e144461b80dca2cf02c0cc06d7feee882293848
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849741"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557631"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Manipuladores de eventos e destinos na grade de eventos no Edge
 
@@ -23,7 +22,7 @@ Este artigo fornece informações sobre como configurar cada um.
 
 ## <a name="webhook"></a>WebHook
 
-Para publicar em um ponto de extremidade de webhook `endpointType` , `WebHook` defina como e forneça:
+Para publicar em um ponto de extremidade de webhook, defina `endpointType` como `WebHook` e forneça:
 
 * endpointUrl: a URL do ponto de extremidade do webhook
 
@@ -42,7 +41,7 @@ Para publicar em um ponto de extremidade de webhook `endpointType` , `WebHook` d
 
 ## <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
-Para publicar em um ponto de extremidade de nuvem da `endpointType` grade de eventos `eventGrid` do Azure, defina como e forneça:
+Para publicar em um ponto de extremidade de nuvem da grade de eventos do Azure, defina `endpointType` como `eventGrid` e forneça:
 
 * endpointUrl: URL do tópico da grade de eventos na nuvem
 * sasKey: chave de SAS do tópico da grade de eventos
@@ -65,7 +64,7 @@ Para publicar em um ponto de extremidade de nuvem da `endpointType` grade de eve
 
 ## <a name="iot-edge-hub"></a>Hub de IoT Edge
 
-Para publicar em um módulo do Hub do Edge, `endpointType` defina `edgeHub` como e forneça:
+Para publicar em um módulo do Hub do Edge, defina `endpointType` como `edgeHub` e forneça:
 
 * OutputType: a saída na qual o módulo de grade de eventos encaminhará eventos que correspondam a essa assinatura para edgeHub. Por exemplo, os eventos que correspondem à assinatura abaixo serão gravados em/messages/modules/eventgridmodule/outputs/sampleSub4.
 
@@ -106,7 +105,7 @@ Para publicar em um hub de eventos, defina `endpointType` como `eventHub` e forn
 
 ## <a name="service-bus-queues"></a>Filas de barramento de serviço
 
-Para publicar em uma fila do barramento de serviço, `endpointType` defina `serviceBusQueue` como e forneça:
+Para publicar em uma fila do barramento de serviço, defina `endpointType` como `serviceBusQueue` e forneça:
 
 * connectionString: cadeia de conexão para a fila específica do barramento de serviço que você está direcionando gerada por meio de uma política de acesso compartilhado.
 
@@ -128,7 +127,7 @@ Para publicar em uma fila do barramento de serviço, `endpointType` defina `serv
 
 ## <a name="service-bus-topics"></a>Tópicos do Service Bus
 
-Para publicar em um tópico do `endpointType` barramento de serviço, defina `serviceBusTopic` como e forneça:
+Para publicar em um tópico do barramento de serviço, defina `endpointType` como `serviceBusTopic` e forneça:
 
 * connectionString: cadeia de conexão para o tópico específico do barramento de serviço que você está direcionando gerado por uma política de acesso compartilhado.
 

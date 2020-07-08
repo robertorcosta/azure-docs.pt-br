@@ -5,20 +5,20 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559991"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho do armazenamento de BLOBs do Azure para Azure Functions
 
 O gatilho de armazenamento de Blob inicia uma função quando é detectado um blob novo ou atualizado. O conteúdo do blob é fornecido como [entrada para a função](./functions-bindings-storage-blob-input.md).
 
-O gatilho do armazenamento de BLOBs do Azure requer uma conta de armazenamento de uso geral. Para usar uma conta somente de BLOB ou se seu aplicativo tiver necessidades especializadas, examine as alternativas para usar esse gatilho.
+O gatilho do armazenamento de BLOBs do Azure requer uma conta de armazenamento de uso geral. Também há suporte para contas de armazenamento V2 com [namespaces hierárquicos](../storage/blobs/data-lake-storage-namespace.md) . Para usar uma conta somente de BLOB ou se seu aplicativo tiver necessidades especializadas, examine as alternativas para usar esse gatilho.
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](./functions-bindings-storage-blob.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](./functions-bindings-storage-blob.md).
 
 ## <a name="alternatives"></a>Alternativas
 
@@ -54,11 +54,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 
 A cadeia de caracteres `{name}` no caminho do disparador de blob `samples-workitems/{name}` cria uma [expressão de associação](./functions-bindings-expressions-patterns.md) que você pode usar no código de função para acessar o nome de arquivo do blob disparando. Para obter mais informações, consulte [Padrões de nome do blob](#blob-name-patterns) a seguir neste artigo.
 
-Para obter mais informações sobre `BlobTrigger` o atributo, consulte [atributos e anotações](#attributes-and-annotations).
+Para obter mais informações sobre o `BlobTrigger` atributo, consulte [atributos e anotações](#attributes-and-annotations).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-O exemplo a seguir mostra uma associação de gatilho de BLOB em um arquivo *Function. JSON* e um código que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+O exemplo a seguir mostra uma associação de gatilho de BLOB em um *function.jsno* arquivo e código que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -254,15 +254,15 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -272,13 +272,13 @@ O `@BlobTrigger` atributo é usado para fornecer acesso ao blob que disparou a f
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `BlobTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `BlobTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como `blobTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direção** | N/D | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#usage). |
-|**name** | N/D | O nome da variável que representa o blob no código de função. |
+|**direction** | N/D | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#usage). |
+|**name** | n/d | O nome da variável que representa o blob no código de função. |
 |**path** | **BlobPath** |O [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) a ser monitorado.  Pode ser um [padrão de nome de blob](#blob-name-patterns). |
 |**connection** | **Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento para uso geral e não uma [conta de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
@@ -296,7 +296,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Acessar dados de blob `context.bindings.<NAME>` usando `<NAME>` onde corresponde ao valor definido em *Function. JSON*.
+Acessar dados de BLOB usando `context.bindings.<NAME>` onde `<NAME>` corresponde ao valor definido em *function.jsem*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -348,7 +348,7 @@ Para procurar as chaves em nomes de arquivos, escape as chaves usando duas chave
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se o blob for nomeado * {20140101}-soundfile. mp3*, o `name` valor da variável no código de função será *soundfile. mp3*.
+Se o blob for nomeado * {20140101}-soundfile.mp3*, o `name` valor da variável no código de função será *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadados
 
@@ -385,13 +385,13 @@ O Azure Functions runtime garante que nenhuma função de gatilho de blob seja c
 
 O Azure Functions armazena recibos do blob em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure do seu aplicativo de funções (definido na configuração do aplicativo `AzureWebJobsStorage`). Um recebimento de blob tem as seguintes informações:
 
-* A função disparada ("*&lt;nome do aplicativo de funções>*. Funções. nome da função>", por exemplo:" MyFunctionApp. Functions. CopyBlob ") * &lt; *
+* A função disparada ("* &lt; nome do aplicativo de funções>*. Funções. * &lt; nome da função>*", por exemplo:" MyFunctionApp. Functions. CopyBlob ")
 * O nome do contêiner
 * O tipo de blob ("BlockBlob" ou "PageBlob")
 * O nome do blob
 * O ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um momento posterior. Para reprocessar imediatamente, o blob *scaninfo* no *Azure-webjobs-hosts/blobscaninfo* pode ser atualizado. Todos os BLOBs com um carimbo de data/ `LatestScan` hora da última modificação após a propriedade serão verificados novamente.
+Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um momento posterior. Para reprocessar imediatamente, o blob *scaninfo* no *Azure-webjobs-hosts/blobscaninfo* pode ser atualizado. Todos os BLOBs com um carimbo de data/hora da última modificação após a `LatestScan` propriedade serão verificados novamente.
 
 ## <a name="poison-blobs"></a>BLOBs inviabilizados
 
@@ -399,7 +399,7 @@ Quando uma função de gatilho de blob falhar para um determinado blob, o Azure 
 
 Se todas as cinco tentativas falharem, o Azure Functions adiciona uma mensagem para uma fila de armazenamento denominada *webjobs-blobtrigger-poison*. O número máximo de novas tentativas é configurável. A mesma MaxDequeueCount é usada para manipular blob suspeitos e manipular mensagens de filas suspeitas. A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionID (no nome do * &lt;aplicativo de funções *de formato>. Funções. nome da função>) * &lt; *
+* FunctionID (no nome do * &lt; aplicativo de funções *de formato>. Funções. * &lt; nome da função>*)
 * BlobType ("BlockBlob" ou "PageBlob")
 * ContainerName
 * BlobName

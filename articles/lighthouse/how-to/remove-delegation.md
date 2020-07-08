@@ -2,13 +2,12 @@
 title: Remover o acesso a uma delegação
 description: Saiba como remover o acesso a recursos que foram delegados a um provedor de serviços para o gerenciamento de recursos delegado do Azure.
 ms.date: 04/24/2020
-ms.topic: conceptual
-ms.openlocfilehash: d0db809eb057f8b4bb48bdf9dd127f4d488f0406
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636488"
 ---
 # <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 

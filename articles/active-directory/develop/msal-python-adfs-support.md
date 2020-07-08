@@ -12,13 +12,12 @@ ms.workload: identity
 ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 01d4cb626aabc83117e864b75b49eec63a6c0af0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 2e5df49ea681eefeccaf621739de185767c0aa16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76699539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558641"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Suporte Serviços de Federação do Active Directory (AD FS) no MSAL para Python
 
@@ -35,7 +34,7 @@ Geralmente, há duas maneiras de se autenticar no AD FS:
 
 O seguinte se aplica se você se conectar diretamente ao Serviços de Federação do Active Directory (AD FS) (AD FS) ou ao Active Directory.
 
-Quando você chama `acquire_token_by_authorization_code` ou `acquire_token_by_device_flow`, a experiência do usuário normalmente é a seguinte:
+Quando você chama `acquire_token_by_authorization_code` ou `acquire_token_by_device_flow` , a experiência do usuário normalmente é a seguinte:
 
 1. O usuário insere a ID da conta.
 2. O Azure AD exibe brevemente a mensagem "levando você para a página da sua organização" e o usuário é redirecionado para a página de entrada do provedor de identidade. A página de entrada geralmente é personalizada com o logotipo da organização.
@@ -49,7 +48,7 @@ As versões de AD FS com suporte nesse cenário federado são:
 
 O seguinte se aplica se você se conectar diretamente ao Serviços de Federação do Active Directory (AD FS) (AD FS) ou ao Active Directory.
 
-Quando você adquire um token usando `acquire_token_by_username_password`, o MSAL Python Obtém o provedor de identidade para entrar em contato com base no nome de usuário. MSAL Python Obtém um [token 1,1 SAML](reference-saml-tokens.md) do provedor de identidade, que ele fornece ao Azure AD, que retorna o JWT (token Web JSON).
+Quando você adquire um token usando `acquire_token_by_username_password` , o MSAL Python Obtém o provedor de identidade para entrar em contato com base no nome de usuário. MSAL Python Obtém um [token 1,1 SAML](reference-saml-tokens.md) do provedor de identidade, que ele fornece ao Azure AD, que retorna o JWT (token Web JSON).
 
 ## <a name="connecting-directly-to-ad-fs"></a>Conectando diretamente a AD FS
 

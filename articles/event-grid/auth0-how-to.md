@@ -2,17 +2,16 @@
 title: Como enviar eventos do Auth0 para o Azure usando a Grade de Eventos do Azure
 description: Como enviar eventos do Auth0 para os serviços do Azure com a Grade de Eventos do Azure.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: 950b17611ba4932cc986d1b6488b904f29fdf04b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: bd8cebaad27857dbd2fe3c5ed61be63d3700a688
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83690312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560744"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integrar a Grade de Eventos do Azure com Auth0
 

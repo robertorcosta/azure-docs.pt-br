@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do HDFS usando o Azure Data Factory
-description: Saiba como copiar dados de uma fonte HDFS local ou de nuvem para armazenamentos de dados de coletor com suporte, usando uma atividade de cópia em um pipeline do Azure Data Factory.
+title: Copiar dados do HDFS usando Azure Data Factory
+description: Saiba como copiar dados de uma nuvem ou fonte de HDFS local para armazenamentos de dados de coletor com suporte usando a atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,43 +11,42 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: f39fb50c5044cacb04b3b147a0160dd23c9eb2d0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 5ec6778e3e00a85a2fa7d43383df5c2ce6c47faa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629540"
 ---
-# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+# <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiar dados do servidor HDFS usando Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-hdfs-connector.md)
 > * [Versão atual](connector-hdfs.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como copiar dados a partir do servidor HDFS. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
+Este artigo descreve como copiar dados do servidor de Sistema de Arquivos Distribuído do Hadoop (HDFS). Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector HDFS tem suporte para as seguintes atividades:
+O conector HDFS tem suporte para as seguintes atividades:
 
-- [atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor suportada](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com a [origem com suporte e a matriz de coletor](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
-Especificamente, este conector HDFS dá suporte a:
+Especificamente, o conector HDFS dá suporte a:
 
-- Cópia de arquivos usando autenticação **Windows** (Kerberos) ou **Anônima**.
-- Cópia de arquivos usando o protocolo **webhdfs** ou suporte à **DistCp interna**.
-- Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
+- Copiar arquivos usando o *Windows* (Kerberos) ou autenticação *anônima* .
+- Copiar arquivos usando o protocolo *webhdfs* ou o suporte *interno a DistCp* .
+- Copiar arquivos como está ou analisando ou gerando arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
-> Verifique se o Integration Runtime pode acessar **TODOS** os [servidor de nó de nome]: [porta do nó de nome] e [servidores de nó de dados]:[porta do nó de dados] do cluster Hadoop. A [porta do nó de nome] padrão é 50070, e a [porta do nó de dados] padrão é 50075.
+> Verifique se o tempo de execução de integração pode acessar *todos* os [servidor de nó de nome]: [porta do nó de nome] e [servidores de nó de dados]: [porta do nó de dados] do cluster Hadoop. A [porta do nó de nome] padrão é 50070 e a [porta do nó de dados] padrão é 50075.
 
-## <a name="getting-started"></a>Introdução
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,12 +58,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do HDFS:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Hdfs**. | Sim |
-| url |URL para o HDFS |Sim |
-| authenticationType | Valores permitidos são: **Anônimo** ou **Windows**. <br><br> Para usar **autenticação Kerberos** com o conector HDFS, veja [esta seção](#use-kerberos-authentication-for-hdfs-connector) para configurar seu ambiente local adequadamente. |Sim |
-| userName |Nome de usuário para a autenticação do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para a Autenticação do Windows) |
-| password |Senha para a autenticação do Windows. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (para a Autenticação do Windows) |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| type | A propriedade *Type* deve ser definida como *HDFS*. | Sim |
+| url |A URL para o HDFS |Sim |
+| authenticationType | Os valores permitidos são *Anonymous* ou *Windows*. <br><br> Para configurar seu ambiente local, consulte a seção [usar autenticação Kerberos para o conector HDFS](#use-kerberos-authentication-for-the-hdfs-connector) . |Sim |
+| userName |O nome de usuário para a autenticação do Windows. Para a autenticação Kerberos, especifique ** \<username> @ \<domain> . com**. |Sim (para autenticação do Windows) |
+| password |A senha da autenticação do Windows. Marque este campo como uma SecureString para armazená-lo com segurança em seu data factory ou [faça referência a um segredo armazenado em um cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim (para a Autenticação do Windows) |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Para saber mais, consulte a seção [pré-requisitos](#prerequisites) . Se o Integration Runtime não for especificado, o serviço usará o Azure Integration Runtime padrão. |Não |
 
 **Exemplo: usando a autenticação anônima**
 
@@ -112,17 +111,17 @@ As propriedades a seguir têm suporte para o serviço vinculado do HDFS:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). 
+Para obter uma lista completa das seções e propriedades que estão disponíveis para definir conjuntos de os, consulte [DataSets in Azure data Factory](concepts-datasets-linked-services.md). 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir são suportadas para o HDFS em `location` configurações de conjunto de dados baseado no formato:
+As propriedades a seguir têm suporte para HDFS em `location` configurações no conjunto de entrada baseado em formato:
 
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | A propriedade de tipo em `location` no conjunto de dados deve ser configurada com **HdfsLocation**. | Sim      |
-| folderPath | O caminho para a pasta. Se quiser usar um caractere curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
-| fileName   | O nome do arquivo sob o folderPath fornecido. Se quiser usar um caractere curinga para filtrar os arquivos, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| type       | A propriedade *Type* em `location` no DataSet deve ser definida como *HdfsLocation*. | Sim      |
+| folderPath | O caminho para a pasta. Se você quiser usar um curinga para filtrar a pasta, ignore essa configuração e especifique o caminho nas configurações de origem da atividade. | Não       |
+| fileName   | O nome do arquivo sob o folderPath especificado. Se você quiser usar um curinga para filtrar arquivos, ignore essa configuração e especifique o nome do arquivo nas configurações de origem da atividade. | Não       |
 
 **Exemplo:**
 
@@ -152,30 +151,30 @@ As propriedades a seguir são suportadas para o HDFS em `location` configuraçõ
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte do HDFS.
+Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte [pipelines e atividades no Azure data Factory](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela origem do HDFS.
 
 ### <a name="hdfs-as-source"></a>HDFS como fonte
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As propriedades a seguir têm suporte para HDFS nas configurações de `storeSettings` na origem de cópia baseada em formato:
+As propriedades a seguir têm suporte para HDFS em `storeSettings` configurações na fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | A propriedade de tipo em `storeSettings` deve ser configurada com **HdfsReadSettings**. | Sim                                           |
-| ***Localize os arquivos a serem copiados:*** |  |  |
-| OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de dados. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
-| OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob o folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponta para um arquivo de texto que inclui a lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
-| ***Configurações adicionais:*** |  | |
-| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
-| modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. <br>Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
-| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
-| ***Configurações do DistCp:*** |  | |
-| distcpSettings | Grupo de propriedades ao usar DistCp de HDFS. | Não |
-| resourceManagerEndpoint | O ponto de extremidade do YARN Resource Manager | Sim se usando DistCp |
-| tempScriptPath | Um caminho de pasta usado para armazenar o script de comando temporário DistCp. O arquivo de script é gerado pelo Data Factory e será removido após a conclusão do trabalho de cópia. | Sim se usando DistCp |
+| type                     | A propriedade *Type* em `storeSettings` deve ser definida como **HdfsReadSettings**. | Sim                                           |
+| ***Localize os arquivos a serem copiados*** |  |  |
+| OPÇÃO 1: caminho estático<br> | Copie da pasta ou do caminho do arquivo especificado no conjunto de um. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
+| OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome real da pasta tiver um curinga ou esse caractere de escape dentro de. <br>Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Não                                            |
+| OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga no folderPath/wildcardFolderPath especificado para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere); use `^` para escapar se o nome real da pasta tiver um curinga ou esse caractere de escape dentro.  Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um conjunto de arquivos especificado. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar (um arquivo por linha, com o caminho relativo para o caminho configurado no conjunto de um).<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de um. Para obter mais exemplos, consulte [exemplos de lista de arquivos](#file-list-examples). |Não |
+| ***Configurações adicionais*** |  | |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando `recursive` é definido como *true* e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. <br>Os valores permitidos são *true* (padrão) e *false*.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
+| modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo *modificado pela última vez*. <br>Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
+| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
+| ***Configurações de DistCp*** |  | |
+| distcpSettings | O grupo de propriedades a ser usado ao usar o HDFS DistCp. | Não |
+| resourceManagerEndpoint | O ponto de extremidade YARN (ainda outro negociador de recursos) | Sim, se estiver usando DistCp |
+| tempScriptPath | Um caminho de pasta que é usado para armazenar o script de comando Temp DistCp. O arquivo de script é gerado pelo Data Factory e será removido depois que o trabalho de cópia for concluído. | Sim, se estiver usando DistCp |
 | distcpOptions | Opções adicionais fornecidas ao comando DistCp. | Não |
 
 **Exemplo:**
@@ -224,7 +223,7 @@ As propriedades a seguir têm suporte para HDFS nas configurações de `storeSet
 
 ### <a name="folder-and-file-filter-examples"></a>Exemplos de filtro de pasta e arquivo
 
-Esta seção descreve o comportamento resultante do caminho da pasta e do nome de arquivo com filtros curinga.
+Esta seção descreve o comportamento resultante se você usar um filtro curinga com o caminho da pasta e o nome do arquivo.
 
 | folderPath | fileName             | recursiva | Estrutura da pasta de origem e resultado do filtro (os arquivos em **negrito** são recuperados) |
 | :--------- | :------------------- | :-------- | :----------------------------------------------------------- |
@@ -235,89 +234,89 @@ Esta seção descreve o comportamento resultante do caminho da pasta e do nome d
 
 ### <a name="file-list-examples"></a>Exemplos de lista de arquivos
 
-Esta seção descreve o comportamento resultante do uso do caminho da lista de arquivos na origem da atividade de cópia.
+Esta seção descreve o comportamento resultante do uso de um caminho de lista de arquivos na origem da atividade de cópia. Ele pressupõe que você tem a seguinte estrutura de pasta de origem e deseja copiar os arquivos que estão em negrito:
 
-Supondo que você tenha a seguinte estrutura de pasta de origem e queira copiar os arquivos em negrito:
-
-| Exemplo de estrutura de origem                                      | Conteúdo em FileListToCopy.txt                             | Configuração ADF                                            |
+| Exemplo de estrutura de origem                                      | Conteúdo em FileListToCopy.txt                             | Configuração de Azure Data Factory                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **No conjunto de dados:**<br>- Caminho da pasta: `root/FolderA`<br><br>**Na origem da atividade de cópia:**<br>- Caminho da lista de arquivos: `root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de arquivos aponta para um arquivo de texto no mesmo armazenamento de dados que inclui a lista de arquivos que você deseja copiar, um arquivo por linha, com o caminho relativo do caminho configurado no conjunto de dados. |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **No conjunto de os:**<br>- Caminho da pasta: `root/FolderA`<br><br>**Na fonte da atividade de cópia:**<br>- Caminho da lista de arquivos: `root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de arquivos aponta para um arquivo de texto no mesmo armazenamento de dados que inclui uma lista de arquivos que você deseja copiar (um arquivo por linha, com o caminho relativo para o caminho configurado no conjunto de dados). |
 
 ## <a name="use-distcp-to-copy-data-from-hdfs"></a>Usar DistCp para copiar dados do HDFS
 
-O [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) é uma ferramenta de linha de comando nativa do Hadoop para fazer cópia distribuída em um cluster Hadoop. Durante a execução de um comando Distcp, primeiro ele listará todos os arquivos a serem copiados, criará vários trabalhos de mapa no cluster Hadoop e cada trabalho de mapa fará a cópia binária da fonte para o coletor.
+[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) é uma ferramenta de linha de comando nativa do Hadoop para fazer uma cópia distribuída em um cluster Hadoop. Quando você executa um comando no DistCp, ele lista primeiro todos os arquivos a serem copiados e, em seguida, cria vários trabalhos de mapa no cluster Hadoop. Cada trabalho de mapa faz uma cópia binária da origem para o coletor.
 
-A atividade de cópia dá suporte ao uso do DistCp para copiar arquivos no estado em que se encontram para o Blob do Azure (incluindo [cópia em etapas](copy-activity-performance.md)) ou para o Azure Data Lake Store, caso em que ele poderá aproveitar totalmente o potencial do seu cluster, em vez de ser executado no Integration Runtime auto-hospedado. Ele proporcionará melhor taxa de transferência de cópia, especialmente se o cluster for muito avançado. Com base em sua configuração no Azure Data Factory, a atividade de cópia criará automaticamente um comando distcp, enviará ao cluster Hadoop e monitorará o status da cópia.
+A atividade de cópia dá suporte ao uso de DistCp para copiar arquivos como se encontra no armazenamento de BLOBs do Azure (incluindo [cópia em etapas](copy-activity-performance.md)) ou em um Azure data Lake Store. Nesse caso, o DistCp pode aproveitar a potência do seu cluster em vez de ser executado no tempo de execução de integração auto-hospedado. O uso do DistCp fornece uma melhor taxa de transferência de cópia, especialmente se o cluster for muito eficiente. Com base na configuração em seu data factory, a atividade de cópia constrói automaticamente um comando DistCp, envia-o para o cluster Hadoop e monitora o status da cópia.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para usar o DistCp para copiar arquivos no estado em que se encontram do HDFS para o Blob do Azure (incluindo cópia em etapas) ou para o Azure Data Lake Store, verifique se seu cluster Hadoop atende aos requisitos abaixo:
+Para usar o DistCp para copiar arquivos da HDFS para o armazenamento de BLOBs do Azure (incluindo cópia em etapas) ou o Azure data Lake Store, verifique se o cluster Hadoop atende aos seguintes requisitos:
 
-1. Os serviços MapReduce e YARN estão habilitados.
-2. A versão do YARN é 2.5 ou superior.
-3. O servidor do HDFS está integrado com o armazenamento de dados de destino – Blob do Azure ou Azure Data Lake Store:
+* Os serviços MapReduce e YARN estão habilitados.  
+* A versão YARN é 2,5 ou posterior.  
+* O servidor HDFS é integrado ao armazenamento de dados de destino: armazenamento de BLOBs do Azure ou Azure data Lake Store:  
 
-    - O FileSystem do Blob do Azure tem suporte nativo desde o Hadoop 2.7. Só é necessário especificar o caminho do jar na configuração do Hadoop env.
-    - O FileSystem do Azure Data Lake Store está empacotado desde o Hadoop 3.0.0-alpha1. Se o cluster Hadoop for inferior a essa versão, você precisará importar manualmente os pacotes jar relacionados com ADLS (azure-datalake-store.jar) [deste](https://hadoop.apache.org/releases.html) local para o cluster e especificar o caminho do jar na configuração do Hadoop env.
+    - O FileSystem do Blob do Azure tem suporte nativo desde o Hadoop 2.7. Você só precisa especificar o caminho JAR na configuração do ambiente do Hadoop.
+    - O FileSystem do Azure Data Lake Store está empacotado desde o Hadoop 3.0.0-alpha1. Se a versão do cluster do Hadoop for anterior à versão, você precisará importar manualmente os pacotes JAR relacionados ao Azure Data Lake Storage Gen2 (Azure-datalake-Store. jar) para o cluster [aqui](https://hadoop.apache.org/releases.html)e especificar o caminho do arquivo JAR na configuração do ambiente do Hadoop.
 
-4. Prepare uma pasta temporária no HDFS. Essa pasta temporária é usada para armazenar script de shell do DistCp, portanto ela ocupa espaço em nível de KB.
-5. Verifique se a conta de usuário fornecida no serviço vinculado do HDFS tem permissão para: a) enviar aplicativo em YARN; b) criar subpasta e ler/gravar arquivos na pasta temporária acima.
+* Prepare uma pasta temporária no HDFS. Essa pasta Temp é usada para armazenar um script de shell DistCp, portanto, ele ocupará o espaço em nível de KB.
+* Verifique se a conta de usuário fornecida no serviço vinculado do HDFS tem permissão para:
+   * Envie um aplicativo no YARN.
+   * Crie uma subpasta e leia/grave arquivos na pasta Temp.
 
 ### <a name="configurations"></a>Configurações
 
-Consulte as configurações e exemplos relacionados ao DistCp na seção [HDFS como origem](#hdfs-as-source).
+Para ver as configurações e exemplos relacionados ao DistCp, vá para a seção [HDFS como fonte](#hdfs-as-source) .
 
-## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Usar a autenticação Kerberos para o conector HDFS
+## <a name="use-kerberos-authentication-for-the-hdfs-connector"></a>Usar a autenticação Kerberos para o conector HDFS
 
-Há duas opções para configurar o ambiente local para usar a autenticação Kerberos no conector HDFS. Você pode escolher a que melhor se adapta ao seu caso.
-* Opção 1: [Ingressar no computador do Integration Runtime auto-hospedado no realm Kerberos](#kerberos-join-realm)
-* Opção 2: [Habilitar a confiança mútua entre o domínio do Windows e o realm Kerberos](#kerberos-mutual-trust)
+Há duas opções para configurar o ambiente local para usar a autenticação Kerberos para o conector HDFS. Você pode escolher a que melhor se adapta à sua situação.
+* Opção 1: [ingressar em um computador de tempo de execução de integração auto-hospedado no realm do Kerberos](#kerberos-join-realm)
+* Opção 2: [habilitar a confiança mútua entre o domínio do Windows e o realm do Kerberos](#kerberos-mutual-trust)
 
-### <a name="option-1-join-self-hosted-integration-runtime-machine-in-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opção 1: Ingressar no computador do Integration Runtime auto-hospedado no realm Kerberos
+### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opção 1: ingressar em um computador de tempo de execução de integração auto-hospedado no realm do Kerberos
 
 #### <a name="requirements"></a>Requisitos
 
-* O computador do Integration Runtime auto-hospedado precisa ingressar no realm Kerberos e não pode ingressar em nenhum domínio do Windows.
+* O computador do Integration Runtime de hospedagem interna precisa ingressar no realm do Kerberos e não pode ingressar em nenhum domínio do Windows.
 
 #### <a name="how-to-configure"></a>Como configurar
 
-**No computador do Integration Runtime auto-hospedado:**
+**No computador do Integration Runtime de hospedagem interna:**
 
-1.  Execute o utilitário **Ksetup** para configurar o realm e servidor KDC do Kerberos.
+1.  Execute o utilitário Ksetup para configurar o realm e servidor KDC (Centro de Distribuição de Chaves) do Kerberos.
 
-    O computador deve ser configurado como um membro de um grupo de trabalho, uma vez que um realm Kerberos é diferente de um domínio do Windows. Para isso, defina o realm Kerberos e adicione um servidor KDC como se segue. Substitua o *REALM.COM* com seu respectivo realm, conforme necessário.
+    O computador deve ser configurado como um membro de um grupo de trabalho, porque um realm Kerberos é diferente de um domínio do Windows. Você pode obter essa configuração definindo o realm do Kerberos e adicionando um servidor KDC executando os comandos a seguir. Substitua *realm.com* pelo seu próprio nome de realm.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
-    **Reinicie** o computador depois de executar esses 2 comandos.
+    Depois de executar esses comandos, reinicie o computador.
 
-2.  Verifique a configuração com o comando **Ksetup**. A saída deverá ser como a seguinte:
+2.  Verifique a configuração com o `Ksetup` comando. A saída deverá ser como a seguinte:
 
             C:> Ksetup
             default realm = REALM.COM (external)
             REALM.com:
                 kdc = <your_kdc_server_address>
 
-**No Azure Data Factory:**
+**Em seu data factory:**
 
-* Configure o conector HDFS usando a **autenticação do Windows** com o nome da entidade de segurança e a senha Kerberos para se conectar à fonte de dados HDFS. Verifique a seção de [propriedades do Serviço Vinculado HDFS](#linked-service-properties) nos detalhes da configuração.
+* Configure o conector HDFS usando a autenticação do Windows junto com seu nome de entidade de segurança e senha Kerberos para se conectar à fonte de dados HDFS. Para obter detalhes de configuração, verifique a seção [Propriedades do serviço vinculado do HDFS](#linked-service-properties) .
 
-### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Habilitar a confiança mútua entre o domínio do Windows e o realm Kerberos
+### <a name="option-2-enable-mutual-trust-between-the-windows-domain-and-the-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: habilitar a confiança mútua entre o domínio do Windows e o realm do Kerberos
 
 #### <a name="requirements"></a>Requisitos
 
-*   O computador do Integration Runtime auto-hospedado deve ingressar em um domínio do Windows.
+*   O computador de tempo de execução de integração auto-hospedado deve ingressar em um domínio do Windows.
 *   Você precisa de permissão para atualizar as configurações do controlador de domínio.
 
 #### <a name="how-to-configure"></a>Como configurar
 
 > [!NOTE]
-> Substitua o REALM.COM e o AD.COM no tutorial a seguir com seus respectivos realm e controlador de domínio, conforme necessário.
+> Substitua REALM.COM e AD.COM no tutorial a seguir com seu próprio nome de realm e controlador de domínio.
 
-**No servidor KDC:**
+**No servidor do KDC:**
 
-1. Edite a configuração do KDC no arquivo **krb5.conf** para permitir que o Domínio do Windows de confiança do KDC se refira ao modelo de configuração a seguir. Por padrão, a configuração está localizada em **/etc/krb5.conf**.
+1. Edite a configuração do KDC no arquivo *krb5. conf* para permitir que o KDC confie no domínio do Windows fazendo referência ao modelo de configuração a seguir. Por padrão, a configuração está localizada em */etc/krb5.conf*.
 
            [logging]
             default = FILE:/var/log/krb5libs.log
@@ -353,85 +352,85 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
              REALM.COM = .
             }
 
-   **Reinicie** o serviço KDC após a configuração.
+   Depois de configurar o arquivo, reinicie o serviço KDC.
 
-2. Prepare uma entidade de segurança chamada **krbtgt/REALM.COM\@AD.COM** no servidor KDC com o seguinte comando:
+2. Prepare uma entidade de segurança chamada *krbtgt/realm. com \@ AD.com* no servidor KDC com o seguinte comando:
 
            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3. No arquivo de configuração de serviço HDFS **hadoop.security.auth_to_local**, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
+3. No arquivo de configuração de serviço do HDFS *hadoop.security.auth_to_local*, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **No controlador de domínio:**
 
-1.  Execute o seguinte comando **Ksetup** para adicionar uma entrada de realm:
+1.  Execute os seguintes `Ksetup` comandos para adicionar uma entrada de realm:
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Estabeleça uma relação de confiança do Domínio do Windows ao Realm Kerberos. [password] é a senha para a entidade de segurança **krbtgt/REALM.COM\@AD.COM**.
+2.  Estabeleça a confiança do domínio do Windows para o realm do Kerberos. [password] é a senha para a entidade de segurança *krbtgt/REALM.COM\@AD.COM*.
 
-            C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+        C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
 
-3.  Selecione o algoritmo de criptografia usado no Kerberos.
+3.  Selecione o algoritmo de criptografia que é usado no Kerberos.
 
-    1. Vá para Gerenciador de Servidores > Gerenciamento de Política de Grupo > Domínio > Objetos de Política de Grupo > Política de Domínio Padrão ou Ativa e Editar.
+    a. Selecione **Gerenciador do servidor**  >  **política de grupo**  >  **domínio**  >  de gerenciamento**política de grupo objetos**  >  **padrão ou política de domínio ativo**e, em seguida, selecione **Editar**.
 
-    2. Na janela pop-up **Editor de Gerenciamento de Política de Grupo**, vá para Configuração do Computador > Políticas > Configurações do Windows > Configurações de Segurança > Políticas Locais > Opções de Segurança e defina **Segurança de rede: Configurar tipos de criptografia permitidos para Kerberos**.
+    b. No painel **Editor de gerenciamento de política de grupo** , selecione **configuração do computador**  >  **políticas**  >  **configurações do Windows**configurações  >  de**segurança**  >  **políticas locais**  >  **Opções de segurança**e configure **segurança de rede: configurar tipos de criptografia permitidos para Kerberos**.
 
-    3. Selecione o algoritmo de criptografia que você deseja usar ao se conectar ao KDC. Normalmente, você pode simplesmente selecionar todas as opções.
+    c. Selecione o algoritmo de criptografia que você deseja usar ao se conectar ao servidor KDC. Você pode selecionar todas as opções.
 
-        ![Configuração dos tipos de criptografia para Kerberos](media/connector-hdfs/config-encryption-types-for-kerberos.png)
+    ![Captura de tela do painel "segurança de rede: configurar tipos de criptografia permitidos para Kerberos"](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
-    4. Use o comando **Ksetup** para especificar o algoritmo de criptografia a ser usado no REALM específico.
+    d. Use o `Ksetup` comando para especificar o algoritmo de criptografia a ser usado no realm especificado.
 
-                C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+        C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.  Crie o mapeamento entre a conta de domínio e a entidade de segurança Kerberos para usar a entidade de segurança Kerberos no Domínio do Windows.
+4.  Crie o mapeamento entre a conta de domínio e a entidade de segurança Kerberos, para que você possa usar a entidade de segurança Kerberos no domínio do Windows.
 
-    1. Inicie as Ferramentas administrativas > **Usuários e Computadores do Active Directory**.
+    a. Selecione **Ferramentas administrativas**  >  **Active Directory usuários e computadores**.
 
-    2. Configure recursos avançados clicando em **Exibir** > **Recursos Avançados**.
+    b. Configure recursos avançados selecionando **Exibir**  >  **recursos avançados**.
 
-    3. Localize a conta para a qual deseja criar mapeamentos e clique com o botão direito do mouse para exibir **Mapeamentos de Nome** > clique na guia **Nomes Kerberos**.
+    c. No painel **recursos avançados** , clique com o botão direito do mouse na conta para a qual você deseja criar mapeamentos e, no painel **mapeamentos de nome** , selecione a guia **nomes Kerberos** .
 
-    4. Adicione uma entidade de segurança do realm.
+    d. Adicione uma entidade de segurança do realm.
 
-        ![Mapear identidade de segurança](media/connector-hdfs/map-security-identity.png)
+       ![O painel "mapeamento de identidade de segurança"](media/connector-hdfs/map-security-identity.png)
 
-**No computador do Integration Runtime auto-hospedado:**
+**No computador do Integration Runtime de hospedagem interna:**
 
-* Execute os seguintes comandos **Ksetup** para adicionar uma entrada de realm.
+* Execute os comandos a seguir `Ksetup` para adicionar uma entrada de realm.
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-**No Azure Data Factory:**
+**Em seu data factory:**
 
-* Configure o conector HDFS usando a **autenticação do Windows** com a Conta de Domínio ou a Entidade de Segurança Kerberos para se conectar à fonte de dados HDFS. Verifique a seção de [propriedades do Serviço Vinculado HDFS](#linked-service-properties) nos detalhes da configuração.
+* Configure o conector HDFS usando a autenticação do Windows junto com sua conta de domínio ou entidade de segurança Kerberos para se conectar à fonte de dados HDFS. Para obter detalhes de configuração, consulte a seção [Propriedades do serviço vinculado do HDFS](#linked-service-properties) .
 
-## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividades
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
+Para obter informações sobre propriedades de atividade de pesquisa, consulte [atividade de pesquisa em Azure data Factory](control-flow-lookup-activity.md).
 
 ## <a name="legacy-models"></a>Modelos herdados
 
 >[!NOTE]
->Os modelos a seguir ainda têm suporte da maneira como se encontram, para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
+>Os modelos a seguir ainda têm suporte como são para compatibilidade com versões anteriores. É recomendável que você use o novo modelo abordado anteriormente, porque a interface do usuário de criação do Azure Data Factory mudou para gerar o novo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados herdado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
-| folderPath | Caminho para a pasta. O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de arquivo real tiver curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
-| fileName |  **Filtro de nome ou curinga** para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape se o nome real da pasta tiver curingas ou esse caractere de escape. |Não |
-| modifiedDatetimeStart | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado com a habilitação dessa configuração quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não |
-| modifiedDatetimeEnd | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado com a habilitação dessa configuração quando você desejar filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não |
-| format | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar arquivos com um formato específico, os seguintes tipos de formato de arquivo têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não (somente para o cenário de cópia binária) |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Níveis compatíveis são: **Ideal** e **Mais Rápido**. |Não |
+| type | A propriedade *Type* do conjunto de conjuntos deve ser definida como *FileShare* |Sim |
+| folderPath | O caminho para a pasta. Há suporte para um filtro curinga. Os curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere); use `^` para escapar se o nome real do arquivo tiver um caractere curinga ou se ele estiver dentro de. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
+| fileName |  O nome ou filtro de curinga para os arquivos sob o "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o nome real da pasta tiver um curinga ou esse caractere de escape dentro de. |Não |
+| modifiedDatetimeStart | Os arquivos são filtrados com base no atributo *modificado pela última vez*. Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você quiser aplicar um filtro de arquivo a um grande número de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.| Não |
+| modifiedDatetimeEnd | Os arquivos são filtrados com base no atributo *modificado pela última vez*. Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> Lembre-se de que o desempenho geral da movimentação de dados será afetado ao habilitar essa configuração quando você quiser aplicar um filtro de arquivo a um grande número de arquivos. <br/><br/> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.| Não |
+| format | Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar arquivos com um formato específico, os seguintes tipos de formato de arquivo têm suporte: *TextFormat*, *JsonFormat*, *AvroFormat*, *OrcFormat*, *ParquetFormat*. Defina a propriedade *type* sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não (somente para o cenário de cópia binária) |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos com suporte são: *gzip*, *deflate*, *bzip2*e *ZipDeflate*.<br/>Níveis compatíveis são: *Ideal* e *Mais Rápido*. |Não |
 
 >[!TIP]
->Para copiar todos os arquivos em uma pasta, especifique **folderPath** somente.<br>Para copiar um único arquivo com um determinado nome, especifique **folderPath** com parte da pasta e **fileName** com nome de arquivo.<br>Para copiar um subconjunto de arquivos em uma pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro curinga.
+>Para copiar todos os arquivos em uma pasta, especifique **folderPath** somente.<br>Para copiar um único arquivo com um nome especificado, especifique **FolderPath** com a parte da **pasta e o nome do** arquivo com o nome.<br>Para copiar um subconjunto de arquivos em uma pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro curinga.
 
 **Exemplo:**
 
@@ -463,19 +462,19 @@ Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](contr
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia herdado
+### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **HdfsSource** |Sim |
-| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não |
-| distcpSettings | Grupo de propriedades ao usar DistCp de HDFS. | Não |
-| resourceManagerEndpoint | O ponto de extremidade do YARN Resource Manager | Sim se usando DistCp |
-| tempScriptPath | Um caminho de pasta usado para armazenar o script de comando temporário DistCp. O arquivo de script é gerado pelo Data Factory e será removido após a conclusão do trabalho de cópia. | Sim se usando DistCp |
-| distcpOptions | Opções adicionais fornecidas ao comando DistCp. | Não |
-| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não |
+| type | A propriedade *Type* da fonte da atividade de cópia deve ser definida como *HdfsSource*. |Sim |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursivo é definido como *true* e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não será copiada ou criada no coletor.<br/>Os valores permitidos são *true* (padrão) e *false*. | Não |
+| distcpSettings | O grupo de propriedades quando você estiver usando o HDFS DistCp. | Não |
+| resourceManagerEndpoint | O ponto de extremidade do Gerenciador de recursos YARN | Sim, se estiver usando DistCp |
+| tempScriptPath | Um caminho de pasta que é usado para armazenar o script de comando Temp DistCp. O arquivo de script é gerado pelo Data Factory e será removido depois que o trabalho de cópia for concluído. | Sim, se estiver usando DistCp |
+| distcpOptions | Opções adicionais são fornecidas para o comando DistCp. | Não |
+| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não |
 
-**Exemplo: Fonte HDFS na atividade de cópia usando DistCp**
+**Exemplo: origem do HDFS na atividade de cópia usando DistCp**
 
 ```json
 "source": {
@@ -489,4 +488,4 @@ Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](contr
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

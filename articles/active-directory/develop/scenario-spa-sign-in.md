@@ -11,26 +11,25 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e809def048c95b6688a13ac99783615eb045d11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558758"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicativo de página única: entrar e sair
 
 Saiba como adicionar entrada ao código para seu aplicativo de página única.
 
-Antes que você possa obter tokens para acessar APIs em seu aplicativo, você precisa de um contexto de usuário autenticado. Você pode conectar usuários ao seu aplicativo no MSAL. js de duas maneiras:
+Antes que você possa obter tokens para acessar APIs em seu aplicativo, você precisa de um contexto de usuário autenticado. Você pode conectar usuários ao seu aplicativo no MSAL.js de duas maneiras:
 
 * [Janela pop-up](#sign-in-with-a-pop-up-window), usando o `loginPopup` método
-* [Redirecionar](#sign-in-with-redirect), usando `loginRedirect` o método
+* [Redirecionar](#sign-in-with-redirect), usando o `loginRedirect` método
 
 Opcionalmente, você também pode passar os escopos das APIs para as quais você precisa que o usuário consenti no momento da entrada.
 
 > [!NOTE]
-> Se o seu aplicativo já tiver acesso a um contexto de usuário autenticado ou a um token de ID, você poderá ignorar a etapa de logon e adquirir tokens diretamente. Para obter detalhes, consulte [SSO sem logon MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
+> Se o seu aplicativo já tiver acesso a um contexto de usuário autenticado ou a um token de ID, você poderá ignorar a etapa de logon e adquirir tokens diretamente. Para obter detalhes, consulte [SSO sem MSAL.js logon](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Escolhendo entre uma experiência de pop-up ou de redirecionamento
 
@@ -45,17 +44,29 @@ Você não pode usar os métodos pop-up e Redirect em seu aplicativo. A escolha 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const loginRequest = {
-    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
 }
 
-userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
-    //login success
-    let idToken = loginResponse.idToken;
-}).catch(function (error) {
-    //login failure
-    console.log(error);
-});
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new userAgentApplication(config);
+
+myMsal.loginPopup(loginRequest)
+    .then(function (loginResponse) {
+        //login success
+        let idToken = loginResponse.idToken;
+    }).catch(function (error) {
+        //login failure
+        console.log(error);
+    });
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)
@@ -91,7 +102,7 @@ const routes: Routes = [
 export class AppRoutingModule { }
 ```
 
-Para uma experiência de janela pop-up, habilite a opção de `popUp` configuração. Você também pode passar os escopos que exigem consentimento da seguinte maneira:
+Para uma experiência de janela pop-up, habilite a `popUp` opção de configuração. Você também pode passar os escopos que exigem consentimento da seguinte maneira:
 
 ```javascript
 // In app.module.ts
@@ -103,7 +114,7 @@ Para uma experiência de janela pop-up, habilite a opção de `popUp` configura�
             }
         }, {
             popUp: true,
-            consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
+            consentScopes: ["User.ReadWrite"]
         })
     ]
 })
@@ -117,17 +128,28 @@ Para uma experiência de janela pop-up, habilite a opção de `popUp` configura�
 Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, você precisa registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
 
 ```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new userAgentApplication(config);
+
 function authCallback(error, response) {
     //handle redirect response
 }
 
-userAgentApplication.handleRedirectCallback(authCallback);
+myMsal.handleRedirectCallback(authCallback);
 
-const loginRequest = {
-    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
-}
-
-userAgentApplication.loginRedirect(loginRequest);
+myMsal.loginRedirect(loginRequest);
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)
@@ -143,7 +165,7 @@ O código aqui é o mesmo descrito anteriormente na seção sobre como entrar co
 
 A biblioteca MSAL fornece um `logout` método que limpa o cache no armazenamento do navegador e envia uma solicitação de saída para o Azure Active Directory (Azure AD). Após a saída, a biblioteca redireciona de volta para a página inicial do aplicativo por padrão.
 
-Você pode configurar o URI para o qual ele deve ser redirecionado após a `postLogoutRedirectUri`configuração. Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
+Você pode configurar o URI para o qual ele deve ser redirecionado após a configuração `postLogoutRedirectUri` . Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -156,9 +178,9 @@ const config = {
     }
 }
 
-const userAgentApplication = new UserAgentApplication(config);
-userAgentApplication.logout();
+const myMsal = new UserAgentApplication(config);
 
+myMsal.logout();
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)

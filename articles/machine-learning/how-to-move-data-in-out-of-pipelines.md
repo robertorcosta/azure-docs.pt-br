@@ -5,17 +5,16 @@ description: Saiba mais sobre entrada & saída de dados em pipelines de Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 233361fb238342cde3c692174e85fb57f69979b1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 54b8161634d15853719d98a52d0d17e2e55a6bb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559352"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movendo dados para e entre as etapas de pipeline de ML (Python)
 
@@ -30,7 +29,7 @@ Esta artigo mostrará como:
 - Dividir `Dataset` dados em subconjuntos, como subconjuntos de treinamento e validação
 - Criar `PipelineData` objetos para transferir dados para a próxima etapa do pipeline
 - Usar `PipelineData` objetos como entrada para etapas de pipeline
-- Criar novos `Dataset` objetos a `PipelineData` partir dos quais deseja persistir
+- Criar novos `Dataset` objetos a partir dos `PipelineData` quais deseja persistir
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,11 +37,11 @@ Você precisará de:
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-- O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou acesso ao [Azure Machine Learning Studio](https://ml.azure.com/).
+- O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou acesso ao [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Um Workspace do Azure Machine Learning.
   
-  [Crie um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md) ou use um existente por meio do SDK do Python. Importe a `Workspace` classe `Datastore` e e carregue as informações de assinatura do arquivo `config.json` usando a função. `from_config()` Essa função procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`.
+  [Crie um workspace do Azure Machine Learning](how-to-manage-workspace.md) ou use um existente por meio do SDK do Python. Importe as classes `Workspace` e `Datastore` e carregue as informações de assinatura do arquivo `config.json` usando a função `from_config()`. Essa função procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")` .
 
    ```python
    import azureml.core
@@ -59,7 +58,7 @@ Você precisará de:
 
 A maneira preferida de ingerir dados em um pipeline é usar um objeto [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) . `Dataset`os objetos representam dados persistentes disponíveis em um espaço de trabalho.
 
-Há várias maneiras de criar e registrar `Dataset` objetos. Os conjuntos de dados tabulares são para a disponibilidade delimitada em um ou mais arquivos. Os conjuntos de dados de arquivo são para dado binário (como imagens) ou para dados que você analisará. As maneiras programáticas mais simples `Dataset` de criar objetos são usar BLOBs existentes no armazenamento do espaço de trabalho ou URLs públicas:
+Há várias maneiras de criar e registrar `Dataset` objetos. Os conjuntos de dados tabulares são para a disponibilidade delimitada em um ou mais arquivos. Os conjuntos de dados de arquivo são para dado binário (como imagens) ou para dados que você analisará. As maneiras programáticas mais simples de criar `Dataset` objetos são usar BLOBs existentes no armazenamento do espaço de trabalho ou URLs públicas:
 
 ```python
 datastore = Datastore.get(workspace, 'training_data')
@@ -75,17 +74,17 @@ Para obter mais opções sobre como criar conjuntos de dados com opções difere
 
 ### <a name="pass-datasets-to-your-script"></a>Passe conjuntos de valores para seu script
 
-Para passar o caminho do conjunto de scripts para o script, `Dataset` use o `as_named_input()` método do objeto. Você pode passar o objeto resultante `DatasetConsumptionConfig` para o script como um argumento ou, usando o `inputs` argumento para o script de pipeline, você pode recuperar o conjunto de resultados `Run.get_context().input_datasets[]`usando.
+Para passar o caminho do conjunto de scripts para o script, use o `Dataset` método do objeto `as_named_input()` . Você pode passar o objeto resultante `DatasetConsumptionConfig` para o script como um argumento ou, usando o `inputs` argumento para o script de pipeline, você pode recuperar o conjunto de resultados usando `Run.get_context().input_datasets[]` .
 
-Depois de criar uma entrada nomeada, você pode escolher seu modo de acesso: `as_mount()` ou `as_download()`. Se o seu script processar todos os arquivos em seu conjunto de recursos e o disco em seu recurso de computação for grande o suficiente para o conjunto de espaço, o modo de acesso de download será a melhor opção. O modo de acesso de download evitará a sobrecarga de transmitir os dados em tempo de execução. Se o script acessar um subconjunto do conjunto de um ou for muito grande para sua computação, use o modo de acesso de montagem. Para obter mais informações, leia [montar versus baixar](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
+Depois de criar uma entrada nomeada, você pode escolher seu modo de acesso: `as_mount()` ou `as_download()` . Se o seu script processar todos os arquivos em seu conjunto de recursos e o disco em seu recurso de computação for grande o suficiente para o conjunto de espaço, o modo de acesso de download será a melhor opção. O modo de acesso de download evitará a sobrecarga de transmitir os dados em tempo de execução. Se o script acessar um subconjunto do conjunto de um ou for muito grande para sua computação, use o modo de acesso de montagem. Para obter mais informações, leia [montar versus baixar](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
 
 Para passar um conjunto de um DataSet para a etapa de pipeline:
 
 1. Use `TabularDataset.as_named_inputs()` ou `FileDataset.as_named_input()` (não está ' no final) para criar um `DatasetConsumptionConfig` objeto
 1. Use `as_mount()` ou `as_download()` para definir o modo de acesso
-1. Passe os conjuntos de itens para suas etapas de pipeline usando `arguments` o argumento `inputs` ou o
+1. Passe os conjuntos de itens para suas etapas de pipeline usando o `arguments` argumento ou o `inputs`
 
-O trecho a seguir mostra o padrão comum de combinar essas etapas dentro `PythonScriptStep` do Construtor: 
+O trecho a seguir mostra o padrão comum de combinar essas etapas dentro do `PythonScriptStep` Construtor: 
 
 ```python
 
@@ -114,7 +113,7 @@ train_step = PythonScriptStep(
 
 ### <a name="access-datasets-within-your-script"></a>Acessar conjuntos de os em seu script
 
-As entradas nomeadas para o script de etapa de pipeline estão disponíveis como `Run` um dicionário dentro do objeto. Recupere o objeto `Run` ativo usando `Run.get_context()` e, em seguida, recupere o dicionário de `input_datasets`entradas nomeadas usando. Se você passou o `DatasetConsumptionConfig` objeto usando o `arguments` argumento em vez do `inputs` argumento, acesse os dados `ArgParser` usando o código. As duas técnicas são demonstradas no trecho a seguir.
+As entradas nomeadas para o script de etapa de pipeline estão disponíveis como um dicionário dentro do `Run` objeto. Recupere o `Run` objeto ativo usando `Run.get_context()` e, em seguida, recupere o dicionário de entradas nomeadas usando `input_datasets` . Se você passou o `DatasetConsumptionConfig` objeto usando o `arguments` argumento em vez do `inputs` argumento, acesse os dados usando o `ArgParser` código. As duas técnicas são demonstradas no trecho a seguir.
 
 ```python
 # In pipeline definition script:
@@ -148,7 +147,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-pipelinedata-for-intermediate-data"></a>Usar `PipelineData` para dados intermediários
 
-Embora `Dataset` os objetos representem dados persistentes, os objetos [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) são usados para dados temporários que são gerados de etapas de pipeline. Como o tempo de vida `PipelineData` de um objeto é maior do que uma única etapa de pipeline, você os define no script de definição de pipeline. Ao criar um `PipelineData` objeto, você deve fornecer um nome e um repositório de dados no qual os mesmos serão armazenados. Passe seus `PipelineData` objetos para `PythonScriptStep` _o usando os_ `arguments` `outputs` argumentos e:
+Embora `Dataset` os objetos representem dados persistentes, os objetos [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) são usados para dados temporários que são gerados de etapas de pipeline. Como o tempo de vida de um `PipelineData` objeto é maior do que uma única etapa de pipeline, você os define no script de definição de pipeline. Ao criar um `PipelineData` objeto, você deve fornecer um nome e um repositório de dados no qual os mesmos serão armazenados. Passe seus `PipelineData` objetos para o `PythonScriptStep` usando _os_ `arguments` `outputs` argumentos e:
 
 ```python
 default_datastore = workspace.get_default_datastore()
@@ -164,7 +163,7 @@ dataprep_step = PythonScriptStep(
 )
 ```
 
-Você pode optar por criar o `PipelineData` objeto usando um modo de acesso que forneça um carregamento imediato. Nesse caso, `PipelineData`ao criar seu, defina o `upload_mode` como `"upload"` e use o `output_path_on_compute` argumento para especificar o caminho para o qual você irá gravar os dados:
+Você pode optar por criar o `PipelineData` objeto usando um modo de acesso que forneça um carregamento imediato. Nesse caso, ao criar seu `PipelineData` , defina o `upload_mode` como `"upload"` e use o `output_path_on_compute` argumento para especificar o caminho para o qual você irá gravar os dados:
 
 ```python
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
@@ -172,7 +171,7 @@ PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", outpu
 
 ### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>Usar `PipelineData` como saídas de uma etapa de treinamento
 
-Dentro de seu pipeline `PythonScriptStep`, você pode recuperar os caminhos de saída disponíveis usando os argumentos do programa. Se esta etapa for a primeira e iniciará os dados de saída, você deverá criar o diretório no caminho especificado. Em seguida, você pode gravar quaisquer arquivos que queira que estejam contidos `PipelineData`no.
+Dentro de seu pipeline `PythonScriptStep` , você pode recuperar os caminhos de saída disponíveis usando os argumentos do programa. Se esta etapa for a primeira e iniciará os dados de saída, você deverá criar o diretório no caminho especificado. Em seguida, você pode gravar quaisquer arquivos que queira que estejam contidos no `PipelineData` .
 
 ```python
 parser = argparse.ArgumentParser()
@@ -185,11 +184,11 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-Se você criou seu `PipelineData` com o `is_directory` argumento definido como `True`, seria suficiente apenas executar a `os.makedirs()` chamada e, em seguida, você estaria livre para escrever quaisquer arquivos que desejar no caminho. Para obter mais detalhes, consulte a documentação de referência do [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) .
+Se você criou seu `PipelineData` com o `is_directory` argumento definido como `True` , seria suficiente apenas executar a `os.makedirs()` chamada e, em seguida, você estaria livre para escrever quaisquer arquivos que desejar no caminho. Para obter mais detalhes, consulte a documentação de referência do [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) .
 
 ### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>Ler `PipelineData` como entradas para etapas não iniciais
 
-Depois que a etapa inicial do pipeline grava alguns dados `PipelineData` no caminho e se torna uma saída dessa etapa inicial, ela pode ser usada como uma entrada para uma etapa posterior:
+Depois que a etapa inicial do pipeline grava alguns dados no `PipelineData` caminho e se torna uma saída dessa etapa inicial, ela pode ser usada como uma entrada para uma etapa posterior:
 
 ```python
 step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
@@ -226,9 +225,9 @@ with open(args.pd) as f:
     print(f.read())
 ```
 
-## <a name="convert-pipelinedata-objects-to-datasets"></a>Converter `PipelineData` objetos em `Dataset`s
+## <a name="convert-pipelinedata-objects-to-datasets"></a>Converter `PipelineData` objetos em `Dataset` s
 
-Se você quiser disponibilizar sua `PipelineData` disponibilidade por mais tempo do que a duração de uma execução, use `as_dataset()` sua função para convertê- `Dataset`la em um. Em seguida, você pode `Dataset`registrar o, tornando-o um cidadão de primeira classe em seu espaço de trabalho. Como seu `PipelineData` objeto terá um caminho diferente toda vez que o pipeline for executado, é altamente recomendável que você `create_new_version` defina `True` como ao registrar um `Dataset` criado a partir `PipelineData` de um objeto.
+Se você quiser disponibilizar sua `PipelineData` disponibilidade por mais tempo do que a duração de uma execução, use sua `as_dataset()` função para convertê-la em um `Dataset` . Em seguida, você pode registrar o `Dataset` , tornando-o um cidadão de primeira classe em seu espaço de trabalho. Como seu `PipelineData` objeto terá um caminho diferente toda vez que o pipeline for executado, é altamente recomendável que você defina `create_new_version` como `True` ao registrar um `Dataset` criado a partir de um `PipelineData` objeto.
 
 ```python
 step1_output_ds = step1_output_data.as_dataset()
@@ -237,5 +236,5 @@ step1_output_ds.register(name="processed_data", create_new_version=True)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um conjunto de informações do Azure Machine Learning](how-to-create-register-datasets.md)
-* [Criar e executar pipelines do Machine Learning com o SDK do Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* [Criar um conjunto de dados do Azure Machine Learning](how-to-create-register-datasets.md)
+* [Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning](how-to-create-your-first-pipeline.md)

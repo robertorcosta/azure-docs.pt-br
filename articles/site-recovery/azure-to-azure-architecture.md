@@ -8,12 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629666"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -34,7 +33,7 @@ Os componentes envolvidos na recuperação de desastre para VMs do Azure são re
 **Conta de armazenamento em cache** | Você precisa de uma conta de armazenamento em cache na rede de origem. Durante a replicação, as alterações na VM são armazenadas no cache antes de serem enviadas para o armazenamento de destino.  As contas de armazenamento em cache devem ser padrão.<br/><br/> O uso de um cache garante um impacto mínimo nos aplicativos de produção que são executados em uma VM.<br/><br/> [Saiba mais](azure-to-azure-support-matrix.md#cache-storage) sobre os requisitos de armazenamento em cache. 
 **Recursos de destino** | Os recursos de destino são usados durante a replicação e quando ocorre um failover. O Site Recovery pode configurar o recurso de destino por padrão, ou você pode criá-lo/personalizá-lo.<br/><br/> Na região de destino, verifique se você consegue criar VMs e se a sua assinatura tem recursos suficientes para dar suporte a tamanhos de VM que serão necessários na região de destino. 
 
-![Replicação de origem e de destino](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Replicação de origem e de destino](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Recursos de destino
 
@@ -62,7 +61,7 @@ Você pode gerenciar recursos de destino da seguinte maneira:
 
 Quando você habilita a replicação de VM do Azure, por padrão, o Site Recovery cria uma política de replicação com as configurações padrão resumidas na tabela.
 
-**Configuração de política** | **Detalhes** | **Os**
+**Configuração de política** | **Detalhes** | **Padrão**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo o Site Recovery mantém os pontos de recuperação | 24 horas
 **Frequência de instantâneos consistentes com aplicativo** | A frequência com que o Site Recovery tira um instantâneo consistente com aplicativo. | A cada quatro horas
@@ -116,7 +115,7 @@ Quando você habilita a replicação para uma VM do Azure, ocorre o seguinte:
 4. O Site Recovery processa os dados no cache e envia-os para a conta de armazenamento de destino ou para os discos gerenciados de réplica.
 5. Depois que os dados são processados, os pontos de recuperação consistentes com falhas são gerados a cada cinco minutos. Os pontos de recuperação consistentes com aplicativo são gerados de acordo com a configuração especificada na política de replicação.
 
-![Habilitar o processo de replicação, etapa 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Habilitar o processo de replicação, etapa 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Processo de replicação**
 
@@ -146,9 +145,9 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 **Regra** |  **Detalhes** | **Marca de serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório. \<> de nome de região
+Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de destino. | EventsHub. \<> de nome de região
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de destino. | EventsHub.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Key Vault (isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal) | AzureKeyVault
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao controlador de automação do Azure (isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal) | GuestAndHybridManagement
@@ -157,9 +156,9 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao co
 
 **Regra** |  **Detalhes** | **Marca de serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório. \<> de nome de região
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Azure AD  | AzureActiveDirectory
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de origem. | EventsHub. \<> de nome de região
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de origem. | EventsHub.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Key Vault (isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal) | AzureKeyVault
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao controlador de automação do Azure (isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal) | GuestAndHybridManagement
@@ -191,7 +190,7 @@ Se você habilitar a consistência de várias VMs, as máquinas virtuais no grup
 
 Quando você inicia um failover, as VMs são criadas no grupo de recursos de destino, na rede virtual de destino, na sub-rede de destino e no conjunto de disponibilidade de destino. Durante um failover, você pode usar qualquer ponto de recuperação.
 
-![Processo de failover](./media/concepts-azure-to-azure-architecture/failover.png)
+![Processo de failover](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

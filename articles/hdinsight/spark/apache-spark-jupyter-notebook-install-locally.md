@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: b2394c580b871105fee84d63c478c3c490b56a0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2084bf136300126e56414599caa63d24c98f4542
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604228"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de anotações do Jupyter em seu computador e conectar-se ao Apache Spark no HDInsight
 
@@ -49,7 +48,7 @@ Baixe o [instalador do Anaconda](https://www.anaconda.com/download/) para sua pl
     |v 3.6 e v 3.5 |`pip install sparkmagic==0.13.1`|
     |v 3.4|`pip install sparkmagic==0.2.3`|
 
-1. Verifique `ipywidgets` se o está instalado corretamente executando o seguinte comando:
+1. Verifique se `ipywidgets` o está instalado corretamente executando o seguinte comando:
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -90,7 +89,7 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
     python
     ```
 
-2. As informações de configuração do Jupyter normalmente são armazenadas no diretório base dos usuários. Digite o seguinte comando para identificar o diretório base e crie uma pasta chamada ** \.sparkmagic**.  O caminho completo será disparado.
+2. As informações de configuração do Jupyter normalmente são armazenadas no diretório base dos usuários. Digite o seguinte comando para identificar o diretório base e crie uma pasta chamada ** \. sparkmagic**.  O caminho completo será disparado.
 
     ```python
     import os
@@ -100,7 +99,7 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
     exit()
     ```
 
-3. Dentro da pasta `.sparkmagic`, crie um arquivo chamado **config. JSON** e adicione o trecho JSON a seguir dentro dele.  
+3. Dentro da pasta `.sparkmagic` , crie um arquivo chamado **config.jsem** e adicione o trecho JSON a seguir dentro dele.  
 
     ```json
     {
@@ -130,12 +129,12 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
 
     |Valor do modelo | Novo valor |
     |---|---|
-    |USU|Logon do cluster, o `admin`padrão é.|
+    |USU|Logon do cluster, o padrão é `admin` .|
     |CLUSTERDNSNAME|Nome do cluster|
-    |{BASE64ENCODEDPASSWORD}|Uma senha codificada em base64 para sua senha real.  Você pode gerar uma senha base64 em [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/).|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Mantenha se estiver `sparkmagic 0.12.7` usando (clusters v 3.5 e v 3.6).  Se estiver `sparkmagic 0.2.3` usando (clusters v 3.4), substitua `"should_heartbeat": true`por.|
+    |{BASE64ENCODEDPASSWORD}|Uma senha codificada em base64 para sua senha real.  Você pode gerar uma senha base64 em [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Mantenha se estiver usando `sparkmagic 0.12.7` (clusters v 3.5 e v 3.6).  Se estiver usando `sparkmagic 0.2.3` (clusters v 3.4), substitua por `"should_heartbeat": true` .|
 
-    Você pode ver um arquivo de exemplo completo em [Sample config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+    Você pode ver um arquivo de exemplo completo no [config.jsde exemplo em](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
    > As pulsações são enviadas para garantir que as sessões não sejam perdidas. Quando um computador entra em suspensão ou está desligado, a pulsação não é enviada e, como resultado, a sessão é limpa. Para clusters v3.4, se desejar desabilitar esse comportamento, você poderá definir a configuração Livy `livy.server.interactive.heartbeat.timeout` para `0` da interface do usuário do Ambari. Para clusters v3.5, se você não definir a configuração de 3.5 ou acima, a sessão não será excluída.
@@ -153,7 +152,7 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
     ![Kernels disponíveis no notebook Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels no notebook Jupyter")
 
     > [!IMPORTANT]  
-    > Depois de selecionar **nova** revisão, seu shell para quaisquer erros.  Se você vir o erro `TypeError: __init__() got an unexpected keyword argument 'io_loop'` , talvez esteja ocorrendo um problema conhecido com determinadas versões do tornado.  Nesse caso, pare o kernel e, em seguida, faça o downgrade da instalação do `pip install tornado==4.5.3`tornado com o seguinte comando:.
+    > Depois de selecionar **nova** revisão, seu shell para quaisquer erros.  Se você vir o erro `TypeError: __init__() got an unexpected keyword argument 'io_loop'` , talvez esteja ocorrendo um problema conhecido com determinadas versões do tornado.  Nesse caso, pare o kernel e, em seguida, faça o downgrade da instalação do tornado com o seguinte comando: `pip install tornado==4.5.3` .
 
     b. Execute o snippet de código a seguir.
 
@@ -164,7 +163,7 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
 
     Se você puder recuperar a saída com êxito, a conexão com o cluster HDInsight será testada.
 
-    Se você quiser atualizar a configuração do bloco de anotações para se conectar a um cluster diferente, atualize o config. JSON com o novo conjunto de valores, conforme mostrado na etapa 3, acima.
+    Se você quiser atualizar a configuração do bloco de anotações para se conectar a um cluster diferente, atualize o config.jsem com o novo conjunto de valores, conforme mostrado na etapa 3, acima.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Por que devo instalar o Jupyter no meu computador?
 

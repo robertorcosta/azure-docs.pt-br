@@ -2,13 +2,12 @@
 title: Exibir atividade do provedor de serviços
 description: Os clientes podem exibir a atividade registrada para ver as ações executadas pelos provedores de serviço por meio do gerenciamento de recursos delegado do Azure.
 ms.date: 01/15/2020
-ms.topic: conceptual
-ms.openlocfilehash: a923a57ecc94ac15af207c2b8dc8998708b708d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 42af2aa7fca5031eb50bd421a5207320858b70cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636437"
 ---
 # <a name="view-service-provider-activity"></a>Exibir atividade do provedor de serviços
 
@@ -45,5 +44,5 @@ Para obter mais informações, consulte [visão geral das consultas de log no Az
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Azure monitor](../../azure-monitor/index.yml).
+- Saiba mais sobre o [Azure Monitor](../../azure-monitor/index.yml).
 - Saiba como [Exibir e gerenciar ofertas de provedor de serviços](view-manage-service-providers.md) na portal do Azure.

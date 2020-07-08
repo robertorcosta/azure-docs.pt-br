@@ -10,13 +10,12 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
-ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655689"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory
 
@@ -28,21 +27,19 @@ Este guia mostra como criar um runtime de integração auto-hospedada compartilh
 
 Para criar um IR auto-hospedado compartilhado usando a interface do usuário do Azure Data Factory, siga estas etapas:
 
-1. No IR auto-hospedado que será compartilhado, conceda permissão para o data factory no qual deseja criar o IR vinculado.
+1. No IR auto-hospedado a ser compartilhado, selecione **conceder permissão a outro data Factory** e, na página "configuração do tempo de execução de integração", selecione o data Factory no qual você deseja criar o ir vinculado.
       
-    ![Botão para conceder permissão na guia Compartilhamento](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![Seleções para atribuição de permissões](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![Botão para conceder permissão na guia Compartilhamento](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. Observe a ID do recurso do IR auto-hospedado a ser compartilhado.
-      
-   ![Localização da ID do recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
+2. Observe e copie o "ID de recurso" acima do IR hospedado para ser compartilhado.
+         
 3. No data factory para o qual as permissões foram concedidas, crie um novo IR auto-hospedado (vinculado) e insira a ID do recurso.
       
-   ![Botão para criar um runtime de integração auto-hospedada vinculado](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![Caixas de nome e ID do recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Botão para criar um tempo de execução de integração auto-hospedado](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![Botão para criar um runtime de integração auto-hospedada vinculado](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+
+    ![Caixas de nome e ID do recurso](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Criar um IR auto-hospedado compartilhado usando o Azure PowerShell
 

@@ -7,16 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74069621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609158"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade com suporte do Azure HDInsight
 
  Para fornecer a você os níveis ideais de disponibilidade para seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura exclusiva para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes dessa arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes padrão do Apache que são implantados para dar suporte a serviços específicos. Este artigo explica a arquitetura do modelo de serviço de alta disponibilidade no HDInsight, como o HDInsight dá suporte a failover para serviços de HA e práticas recomendadas para recuperação de outras interrupções de serviço.
+ 
+> [!NOTE]
+> Comunicação sem tendência
+>
+> A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+>
+
 
 ## <a name="high-availability-infrastructure"></a>Infraestrutura de alta disponibilidade
 
@@ -50,7 +56,7 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir e
 
 | Serviço | Nós de cluster | Tipos de cluster | Finalidade |
 |---|---|---|---|
-| Servidor Apache Ambari| Cabeçalho ativo | Todos | Monitora e gerencia o cluster.|
+| Servidor Apache Ambari| Cabeçalho ativo | Tudo | Monitora e gerencia o cluster.|
 | Linha do Tempo do Aplicativo Server para Apache YARN | Cabeçalho ativo | Todos, exceto Kafka | Mantém informações de depuração sobre trabalhos do YARN em execução no cluster.|
 | Servidor de histórico de trabalho para o MapReduce do Hadoop | Cabeçalho ativo | Todos, exceto Kafka | Mantém dados de depuração para trabalhos MapReduce.|
 | Apache Livy | Cabeçalho ativo | Spark | Permite uma interação fácil com um cluster Spark em uma interface REST |

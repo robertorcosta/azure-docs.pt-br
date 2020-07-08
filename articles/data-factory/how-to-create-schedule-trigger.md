@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 360d01d01c163e494340c2da3182192dc15612a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641446"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560793"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,11 +66,11 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
 
     ![Botão Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
 
-1. Alterne para a guia **execuções de pipeline** à esquerda e, em seguida, selecione **Atualizar** para atualizar a lista. Você verá as execuções de pipeline disparadas pelo gatilho agendado. Observe os valores na coluna **Disparado Por**. Se você usar a opção **disparar agora** , verá o gatilho manual executado na lista. 
+1. Alterne para a guia **execuções de pipeline** à esquerda e, em seguida, selecione **Atualizar** para atualizar a lista. Você verá as execuções de pipeline disparadas pelo gatilho agendado. Observe os valores na coluna **disparados por** . Se você usar a opção **disparar agora** , verá o gatilho manual executado na lista. 
 
     ![Monitorar execuções disparadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Alterne para o modo de exibição **Execuções de gatilho**. 
+1. Alterne para o modo de exibição de **execuções de gatilho** . 
 
     ![Monitorar execuções de gatilho](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -80,7 +80,7 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
 
 Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar um gatilho de agendamento. Para ver essa amostra funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que é executado a cada 15 minutos. O gatilho é associado a um pipeline chamado **Adfv2QuickStartPipeline** que você cria como parte do Início Rápido.
 
-1. Crie um arquivo JSON chamado **mytrigger. JSON** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
+1. Crie um arquivo JSON chamado **MyTrigger.js** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
 
     > [!IMPORTANT]
     > Antes de salvar o arquivo JSON, defina o valor do elemento **startTime** com a hora UTC atual. Defina o valor do elemento **endTime** como uma hora após a hora UTC atual.
@@ -332,7 +332,7 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 ### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
-| Propriedade JSON | Tipo | Necessária | Valor padrão | Valores válidos | Exemplo |
+| Propriedade JSON | Tipo | Obrigatório | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | Sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **Recurrence** | Objeto | Sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
-ms.openlocfilehash: 1d721e89534c09a5572e5674796f28355f652165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: ea63b4bd40a610227b4315f9e6e858c39ff9ff6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84606455"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir trabalhos (Python)
 
@@ -29,7 +29,7 @@ Conceitualmente, um trabalho encapsula uma dessas ações e rastreia o progresso
 
 Saiba mais sobre cada um desses recursos nestes artigos:
 
-* Dispositivo gêmeo e propriedades: [Introdução aos dispositivos gêmeos](iot-hub-python-twin-getstarted.md) e [Tutorial: como usar as propriedades de dispositivos gêmeos](tutorial-device-twins.md)
+* Dispositivo gêmeo e propriedades: [Introdução aos dispositivos gêmeos](iot-hub-python-twin-getstarted.md) e [Tutorial: Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
 
 * Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: métodos diretos](quickstart-control-device-python.md)
 
@@ -69,7 +69,7 @@ No fim deste tutorial, você tem dois aplicativos de Python:
 
 Nesta seção, você cria um aplicativo de console do Python que responde a um método direto chamado pela nuvem, que aciona um método **lockDoor** simulado.
 
-1. No prompt de comando, execute o seguinte comando para instalar o pacote **Azure-IOT-Device** :
+1. No seu prompt de comando, execute o seguinte comando para instalar o pacote **azure-iot-device**:
 
     ```cmd/sh
     pip install azure-iot-device
@@ -150,7 +150,7 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
 > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do hub IoT
 
 Neste artigo, você cria um serviço de back-end que invoca um método direto em um dispositivo e atualiza o dispositivo de atualização. O serviço precisa da permissão de **conexão de serviço** para chamar um método direto em um dispositivo. O serviço também precisa das permissões de **leitura** do registro e de **gravação do registro** para ler e gravar o registro de identidade. Não há nenhuma política de acesso compartilhado padrão que contenha apenas essas permissões, portanto, você precisa criar uma.
 
@@ -158,7 +158,7 @@ Para criar uma política de acesso compartilhado que conceda permissões de cone
 
 1. Abra o Hub IoT no [portal do Azure](https://portal.azure.com). A maneira mais fácil de acessar o Hub IoT é selecionar grupos de **recursos**, selecionar o grupo de recursos onde o Hub IOT está localizado e, em seguida, selecionar o Hub IOT na lista de recursos.
 
-2. No painel do lado esquerdo do Hub IoT, selecione políticas de **acesso compartilhado**.
+2. No painel do lado esquerdo do hub IoT, selecione **Políticas de acesso compartilhado**.
 
 3. No menu superior acima da lista de políticas, selecione **Adicionar**.
 
@@ -168,17 +168,17 @@ Para criar uma política de acesso compartilhado que conceda permissões de cone
 
 5. De volta ao painel **políticas de acesso compartilhado** , selecione sua nova política na lista de políticas.
 
-6. Em **chaves de acesso compartilhado**, selecione o ícone de cópia para a **cadeia de conexão--chave primária** e salve o valor.
+6. Em **Chaves de acesso compartilhado**, selecione o ícone de cópia da **Cadeia de conexão – Chave primária** e salve o valor.
 
     ![Mostrar como recuperar a cadeia de conexão](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-Para obter mais informações sobre políticas de acesso compartilhado do Hub IoT e permissões, consulte [controle de acesso e permissões](./iot-hub-devguide-security.md#access-control-and-permissions).
+Para obter mais informações sobre permissões e políticas de acesso compartilhado do Hub IoT, consulte [Controle de acesso e permissões](./iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agendar trabalhos para chamar um método direto e atualizar as propriedades do dispositivo gêmeo
 
 Nesta seção, você cria um aplicativo de console do Python que inicia um **lockDoor** remoto em um dispositivo usando um método direto e também atualiza as propriedades desejadas do dispositivo.
 
-1. No prompt de comando, execute o seguinte comando para instalar o pacote **Azure-IOT-Hub** :
+1. No prompt de comando, execute o seguinte comando para instalar o pacote **azure-iot-hub**:
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -337,4 +337,4 @@ Agora você está pronto para executar os aplicativos.
 
 Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do twin do dispositivo.
 
-Para continuar a introdução aos padrões do Hub IoT e do gerenciamento de dispositivos, como remoto pela atualização do firmware do ar, consulte [como fazer uma atualização de firmware](tutorial-firmware-update.md).
+Para continuar com a introdução ao Hub IoT e os padrões de gerenciamento de dispositivos como atualização de firmware remota aérea, veja [Como fazer uma atualização de firmware](tutorial-firmware-update.md).

@@ -9,15 +9,14 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/29/2020
+ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76908727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84634635"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -65,10 +64,11 @@ Para desbloquear o acesso de administrador para o locatário, é necessário cri
 
 Incorpore os seguintes controles de acesso em suas políticas de acesso condicional existentes para a organização:
 
-1. Provisione vários métodos de autenticação para cada usuário que dependa de canais de comunicação diferentes, por exemplo, o aplicativo Microsoft Authenticator (baseado na internet), token OATH (gerado no dispositivo) e SMS (telefônico).
+1. Provisione vários métodos de autenticação para cada usuário que dependa de canais de comunicação diferentes, por exemplo, o aplicativo Microsoft Authenticator (baseado na internet), token OATH (gerado no dispositivo) e SMS (telefônico). O script do PowerShell a seguir ajudará você a identificar com antecedência, quais métodos adicionais seus usuários devem registrar: [script para análise do método de autenticação do Azure MFA](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Implante o Windows Hello para Empresas em dispositivos Windows 10 para atender aos requisitos de MFA diretamente do logon de dispositivo.
 3. Use dispositivos confiáveis por meio do [Azure AD Hybrid Join](https://docs.microsoft.com/azure/active-directory/devices/overview) ou [dispositivos gerenciados pelo Microsoft Intune](https://docs.microsoft.com/intune/planning-guide). Dispositivos confiáveis melhorarão a experiência do usuário porque o próprio dispositivo confiável pode atender aos requisitos de autenticação forte de política sem um desafio MFA para o usuário. Em seguida, a MFA será necessária ao registrar um novo dispositivo e ao acessar a aplicativos ou recursos de dispositivos não confiáveis.
 4. Use as políticas de proteção de identidade com base no risco do Azure AD, que impedem o acesso quando o usuário ou logon está em risco, no lugar de políticas de MFA fixas.
+5. Se você estiver protegendo o acesso VPN usando a extensão NPS do Azure MFA, considere a possibilidade de federar sua solução de VPN como um [aplicativo SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determinar a categoria do aplicativo conforme recomendado abaixo. 
 
 >[!NOTE]
 > As políticas baseadas em risco requerem licenças do [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -91,8 +91,9 @@ Este conjunto de políticas de exemplo concederá aos usuários selecionados no 
 
 ### <a name="contingencies-for-user-lockout"></a>Contingências para bloqueio do usuário
 
-Como alternativa, sua organização também pode criar políticas de contingência. Para criar políticas de contingência, é necessário definir critérios de compensação entre continuidade dos negócios, custos operacionais, custo financeiro e riscos de segurança. Por exemplo, você poderá ativar uma política de contingência apenas para um subconjunto de usuários, um subconjunto de aplicativos, um subconjunto de clientes, ou a partir de um subconjunto dos locais. Políticas de contingência concederá aos administradores e usuários finais acesso a aplicativos e recursos durante uma interrupção quando nenhum método de mitigação foi implementado.
-Reconhecer sua exposição durante uma interrupção ajuda a reduzir o risco e é uma parte crítica do processo de planejamento. Para criar o plano de contingência, primeiro determine os seguintes requisitos de negócios da sua organização:
+Como alternativa, sua organização também pode criar políticas de contingência. Para criar políticas de contingência, é necessário definir critérios de compensação entre continuidade dos negócios, custos operacionais, custo financeiro e riscos de segurança. Por exemplo, você poderá ativar uma política de contingência apenas para um subconjunto de usuários, um subconjunto de aplicativos, um subconjunto de clientes, ou a partir de um subconjunto dos locais. Políticas de contingência concederá aos administradores e usuários finais acesso a aplicativos e recursos durante uma interrupção quando nenhum método de mitigação foi implementado. A Microsoft recomenda a habilitação de políticas de contingência no [modo somente de relatório](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) quando não estiver em uso para que os administradores possam monitorar o impacto potencial das políticas, caso precisem ser ativadas.
+
+ Reconhecer sua exposição durante uma interrupção ajuda a reduzir o risco e é uma parte crítica do processo de planejamento. Para criar o plano de contingência, primeiro determine os seguintes requisitos de negócios da sua organização:
 
 1. Determinar seus aplicativos de missão crítica antecipadamente: quais são os aplicativos aos quais você deve conceder acesso, mesmo com uma postura de risco/segurança menor? Crie uma lista desses aplicativos e certifique-se de que todos os outros stakeholders (lideranças jurídicas, de negócios e segurança) concordam que se todos os controle de acesso forem perdidos, esses aplicativos ainda devem continuar em execução. Isso provavelmente resultará nas categorias a seguir:
    * **Categoria 1 - aplicativos críticos** que não podem ficar indisponíveis por mais de alguns minutos, por exemplo, aplicativos que afetam diretamente a receita da organização.
@@ -110,12 +111,12 @@ Reconhecer sua exposição durante uma interrupção ajuda a reduzir o risco e �
 
 #### <a name="microsoft-recommendations"></a>Recomendações da Microsoft
 
-Uma política de acesso condicional de contingência é uma **política desabilitada** que OMITE a MFA do Azure, a MFA de terceiros, os controles baseados em risco ou no dispositivo. Então, quando sua organização decidir ativar o plano de contingência, os administradores poderão habilitar a política e desabilitar as políticas com base em controle regulares.
+Uma política de acesso condicional de contingência é uma **política de backup** que OMITE a MFA do Azure, a MFA de terceiros, os controles baseados em risco ou no dispositivo. Para minimizar a interrupção inesperada quando uma política de contingência estiver habilitada, a política deverá permanecer no modo somente de relatório quando não estiver em uso. Os administradores podem monitorar o impacto potencial de suas políticas de contingência usando a pasta de trabalho de informações de acesso condicional. Quando sua organização decidir ativar seu plano de contingência, os administradores poderão habilitar a política e desabilitar as políticas comuns baseadas em controle.
 
 >[!IMPORTANT]
 > Desabilitar políticas que impõem segurança nos usuários, mesmo temporariamente, reduzirá a postura de segurança enquanto o plano de contingência estiver vigente.
 
-* Configure um conjunto de políticas de fallback se uma interrupção em um mecanismo de controle de acesso ou um tipo de credencial afete o acesso aos seus aplicativos. Configure uma política em um estado desabilitado que requer ingresso no domínio como um controle, como um backup para uma política ativa que requer um provedor MFA de terceiros.
+* Configure um conjunto de políticas de fallback se uma interrupção em um mecanismo de controle de acesso ou um tipo de credencial afete o acesso aos seus aplicativos. Configure uma política no estado somente de relatório que exija ingresso no domínio como um controle, como um backup para uma política ativa que requer um provedor de MFA de terceiros.
 * Reduza o risco de atores maliciosos detectarem senhas, quando a MFA não é necessária, seguindo as práticas no white paper [diretrizes de senha](https://aka.ms/passwordguidance).
 * Implante [SSPR (Redefinição de Senha de Autoatendimento do Azure AD)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Proteção por Senha do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) para certificar-se de que os usuários não usem uma senha comum e os termos que você quer vetar.
 * Use as políticas que restringem o acesso dentro dos aplicativos se um determinado nível de autenticação não for atingido, em vez de simplesmente fazer fallback para acesso completo. Por exemplo:
@@ -146,28 +147,28 @@ O exemplo a seguir: **exemplo de uma política de AC de contingência para resta
   * Aplicativos de nuvem: Exchange Online e SharePoint Online
   * Condições: qualquer
   * Controle de concessão: exigir ingresso no domínio
-  * Estado: desabilitado
+  * Estado: somente relatório
 * Política 2: bloquear plataformas que não sejam o Windows
   * Nome: EM002-habilitar em emergência: interrupção do MFA [2/4]-Exchange SharePoint-bloquear acesso, exceto Windows
   * Usuários e grupos: inclua todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de nuvem: Exchange Online e SharePoint Online
   * Condições: a plataforma de dispositivo inclui todas as plataformas, excluir janelas
   * Controle de concessão: bloco
-  * Estado: desabilitado
+  * Estado: somente relatório
 * Política 3: bloquear redes que não sejam CorpNetwork
   * Nome: EM003-habilitar em emergência: interrupção do MFA [3/4]-Exchange SharePoint-bloquear acesso, exceto rede corporativa
   * Usuários e grupos: inclua todos os usuários. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de nuvem: Exchange Online e SharePoint Online
   * Condições: os locais incluem qualquer local, excluir CorpNetwork
   * Controle de concessão: bloco
-  * Estado: desabilitado
+  * Estado: somente relatório
 * Política 4: bloquear EAS explicitamente
   * Nome: EM004-habilitar em emergência: interrupção do MFA [4/4]-Exchange-Block EAS para todos os usuários
   * Usuários e grupos: incluir todos os usuários
   * Aplicativos de nuvem: incluir o Exchange Online
   * Condições: aplicativos cliente: Exchange Active Sync
   * Controle de concessão: bloco
-  * Estado: desabilitado
+  * Estado: somente relatório
 
 Ordem de ativação:
 
@@ -188,14 +189,14 @@ Neste exemplo, **Exemplo B - políticas de CA de contingência para permitir o a
   * Aplicativos de nuvem: Salesforce.
   * Condições: nenhuma
   * Controle de concessão: bloco
-  * Estado: desabilitado
+  * Estado: somente relatório
 * Política 2: bloquear a equipe de vendas de qualquer plataforma que não seja a móvel (para reduzir a área da superfície do ataque)
   * Nome: EM002-habilitar em emergência: interrupção de conformidade do dispositivo [2/2]-Salesforce-bloquear todas as plataformas, exceto iOS e Android
   * Usuários e grupos: inclua SalesforceContingency. Excluir SalesAdmins
   * Aplicativos de nuvem: Salesforce
   * Condições: a plataforma de dispositivo inclui todas as plataformas, excluir iOS e Android
   * Controle de concessão: bloco
-  * Estado: desabilitado
+  * Estado: somente relatório
 
 Ordem de ativação:
 
@@ -203,6 +204,26 @@ Ordem de ativação:
 2. Habilitar política 1: Verifique se os usuários fora do SalesContingency não podem acessar o Salesforce. Verifique se os usuários em SalesAdmins e SalesforceContingency podem acessar a Salesforce.
 3. Habilitar política 2: Verifique se os usuários no grupo SalesContingency não podem acessar o Salesforce de seus laptops Windows/Mac, mas ainda podem acessar de seus dispositivos móveis. Verifique se SalesAdmin ainda pode acessar a Salesforce de qualquer dispositivo.
 4. Desabilite a política de conformidade do dispositivo existente para a Salesforce.
+
+### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Contingências para bloqueio de usuário de recursos locais (extensão NPS)
+
+Se você estiver protegendo o acesso VPN usando a extensão NPS do Azure MFA, considere a possibilidade de federar sua solução de VPN como um [aplicativo SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determinar a categoria do aplicativo conforme recomendado abaixo. 
+
+Se você tiver implantado a extensão NPS do Azure AD MFA para proteger recursos locais, como VPN e gateway de Área de Trabalho Remota, com MFA, deverá considerar com antecedência se estiver pronto para desabilitar a MFA em um caso de emergência.
+
+Nesse caso, você pode desabilitar a extensão NPS, como resultado, o servidor NPS verificará somente a autenticação primária e não impedirá a MFA nos usuários.
+
+Desabilitar extensão NPS: 
+-   Exporte a chave do registro HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters como um backup. 
+-   Exclua os valores de registro para "AuthorizationDLLs" e "ExtensionDLLs", não para a chave de parâmetros. 
+-   Reinicie o serviço de serviço de diretiva de rede (IAS) para que as alterações entrem em vigor 
+-   Determine se a autenticação primária para VPN foi bem-sucedida.
+
+Depois que o serviço for recuperado e você estiver pronto para impor o MFA aos usuários novamente, habilite a extensão do NPS: 
+-   Importante a chave do registro do backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Reinicie o serviço de serviço de diretiva de rede (IAS) para que as alterações entrem em vigor 
+-   Determine se a autenticação primária, bem como a autenticação secundária para VPN, foi bem-sucedida.
+-   Examine o servidor NPS e o log de VPN para determinar quais usuários entraram durante a janela de emergência.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Implantar sincronização de hash de senha, mesmo se você for federado ou usar a autenticação de passagem
 
@@ -240,7 +261,7 @@ Dependendo de quais mitigações ou contingências são usadas durante uma inter
 Desfaça as alterações feitas como parte do plano de contingência ativado quando for restaurado o serviço que causou a interrupção. 
 
 1. Habilitar as políticas regulares
-2. Desabilite as políticas de contingência. 
+2. Desabilite suas políticas de contingência de volta para o modo somente de relatório. 
 3. Reverta todas as outras alterações feitas e documentadas durante a interrupção.
 4. Se você usou uma conta de acesso de emergência, lembre-se de regenerar as credenciais e proteger fisicamente os detalhes das novas credenciais como parte dos procedimentos de conta de acesso de emergência.
 5. Continue a fazer a [triagem de todas as detecções de risco relatadas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) após a interrupção de atividade suspeita.
@@ -271,3 +292,4 @@ Se sua organização estiver usando políticas herdadas de MFA por usuário, voc
   * [Diretrizes de senha - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [O que são condições em Azure Active Directory acesso condicional?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [O que são controles de acesso no Azure Active Directory acesso condicional?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [O que é o modo somente de relatório de acesso condicional?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)

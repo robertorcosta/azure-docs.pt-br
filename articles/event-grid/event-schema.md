@@ -2,24 +2,23 @@
 title: Esquema de eventos da Grade de Eventos do Azure
 description: Descreve as propriedades e o esquema que estão presentes para todos os eventos.Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559424"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
 
 Este artigo descreve as propriedades e esquema que estão presentes para todos os eventos.Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório. As propriedades são comuns a todos os eventos de qualquer fornecedor. O objeto de dados tem propriedades que são específicas de cada fornecedor. Para tópicos do sistema, essas propriedades são específicas ao provedor de recursos, como Armazenamento do Azure ou Hub de Eventos do Azure.
 
-As fontes de eventos enviam eventos para o Grade de Eventos do Azure em uma matriz, a qual pode ter vários objetos de eventos. Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 1 MB. Se um evento ou a matriz for maior do que os limites de tamanho, você receberá a resposta **O conteúdo 413 é muito grande**. No entanto, as operações são cobradas em incrementos de 64 KB. Assim, os eventos com mais de 64 KB incorrerão em encargos de operações como se fossem vários eventos. Por exemplo, um evento que é 130 KB incorreria em operações como se fosse três eventos separados.
+As fontes de eventos enviam eventos para o Grade de Eventos do Azure em uma matriz, a qual pode ter vários objetos de eventos. Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 1 MB. Se um evento ou a matriz for maior do que os limites de tamanho, você receberá a resposta **O conteúdo 413 é muito grande**. No entanto, as operações são cobradas em incrementos de 64 KB. Assim, os eventos com mais de 64 KB incorrerão em encargos de operações como se fossem vários eventos. Por exemplo, um evento com 130 KB incorreria em operações como se fosse três eventos separados.
 
 A Grade de Eventos envia os eventos aos assinantes em uma matriz que tem um único evento. Esse comportamento poderá alterar no futuro.
 
@@ -80,25 +79,25 @@ Por exemplo, o esquema publicado para um evento de armazenamento de Blob do Azur
 
 Todos os eventos terão os mesmos dados de nível superior a seguir:
 
-| Propriedade | Tipo | Necessária | Descrição |
+| Propriedade | Tipo | Obrigatório | Descrição |
 | -------- | ---- | -------- | ----------- |
-| topic | cadeia de caracteres | Não, mas se incluído, deve corresponder exatamente ao tópico da grade de eventos Azure Resource Manager ID. Se não estiver incluído, a grade de eventos será carimbada no evento. | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Sim | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | cadeia de caracteres | Sim | Identificador exclusivo do evento. |
+| topic | string | Não, mas se incluído, deve corresponder exatamente ao tópico da grade de eventos Azure Resource Manager ID. Se não estiver incluído, a grade de eventos será carimbada no evento. | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Sim | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | string | Sim | Identificador exclusivo do evento. |
 | data | objeto | Não | Dados do evento específicos ao provedor de recursos. |
-| dataVersion | cadeia de caracteres | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | Não obrigatório, mas se incluído, deve corresponder exatamente ao esquema `metadataVersion` da grade de eventos (atualmente `1`, somente). Se não estiver incluído, a grade de eventos será carimbada no evento. | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | Não obrigatório, mas se incluído, deve corresponder exatamente ao esquema da grade de eventos `metadataVersion` (atualmente, somente `1` ). Se não estiver incluído, a grade de eventos será carimbada no evento. | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a origem do evento:
 
 * [Assinaturas do Azure (operações de gerenciamento)](event-schema-subscriptions.md)
 * [Registro de Contêiner](event-schema-container-registry.md)
-* [Armazenamento de Blobs](event-schema-blob-storage.md)
+* [Armazenamento de BLOBs](event-schema-blob-storage.md)
 * [Hubs de Evento](event-schema-event-hubs.md)
 * [Hub IoT](event-schema-iot-hub.md)
-* [Serviços de mídia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Serviços de Mídia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupos de recursos (operações de gerenciamento)](event-schema-resource-groups.md)
 * [Barramento de Serviço](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)

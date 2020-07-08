@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, tracking-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 71709e2f1dcbab188646241eaeb4809e168d5697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77460017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608767"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
@@ -36,7 +35,7 @@ Saiba como criar uma topologia [Apache Storm](https://storm.apache.org/) que usa
 
 ## <a name="storm-multi-language-support"></a>Suporte a várias linguagens no Storm
 
-O Apache Storm foi projetado para trabalhar com componentes escritos usando qualquer linguagem de programação. Os componentes devem entender como trabalhar com a definição do Thrift para Storm. Para o Python, é fornecido um módulo como parte do projeto do Apache Storm que permite interagir facilmente com o Storm. Você pode encontrar este módulo em [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+O Apache Storm foi projetado para trabalhar com componentes escritos usando qualquer linguagem de programação. Os componentes devem entender como trabalhar com a definição do Thrift para Storm. Para o Python, é fornecido um módulo como parte do projeto do Apache Storm que permite interagir facilmente com o Storm. Você pode encontrar este módulo em [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py) .
 
 O Storm é um processo Java que é executado na máquina virtual Java (JVM). Componentes escritos em outras linguagens são executados como subprocessos. O Storm comunica-se com esses subprocessos usando mensagens JSON enviadas por stdin/stdout. Mais detalhes sobre a comunicação entre os componentes podem ser encontrados na documentação sobre [Protocolo de várias linguagens](https://storm.apache.org/releases/current/Multilang-protocol.html) .
 
@@ -74,9 +73,9 @@ Como mencionado anteriormente, há um `storm.py` arquivo que implementa a defini
 
 ## <a name="build-the-project"></a>Compilar o projeto
 
-1. Baixe o projeto do [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+1. Baixe o projeto do [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) .
 
-1. Abra um prompt de comando e navegue até a raiz do `hdinsight-python-storm-wordcount-master`projeto:. Digite o seguinte comando:
+1. Abra um prompt de comando e navegue até a raiz do projeto: `hdinsight-python-storm-wordcount-master` . Insira o seguinte comando:
 
     ```cmd
     mvn clean compile package
@@ -86,7 +85,7 @@ Como mencionado anteriormente, há um `storm.py` arquivo que implementa a defini
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>Executar a topologia Storm no HDInsight
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para copiar `WordCount-1.0-SNAPSHOT.jar` o arquivo para o Storm no cluster HDInsight. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para copiar o `WordCount-1.0-SNAPSHOT.jar` arquivo para o Storm no cluster HDInsight. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:

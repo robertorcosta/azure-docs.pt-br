@@ -2,17 +2,16 @@
 title: Domínios de Eventos na Grade de Eventos do Azure
 description: Este artigo descreve como usar domínios de eventos para gerenciar o fluxo de eventos personalizados para várias organizações comerciais, clientes ou aplicativos.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
-ms.author: babanisa
+ms.author: femila
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898858"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559501"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Entenda os domínios de eventos para gerenciar tópicos do Event Grid
 
@@ -29,7 +28,7 @@ Um domínio de evento é uma ferramenta de gerenciamento para um grande número 
 
 Os domínios de eventos disponibilizam a mesma arquitetura usada pelos serviços do Azure (como Armazenamento e Hub IoT) para publicar seus eventos. Com eles, é possível publicar eventos em milhares de tópicos. Os Domínios também permitem que você controle a autorização e a autenticação de cada tópico, para que seja possível particionar seus locatários.
 
-### <a name="example-use-case"></a>Caso de uso de exemplo
+### <a name="example-use-case"></a>Exemplo de caso de uso
 
 Os domínios de eventos são mais facilmente explicados usando um exemplo. Digamos que você execute máquinas de construção da Contoso, em que você fabrica os tratores, a utilização de equipamentos e outras máquinas pesadas. Como parte da execução dos negócios, você envia informações em tempo real aos clientes sobre manutenção de equipamentos, integridade de sistemas e atualizações de contrato. Todas essas informações vão para vários pontos de extremidade, incluindo seu aplicativo, endpoints de clientes e outras infraestruturas que os clientes configuraram.
 
@@ -105,7 +104,7 @@ Aqui estão os limites e as cotas relacionados aos domínios de evento:
 - 50 assinaturas de escopo de domínio 
 - taxa de ingestão de eventos por segundo do 5.000 (em um domínio)
 
-Se esses limites não forem adequados a você, acesse a equipe do produto abrindo um tíquete de suporte ou enviando um [askgrid@microsoft.com](mailto:askgrid@microsoft.com)email para. 
+Se esses limites não forem adequados a você, acesse a equipe do produto abrindo um tíquete de suporte ou enviando um email para [askgrid@microsoft.com](mailto:askgrid@microsoft.com) . 
 
 ## <a name="pricing"></a>Preços
 Os domínios de evento usam o mesmo [preço de operações](https://azure.microsoft.com/pricing/details/event-grid/) que todos os outros recursos na grade de eventos usam.

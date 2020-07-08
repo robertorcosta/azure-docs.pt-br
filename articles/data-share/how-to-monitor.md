@@ -6,12 +6,11 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3d13919a54e170d410abba5da66172c2029d9b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490518"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636267"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorar o Azure Data Share  
 
@@ -40,13 +39,17 @@ Exiba o status de suas assinaturas de compartilhamento navegando para compartilh
 
 ## <a name="snapshot-history"></a>Histórico de instantâneos 
 
-Na guia histórico, você pode exibir os instantâneos que foram copiados para o locatário do consumidor de dados. Você pode monitorar a frequência e a duração de cada intervalo de instantâneo. 
+Na guia **histórico** de um compartilhamento, você pode exibir quando os dados são copiados do provedor de dados para o armazenamento de dados do consumidor de dados. Você pode monitorar a frequência, a duração e o status de cada instantâneo. 
 
 ![Histórico de instantâneos](./media/sent-shares.png "Histórico de instantâneos") 
 
-Você pode exibir mais detalhes sobre cada execução de instantâneo clicando na data de início da execução. 
+Você pode exibir mais detalhes sobre cada execução de instantâneo clicando na data de início da execução. Em seguida, clique no status de cada conjunto de dados para exibir a quantidade de data de transferência, o número de arquivos/registros copiados, a duração do instantâneo, o número de vCores usadas e a mensagem de erro, se houver algum. 
 
-Por padrão, até 30 dias de histórico de instantâneos são exibidos. Se você precisar ver mais de 30 dias de histórico, navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico**. Você será solicitado a selecionar uma conta de armazenamento na qual armazenar esses logs. 
+São exibidos até 30 dias de histórico de instantâneo. Se você precisar salvar e ver mais de 30 dias de histórico, poderá aproveitar a configuração de diagnóstico.
+
+## <a name="diagnostic-setting"></a>Configuração de diagnóstico
+
+Você pode definir a configuração de diagnóstico para salvar dados de log ou eventos. Navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico**. Selecione os dados de log ou eventos nos quais você está interessado e onde deseja armazená-los ou enviá-los. 
 
 ![Histórico de instantâneos](./media/diagnostic-settings.png "Configurações de Diagnóstico") 
 

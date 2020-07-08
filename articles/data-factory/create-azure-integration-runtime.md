@@ -6,16 +6,15 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659701"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,7 +28,7 @@ Este documento apresenta como você pode criar e configurar o Integration Runtim
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-azure-ir"></a>IR do Azure padrão
-Por padrão, cada data factory tem um IR do Azure no back-end que dá suporte a operações em armazenamentos de dados na nuvem e serviços de computação na rede pública. O local desse IR do Azure é resolvido automaticamente. Se a propriedade **connectVia** não for especificada na definição do serviço vinculado, o IR do Azure padrão será usado. Você precisa criar explicitamente um IR do Azure apenas quando deseja definir explicitamente o local do IR ou se desejar agrupar virtualmente as execuções de atividade em diferentes IRs para fins de gerenciamento. 
+Por padrão, cada data factory tem um IR do Azure no back-end que dá suporte a operações em armazenamentos de dados na nuvem e serviços de computação na rede pública. O local do Azure IR é autoresolver. Se a propriedade **connectVia** não for especificada na definição do serviço vinculado, o IR do Azure padrão será usado. Você precisa criar explicitamente um IR do Azure apenas quando deseja definir explicitamente o local do IR ou se desejar agrupar virtualmente as execuções de atividade em diferentes IRs para fins de gerenciamento. 
 
 ## <a name="create-azure-ir"></a>Criar IR do Azure
 
@@ -48,13 +47,13 @@ Você pode configurar um Azure IR existente para alterar seu local usando o cmdl
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Criar um Azure IR por meio da interface do usuário do Azure Data Factory
 Use as etapas a seguir para criar um Azure IR usando a interface do usuário do Azure Data Factory.
 
-1. Na página **de introdução da** interface do usuário do Azure data Factory, selecione a guia **autor** no painel esquerdo.
+1. Na página **Vamos começar** da interface do usuário do Azure Data Factory, selecione a [guia Gerenciar](https://docs.microsoft.com/azure/data-factory/author-management-hub) no painel mais à esquerda.
 
-   ![Botão home page autor](media/doc-common-process/get-started-page-author-button.png)
+   ![O botão Gerenciar da home page](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Selecione **conexões** na parte inferior do painel esquerdo e selecione tempos de **execução de integração** na janela **conexões** . Selecione **+ novo**.
+1. Selecione **Runtimes de integração** no painel esquerdo e, em seguida, selecione **+ Novo**.
 
-   ![Criar um Integration Runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Criar um Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado**e, em seguida, selecione **continuar**. 
 
@@ -90,6 +89,6 @@ Depois de criar um IR do Azure, você pode referenciá-lo em sua definição de 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir para criar outros tipos de runtimes de integração:
 
-- [Criar tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md)
+- [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
 - [Criar o Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md)
  

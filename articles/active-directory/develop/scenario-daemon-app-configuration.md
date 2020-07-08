@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: ead39343cca9943ba55d66509bd9917402efb8cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558557"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
@@ -38,7 +37,7 @@ Os aplicativos daemon usam permissões de aplicativo em vez de permissões deleg
 
 Portanto, a autoridade especificada na configuração do aplicativo deve ser locatário (especificando uma ID de locatário ou um nome de domínio associado à sua organização).
 
-Se você for um ISV e quiser fornecer uma ferramenta multilocatário, poderá usar `organizations`o. Mas tenha em mente que você também precisará explicar aos seus clientes como conceder o consentimento do administrador. Para obter detalhes, consulte [solicitando consentimento para um locatário inteiro](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Além disso, atualmente há uma limitação no MSAL: `organizations` é permitido somente quando as credenciais do cliente são um segredo do aplicativo (não um certificado).
+Se você for um ISV e quiser fornecer uma ferramenta multilocatário, poderá usar o `organizations` . Mas tenha em mente que você também precisará explicar aos seus clientes como conceder o consentimento do administrador. Para obter detalhes, consulte [solicitando consentimento para um locatário inteiro](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Além disso, atualmente há uma limitação no MSAL: `organizations` é permitido somente quando as credenciais do cliente são um segredo do aplicativo (não um certificado).
 
 ## <a name="configure-and-instantiate-the-application"></a>Configurar e instanciar o aplicativo
 
@@ -57,7 +56,7 @@ O arquivo de configuração define:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appSettings. JSON](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) da amostra do [daemon do console do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+[appsettings.jsno](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) exemplo de [daemon do console do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
 
 ```json
 {
@@ -69,11 +68,11 @@ O arquivo de configuração define:
 }
 ```
 
-Você fornece um `ClientSecret` ou um `CertificateName`. Essas configurações são exclusivas.
+Você fornece um `ClientSecret` ou um `CertificateName` . Essas configurações são exclusivas.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Quando você cria um cliente confidencial com segredos do cliente, o arquivo de configuração [Parameters. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) no exemplo do [daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
+Quando você cria um cliente confidencial com segredos do cliente, o [parameters.jsno](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) arquivo de configuração no exemplo do [daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
 
 ```Json
 {
@@ -85,7 +84,7 @@ Quando você cria um cliente confidencial com segredos do cliente, o arquivo de 
 }
 ```
 
-Quando você cria um cliente confidencial com certificados, o arquivo de configuração [Parameters. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) no exemplo de [daemon do Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
+Quando você cria um cliente confidencial com certificados, o [parameters.jsno](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) arquivo de configuração no exemplo do [daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
 
 ```Json
 {
@@ -267,7 +266,7 @@ MSAL.NET tem dois métodos para fornecer asserções assinadas ao aplicativo cli
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Ao usar `WithClientAssertion`o, você precisa fornecer um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
+Ao usar `WithClientAssertion` o, você precisa fornecer um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -276,7 +275,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Quando você usar `WithClientClaims`, o MSAL.net produzirá uma asserção assinada que contém as declarações esperadas pelo Azure AD, além de declarações de cliente adicionais que você deseja enviar.
+Quando você usar `WithClientClaims` , o MSAL.net produzirá uma asserção assinada que contém as declarações esperadas pelo Azure AD, além de declarações de cliente adicionais que você deseja enviar.
 Este código mostra como fazer isso:
 
 ```csharp
@@ -293,7 +292,7 @@ Novamente, para obter detalhes, consulte [declarações do cliente](msal-net-cli
 
 # <a name="python"></a>[Python](#tab/python)
 
-No MSAL Python, você pode fornecer declarações de cliente usando as declarações que serão assinadas por essa `ConfidentialClientApplication`chave privada.
+No MSAL Python, você pode fornecer declarações de cliente usando as declarações que serão assinadas por essa `ConfidentialClientApplication` chave privada.
 
 ```Python
 config = json.load(open(sys.argv[1]))

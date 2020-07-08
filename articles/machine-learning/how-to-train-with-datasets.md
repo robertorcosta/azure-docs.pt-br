@@ -5,18 +5,18 @@ description: Saiba como usar conjuntos de valores em treinamento
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/20/2020
-ms.openlocfilehash: cd72ce9fed7f821807b8604f68068c64a38293e3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: a9b9faed111e6126bfdb30e4237a988afd947823
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560132"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de os Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Para criar e treinar com conjuntos de os, você precisa:
 
 Você pode acessar um TabularDataset existente do script de treinamento de um experimento em seu espaço de trabalho e carregar esse conjunto de informações em um dataframe do pandas para explorar ainda mais em seu ambiente local.
 
-O código a seguir usa [`get_context()`]() o método na [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) classe para acessar o TabularDataset de entrada existente `titanic`,, no script de treinamento. Em seguida, [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) o usa o método para carregar o conjunto de dados em um dataframe do pandas para exploração e preparação de mais detalhes antes do treinamento.
+O código a seguir usa o [`get_context()`]() método na [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) classe para acessar o TabularDataset de entrada existente, `titanic` , no script de treinamento. Em seguida, o usa o [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método para carregar o conjunto de dados em um dataframe do pandas para exploração e preparação de mais detalhes antes do treinamento.
 
 > [!Note]
 > Se a fonte de dados original contiver NaN, cadeias de caracteres vazias ou valores em branco, quando você usar o to_pandas_dataframe (), esses valores serão substituídos como um valor *nulo* . 
@@ -85,11 +85,11 @@ Os objetos TabularDataset fornecem a capacidade de carregar os dados em seu Tabu
 
 Um objeto [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) é usado para enviar a execução do experimento. Azure Machine Learning tem estimadores pré-configurados para estruturas de aprendizado de máquina comuns, bem como um estimador genérico.
 
-Esse código cria um objeto estimador genérico `est`,, que especifica
+Esse código cria um objeto estimador genérico, `est` , que especifica
 
 * Um diretório de script para seus scripts. Todos os arquivos neste diretório são carregados nos nós do cluster para execução.
 * O script de treinamento, *train_titanic. py*.
-* O conjunto de dados de entrada `titanic_ds`para treinamento,. `as_named_input()`é necessário para que o conjunto de dados de entrada possa ser referenciado `titanic` pelo nome atribuído em seu script de treinamento. 
+* O conjunto de dados de entrada para treinamento, `titanic_ds` . `as_named_input()`é necessário para que o conjunto de dados de entrada possa ser referenciado pelo nome atribuído `titanic` em seu script de treinamento. 
 * O destino de computação para o experimento.
 * A definição de ambiente para o experimento.
 
@@ -130,9 +130,9 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configurar o estimador
 
-É recomendável passar o DataSet como um argumento ao montar. Além de passar o conjunto de `inputs` dados por meio do parâmetro no estimador, você também pode `script_params` passar o conjunto de dados por meio de e obter o caminho do dado (ponto de montagem) em seu script de treinamento por meio de argumentos. Dessa forma, você poderá usar o mesmo script de treinamento para depuração local e treinamento remoto em qualquer plataforma de nuvem.
+É recomendável passar o DataSet como um argumento ao montar. Além de passar o conjunto de dados por meio do `inputs` parâmetro no estimador, você também pode passar o conjunto de dados por meio de `script_params` e obter o caminho do dado (ponto de montagem) em seu script de treinamento por meio de argumentos. Dessa forma, você poderá usar o mesmo script de treinamento para depuração local e treinamento remoto em qualquer plataforma de nuvem.
 
-Um objeto de estimador [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) é usado para enviar a execução para experimentos de scikit-learn. Depois que você enviar a execução, os arquivos de `mnist` dados referenciados pelo DataSet serão montados no destino de computação. Saiba mais sobre o treinamento com o [estimador do SKlearn](how-to-train-scikit-learn.md).
+Um objeto de estimador [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) é usado para enviar a execução para experimentos de scikit-learn. Depois que você enviar a execução, os arquivos de dados referenciados pelo `mnist` DataSet serão montados no destino de computação. Saiba mais sobre o treinamento com o [estimador do SKlearn](how-to-train-scikit-learn.md).
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -201,7 +201,7 @@ Quando você baixa um conjunto de um DataSet, todos os arquivos referenciados pe
 
 Se o seu script processa todos os arquivos referenciados pelo conjunto de dados e seu disco de computação pode se ajustar a seu conjunto de dados completo, o download é recomendado para evitar a sobrecarga de streaming de serviços de armazenamento. Se o tamanho dos dados exceder o tamanho do disco de computação, o download não será possível. Para este cenário, recomendamos a montagem, pois apenas os arquivos de dados usados pelo script são carregados no momento do processamento.
 
-O código a seguir é `dataset` montado no diretório Temp em`mounted_path`
+O código a seguir é montado no `dataset` diretório Temp em`mounted_path`
 
 ```python
 import tempfile

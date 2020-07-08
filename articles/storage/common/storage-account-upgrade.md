@@ -8,12 +8,11 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629572"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
@@ -60,7 +59,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Especificar uma camada de acesso para dados de blob
 
-As contas de uso geral v2 dão suporte a todos os serviços de armazenamento do Azure e objetos de dados, mas as camadas de acesso estão disponíveis somente se aplicam a blobs de blocos no armazenamento de BLOBs. Ao atualizar para uma conta de armazenamento v2 de uso geral, você pode especificar uma camada de acesso de conta padrão de frequente ou esporádica, que indica a camada padrão em que os dados de blob serão carregados como se o parâmetro de camada de acesso de blob individual não for especificado.
+As contas de uso geral v2 dão suporte a todos os serviços de armazenamento do Azure e objetos de dados, mas as camadas de acesso estão disponíveis apenas para bloquear BLOBs no armazenamento de BLOBs. Ao atualizar para uma conta de armazenamento v2 de uso geral, você pode especificar uma camada de acesso de conta padrão de frequente ou esporádica, que indica a camada padrão em que os dados de blob serão carregados como se o parâmetro de camada de acesso de blob individual não for especificado.
 
 As camadas de acesso ao blob permitem que você escolha o armazenamento mais econômico com base nos padrões de uso previstos. Blobs de blocos podem ser armazenados em camadas quentes, frias ou de arquivo morto. Para obter mais informações sobre camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de armazenamento quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
 
@@ -73,7 +72,7 @@ Em ambos os casos, a prioridade é estimar o custo de armazenar, acessar e opera
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
-A atualização de uma conta de armazenamento v1 para uma conta v2 de uso geral é gratuita. Você pode especificar a camada de conta desejada durante o processo de atualização. Se uma camada de conta não for especificada na atualização, a camada de conta padrão da conta atualizada será `Hot`. No entanto, a alteração da camada de acesso de armazenamento após a atualização pode resultar em alterações na sua fatura para que seja recomendável especificar a nova camada de conta durante a atualização.
+A atualização de uma conta de armazenamento v1 para uma conta v2 de uso geral é gratuita. Você pode especificar a camada de conta desejada durante o processo de atualização. Se uma camada de conta não for especificada na atualização, a camada de conta padrão da conta atualizada será `Hot` . No entanto, a alteração da camada de acesso de armazenamento após a atualização pode resultar em alterações na sua fatura para que seja recomendável especificar a nova camada de conta durante a atualização.
 
 Todas as contas de armazenamento usam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao se usar uma conta de armazenamento, as seguintes considerações de cobranças são aplicáveis:
 

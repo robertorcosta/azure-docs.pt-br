@@ -1,14 +1,13 @@
 ---
 title: Corrigir recursos sem conformidade
 description: Este guia o orienta pela correção de recursos que não estão em conformidade com as políticas no Azure Policy.
-ms.date: 02/26/2020
+ms.date: 06/09/2020
 ms.topic: how-to
-ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636301"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -17,7 +16,7 @@ Recursos que não estão em conformidade com uma política de **deployIfNotExist
 ## <a name="how-remediation-security-works"></a>Como funciona a correção de segurança
 
 Quando o Azure Policy executa o modelo na definição de política **deployIfNotExists**, ele faz isso usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md).
-O Azure Policy cria uma identidade gerenciada para cada atribuição, mas precisa ter detalhes sobre quais funções devem receber a identidade gerenciada. Se a identidade gerenciada não tiver funções, esse erro será exibido durante a atribuição da política ou uma iniciativa. Quando o portal é usado, o Azure Policy concederá automaticamente a identidade gerenciada às funções listadas quando a atribuição for iniciada. O _local_ da identidade gerenciada não afeta sua operação com o Azure Policy.
+O Azure Policy cria uma identidade gerenciada para cada atribuição, mas precisa ter detalhes sobre quais funções devem receber a identidade gerenciada. Se a identidade gerenciada não tiver funções, esse erro será exibido durante a atribuição da política ou uma iniciativa. Quando o portal é usado, o Azure Policy concederá automaticamente a identidade gerenciada às funções listadas quando a atribuição for iniciada. O _local_ da identidade gerenciada não afeta sua operação com Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Identidade gerenciada – função ausente" border="false":::
 
@@ -51,9 +50,6 @@ Quando criar uma atribuição usando o portal, o Azure Policy gera a identidade 
 - Ao usar o SDK (como o Azure PowerShell)
 - Quando um recurso fora do escopo de atribuição é modificado pelo modelo
 - Quando um recurso fora do escopo de atribuição é lido pelo modelo
-
-> [!NOTE]
-> O Azure PowerShell e o .NET são os únicos SDKs que atualmente dão suporte a essa funcionalidade.
 
 ### <a name="create-managed-identity-with-powershell"></a>Criar identidade gerenciada com o PowerShell
 
@@ -183,7 +179,7 @@ Para obter outros cmdlets e exemplos de correção, veja o módulo [AZ.PolicyIns
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Criação de uma tarefa de correção durante a atribuição de política no portal do Azure
 
-Uma maneira simplificada de criar uma tarefa de correção é fazer isso no portal do Azure durante a atribuição de política. Se a definição de política a ser atribuída for um efeito **deployIfNotExists** ou **Modify**, o assistente na guia **Correção** oferecerá uma opção para _Criar uma tarefa de correção_. Se essa opção for selecionada, uma tarefa de correção será criada ao mesmo tempo que a atribuição de política.
+Uma maneira simplificada de criar uma tarefa de correção é fazer isso no portal do Azure durante a atribuição de política. Se a definição de política a ser atribuída for um efeito de **deployIfNotExists** ou de **modificação** , o assistente na guia **correção** oferecerá uma opção _criar uma tarefa de correção_ . Se essa opção for selecionada, uma tarefa de correção será criada ao mesmo tempo que a atribuição de política.
 
 ## <a name="next-steps"></a>Próximas etapas
 

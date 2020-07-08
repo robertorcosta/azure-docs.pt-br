@@ -3,12 +3,11 @@ title: Conceitos-armazenamento
 description: Saiba mais sobre os principais recursos de armazenamento em nuvens de versão do Azure VMware (AVS) Preview privadas.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7e58a829a40d590b7936a58ccdc866211a4f5cb4
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604109"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Conceitos de armazenamento da solução de VMware Azure (AVS) Preview
 
@@ -21,7 +20,7 @@ O armazenamento local em cada host de cluster é usado como parte de um reposit�
 O armazenamento local em hosts de cluster é usado no repositório de armazenamento vSAN em todo o cluster. Todos os repositórios de armazenamento são criados como parte de uma implantação de nuvem privada e estão disponíveis para uso imediato. O usuário cloudadmin e todos os usuários no grupo CloudAdmin podem gerenciar repositórios de armazenamento com estes privilégios de vSAN:
 - Datastore.AllocateSpace
 - Datastore.Browse
-- Datastore. config
+- Datastore.Config
 - Datastore. Excluirfile
 - Repositório de armazenamento. filemanagement
 - Datastore. UpdateVirtualMachineMetadata
@@ -32,7 +31,7 @@ Por padrão, os armazenamentos de dados vSAN usam a criptografia em repouso. A s
 
 ## <a name="scaling"></a>Scaling
 
-A capacidade de armazenamento de cluster nativo é dimensionada adicionando hosts a um cluster. Para clusters que usam hosts, a capacidade bruta em todo o cluster é aumentada em 15,4 TB com cada host adicional. Os clusters criados com hosts GP têm sua capacidade bruta aumentada em 7,7 TB com cada host adicional. Em ambos os tipos de clusters, os hosts demoram cerca de 10 minutos para serem adicionados a um cluster. Confira o [dimensionar o tutorial de nuvem privada] [tutorial-Scale-Private-Cloud] para obter instruções sobre como dimensionar clusters.
+A capacidade de armazenamento de cluster nativo é dimensionada adicionando hosts a um cluster. Para clusters que usam hosts, a capacidade bruta em todo o cluster é aumentada em 15,4 TB com cada host adicional. Os clusters criados com hosts GP têm sua capacidade bruta aumentada em 7,7 TB com cada host adicional. Em ambos os tipos de clusters, os hosts demoram cerca de 10 minutos para serem adicionados a um cluster. Consulte o [tutorial dimensionar nuvem privada][tutorial-scale-private-cloud] para obter instruções sobre como dimensionar clusters.
 
 ## <a name="azure-storage-integration"></a>Integração do armazenamento do Azure
 
@@ -45,5 +44,5 @@ A próxima etapa é aprender sobre os [conceitos de identidade de nuvem privada]
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

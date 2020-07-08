@@ -3,12 +3,12 @@ title: Criar um aplicativo de contêiner de Service Fabric do Azure no Linux
 description: Crie seu primeiro aplicativo de contêiner do Linux no Azure Service Fabric. Crie uma imagem do Docker com o seu aplicativo, envie a imagem para um registro de contêiner por push, crie e implante um aplicativo de contêiner do Service Fabric.
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 07e3682ec1787ceb350ac72c8b80d86eed80b339
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75457963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560638"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* fornece um nome para o contêiner em execução (em vez da ID do contêiner).
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "\/http:/localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "http: \/ /localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ![Olá, Mundo!][hello-world]
 
@@ -256,9 +256,9 @@ Use o script de instalação fornecido nos modelos em https://github.com/Azure-S
 ./install.sh
 ```
 
-Abra um navegador e navegue até Service Fabric Explorer em http:\//localhost: 19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant em Mac os X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+Abra um navegador e navegue até Service Fabric Explorer em http: \/ /localhost: 19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant em Mac os X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "\/http:/localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "http: \/ /localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ![Olá, Mundo!][hello-world]
 

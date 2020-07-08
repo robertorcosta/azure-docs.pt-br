@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604687"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemplo: criar uma habilidade personalizada usando Python
 
@@ -30,8 +30,8 @@ A habilidade personalizada é simples por design (ela concatena duas cadeias de 
   + [Python 3,75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
-  + [Extensão Azure Functions para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+  + [Ferramentas básicas do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Extensão de Azure Functions para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 
@@ -57,7 +57,7 @@ O modelo de projeto do Azure Functions no Visual Studio Code cria um projeto que
 
 O Visual Studio Code cria o projeto de aplicativo de função em um novo workspace. Este projeto contém os arquivos de configuração [host.json](../azure-functions/functions-host-json.md) e [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), além de quaisquer arquivos de projeto específicos a uma linguagem. 
 
-Uma nova função disparada por HTTP também é criada na pasta **concatenador** do projeto de aplicativo de funções. Dentro dele, haverá um arquivo chamado "\_\_init__. py", com este conteúdo:
+Uma nova função disparada por HTTP também é criada na pasta **concatenador** do projeto de aplicativo de funções. Dentro dele, haverá um arquivo chamado " \_ \_ init__. py", com este conteúdo:
 
 ```py
 import logging

@@ -6,16 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 7213cb10936fc1c2117b2c5c3fc32a6bfea02d30
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610059"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Contas de armazenamento de propriedade do cliente para ingestão de logs no Azure Monitor
 
-O Azure Monitor usa contas de armazenamento no processo de ingestão de alguns tipos de dados, como [logs personalizados](data-sources-custom-logs.md) e alguns [logs do Azure](azure-storage-iis-table.md). Durante o processo de ingestão, os logs são enviados primeiro a uma conta de armazenamento e, posteriormente, ingeridos no Log Analytics ou Application Insights. Se você quiser controlar seus dados durante a ingestão, poderá usar suas contas de armazenamento em vez do armazenamento gerenciado pelo serviço. Usar sua conta de armazenamento proporciona a você o controle sobre o acesso, o conteúdo, a criptografia e a retenção dos logs durante a ingestão. Nós nos referimos a isso como Traga seu armazenamento ou BYOS. 
+O Azure Monitor usa contas de armazenamento no processo de ingestão de alguns tipos de dados, como [logs personalizados](data-sources-custom-logs.md) e alguns [logs do Azure](azure-storage-iis-table.md). Durante o processo de ingestão, os logs são enviados primeiro a uma conta de armazenamento e, posteriormente, ingeridos no Log Analytics ou Application Insights. Se você quiser controlar seus dados durante a ingestão, poderá usar suas contas de armazenamento em vez do armazenamento gerenciado pelo serviço. Usar sua própria conta de armazenamento lhe dá controle sobre o acesso, o conteúdo, a criptografia e a retenção dos logs durante a ingestão. Nós nos referimos a isso como Traga seu armazenamento ou BYOS. 
 
 Um cenário que requer BYOS é o isolamento de rede por meio de Links Privados. Ao usar uma VNet, o isolamento de rede é geralmente um requisito, e o acesso à Internet pública é limitado. Nesses casos, o acesso ao armazenamento do serviço Azure Monitor para ingestão de logs é completamente bloqueado ou considerado uma prática inadequada. Em vez disso, os logs devem ser ingeridos por meio de uma conta de armazenamento de propriedade do cliente dentro da VNet ou facilmente acessados a partir dela.
 
@@ -232,4 +231,4 @@ Se a conta de armazenamento registrada do seu workspace estiver em outra região
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre como configurar um link privado, confira [Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor} (Private-link-security.md)
+- Para obter mais informações sobre como configurar um link privado, consulte [usar o link privado do Azure para conectar redes com segurança a Azure monitor](private-link-security.md)

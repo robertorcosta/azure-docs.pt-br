@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: c6e15c9a99a78f0f3637f718b35462fe49fd5ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 56c11c2ae867769eb5eab00a2a6a3ecb616449b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560012"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Associação de saída do armazenamento de BLOBs do Azure para Azure Functions
 
 A associação de saída permite que você modifique e exclua dados de armazenamento de BLOBs em uma função do Azure.
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](./functions-bindings-storage-blob.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](./functions-bindings-storage-blob.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -325,19 +325,19 @@ public static void Run(
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, `dataType` defina `binary`como. Consulte o [exemplo de saída](#example) para obter detalhes.
+O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary` . Consulte o [exemplo de saída](#example) para obter detalhes.
 
 ---
 
@@ -347,13 +347,13 @@ Você pode usar o `StorageAccount` atributo para especificar a conta de armazena
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `Blob` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Blob`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como `blob`. |
-|**direção** | N/D | Deve ser definido como `out` para uma associação de saída. As exceções são mencionadas na seção [uso](#usage). |
-|**name** | N/D | O nome da variável que representa o blob no código de função.  Definido como `$return` para referenciar o valor de retorno da função.|
+|**direction** | N/D | Deve ser definido como `out` para uma associação de saída. As exceções são mencionadas na seção [uso](#usage). |
+|**name** | n/d | O nome da variável que representa o blob no código de função.  Definido como `$return` para referenciar o valor de retorno da função.|
 |**path** |**BlobPath** | O caminho para o contêiner de BLOB. |
 |**connection** |**Conexão**| O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N/D | **Acesso** | Indica se você será leitura ou gravação. |
@@ -385,7 +385,7 @@ Consulte o [exemplo de saída](#example) para obter detalhes.
 
 # <a name="java"></a>[Java](#tab/java)
 
-O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, `dataType` defina `binary`como. Consulte o [exemplo de saída](#example) para obter detalhes.
+O `@BlobOutput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary` . Consulte o [exemplo de saída](#example) para obter detalhes.
 
 ---
 

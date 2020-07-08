@@ -5,17 +5,17 @@ description: Saiba como obter explicações sobre como seu modelo de aprendizado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: 39d2bf0e527d43e2a5fb9437720f249e54b4dff3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560199"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Use o pacote de interpretação para explicar os modelos de ML & previsões no Python
 
@@ -71,8 +71,8 @@ O exemplo a seguir mostra como usar o pacote de interpretação em seu computado
    * Para inicializar um objeto de explicador, passe seu modelo e alguns dados de treinamento para o construtor do explicador.
    * Para tornar suas explicações e visualizações mais informativas, você pode optar por passar nomes de recursos e nomes de classe de saída se estiver fazendo a classificação.
 
-   Os blocos de código a seguir mostram como criar uma instância de um `TabularExplainer`objeto `MimicExplainer`de explicador com, e `PFIExplainer` localmente.
-   * `TabularExplainer`chama um dos três explicadores shap abaixo (`TreeExplainer`, `DeepExplainer`, ou `KernelExplainer`).
+   Os blocos de código a seguir mostram como criar uma instância de um objeto de explicador com `TabularExplainer` , `MimicExplainer` e `PFIExplainer` localmente.
+   * `TabularExplainer`chama um dos três explicadores SHAP abaixo ( `TreeExplainer` , `DeepExplainer` , ou `KernelExplainer` ).
    * `TabularExplainer`o seleciona automaticamente o mais apropriado para seu caso de uso, mas você pode chamar cada um dos seus três explicadores subjacentes diretamente.
 
     ```python
@@ -159,11 +159,11 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ### <a name="raw-feature-transformations"></a>Transformações de recursos brutos
 
-Você pode optar por obter explicações em termos de recursos brutos e não transformados, em vez de recursos de engenharia. Para essa opção, você passa seu pipeline de transformação de recursos para o explicador no `train_explain.py`. Caso contrário, o explicador fornece explicações em termos de recursos de engenharia.
+Você pode optar por obter explicações em termos de recursos brutos e não transformados, em vez de recursos de engenharia. Para essa opção, você passa seu pipeline de transformação de recursos para o explicador no `train_explain.py` . Caso contrário, o explicador fornece explicações em termos de recursos de engenharia.
 
 O formato das transformações com suporte é o mesmo descrito em [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Em geral, há suporte para todas as transformações, desde que elas operem em uma única coluna, para que fique claro que elas são um-para-muitos.
 
-Obtenha uma explicação para recursos brutos usando um `sklearn.compose.ColumnTransformer` ou com uma lista de tuplas de transformador ajustadas. O exemplo a seguir `sklearn.compose.ColumnTransformer`usa.
+Obtenha uma explicação para recursos brutos usando um `sklearn.compose.ColumnTransformer` ou com uma lista de tuplas de transformador ajustadas. O exemplo a seguir usa `sklearn.compose.ColumnTransformer` .
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -233,7 +233,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="generate-feature-importance-values-via-remote-runs"></a>Gerar valores de importância de recurso por meio de execuções remotas
 
-O exemplo a seguir mostra como você pode usar `ExplanationClient` a classe para habilitar a interpretação de modelo para execuções remotas. Ele é conceitualmente semelhante ao processo local, exceto que você:
+O exemplo a seguir mostra como você pode usar a `ExplanationClient` classe para habilitar a interpretação de modelo para execuções remotas. Ele é conceitualmente semelhante ao processo local, exceto que você:
 
 * Use o `ExplanationClient` na execução remota para carregar o contexto de interpretação.
 * Baixe o contexto posteriormente em um ambiente local.
@@ -379,7 +379,7 @@ Siga um destes caminhos para acessar o painel de visualização no Azure Machine
 
 Você pode implantar o explicador junto com o modelo original e usá-lo no momento da inferência para fornecer os valores de importância do recurso individual (explicação local) para novos DataPoint novos. Também oferecemos explicadores de pontuação mais leves para melhorar o desempenho de interpretação no tempo de inferência. O processo de implantação de um explicador de Pontuação de peso mais leve é semelhante à implantação de um modelo e inclui as seguintes etapas:
 
-1. Crie um objeto de explicação. Por exemplo, você pode usar `TabularExplainer`:
+1. Crie um objeto de explicação. Por exemplo, você pode usar `TabularExplainer` :
 
    ```python
     from interpret.ext.blackbox import TabularExplainer

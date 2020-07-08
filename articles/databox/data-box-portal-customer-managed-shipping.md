@@ -5,15 +5,14 @@ services: databox
 author: priestlg
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 2933eb216b7faed7b28fb53d79fec2f50bc4458d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608580"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Use a remessa autogerenciada para Azure Data Box no portal do Azure
 
@@ -41,7 +40,7 @@ Ao fazer o pedido do Data Box, você pode escolher a opção de remessa autogere
 3. Depois de fornecer seu endereço para remessa, você precisará validá-lo e concluir seu pedido.
    ![Remessa autogerenciada](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Depois que o dispositivo tiver sido preparado, você poderá agendar um recebimento.
+4. Depois que o dispositivo tiver sido preparado e você receber uma notificação por email para ele, você poderá agendar uma retirada.
 
    Em seu pedido do Azure Data Box, acesse **Visão geral** e, em seguida, selecione **Agendar retirada**.
 
@@ -57,7 +56,7 @@ Ao fazer o pedido do Data Box, você pode escolher a opção de remessa autogere
 
    ![Exibir seu código de autorização](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Anote este **Código de autorização**. De acordo com os requisitos de segurança, no momento do agendamento de retirada e devolução, é necessário apresentar o nome da pessoa fará a retirada.
+   Anote este **Código de autorização**. De acordo com os requisitos de segurança, no momento da retirada do agendamento, é necessário apresentar o nome da pessoa que chegaria para a escolha.
 
    Você também precisa fornecer detalhes de quem vai para o datacenter para retirada. Você ou o ponto de contato deve estar com uma ID de foto oficial que será validada no datacenter.
 

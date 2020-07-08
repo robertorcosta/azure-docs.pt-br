@@ -5,17 +5,17 @@ description: Saiba como usar Azure Machine Learning para implantar um modelo em 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: 104e0892e2ad6bc6a0b3212722781f9498eee219
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560403"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implantar um modelo de aprendizado de máquina para Azure Functions (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,7 +97,7 @@ pip install azureml-contrib-functions
 Para criar a imagem do Docker que é implantada no Azure Functions, use [azureml. contrib. Functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) ou a função de pacote específica para o gatilho que você está interessado em usar. O trecho de código a seguir demonstra como criar um novo pacote com um gatilho de blob do modelo e a configuração de inferência:
 
 > [!NOTE]
-> O trecho de código pressupõe `model` que contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
+> O trecho de código pressupõe que `model` contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -108,7 +108,7 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. Quando o processo for concluído, a imagem terá sido criada no registro de contêiner do Azure para seu espaço de trabalho. Depois que a imagem tiver sido criada, o local no registro de contêiner do Azure será exibido. O local retornado está no formato `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
+Quando `show_output=True` , a saída do processo de Build do Docker é mostrada. Quando o processo for concluído, a imagem terá sido criada no registro de contêiner do Azure para seu espaço de trabalho. Depois que a imagem tiver sido criada, o local no registro de contêiner do Azure será exibido. O local retornado está no formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
 > O empacotamento para funções atualmente dá suporte a gatilhos HTTP, gatilhos de BLOB e gatilhos do barramento de serviço Para obter mais informações sobre gatilhos, consulte [associações de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
@@ -118,7 +118,7 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
 
 ## <a name="deploy-image-as-a-web-app"></a>Implantar imagem como um aplicativo Web
 
-1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<myacr>` pelo valor retornado anteriormente de `package.location`: 
+1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<myacr>` pelo valor retornado anteriormente de `package.location` : 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -151,10 +151,10 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    Neste exemplo, um tipo de preço _básico_ do Linux`--sku B1`() é usado.
+    Neste exemplo, um tipo de preço _básico do Linux_ ( `--sku B1` ) é usado.
 
     > [!IMPORTANT]
-    > As imagens criadas por Azure Machine Learning usam o Linux, portanto, você `--is-linux` deve usar o parâmetro.
+    > As imagens criadas por Azure Machine Learning usam o Linux, portanto, você deve usar o `--is-linux` parâmetro.
 
 1. Crie a conta de armazenamento a ser usada para o armazenamento de trabalhos da Web e obtenha sua cadeia de conexão. Substituir `<webjobStorage>` pelo nome que você deseja usar.
 
@@ -281,9 +281,9 @@ Depois que a imagem for carregada e o aplicativo estiver disponível, use as seg
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
     ```
 
-    A saída desse comando é semelhante a `sample_input_out.json`.
+    A saída desse comando é semelhante a `sample_input_out.json` .
 
-4. Para baixar o arquivo e inspecionar o conteúdo, use o comando a seguir. Substituir `<file>` pelo nome de arquivo retornado pelo comando anterior. Substituir `<triggerConnectionString>` pela cadeia de conexão retornada anteriormente: 
+4. Para baixar o arquivo e inspecionar o conteúdo, use o comando a seguir. Substituir pelo `<file>` nome de arquivo retornado pelo comando anterior. Substituir `<triggerConnectionString>` pela cadeia de conexão retornada anteriormente: 
 
     ```azurecli-interactive
     az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>

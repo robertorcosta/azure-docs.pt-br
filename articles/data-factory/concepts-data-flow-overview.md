@@ -7,13 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: 9f280aafabd59878ee24a9c3fe809dd027a97284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84635111"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 
@@ -22,6 +21,8 @@ ms.locfileid: "82187844"
 O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters de Apache Spark expandidos. As atividades de fluxo de dados podem ser envolvidas por meio de recursos existentes de agendamento, controle, fluxo e monitoramento de Data Factory.
 
 O mapeamento de fluxos de dados fornece uma experiência totalmente visual sem a necessidade de codificação. Seus fluxos de dados são executados em seu cluster de execução para processamento de dados expandido. Azure Data Factory manipula toda a conversão de código, a otimização de caminho e a execução de seus trabalhos de fluxo de dados.
+
+![Arquitetura](media/data-flow/adf-data-flows.png "Arquitetura")
 
 ## <a name="getting-started"></a>Introdução
 
@@ -35,13 +36,13 @@ Essa ação leva você para a tela de fluxo de dados, na qual você pode criar a
 
 A tela de fluxo de dados é separada em três partes: a barra superior, o grafo e o painel de configuração. 
 
-![Tela](media/data-flow/canvas1.png "Tela")
+![Canvas](media/data-flow/canvas1.png "Canvas")
 
 ### <a name="graph"></a>Grafo
 
 O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente.
 
-![Tela](media/data-flow/canvas2.png "Tela")
+![Canvas](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados do Azure Integration Runtime
 
@@ -93,7 +94,7 @@ A primeira guia em cada painel de configuração de transformação contém as c
 
 A guia **otimizar** contém configurações para configurar esquemas de particionamento.
 
-![Formato](media/data-flow/optimize1.png "Otimizar")
+![Otimizar](media/data-flow/optimize1.png "Otimizar")
 
 A configuração padrão é **usar particionamento atual**, o que instrui Azure data Factory a usar o esquema de particionamento nativo para fluxos de dados em execução no Spark. Na maioria dos cenários, recomendamos essa configuração.
 

@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: d07add7950da531330fe9f64629299cef9fad1ac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: f197dd5063f8584968277d8d55298c03d9d71ea6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558842"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicativo de área de trabalho que chama APIs da Web: configuração de código
 
@@ -39,7 +38,7 @@ De um ponto de vista de código, os aplicativos de área de trabalho são aplica
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Você precisará criar e manipular MSAL.NET `IPublicClientApplication`.
+Você precisará criar e manipular MSAL.NET `IPublicClientApplication` .
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -52,7 +51,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Se você pretende usar a autenticação interativa ou o fluxo de código do dispositivo, como visto anteriormente `.WithRedirectUri` , use o modificador.
+Se você pretende usar a autenticação interativa ou o fluxo de código do dispositivo, como visto anteriormente, use o `.WithRedirectUri` modificador.
 
 ```csharp
 IPublicClientApplication app;
@@ -107,12 +106,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Para saber mais sobre como configurar um aplicativo de área de trabalho MSAL.NET:
 
-- Para obter uma lista de todos os modificadores `PublicClientApplicationBuilder`disponíveis em, consulte a documentação de referência [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Para obter uma descrição de todas as opções expostas em `PublicClientApplicationOptions`, consulte [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) na documentação de referência.
+- Para obter uma lista de todos os modificadores disponíveis em `PublicClientApplicationBuilder` , consulte a documentação de referência [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Para obter uma descrição de todas as opções expostas em `PublicClientApplicationOptions` , consulte [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) na documentação de referência.
 
 ### <a name="complete-example-with-configuration-options"></a>Exemplo completo com opções de configuração
 
-Imagine um aplicativo de console do .NET Core que tenha `appsettings.json` o seguinte arquivo de configuração:
+Imagine um aplicativo de console do .NET Core que tenha o seguinte `appsettings.json` arquivo de configuração:
 
 ```json
 {

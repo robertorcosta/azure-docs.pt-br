@@ -1,29 +1,29 @@
 ---
-title: Conectar-se ao redirecionamento - Banco de Dados do Azure para MySQL
-description: Este artigo descreve como você pode configurar o aplicativo para se conectar ao Banco de Dados do Azure para MySQL com redirecionamento.
+title: Conectar-se ao redirecionamento-banco de dados do Azure para MariaDB
+description: Este artigo descreve como você pode configurar seu aplicativo para se conectar ao banco de dados do Azure para MariaDB com o redirecionamento.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
+ms.openlocfilehash: ae61f58f2ac44db77db496dd5d3e38fad268129f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610280"
+ms.locfileid: "84612404"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conectar-se ao Banco de Dados do Azure para MySQL com redirecionamento
+# <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Conectar-se ao banco de dados do Azure para MariaDB com redirecionamento
 
-Este tópico explica como conectar um aplicativo ao servidor do Banco de Dados do Azure para MySQL com modo de redirecionamento. O redirecionamento visa reduzir a latência de rede entre os aplicativos cliente e os servidores MySQL, permitindo que os aplicativos se conectem diretamente aos nós do servidor back-end.
+Este tópico explica como conectar um aplicativo ao seu banco de dados do Azure para MariaDB Server com o modo de redirecionamento. O redirecionamento visa reduzir a latência de rede entre aplicativos cliente e servidores MariaDB, permitindo que os aplicativos se conectem diretamente aos nós do servidor back-end.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Entre no [portal do Azure](https://portal.azure.com). Crie um servidor do Banco de Dados do Azure para MySQL com a versão do mecanismo 5.6, 5.7 ou 8.0. 
+Entre no [portal do Azure](https://portal.azure.com). Crie um banco de dados do Azure para o servidor MariaDB com a versão 10,2 ou 10,3 do mecanismo. 
 
-Para obter detalhes, consulte como criar um servidor de banco de dados do Azure para MySQL usando o [portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [CLI do Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+Para obter detalhes, consulte como criar um banco de dados do Azure para o servidor MariaDB usando o [portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md) ou [CLI do Azure](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## <a name="enable-redirection"></a>Habilitar redirecionamento
 
-No servidor do banco de dados do Azure para MySQL, configure o `redirect_enabled` parâmetro para `ON` para permitir conexões com o modo de redirecionamento. Para atualizar esse parâmetro de servidor, use o [portal do Azure](howto-server-parameters.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).
+No banco de dados do Azure para o servidor MariaDB, configure o `redirect_enabled` parâmetro para `ON` para permitir conexões com o modo de redirecionamento. Para atualizar esse parâmetro de servidor, use o [portal do Azure](howto-server-parameters.md) ou [CLI do Azure](howto-configure-server-parameters-cli.md).
 
 ## <a name="php"></a>PHP
 
@@ -46,7 +46,7 @@ Se você estiver usando uma versão mais antiga da extensão mysqlnd_azure (vers
 |**mysqlnd_azure.enableRedirect value**| **Comportamento**|
 |----------------------------------------|-------------|
 |`off` ou `0`|O redirecionamento não será usado. |
-|`on` ou `1`|- Se a conexão não usar SSL no lado do driver, nenhuma conexão será feita. O erro a seguir será retornado: *"mysqlnd_azure. enableRedirect está ativado, mas a opção SSL não está definida na cadeia de conexão. O redirecionamento só é possível com SSL."*<br>- Se SSL for usado no lado do driver, mas não houver suporte para o redirecionamento no servidor, a primeira conexão será anulada e o erro a seguir será retornado: *"A conexão foi anulada porque o redirecionamento não está habilitado no servidor MySQL ou o pacote de rede não atende ao protocolo de redirecionamento".*<br>- Se o servidor MySQL oferecer suporte ao redirecionamento, mas a conexão redirecionada falhar por algum motivo, a primeira conexão de proxy também será anulada. Retorne o erro da conexão redirecionada.|
+|`on` ou `1`|- Se a conexão não usar SSL no lado do driver, nenhuma conexão será feita. O erro a seguir será retornado: *"mysqlnd_azure. enableRedirect está ativado, mas a opção SSL não está definida na cadeia de conexão. O redirecionamento só é possível com SSL."*<br>-Se o SSL for usado no lado do driver, mas não houver suporte para o redirecionamento no servidor, a primeira conexão será anulada e o seguinte erro será retornado: *"a conexão foi anulada porque o redirecionamento não está habilitado no servidor MariaDB ou o pacote de rede não atende ao protocolo de redirecionamento".*<br>-Se o servidor MariaDB oferecer suporte ao redirecionamento, mas a conexão redirecionada falhar por algum motivo, também anulará a primeira conexão de proxy. Retorne o erro da conexão redirecionada.|
 |`preferred` ou `2`<br> (valor padrão)|- mysqlnd_azure usará o redirecionamento, se possível.<br>- Se a conexão não usar SSL no lado do driver, o servidor não oferecer suporte ao redirecionamento ou a conexão redirecionada falhar ao se conectar por qualquer motivo não fatal, enquanto a conexão proxy ainda for válida, ela retornará à primeira conexão de proxy.|
 
 As seções subsequentes do documento descrevem como instalar a extensão `mysqlnd_azure` usando PECL e definir o valor desse parâmetro.
@@ -57,7 +57,7 @@ As seções subsequentes do documento descrevem como instalar a extensão `mysql
 - PHP versões 7.2.15+ e 7.3.2+
 - PHP PEAR 
 - php-mysql
-- Servidor do Banco de Dados do Azure para MySQL
+- Banco de dados do Azure para MariaDB
 
 1. Instale [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) com [PECL](https://pecl.php.net/package/mysqlnd_azure). É recomendável usar a versão 1.1.0+.
 
@@ -95,7 +95,7 @@ As seções subsequentes do documento descrevem como instalar a extensão `mysql
 #### <a name="prerequisites"></a>Pré-requisitos 
 - PHP versões 7.2.15+ e 7.3.2+
 - php-mysql
-- Servidor do Banco de Dados do Azure para MySQL
+- Banco de dados do Azure para MariaDB
 
 1. Determine se você está executando uma versão x64 ou x86 do PHP, executando o comando a seguir:
 
@@ -140,7 +140,7 @@ Você também pode confirmar se o redirecionamento está configurado com o exemp
  
  ```php
 <?php
-$host = '<yourservername>.mysql.database.azure.com';
+$host = '<yourservername>.mariadb.database.azure.com';
 $username = '<yourusername>@<yourservername>';
 $password = '<yourpassword>';
 $db_name = 'testdb';

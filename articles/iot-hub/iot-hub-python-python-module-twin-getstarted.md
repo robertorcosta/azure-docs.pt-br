@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
-ms.openlocfilehash: f846af548913e0cb3e872560e4b8438da306a255
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: f324b04dd87f84a07c07394f2ee7c3efdc30c3e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84607067"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introdução à identidade e módulo do módulo do Hub IoT (Python)
 
@@ -41,7 +41,7 @@ No final deste tutorial, você tem três aplicativos Python:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do hub IoT
 
 Neste artigo, você cria um serviço de back-end que adiciona um dispositivo no registro de identidade e, em seguida, adiciona um módulo a esse dispositivo. Esse serviço requer a permissão de **gravação do registro** (que também inclui a **leitura do registro**). Você também cria um serviço que adiciona as propriedades desejadas ao módulo e... para o módulo recém-criado. Esse serviço precisa da permissão de **conexão de serviço** . Embora existam políticas de acesso compartilhado padrão que concedem essas permissões individualmente, nesta seção, você cria uma política de acesso compartilhado personalizada que contém essas duas permissões.
 
@@ -51,7 +51,7 @@ Neste artigo, você cria um serviço de back-end que adiciona um dispositivo no 
 
 Nesta seção, você cria um aplicativo de serviço Python que cria uma identidade de dispositivo e uma identidade de módulo no registro de identidade em seu hub IoT. Um dispositivo ou módulo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no registro de identidade. Para obter mais informações, consulte [entender o registro de identidade em seu hub IOT](iot-hub-devguide-identity-registry.md). Quando você executa esse aplicativo de console, ele gera ID e chave exclusivas para o dispositivo e o módulo. O dispositivo e o módulo usam esses valores para se identificar ao enviar mensagens de dispositivo para nuvem para o Hub IoT. As IDs diferenciam minúsculas e maiúsculas.
 
-1. No prompt de comando, execute o seguinte comando para instalar o pacote **Azure-IOT-Hub** :
+1. No prompt de comando, execute o seguinte comando para instalar o pacote **azure-iot-hub**:
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -190,7 +190,7 @@ Nesta seção, você criará um aplicativo Python para obter a atualização das
 
    ![Detalhes do módulo do Portal do Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-1. No prompt de comando, execute o seguinte comando para instalar o pacote **Azure-IOT-Device** :
+1. No seu prompt de comando, execute o seguinte comando para instalar o pacote **azure-iot-device**:
 
     ```cmd/sh
     pip install azure-iot-device

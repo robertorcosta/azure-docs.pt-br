@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84606880"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solucionar problemas de runbook
 
@@ -50,7 +49,7 @@ Ao receber erros durante a execução do runbook na Automação do Azure, você 
 
 1. Execute esta etapa se o trabalho de runbook ou o ambiente em Hybrid Runbook Worker não responder.
 
-    Se você estiver executando seus runbooks em um Hybrid Runbook Worker em vez de na Automação do Azure, talvez seja necessário [solucionar problemas do próprio trabalhador híbrido](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+    Se você estiver executando seus runbooks em um Hybrid Runbook Worker em vez de na Automação do Azure, talvez seja necessário [solucionar problemas do próprio trabalhador híbrido](hybrid-runbook-worker.md).
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Cenário: Falha no runbook com um erro Sem permissão ou Proibido 403
 
@@ -64,7 +63,7 @@ As contas Executar Como não podem ter as mesmas permissões da sua conta atual 
 
 ### <a name="resolution"></a>Resolução
 
-Verifique se a conta Executar Como tem [permissões para acessar recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) usados no script.
+Verifique se a conta Executar Como tem [permissões para acessar recursos](../../role-based-access-control/role-assignments-portal.md) usados no script.
 
 ## <a name="scenario-sign-in-to-azure-account-failed"></a><a name="sign-in-failed"></a>Cenário: Falha ao entrar na conta do Azure
 
@@ -99,7 +98,7 @@ Para determinar o que está errado, siga estas etapas:
    Connect-AzAccount –Credential $Cred
    ```
 
-1. Se a sua autenticação falhar localmente, você não configurou as credenciais do Azure Active Directory (Azure AD) corretamente. Para configurar corretamente a conta do Azure AD, consulte a postagem no blog [Autenticação no Azure usando Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+1. Se a sua autenticação falhar localmente, você não configurou as credenciais do Azure Active Directory (Azure AD) corretamente. Para que a conta do Azure AD seja configurada corretamente, consulte o artigo [autenticar no Azure usando Azure Active Directory](../automation-use-azure-ad.md).
 
 1. Se o erro parecer ser transitório, tente adicionar lógica de nova tentativa à sua rotina de autenticação para tornar a autenticação mais robusta.
 
@@ -137,7 +136,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ocorrer quando você não está usando uma conta Executar Como ou quando a conta Executar Como expirou. Para saber mais, confira [Gerenciar contas Executar Como de Automação do Azure](https://docs.microsoft.com/azure/automation/manage-runas-account).
+Esse erro pode ocorrer quando você não está usando uma conta Executar Como ou quando a conta Executar Como expirou. Para saber mais, confira [Gerenciar contas Executar Como de Automação do Azure](../manage-runas-account.md).
 
 Esse erro tem duas causas principais:
 
@@ -274,7 +273,7 @@ Se você tiver a autenticação multifator em sua conta do Azure, você não pod
 
 ### <a name="resolution"></a>Resolução
 
-Para usar um certificado com os cmdlets do modelo de implantação clássico do Azure, consulte [Criando e adicionando um certificado para gerenciar os serviços do Azure](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [Criando entidade de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [Autenticando uma entidade de serviço com o Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Para usar uma conta Executar como clássica com os cmdlets do modelo de implantação clássico do Azure, consulte [criar uma conta Executar como clássica para gerenciar os serviços do Azure](../automation-create-standalone-account.md#create-a-classic-run-as-account). Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [Criando entidade de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [Autenticando uma entidade de serviço com o Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>Cenário: O runbook falha com a mensagem de erro "Uma tarefa foi cancelada"
 
@@ -383,7 +382,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ocorrer se o runbook não executar as etapas adequadas antes de chamar `Add-AzAccount` para adicionar a conta de Automação. Um exemplo de uma das etapas necessárias é entrar com uma conta Executar Como. Para as operações corretas a serem usadas em seu runbook, consulte [Execução de runbook na Automação do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
+Esse erro pode ocorrer se o runbook não executar as etapas adequadas antes de chamar `Add-AzAccount` para adicionar a conta de Automação. Um exemplo de uma das etapas necessárias é entrar com uma conta Executar Como. Para as operações corretas a serem usadas em seu runbook, consulte [Execução de runbook na Automação do Azure](../automation-runbook-execution.md).
 
 ## <a name="scenario-object-reference-not-set-to-an-instance-of-an-object"></a><a name="child-runbook-object"></a>Cenário: Referência de objeto não definida para uma instância de objeto
 
@@ -419,7 +418,7 @@ $waitTime = 0
 while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+   $jobResults = $job | Get-AzAutomationJob
 }
 
 $jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
@@ -652,16 +651,16 @@ As possíveis causas desse problema são:
 
 #### <a name="not-using-a-run-as-account"></a>Não usar uma conta Executar Como
 
-Siga [Etapa 5 – Adicionar autenticação para gerenciar recursos do Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) para garantir que você esteja usando uma conta Executar Como para acessar Key Vault.
+Siga [Etapa 5 – Adicionar autenticação para gerenciar recursos do Azure](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) para garantir que você esteja usando uma conta Executar Como para acessar Key Vault.
 
 #### <a name="insufficient-permissions"></a>Permissões insuficientes
 
-[Adicione permissões ao Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) para garantir que sua conta Executar Como tenha permissões suficientes para acessar Key Vault.
+[Adicione permissões ao Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) para garantir que sua conta Executar Como tenha permissões suficientes para acessar Key Vault.
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
 * [Execução de Runbook na Automação do Azure](../automation-runbook-execution.md)
-* [Como iniciar um Runbook na Automação do Azure](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Como iniciar um Runbook na Automação do Azure](../automation-starting-a-runbook.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

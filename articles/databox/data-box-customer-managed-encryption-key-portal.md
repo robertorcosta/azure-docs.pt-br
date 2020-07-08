@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 6f543b3f5c2bb7d4949c431580771c4b0d965e4d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 4bcd8deef28f8e0123e6e2171b3ab24d6ac49292
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84634992"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usar chaves gerenciadas pelo cliente no Azure Key Vault para Azure Data Box
 
@@ -103,7 +102,7 @@ Configurar a chave gerenciada pelo cliente para seu Azure Data Box é opcional. 
 
 Se você receber erros relacionados à chave gerenciada pelo cliente, use a tabela a seguir para solucionar problemas.
 
-| Código de erro| Mensagem de erro| Detalhes|
+| Código de erro| Detalhes do erro| Recuperado?|
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| Não foi possível obter a chave de acesso porque a chave gerenciada pelo cliente está desabilitada.| Sim, habilitando a versão da chave.|
 | SsemUserErrorEncryptionKeyExpired| Não foi possível buscar a chave de acesso, pois a chave gerenciada pelo cliente expirou.| Sim, habilitando a versão da chave.|

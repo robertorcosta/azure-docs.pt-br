@@ -12,13 +12,12 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 300b7e4fe3e3c150a78fee5b63458feab266aafe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558666"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
@@ -50,7 +49,7 @@ Na MSAL 3.x, o registro em log é definido por aplicativo na criação do aplica
 
 - `Level`permite que você decida qual nível de log você deseja. Configurá-lo como Erros só registrará erros
 - `PiiLoggingEnabled`permite que você registre dados pessoais e organizacionais se definido como true. Por padrão, ele fica definido como false, para que seu aplicativo não registre dados pessoais.
-- `LogCallback`é definido como um delegado que faz o registro em log. Se `PiiLoggingEnabled` for true, esse método receberá as mensagens duas vezes: uma vez `containsPii` com o parâmetro igual a false e a mensagem sem dados pessoais, e uma segunda `containsPii` vez com o parâmetro igual a true e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
+- `LogCallback`é definido como um delegado que faz o registro em log. Se `PiiLoggingEnabled` for true, esse método receberá as mensagens duas vezes: uma vez com o `containsPii` parâmetro igual a false e a mensagem sem dados pessoais, e uma segunda vez com o `containsPii` parâmetro igual a true e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
 - `DefaultLoggingEnabled`habilita o log padrão para a plataforma. Por padrão, é false. Se você defini-lo como true, ele usará o rastreamento de eventos em aplicativos de área de trabalho/UWP, NSLog no iOS e logcat no Android.
 
 ```csharp
@@ -87,9 +86,9 @@ class Program
 Ative o logon na criação do aplicativo Criando um retorno de chamada de log. O retorno de chamada usa estes parâmetros:
 
 - `tag`é uma cadeia de caracteres passada para o retorno de chamada pela biblioteca. Ele é associado à entrada de log e pode ser usado para classificar mensagens de registro em log.
-- `logLevel`permite que você decida qual nível de log você deseja. Os níveis de log com suporte `Error`são `Warning`: `Info`,, `Verbose`e.
+- `logLevel`permite que você decida qual nível de log você deseja. Os níveis de log com suporte são: `Error` , `Warning` , `Info` e `Verbose` .
 - `message`é o conteúdo da entrada de log.
-- `containsPII`Especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registradas. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais. Se `containsPII` for `true`, esse método receberá as mensagens duas vezes: uma vez `containsPII` com o parâmetro `false` definido como `message` e o sem dados pessoais, e uma segunda vez `containsPii` com o parâmetro `true` definido como e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
+- `containsPII`Especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registradas. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais. Se `containsPII` for `true` , esse método receberá as mensagens duas vezes: uma vez com o `containsPII` parâmetro definido como `false` e o `message` sem dados pessoais, e uma segunda vez com o `containsPii` parâmetro definido como `true` e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
 
 ```java
 private StringBuilder mLogs;
@@ -126,10 +125,10 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
- Habilite o registro em log no MSAL. js (JavaScript) passando um objeto do agente durante a `UserAgentApplication` configuração para criar uma instância. O objeto logger tem as seguintes propriedades:
+ Habilite o logon MSAL.js (JavaScript) passando um objeto do agente durante a configuração para criar uma `UserAgentApplication` instância. O objeto logger tem as seguintes propriedades:
 
 - `localCallback`: uma instância de retorno de chamada que pode ser fornecida pelo desenvolvedor para consumir e publicar logs de maneira personalizada. Implemente o método localCallback, dependendo de como você deseja redirecionar os logs.
-- `level`(opcional): o nível de log configurável. Os níveis de log com suporte `Error`são `Warning`: `Info`,, `Verbose`e. O padrão é `Info`.
+- `level`(opcional): o nível de log configurável. Os níveis de log com suporte são: `Error` , `Warning` , `Info` e `Verbose` . O padrão é `Info`.
 - `piiLoggingEnabled`(opcional): se definido como true, registra dados pessoais e organizacionais. Por padrão, isso é falso para que seu aplicativo não Registre dados pessoais. Logs de dados pessoais nunca são gravados em saídas padrão como Console, Logcat ou NSLog.
 - `correlationId`(opcional): um identificador exclusivo, usado para mapear a solicitação com a resposta para fins de depuração. O padrão é guid RFC4122 versão 4 (128 bits).
 
@@ -194,7 +193,7 @@ Por exemplo:
 
 ### <a name="personal-data"></a>Dados pessoais
 
-Por padrão, o MSAL não captura nem registra nenhum dado pessoal (PII). A biblioteca permite que os desenvolvedores de aplicativos ativem isso por meio de uma propriedade na classe MSALLogger. Ao ativar `pii.Enabled`, o aplicativo assume a responsabilidade por lidar com segurança com dados altamente confidenciais e com os requisitos regulatórios a seguir.
+Por padrão, o MSAL não captura nem registra nenhum dado pessoal (PII). A biblioteca permite que os desenvolvedores de aplicativos ativem isso por meio de uma propriedade na classe MSALLogger. Ao ativar `pii.Enabled` , o aplicativo assume a responsabilidade por lidar com segurança com dados altamente confidenciais e com os requisitos regulatórios a seguir.
 
 ```objc
 // By default, the `MSALLogger` doesn't capture any PII
@@ -214,7 +213,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | Warnings |
+| `MSALLogLevelWarning` | Avisos |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreamento de API |
 
@@ -271,7 +270,7 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 ### <a name="personal-data"></a>Dados pessoais
 
-Por padrão, o MSAL não captura nem registra nenhum dado pessoal (PII). A biblioteca permite que os desenvolvedores de aplicativos ativem isso por meio de uma propriedade na classe MSALLogger. Ao ativar `pii.Enabled`, o aplicativo assume a responsabilidade por lidar com segurança com dados altamente confidenciais e com os requisitos regulatórios a seguir.
+Por padrão, o MSAL não captura nem registra nenhum dado pessoal (PII). A biblioteca permite que os desenvolvedores de aplicativos ativem isso por meio de uma propriedade na classe MSALLogger. Ao ativar `pii.Enabled` , o aplicativo assume a responsabilidade por lidar com segurança com dados altamente confidenciais e com os requisitos regulatórios a seguir.
 
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
@@ -291,7 +290,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | Warnings |
+| `MSALLogLevelWarning` | Avisos |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreamento de API |
 
@@ -350,7 +349,7 @@ Por padrão, o log do MSAL não captura nem registra dados pessoais ou organizac
             .build();
 ```
 
-Ative o registro em log de dados pessoais e `logPii()` organizacionais Configurando no construtor de aplicativos cliente. Se você ativar o registro em log de dados pessoais ou organizacionais, seu aplicativo deverá assumir a responsabilidade de lidar com segurança dados altamente confidenciais e obedecer a quaisquer requisitos regulatórios.
+Ative o registro em log de dados pessoais e organizacionais Configurando `logPii()` no construtor de aplicativos cliente. Se você ativar o registro em log de dados pessoais ou organizacionais, seu aplicativo deverá assumir a responsabilidade de lidar com segurança dados altamente confidenciais e obedecer a quaisquer requisitos regulatórios.
 
 No exemplo a seguir, os dados de log pessoal ou organizacional estão habilitados:
 
@@ -365,7 +364,7 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
 
 ## <a name="msal-for-python-logging"></a>MSAL para registro em log do Python
 
-O registro em log no MSAL Python usa o mecanismo de registro em `logging.info("msg")` log do Python padrão, por exemplo, você pode configurar o registro em log do MSAL da seguinte maneira (e vê-lo em ação no [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+O registro em log no MSAL Python usa o mecanismo de registro em log do Python padrão, por exemplo, `logging.info("msg")` você pode configurar o registro em log do MSAL da seguinte maneira (e vê-lo em ação no [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
 
 ### <a name="enable-debug-logging-for-all-modules"></a>Habilitar log de depuração para todos os módulos
 

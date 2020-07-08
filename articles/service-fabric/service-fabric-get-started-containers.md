@@ -3,12 +3,12 @@ title: Criar um aplicativo de contêiner de Service Fabric do Azure
 description: Crie seu primeiro aplicativo de contêiner do Windows no Azure Service Fabric. Crie uma imagem do Docker com um aplicativo Python, envie a imagem por push para um registro de contêiner e, em seguida, compile e implante o contêiner no Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560657"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o comando a seguir:
 
 ```
 docker build -t helloworldapp .
@@ -142,12 +142,12 @@ Depois que o contêiner iniciar, localize seu endereço IP para que você pode s
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Se esse comando não retornar nada, execute o comando a seguir e inspecione o elemento **NetworkSettings**->**Networks** para o endereço IP:
+Se esse comando não retornar nada, execute o comando a seguir e inspecione o elemento **NetworkSettings** -> **Networks** para o endereço IP:
 ```
 docker inspect my-web-site
 ```
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "\/http:/172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "http: \/ /172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 Para interromper o contêiner, execute:
 
@@ -189,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Crie o serviço em contêineres no Visual Studio
 As ferramentas e o SDK do Service Fabric oferecem um modelo de serviço para ajudar você a criar um aplicativo em contêineres.
 
-1. Inicie o Visual Studio. Selecione **arquivo** > **novo** > **projeto**.
+1. Inicie o Visual Studio. Selecione **Arquivo** > **Novo** > **Projeto**.
 2. Selecione **Aplicativo do Service Fabric**, nomeie-o como "MyFirstContainer" e clique em **OK**.
 3. Selecione **Contêiner** na lista de **modelos de serviço**.
 4. Em **Nome da imagem** insira "myregistry.azurecr.io/samples/helloworldapp", a imagem é enviada para o seu repositório de contêiner.
