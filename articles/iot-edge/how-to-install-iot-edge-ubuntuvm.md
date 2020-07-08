@@ -7,14 +7,13 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 64e2787aa282e75893fa34e6de1373e6afed09fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800555"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -34,7 +33,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
 
 1. Implantaremos um Azure IoT Edge VM Linux habilitada usando o modelo iotedge-VM-Deploy Azure Resource Manager.  Para começar, clique no botão abaixo:
 
-    [![Botão implantar no Azure para iotedge-VM-Deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![Botão Implantar no Azure para iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 1. Na janela iniciada recentemente, preencha os campos de formulário disponíveis:
 
@@ -63,7 +62,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
 
     Quando todos os campos tiverem sido preenchidos, marque a caixa de seleção na parte inferior da página para aceitar os termos e selecione **comprar** para iniciar a implantação.
 
-1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador, que deve estar no formato `vm-0000000000000`. Além disso, anote o **nome DNS**associado, que deve estar no formato `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador, que deve estar no formato `vm-0000000000000` . Além disso, anote o **nome DNS**associado, que deve estar no formato `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
 
     O **nome DNS** pode ser obtido na seção **visão geral** da máquina virtual implantada recentemente na portal do Azure.
 
@@ -108,11 +107,10 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
 
 1. Crie uma nova máquina virtual:
 
-    Para usar uma **authenticationType** de `password`, consulte o exemplo abaixo:
+    Para usar uma **authenticationType** de `password` , consulte o exemplo abaixo:
 
    ```azurecli-interactive
-   az group deployment create \
-   --name edgeVm \
+   az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -122,15 +120,14 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-    Para autenticar com uma chave SSH, você pode fazer isso especificando uma **authenticationType** de `sshPublicKey`e, em seguida, fornecer o valor da chave ssh no parâmetro **adminPasswordOrKey** .  Um exemplo é mostrado abaixo.
+    Para autenticar com uma chave SSH, você pode fazer isso especificando uma **authenticationType** de `sshPublicKey` e, em seguida, fornecer o valor da chave ssh no parâmetro **adminPasswordOrKey** .  Um exemplo é mostrado abaixo.
 
     ```azurecli-interactive
     #Generate the SSH Key
     ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
 
     #Create a VM using the iotedge-vm-deploy script
-    az group deployment create \
-    --name edgeVm \
+    az deployment group create \
     --resource-group IoTEdgeResources \
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -138,10 +135,9 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
     --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-     
     ```
 
-1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador, que deve estar no formato `vm-0000000000000`. Além disso, anote o **nome DNS**associado, que deve estar no formato `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador, que deve estar no formato `vm-0000000000000` . Além disso, anote o **nome DNS**associado, que deve estar no formato `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
 
     O **nome DNS** pode ser obtido da saída formatada em JSON da etapa anterior, dentro da seção **saídas** como parte da entrada **SSH pública** .  O valor dessa entrada pode ser usado para SSH no computador implantado recentemente.
 

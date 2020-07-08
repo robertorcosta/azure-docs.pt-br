@@ -2,21 +2,20 @@
 title: Descubra quando um usuário específico poderá acessar um aplicativo
 description: Como saber quando um usuário extremamente importante é capaz de acessar um aplicativo que você configurou para o provisionamento do usuário com o Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782017"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -35,7 +34,7 @@ Quando você configura o provisionamento automático pela primeira vez, a seçã
 
 Após a conclusão de um ciclo de provisionamento, a seção **estatísticas até a data** mostra os números cumulativos de usuários e grupos que foram provisionados até a data, junto com a data de conclusão e a duração do último ciclo. A **ID da atividade** identifica exclusivamente o ciclo de provisionamento mais recente. A **ID do trabalho** é um identificador exclusivo para o trabalho de provisionamento e é específica para o aplicativo em seu locatário.
 
-O progresso do provisionamento pode ser exibido na portal do Azure, na guia **provisionamento de &gt; nome &gt; \[\] &gt; de aplicativo do Azure Active Directory Enterprise apps** .
+O progresso do provisionamento pode ser exibido na portal do Azure, na guia ** &gt; &gt; \[ \] &gt; provisionamento de nome de aplicativo do Azure Active Directory Enterprise apps** .
 
 ![Barra de progresso da página de provisionamento](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -43,7 +42,7 @@ O progresso do provisionamento pode ser exibido na portal do Azure, na guia **pr
 
 Para ver o status de provisionamento de um usuário selecionado, consulte os [logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) no Azure AD. Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos logs de provisionamento do Azure AD. Isso inclui todas as operações de leitura e gravação feitas nos sistemas de origem e de destino, bem como os dados de usuário que foram lidos ou gravados durante cada operação.
 
-Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **logs de provisionamento (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Os logs de provisionamento registram todas as operações executadas pelo serviço de provisionamento, incluindo:
 
@@ -100,4 +99,4 @@ Resumo dos fatores que influenciam o tempo necessário para concluir um **ciclo 
 - Se o desempenho se tornar um problema e você estiver tentando provisionar a maioria dos usuários e grupos em seu locatário, use filtros de escopo. Filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativos com base em atributo com filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Active Directory do Azure](user-provisioning.md)
+[Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](user-provisioning.md)

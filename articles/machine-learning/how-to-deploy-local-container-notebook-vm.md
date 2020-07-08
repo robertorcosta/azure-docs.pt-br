@@ -1,21 +1,20 @@
 ---
-title: Como implantar modelos para computar instâncias
+title: Modelos de HDeploy para computar instâncias
 titleSuffix: Azure Machine Learning
 description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando instâncias de computação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 07afeba8ab481da6a23862dee187c8c72df19f3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84429574"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implantar um modelo para Azure Machine Learning instâncias de computação
 
@@ -39,17 +38,17 @@ Um bloco de anotações de exemplo que demonstra implantações locais está inc
 
 1. No [Azure Machine Learning Studio](https://ml.azure.com), selecione suas instâncias de computação Azure Machine Learning.
 
-1. Abra o `samples-*` subdiretório e, em seguida, `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`abra. Uma vez aberto, execute o bloco de anotações.
+1. Abra o `samples-*` subdiretório e, em seguida, abra `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . Uma vez aberto, execute o bloco de anotações.
 
     ![Captura de tela do serviço local em execução no bloco de anotações](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. O notebook exibe a URL e a porta em que o serviço está sendo executado. Por exemplo, `https://localhost:6789`. Você também pode executar a célula que `print('Local service port: {}'.format(local_service.port))` contém para exibir a porta.
+1. O notebook exibe a URL e a porta em que o serviço está sendo executado. Por exemplo, `https://localhost:6789`. Você também pode executar a célula que contém `print('Local service port: {}'.format(local_service.port))` para exibir a porta.
 
     ![Captura de tela da porta de serviço local em execução](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
-1. Para testar o serviço de uma instância de computação, use `https://localhost:<local_service.port>` a URL. Para testar a partir de um cliente remoto, obtenha a URL pública do serviço em execução na instância de computação. A URL pública pode ser determinada usando a fórmula a seguir; 
-    * VM do notebook `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`:. 
-    * Instância de computação `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`:. 
+1. Para testar o serviço de uma instância de computação, use a `https://localhost:<local_service.port>` URL. Para testar a partir de um cliente remoto, obtenha a URL pública do serviço em execução na instância de computação. A URL pública pode ser determinada usando a fórmula a seguir; 
+    * VM do notebook: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` . 
+    * Instância de computação: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
     Por exemplo, 
     * VM do notebook:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
@@ -60,7 +59,7 @@ Um bloco de anotações de exemplo que demonstra implantações locais está inc
 Para enviar dados de exemplo para o serviço em execução, use o código a seguir. Substitua o valor de `service_url` pela URL de da etapa anterior:
 
 > [!NOTE]
-> Ao autenticar para uma implantação na instância de computação, a autenticação é feita usando Azure Active Directory. A chamada para `interactive_auth.get_authentication_header()` no código de exemplo autentica você usando o AAD e retorna um cabeçalho que pode ser usado para autenticar o serviço na instância de computação. Para obter mais informações, consulte [Configurar a autenticação para Azure Machine Learning recursos e fluxos de trabalho](how-to-setup-authentication.md#interactive-authentication).
+> Ao autenticar para uma implantação na instância de computação, a autenticação é feita usando Azure Active Directory. A chamada para `interactive_auth.get_authentication_header()` no código de exemplo autentica você usando o AAD e retorna um cabeçalho que pode ser usado para autenticar o serviço na instância de computação. Para obter mais informações, consulte [Configurar a autenticação para recursos e fluxos de trabalho do Azure Machine Learning](how-to-setup-authentication.md#interactive-authentication).
 >
 > Ao autenticar para uma implantação no serviço kubernetes do Azure ou em instâncias de contêiner do Azure, um método de autenticação diferente é usado. Para obter mais informações sobre o, consulte [Configurar a autenticação para Azure Machine Learning recursos e fluxos de trabalho](how-to-setup-authentication.md#web-service-authentication).
 
@@ -96,7 +95,7 @@ print("prediction:", resp.text)
 
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Usar o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
+* [Use o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

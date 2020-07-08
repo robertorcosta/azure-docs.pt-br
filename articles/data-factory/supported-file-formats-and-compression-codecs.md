@@ -9,12 +9,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: dbcfad3dd3db9f5c9431e07d85d77a77a10283c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 24edeb686136a1264d75e81fd9527feff3d17c48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84191098"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de arquivo e codecs de compactação com suporte no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +26,7 @@ Você pode usar a [atividade de cópia](copy-activity-overview.md) para copiar a
 
 Além disso, você também pode analisar ou gerar arquivos de um determinado formato. Por exemplo, você pode executar o seguinte:
 
-* Copie dados de um banco de dado SQL Server local e grave em Azure Data Lake Storage Gen2 no formato parquet.
+* Copie dados de um banco de SQL Server e grave em Azure Data Lake Storage Gen2 no formato parquet.
 * Copiar arquivos no formato de texto (CSV) de um sistema de arquivos local e gravar no armazenamento de BLOBs do Azure no formato Avro.
 * Copie arquivos compactados de um sistema de arquivos local, descompacte-os imediatamente e grave arquivos extraídos em Azure Data Lake Storage Gen2.
 * Copie dados no formato de texto compactado gzip (CSV) do armazenamento de BLOBs do Azure e grave-os no banco de dados SQL do Azure.

@@ -2,21 +2,20 @@
 title: Usar Microsoft Graph APIs para configurar o provisionamento-Azure Active Directory | Microsoft Docs
 description: Precisa configurar o provisionamento para várias instâncias de um aplicativo? Saiba como economizar tempo usando as APIs de Microsoft Graph para automatizar a configuração do provisionamento automático.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782051"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurar o provisionamento usando APIs de Microsoft Graph
 
@@ -36,19 +35,19 @@ A portal do Azure é uma maneira conveniente de configurar o provisionamento de 
 > [!NOTE]
 > Os objetos de resposta mostrados neste artigo podem ser reduzidos para facilitar a leitura. Todas as propriedades serão retornadas de uma chamada real.
 
-## <a name="step-1-create-the-gallery-application"></a>Etapa 1: criar o aplicativo de galeria
+## <a name="step-1-create-the-gallery-application"></a>Etapa 1: Criar o aplicativo de galeria
 
-### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Entre no Microsoft Graph Explorer (recomendado), no postmaster ou em qualquer outro cliente de API que você usar
+### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Entre no Microsoft Graph Explorer (recomendado), no Postman ou em qualquer outro cliente de API que você usar
 
-1. Iniciar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+1. Inicie o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Selecione o botão "entrar com a Microsoft" e entre usando o administrador global do Azure AD ou as credenciais de administrador do aplicativo.
 
     ![Entrar no Graph](./media/application-provisioning-configure-api/wd_export_02.png)
 
-1. Após a entrada bem-sucedida, você verá os detalhes da conta de usuário no painel esquerdo.
+1. Depois de entrar, você verá os detalhes da conta de usuário no painel esquerdo.
 
-### <a name="retrieve-the-gallery-application-template-identifier"></a>Recuperar o identificador de modelo de aplicativo da Galeria
-Os aplicativos na Galeria de aplicativos do Azure AD têm um [modelo de aplicativo](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) que descreve os metadados para esse aplicativo. Usando esse modelo, você pode criar uma instância do aplicativo e a entidade de serviço em seu locatário para gerenciamento.
+### <a name="retrieve-the-gallery-application-template-identifier"></a>Recuperar o identificador do modelo de aplicativo da galeria
+Os aplicativos na galeria de aplicativos do Azure Active Directory têm um [modelo de aplicativo](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) que descreve os metadados para esse aplicativo. Usando esse modelo, é possível criar uma instância do aplicativo e a entidade de serviço em seu locatário para gerenciamento.
 
 #### <a name="request"></a>*Solicitação*
 
@@ -61,7 +60,7 @@ Os aplicativos na Galeria de aplicativos do Azure AD têm um [modelo de aplicati
 GET https://graph.microsoft.com/beta/applicationTemplates
 ```
 
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 
 <!-- {
   "blockType": "response",
@@ -118,7 +117,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 
 
 <!-- {
@@ -182,7 +181,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 ```
 
 
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -223,7 +222,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -273,7 +272,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
     ]
 }
 ```
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -299,7 +298,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 }
 ```
 
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -322,7 +321,7 @@ Agora que o trabalho de provisionamento está configurado, use o comando a segui
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
 ```
 
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -348,7 +347,7 @@ Agora que o trabalho de provisionamento está em execução, use o comando a seg
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -398,7 +397,7 @@ Além de monitorar o status do trabalho de provisionamento, você pode usar os [
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```
-#### <a name="response"></a>*Responde*
+#### <a name="response"></a>*Resposta*
 <!-- {
   "blockType": "response",
   "truncated": true,

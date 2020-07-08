@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783224"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da Central de Segurança do Azure para aprimorar a segurança
 Você pode reduzir as chances de um evento de segurança significativo configurando uma política de segurança e implementando as recomendações fornecidas pela Central de Segurança do Azure. Esse artigo mostra como usar as políticas de segurança e as recomendações da Central de Segurança para ajudar a atenuar uma violação de segurança. 
@@ -57,7 +56,7 @@ Como parte de suas atividades diárias de monitoramento, Jeff entra no Azure e a
 
 2. Jeff verifica a **Pontuação segura** para obter uma visão geral de como as assinaturas são seguras e vê que a pontuação é 548.
 
-3. Jeff precisa decidir com quais recomendações deseja lidar primeiro. Então Jeff clica em Pontuação segura e começa a lidar com recomendações com base em quanto isso melhora seu [impacto de Pontuação segura](security-center-secure-score.md).
+3. Jeff precisa decidir com quais recomendações deseja lidar primeiro. Então Jeff clica em Pontuação segura e começa a lidar com recomendações com base na quantidade de ti que melhora sua [Pontuação segura](secure-score-security-controls.md).
 
 4. Como Jeff tem muitos servidores e VMs conectadas, ele decide se concentrar em **Computação e aplicativos**.
 

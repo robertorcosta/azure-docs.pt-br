@@ -4,15 +4,14 @@ description: Este artigo fornece uma visão geral da reescrita de cabeçalhos HT
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248663"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com o gateway de aplicativo
 
@@ -62,28 +61,28 @@ O gateway de aplicativo dá suporte a essas variáveis de servidor:
 
 | Nome da variável | Descrição                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | O campo de cabeçalho de solicitação de cliente X encaminhado-para `client_ip` com a variável (consulte a explicação mais adiante nesta tabela) acrescentado a ele no formato IP1, IP2, IP3 e assim por diante. Se o campo X-Forwarded-for não estiver no cabeçalho de solicitação do cliente `add_x_forwarded_for_proxy` , a variável será igual `$client_ip` à variável. Essa variável é particularmente útil quando você deseja reescrever o cabeçalho X-Forwardd-for definido pelo gateway de aplicativo para que o cabeçalho contenha apenas o endereço IP sem as informações de porta. |
+| add_x_forwarded_for_proxy  | O campo de cabeçalho de solicitação de cliente X encaminhado-para com a `client_ip` variável (consulte a explicação mais adiante nesta tabela) acrescentado a ele no formato IP1, IP2, IP3 e assim por diante. Se o campo X-Forwarded-for não estiver no cabeçalho de solicitação do cliente, a `add_x_forwarded_for_proxy` variável será igual à `$client_ip` variável. Essa variável é particularmente útil quando você deseja reescrever o cabeçalho X-Forwardd-for definido pelo gateway de aplicativo para que o cabeçalho contenha apenas o endereço IP sem as informações de porta. |
 | ciphers_supported          | Uma lista de codificações com suporte do cliente.          |
 | ciphers_used               | A cadeia de caracteres de codificações usada para uma conexão TLS estabelecida. |
 | client_ip                  | O endereço IP do cliente do qual o gateway de aplicativo recebeu a solicitação. Se houver um proxy reverso antes do gateway de aplicativo e do cliente de origem, *client_ip* retornará o endereço IP do proxy reverso. |
 | client_port                | A porta do cliente.                                                  |
 | client_tcp_rtt             | Informações sobre a conexão TCP do cliente. Disponível em sistemas que dão suporte à opção de soquete TCP_INFO. |
 | client_user                | Quando a autenticação HTTP é usada, o nome de usuário fornecido para autenticação. |
-| host                       | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, o valor do host será *contoso.com* |
+| host                       | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , o valor do host será *contoso.com* |
 | *nome* do cookie_              | O *nome* do cookie.                                            |
 | http_method                | O método usado para fazer a solicitação de URL. Por exemplo, GET ou POST. |
 | http_status                | O status da sessão. Por exemplo, 200, 400 ou 403.                       |
 | http_version               | O protocolo de solicitação. Geralmente, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string               | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, QUERY_STRING valor será *id = 123&título = Fabrikam* |
+| query_string               | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , QUERY_STRING valor será *ID = 123&título = Fabrikam* |
 | received_bytes             | O comprimento da solicitação (incluindo a linha de solicitação, o cabeçalho e o corpo da solicitação). |
 | request_query              | Os argumentos na linha de solicitação.                                |
 | request_scheme             | O esquema de solicitação: http ou HTTPS.                            |
-| request_uri                | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, REQUEST_URI valor será */article.aspx? id = 123&title = Fabrikam*   |
+| request_uri                | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , REQUEST_URI valor será */article.aspx? id = 123&title = Fabrikam*   |
 | sent_bytes                 | O número de bytes enviados a um cliente.                             |
 | server_port                | A porta do servidor que aceitou uma solicitação.                 |
 | ssl_connection_protocol    | O protocolo de uma conexão TLS estabelecida.        |
 | ssl_enabled                | "Ativado" se a conexão opera no modo TLS. Caso contrário, uma cadeia de caracteres vazia. |
-| uri_path                   | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, uri_path valor será */article.aspx*  |
+| uri_path                   | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , uri_path valor será */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Reescrever configuração
 
@@ -131,7 +130,7 @@ Você pode resolver esse problema definindo o nome do host no cabeçalho Locatio
 
 Aqui estão as etapas para substituir o nome do host:
 
-1. Crie uma regra de reescrita com uma condição que seja avaliada se o cabeçalho de local na resposta contiver azurewebsites.net. Insira o padrão `(https?):\/\/.*azurewebsites\.net(.*)$`.
+1. Crie uma regra de reescrita com uma condição que seja avaliada se o cabeçalho de local na resposta contiver azurewebsites.net. Insira o padrão `(https?):\/\/.*azurewebsites\.net(.*)$` .
 1. Execute uma ação para reescrever o cabeçalho de local para que ele tenha o nome de host do gateway de aplicativo. Faça isso inserindo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor do cabeçalho.
 
 ![Modificar cabeçalho de local](media/rewrite-http-headers/app-service-redirection.png)
@@ -156,13 +155,13 @@ Você pode avaliar uma solicitação HTTP ou um cabeçalho de resposta para a pr
 
 ## <a name="limitations"></a>Limitações
 
-- Se uma resposta tiver mais de um cabeçalho com o mesmo nome, a regravação do valor de um desses cabeçalhos fará com que os outros cabeçalhos sejam descartados na resposta. Isso geralmente pode acontecer com o cabeçalho Set-cookie, pois você pode ter mais de um cabeçalho Set-cookie em uma resposta. Um cenário desse tipo é quando você está usando um serviço de aplicativo com um gateway de aplicativo e configurou a afinidade de sessão baseada em cookie no gateway de aplicativo. Nesse caso, a resposta conterá dois cabeçalhos Set-Cookie: um usado pelo serviço de aplicativo, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade de gateway de aplicativo, por exemplo `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`,. Reescrever um dos cabeçalhos Set-cookie nesse cenário pode resultar na remoção do outro cabeçalho Set-cookie da resposta.
+- Se uma resposta tiver mais de um cabeçalho com o mesmo nome, a regravação do valor de um desses cabeçalhos fará com que os outros cabeçalhos sejam descartados na resposta. Isso geralmente pode acontecer com o cabeçalho Set-cookie, pois você pode ter mais de um cabeçalho Set-cookie em uma resposta. Um cenário desse tipo é quando você está usando um serviço de aplicativo com um gateway de aplicativo e configurou a afinidade de sessão baseada em cookie no gateway de aplicativo. Nesse caso, a resposta conterá dois cabeçalhos Set-Cookie: um usado pelo serviço de aplicativo, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade de gateway de aplicativo, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos Set-cookie nesse cenário pode resultar na remoção do outro cabeçalho Set-cookie da resposta.
 
 - Não há suporte para regravações quando o gateway de aplicativo está configurado para redirecionar as solicitações ou para mostrar uma página de erro personalizada.
 
 - Atualmente, não há suporte para a regravação da conexão, da atualização e dos cabeçalhos de host.
 
-- Os nomes de cabeçalho podem conter caracteres alfanuméricos e símbolos específicos, conforme definido no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). No momento, não há suporte para o\_caractere especial sublinhado () em nomes de cabeçalho.
+- Os nomes de cabeçalho podem conter caracteres alfanuméricos e símbolos específicos, conforme definido no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). No momento, não há suporte para o caractere especial sublinhado ( \_ ) em nomes de cabeçalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

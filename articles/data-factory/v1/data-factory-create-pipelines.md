@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f93bea240ee3f139c9be84199d116f9f3f231261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 62da43879b581d6737eee1310cf642e9692051de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281516"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248438"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -34,7 +33,7 @@ Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Visão geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um SQL Server local para um Armazenamento de Blobs do Azure. Em seguida, usar uma atividade Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar/transformar dados do armazenamento de blobs para gerar dados de saída. Por fim, usar uma segunda atividade de cópia para copiar os dados de saída em um SQL Data Warehouse do Azure sobre o qual as soluções de relatório de BI (business intelligence) são criadas.
+Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um banco de dado SQL Server para um armazenamento de BLOBs do Azure. Em seguida, usar uma atividade Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar/transformar dados do armazenamento de blobs para gerar dados de saída. Por fim, usar uma segunda atividade de cópia para copiar os dados de saída em um SQL Data Warehouse do Azure sobre o qual as soluções de relatório de BI (business intelligence) são criadas.
 
 Uma atividade pode usar zero ou mais [conjuntos](data-factory-create-datasets.md) de dados de entrada e produzir um ou mais [conjuntos](data-factory-create-datasets.md)de resultados de saída. O seguinte diagrama mostra a relação entre pipeline, atividade e conjunto de dados no Data Factory:
 
@@ -92,12 +91,12 @@ Vamos dar uma olhada mais próxima em como um pipeline é definido no formato JS
 }
 ```
 
-| Marca | Descrição | Necessária |
+| Marca | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">",\*"", "%", "&", ":",\\""</li></ul> |Sim |
+| name |Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |Sim |
 | descrição | Especifique o texto descrevendo para que o pipeline é usado. |Sim |
 | atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a próxima seção para obter detalhes sobre o elemento das atividades JSON. | Sim |
-| start | Data e hora de início para o pipeline. Deve estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, EST. Veja este exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM EST.<br/><br/>As propriedades de início e término especificam o período ativo para o pipeline. Fatias de saída são produzidas somente nesse período ativo. |Não<br/><br/>Se você especificar um valor para a propriedade final, será necessário especificar um valor para a propriedade inicial.<br/><br/>Os horários de início e fim podem estar vazios para criar um pipeline. Você deve especificar ambos os valores para definir um período ativo de execução do pipeline. Se você não especificar os horários de início e término ao criar um pipeline, poderá defini-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
+| iniciar | Data e hora de início para o pipeline. Deve estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, EST. Veja este exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM EST.<br/><br/>As propriedades de início e término especificam o período ativo para o pipeline. Fatias de saída são produzidas somente nesse período ativo. |Não<br/><br/>Se você especificar um valor para a propriedade final, será necessário especificar um valor para a propriedade inicial.<br/><br/>Os horários de início e fim podem estar vazios para criar um pipeline. Você deve especificar ambos os valores para definir um período ativo de execução do pipeline. Se você não especificar os horários de início e término ao criar um pipeline, poderá defini-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
 | end | Data e hora de término para o pipeline. Se especificado, deve estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, EST. Aqui está um exemplo: `2016-02-27T06:00:00-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor da propriedade end. <br/><br/> Um pipeline está ativo somente entre sua hora de início e de término. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline for pausado, ele não será executado independentemente da sua hora de início e término. Para um pipeline ser executado, ele não deve estar pausado. Confira [Agendamento e Execução](data-factory-scheduling-and-execution.md) para saber como funciona o agendamento e a execução no Azure Data Factory. |Não <br/><br/>Se você especificar um valor para a propriedade inicial, será necessário especificar um valor para a propriedade final.<br/><br/>Confira as observações para a propriedade **iniciar** . |
 | isPaused | Se definido como true, o pipeline não será executado. Ele está no estado pausado. Valor padrão = falso. Você pode usar essa propriedade para habilitar ou desabilitar o pipeline. |Não |
 | pipelineMode | O método de agendamento é executado para o pipeline. Os valores permitidos são: scheduled (padrão), onetime.<br/><br/>'Scheduled' indica que o pipeline será executado em um intervalo de tempo especificado de acordo com seu período ativo (hora de início e término). “Onetime” indica que o pipeline é executado apenas uma vez. Pipelines Onetime não podem ser modificados e atualizados depois de criados atualmente. Confira [Pipeline avulso](#onetime-pipeline) para obter detalhes sobre a configuração única. |Não |
@@ -130,12 +129,12 @@ A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. 
 
 A seguinte tabela descreve as propriedades na definição de JSON da atividade:
 
-| Marca | Descrição | Necessária |
+| Marca | Descrição | Obrigatório |
 | --- | --- | --- |
 | name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sim |
 | descrição | Texto que descreve para que a atividade é usada |Sim |
 | type | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities) e [Atividades de transformação de dados](#data-transformation-activities) para diferentes tipos de atividade. |Sim |
-| inputs |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
+| entradas |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
 | outputs |Tabelas de saída utilizadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Sim |
 | linkedServiceName |Nome do serviço vinculado usado pela atividade. <br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. |Sim para Atividade do HDInsight e Atividade de Pontuação de Lote do Azure Machine Learning <br/><br/>Não para todas as outros |
 | typeProperties |As propriedades na seção **typeProperties** dependem do tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não |
@@ -145,7 +144,7 @@ A seguinte tabela descreve as propriedades na definição de JSON da atividade:
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor Padrão | Descrição |
+| Property | Valores permitidos | Valor padrão | Descrição |
 | --- | --- | --- | --- |
 | simultaneidade |Integer <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordem das divisões de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a fatia às 16h será processada. |
@@ -156,7 +155,7 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | longRetryInterval |TimeSpan |00:00:00 |O intervalo entre tentativas de repetição longa |
 
 ## <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
-No pipeline de exemplo a seguir, há uma atividade do tipo **Cópia** in the **atividades** . Neste exemplo, a [atividade de cópia](data-factory-data-movement-activities.md) copia dados de um Armazenamento de Blobs do Azure para um banco de dados SQL do Azure.
+No pipeline de exemplo a seguir, há uma atividade do tipo **Cópia** in the **atividades** . Neste exemplo, a [atividade de cópia](data-factory-data-movement-activities.md) copia dados de um armazenamento de BLOBs do Azure para o banco de dados SQL do Azure.
 
 ```json
 {

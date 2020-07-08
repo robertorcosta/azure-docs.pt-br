@@ -6,12 +6,11 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676828"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Habilitar Depurador de Instantâneos para aplicativos .NET no serviço Azure App
 
@@ -19,7 +18,7 @@ Depurador de Instantâneos atualmente trabalha para aplicativos ASP.NET e ASP.NE
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a>Habilitar Depurador de Instantâneos
 Para habilitar Depurador de Instantâneos para um aplicativo, siga as instruções abaixo. Se você estiver executando um tipo diferente de serviço do Azure, aqui estão as instruções para habilitar Depurador de Instantâneos em outras plataformas com suporte:
-* [Serviços de nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de Nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de Service Fabric do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais ou físicas locais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -28,12 +27,12 @@ Se você estiver usando uma versão de visualização do .NET Core, siga as inst
 
 Application Insights Depurador de Instantâneos é pré-instalado como parte do tempo de execução dos serviços de aplicativo, mas você precisa ativá-lo para obter instantâneos para seu aplicativo do serviço de aplicativo. Depois de implantar um aplicativo, mesmo que você tenha incluído o SDK do Application Insights no código-fonte, siga as etapas abaixo para habilitar o depurador de instantâneos.
 
-1. Vá ao painel **Serviços de Aplicativos** no portal do Azure.
-2. Navegue até o painel **Configurações > Application Insights**.
+1. Navegue até o painel de controle do Azure para seu serviço de aplicativo.
+2. Vá para a página **configurações > Application insights** .
 
    ![Habilitar Insights de Aplicativo no portal de Serviços de Aplicativos](./media/snapshot-debugger/applicationinsights-appservices.png)
 
-3. Siga as instruções no painel para criar um novo recurso ou selecione um recurso existente do App Insights para monitorar seu aplicativo. Verifique também se ambas as opções de Depurador de Instantâneos estão **ativadas**.
+3. Siga as instruções na página para criar um novo recurso ou selecione um recurso existente do App insights para monitorar seu aplicativo. Verifique também se ambas as opções de Depurador de Instantâneos estão **ativadas**.
 
    ![Adicione a extensão de site do App Insights][Enablement UI]
 

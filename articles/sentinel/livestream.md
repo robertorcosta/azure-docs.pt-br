@@ -9,25 +9,19 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2019
+ms.date: 06/14/2020
 ms.author: yelevin
-ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77582119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783156"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use transmissão ao vivo de caça no Azure Sentinel para detectar ameaças
-
-> [!IMPORTANT]
-> Buscar transmissão ao vivo no Azure Sentinel está atualmente em visualização pública e distribuíndo gradualmente para locatários.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Use a busca de transmissão ao vivo para criar sessões interativas que permitem testar consultas recém-criadas à medida que ocorrem eventos, obter notificações das sessões quando uma correspondência for encontrada e iniciar investigações, se necessário. Você pode criar rapidamente uma sessão transmissão ao vivo usando qualquer consulta de Log Analytics.
 
@@ -48,42 +42,42 @@ Use a busca de transmissão ao vivo para criar sessões interativas que permitem
 
 Você pode criar uma sessão transmissão ao vivo de uma consulta de busca existente ou criar sua sessão do zero.
 
-1. No portal do Azure, navegue até **sentinela** > **Threat Management** > **busca**.
+1. No portal do Azure, navegue até **sentinela**  >  **Threat Management**  >  **busca**.
 
-2. Para criar uma sessão transmissão ao vivo de uma consulta de busca:
+1. Para criar uma sessão transmissão ao vivo de uma consulta de busca:
     
     1. Na guia **consultas** , localize a consulta de busca a ser usada.
-    2. Clique com o botão direito do mouse na consulta e selecione **Adicionar a transmissão ao vivo**. Por exemplo:
+    1. Clique com o botão direito do mouse na consulta e selecione **Adicionar a transmissão ao vivo**. Por exemplo:
     
     > [!div class="mx-imgBorder"]
     > ![criar sessão transmissão ao vivo da consulta de busca do Azure Sentinel](./media/livestream/livestream-from-query.png)
 
-3. Para criar uma sessão transmissão ao vivo do zero: 
+1. Para criar uma sessão transmissão ao vivo do zero: 
     
     1. Selecione a guia **transmissão ao vivo**
-    2. Selecione **ir para transmissão ao vivo**.
+    1. Clique em **+ novo transmissão ao vivo**.
     
-4. No painel **transmissão ao vivo** :
+1. No painel **transmissão ao vivo** :
     
     - Se você iniciou o transmissão ao vivo de uma consulta, examine a consulta e faça as alterações que deseja fazer.
     - Se você iniciou o transmissão ao vivo do zero, crie sua consulta. 
 
-5. Selecione **reproduzir** na barra de comandos.
+1. Selecione **reproduzir** na barra de comandos.
     
     A barra de status na barra de comandos indica se a sessão transmissão ao vivo está em execução ou em pausa. No exemplo a seguir, a sessão está em execução:
     
     > [!div class="mx-imgBorder"]
     > ![criar sessão transmissão ao vivo da busca do Azure Sentinel](./media/livestream/livestream-session.png)
 
-6. Selecione **salvar** na barra de comandos.
+1. Selecione **salvar** na barra de comandos.
     
     A menos que você selecione **Pausar**, a sessão continuará a ser executada até que você saia da portal do Azure.
 
 ## <a name="view-your-livestream-sessions"></a>Exibir suas sessões do transmissão ao vivo
 
-1. Na portal do Azure, navegue até **sentinela** > **Threat Management** > **caça** > **transmissão ao vivo** guia.
+1. Na portal do Azure, navegue até **sentinela**  >  **Threat Management**  >  **caça**  >  **transmissão ao vivo** guia.
 
-2. Selecione a sessão transmissão ao vivo que você deseja exibir ou editar. Por exemplo:
+1. Selecione a sessão transmissão ao vivo que você deseja exibir ou editar. Por exemplo:
     
     > [!div class="mx-imgBorder"]
     > ![criar sessão transmissão ao vivo da consulta de busca do Azure Sentinel](./media/livestream/livestream-tab.png)
@@ -111,5 +105,5 @@ Essa ação abre o assistente de criação de regras, que é preenchido previame
 
 Neste artigo, você aprendeu a usar o transmissão ao vivo de busca no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
-- [Busca de ameaças de forma proativa](hunting.md)
+- [Buscar ameaças proativamente](hunting.md)
 - [Use blocos de anotações para executar campanhas de busca automatizadas](notebooks.md)

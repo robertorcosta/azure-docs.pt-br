@@ -5,31 +5,33 @@ description: Saiba mais sobre as cotas para recursos para o Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: c5862ee90a12240e7293647fae6af4f18f30c164
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680382"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430455"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo fornece aos usuários do [Azure Machine Learning](overview-what-is-azure-ml.md) detalhes sobre limites pré-configurados de recursos do Azure para assinatura. Também estão incluídas instruções sobre como solicitar aprimoramentos de cota para cada tipo de recurso. Esses limites são estabelecidos para evitar estouros de orçamento devido a fraudes e respeitar as restrições de capacidade do Azure.
+Neste artigo, você aprenderá sobre os limites pré-configurados dos recursos do Azure para sua assinatura [Azure Machine Learning](overview-what-is-azure-ml.md) e quais cotas você pode gerenciar. Esses limites são estabelecidos para evitar estouros de orçamento devido a fraudes e respeitar as restrições de capacidade do Azure. 
 
 Como com outros serviços do Azure, há limites em determinados recursos associados ao Azure Machine Learning. Esses limites variam de um limite no número de [workspaces](concept-workspace.md) que podem ser criados a limites na computação subjacente real que é usada para treinar ou inferir/pontuar modelos. 
 
 Enquanto cria e aumenta seus recursos do Azure Machine Learning para cargas de trabalho de produção, considere esses limites. Por exemplo, se o cluster não atingir o número de destino de nós, você poderá ter atingido um limite de núcleos de Computação do Azure Machine Learning para sua assinatura. Se você desejar aumentar o limite ou a cota acima do limite padrão, abra uma solicitação de suporte ao cliente online sem custo. Os limites não podem ser aumentados além do valor Limite Máximo mostrado nas tabelas a seguir devido a restrições de Capacidade do Azure. Se não houver nenhuma coluna Limite Máximo, o recurso não terá limites ajustáveis.
 
+
+Juntamente com o gerenciamento de cotas, você também pode aprender a [planejar & gerenciar os custos de Azure Machine Learning](concept-plan-manage-cost.md).
+
 ## <a name="special-considerations"></a>Considerações especiais
 
-+ Uma cota é um limite de crédito, não uma garantia de capacidade. Se precisar de capacidade em larga escala, contate o suporte do Azure.
++ Uma cota é um limite de crédito, não uma garantia de capacidade. Se precisar de capacidade em larga escala, contate o suporte do Azure. Você também pode [aumentar suas cotas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 + A cota é compartilhada entre todos os serviços em suas assinaturas, incluindo o Azure Machine Learning. A única exceção é a Computação do Azure Machine Learning, que tem uma cota separada da cota de computação principal. Certifique-se de calcular o uso da cota em todos os serviços ao avaliar suas necessidades de capacidade.
 

@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d9bfc7f194730545469e7d17d46c47f7293f016e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74900894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728887"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Exibir e atribuir funções de administrador no Azure Active Directory
 
@@ -49,7 +48,6 @@ Se você for um Administrador Global ou um Administrador de Funções com Privil
 Quando estiver exibindo os membros de uma função, selecione **Descrição** para ver a lista completa de permissões concedidas pela atribuição de função. A página inclui links para a documentação relevante para ajudar a orientá-lo a gerenciar as funções do diretório.
 
 ![lista de permissões para uma função de administrador](./media/directory-manage-roles-portal/role-description.png)
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

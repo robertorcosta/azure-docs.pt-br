@@ -5,17 +5,16 @@ description: Detectar descompasso de dados (versão prévia) nos modelos implant
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: d1da7309b296b57db0c28d5b52fe91efa86709c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f56ab853983ebf9b3e27f38ae1737c0c2bce4ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75537000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430287"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -64,7 +63,7 @@ Usando Azure Machine Learning, a descompasso de dados é monitorada por meio de 
 
 - Crie um [conjunto](how-to-create-register-datasets.md) de dados a partir de seus dados de treinamento do modelo.
 
-- Especifique o conjunto de registros de treinamento ao [registrar](concept-model-management-and-deployment.md) o modelo. O exemplo a seguir demonstra o `datasets` uso do parâmetro para especificar o conjunto de os de treinamento:
+- Especifique o conjunto de registros de treinamento ao [registrar](concept-model-management-and-deployment.md) o modelo. O exemplo a seguir demonstra o uso do `datasets` parâmetro para especificar o conjunto de os de treinamento:
 
     ```python
     model = Model.register(model_path=model_file,
@@ -75,12 +74,12 @@ Usando Azure Machine Learning, a descompasso de dados é monitorada por meio de 
     print(model_name, image_name, service_name, model)
     ```
 
-- [Habilite a coleta de dados de modelo](how-to-enable-data-collection.md) para coletar dados da implantação AKs do modelo e confirmar que os dados estão `modeldata` sendo coletados no contêiner de BLOB.
+- [Habilite a coleta de dados de modelo](how-to-enable-data-collection.md) para coletar dados da implantação AKs do modelo e confirmar que os dados estão sendo coletados no `modeldata` contêiner de BLOB.
 
 ## <a name="configure-data-drift"></a>Configurar descompasso de dados
 Para configurar a descompasso de dados para seu experimento, importe as dependências conforme mostrado no exemplo de Python a seguir. 
 
-Este exemplo demonstra como configurar [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) o objeto:
+Este exemplo demonstra como configurar o [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) objeto:
 
 ```python
 # Import Azure ML packages
@@ -98,7 +97,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Enviar uma execução do DataDriftDetector
 
-Com o `DataDriftDetector` objeto configurado, você pode enviar uma [execução de descompasso de dados](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) em uma determinada data para o modelo. Como parte da execução, habilite alertas do DataDriftDetector definindo o `drift_threshold` parâmetro. Se o [datadrift_coefficient](#visualize-drift-metrics) estiver acima do fornecido `drift_threshold`, um email será enviado.
+Com o `DataDriftDetector` objeto configurado, você pode enviar uma [execução de descompasso de dados](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) em uma determinada data para o modelo. Como parte da execução, habilite alertas do DataDriftDetector definindo o `drift_threshold` parâmetro. Se o [datadrift_coefficient](#visualize-drift-metrics) estiver acima do fornecido `drift_threshold` , um email será enviado.
 
 ```python
 # adhoc run today
@@ -152,7 +151,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>Agendar verificações de descompasso de dados 
 
-Quando você habilita a detecção de descompasso de dados, um DataDriftDetector é executado na frequência especificada, agendada. Se o datadrift_coefficient atingir o dado `drift_threshold`, um email será enviado com cada execução agendada. 
+Quando você habilita a detecção de descompasso de dados, um DataDriftDetector é executado na frequência especificada, agendada. Se o datadrift_coefficient atingir o dado `drift_threshold` , um email será enviado com cada execução agendada. 
 
 ```python
 datadrift.enable_schedule()

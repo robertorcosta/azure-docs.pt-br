@@ -3,25 +3,24 @@ title: Funções de modelo – objetos
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com objetos.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2f77cd85802a2ecb3670cfc6d6b36e5e852fb2a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: fede4d6c71e45b119e500d4c9c6f91765d052036
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676787"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funções de objeto para modelos ARM
 
 O Gerenciador de recursos fornece várias funções para trabalhar com objetos em seu modelo de Azure Resource Manager (ARM).
 
 * [contains](#contains)
-* [esvaziá](#empty)
-* [interseção](#intersection)
-* [JSON](#json)
+* [empty](#empty)
+* [intersection](#intersection)
+* [json](#json)
 * [length](#length)
-* [unida](#union)
+* [union](#union)
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>contém
 
 `contains(container, itemToFind)`
 
@@ -29,12 +28,12 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
 | itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 **True** se o item for encontrado; caso contrário, **False**.
 
@@ -44,7 +43,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -93,16 +92,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringTrue | Bool | verdadeiro |
+| stringTrue | Bool | True |
 | stringFalse | Bool | Falso |
-| objectTrue | Bool | verdadeiro |
+| objectTrue | Bool | True |
 | objectFalse | Bool | Falso |
-| arrayTrue | Bool | verdadeiro |
+| arrayTrue | Bool | True |
 | arrayFalse | Bool | Falso |
 
-## <a name="empty"></a>vazio
+## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
@@ -110,11 +109,11 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o valor é vazio; caso contrário, **False**.
 
@@ -124,7 +123,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -161,11 +160,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | verdadeiro |
-| objectEmpty | Bool | verdadeiro |
-| stringEmpty | Bool | verdadeiro |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 ## <a name="intersection"></a>interseção
 
@@ -175,13 +174,13 @@ Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para localizar elementos comuns. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
 | argumentos adicionais |Não |objeto ou matriz |Os valores adicionais a serem usados para localizar elementos comuns. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou objeto com os elementos comuns.
 
@@ -191,7 +190,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -228,7 +227,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -241,11 +240,11 @@ Retorna um objeto JSON.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres |O valor a ser convertido para JSON. |
+| arg1 |Sim |string |O valor a ser convertido para JSON. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O objeto JSON de cadeia de caracteres especificada, ou um objeto vazio quando **nulo** for especificado.
 
@@ -259,7 +258,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "jsonObject1": {
@@ -296,7 +295,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | jsonOutput1 | Booliano | verdadeiro |
 | jsonOutput2 | Objeto | {"a": "b"} |
@@ -310,11 +309,11 @@ Retorna o número de elementos em uma matriz, caracteres em uma cadeia de caract
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro.
 
@@ -324,7 +323,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -372,7 +371,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -386,13 +385,13 @@ Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valo
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |objeto ou matriz |O primeiro valor a ser usado para unir elementos. |
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
 | argumentos adicionais |Não |objeto ou matriz |Valores adicionais a serem usados para unir elementos. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou objeto.
 
@@ -402,7 +401,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -439,7 +438,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |

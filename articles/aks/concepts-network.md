@@ -2,14 +2,13 @@
 title: Conceitos - Rede nos Serviços do Kubernetes do Azure (AKS)
 description: Aprenda sobre a rede no AKS (Serviço de Kubernetes do Azure), incluindo as redes da CNI do Azure e kubenet e seus controladores de entrada, balanceadores de carga e endereços IP estáticos.
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789490"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -129,6 +128,8 @@ Quando você cria um serviço do tipo LoadBalancer, um recurso de balanceador de
 
 No AKS, você pode criar um recurso do Ingress usando algo como o NGINX ou usar o recurso de roteamento do aplicativo AKS HTTP. Quando você habilita o roteamento de aplicativo HTTP para um cluster AKS, a plataforma Azure cria o controlador Ingress e um controlador *External-DNS*. À medida que novos recursos do Ingress são criados no Kubernetes, os registros necessários do DNS A são criados em uma zona DNS específica do cluster. Para obter mais informações, consulte [implantar o roteamento de aplicativos HTTP][aks-http-routing].
 
+O complemento AGIC (controlador de entrada do gateway de aplicativo) permite que os clientes do AKS aproveitem o balanceador de carga do gateway de aplicativo nativo 7 do Azure para expor o software de nuvem à Internet. O AGIC monitora o cluster kubernetes em que ele está hospedado e atualiza continuamente um gateway de aplicativo, para que os serviços selecionados sejam expostos à Internet. Para saber mais sobre o complemento AGIC para AKS, consulte [o que é o controlador de entrada do gateway de aplicativo?][agic-overview]
+
 Outro recurso comum do Ingress é o encerramento de SSL / TLS. Em grandes aplicativos da Web acessados via HTTPS, a terminação do TLS pode ser manipulada pelo recurso Ingress, em vez de pelo próprio aplicativo. Para fornecer geração e configuração automática de certificação TLS, você pode configurar o recurso Ingress para usar provedores como o Let's Encrypt. Para obter mais informações sobre como configurar um controlador NGINX Ingress com o Let's Encrypt, consulte [Ingress e TLS][aks-ingress-tls].
 
 Você também pode configurar o controlador de entrada para preservar o IP de origem do cliente em solicitações para contêineres no cluster AKS. Quando a solicitação de um cliente é roteada para um contêiner no cluster AKS por meio do controlador de entrada, o IP de origem dessa solicitação não estará disponível para o contêiner de destino. Quando você habilita a *preservação de IP de origem do cliente*, o IP de origem do cliente está disponível no cabeçalho da solicitação em *X-forwardd-for*. Se você estiver usando a preservação de IP de origem do cliente em seu controlador de entrada, não poderá usar passagem TLS. A preservação de IP de origem do cliente e a passagem de TLS podem ser usadas com outros serviços, como o tipo de *balanceador de carga* .
@@ -153,11 +154,11 @@ Para obter as práticas recomendadas associadas, consulte [práticas recomendada
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
-- [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
+- [Clusters e cargas de trabalho do Kubernetes/AKS][aks-concepts-clusters-workloads]
 - [Kubernetes / AKS de acesso e identidade][aks-concepts-identity]
 - [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / armazenamento AKS][aks-concepts-storage]
-- [Kubernetes / escala de AKS][aks-concepts-scale]
+- [Armazenamento do Kubernetes/AKS][aks-concepts-storage]
+- [Escala do Kubernetes/AKS][aks-concepts-scale]
 
 <!-- IMAGES -->
 [aks-clusterip]: ./media/concepts-network/aks-clusterip.png
@@ -180,6 +181,7 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[agic-overview]: ../application-gateway/ingress-controller-overview.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
 [support-policies]: support-policies.md

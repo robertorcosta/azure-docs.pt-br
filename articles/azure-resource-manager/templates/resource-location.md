@@ -3,12 +3,11 @@ title: Local do recurso de modelo
 description: Descreve como definir o local do recurso em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0bf0ac79c7e304a61561808dc2290ceb4a379e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84672673"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Definir local do recurso no modelo ARM
 
@@ -38,13 +37,13 @@ az provider show \
 
 ## <a name="use-location-parameter"></a>Usar parâmetro de local
 
-Para permitir a flexibilidade ao implantar seu modelo, use um parâmetro para especificar o local dos recursos. Defina o valor padrão do parâmetro como `resourceGroup().location`.
+Para permitir a flexibilidade ao implantar seu modelo, use um parâmetro para especificar o local dos recursos. Defina o valor padrão do parâmetro como `resourceGroup().location` .
 
 O exemplo a seguir mostra uma conta de armazenamento implantada a um local especificado como um parâmetro:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {

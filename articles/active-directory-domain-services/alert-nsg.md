@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71257997"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040445"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas de configuração de rede no Azure Active Directory Domain Services
 
-Para permitir que aplicativos e serviços se comuniquem corretamente com Azure Active Directory Domain Services (AD DS do Azure), as portas de rede específicas devem estar abertas para que o tráfego flua. No Azure, você controla o fluxo de tráfego usando grupos de segurança de rede. O status de integridade de um domínio gerenciado do Azure AD DS mostrará um alerta se as regras do grupo de segurança de rede necessárias não estiverem em vigor.
+Para permitir que aplicativos e serviços se comuniquem corretamente com um domínio gerenciado Azure Active Directory Domain Services (Azure AD DS), as portas de rede específicas devem estar abertas para que o tráfego flua. No Azure, você controla o fluxo de tráfego usando grupos de segurança de rede. O status de integridade de um domínio gerenciado do Azure AD DS mostrará um alerta se as regras do grupo de segurança de rede necessárias não estiverem em vigor.
 
 Este artigo ajuda você a entender e resolver alertas comuns para problemas de configuração do grupo de segurança de rede.
 
@@ -30,11 +29,11 @@ Este artigo ajuda você a entender e resolver alertas comuns para problemas de c
 
 *A Microsoft não consegue acessar os controladores de domínio para este domínio gerenciado. Isso pode acontecer se um NSG (grupo de segurança de rede) configurado em sua rede virtual bloquear o acesso ao domínio gerenciado. Outro motivo possível é se há uma rota definida pelo usuário que bloqueia o tráfego de entrada da Internet.*
 
-Regras de grupo de segurança de rede inválidas são a causa mais comum de erros de rede para o Azure AD DS. O grupo de segurança de rede para a rede virtual deve permitir o acesso a portas e protocolos específicos. Se essas portas estiverem bloqueadas, a plataforma do Azure não poderá monitorar ou atualizar o domínio gerenciado. A sincronização entre o diretório do Azure AD e o domínio gerenciado do Azure AD DS também é afetada. Certifique-se de manter as portas padrão abertas para evitar a interrupção no serviço.
+Regras de grupo de segurança de rede inválidas são a causa mais comum de erros de rede para o Azure AD DS. O grupo de segurança de rede para a rede virtual deve permitir o acesso a portas e protocolos específicos. Se essas portas estiverem bloqueadas, a plataforma do Azure não poderá monitorar ou atualizar o domínio gerenciado. A sincronização entre o diretório do Azure AD e o Azure AD DS também é afetada. Certifique-se de manter as portas padrão abertas para evitar a interrupção no serviço.
 
 ## <a name="default-security-rules"></a>Regras de segurança padrão
 
-As regras de segurança de entrada e saída padrão a seguir são aplicadas ao grupo de segurança de rede para um domínio gerenciado do Azure AD DS. Essas regras mantêm o Azure AD DS seguro e permitem que a plataforma do Azure monitore, gerencie e atualize o domínio gerenciado. Você também pode ter uma regra adicional que permita o tráfego de entrada se [Configurar o LDAP seguro][configure-ldaps].
+As regras de segurança de entrada e saída padrão a seguir são aplicadas ao grupo de segurança de rede para um domínio gerenciado. Essas regras mantêm o Azure AD DS seguro e permitem que a plataforma do Azure monitore, gerencie e atualize o domínio gerenciado.
 
 ### <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
@@ -46,6 +45,9 @@ As regras de segurança de entrada e saída padrão a seguir são aplicadas ao g
 | 65000    | AllVnetInBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Qualquer | Qualquer | AzureLoadBalancer | Qualquer | Allow |
 | 65500    | DenyAllInBound | Qualquer | Qualquer | Qualquer | Qualquer | Negar |
+
+> [!NOTE]
+> Você também pode ter uma regra adicional que permita o tráfego de entrada se [Configurar o LDAP seguro][configure-ldaps]. Essa regra adicional é necessária para a comunicação de LDAPs correta.
 
 ### <a name="outbound-security-rules"></a>Regras de segurança de saída
 
@@ -68,7 +70,7 @@ Para verificar as regras de segurança existentes e verificar se as portas padr�
 
     Examine as regras de entrada e saída e compare com a lista de regras necessárias na seção anterior. Se necessário, selecione e exclua as regras personalizadas que bloqueiam o tráfego necessário. Se alguma das regras necessárias estiver ausente, adicione uma regra na próxima seção.
 
-    Depois de adicionar ou excluir regras para permitir o tráfego necessário, a integridade do domínio gerenciado AD DS do Azure se atualiza automaticamente em duas horas e remove o alerta.
+    Depois de adicionar ou excluir regras para permitir o tráfego necessário, a integridade do domínio gerenciado se atualiza automaticamente dentro de duas horas e remove o alerta.
 
 ### <a name="add-a-security-rule"></a>Adicionar uma regra de segurança
 
@@ -83,7 +85,7 @@ Leva alguns minutos para que a regra de segurança seja adicionada e mostrada na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
+Se ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

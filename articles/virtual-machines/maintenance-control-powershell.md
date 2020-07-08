@@ -3,16 +3,15 @@ title: Controle de manutenção para máquinas virtuais do Azure usando o PowerS
 description: Saiba como controlar quando a manutenção é aplicada às suas VMs do Azure usando o controle de manutenção e o PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675835"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controlar atualizações com controle de manutenção e Azure PowerShell
 
@@ -20,7 +19,7 @@ O controle de manutenção permite que você decida quando aplicar atualizaçõe
  
 ## <a name="enable-the-powershell-module"></a>Habilitar o módulo do PowerShell
 
-Lembre- `PowerShellGet` se de que o está atualizado.    
+Lembre-se de que o `PowerShellGet` está atualizado.    
 
 ```azurepowershell-interactive  
 Install-Module -Name PowerShellGet -Repository PSGallery -Force 
@@ -57,7 +56,7 @@ $config = New-AzMaintenanceConfiguration `
    -Location  eastus
 ```
 
-O `-MaintenanceScope host` uso de garante que a configuração de manutenção seja usada para controlar atualizações no host.
+O uso de `-MaintenanceScope host` garante que a configuração de manutenção seja usada para controlar atualizações no host.
 
 Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, receberá um erro. Os nomes de configuração devem ser exclusivos para sua assinatura.
 
@@ -73,7 +72,7 @@ Use [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/module
 
 ### <a name="isolated-vm"></a>VM isolada
 
-Aplique a configuração a uma VM usando a ID da configuração. Especifique `-ResourceType VirtualMachines` e forneça o nome da VM para `-ResourceName`e o grupo de recursos da VM para. `-ResourceGroupName` 
+Aplique a configuração a uma VM usando a ID da configuração. Especifique `-ResourceType VirtualMachines` e forneça o nome da VM para `-ResourceName` e o grupo de recursos da VM para `-ResourceGroupName` . 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -88,7 +87,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>Host dedicado
 
-Para aplicar uma configuração a um host dedicado, você também precisa incluir `-ResourceType hosts`, `-ResourceParentName` com o nome do grupo de hosts e. `-ResourceParentType hostGroups` 
+Para aplicar uma configuração a um host dedicado, você também precisa incluir `-ResourceType hosts` , `-ResourceParentName` com o nome do grupo de hosts e `-ResourceParentType hostGroups` . 
 
 
 ```azurepowershell-interactive
@@ -166,7 +165,7 @@ New-AzApplyUpdate `
    -ProviderName Microsoft.Compute
 ```
 
-Em caso de êxito, esse comando retornará `PSApplyUpdate` um objeto. Você pode usar o atributo Name no `Get-AzApplyUpdate` comando para verificar o status da atualização. Consulte [verificar status da atualização](#check-update-status).
+Em caso de êxito, esse comando retornará um `PSApplyUpdate` objeto. Você pode usar o atributo Name no `Get-AzApplyUpdate` comando para verificar o status da atualização. Consulte [verificar status da atualização](#check-update-status).
 
 ### <a name="dedicated-host"></a>Host dedicado
 
@@ -183,7 +182,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>Verificar status da atualização
-Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) para verificar o status de uma atualização. Os comandos mostrados abaixo mostram o status da atualização mais recente usando `default` o para `-ApplyUpdateName` o parâmetro. Você pode substituir o nome da atualização (retornado pelo comando [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) para obter o status de uma atualização específica.
+Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) para verificar o status de uma atualização. Os comandos mostrados abaixo mostram o status da atualização mais recente usando `default` o para o `-ApplyUpdateName` parâmetro. Você pode substituir o nome da atualização (retornado pelo comando [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) para obter o status de uma atualização específica.
 
 ```text
 Status         : Completed

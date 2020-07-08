@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 39cc37293ecb0e900a9a88d5aa00863f3e450400
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 2af8b429b6addf6da32b34773525c51a36624e78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242151"
 ---
-No Azure, oferecemos a capacidade de aumentar o desempenho de IOPS de armazenamento em disco e MB/s, chamados de intermitência em discos e máquinas virtuais. A indefinição é útil em muitos cenários, como o tratamento de tráfego de disco inesperado ou processamento de trabalhos em lotes. Você pode efetivamente aproveitar a intermitência de nível de disco e de VM para obter uma excelente linha de base e desempenho de intermitência na VM e no disco. Dessa forma, você pode obter um excelente desempenho de linha de base e desempenho de intermitência na VM e no disco.
+No Azure, oferecemos a capacidade de aumentar o desempenho de IOPS de armazenamento em disco e MB/s, chamados de intermitência em discos e máquinas virtuais. A indefinição é útil em muitos cenários, como o tratamento de tráfego de disco inesperado ou processamento de trabalhos em lotes. Você pode efetivamente aproveitar a intermitência de nível de disco e de VM para obter uma excelente linha de base e desempenho de intermitência na VM e no disco. Dessa forma, você pode obter um excelente desempenho de linha de base e desempenho de intermitência na VM e no disco. 
+
+Observe que a intermitência em discos e VMs é independente uma da outra. Se você tiver um disco de intermitência, não precisará de uma VM de intermitência para permitir que o disco seja estourado. Se você tiver uma VM de intermitência, não será necessário um disco de intermitência para permitir que a VM seja rompida. 

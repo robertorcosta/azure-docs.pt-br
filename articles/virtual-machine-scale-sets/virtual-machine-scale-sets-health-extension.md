@@ -9,12 +9,11 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783037"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Usando a extensão do Application Health com os conjuntos de dimensionamento de máquinas virtuais
 O monitoramento de integridade do seu aplicativo é um sinal importante para gerenciar e atualizar sua implantação. Os conjuntos de dimensionamento de máquinas virtuais do Azure fornecem suporte para [atualizações sem interrupção](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem do sistema operacional](virtual-machine-scale-sets-automatic-upgrade.md), que dependem do monitoramento de integridade das instâncias individuais para atualizar sua implantação. Você também pode usar a extensão de integridade para monitorar a integridade do aplicativo de cada instância em seu conjunto de dimensionamento e executar reparos de instância usando [reparos automáticos de instância](virtual-machine-scale-sets-automatic-instance-repairs.md).
@@ -60,7 +59,7 @@ O JSON a seguir mostra o esquema para a extensão para VM do Application Health.
 | Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| editor | `Microsoft.ManagedServices` | string |
+| publicador | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | INT |
 
@@ -154,7 +153,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-O conteúdo do arquivo extension. JSON.
+O extension.jsno conteúdo do arquivo.
 
 ```json
 {
@@ -173,7 +172,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
 ```
 
 Os logs também capturam periodicamente o status de integridade do aplicativo.

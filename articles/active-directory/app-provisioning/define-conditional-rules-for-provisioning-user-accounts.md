@@ -2,20 +2,19 @@
 title: Provisionar aplicativos com filtros de escopo | Microsoft Docs
 description: Saiba como usar filtros de escopo para impedir que objetos em aplicativos que dão suporte a provisionamento automatizado do usuário sejam provisionados caso um objeto não atenda às suas necessidades de negócios.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: mimart
-ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.topic: how-to
+ms.date: 06/08/2020
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781949"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -29,7 +28,7 @@ Os filtros de escopo podem ser utilizados de modo diferente, dependendo do tipo 
 * **Provisionamento de saída do Azure AD para aplicativos SaaS**. Quando o Azure AD é o sistema de origem, [atribuições de usuário e grupo](../manage-apps/assign-user-or-group-access-portal.md) são o método mais comum para determinar quais usuários estão no escopo para provisionamento. Essas atribuições também são utilizadas para habilitar o logon único e fornecer um método exclusivo para gerenciar o acesso e o provisionamento. Os filtros de escopo podem ser utilizados opcionalmente, além de atribuições ou, em vez de eles, para filtrar usuários com base em valores de atributos.
 
     >[!TIP]
-    > É possível desabilitar o provisionamento com base em atribuições para um aplicativo empresarial alterando as configurações no menu [Escopo](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) nas configurações de provisionamento para **Sincronizar todos os usuários e grupos**. Usar esta opção mais filtros de escopo baseados em atributos oferece um desempenho mais rápido que o uso de atribuições baseadas em grupo.  
+    > É possível desabilitar o provisionamento com base em atribuições para um aplicativo empresarial alterando as configurações no menu [Escopo](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) nas configurações de provisionamento para **Sincronizar todos os usuários e grupos**. 
 
 * **Provisionamento de entrada de aplicativos HCM para o Azure AD e o Active Directory**. Quando um [aplicativo HCM como o Workday](../saas-apps/workday-tutorial.md) for o sistema de origem, os filtros de escopo serão o método principal para determinar quais usuários deverão ser provisionados do aplicativo HCM para o Active Directory ou o Azure AD.
 
@@ -86,7 +85,7 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
    f. **IS NOT NULL**. A cláusula retornará "true" se o atributo avaliado não estiver vazio.
 
-   g. **REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por Exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
+   (por exemplo, **REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por Exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
 
    h. **NOT REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
    
@@ -118,8 +117,8 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 ## <a name="common-scoping-filters"></a>Filtros de escopo comuns
 | Atributo de Destino| Operador | Valor | Descrição|
 |----|----|----|----|
-|userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o @domain.com domínio estarão no escopo para provisionamento|
-|userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o @domain.com domínio estarão fora do escopo para provisionamento|
+|userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
+|userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
 |department|EQUALS|vendas|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
 |workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
 

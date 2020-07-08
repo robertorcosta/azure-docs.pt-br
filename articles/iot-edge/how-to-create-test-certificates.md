@@ -4,16 +4,15 @@ description: Crie certificados de teste e saiba como instalá-los em um disposit
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/23/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9540913cd86b74fd51e96aa9d1d1dd34c5d60631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430669"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar IoT Edge recursos do dispositivo
 
@@ -25,7 +24,7 @@ Esses certificados expiram em 30 dias e não devem ser usados em nenhum cenário
 
 Você pode criar certificados em qualquer computador e, em seguida, copiá-los para o dispositivo IoT Edge.
 É mais fácil usar o computador primário para criar os certificados em vez de gerá-los no próprio dispositivo IoT Edge.
-Usando seu computador primário, você pode configurar os scripts uma vez e, em seguida, repetir o processo para criar certificados para vários dispositivos.
+Usando seu computador primário, você pode configurar os scripts uma vez e, em seguida, usá-los para criar certificados para vários dispositivos.
 
 Siga estas etapas para criar certificados de demonstração para testar seu cenário de IoT Edge:
 
@@ -53,7 +52,7 @@ Para criar certificados de demonstração em um dispositivo Windows, você preci
 #### <a name="install-openssl"></a>Instalar o OpenSSL
 
 Instale o OpenSSL para Windows no computador que você está usando para gerar os certificados.
-Se você já tiver o OpenSSL instalado em seu dispositivo Windows, poderá ignorar esta etapa, mas verifique se o OpenSSL. exe está disponível em sua variável de ambiente PATH.
+Se você já tiver o OpenSSL instalado em seu dispositivo Windows, poderá ignorar esta etapa, mas certifique-se de que openssl.exe está disponível em sua variável de ambiente PATH.
 
 Há várias maneiras de instalar o OpenSSL, incluindo as seguintes opções:
 
@@ -84,7 +83,7 @@ Nesta seção, você clonará o repositório de IoT Edge e executará os scripts
    git clone https://github.com/Azure/iotedge.git
    ```
 
-3. Navegue até o diretório no qual você deseja trabalhar. Ao longo deste artigo, vamos chamar esse diretório * \<de WRKDIR>*. Todos os certificados e chaves serão criados nesse diretório de trabalho.
+3. Navegue até o diretório no qual você deseja trabalhar. Ao longo deste artigo, vamos chamar esse diretório *\<WRKDIR>* . Todos os certificados e chaves serão criados nesse diretório de trabalho.
 
 4. Copie a configuração e os arquivos de script do repositório clonado para seu diretório de trabalho.
 
@@ -93,7 +92,7 @@ Nesta seção, você clonará o repositório de IoT Edge e executará os scripts
    copy <path>\iotedge\tools\CACertificates\ca-certs.ps1 .
    ```
 
-   Se você baixou o repositório como um ZIP, o nome da pasta `iotedge-master` será e o restante do caminho será o mesmo.
+   Se você baixou o repositório como um ZIP, o nome da pasta será `iotedge-master` e o restante do caminho será o mesmo.
 
 5. Habilite o PowerShell para executar os scripts.
 
@@ -125,7 +124,7 @@ Para criar certificados de demonstração em um dispositivo Windows, você preci
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Navegue até o diretório no qual você deseja trabalhar. Vamos nos referir a esse diretório em todo o artigo como * \<WRKDIR>*. Todos os arquivos de certificado e de chave serão criados nesse diretório.
+2. Navegue até o diretório no qual você deseja trabalhar. Vamos nos referir a esse diretório em todo o artigo como *\<WRKDIR>* . Todos os arquivos de certificado e de chave serão criados nesse diretório.
   
 3. Copie os arquivos de configuração e script do repositório de IoT Edge clonado para seu diretório de trabalho.
 
@@ -181,54 +180,6 @@ Antes de prosseguir com as etapas nesta seção, siga as etapas na seção [Conf
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
-## <a name="create-iot-edge-device-ca-certificates"></a>Criar IoT Edge certificados de AC do dispositivo
-
-Cada dispositivo de IoT Edge que vai para a produção precisa de um certificado de autoridade de certificação de dispositivo referenciado no arquivo config. YAML.
-O certificado de autoridade de certificação do dispositivo é responsável por criar certificados para módulos em execução no dispositivo.
-Também é assim que o dispositivo IoT Edge verifica sua identidade ao se conectar a dispositivos downstream.
-
-Os certificados de AC do dispositivo entram na seção **certificado** do arquivo config. YAML no dispositivo IOT Edge.
-
-Antes de prosseguir com as etapas nesta seção, siga as etapas nas seções [Configurar scripts](#set-up-scripts) e [criar certificado de autoridade de certificação raiz](#create-root-ca-certificate) .
-
-### <a name="windows"></a>Windows
-
-1. Navegue até o diretório de trabalho que tem os scripts de geração de certificado e o certificado de autoridade de certificação raiz.
-
-2. Crie o certificado de autoridade de certificação do dispositivo IoT Edge e a chave privada com o comando a seguir. Forneça um nome para o certificado de autoridade de certificação, por exemplo, **MyEdgeDeviceCA**, que é usado para nomear os arquivos de saída.
-
-   ```powershell
-   New-CACertsEdgeDevice "MyEdgeDeviceCA"
-   ```
-
-   Esse comando de script cria vários arquivos de certificado e chave. O seguinte certificado e par de chaves precisam ser copiados para um dispositivo IoT Edge e referenciados no arquivo config. YAML:
-
-   * `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-
-O nome do dispositivo de gateway passado para esses scripts não deve ser o mesmo que o parâmetro "hostname" em config. YAML ou a ID do dispositivo no Hub IoT.
-Os scripts ajudam a evitar qualquer problema anexando uma cadeia ".ca" ao nome do dispositivo de gateway para evitar a colisão de nomes no caso de um usuário configurar o IoT Edge usando o mesmo nome em ambos os locais.
-No entanto, é uma boa prática evitar usar o mesmo nome.
-
-### <a name="linux"></a>Linux
-
-1. Navegue até o diretório de trabalho que tem os scripts de geração de certificado e o certificado de autoridade de certificação raiz.
-
-2. Crie o certificado de autoridade de certificação do dispositivo IoT Edge e a chave privada com o comando a seguir. Forneça um nome para o certificado de autoridade de certificação, por exemplo, **MyEdgeDeviceCA**, que é usado para nomear os arquivos de saída.
-
-   ```bash
-   ./certGen.sh create_edge_device_certificate "MyEdgeDeviceCA"
-   ```
-
-   Esse comando de script cria vários arquivos de certificado e chave. O seguinte certificado e par de chaves precisam ser copiados para um dispositivo IoT Edge e referenciados no arquivo config. YAML:
-
-   * `<WRKDIR>/certs/iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-MyEdgeDeviceCA.key.pem`
-
-O nome do dispositivo de gateway passado para esses scripts não deve ser o mesmo que o parâmetro "hostname" em config. YAML ou a ID do dispositivo no Hub IoT.
-Os scripts ajudam a evitar qualquer problema anexando uma cadeia ".ca" ao nome do dispositivo de gateway para evitar a colisão de nomes no caso de um usuário configurar o IoT Edge usando o mesmo nome em ambos os locais.
-No entanto, é uma boa prática evitar usar o mesmo nome.
-
 ## <a name="create-iot-edge-device-identity-certificates"></a>Criar IoT Edge certificados de identidade do dispositivo
 
 Os certificados de identidade do dispositivo são usados para provisionar dispositivos IoT Edge por meio do [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../iot-dps/index.yml).
@@ -269,13 +220,62 @@ O script cria vários arquivos de certificado e chave, incluindo três que você
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
+## <a name="create-iot-edge-device-ca-certificates"></a>Criar IoT Edge certificados de AC do dispositivo
+
+Cada dispositivo de IoT Edge que vai para a produção precisa de um certificado de autoridade de certificação de dispositivo referenciado no arquivo config. YAML.
+O certificado de autoridade de certificação do dispositivo é responsável por criar certificados para módulos em execução no dispositivo.
+Também é necessário para cenários de gateway, pois o certificado de autoridade de certificação do dispositivo é como o dispositivo de IoT Edge verifica sua identidade para dispositivos downstream.
+
+Os certificados de AC do dispositivo entram na seção **certificado** do arquivo config. YAML no dispositivo IOT Edge.
+
+Antes de prosseguir com as etapas nesta seção, siga as etapas nas seções [Configurar scripts](#set-up-scripts) e [criar certificado de autoridade de certificação raiz](#create-root-ca-certificate) .
+
+### <a name="windows"></a>Windows
+
+1. Navegue até o diretório de trabalho que tem os scripts de geração de certificado e o certificado de autoridade de certificação raiz.
+
+2. Crie o certificado de autoridade de certificação do dispositivo IoT Edge e a chave privada com o comando a seguir. Forneça um nome para o certificado de autoridade de certificação.
+
+   ```powershell
+   New-CACertsEdgeDevice "<CA cert name>"
+   ```
+
+   Esse comando cria vários arquivos de certificado e chave. O seguinte certificado e par de chaves precisam ser copiados para um dispositivo IoT Edge e referenciados no arquivo config. YAML:
+
+   * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
+
+O nome passado para o comando **New-CACertsEdgeDevice** não deve ser o mesmo que o parâmetro HostName em config. YAML ou a ID do dispositivo no Hub IOT.
+O script ajuda a evitar problemas acrescentando uma cadeia de caracteres ". ca" ao nome do certificado para evitar a colisão de nomes, caso um usuário configure IoT Edge usando o mesmo nome em ambos os locais.
+No entanto, é uma boa prática evitar usar o mesmo nome.
+
+### <a name="linux"></a>Linux
+
+1. Navegue até o diretório de trabalho que tem os scripts de geração de certificado e o certificado de autoridade de certificação raiz.
+
+2. Crie o certificado de autoridade de certificação do dispositivo IoT Edge e a chave privada com o comando a seguir. Forneça um nome para o certificado de autoridade de certificação.
+
+   ```bash
+   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ```
+
+   Esse comando de script cria vários arquivos de certificado e chave. O seguinte certificado e par de chaves precisam ser copiados para um dispositivo IoT Edge e referenciados no arquivo config. YAML:
+
+   * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
+
+O nome passado para o comando **create_edge_device_certificate** não deve ser o mesmo que o parâmetro HostName em config. YAML, ou a ID do dispositivo no Hub IOT.
+O script ajuda a evitar problemas acrescentando uma cadeia de caracteres ". ca" ao nome do certificado para evitar a colisão de nomes, caso um usuário configure IoT Edge usando o mesmo nome em ambos os locais.
+No entanto, é uma boa prática evitar usar o mesmo nome.
+
 ## <a name="create-downstream-device-certificates"></a>Criar certificados de dispositivo downstream
 
-Se você estiver configurando um dispositivo IoT downstream para um cenário de gateway, poderá gerar certificados de demonstração para a autenticação X. 509.
+Se você estiver configurando um dispositivo IoT downstream para um cenário de gateway e quiser usar a autenticação X. 509, poderá gerar certificados de demonstração para o dispositivo downstream.
+Se você quiser usar a autenticação de chave simétrica, não será necessário criar certificados adicionais para o dispositivo downstream.
 Há duas maneiras de autenticar um dispositivo IoT usando certificados X. 509: usando CERT. autoassinados ou usando certificados assinados por AC (autoridade de certificação).
-Para a autenticação autoassinada X. 509, às vezes conhecida como autenticação de impressão digital, você precisa criar novos certificados para serem colocados em seu dispositivo IoT.
+Para a autenticação autoassinada X.509, às vezes conhecida como autenticação de impressão digital, você precisa criar novos certificados para serem colocados em seu dispositivo IoT.
 Esses certificados têm uma impressão digital neles que você compartilha com o Hub IoT para autenticação.
-Para autenticação assinada da AC (autoridade de certificação) X. 509, você precisa de um certificado de autoridade de certificação raiz registrado no Hub IoT que você usa para assinar certificados para seu dispositivo IoT.
+Para uma autenticação assinada por AC (autoridade de certificado) X.509, você precisa de um certificado AC raiz registrado no Hub IoT que você usa para assinar certificados para seu dispositivo IoT.
 Qualquer dispositivo que use um certificado emitido pelo certificado de autoridade de certificação raiz ou qualquer um de seus certificados intermediários terá permissão para autenticar.
 
 Os scripts de geração de certificado podem ajudá-lo a fazer certificados de demonstração para testar qualquer um desses cenários de autenticação.
@@ -316,7 +316,7 @@ O dispositivo IoT também precisa de uma cópia de seus certificados de disposit
    openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint
    ```
 
-   Execute este comando duas vezes, uma vez para o certificado primário e uma vez para o certificado secundário. Você fornece impressões digitais para ambos os certificados ao registrar um novo dispositivo IoT usando certificados X. 509 autoassinados.
+   Execute este comando duas vezes, uma vez para o certificado primário e uma vez para o certificado secundário. Você fornece impressões digitais para ambos os certificados ao registrar um novo dispositivo IoT usando certificados X.509 autoassinados.
 
 #### <a name="linux"></a>Linux
 
@@ -358,7 +358,7 @@ Os certificados nesta seção são para as etapas em [Configurar a segurança X.
 
 #### <a name="windows"></a>Windows
 
-1. Carregue o arquivo de certificado de autoridade de certificação raiz do `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`seu diretório de trabalho,, para o Hub IOT.
+1. Carregue o arquivo de certificado de autoridade de certificação raiz do seu diretório de trabalho, `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` , para o Hub IOT.
 
 2. Use o código fornecido no portal do Azure para verificar se você possui esse certificado de autoridade de certificação raiz.
 
@@ -381,7 +381,7 @@ Os certificados nesta seção são para as etapas em [Configurar a segurança X.
 
 #### <a name="linux"></a>Linux
 
-1. Carregue o arquivo de certificado de autoridade de certificação raiz do `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`seu diretório de trabalho,, para o Hub IOT.
+1. Carregue o arquivo de certificado de autoridade de certificação raiz do seu diretório de trabalho, `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` , para o Hub IOT.
 
 2. Use o código fornecido no portal do Azure para verificar se você possui esse certificado de autoridade de certificação raiz.
 

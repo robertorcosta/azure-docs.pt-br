@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1dc0eec6178420976181b05a059e9f8b4859ec2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77151999"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040735"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conectar redes virtuais de diferentes modelos de implantação usando o PowerShell
 
@@ -99,44 +98,50 @@ No elemento **VirtualNetworkSites** , adicione uma sub-rede de gateway à rede v
 
 **Exemplo:**
 
-    <VirtualNetworkSites>
-      <VirtualNetworkSite name="ClassicVNet" Location="West US">
-        <AddressSpace>
-          <AddressPrefix>10.0.0.0/24</AddressPrefix>
-        </AddressSpace>
-        <Subnets>
-          <Subnet name="Subnet-1">
-            <AddressPrefix>10.0.0.0/27</AddressPrefix>
-          </Subnet>
-          <Subnet name="GatewaySubnet">
-            <AddressPrefix>10.0.0.32/29</AddressPrefix>
-          </Subnet>
-        </Subnets>
-      </VirtualNetworkSite>
-    </VirtualNetworkSites>
+```xml
+<VirtualNetworkSites>
+  <VirtualNetworkSite name="ClassicVNet" Location="West US">
+    <AddressSpace>
+      <AddressPrefix>10.0.0.0/24</AddressPrefix>
+    </AddressSpace>
+    <Subnets>
+      <Subnet name="Subnet-1">
+        <AddressPrefix>10.0.0.0/27</AddressPrefix>
+      </Subnet>
+      <Subnet name="GatewaySubnet">
+        <AddressPrefix>10.0.0.32/29</AddressPrefix>
+      </Subnet>
+    </Subnets>
+  </VirtualNetworkSite>
+</VirtualNetworkSites>
+```
 
 ### <a name="3-add-the-local-network-site"></a>3. Adicionar o site de rede local
 O site de rede local que adicionar representará a rede virtual do RM ao qual você deseja se conectar. Adicione um elemento **LocalNetworkSites** ao arquivo, se ele ainda não existir. Nessa parte da configuração, o VPNGatewayAddress pode ser qualquer endereço IP público válido porque ainda não criamos o gateway para a rede virtual do Resource Manager. Depois de criarmos o gateway, poderemos substituir esse endereço IP de espaço reservado pelo endereço IP público correto que foi atribuído ao gateway do RM.
 
-    <LocalNetworkSites>
-      <LocalNetworkSite name="RMVNetLocal">
-        <AddressSpace>
-          <AddressPrefix>192.168.0.0/16</AddressPrefix>
-        </AddressSpace>
-        <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
-      </LocalNetworkSite>
-    </LocalNetworkSites>
+```xml
+<LocalNetworkSites>
+  <LocalNetworkSite name="RMVNetLocal">
+    <AddressSpace>
+      <AddressPrefix>192.168.0.0/16</AddressPrefix>
+    </AddressSpace>
+    <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
+  </LocalNetworkSite>
+</LocalNetworkSites>
+```
 
 ### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. associar a VNet ao site de rede local
 Nesta seção, podemos especificar o local de rede local ao qual você deseja conectar a rede virtual. Nesse caso, é a rede virtual do Resource Manager que foi mencionada anteriormente. Verifique se os nomes correspondem. Esta etapa não cria um gateway. Ela especifica a rede local a que o gateway será conectado.
 
-        <Gateway>
-          <ConnectionsToLocalNetwork>
-            <LocalNetworkSiteRef name="RMVNetLocal">
-              <Connection type="IPsec" />
-            </LocalNetworkSiteRef>
-          </ConnectionsToLocalNetwork>
-        </Gateway>
+```xml
+<Gateway>
+  <ConnectionsToLocalNetwork>
+    <LocalNetworkSiteRef name="RMVNetLocal">
+      <Connection type="IPsec" />
+    </LocalNetworkSiteRef>
+  </ConnectionsToLocalNetwork>
+</Gateway>
+```
 
 ### <a name="5-save-the-file-and-upload"></a>5. Salve o arquivo e carregue-o
 Salve o arquivo e importe-o para o Azure executando o comando a seguir. Altere o caminho do arquivo conforme for necessário para seu ambiente.
@@ -147,9 +152,11 @@ Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 
 Você verá um resultado semelhante, mostrando que a importação teve êxito.
 
-        OperationDescription        OperationId                      OperationStatus                                                
-        --------------------        -----------                      ---------------                                                
-        Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
+```output
+OperationDescription        OperationId                      OperationStatus                                                
+--------------------        -----------                      ---------------                                                
+Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
+```
 
 ### <a name="6-create-the-gateway"></a>6. criar o gateway
 

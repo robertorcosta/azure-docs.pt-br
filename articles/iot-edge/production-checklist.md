@@ -11,12 +11,11 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431918"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -129,7 +128,7 @@ O valor padrão do parâmetro timeToLiveSecs é de 7200 segundos, ou seja, duas 
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Não use versões de depuração de imagens de módulo
 
-Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens de módulo nos manifestos de implantação tem o sufixo de ** \.depuração** . Se você adicionou criar opções para expor portas nos módulos para depuração, remova essas opções de criação também.
+Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens de módulo nos manifestos de implantação tem o sufixo de ** \. depuração** . Se você adicionou criar opções para expor portas nos módulos para depuração, remova essas opções de criação também.
 
 ## <a name="container-management"></a>Gerenciamento de contêiner
 
@@ -151,7 +150,7 @@ Para criar uma entidade de serviço, execute os dois scripts, conforme descrito 
 
 * O primeiro script cria a entidade de serviço. Ele gera a ID da entidade de serviço e a senha da entidade de serviço. Armazene esses valores com segurança em seus registros.
 
-* O segundo script cria atribuições de função para conceder à entidade de serviço, que pode ser executada subsequentemente, se necessário. É recomendável aplicar **acrPull** a função de usuário acrPull `role` para o parâmetro. Para obter uma lista de funções, consulte [funções e permissões do registro de contêiner do Azure](../container-registry/container-registry-roles.md).
+* O segundo script cria atribuições de função para conceder à entidade de serviço, que pode ser executada subsequentemente, se necessário. É recomendável aplicar a função de usuário **acrPull** para o `role` parâmetro. Para obter uma lista de funções, consulte [funções e permissões do registro de contêiner do Azure](../container-registry/container-registry-roles.md).
 
 Para autenticar usando uma entidade de serviço, forneça a ID da entidade de serviço e a senha que você obteve do primeiro script. Especifique essas credenciais no manifesto de implantação.
 
@@ -181,7 +180,7 @@ Obtenha as imagens com o comando Docker pull para colocar em seu registro privad
 | [Agente de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [HUb de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
-Em seguida, certifique-se de atualizar as referências de imagem no arquivo Deployment. Template. JSON para os módulos do sistema edgeAgent e edgeHub. Substitua `mcr.microsoft.com` pelo nome do registro e pelo servidor para ambos os módulos.
+Em seguida, certifique-se de atualizar as referências de imagem na deployment.template.jsno arquivo para os módulos do sistema edgeAgent e edgeHub. Substitua `mcr.microsoft.com` pelo nome do registro e pelo servidor para ambos os módulos.
 
 * EdgeAgent
 
@@ -218,7 +217,7 @@ Esta lista de verificação é um ponto de partida para regras de firewall:
 
    | URL (\* = curinga) | Portas TCP de Saída | Uso |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Registro de contêiner da Microsoft |
+   | mcr.microsoft.com  | 443 | Registro de Contêiner da Microsoft |
    | global.azure-devices-provisioning.net  | 443 | Acesso DPS (opcional) |
    | \*.azurecr.io | 443 | Registros de contêineres pessoais e de terceiros |
    | \*.blob.core.windows.net | 443 | Baixar deltas de imagem do registro de contêiner do Azure do armazenamento de BLOBs |
@@ -226,6 +225,10 @@ Esta lista de verificação é um ponto de partida para regras de firewall:
    | \*. docker.io  | 443 | Acesso ao Hub do Docker (opcional) |
 
 Algumas dessas regras de firewall são herdadas do registro de contêiner do Azure. Para obter mais informações, consulte [configurar regras para acessar um registro de contêiner do Azure atrás de um firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+> [!NOTE]
+> Para fornecer um FQDN consistente entre os pontos de extremidade REST e data, a partir de **15 de junho de 2020** , o ponto de extremidades de dados do registro de contêiner da Microsoft será alterado de `*.cdn.mscr.io` para`*.data.mcr.microsoft.com`  
+> Para obter mais informações, consulte [configuração de regras de firewall de cliente do registro de contêiner da Microsoft](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Se você não quiser configurar o firewall para permitir o acesso a registros de contêiner público, poderá armazenar imagens em seu registro de contêiner privado, conforme descrito em [armazenar contêineres de tempo de execução em seu registro particular](#store-runtime-containers-in-your-private-registry).
 
@@ -255,7 +258,7 @@ Por padrão, o mecanismo de contêiner Moby não define limites de tamanho de lo
 
 #### <a name="option-set-global-limits-that-apply-to-all-container-modules"></a>Opção: definir limites globais que se aplicam a todos os módulos de contêiner
 
-Você pode limitar o tamanho de todos os arquivos de log de contêiner nas opções de registro do mecanismo de contêiner. O exemplo a seguir define o driver de `json-file` log para (recomendado) com limites de tamanho e número de arquivos:
+Você pode limitar o tamanho de todos os arquivos de log de contêiner nas opções de registro do mecanismo de contêiner. O exemplo a seguir define o driver de log para `json-file` (recomendado) com limites de tamanho e número de arquivos:
 
 ```JSON
 {
@@ -269,7 +272,7 @@ Você pode limitar o tamanho de todos os arquivos de log de contêiner nas opç�
 
 Adicione (ou acrescente) essas informações a um arquivo chamado `daemon.json` e coloque-o no local certo para a plataforma do dispositivo.
 
-| Plataforma | Local |
+| Plataforma | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -278,7 +281,7 @@ O mecanismo de contêiner deve ser reiniciado para que as alterações entrem em
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>Opção: ajustar as configurações de log para cada módulo de contêiner
 
-Você pode fazer isso em **criaroptions** de cada módulo. Por exemplo: 
+Você pode fazer isso em **criaroptions** de cada módulo. Por exemplo:
 
 ```yml
 "createOptions": {
@@ -296,7 +299,7 @@ Você pode fazer isso em **criaroptions** de cada módulo. Por exemplo:
 
 #### <a name="additional-options-on-linux-systems"></a>Opções adicionais em sistemas Linux
 
-* Configure o mecanismo de contêiner para enviar logs `systemd` ao [diário](https://docs.docker.com/config/containers/logging/journald/) , `journald` definindo como o driver de log padrão.
+* Configure o mecanismo de contêiner para enviar logs ao `systemd` [diário](https://docs.docker.com/config/containers/logging/journald/) , definindo `journald` como o driver de log padrão.
 
 * Remova periodicamente os logs antigos do seu dispositivo instalando uma ferramenta logrotate. Use a seguinte especificação de arquivo:
 

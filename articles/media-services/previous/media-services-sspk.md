@@ -1,6 +1,6 @@
 ---
-title: Licenciamento&reg; do Microsoft Smooth streaming client Porting kit
-description: Saiba mais sobre como licenciar o&reg; Microsoft Smooth streaming client Porting Kit.
+title: Licenciamento do Microsoft &reg; Smooth streaming client Porting kit
+description: Saiba mais sobre como licenciar o Microsoft &reg; Smooth streaming client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677145"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento&reg; do Microsoft Smooth streaming client Porting kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento do Microsoft &reg; Smooth streaming client Porting kit 
 ## <a name="overview"></a>Visão geral
 O Kit de Portabilidade de Cliente do Microsoft Smooth Streaming (**SSPK** ) é uma implementação de cliente do Smooth Streaming otimizada para ajudar fabricantes de dispositivos inseridos, operadoras de serviços móveis e a cabo, fornecedores de serviços de conteúdo, fabricantes de celulares, fornecedores de software independentes (ISVs) e fornecedores de soluções a criar produtos e serviços para transmitir conteúdo de streaming adaptativo no formato Smooth Streaming. O SSPK é uma implementação independente de dispositivo e de plataforma do cliente do Smooth Streaming que pode ser movida pelo licenciado para qualquer dispositivo e plataforma. 
 
@@ -75,7 +74,7 @@ Email [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) para todas as cons
 
 O Portal de distribuição do SSPK pode ser acessado por licenciados provisórios registrados.
 
-As licenças de SSPK provisórias e finais podem enviar perguntas [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)técnicas para o.
+As licenças de SSPK provisórias e finais podem enviar perguntas técnicas para o [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com) .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenciados do Contrato do Produto provisório do cliente do Microsoft Smooth Streaming
 
@@ -113,56 +112,46 @@ As licenças de SSPK provisórias e finais podem enviar perguntas [smoothpk@micr
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licenciados do Contrato do Produto final do cliente do Microsoft Smooth Streaming
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion Technology, Inc.
-* ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
-* British Sky Broadcasting Limited
-* CastPal Technology Inc., Shenzhen
+* Arcelik A. S
 * Compal eletrônicos, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar Purchasing Corporation
-* Enseo, Inc.
-* Filmes FilmFlex limitados
+* TECNOLOGIA DE SORTE EXPRESSA LIMITADA
 * Fluendo S.A.
 * FUNAI ELÉTRICO CO., LTD
-* Gibson Innovations Limited
-* Haier Information Applicantion S.R.L
-* HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
-* Infomir GMBH
+* HKC Corporation Limited
+* Rae de Hong Kong Konka Ltd
+* Innolux Corporation
+* Innopia Technologies, Inc.
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
+* Co-se eletrônicos de mega Fame. limitado
+* MIRC eletrônica limitado
 * Nintendo Co., Ltd.
-* Orange SA
-* Saffron Digital Limited
-* Sagemcom Broadband SAS
+* ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
+* Panasonic Corporation
+* Qingdao Haier Optronics co., Ltd.
+* Shenzhen ATEKO PHOTO eletricidade co., Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co., Ltd.
-* Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen KTC Technology Co., Ltd. 
+* Shenzhen Maxmade Technology Co., Ltd
+* Shenzhen MTC co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
 * Sky Deutschland Fernsehen GmbH & Co. KG
-* SmarDTV S.A.
+* SAS GLOBAL SMARDTV
 * SoftAtHome
 * Sony Corporation
 * Technicolor Delivery Technologies, SAS
-* Tongfang Global Ltd.
 * Top Victory Investments, Ltd.
-* Toshiba Lifestyle Products & Services Corporation
-* Universal Media Corporation /Slovakia/ s.r.o.
-* VIZIO, Inc.
-* Wistron Corporation
+* UMC Polônia SP. z. o.o.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

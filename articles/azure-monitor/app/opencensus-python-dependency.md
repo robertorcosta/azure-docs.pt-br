@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: e400669fd96518adead74a81fc332767c5f9b23b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782561"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Acompanhar dependências com Python OpenCensus
 
@@ -35,7 +35,7 @@ with tracer.span(name='foo'): # <-- A dependency telemetry item will be sent for
 
 ## <a name="dependencies-with-requests-integration"></a>Dependências com a integração de "solicitações"
 
-Acompanhe suas solicitações de saída com a integração `requests` do OpenCensus.
+Acompanhe suas solicitações de saída com a integração do OpenCensus `requests` .
 
 Baixe e instale `opencensus-ext-requests` do [PyPI](https://pypi.org/project/opencensus-ext-requests/) e adicione-o às integrações de rastreamento. As solicitações enviadas usando a biblioteca de [solicitações](https://pypi.org/project/requests/) do Python serão acompanhadas.
 
@@ -84,7 +84,10 @@ conn.close()
 
 Acompanhe suas solicitações de Django de saída com a `django` integração do OpenCensus.
 
-Baixe e instale `opencensus-ext-django` do [PyPI](https://pypi.org/project/opencensus-ext-django/) e adicione a seguinte linha à `MIDDLEWARE` seção no arquivo Django. `settings.py`
+> [!NOTE]
+> As únicas solicitações de Django de saída que são rastreadas são chamadas feitas a um banco de dados. Para solicitações feitas ao aplicativo Django, consulte [solicitações de entrada](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request#tracking-django-applications).
+
+Baixe e instale `opencensus-ext-django` do [PyPI](https://pypi.org/project/opencensus-ext-django/) e adicione a seguinte linha à `MIDDLEWARE` seção no `settings.py` arquivo Django.
 
 ```python
 MIDDLEWARE = [
@@ -108,7 +111,7 @@ OPENCENSUS = {
 
 ## <a name="dependencies-with-mysql-integration"></a>Dependências com a integração "MySQL"
 
-Acompanhe as dependências do MYSQL com `mysql` a integração do OpenCensus. Essa integração dá suporte à biblioteca [MySQL-Connector](https://pypi.org/project/mysql-connector-python/) .
+Acompanhe as dependências do MYSQL com a integração do OpenCensus `mysql` . Essa integração dá suporte à biblioteca [MySQL-Connector](https://pypi.org/project/mysql-connector-python/) .
 
 Baixe e instale `opencensus-ext-mysql` do [PyPI](https://pypi.org/project/opencensus-ext-mysql/) e adicione as linhas a seguir ao seu código.
 
@@ -120,7 +123,7 @@ config_integration.trace_integrations(['mysql'])
 
 ## <a name="dependencies-with-pymysql-integration"></a>Dependências com a integração "pymysql"
 
-Acompanhe suas dependências do PyMySQL com `pymysql` a integração do OpenCensus.
+Acompanhe suas dependências do PyMySQL com a integração do OpenCensus `pymysql` .
 
 Baixe e instale `opencensus-ext-pymysql` do [PyPI](https://pypi.org/project/opencensus-ext-pymysql/) e adicione as linhas a seguir ao seu código.
 
@@ -132,7 +135,7 @@ config_integration.trace_integrations(['pymysql'])
 
 ## <a name="dependencies-with-postgresql-integration"></a>Dependências com a integração "PostgreSQL"
 
-Acompanhe suas dependências do PostgreSQL com `postgresql` a integração do OpenCensus. Essa integração dá suporte à biblioteca [psycopg2](https://pypi.org/project/psycopg2/) .
+Acompanhe suas dependências do PostgreSQL com a integração do OpenCensus `postgresql` . Essa integração dá suporte à biblioteca [psycopg2](https://pypi.org/project/psycopg2/) .
 
 Baixe e instale `opencensus-ext-postgresql` do [PyPI](https://pypi.org/project/opencensus-ext-postgresql/) e adicione as linhas a seguir ao seu código.
 
@@ -144,7 +147,7 @@ config_integration.trace_integrations(['postgresql'])
 
 ## <a name="dependencies-with-pymongo-integration"></a>Dependências com a integração "pymongo"
 
-Acompanhe suas dependências do MongoDB com `pymongo` a integração do OpenCensus. Essa integração dá suporte à biblioteca [pymongo](https://pypi.org/project/pymongo/) .
+Acompanhe suas dependências do MongoDB com a integração do OpenCensus `pymongo` . Essa integração dá suporte à biblioteca [pymongo](https://pypi.org/project/pymongo/) .
 
 Baixe e instale `opencensus-ext-pymongo` do [PyPI](https://pypi.org/project/opencensus-ext-pymongo/) e adicione as linhas a seguir ao seu código.
 
@@ -156,7 +159,7 @@ config_integration.trace_integrations(['pymongo'])
 
 ### <a name="dependencies-with-sqlalchemy-integration"></a>Dependências com a integração "SQLAlchemy"
 
-Acompanhe suas dependências usando o SQLAlchemy `sqlalchemy` usando a integração do OpenCensus. Essa integração acompanha o uso do pacote [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) , independentemente do banco de dados subjacente.
+Acompanhe suas dependências usando o SQLAlchemy usando a integração do OpenCensus `sqlalchemy` . Essa integração acompanha o uso do pacote [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) , independentemente do banco de dados subjacente.
 
 ```python
 from opencensus.trace import config_integration
@@ -166,8 +169,8 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Mapa de aplicativo](../../azure-monitor/app/app-map.md)
+* [Mapa do aplicativo](../../azure-monitor/app/app-map.md)
 * [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Pesquisa](../../azure-monitor/app/diagnostic-search.md)
+* [Pesquisar](../../azure-monitor/app/diagnostic-search.md)
 * [Consulta de log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
 * [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)

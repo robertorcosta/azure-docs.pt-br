@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 850ace7af15ab37ab9a4a124d20ed4588771f4d4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242228"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os cenários a seguir podem se beneficiar muito da intermitência:
@@ -24,9 +23,11 @@ Os cenários a seguir podem se beneficiar muito da intermitência:
 ## <a name="bursting-flow"></a>Fluxo de intermitência
 O sistema de crédito de intermitências aplica-se da mesma maneira no nível de disco e no nível de máquina virtual. Seu recurso, uma VM ou um disco, será iniciado com créditos totalmente em estoque. Esses créditos permitirão que você se intermitência por 30 minutos na taxa máxima de intermitência. Os créditos de intermitência acumulam quando o recurso está em execução em seus limites de armazenamento em disco de desempenho. Para todos os IOPS e MB/s que seu recurso está usando abaixo do limite de desempenho, você começa a acumular créditos. Se o recurso tiver Créditos acumulados a serem usados para intermitência e sua carga de trabalho precisar de desempenho extra, seu recurso poderá usar esses créditos para ir acima do seu limite de desempenho para dar a ele o desempenho de e/s de disco necessário para atender à demanda.
 
+
+
 ![Diagrama de Bucket de intermitência](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Uma coisa a ser observada sobre a acumulação de intermitência é que ele é diferente para cada recurso, pois ele se baseia em IOPS não utilizados e MB/s abaixo de seus valores de desempenho. Isso significa que produtos de desempenho de linha de base mais altos podem acumular seus valores de intermitência mais rápido que os produtos de execução de linha de base menores. Por exemplo, um deixar de disco P1 sem atividade acumulará 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo, enquanto deixar sem atividade.
+Seu funcionamento completo para você sobre como deseja usar os 30 minutos de intermitência. Você pode usá-lo por 30 minutos consecutivamente ou esporadicamente ao longo do dia. Quando o produto é implantado, ele é pronto para créditos completos e quando ele esgotar os créditos que leva menos de um dia para ser totalmente estocado em todos os créditos. Você pode acumular e gastar seus créditos de intermitência a seu critério e o Bucket de 30 minutos não precisa estar cheio novamente para intermitência. Uma coisa a ser observada sobre a acumulação de intermitência é que ele é diferente para cada recurso, pois ele se baseia em IOPS não utilizados e MB/s abaixo de seus valores de desempenho. Isso significa que produtos de desempenho de linha de base mais altos podem acumular seus valores de intermitência mais rápido que os produtos de execução de linha de base menores. Por exemplo, um deixar de disco P1 sem atividade acumulará 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo, enquanto deixar sem atividade.
 
 ## <a name="bursting-states"></a>Estados de intermitência
 Há três Estados em que o recurso pode estar com a intermitência ativada:
@@ -70,7 +71,7 @@ Em seguida, o aplicativo precisa processar um trabalho em lote que requer 192 MB
 - 2 discos de dados P10 
     - MB/s provisionados: 250
 
- Após a inicialização inicial, um aplicativo é executado na VM e tem uma carga de trabalho não crítica. Essa carga de trabalho requer 30 MB/s que se espalham uniformemente em todos ![os discos: intermitência de disco sem intermitência de VM ocioso](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Após a inicialização inicial, um aplicativo é executado na VM e tem uma carga de trabalho não crítica. Essa carga de trabalho requer 30 MB/s que se espalham uniformemente em todos os discos: ![ intermitência de disco sem intermitência de VM ocioso](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
 Em seguida, o aplicativo precisa processar um trabalho em lote que requer 600 MB/s. O Standard_L8s_v2 intermitência para atender a essa demanda e, em seguida, as solicitações para os discos são distribuídas uniformemente para os discos P50:
 

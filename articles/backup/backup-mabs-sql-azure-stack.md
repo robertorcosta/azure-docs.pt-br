@@ -3,12 +3,11 @@ title: Fazer backup de cargas de trabalho do SQL Server no Azure Stack
 description: Neste artigo, saiba como configurar o servidor de Backup do Microsoft Azure (MABS) para proteger SQL Server bancos de dados no Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74172307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84192973"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup do SQL Server no Azure Stack
 
@@ -32,7 +31,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
     ![Criar grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
 
-    O Servidor de Backup do Azure inicia o assistente de Grupo de proteção, que orienta você na criação de um **Grupo de proteção**. Clique em **Avançar**.
+    O Servidor de Backup do Azure inicia o assistente de Grupo de proteção, que orienta você na criação de um **Grupo de proteção**. Clique em **Próximo**.
 
 3. Na tela **Selecionar tipo de grupo de proteção**, selecione **Servidores**.
 
@@ -59,13 +58,13 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
    >
    >
 
-7. Na tela **Examinar alocação de disco**, verifique o espaço geral de armazenamento disponível e o possível espaço em disco. Clique em **Avançar**.
+7. Na tela **Examinar alocação de disco**, verifique o espaço geral de armazenamento disponível e o possível espaço em disco. Clique em **Próximo**.
 
-8. Em **Escolher método de criação de réplica**, escolha como criar seu primeiro ponto de recuperação. É possível transferir o backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Se optar por esperar para transferir o primeiro backup, será possível especificar o tempo da transferência inicial. Clique em **Avançar**.
+8. Em **Escolher método de criação de réplica**, escolha como criar seu primeiro ponto de recuperação. É possível transferir o backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Se optar por esperar para transferir o primeiro backup, será possível especificar o tempo da transferência inicial. Clique em **Próximo**.
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
-    A cópia de backup inicial exige a transferência de toda a fonte de dados (banco de dados do SQL Server) do servidor de produção (computador do SQL Server) para o Servidor de Backup do Azure. Esses dados podem ser grandes e transferir os dados pela rede pode exceder a largura de banda. Por esse motivo, é possível optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar o congestionamento de largura de banda ou **Automaticamente pela rede** (em um horário especificado).
+    A cópia de backup inicial requer a transferência de toda a fonte de dados (banco de SQL Server) do servidor de produção (SQL Server computador) para Servidor de Backup do Azure. Esses dados podem ser grandes e transferir os dados pela rede pode exceder a largura de banda. Por esse motivo, é possível optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar o congestionamento de largura de banda ou **Automaticamente pela rede** (em um horário especificado).
 
     Quando o backup inicial for concluído, os backups restantes serão backups incrementais na cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
 
@@ -73,7 +72,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
     ![Verificação de consistência](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    O Servidor de Backup do Azure realiza uma verificação de consistência sobre a integridade do ponto de backup. O Servidor de Backup do Azure calcula a soma de verificação do arquivo de backup no servidor de produção (computador do SQL Server neste cenário) e os dados incluídos no backup para esse arquivo. Havendo um conflito, presume-se que o arquivo incluído no backup no Servidor de Backup do Azure está corrompido. O Servidor de Backup do Azure corrige os dados do backup enviando os blocos correspondentes à incompatibilidade da soma de verificação. Como as verificações de consistência requerem desempenho intenso, é possível agendar a verificação de consistência ou executá-la automaticamente.
+    O Servidor de Backup do Azure realiza uma verificação de consistência sobre a integridade do ponto de backup. Servidor de Backup do Azure calcula a soma de verificação do arquivo de backup no servidor de produção (SQL Server computador neste cenário) e os dados de backup para esse arquivo. Havendo um conflito, presume-se que o arquivo incluído no backup no Servidor de Backup do Azure está corrompido. O Servidor de Backup do Azure corrige os dados do backup enviando os blocos correspondentes à incompatibilidade da soma de verificação. Como as verificações de consistência requerem desempenho intenso, é possível agendar a verificação de consistência ou executá-la automaticamente.
 
 10. Para especificar a proteção online das fontes de dados, selecione os bancos de dados a serem protegidos no Azure e clique em **Avançar**.
 
@@ -135,13 +134,13 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 2. Clique com o botão direito do mouse no nome do banco de dados e clique em **Recuperar**.
 
     ![Recuperar do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. O MABS mostra os detalhes do ponto de recuperação. Clique em **Avançar**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Avançar**.
+3. O MABS mostra os detalhes do ponto de recuperação. Clique em **Próximo**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Próximo**.
 
     ![Recuperar no local original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Neste exemplo, o MABS recupera o banco de dados para outra instância do SQL Server ou para uma pasta de rede autônoma.
 
-4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Avançar**.
+4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Próximo**.
 
 5. Na tela **Resumo** , você vê todas as configurações de recuperação fornecidas até agora. Clique em **Recuperar**.
 

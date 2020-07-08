@@ -1,23 +1,13 @@
 ---
 title: Segurança de rede para o barramento de serviço do Azure
 description: Este artigo descreve os recursos de segurança de rede, como marcas de serviço, regras de firewall de IP, pontos de extremidade de serviço e pontos de extremidade privados.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: aschhab
-ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341130"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Segurança de rede para o barramento de serviço do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com o barramento de serviço do Azure: 
@@ -29,21 +19,24 @@ Este artigo descreve como usar os seguintes recursos de segurança com o barrame
 
 
 ## <a name="service-tags"></a>Marcas de serviço
-Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade das atualizações frequentes para as regras de segurança de rede. Para obter mais informações sobre marcas de serviço, consulte [visão geral das marcas de serviço](../virtual-network/service-tags-overview.md).
+Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Para obter mais informações sobre marcas de serviço, consulte [visão geral das marcas de serviço](../virtual-network/service-tags-overview.md).
 
-Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço no lugar de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **ServiceBus**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **ServiceBus**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
 
-| Marca de serviço | Finalidade | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com o Firewall do Azure? |
+| Marca de serviço | Finalidade | É possível usar entrada ou saída? | Pode ser regional? | É possível usar com o Firewall do Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ServiceBus** | O tráfego do barramento de serviço do Azure que usa a camada de serviço Premium. | Saída | Sim | Sim |
+| **Barramento de Serviço** | O tráfego do Barramento de Serviço do Azure que usa a camada de serviço Premium. | Saída | Sim | Sim |
 
+
+> [!NOTE]
+> Você pode usar marcas de serviço somente para namespaces **Premium** . Se você estiver usando um namespace **padrão** , use o endereço IP que você vê ao executar o seguinte comando: `nslookup <host name for the namespace>` . Por exemplo: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>Firewall de IP 
-Por padrão, os namespaces do barramento de serviço podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Por padrão, os namespaces de Barramento de Serviço são acessíveis pela Internet, desde que a solicitação acompanhe uma autenticação e uma autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Esse recurso é útil em cenários nos quais o barramento de serviço do Azure deve ser acessível somente de determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se você usar o barramento de serviço com [rota expressa do Azure] [rota expressa], poderá criar uma **regra de firewall** para permitir o tráfego somente de endereços IP de infraestrutura local ou endereços de um gateway de NAT corporativo. 
+Esse recurso é útil em cenários nos quais o Barramento de Serviço do Azure deve ser acessível apenas através determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se você usar o barramento de serviço com [rota expressa do Azure] [rota expressa], poderá criar uma **regra de firewall** para permitir o tráfego somente de endereços IP de infraestrutura local ou endereços de um gateway de NAT corporativo. 
 
-As regras de firewall IP são aplicadas no nível de namespace do barramento de serviço. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra IP permitida no namespace do Barramento de Serviço será rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
+As regras de firewall de IP são aplicadas no nível de namespace do Barramento de Serviço. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra IP permitida no namespace do Barramento de Serviço será rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
 Para obter mais informações, consulte [como configurar o firewall IP para um namespace do barramento de serviço](service-bus-ip-filtering.md)
 
@@ -79,16 +72,16 @@ Para obter mais informações, consulte [como configurar pontos de extremidade d
 
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
 
-O serviço de vínculo privado do Azure permite que você acesse os serviços do Azure (por exemplo, barramento de serviço do Azure, armazenamento do Azure e Azure Cosmos DB) e serviços hospedados de cliente/parceiro do Azure em um **ponto de extremidade privado** em sua rede virtual.
+O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, o Barramento de Serviço do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual.
 
-Um ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço da plataforma Azure link privado. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
+O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
 
 Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 > [!NOTE]
-> Esse recurso é compatível com a camada **Premium** do barramento de serviço do Azure. Para obter mais informações sobre a camada Premium, consulte o artigo sobre as [camadas de sistema de mensagens Premium e Standard do barramento de serviço](service-bus-premium-messaging.md) .
+> Esse recurso é compatível com a camada **Premium** do Barramento de Serviço do Azure. Para saber mais sobre a camada Premium, confira [Camadas de mensagens Premium e Standard do Barramento de Serviço](service-bus-premium-messaging.md).
 >
-> Este recurso está atualmente em **Visualização**. 
+> Esse recurso está atualmente em **versão prévia**. 
 
 
 Para obter mais informações, consulte [como configurar pontos de extremidade privados para um namespace do barramento de serviço](private-link-service.md)

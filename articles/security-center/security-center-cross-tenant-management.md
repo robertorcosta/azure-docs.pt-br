@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782805"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gerenciamento entre locatários na central de segurança
 
@@ -46,7 +45,7 @@ Na barra de menus superior, clique no ícone de filtro e selecione as assinatura
 As exibições e ações são basicamente as mesmas. Estes são alguns exemplos:
 
 - **Gerenciar políticas de segurança**: em uma exibição, gerencie a postura de segurança de muitos recursos com [políticas](tutorial-security-policy.md), execute ações com recomendações de segurança e colete e gerencie dados relacionados à segurança.
-- **Aprimore a pontuação segura e a postura de conformidade**: a visibilidade entre locatários permite que você veja a postura geral de segurança de todos os seus locatários e onde e como melhorar melhor a [Pontuação segura](security-center-secure-score.md) e a [postura de conformidade](security-center-compliance-dashboard.md) para cada um deles.
+- **Aprimore a pontuação segura e a postura de conformidade**: a visibilidade entre locatários permite que você veja a postura geral de segurança de todos os seus locatários e onde e como melhorar melhor a [Pontuação segura](secure-score-security-controls.md) e a [postura de conformidade](security-center-compliance-dashboard.md) para cada um deles.
 - **Corrigir recomendações**: monitore e corrija uma [recomendação](security-center-recommendations.md) para muitos recursos de vários locatários ao mesmo tempo. Você pode então lidar imediatamente com as vulnerabilidades que apresentam o maior risco em todos os locatários.
 - **Gerenciar alertas**: detectar [alertas](security-center-alerts-overview.md) em vários locatários diferentes. Execute ações em recursos que estão fora de conformidade com etapas de [correção](security-center-managing-and-responding-alerts.md)acionáveis.
 
@@ -56,5 +55,5 @@ As exibições e ações são basicamente as mesmas. Estes são alguns exemplos:
 Este artigo explica como o gerenciamento entre locatários funciona na central de segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Fortaleça sua postura de segurança com a central de segurança do Azure](security-center-monitoring.md) -saiba como monitorar a integridade dos recursos do Azure.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](faq-general.md): encontre as perguntas frequentes sobre como usar o serviço.
+* [Perguntas frequentes da central de segurança do Azure](faq-general.md) -encontre perguntas frequentes sobre como usar o serviço.
 * [Saiba mais sobre o Azure Lighthouse em cenários empresariais](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) – Descubra como o Azure Lighthouse pode simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.

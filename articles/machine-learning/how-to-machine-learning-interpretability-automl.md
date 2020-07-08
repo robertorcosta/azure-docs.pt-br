@@ -5,16 +5,15 @@ description: Saiba como obter explicações sobre como seu modelo de ML automati
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
-ms.openlocfilehash: e0ec6cbc4cea926dfc50cdae247aea5d765c20ca
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430537"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretação: explicações de modelo no Machine Learning automatizado
 
@@ -22,7 +21,7 @@ ms.locfileid: "82691216"
 
 Neste artigo, você aprenderá a obter explicações para o ML (aprendizado de máquina automatizado) em Azure Machine Learning. O ML automatizado ajuda você a entender a importância do recurso projetado. 
 
-Todas as versões do SDK após `model_explainability=True` 1.0.85 definidas por padrão. No SDK versão 1.0.85 e versões anteriores, os usuários precisam `model_explainability=True` definir no `AutoMLConfig` objeto para usar a interpretação de modelo. 
+Todas as versões do SDK após 1.0.85 definidas `model_explainability=True` por padrão. No SDK versão 1.0.85 e versões anteriores, os usuários precisam definir `model_explainability=True` no `AutoMLConfig` objeto para usar a interpretação de modelo. 
 
 Neste artigo, você aprenderá como:
 
@@ -37,11 +36,11 @@ Neste artigo, você aprenderá como:
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretabilidade durante o treinamento para o melhor modelo
 
-Recupere a explicação do `best_run`, que inclui explicações para recursos de engenharia.
+Recupere a explicação do `best_run` , que inclui explicações para recursos de engenharia.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Baixar a importância de recursos com engenharia da loja de artefatos
 
-Você pode usar `ExplanationClient` o para baixar as explicações de recursos de engenharia do repositório de `best_run`artefatos do. 
+Você pode usar `ExplanationClient` o para baixar as explicações de recursos de engenharia do repositório de artefatos do `best_run` . 
 
 ```python
 from azureml.explain.model._internal.explanation_client import ExplanationClient
@@ -104,7 +103,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>Use MimicExplainer para computação e visualização da importância do recurso com engenharia
 
-Você pode chamar o `explain()` método em MimicWrapper com os exemplos de teste transformados para obter a importância do recurso para os recursos de engenharia gerados. Você também pode usar `ExplanationDashboard` o para exibir a visualização do painel dos valores de importância do recurso dos recursos de engenharia gerados por FEATURIZERS de ml automatizados.
+Você pode chamar o `explain()` método em MimicWrapper com os exemplos de teste transformados para obter a importância do recurso para os recursos de engenharia gerados. Você também pode usar `ExplanationDashboard` o para exibir a visualização do painel dos valores de importância do recurso dos recursos de engenharia gerados por featurizers de ml automatizados.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -117,7 +116,7 @@ Nesta seção, você aprenderá a colocar em operação um modelo de ML automati
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Registrar o modelo e o explicador de Pontuação
 
-Use o `TreeScoringExplainer` para criar o explicador de pontuação que calculará os valores de importância de recursos com engenharia no tempo de inferência. Você inicializa o explicador de pontuação com `feature_map` o que foi calculado anteriormente. 
+Use o `TreeScoringExplainer` para criar o explicador de pontuação que calculará os valores de importância de recursos com engenharia no tempo de inferência. Você inicializa o explicador de pontuação com o `feature_map` que foi calculado anteriormente. 
 
 Salve o explicador de Pontuação e registre o modelo e o explicador de pontuação com o Serviço Gerenciamento de Modelos. Execute o seguinte código:
 

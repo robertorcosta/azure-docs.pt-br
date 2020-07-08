@@ -1,19 +1,17 @@
 ---
 title: Mover uma configuração de manutenção para outra região do Azure
 description: Saiba como mover uma configuração de manutenção de VM para outra região do Azure
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: fe03bead238d3fb7bda3ee685bd5587c3e0dbc58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 86343e10f10b51f65764e16bbc1e485136bca162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304453"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676805"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Mover uma configuração de controle de manutenção para outra região
 
@@ -44,9 +42,9 @@ Antes de começar a mover uma configuração de controle de manutenção:
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```
-2. Examine a lista de tabelas retornada de registros de configuração na assinatura. Veja um exemplo. Sua lista conterá valores para seu ambiente específico.
+2. Examine a lista de tabelas retornada de registros de configuração na assinatura. Aqui está um exemplo. Sua lista conterá valores para seu ambiente específico.
 
-    **Nome** | **Local** | **Grupo de recursos**
+    **Nome** | **Localidade** | **Grupo de recursos**
     --- | --- | ---
     Ignorar manutenção | eastus2 | configuração-grupo de recursos
     IgniteDemoConfig | eastus2 | configuração-grupo de recursos

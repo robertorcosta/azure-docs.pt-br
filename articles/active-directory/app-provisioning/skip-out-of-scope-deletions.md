@@ -2,31 +2,30 @@
 title: Ignorar a exclusão de usuários fora do escopo
 description: Saiba como substituir o comportamento padrão de desprovisionamento de usuários de escopo.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789898"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a exclusão de contas de usuário que saem do escopo
 
 Por padrão, o mecanismo de provisionamento do Azure AD exclui ou desabilita usuários que saem do escopo. No entanto, para determinados cenários como o WORKDAY para o provisionamento de entrada do usuário do AD, esse comportamento pode não ser o esperado e talvez você queira substituir esse comportamento padrão.  
 
-Este guia descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para definir o sinalizador ***SkipOutOfScopeDeletions*** que controla o processamento de contas que saem do escopo. 
-* Se ***SkipOutOfScopeDeletions*** for definido como 0 (false), as contas que saem do escopo ficarão desabilitadas no destino
-* Se ***SkipOutOfScopeDeletions*** for definido como 1 (true), as contas que saem do escopo não serão desabilitadas no destino esse sinalizador será definido no nível do aplicativo de *provisionamento* e poderá ser configurado usando o API do Graph. 
+Este artigo descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para definir o sinalizador ***SkipOutOfScopeDeletions*** que controla o processamento de contas que saem do escopo. 
+* Se ***SkipOutOfScopeDeletions*** for definido como 0 (false), as contas que saem do escopo serão desabilitadas no destino.
+* Se ***SkipOutOfScopeDeletions*** for definido como 1 (true), as contas que saem do escopo não serão desabilitadas no destino. Esse sinalizador é definido no nível do *aplicativo de provisionamento* e pode ser configurado usando o API do Graph. 
 
-Como essa configuração é amplamente usada com o *WORKDAY para Active Directory* aplicativo de provisionamento de usuário, as etapas a seguir incluem capturas de tela do aplicativo workday. No entanto, isso também pode ser usado com **todos os outros aplicativos** , como ServiceNow, Salesforce, Dropbox, etc.).
+Como essa configuração é amplamente usada com o *WORKDAY para Active Directory* aplicativo de provisionamento de usuário, as etapas a seguir incluem capturas de tela do aplicativo workday. No entanto, a configuração também pode ser usada com *todos os outros aplicativos*, como ServiceNow, Salesforce e dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Etapa 1: recuperar a ID da entidade de serviço do aplicativo de provisionamento (ID do objeto)
 

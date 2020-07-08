@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: fc35602b55e79f3351da0def800d2a2b2698e250
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 36b56cdf5a2aaa57cc452db9054380528fa8c68b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856719"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958575"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare seus recursos técnicos do módulo IoT Edge
 
@@ -22,8 +21,8 @@ Este artigo descreve os requisitos que seus ativos técnicos do módulo de borda
 
 Um módulo IoT Edge é um contêiner compatível com o Docker que é executado em um dispositivo IoT Edge.
 
-- Para saber mais sobre os módulos do IoT Edge, confira [Entender os módulos do Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
-- Para começar a usar seu IoT Edge desenvolvimento de módulo, consulte [desenvolver seus próprios módulos de IOT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
+- Para saber mais sobre os módulos do IoT Edge, confira [Entender os módulos do Azure IoT Edge](../../iot-edge/iot-edge-modules.md).
+- Para começar a usar seu IoT Edge desenvolvimento de módulo, consulte [desenvolver seus próprios módulos de IOT Edge](../../iot-edge/module-development.md).
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -35,7 +34,7 @@ Seu módulo de IoT Edge deve oferecer suporte a uma das seguintes opções de pl
 
 #### <a name="tier-1-platforms-supported-by-iot-edge"></a>Plataformas de nível 1 suportadas pelo IoT Edge
 
-Seu módulo deve dar suporte a todas as plataformas de camada 1 com suporte pelo IoT Edge (conforme registrado em [suporte a Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Recomendamos essa opção porque fornece uma melhor experiência do cliente. Os módulos que atendem a esses critérios serão demonstrados. Um módulo usando esta opção de plataforma deve:
+Seu módulo deve dar suporte a todas as plataformas de camada 1 com suporte pelo IoT Edge (conforme registrado em [suporte a Azure IOT Edge](../../iot-edge/support.md)). Recomendamos essa opção porque fornece uma melhor experiência do cliente. Os módulos que atendem a esses critérios serão demonstrados. Um módulo usando esta opção de plataforma deve:
 
 - Forneça uma marca mais recente e uma marca de versão (por exemplo, 1.0.1) que são marcas de manifesto criadas com a [ferramenta de manifesto do GitHub](https://github.com/estesp/manifest-tool).
 
@@ -43,7 +42,7 @@ Seu módulo deve dar suporte a todas as plataformas de camada 1 com suporte pelo
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Um subconjunto das plataformas de nível 1 com suporte do IoT Edge
 
-Seu módulo deve dar suporte a um subconjunto (pelo menos um) de plataformas de camada 1 com suporte pelo IoT Edge (conforme registrado no [suporte a Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Um módulo usando esta opção de plataforma deve:
+Seu módulo deve dar suporte a um subconjunto (pelo menos um) de plataformas de camada 1 com suporte pelo IoT Edge (conforme registrado no [suporte a Azure IOT Edge](../../iot-edge/support.md)). Um módulo usando esta opção de plataforma deve:
 
 - Forneça uma marca mais recente e uma marca de versão (por exemplo, 1.0.1) que são marcas de manifesto criadas com a [ferramenta de manifesto](https://github.com/estesp/manifest-tool) do GitHub se houver suporte para mais de uma plataforma. Tags de manifesto são opcionais somente quando uma plataforma é suportada
 - Use a guia listagem de ofertas no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) para adicionar um link na seção **links úteis** para pelo menos um dispositivo IOT Edge do [Catálogo de dispositivos certificados Azure IOT Edge](https://catalog.azureiotsolutions.com/).
@@ -72,9 +71,9 @@ Seu módulo deve incluir definições de configuração padrão para tornar a im
 
 IoT Edge módulos devem ser capazes de iniciar com as configurações padrão fornecidas na página de **configuração técnica** do plano no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace). As seguintes configurações padrão estão disponíveis:
 
-- Padrão **rotas**
+- **Rotas** padrão
 - **Propriedades desejadas do módulo padrão de entrelaçamento**
-- Padrão **variáveis de ambiente**
+- **Variáveis de ambiente** padrão
 - **Opções de criação de contêiner** padrão
 
 Em um cenário em que um parâmetro necessário para um valor padrão não faz sentido (por exemplo, o endereço IP do servidor de um cliente), adicione um parâmetro como o valor padrão. Esse valor é maiúscula e colocado entre colchetes. Para este exemplo, você configuraria a seguinte variável de ambiente padrão:
@@ -139,8 +138,8 @@ Sua oferta também será rescertificada se você atualizá-la, como adicionar no
 
 ## <a name="host-module-in-azure-container-registry"></a>Módulo host no registro de contêiner do Azure
 
-Para carregar o módulo IoT Edge no Azure Marketplace, primeiro você precisa hospedá-lo em um ACR ( [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/) ). O módulo deve incluir todas as marcas que você deseja publicar, incluindo as marcas de imagem que são referenciadas por uma marca de manifesto. Para obter mais informações, consulte o tutorial [criar um registro de contêiner do Azure e enviar uma imagem de contêiner por push](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr).
+Para carregar o módulo IoT Edge no Azure Marketplace, primeiro você precisa hospedá-lo em um ACR ( [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/) ). O módulo deve incluir todas as marcas que você deseja publicar, incluindo as marcas de imagem que são referenciadas por uma marca de manifesto. Para obter mais informações, consulte o tutorial [criar um registro de contêiner do Azure e enviar uma imagem de contêiner por push](../../container-instances/container-instances-tutorial-prepare-acr.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma oferta de módulo do IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
+- [Criar uma oferta de módulo do IoT Edge](azure-iot-edge-module-creation.md)

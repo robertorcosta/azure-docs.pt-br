@@ -1,18 +1,17 @@
 ---
-title: Série Av2-máquinas virtuais do Azure
+title: Série Av2
 description: Especificações para as VMs da série Av2.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 7d2064ec89e107aa219f34520f71ed8704bb7aeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78163940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676923"
 ---
 # <a name="av2-series"></a>Série Av2
 
@@ -20,13 +19,13 @@ As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware
 
 ACU: 100
 
-Armazenamento Premium: sem suporte
+Armazenamento Premium:  Sem suporte
 
-Armazenamento em cache Premium: sem suporte
+Cache de Armazenamento Premium:  Sem suporte
 
-Migração ao Vivo: com suporte
+Migração ao Vivo: Com suporte
 
-Atualizações de preservação de memória: com suporte
+Atualizações de preservação de memória: Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Máximo de discos de dados/taxa de transferência: IOPS | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|

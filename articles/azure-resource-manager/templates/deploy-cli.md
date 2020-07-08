@@ -2,13 +2,12 @@
 title: Implantar recursos com CLI do Azure e modelo
 description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/04/2020
+ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432072"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implantar recursos com modelos ARM e CLI do Azure
 
@@ -26,35 +25,35 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 
 Dependendo do escopo da implantação, você usará comandos diferentes.
 
-Para implantar em um **grupo de recursos**, use [AZ Deployment Group Create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* Para implantar em um **grupo de recursos**, use [AZ Deployment Group Create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
 
-```azurecli-interactive
-az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  ```
 
-Para implantar em uma **assinatura**, use [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* Para implantar em uma **assinatura**, use [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
 
-```azurecli-interactive
-az deployment sub create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment sub create --location <location> --template-file <path-to-template>
+  ```
 
-Para obter mais informações sobre implantações de nível de assinatura, consulte [criar grupos de recursos e recursos no nível de assinatura](deploy-to-subscription.md).
+  Para saber mais sobre as implantações de nível de assinatura, confira [Criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
-Para implantar em um **grupo de gerenciamento**, use [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* Para implantar em um **grupo de gerenciamento**, use [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
 
-```azurecli-interactive
-az deployment mg create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment mg create --location <location> --template-file <path-to-template>
+  ```
 
-Para obter mais informações sobre implantações de nível de grupo de gerenciamento, consulte [criar recursos no nível do grupo de gerenciamento](deploy-to-management-group.md).
+  Para saber mais sobre implantações de nível de grupo de gerenciamento, confira [Criar recursos no nível de grupo de gerenciamento](deploy-to-management-group.md).
 
-Para implantar em um **locatário**, use [AZ Deployment locatário Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+* Para implantar em um **locatário**, use [AZ Deployment locatário Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
 
-```azurecli-interactive
-az deployment tenant create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment tenant create --location <location> --template-file <path-to-template>
+  ```
 
-Para obter mais informações sobre implantações de nível de locatário, consulte [criar recursos no nível do locatário](deploy-to-tenant.md).
+  Para saber mais sobre implantações de nível de locatário, confira [Criar recursos no nível de locatário](deploy-to-tenant.md).
 
 Os exemplos neste artigo usam implantações de grupo de recursos.
 
@@ -102,6 +101,10 @@ az deployment group create \
 
 O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários porque seu modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se você não quiser que seu modelo seja acessível publicamente, poderá protegê-lo armazenando-o em um contêiner de armazenamento particular. Para obter informações sobre como implantar um modelo que exige um token SAS (assinatura de acesso compartilhado), confira [Implantar modelo particular com o token SAS](secure-template-with-sas-token.md).
 
+## <a name="preview-changes"></a>Visualizar alterações
+
+Antes de implantar seu modelo, você pode visualizar as alterações que o modelo fará no seu ambiente. Use a [operação What-If](template-deploy-what-if.md) para verificar se o modelo faz as alterações que você espera. O What-If também valida o modelo para erros.
+
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
 
 No Cloud Shell, use os seguintes comandos:
@@ -128,7 +131,7 @@ az deployment group create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Se você estiver usando CLI do Azure com prompt de comando do Windows (CMD) ou PowerShell, passe a matriz no formato `exampleArray="['value1','value2']"`:.
+Se você estiver usando CLI do Azure com prompt de comando do Windows (CMD) ou PowerShell, passe a matriz no formato: `exampleArray="['value1','value2']"` .
 
 Você também pode obter o conteúdo do arquivo e fornecer esse conteúdo como um parâmetro embutido.
 
@@ -154,7 +157,7 @@ O formato arrayContent.json é:
 
 Em vez de passar parâmetros como valores embutidos no script, talvez seja mais fácil usar um arquivo JSON que contenha os valores de parâmetro. O arquivo de parâmetro deve ser um arquivo local. Não há suporte para arquivos de parâmetro externos com a CLI do Azure.
 
-Para obter mais informações sobre o arquivo de parâmetro, consulte [criar arquivo de parâmetro do Resource Manager](parameter-files.md).
+Para saber mais sobre o arquivo de parâmetro, confira [Criar arquivo de parâmetro do Resource Manager](parameter-files.md).
 
 Para passar um arquivo de parâmetros local, use `@` para especificar um arquivo local chamado storage.parameters.json.
 
@@ -168,7 +171,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Manipular o formato JSON estendido
 
-Para implantar um modelo com cadeias de caracteres de várias linhas ou comentários usando CLI do Azure com a versão 2.3.0 ou mais antiga `--handle-extended-json-format` , você deve usar a opção.  Por exemplo:
+Para implantar um modelo com cadeias de caracteres de várias linhas ou comentários usando CLI do Azure com a versão 2.3.0 ou mais antiga, você deve usar a `--handle-extended-json-format` opção.  Por exemplo:
 
 ```json
 {
@@ -188,62 +191,10 @@ Para implantar um modelo com cadeias de caracteres de várias linhas ou comentá
   ],
 ```
 
-## <a name="test-a-template-deployment"></a>Testar uma implantação de modelo
-
-Para testar seus valores de modelo e parâmetro sem realmente implantar nenhum recurso, use a [validação do grupo de implantação AZ](/cli/azure/group/deployment).
-
-```azurecli-interactive
-az deployment group validate \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters @storage.parameters.json
-```
-
-Se nenhum erro for detectado, o comando retornará informações sobre a implantação de teste. Especificamente, observe que o valor de **erro** é null.
-
-```output
-{
-  "error": null,
-  "properties": {
-      ...
-```
-
-Se um erro for detectado, o comando retornará uma mensagem de erro. Por exemplo, passando um valor incorreto para a SKU da conta de armazenamento, retorna o seguinte erro:
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
-      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
-Se seu modelo tem um erro de sintaxe, o comando retorna um erro indicando que ele não foi possível analisar o modelo. A mensagem indica o número da linha e a posição do erro de análise.
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
-      \". Path 'variables', line 31, position 3.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).
+- Para reverter para uma implantação bem-sucedida quando você receber um erro, confira [Reverter em caso de erro para uma implantação bem-sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).
 - Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 - Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
 - Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](secure-template-with-sas-token.md).
-- Para distribuir com segurança seu serviço para mais de uma região, consulte [Azure Deployment Manager](deployment-manager-overview.md).

@@ -3,12 +3,11 @@ title: Configurar um dispositivo de migrações para Azure no Azure governamenta
 description: Saiba como configurar um dispositivo de migrações para Azure no Azure governamental
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: fd97161ffa075a6165ea963ef80bfabf8904576e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052473"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurar um dispositivo no Azure governamental 
 
@@ -45,14 +44,14 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip SHA256```
 
-3. Verifique os valores de hash gerados. Para obter a versão mais recente do dispositivo:
+3. Verifique a versão mais recente do dispositivo e o valor de hash:
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
+    **Algoritmo** | **Download** | **SHA256**
+    --- | --- | ---
+    VMware (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="run-the-script"></a>Executar o script
 
@@ -63,15 +62,15 @@ Veja o que o script faz:
 - Baixa e instala um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
 - Atualiza uma chave do registro (HKLM), com configurações persistentes para migrações para Azure.
 - Cria arquivos de log e de configuração da seguinte maneira:
-    - **Arquivos de Configuração**: %ProgramData%\Microsoft Azure\Config
-    - **Arquivos de Log**: %ProgramData%\Microsoft Azure\Logs
+    - **Arquivos de configuração**:%ProgramData%\Microsoft Azure\Config
+    - **Arquivos de log**:%ProgramData%\Microsoft Azure\Logs
 
 Para executar o script:
 
-1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Certifique-se de não executar o script em um computador em um dispositivo de migrações para Azure existente.
+1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no computador com privilégios de administrador (elevado).
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
-4. Execute o script **AzureMigrateInstaller. ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificar acesso
@@ -97,13 +96,14 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip SHA256```
 
-3. Verifique os valores de hash gerados. Para obter a versão mais recente do dispositivo:
+3. Verifique a versão mais recente do dispositivo e o valor de hash:
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | 717f8b9185f565006b5aff0215ecadac
+    **Cenário** | **Download** | **SHA256**
+    --- | --- | ---
+    Hyper-V (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
           
 
 ### <a name="run-the-script"></a>Executar o script
@@ -115,15 +115,15 @@ Veja o que o script faz:
 - Baixa e instala um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
 - Atualiza uma chave do registro (HKLM), com configurações persistentes para migrações para Azure.
 - Cria arquivos de log e de configuração da seguinte maneira:
-    - **Arquivos de Configuração**: %ProgramData%\Microsoft Azure\Config
-    - **Arquivos de Log**: %ProgramData%\Microsoft Azure\Logs
+    - **Arquivos de configuração**:%ProgramData%\Microsoft Azure\Config
+    - **Arquivos de log**:%ProgramData%\Microsoft Azure\Logs
 
 Para executar o script:
 
-1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Certifique-se de não executar o script em um computador em um dispositivo de migrações para Azure existente.
+1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no computador com privilégios de administrador (elevado).
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
-4. Execute o script **AzureMigrateInstaller. ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificar acesso
@@ -138,7 +138,7 @@ Para configurar o dispositivo para VMware, você baixa um arquivo compactado do 
 ### <a name="download-the-script"></a>Baixar o script
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
-2.  Em **descobrir computadores** > **são seus computadores virtualizados?**, selecione **não virtualizados/outros**.
+2.  Em **descobrir computadores**  >  **são seus computadores virtualizados?**, selecione **não virtualizados/outros**.
 3.  Clique em **baixar**para baixar o arquivo compactado. 
 
 
@@ -149,13 +149,13 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256```
 
-3. Verifique os valores de hash gerados. Para obter a versão mais recente do dispositivo:
+3. Verifique a versão mais recente do dispositivo e o valor de hash:
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | f81c155fc4a1409901caea948713913f
+    **Cenário** | **Baixar*** | **Valor de hash**
+    --- | --- | ---
+    Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
           
 
 ### <a name="run-the-script"></a>Executar o script
@@ -167,15 +167,15 @@ Veja o que o script faz:
 - Baixa e instala um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
 - Atualiza uma chave do registro (HKLM), com configurações persistentes para migrações para Azure.
 - Cria arquivos de log e de configuração da seguinte maneira:
-    - **Arquivos de Configuração**: %ProgramData%\Microsoft Azure\Config
-    - **Arquivos de Log**: %ProgramData%\Microsoft Azure\Logs
+    - **Arquivos de configuração**:%ProgramData%\Microsoft Azure\Config
+    - **Arquivos de log**:%ProgramData%\Microsoft Azure\Logs
 
 Para executar o script:
 
-1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Certifique-se de não executar o script em um computador em um dispositivo de migrações para Azure existente.
+1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no computador com privilégios de administrador (elevado).
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
-4. Execute o script **AzureMigrateInstaller. ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificar acesso
