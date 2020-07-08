@@ -1,16 +1,16 @@
 ---
-title: Avaliações na avaliação do servidor de migrações para Azure
+title: Avaliações de VM do Azure na avaliação do servidor de migrações para Azure
 description: Saiba mais sobre as avaliações na avaliação do servidor de migrações para Azure
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 2f76ea5f195be2914cdcdb4de9e93af38504d66e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/27/2020
+ms.openlocfilehash: 33051fbcfb792d3fa9734a818d293775486de647
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549952"
 ---
-# <a name="assessments-in-azure-migrate-server-assessment"></a>Avaliações nas migrações para Azure: avaliação do servidor
+# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Avaliações de VM do Azure nas migrações para Azure: avaliação do servidor
 
 Este artigo fornece uma visão geral das avaliações na ferramenta [migrações para Azure: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) . A ferramenta pode avaliar máquinas virtuais VMware locais, VMs Hyper-V e servidores físicos para migração para o Azure.
 
@@ -23,7 +23,14 @@ Uma avaliação com a ferramenta de avaliação do servidor mede a preparação 
 
 ## <a name="types-of-assessments"></a>Tipos de avaliações
 
-As avaliações criadas com a avaliação do servidor são um instantâneo de dados de ponto no tempo. A avaliação do servidor fornece dois tipos de avaliações.
+Há dois tipos de avaliações que podem ser criadas usando as Migrações para Azure: Avaliação de Servidor.
+
+**Tipo de avaliação** | **Detalhes**
+--- | --- 
+**VM do Azure** | Avaliações para migrar seus servidores locais para máquinas virtuais do Azure. <br/><br/> Você pode avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para o Azure usando esse tipo de avaliação.
+**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+As avaliações criadas com a avaliação do servidor são um instantâneo de dados de ponto no tempo. Uma avaliação de VM do Azure na avaliação do servidor fornece duas opções de critérios de dimensionamento:
 
 **Tipo de avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
@@ -45,7 +52,7 @@ Se você estiver implantando um dispositivo de migrações para Azure para desco
 1. Para sua primeira avaliação, crie um projeto do Azure e adicione a ferramenta de avaliação do servidor a ele.
 1. Implante um dispositivo leve de migrações para Azure. O dispositivo descobre continuamente computadores locais e envia metadados de computador e dados de desempenho para migrações para Azure. Implante o dispositivo como uma VM ou um computador físico. Você não precisa instalar nada em computadores que deseja avaliar.
 
-Depois que o dispositivo iniciar a descoberta de máquina, você poderá reunir as máquinas que deseja avaliar em um grupo e executar uma avaliação para o grupo.
+Depois que o dispositivo iniciar a descoberta de máquina, você poderá reunir as máquinas que deseja avaliar em um grupo e executar uma avaliação para o grupo com o tipo de avaliação **VM do Azure**.
 
 Siga nossos tutoriais para [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md)ou [servidores físicos](tutorial-prepare-physical.md) para experimentar essas etapas.
 
@@ -57,7 +64,7 @@ Se você estiver avaliando servidores usando um arquivo CSV, não precisará de 
 1. Para sua primeira avaliação, crie um projeto do Azure e adicione a ferramenta de avaliação do servidor a ele.
 1. Baixe um modelo CSV e adicione dados do servidor a ele.
 1. Importe o modelo para a avaliação do servidor.
-1. Descubra os servidores adicionados com a importação, reúna-os em um grupo e execute uma avaliação para o grupo.
+1. Descubra os servidores adicionados com a importação, reúna-os em um grupo e execute uma avaliação para o grupo com o tipo de avaliação **VM do Azure**.
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quais dados o dispositivo coleta?
 
@@ -89,7 +96,7 @@ Se você usar o dispositivo para descoberta, ele coletará dados de desempenho p
     - Taxa de transferência do disco (leitura e gravação)
     - Taxa de transferência de rede (entrada e saída)
 
-## <a name="how-are-assessments-calculated"></a>Como as avaliações são calculadas?
+## <a name="how-are-azure-vm-assessments-calculated"></a>Como as avaliações de VM do Azure são calculadas?
 
 A avaliação do servidor usa os metadados e os dados de desempenho dos computadores locais para calcular as avaliações. Se você implantar o dispositivo de migrações para Azure, a avaliação usará os dados coletados pelo dispositivo. Mas se você executar uma avaliação importada usando um arquivo CSV, forneça os metadados para o cálculo.
 
@@ -101,32 +108,34 @@ Os cálculos ocorrem nestes três estágios:
 
 Os cálculos estão na ordem anterior. Um servidor de computador será movido para um estágio posterior somente se ele passar o anterior. Por exemplo, se um servidor falhar no estágio de preparação do Azure, ele será marcado como inadequado para o Azure. Os cálculos de dimensionamento e custo não são feitos para esse servidor.
 
-## <a name="whats-in-an-assessment"></a>O que é uma avaliação?
+## <a name="whats-in-an-azure-vm-assessment"></a>O que há em uma avaliação de VM do Azure?
 
-Aqui estão as novidades incluídas em uma avaliação na avaliação do servidor:
+Aqui estão as novidades incluídas em uma avaliação de VM do Azure na avaliação do servidor:
 
-Propriedade | Detalhes
+**Propriedade** | **Detalhes**
 --- | ---
 **Local de destino** | O local para o qual você deseja migrar. Atualmente, a avaliação do servidor dá suporte a essas regiões do Azure de destino:<br/><br/> Leste da Austrália, sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, Índia central, EUA Central, Leste da China, Norte da China, Ásia Oriental, leste dos EUA, leste dos EUA 2, Alemanha central, Alemanha Northeast, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, EUA Central Arizona, Europa setentrional Texas, EUA Central , Oeste EUA Central, Europa Ocidental, oeste da Índia, oeste dos EUA e oeste dos EUA 2.
 **Disco de armazenamento de destino (como está sendo dimensionado)** | O tipo de disco a ser usado para armazenamento no Azure. <br/><br/> Especifique o disco de armazenamento de destino como gerenciado Premium, SSD Standard gerenciado ou gerenciado por HDD Standard.
 **Disco de armazenamento de destino (dimensionamento baseado em desempenho)** | Especifica o tipo de disco de armazenamento de destino como automático, gerenciado Premium, HDD Standard gerenciado ou gerenciado por SSD Standard.<br/><br/> **Automático**: a recomendação de disco baseia-se nos dados de desempenho dos discos, o que significa IOPS e taxa de transferência.<br/><br/>**Premium ou Standard**: a avaliação recomenda um SKU de disco dentro do tipo de armazenamento selecionado.<br/><br/> Se você quiser um SLA (contrato de nível de serviço) de VM de instância única de 99,9%, considere o uso de discos gerenciados Premium. Esse uso garante que todos os discos na avaliação sejam recomendados como discos gerenciados Premium.<br/><br/> As migrações para Azure dão suporte apenas a Managed disks para avaliação de migração.
-**Instâncias de máquinas virtuais reservadas do Azure** | Especifica as [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) para que as estimativas de custo na avaliação as levem em conta.<br/><br/> Atualmente, as migrações para Azure dão suporte a instâncias de VM reservadas do Azure somente para ofertas pagas conforme o uso.
+**Instâncias de VM reservadas do Azure** | Especifica as [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) para que as estimativas de custo na avaliação as levem em conta.<br/><br/> Quando você seleciona ' instâncias reservadas ', o ' desconto (%) ' e as propriedades ' VM de tempo de atividade ' não são aplicáveis.<br/><br/> Atualmente, as migrações para Azure dão suporte a instâncias de VM reservadas do Azure somente para ofertas pagas conforme o uso.
 **Critérios de dimensionamento** | Usado para asrightr a VM do Azure.<br/><br/> Use o tamanho com base no tamanho ou no desempenho.
 **Histórico de desempenho** | Usado com o dimensionamento baseado em desempenho. Histórico de desempenho especifica a duração usada quando os dados de desempenho são avaliados.
 **Utilização de percentual** | Usado com o dimensionamento baseado em desempenho. Utilização de percentil especifica o valor percentual do exemplo de desempenho usado para a permissão de direitos.
-**Série de VMs** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que precise de VMs série A no Azure, poderá excluir uma série da lista de séries.
+**Série da VM** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que precise de VMs série A no Azure, poderá excluir uma série da lista de séries.
 **Fator de conforto** | O buffer usado durante a avaliação. Ele é aplicado aos dados de CPU, RAM, disco e utilização de rede para VMs. Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0, o resultado é uma VM de quatro núcleos.
 **Oferta** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está inscrito. A avaliação do servidor estima o custo dessa oferta.
 **Currency** | A moeda de cobrança da sua conta.
 **Desconto (%)** | Quaisquer descontos específicos de assinatura recebidos por cima da oferta do Azure. A configuração padrão é 0%.
 **Tempo de atividade da VM** | A duração em dias por mês e horas por dia para VMs do Azure que não serão executadas continuamente. As estimativas de custo são baseadas nessa duração.<br/><br/> Os valores padrão são 31 dias por mês e 24 horas por dia.
 **Benefício Híbrido do Azure** | Especifica se você tem o Software Assurance e se está qualificado para [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se a configuração tiver o valor padrão "Sim", os preços do Azure para sistemas operacionais diferentes do Windows serão considerados para VMs do Windows.
+**Assinatura de EA** | Especifica que uma assinatura Enterprise Agreement (EA) é usada para estimativa de custo. Leva em conta o desconto aplicável à assinatura. <br/><br/> Deixe as configurações para instâncias reservadas, desconto (%) e as propriedades de tempo de atividade da VM com suas configurações padrão.
+
 
 [Examine as práticas recomendadas](best-practices-assessment.md) para criar uma avaliação com a avaliação do servidor.
 
 ## <a name="calculate-readiness"></a>Calcular preparação
 
-Nem todos os computadores são adequados para execução no Azure. A avaliação do servidor avalia todos os computadores locais e atribui a eles uma categoria de prontidão.
+Nem todos os computadores são adequados para execução no Azure. Uma avaliação de VM do Azure avalia todos os computadores locais e atribui a eles uma categoria de prontidão.
 
 - **Pronto para o Azure**: o computador pode ser migrado no estado em que se encontra no Azure sem nenhuma alteração. Ele será iniciado no Azure com o suporte completo do Azure.
 - **Condicionalmente pronto para o Azure**: o computador pode iniciar no Azure, mas pode não ter suporte completo do Azure. Por exemplo, o Azure não dá suporte a um computador que esteja executando uma versão antiga do Windows Server. Você deve ter cuidado antes de migrar esses computadores para o Azure. Para corrigir quaisquer problemas de preparação, siga as diretrizes de correção que a avaliação sugere.
@@ -137,22 +146,23 @@ Para calcular a preparação, a avaliação do servidor revisa as propriedades d
 
 ### <a name="machine-properties"></a>Propriedades do computador
 
-A avaliação do servidor revisa as seguintes propriedades de uma VM local para determinar se ela pode ser executada no Azure.
+Para uma avaliação de VM do Azure, a avaliação do servidor revisa as seguintes propriedades de uma VM local para determinar se ela pode ser executada em VMs do Azure.
 
-Propriedade | Detalhes | Status de preparação do Azure
+Property | Detalhes | Status de preparação do Azure
 --- | --- | ---
 **Tempo de inicialização** | O Azure dá suporte a VMs com um tipo de inicialização de BIOS, não UEFI. | Condicionalmente pronto se o tipo de inicialização for UEFI
 **Núcleos** | Cada computador não deve ter mais de 128 núcleos, que é o número máximo com suporte de uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados para comparação. Se as configurações de avaliação especificarem um fator de conforto, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados sem aplicar o fator de conforto. | Pronto se o número de núcleos estiver dentro do limite
-**RAM** | Cada computador não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma VM da série M&nbsp;do Azure Standard_M128m<sup>2</sup> dá suporte. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a RAM utilizada para comparação. Se um fator de conforto for especificado, a RAM utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a RAM alocada será usada sem a aplicação de um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
+**RAM** | Cada computador não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma VM da série M do Azure Standard_M128m &nbsp; <sup>2</sup> dá suporte. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a RAM utilizada para comparação. Se um fator de conforto for especificado, a RAM utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a RAM alocada será usada sem a aplicação de um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
 **Disco de armazenamento** | O tamanho alocado de um disco não deve ter mais de 32 TB. Embora o Azure dê suporte a discos de 64 TB com discos SSD Ultra do Azure, migrações para Azure: a avaliação de servidor atualmente verifica 32 TB como o limite de tamanho de disco porque ele ainda não dá suporte a SSD Ultra. <br/><br/> O número de discos anexados ao computador, incluindo o disco do sistema operacional, deve ser de 65 ou menos. | Pronto se o tamanho e o número do disco estiverem dentro dos limites
 **Rede** | Um computador não deve ter mais de 32 NICs (adaptadores de rede) conectados a ele. | Pronto se o número de NICs estiver dentro do limite
 
 ### <a name="guest-operating-system"></a>Sistema operacional convidado
 
-Juntamente com a revisão das propriedades da VM, a avaliação do servidor examina o sistema operacional convidado de um computador para determinar se ele pode ser executado no Azure.
+Para uma avaliação de VM do Azure, juntamente com a revisão das propriedades da VM, a avaliação do servidor examina o sistema operacional convidado de um computador para determinar se ele pode ser executado no Azure.
 
 > [!NOTE]
-> Para lidar com a análise de convidado para VMs do VMware, a avaliação do servidor usa o sistema operacional especificado para a VM no vCenter Server. Para VMs do Linux em execução no VMware, a avaliação do servidor atualmente não identifica a versão do kernel do sistema operacional convidado.
+> Para lidar com a análise de convidado para VMs do VMware, a avaliação do servidor usa o sistema operacional especificado para a VM no vCenter Server. No entanto, vCenter Server não fornece a versão do kernel para sistemas operacionais de VM do Linux. Para descobrir a versão, você precisa configurar a [descoberta de aplicativos](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Em seguida, o dispositivo descobre informações de versão usando as credenciais de convidado que você especifica ao configurar a descoberta de aplicativo.
+
 
 A avaliação do servidor usa a seguinte lógica para identificar a prontidão do Azure com base no sistema operacional:
 
@@ -166,7 +176,7 @@ Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pront
 Windows Server 2003 e Windows Server 2003 R2 | Esses sistemas operacionais passaram suas datas de fim de suporte e precisam de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para dar suporte no Azure. | Condicionalmente pronto para o Azure. Considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 e MS-DOS | Esses sistemas operacionais passaram por suas datas de fim de suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Windows 7, Windows 8 e Windows 10 | O Azure fornece suporte apenas com uma [assinatura do Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Condicionalmente pronto para o Azure.
-Windows 10 Pro | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente pronto para o Azure.
+Windows 10 Pro | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente pronto para o Azure.
 Windows Vista e Windows XP Professional | Esses sistemas operacionais passaram por suas datas de fim de suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Linux | Consulte os [sistemas operacionais Linux](../virtual-machines/linux/endorsed-distros.md) que o Azure endossa. Outros sistemas operacionais Linux podem ser iniciados no Azure. Mas é recomendável que você atualize o sistema operacional para uma versão endossada antes de migrar para o Azure. | Pronto para o Azure se a versão é aprovada.<br/><br/>Condicionalmente pronto se a versão não for endossada.
 Outros sistemas operacionais, como Oracle Solaris, Apple macOS e FreeBSD | O Azure não endossa esses sistemas operacionais. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você instale um sistema operacional com suporte antes de migrar para o Azure.  
@@ -175,11 +185,11 @@ Sistemas operacionais de 32 bits | O computador pode iniciar no Azure, mas o Azu
 
 ## <a name="calculating-sizing"></a>Calculando o dimensionamento
 
-Depois que o computador estiver marcado como pronto para o Azure, a avaliação do servidor fará recomendações de dimensionamento. Essas recomendações identificam a VM do Azure e o SKU do disco. Os cálculos de dimensionamento dependem de você estar usando o como está em dimensionamento local ou dimensionamento baseado em desempenho.
+Depois que o computador estiver marcado como pronto para o Azure, a avaliação do servidor fará recomendações de dimensionamento na avaliação de VM do Azure. Essas recomendações identificam a VM do Azure e o SKU do disco. Os cálculos de dimensionamento dependem de você estar usando o como está em dimensionamento local ou dimensionamento baseado em desempenho.
 
 ### <a name="calculate-sizing-as-is-on-premises"></a>Calcular o dimensionamento (como está no local)
 
- Se você usar como está o dimensionamento local, a avaliação do servidor não considerará o histórico de desempenho das VMs e dos discos.
+ Se você usar como está o dimensionamento local, a avaliação do servidor não considerará o histórico de desempenho das VMs e dos discos na avaliação de VM do Azure.
 
 - **Dimensionamento de computação**: a avaliação do servidor ALOCA uma SKU de VM do Azure com base no tamanho alocado no local.
 - **Armazenamento e dimensionamento de disco**: a avaliação do servidor examina o tipo de armazenamento especificado nas propriedades da avaliação e recomenda o tipo de disco apropriado. Os tipos de armazenamento possíveis são HDD Standard, SSD Standard e Premium. O tipo de armazenamento padrão é Premium.
@@ -187,7 +197,7 @@ Depois que o computador estiver marcado como pronto para o Azure, a avaliação 
 
 ### <a name="calculate-sizing-performance-based"></a>Calcular o dimensionamento (baseado em desempenho)
 
-Se você usar o dimensionamento baseado em desempenho, a avaliação do servidor fará recomendações de dimensionamento da seguinte maneira:
+Se você usar o dimensionamento baseado em desempenho em uma avaliação de VM do Azure, a avaliação do servidor fará recomendações de dimensionamento da seguinte maneira:
 
 - A avaliação do servidor considera o histórico de desempenho do computador para identificar o tamanho da VM e o tipo de disco no Azure.
 - Se você importar servidores usando um arquivo CSV, os valores especificados serão usados. Esse método é especialmente útil se você tiver superalocado o computador local, a utilização é baixa e você deseja que a VM do Azure tenha como direitos para economizar custos.
@@ -195,9 +205,10 @@ Se você usar o dimensionamento baseado em desempenho, a avaliação do servidor
 
 #### <a name="calculate-storage-sizing"></a>Calcular o dimensionamento de armazenamento
 
-Para o dimensionamento de armazenamento, as migrações para Azure tentam mapear cada disco anexado à máquina para um disco do Azure. O dimensionamento funciona da seguinte maneira:
+Para o dimensionamento de armazenamento em uma avaliação de VM do Azure, as migrações para Azure tentam mapear cada disco anexado à máquina para um disco do Azure. O dimensionamento funciona da seguinte maneira:
 
-1. A avaliação do servidor adiciona o IOPS de leitura e gravação de um disco para obter o IOPS total necessário. Da mesma forma, ele adiciona os valores de taxa de transferência de leitura e gravação para obter a taxa de transferência total de cada disco.
+1. A avaliação do servidor adiciona o IOPS de leitura e gravação de um disco para obter o IOPS total necessário. Da mesma forma, ele adiciona os valores de taxa de transferência de leitura e gravação para obter a taxa de transferência total de cada disco. No caso de avaliações baseadas em importação, você tem a opção de fornecer o total de IOPS, a taxa de transferência total e o n º total. de discos no arquivo importado sem especificar configurações de disco individuais. Se você fizer isso, o dimensionamento de disco individual será ignorado e os dados fornecidos serão usados diretamente para calcular o dimensionamento e selecionar uma SKU de VM apropriada.
+
 1. Se você tiver especificado o tipo de armazenamento como automático, o tipo selecionado será baseado nos valores de taxa de transferência e IOPS efetivos. A avaliação do servidor determina se o disco deve ser mapeado para um HDD Standard, SSD Standard ou disco Premium no Azure. Se o tipo de armazenamento for definido como um desses tipos de disco, a avaliação do servidor tentará encontrar um SKU de disco dentro do tipo de armazenamento selecionado.
 1. Os discos são selecionados da seguinte maneira:
     - Se a avaliação do servidor não conseguir localizar um disco com a IOPS e a taxa de transferência necessárias, ela marcará a máquina como inadequada para o Azure.
@@ -207,7 +218,7 @@ Para o dimensionamento de armazenamento, as migrações para Azure tentam mapear
 
 #### <a name="calculate-network-sizing"></a>Calcular o dimensionamento da rede
 
-A avaliação do servidor tenta encontrar uma VM do Azure que dá suporte ao número e ao desempenho necessário de adaptadores de rede conectados ao computador local.
+Para uma avaliação de VM do Azure, a avaliação do servidor tenta encontrar uma VM do Azure que dá suporte ao número e ao desempenho necessário de adaptadores de rede conectados ao computador local.
 
 - Para obter o desempenho de rede efetivo da VM local, a avaliação do servidor agrega a taxa de transmissão de dados do computador (saída de rede) em todos os adaptadores de rede. Em seguida, ele aplica o fator de conforto. Ele usa o valor resultante para encontrar uma VM do Azure que pode dar suporte ao desempenho de rede necessário.
 - Junto com o desempenho da rede, a avaliação do servidor também considera se a VM do Azure pode dar suporte ao número necessário de adaptadores de rede.
@@ -224,7 +235,7 @@ Depois de calcular os requisitos de armazenamento e de rede, a avaliação do se
 
 ## <a name="confidence-ratings-performance-based"></a>Classificações de confiança (baseadas em desempenho)
 
-Cada avaliação baseada em desempenho nas migrações para Azure está associada a uma classificação de confiança. A classificação varia de um (menor) a cinco estrelas (mais alta). A classificação de confiança ajuda você a estimar a confiabilidade das recomendações de tamanho que o Azure migra fornece.
+Cada avaliação de VM do Azure baseada em desempenho nas migrações para Azure está associada a uma classificação de confiança. A classificação varia de um (menor) a cinco estrelas (mais alta). A classificação de confiança ajuda você a estimar a confiabilidade das recomendações de tamanho que o Azure migra fornece.
 
 - A classificação de confiança é atribuída a uma avaliação. A classificação é baseada na disponibilidade de pontos de dados que são necessários para calcular a avaliação.
 - Para o dimensionamento baseado em desempenho, as necessidades de avaliação do servidor:
@@ -262,7 +273,7 @@ Aqui estão algumas razões pelas quais uma avaliação pode obter uma classific
 
 ## <a name="calculate-monthly-costs"></a>Calcular custos mensais
 
-Após a conclusão das recomendações de dimensionamento, as migrações para Azure calculam os custos de computação e armazenamento para após a migração.
+Após a conclusão das recomendações de dimensionamento, uma avaliação de VM do Azure nas migrações para Azure calcula os custos de computação e armazenamento para após a migração.
 
 - **Custo de computação**: as migrações para Azure usam o tamanho de VM do Azure recomendado e a API de cobrança do Azure para calcular o custo mensal da VM.
 
@@ -271,7 +282,7 @@ Após a conclusão das recomendações de dimensionamento, as migrações para A
     - Software Assurance
     - Instâncias reservadas
     - Tempo de atividade da VM
-    - Local
+    - Location
     - Configurações de moeda
 
     A avaliação do servidor agrega o custo em todas as máquinas para calcular o custo de computação mensal total.
@@ -284,7 +295,7 @@ Os custos são exibidos na moeda especificada nas configurações de avaliação
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Examine](best-practices-assessment.md) as práticas recomendadas para a criação de avaliações. 
+[Examine](best-practices-assessment.md) as melhores práticas para a criação de avaliações. 
 
 - Saiba mais sobre a execução de Avaliações para [VMs VMware](tutorial-prepare-vmware.md), [VMs Hyper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md).
 - Saiba mais sobre como avaliar servidores [importados com um arquivo CSV](tutorial-assess-import.md).

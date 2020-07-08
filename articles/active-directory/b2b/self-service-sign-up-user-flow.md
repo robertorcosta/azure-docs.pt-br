@@ -4,26 +4,23 @@ description: Federar com o Facebook para permitir que usuários externos (convid
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551249"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
-|     |
-| --- |
-| A inscrição por autoatendimento é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> A inscrição por autoatendimento é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode criar fluxos de usuários para aplicativos criados por sua organização. Associar seu fluxo de usuário a um aplicativo permite que você habilite a inscrição nesse aplicativo. Você pode escolher mais de um aplicativo a ser associado ao fluxo do usuário. Depois de associar o fluxo de usuários a um ou mais aplicativos, os usuários que visitarem esse aplicativo poderão se inscrever e obter uma conta de convidado usando as opções configuradas no fluxo.
 
@@ -109,3 +106,5 @@ Agora você pode associar aplicativos ao fluxo do usuário.
 
 - [Adicionar o Google à sua lista de provedores de identidade social](google-federation.md)
 - [Adicionar o Facebook à sua lista de provedores de identidade social](facebook-federation.md)
+- [Use conectores de API para personalizar e estender seus fluxos de usuário por meio de APIs da Web](api-connectors-overview.md)
+- [Adicionar fluxo de trabalho de aprovação personalizado ao seu fluxo de usuário](self-service-sign-up-add-approvals.md)

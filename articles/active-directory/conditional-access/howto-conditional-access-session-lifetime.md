@@ -4,21 +4,21 @@ description: Personalize a configuração da sessão de autenticação do Azure 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552112"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com acesso condicional
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento da sessão de autenticação com Acesso Condicional
 
 Em implantações complexas, as organizações podem ter a necessidade de restringir as sessões de autenticação. Alguns cenários podem incluir:
 
@@ -50,6 +50,14 @@ A configuração frequência de entrada funciona com aplicativos que implementar
 - Cliente Web de equipes
 - Dynamics CRM Online
 - Portal do Azure
+
+A configuração frequência de entrada também funciona com aplicativos SAML, desde que eles não descartam seus próprios cookies e sejam redirecionados para o Azure AD para autenticação regularmente.
+
+### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frequência de entrada do usuário e autenticação multifator
+
+Frequência de entrada aplicada anteriormente somente à autenticação de primeiro fator em dispositivos que eram ingressados no Azure AD, ingressado no Azure AD híbrido e registro do Azure AD. Não havia uma maneira fácil para nossos clientes reimporem a MFA (autenticação multifator) nesses dispositivos. Com base nos comentários dos clientes, a frequência de entrada também se aplicará ao MFA.
+
+[![Frequência de entrada e MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frequência de entrada do usuário e identidades do dispositivo
 
@@ -90,12 +98,12 @@ O acesso condicional é um recurso Azure AD Premium e requer uma licença Premiu
    > [!NOTE]
    > É recomendável definir a frequência de prompt de autenticação igual para aplicativos de Microsoft Office de chave, como o Exchange Online e o SharePoint Online para melhor experiência do usuário.
 
-1. Acesse a**sessão** de **controles** > de acesso e clique em **frequência de entrada**
+1. Acesse a sessão de **controles**  >  **Session** de acesso e clique em **frequência de entrada**
 1. Insira o valor necessário de dias e horas na primeira caixa de texto
 1. Selecione um valor de **horas** ou **dias** no menu suspenso
 1. Salvar sua política
 
-![Política de acesso condicional configurada para a frequência de entrada](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Política de acesso condicional configurada para frequência de entrada](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 No Azure AD, os dispositivos registrados do Windows entram no dispositivo é considerado um prompt. Por exemplo, se você tiver configurado a frequência de entrada para 24 horas para aplicativos do Office, os usuários em dispositivos Windows registrados no Azure AD atenderão à política de frequência de entrada entrando no dispositivo e não serão solicitados novamente ao abrir aplicativos do Office.
 
@@ -109,7 +117,7 @@ Se você tiver configurado uma frequência de entrada diferente para diferentes 
    > [!NOTE]
    > Observe que esse controle exige que você escolha "todos os aplicativos de nuvem" como uma condição. A persistência da sessão do navegador é controlada pelo token da sessão de autenticação. Todas as guias em uma sessão de navegador compartilham um único token de sessão e, portanto, todos precisam compartilhar o estado de persistência.
 
-1. Acesse a**sessão** de **controles** > de acesso e clique em sessão de **navegador persistente**
+1. Acesse a sessão de **controles de acesso**  >  **Session** e clique em **sessão de navegador persistente**
 1. Selecione um valor na lista suspensa
 1. Salvar política
 

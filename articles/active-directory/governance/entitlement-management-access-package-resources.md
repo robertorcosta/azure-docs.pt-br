@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 800c3dbeb96dfb87c7b495909e21eca929bec726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550319"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -90,7 +90,7 @@ Para obter mais informações, consulte [comparar grupos](https://docs.microsoft
 
     Depois de selecionar o grupo ou a equipe, a coluna de **subtipo** listará um dos seguintes subtipos:
 
-    |  |  |
+    | Subtipo | Descrição |
     | --- | --- |
     | Segurança | Usado para conceder acesso aos recursos. |
     | Distribuição | Usado para enviar notificações para um grupo de pessoas. |

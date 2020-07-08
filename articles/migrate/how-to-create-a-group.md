@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68301690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549926"
 ---
 # <a name="create-a-group-for-assessment"></a>Criar um grupo para avaliação
 
@@ -43,11 +43,11 @@ Se você quiser criar um grupo manualmente fora da criação de uma avaliação,
 
 2. Clique no ícone de **grupo** .
 3. Em **Criar grupo**, especifique um nome de grupo e, em **nome do dispositivo**, selecione o dispositivo migrações para Azure que você está usando para a descoberta de máquina.
-1. Na lista computador, selecione os computadores que você deseja adicionar ao grupo > **criar**.
+4. Na lista computador, selecione os computadores que você deseja adicionar ao grupo > **criar**.
 
     ![Criar grupo](./media/how-to-create-a-group/create-group.png)
 
-Agora você pode usar esse grupo ao [criar uma avaliação](how-to-create-assessment.md).
+Agora você pode usar esse grupo ao [criar uma avaliação de VM do Azure](how-to-create-assessment.md) ou [uma avaliação da AVS (solução do Azure VMware)](how-to-create-azure-vmware-solution-assessment.md). Observe que você pode criar uma avaliação de AVS em grupos com apenas VMs VMware. 
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>Refinar um grupo com mapeamento de dependência
 

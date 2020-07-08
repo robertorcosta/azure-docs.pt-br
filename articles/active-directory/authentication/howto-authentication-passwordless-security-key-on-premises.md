@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 181e8192170cd7394d6817edd655f4e8257b48a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550631"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar entrada de chave de segurança sem senha para recursos locais com Azure Active Directory (versão prévia)
 
 Este documento se concentra em habilitar a autenticação sem senha para recursos locais para ambientes com dispositivos Windows 10 ingressados no **Azure ad** e no **Azure ad híbrido** . Essa funcionalidade fornece SSO (logon único) contínuo para recursos locais usando chaves de segurança compatíveis com a Microsoft.
 
-|     |
-| --- |
-| As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>SSO para recursos locais usando chaves FIDO2
 
@@ -111,7 +109,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 Esse comando gera as propriedades do servidor Kerberos do Azure AD. Você pode examinar as propriedades para verificar se tudo está em uma ordem boa.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 | --- | --- |
 | ID | A ID exclusiva do objeto AD DS DC. Às vezes, essa ID é chamada de "slot" ou é "ID do Branch". |
 | DomainDnsName | O nome de domínio DNS do Domínio do Active Directory. |
@@ -148,7 +146,7 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 O objeto de servidor Kerberos do Azure AD é representado no Azure AD como um objeto *KerberosDomain* . Cada domínio de Active Directory local é representado como um único objeto *KerberosDomain* no Azure AD.
 
-Por exemplo, sua organização tem uma floresta Active Directory com dois domínios `contoso.com` e. `fabrikam.com` Se você optar por permitir que o Azure AD emita o TGTs Kerberos para toda a floresta, haverá dois objetos *KerberosDomain* no Azure AD. Um objeto *KerberosDomain* para `contoso.com`e um para `fabrikam.com`. Se você tiver várias florestas Active Directory, haverá um objeto *KerberosDomain* para cada domínio em cada floresta.
+Por exemplo, sua organização tem uma floresta Active Directory com dois domínios `contoso.com` e `fabrikam.com` . Se você optar por permitir que o Azure AD emita o TGTs Kerberos para toda a floresta, haverá dois objetos *KerberosDomain* no Azure AD. Um objeto *KerberosDomain* para `contoso.com` e um para `fabrikam.com` . Se você tiver várias florestas Active Directory, haverá um objeto *KerberosDomain* para cada domínio em cada floresta.
 
 Você precisa executar as etapas para [criar um objeto de servidor Kerberos](#create-kerberos-server-object) em cada domínio e floresta em sua organização que contenha usuários do Azure AD.
 
@@ -182,7 +180,7 @@ Estamos trabalhando nessa funcionalidade para GA (disponibilidade geral) desse r
 
 ### <a name="where-can-i-go-to-find-compliant-security-keys"></a>Onde posso encontrar as chaves de segurança em conformidade?
 
-[Chaves de segurança do FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+[Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 
 ### <a name="what-do-i-do-if-i-lose-my-security-key"></a>O que devo fazer se perder minha chave de segurança?
 
@@ -197,7 +195,7 @@ Se limpar a instalação de um computador ingressado no Azure AD híbrido, após
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Não consigo obter o SSO para meu recurso de rede NTLM depois de entrar com FIDO e obter uma solicitação de credencial
 
-Certifique-se de que controladores de domínio suficientes sejam corrigidos para responder no tempo de manutenção de sua solicitação de recurso. Para verificar se você pode ver um controlador de domínio que está executando o recurso, examine a saída `nltest /dsgetdc:contoso /keylist /kdc`de.
+Certifique-se de que controladores de domínio suficientes sejam corrigidos para responder no tempo de manutenção de sua solicitação de recurso. Para verificar se você pode ver um controlador de domínio que está executando o recurso, examine a saída de `nltest /dsgetdc:contoso /keylist /kdc` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

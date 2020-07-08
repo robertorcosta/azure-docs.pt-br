@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 11/12/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85517349"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer do Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,19 +38,19 @@ O designer usa o [espaço de trabalho](concept-workspace.md) do Azure Machine Le
 O designer fornece uma tela visual para compilar, testar e implantar modelos de aprendizado de máquina. Com o designer, é possível:
 
 + Arrastar e soltar [conjuntos de dados](#datasets) e [módulos](#module) na tela.
-+ Conectar os módulos em conjunto para criar um [rascunho de pipeline](#pipeline-draft).
++ Conecte os módulos para criar um [rascunho de pipeline](#pipeline-draft).
 + Enviar uma [execução de pipeline](#pipeline-run) usando os recursos de computação no workspace do Azure Machine Learning.
 + Converter os **pipelines de treinamento** em **pipelines de inferência**.
-+ [Publicar](#publish) os pipelines em um **ponto de extremidade do pipeline** do REST para enviar novas execuções de pipeline com parâmetros e conjuntos de dados diferentes.
++ [Publique](#publish) seus pipelines em um **ponto de extremidade de pipeline** REST para enviar um novo pipeline que é executado com parâmetros e conjuntos de valores diferentes.
     + Publicar um **pipeline de treinamento** para reutilizar um único pipeline para treinar vários modelos, enquanto altera os parâmetros e conjuntos de dados.
     + Publicar um **pipeline de inferência de lote** para fazer previsões sobre novos dados usando um modelo treinado anteriormente.
-+ [Implantar](#deploy) um **pipeline de inferência em tempo real** para um ponto de extremidade em tempo real para fazer previsões sobre novos dados em tempo real.
++ [Implante](#deploy) um **pipeline de inferência em tempo real** para um ponto de extremidade em tempo real para fazer previsões sobre novos dados em tempo real.
 
 ![Diagrama de fluxo de trabalho para treinamento, inferência de lote e inferência em tempo real no designer](./media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-Um [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consiste em conjuntos de dados e módulos analíticos, que você conecta. Os pipelines têm muitas utilidades: você pode criar um pipeline que treina um único modelo ou um que treina vários modelos. É possível criar um pipeline que faça previsões em tempo real ou em lote, ou então criar um pipeline que apenas limpa os dados. Os pipelines permitem reutilizar o trabalho e organizar os projetos.
+Um [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consiste em conjuntos de valores e módulos analíticos, que você se conecta. Os pipelines têm muitas utilidades: você pode criar um pipeline que treina um único modelo ou um que treina vários modelos. Você pode criar um pipeline que faça previsões em tempo real ou em lote, ou então crie um pipeline que limpa apenas os dados. Os pipelines permitem reutilizar o trabalho e organizar os projetos.
 
 ### <a name="pipeline-draft"></a>Rascunho de pipeline
 
@@ -73,15 +73,16 @@ As execuções de pipeline são agrupadas em [experimentos](concept-azure-machin
 
 ## <a name="datasets"></a>Conjunto de dados
 
-Um conjunto de dados do aprendizado de máquina facilita o acesso aos dados e o trabalho com eles. Vários conjuntos de dados de exemplo são incluídos no designer para que você possa fazer experimentos. Você pode [registrar](how-to-create-register-datasets.md) mais conjuntos de dados conforme necessário.
+Um conjunto de dados do aprendizado de máquina facilita o acesso aos dados e o trabalho com eles. Vários conjuntos de exemplos de conjunto de valores são incluídos no designer para você experimentar. Você pode [registrar](how-to-create-register-datasets.md) mais conjuntos de dados conforme necessário.
 
 ## <a name="module"></a>Módulo
 
-Um módulo é um algoritmo que você pode executar em seus dados. O designer tem uma série de módulos, desde funções de entrada até processos de treinamento, pontuação e validação.
+Um módulo é um algoritmo que você pode executar em seus dados. O designer tem vários módulos que vão desde funções de entrada de dados até processos de treinamento, pontuação e validação.
 
 Um módulo pode ter um conjunto de parâmetros que você pode usar para configurar os algoritmos internos do módulo. Ao selecionar um módulo nas telas, os parâmetros do módulo são exibidos no painel Propriedades à direita das telas. Você pode modificar os parâmetros nesse painel para ajustar seu modelo. Você pode definir os recursos de computação para módulos individuais no designer. 
 
-![Propriedades do módulo](./media/concept-designer/properties.png)
+:::image type="content" source="./media/concept-designer/properties.png"alt-text="Propriedades do módulo":::
+
 
 Para obter ajuda para navegar pela biblioteca de algoritmos disponíveis do aprendizado de máquina, confira [Visão geral sobre referência de algoritmos e módulos](algorithm-module-reference/module-reference.md). Para obter ajuda para escolher um algoritmo, confira a [Página de dicas úteis do algoritmo do Azure Machine Learning](algorithm-cheat-sheet.md).
 
@@ -138,4 +139,3 @@ Você pode converter os experimentos e serviços Web da interface visual existen
 
 * Conheça os conceitos básicos da análise preditiva e do aprendizado de máquina com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 * Saiba como modificar as [amostras existentes do designer](samples-designer.md) para adaptá-las às suas necessidades.
-

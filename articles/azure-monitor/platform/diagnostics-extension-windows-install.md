@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: a964a28b728a2b1741fb555f47fe6e329bc9902a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549490"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão WAD (Diagnóstico do Azure para Windows)
 A [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo fornece detalhes sobre como instalar e configurar a extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de armazenamento do Azure.
@@ -20,7 +20,7 @@ A [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) é um 
 A extensão de diagnóstico é implementada como uma [extensão da máquina virtual](../../virtual-machines/extensions/overview.md) no Azure. Portanto, dá suporte às mesmas opções de instalação usando modelos do Resource Manager, o PowerShell e a CLI. Confira [Extensões da máquina virtual e recursos do Windows](../../virtual-machines/extensions/features-windows.md) para obter detalhes sobre como instalar e manter extensões da máquina virtual.
 
 ## <a name="overview"></a>Visão geral
-Ao configurar a extensão de diagnóstico do Windows Azure, você deverá especificar uma conta de armazenamento na qual todos os dados especificados serão enviados. Opcionalmente, você pode adicionar um para obter mais *coletores de dados* para enviar dados para locais diferentes.
+Ao configurar a extensão de diagnóstico do Windows Azure, você deverá especificar uma conta de armazenamento na qual todos os dados especificados serão enviados. Opcionalmente, você pode adicionar um ou mais *coletores de dados* para enviar os dados para locais diferentes.
 
 - Coletor do Azure Monitor – Envia dados de desempenho do convidado para as métricas do Azure Monitor.
 - Coletor do hub de eventos – Envia dados de log e desempenho de convidado para os hubs de eventos do Azure para encaminhar fora do Azure. Esse coletor pode ser configurado no portal do Azure.

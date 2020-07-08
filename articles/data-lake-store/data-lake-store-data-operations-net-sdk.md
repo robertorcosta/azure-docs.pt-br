@@ -3,15 +3,15 @@ title: SDK do .NET – operações do sistema de arquivos no Data Lake Storage G
 description: Use o SDK do .NET Azure Data Lake Storage Gen1 para operações de sistema de arquivos em Data Lake Storage Gen1 como criar pastas etc.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 9e52a3cb8d31b5fccc9a0b5a3a76d4e9b43de123
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515668"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operações do sistema de arquivos em Data Lake Storage Gen1 usando o SDK do .NET
 
@@ -146,7 +146,7 @@ using (var readStream = new StreamReader(client.GetReadStream(fileName)))
 }
 ```
 
-## <a name="get-file-properties"></a>Obter propriedades de arquivo
+## <a name="get-file-properties"></a>Obter propriedades do arquivo
 
 O snippet de código a seguir retorna as propriedades associadas a um arquivo ou diretório.
 

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552010"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma de identidade da Microsoft
 
@@ -230,11 +230,13 @@ A lógica de negócios do aplicativo determinará esta etapa; alguns métodos co
 
 ## <a name="user-and-application-tokens"></a>Tokens de usuário e aplicativo
 
-O aplicativo pode receber tokens em nome de um usuário (o fluxo normal) ou diretamente de um aplicativo (por meio do fluxo de credenciais do cliente [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)]). Esses tokens somente de aplicativo indicam que essa chamada é proveniente de um aplicativo e não tem nenhum usuário dando suporte a ela. Esses tokens são manipulados basicamente da mesma forma, com algumas diferenças:
+Seu aplicativo pode receber tokens para o usuário (o fluxo geralmente é discutido) ou diretamente de um aplicativo (por meio do [fluxo de credenciais do cliente](v1-oauth2-client-creds-grant-flow.md)). Esses tokens somente de aplicativo indicam que essa chamada é proveniente de um aplicativo e não tem nenhum usuário dando suporte a ela. Esses tokens são manipulados basicamente da mesma forma:
 
-* Os tokens somente de aplicativo não terão uma declaração `scp`. Em vez disso, terão uma declaração `roles`. Esse é o local em que a permissão de aplicativo (em vez de permissões delegadas) será registrada. Para saber mais sobre as permissões delegadas e de aplicativo, confira permissão e consentimento ([v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
-* Muitas declarações específicas de humanos estarão ausentes, como `name` ou `upn`.
-* As declarações `sub` e `oid` serão as mesmas.
+* Use `roles` para ver as permissões que foram concedidas ao assunto do token (a entidade de serviço, em vez de um usuário, neste caso).
+* Use `oid` ou `sub` para validar que a entidade de serviço de chamada é a esperada.
+
+Se seu aplicativo precisar distinguir entre tokens de acesso somente de aplicativo e tokens de acesso para usuários, use a `idtyp` [declaração opcional](active-directory-optional-claims.md).  Ao adicionar a `idtyp` declaração ao `accessToken` campo e verificar o valor `app` , você pode detectar tokens de acesso somente de aplicativo.  Tokens de ID e tokens de acesso para usuários não terão a `idtyp` declaração incluída.
+
 
 ## <a name="token-revocation"></a>Revogação de token
 
@@ -254,7 +256,7 @@ Com a [configuração de tempo de vida do token](active-directory-configurable-t
 
 Os tokens de atualização podem ser revogados pelo servidor devido a uma alteração nas credenciais, ao uso ou à ação do administrador.  Os tokens de atualização se enquadram em duas classes – aqueles emitidos para clientes confidenciais (a coluna mais à direita) e aqueles emitidos para clientes públicos (todas as outras colunas).   
 
-|   | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseados em senha | Token de cliente confidencial |
+| Alteração | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseados em senha | Token de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | A senha expira | Permanece ativo | Permanece ativo | Permanece ativo | Permanece ativo | Permanece ativo |
 | Senha alterada pelo usuário | Revogado | Revogado | Permanece ativo | Permanece ativo | Permanece ativo |

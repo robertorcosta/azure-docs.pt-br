@@ -5,48 +5,57 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: ed317039e683ef36054d5ace612e09ca75dfa11e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550336"
 ---
-# <a name="sign-in-to-azure-using-email-as-an-alternate-login-id-preview"></a>Entrar no Azure usando o email como uma ID de logon alternativa (versão preliminar)
+# <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Entrar no Azure Active Directory usando o email como uma ID de logon alternativa (versão prévia)
 
-Muitas organizações querem permitir que os usuários entrem no Azure usando as mesmas credenciais de seu ambiente de diretório local. Com essa abordagem, conhecida como autenticação híbrida, os usuários só precisam se lembrar de um conjunto de credenciais.
+Muitas organizações desejam permitir que os usuários entrem no Azure Active Directory (Azure AD) usando as mesmas credenciais que o seu ambiente de diretório local. Com essa abordagem, conhecida como autenticação híbrida, os usuários só precisam se lembrar de um conjunto de credenciais.
 
 Algumas organizações não migraram para autenticação híbrida pelos seguintes motivos:
 
-* Por padrão, o UPN (nome UPN) do Azure Active Directory (AAD) é definido com o mesmo UPN do diretório local.
-* Alterar o UPN do Azure Active Directory cria uma correspondência incorreta entre ambientes locais e do Azure que podem causar problemas com determinados aplicativos e serviços.
-* Devido a questões de conformidade ou de negócios, a organização não quer usar o UPN local para entrar no Azure.
+* Por padrão, o UPN (nome principal de usuário) do Azure AD é definido com o mesmo UPN que o diretório local.
+* Alterar o UPN do Azure AD cria uma correspondência incorreta entre ambientes locais e do Azure AD que podem causar problemas com determinados aplicativos e serviços.
+* Devido a motivos de conformidade ou de negócios, a organização não deseja usar o UPN local para entrar no Azure AD.
 
-Para ajudar com a mudança para a autenticação híbrida, agora é possível configurar o Azure Active Directory para permitir que os usuários entrem no Azure com um email como uma ID de logon alternativa em seu domínio verificado. Por exemplo, se *Contoso* for rebatizado como *Fabrikam*, em vez de continuar a entrar com o UPN herdado `balas@contoso.com`, será possível usar o email como uma ID de logon alternativa. Para acessar um aplicativo ou serviços, os usuários entrarão no Azure usando os emails atribuídos a eles, como `balas@fabrikam.com`.
+Para ajudar com a mudança para a autenticação híbrida, agora você pode configurar o Azure AD para permitir que os usuários entrem com um email em seu domínio verificado como uma ID de logon alternativa. Por exemplo, se *Contoso* for rebatizado como *Fabrikam*, em vez de continuar a entrar com o UPN herdado `balas@contoso.com`, será possível usar o email como uma ID de logon alternativa. Para acessar um aplicativo ou serviços, os usuários entrarão no Azure AD usando seus emails atribuídos, como `balas@fabrikam.com` .
 
-|     |
-| --- |
-| A entrada no Azure Active Directory com o email como uma ID de logon alternativa é uma versão prévia do recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> A entrada no Azure Active Directory com o email como uma ID de logon alternativa é uma versão prévia do recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Visão geral das abordagens de entrada no Azure Active Directory
 
-Os UPNs (nomes UPN) são identificadores exclusivos de uma conta de usuário no diretório local e no Azure Active Directory. Cada conta de usuário em um diretório é representada por um UPN, como `balas@contoso.com`. Por padrão, quando você sincroniza um ambiente de Active Directory Domain Services (AD DS) local com o Azure Active Directory, o UPN do Azure Active Directory é definido para corresponder ao UPN local.
+Para entrar no Azure AD, os usuários inserem um nome que identifica exclusivamente sua conta. Historicamente, você só podia usar o UPN do Azure AD como o nome de entrada.
 
-Em muitas organizações, é bem possível definir o UPN local e o UPN do Azure Active Directory para corresponderem. Quando os usuários entram em aplicativos e serviços do Azure, eles usam o UPN do Azure Active Directory. No entanto, algumas organizações não podem usar UPNs correspondentes para entrar devido a problemas com políticas de negócios ou com a experiência do usuário.
+Para organizações em que o UPN local é o email de entrada preferencial do usuário, essa abordagem foi excelente. Essas organizações definiram o UPN do Azure AD com o mesmo valor exato que o UPN local, e os usuários teriam uma experiência de entrada consistente.
 
-As organizações que não podem usar UPNs correspondentes no Azure Active Directory têm algumas opções:
+No entanto, em algumas organizações, o UPN local não é usado como um nome de entrada. Nos ambientes locais, você configuraria o AD DS local para permitir a entrada com uma ID de logon alternativa. Definir o UPN do Azure AD com o mesmo valor que o UPN local não é uma opção, pois o Azure AD exigiria que os usuários entrassem com esse valor.
 
-* Uma abordagem é definir o UPN do Azure Active Directory para algo diferente com base nas necessidades de negócios, como `balas@fabrikam.com`.
-    * No entanto, nem todos os aplicativos e serviços são compatíveis com o uso de um valor diferente para o UPN local e o UPN do Azure Active Directory.
-* Uma abordagem melhor é garantir que os UPNs locais e do Azure Active Directory estejam definidos com o mesmo valor e configurar o Azure Active Directory para permitir que os usuários entrem no Azure com seu email como uma ID de logon alternativa.
+A solução alternativa típica para esse problema era definir o UPN do Azure AD para o endereço de email no qual o usuário espera entrar. Essa abordagem funciona, embora resulte em UPNs diferentes entre o AD local e no Azure AD, e essa configuração não é compatível com todas as cargas de trabalho de Microsoft 365.
 
-Com o email como uma ID de logon alternativa, os usuários ainda podem entrar no Azure inserindo o UPN, mas também podem entrar usando o email. Para permitir isso, defina um endereço de email no atributo *ProxyAddresses* do usuário no diretório local. Este atributo *ProxyAddress* permite um ou mais endereços de email.
+Uma abordagem diferente é sincronizar o Azure AD e os UPNs locais com o mesmo valor e, em seguida, configurar o Azure AD para permitir que os usuários entrem no Azure AD com um email verificado. Para fornecer essa capacidade, você define um ou mais endereços de email no atributo *proxyAddresses* do usuário no diretório local. Os *proxyAddresses* são então sincronizados com o Azure ad automaticamente usando Azure ad Connect.
+
+## <a name="preview-limitations"></a>Limitações de visualização
+
+No estado de visualização atual, as seguintes limitações se aplicam quando um usuário entra com um email não UPN como uma ID de logon alternativa:
+
+* Os usuários podem ver seu UPN, mesmo quando conectado com seus emails não UPN. O seguinte comportamento de exemplo pode ser visto:
+    * É solicitado que o usuário entre com o UPN quando direcionado para a entrada do Azure AD com o `login_hint=<non-UPN email>` .
+    * Quando um usuário entra com um email não UPN e insere uma senha incorreta, a página *"inserir sua senha"* é alterada para exibir o UPN.
+    * Em alguns sites e aplicativos da Microsoft, como [https://portal.azure.com](https://portal.azure.com) e Microsoft Office, o controle de **gerente de conta** normalmente exibido no canto superior direito pode exibir o UPN do usuário em vez do email não UPN usado para entrar.
+
+* Alguns fluxos atualmente não são compatíveis com o email não UPN, como o seguinte:
+    * Atualmente, a proteção de identidade não corresponde às IDs de logon alternativas de email com a detecção de risco de *credenciais vazadas* . Essa detecção de risco usa o UPN para corresponder as credenciais que foram vazadas. Para obter mais informações, consulte [Azure ad Identity Protection detecção e correção de riscos][identity-protection].
+    * Os convites B2B enviados a um email de ID de logon alternativo não são totalmente suportados. Depois de aceitar um convite enviado a um email como uma ID de logon alternativa, entrar com o email alternativo pode não funcionar para o usuário no ponto de extremidade locatário.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Sincronizar endereços de email para entrada no Azure Active Directory
 
@@ -179,6 +188,7 @@ Para obter mais informações sobre operações de identidade híbrida, veja [Co
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module

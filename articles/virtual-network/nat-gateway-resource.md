@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: db50a8938459fe063553f08c495149867ee36f43
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: HT
+ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710058"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549627"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Criar redes virtuais com recursos de gateway de NAT
 
@@ -325,8 +325,7 @@ Uma porta de SNAT está disponível para reutilização para o mesmo endereço I
 - O registro em log de fluxo do NSG não é compatível com o uso de NAT.
 - A NAT não pode abranger várias redes virtuais.
 
-
-## <a name="feedback"></a>Comentários
+## <a name="suggestions"></a>Sugestões
 
 Desejamos saber como podemos aprimorar o serviço. Sente falta de alguma funcionalidade? Dê a sua sugestão sobre o que deveríamos criar em seguida no [UserVoice da NAT](https://aka.ms/natuservoice).
 

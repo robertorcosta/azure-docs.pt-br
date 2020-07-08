@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869712"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552185"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -130,13 +130,14 @@ Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
  
 Para testar somente os requisitos do sistema:
 ```powershell
-Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamespaceChecks
 ```
  
 Para exibir os resultados em CSV:
 ```powershell
 $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
+    C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Compatibilidade do sistema de arquivos
@@ -254,9 +255,7 @@ Com base na política da sua organização ou em requisitos regulatórios espec�
 - Configurar a Sincronização de Arquivos do Azure para compatibilidade com o proxy em seu ambiente.
 - Restringir a atividade de rede da Sincronização de Arquivos do Azure.
 
-Para saber mais sobre como configurar a funcionalidade de rede da Sincronização de Arquivos do Azure, confira:
-- [Configurações de proxy e firewall da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md)
-- [Garantia de que a Sincronização de Arquivos do Azure seja uma boa vizinha no seu datacenter](storage-sync-files-server-registration.md)
+Para saber mais sobre Sincronização de Arquivos do Azure e rede, confira [sincronização de arquivos do Azure considerações de rede](storage-sync-files-networking-overview.md).
 
 ## <a name="encryption"></a>Criptografia
 Ao usar a Sincronização de Arquivos do Azure, há três camadas diferentes de criptografia a serem consideradas: criptografia no armazenamento em repouso do Windows Server, criptografia em trânsito entre o agente de Sincronização de Arquivos do Azure e o Azure e a criptografia em repouso dos dados no compartilhamento de arquivo do Azure. 
@@ -358,7 +357,7 @@ Se você tiver um servidor de arquivos do Windows existente, a Sincronização d
 
 Também é possível usar o Data Box para migrar dados para uma implantação da Sincronização de Arquivos do Azure. Na maioria das vezes, quando os clientes usam o Data Box para ingerir dados, eles fazem isso porque acham que aumentarão a velocidade da implantação ou porque isso ajudará com cenários de largura de banda restrita. Embora seja verdade que usar um Data Box para ingerir dados em sua implantação da Sincronização de Arquivos do Azure diminuirá a utilização da largura de banda, é provável que seja mais rápido para a maioria dos cenários buscar um carregamento de dados online por meio de um dos métodos descritos acima. Para saber mais sobre como usar o Data Box para ingerir dados em sua implantação da Sincronização de Arquivos do Azure, confira [Migrar dados para a Sincronização de Arquivos do Azure com o Azure Data Box](storage-sync-offline-data-transfer.md).
 
-Um erro comum que os clientes fazem ao migrar dados para a nova implantação da Sincronização de Arquivos do Azure é copiar dados diretamente no compartilhamento de arquivo do Azure, em vez de fazê-lo em seus servidores de arquivos do Windows. Embora a Sincronização de Arquivos do Azure identifique todos os novos arquivos no compartilhamento de arquivo do Azure e sincronize-os de volta em seus compartilhamentos de arquivo do Windows, isso costuma ser consideravelmente mais lento do que carregar dados por meio do servidor de arquivos do Windows. Muitas ferramentas de cópia do Azure, como AzCopy, têm a desvantagem adicional de não copiar todos os metadados importantes de um arquivo, como carimbos de data/hora e ACLs.
+Um erro comum que os clientes fazem ao migrar dados para a nova implantação da Sincronização de Arquivos do Azure é copiar dados diretamente no compartilhamento de arquivo do Azure, em vez de fazê-lo em seus servidores de arquivos do Windows. Embora a Sincronização de Arquivos do Azure identifique todos os novos arquivos no compartilhamento de arquivo do Azure e sincronize-os de volta em seus compartilhamentos de arquivo do Windows, isso costuma ser consideravelmente mais lento do que carregar dados por meio do servidor de arquivos do Windows. Ao usar as ferramentas de cópia do Azure, como AzCopy, é importante usar a versão mais recente. Verifique a [tabela de ferramentas de cópia de arquivo](storage-files-migration-overview.md#file-copy-tools) para obter uma visão geral das ferramentas de cópia do Azure para garantir que você possa copiar todos os metadados importantes de um arquivo, como carimbos de data/hora e ACLs.
 
 ## <a name="antivirus"></a>Antivírus
 Como os antivírus funcionam com o exame de arquivos em busca de códigos mal-intencionados conhecidos, um antivírus pode causar o recall de arquivos em camadas. Nas versões 4.0 e acima do agente de Sincronização de Arquivo do Azure, arquivos em camadas têm o conjunto FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS de atributo seguro do Windows. Recomendamos consultar o fornecedor do software para saber como configurar a solução para ignorar a leitura de arquivos com esse conjunto de atributos (muitos fazem isso automaticamente). 

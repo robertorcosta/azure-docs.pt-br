@@ -3,15 +3,15 @@ title: Solucionar problemas de destinos de armazenamento NFS do cache do Azure H
 description: Dicas para evitar e corrigir erros de configuração e outros problemas que podem causar falha ao criar um destino de armazenamento NFS
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515460"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Solucionar problemas de configuração do NAS e destino de armazenamento NFS
 
@@ -40,7 +40,7 @@ Em geral, o cache precisa de acesso a essas portas:
 | TCP/UDP  | 4046  | montado   |
 | TCP/UDP  | 4047  | status   |
 
-Para saber as portas específicas necessárias para seu sistema, use o comando ``rpcinfo`` a seguir. Este comando abaixo lista as portas e formata os resultados relevantes em uma tabela. (Use o endereço IP do seu sistema no lugar do *<storage_IP>* termo.)
+Para saber as portas específicas necessárias para seu sistema, use o comando a seguir ``rpcinfo`` . Este comando abaixo lista as portas e formata os resultados relevantes em uma tabela. (Use o endereço IP do seu sistema no lugar do *<storage_IP>* termo.)
 
 Você pode emitir esse comando de qualquer cliente Linux que tenha a infraestrutura de NFS instalada. Se você usar um cliente dentro da sub-rede do cluster, ele também poderá ajudar a verificar a conectividade entre a sub-rede e o sistema de armazenamento.
 
@@ -58,7 +58,7 @@ O cache HPC do Azure precisa de acesso às exportações do seu sistema de armaz
 
 Diferentes sistemas de armazenamento usam métodos diferentes para habilitar esse acesso:
 
-* Os servidores Linux geralmente ``no_root_squash`` são adicionados ao caminho exportado no ``/etc/exports``.
+* Os servidores Linux geralmente são adicionados ``no_root_squash`` ao caminho exportado no ``/etc/exports`` .
 * OS sistemas NetApp e EMC normalmente controlam o acesso com regras de exportação que estão vinculadas a endereços IP ou redes específicos.
 
 Se você estiver usando regras de exportação, lembre-se de que o cache pode usar vários endereços IP diferentes da sub-rede de cache. Permitir o acesso de todo o intervalo de endereços IP de sub-rede possíveis.
@@ -79,17 +79,17 @@ Por exemplo, um sistema pode mostrar três exportações como estas:
 * ``/ifs/accounting``
 * ``/ifs/accounting/payroll``
 
-A exportação ``/ifs/accounting/payroll`` é um filho de ``/ifs/accounting``e ``/ifs/accounting`` é um filho de ``/ifs``.
+A exportação ``/ifs/accounting/payroll`` é um filho de ``/ifs/accounting`` e ``/ifs/accounting`` é um filho de ``/ifs`` .
 
-Se você adicionar a ``payroll`` exportação como um destino de armazenamento de cache do HPC, o cache ``/ifs/`` realmente montará e acessará o diretório de folha de pagamento a partir daí. Portanto, o cache HPC do Azure precisa ``/ifs`` de acesso à raiz para ``/ifs/accounting/payroll`` acessar a exportação.
+Se você adicionar a ``payroll`` exportação como um destino de armazenamento de cache do HPC, o cache realmente montará ``/ifs/`` e acessará o diretório de folha de pagamento a partir daí. Portanto, o cache HPC do Azure precisa de acesso à raiz para ``/ifs`` acessar a ``/ifs/accounting/payroll`` exportação.
 
 Esse requisito está relacionado à maneira como o cache indexa arquivos e evita colisões de arquivo, usando identificadores de arquivo que o sistema de armazenamento fornece.
 
-Um sistema NAS com exportações hierárquicas pode fornecer diferentes identificadores de arquivo para o mesmo arquivo se o arquivo for recuperado de diferentes exportações. Por exemplo, um cliente pode montar ``/ifs/accounting`` e acessar o arquivo ``payroll/2011.txt``. Outro cliente monta ``/ifs/accounting/payroll`` e acessa o arquivo ``2011.txt``. Dependendo de como o sistema de armazenamento atribui identificadores de arquivo, esses dois clientes podem receber o mesmo arquivo com diferentes identificadores de arquivo ( ``<mount2>/payroll/2011.txt`` um para e ``<mount3>/2011.txt``um para).
+Um sistema NAS com exportações hierárquicas pode fornecer diferentes identificadores de arquivo para o mesmo arquivo se o arquivo for recuperado de diferentes exportações. Por exemplo, um cliente pode montar ``/ifs/accounting`` e acessar o arquivo ``payroll/2011.txt`` . Outro cliente monta ``/ifs/accounting/payroll`` e acessa o arquivo ``2011.txt`` . Dependendo de como o sistema de armazenamento atribui identificadores de arquivo, esses dois clientes podem receber o mesmo arquivo com diferentes identificadores de arquivo (um para ``<mount2>/payroll/2011.txt`` e um para ``<mount3>/2011.txt`` ).
 
 O sistema de armazenamento de back-end mantém aliases internos para identificadores de arquivo, mas o cache HPC do Azure não pode informar quais identificadores de arquivo em seu índice fazem referência ao mesmo item. Portanto, é possível que o cache possa ter gravações diferentes armazenadas em cache para o mesmo arquivo e aplicar as alterações incorretamente porque não sabe que elas são o mesmo arquivo.
 
-Para evitar essa colisão de arquivo possível para arquivos em várias exportações, o cache HPC do Azure monta automaticamente a exportação disponível mais superficialmente no caminho (``/ifs`` no exemplo) e usa o identificador de arquivo fornecido por essa exportação. Se várias exportações usarem o mesmo caminho base, o cache HPC do Azure precisará de acesso de raiz para esse caminho.
+Para evitar essa colisão de arquivo possível para arquivos em várias exportações, o cache HPC do Azure monta automaticamente a exportação disponível mais superficialmente no caminho ( ``/ifs`` no exemplo) e usa o identificador de arquivo fornecido por essa exportação. Se várias exportações usarem o mesmo caminho base, o cache HPC do Azure precisará de acesso de raiz para esse caminho.
 
 ## <a name="enable-export-listing"></a>Habilitar listagem de exportação
 <!-- link in prereqs article -->

@@ -1,6 +1,6 @@
 ---
 title: Recursos de busca no Azure Sentinel | Microsoft Docs
-description: Este artigo descreve como usar os recursos de busca do Azure Sentinel.
+description: Use as consultas de busca interna do Sentinela do Azure para orientá-lo a fazer as perguntas certas para encontrar problemas em seus dados.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552283"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Procurar ameaças com o Azure Sentinel
 
@@ -84,7 +84,7 @@ No exemplo acima, comece com o nome da tabela SecurityEvent e adicione os elemen
 
 2. Adicione um filtro na consulta para mostrar apenas a ID do evento 4688.
 
-3. Adicione um filtro na consulta na linha de comando para conter apenas instâncias de cscript. exe.
+3. Adicione um filtro na consulta na linha de comando para conter apenas instâncias de cscript.exe.
 
 4. Projeto apenas as colunas que você está interessado em explorar e limitar os resultados a 1000 e clique em **Executar consulta**.
 5. Clique no triângulo verde e execute a consulta. Você pode testar a consulta e executá-la para procurar comportamento anormal.

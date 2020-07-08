@@ -11,18 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 34b08e2e530843dd98c87e424812706247388228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551325"
 ---
 # <a name="self-service-sign-up-preview"></a>Inscrição por autoatendimento (versão prévia)
-|     |
-| --- |
-| A inscrição por autoatendimento é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+> A inscrição por autoatendimento é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Quando compartilhar um aplicativo com usuários externos, é possível que você não saiba com antecedência quem precisará de acesso a um aplicativo. Como alternativa ao envio de convites diretamente para as pessoas, você pode permitir que usuários externos se inscrevam em aplicativos específicos, habilitando a inscrição por autoatendimento. Você pode criar uma experiência de inscrição personalizada, personalizando o fluxo de inscrição por autoatendimento do usuário. Por exemplo, você pode fornecer opções de inscrição com o Azure AD ou com provedores de identidade social e coletar informações sobre o usuário durante o processo de criação da conta.
 

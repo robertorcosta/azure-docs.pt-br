@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 94ef9b9754527bbb36ef1028f80e957da8c631dd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: HT
+ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84688391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549509"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
@@ -144,7 +144,7 @@ A NAT de rede virtual e o recurso de gateway de NAT estão disponíveis em todas
 
 Há suporte para a NAT por meio de canais de suporte normais.
 
-## <a name="feedback"></a>Comentários
+## <a name="suggestions"></a>Sugestões
 
 Desejamos saber como podemos aprimorar o serviço. Proponha e vote em quais itens deveríamos criar em seguida, no [UserVoice para NAT](https://aka.ms/natuservoice).
 
