@@ -6,10 +6,9 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811703"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Usar um certificado TLS/SSL no seu código no Serviço de Aplicativo do Azure
@@ -29,7 +28,7 @@ Para seguir este guia de instruções, é necessário ter:
 
 ## <a name="find-the-thumbprint"></a>Localizar a impressão digital
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **serviços de aplicativos**  >  **\<app-name>** .
 
 No painel de navegação à esquerda do seu aplicativo, selecione **configurações de TLS/SSL**e, em seguida, selecione **certificados de chave privada (. pfx)** ou **certificados de chave pública (. cer)**.
 
@@ -39,13 +38,13 @@ Localize o certificado que você deseja usar e copie a impressão digital.
 
 ## <a name="make-the-certificate-accessible"></a>Tornar o certificado acessível
 
-Para acessar um certificado em seu código do aplicativo, adicione sua impressão digital `WEBSITE_LOAD_CERTIFICATES` à configuração do aplicativo, executando o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+Para acessar um certificado em seu código do aplicativo, adicione sua impressão digital à `WEBSITE_LOAD_CERTIFICATES` configuração do aplicativo, executando o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-Para tornar todos os certificados acessíveis, defina o valor como `*`.
+Para tornar todos os certificados acessíveis, defina o valor como `*` .
 
 ## <a name="load-certificate-in-windows-apps"></a>Carregar o certificado em aplicativos do Windows
 
@@ -128,7 +127,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado TLS/SSL de um arquivo em node. js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
+Para ver como carregar um certificado TLS/SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
 
 ## <a name="load-certificate-from-file"></a>Carregar o certificado do arquivo
 
@@ -157,7 +156,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado TLS/SSL de um arquivo em node. js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
+Para ver como carregar um certificado TLS/SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
 
 ## <a name="more-resources"></a>Mais recursos
 

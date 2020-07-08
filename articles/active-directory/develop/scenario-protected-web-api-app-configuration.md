@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882464"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
@@ -134,7 +133,7 @@ O trecho de código anterior é extraído do ASP.NET Core tutorial incremental d
 
 ## <a name="token-validation"></a>Validação de token
 
-No trecho anterior, o middleware JwtBearer, como o middleware OpenID Connect em aplicativos Web, valida o token com base no valor de `TokenValidationParameters`. O token é descriptografado conforme necessário, as declarações são extraídas e a assinatura é verificada. Em seguida, o middleware valida o token verificando os dados:
+No trecho anterior, o middleware JwtBearer, como o middleware OpenID Connect em aplicativos Web, valida o token com base no valor de `TokenValidationParameters` . O token é descriptografado conforme necessário, as declarações são extraídas e a assinatura é verificada. Em seguida, o middleware valida o token verificando os dados:
 
 - Público-alvo: o token é direcionado para a API Web.
 - Sub: ele foi emitido para um aplicativo que tem permissão para chamar a API da Web.
@@ -150,7 +149,7 @@ As etapas de validação são capturadas em validadores, que são fornecidas pel
 
 Esta tabela descreve os validadores:
 
-|  Validator | Descrição |
+| Validador | Descrição |
 |---------|---------|
 | **ValidateAudience** | Garante que o token seja para o aplicativo que valida o token para você. |
 | **ValidateIssuer** | Garante que o token foi emitido por um STS confiável, o que significa que ele é de alguém em que você confia. |

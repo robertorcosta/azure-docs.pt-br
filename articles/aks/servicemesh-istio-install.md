@@ -7,22 +7,21 @@ ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: d1d02cb42a86023e5c341daab678c39f22f75dda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80877687"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o Istio no AKS (Serviço de Kubernetes do Azure)
 
-[Istio][istio-github] é uma malha de serviço de software livre que fornece um conjunto de chaves de funcionalidade nos microsserviços em um cluster do Kubernetes. Esses recursos incluem gerenciamento de tráfego, segurança e identidade do serviço, imposição de política e observabilidade. Para obter mais informações sobre o Istio, consulte a documentação oficial [O que é Istio?][istio-docs-concepts].
+[Istio][istio-github] é uma malha de serviço de software livre que fornece um conjunto de chaves de funcionalidade nos microsserviços em um cluster do Kubernetes. Esses recursos incluem gerenciamento de tráfego, segurança e identidade do serviço, imposição de política e observabilidade. Para obter mais informações sobre o Istio, veja a documentação oficial [O que é Istio?][istio-docs-concepts].
 
-Este artigo mostra como instalar o Istio. O binário `istioctl` do cliente İSTİO é instalado no computador cliente e os componentes do İSTİO são instalados em um cluster KUBERNETES no AKs.
+Este artigo mostra como instalar o Istio. O `istioctl` binário do cliente İSTİO é instalado no computador cliente e os componentes do İSTİO são instalados em um cluster kubernetes no AKs.
 
 > [!NOTE]
-> As instruções a seguir fazem referência `1.4.0`à versão do İSTİO.
+> As instruções a seguir fazem referência à versão do İSTİO `1.4.0` .
 >
-> As versões `1.4.x` do İSTİO foram testadas pela equipe do İSTİO em relação `1.13`às `1.14`versões `1.15`do kubernetes,,. Você pode encontrar versões adicionais do İSTİO em [versões do GitHub-İSTİO][istio-github-releases], informações sobre cada uma das versões em [İSTİO News][istio-release-notes] e versões de kubernetes com suporte em [perguntas frequentes][istio-faq]sobre o İSTİO.
+> As versões do İSTİO `1.4.x` foram testadas pela equipe do İSTİO em relação às versões do kubernetes `1.13` , `1.14` , `1.15` . Você pode encontrar versões adicionais do İSTİO em [versões do GitHub-İSTİO][istio-github-releases], informações sobre cada uma das versões em [İSTİO News][istio-release-notes] e versões de kubernetes com suporte em [perguntas frequentes][istio-faq]sobre o İSTİO.
 
 Neste artigo, você aprenderá como:
 
@@ -63,7 +62,7 @@ Este artigo separa as diretrizes de instalação do Istio em várias etapas disc
 
 Instalaremos o [Grafana][grafana] e o [Kiali][kiali] como parte da nossa instalação do İSTİO. O Grafana fornece painéis de análise e monitoramento e o Kiali fornece um painel de observação de malha de serviço. Em nossa configuração, cada um desses componentes requer credenciais que devem ser fornecidas como um [segredo][kubernetes-secrets].
 
-Antes que possamos instalar os componentes do İSTİO, devemos criar os segredos para Grafana e Kiali. Esses segredos precisam ser instalados no `istio-system` namespace que será usado pelo İSTİO, portanto, precisaremos criar o namespace também. Precisamos usar a `--save-config` opção ao criar o namespace por meio `kubectl create` do para que o instalador do İSTİO possa `kubectl apply` ser executado nesse objeto no futuro.
+Antes que possamos instalar os componentes do İSTİO, devemos criar os segredos para Grafana e Kiali. Esses segredos precisam ser instalados no `istio-system` namespace que será usado pelo İSTİO, portanto, precisaremos criar o namespace também. Precisamos usar a `--save-config` opção ao criar o namespace por meio do `kubectl create` para que o instalador do İSTİO possa ser executado nesse `kubectl apply` objeto no futuro.
 
 ```console
 kubectl create namespace istio-system --save-config
@@ -134,7 +133,7 @@ spec:
       enabled: true
 ```
 
-Instale o İSTİO usando `istioctl apply` o comando e o `istio.aks.yaml` arquivo de especificação do plano de controle İSTİO acima da seguinte maneira:
+Instale o İSTİO usando o `istioctl apply` comando e o `istio.aks.yaml` arquivo de especificação do plano de controle İSTİO acima da seguinte maneira:
 
 ```console
 istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
@@ -239,7 +238,7 @@ Neste ponto, você implantou o İSTİO em seu cluster AKS. Para garantir que ten
 
 ## <a name="validate-the-istio-installation"></a>Validar a instalação do İSTİO
 
-Primeiro, confirme se os serviços esperados foram criados. Use o comando [kubectl get svc][kubectl-get] para exibir os serviços em execução. Consulte o `istio-system` namespace, onde os componentes İSTİO e complemento foram instalados pelo gráfico `istio` Helm:
+Primeiro, confirme se os serviços esperados foram criados. Use o comando [kubectl get svc][kubectl-get] para exibir os serviços em execução. Consulte o `istio-system` namespace, onde os componentes İSTİO e complemento foram instalados pelo `istio` gráfico Helm:
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -248,7 +247,7 @@ kubectl get svc --namespace istio-system --output wide
 A saída de exemplo a seguir mostra os serviços que devem estar em execução agora:
 
 - Serviços do `istio-*`
-- `jaeger-*`, `tracing`e `zipkin` serviços de rastreamento de complemento
+- `jaeger-*`, `tracing` e `zipkin` serviços de rastreamento de complemento
 - `prometheus`serviço de métricas complementares
 - `grafana`serviço de painel de análise e monitoramento de Complementos
 - `kiali`serviço de painel de malha de serviço de complemento
@@ -302,13 +301,13 @@ kiali-59b7fd7f68-92zrh                        1/1     Running   0          95s
 prometheus-7c7cf9dbd6-rjxcv                   1/1     Running   0          94s
 ```
 
-Todos os pods devem mostrar um status de `Running`. Se os pods não tiverem esses status, aguarde um minuto ou dois até que tenham. Se algum pods reportar um problema, use o comando [kubectl describe pod][kubectl-describe] para revisar a saída e o status.
+Todos os pods devem mostrar um status de `Running` . Se os pods não tiverem esses status, aguarde um minuto ou dois até que tenham. Se algum pods reportar um problema, use o comando [kubectl describe pod][kubectl-describe] para revisar a saída e o status.
 
 ## <a name="accessing-the-add-ons"></a>Acessar os complementos
 
 Vários Complementos foram instalados pelo İSTİO em nossa configuração acima que fornecem funcionalidade adicional. Os aplicativos Web para os complementos **não** são expostos publicamente por meio de um endereço IP externo. 
 
-Para acessar as interfaces de usuário do complemento, use `istioctl dashboard` o comando. Esse comando aproveita a porta [kubectl][kubectl-port-forward] e a porta aleatória para criar uma conexão segura entre o computador cliente e o Pod relevante no cluster do AKS. Em seguida, ele abrirá automaticamente o aplicativo Web complementar no navegador padrão.
+Para acessar as interfaces de usuário do complemento, use o `istioctl dashboard` comando. Esse comando aproveita a porta [kubectl][kubectl-port-forward] e a porta aleatória para criar uma conexão segura entre o computador cliente e o Pod relevante no cluster do AKS. Em seguida, ele abrirá automaticamente o aplicativo Web complementar no navegador padrão.
 
 Adicionamos uma camada adicional de segurança para Grafana e Kiali especificando as credenciais para elas anteriormente neste artigo.
 
@@ -359,7 +358,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### <a name="remove-istio-components-and-namespace"></a>Remover componentes e namespace do İSTİO
 
-Para remover o İSTİO do seu cluster do AKS, `istioctl manifest generate` use o comando `istio.aks.yaml` com o arquivo de especificação do plano de controle de İSTİO. Isso irá gerar o manifesto implantado, que será redirecionado para `kubectl delete` remover todos os componentes instalados e o `istio-system` namespace.
+Para remover o İSTİO do seu cluster do AKS, use o `istioctl manifest generate` comando com o `istio.aks.yaml` arquivo de especificação do plano de controle de İSTİO. Isso irá gerar o manifesto implantado, que será redirecionado para `kubectl delete` remover todos os componentes instalados e o `istio-system` namespace.
 
 ```console
 istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 

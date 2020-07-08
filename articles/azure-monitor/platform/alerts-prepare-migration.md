@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114417"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar seus aplicativos lógicos e runbooks para a migração de regras de alerta clássicos
@@ -24,13 +23,13 @@ Se você optar por migrar voluntariamente suas regras de alerta clássicas para 
 
 ## <a name="api-changes"></a>Alterações de API
 
-As APIs que criam e gerenciam as regras de`microsoft.insights/alertrules`alerta clássicas () são diferentes das APIs que criam e gerenciam`microsoft.insights/metricalerts`novos alertas de métrica (). Se você criar e gerenciar programaticamente regras de alerta clássicas hoje, atualize seus scripts de implantação para trabalhar com as novas APIs.
+As APIs que criam e gerenciam as regras de alerta clássicas ( `microsoft.insights/alertrules` ) são diferentes das APIs que criam e gerenciam novos alertas de métrica ( `microsoft.insights/metricalerts` ). Se você criar e gerenciar programaticamente regras de alerta clássicas hoje, atualize seus scripts de implantação para trabalhar com as novas APIs.
 
 A tabela a seguir é uma referência às interfaces programáticas para alertas clássicos e novos:
 
 |         |Alertas clássicos  |Novos alertas de métrica |
 |---------|---------|---------|
-|API REST     | [Microsoft. insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|API REST     | [Microsoft. insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |CLI do Azure     | [alerta de monitor AZ](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta AZ monitor de métricas](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modelo do Azure Resource Manager | [Para alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para novos alertas de métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|

@@ -7,10 +7,9 @@ ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892250"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é o Rastreamento distribuído?
@@ -31,7 +30,7 @@ Habilitar o rastreamento distribuído entre os serviços em um aplicativo é tã
 
 ## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Habilitando via Application Insights por meio de instrumentação ou SDKs automáticos
 
-Os agentes de Application Insights e/ou SDKs para .NET, .NET Core, Java, Node. js e JavaScript oferecem suporte ao rastreamento distribuído nativamente. Veja abaixo as instruções para instalar e configurar cada SDK do Application Insights:
+Os agentes de Application Insights e/ou SDKs para .NET, .NET Core, Java, Node.js e JavaScript oferecem suporte ao rastreamento distribuído nativamente. Veja abaixo as instruções para instalar e configurar cada SDK do Application Insights:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)

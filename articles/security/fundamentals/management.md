@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80981300"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
@@ -138,7 +137,7 @@ A imposição de políticas que inclui controles de acesso estritos utiliza meca
 ## <a name="client-configuration"></a>Configuração do cliente
 Recomendamos três configurações principais para uma estação de trabalho protegida. Os maiores diferenciais entre elas são o custo, a usabilidade e a acessibilidade, mantendo um perfil de segurança semelhante em todas as opções. A tabela a seguir fornece uma breve análise dos benefícios e riscos de cada uma delas. (Observe que "computador corporativo" se refere a uma configuração de computador desktop padrão que seria implantada para todos os usuários do domínio, independentemente das funções.)
 
-| Configuração | Vantagens | Desvantagens |
+| Configuração | Benefícios | Desvantagens |
 | --- | --- | --- |
 | Estação de trabalho protegida autônoma |Estação de trabalho rigidamente controlada |custo mais alto para áreas de trabalho dedicadas |
 | - | Risco reduzido de explorações de aplicativos |Maior esforço de gerenciamento |
@@ -171,7 +170,7 @@ A máquina de virtual do computador corporativo é executada em um espaço prote
 ## <a name="best-practices"></a>Práticas recomendadas
 Considere as diretrizes adicionais a seguir ao gerenciar aplicativos e dados no Azure.
 
-### <a name="dos-and-donts"></a>Recomendações
+### <a name="dos-and-donts"></a>O que fazer e o que não fazer
 Não presuma que, como uma estação de trabalho foi bloqueada, outros requisitos de segurança comuns não precisam ser atendidos. O risco potencial é maior devido aos níveis de acesso com privilégios elevados que as contas de administrador geralmente têm. Exemplos de riscos e suas práticas de segurança alternativas são mostrados na tabela a seguir.
 
 | O que não fazer | O que fazer |

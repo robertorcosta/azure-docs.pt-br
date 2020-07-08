@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
 ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260982"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -115,7 +114,7 @@ namespace GetTokenResourceManagerRequests
 
 Substitua `{tenant id}`, `{application id}` e `{redirect uri}` usando as seguintes instruções:
 
-1. Substitua `{tenant id}` pela ID de locatário do aplicativo do Azure Active Directory criado. Você pode acessar a ID clicando em **registros de aplicativo** -> **pontos de extremidade**.
+1. Substitua `{tenant id}` pela ID de locatário do aplicativo do Azure Active Directory criado. Você pode acessar a ID clicando em **registros de aplicativo**  ->  **pontos de extremidade**.
 
     ![Pontos de extremidade][api-management-endpoint]
 
@@ -229,8 +228,8 @@ Confira os seguintes recursos para diferentes orientações do processo de backu
 
 -   [Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automatizar backup e restauração do Gerenciamento de API com Aplicativos Lógicos](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Gerenciamento de API do Azure: fazendo backup e restaurando a configuração](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-    _a abordagem detalhada por Stuart não corresponde à orientação oficial, mas é interessante._
+-   [Gerenciamento de API do Azure: fazendo backup e restaurando a configuração](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) 
+     _A abordagem detalhada por Stuart não corresponde à orientação oficial, mas é interessante._
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

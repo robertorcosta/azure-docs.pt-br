@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80884861"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
@@ -20,7 +19,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 
 | URL | Detalhes |
 |---|---|
-| `*.blob.core.windows.net` | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá usar uma lista de permissões para as URLs de conta de armazenamento específicas. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez `*.blob.core.windows.net`de. |
+| `*.blob.core.windows.net` | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá usar uma lista de permissões para as URLs de conta de armazenamento específicas. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez de `*.blob.core.windows.net` . |
 | `login.microsoftonline.com` | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site. |
 | `*.hypervrecoverymanager.windowsazure.com` | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM. Você pode usar o _IP site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
 | `*.servicebus.windows.net` | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM. Você pode usar o _IP de monitoramento de site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
@@ -51,7 +50,7 @@ Tente acessar o servidor DNS da máquina virtual. Se o servidor DNS não estiver
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: falha na configuração do Azure Site Recovery (151196)
 
 > [!NOTE]
-> Se as VMs estiverem atrás de um balanceador de carga interno **padrão** , por padrão, não teria acesso aos IPS do Office 365, `login.microsoftonline.com`como. Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no artigo [Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando CLI do Azure](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> Se as VMs estiverem atrás de um balanceador de carga interno **padrão** , por padrão, não teria acesso aos IPS do Office 365, como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no artigo [Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando CLI do Azure](/azure/load-balancer/configure-load-balancer-outbound-cli).
 
 #### <a name="possible-cause"></a>Causa possível
 
@@ -82,7 +81,7 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
 1. Crie regras de saída da porta HTTPS 443 para os IPs de Site Recovery que correspondem ao local de destino:
 
-   | Local | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
+   | Location | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
    | --- | --- | --- |
    | Centro dos EUA | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +101,7 @@ Para este exemplo, essas regras NSG são necessárias para que a replicação po
 
 1. Crie regras de saída da porta HTTPS 443 para os IPs de Site Recovery que correspondem ao local de origem:
 
-   | Local | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
+   | Location | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
    | --- | --- | --- |
    | Leste dos EUA | 13.82.88.226 | 104.45.147.24 |
 
@@ -124,7 +123,7 @@ As configurações de proxy personalizadas são inválidas e o agente do serviç
 
 #### <a name="resolution"></a>Resolução
 
-1. O agente do serviço de mobilidade detecta as configurações de proxy do IE `/etc/environment` no Windows e no Linux.
+1. O agente do serviço de mobilidade detecta as configurações de proxy do IE no Windows e `/etc/environment` no Linux.
 1. Se preferir definir proxy somente para Azure Site Recovery serviço de mobilidade, você poderá fornecer os detalhes do proxy em _ProxyInfo. conf_ localizado em:
 
    - **Linux**:`/usr/local/InMage/config/`

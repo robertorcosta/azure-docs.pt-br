@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261560"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
@@ -27,19 +26,19 @@ Você pode usar a `BETWEEN` palavra-chave para expressar consultas em intervalos
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-Você também pode usar a `BETWEEN` palavra-chave `SELECT` na cláusula, como no exemplo a seguir.
+Você também pode usar a `BETWEEN` palavra-chave na `SELECT` cláusula, como no exemplo a seguir.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 ```
 
-Na API do SQL, ao contrário do SQL ANSI, você pode expressar consultas de intervalo em Propriedades de tipos mistos. Por exemplo, `grade` pode ser um número como `5` em alguns itens e uma cadeia de `grade4` caracteres como em outros. Nesses casos, como no JavaScript, a comparação entre os dois tipos diferentes resulta em `Undefined`, portanto, o item é ignorado.
+Na API do SQL, ao contrário do SQL ANSI, você pode expressar consultas de intervalo em Propriedades de tipos mistos. Por exemplo, `grade` pode ser um número como `5` em alguns itens e uma cadeia de caracteres como `grade4` em outros. Nesses casos, como no JavaScript, a comparação entre os dois tipos diferentes resulta em `Undefined` , portanto, o item é ignorado.
 
 > [!TIP]
-> Para tempos de execução de consulta mais rápidos, crie uma política de indexação que usa um tipo de índice de intervalo em quaisquer `BETWEEN` propriedades numéricas ou caminhos que a cláusula filtra.
+> Para tempos de execução de consulta mais rápidos, crie uma política de indexação que usa um tipo de índice de intervalo em quaisquer propriedades numéricas ou caminhos que a `BETWEEN` cláusula filtra.
 
-## <a name="distinct"></a>DISTINTO
+## <a name="distinct"></a>DISTINCT
 
 A `DISTINCT` palavra-chave elimina duplicatas na projeção da consulta.
 
@@ -103,7 +102,7 @@ Os resultados são:
 ]
 ```
 
-Não há suporte para consultas com uma função de sistema agregada e uma subconsulta com `DISTINCT` . Por exemplo, não há suporte para a seguinte consulta:
+Não há suporte para consultas com uma função de sistema agregada e uma subconsulta com `DISTINCT`. Por exemplo, a seguinte consulta não tem suporte:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -111,7 +110,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Use a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor em uma lista. Por exemplo, a consulta a seguir retorna todos os itens da `id` família `WakefieldFamily` em `AndersenFamily`que o é ou.
+Use a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor em uma lista. Por exemplo, a consulta a seguir retorna todos os itens da família em que o `id` é `WakefieldFamily` ou `AndersenFamily` .
 
 ```sql
     SELECT *
@@ -133,7 +132,7 @@ Se você incluir sua chave de partição no `IN` filtro, sua consulta será filt
 
 ## <a name="top"></a>INÍCIO
 
-A palavra-chave TOP retorna `N` o primeiro número de resultados da consulta em uma ordem indefinida. Como prática recomendada, use TOP com a `ORDER BY` cláusula para limitar os resultados para o primeiro `N` número de valores ordenados. Combinar essas duas cláusulas é a única maneira de indicar de forma previsível quais linhas afetam os principais.
+A palavra-chave TOP retorna o primeiro `N` número de resultados da consulta em uma ordem indefinida. Como prática recomendada, use TOP com a `ORDER BY` cláusula para limitar os resultados para o primeiro `N` número de valores ordenados. Combinar essas duas cláusulas é a única maneira de indicar de forma previsível quais linhas afetam os principais.
 
 Você pode usar TOP com um valor constante, como no exemplo a seguir, ou com um valor de variável usando consultas parametrizadas.
 
@@ -166,6 +165,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Junções](sql-query-join.md)
 - [Subconsultas](sql-query-subquery.md)

@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80876285"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
@@ -128,7 +127,7 @@ Como um usuário na sua organização, um dispositivo é uma identidade importan
 Você pode realizar essa meta colocando as identidades do dispositivo e gerenciando-as no Azure AD usando um dos seguintes métodos:
 
 - As organizações podem usar [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) para gerenciar o dispositivo e impor políticas de conformidade, a integridade do dispositivo atestar e definir políticas de acesso condicional com base no fato de o dispositivo estar em conformidade. Microsoft Intune pode gerenciar dispositivos iOS, desktops Mac (via integração do JAMF), áreas de trabalho do Windows (usando nativamente o gerenciamento de dispositivos móveis para Windows 10 e o cogerenciamento com o Microsoft Endpoint Configuration Manager) e dispositivos móveis Android.
-- O [ingresso no Azure ad híbrido](../devices/hybrid-azuread-join-managed-domains.md) fornece gerenciamento com políticas de grupo ou Configuration Manager de ponto de extremidade da Microsoft em um ambiente com Active Directory dispositivos de computadores ingressados no domínio. As organizações podem implantar um ambiente gerenciado por meio de PHS ou PTA com SSO contínuo. Trazer seus dispositivos para o Azure ad maximiza a produtividade do usuário por meio de SSO em seus recursos de nuvem e locais, permitindo que você proteja o acesso aos recursos de nuvem e locais com [acesso](../conditional-access/overview.md) condicional ao mesmo tempo.
+- O [ingresso no Azure ad híbrido](../devices/hybrid-azuread-join-managed-domains.md) fornece gerenciamento com políticas de grupo ou Configuration Manager de ponto de extremidade da Microsoft em um ambiente com Active Directory dispositivos de computadores ingressados no domínio. As organizações podem implantar um ambiente gerenciado por meio de PHS ou PTA com SSO contínuo. Trazer seus dispositivos para o Azure AD maximiza a produtividade do usuário por meio de SSO em seus recursos de nuvem e locais, permitindo que você proteja o acesso aos recursos de nuvem e locais com [acesso condicional](../conditional-access/overview.md)   ao mesmo tempo.
 
 Se você tiver dispositivos Windows ingressados no domínio que não estão registrados na nuvem ou dispositivos Windows ingressados no domínio que são registrados na nuvem, mas sem políticas de acesso condicional, você deve registrar os dispositivos não registrados e, em ambos os casos, [usar o ingresso do Azure ad híbrido como um controle](../conditional-access/require-managed-devices.md) em suas políticas de acesso condicional.
 
@@ -140,10 +139,10 @@ Se você estiver gerenciando dispositivos com MDM ou Microsoft Intune, mas não 
 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Leitura recomendada de políticas de acesso de confiança de dispositivo
 
-- [Como planejar sua implementação de junção de Azure Active Directory híbrida](../devices/hybrid-azuread-join-plan.md)
+- [Como planejar sua implementação de junção do Azure Active Directory híbrido](../devices/hybrid-azuread-join-plan.md)
 - [Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-### <a name="windows-hello-for-business"></a>Windows Hello for Business
+### <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
 No Windows 10, o [Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) substitui senhas com autenticação forte de dois fatores em computadores. O Windows Hello para empresas permite uma experiência de MFA mais simplificada para os usuários e reduz sua dependência de senhas. Se você não começou a distribuir dispositivos com Windows 10 ou os implantou parcialmente, recomendamos que você atualize para o Windows 10 e [habilite o Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) em todos os dispositivos.
 
@@ -199,7 +198,7 @@ Por outro lado, se você encontrar aplicativos que têm atribuição a usuários
 Com os [locais nomeados](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) no Azure AD, você pode rotular intervalos de endereços IP confiáveis em sua organização. O Azure AD usa localizações nomeadas para:
 
 - Evite falsos positivos em eventos de risco. Entrar de um local de rede confiável reduz o risco de entrada de um usuário.
-- Configure o [acesso condicional baseado no local](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations).
+- Configure o [acesso condicional com base em localização](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations).
 
 ![Local nomeado](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
@@ -258,7 +257,7 @@ O acesso condicional é uma ferramenta essencial para melhorar a postura de segu
 - [Práticas recomendadas para acesso condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
 - [Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de configurações de acesso condicional Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
-- [Políticas de acesso condicional comum](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+- [Políticas de acesso condicional comuns](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ## <a name="access-surface-area"></a>Área de superfície de acesso
 
@@ -296,7 +295,7 @@ Em um ataque de concessão de consentimento ilícito, o invasor cria um aplicati
 
 Veja abaixo uma lista de aplicativos com permissões que você pode querer analisar para os serviços de nuvem da Microsoft:
 
-- Aplicativos com aplicativo ou delegado \*. Permissões ReadWrite
+- Aplicativos com aplicativo ou delegado \* . Permissões ReadWrite
 - Aplicativos com permissões delegadas podem ler, enviar ou gerenciar email em nome do usuário
 - Aplicativos que recebem o usando as seguintes permissões:
 
@@ -344,7 +343,7 @@ Abaixo estão as configurações de usuário e grupo que podem ser bloqueadas se
 #### <a name="groups-recommended-reading"></a>Leitura recomendada de grupos
 
 - [O que é a colaboração B2B do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- [Integrando aplicativos com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+- [Integrar aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 - [Aplicativos, permissões e consentimento no Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 - [Use grupos para gerenciar o acesso a recursos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 - [Configurando o gerenciamento de acesso de aplicativo de autoatendimento no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)
@@ -367,7 +366,7 @@ Ter acesso a atividades de entrada, auditorias e eventos de risco do Azure AD é
 
 - [Referência à API de auditoria do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)
 - [Referência da API de relatório de atividade de entrada do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-sign-in-activity-reference)
-- [Obter dados usando a API de Relatório do Azure AD com certificados](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
+- [Obtenha dados usando a API de relatórios do Microsoft Azure Active Directory com certificados](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph para Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Referência de API de atividade de gerenciamento do Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
 - [Como usar o Pacote de Conteúdo do Power BI do Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md)

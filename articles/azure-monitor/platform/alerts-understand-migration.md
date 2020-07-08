@@ -7,10 +7,9 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114318"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entender como a ferramenta de migração funciona
@@ -93,7 +92,7 @@ Todos os alertas clássicos em métricas de Cosmos DB podem ser migrados, exceto
 - Latência de gravação observada
 - Disponibilidade do serviço
 - Capacidade de Armazenamento
-- Solicitações limitadas
+- Solicitações Limitadas
 - Total de Solicitações
 
 Média de solicitações por segundo, nível de consistência, máximo de RUPM consumidas por minuto, máximo de RUs por segundo, latência de leitura observada, latência de gravação observada, a capacidade de armazenamento não está disponível no momento no [novo sistema](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
@@ -115,18 +114,18 @@ Essas são regras de alerta clássicas sobre métricas que eram anteriormente su
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
-| Microsoft. SQL/Servers/bancos de dados | service_level_objective, storage_limit, storage_used, limitação, dtu_consumption_percent, storage_used |
+| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, limitação, dtu_consumption_percent, storage_used |
 | Microsoft. Web/hostingEnvironments/multirolepools | averagememoryworkingset |
 | Microsoft. Web/hostingEnvironments/pools | bytesreceived, httpqueuelength |
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Como as novas regras de alerta e os grupos de ação equivalentes são criados
 
-A ferramenta de migração converte suas regras de alerta clássicas para novas regras de alerta e grupos de ação equivalentes. Para as regras de alerta mais clássicas, as novas regras de alerta equivalentes estão na mesma métrica com `windowSize` as `aggregationType`mesmas propriedades, como e. No entanto, há algumas regras de alerta clássicas em métricas que têm uma métrica diferente e equivalente no novo sistema. Os princípios a seguir se aplicam à migração de alertas clássicos, a menos que especificado na seção abaixo:
+A ferramenta de migração converte suas regras de alerta clássicas para novas regras de alerta e grupos de ação equivalentes. Para as regras de alerta mais clássicas, as novas regras de alerta equivalentes estão na mesma métrica com as mesmas propriedades, como `windowSize` e `aggregationType` . No entanto, há algumas regras de alerta clássicas em métricas que têm uma métrica diferente e equivalente no novo sistema. Os princípios a seguir se aplicam à migração de alertas clássicos, a menos que especificado na seção abaixo:
 
 - **Frequência**: define com que frequência uma regra de alerta clássica ou nova verifica a condição. As `frequency` regras de alerta clássicas não eram configuráveis pelo usuário e foram sempre 5 minutos para todos os tipos de recursos, exceto Application insights componentes para os quais era 1 minuto. Portanto, a frequência das regras equivalentes também é definida como 5 min e 1 min, respectivamente.
-- **Tipo de agregação**: define como a métrica é agregada na janela de interesse. O `aggregationType` também é o mesmo entre alertas clássicos e novos alertas para a maioria das métricas. Em alguns casos, como a métrica é diferente entre alertas clássicos e novos alertas, o `aggregationType` equivalente ou `primary Aggregation Type` o definido para a métrica é usado.
+- **Tipo de agregação**: define como a métrica é agregada na janela de interesse. O `aggregationType` também é o mesmo entre alertas clássicos e novos alertas para a maioria das métricas. Em alguns casos, como a métrica é diferente entre alertas clássicos e novos alertas, `aggregationType` o equivalente ou o `primary Aggregation Type` definido para a métrica é usado.
 - **Unidades**: a propriedade da métrica na qual o alerta é criado. Algumas métricas equivalentes têm unidades diferentes. O limite é ajustado adequadamente conforme necessário. Por exemplo, se a métrica original tiver segundos como unidades, mas a nova métrica equivalente tiver milissegundos como unidades, o limite original será multiplicado por 1000 para garantir o mesmo comportamento.
-- **Tamanho da janela**: define a janela sobre a qual os dados de métrica são agregados para comparar com o limite. Para valores `windowSize` padrão como 5mins, 15mins, 30mins, 1hour, 3Hours, 6 horas, 12 horas, 1 dia, não há nenhuma alteração feita para a nova regra de alerta equivalente. Para outros valores, o mais próximo `windowSize` é escolhido para ser usado. Para a maioria dos clientes, não há nenhum impacto com essa alteração. Para um pequeno percentual de clientes, pode haver a necessidade de ajustar o limite para obter exatamente o mesmo comportamento.
+- **Tamanho da janela**: define a janela sobre a qual os dados de métrica são agregados para comparar com o limite. Para `windowSize` valores padrão como 5mins, 15mins, 30mins, 1hour, 3Hours, 6 horas, 12 horas, 1 dia, não há nenhuma alteração feita para a nova regra de alerta equivalente. Para outros valores, o mais próximo `windowSize` é escolhido para ser usado. Para a maioria dos clientes, não há nenhum impacto com essa alteração. Para um pequeno percentual de clientes, pode haver a necessidade de ajustar o limite para obter exatamente o mesmo comportamento.
 
 Nas seções a seguir, detalharemos as métricas que têm uma métrica diferente e equivalente no novo sistema. Qualquer métrica que permanece a mesma para as regras de alerta clássicas e novas não está listada. Você pode encontrar uma lista de métricas com suporte no novo sistema [aqui](metrics-supported.md).
 
@@ -210,11 +209,11 @@ Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 | Encargo de solicitação de contagem de Mongo| MongoRequestCharge com a dimensão "CommandName" = "Count"||
 | Taxa de solicitação de contagem de Mongo | MongoRequestsCount com a dimensão "CommandName" = "Count"||
 | Mongo o encargo da solicitação de exclusão | MongoRequestCharge com a dimensão "CommandName" = "Delete"||
-| Taxa de solicitação de exclusão de Mongo | MongoRequestsCount com a dimensão "CommandName" = "Delete"||
+| Taxa de Solicitação de Exclusão do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Delete"||
 | Cobrança de solicitação de inserção de Mongo | MongoRequestCharge com a dimensão "CommandName" = "Insert"||
-| Taxa de solicitação de inserção de Mongo | MongoRequestsCount com a dimensão "CommandName" = "Insert"||
+| Taxa de Solicitação de Inserção do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Insert"||
 | Encargo de solicitação de consulta do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Find"||
-| Taxa de solicitação de consulta do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Find"||
+| Taxa de Solicitação de Consulta do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Find"||
 | Encargo de solicitação de atualização do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Update"||
 | Serviço indisponível| ServiceAvailability||
 | TotalRequestUnits | TotalRequestUnits||
@@ -245,8 +244,8 @@ Qualquer usuário que tenha a função interna de colaborador de monitoramento n
 - */leitura
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
-- Microsoft. insights/metricAlerts/*
-- Microsoft. AlertsManagement/smartDetectorAlertRules/*
+- Microsoft.Insights/metricAlerts/*
+- Microsoft.AlertsManagement/smartDetectorAlertRules/*
 
 > [!NOTE]
 > Além de ter permissões acima, sua assinatura também deve ser registrada com o provedor de recursos Microsoft. AlertsManagement. Isso é necessário para migrar com êxito os alertas de anomalias de falha no Application Insights. 
@@ -273,4 +272,4 @@ Como parte da migração, novos alertas de métrica e novos grupos de ação ser
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Como usar a ferramenta de migração](alerts-using-migration-tool.md)
-- [Preparar para a migração](alerts-prepare-migration.md)
+- [Preparar a migração](alerts-prepare-migration.md)

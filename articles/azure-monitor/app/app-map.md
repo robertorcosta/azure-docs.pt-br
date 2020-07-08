@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80989520"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
@@ -112,7 +111,7 @@ namespace CustomInitializer.Telemetry
 
 **Aplicativos ASP.NET: inicializador de carga para o TelemetryConfiguration ativo**
 
-Em ApplicationInsights. config:
+Em ApplicationInsights.config:
 
 ```xml
     <ApplicationInsights>
@@ -138,11 +137,11 @@ Um método alternativo para aplicativos Web ASP.NET é instanciar o inicializado
 ```
 
 > [!NOTE]
-> Adicionar inicializador `ApplicationInsights.config` usando ou `TelemetryConfiguration.Active` usando não é válido para aplicativos ASP.NET Core. 
+> Adicionar inicializador usando `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core. 
 
 **Aplicativos ASP.NET Core: inicializador de carga para o TelemetryConfiguration**
 
-Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `ConfigureServices` método da sua `Startup.cs` classe.
+Para [aplicativos ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no método `ConfigureServices` de sua classe `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -169,11 +168,11 @@ Para o [agente Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java
 }
 ```
 
-Você também pode definir o nome da função de nuvem usando a ```APPLICATIONINSIGHTS_ROLE_NAME```variável de ambiente.
+Você também pode definir o nome da função de nuvem usando a variável de ambiente ```APPLICATIONINSIGHTS_ROLE_NAME``` .
 
 **Java SDK**
 
-Se você estiver usando o SDK, começando com Application Insights SDK do Java 2.5.0, poderá especificar o nome da função de nuvem `<RoleName>` adicionando ao `ApplicationInsights.xml` arquivo, por exemplo,
+Se você estiver usando o SDK, começando com Application Insights SDK do Java 2.5.0, poderá especificar o nome da função de nuvem adicionando `<RoleName>` ao `ApplicationInsights.xml` arquivo, por exemplo,
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -229,7 +228,7 @@ No que diz respeito a como pensar sobre o **nome da função de nuvem**, pode se
 
 ![Captura de tela do mapa do aplicativo](media/app-map/cloud-rolename.png)
 
-No mapa do aplicativo acima, cada um dos nomes em caixas verdes são valores de nome de função de nuvem para diferentes aspectos desse aplicativo distribuído específico. Portanto, para esse aplicativo, suas funções consistem `acmefrontend`em `Inventory Management`: `Authentication`, `Payment Processing Worker Role`,, a. 
+No mapa do aplicativo acima, cada um dos nomes em caixas verdes são valores de nome de função de nuvem para diferentes aspectos desse aplicativo distribuído específico. Portanto, para esse aplicativo, suas funções consistem em: `Authentication` , `acmefrontend` , `Inventory Management` , a `Payment Processing Worker Role` . 
 
 No caso desse aplicativo, cada um desses nomes de função de nuvem também representa um recurso de Application Insights exclusivo diferente com suas próprias chaves de instrumentação. Como o proprietário deste aplicativo tem acesso a cada um desses quatro recursos de Application Insights diferentes, o mapa de aplicativos é capaz de reunir um mapa das relações subjacentes.
 
@@ -259,11 +258,11 @@ Se você estiver tendo dificuldades para obter o Mapa do aplicativo para trabalh
 
 1. Certifique-se que você está usando um SDK com suporte oficial. SDKs de comunidade/sem suporte podem não dar suporte à correlação.
 
-    Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista dos SDKs com suporte.
+    Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista de SDKs com suporte.
 
 2. Atualize todos os componentes para a versão mais recente do SDK.
 
-3. Se você estiver usando o Azure Functions com C#, atualize para o [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se você estiver usando Azure Functions com C#, atualize para o [Functions v2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Confirme se o [nome da função de nuvem](#set-cloud-role-name) está configurado corretamente.
 

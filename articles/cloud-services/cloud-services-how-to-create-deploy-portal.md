@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811346"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
@@ -59,7 +58,7 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. No novo painel **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
 4. Crie um novo **grupo de recursos** ou selecione um existente.
-5. Selecione um **local**.
+5. Selecione um **Local**.
 6. Clique em **Empacotar**. Isso abre o painel **Carregar um pacote**. Preencha os campos obrigatórios. Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
 7. Verifique se a opção **Iniciar implantação** está selecionada.
 8. Clique em **OK** que fechará o painel **Carregar um pacote**.
@@ -88,7 +87,7 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
-* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
+* Configure um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 

@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: peterpfr
 ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80999030"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: usar grupos de dispositivos para analisar a telemetria do dispositivo
@@ -47,7 +46,7 @@ Para criar um grupo de dispositivos:
 
 1. Escolha **grupos de dispositivos** no painel esquerdo.
 
-1. Selecione **+**:
+1. Selecione **+** :
 
     ![Novo grupo de dispositivos](media/tutorial-use-device-groups/image1.png)
 

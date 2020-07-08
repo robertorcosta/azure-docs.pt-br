@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259912"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de correspondência no mecanismo de regras padrão para a CDN do Azure
@@ -58,11 +57,11 @@ Identifica solicitações com base nas informações de cookie na solicitação 
 
 Nome do cookie | Operador | Valor do cookie | Transformação de caso
 ------------|----------|--------------|---------------
-Cadeia de caracteres | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
-- Você não pode usar valores curinga (incluindo asteriscos\*()) ao especificar um nome de cookie; Você deve usar um nome de cookie exato.
+- Você não pode usar valores curinga (incluindo asteriscos ( \* )) ao especificar um nome de cookie. você deve usar um nome de cookie exato.
 - Você pode especificar apenas um único nome de cookie por instância dessa condição de correspondência.
 - Comparações de nome de cookie diferenciam maiusculas de minúsculas.
 - Para especificar vários valores de cookie, use um único espaço entre cada valor de cookie. 
@@ -77,7 +76,7 @@ Identifica solicitações com base em argumentos definidos para o método POST R
 
 Nome do argumento | Operador | Valor do argumento | Transformação de caso
 --------------|----------|----------------|---------------
-Cadeia de caracteres | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="query-string"></a>Cadeia de consulta
 
@@ -132,7 +131,7 @@ Identifica as solicitações que usam um cabeçalho específico na solicitação
 
 Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
 ------------|----------|--------------|---------------
-Cadeia de caracteres | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="request-method"></a>Método de solicitação
 
@@ -158,19 +157,19 @@ Operador | Valores com suporte
 ---------|----------------
 Equals, não é igual a | HTTP, HTTPS
 
-### <a name="request-url"></a>URL de Solicitação
+### <a name="request-url"></a>URL da solicitação
 
 Identifica as solicitações que correspondem à URL especificada.
 
 #### <a name="required-fields"></a>Campos obrigatórios
 
-Operador | URL de Solicitação | Transformação de caso
+Operador | URL da solicitação | Transformação de caso
 ---------|-------------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 #### <a name="key-information"></a>Principais informações
 
-- Ao usar essa condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: *https://www.\<yourdomain\>.com*.
+- Ao usar essa condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: * https://www . \<yourdomain\> . com*.
 
 ### <a name="url-file-extension"></a>Extensão de arquivo de URL
 
@@ -221,7 +220,7 @@ Operador | Valor | Transformação de caso
 Para regras que aceitam valores da lista de operadores padrão, os seguintes operadores são válidos:
 
 - Qualquer
-- É igual a 
+- Igual a 
 - Contém 
 - Começa com 
 - Termina com 
@@ -244,5 +243,5 @@ Para operadores numéricos como *menor* que e *maior ou igual*a, a comparação 
 
 - [Visão geral da CDN do Azure](cdn-overview.md)
 - [Referência do mecanismo de regras Standard](cdn-standard-rules-engine-reference.md)
-- [Ações no mecanismo de regras padrão](cdn-standard-rules-engine-actions.md)
+- [Ações no mecanismo de regras Standard](cdn-standard-rules-engine-actions.md)
 - [Impor HTTPS usando o mecanismo de regras Standard](cdn-standard-rules-engine.md)

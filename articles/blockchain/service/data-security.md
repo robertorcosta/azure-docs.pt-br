@@ -5,10 +5,9 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 989d9f2afad30517a85185878d694c0b6640e987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80879591"
 ---
 # <a name="azure-blockchain-service-security"></a>Segurança do serviço Blockchain do Azure
@@ -33,7 +32,7 @@ As transações podem ser enviadas para nós blockchain por meio de um ponto de 
 
 Há três modos de autenticação para acesso RPC.
 
-### <a name="basic-authentication"></a>Autenticação básica
+### <a name="basic-authentication"></a>Autenticação Básica
 
 A autenticação básica usa um cabeçalho de autenticação HTTP que contém o nome de usuário e a senha. Nome de usuário é o nome do nó blockchain. A senha é definida durante o provisionamento de um membro ou nó. A senha pode ser alterada usando o portal do Azure ou a CLI.
 

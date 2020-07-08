@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 80481bc11933b0404079221f23b5054024f00acb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811358"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar Serviços de Nuvem no portal do Azure
@@ -122,7 +121,7 @@ A folha **Visão geral** tem uma barra de status na parte superior. Quando você
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
-* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
+* Configure um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 

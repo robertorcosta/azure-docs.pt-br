@@ -13,10 +13,9 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991000"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API Web que chama APIs da Web: configuração de código
@@ -73,7 +72,7 @@ O método AddAccountToCacheFromJwt () precisa:
 
 ### <a name="instantiate-a-confidential-client-application"></a>Criar uma instância de um aplicativo cliente confidencial
 
-Esse fluxo está disponível somente no fluxo do cliente confidencial, para que a API Web protegida forneça as credenciais do cliente (segredo do cliente ou certificado) para a [classe ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) por meio do `WithClientSecret` método ou `WithCertificate` .
+Esse fluxo está disponível somente no fluxo do cliente confidencial, para que a API Web protegida forneça as credenciais do cliente (segredo do cliente ou certificado) para a [classe ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) por meio do `WithClientSecret` `WithCertificate` método ou.
 
 ![Lista de métodos IConfidentialClientApplication](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -145,7 +144,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 
 O fluxo em nome de (OBO) é usado para obter um token para chamar a API da Web downstream. Nesse fluxo, sua API Web recebe um token de portador com permissões delegadas do usuário do aplicativo cliente e, em seguida, troca esse token por outro token de acesso para chamar a API da Web downstream.
 
-O código a seguir usa a estrutura de `SecurityContextHolder` segurança Spring na API da Web para obter o token de portador validado. Em seguida, ele usa a biblioteca Java MSAL para obter um token para a API `acquireToken` downstream usando `OnBehalfOfParameters`a chamada com. MSAL armazena em cache o token para que as chamadas subsequentes para a `acquireTokenSilently` API possam ser usadas para obter o token armazenado em cache.
+O código a seguir usa a estrutura de segurança Spring `SecurityContextHolder` na API da Web para obter o token de portador validado. Em seguida, ele usa a biblioteca Java MSAL para obter um token para a API downstream usando a `acquireToken` chamada com `OnBehalfOfParameters` . MSAL armazena em cache o token para que as chamadas subsequentes para a API possam ser usadas `acquireTokenSilently` para obter o token armazenado em cache.
 
 ```Java
 @Component
@@ -214,11 +213,11 @@ class MsalAuthHelper {
 
 O fluxo em nome de (OBO) é usado para obter um token para chamar a API da Web downstream. Nesse fluxo, sua API Web recebe um token de portador com permissões delegadas do usuário do aplicativo cliente e, em seguida, troca esse token por outro token de acesso para chamar a API da Web downstream.
 
-Uma API Web Python precisará usar algum middleware para validar o token de portador recebido do cliente. A API da Web pode obter o token de acesso para a API downstream usando a biblioteca MSAL Python [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) chamando o método. Para obter um exemplo de como usar essa API, consulte o [código de teste para Microsoft-Authentication-library-for-Python no GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Consulte também a discussão sobre o [problema 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) no mesmo repositório para obter uma abordagem que ignora a necessidade de um aplicativo de camada intermediária.
+Uma API Web Python precisará usar algum middleware para validar o token de portador recebido do cliente. A API da Web pode obter o token de acesso para a API downstream usando a biblioteca MSAL Python chamando o [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) método. Para obter um exemplo de como usar essa API, consulte o [código de teste para Microsoft-Authentication-library-for-Python no GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Consulte também a discussão sobre o [problema 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) no mesmo repositório para obter uma abordagem que ignora a necessidade de um aplicativo de camada intermediária.
 
 ---
 
-Você também pode ver um exemplo de implementação de fluxo OBO em [node. js e Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+Você também pode ver um exemplo de implementação de fluxo OBO em [Node.js e Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
 ## <a name="protocol"></a>Protocolo
 

@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882957"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicativo de área de trabalho que chama APIs da Web: chamar uma API da Web
@@ -64,7 +63,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Chamar uma API da Web no MSAL para iOS e macOS
 
-Os métodos para adquirir tokens retornam um `MSALResult` objeto. `MSALResult`expõe uma `accessToken` propriedade que pode ser usada para chamar uma API da Web. Adicione um token de acesso ao cabeçalho de autorização HTTP antes de fazer a chamada para acessar a API Web protegida.
+Os métodos para adquirir tokens retornam um objeto `MSALResult`. `MSALResult`expõe uma `accessToken` propriedade que pode ser usada para chamar uma API da Web. Adicione um token de acesso ao cabeçalho de autorização HTTP antes de fazer a chamada para acessar a API Web protegida.
 
 Objective-C:
 
@@ -94,7 +93,7 @@ task.resume()
 
 ## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Chamar várias APIs: consentimento incremental e acesso condicional
 
-Para chamar várias APIs para o mesmo usuário, depois de obter um token para a primeira API, chame `AcquireTokenSilent`. Você obterá um token para as outras APIs silenciosamente na maioria das vezes.
+Para chamar várias APIs para o mesmo usuário, depois de obter um token para a primeira API, chame `AcquireTokenSilent` . Você obterá um token para as outras APIs silenciosamente na maioria das vezes.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

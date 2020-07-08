@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878588"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como o Front Door faz a correspondência com uma regra de roteamento
@@ -29,7 +28,7 @@ Uma configuração de regra de roteamento do Front Door é composta por duas par
 As propriedades a seguir determinam se a solicitação de entrada corresponde à regra de roteamento (ou lado esquerdo):
 
 * **Protocolos HTTP** (HTTP/HTTPS)
-* **Hosts** (por exemplo,\.www foo.com \*,. bar.com)
+* **Hosts** (por exemplo, www \. foo.com, \* . bar.com)
 * **Caminhos** (por exemplo, /\*, /users/\*, /file.gif)
 
 Essas propriedades são expandidas internamente para que cada combinação de Protocolo/Host/Caminho seja um possível conjunto de correspondências.
@@ -52,19 +51,19 @@ Para explicar esse processo ainda mais, vamos examinar um exemplo de configuraç
 |-------|--------------------|-------|
 | Um | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
-| C | www\.fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
+| C | www \. fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
 Se as solicitações de entrada a seguir forem enviadas para a porta da frente, elas precisarão ser combinadas com as seguintes regras de roteamentos de acima:
 
 | Host de front-end de entrada | Regras de roteamentos com correspondência |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| fabrikam.com\.www | C |
+| \.fabrikam.com www | C |
 | images.fabrikam.com | Erro 400: solicitação inválida |
 | foo.adventure-works.com | C |
 | contoso.com | Erro 400: solicitação inválida |
-| adventure-works.com\.www | Erro 400: solicitação inválida |
-| northwindtraders.com\.www | Erro 400: solicitação inválida |
+| \.Adventure-Works.com www | Erro 400: solicitação inválida |
+| \.northwindtraders.com www | Erro 400: solicitação inválida |
 
 ### <a name="path-matching"></a>Correspondência de caminho
 Depois de determinar o host de front-end específico e filtrar possíveis regras de roteamentos para apenas as rotas com aquele host de front-end, o Front Door então filtrará as regras de roteamento com base no caminho solicitado. Usamos uma lógica semelhante que a de hosts com front-end:
@@ -93,19 +92,19 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 
 | Solicitação de entrada    | Rota correspondente |
 |---------------------|---------------|
-| contoso.com/\.www            | Um             |
-| contoso.com/a\.www           | B             |
-| contoso.com/ab\.www          | C             |
-| contoso.com/abc\.www         | D             |
-| contoso.com/abzzz\.www       | B             |
-| contoso.com/abc/\.www        | E             |
-| contoso.com/abc/d\.www       | F             |
-| contoso.com/abc/def\.www     | G             |
-| contoso.com/abc/defzzz\.www  | F             |
-| contoso.com/abc/def/ghi\.www | F             |
-| contoso.com/path\.www        | B             |
-| contoso.com/path/\.www       | H             |
-| contoso.com/path/zzz\.www    | B             |
+| \.contoso.com/www            | Um             |
+| \.contoso.com/a www           | B             |
+| \.contoso.com/AB www          | C             |
+| \.contoso.com/ABC www         | D             |
+| \.contoso.com/abzzz www       | B             |
+| \.contoso.com/ABC/www        | E             |
+| \.contoso.com/ABC/d www       | F             |
+| \.contoso.com/ABC/def www     | G             |
+| \.contoso.com/ABC/defzzz www  | F             |
+| \.contoso.com/ABC/def/GHI www | F             |
+| \.contoso.com/Path www        | B             |
+| \.contoso.com/Path/www       | H             |
+| \.contoso.com/Path/zzz www    | B             |
 
 >[!WARNING]
 > </br> Se não houver regras de roteamento para um host de front-end de correspondência exata com um Caminho de rota catch-all (`/*`), não haverá uma correspondência com nenhuma regra de roteamento.

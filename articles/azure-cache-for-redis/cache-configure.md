@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010300"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
@@ -42,23 +41,23 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Escala](#scale)
     * [Tamanho do cluster](#cluster-size)
     * [Persistência de dados](#redis-data-persistence)
-    * [Agendar atualizações](#schedule-updates)
+    * [Agende atualizações](#schedule-updates)
     * [Replicação geográfica](#geo-replication)
     * [Rede Virtual](#virtual-network)
     * [Firewall](#firewall)
     * [Propriedades](#properties)
-    * [Locks](#locks)
+    * [Bloquea](#locks)
     * [Script de automação](#automation-script)
 * Administração
     * [Importar dados](#importexport)
     * [Exportar dados](#importexport)
     * [Reboot](#reboot)
-* [Monitoramento](#monitoring)
+* [Monitoring](#monitoring)
     * [Métricas do Redis](#redis-metrics)
     * [Regras de alerta](#alert-rules)
     * [Diagnóstico](#diagnostics)
 * Configurações de suporte e solução de problemas
-    * [Resource Health](#resource-health)
+    * [Integridade de recursos](#resource-health)
     * [Nova solicitação de suporte](#new-support-request)
 
 
@@ -94,12 +93,12 @@ A seção **Configurações** permite acessar e definir as seguintes configuraç
 * [Escala](#scale)
 * [Tamanho do cluster](#cluster-size)
 * [Persistência de dados](#redis-data-persistence)
-* [Agendar atualizações](#schedule-updates)
+* [Agende atualizações](#schedule-updates)
 * [Replicação geográfica](#geo-replication)
 * [Rede Virtual](#virtual-network)
 * [Firewall](#firewall)
 * [Propriedades](#properties)
-* [Locks](#locks)
+* [Bloquea](#locks)
 * [Script de automação](#automation-script)
 
 
@@ -329,7 +328,7 @@ Para reinicializar um ou mais nós do cache, selecione os nós desejados e cliqu
 A seção **Monitoramento** permite que você configure o diagnóstico e o monitoramento do Cache do Azure para Redis.
 Para saber mais sobre diagnóstico e monitoramento do Cache do Azure para Redis, confira [Como monitorar o Cache do Azure para Redis](cache-how-to-monitor.md).
 
-![Diagnóstico](./media/cache-configure/redis-cache-diagnostics.png)
+![Diagnósticos](./media/cache-configure/redis-cache-diagnostics.png)
 
 * [Métricas do Redis](#redis-metrics)
 * [Regras de alerta](#alert-rules)
@@ -342,7 +341,7 @@ Clique em **Métricas do Redis** para [exibir métricas](cache-how-to-monitor.md
 
 Clique em **Regras de alerta** para configurar alertas com base na métrica do Cache do Azure para Redis. Para obter mais informações, consulte [Alertas](cache-how-to-monitor.md#alerts).
 
-### <a name="diagnostics"></a>Diagnóstico
+### <a name="diagnostics"></a>Diagnósticos
 
 Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para manter suas métricas de cache por mais de 30 dias, clique em **Diagnóstico** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
 
@@ -356,7 +355,7 @@ As configurações na seção **Suporte + solução de problemas** fornecem opç
 
 ![Suporte + solução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-* [Resource Health](#resource-health)
+* [Integridade de recursos](#resource-health)
 * [Nova solicitação de suporte](#new-support-request)
 
 ### <a name="resource-health"></a>Integridade de recursos
@@ -394,7 +393,7 @@ Novas instâncias de Cache do Azure para Redis são configuradas com os seguinte
 | `maxmemory-samples` |3 |Para economizar memória, LRU e algoritmos TTL mínimos são algoritmos aproximados, em vez de algoritmos precisos. Por padrão, o Redis verificará três chaves e escolherá aquela que foi usada há mais tempo. |
 | `lua-time-limit` |5\.000 |Tempo máximo de execução de um script Lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução depois do tempo máximo permitido e começará a responder a consultas com um erro. |
 | `lua-event-limit` |500 |O tamanho máximo da fila de eventos de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, [https://redis.io/topics/clients](https://redis.io/topics/clients)consulte. |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>O limite para `databases` é diferente para cada tipo de preço do Cache do Azure para Redis e pode ser definido na criação do cache. Se nenhuma configuração `databases` for especificada durante a criação do cache, o padrão será 16.
@@ -461,14 +460,14 @@ Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](
 >
 >
 
-Para obter mais informações sobre comandos Redis, [https://redis.io/commands](https://redis.io/commands)consulte.
+Para obter mais informações sobre comandos Redis, consulte [https://redis.io/commands](https://redis.io/commands) .
 
 ## <a name="redis-console"></a>Console do Redis
 Você pode emitir comandos com segurança para suas instâncias do Cache do Azure para Redis usando o **Console do Redis**, que está disponível no portal do Azure para todas as camadas de cache.
 
 > [!IMPORTANT]
 > - O Console do Redis não funciona com [VNET](cache-how-to-premium-vnet.md). Quando o seu cache faz parte de uma VNET, somente os clientes na VNET podem acessar o cache. Como o Console do Redis é executado em seu navegador local, que está fora da VNET, ele não poderá se conectar ao seu cache.
-> - Nem todos os comandos do Redis têm suporte no Cache do Azure para Redis. Para obter uma lista de comandos do Redis que estão desabilitados para o Cache do Azure para Redis, veja a seção anterior [Comandos do Redis sem suporte no Cache do Azure para Redis](#redis-commands-not-supported-in-azure-cache-for-redis). Para obter mais informações sobre comandos Redis, [https://redis.io/commands](https://redis.io/commands)consulte.
+> - Nem todos os comandos do Redis têm suporte no Cache do Azure para Redis. Para obter uma lista de comandos do Redis que estão desabilitados para o Cache do Azure para Redis, veja a seção anterior [Comandos do Redis sem suporte no Cache do Azure para Redis](#redis-commands-not-supported-in-azure-cache-for-redis). Para obter mais informações sobre comandos Redis, consulte [https://redis.io/commands](https://redis.io/commands) .
 >
 >
 

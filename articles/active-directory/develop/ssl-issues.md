@@ -13,10 +13,9 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881070"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Como: solucionar problemas de MSAL para iOS e macOS TLS/SSL
@@ -27,7 +26,7 @@ Este artigo fornece informações para ajudá-lo a solucionar problemas que pode
 
 **Erro-1200**: "ocorreu um erro de SSL e uma conexão segura com o servidor não pode ser feita".
 
-Esse erro significa que a conexão não é segura. Ocorre quando um certificado é inválido. Para obter mais informações, incluindo qual servidor está falhando na verificação de TLS `NSURLErrorFailingURLErrorKey` , consulte `userInfo` no dicionário do objeto Error.
+Esse erro significa que a conexão não é segura. Ocorre quando um certificado é inválido. Para obter mais informações, incluindo qual servidor está falhando na verificação de TLS, consulte `NSURLErrorFailingURLErrorKey` no `userInfo` dicionário do objeto Error.
 
 Esse erro é da biblioteca de rede da Apple. Uma lista completa de códigos de erro NSURL está em NSURLError. h nos SDKs macOS e iOS. Para obter mais detalhes sobre esse erro, consulte [códigos de erro do sistema de carregamento de URL](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
 

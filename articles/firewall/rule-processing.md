@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
 ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113445"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regra do Firewall do Azure
@@ -46,10 +45,10 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 
 **Regra de rede**
 
-- Ação: permitir
+- Ação: Permitir
 
 
-|name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|name  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Permitir-Web     |TCP|Endereço IP|*|Endereço IP|*|80.443
 
@@ -57,11 +56,11 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 
 - Ação: negar
 
-|name  |Tipo de origem  |Fonte  |Protocolo: porta|FQDNs de destino|
+|name  |Tipo de origem  |Origem  |Protocolo: porta|FQDNs de destino|
 |---------|---------|---------|---------|----------|----------|
 |Negar-Google     |Endereço IP|*|http: 80, https: 443|google.com
 
-**Disso**
+**Result**
 
 A conexão com google.com é permitida porque o pacote corresponde à regra de rede *Allow-Web* . O processamento da regra é interrompido neste ponto.
 
@@ -73,9 +72,9 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 
 - Nome: permitir-coleção
 - Prioridade: 200
-- Ação: permitir
+- Ação: Permitir
 
-|name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|name  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Allow-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -85,11 +84,11 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 - Prioridade: 100
 - Ação: negar
 
-|name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|name  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Negar-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
-**Disso**
+**Result**
 
 As conexões SSH são negadas porque uma coleção de regras de rede de prioridade mais alta a bloqueia. O processamento da regra é interrompido neste ponto.
 
@@ -99,4 +98,4 @@ Se você alterar uma regra para negar tráfego anteriormente permitido, todas as
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda a [Implantar e configurar um Firewall do Azure](tutorial-firewall-deploy-portal.md).
+- Saiba como [implantar e configurar um firewall do Azure](tutorial-firewall-deploy-portal.md).

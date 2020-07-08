@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881572"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
@@ -43,30 +42,30 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft. Como alternativa, entre no portal do Azure de escolha para a nuvem nacional.
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito. Em seguida, defina a sessão do portal para o locatário do Azure Active Directory (Azure AD) desejado.
-1. No painel esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo** > **novo registro**.
+1. No painel esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**  >  **novo registro**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
    1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp**.
-   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321**. Em seguida, selecione **Registrar**.
+   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321** . Em seguida, selecione **registrar**.
 1. Selecione o menu **Autenticação** e, em seguida, adicione as seguintes informações:
-   1. Para **URL de resposta**, **https://localhost:44321/signin-oidc** adicione do tipo **Web**.
-   1. Na seção **Configurações avançadas** , defina a **URL** de logout **https://localhost:44321/signout-oidc**para.
+   1. Para **URL de resposta**, adicione **https://localhost:44321/signin-oidc** do tipo **Web**.
+   1. Na seção **Configurações avançadas**, defina **URL de Logoff** como **https://localhost:44321/signout-oidc** .
    1. Em **Concessão implícita**, selecione **Tokens de ID**.
-   1. Clique em **Salvar**.
+   1. Selecione **Salvar**.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
    1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **MailApp-openidconnect-v2**.
-   1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI **https://localhost:44326/** de redirecionamento:.
+   1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **https://localhost:44326/** .
 1. Selecione **Registrar** para criar o aplicativo.
 1. Selecione o menu **autenticação** .
-1. Na seção de | **concessão implícita** **Configurações avançadas**, selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
-1. Clique em **Salvar**.
+1. Na seção **Advanced settings**de  |  **concessão implícita** configurações avançadas, selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
+1. Selecione **Salvar**.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -82,7 +81,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-  Em seguida, selecione **salvar**.
+  Em seguida, selecione **Salvar**.
 
 1. Selecione **certificados & segredos** no menu.
 1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
@@ -97,7 +96,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **Python-webapp**.
    1. Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
-   1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI **http://localhost:5000/getAToken**de redirecionamento:.
+   1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **http://localhost:5000/getAToken** .
 1. Selecione **Registrar** para criar o aplicativo.
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto.
 1. No menu à esquerda, selecione **certificados & segredos**.
@@ -117,7 +116,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 > - MyOrg (contas neste diretório organizacional somente)
 > - AnyOrg (contas em qualquer diretório organizacional)
 >
-> Você pode criar um aplicativo que conecte usuários com suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, crie um aplicativo multilocatário. Os tipos de conta com suporte são contas em qualquer diretório organizacional. Em seguida, altere `signInAudience` a propriedade no manifesto do aplicativo do portal do Azure. Para obter mais informações, consulte a [etapa 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial de ASP.NET Core. Você pode generalizar essa etapa para aplicativos Web em qualquer idioma.
+> Você pode criar um aplicativo que conecte usuários com suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, crie um aplicativo multilocatário. Os tipos de conta com suporte são contas em qualquer diretório organizacional. Em seguida, altere a `signInAudience` propriedade no manifesto do aplicativo do portal do Azure. Para obter mais informações, consulte a [etapa 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial de ASP.NET Core. Você pode generalizar essa etapa para aplicativos Web em qualquer idioma.
 
 ## <a name="next-steps"></a>Próximas etapas
 

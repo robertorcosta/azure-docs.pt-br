@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80891502"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
@@ -60,7 +59,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Revisões de acesso|Solicitar aplicação dos resultados da análise|
 |Revisões de acesso|Examinar associação de função RBAC|
 |Revisões de acesso|Revisar atribuição do aplicativo|
-|Revisões de acesso|Revisar associação ao grupo|
+|Revisões de acesso|Examinar a associação de grupo|
 |Revisões de acesso|Revisar solicitação de aprovação de solicitação|
 |Revisões de acesso|Desvincular controle do programa|
 |Revisões de acesso|Atualizar revisão de acesso|
@@ -473,8 +472,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Usuários|Adicionar atribuição de função à definição de função|
 |Gerenciamento de Usuários|Adicionar função originada no modelo|
 |Gerenciamento de Usuários|Adicionar membro no escopo à função|
-|Gerenciamento de Usuários|Added|
-|Gerenciamento de Usuários|Assign|
+|Gerenciamento de Usuários|Adicionado|
+|Gerenciamento de Usuários|Atribuir|
 |Gerenciamento de Usuários|Criação de usuários em massa-iniciada|
 |Gerenciamento de Usuários|Criação de usuários em massa – concluída|
 |Gerenciamento de Usuários|Exclusão de usuários em massa – iniciada|
@@ -505,7 +504,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Auditar categoria|Atividade|
 |---|---|
 |Gerenciamento de diretórios|Elevate|
-|Gerenciamento de diretórios|Removed|
+|Gerenciamento de diretórios|Removido|
 |Gerenciamento de diretórios|Alterações na configuração de função|
 |Outros|ScanAlertsNow|
 |Outros|Inscrever-se|
@@ -529,7 +528,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Usuários|Solicitar aplicação dos resultados da análise|
 |Gerenciamento de Usuários|Solicitar interrupção da análise|
 |Gerenciamento de Usuários|Revisar atribuição do aplicativo|
-|Gerenciamento de Usuários|Revisar associação ao grupo|
+|Gerenciamento de Usuários|Examinar a associação de grupo|
 |Gerenciamento de Usuários|Examinar associação de função RBAC|
 
 
@@ -556,13 +555,13 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |PIM|ActivationCanceled|
 |PIM|ActivationDenied|
 |PIM|ActivationRequested|
-|PIM|Added|
+|PIM|Adicionado|
 |PIM|AddedOutsidePIM|
-|PIM|Assign|
+|PIM|Atribuir|
 |PIM|DismissAlert|
 |PIM|Elevate|
 |PIM|ReactivateAlert|
-|PIM|Removed|
+|PIM|Removido|
 |PIM|RemovedOutsidePIM|
 |PIM|Solicitar interrupção da análise|
 |PIM|Alterações na configuração de função|

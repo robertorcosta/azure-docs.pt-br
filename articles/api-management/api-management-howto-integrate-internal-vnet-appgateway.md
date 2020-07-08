@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
 ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811164"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
@@ -87,7 +86,7 @@ Neste guia, também irá expor o **portal do desenvolvedor** ao público externo
 > Se você usa o Azure AD ou autenticação de terceiros, habilite o recurso [afinidade de sessão baseada em cookie](../application-gateway/features.md#session-affinity) no Gateway de Aplicativo.
 
 > [!WARNING]
-> Para impedir que o WAF do gateway de aplicativo quebre o download da especificação do OpenAPI no portal do desenvolvedor, você precisa desabilitar `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`a regra de firewall.
+> Para impedir que o WAF do gateway de aplicativo quebre o download da especificação do OpenAPI no portal do desenvolvedor, você precisa desabilitar a regra de firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Gerenciador de Recursos
 
@@ -220,7 +219,7 @@ Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
-> Para configurar a conectividade herdada do portal do desenvolvedor, `-HostnameType DeveloperPortal` você `-HostnameType Portal`precisa substituir por.
+> Para configurar a conectividade herdada do portal do desenvolvedor, você precisa substituir `-HostnameType DeveloperPortal` por `-HostnameType Portal` .
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
 
@@ -369,7 +368,7 @@ O gerenciamento de API do Azure configurado em uma VNET fornece uma única inter
 ## <a name="next-steps"></a><a name="next-steps"> </a> Próximas etapas
 * Saiba mais sobre o Gateway de Aplicativo do Azure
   * [Visão geral do gateway de aplicativo](../application-gateway/application-gateway-introduction.md)
-  * [Firewall do Aplicativo Web do Gateway de Aplicativo (visualização)](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
+  * [Firewall do Aplicativo Web do Gateway de Aplicativo](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
   * [Gateway de Aplicativo usando Roteamento com base em Caminho](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * Saiba mais sobre o gerenciamento de API nas VNETs
   * [Usando o Gerenciamento de API disponível somente na VNET](api-management-using-with-internal-vnet.md)

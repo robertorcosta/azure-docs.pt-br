@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81011116"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>UDFs (funções definidas pelo usuário) no Azure Cosmos DB
@@ -26,13 +25,13 @@ Usando UDFs, você pode estender a linguagem de consulta de Azure Cosmos DB. UDF
 No entanto, recomendamos evitar UDFs quando:
 
 - Uma função equivalente do [sistema](sql-query-system-functions.md) já existe no Azure Cosmos DB. As funções do sistema sempre usarão menos RU que o UDF equivalente.
-- O UDF é o único filtro na `WHERE` cláusula da consulta. Os UDF não utilizam o índice, portanto, avaliar o UDF exigirá o carregamento de documentos. A combinação de predicados de filtro adicionais que usam o índice, em combinação com um `WHERE` UDF, na cláusula reduzirá o número de documentos processados pelo UDF.
+- O UDF é o único filtro na `WHERE` cláusula da consulta. Os UDF não utilizam o índice, portanto, avaliar o UDF exigirá o carregamento de documentos. A combinação de predicados de filtro adicionais que usam o índice, em combinação com um UDF, na `WHERE` cláusula reduzirá o número de documentos processados pelo UDF.
 
 Se você precisar usar o mesmo UDF várias vezes em uma consulta, deverá referenciar o UDF em uma [subconsulta](sql-query-subquery.md#evaluate-once-and-reference-many-times), permitindo que você use uma expressão de junção para avaliar o UDF uma vez, mas faça referência a ele muitas vezes.
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo a seguir registra um UDF em um contêiner de item no banco de dados Cosmos. O exemplo cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de cadeia de `input` caracteres `pattern`JSON e verifica se o primeiro corresponde ao padrão especificado no segundo usando a função do `string.match()` JavaScript.
+O exemplo a seguir registra um UDF em um contêiner de item no banco de dados Cosmos. O exemplo cria um UDF cujo nome é `REGEX_MATCH` . Ele aceita dois valores de cadeia de caracteres JSON `input` e `pattern` verifica se o primeiro corresponde ao padrão especificado no segundo usando a função do JavaScript `string.match()` .
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -48,7 +47,7 @@ O exemplo a seguir registra um UDF em um contêiner de item no banco de dados Co
            regexMatchUdf).Result;  
 ```
 
-Agora, use essa UDF em uma projeção de consulta. Você deve qualificar UDFs com o prefixo `udf.` que diferencia maiúsculas de minúsculas ao chamá-los de dentro de consultas.
+Agora, use essa UDF em uma projeção de consulta. Você deve qualificar UDFs com o prefixo que diferencia maiúsculas de minúsculas `udf.` ao chamá-los de dentro de consultas.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")

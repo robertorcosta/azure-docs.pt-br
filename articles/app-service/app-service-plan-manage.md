@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811716"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
@@ -24,11 +23,11 @@ Um [Plano do Serviço de Aplicativo do Azure](overview-hosting-plans.md) fornece
 
 Você pode criar um Plano do Serviço de Aplicativo vazio ou pode criar um plano como parte da criação de um aplicativo.
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
+1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.
 
    ![Crie um recurso no portal do Azure.][createResource] 
 
-1. Selecione **novo** > **aplicativo Web** ou outro tipo de aplicativo do serviço de aplicativo.
+1. Selecione **novo**  >  **aplicativo Web** ou outro tipo de aplicativo do serviço de aplicativo.
 
    ![Crie um aplicativo no portal do Azure.][createWebApp] 
 

@@ -1,16 +1,15 @@
 ---
 title: Como usar o Redis-CLI com o cache do Azure para Redis
-description: Saiba como usar o *Redis-CLI. exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente.
+description: Saiba como usar *redis-cli.exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010759"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como usar a ferramenta de linha de comando Redis com Cache do Azure para Redis
@@ -19,7 +18,7 @@ O *redis-cli.exe* é uma ferramenta de linha de comando popular para interagir c
 
 A ferramenta está disponível para as plataformas Windows baixando as [Ferramentas de linha de comando Redis para Windows](https://github.com/MSOpenTech/redis/releases/). 
 
-Se você quiser executar a ferramenta de linha de comando em outra plataforma, baixe o cache do Azure para [https://redis.io/download](https://redis.io/download)Redis de.
+Se você quiser executar a ferramenta de linha de comando em outra plataforma, baixe o cache do Azure para Redis de [https://redis.io/download](https://redis.io/download) .
 
 ## <a name="gather-cache-access-information"></a>Coletar informações de acesso do cache
 
@@ -40,7 +39,7 @@ Nesta seção, você vai recuperar as chaves do Portal do Azure.
 
 Com o cache do Azure para Redis, somente a porta TLS (6380) é habilitada por padrão. A `redis-cli.exe` ferramenta de linha de comando não dá suporte a TLS. Você tem duas opções de configuração para usá-lo:
 
-1. [Habilitar a porta não TLS (6379)](cache-configure.md#access-ports) - **essa configuração não é recomendada** porque, nessa configuração, as chaves de acesso são enviadas via TCP em texto não criptografado. Essa alteração pode comprometer o acesso ao seu cache. O único cenário em que você pode considerar essa configuração é quando você está acessando apenas um cache de teste.
+1. [Habilitar a porta não TLS (6379)](cache-configure.md#access-ports)  -  **Essa configuração não é recomendada** porque, nessa configuração, as chaves de acesso são enviadas via TCP em texto não criptografado. Essa alteração pode comprometer o acesso ao seu cache. O único cenário em que você pode considerar essa configuração é quando você está acessando apenas um cache de teste.
 
 2. Baixar e instalar o [stunnel](https://www.stunnel.org/downloads.html).
 
@@ -48,7 +47,7 @@ Com o cache do Azure para Redis, somente a porta TLS (6380) é habilitada por pa
 
     Clique com o botão direito no ícone da barra de tarefas para o servidor stunnel e clique em **Mostrar janela de log**.
 
-    No menu da janela de log do stunnel, clique em **configuração** > **Editar configuração** para abrir o arquivo de configuração atual.
+    No menu da janela de log do stunnel, clique em **configuração**  >  **Editar configuração** para abrir o arquivo de configuração atual.
 
     Adicione a seguinte entrada para *redis-cli.exe* sob a seção **Definições de serviço**. Insira o nome real do cache em vez de `yourcachename`. 
 
@@ -61,7 +60,7 @@ Com o cache do Azure para Redis, somente a porta TLS (6380) é habilitada por pa
 
     Salve e feche o arquivo de configuração. 
   
-    No menu da janela de log do stunnel, clique em **configuração** > **recarregar configuração**.
+    No menu da janela de log do stunnel, clique em **configuração**  >  **recarregar configuração**.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Conecte-se usando a ferramentas de linha de comando do Redis.

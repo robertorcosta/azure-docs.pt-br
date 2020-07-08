@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892386"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Log de instância e grupo de contêineres com logs de Azure Monitor
@@ -28,7 +27,7 @@ As seções a seguir descrevem como criar um grupo de contêineres habilitado pa
 
 Para habilitar o registro em log nas instâncias de contêiner, serão necessários o seguinte:
 
-* [Espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Espaço de Trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [CLI do Azure](/cli/azure/install-azure-cli) (ou [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Log Analytics
@@ -39,10 +38,10 @@ Para obter a ID do espaço de trabalho do Log Analytics e a chave primária:
 
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
 1. Em **configurações**, selecione **Configurações avançadas**
-1.  > Selecione **fontes conectadas****servidores Windows** (ou **servidores Linux**--a ID e as chaves são as mesmas para ambos)
+1. Selecione **fontes conectadas**  >  **servidores Windows** (ou **servidores Linux**--a ID e as chaves são as mesmas para ambos)
 1. Anote:
-   * **ID DO WORKSPACE**
-   * **PRIMARY KEY**
+   * **ID DO ESPAÇO DE TRABALHO**
+   * **CHAVE PRIMÁRIA**
 
 ## <a name="create-container-group"></a>Criar grupo de contêineres
 
@@ -153,7 +152,7 @@ ContainerInstanceLog_CL
 
 Para obter mais informações sobre como consultar logs e configurar alertas nos logs do Azure Monitor, confira:
 
-* [Noções básicas sobre pesquisas de logs nos logs do Azure Monitor](../log-analytics/log-analytics-log-search.md)
+* [Noções básicas sobre pesquisas de log em logs de Azure Monitor](../log-analytics/log-analytics-log-search.md)
 * [Alertas unificados no Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: dbe21d020d5d01f24913b95587721403fa218cc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881258"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Logout Único
@@ -66,9 +65,9 @@ O Azure AD envia uma `LogoutResponse` em resposta a um elemento `LogoutRequest`.
 O Azure AD define os valores `ID`, `Version` e `IssueInstant` no elemento `LogoutResponse`. Ele também define o elemento `InResponseTo` como o valor do atributo `ID` da `LogoutRequest` que emitiu a resposta.
 
 ### <a name="issuer"></a>Emissor
-O Azure AD define esse valor `https://login.microsoftonline.com/<TenantIdGUID>/` como \<onde TENANTIDGUID> é a ID de locatário do locatário do Azure AD.
+O Azure AD define esse valor como `https://login.microsoftonline.com/<TenantIdGUID>/`, em que \<TenantIdGUID> é a ID de locatário do locatário do Azure AD.
 
 Para avaliar o valor do elemento `Issuer` , use o valor do **URI da ID do aplicativo** fornecido durante o registro do aplicativo.
 
 ### <a name="status"></a>Status
-O Azure AD usa `StatusCode` o elemento no `Status` elemento para indicar o êxito ou a falha da saída. Quando a tentativa de saída falha, o `StatusCode` elemento também pode conter mensagens de erro personalizadas.
+O Azure AD usa o `StatusCode` elemento no `Status` elemento para indicar o êxito ou a falha da saída. Quando a tentativa de saída falha, o `StatusCode` elemento também pode conter mensagens de erro personalizadas.

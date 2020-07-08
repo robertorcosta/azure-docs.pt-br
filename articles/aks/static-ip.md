@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886731"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar um endereço IP público estático e um rótulo DNS com o balanceador de carga do AKS (serviço de kubernetes do Azure)
@@ -20,11 +19,11 @@ Este artigo mostra como criar um endereço IP público estático e atribuí-lo a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
-Este artigo aborda o uso de um IP de SKU *padrão* com um balanceador de carga SKU *padrão* . Para obter mais informações, consulte [tipos de endereço IP e métodos de alocação no Azure][ip-sku].
+Este artigo aborda o uso de um IP de SKU *padrão* com um balanceador de carga SKU *padrão* . Para obter mais informações, confira [Tipos de endereço IP e métodos de alocação no Azure][ip-sku].
 
 ## <a name="create-a-static-ip-address"></a>Criar um endereço IP estático
 
@@ -74,7 +73,7 @@ az role assignment create \
 
 Como alternativa, você pode usar a identidade gerenciada atribuída pelo sistema para permissões em vez da entidade de serviço. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md).
 
-Para criar um serviço Balancer com o endereço IP público estático, *LoadBalancer* Adicione `loadBalancerIP` a propriedade e o valor do endereço IP público estático ao manifesto YAML. Crie um arquivo chamado `load-balancer-service.yaml` e copie no YAML a seguir. Forneça seu próprio endereço IP público criado na etapa anterior. O exemplo a seguir também define a anotação para o grupo de recursos chamado *MyResource*Group. Forneça seu próprio nome de grupo de recursos.
+Para criar um serviço *Balancer* com o endereço IP público estático, adicione a `loadBalancerIP` propriedade e o valor do endereço IP público estático ao manifesto YAML. Crie um arquivo chamado `load-balancer-service.yaml` e copie no YAML a seguir. Forneça seu próprio endereço IP público criado na etapa anterior. O exemplo a seguir também define a anotação para o grupo de recursos chamado *MyResource*Group. Forneça seu próprio nome de grupo de recursos.
 
 ```yaml
 apiVersion: v1
@@ -100,9 +99,9 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="apply-a-dns-label-to-the-service"></a>Aplicar um rótulo DNS ao serviço
 
-Se o serviço estiver usando um endereço IP público dinâmico ou estático, você poderá usar a anotação `service.beta.kubernetes.io/azure-dns-label-name` de serviço para definir um rótulo DNS voltado ao público. Isso publica um nome de domínio totalmente qualificado para seu serviço usando os servidores DNS públicos do Azure e o domínio de nível superior. O valor da anotação deve ser exclusivo no local do Azure, portanto, é recomendável usar um rótulo suficientemente qualificado.   
+Se o serviço estiver usando um endereço IP público dinâmico ou estático, você poderá usar a anotação de serviço `service.beta.kubernetes.io/azure-dns-label-name` para definir um rótulo DNS voltado ao público. Isso publica um nome de domínio totalmente qualificado para seu serviço usando os servidores DNS públicos do Azure e o domínio de nível superior. O valor da anotação deve ser exclusivo no local do Azure, portanto, é recomendável usar um rótulo suficientemente qualificado.   
 
-Em seguida, o Azure acrescentará automaticamente uma sub-rede padrão `<location>.cloudapp.azure.com` , como (em que local é a região que você selecionou), para o nome que você fornece, para criar o nome DNS totalmente qualificado. Por exemplo:
+Em seguida, o Azure acrescentará automaticamente uma sub-rede padrão, como `<location>.cloudapp.azure.com` (em que local é a região que você selecionou), para o nome que você fornece, para criar o nome DNS totalmente qualificado. Por exemplo:
 
 ```yaml
 apiVersion: v1

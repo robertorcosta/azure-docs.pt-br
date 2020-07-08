@@ -12,15 +12,14 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882311"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
 
-O padrão para adquirir tokens para APIs com MSAL. js é primeiro tentar uma solicitação de token silenciosa usando o `acquireTokenSilent` método. Quando esse método é chamado, a biblioteca verifica primeiro o cache no armazenamento do navegador para ver se existe um token válido e o retorna. Quando nenhum token válido está no cache, ele envia uma solicitação de token silenciosa para Azure Active Directory (Azure AD) de um iframe oculto. Esse método também permite que a biblioteca renove tokens. Para obter mais informações sobre a sessão de logon único e os valores de tempo de vida do token no Azure AD, consulte [tempos de vida do token](active-directory-configurable-token-lifetimes.md).
+O padrão para adquirir tokens para APIs com MSAL.js é primeiro tentar uma solicitação de token silenciosa usando o `acquireTokenSilent` método. Quando esse método é chamado, a biblioteca verifica primeiro o cache no armazenamento do navegador para ver se existe um token válido e o retorna. Quando nenhum token válido está no cache, ele envia uma solicitação de token silenciosa para Azure Active Directory (Azure AD) de um iframe oculto. Esse método também permite que a biblioteca renove tokens. Para obter mais informações sobre a sessão de logon único e os valores de tempo de vida do token no Azure AD, consulte [tempos de vida do token](active-directory-configurable-token-lifetimes.md).
 
 As solicitações de token silencioso para o Azure AD podem falhar por motivos como uma sessão expirada do Azure AD ou uma alteração de senha. Nesse caso, você pode invocar um dos métodos interativos (que solicitarão o usuário) para adquirir tokens:
 
@@ -126,7 +125,7 @@ ngOnDestroy() {
  }
 ```
 
-Como alternativa, você pode adquirir tokens explicitamente usando os métodos de aquisição-token conforme descrito na biblioteca do core MSAL. js.
+Como alternativa, você pode adquirir tokens explicitamente usando os métodos de aquisição-token conforme descrito na biblioteca de MSAL.js principal.
 
 ---
 
@@ -168,7 +167,7 @@ Você pode usar declarações opcionais para as seguintes finalidades:
 - Altere o comportamento de determinadas declarações que o Azure AD retorna em tokens.
 - Adicione e acesse as declarações personalizadas para o aplicativo.
 
-Para solicitar declarações opcionais `IdToken`no, você pode enviar um objeto de declarações em cadeias `claimsRequest` para o campo `AuthenticationParameters.ts` da classe.
+Para solicitar declarações opcionais no `IdToken` , você pode enviar um objeto de declarações em cadeias para o `claimsRequest` campo da `AuthenticationParameters.ts` classe.
 
 ```javascript
 "optionalClaims":

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 736fce1d4b347e36ad5c10ca89ad0627104a0232
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80879837"
 ---
 # <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Desenvolva e depure Azure Stream Analytics trabalhos localmente
@@ -31,7 +30,7 @@ Os ambientes na tabela a seguir dão suporte a desenvolvimento local:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Testar Stream Analytics consultas localmente com dados de exemplo usando Visual Studio Code](visual-studio-code-local-run.md)
+* [Testar consultas do Stream Analytics localmente com os dados de exemplo usando o Visual Studio Code](visual-studio-code-local-run.md)
 * [Testar Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code](visual-studio-code-local-run-live-input.md)
 * [Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md)

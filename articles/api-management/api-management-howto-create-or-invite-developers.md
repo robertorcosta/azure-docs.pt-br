@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260965"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerenciar contas de usuário no Gerenciamento de API do Azure
@@ -36,13 +35,13 @@ Complete as tarefas neste artigo: [Criar uma instância do Gerenciamento de API 
 Para adicionar um novo usuário, siga as etapas desta seção:
 
 1. Selecione a guia **Usuários** à esquerda da tela.
-2. Pressione **+ Adicionar**.
+2. Pressione **+Adicionar**.
 3. Insira as informações apropriadas para o usuário.
 4. Pressione **Adicionar**.
 
     ![Adicionar um novo usuário](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Por padrão, as contas de desenvolvedor criadas recentemente têm o estado **Ativa** e são associadas ao grupo **Desenvolvedores**. As contas de desenvolvedor que estão com estado **ativa** podem ser utilizadas para acessar todas as APIs nas quais estão inscritas. Para associar um desenvolvedor recém-criado a grupos adicionais, consulte [Como associar grupos a desenvolvedores][How to associate groups with developers].
+Por padrão, as contas de desenvolvedor recém-criadas estão **ativas**e associadas ao grupo de **desenvolvedores** . As contas de desenvolvedor que estão em um estado **ativo** podem ser usadas para acessar todas as APIs para as quais elas têm assinaturas. Para associar um desenvolvedor recém-criado a grupos adicionais, consulte [Como associar grupos a desenvolvedores][How to associate groups with developers].
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Convidar um desenvolvedor
 Para convidar um desenvolvedor, siga as etapas desta seção:

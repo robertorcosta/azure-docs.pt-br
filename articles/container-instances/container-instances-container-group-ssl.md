@@ -4,10 +4,9 @@ description: Criar um ponto de extremidade SSL ou TLS para um grupo de contêine
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80984599"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Habilitar um ponto de extremidade TLS em um contêiner sidecar
@@ -46,19 +45,19 @@ Execute o comando a seguir para criar o certificado autoassinado (arquivo. CRT) 
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-Agora você deve ver três arquivos no diretório: a solicitação de certificado (`ssl.csr`), a chave privada (`ssl.key`) e o certificado autoassinado (`ssl.crt`). Você usa `ssl.key` o `ssl.crt` e o em etapas posteriores.
+Agora você deve ver três arquivos no diretório: a solicitação de certificado ( `ssl.csr` ), a chave privada ( `ssl.key` ) e o certificado autoassinado ( `ssl.crt` ). Você usa o `ssl.key` e o `ssl.crt` em etapas posteriores.
 
 ## <a name="configure-nginx-to-use-tls"></a>Configurar o Nginx para usar o TLS
 
 ### <a name="create-nginx-configuration-file"></a>Criar arquivo de configuração Nginx
 
-Nesta seção, você cria um arquivo de configuração para o Nginx usar o TLS. Comece copiando o texto a seguir em um novo arquivo `nginx.conf`chamado. No Azure Cloud Shell, você pode usar Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Nesta seção, você cria um arquivo de configuração para o Nginx usar o TLS. Comece copiando o texto a seguir em um novo arquivo chamado `nginx.conf` . No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
 
 ```console
 code nginx.conf
 ```
 
-No `location`, certifique-se de `proxy_pass` definir com a porta correta para seu aplicativo. Neste exemplo, definimos a porta 80 para o `aci-helloworld` contêiner.
+No `location` , certifique-se de definir `proxy_pass` com a porta correta para seu aplicativo. Neste exemplo, definimos a porta 80 para o `aci-helloworld` contêiner.
 
 ```console
 # nginx Configuration File
@@ -138,13 +137,13 @@ Agora, implante o grupo de contêineres especificando as configurações de cont
 
 ### <a name="create-yaml-file"></a>Criar arquivo YAML
 
-Copie o YAML a seguir em um novo arquivo `deploy-aci.yaml`chamado. No Azure Cloud Shell, você pode usar Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Copie o YAML a seguir em um novo arquivo chamado `deploy-aci.yaml` . No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
 
 ```console
 code deploy-aci.yaml
 ```
 
-Insira o conteúdo dos arquivos codificados em base64, onde indicado `secret`em. Por exemplo, `cat` cada um dos arquivos codificados em base64 para ver seu conteúdo. Durante a implantação, esses arquivos são adicionados a um [volume secreto](container-instances-volume-secret.md) no grupo de contêineres. Neste exemplo, o volume secreto é montado no contêiner nginx.
+Insira o conteúdo dos arquivos codificados em base64, onde indicado em `secret` . Por exemplo, `cat` cada um dos arquivos codificados em base64 para ver seu conteúdo. Durante a implantação, esses arquivos são adicionados a um [volume secreto](container-instances-volume-secret.md) no grupo de contêineres. Neste exemplo, o volume secreto é montado no contêiner nginx.
 
 ```YAML
 api-version: 2018-10-01
@@ -193,7 +192,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>Implantar o grupo de contêineres
 
-Crie um grupo de recursos com o comando [AZ Group Create](/cli/azure/group#az-group-create) :
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -207,7 +206,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>Exibir estado da implantação
 
-Para exibir o estado da implantação, use o comando [az container show](/cli/azure/container#az-container-show) a seguir:
+Para exibir o estado da implantação, use o seguinte comando [az container show](/cli/azure/container#az-container-show):
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
@@ -223,7 +222,7 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-tls-connection"></a>Verificar conexão TLS
 
-Use seu navegador para navegar até o endereço IP público do grupo de contêineres. O endereço IP mostrado neste exemplo é `52.157.22.76`, portanto, a URL é **https://52.157.22.76**. Você deve usar HTTPS para ver o aplicativo em execução, devido à configuração do servidor Nginx. Tentativas de conexão via HTTP falham.
+Use seu navegador para navegar até o endereço IP público do grupo de contêineres. O endereço IP mostrado neste exemplo é `52.157.22.76` , portanto, a URL é **https://52.157.22.76** . Você deve usar HTTPS para ver o aplicativo em execução, devido à configuração do servidor Nginx. Tentativas de conexão via HTTP falham.
 
 ![Captura de tela de navegador mostrando aplicativo em execução em uma instância de contêiner do Azure](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 

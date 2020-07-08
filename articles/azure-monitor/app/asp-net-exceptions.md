@@ -4,10 +4,9 @@ description: Capture exceções de aplicativos do ASP.NET junto com a telemetria
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892335"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com o Application Insights
@@ -77,7 +76,7 @@ Você tem várias opções:
 
 Para ver esses eventos, abra [Pesquisar](../../azure-monitor/app/diagnostic-search.md) no menu à esquerda, selecione os **tipos de evento**de menu suspenso e, em seguida, escolha evento personalizado, rastreamento ou exceção.
 
-![Drill-through](./media/asp-net-exceptions/customevents.png)
+![Detalhamento](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
@@ -157,7 +156,7 @@ Os parâmetros de propriedades e medidas são opcionais, mas são úteis para [F
 ## <a name="browser-exceptions"></a>Exceções de navegador
 A maioria das exceções de navegador são relatados.
 
-Se sua página da Web incluir arquivos de script de redes de distribuição de conteúdo ou outros domínios, verifique se a ```crossorigin="anonymous"```marca do script tem o atributo e se o servidor envia [cabeçalhos CORS](https://enable-cors.org/). Isso permitirá que você obtenha um rastreamento de pilha e detalhes de exceções sem tratamento JavaScript desses recursos.
+Se sua página da Web incluir arquivos de script de redes de distribuição de conteúdo ou outros domínios, verifique se a marca do script tem o atributo ```crossorigin="anonymous"``` e se o servidor envia [cabeçalhos CORS](https://enable-cors.org/). Isso permitirá que você obtenha um rastreamento de pilha e detalhes de exceções sem tratamento JavaScript desses recursos.
 
 ## <a name="reuse-your-telemetry-client"></a>Reutilizar o cliente de telemetria
 
@@ -255,7 +254,7 @@ Substitua o atributo HandleError pelo novo atributo em seus controladores.
     ...
 ```
 
-[Amostra](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[Nova](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registrar `AiHandleErrorAttribute` como um filtro global em Global.asax.cs:
@@ -270,7 +269,7 @@ Registrar `AiHandleErrorAttribute` como um filtro global em Global.asax.cs:
      ...
 ```
 
-[Amostra](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[Nova](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registre AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
@@ -286,7 +285,7 @@ Registre AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
     }
 ```
 
-[Amostra](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[Nova](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>API Web
 Começar com o SDK do Application Insights Web versão 2.6 (beta3 e posterior), exceções de coleta sem tratamento do Application Insights lançadas automaticamente nos métodos de controladores para WebAPI 2+. Se você já adicionou um manipulador personalizado para controlar essas exceções (conforme descrito nos exemplos a seguir), você pode remover para evitar o controle duplo de exceções.
@@ -354,7 +353,7 @@ Você pode adicionar esse atributo substituído para controladores específicos 
     }
 ```
 
-[Amostra](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[Nova](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Web API 2.x
 Adicione uma implementação de IExceptionLogger:
@@ -409,7 +408,7 @@ Adicione isso aos serviços no WebApiConfig:
      }
 ```
 
-[Amostra](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[Nova](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Como alternativas, você pode:
 
@@ -479,7 +478,7 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[Amostra](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[Nova](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Contadores de desempenho de exceção
 Se você [instalou o Agente do Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md) no seu servidor, poderá obter um gráfico da taxa de exceções, medida pelo .NET. Isso inclui exceções .NET tradas e sem tratamento.

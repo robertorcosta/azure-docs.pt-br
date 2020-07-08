@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114496"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
@@ -94,5 +93,5 @@ Obter informações sobre as regras de alerta e sobre como configurá-las usando
 * Configurar [alertas do Log de Atividades por meio do Portal do Azure](activity-log-alerts.md)
 * Configurar [alertas do Log de Atividades por meio do Resource Manager](alerts-activity-log.md)
 * Examine o [esquema do webhook de alertas do Log de Atividade](activity-log-alerts-webhook.md)
-* Saiba mais sobre [Grupos de ação](action-groups.md)
+* Saiba mais sobre [grupos de ação](action-groups.md)
 * Configurar [alertas mais recentes](alerts-metric.md)

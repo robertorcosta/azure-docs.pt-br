@@ -1,5 +1,5 @@
 ---
-title: portal do Azure campos de registro para aplicativos desenvolvidos com personalização
+title: Campos de registro do portal do Azure para aplicativos personalizados
 description: Diretrizes para registrar um aplicativo personalizado desenvolvido com o Azure AD
 services: active-directory
 author: rwike77
@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80883161"
 ---
-# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>portal do Azure campos de registro para aplicativos desenvolvidos com personalização
+# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registro do portal do Azure para aplicativos personalizados
 
 Este artigo oferece uma breve descrição de todos os campos disponíveis no formulário de registro do aplicativo no [portal do Azure](https://portal.azure.com).
 
@@ -47,7 +46,7 @@ Depois de preencher os campos acima, o aplicativo será registrado na portal do 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID do aplicativo  | Quando você registra um aplicativo, o Azure AD atribui a seu aplicativo uma ID de aplicativo. A ID do aplicativo pode ser usada para identificar exclusivamente o aplicativo nas solicitações de autenticação no Azure AD, além de acessar recursos, como a API do Graph.                                                          |
-| URI de ID do aplicativo      | Deve ser um URI exclusivo, geralmente do formato **https://&lt;nome do locatário\_&gt;/&lt;do aplicativo\_&gt;.** Isso é usado durante o fluxo de concessão de autorização, como um identificador exclusivo para especificar o recurso para o qual o token deve ser emitido. Ele também se torna a declaração "aud" no token de acesso emitido. |
+| URI da ID do aplicativo      | Deve ser um URI exclusivo, geralmente do formato https://nome **do &lt; locatário \_ do &gt; / &lt; aplicativo \_ &gt; .** Isso é usado durante o fluxo de concessão de autorização, como um identificador exclusivo para especificar o recurso para o qual o token deve ser emitido. Ele também se torna a declaração "aud" no token de acesso emitido. |
 
 ### <a name="branding"></a>Identidade visual
 

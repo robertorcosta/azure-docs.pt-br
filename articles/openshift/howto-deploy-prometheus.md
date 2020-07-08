@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, aro, openshift, métricas, Red Hat
 ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886881"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implantar uma instância Prometheus autônoma em um cluster do Azure Red Hat OpenShift
@@ -30,7 +29,7 @@ Você preparará alguns arquivos de configuração Prometheus localmente. Crie u
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Entre no cluster usando a ferramenta OC
 
-1. Abra um navegador da Web e vá para o console Web do seu cluster (https://openshift.* Random-ID*. *Region*. azmosa.IO).
+1. Abra um navegador da Web e vá para o console Web do seu cluster ( https://openshift .* Random-ID*. *Region*. azmosa.IO).
 2. Entre com suas credenciais do Azure.
 3. Selecione seu nome de usuário no canto superior direito e, em seguida, selecione o **comando copiar logon**.
 4. Cole seu nome de usuário no terminal que você usará.
@@ -49,7 +48,7 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> Você pode usar o `-n` parâmetro ou `--namespace` ou selecionar um projeto ativo executando o `oc project` comando.
+> Você pode usar o `-n` parâmetro ou ou `--namespace` selecionar um projeto ativo executando o `oc project` comando.
 
 ## <a name="prepare-the-prometheus-configuration-file"></a>Preparar o arquivo de configuração do Prometheus
 Crie um arquivo Prometheus. yml inserindo o seguinte conteúdo:
@@ -121,7 +120,7 @@ oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/ex
 O arquivo Prometheus-standalone. YAML é um modelo OpenShift. Ele criará uma instância de Prometheus com o proxy OAuth na frente e uma instância de Alertmanager, também protegida com o OAuth proxy. Neste modelo, o proxy OAuth é configurado para permitir que qualquer usuário que possa "obter" o namespace Prometheus (Veja o `-openshift-sar` sinalizador).
 
 > [!NOTE]
-> Para verificar se o Prom com estado definido é igual ao desejado e às réplicas de número `oc get statefulset -n prometheus-project` atual, execute o comando. Para verificar todos os recursos no projeto, execute o `oc get all -n prometheus-project` comando.
+> Para verificar se o Prom com estado definido é igual ao desejado e às réplicas de número atual, execute o `oc get statefulset -n prometheus-project` comando. Para verificar todos os recursos no projeto, execute o `oc get all -n prometheus-project` comando.
 
 ## <a name="add-permissions-to-allow-service-discovery"></a>Adicionar permissões para permitir a descoberta de serviço
 
@@ -178,11 +177,11 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 ```
 
 > [!NOTE]
-> Para verificar se a função e a Funçãobinding foram criadas corretamente, `oc get role` execute `oc get rolebinding` os comandos e.
+> Para verificar se a função e a Funçãobinding foram criadas corretamente, execute os `oc get role` `oc get rolebinding` comandos e.
 
 ## <a name="optional-deploy-example-application"></a>Opcional: implantar aplicativo de exemplo
 
-Tudo está funcionando, mas não há fontes de métricas. Vá para a URL do Prometheushttps://prom-prometheus-project.apps(.* Random-ID*. *Region*. azmosa.IO/). Você pode encontrá-lo usando o seguinte comando:
+Tudo está funcionando, mas não há fontes de métricas. Vá para a URL do Prometheus ( https://prom-prometheus-project.apps .* Random-ID*. *Region*. azmosa.IO/). Você pode encontrá-lo usando o seguinte comando:
 
 ```
 oc get route prom -n prometheus-project
@@ -200,7 +199,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Os novos aplicativos devem aparecer como destinos válidos na página de descoberta de serviço dentro de 30 segundos após a implantação.
 
-Para obter mais detalhes, selecione**destinos**de **status** > .
+Para obter mais detalhes, selecione destinos de **status**  >  **Targets**.
 
 > [!NOTE]
 > Para cada destino resumido com êxito, o Prometheus adiciona um ponto de dados na métrica acima. Selecione **Prometheus** no canto superior esquerdo **, insira como** a expressão e, em seguida, selecione **executar**.

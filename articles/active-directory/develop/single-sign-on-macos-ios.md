@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881241"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: configurar o SSO no macOS e no iOS
@@ -106,7 +105,7 @@ Para obter mais informações, consulte grupos de conjunto de [chaves](howto-v2-
 
 ## <a name="configure-the-application-object"></a>Configurar o objeto de aplicativo
 
-Depois que você tiver o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e estiver pronto para usar o SSO `MSALPublicClientApplication` , configure com o grupo de acesso do conjunto de chaves como no exemplo a seguir:
+Depois que você tiver o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e estiver pronto para usar o SSO, configure `MSALPublicClientApplication` com o grupo de acesso do conjunto de chaves como no exemplo a seguir:
 
 Objective-C:
 
@@ -137,7 +136,7 @@ do {
 > Isso é particularmente afetado se você tiver aplicativos que dependem de tokens para fazer trabalho em segundo plano.
 > Compartilhar um conjunto de chaves significa que você deve ser muito cuidadoso quando seu aplicativo usa operações de remoção do SDK do Microsoft Identity.
 
-Pronto! O SDK do Microsoft Identity agora compartilhará credenciais em todos os seus aplicativos. A lista de contas também será compartilhada entre instâncias do aplicativo.
+É isso! O SDK do Microsoft Identity agora compartilhará credenciais em todos os seus aplicativos. A lista de contas também será compartilhada entre instâncias do aplicativo.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO por meio do agente de autenticação no iOS
 
@@ -145,7 +144,7 @@ O MSAL fornece suporte para autenticação orientada com Microsoft Authenticator
 
 As etapas a seguir são como habilitar o SSO usando um agente de autenticação para seu aplicativo:
 
-1. Registre um formato de URI de redirecionamento compatível com o agente para o aplicativo no info. plist do seu aplicativo. O formato do URI de redirecionamento compatível com o agente é `msauth.<app.bundle.id>://auth`. Substitua '<app.bundle.id>' ' pela ID do pacote do seu aplicativo. Por exemplo:
+1. Registre um formato de URI de redirecionamento compatível com o agente para o aplicativo no info. plist do seu aplicativo. O formato do URI de redirecionamento compatível com o agente é `msauth.<app.bundle.id>://auth` . Substitua '<app.bundle.id>' ' pela ID do pacote do seu aplicativo. Por exemplo:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -154,7 +153,7 @@ As etapas a seguir são como habilitar o SSO usando um agente de autenticação 
     </array>
     ```
 
-1. Adicione os seguintes esquemas ao info. plist do seu aplicativo `LSApplicationQueriesSchemes`em:
+1. Adicione os seguintes esquemas ao info. plist do seu aplicativo em `LSApplicationQueriesSchemes` :
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -183,7 +182,7 @@ As etapas a seguir são como habilitar o SSO usando um agente de autenticação 
     }
     ```
     
-**Se você estiver usando o Xcode 11**, deverá posicionar o retorno de `SceneDelegate` chamada MSAL no arquivo em vez disso.
+**Se você estiver usando o Xcode 11**, deverá posicionar o retorno de chamada MSAL no `SceneDelegate` arquivo em vez disso.
 Se você der suporte a UISceneDelegate e UIApplicationDelegate para compatibilidade com o iOS mais antigo, o retorno de chamada da MSAL precisará ser colocado nos dois arquivos.
 
 Objective-C:

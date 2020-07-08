@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114361"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
@@ -50,7 +49,7 @@ Os impactos da mudança de preferência para a API scheduledQueryRules são comp
 O processo de mudar as regras de alerta da [API herdada de alertas do Log Analytics](api-alerts.md) não envolve a mudança da definição, consulta ou configuração do alerta de nenhuma maneira. Suas regras de alerta e o monitoramento não são afetados e os alertas não serão interrompidos ou não serão interrompidos durante ou após o comutador. As únicas alterações são:
 
 - Uma alteração na preferência de API e o acesso às suas regras por meio de uma nova API.
-- Um URI de recurso de regra de alerta modificado que contém as IDs usadas na [API de alerta de log Analytics herdada](api-alerts.md) em vez do `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`nome da regra de alerta nesta estrutura. O nome de exibição da regra de alerta permanecerá inalterado.
+- Um URI de recurso de regra de alerta modificado que contém as IDs usadas na [API de alerta de log Analytics herdada](api-alerts.md) em vez do nome da regra de alerta nesta estrutura `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . O nome de exibição da regra de alerta permanecerá inalterado.
 
 Qualquer cliente que desejar mudar voluntariamente para a nova [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloquear o uso da [API herdada de alertas do Log Analytics](api-alerts.md) poderá fazer isso executando uma chamada PUT na API abaixo para mudar todas as regras de alerta associadas ao espaço de trabalho do Log Analytics específico.
 

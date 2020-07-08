@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81253706"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
@@ -69,7 +68,7 @@ Dois cabeçalhos podem ser utilizados para definir a atualização de cache: `Ca
 
 A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HTTP, que definem a duração do cache e o compartilhamento de cache.
 
-**Cache-Control:**
+**Controle de cache:**
 - Introduzido no HTTP 1.1 para dar aos editores da Web mais controle sobre seu conteúdo e tratar as limitações do cabeçalho `Expires`.
 - Substitui o cabeçalho `Expires`, se ele e `Cache-Control` estiverem definidos.
 - Quando usado em uma solicitação HTTP do cliente para os POP de CDN, `Cache-Control` é ignorado por todos os perfis de CDN do Azure, por padrão.
