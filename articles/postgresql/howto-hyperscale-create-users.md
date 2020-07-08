@@ -7,12 +7,11 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/8/2019
-ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: b8d47d1036473af1b367cc0266aae3ea1bceeada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343924"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar usuários no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -28,14 +27,14 @@ O mecanismo PostgreSQL usa [funções](https://www.postgresql.org/docs/current/s
 * `postgres`
 * `citus`
 
-Como o hiperscale é um serviço de PaaS gerenciado, somente a Microsoft pode entrar `postgres` com a função de superusuário. Para acesso administrativo limitado, o hiperscale fornece `citus` a função.
+Como o hiperscale é um serviço de PaaS gerenciado, somente a Microsoft pode entrar com a `postgres` função de superusuário. Para acesso administrativo limitado, o hiperscale fornece a `citus` função.
 
 Permissões para a `citus` função:
 
 * Ler todas as variáveis de configuração, mesmo variáveis normalmente visíveis apenas para superusuários.
-* Leia todas as\_\_ \* exibições de instrução PG e use várias extensões relacionadas a estatísticas – até mesmo exibições ou extensões normalmente visíveis apenas para superusuários.
+* Leia todas as \_ exibições de instrução PG \_ \* e use várias extensões relacionadas a estatísticas – até mesmo exibições ou extensões normalmente visíveis apenas para superusuários.
 * Execute funções de monitoramento que podem ter acesso a bloqueios de compartilhamento em tabelas, possivelmente por muito tempo.
-* [Crie extensões PostgreSQL](concepts-hyperscale-extensions.md) (porque a função é membro de `azure_pg_admin`).
+* [Crie extensões PostgreSQL](concepts-hyperscale-extensions.md) (porque a função é membro de `azure_pg_admin` ).
 
 Notavelmente, a `citus` função tem algumas restrições:
 
@@ -54,28 +53,23 @@ Conforme mencionado, a `citus` conta de administrador não tem permissão para c
 
    ![Adicionar função](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
-O usuário será criado no nó de coordenador do grupo de servidores e propagado para todos os nós de trabalho. As funções criadas por meio do portal do Azure `LOGIN` têm o atributo, o que significa que são usuários verdadeiros que podem entrar no banco de dados.
+O usuário será criado no nó de coordenador do grupo de servidores e propagado para todos os nós de trabalho. As funções criadas por meio do portal do Azure têm o `LOGIN` atributo, o que significa que são usuários verdadeiros que podem entrar no banco de dados.
 
 ## <a name="how-to-modify-privileges-for-user-role"></a>Como modificar privilégios para a função de usuário
 
 As novas funções de usuário geralmente são usadas para fornecer acesso de banco de dados com privilégios restritos. Para modificar privilégios de usuário, use comandos PostgreSQL padrão, usando uma ferramenta como PgAdmin ou psql. (Consulte [conectando-se com psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) no guia de início rápido de hiperescala (Citus).)
 
-Por exemplo, para permitir `db_user` a leitura `mytable`, conceda a permissão:
+Por exemplo, para permitir `db_user` a leitura `mytable` , conceda a permissão:
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
 ```
 
-O Citus (subscale) propaga instruções GRANT de tabela única por todo o cluster, aplicando-as em todos os nós de trabalho. No entanto, as concessões de todo o sistema (por exemplo, para todas as tabelas em um esquema) precisam ser executadas em cada nó de data.  Use a `run_command_on_workers()` função auxiliar:
+O Citus (subscale) propaga instruções GRANT de tabela única por todo o cluster, aplicando-as em todos os nós de trabalho. Ele também propaga concessões que são de todo o sistema (por exemplo, para todas as tabelas em um esquema):
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Como excluir uma função de usuário ou alterar sua senha

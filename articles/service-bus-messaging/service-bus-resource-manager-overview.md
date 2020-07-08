@@ -1,25 +1,17 @@
 ---
 title: Criar recursos do barramento de serviço do Azure usando modelos
 description: Usar modelos do Azure Resource Manager para automatizar a criação de recursos do Barramento de Serviço
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 09/11/2018
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bc784ee57b9bde393408cbefa9a197aebc59b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fd6a42d9624d7a95e66b88e004e1f5203a738a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336609"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager
 
@@ -181,7 +173,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Definir o grupo de recursos
 
-Se você não tiver um grupo de recursos existente, crie um novo grupo de recursos com o comando **New-AzResourceGroup** . Forneça o nome do grupo de recursos e local que você deseja usar. Por exemplo:
+Caso não tenha um grupo de recursos existente, crie um grupo de recursos com o comando **New-AzResourceGroup**. Forneça o nome do grupo de recursos e local que você deseja usar. Por exemplo:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -207,7 +199,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path t
 
 ### <a name="create-the-deployment"></a>Criar a implantação
 
-Para criar a nova implantação, execute o cmdlet `New-AzResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo do modelo. Se o parâmetro **Mode** não for especificado, o valor padrão de **incremental** será usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/templates/deployment-modes.md).
+Para criar a nova implantação, execute o cmdlet `New-AzResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo do modelo. Caso o parâmetro **Mode** não esteja especificado, o valor padrão de **Incremental** será usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/templates/deployment-modes.md).
 
 O comando abaixo solicita os três parâmetros na janela do PowerShell:
 
@@ -255,7 +247,7 @@ Parameters        :
 ## <a name="next-steps"></a>Próximas etapas
 Agora você já viu o fluxo de trabalho básico e os comandos para implantar um modelo do Azure Resource Manager. Para obter informações mais detalhadas, visite os seguintes links:
 
-* [Visão geral de Azure Resource Manager][Azure Resource Manager overview]
+* [Visão geral do Azure Resource Manager][Azure Resource Manager overview]
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell][Deploy resources with Azure Resource Manager templates]
 * [Criando modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Tipos de recursos do Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)

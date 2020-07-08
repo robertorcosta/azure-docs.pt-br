@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: b352458b768c997f295596a7cbd5e8c02f843a9f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84342979"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge"></a>Habilitar a rede de computação em seu Azure Stack Edge
 
@@ -83,7 +82,7 @@ Execute as etapas a seguir para adicionar um módulo de aplicativo do servidor W
 
         ![Especificar informações de porta na folha IoT Edge módulo personalizado](media/azure-stack-edge-extend-compute-access-modules/module-information.png)
 
-    4. Clique em **Salvar**.
+    4. Selecione **Salvar**.
 
 ## <a name="verify-module-access"></a>Verificar o acesso ao módulo
 

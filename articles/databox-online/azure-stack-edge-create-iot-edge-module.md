@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 206d63e05b68cbcec65b0d06e11da48065251ea0
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339885"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desenvolver um módulo IoT Edge do C# para mover arquivos na borda Azure Stack
 
@@ -24,6 +23,7 @@ Você pode usar Azure IoT Edge módulos com sua borda de Azure Stack para transf
 Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Criar um registro de contêiner para armazenar e gerenciar seus módulos (imagens do Docker).
 > * Crie um módulo IoT Edge para implantar em seu dispositivo de borda de Azure Stack. 
 
@@ -67,9 +67,9 @@ Um registro de contêiner do Azure é um registro particular do Docker no Azure 
 3. Forneça:
 
    1. Um **Nome do registro** exclusivo no Azure que contenha de 5 a 50 caracteres alfanuméricos.
-   2. Escolha uma **Assinatura**.
+   2. Escolha uma **assinatura**.
    3. Escolha um **Grupo de recursos** existente ou crie um novo.
-   4. Selecione um **local**. É recomendável que esse local seja o mesmo associado ao recurso de borda do Azure Stack.
+   4. Selecione um **Local**. É recomendável que esse local seja o mesmo associado ao recurso de borda do Azure Stack.
    5. Alterne **Usuário administrador** para **Ativar**.
    6. Defina o SKU como **Básico**.
 

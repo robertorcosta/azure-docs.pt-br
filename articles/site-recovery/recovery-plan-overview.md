@@ -3,12 +3,11 @@ title: Sobre os planos de recuperação no Azure Site Recovery
 description: Saiba mais sobre planos de recuperação no Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343907"
 ---
 # <a name="about-recovery-plans"></a>Sobre planos de recuperação
 
@@ -17,7 +16,7 @@ Este artigo fornece uma visão geral dos planos de recuperação no [Azure site 
 Um plano de recuperação reúne computadores em grupos de recuperação para fins de failover. Um plano de recuperação ajuda-o a definir um processo de recuperação sistemático, criando pequenas unidades independentes com a possibilidade de fazer failover. Uma unidade normalmente representa um aplicativo no ambiente.
 
 - Um plano de recuperação define como os computadores fazem failover e a sequência em que iniciam após o failover.
-- Os planos de recuperação são usados para failover no Azure, mas não podem ser usados para failback do Azure.
+- Os planos de recuperação podem ser usados para failover e failback do Azure.
 - Até 100 instâncias protegidas podem ser adicionadas a um plano de recuperação.
 - É possível personalizar um plano, adicionando ordem, instruções e tarefas ao plano.
 - Após definir um plano, você poderá executar um failover nele.

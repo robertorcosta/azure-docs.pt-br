@@ -2,13 +2,12 @@
 title: Coletar & analisar logs de recursos
 description: Registre e analise eventos de log de recursos para o registro de contêiner do Azure, como autenticação, push de imagem e pull de imagem.
 ms.topic: article
-ms.date: 01/03/2020
-ms.openlocfilehash: 00f9468721126bd166051df47cec1596356e9b54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343176"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria
 
@@ -24,12 +23,14 @@ Coletar dados de log de recursos usando Azure Monitor pode incorrer em custos ad
 
 Os seguintes eventos de nível de repositório para imagens e outros artefatos estão registrados no momento:
 
-* **Eventos de push**
-* **Eventos de pull**
-* **Desmarcar eventos**
-* **Excluir eventos** (incluindo eventos de exclusão do repositório)
+* **Push**
+* **Pull**
+* **Formatação**
+* **Excluir** (incluindo eventos de exclusão do repositório)
+* **Limpar marcação** e **limpar manifesto**
 
-Eventos de nível de repositório que não estão registrados no momento: limpar eventos.
+> [!NOTE]
+> Os eventos de limpeza serão registrados somente se uma [política de retenção](container-registry-retention-policy.md) de registro estiver configurada.
 
 ## <a name="registry-resource-logs"></a>Logs de recursos do registro
 
@@ -37,7 +38,7 @@ Os logs de recursos contêm informações emitidas pelos recursos do Azure que d
 
 * **ContainerRegistryLoginEvents** -status e eventos de autenticação do registro, incluindo a identidade de entrada e o endereço IP
 * **ContainerRegistryRepositoryEvents** – operações como push e pull para imagens e outros artefatos em repositórios de registro
-* **AzureMetrics** - [Métricas de registro de contêiner](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) AzureMetrics, como contagens de push e pull agregadas.
+* **AzureMetrics**  -  [Métricas de registro de contêiner](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) , como contagens de push e pull agregadas.
 
 Para operações, os dados de log incluem:
   * Status de êxito ou falha
@@ -83,16 +84,58 @@ Para obter um tutorial sobre como usar Log Analytics no portal do Azure, consult
 
 Para obter mais informações sobre consultas de log, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### <a name="additional-query-examples"></a>Exemplos de consulta adicionais
+## <a name="query-examples"></a>Exemplos de consulta
 
-#### <a name="100-most-recent-registry-events"></a>100 eventos de registro mais recentes
+### <a name="error-events-from-the-last-hour"></a>Eventos de erro da última hora
+
+```Kusto
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(1h)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+```
+
+### <a name="100-most-recent-registry-events"></a>100 eventos de registro mais recentes
 
 ```Kusto
 ContainerRegistryRepositoryEvents
 | union ContainerRegistryLoginEvents
 | top 100 by TimeGenerated
-| project TimeGenerated, LoginServer , OperationName , Identity , Repository , DurationMs , Region , ResultType
+| project TimeGenerated, LoginServer, OperationName, Identity, Repository, DurationMs, Region , ResultType
 ```
+
+### <a name="identity-of-user-or-object-that-deleted-repository"></a>Identidade do usuário ou objeto que excluiu o repositório
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Delete"
+| project LoginServer, OperationName, Repository, Identity, CallerIpAddress
+```
+
+### <a name="identity-of-user-or-object-that-deleted-tag"></a>Identidade do usuário ou objeto que excluiu a marca
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Untag"
+| project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
+```
+
+### <a name="reposity-level-operation-failures"></a>Falhas de operação em nível de reposity
+
+```kusto
+ContainerRegistryRepositoryEvents 
+| where ResultDescription contains "40"
+| project TimeGenerated, OperationName, Repository, Tag, ResultDescription
+```
+
+### <a name="registry-authentication-failures"></a>Falhas de autenticação do registro
+
+```kusto
+ContainerRegistryLoginEvents 
+| where ResultDescription != "200"
+| project TimeGenerated, Identity, CallerIpAddress, ResultDescription
+```
+
 
 ## <a name="additional-log-destinations"></a>Destinos de log adicionais
 

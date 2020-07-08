@@ -6,12 +6,11 @@ author: sauryadas
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5f396ba6ec1ecc6bd111e048ce34e3546c7364dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77593437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345029"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -19,7 +18,7 @@ A comunidade Kubernetes libera versões secundárias aproximadamente a cada trê
 
 O AKS tem o objetivo de certificar e lançar novas versões do kubernetes dentro de 30 dias após uma versão de upstream, sujeito à estabilidade da versão.
 
-## <a name="kubernetes-versions"></a>Versões do kubernetes
+## <a name="kubernetes-versions"></a>Versões do Kubernetes
 
 Kubernetes usa o esquema de controle de versão de [controle semântico](https://semver.org/) de versão padrão. Isso significa que cada versão do kubernetes segue este esquema de numeração:
 
@@ -95,10 +94,10 @@ New Supported Version List
 * Para novas versões **secundárias** do kubernetes
   * Todos os usuários são notificados publicamente sobre a nova versão e qual versão será removida.
   * Quando uma nova versão de patch é lançada, a versão mais antiga do patch é removida ao mesmo tempo.
-  * Os clientes têm **30 dias** a partir da data de notificação pública para atualizar para um lançamento de versão secundária com suporte.
+  * O suporte do Azure fornece aos clientes **30 dias** a partir da data de notificação pública para atualizar para uma versão secundária com suporte. Após a aprovação de 30 dias, você precisa atualizar sua versão secundária para continuar recebendo suporte.
 * Para novas versões de **patch** do kubernetes
   * Todos os usuários são notificados sobre a versão do novo patch que está sendo lançada e para atualizar para a versão mais recente do patch.
-  * Os usuários têm **30 dias** para atualizar para uma versão de patch mais recente e com suporte antes que o mais antigo seja removido.
+  * O suporte do Azure fornece aos clientes **30 dias** para atualizar para uma versão de patch com suporte, após a remoção de uma versão de patch mais antiga. Depois de 30 dias, você precisa atualizar sua versão de patch para continuar recebendo suporte.
 
 AKS define uma "versão liberada" como as versões disponíveis para o público geral, habilitadas em todas as medições de SLO/qualidade de serviço e disponíveis em todas as regiões. O AKS também pode oferecer suporte a versões de visualização que são rotuladas explicitamente e sujeitas a termos e condições de visualização.
 
@@ -155,7 +154,7 @@ Para versões secundárias sem suporte do AKS, a expansão ou saída deve contin
 
 **Um cliente pode permanecer em uma versão do Kubernetes para sempre?**
 
-Sim. No entanto, se o cluster não estiver em uma das versões com suporte do AKS, o cluster estará fora das políticas de suporte do AKS. O Azure não atualiza nem exclui o cluster automaticamente.
+Se um cluster estiver sem suporte para mais de três versões secundárias e tiver sido considerado para transportar riscos de segurança, o Azure o contatará para atualizar o cluster de forma proativa. Se você não executar outras ações, o Azure reservará o direito de fazer a atualização forçada do cluster em seu nome.
 
 **A qual versão o plano de controle dá suporte se o pool de nós não estiver em uma das versões do AKS com suporte?**
 

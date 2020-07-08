@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.openlocfilehash: 361ba17532d27a7020be1b6874993da999f48604
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/3/2020
+ms.openlocfilehash: a6d340543289fa07370e053681599348a86940cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343397"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Banco de Dados do Azure Suportado para as versões do servidor MariaDB
 
@@ -20,21 +19,21 @@ O banco de dados do Azure para MariaDB foi desenvolvido a partir do [servidor Ma
 MariaDB usa o esquema de nomenclatura X. Y. Z. X é a versão principal, Y é a versão secundária e Z é a versão do patch.
 
 > [!NOTE]
-> No serviço, um gateway é usado para redirecionar as conexões para as instâncias de servidor. Depois que a conexão é estabelecida, o cliente MySQL exibe a versão do MariaDB definida no gateway, não a versão real em execução na sua instância do servidor MariaDB. Para determinar a versão da sua instância do servidor MariaDB, use `SELECT VERSION();` o comando.
+> No serviço, um gateway é usado para redirecionar as conexões para as instâncias de servidor. Depois que a conexão é estabelecida, o cliente MySQL exibe a versão do MariaDB definida no gateway, não a versão real em execução na sua instância do servidor MariaDB. Para determinar a versão da sua instância do servidor MariaDB, use o `SELECT VERSION();` comando.
 
 O Banco de Dados do Azure para MariaDB atualmente suporta a seguinte versão:
 
 ## <a name="mariadb-version-102"></a>MariaDB versão 10,2
 
-Versão do patch: 10.2.25
+Versão do patch: 10.2.31
 
-Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/library/mariadb-10225-release-notes/) para saber mais sobre melhorias e correções nesta versão.
+Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/mariadb-10231-release-notes/) para saber mais sobre melhorias e correções nesta versão.
 
 ## <a name="mariadb-version-103"></a>MariaDB versão 10,3
 
-Versão do patch: 10.3.16
+Versão do patch: 10.3.22
 
-Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/library/mariadb-10316-release-notes/) para saber mais sobre melhorias e correções nesta versão.
+Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/mariadb-10322-release-notes/) para saber mais sobre melhorias e correções nesta versão.
 
 ## <a name="managing-updates-and-upgrades"></a>Gerenciar atualizações e upgrades
 O serviço gerencia automaticamente atualizações para atualizações de patch. Por exemplo, 10.2.21 para 10.2.23.  
