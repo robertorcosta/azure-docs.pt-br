@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 07/17/2017
+ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374722"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -44,13 +44,15 @@ A Rede Acelerada do Azure melhora o desempenho de rede habilitando a SR-IOV (vir
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de dimensionamento de máquinas virtuais do Azure com Azure Load Balancer
 
-Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e balanceador de carga, deve-se considerar o seguinte:
+Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e balanceador de carga, os seguintes itens devem ser considerados:
 
 * **Vários conjuntos de dimensionamento de máquinas virtuais não podem usar o mesmo balanceador de carga**.
 * **Regras NAT de encaminhamento de porta e de entrada**:
   * Cada conjunto de dimensionamento de máquinas virtuais deve ter uma regra NAT de entrada.
   * Depois que o conjunto de dimensionamento tiver sido criado, a porta de back-end não poderá ser modificada para uma regra de balanceamento de carga usada por uma investigação de integridade do balanceador de carga. Para alterar a porta, você pode remover a investigação de integridade atualizando o conjunto de dimensionamento de máquinas virtuais do Azure, atualizar a porta e, em seguida, configurar a investigação de integridade novamente.
   * Ao usar o conjunto de dimensionamento de máquinas virtuais no pool de back-end do balanceador de carga, as regras de NAT de entrada padrão são criadas automaticamente.
+* **Pool de NAT de entrada**:
+  * O pool de NAT de entrada é uma coleção de regras de NAT de entrada. Um pool de NAT de entrada não pode dar suporte a vários conjuntos de dimensionamento de máquinas virtuais.
 * **Regras de balanceamento de carga**:
   * Ao usar o conjunto de dimensionamento de máquinas virtuais no pool de back-end do balanceador de carga, a regra de balanceamento de carga padrão é criada automaticamente.
 * **Regras de saída**:
@@ -144,7 +146,7 @@ A saída, para um nome de dns de máquina virtual individual teria no seguinte f
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>IPv4 público por máquina virtual
-Em geral, as máquinas de virtuais do conjunto de dimensionamento do Azure não exigem seus próprios endereços IP públicos. Na maioria dos cenários, é mais econômico e seguro associar um endereço IP público a um balanceador de carga ou a uma máquina virtual individual (também conhecida como um jumpbox) que encaminha as conexões de entrada para dimensionar máquinas virtuais do conjunto de dimensionamento, conforme necessário (por exemplo, por meio de regras NAT de entrada).
+Em geral, as máquinas de virtuais do conjunto de dimensionamento do Azure não exigem seus próprios endereços IP públicos. Na maioria dos cenários, é mais econômico e seguro associar um endereço IP público a um balanceador de carga ou a uma máquina virtual individual (também conhecida como Jumpbox), que, em seguida, roteia as conexões de entrada para as máquinas virtuais do conjunto de dimensionamento conforme necessário (por exemplo, por meio de regras NAT de entrada).
 
 No entanto, alguns cenários exigem que as máquinas de virtuais do conjunto de dimensionamento do Azure tenham seus próprios endereços IP públicos. Um exemplo é o jogo, onde um console precisa fazer uma conexão direta com uma máquina virtual da nuvem, que está fazendo o processamento da física do jogo. Outro exemplo é onde as máquinas virtuais precisam fazer conexões externas umas com as outras em regiões em um banco de dados distribuído.
 

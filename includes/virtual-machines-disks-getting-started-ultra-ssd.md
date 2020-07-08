@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 269cc52f1e96a6864de55f729fe39a5f609d35c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84902519"
 ---
 Os ultra discos do Azure oferecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs (máquinas virtuais) IaaS do Azure. Essa nova oferta fornece o melhor em desempenho de linha, nos mesmos níveis de disponibilidade que nossas ofertas de discos atuais. Um grande benefício dos ultra discos é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar suas VMs. Os discos Ultra são adequados para cargas de trabalho de grande volume de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho de transações pesadas.
 
@@ -30,11 +30,11 @@ Para aproveitar os ultra discos, você precisa determinar em qual zona de dispon
 #### <a name="cli"></a>CLI
 
 ```azurecli
-$subscription = "<yourSubID>"
+subscription="<yourSubID>"
 # example value is southeastasia
-$region = "<yourLocation>"
+region="<yourLocation>"
 # example value is Standard_E64s_v3
-$vmSize = "<yourVMSize>"
+vmSize="<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
@@ -51,7 +51,7 @@ A resposta será semelhante ao formulário abaixo, em que X é a zona a ser usad
 
 Preservar o valor de **zonas** , representa sua zona de disponibilidade e você precisará dela para implantar um ultra Disk.
 
-|ResourceType  |Nome  |Local  |Zonas  |Restrição  |Funcionalidade  |Valor  |
+|ResourceType  |Nome  |Location  |Zonas  |Restrição  |Funcionalidade  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -65,10 +65,10 @@ Agora que você sabe em qual zona implantar, siga as etapas de implantação nes
 Os ultra discos implantados no oeste dos EUA devem ser implantados sem nenhuma opção de redundância, por enquanto. No entanto, nem todo tamanho de disco que dá suporte a ultra discos pode estar nessa região. Para determinar quais deles no oeste dos EUA dão suporte a ultra disks, você pode usar qualquer um dos trechos de código a seguir. Certifique-se de substituir `vmSize` os `subscription` valores e primeiro:
 
 ```azurecli
-$subscription = "<yourSubID>"
-$region = "westus"
+subscription="<yourSubID>"
+region="westus"
 # example value is Standard_E64s_v3
-$vmSize = "<yourVMSize>"
+vmSize="<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
 ```
@@ -132,12 +132,12 @@ Esta seção aborda a implantação de uma máquina virtual equipada com um ultr
 - Preencha as entradas restantes com seleções de sua escolha.
 - Escolha **Discos**.
 
-![Create-ultra-Disk-Enabled-VM. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+![create-ultra-disk-enabled-vm.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
 
 - Na folha discos, selecione **Sim** para **habilitar a compatibilidade de ultra Disk**.
 - Selecione **criar e anexar um novo disco** para anexar um ultra Disk agora.
 
-![Enable-and-Attach-ultra-Disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+![enable-and-attach-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
 
 - Na folha **criar um novo disco** , insira um nome e, em seguida, selecione **alterar tamanho**.
 - Altere o **tipo de conta** para **ultra Disk**.
@@ -145,7 +145,7 @@ Esta seção aborda a implantação de uma máquina virtual equipada com um ultr
 - Selecione **OK** em ambas as folhas.
 - Continue com a implantação da VM, ela será a mesma que você implantaria qualquer outra VM.
 
-![Create-ultra-Disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+![create-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
 
 ## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>Anexar um ultra Disk usando o portal do Azure
 
@@ -154,27 +154,27 @@ Como alternativa, se sua VM existente estiver em uma zona de região/disponibili
 - Navegue até sua VM e selecione **discos**.
 - Selecione **Editar**.
 
-![Options-selector-ultra-disks. png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+![options-selector-ultra-disks.png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
 
 - Selecione **Sim** para **habilitar a compatibilidade de ultra Disk**.
 
-![ultra-Options-Yes-Enable. png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+![ultra-options-yes-enable.png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
 
 - Selecione **Salvar**.
 - Selecione **adicionar disco de dados** e, em seguida, no menu suspenso para **nome** , selecione **criar disco**.
 
-![Create-and-Attach-New-ultra-Disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+![create-and-attach-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
 
 - Preencha um nome para o novo disco e selecione **alterar tamanho**.
 - Altere o **tipo de conta** para **ultra Disk**.
 - Altere os valores de **tamanho de disco personalizado (GIB)**, **IOPS de disco**e **taxa de transferência de disco** para aqueles de sua escolha.
 - Selecione **OK** e, em seguida, selecione **criar**.
 
-![Making-a-New-ultra-Disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
+![making-a-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
 
 - Depois de retornar à folha do disco, selecione **salvar**.
 
-![Saving-and-Attaching-New-ultra-Disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+![saving-and-attaching-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
 
 ### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>Ajustar o desempenho de um ultra Disk usando o portal do Azure
 
@@ -183,12 +183,12 @@ Ultra disks oferece um recurso exclusivo que permite que você ajuste seu desemp
 - Navegue até sua VM e selecione **discos**.
 - Selecione o ultra Disk do qual você gostaria de modificar o desempenho.
 
-![Selecting-ultra-Disk-to-Modify. png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+![selecting-ultra-disk-to-modify.png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
 
 - Selecione **configuração** e faça suas modificações.
 - Selecione **Salvar**.
 
-![Configuring-ultra-Disk-performance-and-Size. png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
+![configuring-ultra-disk-performance-and-size.png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>Implantar um ultra Disk usando a CLI
 
@@ -219,12 +219,12 @@ az vm start -n $vmName -g $rgName
 Agora que você tem uma VM capaz de conectar ultra disks, você pode criar e anexar um ultra Disk a ele.
 
 ```azurecli-interactive
-$location="eastus2"
-$subscription="xxx"
-$rgname="ultraRG"
-$diskname="ssd1"
-$vmname="ultravm1"
-$zone=123
+location="eastus2"
+subscription="xxx"
+rgname="ultraRG"
+diskname="ssd1"
+vmname="ultravm1"
+zone=123
 
 #create an ultra disk
 az disk create `
@@ -244,10 +244,10 @@ az disk create `
 Como alternativa, se sua VM existente estiver em uma zona de região/disponibilidade que seja capaz de usar ultra disks, você poderá usar ultra discos sem precisar criar uma nova VM.
 
 ```azurecli
-$rgName = "<yourResourceGroupName>"
-$vmName = "<yourVMName>"
-$diskName = "<yourDiskName>"
-$subscriptionId = "<yourSubscriptionID>"
+rgName="<yourResourceGroupName>"
+vmName="<yourVMName>"
+diskName="<yourDiskName>"
+subscriptionId="<yourSubscriptionID>"
 
 az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```

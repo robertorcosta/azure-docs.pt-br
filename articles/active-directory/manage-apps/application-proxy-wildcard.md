@@ -3,25 +3,25 @@ title: Aplicativos curinga no Proxy de Aplicativo do AD do Azure
 description: Saiba como usar aplicativos curinga no proxy do aplicativo do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367726"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicativos curinga no proxy do aplicativo do Azure Active Directory
 
@@ -43,7 +43,7 @@ Você poderá criar um aplicativo curinga (*), se tiver um grupo de aplicativos 
 
 Você poderá publicar aplicativos com curingas se ambas as URLs, interna e externa, estiverem no seguinte formato:
 
-> http(s)://*.\<domain\>
+> http (s)://*.\<domain\>
 
 Por exemplo: `http(s)://*.adventure-works.com`.
 
@@ -62,7 +62,7 @@ Embora [domínios personalizados](application-proxy-configure-custom-domain.md) 
 1. Crie um domínio verificado no Azure.
 1. Carregue um certificado TLS/SSL no formato PFX para o proxy de aplicativo.
 
-Você deve considerar o uso de um certificado curinga de acordo com o aplicativo que pretende criar. Você também pode usar um certificado que liste apenas aplicativos específicos. Neste caso, somente os aplicativos listados no certificado serão acessíveis por meio desse aplicativo curinga.
+Você deve considerar o uso de um certificado curinga de acordo com o aplicativo que pretende criar. 
 
 Por motivos de segurança, este é um requisito fixo, e não daremos suporte a curingas para aplicativos que não possam usar um domínio personalizado para a URL externa.
 

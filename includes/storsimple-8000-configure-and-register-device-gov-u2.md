@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171978"
 ---
 ### <a name="to-configure-and-register-the-device"></a>Para configurar e registrar o dispositivo
@@ -26,7 +26,7 @@ ms.locfileid: "67171978"
    > Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.  O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
    
    1. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.
-   2. Digite o seguinte comando: 
+   2. Digite o seguinte comando:
       
         `Invoke-HcsSetupWizard`
    3. Um assistente de instalação aparecerá para ajudá-lo a configurar as definições da rede para o dispositivo. Forneça as seguintes informações:

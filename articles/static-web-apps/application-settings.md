@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36aa0a4a87e439c128c5247b6850100a7f2e826e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373651"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Definir configurações de aplicativo para Aplicativos Web Estáticos do Azure (Versão prévia)
 
@@ -105,9 +105,11 @@ O portal do Azure fornece uma interface para criar, atualizar e excluir configur
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Exibição de configuração dos Aplicativos Web Estáticos do Azure":::
 
-1. Insira um **Nome** e um **Valor**
+1. Insira um **nome** e um **valor**.
 
-1. Clique em **OK**
+1. Clique em **OK**.
+
+1. Clique em **Save** (Salvar).
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
 
@@ -156,7 +158,7 @@ O comando CLI do Azure requer vários valores específicos para sua conta para e
 
 As configurações de aplicativo estão disponíveis para exibição por meio da CLI do Azure.
 
-1. Em um terminal ou linha de comando, execute o comando a seguir. Certifique-se de substituir os espaços reservados `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>` e `<YOUR_STATIC_SITE_NAME>` pelos seus valores.
+- Em um terminal ou linha de comando, execute o comando a seguir. Certifique-se de substituir os espaços reservados `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>` e `<YOUR_STATIC_SITE_NAME>` pelos seus valores.
 
    ```bash
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"

@@ -2,17 +2,15 @@
 title: Visualização-adicionar um pool de nós Spot a um cluster do serviço de kubernetes do Azure (AKS)
 description: Saiba como adicionar um pool de nós Spot a um cluster do AKS (serviço kubernetes do Azure).
 services: container-service
-author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: zarhoads
-ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77622052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374603"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Visualização-adicionar um pool de nós Spot a um cluster do serviço de kubernetes do Azure (AKS)
 
@@ -24,7 +22,7 @@ Os nós de spot são ótimos para cargas de trabalho que podem lidar com interru
 
 Neste artigo, você adiciona um pool de nós Spot secundário a um cluster existente do AKS (serviço kubernetes do Azure).
 
-Este artigo pressupõe uma compreensão básica dos conceitos de kubernetes e de Azure Load Balancer. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
+Este artigo pressupõe uma compreensão básica dos conceitos do Kubernetes e do Azure Load Balancer. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
 
 Esse recurso atualmente está em versão prévia.
 
@@ -43,9 +41,6 @@ Quando você cria um cluster para usar um pool de nós Spot, esse cluster també
 ### <a name="register-spotpoolpreview-preview-feature"></a>Registrar o recurso de visualização do spotpoolpreview
 
 Para criar um cluster AKS que usa um pool de nós Spot, você deve habilitar o sinalizador de recurso *spotpoolpreview* em sua assinatura. Esse recurso fornece o conjunto mais recente de aprimoramentos de serviço ao configurar um cluster.
-
-> [!CAUTION]
-> Quando você registra um recurso em uma assinatura, não é possível cancelar o registro desse recurso no momento. Depois de habilitar alguns recursos de visualização, os padrões podem ser usados para todos os clusters AKS, em seguida, criados na assinatura. Não habilite os recursos de visualização em assinaturas de produção. Use uma assinatura separada para testar recursos de visualização e coletar comentários.
 
 Registre o sinalizador de recurso *spotpoolpreview* usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
 
@@ -67,7 +62,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
-Para criar um cluster AKS que usa um pool de nós Spot, você precisa da extensão da CLI do *AKs-Preview* versão 0.4.32 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
+Para criar um cluster AKS que usa um pool de nós Spot, você precisa da extensão da CLI do *AKs-Preview* versão 0.4.32 ou superior. Instale a extensão de CLI do Azure *aks-preview* usando o comando [az extension add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -111,7 +106,7 @@ az aks nodepool add \
 
 Por padrão, você cria um pool de nós com *priority* uma prioridade *regular* em seu cluster AKs ao criar um cluster com vários pools de nós. O comando acima adiciona um pool de nós auxiliares a um cluster AKS existente com uma *prioridade* de *Spot*. A *prioridade* de *Spot* torna o pool de nós um pool de nós Spot. O parâmetro de *política de remoção* é definido como *excluir* no exemplo acima, que é o valor padrão. Quando você define a [política de remoção][eviction-policy] a ser *excluída*, os nós no conjunto de dimensionamento subjacente do pool de nós são excluídos quando são removidos. Você também pode definir a política de remoção como *desalocar*. Quando você define a política de remoção como *desalocar*, os nós no conjunto de dimensionamento subjacente são definidos como o estado parado-desalocado após a remoção. Os nós na contagem de estado parado-desalocado em relação à sua cota de computação e podem causar problemas com o dimensionamento ou a atualização do cluster. Os valores de *política* de *prioridade* e remoção só podem ser definidos durante a criação do pool de nós. Esses valores não podem ser atualizados posteriormente.
 
-O comando também habilita o [dimensionador de cluster][cluster-autoscaler], que é recomendado para uso com pools de nós Spot. Com base nas cargas de trabalho em execução no cluster, o dimensionamento automática do cluster é dimensionado e escala verticalmente o número de nós no pool de nós. Para pools de nós de spot, o dimensionador automática de cluster aumentará o número de nós após uma remoção se nós adicionais ainda forem necessários. Se você alterar o número máximo de nós que um pool de nós pode ter, também precisará ajustar `maxCount` o valor associado ao cluster de dimensionamento automática. Se você não usar um conjunto de dimensionamento de clusters, após a remoção, o pool de pontos será reduzido para zero e exigirá uma operação manual para receber outros nós especiais.
+O comando também habilita o [dimensionador de cluster][cluster-autoscaler], que é recomendado para uso com pools de nós Spot. Com base nas cargas de trabalho em execução no cluster, o dimensionamento automática do cluster é dimensionado e escala verticalmente o número de nós no pool de nós. Para pools de nós de spot, o dimensionador automática de cluster aumentará o número de nós após uma remoção se nós adicionais ainda forem necessários. Se você alterar o número máximo de nós que um pool de nós pode ter, também precisará ajustar o `maxCount` valor associado ao cluster de dimensionamento automática. Se você não usar um conjunto de dimensionamento de clusters, após a remoção, o pool de pontos será reduzido para zero e exigirá uma operação manual para receber outros nós especiais.
 
 > [!Important]
 > Só agende cargas de trabalho em pools de nós especiais que possam lidar com interrupções, como trabalhos de processamento em lotes e ambientes de teste. É recomendável que você configure os de [Tolerations][taints-tolerations] no pool de nós spot para garantir que somente as cargas de trabalho que podem lidar com as remoções de nó sejam agendadas em um pool de nós Spot. Por exemplo, o comando acima de NY padrão adiciona um *kubernetes.Azure.com/scalesetpriority=spot:NoSchedule* de que somente os pods com um toleration correspondente estão agendados neste nó.
@@ -143,9 +138,9 @@ spec:
 Quando um pod com esse toleration é implantado, o kubernetes pode agendar com êxito o pod nos nós com o seu
 
 ## <a name="max-price-for-a-spot-pool"></a>Preço máximo para um pool de pontos
-O [preço para instâncias especiais é variável][pricing-spot], com base na região e SKU. Para obter mais informações, consulte preços para [Linux][pricing-linux] e [Windows][pricing-windows].
+O [preço para instâncias especiais é variável][pricing-spot], com base na região e SKU. Para obter mais informações, consulte os preços para [Linux][pricing-linux] e [Windows][pricing-windows].
 
-Com o preço variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor *0,98765* seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como *-1*, a instância não será removida com base no preço. O preço da instância será o preço atual para o ponto ou o preço de uma instância padrão, o que for menor, contanto que haja capacidade e cota disponível.
+Como o preço é variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor *0,98765* seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como *-1*, a instância não será removida com base no preço. O preço da instância será o preço atual para o ponto ou o preço de uma instância padrão, o que for menor, contanto que haja capacidade e cota disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,15 +1,14 @@
 ---
 title: Como mover os cofres dos serviços de recuperação de backup do Azure
 description: Instruções sobre como mover o cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 93c3f2db6500023755796d50e71d44a427a2ce82
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9373ea41c3cd5d35c86b8b306a20b5c106105217
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368219"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -37,7 +36,11 @@ França central, sul da França, Alemanha nordeste, Alemanha central, US Gov Iow
 - Para mover uma máquina virtual com discos gerenciados, veja este [artigo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - As opções para mover recursos implantados por meio do modelo clássico diferem dependendo se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Políticas de backup definidas para o cofre são mantidas após o cofre ser movido entre assinaturas ou para um novo grupo de recursos.
-- Você só poderá mover um cofre se as máquinas virtuais do Azure forem os únicos itens de backup no cofre.
+- Você só pode mover um cofre que contenha qualquer um dos seguintes tipos de itens de backup. Todos os itens de backup dos tipos não listados abaixo precisarão ser interrompidos e os dados excluídos permanentemente antes da movimentação do cofre.
+  - Máquinas Virtuais do Azure
+  - Agente de Serviços de Recuperação do Microsoft Azure (MARS)
+  - Servidor de Backup do Microsoft Azure (MABS)
+  - DPM (Data Protection Manager)
 - Se você mover um cofre que contém dados de backup de VM, entre assinaturas, deverá mover suas VMs para a mesma assinatura e usar o mesmo nome de grupo de recursos de VM de destino (como se ela estava na assinatura antiga) para continuar os backups.
 
 > [!NOTE]

@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373855"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento em nuvem do Azure AD Connect
 Este artigo oferece diretrizes sobre como escolher e usar o provisionamento de nuvem do Azure AD Connect como solução de identidade.
@@ -26,8 +26,8 @@ Este artigo oferece diretrizes sobre como escolher e usar o provisionamento de n
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisitos do agente de provisionamento de nuvem
 Você precisa dos itens a seguir para usar o provisionamento de nuvem do Azure AD Connect:
     
-- Uma conta de administrador global para o locatário do Azure Active Directory (exceto de usuário convidado).
-- Um servidor local para o agente de provisionamento com Windows 2012 R2 ou posterior.
+- Uma conta de administrador de identidade híbrida para seu locatário do Azure AD que não é um usuário convidado.
+- Um servidor local para o agente de provisionamento com Windows 2012 R2 ou posterior.  Esse servidor deve ser um servidor de camada 0 com base no [modelo de camada administrativa Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configurações de firewall local.
 
 >[!NOTE]
@@ -37,7 +37,7 @@ O restante do documento mostra instruções passo a passo para esses pré-requis
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Azure Active Directory
 
-1. Crie uma conta de administrador global somente em nuvem no seu locatário do Azure AD. Dessa forma, você pode gerenciar a configuração do seu locatário se seus serviços locais falhem ou ficarem indisponíveis. Saiba mais sobre como [adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). Finalizar essa etapa é essencial para garantir que você não seja bloqueado de seu locatário.
+1. Crie uma conta de administrador de identidade híbrida somente em nuvem no seu locatário do Azure AD. Dessa forma, você pode gerenciar a configuração do seu locatário se seus serviços locais falhem ou ficarem indisponíveis. Saiba mais sobre como [Adicionar uma conta de administrador de identidade híbrida somente em nuvem](../active-directory-users-create-azure-portal.md). Finalizar essa etapa é essencial para garantir que você não seja bloqueado de seu locatário.
 1. Adicione um ou mais [nomes de domínio personalizados](../active-directory-domains-add-azure-portal.md) ao seu locatário do Azure AD. Os usuários podem entrar com um desses nomes de domínio.
 
 ### <a name="in-your-directory-in-active-directory"></a>No seu diretório no Active Directory

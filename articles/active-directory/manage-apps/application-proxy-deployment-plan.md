@@ -3,8 +3,8 @@ title: Planejar uma implantação de Proxy de Aplicativo do Azure Active Directo
 description: Um guia de ponta a ponta para planejar a implantação do proxy de aplicativo em sua organização
 services: active-directory
 documentationcenter: azure
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
-ms.openlocfilehash: a293bd33d3a25f26e5374184da42db335041284d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.author: kenwith
+ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367777"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação de Proxy de Aplicativo do AD do Azure
 
@@ -228,13 +227,13 @@ Para aplicativos locais que normalmente são acessíveis anonimamente, não exig
 
 Deixar essa opção definida como não permite que os usuários acessem o aplicativo local por meio do proxy de Aplicativo Azure AD sem permissões, portanto, use com cuidado.
 
-Depois que seu aplicativo for publicado, ele deverá ser acessível digitando sua URL externa em um navegador ou por seu ícone [https://myapps.microsoft.com](https://myapps.microsoft.com/)em.
+Depois que seu aplicativo for publicado, ele deverá ser acessível digitando sua URL externa em um navegador ou por seu ícone em [https://myapps.microsoft.com](https://myapps.microsoft.com/) .
 
 ### <a name="enable-pre-authentication"></a>Habilitar pré-autenticação
 
 Verifique se seu aplicativo está acessível por meio do proxy de aplicativo acessando-o por meio da URL externa.
 
-1. Navegue até **Azure Active Directory** > **aplicativos** > empresariais**todos os aplicativos** e escolha o aplicativo que você deseja gerenciar.
+1. Navegue até **Azure Active Directory**  >  **aplicativos empresariais**  >  **todos os aplicativos** e escolha o aplicativo que você deseja gerenciar.
 
 2. Selecione **Proxy de Aplicativo**.
 
@@ -254,7 +253,7 @@ Leia [logon único para aplicativos no Azure ad](what-is-single-sign-on.md) para
 
 ###  <a name="working-with-other-types-of-applications"></a>Trabalhando com outros tipos de aplicativos
 
-O Azure Proxy de Aplicativo do AD também pode dar suporte a aplicativos que foram desenvolvidos para usar a biblioteca de autenticação do AD do Azure ([Adal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) ou a[MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)(biblioteca de autenticação da Microsoft). Ele dá suporte a aplicativos cliente nativos consumindo tokens emitidos pelo Azure AD recebidos nas informações de cabeçalho da solicitação do cliente para executar a pré-autenticação em nome dos usuários.
+O Azure Proxy de Aplicativo do AD também pode dar suporte a aplicativos que foram desenvolvidos para usar a [MSAL (biblioteca de autenticação da Microsoft)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). Ele dá suporte a aplicativos cliente nativos consumindo tokens emitidos pelo Azure AD recebidos nas informações de cabeçalho da solicitação do cliente para executar a pré-autenticação em nome dos usuários.
 
 Leia [Publicando aplicativos cliente móveis e nativos](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) e [aplicativos baseados em declarações](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) para saber mais sobre as configurações disponíveis do proxy de aplicativo.
 
@@ -318,7 +317,7 @@ Os artigos a seguir abordam cenários comuns que também podem ser usados para c
 * [Problema ao exibir a página do aplicativo](application-proxy-page-appearance-broken-problem.md)
 * [O carregamento de aplicativos é muito longo](application-proxy-page-load-speed-problem.md)
 * [Os links na página do aplicativo não funcionam](application-proxy-page-links-broken-problem.md)
-* [Quais portas abrir para meu aplicativo](application-proxy-connectivity-ports-how-to.md)
+* [Quais portas abrir para meu aplicativo](application-proxy-add-on-premises-application.md)
 * [Nenhum conector útil em um grupo de conectores para meu aplicativo](application-proxy-connectivity-no-working-connector.md)
 * [Configurar no portal do administrador](application-proxy-config-how-to.md)
 * [Configurar logon único para meu aplicativo](application-proxy-config-sso-how-to.md)

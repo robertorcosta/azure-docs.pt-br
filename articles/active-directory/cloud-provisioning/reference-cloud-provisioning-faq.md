@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
-ms.date: 02/26/2020
+ms.topic: reference
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 3ef482804c80602771963633bcc46feaf014c363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77916550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373821"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -32,9 +32,9 @@ O provisionamento de nuvem está agendado para ser executado a cada 2 minutos. A
 
 Isso é esperado. As falhas são devido ao objeto de usuário não estar presente no Azure AD. Depois que o usuário for provisionado no Azure AD, os hashes de senha deverão ser provisionados na execução subsequente. Aguarde algumas execuções e confirme se a sincronização de hash de senha já deixou de apresentar os erros.
 
-**P: O que acontecerá se a instância do Active Directory tiver atributos que não são compatíveis com o provisionamento em nuvem (por exemplo, extensões de diretório)?**
+**P: o que acontece se a instância de Active Directory tem atributos que não são suportados pelo provisionamento de nuvem (por exemplo, extensões de diretório)?**
 
-O provisionamento em nuvem será executado e provisionará os atributos compatíveis. Os atributos não compatíveis não serão provisionados no Azure AD. Examine as extensões de diretório no Active Directory e verifique se você não precisa que esses atributos fluam para o Azure AD. Se um ou mais atributos forem necessários, considere o uso da sincronização do Azure AD Connect ou mover as informações necessárias para um dos atributos compatíveis (por exemplo, atributos de extensão 1 a 15).
+O provisionamento em nuvem será executado e provisionará os atributos compatíveis. Os atributos não compatíveis não serão provisionados no Azure AD. Examine as extensões de diretório em Active Directory e certifique-se de que você não precisa desses atributos para fluir para o Azure AD. Se um ou mais atributos forem necessários, considere o uso da sincronização do Azure AD Connect ou mover as informações necessárias para um dos atributos compatíveis (por exemplo, atributos de extensão 1 a 15).
 
 **P: Qual é a diferença entre a sincronização e o provisionamento de nuvem do Azure AD Connect?**
 
@@ -62,7 +62,7 @@ Sim, o provisionamento de nuvem cria uma entidade de serviço para a configuraç
 
 **P: O que acontece quando é exigido de um usuário sincronizado que ele altere a senha no próximo logon?**
 
-Se a sincronização de hash de senha estiver habilitada no provisionamento de nuvem e for exigido do usuário sincronizado que ele altere a senha no próximo logon no AD local, o provisionamento de nuvem não provisionará o hash de senha a ser alterado para o Azure AD. Depois que o usuário altera a senha, o hash de senha do usuário é provisionado do AD para o Azure AD.
+Se a sincronização de hash de senha estiver habilitada no provisionamento de nuvem e o usuário sincronizado for necessário para alterar a senha no próximo logon no AD local, o provisionamento de nuvem não provisionará o hash de senha "a ser alterado" para o Azure AD. Depois que o usuário altera a senha, o hash de senha do usuário é provisionado do AD para o Azure AD.
 
 **P: O provisionamento de nuvem dá suporte a write-back de ms-ds-consistencyGUID para algum objeto?**
 
@@ -70,7 +70,7 @@ Não, o provisionamento de nuvem não dá suporte a write-back de ms-ds-consiste
 
 **P: Estou provisionando usuários usando o provisionamento de nuvem. Eu excluí a configuração. Por que eu ainda vejo os antigos objetos sincronizados no Azure AD?** 
 
-Quando você exclui a configuração, o provisionamento de nuvem não limpa os objetos sincronizados no Azure AD. Para garantir que você não fique com objetos antigos, altere o escopo da configuração para um grupo vazio ou unidades organizacionais. Depois que o provisionamento é executado e limpa os objetos, desabilite e exclua a configuração. 
+Quando você exclui a configuração, o provisionamento de nuvem não remove automaticamente os objetos sincronizados no Azure AD. Para garantir que você não fique com objetos antigos, altere o escopo da configuração para um grupo vazio ou unidades organizacionais. Depois que o provisionamento é executado e limpa os objetos, desabilite e exclua a configuração. 
 
 **P:  O que significa que o Exchange híbrido não tem suporte?**
 
@@ -79,6 +79,10 @@ O recurso de implantação híbrida do Exchange permite a coexistência de caixa
 **P:  Posso instalar o agente de provisionamento de nuvem no Windows Server Core?**
 
 Não, não há suporte para a instalação do agente no Server Core.
+
+**P: posso usar um servidor de preparo com o agente de provisionamento de nuvem?**
+
+Não, não há suporte para servidores de preparo.
 
 ## <a name="next-steps"></a>Próximas etapas 
 

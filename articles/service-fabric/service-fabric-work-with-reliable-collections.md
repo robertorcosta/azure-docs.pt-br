@@ -3,12 +3,12 @@ title: Trabalhando com Reliable Collections
 description: Conheça as práticas recomendadas para trabalhar com coleções confiáveis em um aplicativo Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374688"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores .NET por meio das Reliable Collections. Especificamente, o Service Fabric fornece as classes de dicionário confiável e fila confiável. Quando você usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto Dictionary confiável e ver o que ele está realmente fazendo.
@@ -42,9 +42,14 @@ Todas as operações em objetos de dicionário confiável (exceto ClearAsync, qu
 
 No código acima, o objeto ITransaction é passado para um método addasync de um dicionário confiável. Internamente, os métodos de dicionário que aceitam uma chave usam um bloqueio de leitor/gravador associado à chave. Se o método modificar o valor da chave, o método usará um bloqueio de gravação na chave e, se o método ler apenas o valor da chave, um bloqueio de leitura será obtido na chave. Como addasync modifica o valor da chave para o novo valor passado, o bloqueio de gravação da chave é obtido. Dessa maneira, se dois (ou mais) threads tentarem adicionar valores com a mesma chave ao mesmo tempo, um deles adquirirá o bloqueio de gravação e os outros ficarão bloqueados. Por padrão, os métodos ficam bloqueados por até quatro segundos para adquirir o bloqueio; após quatro segundos, os métodos gerarão uma TimeoutException. As sobrecargas de método existem, permitindo que você passe um valor de tempo limite explícito se preferir.
 
-Normalmente você pode escrever seu código para reagir a uma TimeoutException capturando-a e repetindo toda a operação (conforme mostrado no código acima). No meu código simples, estou apenas chamando Task. Delay passando 100 milissegundos a cada vez. Porém, na realidade, é melhor usar algum tipo de atraso de recuo exponencial em vez disso.
+Normalmente você pode escrever seu código para reagir a uma TimeoutException capturando-a e repetindo toda a operação (conforme mostrado no código acima). Nesse código simples, estamos apenas chamando Task. Delay passando 100 milissegundos a cada vez. Porém, na realidade, é melhor usar algum tipo de atraso de recuo exponencial em vez disso.
 
-Depois que o bloqueio é adquirido, AddAsync adiciona as referências de objeto de chave e de valor a um dicionário temporário interno associado ao objeto ITransaction. Isso é feito para fornecer a semântica de ler-suas-próprias-gravações. Ou seja, depois de você chamar AddAsync, uma chamada posterior para TryGetValueAsync (usando o mesmo objeto ITransaction) retornará o valor mesmo se você ainda não tiver confirmado a transação. Em seguida, AddAsync serializa os objetos de chave e de valor para matrizes de bytes e acrescenta essas matrizes de byte em um arquivo de log no nó local. Por fim, AddAsync envia as matrizes de bytes para todas as réplicas secundárias para que elas tenham as mesmas informações de chave/valor. Embora as informações de chave/valor tenham sido gravadas em um arquivo de log, as informações não são consideradas parte do dicionário até que a transação à qual elas estão associadas seja confirmada.
+Depois que o bloqueio é adquirido, AddAsync adiciona as referências de objeto de chave e de valor a um dicionário temporário interno associado ao objeto ITransaction. Isso é feito para fornecer a semântica de ler-suas-próprias-gravações. Ou seja, depois que você chamar addasync, uma chamada posterior para TryGetValueAsync usando o mesmo objeto ITransaction retornará o valor mesmo que você ainda não tenha confirmado a transação.
+
+> [!NOTE]
+> Chamar TryGetValueAsync com uma nova transação retornará uma referência ao último valor confirmado. Não modifique essa referência diretamente, pois isso ignora o mecanismo para persistir e replicar as alterações. É recomendável tornar os valores somente leitura para que a única maneira de alterar o valor de uma chave seja por meio de APIs de dicionário confiáveis.
+
+Em seguida, AddAsync serializa os objetos de chave e de valor para matrizes de bytes e acrescenta essas matrizes de byte em um arquivo de log no nó local. Por fim, AddAsync envia as matrizes de bytes para todas as réplicas secundárias para que elas tenham as mesmas informações de chave/valor. Embora as informações de chave/valor tenham sido gravadas em um arquivo de log, as informações não são consideradas parte do dicionário até que a transação à qual elas estão associadas seja confirmada.
 
 No código acima, a chamada para CommitAsync confirma todas as operações da transação. Especificamente, ela acrescenta informações de confirmação ao arquivo de log no nó local e também envia o registro de confirmação para todas as réplicas secundárias. Depois de o quórum (maioria) das réplicas responder, todas as alterações de dados são consideradas permanentes e os bloqueios associados às chaves que foram manipuladas por meio do objeto ITransaction são liberados para que outras threads/transações possam manipular as mesmas chaves e seus valores.
 
@@ -55,13 +60,13 @@ Em algumas cargas de trabalho, como um cache replicado, por exemplo, a perda oca
 
 Atualmente, o suporte a volátil só está disponível para dicionários confiáveis e filas confiáveis, e não ReliableConcurrentQueues. Consulte a lista de [advertências](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) para informar sua decisão sobre se deseja usar coleções voláteis.
 
-Para habilitar o suporte volátil em seu serviço, defina ```HasPersistedState``` o sinalizador na declaração de tipo ```false```de serviço como, desta forma:
+Para habilitar o suporte volátil em seu serviço, defina o ```HasPersistedState``` sinalizador na declaração de tipo de serviço como ```false``` , desta forma:
 ```xml
 <StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
 ```
 
 >[!NOTE]
->Os serviços persistentes existentes não podem se tornar voláteis, e vice-versa. Se você quiser fazer isso, será necessário excluir o serviço existente e, em seguida, implantar o serviço com o sinalizador atualizado. Isso significa que você deve estar disposto a incorrer em perda de dados completa se desejar alterar ```HasPersistedState``` o sinalizador. 
+>Os serviços persistentes existentes não podem se tornar voláteis, e vice-versa. Se você quiser fazer isso, será necessário excluir o serviço existente e, em seguida, implantar o serviço com o sinalizador atualizado. Isso significa que você deve estar disposto a incorrer em perda de dados completa se desejar alterar o ```HasPersistedState``` sinalizador. 
 
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Armadilhas comuns e como evitá-las
 Agora que você entende como as coleções confiáveis funcionam internamente, vamos dar uma olhada em algumas dessas reutilizações comuns. Veja o código a seguir:
@@ -145,7 +150,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir tipos de dados imutáveis para evitar erro do programador
-Idealmente, gostaríamos que o compilador Relate erros quando você acidentalmente produza código que modificava o estado de um objeto que você deve considerar imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). Você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, é altamente recomendável o uso de. Biblioteca de coleções imutáveis da rede ([System. Collections. imutável](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para download no https://nuget.org. Também recomendamos lacrar suas classes e fazer com que os campos sejam somente leitura sempre que possível.
+Idealmente, gostaríamos que o compilador Relate erros quando você acidentalmente produza código que modificava o estado de um objeto que você deve considerar imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). Você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, é altamente recomendável o uso de. Biblioteca de coleções imutáveis da rede ([System. Collections. imutável](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para download no https://nuget.org . Também recomendamos lacrar suas classes e fazer com que os campos sejam somente leitura sempre que possível.
 
 O tipo de UserInfo abaixo demonstra como definir um tipo imutável tirando proveito das recomendações mencionadas anteriormente.
 

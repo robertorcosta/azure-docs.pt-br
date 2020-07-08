@@ -3,13 +3,13 @@ title: Criar um cluster privado do Serviço de Kubernetes do Azure
 description: Saiba como criar um cluster privado do AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
-ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 6/18/2020
+ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374518"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado do Serviço de Kubernetes do Azure
 
@@ -71,11 +71,11 @@ Criar uma VM na mesma VNET que o cluster AKS é a opção mais fácil.  A rota e
 
 Conforme mencionado, o emparelhamento VNet é uma maneira de acessar seu cluster privado. Para usar o emparelhamento VNet, você precisa configurar um vínculo entre a rede virtual e a zona DNS privada.
     
-1. Vá para o grupo de recursos MC_* no portal do Azure.  
+1. Vá para o grupo de recursos de nó no portal do Azure.  
 2. Selecione a zona DNS privada.   
 3. No painel esquerdo, selecione o link **Rede virtual**.  
 4. Crie um novo link para adicionar a rede virtual da VM à zona DNS privada. Leva alguns minutos para que o link da zona DNS fique disponível.  
-5. Volte para o grupo de recursos MC_* no portal do Azure.  
+5. Na portal do Azure, navegue até o grupo de recursos que contém a VNet do seu cluster.  
 6. No painel à direita, selecione a rede virtual. O nome da rede virtual está no formato *aks-vnet-\** .  
 7. No painel esquerdo, selecione **Emparelhamentos**.  
 8. Selecione **Adicionar**, adicione a rede virtual da VM e crie o emparelhamento.  
@@ -91,7 +91,7 @@ As [arquiteturas de hub e spoke](https://docs.microsoft.com/azure/architecture/r
 
 2. A zona DNS privada é vinculada somente à VNet à qual os nós de cluster estão anexados (3). Isso significa que o ponto de extremidade privado só pode ser resolvido por hosts nessa VNet vinculada. Em cenários em que nenhum DNS personalizado está configurado na VNet (padrão), isso funciona sem problemas como ponto de hosts em 168.63.129.16 para DNS, que pode resolver registros na zona DNS privada devido ao link.
 
-3. Em cenários onde a VNet que contém o cluster tem configurações de DNS personalizadas (4), a implantação de cluster falhará, a menos que a zona DNS privada esteja vinculada à VNet que contém os solucionadores de DNS personalizados (5). Esse link pode ser criado manualmente depois da criação da zona privada, durante o provisionamento do cluster ou via automação na detecção da criação da zona usando o Azure Policy ou outros mecanismos de implantação baseados em eventos (por exemplo, Grade de Eventos do Azure e Azure Functions).
+3. Em cenários onde a VNet que contém o cluster tem configurações de DNS personalizadas (4), a implantação de cluster falhará, a menos que a zona DNS privada esteja vinculada à VNet que contém os solucionadores de DNS personalizados (5). Esse link pode ser criado manualmente após a criação da zona privada durante o provisionamento do cluster ou via automação na detecção da criação da zona usando mecanismos de implantação baseados em eventos (por exemplo, grade de eventos do Azure e Azure Functions).
 
 ## <a name="dependencies"></a>Dependências  
 
@@ -100,9 +100,8 @@ As [arquiteturas de hub e spoke](https://docs.microsoft.com/azure/architecture/r
 
 ## <a name="limitations"></a>Limitações 
 * Os intervalos autorizados por IP não podem ser aplicados ao ponto de extremidade do servidor de API privada; eles se aplicam somente ao servidor de API pública
-* Atualmente, há suporte para Zonas de Disponibilidade em determinadas regiões; consulte o início deste documento 
+* Atualmente, há suporte para [zonas de disponibilidade][availability-zones] em determinadas regiões. 
 * As [limitações do serviço de Link Privado do Azure][private-link-service] se aplicam a clusters privados.
-* Não há suporte para nós virtuais em um cluster privado para girar o ACI (Instâncias de Contêiner do Azure) privado em uma rede virtual do Azure privada
 * Não há suporte para agentes hospedados pela Microsoft do Azure DevOps com clusters privados. Considere o uso de [agentes auto-hospedados][devops-agents]. 
 * Para clientes que precisam habilitar o Registro de Contêiner do Azure para trabalhar com AKS privado, a rede virtual do registro de contêiner deve ser emparelhada com a rede virtual do cluster do agente.
 * Não há suporte atual para Azure Dev Spaces
@@ -122,3 +121,4 @@ As [arquiteturas de hub e spoke](https://docs.microsoft.com/azure/architecture/r
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

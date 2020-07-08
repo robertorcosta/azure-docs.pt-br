@@ -5,26 +5,23 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: d532e1990586d80d675a8ccb247c0c9f7908bb6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 813e86e8446932d1618fff1853cee8972570f43f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85363012"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurar e acessar os logs de auditoria no CLI do Azure
 
 Você pode configurar os [logs de auditoria do banco de dados do Azure para MySQL](concepts-audit-logs.md) no CLI do Azure.
 
-> [!IMPORTANT]
-> A funcionalidade de log de auditoria está atualmente em visualização.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este guia de instruções, você precisa:
 
-- [Banco de dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,6 +29,9 @@ Para seguir este guia de instruções, você precisa:
 > Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
+
+>[!IMPORTANT]
+> É recomendável registrar apenas os tipos de eventos e os usuários necessários para fins de auditoria para garantir que o desempenho do servidor não seja muito afetado.
 
 Habilite e configure o log de auditoria usando as seguintes etapas:
 

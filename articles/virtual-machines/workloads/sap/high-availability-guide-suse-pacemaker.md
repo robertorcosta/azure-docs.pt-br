@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/21/2020
+ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1dc5cf055e6fee72cb6d73b3c4c5c76eefb037d6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368236"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -34,9 +34,9 @@ ms.locfileid: "83800177"
 
 Há duas opções para configurar um cluster Pacemaker no Azure. Você pode usar um agente de isolamento que cuida da reinicialização de um nó com falha por meio das APIs do Azure ou você pode usar um dispositivo SBD.
 
-O dispositivo SBD requer pelo menos uma máquina virtual adicional que atue como um servidor de destino iSCSI e forneça um dispositivo SBD. Esses servidores de destino iSCSI, podem, entretanto, ser compartilhados com outros clusters do Pacemaker. A vantagem de usar um dispositivo SBD é um tempo de failover mais rápido e, se você estiver usando dispositivos SBD locais, não precisará de alterações ao operar o cluster do pacemaker. Você pode usar até três dispositivos SBD para um cluster do Pacemaker para permitir que um dispositivo SBD se torne indisponível, por exemplo, durante a aplicação de patch de sistema operacional do servidor de destino iSCSI. Se você quiser usar mais de um dispositivo SBD por Pacemaker, certifique-se implantar vários servidores de destino iSCSI e conectar um SBD de cada servidor de destino iSCSI. É recomendável usar um dispositivo SBD ou três. O Pacemaker não poderá automaticamente isolar um nó de cluster se você apenas configurar dois dispositivos SBD e um deles não estiver disponível. Se quiser ser capaz de isolar quando um servidor de destino iSCSI estiver inativo, você precisará usar três dispositivos SBD e, portanto, três servidores de destino iSCSI.
+O dispositivo SBD requer pelo menos uma máquina virtual adicional que atue como um servidor de destino iSCSI e forneça um dispositivo SBD. Esses servidores de destino iSCSI, podem, entretanto, ser compartilhados com outros clusters do Pacemaker. A vantagem de usar um dispositivo SBD é, se você já estiver usando dispositivos SBD no local, o não exigirá nenhuma alteração na maneira como você opera o cluster pacemaker. Você pode usar até três dispositivos SBD para um cluster do Pacemaker para permitir que um dispositivo SBD se torne indisponível, por exemplo, durante a aplicação de patch de sistema operacional do servidor de destino iSCSI. Se você quiser usar mais de um dispositivo SBD por Pacemaker, certifique-se implantar vários servidores de destino iSCSI e conectar um SBD de cada servidor de destino iSCSI. É recomendável usar um dispositivo SBD ou três. O Pacemaker não poderá automaticamente isolar um nó de cluster se você apenas configurar dois dispositivos SBD e um deles não estiver disponível. Se você quiser poder Defence-lo quando um servidor de destino iSCSI estiver inativo, precisará usar três dispositivos SBD e, portanto, três servidores de destino iSCSI, que é a configuração mais resiliente ao usar o SBDs.
 
-Se você não quiser investir em uma máquina virtual adicional, também poderá usar o agente do Azure Fence. A desvantagem é que um failover pode levar entre 10 a 15 minutos se uma parada de recurso falhar ou se os nós do cluster não puderem mais se comunicar uns com os outros.
+O agente de limite do Azure não requer a implantação de máquinas virtuais adicionais.   
 
 ![Pacemaker na visão geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
@@ -413,32 +413,36 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]**  Instalar Agentes de isolamento
+1. **[A]** instale o pacote de agentes de isolamento, se estiver usando o dispositivo STONITH, com base no agente de isolamento do Azure.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > Se estiver usando o SuSE Linux Enterprise Server para SAP 15, lembre-se de que você precisa ativar o módulo adicional e instalar o componente adicional, que é o pré-requisito para usar o agente Azure Fence. Para saber mais sobre os módulos e extensões do SUSE, consulte [Módulos e extensões explicadas](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Siga as instruções abaixo para instalar o SDK do Python do Azure. 
+   > A versão instalada do limite do pacote **-agentes** deve ser pelo menos **4.4.0** para se beneficiar dos tempos de failover mais rápidos com o agente de isolamento do Azure, se um nó de cluster precisar ser degradedo. Recomendamos que você atualize o pacote, se estiver executando uma versão inferior.  
 
-   As instruções a seguir sobre como instalar o SDK do Python do Azure só são aplicáveis ao SuSE Enterprise Server para SAP **15**.  
 
-    - Se você estiver usando Traga sua Própria Assinatura, siga estas instruções  
+1. **[A]** instalar o SDK do Python do Azure 
+   - No SLES 12 SP4 ou SLES 12 SP5
+   <pre><code>
+    # You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install python-azure-mgmt-compute
+   </code></pre> 
 
-    <pre><code>
-    #Activate module PackageHub/15/x86_64
-    sudo SUSEConnect -p PackageHub/15/x86_64
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
-
-     - Se você estiver usando a assinatura Pagamento Conforme o Uso, siga estas instruções  
-
-    <pre><code>#Activate module PackageHub/15/x86_64
-    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
+   - No SLES 15 e superior 
+   <pre><code>
+    # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
+    sudo zypper install python3-azure-mgmt-compute
+   </code></pre> 
+ 
+   >[!IMPORTANT]
+   >Dependendo de sua versão e tipo de imagem, talvez seja necessário ativar a extensão de nuvem pública para sua versão do sistema operacional, antes de instalar o SDK do Python do Azure.
+   >Você pode verificar a extensão, executando SUSEConnect---List-Extensions.  
+   >Para obter os tempos de failover mais rápidos com o agente de isolamento do Azure:
+   > - no SLES 12 SP4 ou SLES 12 SP5, instale a versão **4.6.2** ou superior do pacote Python-Azure-MGMT-Compute  
+   > - no SLES 15, instale a versão **4.6.2** ou superior do pacote Python**3**-Azure-MGMT-Compute 
 
 1. **[A]** Configurar a resolução de nome do host
 
@@ -457,7 +461,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    </code></pre>
 
 1. **[1]** Instalar o Cluster
-
+- Se estiver usando dispositivos SBD para isolamento
    <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
@@ -466,6 +470,19 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
    # Port for ring0 [5405] <b>Press ENTER</b>
    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
+   # Do you wish to configure an administration IP (y/n)? <b>n</b>
+   </code></pre>
+
+- Se *não estiver usando* dispositivos SBD para isolamento
+   <pre><code>sudo ha-cluster-init -u
+   
+   # ! NTP is not configured to start at system boot.
+   # Do you want to continue anyway (y/n)? <b>y</b>
+   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
+   # Do you wish to use SBD (y/n)? <b>n</b>
+   #WARNING: Not configuring SBD - STONITH will be disabled.
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
 
@@ -528,8 +545,27 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo service corosync restart
    </code></pre>
 
+## <a name="default-pacemaker-configuration-for-sbd"></a>Configuração do Pacemaker padrão para SBD
+
+A configuração nesta seção só será aplicável se você estiver usando SBD STONITH.  
+
+1. **[1]**  Permitir o uso de um dispositivo STONITH e definir o atraso de isolamento
+
+<pre><code>sudo crm configure property stonith-timeout=144
+sudo crm configure property stonith-enabled=true
+
+# List the resources to find the name of the SBD device
+sudo crm resource list
+sudo crm resource stop stonith-sbd
+sudo crm configure delete <b>stonith-sbd</b>
+sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
+   params pcmk_delay_max="15" \
+   op monitor interval="15" timeout="15"
+</code></pre>
+
 ## <a name="create-azure-fence-agent-stonith-device"></a>Criar dispositivo STONITH de agente do Azure Fence
 
+Esta seção da documentação só será aplicável se você estiver usando o STONITH, com base no agente de isolamento do Azure.
 O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microsoft Azure. Siga estas etapas para criar uma Entidade de Serviço.
 
 1. Acesse <https://portal.azure.com>
@@ -537,7 +573,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
    Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Novo registro
-1. Insira um Nome como "Contas apenas neste diretório de organização" 
+1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
 2. Selecione um Tipo de Aplicativo "Web", insira uma URL de logon (por exemplo http:\//localhost) e clique em Adicionar  
    A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione Certificados e Segredos e clique em Novo segredo do cliente
@@ -553,22 +589,26 @@ Use o seguinte conteúdo para o arquivo de entrada. Você precisa adaptar o cont
 
 ```json
 {
-  "Name": "Linux Fence Agent Role",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action" 
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-  ]
+    "properties": {
+        "roleName": "Linux Fence Agent Role",
+        "description": "Allows to power-off and start virtual machines",
+        "assignableScopes": [
+            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/*/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -591,32 +631,23 @@ Repita as etapas acima para o segundo nó do cluster.
 
 Depois de editar as permissões das máquinas virtuais, você pode configurar os dispositivos STONITH no cluster.
 
-<pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+<pre><code>sudo crm configure property stonith-enabled=true
+crm configure property concurrent-fencing=true
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
+  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
-sudo crm configure property stonith-enabled=true
+
 </code></pre>
+
+> [!IMPORTANT]
+> As operações de monitoramento e isolamento são desserializadas. Como resultado, se houver uma operação de monitoramento em execução mais longa e um evento de isolamento simultâneo, não haverá atraso para o failover de cluster, devido à operação de monitoramento já em execução.
 
 > [!TIP]
 >O agente do Azure Fence requer conectividade de saída para pontos de extremidade públicos, conforme documentado, juntamente com soluções possíveis, em [Conectividade de ponto de extremidade pública para VMs usando o ILB padrão](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
-
-## <a name="default-pacemaker-configuration-for-sbd"></a>Configuração do Pacemaker padrão para SBD
-
-1. **[1]**  Permitir o uso de um dispositivo STONITH e definir o atraso de isolamento
-
-<pre><code>sudo crm configure property stonith-timeout=144
-sudo crm configure property stonith-enabled=true
-
-# List the resources to find the name of the SBD device
-sudo crm resource list
-sudo crm resource stop stonith-sbd
-sudo crm configure delete <b>stonith-sbd</b>
-sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
-   params pcmk_delay_max="15" \
-   op monitor interval="15" timeout="15"
-</code></pre>
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuração do pacemaker para eventos agendados do Azure
 

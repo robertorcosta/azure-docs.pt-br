@@ -1,18 +1,15 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 06/05/2019
 ms.topic: include
-ms.custom: include file
-ms.openlocfilehash: b833ae69c0edf3e85bebbb5b78ea514a0c81e5c6
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.date: 06/05/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.openlocfilehash: 93a7e7994727012cd27f2901f75f23d1b130784d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "66814912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85378560"
 ---
 > [!IMPORTANT]
 > Este artigo contém conteúdo que requer a CLI clássica do Azure. Esta é uma versão mais antiga da CLI do Azure que deve ser usada com o modelo de implantação clássico do Azure.

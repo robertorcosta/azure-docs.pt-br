@@ -5,28 +5,28 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 1c48c16666305e9b9c342869e52aa04cfd4dac07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362961"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configurar e acessar os logs de auditoria do banco de dados do Azure para MySQL no portal do Azure
 
 Você pode configurar os [logs de auditoria do banco de dados do Azure para MySQL](concepts-audit-logs.md) e as configurações de diagnóstico do portal do Azure.
 
-> [!IMPORTANT]
-> A funcionalidade de log de auditoria está atualmente em visualização.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este guia de instruções, você precisa:
 
-- [Banco de dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
+
+>[!IMPORTANT]
+> É recomendável registrar apenas os tipos de eventos e os usuários necessários para fins de auditoria para garantir que o desempenho do servidor não seja muito afetado.
 
 Habilite e configure o log de auditoria.
 
@@ -53,7 +53,7 @@ Habilite e configure o log de auditoria.
 
 1. Na seção **monitoramento** na barra lateral, selecione **configurações de diagnóstico**.
 
-1. Clique em "+ adicionar configuração de diagnóstico ![" adicionar configuração de diagnóstico](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Clique em "+ adicionar configuração de diagnóstico" ![ Adicionar configuração de diagnóstico](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Forneça um nome de configuração de diagnóstico.
 

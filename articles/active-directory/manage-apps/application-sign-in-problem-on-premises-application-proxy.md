@@ -3,24 +3,24 @@ title: Problema ao entrar no aplicativo local usando o proxy de aplicativo do Az
 description: Solução de problemas comuns que ocorrem quando você não consegue entrar em um aplicativo local integrado ao Azure AD usando o Proxy de Aplicativo do Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91a00e243032fd9702e8b549c75363f1a3e1c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74232337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367709"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas ao entrar em um aplicativo local usando o proxy de aplicativo do Azure AD
 
@@ -36,7 +36,7 @@ Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comu
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Estou tendo um problema de conectividade em meu aplicativo
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
-  * [Não sei quais portas abrir para o meu aplicativo](application-proxy-connectivity-ports-how-to.md)
+  * [Não sei quais portas abrir para o meu aplicativo](application-proxy-add-on-premises-application.md)
   * [Encontrei um problema porque não havia nenhum conector funcionando em um grupo de conectores para o meu aplicativo](application-proxy-connectivity-no-working-connector.md)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Estou tendo um problema ao configurar o Proxy de Aplicativo do Azure AD no portal de administração

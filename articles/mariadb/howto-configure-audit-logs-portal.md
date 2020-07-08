@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: f05f26c54d9f3ea62180c598aada59d405c3c805
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362672"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurar e acessar os logs de auditoria no portal do Azure
 
 Você pode configurar o [banco de dados do Azure para MariaDB logs de auditoria](concepts-audit-logs.md) e configurações de diagnóstico do portal do Azure.
-
-> [!IMPORTANT]
-> A funcionalidade de log de auditoria está atualmente em visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,6 +24,9 @@ Para seguir este guia de instruções, você precisa:
 - [Banco de dados do Azure para MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
+
+>[!IMPORTANT]
+> É recomendável registrar apenas os tipos de eventos e os usuários necessários para fins de auditoria para garantir que o desempenho do servidor não seja muito afetado.
 
 Habilite e configure o log de auditoria.
 
@@ -53,7 +53,7 @@ Habilite e configure o log de auditoria.
 
 1. Na seção **monitoramento** na barra lateral, selecione **configurações de diagnóstico**.
 
-1. Clique em "+ adicionar configuração de diagnóstico ![" adicionar configuração de diagnóstico](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Clique em "+ adicionar configuração de diagnóstico" ![ Adicionar configuração de diagnóstico](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Forneça um nome de configuração de diagnóstico.
 

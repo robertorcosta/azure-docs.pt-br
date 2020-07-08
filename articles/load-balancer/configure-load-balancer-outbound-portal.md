@@ -5,15 +5,15 @@ description: Este artigo mostra como configurar o balanceamento de carga e as re
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77590007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367386"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando o portal do Azure
 
@@ -31,21 +31,21 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-load-balancer"></a>Criar o balanceador de carga
+## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
 
 Nesta seção, você criará um balanceador de carga que balanceará a carga de máquinas virtuais. Você pode criar um balanceador de carga público ou um balanceador de carga interno. Ao criar um balanceador de carga público, você cria um novo endereço IP público que é configurado como o front-end para o balanceador de carga. O front-end será nomeado **LoadBalancerFrontEnd** por padrão.
 
-1. No canto superior esquerdo da tela, selecione **criar um recurso** > **rede** > **Load Balancer**.
+1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
 2. Na guia **noções básicas** da página **criar balanceador de carga** , insira ou selecione as seguintes informações:
 
-    | Configuração                 | Valor                                              |
+    | Setting                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite **myResourceGroupSLB** na caixa de texto.|
     | Nome                   | **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Standard** ou **Básico**. A Microsoft recomenda o Standard para cargas de trabalho de produção. |
+    | SKU           | Selecione **Padrão**. |
     | Endereço IP público | Selecione **Criar novo**. Se você tiver um IP público existente que deseja usar, selecione **usar existente**.  O IP público existente deve ser o SKU **padrão** .  Os IPs públicos básicos não são compatíveis com o balanceador de carga SKU **padrão** .  |
     | Nome do endereço IP público              | Digite **myPublicIP** na caixa de texto.|
     | Zona de disponibilidade | Selecione com **redundância de zona** para criar um Load Balancer resiliente. Para criar um Load Balancer zonal, selecione uma zona específica de 1, 2 ou 3 |
@@ -54,7 +54,7 @@ Nesta seção, você criará um balanceador de carga que balanceará a carga de 
 4. Selecione **revisão + criar**
 
     > [!IMPORTANT]
-    > O restante deste guia de início rápido pressupõe que o SKU **padrão** é escolhido durante o processo de seleção de SKU acima.
+    > O restante deste início rápido pressupõe que o SKU **Standard** é escolhido durante o processo de seleção de SKU acima.
 
 5. Na guia **Examinar + criar**, selecione **Criar**.   
 
@@ -106,10 +106,10 @@ Na seção a seguir, você cria um:
 2. Em **Configurações**, selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
 3. Use estes valores para configurar a regra de balanceamento de carga:
     
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome | Insira **myHTTPRule**. |
-    | Protocolo | Selecione **TCP**. |
+    | Protocolo | selecione **TCP**. |
     | Porta | Insira **80**.|
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
@@ -128,7 +128,7 @@ As regras de saída do balanceador de carga configuram SNAT de saída para VMs n
 
 3. Use estes valores para definir a configuração de IP de front-end para saída:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome | Insira **LoadBalancerFrontEndOutbound**. |
     | Versão IP | Selecione **IPv4**. |
@@ -153,7 +153,7 @@ As regras de saída do balanceador de carga configuram SNAT de saída para VMs n
 
 3. Use estes valores para configurar as regras de saída:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome | Insira **myOutboundRule**. |
     | Endereço IP de front-end | Selecione **LoadBalancerFrontEndOutbound**. |

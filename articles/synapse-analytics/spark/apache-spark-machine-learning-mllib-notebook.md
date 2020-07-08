@@ -6,14 +6,15 @@ author: euangMS
 ms.service: synapse-analytics
 ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
+ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: c2e1dbba61399ee3a4435f4f287b47f4bfd6f872
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: fd3637eed35fa4b9f40623612be9fc99703051e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368168"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Criar um aplicativo de aprendizado de máquina com o Apache Spark MLlib e o Azure Synapse Analytics
 
@@ -70,48 +71,32 @@ Nas etapas a seguir, você desenvolverá um modelo para prever se uma corrida es
 
 Como os dados brutos estão no formato Parquet, você pode usar o contexto do Spark para extrair o arquivo diretamente na memória como um dataframe. Embora o código a seguir use as opções padrão, é possível forçar o mapeamento dos tipos de dados e outros atributos de esquema, se necessário.
 
-1. Execute as linhas a seguir para criar um dataframe do Spark, colando o código em uma nova célula. A primeira seção atribui informações de acesso do armazenamento do Azure a variáveis. A segunda seção permite que o Spark leia o armazenamento de blobs remotamente. A última linha de código lê parquet, mas nenhum dado é carregado neste ponto.
+1. Execute as linhas a seguir para criar um dataframe do Spark, colando o código em uma nova célula. Isso recupera os dados por meio da API de conjuntos de dados abertos. A extração de todos esses dados gera cerca de 1,5 bilhão de linhas. Dependendo do tamanho do pool do Spark (versão prévia), os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para um volume menor. O uso de start_date e end_date aplica um filtro que retorna um mês de dados.
 
     ```python
-    # Azure storage access info
-    blob_account_name = "azureopendatastorage"
-    blob_container_name = "nyctlc"
-    blob_relative_path = "yellow"
-    blob_sas_token = r""
+    from azureml.opendatasets import NycTlcYellow
 
-    # Allow SPARK to read from Blob remotely
-    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-    spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
-
-    # SPARK read parquet, note that it won't load any data yet by now
-    df = spark.read.parquet(wasbs_path)
+    end_date = parser.parse('2018-06-06')
+    start_date = parser.parse('2018-05-01')
+    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+    filtered_df = nyc_tlc.to_spark_dataframe()
     ```
 
-2. A extração de todos esses dados gera cerca de 1,5 bilhão de linhas. Dependendo do tamanho do pool do Spark (versão prévia), os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para um volume menor. Se necessário, adicione as linhas a seguir para filtrar os dados para cerca de 2 milhões de linhas para uma experiência mais responsiva. Use esses parâmetros para extrair uma semana de dados.
-
-    ```python
-    # Create an ingestion filter
-    start_date = '2018-05-01 00:00:00'
-    end_date = '2018-05-08 00:00:00'
-
-    filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
-    ```
-
-3. A desvantagem da filtragem simples é que, de uma perspectiva estatística, ela pode introduzir desvio nos dados. Outra abordagem é usar a amostragem incorporada ao Spark. O código a seguir reduz o conjunto de dados para cerca de 2.000 linhas, se aplicado após o código acima. Essa etapa de amostragem pode ser usada, em vez do filtro simples, ou em conjunto com o filtro simples.
+2. A desvantagem da filtragem simples é que, de uma perspectiva estatística, ela pode introduzir desvio nos dados. Outra abordagem é usar a amostragem incorporada ao Spark. O código a seguir reduz o conjunto de dados para cerca de 2.000 linhas, se aplicado após o código acima. Essa etapa de amostragem pode ser usada, em vez do filtro simples, ou em conjunto com o filtro simples.
 
     ```python
     # To make development easier, faster and less expensive down sample for now
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. Agora é possível examinar os dados para ver o que foi lido. Normalmente, é melhor examinar os dados com um subconjunto, em vez do conjunto completo, dependendo do tamanho do conjunto de dados. O código a seguir oferece duas maneiras de exibir os dados: a primeira é básica e a segunda proporciona uma experiência de grade muito mais enriquecedora, bem como a capacidade de visualizar os dados graficamente.
+3. Agora é possível examinar os dados para ver o que foi lido. Normalmente, é melhor examinar os dados com um subconjunto, em vez do conjunto completo, dependendo do tamanho do conjunto de dados. O código a seguir oferece duas maneiras de exibir os dados: a primeira é básica e a segunda proporciona uma experiência de grade muito mais enriquecedora, bem como a capacidade de visualizar os dados graficamente.
 
     ```python
-    sampled_taxi_df.show(5)
-    display(sampled_taxi_df.show(5))
+    #sampled_taxi_df.show(5)
+    display(sampled_taxi_df)
     ```
 
-5. Dependendo do tamanho do conjunto de dados gerado e da necessidade de experimentar ou executar o bloco de notas muitas vezes, pode ser aconselhável armazenar em cache o conjunto de dados localmente no espaço de trabalho. Há três maneiras de realizar o armazenamento em cache explícito:
+4. Dependendo do tamanho do conjunto de dados gerado e da necessidade de experimentar ou executar o bloco de notas muitas vezes, pode ser aconselhável armazenar em cache o conjunto de dados localmente no espaço de trabalho. Há três maneiras de realizar o armazenamento em cache explícito:
 
    - Salvar o dataframe localmente como arquivo
    - Salvar o dataframe como tabela ou exibição temporária

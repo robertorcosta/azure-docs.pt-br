@@ -1,22 +1,23 @@
 ---
-title: Gatilho de Azure Cosmos DB para as funções 2. x
+title: Gatilho de Azure Cosmos DB para o Functions 2. x e superior
 description: Aprenda a usar o gatilho de Azure Cosmos DB no Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 1ff8281a420eb1e967cb9f1d4db620d8f816794b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374229"
 ---
-# <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Gatilho de Azure Cosmos DB para Azure Functions 2. x
+# <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Gatilho de Azure Cosmos DB para Azure Functions 2. x e superior
 
 O Gatilho do Azure Cosmos DB usa o [Feed de Alterações do Azure Cosmos DB](../cosmos-db/change-feed.md) para escutar as inserções e atualizações nas partições. O feed de alteração publica inserções e atualizações, não exclusões.
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](./functions-bindings-cosmosdb-v2.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](./functions-bindings-cosmosdb-v2.md).
 
 <a id="example" name="example"></a>
 
@@ -196,15 +197,15 @@ Para obter um exemplo completo, consulte [gatilho](#example).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -214,13 +215,13 @@ Na [biblioteca de tempo de execução de funções Java](https://docs.microsoft.
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `CosmosDBTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `CosmosDBTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como `cosmosDBTrigger`. |
-|**direção** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | N/D | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
+|**direction** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | n/d | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
 |**NomeDoBancoDeDados**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está sendo monitorada. |
@@ -228,7 +229,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Opcional) O nome do banco de dados que contém a coleção usada para armazenar as concessões. Quando não definido, o valor da configuração `databaseName` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Opcional) O nome da coleção usada para armazenar as concessões. Quando não definido, o valor `leases` é usado. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcional) Quando definido como `true`, a coleção de concessões é criada automaticamente quando ela ainda não existe. O valor padrão é `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| Adicional Define o número de unidades de solicitação a serem atribuídas quando a coleção de concessões é criada. Essa configuração é usada apenas quando `createLeaseCollectionIfNotExists` o é definido `true`como. Esse parâmetro é definido automaticamente quando a associação é criada usando o portal.
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| Adicional Define o número de unidades de solicitação a serem atribuídas quando a coleção de concessões é criada. Essa configuração é usada apenas quando o `createLeaseCollectionIfNotExists` é definido como `true` . Esse parâmetro é definido automaticamente quando a associação é criada usando o portal.
 |**leaseCollectionPrefix**| **LeaseCollectionPrefix**| Adicional Quando definido, o valor é adicionado como um prefixo às concessões criadas na coleção de concessão para essa função. O uso de um prefixo permite que duas Azure Functions separadas compartilhem a mesma coleção de concessão usando prefixos diferentes.
 |**feedPollDelay**| **FeedPollDelay**| Adicional O tempo (em milissegundos) para o atraso entre a sondagem de uma partição para novas alterações no feed, depois que todas as alterações atuais forem descarregadas. O padrão é 5.000 milissegundos ou 5 segundos.
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (Opcional) Quando definido, ele define, em milissegundos, o intervalo para disparar uma tarefa para computar se as partições são distribuídas uniformemente entre as instâncias de host conhecidas. O padrão é 13000 (13 segundos).

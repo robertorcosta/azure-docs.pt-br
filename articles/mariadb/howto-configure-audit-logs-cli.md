@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: e9716f0fa8e0ae44d614bbb28ed6846105e683d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 1dcad61ed94926aa2aa2237ea735287cd9c9f137
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362689"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurar e acessar os logs de auditoria no CLI do Azure
 
 Você pode configurar os [logs de auditoria do banco de dados do Azure para MariaDB](concepts-audit-logs.md) no CLI do Azure.
-
-> [!IMPORTANT]
-> A funcionalidade de log de auditoria está atualmente em visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,6 +30,9 @@ Para seguir este guia de instruções, você precisa:
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
 
+>[!IMPORTANT]
+> É recomendável registrar apenas os tipos de eventos e os usuários necessários para fins de auditoria para garantir que o desempenho do servidor não seja muito afetado.
+
 Habilite e configure o log de auditoria usando as seguintes etapas: 
 
 1. Ative os logs de auditoria definindo o parâmetro **audit_logs_enabled** como "ativado". 
@@ -40,7 +40,7 @@ Habilite e configure o log de auditoria usando as seguintes etapas:
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. Selecione os [tipos de eventos](concepts-audit-logs.md#configure-audit-logging) a serem registrados atualizando o parâmetro **audit_log_egitvents** .
+1. Selecione os [tipos de eventos](concepts-audit-logs.md#configure-audit-logging) a serem registrados atualizando o parâmetro **audit_log_events** .
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```

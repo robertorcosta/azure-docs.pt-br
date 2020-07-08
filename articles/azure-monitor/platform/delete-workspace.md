@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 3784eda2db5f375f04cdde84108a78ae277baf60
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: c93ba19cc70aa6b5df054dcc2e7e06885b02d661
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367947"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Excluir e recuperar um espaço de trabalho do Azure Log Analytics
 
@@ -22,9 +22,9 @@ Este artigo explica o conceito de exclusão reversível do espaço de trabalho d
 Quando você exclui um espaço de trabalho do Log Analytics, uma operação de exclusão reversível é executada para permitir a recuperação do espaço de trabalho, incluindo seus dados e agentes conectados dentro de 14 dias, seja a exclusão acidental ou intencional. Após o período de exclusão reversível, o recurso de espaço de trabalho e seus dados não são recuperáveis, ou seja, são enfileirados para exclusão permanente e completamente limpos dentro de 30 dias. O nome do espaço de trabalho é 'liberado' e você pode usá-lo para criar um novo espaço de trabalho.
 
 > [!NOTE]
-> Se você quiser substituir o comportamento de exclusão reversível e excluir o espaço de trabalho permanentemente, siga as etapas em [Exclusão permanente do espaço de trabalho](#permanent-workspace-delete).
+> Se você quiser substituir o comportamento de exclusão reversível e excluir permanentemente seu espaço de trabalho, siga as etapas em [excluir espaço de trabalho permanente](#permanent-workspace-delete).
 
-Tenha cuidado ao excluir um espaço de trabalho, pois pode haver dados e configurações importantes que podem afetar negativamente a operação de serviço. Verifique os agentes, soluções e outros serviços e fontes do Azure que armazenam seus dados no Log Analytics, como:
+Tenha cuidado ao excluir um espaço de trabalho, pois pode haver dados e configurações importantes que podem afetar negativamente a operação de serviço. Examine quais agentes, soluções e outros serviços do Azure armazenam seus dados em Log Analytics, como:
 
 * Soluções de gerenciamento
 * Automação do Azure
@@ -64,21 +64,11 @@ O método de exclusão reversível pode não se encaixar em alguns cenários, co
 > [!IMPORTANT]
 > Tenha cuidado ao empregar a operação de exclusão permanente, pois ela é irreversível e você não poderá recuperar o espaço de trabalho e seus dados.
 
-Para excluir o espaço de trabalho permanentemente, use a solicitação REST [Espaços de trabalho – Excluir](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) com uma marca force:
+Adicione a marca '-Force ' para excluir permanentemente seu espaço de trabalho:
 
-```rst
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-Authorization: Bearer <token>
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
 ```
-
-Como alternativa, você pode executar a operação no site de documentação da REST do Azure:
-1.  Navegue para a API REST [Espaços de trabalho – Excluir](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) e clique em **Testar**. 
-2.  Insira os detalhes do espaço de trabalho que você deseja excluir permanentemente
-3.  Insira um novo parâmetro *force* com o valor *true*
-4.  Clique no ícone ‘+’ à direita do valor. Isso adicionará *force = true* ao URI na solicitação
-5.  Clique no botão *Executar*
-
-A resposta deve ser 200 OK
 
 ## <a name="recover-workspace"></a>Recuperar o espaço de trabalho
 Quando você exclui um espaço de trabalho do Log Analytics acidental ou intencionalmente, o serviço coloca o espaço de trabalho em um estado de exclusão reversível, tornando-o inacessível a qualquer operação. O nome do espaço de trabalho excluído é preservado durante o período de exclusão reversível e não pode ser usado para a criação de um novo espaço de trabalho. Após o período de exclusão reversível, o espaço de trabalho não é recuperável. Ele fica então programado para exclusão permanente e seu nome é liberado e pode ser usado na criação de um novo espaço de trabalho.
@@ -114,11 +104,14 @@ O espaço de trabalho e todos os seus dados são recuperados após a operação 
 > [!NOTE]
 > * A recriação de um espaço de trabalho durante o período de exclusão reversível fornece uma indicação de que esse nome já está em uso. 
  
-### <a name="troubleshooting"></a>Solução de problemas
-Você deve ter, no mínimo, permissões de *Colaborador do Log Analytics* para excluir um espaço de trabalho.<br>
-Se você receber uma mensagem de erro *Esse nome de espaço de trabalho já está em uso* ou *conflito* ao criar um espaço de trabalho, o motivo pode ser:
-* O nome do espaço de trabalho não está disponível e está sendo usado por alguém em sua organização ou por outro cliente.
-* O espaço de trabalho foi excluído durante os últimos 14 dias e seu nome mantido reservado para o período de exclusão reversível. Para substituir a exclusão reversível e excluir permanentemente o espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para recuperar o espaço de trabalho primeiro e executar a exclusão permanente:<br>
-   1. [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o espaço de trabalho.
-   2. [Excluir permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o espaço de trabalho.
-   3. Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.
+## <a name="troubleshooting"></a>Solução de problemas
+
+Você deve ter, no mínimo, permissões de *Colaborador do Log Analytics* para excluir um espaço de trabalho.
+
+* Se você não tiver certeza se o espaço de trabalho excluído está no estado de exclusão reversível e pode ser recuperado, clique em [recuperar](#recover-workspace) na página *log Analytics espaços de trabalho* para ver uma lista de espaços de trabalho excluídos por assinatura. Espaços de trabalho excluídos permanentemente não estão incluídos na lista.
+* Se você receber uma mensagem de erro *Esse nome de espaço de trabalho já está em uso* ou *conflito* ao criar um espaço de trabalho, o motivo pode ser:
+  * O nome do espaço de trabalho não está disponível e está sendo usado por alguém em sua organização ou por outro cliente.
+  * O espaço de trabalho foi excluído durante os últimos 14 dias e seu nome mantido reservado para o período de exclusão reversível. Para substituir a exclusão reversível e excluir permanentemente o espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para recuperar o espaço de trabalho primeiro e executar a exclusão permanente:<br>
+     1. [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o espaço de trabalho.
+     2. [Excluir permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o espaço de trabalho.
+     3. Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.

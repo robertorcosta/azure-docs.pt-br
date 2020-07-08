@@ -4,17 +4,17 @@ description: O aprendizado de máquina no SQL do Azure no Edge (versão prévia)
 keywords: Implantar o SQL no Edge
 services: sql-edge
 ms.service: sql-edge
-ms.subservice: ''
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 3b36052fa3ee0d7d449be1719e67554b539d0207
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368049"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine learning e IA com o ONNX no SQL no Edge (versão prévia)
 

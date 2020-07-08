@@ -2,23 +2,23 @@
 title: Planejar uma implantação de logon único do Azure Active Directory
 description: Guia para ajudá-lo a planejar, implantar e gerenciar o SSO em sua organização.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 06/10/2020
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374433"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planejar uma implantação de logon único
 
@@ -32,7 +32,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço), como
 
 O Azure Marketplace tem mais de 3000 aplicativos com conexões de SSO previamente integradas, facilitando sua integração em seu locatário.
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licenças
 
 - **Licenciamento do Azure ad** -o SSO para aplicativos SaaS previamente integrados é gratuito. No entanto, o número de objetos em seu diretório e os recursos que você deseja implantar podem exigir licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de aplicativos** – você precisará das licenças apropriadas para seus aplicativos SaaS atenderem às suas necessidades de negócios. Trabalhe com o proprietário do aplicativo para determinar se os usuários atribuídos ao aplicativo têm as licenças apropriadas para suas funções no aplicativo. Se o Azure AD gerenciar o provisionamento automático com base em funções, as funções atribuídas no Azure AD deverão ser alinhadas com o número de licenças de Propriedade do aplicativo. O número inadequado de licenças pertencentes ao aplicativo pode levar a erros durante o provisionamento/atualização de um usuário.
@@ -163,7 +163,7 @@ Para todos os aplicativos SaaS previamente integrados, a Microsoft fornece um tu
 
 ### <a name="attribute-requirements"></a>Requisitos de atributo
 
-Há um conjunto pré-configurado de atributos e mapeamentos de atributo entre objetos de usuário do Azure AD e os objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos. Planeje o mapeamento de atributos de usuário do Azure AD para seu aplicativo e [Personalize os mapeamentos de atributo padrão](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) de acordo com suas necessidades de negócios.
+Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos. Planeje o mapeamento de atributos de usuário do Azure AD para seu aplicativo e [Personalize os mapeamentos de atributo padrão](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) de acordo com suas necessidades de negócios.
 
 ### <a name="certificate-requirements"></a>Requisitos de certificado
 
@@ -194,8 +194,6 @@ Use as fases a seguir para planejar e implantar sua solução em sua organizaç�
    Se você não conseguir localizar seu aplicativo, consulte [documentação personalizada do aplicativo](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Isso explicará como adicionar um aplicativo que não está localizado na galeria do Azure AD.
 
    Opcionalmente, você pode usar declarações emitidas no token SAML para o aplicativo empresarial usando a [documentação de diretrizes da Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Verifique se isso é mapeado para o que você espera receber na resposta SAML para seu aplicativo. Se você encontrar problemas durante a configuração, use nossas diretrizes sobre [como depurar a integração de SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
-
-A integração de aplicativos personalizados é um recurso de licenças Azure AD Premium P1 ou P2.
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Fornecer comunicações de alteração de SSO para usuários finais
 
@@ -237,11 +235,11 @@ Sempre use a função com o mínimo de permissões disponíveis para realizar a 
 
 | Persona| Funções | Função do Azure AD (se necessário) |
 |--------|-------|-----------------------------|
-| Administrador de assistência técnica | Suporte da camada 1 | Não |
+| Administrador de assistência técnica | Suporte da camada 1 | Nenhum |
 | Administrador de identidade | Configurar e depurar quando os problemas afetam o Azure AD | Administrador global |
-| Administrador do aplicativo | Atestado de usuário no aplicativo, configuração de usuários com permissões | Não |
+| Administrador do aplicativo | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhum |
 | Administradores de infraestrutura | Proprietário da substituição do certificado | Administrador global |
-| Proprietário da empresa/participante | Atestado de usuário no aplicativo, configuração de usuários com permissões | Não |
+| Proprietário da empresa/participante | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhum |
 
 Recomendamos o uso de [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
 

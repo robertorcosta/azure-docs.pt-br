@@ -1,33 +1,36 @@
 ---
-title: Lista de verificação para criação da oferta de SaaS - Marketplace comercial para Azure
-description: Os detalhes que você pode fornecer no processo de criação da oferta de SaaS. - Marketplace comercial para Azure
+title: Lista de verificação de criação de oferta de SaaS no Marketplace comercial da Microsoft
+description: Os detalhes que você pode fornecer no processo de criação da oferta de SaaS no Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 05/08/2020
+ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374399"
 ---
-# <a name="saas-offer-creation-checklist"></a>Lista de verificação para criação da oferta de SaaS
+# <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista de verificação de criação de oferta SaaS no Partner Center
 
-O processo de criação da oferta de SaaS passará por várias páginas. Estes são os detalhes que você pode fornecer em cada página, com links para saber mais sobre cada item.
+O processo de criação da oferta de SaaS passará por várias páginas.  Estes são os detalhes que você pode fornecer em cada página, com links para saber mais sobre cada item.
 
-Os itens que você precisa fornecer ou especificar estão indicados abaixo. Algumas áreas são opcionais ou têm valores padrão fornecidos, que você pode alterar conforme desejado. Você não precisa trabalhar nessas seções na ordem listada aqui.
+Os itens que você precisa fornecer ou especificar estão indicados abaixo.  Algumas áreas são opcionais ou têm valores padrão fornecidos, que você pode alterar conforme desejado.  Você não precisa trabalhar nessas seções na ordem listada aqui.
+
+>[!Note]
+>Se você estiver criando uma oferta de SaaS transactável, certifique-se de implementar a integração com [APIs de cumprimento de SaaS](./pc-saas-fulfillment-apis.md).  A integração com as APIs é a única maneira para que a transação do mercado funcione corretamente.
 
 | **Item**    | **Finalidade**  |
 | :---------- | :-------------------|
 | [**Modal Nova oferta**](#new-offer-modal) | Coleta informações de identidade da oferta.  |
 | [Página Configuração da Oferta](#offer-setup-page) | Permite aceitar o uso dos principais recursos e escolher como vender a oferta pela Microsoft.  |
 | [Página Propriedades](#properties-page) | Defina as categorias e os setores usados para agrupar sua oferta nos marketplaces, sua versão do aplicativo e os contratos legais que dão suporte à sua oferta. |
-| [Página Listagem de Ofertas](#offer-listing-page) | Defina os detalhes da oferta a serem exibidos no marketplace, incluindo descrições de sua oferta e de ativos de marketing. |
-| [Página Visualização](#preview-page) | Defina um público-alvo de versão prévia limitado para o qual liberar sua oferta antes de publicá-la como ativa para o público-alvo do marketplace em geral. |
-| [Página Configuração Técnica da Oferta](#technical-configuration-page)  | Disponível somente se você optar por vender a oferta pela Microsoft. Defina os detalhes técnicos (caminho da URL, webhook, ID do locatário e ID do aplicativo) usados para se conectar à oferta. |
+| [Página Listagem de Ofertas](#offer-listing-page) | Defina os detalhes da oferta a serem exibidos no marketplace, incluindo descrições de sua oferta e de ativos de marketing.|
+| [Página Visualização](#preview-page) | Defina um público-alvo de versão prévia limitado para o qual liberar sua oferta antes de publicá-la como ativa para o público-alvo do marketplace em geral.|
+| [Página Configuração Técnica da Oferta](#technical-configuration-page)  |  Disponível somente se você optar por vender a oferta pela Microsoft.  Defina os detalhes técnicos (URL da página de aterrissagem, URL de webhook de conexão, ID do locatário do Azure AD e ID do aplicativo do Azure AD) usados pelo Marketplace para se conectar à sua oferta.  Esses parâmetros são necessários para integrar corretamente com o cumprimento de SaaS e as APIs de cobrança limitada do Marketplace.|
 | [**Modal Novo Plano**](#plan-identity-modal) | Coleta as informações de identidade do plano.  |
 | [Página Listagem de Planos](#plan-listing-page)  | Disponível somente se você optar por vender a oferta pela Microsoft. Defina os detalhes usados para listar o Plano no marketplace.  |
 | [Página Preço e Disponibilidade do Plano](#plan-pricing--availability-page)  | Disponível somente se você optar por vender a oferta pela Microsoft.  Coleta as características comerciais (modelo de preço), o público-alvo e a disponibilidade do mercado para cada plano (versão) da oferta.  |
@@ -89,7 +92,7 @@ A página Listagem é onde você fornece o texto e as imagens que os clientes ve
 | Título + URL dos links úteis  | Opcional. |
 | Título + arquivo dos documentos de suporte  | Obrigatório, no mínimo 1 e no máximo 3. Deve ser no formato de arquivo PDF. |
 | Capturas de tela  | Obrigatório, no mínimo 1 captura de tela e no máximo 5, recomenda-se quatro ou mais. Deve ser 1280 X 720 no formato PNG. |
-| Logotipos da loja (Pequeno, Médio, Grande, Amplo, Gigante)  | Pequeno (48 X 48) e Grande (216 X 216) são obrigatórios; outros tamanhos são opcionais, mas recomendados: Médio (90 x 90), Amplo (255 x 115), Gigante (815 x 290). Deve estar no formato PNG. |
+| Logotipos da loja (pequeno, médio, grande, largo)  | Pequeno (48 X 48) e grande (216 X 216) necessário; outros tamanhos opcionais, mas recomendados: médio (90 x 90), largo (255 x 115). Deve estar em. Formato PNG. |
 | Nome + URL + miniatura dos vídeos  | Opcional, recomendado, no máximo 4 vídeos. A miniatura deve ser 1280 X 720 no formato PNG. O vídeo deve ser hospedado no YouTube ou no Vimeo. |
 | Contatos (programa CSP, engenharia, suporte)  | Contato de engenharia e suporte obrigatório (nome, email e número de telefone); o contato do programa CSP é opcional, mas recomendado. |
 | URL do suporte  | Obrigatórios. |

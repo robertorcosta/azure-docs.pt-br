@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84754629"
 ---
 Azure Data Factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para garantir que as assinaturas de cliente sejam protegidas das cargas de trabalho das outras. Para aumentar os limites até o máximo de sua assinatura, entre em contato com o suporte.
 
@@ -35,7 +35,7 @@ Azure Data Factory é um serviço multilocatário que tem os seguintes limites p
 | Itens ForEach | 100.000 | 100.000 |
 | Para cada paralelismo | 20 | 50 |
 | Máximo de execuções na fila por pipeline | 100 | 100 |
-| Caracteres por expressão | 8.192 | 8.192 |
+| Caracteres por expressão | 8\.192 | 8\.192 |
 | Intervalo mínimo de gatilho de janela em cascata | 15 min | 15 min |
 | Tempo limite máximo para execuções de atividade de pipeline | 7 dias | 7 dias |
 | Bytes por objeto para objetos de pipeline<sup>3</sup> | 200 KB | 200 KB |
@@ -46,7 +46,7 @@ Azure Data Factory é um serviço multilocatário que tem os seguintes limites p
 | Consultas de monitoramento por minuto | 1,000 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Operações CRUD de entidade por minuto | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Tempo máximo de sessão de depuração do fluxo de dados | 8 horas | 8 horas |
-| Número simultâneo de fluxos de dados por fábrica | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Número simultâneo de fluxos de dados por tempo de execução de integração | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número simultâneo de sessões de depuração de fluxo de dados por usuário por fábrica | 3 | 3 |
 | Limite de tempo de vida de Azure IR do fluxo de dados | 4 horas | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
