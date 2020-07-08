@@ -4,15 +4,15 @@ description: Para criar aplicativos altamente disponíveis e resilientes no Azur
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 07/06/2020
 ms.author: cynthn
-ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b181316ac2c6998676a17589fff246cf88ff50c2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: fasttrack-edit, mvc, references_regions
+ms.openlocfilehash: eec92672801d33290df1690d8cb17e79d4626192
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123795"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042043"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que dão suporte a Zonas de Disponibilidade no Azure
 
@@ -24,38 +24,47 @@ Esta seção lista os serviços e regiões do Azure que dão suporte a Zonas de 
 
 Os serviços que estão disponíveis em cada região, juntamente com o próximo roteiro para disponibilidade, podem ser encontrados em [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |Américas |              |           |           | Ocidental |              |          |              | Pacífico Asiático |                 |                |
+|                                 |Américas |              |           |           | Europa |              |          |              | Pacífico Asiático |                 |                |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
 |          |Centro dos EUA|Leste dos EUA|Leste dos EUA 2|Oeste dos EUA 2|França Central|Norte da Europa|Sul do Reino Unido|Europa Ocidental|Leste do Japão|Sudeste Asiático|Leste da Austrália|
-| **Compute**                         |            |              |           |           |                |              |          |             |            |                |                |
-| Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Conjuntos de Dimensionamento de Máquinas Virtuais      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
+| **Computação**                         |            |              |           |           |                |              |          |             |            |                |                |
+| Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Conjuntos de Dimensionamento de Máquinas Virtuais      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | ILB ambientes de serviço de Azure App | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Serviço de Kubernetes do Azure        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
-| Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Armazenamento com redundância de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
+| Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Armazenamento com redundância de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | **Rede**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Gateway de VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Gateway do ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Gateway de aplicativo (v2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
+| Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Gateway de VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
+| Gateway do ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
+| Gateway de aplicativo (v2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
 | Firewall do Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
 | **Bancos de dados**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Azure Data Explorer                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
 | Banco de Dados SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (versão prévia) | &#10003;       | &#10003; (versão prévia)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
 | Cache Redis do Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;    |
+| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;  |
 | **Análise**                       |            |              |           |           |                |              |          |             |            |                |                |
-| Hubs de Eventos                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
+| Hubs de Eventos                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |  &#10003;              |
 | **Integração**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Barramento de Serviço (somente Camada Premium) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
+| Barramento de Serviço (somente Camada Premium) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |  &#10003;              |
 | Grade de Eventos | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 | **Identidade**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 
+O Azure também oferece suporte Zonas de Disponibilidade nas seguintes regiões:
+
+- Gov. dos EUA – Virgínia
+- Leste da Austrália
+- Norte da África do Sul
+- Centro-Sul dos Estados Unidos
+- Canadá Central
+
+Para saber mais sobre o suporte a Zonas de Disponibilidade nessas cinco regiões, entre em contato com seu representante de vendas ou cliente da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250511"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042111"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -85,7 +85,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o\/script a ser executado (https:/RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
+As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o script a ser executado (https: \/ /RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -115,7 +115,7 @@ A imagem a seguir mostra a instalação da extensão Script Personalizado do Lin
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
+É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e o banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
 Para obter mais informações, consulte o [modelo completo do Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -336,7 +336,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 1. Para verificar o Log do agente do Linux, observe a atividade em que a extensão estava sendo provisionada em */var/log/waagent.log*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em */var/log/Azure/\<ExtensionName>*
+2. Verifique os logs de extensão reais para mais detalhes em */var/log/azure/\<extensionName>*
 
 3. Verifique as seções de solução de problemas da documentação específica da extensão para códigos de erro, problemas conhecidos etc.
 

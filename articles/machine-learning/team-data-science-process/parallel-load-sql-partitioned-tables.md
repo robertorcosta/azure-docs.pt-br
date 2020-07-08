@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ae03a655347d7be7372bae93eb0c3aaf75a8ea29
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 30c4838dd5a6f4e8b08d3619588ee3ae746349ef
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891696"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042128"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Criar e otimizar tabelas para rápida importação de dados em paralelo para um SQL Server em uma VM do Azure
 
-Este artigo descreve como criar tabelas particionadas para rápida importação em massa de dados em paralelo para um banco de dados do SQL Server. Para carregamento/transferência de Big Data para um banco de dados SQL, a importação de dados para o banco de dados SQL e consultas posteriores podem ser melhoradas usando *Exibições e Tabelas Particionadas*. 
+Este artigo descreve como criar tabelas particionadas para rápida importação em massa de dados em paralelo para um banco de dados do SQL Server. Para Big Data carregar/transferir para um banco de dados SQL, importando-os para o banco de dados SQL e as consultas subsequentes podem ser aprimoradas usando *tabelas e exibições particionadas*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Criar um novo banco de dados e um conjunto de grupos de arquivos
 * [Crie um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx), se ainda não houver um.
@@ -35,13 +35,14 @@ Este artigo descreve como criar tabelas particionadas para rápida importação 
 
 O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que não são os grupos principal e de registro, contendo um arquivo físico cada um. Os arquivos de banco de dados são criados na pasta de Dados do SQL Server padrão, conforme configurado na instância do SQL Server. Para obter mais informações sobre os locais de arquivo padrão, consulte [Locais de arquivo para instâncias padrão e nomeadas do SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
-    DECLARE @data_path nvarchar(256);
-    SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
+```sql
+   DECLARE @data_path nvarchar(256);
+   SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
       FROM master.sys.master_files
       WHERE database_id = 1 AND file_id = 1);
 
-    EXECUTE ('
-        CREATE DATABASE <database_name>
+   EXECUTE ('
+      CREATE DATABASE <database_name>
          ON  PRIMARY 
         ( NAME = ''Primary'', FILENAME = ''' + @data_path + '<primary_file_name>.mdf'', SIZE = 4096KB , FILEGROWTH = 1024KB ), 
          FILEGROUP [filegroup_1] 
@@ -53,6 +54,7 @@ O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que 
          LOG ON 
         ( NAME = ''LogFileGroup'', FILENAME = ''' + @data_path + '<log_file_name>.ldf'' , SIZE = 1024KB , FILEGROWTH = 10%)
     ')
+```
 
 ## <a name="create-a-partitioned-table"></a>Criar uma tabela particionada
 Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grupos de arquivos de banco de dados criados na etapa anterior, você deve antes criar uma função partitiva e um esquema. Quando dados são importados em massa para a tabela particionada, os registros são distribuídos entre os grupos de arquivos de acordo com um esquema de partição, conforme descrito abaixo.
@@ -60,36 +62,44 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
 ### <a name="1-create-a-partition-function"></a>1. criar uma função de partição
 [Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx), que define o intervalo de valores/limites a serem incluídos em cada tabela de partição individual, por exemplo, para limitar as partições por month(some\_datetime\_field) no ano de 2013:
   
-        CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
-        AS RANGE RIGHT FOR VALUES (
-            '20130201', '20130301', '20130401',
-            '20130501', '20130601', '20130701', '20130801',
-            '20130901', '20131001', '20131101', '20131201' )
+```sql
+   CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
+      AS RANGE RIGHT FOR VALUES (
+         '20130201', '20130301', '20130401',
+         '20130501', '20130601', '20130701', '20130801',
+         '20130901', '20131001', '20131101', '20131201' )
+```
 
 ### <a name="2-create-a-partition-scheme"></a>2. criar um esquema de partição
 [Criar um esquema de partição](https://msdn.microsoft.com/library/ms179854.aspx). Este esquema mapeia cada intervalo de partição na função de partição para um grupo de arquivos físicos, por exemplo:
   
-        CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
+```sql
+      CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
         <filegroup_1>, <filegroup_2>, <filegroup_3>, <filegroup_4>,
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
+```
+ 
+Para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
   
-  Para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
-  
-        SELECT psch.name as PartitionScheme,
+```sql
+   SELECT psch.name as PartitionScheme,
             prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
-        FROM sys.partition_functions AS pfun
-        INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
-        INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
-        WHERE pfun.name = <DatetimeFieldPFN>
+   FROM sys.partition_functions AS pfun
+   INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
+   INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
+   WHERE pfun.name = <DatetimeFieldPFN>
+```
 
 ### <a name="3-create-a-partition-table"></a>3. criar uma tabela de partição
 [Crie tabelas particionadas](https://msdn.microsoft.com/library/ms174979.aspx)de acordo com seu esquema de dados e especifique o campo de esquema e de restrição usados para particionar a tabela, por exemplo:
   
-        CREATE TABLE <table_name> ( [include schema definition here] )
+```sql
+   CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
+```
 
 Para obter mais informações, consulte [Criar tabelas e índices particionados](https://msdn.microsoft.com/library/ms188730.aspx).
 
@@ -98,11 +108,14 @@ Para obter mais informações, consulte [Criar tabelas e índices particionados]
 * Você pode usar o BCP, BULK INSERT ou outros métodos como o [Assistente de Migração do SQL Server](https://sqlazuremw.codeplex.com/). O exemplo fornecido usa o método BCP.
 * [Altere o banco de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de registro em log de transações como BULK_LOGGED para minimizar a sobrecarga de registros, por exemplo:
   
-        ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
+   ```sql
+      ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
+   ```
 * Para acelerar o carregamento de dados, inicie as operações de importação em massa paralela. Para obter dicas sobre como agilizar a importação de Big Data em bancos de dados do SQL Server, consulte [carregar 1 TB em menos de 1 hora](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
 
 O script do PowerShell a seguir é um exemplo de carregamento de dados paralela que usa o BCP.
 
+```powershell
     # Set database name, input data directory, and output log directory
     # This example loads comma-separated input data files
     # The example assumes the partitioned data files are named as <base_file_name>_<partition_number>.csv
@@ -163,19 +176,21 @@ O script do PowerShell a seguir é um exemplo de carregamento de dados paralela 
     date
     While (Get-Job -State "Running") { Start-Sleep 10 }
     date
-
+```
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Crie índices para otimizar o desempenho de associações e consultas
 * Se você pretende extrair dados de modelagem de várias tabelas, crie índices nas chaves de associação para melhorar o desempenho da junção.
 * [Crie índices](https://technet.microsoft.com/library/ms188783.aspx) (em cluster ou não em cluster) direcionados para o mesmo grupo de arquivos para cada partição, por exemplo:
   
-        CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
+```sql
+   CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
-  ou
+--  or,
   
         CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
-  
+ ```
+ 
   > [!NOTE]
   > Você pode optar por criar os índices antes de importar os dados em massa. Criar índices antes da importação em massa retarda o carregamento de dados.
   > 
