@@ -15,9 +15,9 @@ ms.locfileid: "77279515"
 Esta tabela mostra as associações com suporte nas versões principais do tempo de execução de Azure Functions:
 
 
-| Tipo | 1.x | 2. x e superior<sup>1</sup> | Gatilho | Entrada | Saída |
+| Type | 1.x | 2. x e superior<sup>1</sup> | Gatilho | Entrada | Saída |
 | ---- | :-: | :-: | :------: | :---: | :----: |
-| [Armazenamento de BLOBs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
+| [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
 | [Grade de Eventos](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Hubs de Evento](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
