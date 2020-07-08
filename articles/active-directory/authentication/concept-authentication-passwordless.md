@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de359f60b556390b8271b728580ef66ae53ffa
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201713"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981848"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
 A autenticação multifator (MFA) é uma ótima maneira de proteger sua organização, mas os usuários geralmente ficam frustrados com a camada de segurança adicional sobre a existência de lembrar suas senhas. Os métodos de autenticação sem senha são mais convenientes porque a senha é removida e substituída por algo que você tem, além de algo que você conhece ou algo que você sabe.
 
-|   | Algo que você tem | Algo que você está ou conhece |
+| Autenticação  | Algo que você tem | Algo que você está ou conhece |
 | --- | --- | --- |
 | Sem senha | Dispositivo, telefone ou chave de segurança do Windows 10 | Biometria ou PIN |
 
@@ -30,7 +30,7 @@ Cada organização tem necessidades diferentes quando se trata de autenticação
 
 - Windows Hello para Empresas
 - Aplicativo Microsoft Authenticator
-- Chaves de segurança do FIDO2
+- Chaves de segurança FIDO2
 
 ![Autenticação: segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
@@ -75,7 +75,7 @@ A autenticação com senha usando o aplicativo autenticador segue o mesmo padrã
 1. O nonce é assinado com a chave privada e enviado de volta para o Azure AD.
 1. O Azure AD executa a validação de chave pública/privada e retorna um token.
 
-## <a name="fido2-security-keys"></a>Chaves de segurança do FIDO2
+## <a name="fido2-security-keys"></a>Chaves de segurança FIDO2
 
 As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação com senha. O FIDO permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
 
@@ -110,13 +110,13 @@ Uma chave de segurança **deve** implementar os seguintes recursos e extensões 
 
 Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma diferentes que são conhecidos como compatíveis com a experiência sem senha. Incentivamos você a avaliar as propriedades de segurança dessas chaves contatando o fornecedor, bem como a FIDO Alliance.
 
-| Provedor | Contato |
+| Provedor | Contact |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
+| Soluções de TrustKey | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (grupo Thales) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
@@ -125,7 +125,7 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 > [!NOTE]
 > Se você comprar e planejar usar chaves de segurança baseadas em NFC, precisará de um leitor de NFC com suporte para a chave de segurança. O leitor NFC não é um requisito ou limitação do Azure. Consulte o fornecedor da sua chave de segurança baseada em NFC para obter uma lista de leitores NFC com suporte.
 
-Se você for um fornecedor e quiser obter seu dispositivo na lista de dispositivos com suporte, entre em [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)contato com.
+Se você for um fornecedor e quiser obter seu dispositivo na lista de dispositivos com suporte, entre em contato com [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) .
 
 ## <a name="what-scenarios-work-with-the-preview"></a>Quais cenários funcionam com a versão prévia?
 
@@ -142,7 +142,7 @@ A escolha entre essas três opções de senha depende dos requisitos de seguran�
 
 Aqui estão alguns fatores a serem considerados ao escolher a tecnologia com senha da Microsoft:
 
-||**Windows Hello para Empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança do FIDO2**|
+||**Windows Hello para Empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicativo Microsoft Authenticator<br>Telefone (dispositivos iOS e Android que executam o Android 6,0 ou superior.)|Windows 10, versão 1809 ou posterior<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|
@@ -154,8 +154,8 @@ Use a tabela a seguir para escolher qual método dará suporte a seus requisitos
 
 |Persona|Cenário|Ambiente|Tecnologia com senha|
 |:-|:-|:-|:-|
-|**Administração**|Proteger o acesso a um dispositivo para tarefas de gerenciamento|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
-|**Administração**|Tarefas de gerenciamento em dispositivos que não são do Windows| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
+|**Administrador**|Proteger o acesso a um dispositivo para tarefas de gerenciamento|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
+|**Administrador**|Tarefas de gerenciamento em dispositivos que não são do Windows| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
 |**Operador de informações**|Trabalho de produtividade|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
 |**Operador de informações**|Trabalho de produtividade| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
 |**Frente Worker**|Quiosques em uma fábrica, fábrica, varejo ou entrada de dados|Dispositivos Windows 10 compartilhados|Chaves de segurança do FIDO2|

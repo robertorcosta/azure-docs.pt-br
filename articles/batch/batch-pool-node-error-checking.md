@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
-ms.openlocfilehash: 5ac3991a52ab75dccd0033160d6e972d155a882b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723911"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979910"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -24,9 +24,9 @@ Este artigo aborda as operações em segundo plano que podem ocorrer para pools 
 
 ### <a name="resize-timeout-or-failure"></a>Redimensionar tempo limite ou falha
 
-Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado.  A operação de criação ou redimensionamento é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos.  Especifique o tempo limite de redimensionamento em [crie](https://docs.microsoft.com/rest/api/batchservice/pool/add) ou [redimensionar](https://docs.microsoft.com/rest/api/batchservice/pool/resize) a API. Se o Lote não puder obter o número de nós de destino durante o período de tempo limite do redimensionamento, o pool entrará em um estado estável e reportará erros de redimensionamento.
+Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado.  A operação de criação ou redimensionamento é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos.  Especifique o tempo limite de redimensionamento em [crie](/rest/api/batchservice/pool/add) ou [redimensionar](/rest/api/batchservice/pool/resize) a API. Se o Lote não puder obter o número de nós de destino durante o período de tempo limite do redimensionamento, o pool entrará em um estado estável e reportará erros de redimensionamento.
 
-A propriedade [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) da avaliação mais recente lista os erros ocorridos.
+A propriedade [ResizeError](/rest/api/batchservice/pool/get#resizeerror) da avaliação mais recente lista os erros ocorridos.
 
 As causas comuns dos erros de redimensionamento incluem:
 
@@ -34,31 +34,31 @@ As causas comuns dos erros de redimensionamento incluem:
   - Na maioria das circunstâncias, o tempo limite padrão de 15 minutos é longo o suficiente para que os nós de pool sejam alocados ou removidos.
   - Se estiver alocando um grande número de nós, recomendamos definir o tempo limite de redimensionamento para 30 minutos. Por exemplo, quando estiver redimensionando a mais de 1.000 nós de uma imagem do Microsoft Azure Marketplace ou a mais de 300 nós de uma imagem VM personalizada.
 - Cota de núcleo insuficiente
-  - Uma conta de lote é limitadas em um número de núcleos alocados em todos os pools. O lote não alocará nós após essa cota ter sido atingida. Você [pode aumentar](https://docs.microsoft.com/azure/batch/batch-quota-limit) a cota de núcleos para esse lote possa alocar mais nós.
-- IPs de sub-rede insuficientes quando um [pool está em uma rede virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Uma conta de lote é limitadas em um número de núcleos alocados em todos os pools. O lote não alocará nós após essa cota ter sido atingida. Você [pode aumentar](./batch-quota-limit.md) a cota de núcleos para esse lote possa alocar mais nós.
+- IPs de sub-rede insuficientes quando um [pool está em uma rede virtual](./batch-virtual-network.md)
   - Uma sub-rede de rede virtual deve ter suficiente endereços IP não atribuídos para alocar cada nó de pool solicitado. Caso contrário, os nós não podem ser criados.
-- Recursos insuficientes quando um [pool está em uma rede virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+- Recursos insuficientes quando um [pool está em uma rede virtual](./batch-virtual-network.md)
   - É possível criar recursos como grupos de segurança de rede, IPs públicos e grupo de segurança de rede na mesma assinatura que a conta do lote. Verifique se as cotas de assinatura para esses recursos são suficientes.
 - Grandes pools com imagens de VM personalizadas
   - Grandes pools que usam imagens personalizadas de VM podem demorar mais para alocar, e podem ocorrer tempos limite de redimensionamento.  Confira [Criar um pool com a Galeria de Imagens Compartilhadas](batch-sig-images.md) para obter recomendações sobre limites e configurações.
 
 ### <a name="automatic-scaling-failures"></a>Falhas de dimensionamento automático
 
-Também se pode definir o Lote do Microsoft Azure para dimensionar automaticamente o número de nós em um pool. Defina os parâmetros da [fórmula de dimensionamento automático para um pool](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). O serviço de lote usa a fórmula para avaliar o número de nós no pool periodicamente e definir um novo número de destino. Os tipos de problemas a seguir podem ocorrer:
+Também se pode definir o Lote do Microsoft Azure para dimensionar automaticamente o número de nós em um pool. Defina os parâmetros da [fórmula de dimensionamento automático para um pool](./batch-automatic-scaling.md). O serviço de lote usa a fórmula para avaliar o número de nós no pool periodicamente e definir um novo número de destino. Os tipos de problemas a seguir podem ocorrer:
 
 - A fórmula de dimensionamento automático falhar.
 - A operação de redimensionamento resultante pode falhar e atingir o tempo limite.
 - Um problema com a fórmula de dimensionamento automático pode resultar em valores de destino de nó incorretos. O redimensionamento funcionar ou atingir o tempo limite.
 
-Obtenha informações sobre a última avaliação do dimensionamento automático usando a propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun). Essa propriedade informa o tempo de avaliação, os valores, o resultado e quaisquer erros de desempenho.
+Obtenha informações sobre a última avaliação do dimensionamento automático usando a propriedade [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Essa propriedade informa o tempo de avaliação, os valores, o resultado e quaisquer erros de desempenho.
 
-Informações sobre todas as avaliações são capturadas automaticamente por um [evento completo de redimensionamento de pool](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event).
+Informações sobre todas as avaliações são capturadas automaticamente por um [evento completo de redimensionamento de pool](./batch-pool-resize-complete-event.md).
 
 ### <a name="delete"></a>Excluir
 
 Ao excluir um pool que contém nós, o primeiro lote exclui os nós. Em seguida, ele exclui o próprio objeto do pool. A exclusão dos nós do pool pode levar alguns minutos para ser concluída.
 
-O lote define o [estado do pool](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) será definido como **excluindo** durante o processo de exclusão. O aplicativo de chamada pode detectar se a exclusão do pool está demorando demais usando as propriedades **state** e **stateTransitionTime**.
+O lote define o [estado do pool](/rest/api/batchservice/pool/get#poolstate) será definido como **excluindo** durante o processo de exclusão. O aplicativo de chamada pode detectar se a exclusão do pool está demorando demais usando as propriedades **state** e **stateTransitionTime**.
 
 ## <a name="pool-compute-node-errors"></a>Erros do nó de computação do pool
 
@@ -131,7 +131,7 @@ Outros arquivos são gravados para cada tarefa executada em um nó, como stdout 
 O tamanho da unidade temporária depende do tamanho da VM. Ao escolher um tamanho de VM, considere garantir que a unidade temporária tenha espaço suficiente.
 
 - No portal do Azure, ao adicionar um pool, é possível exibir a lista completa de tamanhos de VM e há a coluna "Tamanho do Disco do Recurso".
-- Os artigos que descrevem todos os tamanhos de VM têm tabelas com a coluna "Armazenamento Temporário"; por exemplo, [Tamanhos de VM de Computação Otimizada](/azure/virtual-machines/windows/sizes-compute)
+- Os artigos que descrevem todos os tamanhos de VM têm tabelas com a coluna "Armazenamento Temporário"; por exemplo, [Tamanhos de VM de Computação Otimizada](../virtual-machines/sizes-compute.md)
 
 Para arquivos gravados por cada tarefa, é possível especificar um tempo de retenção para cada tarefa que determine por quanto tempo os arquivos de tarefa serão mantidos antes de serem limpos automaticamente. O tempo de retenção pode ser reduzido para diminuir os requisitos de armazenamento.
 
@@ -140,17 +140,17 @@ Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem es
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>O que fazer quando um disco está cheio
 
-Determine por que o disco está cheio: se você não tiver certeza do que está ocupando espaço no nó, é recomendável deixar o nó como remoto e investigar manualmente como o espaço acabou. Você também pode usar a [API de Arquivos de Lista de Lote](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) para examinar arquivos em pastas gerenciadas do Lote (por exemplo, saídas de tarefas). Observe que essa API só lista os arquivos nos diretórios gerenciados pelo Lote e, se suas tarefas criaram arquivos em outro lugar, você não os verá.
+Determine por que o disco está cheio: se você não tiver certeza do que está ocupando espaço no nó, é recomendável deixar o nó como remoto e investigar manualmente como o espaço acabou. Você também pode usar a [API de Arquivos de Lista de Lote](/rest/api/batchservice/file/listfromcomputenode) para examinar arquivos em pastas gerenciadas do Lote (por exemplo, saídas de tarefas). Observe que essa API só lista os arquivos nos diretórios gerenciados pelo Lote e, se suas tarefas criaram arquivos em outro lugar, você não os verá.
 
 Verifique se todos os dados necessários foram recuperados do nó ou carregados em um repositório durável. Resolver problemas de disco cheio sempre envolve a exclusão de dados para liberar espaço.
 
 ### <a name="recovering-the-node"></a>Recuperação do nó
 
-1. Se o pool for um pool for de [C.loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration), você poderá refazer a imagem do nó por meio da [API para refazer imagem do Lote](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage), o que limpará o disco inteiro. A ação de refazer imagem não tem suporte no momento para pools de [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+1. Se o pool for um pool for de [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), você poderá refazer a imagem do nó por meio da [API para refazer imagem do Lote](/rest/api/batchservice/computenode/reimage), o que limpará o disco inteiro. A ação de refazer imagem não tem suporte no momento para pools de [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
-2. Se o pool for de [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), você poderá remover o nó do pool usando a [API para remover nós](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Em seguida, você pode aumentar novamente o pool para substituir o nó inadequado por um novo.
+2. Se o pool for de [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), você poderá remover o nó do pool usando a [API para remover nós](/rest/api/batchservice/pool/removenodes). Em seguida, você pode aumentar novamente o pool para substituir o nó inadequado por um novo.
 
-3.  Exclua tarefas ou trabalhos antigos concluídos cujos dados de tarefa ainda estejam nos nós. Para obter uma dica sobre quais dados de trabalhos ou tarefas estão nos nós, você pode procurar na [coleção RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) do nó ou nos [arquivos no nó](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). A exclusão do trabalho excluirá todas as tarefas no trabalho e a exclusão das tarefas no trabalho disparará os dados nos diretórios de tarefas no nó a ser excluído, dessa forma liberando o espaço. Depois de liberar espaço suficiente, reinicialize o nó e ele deverá sair do estado "Inutilizável", retornando para "ocioso".
+3.  Exclua tarefas ou trabalhos antigos concluídos cujos dados de tarefa ainda estejam nos nós. Para obter uma dica sobre quais dados de trabalhos ou tarefas estão nos nós, você pode procurar na [coleção RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) do nó ou nos [arquivos no nó](/rest/api/batchservice/file/listfromcomputenode). A exclusão do trabalho excluirá todas as tarefas no trabalho e a exclusão das tarefas no trabalho disparará os dados nos diretórios de tarefas no nó a ser excluído, dessa forma liberando o espaço. Depois de liberar espaço suficiente, reinicialize o nó e ele deverá sair do estado "Inutilizável", retornando para "ocioso".
 
 ## <a name="next-steps"></a>Próximas etapas
 

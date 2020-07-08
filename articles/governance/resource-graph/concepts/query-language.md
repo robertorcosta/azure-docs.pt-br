@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 03/07/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 944d0f2676f1a82c80be33a6c1a91d34bc8a32f7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654459"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970443"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -17,12 +17,13 @@ A linguagem de consulta para o Azure Resource Graph dá suporte a diversos opera
 Este artigo aborda os componentes de linguagem com suporte no Resource Graph:
 
 - [Tabelas do Resource Graph](#resource-graph-tables)
+- [Elementos de linguagem personalizada do grafo de recursos](#resource-graph-custom-language-elements)
 - [Elementos da linguagem KQL com suporte](#supported-kql-language-elements)
 - [Caracteres de escape](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tabelas do Resource Graph
 
-O Resource Graph oferece várias tabelas para os dados que ele armazena sobre os tipos de recursos do Resource Manager e suas propriedades. Essas tabelas podem ser usadas com os operadores `join` ou `union` para obter propriedades dos tipos de recursos relacionados. Esta é a lista de tabelas disponíveis no Resource Graph:
+O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre Azure Resource Manager tipos de recursos e suas propriedades. Essas tabelas podem ser usadas com os operadores `join` ou `union` para obter propriedades dos tipos de recursos relacionados. Esta é a lista de tabelas disponíveis no Resource Graph:
 
 |Tabelas do Resource Graph |Descrição |
 |---|---|
@@ -61,6 +62,33 @@ Resources
 
 > [!NOTE]
 > Quando os resultados de `join` são limitados com `project`, a propriedade usada por `join` para relacionar as duas tabelas, _subscriptionId_ no exemplo acima, deve ser incluída em `project`.
+
+## <a name="resource-graph-custom-language-elements"></a>Elementos de linguagem personalizada do grafo de recursos
+
+### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Sintaxe de consulta compartilhada (versão prévia)
+
+Como um recurso de visualização, uma [consulta compartilhada](../tutorials/create-share-query.md) pode ser acessada diretamente em uma consulta de grafo de recursos. Esse cenário torna possível criar consultas padrão como consultas compartilhadas e reutilizá-las. Para chamar uma consulta compartilhada dentro de uma consulta de gráfico de recursos, use a `{{shared-query-uri}}` sintaxe. O URI da consulta compartilhada é a _ID de recurso_ da consulta compartilhada na página de **configurações** dessa consulta. Neste exemplo, nosso URI de consulta compartilhada é `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS` .
+Esse URI aponta para a assinatura, o grupo de recursos e o nome completo da consulta compartilhada que queremos referenciar em outra consulta. Essa consulta é a mesma criada no [tutorial: criar e compartilhar uma consulta](../tutorials/create-share-query.md).
+
+> [!NOTE]
+> Você não pode salvar uma consulta que faça referência a uma consulta compartilhada como uma consulta compartilhada.
+
+Exemplo 1: usar somente a consulta compartilhada
+
+Os resultados dessa consulta de grafo de recursos são os mesmos que a consulta armazenada na consulta compartilhada.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+Exemplo 2: incluir a consulta compartilhada como parte de uma consulta maior
+
+Essa consulta usa primeiro a consulta compartilhada e, em seguida, usa `limit` para restringir ainda mais os resultados.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
 
 ## <a name="supported-kql-language-elements"></a>Elementos da linguagem KQL com suporte
 

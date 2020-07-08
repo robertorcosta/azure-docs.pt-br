@@ -3,16 +3,17 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684283"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971089"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
-Além de auditar e [corrigir](../how-to/remediate-resources.md) os recursos do Azure, o Azure Policy pode auditar configurações dentro de um computador. A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
+Azure Policy pode auditar as configurações dentro de um computador, tanto para computadores em execução no Azure quanto em [computadores conectados ao Arc](../../../azure-arc/servers/overview.md).
+A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
 
 - A configuração do sistema operacional
 - Configuração ou presença do aplicativo
@@ -21,13 +22,17 @@ Além de auditar e [corrigir](../how-to/remediate-resources.md) os recursos do A
 Neste momento, a maioria das políticas de Configuração de Convidado do Azure Policy auditam somente as configurações dentro do computador.
 Elas não aplicam as configurações. A exceção é uma política interna [referenciada abaixo](#applying-configurations-using-guest-configuration).
 
+## <a name="enable-guest-configuration"></a>Habilitar configuração de convidado
+
+Para auditar o estado de computadores em seu ambiente, incluindo computadores no Azure e em computadores conectados ao Arc, examine os detalhes a seguir.
+
 ## <a name="resource-provider"></a>Provedor de recursos
 
 Antes de usar a Configuração de Convidado, você precisa registrar o provedor de recursos. O provedor de recursos será registrado automaticamente se a atribuição de uma política de Configuração de Convidado for feita por meio do portal. Você pode registrar manualmente por meio do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), do [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou da [CLI do Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## <a name="extension-and-client"></a>Extensão e cliente
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Requisitos de implantação para máquinas virtuais do Azure
 
-Para auditar as configurações dentro de um computador, uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) é habilitada. A extensão baixa a atribuição de política aplicável e a definição de configuração correspondente.
+Para auditar as configurações dentro de um computador, uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) é habilitada e o computador deve ter uma identidade gerenciada pelo sistema. A extensão baixa a atribuição de política aplicável e a definição de configuração correspondente. A identidade é usada para autenticar o computador conforme ele lê e grava no serviço de configuração do convidado. A extensão não é necessária para computadores conectados ao Arc porque está incluída no agente do computador conectado ao Arc.
 
 > [!IMPORTANT]
 > A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure. Para implantar a extensão em escala, atribua as seguintes definições de política: 
@@ -36,18 +41,18 @@ Para auditar as configurações dentro de um computador, uma [extensão de máqu
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
-Para limitar a extensão de afetar os aplicativos em execução dentro do computador, a configuração de convidado não tem permissão para exceder mais de 5% da CPU. Essa limitação existe para as definições internas e personalizadas.
+Para limitar a extensão de afetar os aplicativos em execução dentro do computador, a configuração de convidado não tem permissão para exceder mais de 5% da CPU. Essa limitação existe para as definições internas e personalizadas. O mesmo é verdadeiro para o serviço de configuração de convidado no agente de computador conectado em arco.
 
 ### <a name="validation-tools"></a>Ferramentas de validação
 
 No computador, o cliente de Configuração de Convidado usa ferramentas locais para executar a auditoria.
 
-A tabela a seguir mostra uma lista das ferramentas locais usadas em cada sistema operacional com suporte:
+A tabela a seguir mostra uma lista das ferramentas locais usadas em cada sistema operacional com suporte. Para conteúdo interno, a configuração de convidado lida com o carregamento dessas ferramentas automaticamente.
 
 |Sistema operacional|Ferramenta de validação|Observações|
 |-|-|-|
-|Windows|[Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Se o Ruby e o Python não estão no computador, eles são instalados pela extensão de Configuração de Convidado. |
+|Windows|[Configuração de estado desejado do PowerShell](/powershell/scripting/dsc/overview/overview) v2| Carregado lado a uma pasta usada apenas pelo Azure Policy. Não entrará em conflito com o DSC do Windows PowerShell. O PowerShell Core não é adicionado ao caminho do sistema.|
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Instala o chefe inspec versão 2.2.61 no local padrão e adicionado ao caminho do sistema. As dependências para o pacote inspec, incluindo Ruby e Python, também são instaladas. |
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
@@ -65,14 +70,10 @@ A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imag
 |Microsoft|Windows Server|2012 e posterior|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 e posterior|
-|Red Hat|Red Hat Enterprise Linux|7.4 e posterior|
+|Red Hat|Red Hat Enterprise Linux|7,4-7,8, 9,0 e posterior|
 |Suse|SLES|12 SP3 e posterior|
 
 As imagens de máquina virtual personalizadas são compatíveis com as políticas de Configuração de Convidado, desde que sejam um dos sistemas operacionais na tabela acima.
-
-### <a name="unsupported-client-types"></a>Tipos de clientes sem suporte
-
-O Windows Server Nano Server não é compatível com nenhuma versão.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisitos de rede da extensão de Configuração de Convidado
 
@@ -87,7 +88,7 @@ As políticas **DeployIfNotExists** que adicionam a extensão às máquinas virt
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 
-Cada auditoria executada pela Configuração de Convidado exige duas definições de política, uma definição **DeployIfNotExists** e uma definição **AuditIfNotExists**.
+Cada auditoria executada pela Configuração de Convidado exige duas definições de política, uma definição **DeployIfNotExists** e uma definição **AuditIfNotExists**. As definições de política **DeployIfNotExists** gerenciam dependências para executar auditorias em cada computador.
 
 A definição de política **DeployIfNotExists** valida e corrige os seguintes itens:
 
@@ -116,7 +117,7 @@ Alinhe a política com seus requisitos ou mapeie a política para informações 
 
 Alguns parâmetros dão suporte a um intervalo de valores inteiros. Por exemplo, a configuração Duração Máxima da Senha pode auditar a configuração de Política de Grupo efetiva. Um intervalo igual a "1,70" confirmaria que os usuários precisam alterar as respectivas senhas pelo menos a cada 70 dias, mas com intervalo de pelo menos um dia entre cada alteração.
 
-Se você atribuir a política usando um modelo de implantação do Azure Resource Manager, use um arquivo de parâmetros para gerenciar exceções. Faça check-in dos arquivos para um sistema de controle de versão, por exemplo, o Git. Comentários sobre alterações de arquivo fornecem evidências do motivo pelo qual uma atribuição é uma exceção para o valor esperado.
+Se você atribuir a política usando um modelo de Azure Resource Manager (modelo ARM), use um arquivo de parâmetros para gerenciar exceções. Faça check-in dos arquivos para um sistema de controle de versão, por exemplo, o Git. Comentários sobre alterações de arquivo fornecem evidências do motivo pelo qual uma atribuição é uma exceção para o valor esperado.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Aplicando configurações usando a Configuração de Convidado
 
@@ -183,7 +184,7 @@ Os exemplos de política interna de Configuração de Convidado estão disponív
 - Examine os exemplos em [amostras do Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).
-- Entenda como [criar políticas de maneira programática](../how-to/programmatically-create.md).
+- Entenda como [criar políticas de forma programática](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos fora de conformidade](../how-to/remediate-resources.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

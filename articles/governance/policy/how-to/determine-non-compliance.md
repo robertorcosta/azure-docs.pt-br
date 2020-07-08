@@ -1,22 +1,21 @@
 ---
 title: Determinar as causas de não conformidade
 description: Quando um recurso não está em conformidade, há muitos motivos possíveis. Saiba como descobrir o que causou a não conformidade.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684233"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970766"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
 
 Quando um recurso do Azure é determinado como estando em não conformidade com uma regra de política, é importante entender a parte da regra com a qual o recurso não está em conformidade. Também é útil entender qual alteração alterou um recurso de forma que ele se ficasse em não conformidade. Há duas maneiras de encontrar essas informações:
 
-> [!div class="checklist"]
-> - [Detalhes de conformidade](#compliance-details)
-> - [Alterar histórico (versão preliminar)](#change-history)
+- [Detalhes de conformidade](#compliance-details)
+- [Alterar histórico (versão preliminar)](#change-history)
 
 ## <a name="compliance-details"></a>Detalhes de conformidade
 
@@ -188,9 +187,9 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="change-history-preview"></a><a name="change-history"/>Alterar histórico (versão preliminar)
+## <a name="change-history-preview"></a><a name="change-history"></a>Alterar histórico (versão preliminar)
 
-Como parte de uma nova **versão preliminar pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _comparação visual_ para cada alteração. A detecção de alteração é disparada quando as propriedades do Resource Manager são adicionadas, removidas ou alteradas.
+Como parte de uma nova **versão preliminar pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _comparação visual_ para cada alteração. Uma detecção de alteração é disparada quando as propriedades de Azure Resource Manager são adicionadas, removidas ou alteradas.
 
 1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106212"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970545"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -35,21 +35,20 @@ Além dessas funções, há duas funções específicas da Central de Segurança
 > [!NOTE]
 > As funções de segurança, o leitor de segurança e o administrador de segurança têm acesso apenas na central de segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.
 >
->
 
 ## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
 A tabela a seguir exibe as funções e as ações permitidas na Central de Segurança.
 
-| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso</br> (incluindo com ' correção rápida! ') | Ignorar alertas e recomendações | Exibir alertas e recomendações |
-|:--- |:---:|:---:|:---:|:---:|
-| Proprietário da assinatura | ✔ | ✔ | ✔ | ✔ |
-| Colaborador da assinatura | -- | ✔ | ✔ | ✔ |
-| Proprietário do Grupo de Recursos | -- | ✔ | -- | ✔ |
-| Colaborador do Grupo de Recursos | -- | ✔ | -- | ✔ |
-| Leitor | -- | -- | -- | ✔ |
-| Administrador de Segurança | ✔ | -- | ✔ | ✔ |
-| Leitor de segurança | -- | -- | -- | ✔ |
+|Ação|Leitor de segurança/ <br> Leitor |Administrador de Segurança  |Colaborador do grupo de recursos/ <br> Proprietário do Grupo de Recursos  |Colaborador da assinatura  |Proprietário da assinatura  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Editar política de segurança|-|✔|-|-|✔|
+|Adicionar/atribuir iniciativas (incluindo) padrões de conformidade regulatória)|-|-|-|-|✔|
+|Alterar o tipo de preço da assinatura|-|✔|-|-|✔|
+|Habilitar/desabilitar provisionamento automático|-|✔|✔|-|✔|
+|Aplicar as recomendações de segurança a um recurso</br> (e usar [correção rápida!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Ignorar alertas|-|✔|-|✔|✔|
+|Exibir alertas e recomendações|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > Recomendamos que você atribua a função menos permissiva necessária para os usuários realizarem suas tarefas. Por exemplo, atribua a função Leitor aos usuários que precisam apenas exibir informações sobre a integridade da segurança de um recurso, mas que não precisam executar nenhuma ação, como aplicar recomendações ou editar políticas.

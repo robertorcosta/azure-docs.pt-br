@@ -5,19 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: 99c8d4e7e5263b8a7caf30833a899976d3cc829b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 89450e5518d854fbc31b43324ecb05f47e1ab5ac
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133700"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970987"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
 
 ## <a name="metrics"></a>Métricas
-O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida em uma frequência de um minuto e tem até 30 dias de histórico. É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-on-metric.md) (Como configurar alertas). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida a uma frequência de um minuto e tem até [93 dias de histórico](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-on-metric.md) (Como configurar alertas). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreSQL:
@@ -26,7 +26,7 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreS
 |---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
-|io_consumption_percent|Porcentagem de E/S|Porcentagem|O percentual de E/S em uso.|
+|io_consumption_percent|Porcentagem de E/S|Porcentagem|O percentual de E/S em uso. (Não aplicável para servidores de camada básica.)|
 |storage_percent|Porcentagem de armazenamento|Porcentagem|O percentual de armazenamento usado fora do máximo do servidor.|
 |storage_used|Armazenamento usado|Bytes|A quantidade de armazenamento em uso. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para esse servidor.|
@@ -74,7 +74,7 @@ As **notificações de manutenção planejada** permitem que você receba alerta
 Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> As notificações de manutenção planejada estão atualmente em versão prévia
+> As notificações de manutenção planejada estão disponíveis atualmente na visualização em todas as regiões **, exceto** no Oeste EUA Central
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.

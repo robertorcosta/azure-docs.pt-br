@@ -2,33 +2,33 @@
 title: Obter QnA Maker de resposta padrão
 description: A resposta padrão é retornada quando não há nenhuma correspondência com a pergunta. Talvez você queira alterar a resposta padrão da resposta padrão standard.
 ms.topic: how-to
-ms.date: 04/22/2020
-ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/02/2020
+ms.openlocfilehash: 005442938167c1bf7927603c44d6f870795cbeee
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097091"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979956"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso de QnA Maker
 
-A resposta padrão é retornada quando não há nenhuma correspondência com a pergunta. Talvez você queira alterar a resposta padrão da resposta padrão standard.
+A resposta padrão para uma base de dados de conhecimento deve ser retornada quando uma resposta não for encontrada. Se você estiver usando um aplicativo cliente, como o [serviço de bot do Azure](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs#calling-qna-maker-from-your-bot), ele também poderá ter uma resposta padrão separada, indicando que nenhuma resposta atende ao limite de pontuação.
 
-## <a name="change-default-answer-in-the-azure-portal"></a>Alterar a resposta padrão no portal do Azure
+## <a name="set-default-answer-when-you-create-knowledge-base"></a>Definir a resposta padrão ao criar a base de dados de conhecimento
 
-1. Vá para o [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que representa o serviço QnA Maker que você criou.
+Quando você cria uma nova base de dados de conhecimento, o texto de resposta padrão é uma das configurações. Se você optar por não defini-lo durante o processo de criação, poderá alterá-lo posteriormente com o procedimento a seguir.
 
-2. Clique para abrir o **Serviço de Aplicativo**.
+## <a name="change-default-answer-in-qna-maker-portal"></a>Alterar a resposta padrão no portal de QnA Maker
 
-    ![No portal do Azure, acesse o serviço de aplicativo para o QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+A resposta padrão da base de dados de conhecimento é retornada quando nenhuma resposta é retornada do serviço de QnA Maker.
 
-3. Clique em **Configurações do Aplicativo** e edite o campo **DefaultAnswer** para a resposta padrão desejada. Clique em **Save** (Salvar).
+1. Entre no portal de [QnA Maker](https://www.qnamaker.ai/) e selecione sua base de dados de conhecimento na lista.
+1. Selecione **configurações** na barra de navegação.
+1. Altere o valor do **texto de resposta padrão** na seção **gerenciar base de dados de conhecimento** .
 
-    ![Selecione Configurações de aplicativo e, em seguida, edite DefaultAnswer para o QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+    :::image type="content" source="../media/qnamaker-concepts-confidencescore/change-default-answer.png" alt-text="Captura de tela do portal QnA Maker, página configurações, com a caixa de texto resposta padrão realçada.":::
 
-4. Reinicie o serviço Aplicativo
-
-    ![Depois de alterar o DefaultAnswer, reinicie o serviço de aplicativo do QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+1. Selecione **salvar e treinar** para salvar a alteração.
 
 ## <a name="next-steps"></a>Próximas etapas
 

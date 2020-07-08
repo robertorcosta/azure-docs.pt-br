@@ -3,12 +3,12 @@ title: Fazer backup de um compartilhamento de arquivos do Azure usando o PowerSh
 description: Neste artigo, saiba como fazer backup de um compartilhamento de arquivos do Azure files usando o serviço de backup do Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 53187152802908e94ee4a8a231d3b7874cf42422
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199347"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971021"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Fazer backup de um compartilhamento de arquivos do Azure usando o PowerShell
 
@@ -60,7 +60,7 @@ Configure o PowerShell da seguinte maneira:
 5. Na página da Web que aparece, você será solicitado a inserir suas credenciais de conta.
 
     Como alternativa, você pode incluir suas credenciais de conta como um parâmetro no cmdlet **Connect-AzAccount** usando **-Credential**.
-   
+
     Se você for um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário. Use a ID de locatário ou o nome de domínio primário do locatário. Um exemplo é **Connect-AzAccount-Tenant "fabrikam.com"**.
 
 6. Associe a assinatura que você deseja usar com a conta, pois uma conta pode ter várias assinaturas:
@@ -95,20 +95,11 @@ Siga estas etapas para criar um cofre dos serviços de recuperação:
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Use o cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para criar o cofre. Especifique o mesmo local para o cofre que você usou para o grupo de recursos.
+1. Use o cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para criar o cofre. Especifique o mesmo local para o cofre que você usou para o grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. Especifique o tipo de redundância a ser usado para o armazenamento do cofre. Você pode usar [armazenamento com redundância local](../storage/common/storage-redundancy-lrs.md) ou [armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md).
-   
-   O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmdlet [set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como **georedundante**:
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Exibir os cofres em uma assinatura
 
@@ -246,20 +237,22 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+Para obter mais informações sobre como obter uma lista de compartilhamentos de arquivos para uma conta de armazenamento, consulte [Este artigo](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+
 ## <a name="important-notice-backup-item-identification"></a>Aviso importante: identificação do item de backup
 
 Esta seção descreve uma alteração importante nos backups de compartilhamentos de arquivos do Azure em preparação para disponibilidade geral.
 
-Ao habilitar um backup para compartilhamentos de arquivos do Azure, o usuário fornece ao cliente um nome de compartilhamento de arquivo como o nome da entidade e um item de backup é criado. O nome do item de backup é um identificador exclusivo que o serviço de backup do Azure cria. Normalmente, o identificador é um nome amigável para o usuário. Mas para lidar com o cenário de exclusão reversível, em que um compartilhamento de arquivos pode ser excluído e outro compartilhamento de arquivos pode ser criado com o mesmo nome, a identidade exclusiva de um compartilhamento de arquivos do Azure agora é uma ID. 
+Ao habilitar um backup para compartilhamentos de arquivos do Azure, o usuário fornece ao cliente um nome de compartilhamento de arquivo como o nome da entidade e um item de backup é criado. O nome do item de backup é um identificador exclusivo que o serviço de backup do Azure cria. Normalmente, o identificador é um nome amigável para o usuário. Mas para lidar com o cenário de exclusão reversível, em que um compartilhamento de arquivos pode ser excluído e outro compartilhamento de arquivos pode ser criado com o mesmo nome, a identidade exclusiva de um compartilhamento de arquivos do Azure agora é uma ID.
 
-Para saber a ID exclusiva de cada item, execute o comando **Get-AzRecoveryServicesBackupItem** com os filtros relevantes para **backupManagementType** e **workloadtype** para obter todos os itens relevantes. Em seguida, observe o campo nome no objeto/resposta do PowerShell retornado. 
+Para saber a ID exclusiva de cada item, execute o comando **Get-AzRecoveryServicesBackupItem** com os filtros relevantes para **backupManagementType** e **workloadtype** para obter todos os itens relevantes. Em seguida, observe o campo nome no objeto/resposta do PowerShell retornado.
 
 É recomendável que você liste itens e, em seguida, recupere seu nome exclusivo do campo nome na resposta. Use esse valor para filtrar os itens com o parâmetro *Name* . Caso contrário, use o parâmetro *FriendlyName* para recuperar o item com sua ID.
 
 > [!IMPORTANT]
-> Verifique se o PowerShell foi atualizado para a versão mínima (AZ. Recoveryservices 2.6.0) para backups de compartilhamentos de arquivos do Azure. Com essa versão, o filtro *FriendlyName* está disponível para o comando **Get-AzRecoveryServicesBackupItem** . 
+> Verifique se o PowerShell foi atualizado para a versão mínima (AZ. Recoveryservices 2.6.0) para backups de compartilhamentos de arquivos do Azure. Com essa versão, o filtro *FriendlyName* está disponível para o comando **Get-AzRecoveryServicesBackupItem** .
 >
-> Passe o nome do compartilhamento de arquivos do Azure para o parâmetro *FriendlyName* . Se você passar o nome do compartilhamento de arquivos para o parâmetro *Name* , essa versão lançará um aviso para passar o nome para o parâmetro *FriendlyName* . 
+> Passe o nome do compartilhamento de arquivos do Azure para o parâmetro *FriendlyName* . Se você passar o nome do compartilhamento de arquivos para o parâmetro *Name* , essa versão lançará um aviso para passar o nome para o parâmetro *FriendlyName* .
 >
 > A não instalação da versão mínima pode resultar em uma falha de scripts existentes. Instale a versão mínima do PowerShell usando o seguinte comando:
 >
@@ -295,5 +288,5 @@ Os instantâneos de compartilhamento de arquivos do Azure são usados enquanto o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como [fazer backup de arquivos do Azure no portal do Azure](backup-afs.md).
-- Consulte o [script de exemplo no GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) para usar um runbook de automação do Azure para agendar backups.
+* Saiba mais sobre como [fazer backup de arquivos do Azure no portal do Azure](backup-afs.md).
+* Consulte o [script de exemplo no GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) para usar um runbook de automação do Azure para agendar backups.

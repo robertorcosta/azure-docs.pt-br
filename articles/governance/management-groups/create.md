@@ -3,12 +3,12 @@ title: Criar grupos de gerenciamento para organizar recursos-governança do Azur
 description: Saiba como criar grupos de gerenciamento do Azure para gerenciar vários recursos usando o portal, o Azure PowerShell e a CLI do Azure.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34815089367512c4aa54f148c118a669625d0ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fe7f2ea74c697701084321e068042b36acbdb11
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381596"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971128"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para o gerenciamento e a organização de recursos
 
@@ -21,17 +21,15 @@ O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minuto
 Qualquer usuário do Azure AD no locatário pode criar um grupo de gerenciamento sem a permissão de gravação do grupo de gerenciamento atribuída a esse usuário. Esse novo grupo de gerenciamento será um filho do grupo de gerenciamento raiz e o criador receberá uma atribuição de função de "proprietário". O serviço de grupo de gerenciamento permite essa capacidade para que as atribuições de função não sejam necessárias no nível raiz. Nenhum usuário tem acesso ao grupo de gerenciamento raiz quando ele é criado. Para evitar o obstáculo de localizar os administradores globais do Azure AD para começar a usar os grupos de gerenciamento, permitimos a criação dos grupos de gerenciamento iniciais na raiz  
 geral.
 
-Você pode criar o grupo de gerenciamento usando o portal, um [modelo do Resource Manager](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), o PowerShell ou o CLI do Azure.
+Você pode criar o grupo de gerenciamento usando o portal, um [Azure Resource Manager modelo](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), o PowerShell ou o CLI do Azure.
 
 ### <a name="create-in-portal"></a>Criar no portal
 
-1. Faça logon no [portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
-1. Selecione **todos os serviços** > **Gerenciamento + governança**.
+1. Selecione **todos os serviços**  >  **Gerenciamento + governança**.
 
-1. Selecionar **Gerenciamento de custos + cobrança**
-
-1. Na página Gerenciamento de custos + cobrança-grupos de gerenciamento, selecione **grupos de gerenciamento**
+1. Selecione **grupos de gerenciamento**.
 
 1. Selecione **+ Adicionar grupo de gerenciamento**.
 

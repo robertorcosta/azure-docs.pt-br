@@ -3,12 +3,12 @@ title: Matriz de suporte para backup de VM do Azure
 description: Fornece um resumo de configurações compatíveis e limitações ao fazer backup de VMs do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 904240e066a83fa1278d663b8614b5b9269ba4d3
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849409"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970664"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -17,7 +17,7 @@ Você pode usar o [serviço de Backup do Azure](backup-overview.md) para fazer b
 Outras matrizes de suporte:
 
 - [Matriz de suporte geral](backup-support-matrix.md) para o Backup do Azure
-- [Matriz de suporte](backup-support-matrix-mabs-dpm.md) para o servidor de Backup do Azure/backup do DPM (System Center Data Protection Manager)
+- [Matriz de suporte](backup-support-matrix-mabs-dpm.md) para o servidor de backup do Azure/backup do System Center Data Protection Manager (DPM)
 - [Matriz de suporte](backup-support-matrix-mars-agent.md) para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
@@ -63,7 +63,7 @@ A tabela a seguir resume os sistemas operacionais com suporte ao fazer backup de
 
 **Cenário** | **Suporte SO**
 --- | ---
-Fazer backup com a extensão do agente de VM do Azure | – Cliente do Windows 10 (somente 64 bits) <br/><br/>– Windows Server 2019 (Datacenter/Data Center Core/Standard) <br/><br/> – Windows Server 2016 (Datacenter/Data Center Core/Standard) <br/><br/> – Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> – Windows Server 2008 R2 (RTM e SP1 Standard)  <br/><br/> – Windows Server 2008 (somente 64 bits)
+Fazer backup com a extensão do agente de VM do Azure | – Cliente do Windows 10 (somente 64 bits) <br/><br/>– Windows Server 2019 (Datacenter/Data Center Core/Standard) <br/><br/> – Windows Server 2016 (Datacenter/Data Center Core/Standard) <br/><br/> – Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2012 (datacenter/padrão) <br/><br/> – Windows Server 2008 R2 (RTM e SP1 Standard)  <br/><br/> – Windows Server 2008 (somente 64 bits)
 Backup com o agente MARS | Sistemas operacionais com [suporte](backup-support-matrix-mars-agent.md#supported-operating-systems).
 Fazer backup com o DPM/MABS | Sistemas operacionais compatíveis para backup com [MABS](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -153,12 +153,13 @@ Fazer backup de consistência de várias VMs | O Backup do Azure não fornece co
 Fazer backup com [configuração de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Sem suporte. <br/><br/> Se a restauração da VM do Azure com configurações de diagnóstico for disparada usando a opção [Criar](backup-azure-arm-restore-vms.md#create-a-vm), a restauração falhará.
 Restaurar VMs fixadas por zona | Com suporte (para a VM com backup depois de janeiro de 2019 e onde a [zona de disponibilidade](https://azure.microsoft.com/global-infrastructure/availability-zones/) está disponível).<br/><br/>Atualmente, damos suporte à restauração para a mesma zona que está fixada nas VMs. No entanto, se a zona não estiver disponível, a restauração falhará.
 VMs Gen2 | Com suporte <br> O Backup do Azure dá suporte ao backup e à restauração de [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando essas VMs são restauradas do ponto de recuperação, elas são restauradas como [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
+Backup de VMs do Azure com bloqueios | Sem suporte para VMs não gerenciadas. <br><br> Com suporte para VMs gerenciadas.
 
 ## <a name="vm-storage-support"></a>Suporte ao armazenamento de VM
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados de VM do Azure | O suporte para backup de VMs do Azure com até 32 discos está em versão prévia pública [nestas regiões](#backup-of-azure-virtual-machines-with-up-to-32-disks).<br><br> O suporte para backup de VMs do Azure com discos não gerenciados ou VMs clássicas é de até 16 discos.
+Discos de dados de VM do Azure | O suporte para backup de VMs do Azure com até 32 discos está em visualização pública em todas as regiões, exceto nuvens nacionais (Azure governamental, Azure China e Azure Alemanha).<br><br> O suporte para backup de VMs do Azure com discos não gerenciados ou VMs clássicas é de até 16 discos.
 Tamanho do disco de dados | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 Tipo de armazenamento | HDD Standard, SSD Standard e SSD Premium.
 Discos gerenciados | Com suporte.
@@ -169,13 +170,6 @@ Adicionar o disco à VM protegida | Com suporte.
 Redimensionar o disco em uma VM protegida | Com suporte.
 Armazenamento compartilhado| Não há suporte para o backup de VMs usando CSV (Volume Compartilhado Clusterizado) ou o Servidor de Arquivos de Escalabilidade Horizontal. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não aparecer.
 [Discos compartilhados](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Sem suporte.
-
-### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Backup de máquinas virtuais do Azure com até 32 discos
-
-O Backup do Azure agora dá suporte a VMs do Azure com até 32 discos anexados.  Esse recurso está em versão prévia pública nas seguintes regiões: Centro-Oeste dos EUA, Canadá Central, Sudeste da Ásia, Sul do Brasil, Leste do Canadá, França Central, Sul da França, Índia Central, Sul da Índia, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Norte da África do Sul, Sul do Reino Unido, Oeste do Reino Unido, Leste da Austrália.  Se você tiver interesse nesse recurso em outras regiões, inscreva-se para a versão prévia limitada escrevendo para nós em AskAzureBackupTeam@microsoft.com.  
-
->[!NOTE]
->O Backup do Azure dá suporte somente a até 16 discos para VMs do Azure com discos não gerenciados ou VMs clássicas.
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 

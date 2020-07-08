@@ -3,23 +3,23 @@ title: Projetar os fluxos de trabalho da Política como código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições do Azure Policy como código e validar automaticamente os recursos.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684276"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970936"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projetar os fluxos de trabalho da Política como código
 
 À media que você avança no percurso com Governança de Nuvem, convém mudar de gerenciar manualmente cada definição de política no portal do Azure ou por meio de vários SDKs para algo mais gerenciável e repetível em escala empresarial. Duas das abordagens predominantes para gerenciar sistemas em escala na nuvem são:
 
-- Infraestrutura como código: a prática de tratar o conteúdo que define seus ambientes, tudo, desde modelos do Resource Manager até definições do Azure Policy e o Azure Blueprints, como código-fonte.
+- Infraestrutura como código: a prática de tratar o conteúdo que define seus ambientes, tudo, desde modelos de Azure Resource Manager (modelos ARM) a Azure Policy definições para plantas do Azure, como código-fonte.
 - DevOps: a união de pessoas, processos e produtos para permitir a entrega contínua de valor aos nossos usuários finais.
 
 A Política como Código é a combinação dessas ideias. Essencialmente, mantenha suas definições de política no controle do código-fonte e sempre que uma alteração for feita, teste e valide essa alteração. No entanto, isso não deve ser a extensão do envolvimento das políticas com a Infraestrutura como Código ou DevOps.
 
-A etapa de validação também deve ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Os exemplos incluem a implantação de um ambiente de aplicativo ou de uma infraestrutura virtual. Ao tornarem a validação do Azure Policy um componente inicial do processo de build e implantação, as equipes de aplicativos e operações descobrem se suas alterações não estão em conformidade, antes que seja muito tarde e que elas estejam tentando implantar na produção.
+A etapa de validação também deve ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Os exemplos incluem a implantação de um ambiente de aplicativo ou de uma infraestrutura virtual. Ao fazer Azure Policy validação de um componente inicial do processo de compilação e implantação, as equipes de aplicativos e operações descobrirão se suas alterações não estiverem em conformidade, muito tempo antes que elas sejam muito atrasadas e estejam tentando implantar na produção.
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -115,7 +115,7 @@ Após a conclusão de todos os portões de validação, atualize a atribuição 
 
 ## <a name="process-integrated-evaluations"></a>Processar avaliações integradas
 
-O fluxo de trabalho geral da Política como Código serve para desenvolver e implantar políticas e iniciativas em um ambiente em escala. No entanto, a avaliação da política deve fazer parte do processo de implantação para qualquer fluxo de trabalho que implanta ou cria recursos no Azure, como a implantação de aplicativos ou a execução de modelos do Resource Manager para criar a infraestrutura.
+O fluxo de trabalho geral da Política como Código serve para desenvolver e implantar políticas e iniciativas em um ambiente em escala. No entanto, a avaliação de política deve fazer parte do processo de implantação para qualquer fluxo de trabalho que implanta ou cria recursos no Azure, como a implantação de aplicativos ou a execução de modelos ARM para criar a infraestrutura.
 
 Nesses casos, depois que a implantação do aplicativo ou da infraestrutura for realizada em um grupo de recursos ou em uma assinatura de teste, a avaliação da política deverá ser feita para esse escopo verificando a validação de todas as políticas e iniciativas existentes. Embora elas possam ser configuradas como **enforcementMode** _disabled_ nesse ambiente, é útil saber antecipadamente se uma implantação de aplicativo ou de infraestrutura está violando as definições de política no início. Essa avaliação de política deve, portanto, ser uma etapa nesses fluxos de trabalho e falha nas implantações que criam recursos sem conformidade.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834723"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971072"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -73,6 +73,10 @@ Para alterar manualmente o tipo de inicialização de drivers para o **sistema o
         This system is now no-hydration compatible. 
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Não é possível conectar/RDP/SSH para a máquina virtual com failover devido ao botão Conectar esmaecido na máquina virtual
+
+Para obter instruções de solução de problemas detalhadas sobre problemas de RDP, consulte nossa documentação [aqui](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+
+Para obter instruções de solução de problemas detalhadas sobre problemas de SSH, consulte nossa documentação [aqui](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
 
 Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você não estiver conectado ao Azure por meio de uma conexão VPN Site a Site ou do Express Route,
 

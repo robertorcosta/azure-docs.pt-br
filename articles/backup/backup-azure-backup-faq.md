@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196276"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970477"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -27,7 +27,7 @@ Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se v
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantos itens/fontes de dados podem ser protegidos em um cofre?
 
 Você pode proteger até 2.000 itens/fontes de dados em todas as cargas de trabalho (VM IaaS, SQL, AFS etc.) em um cofre.
-Por exemplo, se você já protegeu 500 VMs e 400 compartilhamentos de Arquivos do Azure no cofre, só poderá proteger até 1.100 bancos de dados SQL nele.
+Por exemplo, se você já protegeu 500 VMs e 400 compartilhamentos de arquivos do Azure no cofre, você só pode proteger até 1100 bancos de dados SQL nele.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quantas políticas posso criar por cofre?
 
@@ -47,12 +47,16 @@ Não. Os dados de backup armazenados em um cofre não podem ser movidos para um 
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso alterar de GRS para LRS depois de um backup?
 
-Não. Um cofre do Recovery Services só pode alterar as opções de armazenamento antes que os backups sejam armazenados.
+O tipo de replicação de armazenamento por padrão é definido como GRS (armazenamento com redundância geográfica). Depois de configurar o backup, a opção de modificar é desabilitada e não pode ser alterada.
+
+![Tipo de replicação de armazenamento](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Se você já tiver configurado o backup e precisar passar de GRS para LRS, consulte [como alterar de grs para LRS depois de configurar o backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
 
 - O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para saber mais, confira este [artigo](backup-azure-restore-files-from-vm.md)
-- O ILR não é compatível com pontos de recuperação online de VMs locais com backup feito pelo servidor de backup do Azure ou pelo System Center DPM.
+- Não há suporte para ILR para pontos de recuperação online de VMs locais com backup feito pelo servidor de backup do Azure ou pelo System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
 
@@ -75,7 +79,7 @@ Sim.
 
 O Backup do Azure dá suporte a esses sistemas operacionais para backup de arquivos e pastas, além de aplicativos protegidos usando o Servidor de Backup do Azure e o DPM.
 
-**Sistema operacional** | **SKU** | **Detalhes**
+**SO** | **SKU** | **Detalhes**
 --- | --- | ---
 Estação de Trabalho | |
 Windows 10 de 64 bits | Enterprise, Pro, Home | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
@@ -116,7 +120,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 **Fonte de dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados incluída no backup da VM de volume único que está sendo submetida a backup.
-Banco de dados do SQL Server |O tamanho de um único banco de dados SQL do qual está sendo feito o backup.
+Banco de dados do SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
 SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um farm do SharePoint do qual está sendo feito o backup.
 Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup.
 Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup.
@@ -208,7 +212,7 @@ Sim. Os dados no Azure são criptografados em repouso.
 
 A Microsoft não descriptografa os dados de backup em nenhum momento.
 
-### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Qual é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?
+### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Qual é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?
 
 A chave de criptografia deve ter pelo menos 16 caracteres, quando você estiver usando o agente de backup do Azure. Para VMs do Azure, não há nenhum limite para o comprimento das chaves usadas pelo KeyVault do Azure.
 

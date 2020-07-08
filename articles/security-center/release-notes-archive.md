@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860895"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970681"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivos de novidades na Central de Segurança do Azure?
 
@@ -29,9 +29,37 @@ Esta página apresenta informações sobre:
 - Correções de bug
 - Funcionalidades preteridas
 
+
+## <a name="january-2020"></a>Janeiro de 2020
+
+### <a name="enhanced-secure-score-preview"></a>Classificação de segurança aprimorada (versão prévia)
+
+Uma versão aprimorada do recurso de classificação de segurança da Central de Segurança do Azure agora está disponível em versão prévia. Nesta versão, várias recomendações são agrupadas em Controles de Segurança que refletem melhor suas superfícies de ataque vulneráveis (por exemplo, restringir o acesso às portas de gerenciamento).
+
+Familiarize-se com as alterações classificação de segurança durante a fase de versão prévia e determine outras correções que o ajudarão a proteger ainda mais seu ambiente.
+
+Saiba mais sobre a [Pontuação segura aprimorada (visualização)](secure-score-security-controls.md).
+
+
+
 ## <a name="november-2019"></a>Novembro de 2019
 
-### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>Proteção contra ameaças para Azure Key Vault em Visualização Pública em regiões da América do Norte
+As atualizações em novembro incluem:
+ - [Proteção contra ameaças para Azure Key Vault em regiões América do Norte (visualização)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [A Proteção contra Ameaças para o Armazenamento do Microsoft Azure inclui Triagem de Reputação de Malware](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Automação de fluxo de trabalho com Aplicativos Lógicos (versão preliminar)](#workflow-automation-with-logic-apps-preview)
+ - [Correção rápida para recursos em massa disponíveis para o público geral](#quick-fix-for-bulk-resources-generally-available)
+ - [Verificar se há vulnerabilidades em imagens de contêiner (versão preliminar)](#scan-container-images-for-vulnerabilities-preview)
+ - [Padrões adicionais de conformidade regulatória (versão preliminar)](#additional-regulatory-compliance-standards-preview)
+ - [Proteção contra ameaças para o Serviço de Kubernetes do Azure (versão preliminar)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Avaliação de vulnerabilidades de máquinas virtuais (versão preliminar)](#virtual-machine-vulnerability-assessment-preview)
+ - [Segurança de Dados Avançada para o SQL Server em Máquinas Virtuais do Microsoft Azure (versão preliminar)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Compatibilidade com políticas personalizadas (versão preliminar)](#support-for-custom-policies-preview)
+ - [Estender a cobertura da Central de Segurança do Azure com plataforma para comunidade e parceiros](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Integrações avançadas com a exportação de recomendações e alertas (versão preliminar)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Carregar servidores locais na Central de Segurança do Centro de Administração do Windows (versão preliminar)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Proteção contra ameaças para Azure Key Vault em regiões América do Norte (visualização)
 
 O Azure Key Vault é um serviço essencial para proteger dados e melhorar o desempenho de aplicativos na nuvem, oferecendo a capacidade de gerenciar centralmente chaves, segredos, chaves de criptografia e políticas na nuvem. Como o Azure Key Vault armazena dados confidenciais e críticos para os negócios, ele exige segurança máxima para os cofres de chaves e os dados armazenados neles.
 
@@ -146,6 +174,11 @@ Com essa nova experiência, os usuários poderão integrar um servidor WAC à Ce
 
 ## <a name="september-2019"></a>Setembro de 2019
 
+As atualizações em setembro incluem:
+
+ - [Gerenciar regras com aprimoramentos de controles de aplicativos adaptáveis](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Controlar a recomendação de segurança do contêiner usando Azure Policy](#control-container-security-recommendation-using-azure-policy)
+
 ### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>Gerenciar regras com aprimoramentos de controles de aplicativos adaptáveis
 
 A experiência de gerenciar regras para máquinas virtuais usando controles de aplicativos adaptáveis foi aprimorada. Os controles de aplicativo adaptáveis da Central de Segurança do Azure ajudam a controlar quais aplicativos podem ser executados em suas máquinas virtuais. Além de uma melhoria geral no gerenciamento de regras, um novo benefício permite que você controle quais tipos de arquivo serão protegidos quando você adicionar uma nova regra.
@@ -161,6 +194,12 @@ Para exibir as políticas de segurança habilitadas, na Central de Segurança, a
 
 
 ## <a name="august-2019"></a>Agosto de 2019
+
+As atualizações em agosto incluem:
+
+ - [Acesso à VM just-in-time (JIT) para o Firewall do Azure](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Correção com um só clique para impulsionar sua postura de segurança (versão preliminar)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Gerenciamento entre locatários](#cross-tenant-management)
 
 ### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Acesso à VM just-in-time (JIT) para o Firewall do Azure 
 

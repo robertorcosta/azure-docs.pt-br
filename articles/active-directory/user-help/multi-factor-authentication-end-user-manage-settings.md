@@ -10,14 +10,14 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: c9304f4a958360d01d404d9b510feb5659e5436d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746739"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983298"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Alterar as configurações do método de verificação de dois fatores
 
@@ -88,7 +88,7 @@ Você pode adicionar novos números de telefone ou atualizar números existentes
 
 1. Na seção **Como você gostaria de responder?** da página **Verificação de segurança adicional**, atualize as informações de número de telefone do seu **Telefone de autenticação** (seu dispositivo móvel primário) e **Telefone comercial**.
 
-1. Selecione a caixa ao lado da opção **Telefone de autenticação alternativo** e digite um número de telefone secundário no qual você poderá receber mensagens de texto ou chamadas telefônicas, se não puder acessar o dispositivo primário.
+1. Selecione a caixa ao lado da opção **telefone de autenticação alternativo** e digite um número de telefone secundário no qual você poderá receber chamadas telefônicas se não puder acessar o dispositivo primário.
 
 1. Clique em **Salvar**.
 

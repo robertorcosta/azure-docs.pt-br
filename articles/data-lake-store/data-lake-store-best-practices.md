@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638928"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981428"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "75638928"
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen1. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen1. Antes do Data Lake Storage Gen1, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Storage Gen1, a maioria dos limites rígidos para tamanho e desempenho foi removida. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 O Azure Data Lake Storage Gen1 oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, a propagação das permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados.
 
@@ -45,7 +45,7 @@ As entidades de serviço do Azure Active Directory normalmente são usadas por s
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Habilitar o firewall do Data Lake Storage Gen1 com acesso à serviços do Azure
 
-Um Data Lake Storage Gen1 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para um vetor de ataque menor de intrusões externas. O firewall pode ser habilitado na conta de data Lake Storage Gen1 no portal do Azure por meio do **Firewall** > **habilitar o firewall (ativado)** > **permitir acesso às opções de serviços do Azure** .
+Um Data Lake Storage Gen1 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para um vetor de ataque menor de intrusões externas. O firewall pode ser habilitado na conta de data Lake Storage Gen1 no portal do Azure por meio do **Firewall**  >  **habilitar o firewall (ativado)**  >  **permitir acesso às opções de serviços do Azure** .
 
 ![Configurações de firewall no Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Configurações de firewall no Data Lake Storage Gen1")
 
@@ -104,7 +104,7 @@ A seguir, são apresentadas as três principais opções recomendadas para orque
 |**Oferece suporte à cópia deltas**     |   Sim      | Não         | Não         |
 |**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Sim        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
 |**Com suporte para sistemas de arquivos**     | ADL, HDFS, WASB, S3, GS, CFS        |Vários, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL para ADL, WASB para ADL (mesma região somente)        |
-|**Suporte do so**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
+|**Suporte SO**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Use o Distcp para movimentação de dados entre dois locais
 
@@ -126,7 +126,9 @@ Como a Distcp, a AdlCopy precisa ser orquestrada por algo como a Automação do 
 
 O Data Lake Storage Gen1 fornece auditoria e logs de diagnóstico detalhados. O Data Lake Storage Gen1 fornece algumas métricas básicas no portal do Azure sob a conta do Data Lake Storage Gen1 e no Azure Monitor. A disponibilidade do Data Lake Storage Gen1 é exibida no portal do Azure. No entanto, essa métrica é atualizada a cada sete minutos e não pode ser consultada através de uma API publicamente exposta. Para obter a disponibilidade mais atualizada de uma conta do Data Lake Storage Gen1, será necessário executar os próprios testes sintéticos para validar a disponibilidade. Outras métricas, como a utilização total de armazenamento, solicitações de leitura/gravação e entrada/saída podem demorar até 24 horas para atualizar. Assim, métricas mais atualizadas devem ser calculadas manualmente através de ferramentas de linha de comando Hadoop ou agregando informações de logs. A maneira mais rápida de obter a utilização de armazenamento mais recente é executar esse comando HDFS a partir de um nó de cluster Hadoop (por exemplo, nó de cabeçalho):
 
-    hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```console
+hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```
 
 ### <a name="export-data-lake-storage-gen1-diagnostics"></a>Exportar diagnóstico do Data Lake Storage Gen1
 
@@ -136,9 +138,9 @@ Para obter mais alertas em tempo real e mais controle sobre onde descarregar log
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Ativar log de nível de depuração no HDInsight
 
-Se o envio de logs do Data Lake Storage Gen1 não estiver ativado, o Azure HDInsight também fornecerá uma maneira de ativar o [log no lado do cliente para Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) por meio do log4j. Você deve definir a seguinte propriedade em **Ambari** > **yarn** > **config** > **Advanced yarn-Log4J configurações**:
+Se o envio de logs do Data Lake Storage Gen1 não estiver ativado, o Azure HDInsight também fornecerá uma maneira de ativar o [log no lado do cliente para Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) por meio do log4j. Você deve definir a seguinte propriedade em **Ambari**  >  **yarn**  >  **config**  >  **Advanced yarn-Log4J configurações**:
 
-    log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+`log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
 Quando a propriedade estiver configurada e os nós forem reiniciados, o diagnóstico do Data Lake Storage Gen1 será gravado nos logs YARN nos nós (/tmp/\<user\>/yarn.log) e detalhes importantes, como erros ou limitação (código de erro HTTP 429), poderão ser monitorados. Essas mesmas informações também podem ser monitoradas nos logs de Azure Monitor ou onde os logs são enviados para a folha [diagnóstico](data-lake-store-diagnostic-logs.md) da conta de data Lake Storage Gen1. É recomendável ter pelo menos o log do lado do cliente ativado ou usar a opção de envio de logs com o Data Lake Storage Gen1 para visibilidade operacional e depuração mais fácil.
 
@@ -154,11 +156,15 @@ Ao descarregar dados em um Data Lake, é importante planejar previamente a estru
 
 Nas cargas de trabalho de IoT, pode haver uma grande quantidade de dados sendo descarregados no armazenamento de dados que abrange diversos produtos, dispositivos, organizações e clientes. É importante planejar previamente o layout do diretório para organização, segurança e processamento eficiente dos dados para consumidores de downstream. Um modelo geral a considerar pode ser o layout a seguir:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Por exemplo, a telemetria de descarregamento para um motor de avião no Reino Unido pode parecer com a seguinte estrutura:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+```console
+UK/Planes/BA1293/Engine1/2017/08/11/12/
+```
 
 Há uma razão importante para colocar a data no final da estrutura de pastas. Se você quiser bloquear certas regiões ou assunto para usuários/grupos, então, você poderá fazê-lo com as permissões POSIX. Caso contrário, se houvesse necessidade de restringir um determinado grupo de segurança para exibição apenas dos dados do Reino Unido ou certos planos, com a estrutura da data na frente, seria necessária uma permissão separada para várias pastas em cada pasta de hora. Além disso, ter a estrutura de data na frente aumentaria exponencialmente o número de pastas com o passar do tempo.
 
@@ -168,14 +174,18 @@ De um alto nível, uma abordagem comumente usada no processamento em lotes é de
 
 Às vezes, o processamento de arquivos não tem êxito devido dados corrompidos ou formatos inesperados. Nesses casos, a estrutura de diretório pode beneficiar-se de uma pasta **/bad** para mover os arquivos para uma inspeção adicional. O trabalho em lotes também pode manipular o relatório ou a notificação desses arquivos *incorretos* para intervenção manual. Considere a estrutura de modelo a seguir:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Por exemplo, uma empresa de marketing que recebe extratos de dados diários de atualizações de cliente dos seus clientes na América do Norte. Ele pode parecer com o seguinte snippet de código antes e depois de ser processado:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```console
+NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
+NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```
 
 No caso comum de dados em lotes que estão sendo processados diretamente em bancos de dados, como Hive ou Bancos de Dados SQL tradicionais, não há necessidade de uma pasta **/in** ou **/out**, uma vez que a saída já entra em uma pasta separada para a tabela de Hive ou banco de dados externo. Por exemplo, os extratos diários dos clientes descarregariam em suas respectivas pastas e a orquestração tanto pelo Azure Data Factory, Apache Oozie ou pelo Apache Airflow dispararia um trabalho do Hive ou Spark diário para processar e gravar os dados em uma tabela de Hive.
 

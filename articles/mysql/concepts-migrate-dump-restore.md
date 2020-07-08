@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845539"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971174"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
 Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL
@@ -67,7 +67,11 @@ Os seguintes parâmetros devem ser fornecidos:
 - [backupfile.sql] O nome do arquivo para o backup do banco de dados 
 - [-opt] A opção mysqldump 
 
-Por exemplo, para fazer backup de um banco de dados chamado “testdb” no servidor MySQL com o nome de usuário “testuser” e nenhuma senha para um arquivo testdb_backup.sql, use o comando a seguir. O comando faz backup do banco de dados `testdb` em um arquivo chamado `testdb_backup.sql`, que contém todas as instruções SQL necessárias para recriar o banco de dados. 
+Por exemplo, para fazer backup de um banco de dados chamado “testdb” no servidor MySQL com o nome de usuário “testuser” e nenhuma senha para um arquivo testdb_backup.sql, use o comando a seguir. O comando faz backup do banco de dados `testdb` em um arquivo chamado `testdb_backup.sql`, que contém todas as instruções SQL necessárias para recriar o banco de dados. Verifique se o nome de usuário ' testuser ' tem pelo menos o privilégio SELECT para tabelas despejadas, mostrar exibição para exibições despejadas, gatilho para gatilhos despejados e tabelas de bloqueio se a opção--single-Transaction não for usada.
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -96,9 +100,10 @@ Adicione as informações de conexão ao MySQL Workbench.
 Para preparar o servidor do Banco de Dados do Azure para MySQL de destino para carregamentos de dados mais rápidos, os parâmetros de servidor e a configuração a seguir precisam ser alterados.
 - max_allowed_packet – defina como 1073741824 (ou seja, 1 GB) para evitar qualquer problema de excedente devido a linhas longas.
 - slow_query_log – defina como OFF para desativar o log de consultas lentas. Isso eliminará a sobrecarga causada pelo log de consulta lento durante cargas de dados.
-- query_store_capture_mode – defina como NONE para desativar o Repositório de Consultas. Isso eliminará a sobrecarga causada pelas atividades de amostragem por Repositório de Consultas.
+- query_store_capture_mode – defina como nenhum para desligar o Repositório de Consultas. Isso eliminará a sobrecarga causada pelas atividades de amostragem por Repositório de Consultas.
 - innodb_buffer_pool_size – escale verticalmente o servidor para 32 de SKU com otimização de memória vCore do tipo de preço do portal durante a migração para aumentar o innodb_buffer_pool_size. Innodb_buffer_pool_size só pode ser aumentado escalando verticalmente a computação para o servidor do Banco de Dados do Azure para MySQL.
-- innodb_write_io_threads & innodb_write_io_threads - altere para 16 nos Parâmetros do servidor no portal do Azure para melhorar a velocidade da migração.
+- innodb_io_capacity & innodb_io_capacity_max-altere para 9000 dos parâmetros do servidor no portal do Azure para melhorar a utilização de e/s para otimizar a velocidade de migração.
+- innodb_write_io_threads & innodb_write_io_threads-altere para 4 dos parâmetros do servidor no portal do Azure para melhorar a velocidade da migração.
 - Escalar verticalmente a camada de armazenamento – Os IOPs do Banco de Dados do Azure para MySQL aumenta progressivamente com o aumento na camada de armazenamento. Para cargas mais rápidas, aumente a camada de armazenamento para aumentar os IOPs provisionados. Lembre-se de que o armazenamento só pode ser escalado verticalmente, não para baixo.
 
 Quando a migração for concluída, você poderá reverter os parâmetros do servidor e a configuração da camada de computação para seus valores anteriores. 

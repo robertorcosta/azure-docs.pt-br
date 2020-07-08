@@ -3,12 +3,12 @@ title: Entender a ordem da sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefatos de Blueprint são implantados durante uma atribuição de Blueprint e como personalizar a ordem de implantação.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864514"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970613"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
@@ -28,21 +28,21 @@ Se a definição de Blueprint não contiver nenhuma diretiva para a ordem de imp
 
 - Designação de função de **nível de assinatura** artefatos classificados por nome de artefato
 - Designação de política do **nível de assinatura** artefatos classificados pelo nome do artefato
-- Nível de assinatura **Artefatos do modelo** do Azure Resource Manager classificados por nome de artefato
+- Artefatos do **modelo de Azure Resource Manager** de nível de assinatura (modelos ARM), classificadas por nome de artefato
 - **Artefatos do grupo de recursos** (incluindo artefatos derivados) classificados por nome de espaço reservado
 
 Em cada artefato do **grupo de recursos**, a seguinte ordem de sequência é usada para artefatos a serem criados dentro desse grupo de recursos:
 
 - Filho de grupo de recursos **atribuição de função** artefatos classificados por nome de artefato
 - Filho de grupo de recursos **atribuição de política** artefatos classificados por nome de artefato
-- Filho do grupo de recursos **Artefatos do modelo do Azure Resource Manager** classificados por nome de artefato
+- Artefatos do grupo de recursos **Azure Resource Manager modelo** (modelos do ARM), classificadas por nome do artefato
 
 > [!NOTE]
 > O uso de [artefatos ()](../reference/blueprint-functions.md#artifacts) cria uma dependência implícita no artefato que está sendo referenciado.
 
 ## <a name="customizing-the-sequencing-order"></a>Personalizando o pedido de sequenciamento
 
-Ao compor grandes definições de Blueprint, pode ser necessário que os recursos sejam criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando uma definição de Blueprint inclui vários modelos de Azure Resource Manager. Os planos gráficos do Azure lidam com esse padrão, permitindo que a ordem de sequenciamento seja definida.
+Ao compor grandes definições de Blueprint, pode ser necessário que os recursos sejam criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando uma definição de Blueprint inclui vários modelos de ARM. Os planos gráficos do Azure lidam com esse padrão, permitindo que a ordem de sequenciamento seja definida.
 
 A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição do Blueprint, para grupos de recursos e objetos de artefato dão suporte a essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
 
@@ -51,7 +51,7 @@ A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A defi
 
 ### <a name="example---ordered-resource-group"></a>Exemplo-grupo de recursos ordenados
 
-Este exemplo de definição de Blueprint tem um grupo de recursos que definiu uma ordem de sequenciamento personalizada declarando um valor para `dependsOn`, junto com um grupo de recursos padrão. Nesse caso, o artefato denominado **assignPolicyTags** será processado antes do grupo de recursos **ordered-rg**.
+Este exemplo de definição de Blueprint tem um grupo de recursos que definiu uma ordem de sequenciamento personalizada declarando um valor para `dependsOn` , junto com um grupo de recursos padrão. Nesse caso, o artefato denominado **assignPolicyTags** será processado antes do grupo de recursos **ordered-rg**.
 **standard-rg** será processado de acordo com a ordem de sequenciamento padrão.
 
 ```json
@@ -81,7 +81,7 @@ Este exemplo de definição de Blueprint tem um grupo de recursos que definiu um
 
 ### <a name="example---artifact-with-custom-order"></a>Exemplo - artefato com ordem personalizada
 
-Este exemplo é um artefato de política que depende de um modelo do Azure Resource Manager. Por padrão, um artefato de política seria criado antes do modelo do Azure Resource Manager. Essa ordenação permite que o artefato de política aguarde o modelo do Azure Resource Manager ser criado.
+Este exemplo é um artefato de política que depende de um modelo de ARM. Por padrão, a ordenação de um artefato de política seria criado antes do modelo ARM. Essa ordenação permite que o artefato da política aguarde até que o modelo ARM seja criado.
 
 ```json
 {
@@ -100,7 +100,7 @@ Este exemplo é um artefato de política que depende de um modelo do Azure Resou
 
 ### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exemplo-artefato de modelo de nível de assinatura dependendo de um grupo de recursos
 
-Este exemplo é para um modelo do Resource Manager implantado no nível de assinatura para depender de um grupo de recursos. Na ordenação padrão, os artefatos de nível de assinatura seriam criados antes de qualquer grupo de recursos e artefatos filho nesses grupos de recursos. O grupo de recursos é definido na definição do Blueprint da seguinte maneira:
+Este exemplo é para um modelo de ARM implantado no nível de assinatura para depender de um grupo de recursos. Na ordenação padrão, os artefatos de nível de assinatura seriam criados antes de qualquer grupo de recursos e artefatos filho nesses grupos de recursos. O grupo de recursos é definido na definição do Blueprint da seguinte maneira:
 
 ```json
 "resourceGroups": {
