@@ -9,15 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804649"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Usar o módulo de serviços do Azure Maps
 
-O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é uma biblioteca auxiliar que torna mais fácil usar os serviços REST do Azure Maps em aplicativos Web ou node. js usando JavaScript ou TypeScript.
+O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é uma biblioteca auxiliar que torna mais fácil usar os serviços REST do Azure Maps em aplicativos Web ou Node.js usando JavaScript ou TypeScript.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>Usar o módulo serviços em uma página da Web
 
@@ -33,7 +32,7 @@ O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é um
     
         > **npm install azure-maps-rest**
     
-        Em seguida, adicione uma referência de script `<head>` ao elemento do arquivo:
+        Em seguida, adicione uma referência de script ao `<head>` elemento do arquivo:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
@@ -160,7 +159,7 @@ O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é um
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Usando o módulo de serviços" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando o módulo serviços</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando o módulo serviços</a> pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
@@ -169,7 +168,7 @@ Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando o m�
 
 O SDK da Web do Azure Maps dá suporte à nuvem do Azure governamental. Todas as URLs de JavaScript e CSS usadas para acessar o SDK da Web do Azure Maps permanecem as mesmas, no entanto, as tarefas a seguir precisarão ser feitas para se conectar à versão de nuvem do Azure governamental da plataforma Azure Maps.
 
-Ao usar o controle de mapa interativo, adicione a seguinte linha de código antes de criar uma instância `Map` da classe. 
+Ao usar o controle de mapa interativo, adicione a seguinte linha de código antes de criar uma instância da `Map` classe. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
@@ -183,7 +182,7 @@ Ao usar o módulo de serviços, o domínio para os serviços precisa ser definid
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Se acessar diretamente os serviços REST do Azure Maps, altere o domínio da `atlas.azure.us`URL para. Por exemplo, se estiver usando o serviço de API de pesquisa, altere o `https://atlas.microsoft.com/search/` domínio `https://atlas.azure.us/search/`de URL de para.
+Se acessar diretamente os serviços REST do Azure Maps, altere o domínio da URL para `atlas.azure.us` . Por exemplo, se estiver usando o serviço de API de pesquisa, altere o domínio de URL de `https://atlas.microsoft.com/search/` para `https://atlas.azure.us/search/` .
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -213,4 +212,4 @@ Para obter mais exemplos de código que usam o módulo serviços, consulte estes
 > [Obter informações de uma coordenada](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
-> [Mostrar direções de A para B](./map-route.md)
+> [Mostrar trajetos de A para B](./map-route.md)

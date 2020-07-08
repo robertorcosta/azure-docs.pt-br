@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681864"
 ---
 # <a name="object-and-resource-lifetime"></a>Tempo de vida do objeto e do recurso
@@ -20,7 +19,7 @@ A renderização remota do Azure distingue entre dois tipos: **objetos** e **rec
 
 Os *objetos* são considerados coisas que o usuário pode criar, modificar e destruir a seu próprio critério. Os objetos podem ser duplicados livremente e cada instância pode ser modificada ao longo do tempo. Consequentemente, as [entidades](entities.md) e os [componentes](components.md) são objetos.
 
-O tempo de vida de objetos está totalmente sob controle de usuário. No entanto, ele não está relacionado ao tempo de vida da representação do lado do cliente. Classes como `Entity` e `Component` têm uma `Destroy` função que deve ser chamada para desalocar o objeto no host de renderização remoto. Além disso `Entity.Destroy()` , o destruirá a entidade, seus filhos e todos os componentes nessa hierarquia.
+O tempo de vida de objetos está totalmente sob controle de usuário. No entanto, ele não está relacionado ao tempo de vida da representação do lado do cliente. Classes como `Entity` e `Component` têm uma `Destroy` função que deve ser chamada para desalocar o objeto no host de renderização remoto. Além disso, `Entity.Destroy()` o destruirá a entidade, seus filhos e todos os componentes nessa hierarquia.
 
 ## <a name="resource-lifetime"></a>Tempo de vida do recurso
 
@@ -32,7 +31,7 @@ Muitos recursos são imutáveis, por [malhas](meshes.md) e [texturas](textures.m
 
 ### <a name="built-in-resources"></a>Recursos internos
 
-A renderização remota do Azure contém alguns recursos internos, que podem ser carregados, predependendo do respectivo identificador `builtin://` com o durante a `AzureSession.Actions.LoadXYZAsync()`chamada para. Os recursos internos disponíveis estão listados na documentação para cada recurso respectivo. Por exemplo, o [capítulo céu](../overview/features/sky.md) lista as texturas do céu interno.
+A renderização remota do Azure contém alguns recursos internos, que podem ser carregados, predependendo do respectivo identificador com `builtin://` o durante a chamada para `AzureSession.Actions.LoadXYZAsync()` . Os recursos internos disponíveis estão listados na documentação para cada recurso respectivo. Por exemplo, o [capítulo céu](../overview/features/sky.md) lista as texturas do céu interno.
 
 ## <a name="general-lifetime"></a>Tempo de vida geral
 
@@ -42,6 +41,6 @@ Na prática, carregar o mesmo recurso em uma sessão, após uma desconexão, é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Entities](entities.md)
+* [Entidades](entities.md)
 * [Componentes](components.md)
 * [Modelos](models.md)

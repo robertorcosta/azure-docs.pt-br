@@ -4,10 +4,9 @@ description: Saiba como usar o CLI do Azure para restaurar compartilhamentos de 
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757101"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Restaurar compartilhamentos de arquivos do Azure com o CLI do Azure
@@ -138,7 +137,7 @@ Especifique os seguintes parâmetros para os itens que você deseja recuperar:
 
 Use o cmdlet [AZ backup restore-azurefiles](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) com o modo de restauração definido como *originallocation* para restaurar arquivos ou pastas específicos para o local original.
 
-O exemplo a seguir restaura o arquivo *RestoreTest. txt* em seu local original: o compartilhamento de arquivos *azurefiles* .
+O exemplo a seguir restaura o arquivo de *RestoreTest.txt* em seu local original: o compartilhamento de arquivos *azurefiles* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
@@ -160,7 +159,7 @@ Para restaurar arquivos ou pastas específicas para um local alternativo, use o 
 * **--target-File-Share**: o compartilhamento de arquivos na conta de armazenamento de destino para a qual o conteúdo de backup é restaurado.
 * **--pasta-de-destino**: a pasta sob o compartilhamento de arquivos para o qual os dados são restaurados. Se o conteúdo de backup for restaurado para uma pasta raiz, forneça o valor da pasta de destino como uma cadeia de caracteres vazia.
 
-O exemplo a seguir restaura o arquivo *RestoreTest. txt* originalmente presente no compartilhamento de arquivos *azurefiles* para um local alternativo: a pasta *restoredata* no compartilhamento de arquivos *azurefiles1* hospedado na conta de armazenamento *afaccount1* .
+O exemplo a seguir restaura o arquivo de *RestoreTest.txt* presente originalmente no compartilhamento de arquivos *azurefiles* para um local alternativo: a pasta *restoredata* no compartilhamento de arquivos *azurefiles1* hospedado na conta de armazenamento *afaccount1* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
@@ -178,7 +177,7 @@ O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo
 
 Para executar a restauração para vários itens, passe o valor do parâmetro **source-file-path** como caminhos **separados por espaço** de todos os arquivos ou pastas que você deseja restaurar.
 
-O exemplo a seguir restaura os arquivos *. docx do relatório de teste* *Restore. txt* e AFS em seu local original.
+O exemplo a seguir restaura os arquivos de *Report.docxde teste* *Restore.txt* e AFS em seu local original.
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table

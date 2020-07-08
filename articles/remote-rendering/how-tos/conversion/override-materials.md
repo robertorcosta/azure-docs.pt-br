@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681474"
 ---
 # <a name="override-materials-during-model-conversion"></a>Substituir materiais durante a conversão de modelo
@@ -38,7 +37,7 @@ Nesse caso, um `box_materials_override.json` arquivo pode ser criado da seguinte
 ]
 ```
 
-O `box_materials_override.json` arquivo é colocado no contêiner de entrada e um `ConversionSettings.json` é adicionado ao lado `box.fbx`, que informa à conversão onde encontrar o arquivo de substituição (Confira [Configurando a conversão do modelo](configure-model-conversion.md)):
+O `box_materials_override.json` arquivo é colocado no contêiner de entrada e um `ConversionSettings.json` é adicionado ao lado `box.fbx` , que informa à conversão onde encontrar o arquivo de substituição (Confira [Configurando a conversão do modelo](configure-model-conversion.md)):
 
 ```json
 {
@@ -52,7 +51,7 @@ Quando o modelo for convertido, as novas configurações serão aplicadas.
 
 O modelo de [material de cor](../../overview/features/color-materials.md) descreve uma superfície constantemente sombreada que é independente da iluminação.
 Isso é útil para ativos feitos por algoritmos Photogrammetry, por exemplo.
-Em arquivos de substituição de material, um material pode ser declarado como um material de cor `unlit` , `true`definindo como.
+Em arquivos de substituição de material, um material pode ser declarado como um material de cor, definindo `unlit` como `true` .
 
 ```json
 [
@@ -86,7 +85,7 @@ Para obter a lista completa de mapas de textura que você pode ignorar, consulte
 
 ## <a name="json-schema"></a>JSON schema
 
-O esquema JSON completo para arquivos de materiais é fornecido aqui. Com exceção `unlit` de `ignoreTextureMaps`e, as propriedades disponíveis são um subconjunto das propriedades descritas nas seções do material de [cores](../../overview/features/color-materials.md) e dos modelos de material do [PBR](../../overview/features/pbr-materials.md) .
+O esquema JSON completo para arquivos de materiais é fornecido aqui. Com exceção de `unlit` e `ignoreTextureMaps` , as propriedades disponíveis são um subconjunto das propriedades descritas nas seções do material de [cores](../../overview/features/color-materials.md) e dos modelos de [material do PBR](../../overview/features/pbr-materials.md) .
 
 ```json
 {

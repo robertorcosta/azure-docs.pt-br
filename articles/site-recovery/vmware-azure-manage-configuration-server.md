@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672753"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerenciar o servidor de configuração para a recuperação de desastre do servidor físico/VM do VMware
@@ -45,7 +44,7 @@ Você pode acessar o servidor de configuração da seguinte maneira:
 
 Também é possível modificar as credenciais por meio de CSPSConfigtool.exe.
 
-1. Faça logon no servidor de configuração e inicie o CSPSConfigtool. exe
+1. Faça logon no servidor de configuração e inicie o CSPSConfigtool.exe
 2. Escolha a conta que você deseja modificar e clique em **Editar**.
 3. Insira as credenciais modificadas e clique em **Ok**
 
@@ -61,7 +60,7 @@ Modifique as credenciais usadas para instalar automaticamente o Serviço de Mobi
 
 Também é possível modificar credenciais por meio de CSPSConfigtool.exe.
 
-1. Faça logon no servidor de configuração e inicie o CSPSConfigtool. exe
+1. Faça logon no servidor de configuração e inicie o CSPSConfigtool.exe
 2. Escolha a conta que você deseja modificar e clique em **Editar**
 3. Insira as novas credenciais e clique em **Ok**.
 
@@ -76,7 +75,7 @@ Se você perdeu a adição de credenciais durante a implantação de OVF do serv
 
 Também é possível adicionar as credenciais por meio de CSPSConfigtool.exe.
 
-1. Faça logon no servidor de configuração e inicie o CSPSConfigtool. exe
+1. Faça logon no servidor de configuração e inicie o CSPSConfigtool.exe
 2. Clique em **Adicionar**, insira as novas credenciais e clique em **Ok**.
 
 ## <a name="modify-proxy-settings"></a>Modificar as configurações de proxy
@@ -107,7 +106,7 @@ A data de expiração aparece sob **Integridade do servidor de configuração**.
 
 ### <a name="if-certificates-are-yet-to-expire"></a>Se os certificados ainda expirarem
 
-1. Para renovar, no cofre, abra **site Recovery** > **servidor de configuração**de infraestrutura. Selecione o servidor de configuração necessário.
+1. Para renovar, no cofre, abra **site Recovery**  >  **servidor de configuração**de infraestrutura. Selecione o servidor de configuração necessário.
 2. Verifique se todos os componentes servidores de processo de expansão, servidores de destino mestre e agentes de mobilidade em todos os computadores protegidos estão nas versões mais recentes e estão no estado conectado.
 3. Agora, selecione **renovar certificados**.
 4. Siga cuidadosamente as instruções nesta página e clique em OK para renovar certificados no servidor de configuração selecionado e seus componentes associados.
@@ -125,12 +124,12 @@ A data de expiração aparece sob **Integridade do servidor de configuração**.
 Você pode registrar novamente o servidor de configuração no mesmo cofre se necessário. Se você tiver uma máquina de servidor de processo adicional, além do servidor de processo padrão em execução na máquina do servidor de configuração, registre novamente em ambos os computadores.
 
 
-1. No cofre, abra **gerenciar** > **site Recovery** > **servidores de configuração**de infraestrutura.
+1. No cofre, abra **gerenciar**  >  **site Recovery**  >  **servidores de configuração**de infraestrutura.
 2. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
 3. Conecte-se ao computador do servidor de configuração.
 4. Em **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
 5. Sobre o **registro do cofre** guia, selecione **procurar**e localize o arquivo de credenciais de cofre que você baixou.
-6. Se necessário, forneça os detalhes do servidor proxy. Em seguida, selecione **registrar**.
+6. Se necessário, forneça os detalhes do servidor proxy. Em seguida, selecione **Registrar**.
 7. Abra uma janela de comando do PowerShell de administrador e execute o comando a seguir:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -138,7 +137,7 @@ Você pode registrar novamente o servidor de configuração no mesmo cofre se ne
    ```
 
     >[!NOTE]
-    >Para efetuar **pull dos certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *\<"Installation Drive\Microsoft Azure site Recovery\agent\cdpcli.exe>"--registermt*
+    >Para efetuar **pull dos certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *" \<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> "--registermt*
 
 8. Finalmente, reinicie o obengine executando o seguinte comando.
    ```
@@ -178,7 +177,7 @@ Os links para pacotes cumulativos de atualização para todas as versões do ser
 
 Atualize o servidor da seguinte maneira:
 
-1. No cofre, vá para **gerenciar** > **site Recovery infraestrutura** > de**configuração de servidores**.
+1. No cofre, vá para **gerenciar**  >  **site Recovery infraestrutura**de  >  **configuração de servidores**.
 2. Se uma atualização estiver disponível, aparecerá um link no **versão do agente** > coluna.
     ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Baixe o arquivo instalador da atualização no servidor de configuração.
@@ -212,7 +211,7 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Type | Descrição| Valores|
+|Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
@@ -256,7 +255,7 @@ ProxyPassword="Password"
 1. [ Desative a proteção ](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as VMs no servidor de configuração.
 2. [Desassociar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [Excluir](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de Replicação do Servidor de Configuração.
 3. [Exclua](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores vCenter/hosts vSphere associados ao servidor de configuração.
-4. No cofre, abra **site Recovery** > **servidores de configuração**de infraestrutura.
+4. No cofre, abra **site Recovery**  >  **servidores de configuração**de infraestrutura.
 5. Clique no servidor de configuração que deseja remover. Em seguida, na página **Detalhes**, selecione **Excluir**.
 
     ![Excluir um servidor de configuração](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
@@ -298,10 +297,10 @@ Opcionalmente, você pode excluir o servidor de configuração usando o PowerShe
 
 ## <a name="refresh-configuration-server"></a>Atualizar servidor de configuração
 
-1.  > No portal do Azure, navegue até **cofre dos serviços de recuperação****gerenciar** > **site Recovery infraestrutura** > **para VMware & máquinas** > físicas**servidores de configuração**
+1. No portal do Azure, navegue até **cofre dos serviços de recuperação**  >  **gerenciar**  >  **site Recovery infraestrutura**  >  **para VMware & máquinas físicas**  >  **servidores de configuração**
 2. Clique no servidor de configuração que você deseja atualizar.
-3. Na folha com detalhes do servidor de configuração escolhido, clique em **mais** > **Atualizar servidor**.
-4. Monitore o progresso do trabalho > no **cofre dos serviços de recuperação****monitoramento** > **site Recovery trabalhos**.
+3. Na folha com detalhes do servidor de configuração escolhido, clique em **mais**  >  **Atualizar servidor**.
+4. Monitore o progresso do trabalho no **cofre dos serviços de recuperação**  >  **monitoramento**  >  **site Recovery trabalhos**.
 
 ## <a name="failback-requirements"></a>Requisitos de failback
 

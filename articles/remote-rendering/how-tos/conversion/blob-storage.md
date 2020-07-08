@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681643"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usar o armazenamento de Blobs do Azure para conversão de modelo
@@ -57,7 +56,7 @@ Um URI SAS pode ser gerado usando um dos:
   - Clique com o botão direito do mouse no contêiner "obter assinatura de acesso compartilhado" (leitura, acesso à lista para o contêiner de entrada, acesso de gravação para o contêiner de saída)
 - SDKs (C#, Python...)
 
-Um exemplo de uso de assinaturas de acesso compartilhado na conversão de ativos é mostrado em Conversion. ps1 dos [scripts de exemplo do PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
+Um exemplo de uso de assinaturas de acesso compartilhado na conversão de ativos é mostrado em Conversion.ps1 dos [scripts de exemplo do PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="upload-an-input-model"></a>Carregar um modelo de entrada
 
@@ -70,7 +69,7 @@ Para iniciar a conversão de um modelo, você precisa carregá-lo usando uma das
 - [Usando um SDK de armazenamento (Python, C#...)](https://docs.microsoft.com/azure/storage/)
 - [Usando as APIs REST do armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-Para obter um exemplo de como carregar dados para conversão, consulte Conversion. ps1 dos [scripts de exemplo do PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
+Para obter um exemplo de como carregar dados para conversão, consulte Conversion.ps1 dos [scripts de exemplo do PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>Obter um URI de SAS para o modelo convertido
 
@@ -82,5 +81,5 @@ Uma assinatura de acesso compartilhado (SAS) para carregar modelos é necessári
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurando a conversão de modelo](configure-model-conversion.md)
+- [Configurar a conversão de modelo](configure-model-conversion.md)
 - [A API REST de conversão de modelo](conversion-rest-api.md)

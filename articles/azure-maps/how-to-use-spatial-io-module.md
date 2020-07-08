@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804632"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como usar o módulo e/s espacial do mapas do Azure
@@ -127,7 +126,7 @@ Você pode carregar o módulo e/s espacial do Azure Maps usando uma das duas op�
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. Inicialize um `datasource`e adicione a fonte de dados ao mapa. Inicialize um `layer`e adicione a fonte de dados à camada do mapa. Em seguida, processe a fonte de dados e a camada. Antes de rolar para baixo para ver o código completo na próxima etapa, pense nos melhores lugares para colocar a fonte de dados e os trechos de código de camada. Lembre-se de que, antes de manipular programaticamente o mapa, devemos aguardar até que o recurso de mapa esteja pronto.
+3. Inicialize um `datasource` e adicione a fonte de dados ao mapa. Inicialize um `layer` e adicione a fonte de dados à camada do mapa. Em seguida, processe a fonte de dados e a camada. Antes de rolar para baixo para ver o código completo na próxima etapa, pense nos melhores lugares para colocar a fonte de dados e os trechos de código de camada. Lembre-se de que, antes de manipular programaticamente o mapa, devemos aguardar até que o recurso de mapa esteja pronto.
 
     ```javascript
     var datasource, layer;
@@ -222,7 +221,7 @@ Você pode carregar o módulo e/s espacial do Azure Maps usando uma das duas op�
     </html>
     ```
 
-5. Lembre-se `<Your Azure Maps Key>` de substituir pela sua chave primária. Abra o arquivo HTML e você verá resultados semelhantes à imagem a seguir:
+5. Lembre-se de substituir `<Your Azure Maps Key>` pela sua chave primária. Abra o arquivo HTML e você verá resultados semelhantes à imagem a seguir:
 
     <center>
 
@@ -241,7 +240,7 @@ O recurso que demonstramos aqui é apenas um dos muitos recursos disponíveis no
 > [Ler e gravar dados espaciais](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada do mapa do OGC](spatial-io-add-ogc-map-layer.md)
+> [Adicionar uma camada do mapa OGC](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
 > [Conectar-se a um serviço WFS](spatial-io-connect-wfs-service.md)
@@ -250,7 +249,7 @@ O recurso que demonstramos aqui é apenas um dos muitos recursos disponíveis no
 > [Aproveitar as principais operações](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Detalhes de formato de dados com suporte](spatial-io-supported-data-format-details.md)
+> [Detalhes do formato de dados com suporte](spatial-io-supported-data-format-details.md)
 
 Consulte a documentação de e/s espacial do Azure Maps:
 

@@ -6,17 +6,16 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681240"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usar a API REST de gerenciamento de sessão
 
 Para usar a funcionalidade de renderização remota do Azure, você precisa criar uma *sessão*. Cada sessão corresponde a uma VM (máquina virtual) que está sendo alocada no Azure e aguardando a conexão de um dispositivo cliente. Quando um dispositivo se conecta, a VM renderiza os dados solicitados e serve o resultado como um fluxo de vídeo. Durante a criação da sessão, você escolheu em qual tipo de servidor deseja executar, o que determina os preços. Depois que a sessão não for mais necessária, ela deverá ser interrompida. Se não for interrompido manualmente, ele será desligado automaticamente quando o *tempo de concessão* da sessão expirar.
 
-Fornecemos um script do PowerShell no [repositório de exemplos do arr](https://github.com/Azure/azure-remote-rendering) na pasta *scripts* , chamado *RenderingSession. ps1*, que demonstra o uso de nosso serviço. O script e sua configuração são descritos aqui: [exemplos de scripts do PowerShell](../samples/powershell-example-scripts.md)
+Fornecemos um script do PowerShell no [repositório de exemplos do arr](https://github.com/Azure/azure-remote-rendering) na pasta *Scripts* , chamada *RenderingSession.ps1*, que demonstra o uso de nosso serviço. O script e sua configuração são descritos aqui: [exemplos de scripts do PowerShell](../samples/powershell-example-scripts.md)
 
 > [!TIP]
 > Os comandos do PowerShell listados nesta página destinam-se a complementar um ao outro. Se você executar todos os scripts em sequência dentro do mesmo prompt de comando do PowerShell, eles serão criados em cima um do outro.
@@ -46,7 +45,7 @@ $accountKey = "*******************************************="
 
 ## <a name="common-request-headers"></a>Cabeçalhos de solicitação comuns
 
-* O cabeçalho *Authorization* deve ter o valor de "`Bearer TOKEN`", onde "`TOKEN`" é o token de autenticação [retornado pelo serviço de token seguro](tokens.md).
+* O cabeçalho *Authorization* deve ter o valor de " `Bearer TOKEN` ", onde " `TOKEN` " é o token de autenticação [retornado pelo serviço de token seguro](tokens.md).
 
 ### <a name="example-script-request-a-token"></a>Script de exemplo: solicitar um token
 
@@ -73,7 +72,7 @@ Este comando cria uma sessão. Ele retorna a ID da nova sessão. Você precisa d
 
 * maxLeaseTime (TimeSpan): um valor de tempo limite quando a VM será encerrada automaticamente
 * modelos (matriz): URLs do contêiner de ativos a serem pré-carregados
-* tamanho (cadeia de caracteres): o tamanho da VM (**"Standard"** ou **"Premium"**). Consulte [limitações de tamanho de VM](../reference/limits.md#overall-number-of-polygons)específicas.
+* tamanho (cadeia de caracteres): o tamanho da VM (**"Standard"** ou **"Premium"**). Confira as [limitações de tamanho de VM](../reference/limits.md#overall-number-of-polygons) específicas.
 
 **Response**
 
@@ -136,7 +135,7 @@ Esse comando atualiza os parâmetros de uma sessão. No momento, você só pode 
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 200 | | Êxito |
+| 200 | | Sucesso |
 
 ### <a name="example-script-update-a-session"></a>Script de exemplo: atualizar uma sessão
 

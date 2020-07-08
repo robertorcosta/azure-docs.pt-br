@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80755268"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso condicional: usuários e grupos
@@ -36,7 +35,7 @@ As opções a seguir estão disponíveis para inclusão ao criar uma política d
    - Todos os usuários que existem no diretório, incluindo convidados B2B.
 - Selecionar Usuários e grupos
    - Todos os usuários convidados e externos
-      - Essa seleção inclui quaisquer convidados B2B e usuários externos, incluindo qualquer usuário com `user type` o atributo definido `guest`como. Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um provedor de soluções de nuvem (CSP). 
+      - Essa seleção inclui quaisquer convidados B2B e usuários externos, incluindo qualquer usuário com o `user type` atributo definido como `guest` . Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um provedor de soluções de nuvem (CSP). 
    - Funções de diretório
       - Permite que os administradores selecionem funções de diretório específicas do Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída.
    - Usuários e grupos
@@ -52,7 +51,7 @@ Quando as organizações incluem e excluem um usuário ou grupo, o usuário ou g
 As opções a seguir estão disponíveis para exclusão ao criar uma política de acesso condicional.
 
 - Todos os usuários convidados e externos
-   - Essa seleção inclui quaisquer convidados B2B e usuários externos, incluindo qualquer usuário com `user type` o atributo definido `guest`como. Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um provedor de soluções de nuvem (CSP). 
+   - Essa seleção inclui quaisquer convidados B2B e usuários externos, incluindo qualquer usuário com o `user type` atributo definido como `guest` . Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um provedor de soluções de nuvem (CSP). 
 - Funções de diretório
    - Permite que os administradores selecionem funções de diretório específicas do Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída.
 - Usuários e grupos
@@ -70,6 +69,6 @@ Por padrão, a política fornecerá uma opção para excluir o usuário atual da
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Acesso condicional: aplicativos de nuvem ou ações](concept-conditional-access-cloud-apps.md)
+- [Acesso Condicional: Aplicativos na nuvem ou ações](concept-conditional-access-cloud-apps.md)
 
-- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+- [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)

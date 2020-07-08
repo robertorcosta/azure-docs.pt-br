@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681695"
 ---
 # <a name="rendering-modes"></a>Renderização de modos
@@ -38,7 +37,7 @@ No modo **DepthBasedComposition** , cada GPU envolvida é renderizada na resolu�
 
 Cada GPU única usa MSAA para suavizar o conteúdo local. No entanto, pode haver um alias inerente entre as bordas de GPUs distintas. Esse efeito é mitigado pelo pré-processamento da imagem final, mas a qualidade de MSAA ainda é pior do que no modo **TileBasedComposition** .
 
-Os artefatos MSAA são ilustrados na imagem ![a seguir: MSAA em DepthBasedComposition](./media/service-render-mode-balanced.png)
+Os artefatos MSAA são ilustrados na imagem a seguir: ![ MSAA em DepthBasedComposition](./media/service-render-mode-balanced.png)
 
 A anti-aliasing funciona corretamente entre o sculpture e o Curtain, porque ambas as partes são renderizadas na mesma GPU. Por outro lado, a borda entre Curtain e Wall mostra alguns aliases, pois essas duas partes são compostas de GPUs distintas.
 
@@ -50,7 +49,7 @@ As características de desempenho para ambos os modos variam de acordo com o cas
 
 ## <a name="setting-the-render-mode"></a>Definindo o modo de renderização
 
-O modo de renderização usado em uma VM de renderização remota é `AzureSession.ConnectToRuntime` especificado durante `ConnectToRuntimeParams`por meio do.
+O modo de renderização usado em uma VM de renderização remota é especificado durante `AzureSession.ConnectToRuntime` por meio do `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)
@@ -73,5 +72,5 @@ async void ExampleConnect(AzureSession session)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Sessões](../concepts/sessions.md)
-* [Componente de substituição de estado hierárquico](../overview/features/override-hierarchical-state.md)
+* [Das](../concepts/sessions.md)
+* [Componente de substituição do estado hierárquico](../overview/features/override-hierarchical-state.md)

@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80803562"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso a recursos de cluster usando o controle de acesso baseado em função e identidades de Azure Active Directory no serviço kubernetes do Azure
@@ -22,7 +21,7 @@ Este artigo mostra como usar a associação de grupo do Azure AD para controlar 
 
 Este artigo pressupõe que você tenha um cluster AKS existente habilitado com a integração do Azure AD. Se você precisar de um cluster AKS, consulte [integrar Azure Active Directory com AKs][azure-ad-aks-cli].
 
-Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
+Você precisará da CLI do Azure versão 2.0.61 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Criar grupos de demonstração no Azure AD
 
@@ -50,7 +49,7 @@ Crie o primeiro grupo de exemplo no Azure AD para os desenvolvedores de aplicati
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-Agora, crie uma atribuição de função do Azure para o grupo *AppDev* usando o comando [AZ role Assignment Create][az-role-assignment-create] . Essa atribuição permite que qualquer membro do grupo seja `kubectl` usado para interagir com um cluster AKs concedendo a *função de usuário de cluster do serviço kubernetes do Azure*.
+Agora, crie uma atribuição de função do Azure para o grupo *AppDev* usando o comando [AZ role Assignment Create][az-role-assignment-create] . Essa atribuição permite que qualquer membro do grupo `kubectl` seja usado para interagir com um cluster AKs concedendo a *função de usuário de cluster do serviço kubernetes do Azure*.
 
 ```azurecli-interactive
 az role assignment create \
@@ -60,7 +59,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Se você receber um erro como `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, aguarde alguns segundos para a ID de objeto do grupo do Azure ad se propagar por meio do diretório e `az role assignment create` depois repita o comando.
+> Se você receber um erro como `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.` , aguarde alguns segundos para a ID de objeto do grupo do Azure ad se propagar por meio do diretório e depois repita o `az role assignment create` comando.
 
 Crie um segundo grupo de exemplo, este para SREs chamado *opssre*:
 
@@ -83,7 +82,7 @@ Com dois grupos de exemplo criados no Azure AD para nossos desenvolvedores de ap
 
 Crie a primeira conta de usuário no Azure AD usando o comando [AZ ad User Create][az-ad-user-create] .
 
-O exemplo a seguir cria um usuário com o nome de exibição *AKs dev* e o UPN (nome principal do `aksdev@contoso.com`usuário) do. Atualize o UPN para incluir um domínio verificado para seu locatário do Azure AD (substitua *contoso.com* por seu próprio domínio) e forneça sua própria credencial segura `--password` :
+O exemplo a seguir cria um usuário com o nome de exibição *AKs dev* e o UPN (nome principal do usuário) do `aksdev@contoso.com` . Atualize o UPN para incluir um domínio verificado para seu locatário do Azure AD (substitua *contoso.com* por seu próprio domínio) e forneça sua própria `--password` credencial segura:
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
@@ -99,7 +98,7 @@ Agora, adicione o usuário ao grupo *AppDev* criado na seção anterior usando o
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-Crie uma segunda conta de usuário. O exemplo a seguir cria um usuário com o nome de exibição *AKs SRE* e o UPN (nome principal do `akssre@contoso.com`usuário) do. Novamente, atualize o UPN para incluir um domínio verificado para seu locatário do Azure AD (substitua *contoso.com* por seu próprio domínio) e forneça sua própria credencial segura `--password` :
+Crie uma segunda conta de usuário. O exemplo a seguir cria um usuário com o nome de exibição *AKs SRE* e o UPN (nome principal do usuário) do `akssre@contoso.com` . Novamente, atualize o UPN para incluir um domínio verificado para seu locatário do Azure AD (substitua *contoso.com* por seu próprio domínio) e forneça sua própria `--password` credencial segura:
 
 ```azurecli-interactive
 # Create a user for the SRE role
@@ -269,7 +268,7 @@ Agende um pod NGINX básico usando o comando [kubectl Run][kubectl-run] no names
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
 ```
 
-Como o prompt de entrada, insira as credenciais para sua própria `appdev@contoso.com` conta criada no início do artigo. Depois que você entrar com êxito, o token da conta será armazenado em cache para `kubectl` futuros comandos. O NGINX é agendado com êxito, conforme mostrado na seguinte saída de exemplo:
+Como o prompt de entrada, insira as credenciais para sua própria `appdev@contoso.com` conta criada no início do artigo. Depois que você entrar com êxito, o token da conta será armazenado em cache para futuros `kubectl` comandos. O NGINX é agendado com êxito, conforme mostrado na seguinte saída de exemplo:
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -367,7 +366,7 @@ $ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Neste artigo, você criou recursos no cluster AKS e usuários e grupos no Azure AD. Para limpar todos esses recursos, execute os seguintes comandos:
 

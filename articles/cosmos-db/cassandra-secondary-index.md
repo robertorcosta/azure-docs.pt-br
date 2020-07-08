@@ -8,10 +8,9 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80758021"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indexação secundária no Azure Cosmos DB API do Cassandra
@@ -51,7 +50,7 @@ insert into sampleks.t1(user_id,lastname) values (8, 'Theo');
 insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 ```
 
-Se você tentar executar a instrução a seguir, encontrará um erro que solicita que você use `ALLOW FILTERING`: 
+Se você tentar executar a instrução a seguir, encontrará um erro que solicita que você use `ALLOW FILTERING` : 
 
 ```shell
 select user_id, lastname from sampleks.t1 where lastname='nishu';
@@ -65,7 +64,7 @@ CREATE INDEX ON sampleks.t1 (lastname);
 Depois de criar um índice no campo "LastName", agora você pode executar a consulta anterior com êxito. Com API do Cassandra no Azure Cosmos DB, você não precisa fornecer um nome de índice. Um índice padrão com formato `tablename_columnname_idx` é usado. Por exemplo, ` t1_lastname_idx` é o nome do índice para a tabela anterior.
 
 ## <a name="dropping-the-index"></a>Descartando o índice 
-Você precisa saber qual é o nome do índice para descartar o índice. Execute o `desc schema` comando para obter a descrição da tabela. A saída desse comando inclui o nome do índice no formato `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)`. Em seguida, você pode usar o nome do índice para descartar o índice, conforme mostrado no exemplo a seguir:
+Você precisa saber qual é o nome do índice para descartar o índice. Execute o `desc schema` comando para obter a descrição da tabela. A saída desse comando inclui o nome do índice no formato `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)` . Em seguida, você pode usar o nome do índice para descartar o índice, conforme mostrado no exemplo a seguir:
 
 ```shell
 drop index sampleks.t1_lastname_idx;

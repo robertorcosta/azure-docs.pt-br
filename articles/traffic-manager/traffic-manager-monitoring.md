@@ -11,10 +11,9 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
 ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757265"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de Tráfego
@@ -40,7 +39,7 @@ Para configurar o monitoramento de ponto de extremidade, é necessário especifi
 
 ## <a name="how-endpoint-monitoring-works"></a>Como o monitoramento de ponto de extremidade funciona
 
-Se o protocolo de monitoramento for definido como HTTP ou HTTPS, o agente de investigação do Gerenciador de Tráfego fará uma solicitação GET ao ponto de extremidade usando o protocolo, a porta e o caminho relativo fornecidos. Se obtiver novamente uma resposta 200-OK ou qualquer uma das respostas configuradas nos **intervalos de código \*de status esperados**, esse ponto de extremidade será considerado íntegro. Se a resposta for um valor diferente ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Gerenciador de Tráfego tentará novamente de acordo com a configuração de Número de Falhas Tolerado (nenhuma nova tentativa será feita se essa configuração for de 0). Se o número de falhas consecutivas for maior do que a configuração Número de Falhas Tolerado, o ponto de extremidade será marcado como não íntegro. 
+Se o protocolo de monitoramento for definido como HTTP ou HTTPS, o agente de investigação do Gerenciador de Tráfego fará uma solicitação GET ao ponto de extremidade usando o protocolo, a porta e o caminho relativo fornecidos. Se obtiver novamente uma resposta 200-OK ou qualquer uma das respostas configuradas nos ** \* intervalos de código de status esperados**, esse ponto de extremidade será considerado íntegro. Se a resposta for um valor diferente ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Gerenciador de Tráfego tentará novamente de acordo com a configuração de Número de Falhas Tolerado (nenhuma nova tentativa será feita se essa configuração for de 0). Se o número de falhas consecutivas for maior do que a configuração Número de Falhas Tolerado, o ponto de extremidade será marcado como não íntegro. 
 
 Se o protocolo de monitoramento for TCP, o agente de sondagem do Gerenciador de Tráfego iniciará uma solicitação de conexão TCP usando a porta especificada. Se o ponto de extremidade responder à solicitação com uma resposta para estabelecer a conexão, essa verificação de integridade será marcada como um êxito e o agente de investigação do Gerenciador de Tráfego redefinirá a conexão TCP. Se a resposta for um valor diferente ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Gerenciador de Tráfego tentará novamente acordo com a configuração de número de falhas tolerado (nenhuma nova tentativa será feita se essa configuração for de 0). Se o número de falhas consecutivas for maior do que a configuração Número de Falhas Tolerado, o ponto de extremidade será marcado como não íntegro.
 
@@ -67,11 +66,11 @@ Usando a configuração de status de perfil, você pode habilitar ou desabilitar
 
 O status do monitor do ponto de extremidade é um valor gerado pelo Gerenciador de Tráfego que mostra o status do ponto de extremidade. Você não pode alterar essa configuração manualmente. O status do monitor de ponto de extremidade é uma combinação dos resultados do monitoramento de ponto de extremidade com o status de ponto de extremidade configurado. Os valores possíveis de status do monitor do ponto de extremidade estão na tabela abaixo:
 
-| Status do perfil | Status do ponto de extremidade | Status do monitor de ponto de extremidade | Anotações |
+| Status do perfil | Status do ponto de extremidade | Status do monitor de ponto de extremidade | Observações |
 | --- | --- | --- | --- |
 | Desabilitado |habilitado |Inativo |O perfil foi desabilitado. Embora o status do ponto de extremidade seja Habilitado, o status do perfil (Desabilitado) tem precedência. Pontos de extremidade em perfis desabilitados não são monitorados. Um código de resposta NXDOMAIN é retornado para a consulta DNS. |
 | &lt;qualquer&gt; |Desabilitado |Desabilitado |O ponto de extremidade foi desabilitado. Pontos de extremidade desabilitados não são monitorados. O ponto de extremidade não é incluído em respostas DNS e, portanto, não recebe tráfego. |
-| habilitado |habilitado |Online |O ponto de extremidade é monitorado e está íntegro. Ele é incluído em respostas DNS e pode receber tráfego. |
+| habilitado |Habilitada |Online |O ponto de extremidade é monitorado e está íntegro. Ele é incluído em respostas DNS e pode receber tráfego. |
 | habilitado |habilitado |Degradado |As verificações de integridade de monitoramento do ponto de extremidade estão falhando. O ponto de extremidade não é incluído em respostas DNS e não recebe tráfego. <br>Uma exceção a isso é se todos os pontos de extremidade estiverem degradados, caso em que todos eles serão considerados para devolução na resposta da consulta.</br>|
 | habilitado |habilitado |Verificando ponto de extremidade |O ponto de extremidade é monitorado, mas os resultados da primeira investigação ainda não foram recebidos. CheckingEndpoint é um estado temporário que geralmente ocorre imediatamente depois de adicionar ou habilitar um ponto de extremidade no perfil. Um ponto de extremidade nesse estado é incluído em respostas DNS e pode receber tráfego. |
 | habilitado |habilitado |Parado |O aplicativo Web para o qual o ponto de extremidade aponta não está em execução. Verifique as configurações do aplicativo Web. Isso também poderá ocorrer se o ponto de extremidade for do tipo aninhado e o perfil filho estiver desabilitado ou inativo. <br>Um ponto de extremidade com um status Parado não é monitorado. Ele não é incluído em respostas DNS e não recebe tráfego. Uma exceção a isso é se todos os pontos de extremidade estiverem degradados, caso em que todos eles serão considerados para devolução na resposta da consulta.</br>|
@@ -85,13 +84,13 @@ Para obter detalhes sobre como o status do monitor de ponto de extremidade é ca
 
 O status do monitor de perfil é uma combinação dos valores do status do perfil configurado e do status do monitor de ponto de extremidade para todos os pontos de extremidade. Os possíveis valores são descritos na tabela seguinte:
 
-| Status do perfil (conforme configurado) | Status do monitor de ponto de extremidade | Status do monitor de perfil | Anotações |
+| Status do perfil (conforme configurado) | Status do monitor de ponto de extremidade | Status do monitor de perfil | Observações |
 | --- | --- | --- | --- |
 | Desabilitado |&lt;qualquer&gt; ou um perfil sem pontos de extremidade definidos. |Desabilitado |O perfil foi desabilitado. |
-| habilitado |O status de pelo menos um ponto de extremidade é Degradado. |Degradado |Revise os valores de status do ponto de extremidade individual para determinar quais pontos de extremidade exigem mais atenção. |
-| habilitado |O status de pelo menos um ponto de extremidade é Online. Nenhum ponto de extremidade tem o status Degradado. |Online |O serviço está aceitando tráfego. Nenhuma ação adicional é necessária. |
-| habilitado |O status de pelo menos um ponto de extremidade é CheckingEndpoint. Nenhum ponto de extremidade tem status Online ou Degradado. |Verificando pontos de extremidade |Esse estado de transição ocorre quando um perfil é criado ou habilitado. A integridade do ponto de extremidade está sendo verificada pela primeira vez. |
-| habilitado |O status de todos os pontos de extremidade no perfil é Desabilitado ou Parado, ou o perfil não tem nenhum ponto de extremidade definido. |Inativo |Nenhum ponto de extremidade está ativo, mas o perfil ainda está habilitado. |
+| Habilitada |O status de pelo menos um ponto de extremidade é Degradado. |Degradado |Revise os valores de status do ponto de extremidade individual para determinar quais pontos de extremidade exigem mais atenção. |
+| Habilitada |O status de pelo menos um ponto de extremidade é Online. Nenhum ponto de extremidade tem o status Degradado. |Online |O serviço está aceitando tráfego. Nenhuma ação do usuário é necessária. |
+| Habilitada |O status de pelo menos um ponto de extremidade é CheckingEndpoint. Nenhum ponto de extremidade tem status Online ou Degradado. |Verificando pontos de extremidade |Esse estado de transição ocorre quando um perfil é criado ou habilitado. A integridade do ponto de extremidade está sendo verificada pela primeira vez. |
+| Habilitada |O status de todos os pontos de extremidade no perfil é Desabilitado ou Parado, ou o perfil não tem nenhum ponto de extremidade definido. |Inativo |Nenhum ponto de extremidade está ativo, mas o perfil ainda está habilitado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Failover e recuperação do ponto de extremidade
 

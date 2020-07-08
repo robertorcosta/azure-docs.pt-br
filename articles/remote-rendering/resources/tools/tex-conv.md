@@ -6,20 +6,19 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680018"
 ---
 # <a name="texconv---texture-conversion-tool"></a>TexConv-ferramenta de conversão de textura
 
 TexConv é uma ferramenta de linha de comando para processar texturas de formatos de entrada típicos como PNG, TGA, JPEG e DDS em formatos otimizados para consumo de tempo de execução.
-Embora o cenário mais comum seja converter um único arquivo `A.xxx` de entrada em um formato `B.yyy`otimizado, a ferramenta tem muitas opções adicionais para usos avançados.
+Embora o cenário mais comum seja converter um único arquivo de entrada `A.xxx` em um formato otimizado `B.yyy` , a ferramenta tem muitas opções adicionais para usos avançados.
 
 ## <a name="command-line-help"></a>Ajuda da linha de comando
 
-A execução de TexConv. exe `--help` com o parâmetro listará todas as opções disponíveis. Além disso, o TexConv imprime as opções usadas quando ele é executado, para ajudar a entender o que está fazendo. Consulte esta saída para obter detalhes.
+A execução de TexConv.exe com o `--help` parâmetro listará todas as opções disponíveis. Além disso, o TexConv imprime as opções usadas quando ele é executado, para ajudar a entender o que está fazendo. Consulte esta saída para obter detalhes.
 
 ## <a name="general-usage"></a>Uso geral
 
@@ -37,13 +36,13 @@ TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 
 ## <a name="multiple-input-files"></a>Vários arquivos de entrada
 
-Para montar a saída de vários arquivos de entrada, especifique cada arquivo de entrada `-in` usando a opção com um número crescente:
+Para montar a saída de vários arquivos de entrada, especifique cada arquivo de entrada usando a `-in` opção com um número crescente:
 
 ```cmd
 -in0 D:/img0.jpg -in1 D:/img1.jpg -in2 D:/img2.jpg ...
 ```
 
-Ao montar um cubemap de texturas 2D, também é possível `-right`usar `-left`, `-top`, `-bottom`, `-front`, `-back` ou `-px`, `-nx` `-py` `-ny`,,, `-pz`, `-nz`.
+Ao montar um cubemap de texturas 2D, também é possível usar `-right` , `-left` ,,, ou,,,, `-top` `-bottom` `-front` `-back` `-px` `-nx` `-py` `-ny` `-pz` , `-nz` .
 
 Para mapear essas entradas para o arquivo de saída, é necessário um mapeamento de canal adequado.
 
@@ -67,7 +66,7 @@ A especificação do mapeamento para cada canal separadamente proporciona a maio
 
 As seguintes opções de mapeamento de canal estão disponíveis:
 
-- `-r``-b`, `-g`,, `-a` : Eles especificam atribuições de canal único
+- `-r`,,, `-g` `-b` `-a` : Eles especificam atribuições de canal único
 - `-rg`: Especifique as atribuições de canal vermelho e verde.
 - `-rgb`: Especifique as atribuições de canal vermelho, verde e azul.
 - `-rgba`: Especifica todas as quatro atribuições de canal.
@@ -89,7 +88,7 @@ Um deles também pode preencher canais com preto ou branco:
 
 ## <a name="common-options"></a>Opções comuns
 
-As opções mais interessantes estão listadas abaixo. Mais opções são listadas `TexConv --help`por.
+As opções mais interessantes estão listadas abaixo. Mais opções são listadas por `TexConv --help` .
 
 ### <a name="output-type"></a>Tipo de saída
 
