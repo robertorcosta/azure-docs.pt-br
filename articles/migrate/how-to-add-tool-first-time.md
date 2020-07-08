@@ -4,10 +4,9 @@ description: Descreve como criar um projeto de migrações para Azure e adiciona
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901178"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Adicionar uma ferramenta de avaliação/migração pela primeira vez
@@ -58,8 +57,8 @@ Configure um novo projeto de migrações para Azure em uma assinatura do Azure e
     > [!NOTE]
     > Ao criar um projeto, você precisa adicionar pelo menos uma ferramenta de avaliação ou migração.
 
-5. Em **selecionar ferramenta de avaliação**, adicione uma ferramenta de avaliação. Se você não precisar de uma ferramenta de avaliação, selecione **ignorar a adição de uma ferramenta de avaliação para agora** > **em seguida**. 
-2. Em **selecionar ferramenta de migração**, adicione uma ferramenta de migração conforme necessário. Se você não precisar de uma ferramenta de migração no momento, selecione **ignorar a adição de uma ferramenta de migração para agora** > **em seguida**.
+5. Em **selecionar ferramenta de avaliação**, adicione uma ferramenta de avaliação. Se você não precisar de uma ferramenta de avaliação, selecione **ignorar a adição de uma ferramenta de avaliação para agora**  >  **em seguida**. 
+2. Em **selecionar ferramenta de migração**, adicione uma ferramenta de migração conforme necessário. Se você não precisar de uma ferramenta de migração no momento, selecione **ignorar a adição de uma ferramenta de migração para agora**  >  **em seguida**.
 3. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
 
 Depois de criar o projeto, você pode selecionar ferramentas adicionais para avaliação e migração de servidores e cargas de trabalho, bancos de dados e aplicativos Web.

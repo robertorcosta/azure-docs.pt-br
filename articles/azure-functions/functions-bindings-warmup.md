@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982234"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
@@ -76,7 +75,7 @@ namespace WarmupSample
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
 
-O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função script C#](functions-reference-csharp.md) que será executada em cada nova instância quando for adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento em um *function.jsno* arquivo e uma [função de script C#](functions-reference-csharp.md) que será executada em cada nova instância quando for adicionada ao seu aplicativo.
 
 Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
@@ -107,7 +106,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento em um *function.jsno* arquivo e uma [função JavaScript](functions-reference-node.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
 
 Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
@@ -137,7 +136,7 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função do Python](functions-reference-python.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento em um *function.jsno* arquivo e uma [função do Python](functions-reference-python.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
 
 Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
@@ -185,7 +184,7 @@ public void run( ExecutionContext context) {
 
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 
-Em [bibliotecas de classes C#](functions-dotnet-class-library.md), `WarmupTrigger` o atributo está disponível para configurar a função.
+Em [bibliotecas de classes C#](functions-dotnet-class-library.md), o `WarmupTrigger` atributo está disponível para configurar a função.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -202,19 +201,19 @@ Observe que sua função deve ser chamada ```Warmup``` e pode haver apenas uma f
         }
 ```
 
-Para obter um exemplo completo, consulte o [exemplo de gatilho](#trigger---example).
+Para ver um exemplo completo, confira o [exemplo de gatilho](#trigger---example).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -224,13 +223,13 @@ O gatilho aquecimento não tem suporte em Java como um atributo.
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `WarmupTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `WarmupTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo** | N/D| Obrigatório – deve ser definido como `warmupTrigger`. |
-| **direção** | N/D| Obrigatório – deve ser definido como `in`. |
-| **name** | N/D| Required – o nome da variável usada no código de função.|
+| **tipo** | n/d| Obrigatório – deve ser definido como `warmupTrigger`. |
+| **direction** | n/d| Obrigatório – deve ser definido como `in`. |
+| **name** | n/d| Required – o nome da variável usada no código de função.|
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 

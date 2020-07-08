@@ -17,10 +17,9 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978171"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure
@@ -70,17 +69,17 @@ A meta é instalar várias instâncias clusterizadas do SAP Advanced Business Ap
 
 _**Figura 2:** Configuração de vários SID do SAP em dois clusters_
 
-A instalação de um sistema **de \<>do SAP SID2** adicional é idêntica à instalação de \<um sistema de> Sid. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
+A instalação de um sistema **SAP \<SID2> ** adicional é idêntica à instalação de um \<SID> sistema. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Prepare a infraestrutura para um cenário de vários SIDs do SAP
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Prepare a infraestrutura no controlador de domínio
 
-Crie o domínio do grupo \< ** \<de domínio>\<\ SAP_ SID2>_GlobalAdmin**, por exemplo, com SID2> = PR2. O nome do grupo de domínio é \<Domain>\SAP_PR2_GlobalAdmin.
+Crie o grupo de domínio ** \<Domain> \ SAP_ \<SID2> _GlobalAdmin**, por exemplo, com \<SID2> = PR2. O nome do grupo de domínio é \<Domain> \ SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Prepare a infraestrutura no cluster ASCS/SCS
 
-Você deve preparar a infraestrutura no cluster ASCS/SCS existente para um segundo SAP \<SID>:
+Você deve preparar a infraestrutura no cluster ASCS/SCS existente para um segundo SAP \<SID> :
 
 * Crie um nome de host virtual para a instância do SAP ASCS/SCS clusterizada no servidor DNS.
 * Adicione um endereço IP a um balanceador de carga interno do Azure existente usando o PowerShell.
@@ -90,22 +89,22 @@ Estas etapas são descritas em [Preparação da infraestrutura para um cenário 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Prepare a infraestrutura em um cluster SOFS usando o Host Global do SAP existente
 
-Você pode reutilizar o \<SAPGlobalHost existente> e Volume1 do primeiro sistema \<do SAP SID1>.
+Você pode reutilizar o existente \<SAPGlobalHost> e Volume1 do primeiro \<SID1> sistema SAP.
 
 ![Figura 3: SOFS com vários SIDs é o mesmo que o nome de Host Global do SAP][sap-ha-guide-figure-8014]
 
 _**Figura 3:** SOFS com vários SIDs é o mesmo que o nome de Host Global do SAP_
 
 > [!IMPORTANT]
->Para o segundo sistema **SAP \<SID2>**, o mesmo Volume1 e a mesma rede **\<SAPGlobalHost>** estão sendo usados.
->Como você já definiu **SAPMNT** como o nome do compartilhamento para vários sistemas SAP, para reutilizar o nome de rede **\<SAPGlobalHost >**, você deve usar o mesmo **Volume1**.
+>Para o segundo **sistema \<SID2> SAP** , o mesmo Volume1 e o mesmo **\<SAPGlobalHost>** nome de rede são usados.
+>Como você já definiu **SAPMNT** como o nome do compartilhamento para vários sistemas SAP, para reutilizar o **\<SAPGlobalHost>** nome da rede, você deve usar o mesmo **Volume1**.
 >
->O caminho do arquivo para \<o host SID2> global é\\C:\ClusterStorage**Volume1**\usr\sap\<SID2> \sys\.
+>O caminho do arquivo para o \<SID2> host global é C:\ClusterStorage \\ **Volume1**\usr\sap \<SID2> \SYS\.
 >
 
-Para o sistema \<SID2>, você deve preparar o Host Global do SAP ..\SYS\.. pasta no cluster SOFS.
+Para o \<SID2> sistema, você deve preparar o host global do SAP. \SYS \. . pasta no cluster SOFS.
 
-Para preparar o Host Global do SAP para a instância \<SID2>, execute o seguinte script do PowerShell:
+Para preparar o host global do SAP para a \<SID2> instância, execute o seguinte script do PowerShell:
 
 
 ```powershell
@@ -156,13 +155,13 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Prepare a infraestrutura no cluster SOFS usando um Host Global do SAP diferente
 
-Você pode configurar o segundo SOFS (por exemplo, a segunda função de cluster SOFS com ** \<SAPGlobalHost2>** e um **Volume2** diferente para a segunda ** \<SID2>**).
+Você pode configurar o segundo SOFS (por exemplo, a segunda função de cluster SOFS com **\<SAPGlobalHost2>** e um **Volume2** diferente para o segundo **\<SID2>** ).
 
 ![Figura 4: SOFS com vários SIDs é o mesmo que o nome de host 2 GLOBAL do SAP][sap-ha-guide-figure-8015]
 
 _**Figura 4:** SOFS com vários SIDs é o mesmo que o nome de host 2 GLOBAL do SAP_
 
-Para criar a segunda função SOFS com \<SAPGlobalHost2>, execute este script do PowerShell:
+Para criar a segunda função SOFS com \<SAPGlobalHost2> , execute este script do PowerShell:
 
 ```powershell
 # Create SOFS with SAP Global Host Name 2
@@ -180,7 +179,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 _**Figura 5:** segundo Volume2 no Gerenciador de Cluster de Failover_
 
-Crie uma pasta Global do SAP para a segunda \<SID2> e defina a segurança de arquivo.
+Crie uma pasta SAP global para a segunda \<SID2> e defina a segurança do arquivo.
 
 Execute este script do PowerShell:
 
@@ -223,7 +222,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-Para criar um compartilhamento de arquivos SAPMNT no Volume2 com o nome de host do * \<SAPGlobalHost2>* para \<o segundo> do SAP SID2, inicie o assistente para **Adicionar compartilhamento de arquivos** em Gerenciador de cluster de failover.
+Para criar um compartilhamento de arquivos SAPMNT no Volume2 com o *\<SAPGlobalHost2>* nome de host para o segundo SAP \<SID2> , inicie o assistente para **Adicionar compartilhamento de arquivos** em Gerenciador de cluster de failover.
 
 Clique com o botão direito do mouse no grupo de clusters SOFS **saoglobal2** e escolha **Adicionar Compartilhamento de Arquivos**.
 
@@ -258,7 +257,7 @@ _**Figura 10:** Desabilitar todas as configurações_
 <br>
 
 Atribuir permissões de *Controle total* para arquivos e compartilhamento sapmnt para:
-* O grupo de usuários de domínio **SAP_\<SID>_GlobalAdmin**
+* O grupo de usuários de domínio do **SAP_ \<SID> _GlobalAdmin**
 * Objeto de computador de nós de cluster ASCS/SCS **ascs-1$** e **ascs-2$**
 
 ![Figura 11: Atribuir permissões de controle total para grupo de usuários e contas de computador][sap-ha-guide-figure-8022]
@@ -281,9 +280,9 @@ _**Figura 13:** O segundo sapmnt associado ao host sapglobal2 e Volume2 é criad
 
 ## <a name="install-sap-netweaver-multi-sid"></a>Instalar SAP NetWeaver de vários SIDs
 
-### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Instalar instâncias ERS e SAP \<SID2> ASCS/SCS
+### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Instalar instâncias do SAP \<SID2> ASCS/SCS e ers
 
-Execute as mesmas etapas de instalação e configuração descritas anteriormente para uma SAP \<SID>.
+Siga as mesmas etapas de instalação e configuração, conforme descrito anteriormente para um SAP \<SID> .
 
 ### <a name="install-dbms-and-sap-application-servers"></a>Instalar servidores de aplicativos SAP e DBMS
 Instale os servidores de aplicativos SAP e DBMS conforme descrito anteriormente.

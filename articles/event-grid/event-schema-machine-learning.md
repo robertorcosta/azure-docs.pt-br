@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82928866"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como uma fonte de grade de eventos
@@ -34,9 +33,9 @@ Azure Machine Learning emite os seguintes tipos de evento:
 
 ### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta de evento
 
-Quando um evento é disparado, o serviço de grade de eventos envia dados sobre esse evento para o ponto de extremidade de assinatura.
+Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre esse evento para o ponto de extremidade de assinatura.
 
-Esta seção contém um exemplo de como os dados seriam para cada evento.
+Esta seção mostra um exemplo de como os dados seriam para cada evento.
 
 ### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Evento Microsoft. MachineLearningServices. ModelRegistered
 
@@ -190,76 +189,76 @@ Esta seção contém um exemplo de como os dados seriam para cada evento.
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| ModelName | cadeia de caracteres | O nome do modelo que foi registrado. |
-| ModelVersion | cadeia de caracteres | A versão do modelo que foi registrado. |
+| ModelName | string | O nome do modelo que foi registrado. |
+| ModelVersion | string | A versão do modelo que foi registrado. |
 | ModelTags | objeto | As marcas do modelo que foi registrado. |
 | Modelproperties | objeto | As propriedades do modelo que foi registrado. |
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| ServiceName | cadeia de caracteres | O nome do serviço implantado. |
-| Filecomputetype | cadeia de caracteres | O tipo de computação (por exemplo, ACI, AKS) do serviço implantado. |
-  | ModelIds | cadeia de caracteres | Uma lista separada por vírgulas de IDs de modelo. As IDs dos modelos implantados no serviço. |
+| ServiceName | string | O nome do serviço implantado. |
+| Filecomputetype | string | O tipo de computação (por exemplo, ACI, AKS) do serviço implantado. |
+  | ModelIds | string | Uma lista separada por vírgulas de IDs de modelo. As IDs dos modelos implantados no serviço. |
 | Crachás | objeto | As marcas do serviço implantado. |
 | ServiceProperties | objeto | As propriedades do serviço implantado. |
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Propriedade | Type | Description |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| Experimentoid | cadeia de caracteres | A ID do experimento ao qual a execução pertence. |
-| Experimentoname | cadeia de caracteres | O nome do experimento ao qual a execução pertence. |
-| RunId | cadeia de caracteres | A ID da execução que foi concluída. |
-| RunType | cadeia de caracteres | O tipo de execução da execução concluída. |
+| Experimentoid | string | A ID do experimento ao qual a execução pertence. |
+| Experimentoname | string | O nome do experimento ao qual a execução pertence. |
+| RunId | string | A ID da execução que foi concluída. |
+| RunType | string | O tipo de execução da execução concluída. |
 | RunTags | objeto | As marcas da execução concluída. |
 | RunProperties | objeto | As propriedades da execução concluída. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Propriedade | Type | Description |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| Onficaid | cadeia de caracteres | A ID do monitor de descompasso de dados que disparou o evento. |
-| Datalogoffname | cadeia de caracteres | O nome do monitor de descompasso de dados que disparou o evento. |
-| RunId | cadeia de caracteres | A ID da execução que detectou descompasso de dados. |
-| BaseDatasetId | cadeia de caracteres | A ID do conjunto de dados base usado para detectar descompasso. |
-| TargetDatasetId | cadeia de caracteres | A ID do conjunto de código de destino usado para detectar descompasso. |
+| Onficaid | string | A ID do monitor de descompasso de dados que disparou o evento. |
+| Datalogoffname | string | O nome do monitor de descompasso de dados que disparou o evento. |
+| RunId | string | A ID da execução que detectou descompasso de dados. |
+| BaseDatasetId | string | A ID do conjunto de dados base usado para detectar descompasso. |
+| TargetDatasetId | string | A ID do conjunto de código de destino usado para detectar descompasso. |
 | DriftCoefficient | double | O resultado do coeficiente que disparou o evento. |
 | StartTime | DATETIME | A hora de início da série temporal do conjunto de tempo de destino que resultou na detecção de descompasso.  |
 | EndTime | DATETIME | A hora de término da série temporal do conjunto de tempo de destino que resultou na detecção de descompasso. |
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
 
-| Propriedade | Type | Description |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| Experimentoid | cadeia de caracteres | A ID do experimento ao qual a execução pertence. |
-| Experimentoname | cadeia de caracteres | O nome do experimento ao qual a execução pertence. |
-| RunId | cadeia de caracteres | A ID da execução que foi concluída. |
-| RunType | cadeia de caracteres | O tipo de execução da execução concluída. |
+| Experimentoid | string | A ID do experimento ao qual a execução pertence. |
+| Experimentoname | string | O nome do experimento ao qual a execução pertence. |
+| RunId | string | A ID da execução que foi concluída. |
+| RunType | string | O tipo de execução da execução concluída. |
 | RunTags | objeto | As marcas da execução concluída. |
 | RunProperties | objeto | As propriedades da execução concluída. |
-| RunStatus | cadeia de caracteres | O status da execução. |
+| RunStatus | string | O status da execução. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
-| Title | Descrição |
+| Título | Descrição |
 | ----- | ----- |
 | [Consumir Azure Machine Learning eventos](../machine-learning/concept-event-grid-integration.md) | Visão geral da integração de Azure Machine Learning com a grade de eventos. |
 

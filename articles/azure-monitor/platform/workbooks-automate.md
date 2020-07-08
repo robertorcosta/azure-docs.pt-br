@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
 ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982132"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerenciar pastas de trabalho programaticamente
@@ -39,7 +38,7 @@ Há dois tipos de recursos de pasta de trabalho que podem ser gerenciados progra
 
     ![Guia modelo da Galeria](./media/workbooks-automate/gallery-template.png)
 1. Copie o JSON no modelo da galeria para a área de transferência.
-2. Veja abaixo um modelo de Azure Resource Manager de exemplo que implanta um modelo de pasta de trabalho para Azure Monitor Galeria de pastas de trabalho. Cole o JSON que você copiou no lugar `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`de. Um modelo de referência Azure Resource Manager que cria um modelo de pasta de trabalho pode ser encontrado [aqui](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+2. Veja abaixo um modelo de Azure Resource Manager de exemplo que implanta um modelo de pasta de trabalho para Azure Monitor Galeria de pastas de trabalho. Cole o JSON que você copiou no lugar de `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>` . Um modelo de referência Azure Resource Manager que cria um modelo de pasta de trabalho pode ser encontrado [aqui](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
     {
@@ -193,7 +192,7 @@ Este modelo mostra como implantar uma pasta de trabalho simples que exibe um ' O
 | Parâmetro | Explicação |
 | :------------- |:-------------|
 | `workbookDisplayName` | O nome amigável da pasta de trabalho usada na galeria ou na lista salva. Precisa ser exclusivo no escopo do grupo de recursos e da origem |
-| `workbookType` | A galeria na qual a pasta de trabalho será mostrada. Os valores com suporte incluem `tsg`Workbook,, Azure monitor, etc. |
+| `workbookType` | A galeria na qual a pasta de trabalho será mostrada. Os valores com suporte incluem Workbook, `tsg` , Azure monitor, etc. |
 | `workbookSourceId` | A ID da instância de recurso à qual a pasta de trabalho será associada. A nova pasta de trabalho aparecerá relacionada a essa instância de recurso, por exemplo, na tabela de conteúdo do recurso na _pasta de trabalho_. Se você quiser que sua pasta de trabalho apareça na Galeria de pastas de trabalho no Azure Monitor, use a cadeia de caracteres _Azure monitor_ em vez de uma ID de recurso. |
 | `workbookId` | O GUID exclusivo para esta instância de pasta de trabalho. Use _[newGuid ()]_ para criar automaticamente um novo GUID. |
 | `kind` | Usado para especificar se a pasta de trabalho criada é compartilhada ou privada. Use o valor _compartilhado_ para pastas de trabalho compartilhadas e para _usuários_ particulares. |
@@ -203,14 +202,14 @@ Este modelo mostra como implantar uma pasta de trabalho simples que exibe um ' O
 ### <a name="workbook-types"></a>Tipos de pasta de trabalho
 Tipos de pasta de trabalho especifique a Galeria da pasta de trabalho na qual a nova instância da pasta de trabalho será exibida. As opções incluem:
 
-| Digite | Localização da Galeria |
+| Tipo | Localização da Galeria |
 | :------------- |:-------------|
 | `workbook` | O padrão usado na maioria dos relatórios, incluindo a Galeria de pastas de trabalho do Application Insights, Azure Monitor, etc.  |
 | `tsg` | A Galeria de guias de solução de problemas no Application Insights |
 | `usage` | A _mais_ galeria em _uso_ no Application insights |
 
 ### <a name="limitations"></a>Limitações
-Por um motivo técnico, esse mecanismo não pode ser usado para criar instâncias da pasta de trabalho na Galeria de _pastas de trabalho_ do Application insights. Estamos trabalhando para resolver essa limitação. Enquanto isso, recomendamos que você use a Galeria de guias de solução de problemas (WorkbookType: `tsg`) para implantar Application insights pastas de trabalho relacionadas.
+Por um motivo técnico, esse mecanismo não pode ser usado para criar instâncias da pasta de trabalho na Galeria de _pastas de trabalho_ do Application insights. Estamos trabalhando para resolver essa limitação. Enquanto isso, recomendamos que você use a Galeria de guias de solução de problemas (WorkbookType: `tsg` ) para implantar Application insights pastas de trabalho relacionadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

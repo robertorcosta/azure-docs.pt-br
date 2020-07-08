@@ -4,10 +4,9 @@ description: Enfileirar uma tarefa ACR executada para criar uma imagem usando um
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927761"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Executar tarefas ACR usando modelos do Resource Manager
@@ -16,7 +15,7 @@ ms.locfileid: "82927761"
 
 Este artigo mostra Azure Resource Manager exemplos de modelo para enfileirar uma execução de tarefa rápida, semelhante a uma que você pode criar manualmente usando o comando [AZ ACR Build][az-acr-build] .
 
-Um modelo do Resource Manager para enfileirar uma execução de tarefa é útil em cenários de automação `az acr build`e estende a funcionalidade do. Por exemplo: 
+Um modelo do Resource Manager para enfileirar uma execução de tarefa é útil em cenários de automação e estende a funcionalidade do `az acr build` . Por exemplo:
 
 * Use um modelo para criar um registro de contêiner e, imediatamente, colocar uma tarefa em fila para criar e enviar por push uma imagem de contêiner
 * Criar ou habilitar recursos adicionais que você pode usar em uma tarefa de execução rápida, como uma identidade gerenciada para recursos do Azure
@@ -28,8 +27,8 @@ Um modelo do Resource Manager para enfileirar uma execução de tarefa é útil 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Conta do GitHub** – crie uma conta https://github.com no se você ainda não tiver uma. 
-* **Repositório de exemplo de bifurcação** – para os exemplos de tarefa mostrados aqui, use a interface do usuário do GitHub para bifurcar https://github.com/Azure-Samples/acr-build-helloworld-nodeo seguinte repositório de exemplo em sua conta do github:. Esse repositório contém Dockerfiles de exemplo e código-fonte para criar pequenas imagens de contêiner.
+* **Conta do GitHub** – crie uma conta no https://github.com se você ainda não tiver uma. 
+* **Repositório de exemplo de bifurcação** – para os exemplos de tarefa mostrados aqui, use a interface do usuário do GitHub para bifurcar o seguinte repositório de exemplo em sua conta do github: https://github.com/Azure-Samples/acr-build-helloworld-node . Esse repositório contém Dockerfiles de exemplo e código-fonte para criar pequenas imagens de contêiner.
 
 ## <a name="example-create-registry-and-queue-task-run"></a>Exemplo: criar registro e executar tarefa de fila
 
@@ -44,7 +43,7 @@ Para este exemplo, forneça valores para os seguintes parâmetros de modelo:
 |registryName     |Nome exclusivo do registro que é criado         |
 |repository     |Repositório de destino para tarefa de compilação        |
 |taskRunName     |Nome da execução da tarefa, que especifica a marca de imagem |
-|sourceLocation     |Contexto remoto para a tarefa de compilação, por exemplo https://github.com/Azure-Samples/acr-build-helloworld-node,. O Dockerfile na raiz do repositório cria uma imagem de contêiner para um aplicativo Web Small node. js. Se desejar, use a bifurcação do repositório como o contexto de compilação.         |
+|sourceLocation     |Contexto remoto para a tarefa de compilação, por exemplo, https://github.com/Azure-Samples/acr-build-helloworld-node . O Dockerfile na raiz do repositório cria uma imagem de contêiner para um pequeno aplicativo Web de Node.js. Se desejar, use a bifurcação do repositório como o contexto de compilação.         |
 
 ### <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -112,7 +111,7 @@ A saída mostra o log de execução da tarefa.
 Você também pode exibir o log de execução de tarefa no portal do Azure. 
 
 1. Navegue até o registro de contêiner
-2. Em **Serviços**, selecione **tarefas** > **execuções**.
+2. Em **Serviços**, selecione **tarefas**  >  **execuções**.
 3. Selecione a ID de execução, nesse caso, *CA1*. 
 
 O portal mostra o log de execução da tarefa.
@@ -125,7 +124,7 @@ Esse cenário é semelhante à [autenticação entre registros em uma tarefa ACR
 
 ### <a name="prepare-base-registry"></a>Preparar registro base
 
-Para fins de demonstração, crie um registro de contêiner separado como seu registro de base e envie por push uma imagem base do node. js extraído do Hub do Docker.
+Para fins de demonstração, crie um registro de contêiner separado como seu registro de base e envie por push um Node.js imagem base extraída do Hub do Docker.
 
 1. Crie um segundo registro de contêiner, por exemplo, *mybaseregistry*, para armazenar imagens base.
 1. Puxe a `node:9-alpine` imagem do Hub do Docker, marque-a para o registro base e envie-a por push para o registro base:
@@ -139,7 +138,7 @@ Para fins de demonstração, crie um registro de contêiner separado como seu re
 
 ### <a name="create-new-dockerfile"></a>Criar novo Dockerfile
 
-Crie um Dockerfile que efetua pull da imagem base do registro base. Execute as etapas a seguir em sua bifurcação local do repositório GitHub, por exemplo `https://github.com/myGitHubID/acr-build-helloworld-node.git`,.
+Crie um Dockerfile que efetua pull da imagem base do registro base. Execute as etapas a seguir em sua bifurcação local do repositório GitHub, por exemplo, `https://github.com/myGitHubID/acr-build-helloworld-node.git` .
 
 1. Na interface do usuário do GitHub, selecione **criar novo arquivo**.
 1. Nomeie o arquivo *Dockerfile-teste* e cole o conteúdo a seguir. Substitua o nome do registro por *mybaseregistry*.
@@ -154,11 +153,11 @@ Crie um Dockerfile que efetua pull da imagem base do registro base. Execute as e
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
-### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Conceder permissões de pull de identidade para o registro de base
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Dar permissões de pull de identidade para o registro base
 
 Forneça as permissões de identidade gerenciadas para efetuar pull do registro de base, *mybaseregistry*.
 
-Use o comando [AZ ACR show][az-acr-show] para obter a ID de recurso do registro base e armazená-la em uma variável:
+Use o comando [az acr show][az-acr-show] para obter a ID do recurso do registro base e armazená-la em uma variável:
 
 ```azurecli
 baseregID=$(az acr show \
@@ -166,7 +165,7 @@ baseregID=$(az acr show \
   --query id --output tsv)
 ```
 
-Use o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a identidade a função Acrpull ao registro base. Essa função tem permissões apenas para efetuar pull de imagens do registro.
+Use o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a identidade a função Acrpull ao registro base. Esta função tem permissões apenas para efetuar pull de imagens do registro.
 
 ```azurecli
 az role assignment create \
@@ -187,7 +186,7 @@ Para este exemplo, forneça valores para os seguintes parâmetros de modelo:
 |userAssignedIdentity |ID de recurso da identidade atribuída pelo usuário habilitada na tarefa|
 |customRegistryIdentity | ID do cliente da identidade atribuída pelo usuário habilitada na tarefa, usada para autenticar com o registro personalizado |
 |customRegistry |Nome do servidor de logon do registro personalizado acessado na tarefa, por exemplo, *mybaseregistry.azurecr.Io*|
-|sourceLocation     |Contexto remoto para a tarefa de compilação, por exemplo, * https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node.* |
+|sourceLocation     |Contexto remoto para a tarefa de compilação, por exemplo, * https://github.com/ \<your-GitHub-ID\> /ACR-Build-HelloWorld-node.* |
 |dockerFilePath | Caminho para o Dockerfile no contexto remoto, usado para criar a imagem. |
 
 ### <a name="deploy-the-template"></a>Implantar o modelo

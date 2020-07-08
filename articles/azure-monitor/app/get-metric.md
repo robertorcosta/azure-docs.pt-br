@@ -8,21 +8,20 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927897"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Coleção de métricas personalizadas no .NET e no .NET Core
 
-Os SDKs Azure Monitor Application Insights .NET e .NET Core têm dois métodos diferentes de coletar métricas personalizadas, `TrackMetric()`e `GetMetric()`. A principal diferença entre esses dois métodos é a agregação local. `TrackMetric()`falta de pré-autenticação enquanto `GetMetric()` tem pré-autenticação. A abordagem recomendada é usar a agregação, portanto `TrackMetric()` , não é mais o método preferencial para coletar métricas personalizadas. Este artigo explicará como usar o método getmetric () e algumas das razões por trás de como ele funciona.
+Os SDKs Azure Monitor Application Insights .NET e .NET Core têm dois métodos diferentes de coletar métricas personalizadas, `TrackMetric()` e `GetMetric()` . A principal diferença entre esses dois métodos é a agregação local. `TrackMetric()`falta de pré-autenticação enquanto `GetMetric()` tem pré-autenticação. A abordagem recomendada é usar a agregação, portanto, `TrackMetric()` não é mais o método preferencial para coletar métricas personalizadas. Este artigo explicará como usar o método getmetric () e algumas das razões por trás de como ele funciona.
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric versus getmetric
 
-`TrackMetric()`envia telemetria bruta, indicando uma métrica. Não é eficiente enviar um único item de telemetria para cada valor. `TrackMetric()`também é ineficiente em termos de desempenho, já `TrackMetric(item)` que cada um passa pelo pipeline completo do SDK de inicializadores e processadores de telemetria. Ao `TrackMetric()`contrário `GetMetric()` de, o manipula a pré-autenticação local para você e envia apenas uma métrica de resumo agregada em um intervalo fixo de um minuto. Portanto, se você precisar monitorar com atenção alguma métrica personalizada no segundo ou até mesmo nível de milissegundos, poderá fazer isso enquanto apenas o custo do tráfego de rede e do armazenamento do monitoramento somente a cada minuto. Isso também reduz bastante o risco de que a limitação ocorra, já que o número total de itens de telemetria que precisam ser enviados para uma métrica agregada é muito reduzido.
+`TrackMetric()`envia telemetria bruta, indicando uma métrica. Não é eficiente enviar um único item de telemetria para cada valor. `TrackMetric()`também é ineficiente em termos de desempenho, já que cada `TrackMetric(item)` um passa pelo pipeline completo do SDK de inicializadores e processadores de telemetria. Ao contrário de `TrackMetric()` , `GetMetric()` o manipula a pré-autenticação local para você e envia apenas uma métrica de resumo agregada em um intervalo fixo de um minuto. Portanto, se você precisar monitorar com atenção alguma métrica personalizada no segundo ou até mesmo nível de milissegundos, poderá fazer isso enquanto apenas o custo do tráfego de rede e do armazenamento do monitoramento somente a cada minuto. Isso também reduz bastante o risco de que a limitação ocorra, já que o número total de itens de telemetria que precisam ser enviados para uma métrica agregada é muito reduzido.
 
-Em Application Insights, as métricas personalizadas coletadas por meio `TrackMetric()` do e `GetMetric()` não estão sujeitas à [amostragem](https://docs.microsoft.com/azure/azure-monitor/app/sampling). A amostragem de métricas importantes pode levar a cenários em que os alertas que você pode ter criado sobre essas métricas podem se tornar não confiáveis. Ao nunca fazer amostragem de suas métricas personalizadas, você geralmente pode ter certeza de que quando os limites de alerta forem violados, um alerta será acionado.  Mas como as métricas personalizadas não são amostradas, há algumas preocupações potenciais.
+Em Application Insights, as métricas personalizadas coletadas por meio do `TrackMetric()` e `GetMetric()` não estão sujeitas à [amostragem](https://docs.microsoft.com/azure/azure-monitor/app/sampling). A amostragem de métricas importantes pode levar a cenários em que os alertas que você pode ter criado sobre essas métricas podem se tornar não confiáveis. Ao nunca fazer amostragem de suas métricas personalizadas, você geralmente pode ter certeza de que quando os limites de alerta forem violados, um alerta será acionado.  Mas como as métricas personalizadas não são amostradas, há algumas preocupações potenciais.
 
 Se você precisar controlar as tendências em uma métrica a cada segundo, ou em um intervalo ainda mais granular, isso poderá resultar em:
 
@@ -30,12 +29,12 @@ Se você precisar controlar as tendências em uma métrica a cada segundo, ou em
 - Aumento do tráfego de rede/sobrecarga de desempenho. (Em alguns cenários, isso pode ter um custo monetário e de desempenho do aplicativo.)
 - Risco de limitação de ingestão. (O serviço de Azure Monitor descarta os pontos de dados ("limitadores") quando seu aplicativo envia uma taxa muito alta de telemetria em um intervalo de tempo curto.)
 
-A limitação é uma preocupação específica que, como a amostragem, a limitação pode levar a alertas perdidos, pois a condição para disparar um alerta pode ocorrer localmente e, em seguida, ser descartada no ponto de extremidade de ingestão devido a excesso de dados sendo enviados. É por isso que, para .NET e .NET Core, não `TrackMetric()` recomendamos usar a menos que você tenha implementado sua própria lógica de agregação local. Se você estiver tentando rastrear todas as instâncias que um evento ocorre durante um determinado período de tempo, você pode [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) achar melhor se ajustar. Embora tenha em mente que, ao contrário das métricas personalizadas, os eventos personalizados estão sujeitos à amostragem. É claro que você ainda pode `TrackMetric()` usar mesmo sem escrever sua própria pré-autenticação local, mas se você fizer isso, fique atento às armadilhas.
+A limitação é uma preocupação específica que, como a amostragem, a limitação pode levar a alertas perdidos, pois a condição para disparar um alerta pode ocorrer localmente e, em seguida, ser descartada no ponto de extremidade de ingestão devido a excesso de dados sendo enviados. É por isso que, para .NET e .NET Core, não recomendamos usar `TrackMetric()` a menos que você tenha implementado sua própria lógica de agregação local. Se você estiver tentando rastrear todas as instâncias que um evento ocorre durante um determinado período de tempo, você pode achar [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) melhor se ajustar. Embora tenha em mente que, ao contrário das métricas personalizadas, os eventos personalizados estão sujeitos à amostragem. É claro que você ainda pode usar `TrackMetric()` mesmo sem escrever sua própria pré-autenticação local, mas se você fizer isso, fique atento às armadilhas.
 
 No resumo `GetMetric()` , é a abordagem recomendada, já que ela faz a agregação, acumula valores de todas as chamadas Track () e envia um resumo/agregação a cada minuto. Isso pode reduzir significativamente o custo e a sobrecarga de desempenho enviando menos pontos de dados e, ao mesmo tempo, coletando todas as informações relevantes.
 
 > [!NOTE]
-> Somente os SDKs .NET e .NET Core têm um método getmetric (). Se você estiver usando o Java, poderá usar as [métricas micrometer](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) ou `TrackMetric()`. Para Python, você pode usar [OpenCensus. stats](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) para enviar métricas personalizadas. Para JavaScript e node. js `TrackMetric()`, você ainda usaria, mas tenha em mente as advertências que foram descritas na seção anterior.
+> Somente os SDKs .NET e .NET Core têm um método getmetric (). Se você estiver usando o Java, poderá usar as [métricas micrometer](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) ou `TrackMetric()` . Para Python, você pode usar [OpenCensus. stats](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) para enviar métricas personalizadas. Para JavaScript e Node.js você ainda usaria `TrackMetric()` , mas tenha em mente as advertências que foram descritas na seção anterior.
 
 ## <a name="getting-started-with-getmetric"></a>Introdução ao getmetric
 
@@ -109,7 +108,7 @@ Se examinarmos nosso recurso de Application Insights na experiência de logs (an
 ![Log Analytics exibição de consulta](./media/get-metric/log-analytics.png)
 
 > [!NOTE]
-> Enquanto o item de telemetria bruta não continha um campo/Propriedade Sum explícita depois de ser ingerido, criamos um para você. Nesse caso, as `value` Propriedades e `valueSum` representam a mesma coisa.
+> Enquanto o item de telemetria bruta não continha um campo/Propriedade Sum explícita depois de ser ingerido, criamos um para você. Nesse caso `value` , as propriedades e `valueSum` representam a mesma coisa.
 
 Você também pode acessar a telemetria de métrica personalizada na seção [_métricas_](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) do Portal. Como uma [métrica baseada em log e personalizada](pre-aggregated-metrics-log-metrics.md). (A captura de tela abaixo é um exemplo de baseado em log.) ![Exibição do Metrics Explorer](./media/get-metric/metrics-explorer.png)
 
@@ -140,7 +139,7 @@ Por exemplo, nesse caso, o exemplo acima realizou uma pesquisa para um identific
 
 ```
 
-Além de armazenar em cache o identificador de métrica, o exemplo acima também `Task.Delay` reduziu o de 50 milissegundos para que o loop fosse executado com mais `TrackValue()` frequência, resultando em invocações de 772.
+Além de armazenar em cache o identificador de métrica, o exemplo acima também reduziu o `Task.Delay` de 50 milissegundos para que o loop fosse executado com mais frequência, resultando em `TrackValue()` invocações de 772.
 
 ## <a name="multi-dimensional-metrics"></a>Métricas multidimensionais
 
@@ -190,7 +189,7 @@ Por padrão, as métricas multidimensionais dentro da experiência do Gerenciado
 
 ### <a name="enable-multi-dimensional-metrics"></a>Habilitar métricas multidimensionais
 
-Para habilitar métricas multidimensionais para um > recurso Application insights, selecione **uso e custos estimados****métricas** > personalizadas**habilitar alertas em dimensões** > de métricas personalizadas**OK**. Mais detalhes sobre isso podem ser encontrados [aqui](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+Para habilitar métricas multidimensionais para um recurso Application insights, selecione **uso e custos estimados**  >  **métricas personalizadas**  >  **habilitar alertas em dimensões de métricas personalizadas**  >  **OK**. Mais detalhes sobre isso podem ser encontrados [aqui](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 Depois de fazer essa alteração e enviar a nova telemetria multidimensional, você poderá aplicar a **divisão**.
 
@@ -205,7 +204,7 @@ E exiba suas agregações de métrica para cada dimensão _FormFactor_ :
 
 ### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Como usar o MetricIdentifier quando há mais de três dimensões
 
-No momento, há suporte para 10 dimensões, mais de três dimensões requer o `MetricIdentifier`uso de:
+No momento, há suporte para 10 dimensões, mais de três dimensões requer o uso de `MetricIdentifier` :
 
 ```csharp
 // Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
@@ -221,9 +220,9 @@ Se você quiser alterar a configuração de métrica, será necessário fazer is
 
 ### <a name="special-dimension-names"></a>Nomes de dimensão especiais
 
-As métricas não usam o contexto de telemetria `TelemetryClient` do usado para acessá-las, os nomes de dimensão `MetricDimensionNames` especiais disponíveis como constantes na classe são a melhor solução para essa limitação.
+As métricas não usam o contexto de telemetria do `TelemetryClient` usado para acessá-las, os nomes de dimensão especiais disponíveis como constantes na `MetricDimensionNames` classe são a melhor solução para essa limitação.
 
-Agregações de métricas enviadas pelo "tamanho de solicitação de operação especial"- **not** a métrica não `Context.Operation.Name` terá seu conjunto para "operação especial". Enquanto `TrackMetric()` ou qualquer outro TrackXXX () terá `OperationName` definido corretamente como "operação especial".
+Agregações de métricas enviadas pelo "tamanho de solicitação de operação especial"-a métrica **não** terá seu `Context.Operation.Name` conjunto para "operação especial". Enquanto `TrackMetric()` ou qualquer outro TrackXXX () terá `OperationName` definido corretamente como "operação especial".
 
 ``` csharp
         //...
@@ -250,7 +249,7 @@ Agregações de métricas enviadas pelo "tamanho de solicitação de operação 
 
 Nessa circunstância, use os nomes de dimensão especiais listados na `MetricDimensionNames` classe para especificar `TelemetryContext` valores.
 
-Por exemplo, quando a agregação de métrica resultante da próxima instrução for enviada para o Application Insights ponto de extremidade `Context.Operation.Name` de nuvem, seu campo de dados será definido como "operação especial":
+Por exemplo, quando a agregação de métrica resultante da próxima instrução for enviada para o Application Insights ponto de extremidade de nuvem, seu `Context.Operation.Name` campo de dados será definido como "operação especial":
 
 ```csharp
 _telemetryClient.GetMetric("Request Size", MetricDimensionNames.TelemetryContext.Operation.Name).TrackValue(requestSize, "Special Operation");
@@ -266,7 +265,7 @@ _telemetryClient.GetMetric("Request Size", "Operation Name", MetricDimensionName
 
  Para impedir que o subsistema de telemetria use acidentalmente seus recursos, você pode controlar o número máximo de séries de dados por métrica. Os limites padrão não são mais do que 1000 séries de dados totais por métrica e não mais que 100 valores diferentes por dimensão.
 
- No contexto de dimensão e Time Series capping, usamos `Metric.TrackValue(..)` para garantir que os limites sejam observados. Se os limites já forem atingidos `Metric.TrackValue(..)` , o retornará "false" e o valor não será acompanhado. Caso contrário, ele retornará "true". Isso será útil se os dados de uma métrica se originarem da entrada do usuário.
+ No contexto de dimensão e Time Series capping, usamos `Metric.TrackValue(..)` para garantir que os limites sejam observados. Se os limites já forem atingidos, `Metric.TrackValue(..)` o retornará "false" e o valor não será acompanhado. Caso contrário, ele retornará "true". Isso será útil se os dados de uma métrica se originarem da entrada do usuário.
 
 O `MetricConfiguration` Construtor obtém algumas opções sobre como gerenciar diferentes séries dentro da respectiva métrica e um objeto de uma classe que implementa `IMetricSeriesConfiguration` que especifica o comportamento de agregação para cada série individual da métrica:
 
@@ -285,7 +284,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`é o número máximo de séries de tempo de dados que uma métrica pode conter. Quando esse limite for atingido, o chamará `TrackValue()`.
+* `seriesCountLimit`é o número máximo de séries de tempo de dados que uma métrica pode conter. Quando esse limite for atingido, o chamará `TrackValue()` .
 * `valuesPerDimensionLimit`limita o número de valores distintos por dimensão de maneira semelhante.
 * `restrictToUInt32Values`Determina se apenas valores inteiros não negativos devem ser controlados.
 

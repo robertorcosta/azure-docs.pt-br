@@ -14,16 +14,15 @@ ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cb2647cc5ac2dc60f5ae7327ee39ed2ff625193
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901386"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
 
 >[!IMPORTANT]
->Este artigo não é uma substituição para a documentação de administração do SAP HANA ou para as notas SAP. Esperamos que você tenha uma compreensão sólida e experiência em SAP HANA administração e operações, especialmente para backup, restauração, alta disponibilidade e recuperação de desastres. Neste artigo, são mostradas capturas de tela do SAP HANA Studio. O conteúdo, a estrutura e a natureza das telas das ferramentas de administração do SAP e as próprias ferramentas podem mudar de uma versão do SAP HANA para outra versão.
+>Este artigo não substitui a documentação de administração do SAP HANA ou as Notas do SAP. Esperamos que você tenha uma compreensão sólida e experiência em SAP HANA administração e operações, especialmente para backup, restauração, alta disponibilidade e recuperação de desastres. Neste artigo, são mostradas capturas de tela do SAP HANA Studio. O conteúdo, a estrutura e a natureza das telas das ferramentas de administração do SAP e as próprias ferramentas podem mudar de uma versão do SAP HANA para outra versão.
 
 É importante que você execute as etapas e os processos realizados em seu ambiente e com as liberações e versões do HANA. Alguns processos descritos neste artigo são simplificados para um melhor entendimento geral. Eles não devem ser usados como etapas detalhadas para manuais de operação eventual. Se você quiser criar manuais de operação para suas configurações, teste e exerça seus processos e documente os processos relacionados às suas configurações específicas. 
 
@@ -117,7 +116,7 @@ Para configurar instantâneos de armazenamento com instâncias grandes do HANA, 
 1. Instale o cliente SAP HANA HDB em todos os servidores de Instâncias Grandes do SAP HANA.
 1. No primeiro servidor de Instâncias Grandes do SAP HANA de cada região, crie uma chave pública para acessar a infraestrutura de armazenamento subjacente que controla a criação de instantâneos.
 1. Copie os scripts e o arquivo de configuração do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md) para o local do **hdbsql** na instalação do SAP HANA.
-1. Modifique o arquivo *arquivo hanabackupdetails. txt* conforme necessário para as especificações apropriadas do cliente.
+1. Modifique o arquivo de *HANABackupDetails.txt* conforme necessário para as especificações apropriadas do cliente.
 
 Obtenha os scripts de instantâneo e a documentação mais recentes do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). Para as etapas listadas anteriormente, consulte [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
@@ -154,7 +153,7 @@ Para configurar e usar uma conta de usuário, consulte "habilitar a comunicaçã
 
 ### <a name="step-5-authorize-the-sap-hana-user-account"></a>Etapa 5: Autorizar a conta de usuário do SAP HANA
 
-Nesta etapa, você autoriza a conta de usuário SAP HANA que você criou para que os scripts não precisem enviar senhas em tempo de execução. O comando `hdbuserstore` SAP Hana permite a criação de uma SAP Hana chave de usuário. A chave é armazenada em um ou mais nós de SAP HANA. A chave de usuário permite que ele acesse o SAP HANA sem precisar gerenciar senhas de dentro do processo de script. O processo de script será abordado posteriormente neste artigo.
+Nesta etapa, você autoriza a conta de usuário SAP HANA que você criou para que os scripts não precisem enviar senhas em tempo de execução. O comando SAP HANA `hdbuserstore` permite a criação de uma SAP Hana chave de usuário. A chave é armazenada em um ou mais nós de SAP HANA. A chave de usuário permite que ele acesse o SAP HANA sem precisar gerenciar senhas de dentro do processo de script. O processo de script será abordado posteriormente neste artigo.
 
 >[!IMPORTANT]
 >Execute esses comandos de configuração com o mesmo contexto de usuário em que os comandos de instantâneo são executados. Caso contrário, os comandos de instantâneo não funcionarão corretamente.
@@ -174,7 +173,7 @@ A finalidade dos diferentes scripts e arquivos como eles foram instalados é des
 
 Antes de configurar as ferramentas de instantâneo, certifique-se de que você também configurou locais e configurações de backup do HANA corretamente. Para obter mais informações, consulte "configuração de SAP HANA" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-A configuração do conjunto de ferramentas de instantâneo é descrita em "config file-HANABackupCustomerDetails. txt" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+A configuração do conjunto de ferramentas de instantâneo é descrita em "config file-HANABackupCustomerDetails.txt" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 #### <a name="test-connectivity-with-sap-hana"></a>Testar a conectividade com SAP HANA
 
@@ -184,7 +183,7 @@ Para obter mais informações, consulte "verificar a conectividade com o SAP HAN
 
 #### <a name="test-storage-connectivity"></a>Testar conectividade de armazenamento
 
-A próxima etapa de teste é verificar a conectividade com o armazenamento com base nos dados que você colocou no arquivo de configuração *HANABackupCustomerDetails. txt* . Em seguida, execute um instantâneo de teste. Antes de executar o `azure_hana_backup` comando, você deve executar este teste. Para obter a sequência de comandos para este teste, consulte "verificar a conectividade com armazenamento-testStorageSnapshotConnection" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+A próxima etapa de teste é verificar a conectividade com o armazenamento com base nos dados que você colocou no arquivo de configuração *HANABackupCustomerDetails.txt* . Em seguida, execute um instantâneo de teste. Antes de executar o `azure_hana_backup` comando, você deve executar este teste. Para obter a sequência de comandos para este teste, consulte "verificar a conectividade com armazenamento-testStorageSnapshotConnection" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 Após uma conexão com êxito nas interfaces da máquina virtual de armazenamento, o script continuará com a fase 2 e criará um instantâneo de teste. A saída é mostrada aqui para uma configuração de expansão de três nós de SAP HANA.
 
@@ -286,7 +285,7 @@ Após a execução de seus primeiros instantâneos de armazenamento com êxito, 
 
 ### <a name="monitor-the-number-and-size-of-snapshots-on-the-disk-volume"></a>Monitorar o número e o tamanho dos instantâneos no volume do disco
 
-Em um volume de armazenamento específico, você pode monitorar o número de instantâneos e o consumo de armazenamento desses instantâneos. O comando `ls` não mostra o diretório de instantâneo ou arquivos. O comando `du` do sistema operacional Linux mostra detalhes sobre esses instantâneos de armazenamento porque eles são armazenados nos mesmos volumes. Use o comando com as seguintes opções:
+Em um volume de armazenamento específico, você pode monitorar o número de instantâneos e o consumo de armazenamento desses instantâneos. O comando `ls` não mostra o diretório de instantâneo ou arquivos. O comando do sistema operacional Linux `du` mostra detalhes sobre esses instantâneos de armazenamento porque eles são armazenados nos mesmos volumes. Use o comando com as seguintes opções:
 
 - `du –sh .snapshot`: essa opção fornece um total de todos os instantâneos no diretório de instantâneos.
 - `du –sh --max-depth=1`: essa opção lista todos os instantâneos salvos na pasta **.snapshot** e o tamanho de cada instantâneo.
@@ -298,7 +297,7 @@ Use esses comandos para certificar-se de que os instantâneos que são criados e
 >Os instantâneos do LUN de inicialização não são visíveis com os comandos anteriores.
 
 ### <a name="get-details-of-snapshots"></a>Obter detalhes de instantâneos
-Para obter mais detalhes sobre instantâneos, use o script `azure_hana_snapshot_details`. Você pode executar esse script em qualquer local se houver um servidor ativo no local de recuperação de desastre. O script fornece a saída a seguir dividida por cada volume que contém os instantâneos: 
+Para obter mais detalhes sobre instantâneos, use o script `azure_hana_snapshot_details` . Você pode executar esse script em qualquer local se houver um servidor ativo no local de recuperação de desastre. O script fornece a saída a seguir dividida por cada volume que contém os instantâneos: 
    * O tamanho do total de instantâneos em um volume
    * Os detalhes a seguir em cada instantâneo nesse volume: 
       - Nome do instantâneo 

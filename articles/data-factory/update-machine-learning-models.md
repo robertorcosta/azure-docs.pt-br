@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927355"
 ---
 # <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Atualizar modelos do ML Studio (clássico) v usando atualizar atividade de recurso
@@ -33,7 +32,7 @@ A readaptação pode ocorrer com frequência. Com a atividade de execução em l
 
 A figura a seguir descreve a relação entre os serviços Web de treinamento e previsão.
 
-![SERVIÇOS WEB](./media/update-machine-learning-models/web-services.png)
+![Serviços da Web](./media/update-machine-learning-models/web-services.png)
 
 ## <a name="ml-studio-classic-update-resource-activity"></a>Atividade de recurso de atualização ML Studio (clássica)
 
@@ -59,7 +58,7 @@ O trecho JSON a seguir define uma atividade de execução de lote ML Studio (cl�
 }
 ```
 
-| Propriedade                      | Descrição                              | Necessária |
+| Property                      | Descrição                              | Obrigatório |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome da atividade no pipeline     | Sim      |
 | descrição                   | Texto que descreve o que a atividade faz.  | Não       |
@@ -274,9 +273,9 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Atividade Pig](transform-data-using-hadoop-pig.md)
+* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Atividade do Spark](transform-data-using-spark.md)
+* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)
+* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)

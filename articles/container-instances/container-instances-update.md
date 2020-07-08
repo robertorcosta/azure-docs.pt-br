@@ -4,10 +4,9 @@ description: Saiba como atualizar os contêineres em execução nos grupos de co
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82928713"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contêineres nas Instâncias de Contêiner do Azure
@@ -84,7 +83,7 @@ Ao excluir um grupo de contêineres e recriá-lo, ele não será "reimplantado",
 
 [Implantar um grupo de multicontêiner](container-instances-multi-container-group.md)
 
-[Parar ou iniciar os contêineres manualmente nas instâncias de contêiner do Azure](container-instances-stop-start.md)
+[Parar e iniciar manualmente os contêineres nas Instâncias de Contêiner do Azure](container-instances-stop-start.md)
 
 <!-- LINKS - External -->
 

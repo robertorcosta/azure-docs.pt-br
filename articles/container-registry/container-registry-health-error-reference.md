@@ -4,10 +4,9 @@ description: Códigos de erro e possíveis soluções para problemas encontrados
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978307"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de integridade
@@ -22,13 +21,13 @@ Esse erro significa que não foi possível encontrar o cliente do Docker para a 
 
 ## <a name="docker_daemon_error"></a>DOCKER_DAEMON_ERROR
 
-Esse erro significa que o status do daemon do Docker não está disponível ou não foi possível acessá-lo usando a CLI. Como resultado, as operações do Docker (como `docker login` e `docker pull`) não estão disponíveis por meio da CLI.
+Esse erro significa que o status do daemon do Docker não está disponível ou não foi possível acessá-lo usando a CLI. Como resultado, as operações do Docker (como `docker login` e `docker pull` ) não estão disponíveis por meio da CLI.
 
 *Soluções potenciais*: reinicie o daemon do Docker ou valide se ele está instalado corretamente.
 
 ## <a name="docker_version_error"></a>DOCKER_VERSION_ERROR
 
-Esse erro significa que a CLI não pôde executar o comando `docker --version`.
+Esse erro significa que a CLI não pôde executar o comando `docker --version` .
 
 *Soluções potenciais*: tente executar o comando manualmente, verifique se você tem a versão mais recente da CLI e investigue a mensagem de erro.
 
@@ -58,7 +57,7 @@ Esse erro significa que o DNS do servidor de logon do registro fornecido foi pin
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Esse erro significa que o ponto de extremidade de desafio para o registro fornecido respondeu com um status HTTP 403 Proibido. Esse erro significa que os usuários não têm acesso ao registro, provavelmente devido a uma configuração de rede virtual ou porque o acesso ao ponto de extremidade público do registro não é permitido. Para ver as regras de firewall configuradas `az acr show --query networkRuleSet --name <registry>`atualmente, execute.
+Esse erro significa que o ponto de extremidade de desafio para o registro fornecido respondeu com um status HTTP 403 Proibido. Esse erro significa que os usuários não têm acesso ao registro, provavelmente devido a uma configuração de rede virtual ou porque o acesso ao ponto de extremidade público do registro não é permitido. Para ver as regras de firewall configuradas atualmente, execute `az acr show --query networkRuleSet --name <registry>` .
 
 *Soluções potenciais*: Remova as regras de rede virtual ou adicione o endereço IP do cliente atual à lista de permissões.
 
@@ -66,13 +65,13 @@ Esse erro significa que o ponto de extremidade de desafio para o registro fornec
 
 Esse erro significa que o ponto de extremidade de desafio do registro de destino não emitiu um desafio.
 
-*Soluções potenciais*: tente novamente após algum tempo. Se o erro persistir, abra um problema em https://aka.ms/acr/issues.
+*Soluções potenciais*: tente novamente após algum tempo. Se o erro persistir, abra um problema em https://aka.ms/acr/issues .
 
 ## <a name="connectivity_aad_login_error"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
 Esse erro significa que o ponto de extremidade de desafio do registro de destino emitiu um desafio, mas o registro não dá suporte à autenticação de Azure Active Directory.
 
-*Soluções potenciais*: Experimente uma maneira diferente de autenticar, por exemplo, com credenciais de administrador. Se os usuários precisarem se autenticar usando Azure Active Directory, abra https://aka.ms/acr/issuesum problema em.
+*Soluções potenciais*: Experimente uma maneira diferente de autenticar, por exemplo, com credenciais de administrador. Se os usuários precisarem se autenticar usando Azure Active Directory, abra um problema em https://aka.ms/acr/issues .
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
@@ -100,7 +99,7 @@ Esse erro significa que a CLI não pôde localizar o servidor de logon do regist
 
 ## <a name="notary_version_error"></a>NOTARY_VERSION_ERROR
 
-Esse erro significa que a CLI não é compatível com a versão atualmente instalada do Docker/Notary. Tente fazer downgrade da versão Notary. exe para uma versão anterior à 0.6.0 substituindo o cliente Notary da instalação do Docker manualmente para resolver esse problema.
+Esse erro significa que a CLI não é compatível com a versão atualmente instalada do Docker/Notary. Tente fazer o downgrade da versão do notary.exe para uma versão anterior à 0.6.0 substituindo o cliente Notary da instalação do Docker manualmente para resolver esse problema.
 
 ## <a name="next-steps"></a>Próximas etapas
 

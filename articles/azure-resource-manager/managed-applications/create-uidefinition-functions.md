@@ -6,28 +6,27 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82980806"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
 Esta seção contém as assinaturas para todas as funções com suporte de uma CreateUiDefinition.
 
-Para usar uma função, coloque a chamada entre colchetes. Por exemplo: 
+Para usar uma função, coloque a chamada entre colchetes. Por exemplo:
 
 ```json
 "[function()]"
 ```
 
-Cadeias de caracteres e outras funções podem ser referenciadas como parâmetros de uma função, mas as cadeias de caracteres devem estar entre aspas simples. Por exemplo: 
+Cadeias de caracteres e outras funções podem ser referenciadas como parâmetros de uma função, mas as cadeias de caracteres devem estar entre aspas simples. Por exemplo:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Quando aplicável, referencie propriedades da saída de uma função usando o operador de ponto. Por exemplo: 
+Quando aplicável, referencie propriedades da saída de uma função usando o operador de ponto. Por exemplo:
 
 ```json
 "[func().prop1]"
@@ -123,7 +122,7 @@ O exemplo a seguir retorna `"FOOBAR"`:
 ## <a name="collection-functions"></a>Funções de coleção
 Essas funções podem ser usadas com coleções, como cadeias de caracteres JSON, matrizes e objetos.
 
-### <a name="contains"></a>contains
+### <a name="contains"></a>contém
 Retorna `true` se uma cadeia de caracteres contém a subcadeia de caracteres especificada, uma matriz contém o valor especificado ou um objeto contém a chave especificada.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia de caracteres
@@ -189,7 +188,7 @@ O exemplo a seguir retorna `2`:
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>vazio
+### <a name="empty"></a>empty
 Retorna `true` se a cadeia de caracteres, matriz ou objeto é nulo ou vazio.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia de caracteres
@@ -461,7 +460,7 @@ O exemplo a seguir retorna `true`:
 "[or(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="not"></a>not
+### <a name="not"></a>não
 Retorna `true` se o parâmetro é avaliado como `false`. Essa função dá suporte apenas a parâmetros do tipo booliano.
 
 O exemplo a seguir retorna `true`:
@@ -487,7 +486,7 @@ Suponha que `element1` e `element2` são indefinidos. O exemplo a seguir retorna
 
 Essa função é especialmente útil no contexto de invocação opcional que ocorre devido a uma ação do usuário após o carregamento da página. Um exemplo é se as restrições colocadas em um campo na interface do usuário dependem do valor selecionado atualmente de outro campo **inicialmente não visível** . Nesse caso, `coalesce()` o pode ser usado para permitir que a função seja sintaticamente válida no tempo de carregamento da página e tenha o efeito desejado quando o usuário interage com o campo.
 
-Considere isso `DropDown`, que permite ao usuário escolher entre vários tipos diferentes de banco de dados:
+Considere isso `DropDown` , que permite ao usuário escolher entre vários tipos diferentes de banco de dados:
 
 ```
 {
@@ -516,7 +515,7 @@ Considere isso `DropDown`, que permite ao usuário escolher entre vários tipos 
     },
 ```
 
-Para condição da ação de outro campo no valor atual escolhido deste campo, use `coalesce()`, conforme mostrado aqui:
+Para condição da ação de outro campo no valor atual escolhido deste campo, use `coalesce()` , conforme mostrado aqui:
 
 ```
 "regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
@@ -557,7 +556,7 @@ O exemplo a seguir retorna `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>cadeia de caracteres
+### <a name="string"></a>string
 Converte o parâmetro em uma cadeia de caracteres. Essa função dá suporte a parâmetros de todos os tipos de dados JSON.
 
 O exemplo a seguir retorna `"1"`:
@@ -726,7 +725,7 @@ O exemplo a seguir retorna `2`:
 "[mod(6, 4)]"
 ```
 
-### <a name="min"></a>Min
+### <a name="min"></a>min
 Retorna o menor dos dois números.
 
 O exemplo a seguir retorna `1`:

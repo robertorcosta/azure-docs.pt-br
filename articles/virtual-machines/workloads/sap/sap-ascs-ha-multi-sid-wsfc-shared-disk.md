@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e8c235cd204b86573746be4bce615939f3b072fa
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82977899"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Alta disponibilidade de vários SIDs da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure
@@ -28,7 +27,7 @@ ms.locfileid: "82977899"
 > ![Windows][Logo_Windows] Windows
 >
 
-Em setembro de 2016, a Microsoft lançou um recurso em que você pode gerenciar vários endereços IP virtuais usando um [balanceador de carga interno do Azure][load-balancer-multivip-overview]. Essa funcionalidade já existe no balanceador externo de carga do Azure. 
+Em setembro de 2016, a Microsoft lançou um recurso com o qual é possível gerenciar vários endereços IP virtual usando um [balanceador de carga interno do Azure][load-balancer-multivip-overview]. Essa funcionalidade já existe no balanceador externo de carga do Azure. 
 
 Se tiver uma implantação do SAP, você deverá usar um balanceador de carga interno para criar uma configuração de cluster do Windows para instâncias do SAP Central Services (ASCS/SCS).
 
@@ -228,9 +227,9 @@ O procedimento de alto nível é o seguinte:
 1. [Instale o SAP com uma instância ASCS/SCS de alta disponibilidade][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
  Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no nó de cluster WSFC existente 1.
 
-2. [Modifique o perfil SAP da instância do ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
+2. [Modificar o perfil SAP da instância do ASCS/SCS.][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]
 
-3. [Configurar uma investigação][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
+3. [Configurar uma porta de investigação][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
  Nesta etapa, você configurará uma porta de investigação SAP-SID2-IP do recurso do cluster SAP usando o PowerShell. Execute essa configuração em um dos nós do cluster SAP ASCS/SCS.
 
 4. Instalar a instância de banco de dados.  
@@ -252,7 +251,7 @@ O procedimento de alto nível é o seguinte:
 
 9. Instale o servidor de aplicativos adicional SAP na nova VM dedicada, conforme descrito no guia de instalação do SAP.
 
-10. [Teste o failover da instância do SAP ASCS/SCS e a replicação sios][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
+10. [Teste o failover da instância do SAP ASCS/SCS e a replicação do SIOS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 
 ## <a name="next-steps"></a>Próximas etapas
 

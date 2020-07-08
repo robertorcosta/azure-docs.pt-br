@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
 ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82926223"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Visão geral dos registros de alias do DNS do Azure
@@ -60,13 +59,13 @@ Essa restrição apresenta um problema para os proprietários de aplicativos que
 
 Esse problema é resolvido usando registros de alias. Ao contrário dos registros CNAME, os registros de alias são criados no Apex da zona e os proprietários do aplicativo podem usá-lo para apontar o registro de Apex de zona para um perfil do Gerenciador de tráfego que tem pontos de extremidade externos. Os proprietários do aplicativo apontam para o mesmo perfil do Gerenciador de tráfego usado para qualquer outro domínio dentro de sua zona DNS.
 
-Por exemplo, contoso.com e www\.contoso.com podem apontar para o mesmo perfil do Gerenciador de tráfego. Para saber mais sobre como usar os registros de alias com perfis do Gerenciador de Tráfego do Azure, confira a seção Próximas etapas.
+Por exemplo, contoso.com e www \. contoso.com podem apontar para o mesmo perfil do Gerenciador de tráfego. Para saber mais sobre como usar os registros de alias com perfis do Gerenciador de Tráfego do Azure, confira a seção Próximas etapas.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Apontador da zona de ponto para pontos de extremidade da CDN do Azure
 
 Assim como um perfil do Gerenciador de tráfego, você também pode usar registros de alias para apontar o Apex da zona DNS para pontos de extremidade da CDN do Azure. Isso é útil quando você cria sites estáticos usando o armazenamento do Azure e a CDN do Azure. Em seguida, você pode acessar o site sem ter prependência "www" para seu nome DNS.
 
-Por exemplo, se o seu site estático for `www.contoso.com`nomeado, os usuários poderão acessar seu site `contoso.com` usando sem a necessidade de colocar www no nome DNS.
+Por exemplo, se o seu site estático for nomeado `www.contoso.com` , os usuários poderão acessar seu site usando `contoso.com` sem a necessidade de colocar www no nome DNS.
 
 Conforme descrito anteriormente, os registros CNAME não têm suporte no Apex da zona. Portanto, você não pode usar um registro CNAME para apontar contoso.com para o ponto de extremidade da CDN. Em vez disso, você pode usar um registro de alias para apontar a zona Apex para um ponto de extremidade CDN diretamente.
 

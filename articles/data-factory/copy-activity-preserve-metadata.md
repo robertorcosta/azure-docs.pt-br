@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: jingwang
 ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891765"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Preservar metadados e ACLs usando a atividade de cópia no Azure Data Factory
@@ -31,15 +30,15 @@ Ao migrar dados de um data Lake para outro, incluindo [Amazon S3](connector-amaz
 A atividade de cópia dá suporte à preservação dos seguintes atributos durante a cópia de dados:
 
 - **Todos os metadados especificados pelo cliente** 
-- E as **cinco Propriedades de sistema internas do repositório de dados**a `contentType`seguir `contentLanguage` :, (exceto para Amazon S3 `contentEncoding`) `contentDisposition`, `cacheControl`,,.
+- E as **cinco Propriedades de sistema internas do repositório de dados**a seguir: `contentType` , `contentLanguage` (exceto para Amazon S3),, `contentEncoding` `contentDisposition` , `cacheControl` .
 
 **Tratar diferenças nos metadados:** O Amazon S3 e o armazenamento do Azure permitem diferentes conjuntos de caracteres nas chaves dos metadados especificados pelo cliente. Quando você opta por preservar os metadados usando Copy atividade, o ADF substitui automaticamente os caracteres inválidos por ' _ '.
 
-Ao copiar arquivos no estado em que se encontram do Amazon S3/Azure data Lake Storage Gen2/blob do Azure para Azure data Lake Storage Gen2/blob do Azure com formato binário, você pode encontrar a opção **preservar** na guia**configurações** da **atividade** > de cópia para criação de atividade ou a página **configurações** na ferramenta copiar dados.
+Ao copiar arquivos no estado em que se encontram do Amazon S3/Azure data Lake Storage Gen2/blob do Azure para Azure data Lake Storage Gen2/blob do Azure com formato binário, você pode encontrar a opção **preservar** na **Copy Activity**  >  guia**configurações** da atividade de cópia para criação de atividade ou a página **configurações** na ferramenta copiar dados.
 
 ![Preservar metadados de atividade de cópia](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
-Aqui está um exemplo de configuração de JSON da atividade de `preserve`cópia (consulte): 
+Aqui está um exemplo de configuração de JSON da atividade de cópia (consulte `preserve` ): 
 
 ```json
 "activities":[
@@ -98,11 +97,11 @@ Se você especificar para copiar de uma pasta, Data Factory Replica as ACLs para
 >[!IMPORTANT]
 >Ao optar por preservar as ACLs, certifique-se de conceder permissões altas o suficiente para Data Factory operar em sua conta de Data Lake Storage Gen2 do coletor. Por exemplo, use a autenticação de chave de conta ou atribua a função de proprietário de dados do blob de armazenamento à entidade de serviço ou à identidade gerenciada.
 
-Quando você configura a origem como data Lake Storage Gen1/Gen2 com o formato binário ou a opção de cópia binária, e o coletor como data Lake Storage Gen2 com formato binário ou a opção de cópia binária, você pode encontrar a opção **preservar** na página **configurações** na ferramenta copiar dados ou na guia**configurações** da **atividade** > de cópia para a criação de atividades.
+Quando você configura a origem como data Lake Storage Gen1/Gen2 com o formato binário ou a opção de cópia binária, e o coletor como data Lake Storage Gen2 com formato binário ou a opção de cópia binária, você pode encontrar a opção **preservar** na página **configurações** na ferramenta copiar dados ou na **Copy Activity**  >  guia**configurações** da atividade de cópia para a criação de atividades.
 
 ![Data Lake Storage Gen1/Gen2 Gen2 preservar ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
-Aqui está um exemplo de configuração de JSON da atividade de `preserve`cópia (consulte): 
+Aqui está um exemplo de configuração de JSON da atividade de cópia (consulte `preserve` ): 
 
 ```json
 "activities":[

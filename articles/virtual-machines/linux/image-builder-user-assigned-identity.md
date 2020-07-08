@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82930651"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Criar uma imagem e usar uma identidade gerenciada atribuída pelo usuário para acessar arquivos no armazenamento do Azure 
@@ -24,11 +23,11 @@ No exemplo a seguir, você criará dois grupos de recursos, um será usado para 
 
 
 > [!IMPORTANT]
-> O construtor de imagem do Azure está atualmente em visualização pública.
+> O Construtor de Imagens do Azure está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registrar os recursos
-Para usar o construtor de imagens do Azure durante a versão prévia, você precisa registrar o novo recurso.
+Para usar o Construtor de Imagens do Azure durante a versão prévia, você precisa registrar o novo recurso.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -50,7 +49,7 @@ az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Se não disser registrado, execute o seguinte:
+Caso o status não seja mostrado como registrado, execute o seguinte:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -62,7 +61,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Usaremos algumas informações repetidamente, portanto, criaremos algumas variáveis para armazenar essas informações.
+Usaremos algumas informações repetidamente, portanto, criaremos algumas variáveis para armazená-las.
 
 
 ```console
@@ -78,7 +77,7 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Crie uma variável para sua ID de assinatura. Você pode obter isso usando `az account show | grep id`.
+Criar uma variável para a ID da assinatura. Obtenha isso usando `az account show | grep id`.
 
 ```console
 subscriptionID=<Your subscription ID>
@@ -179,7 +178,7 @@ sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Envie a configuração de imagem para o serviço do construtor de imagem do Azure.
+Envie a configuração de imagem para o serviço Construtor de Imagens do Azure.
 
 ```azurecli-interactive
 az resource create \
@@ -190,7 +189,7 @@ az resource create \
     -n helloImageTemplateMsi01
 ```
 
-Inicie a compilação da imagem.
+Inicie o build da imagem.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -222,7 +221,7 @@ Depois que a VM tiver sido criada, inicie uma sessão SSH com a VM.
 ssh aibuser@<publicIp>
 ```
 
-Você deve ver que a imagem foi personalizada com uma mensagem do dia assim que sua conexão SSH é estabelecida!
+Você deve ver que a imagem foi personalizada com uma Mensagem do Dia assim que a conexão SSH é estabelecida.
 
 ```output
 

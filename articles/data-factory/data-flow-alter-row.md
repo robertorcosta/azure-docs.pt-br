@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
 ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982642"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alterar transformação de linha no fluxo de dados de mapeamento
@@ -29,12 +28,12 @@ As transformações de alteração de linha só funcionarão em coletores de ban
 
 ## <a name="specify-a-default-row-policy"></a>Especificar uma política de linha padrão
 
-Crie uma transformação ALTER Row e especifique uma política de linha com uma condição `true()`de. Cada linha que não corresponde a nenhuma das expressões definidas anteriormente será marcada para a política de linha especificada. Por padrão, cada linha que não corresponde a nenhuma expressão condicional será marcada para `Insert`.
+Crie uma transformação ALTER Row e especifique uma política de linha com uma condição de `true()` . Cada linha que não corresponde a nenhuma das expressões definidas anteriormente será marcada para a política de linha especificada. Por padrão, cada linha que não corresponde a nenhuma expressão condicional será marcada para `Insert` .
 
 ![Alterar política de linha](media/data-flow/alter-row4.png "Alterar política de linha")
 
 > [!NOTE]
-> Para marcar todas as linhas com uma política, você pode criar uma condição para essa política e especificar a condição `true()`como.
+> Para marcar todas as linhas com uma política, você pode criar uma condição para essa política e especificar a condição como `true()` .
 
 ## <a name="view-policies-in-data-preview"></a>Exibir políticas na visualização de dados
 
@@ -67,7 +66,7 @@ Aqui estão as maneiras de corrigir isso:
 
 1. Vá para as configurações de transformação do coletor e defina "ignorar a gravação de colunas de chave". Isso fará com que o ADF não grave a coluna que você selecionou como o valor de chave para seu mapeamento.
 
-2. Se essa coluna de chave não for a coluna que está causando o problema para colunas de identidade, você poderá usar a opção SQL da transformação do coletor pré ```SET IDENTITY_INSERT tbl_content ON```-processando:. Em seguida, desative-a com a propriedade SQL de pós-processamento ```SET IDENTITY_INSERT tbl_content OFF```:.
+2. Se essa coluna de chave não for a coluna que está causando o problema para colunas de identidade, você poderá usar a opção SQL da transformação do coletor pré-processando: ```SET IDENTITY_INSERT tbl_content ON``` . Em seguida, desative-a com a propriedade SQL de pós-processamento: ```SET IDENTITY_INSERT tbl_content OFF``` .
 
 3. Para o caso de identidade e o caso de coluna de distribuição, você pode alternar a lógica de Upsert para usando uma condição de atualização separada e uma condição de inserção separada usando uma transformação de divisão condicional. Dessa forma, você pode definir o mapeamento no caminho de atualização para ignorar o mapeamento de coluna de chave.
 
@@ -87,9 +86,9 @@ Aqui estão as maneiras de corrigir isso:
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação ALTER Row chamada `CleanData` que usa um fluxo `SpecifyUpsertConditions` de entrada e cria três condições de alteração de linha. Na transformação anterior, uma coluna chamada `alterRowCondition` é calculada que determina se uma linha é inserida, atualizada ou excluída no banco de dados. Se o valor da coluna tiver um valor de cadeia de caracteres que corresponda à regra de alteração de linha, essa política será atribuída.
+O exemplo abaixo é uma transformação ALTER Row chamada `CleanData` que usa um fluxo de entrada `SpecifyUpsertConditions` e cria três condições de alteração de linha. Na transformação anterior, uma coluna chamada `alterRowCondition` é calculada que determina se uma linha é inserida, atualizada ou excluída no banco de dados. Se o valor da coluna tiver um valor de cadeia de caracteres que corresponda à regra de alteração de linha, essa política será atribuída.
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+No UX do Data Factory, essa transformação é semelhante à imagem abaixo:
 
 ![Exemplo de ALTER Row](media/data-flow/alter-row4.png "Exemplo de ALTER Row")
 
