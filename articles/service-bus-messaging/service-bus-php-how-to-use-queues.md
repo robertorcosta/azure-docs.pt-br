@@ -2,24 +2,15 @@
 title: Como usar filas do Barramento de Serviço do Azure com o PHP
 description: Neste tutorial, você aprenderá a criar aplicativos PHP para enviar e receber mensagens em uma fila do Barramento de Serviço.
 services: service-bus-messaging
-documentationcenter: php
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: fcb735d81cac587c75a133ad582f2a839551dcfa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76760684"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341126"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Início Rápido: Como usar filas do Barramento de Serviço com PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

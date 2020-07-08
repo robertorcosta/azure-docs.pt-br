@@ -1,20 +1,17 @@
 ---
 title: Início Rápido – Usar a CLI do Azure para criar uma fila do Barramento de Serviço | Microsoft Docs
 description: Neste início rápido, você aprenderá a usar a CLI do Azure para criar uma fila do Barramento de Serviço. Em seguida, você usará um aplicativo Java de exemplo para enviar e receber mensagens da fila.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ed09a72fd5eed72e7a07fefed53bf010a543b658
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "66400255"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337394"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início Rápido: Usar a CLI do Azure para criar uma fila do Barramento de Serviço
 Este início rápido descreve como enviar e receber mensagens com o Barramento de Serviço usando a CLI do Azure e a biblioteca Java do Barramento de Serviço. Por fim, se você estiver interessado em mais detalhes técnicos poderá [ler uma explicação](#understand-the-sample-code) dos principais elementos do código de exemplo.

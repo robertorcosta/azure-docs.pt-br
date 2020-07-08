@@ -1,19 +1,16 @@
 ---
 title: Usar o portal do Azure para criar uma fila do Barramento de Serviço
 description: Neste início rápido, você aprenderá a criar uma fila do Barramento de Serviço usando o portal do Azure. Em seguida, você usará um aplicativo cliente de exemplo para enviar e receber mensagens da fila.
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0753259f76c46c5df4246008f3f80ffa5bf35747
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215604"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337323"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início Rápido: Usar o portal do Azure para criar uma fila do Barramento de Serviço
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Barramento de Serviço, usando o [portal do Azure][Azure portal] para criar uma fila e um namespace de mensagens nesse namespace e obter as credenciais de autorização nesse namespace. O procedimento mostra como enviar e receber mensagens dessa fila usando a [	Biblioteca do .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).

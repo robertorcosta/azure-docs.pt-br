@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 14e7f4d09185f76786fd88576eef0b6df02877c4
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253606"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368066"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Início Rápido: Usar o SSMS para se conectar e consultar um Banco de Dados SQL do Azure ou uma Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -155,7 +155,7 @@ Execute esse código Transact-SQL [INSERT](/sql/t-sql/statements/insert-transact
 
 ### <a name="update-data"></a>Atualizar dados
 
-Execute este código Transact-SQL [UPDATE](/sql/t-sql/statements/update-transact-sql) para modificar seu novo produto.
+Execute este código Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) para modificar seu novo produto.
 
 1. Substitua a consulta anterior por aquela que retorna o novo registro criado anteriormente:
 

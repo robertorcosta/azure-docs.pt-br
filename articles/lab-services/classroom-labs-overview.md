@@ -1,24 +1,14 @@
 ---
 title: Sobre os laboratórios de sala de aula no Azure Lab Services | Microsoft Docs
 description: Saiba como configurar rapidamente um ambiente de laboratório em sala de aula na nuvem – configure um laboratório com uma VM de modelo com o software necessário para a classe e faça uma cópia da VM disponível para cada aluno da classe.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: bbbea0c943758c2682f7b166e461807d2914f790
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899409"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445620"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introdução aos laboratórios de sala de aula
 O Azure Lab Services permite que você configure rapidamente um ambiente de laboratório de sala de aula na nuvem. Um educador cria um laboratório de sala de aula, provisiona máquinas virtuais do Windows ou do Linux, instala o software e as ferramentas necessárias na sala de aula e disponibiliza-os para os alunos. Os alunos na sala de aula se conectam às máquinas virtuais (VM) no laboratório e as usam para projetos, tarefas e exercícios em sala de aula. 
