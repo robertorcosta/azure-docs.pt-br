@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59a52fa1b67d37abfc79fd5738d70afb8aecf670
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 963c59cc002fec7ad0d882db19a83f4299a506c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60382906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357147"
 ---
 # <a name="sync-service-manager-metaverse-search"></a>Pesquisa de Metaverso do Synchronization Service Manager
 
@@ -34,4 +34,4 @@ Nos resultados da pesquisa, selecione um objeto e **Propriedades** para ver as [
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

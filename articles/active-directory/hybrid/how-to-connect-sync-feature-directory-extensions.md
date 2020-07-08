@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77917906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357453"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões do Directory
 É possível usar extensões de diretório para estender o esquema no Azure AD (Microsoft Azure Active Directory) com seus próprios atributos do Active Directory local. Esse recurso permite compilar aplicativos LOB ao consumir atributos que continuam gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões](https://docs.microsoft.com/graph/extensibility-overview
@@ -60,14 +60,14 @@ Durante a instalação do Azure AD Connect, é registrado um aplicativo no qual 
 
 Certifique-se de selecionar **todos os aplicativos** para ver esse aplicativo.
 
-Os atributos são prefixados com a **extensão \_{\_ApplicationId}**. ApplicationId tem o mesmo valor para todos os atributos em seu locatário do Azure AD. Você precisará desse valor para todos os outros cenários neste tópico.
+Os atributos são prefixados com a **extensão \_ { \_ ApplicationId}**. ApplicationId tem o mesmo valor para todos os atributos em seu locatário do Azure AD. Você precisará desse valor para todos os outros cenários neste tópico.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Exibindo atributos usando a API de Microsoft Graph
 
 Esses atributos agora estão disponíveis por meio da API Microsoft Graph, usando o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Na API Microsoft Graph, você precisa solicitar que os atributos sejam retornados. Selecione explicitamente os atributos como este: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
+> Na API Microsoft Graph, você precisa solicitar que os atributos sejam retornados. Selecione explicitamente os atributos como este: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
 > Para obter mais informações, consulte [Microsoft Graph: usar parâmetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
@@ -96,4 +96,4 @@ Um dos cenários mais úteis é usar esses atributos em segurança dinâmica ou 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

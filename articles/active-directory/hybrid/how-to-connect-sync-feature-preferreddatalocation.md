@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357402"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: configurar o local de dados preferencial para recursos do Office 365
 A finalidade deste tópico é orientá-lo sobre como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de várias regiões geográficas no Office 365, você usa esse atributo para designar a localização geográfica dos dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -44,7 +44,7 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 | --- | --- |
 | Pacífico Asiático | APC |
 | Austrália | AUS |
-| Canada | CAN |
+| Canadá | CAN |
 | União Europeia | EUR |
 | França | FRA |
 | Índia | IND |
@@ -53,7 +53,7 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 | África do Sul | ZAF |
 | Suíça | CHE |
 | Emirados Árabes Unidos | ARE |
-| United Kingdom | GBR |
+| Reino Unido | GBR |
 | Estados Unidos | NAM |
 
 * Se uma área geográfica não estiver listada nesta tabela, por exemplo, América do Sul, ela não poderá ser usada para Multi-Geo.
@@ -138,7 +138,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 1. Inicie o **Editor de Regras de Sincronização** acessando **INICIAR** > **Editor de Regras de Sincronização**.
 2. Defina o filtro de pesquisa **Direção** como **Entrada**.
 3. Para criar uma nova regra de entrada, selecione **Adicionar nova regra**.
-4. Na guia **Descrição** , forneça a seguinte configuração:
+4. Na guia **Descrição**, forneça a seguinte configuração:
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
@@ -147,7 +147,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Sistema Conectado | *Selecione o Active Directory Connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
     | Tipo de Objeto de Metaverso | **Person** |  |
-    | Tipo de link | **Ingressar** |  |
+    | Tipo de link | **Join** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Mantenha o **filtro de escopo** vazio, para incluir todos os objetos. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
@@ -167,16 +167,16 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 1. Vá para o **Editor de regras de sincronização**.
 2. Defina o filtro de pesquisa **Direção** como **Saída**.
 3. Selecione **Adicionar nova regra**.
-4. Na guia **Descrição** , forneça a seguinte configuração:
+4. Na guia **Descrição**, forneça a seguinte configuração:
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
     | Nome | *Fornecer um nome* | Por exemplo, "Saída para Microsoft Azure AD – PreferredDataLocation do usuário" |
-    | Descrição | *Forneça uma descrição* ||
+    | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecionar o Azure AD Connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
     | Tipo de Objeto de Metaverso | **Person** ||
-    | Tipo de link | **Ingressar** ||
+    | Tipo de link | **Join** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Vá para a guia **filtro de escopo** e adicione um único grupo de filtro de escopo com duas cláusulas:
@@ -277,5 +277,5 @@ Saiba mais sobre o modelo de configuração no mecanismo de sincronização:
 
 Tópicos de visão geral:
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)

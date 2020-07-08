@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: e31f5e6afb3b586cd8eb20db8d1ca34e95de86cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60348475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356790"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: atualizar do DirSync
 O Azure AD Connect é o sucessor do DirSync. Neste tópico, você conhecerá as maneiras de atualizar do DirSync. Essas etapas não funcionam para atualizar de outra versão do Azure AD Connect ou do Azure AD Sync.
@@ -160,7 +160,7 @@ Quando você instala o Azure AD Connect em um novo servidor, a premissa é que v
    * Uma conta de serviço usada para conectar-se ao SQL Server (se o banco de dados do SQL Server for remoto, essa conta deverá ser uma conta de serviço de domínio).
      Essas opções podem ser vistas nesta tela:   
      ![Insira suas credenciais de AD do Azure](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
-7. Clique em **Avançar**.
+7. Clique em **Próximo**.
 8. Na página **Pronto para configurar**, deixe a opção **Iniciar o processo de sincronização assim que a configuração for concluída** marcada. O servidor está agora no [modo de preparo](how-to-connect-sync-staging-server.md) , assim, as alterações não são exportadas para o Azure AD.
 9. Clique em **Instalar**.
 10. Após a conclusão da instalação, saia e entre novamente no Windows antes de usar o Synchronization Service Manager ou o Synchronization Rule Editor, ou tentar fazer outras alterações de configuração.
@@ -218,4 +218,4 @@ Saiba mais sobre estes novos recursos, que foram habilitados com a instalação:
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](how-to-connect-sync-feature-scheduler.md).
 
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

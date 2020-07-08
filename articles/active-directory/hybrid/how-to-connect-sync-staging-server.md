@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356943"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: servidor de preparo e recuperação de desastre
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
@@ -49,8 +49,8 @@ Para aqueles com conhecimento das tecnologias mais antigas de sincronização, o
 ### <a name="verify-the-configuration-of-a-server"></a>Verifique a configuração de um servidor
 Para aplicar esse método, siga estas etapas:
 
-1. [Deixar](#prepare)
-2. [Configuração](#configuration)
+1. [Preparar](#prepare)
+2. [Configuration](#configuration)
 3. [Importar e sincronizar](#import-and-synchronize)
 4. [Verificar](#verify)
 5. [Servidor ativo do comutador](#switch-active-server)
@@ -115,7 +115,7 @@ O servidor do mecanismo de sincronização não armazena qualquer estado sobre o
 ### <a name="have-a-spare-standby-server---staging-mode"></a>Ter um servidor em espera reserva - modo de preparo
 Se você tiver um ambiente mais complexo, é recomendável ter um ou mais servidores em espera. Durante a instalação, você pode habilitar um servidor em **modo de preparo**.
 
-Para obter mais informações, consulte [Modo de preparo](#staging-mode).
+Para obter mais informações, consulte [modo de preparo](#staging-mode).
 
 ### <a name="use-virtual-machines"></a>Usar máquinas virtuais
 Um método comum e com suporte é a execução do mecanismo de sincronização em uma máquina virtual. Se o host tiver um problema, a imagem com o servidor do mecanismo de sincronização pode ser migrada para outro servidor.
@@ -270,5 +270,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**  
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)  
-* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)  
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)  
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)  

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60384691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356654"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos sombra do serviço de sincronização do Azure AD Connect
 A maioria dos atributos é representada da mesma maneira no Azure AD e no Active Directory local. Mas alguns atributos têm tratamentos especiais, e o valor do atributo no Azure AD pode ser diferente do que é sincronizado no Azure AD Connect.
@@ -58,7 +58,7 @@ Para um usuário de caixa de correio, no local ou no Exchange Online, somente os
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses do Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Nesse caso, **SMTP: Abbie. spencer\@fabrikam.com** foi removido, pois esse domínio não foi verificado. Mas o Exchange também adicionou o **SIP: Abbie\@. Spencer fabrikamonline.com**. A Fabrikam não usou o Lync/Skype local, mas o Azure AD e o Exchange Online se preparam para isso.
+Nesse caso, **SMTP: Abbie. spencer \@ fabrikam.com** foi removido, pois esse domínio não foi verificado. Mas o Exchange também adicionou o **SIP: Abbie. spencer \@ fabrikamonline.com**. A Fabrikam não usou o Lync/Skype local, mas o Azure AD e o Exchange Online se preparam para isso.
 
 Essa lógica para proxyAddresses é conhecida como **ProxyCalc**. ProxyCalc é invocado a cada alteração em um usuário, quando:
 
@@ -75,5 +75,5 @@ ProxyCalc pode levar algum tempo para processar uma alteração em um usuário, 
 Os atributos sombra também são usados quando há valores de atributo duplicados. Para saber mais, veja [resiliência de atributo duplicada](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="see-also"></a>Confira também
-* [Sincronização de Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

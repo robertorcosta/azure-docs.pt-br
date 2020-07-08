@@ -5,21 +5,21 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/12/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357844"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
-Ao usar uma abordagem de distribuição em etapas, você pode migrar da autenticação federada para a autenticação na nuvem. Este artigo discute como fazer essa mudança. No entanto, antes de começar a distribuição em etapas, você deve considerar as implicações caso uma ou mais das seguintes condições sejam verdadeiras:
+Usando uma abordagem de distribuição em etapas, você pode evitar uma transferência de todo o seu domínio.  Isso permite que você teste seletivamente grupos de usuários com recursos de autenticação de nuvem, como a MFA (autenticação multifator) do Azure, acesso condicional, proteção de identidade para credenciais vazadas, governança de identidade e outros.  Este artigo discute como fazer essa mudança. No entanto, antes de começar a distribuição em etapas, você deve considerar as implicações caso uma ou mais das seguintes condições sejam verdadeiras:
     
 -  Atualmente, você está usando um servidor de Autenticação Multifator local. 
 -  Você está usando cartões inteligentes para a autenticação. 
@@ -38,8 +38,8 @@ Para obter uma visão geral do recurso, veja este vídeo chamado “Azure Active
 -   Você ter um locatário do Azure Active Directory (Azure AD) com domínios federados.
 
 -   Você ter decidido mover para uma de duas opções:
-    - **Opção A** - *sincronização de hash de senha (sinc)*  + *logon único (SSO) contínuo*
-    - **Opção B** - *autenticação de passagem* + *SSO contínuo*
+    - **Opção A**  -  *sincronização de hash de senha (sincronização)*  +  *SSO (logon único) contínuo*.  Para obter mais informações, consulte [o que é a sincronização de hash de senha](whatis-phs.md) e [o que é o SSO contínuo](how-to-connect-sso.md)
+    - **Opção B**  -  *autenticação*  +  de passagem *SSO contínuo*.  Para obter mais informações, consulte [o que é autenticação de passagem](how-to-connect-pta.md)  
     
     Ainda que o *SSO contínuo* seja opcional, recomendamos permitir que ele obtenha uma experiência de entrada silenciosa para usuários que estejam executando computadores ingressados no domínio de dentro de uma rede corporativa.
 
@@ -76,12 +76,12 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
     - *Não há suporte* para grupos dinâmicos na distribuição em etapas.
     - Os objetos de contato dentro do grupo não permitirão que o grupo seja adicionado.
 
-- Você ainda precisa fazer a transferência final de federado para a autenticação na nuvem usando o Azure AD Connect ou PowerShell. A distribuição em etapas não altera domínios de federados para gerenciados.
+- Você ainda precisa fazer a transferência final de federado para a autenticação na nuvem usando o Azure AD Connect ou PowerShell. A distribuição em etapas não altera domínios de federados para gerenciados.  Para obter mais informações sobre a transferência de domínio, consulte [migrar da Federação para a sincronização de hash de senha](plan-migrate-adfs-password-hash-sync.md) e [migrar da Federação para a autenticação de passagem](plan-migrate-adfs-pass-through-authentication.md)
+
+
 
 - Ao adicionar um grupo de segurança pela primeira vez para a distribuição em etapas, você tem um limite de 200 usuários para evitar um tempo limite de UX (experiência do usuário). Depois de adicionar o grupo, você poderá adicionar mais usuários diretamente a ele conforme necessário.
 
->[!NOTE]
-> Como pontos de extremidade com locatários não enviam dicas de logon, eles não têm suporte para a distribuição em etapas.  Os aplicativos SAML usam os pontos de extremidade com locatários e também não têm suporte para a distribuição em etapas.
 
 ## <a name="get-started-with-staged-rollout"></a>Introdução à distribuição em etapas
 

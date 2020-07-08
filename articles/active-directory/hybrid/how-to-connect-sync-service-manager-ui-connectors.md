@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357249"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
 
@@ -35,7 +35,7 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 | --- | --- |
 | Criar |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
 | Propriedades |Usado para filtragem de domínio e de UO. |
-| [Delete (excluir)](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
+| [Excluir](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
 | [Configurar perfis de execução](#configure-run-profiles) |Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados. |
 | Executar |Usado para iniciar uma execução única de um perfil. |
 | Stop |Interrompe um Conector que, atualmente, executa um perfil. |
@@ -96,4 +96,4 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

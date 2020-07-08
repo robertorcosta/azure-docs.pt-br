@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357385"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
 Este tópico descreve o Agendador interno no Azure AD Connect sincronização (mecanismo de sincronização).
@@ -109,7 +109,7 @@ Um ciclo de sincronização completa inclui as seguintes etapas:
 
 É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. 
 
-Se você precisar executar um ciclo de sincronização manualmente, a partir do PowerShell `Start-ADSyncSyncCycle -PolicyType Delta`, execute.
+Se você precisar executar um ciclo de sincronização manualmente, a partir do PowerShell, execute `Start-ADSyncSyncCycle -PolicyType Delta` .
 
 Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell.   
 
@@ -207,4 +207,4 @@ Se você iniciar o assistente de instalação, o agendador será temporariamente
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

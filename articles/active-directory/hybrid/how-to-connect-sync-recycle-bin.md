@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe7d3ea7d4f6d648438efc1a484d5909ade2f23
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: ed71e53a8cedc2907ac06dd75f11f9c762a78772
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60382888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357198"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização do Azure AD Connect: habilitar a lixeira do AD
 É recomendável que você habilite o recurso Lixeira do AD para seus Active Directories locais, sincronizados com o Azure AD. 
@@ -44,6 +44,6 @@ Esse recurso ajuda a restaurar os objetos de usuário do Azure AD, fazendo o seg
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 
-* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
