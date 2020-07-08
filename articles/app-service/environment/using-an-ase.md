@@ -8,10 +8,9 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125801"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
@@ -62,7 +61,7 @@ Para criar um aplicativo em um ASE:
 
     f. Selecione uma pilha de tempo de execução.
 
-    g. Selecione **Linux** ou **Windows**. 
+    (por exemplo, Selecione **Linux** ou **Windows**. 
 
     h. Selecione seu ASE na lista suspensa **região** . 
 
@@ -165,11 +164,11 @@ Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o d
 
 Um ASE tem 1 TB de armazenamento para todos os aplicativos no ASE. Um plano do serviço de aplicativo no SKU de preços isolado tem um limite de 250 GB. Em um ASE, 250 GB de armazenamento são adicionados por plano do serviço de aplicativo até o limite de 1 TB. Você pode ter mais planos do serviço de aplicativo do que apenas quatro, mas não há mais armazenamento adicionado além do limite de 1 TB.
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 Você pode integrar seu ASE com Azure Monitor para enviar logs sobre o ASE para o armazenamento do Azure, hubs de eventos do Azure ou Log Analytics. Estes itens estão registrados hoje:
 
-| Ocorrer | Mensagem |
+| Situação | Mensagem |
 |---------|----------|
 | O ASE não está íntegro | O ASE especificado não está íntegro devido a uma configuração de rede virtual inválida. O ASE será suspenso se o estado não íntegro continuar. Verifique se as diretrizes definidas aqui são seguidas: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | A sub-rede do ASE está quase sem espaço | O ASE especificado está em uma sub-rede que está quase sem espaço. Há {0} endereços restantes. Depois que esses endereços forem esgotados, o ASE não será capaz de dimensionar.  |

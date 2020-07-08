@@ -10,10 +10,9 @@ ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124356"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
@@ -78,7 +77,7 @@ Implante o modelo de Azure Resource Manager para criar o recurso de conjunto de 
 
     ![Editar parâmetros de implantação](media/virtual-machine-scale-sets-vs-create/edit-deployment-parameters.png)
 
-1. Em **implantar no grupo de recursos**, selecione **implantar**. A ação executa o script **Deploy-azureresourcegroup. ps1** . A janela **Saída** mostra o progresso da implantação.
+1. Em **implantar no grupo de recursos**, selecione **implantar**. A ação executa o script **Deploy-AzureResourceGroup.ps1** . A janela **Saída** mostra o progresso da implantação.
 
    ![A saída mostra os resultados](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
@@ -86,7 +85,7 @@ Implante o modelo de Azure Resource Manager para criar o recurso de conjunto de 
 
 Selecione **Exibir**  >  **Gerenciador de nuvem** para exibir o novo conjunto de dimensionamento de máquinas virtuais. Use **atualizar tudo**, se necessário.
 
-![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
+![Gerenciador de Nuvem](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 
 O **Cloud Explorer** permite que você gerencie recursos do Azure no Visual Studio ao desenvolver aplicativos. Você também pode exibir o Conjunto de Dimensionamento de Máquinas Virtuais no [portal do Azure](https://portal.azure.com) e no [Gerenciador de Recursos do Azure](https://resources.azure.com/).
 

@@ -10,10 +10,9 @@ ms.date: 04/26/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124815"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Adicionar referência a uma rede virtual existente em um modelo do conjunto de dimensionamento do Azure
@@ -22,7 +21,7 @@ Este artigo mostra como modificar o [modelo de conjunto de dimensionamento bási
 
 ## <a name="change-the-template-definition"></a>Alterar a definição do modelo
 
-Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md) , criamos um modelo de conjunto de dimensionamento básico. Agora, usaremos esse modelo anterior e o modificaremos para criar um modelo que implanta um conjunto de dimensionamento em uma rede virtual existente. 
+Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md), criamos um modelo de conjunto de dimensionamento básico. Agora, usaremos esse modelo anterior e o modificaremos para criar um modelo que implanta um conjunto de dimensionamento em uma rede virtual existente. 
 
 Primeiro, adicione um parâmetro `subnetId`. Essa cadeia de caracteres será passada para a configuração do conjunto de dimensionamento, permitindo que o conjunto de dimensionamento identifique a sub-rede pré-criada na qual implantará máquinas virtuais. Essa cadeia de caracteres deve estar no formato:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 

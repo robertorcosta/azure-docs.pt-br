@@ -10,10 +10,9 @@ ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124798"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Dimensionamento automático usando métricas de convidado em um modelo de conjunto de dimensionamento do Linux
@@ -24,7 +23,7 @@ As métricas do host não exigem configuração adicional porque são coletadas 
 
 ## <a name="change-the-template-definition"></a>Alterar a definição do modelo
 
-Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md) , criamos um modelo de conjunto de dimensionamento básico. Agora, usaremos esse modelo anterior e o modificaremos para criar um modelo que implanta um conjunto de dimensionamento do Linux com dimensionamento automático baseado em métrica de convidado.
+Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md), criamos um modelo de conjunto de dimensionamento básico. Agora, usaremos esse modelo anterior e o modificaremos para criar um modelo que implanta um conjunto de dimensionamento do Linux com dimensionamento automático baseado em métrica de convidado.
 
 Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasToken`. O agente de diagnóstico armazena dados de métrica em uma [tabela](../cosmos-db/table-storage-how-to-use-dotnet.md) nesta conta de armazenamento. Do Agente de Diagnóstico do Linux versão 3.0 em diante, não há mais suporte para usar uma chave de acesso de armazenamento. Nesse caso, use um [Token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

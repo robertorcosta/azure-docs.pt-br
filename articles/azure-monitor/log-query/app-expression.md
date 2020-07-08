@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
 ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201112"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>expressão app() na consulta do Azure Monitor
@@ -20,7 +19,7 @@ A expressão `app` é usada em uma consulta do Azure Monitor para recuperar dado
 > [!IMPORTANT]
 > A expressão de aplicativo () não será usada se você estiver usando um [recurso de Application insights baseado em espaço de trabalho](../app/create-workspace-resource.md) , pois os dados de log são armazenados em um espaço de trabalho log Analytics. Use a expressão log () para gravar uma consulta que inclui o aplicativo em vários espaços de trabalho. Para vários aplicativos no mesmo espaço de trabalho, você não precisa de uma consulta entre espaços de trabalho.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 `app(`*ID*`)`
 

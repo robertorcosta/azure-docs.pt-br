@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83199020"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Escopo de consulta de log e intervalo de tempo em Azure Monitor Log Analytics
@@ -31,8 +30,8 @@ O escopo é determinado pelo método usado para iniciar Log Analytics e, em algu
 
 | Escopo da consulta | Registros no escopo | Como selecionar | Alterando o escopo |
 |:---|:---|:---|:---|
-| Espaço de trabalho do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
-| Application Insights aplicativo | Todos os registros no aplicativo Application Insights. | Selecione **análise** na página **visão geral** do Application insights. | Só é possível alterar o escopo para outro aplicativo Application Insights. |
+| Workspace do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
+| Aplicativo do Application Insights | Todos os registros no aplicativo Application Insights. | Selecione **análise** na página **visão geral** do Application insights. | Só é possível alterar o escopo para outro aplicativo Application Insights. |
 | Resource group | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
 | Subscription | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
 | Outros recursos do Azure | Registros criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **logs** no menu de recursos.<br>OU<br>Selecione **logs** no menu **Azure monitor** e, em seguida, selecione um novo escopo. | Só é possível alterar o escopo para o mesmo tipo de recurso. |
@@ -68,10 +67,10 @@ Sua consulta será impedida de ser executada se o escopo incluir espaços de tra
 ## <a name="time-range"></a>Intervalo de horas
 O intervalo de tempo especifica o conjunto de registros que são avaliados para a consulta com base em quando o registro foi criado. Isso é definido por uma propriedade padrão em cada registro no espaço de trabalho ou aplicativo, conforme especificado na tabela a seguir.
 
-| Local | Propriedade |
+| Location | Property |
 |:---|:---|
-| Espaço de trabalho do Log Analytics          | TimeGenerated |
-| Application Insights aplicativo | timestamp     |
+| Workspace do Log Analytics          | TimeGenerated |
+| Aplicativo do Application Insights | timestamp     |
 
 Defina o intervalo de tempo selecionando-o no seletor de tempo na parte superior da janela de Log Analytics.  Você pode selecionar um período predefinido ou selecionar **personalizado** para especificar um intervalo de tempo específico.
 

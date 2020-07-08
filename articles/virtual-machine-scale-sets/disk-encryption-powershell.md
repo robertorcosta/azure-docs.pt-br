@@ -10,10 +10,9 @@ ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a20abec6ab9925408dd769c5238186af9b7c3d1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83195897"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Criptografar o sistema operacional e OS discos de dados anexados em um conjunto de dimensionamento de máquinas virtuais com Azure PowerShell
@@ -91,7 +90,7 @@ Quando solicitado, digite *y* para continuar o processo de criptografia de disco
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Habilitar criptografia usando KEK para encapsular a chave
 
-Você também pode usar uma chave de criptografia de chave para aumentar a segurança ao criptografar o conjunto de dimensionamento de máquinas virtuais.
+Também é possível usar uma Chave de Criptografia de Chave para aumentar a segurança ao criptografar o conjunto de dimensionamento de máquinas virtuais.
 
 ```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
@@ -104,10 +103,10 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 ```
 
 > [!NOTE]
->  A sintaxe para o valor do parâmetro Disk-Encryption-keyvault é a cadeia de caracteres do identificador completo:</br>
-/subscriptions/[Subscription-ID-GUID]/resourceGroups/[nome-do-grupo-de-recursos]/providers/Microsoft.KeyVault/vaults/[keyvault-nome]</br></br>
-> A sintaxe para o valor do parâmetro Key-Encryption-Key é o URI completo para o KEK como em:</br>
-https://[keyvault-Name]. Vault. Azure. net/Keys/[kekname]/[Kek-Unique-ID]
+>  A sintaxe para o valor do parâmetro disk-encryption-keyvault é a cadeia de caracteres completa do identificador:</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> A sintaxe para o valor do parâmetro key-encryption-key é o URI completo para o KEK, como em:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>Verificar o andamento da criptografia
 
@@ -150,4 +149,4 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 ## <a name="next-steps"></a>Próximas etapas
 
 - Neste artigo, você usou o Azure PowerShell para criptografar um conjunto de dimensionamento de máquinas virtuais. Você também pode usar os modelos [CLI do Azure](disk-encryption-cli.md) ou [Azure Resource Manager](disk-encryption-azure-resource-manager.md).
-- Se desejar ter Azure Disk Encryption aplicado depois que outra extensão for provisionada, você poderá usar o [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md).
+- Caso queira aplicar Azure Disk Encryption depois que outra extensão for provisionada, você poderá usar o [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md).

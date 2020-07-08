@@ -13,24 +13,23 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196383"
 ---
-# <a name="blocking-legacy-authentication"></a>Bloqueando a autenticação herdada
+# <a name="blocking-legacy-authentication"></a>Bloqueio da autenticação herdada
  
-Para fornecer aos usuários acesso fácil aos aplicativos na nuvem, o Azure AD (Azure Active Directory) dá suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação herdada. A autenticação herdada é um termo que se refere a uma solicitação de autenticação feita por:
+Para fornecer aos usuários acesso fácil aos aplicativos na nuvem, o Azure AD (Azure Active Directory) dá suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação herdada. Autenticação herdada é um termo que se refere a uma solicitação de autenticação feita por:
 
 - Clientes mais antigos do Office que não usam autenticação moderna (por exemplo, cliente do Office 2010)
 - Qualquer cliente que usa protocolos de email herdados, como IMAP/SMTP/POP3
 
 Hoje, a maioria de todas as tentativas de entrada comprometentes vêm da autenticação herdada. A autenticação herdada não dá suporte à autenticação multifator (MFA). Mesmo que você tenha uma política de MFA habilitada em seu diretório, um ator inadequado pode autenticar usando um protocolo herdado e ignorar MFA. A melhor maneira de proteger sua conta contra solicitações de autenticação mal-intencionadas feitas por protocolos herdados é bloquear completamente essas tentativas.
 
-## <a name="identify-legacy-authentication-use"></a>Identificar o uso de autenticação herdada
+## <a name="identify-legacy-authentication-use"></a>Identificar uso de autenticação herdada
 
-Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisa entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
+Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisará entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
 
 1. Navegue até o **portal do Azure**   >  **Azure Active Directory**   >  **entradas**.
 1. Adicione a coluna **aplicativo cliente** se ela não for exibida clicando em **colunas**   >  **aplicativo cliente**.

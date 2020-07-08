@@ -15,10 +15,9 @@ ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
 ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201126"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API dos serviços de mídia v3-.NET
@@ -56,21 +55,21 @@ O aplicativo de exemplo neste tópico, targets `netcoreapp2.0` . O código usa '
 
 ## <a name="create-and-configure-the-app-settings-file"></a>Criar e configurar o arquivo de configurações do aplicativo
 
-### <a name="create-appsettingsjson"></a>Criar appSettings. JSON
+### <a name="create-appsettingsjson"></a>Criar appsettings.jsem
 
 1. Ir para **General**o  >  **arquivo de texto**geral.
-1. Nomeie-o como "appSettings. JSON".
+1. Nomeie-o como "appsettings.js".
 1. Defina a propriedade "copiar para o diretório de saída" do arquivo. JSON como "copiar se for mais recente" (para que o aplicativo possa acessá-lo quando publicado).
 
-### <a name="set-values-in-appsettingsjson"></a>Definir valores em appSettings. JSON
+### <a name="set-values-in-appsettingsjson"></a>Definir valores em appsettings.jsem
 
-Execute o `az ams account sp create` comando conforme descrito em [APIs de acesso](access-api-cli-how-to.md). O comando retorna JSON que você deve copiar em "appSettings. JSON".
+Execute o `az ams account sp create` comando conforme descrito em [APIs de acesso](access-api-cli-how-to.md). O comando retorna JSON que você deve copiar para "appsettings.json".
  
 ## <a name="add-configuration-file"></a>Adicionar arquivo de configuração
 
-Para sua conveniência, adicione um arquivo de configuração que seja responsável por ler valores de "appSettings. JSON".
+Para sua conveniência, adicione um arquivo de configuração que seja responsável por ler valores de "appsettings.jsem".
 
-1. Adicione uma nova classe. cs ao seu projeto. Nomeie-o `ConfigWrapper`. 
+1. Adicione uma nova classe. cs ao seu projeto. Nomeie-o como `ConfigWrapper`. 
 1. Cole o código a seguir neste arquivo (Este exemplo pressupõe que você tem o namespace `ConsoleApp1` ).
 
 ```csharp
@@ -146,7 +145,7 @@ namespace ConsoleApp1
 
 Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é necessário criar um objeto **AzureMediaServicesClient**. Para criar o objeto, você precisa fornecer as credenciais necessárias para o cliente se conectar ao Azure usando o Microsoft Azure Active Directory. No código a seguir, a função GetCredentialsAsync cria o objeto createclientcredentials com base nas credenciais fornecidas no arquivo de configuração local.
 
-1. Abra o `Program.cs`.
+1. Abra `Program.cs`.
 1. Cole o seguinte código:
 
 ```csharp
@@ -241,7 +240,7 @@ namespace ConsoleApp1
 - [Criar filtros com os Serviços de Mídia – .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Exemplos de vídeos sob demanda avançados do Azure Functions v2 com Serviços de Mídia v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Referência do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Para obter mais exemplos de código, consulte o repositório de [exemplos do SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet) .

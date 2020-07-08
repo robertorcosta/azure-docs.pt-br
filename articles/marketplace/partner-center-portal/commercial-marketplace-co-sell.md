@@ -8,15 +8,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201444"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta na Central de Parceiros
 
-Fornecer informações sobre a guia de venda é totalmente opcional. É necessário atingir o status pronto para venda de covenda pronta e de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [vender pela Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+Fornecer informações sobre a guia de venda é totalmente opcional. É necessário atingir o status Pronto para venda conjunta e Pronto para venda conjunta IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [vender pela Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 A opção de venda conjunta no Partner Center está disponível no momento para alguns tipos de oferta. O suporte para tipos de oferta adicionais será disponibilizado ao longo do tempo.
 
@@ -34,7 +33,7 @@ A opção de venda conjunta no Partner Center está disponível no momento para 
 | Power BI aplicativo de serviço     |     A ser anunciado       |
 |  |
 
-## <a name="listing"></a>Listagem
+## <a name="listing"></a>Listando
 
 As listagens de venda conjuntas ajudarão as equipes de vendas da Microsoft a comercializar sua solução para um público mais amplo.
 
@@ -75,7 +74,7 @@ Você pode fornecer um material de apoio para a Microsoft usar para avaliar suas
 | *Outros documentos* | Opcionalmente, você pode carregar até cinco documentos ou vídeos adicionais para ajudar as equipes de vendas da Microsoft e revendedores de canal a aprender mais sobre sua solução, organização e/ou diferenciais. |
 | *URL de referência externa* | O link para o site do seu produto, onde as equipes de vendas da Microsoft e os revendedores de canal podem aprender mais sobre sua solução. |
 
-## <a name="contacts"></a>Contacts
+## <a name="contacts"></a>Contatos
 
 Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
 

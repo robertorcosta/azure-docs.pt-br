@@ -11,10 +11,9 @@ ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125155"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Usar políticas de dimensionamento personalizadas com conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -195,7 +194,7 @@ O mesmo processo será aplicado se você decidir alterar ' NewestVM ' para ' def
 
 Os conjuntos de dimensionamento de máquinas virtuais fornecem dois tipos de [proteção de instância](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection):
 
-1. Proteger do Scale-in
+1. Proteger contra redução horizontal
 2. Proteger de ações de conjunto de dimensionamento
 
 Uma máquina virtual protegida não é excluída por meio de uma ação de redução, independentemente da política de redução na aplicação. Por exemplo, se VM_0 (VM mais antiga no conjunto de dimensionamento) for protegida de scale-in e o conjunto de dimensionamento tiver a política de dimensionamento ' OldestVM ' habilitada, VM_0 não será considerada para ser dimensionada no mesmo, mesmo que seja a VM mais antiga no conjunto de dimensionamento. 

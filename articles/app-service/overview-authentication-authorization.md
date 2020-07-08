@@ -7,10 +7,9 @@ ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196447"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no serviço Azure App e Azure Functions
@@ -125,7 +124,7 @@ Essa opção oferece mais flexibilidade no processamento de solicitações anôn
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir apenas solicitações autenticadas
 
-A opção é **Logon com \<provedor>**. O Serviço de Aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` do provedor escolhido. Se a solicitação anônima originar-se de um aplicativo móvel nativo, a resposta retornada será `HTTP 401 Unauthorized`.
+A opção é **fazer logon com \<provider> **o. O Serviço de Aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` do provedor escolhido. Se a solicitação anônima originar-se de um aplicativo móvel nativo, a resposta retornada será `HTTP 401 Unauthorized`.
 
 Com essa opção, você não precisa gravar nenhum código de autenticação no aplicativo. Uma autorização mais precisa, como autorização específica de função, pode ser tratada inspecionando as declarações do usuário (consulte [Acessar declarações do usuário](app-service-authentication-how-to.md#access-user-claims)).
 

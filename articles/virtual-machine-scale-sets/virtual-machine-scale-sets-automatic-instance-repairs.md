@@ -10,10 +10,9 @@ ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197030"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparos automáticos de instância para conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -56,7 +55,7 @@ Atualmente, não há suporte para este recurso em conjuntos de dimensionamento d
 
 O recurso de reparo automático de instância depende do monitoramento de integridade de instâncias individuais em um conjunto de dimensionamento. As instâncias de VM em um conjunto de dimensionamento podem ser configuradas para emitir o status de integridade do aplicativo usando a [extensão de integridade do aplicativo](./virtual-machine-scale-sets-health-extension.md) ou as investigações de integridade do [balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Se uma instância for considerada não íntegra, o conjunto de dimensionamento executará a ação de reparo excluindo a instância não íntegra e criando uma nova para substituí-la. O modelo de conjunto de dimensionamento de máquinas virtuais mais recente é usado para criar a nova instância. Esse recurso pode ser habilitado no modelo do conjunto de dimensionamento de máquinas virtuais usando o objeto *automaticRepairsPolicy* .
 
-### <a name="batching"></a>Envio em lote
+### <a name="batching"></a>Separação em lotes
 
 As operações automáticas de reparo de instância são executadas em lotes. Em um determinado momento, não mais do que 5% das instâncias no conjunto de dimensionamento são reparadas por meio da política de reparos automáticas. Isso ajuda a evitar a exclusão simultânea e a recriação de um grande número de instâncias, se elas não estiverem íntegras ao mesmo tempo.
 
@@ -168,7 +167,7 @@ Depois de atualizar o modelo de um conjunto de dimensionamento existente, certif
 
 Você pode modificar a política de reparos automáticos de um conjunto de dimensionamento existente por meio do portal do Azure. 
  
-1. Vá para um conjunto de dimensionamento de máquinas virtuais existente.
+1. Acesse um conjunto de dimensionamento de máquinas virtuais existente.
 1. Em **configurações** no menu à esquerda, selecione **integridade e reparo**.
 1. Habilite a opção **monitorar integridade do aplicativo** .
 1. Localize a seção **política de reparo automática** .
