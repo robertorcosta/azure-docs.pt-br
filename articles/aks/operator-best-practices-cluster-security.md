@@ -5,12 +5,12 @@ description: Aprender as práticas recomendadas do operador de cluster sobre com
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72808f315f28a996a88e6cc56ae232a136726451
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298014"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para atualizações e segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -173,7 +173,7 @@ Para obter mais informações sobre os filtros disponíveis, confira [Perfis de 
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Atualizar frequentemente para a versão mais recente do Kubernetes
 
-**Diretrizes de práticas recomendadas** – para manter-se atualizado quanto aos novos recursos e correções de bugs, atualize regularmente para a versão do Kubernetes no cluster do AKS.
+**Diretrizes de práticas recomendadas** -para se manter atualizado sobre os novos recursos e correções de bugs, Atualize regularmente a versão do kubernetes no cluster do AKS.
 
 O Kubernetes lança novos recursos em um ritmo mais rápido que aquele das plataformas de infraestrutura mais tradicionais. As atualizações do Kubernetes incluem novos recursos e correções de bug ou de segurança. Novos recursos normalmente começam com um status *alfa* e, em seguida, *beta*, antes que se tornem *estáveis*, disponíveis ao público em geral e recomendados para uso em produção. Esse ciclo de lançamento deve permitir que você atualize o Kubernetes sem frequentemente encontrar alterações significativas ou ajustar suas implantações e modelos.
 

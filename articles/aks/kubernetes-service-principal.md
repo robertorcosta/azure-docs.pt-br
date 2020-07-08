@@ -3,13 +3,13 @@ title: Entidades de serviço para o AKS (Serviço de Kubernetes do Azure)
 description: Criar e gerenciar uma entidade de serviço do Azure Active Directory para um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298541"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -23,7 +23,7 @@ Para criar uma entidade de serviço do Azure AD, você deve ter permissões para
 
 Se você estiver usando uma entidade de serviço de um locatário do Azure AD diferente, haverá considerações adicionais sobre as permissões disponíveis quando você implantar o cluster. Talvez você não tenha as permissões apropriadas para ler e gravar informações de diretório. Para obter mais informações, consulte [quais são as permissões de usuário padrão no Azure Active Directory?][azure-ad-permissions]
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e usar uma entidade de serviço automaticamente
 
@@ -87,7 +87,10 @@ Para delegar permissões, crie uma atribuição de função usando o comando [AZ
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
 ```
 
-O `--scope`, pois um recurso precisa ser uma ID de recurso completa, como */subscriptions/\<guid\>/resourceGroups/myResourceGroup* ou */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+O `--scope` para um recurso precisa ser uma ID de recurso completa, como */subscriptions/ \<guid\> /ResourceGroups/myResourceGroup* ou */subscriptions/ \<guid\> /resourceGroups/myResourceGroupVnet/Providers/Microsoft.Network/virtualNetworks/myVnet*
+
+> [!NOTE]
+> Se você tiver removido a atribuição de função de colaborador do grupo de recursos de nó, as operações abaixo poderão falhar.  
 
 As seções a seguir detalham as delegações comuns que talvez você precise fazer.
 
@@ -106,6 +109,9 @@ Você pode usar os recursos de rede quando rede e a sub-rede virtuais, ou endere
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft. Network/publicIPAddresses/Read*
   - *Microsoft.Network/publicIPAddresses/write*
+  - Se estiver usando [tabelas de rotas personalizadas em clusters Kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) , adicione estas permissões adicionais:
+    - *Microsoft.Network/routeTables/write*
+    - *Microsoft. Network/routeTables/Read*
 - Ou, atribua a função interna [Colaborador de Rede][rbac-network-contributor] na sub-rede dentro da rede virtual
 
 ### <a name="storage"></a>Armazenamento
@@ -127,12 +133,12 @@ Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as consider
 
 - A entidade de serviço para o Kubernetes é parte da configuração do cluster. No entanto, não use a identidade para implantar o cluster.
 - Por padrão, as credenciais da entidade de serviço são válidas por um ano. Você pode [atualizar ou girar as credenciais da entidade de serviço][update-credentials] a qualquer momento.
-- Cada entidade de serviço é associada a um aplicativo Azure AD. A entidade de serviço para um cluster kubernetes pode ser associada a qualquer nome de aplicativo do Azure AD válido ( *https://www.contoso.org/example*por exemplo:). A URL para o aplicativo não precisa ser um ponto de extremidade real.
+- Cada entidade de serviço é associada a um aplicativo Azure AD. A entidade de serviço para um cluster kubernetes pode ser associada a qualquer nome de aplicativo do Azure AD válido (por exemplo: *https://www.contoso.org/example* ). A URL para o aplicativo não precisa ser um ponto de extremidade real.
 - Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId`.
 - Nas VMs do nó do agente no cluster kubernetes, as credenciais da entidade de serviço são armazenadas no arquivo`/etc/kubernetes/azure.json`
 - Se você usar o comando [az aks create][az-aks-create] para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
-- Se você não passar uma entidade de serviço especificamente em comandos adicionais da CLI do AKS, a entidade de serviço `~/.azure/aksServicePrincipal.json` padrão localizada em será usada.  
-- Opcionalmente, você também pode remover o arquivo aksServicePrincipal. JSON e o AKS criará uma nova entidade de serviço.
+- Se você não passar uma entidade de serviço especificamente em comandos adicionais da CLI do AKS, a entidade de serviço padrão localizada em `~/.azure/aksServicePrincipal.json` será usada.  
+- Opcionalmente, você também pode remover o aksServicePrincipal.jsno arquivo e o AKS criará uma nova entidade de serviço.
 - Ao excluir um cluster do AKS que foi criado por [az aks create][az-aks-create], a entidade de serviço que foi criada automaticamente não será excluída.
     - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile.clientId* e, em seguida, exclua-a com [az ad app delete][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
 
@@ -156,7 +162,7 @@ Verifique a idade do arquivo de credenciais usando o seguinte comando:
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-O tempo de expiração padrão para as credenciais da entidade de serviço é de um ano. Se o arquivo *aksServicePrincipal. JSON* tiver mais de um ano, exclua o arquivo e tente implantar um cluster AKs novamente.
+O tempo de expiração padrão para as credenciais da entidade de serviço é de um ano. Se seu *aksServicePrincipal.jsno* arquivo tiver mais de um ano, exclua o arquivo e tente implantar um cluster AKs novamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

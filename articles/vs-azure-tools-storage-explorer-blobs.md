@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298116"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerenciar recursos de Armazenamento de Blobs com o Gerenciador de Armazenamento do Azure
 
@@ -188,7 +188,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
         ![Opções de Carregar arquivos][16]
      3. Especifique o tipo de **Tipo de blob**. Consulte [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
      4. Como opção, especifique uma pasta de destino na qual os arquivos selecionados serão carregados. Se a pasta de destino não existir, ela será criada.
-     5. Selecione **Carregar**.
+     5. Escolha **Carregar**.
    * **Carregar uma pasta em um contêiner de blobs**
 
      1. Na barra de ferramentas do painel principal, selecione **carregar**e, em seguida, **carregar pasta** no menu suspenso.
@@ -199,7 +199,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
         ![Opções de Carregar pasta][18]
      3. Especifique o tipo de **Tipo de blob**. Consulte [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
      4. Como opção, especifique uma pasta de destino na qual o conteúdo da pasta selecionada será carregado. Se a pasta de destino não existir, ela será criada.
-     5. Selecione **Carregar**.
+     5. Escolha **Carregar**.
    * **Baixar um blob em seu computador local**
 
      1. Selecione o blob que você deseja baixar.

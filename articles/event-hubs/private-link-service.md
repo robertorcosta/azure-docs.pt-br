@@ -1,18 +1,14 @@
 ---
 title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312823"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integração dos Hubs de Eventos do Azure com o Link Privado do Azure
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
@@ -22,7 +18,7 @@ O ponto de extremidade privado é uma interface de rede que conecta você de for
 Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Esse recurso é suportado apenas na camada **dedicada**. Para obter mais informações sobre a camada dedicada, confira [Visão geral dos Hubs de Eventos Dedicados](event-hubs-dedicated-overview.md). 
+> Esse recurso tem suporte para as camadas **Standard** e **dedicada** . 
 
 >[!WARNING]
 > Implementar pontos de extremidade privados pode impedir que outros serviços do Azure interajam com os Hubs de Eventos.
@@ -62,7 +58,7 @@ Se você já tem um namespace do Hubs de Eventos, crie uma conexão de link priv
 2. Na barra de pesquisa, digite **hubs de eventos**.
 3. Selecione o **namespace** na lista à qual você deseja adicionar um ponto de extremidade privado.
 4. Selecione a guia **Rede** em **Configurações**.
-5. Selecione a guia **Conexões de ponto de extremidade privado** na parte superior da página. Se você não estiver usando uma camada dedicada do Hubs de Eventos, será exibida uma mensagem: **As conexões do ponto de extremidade privado no Hubs de Eventos só têm suporte para namespaces criados em um cluster dedicado**.
+5. Selecione a guia **Conexões de ponto de extremidade privado** na parte superior da página. 
 6. Selecione o botão **+ Ponto de Extremidade Privado** na parte superior da página.
 
     ![Imagem](./media/private-link-service/private-link-service-3.png)
@@ -218,7 +214,7 @@ Há quatro estados de provisionamento:
 2. Selecione o **ponto de extremidade privado** que você deseja aprovar
 3. Selecione o botão **Aprovar**.
 
-    ![Imagem](./media/private-link-service/approve-private-endpoint.png)
+    ![Image](./media/private-link-service/approve-private-endpoint.png)
 4. Na página **Aprovar conexão**, adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
 5. O status da conexão de ponto de extremidade privado exibido na lista muda para **Aprovado**. 
 
@@ -244,7 +240,7 @@ Primeiro, crie uma máquina virtual seguindo as etapas em [Criar uma máquina vi
 
 Na guia **Rede**: 
 
-1. Especifique a **Rede virtual** e a **Sub-rede**. Selecione a rede virtual na qual você implantou o ponto de extremidade privado.
+1. Especifique a **Rede virtual** e a **Sub-rede**. Selecione a Rede Virtual na qual você implantou o ponto de extremidade privado.
 2. Especifique um recurso de **IP Público**.
 3. Para o **Grupo de segurança de rede da NIC**, selecione **Nenhum**.
 4. Para o **Balanceamento de carga**, selecione **Não**.

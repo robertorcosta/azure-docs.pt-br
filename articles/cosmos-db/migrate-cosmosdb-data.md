@@ -1,18 +1,18 @@
 ---
 title: Migrar centenas de terabytes de dados para o Azure Cosmos DB
 description: Este documento descreve como você pode migrar centenas de terabytes de dados para Cosmos DB
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
-ms.author: bharathb
-ms.openlocfilehash: 69b400eb7838c986ac6f275da58c7457179ebea6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72880213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263537"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 
@@ -45,7 +45,7 @@ A ferramenta personalizada usa a biblioteca de executores em massa e dá suporte
 A imagem a seguir descreve o processo de migração usando essa ferramenta personalizada. A ferramenta está em execução em um conjunto de máquinas virtuais, e cada máquina virtual consulta a coleção de rastreamento em Azure Cosmos DB para adquirir uma concessão em uma das partições de dados de origem. Quando isso for feito, a partição de dados de origem será lida pela ferramenta e ingerida no Azure Cosmos DB usando a biblioteca de executor em massa. Em seguida, a coleção de rastreamento é atualizada para registrar o progresso da ingestão de dados e todos os erros encontrados. Depois que uma partição de dados é processada, a ferramenta tenta consultar a próxima partição de origem disponível. Ele continua processando a próxima partição de origem até que todos os dados sejam migrados. O código-fonte da ferramenta está disponível [aqui](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
 
  
-![Instalação da ferramenta de migração](./media/migrate-cosmosdb-data/migrationsetup.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Instalação da ferramenta de migração" border="false":::
  
 
  
@@ -145,7 +145,7 @@ Quando a migração for concluída, você poderá validar que a contagem de docu
 ## <a name="contact-the-azure-cosmos-db-team"></a>Contate a equipe de Azure Cosmos DB
 Embora você possa seguir este guia para migrar com êxito grandes conjuntos de dados para Azure Cosmos DB, para migrações em larga escala, é recomendável que você acesse a equipe do Azure Cosmos DB produto para validar a modelagem de dados e uma revisão geral da arquitetura. Com base em seu conjunto de cargas de trabalho e carga, a equipe de produto também pode sugerir outras otimizações de desempenho e custo que podem ser aplicáveis a você. Para entrar em contato com a equipe de Azure Cosmos DB para obter assistência com migrações em larga escala, você pode abrir um tíquete de suporte no tipo de problema "consultoria geral" e "migrações de grande (TB +)", conforme mostrado abaixo.
 
-![Tópico de suporte de migração](./media/migrate-cosmosdb-data/supporttopic.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Tópico de suporte de migração":::
 
 
 ## <a name="next-steps"></a>Próximas etapas

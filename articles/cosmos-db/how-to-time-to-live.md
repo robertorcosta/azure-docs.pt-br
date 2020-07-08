@@ -3,15 +3,15 @@ title: Configurar e gerenciar a vida útil no Azure Cosmos DB
 description: Saiba como configurar e gerenciar a vida útil em um contêiner e um item no Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263615"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
 
@@ -31,10 +31,10 @@ Use as etapas a seguir para habilitar a vida útil de um contêiner sem prazo de
 
    * Abra a janela **Escala e Configurações**.
    * Em **Configuração**, localize **Vida Útil**.
-   * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor de TTL
+   * Selecione **Ativado (não há padrão)** ou selecione **Ativado** e defina um valor de TTL
    * Clique em **Salvar** para salvar as alterações.
 
-   ![Configurar a vida útil no portal do Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configurar a vida útil no portal do Azure":::
 
 * Quando DefaultTimeToLive é nulo, sua vida útil está desativada
 * Quando DefaultTimeToLive é -1, sua configuração de vida útil está ativada (não padrão)
@@ -51,9 +51,9 @@ Para criar ou habilitar TTL em um contêiner, consulte
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a>SDK DO .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-SDK do .NET v2 (Microsoft. Azure. DocumentDB)
+SDK do .NET v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and without any expiration value
@@ -67,7 +67,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     collectionDefinition);
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 SDK do .NET v3 (Microsoft. Azure. Cosmos)
 
@@ -86,7 +86,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
-Java SDK V4 (Maven com. Azure:: Azure-Cosmos)
+SDK do Java V4 (Maven com.azure::azure-cosmos)
 
 ```java
 CosmosAsyncContainer container;
@@ -117,9 +117,9 @@ Para definir a vida útil de um contêiner, você precisará fornecer um número
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a>SDK DO .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-SDK do .NET v2 (Microsoft. Azure. DocumentDB)
+SDK do .NET v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and a 90 day expiration
@@ -133,7 +133,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     collectionDefinition;
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 SDK do .NET v3 (Microsoft. Azure. Cosmos)
 
@@ -152,7 +152,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
-Java SDK V4 (Maven com. Azure:: Azure-Cosmos)
+SDK do Java V4 (Maven com.azure::azure-cosmos)
 
 ```java
 CosmosAsyncContainer container;
@@ -215,7 +215,7 @@ Use as etapas a seguir para habilitar a vida útil de um item:
 
    * Abra a janela **Escala e Configurações**.
    * Em **Configuração**, localize **Vida Útil**.
-   * Selecione **Ativado (não há padrão)** ou selecione **Ativado** e defina um valor de vida útil. 
+   * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor TTL. 
    * Clique em **Salvar** para salvar as alterações.
 
 5. Em seguida, navegue até o item para o qual você deseja definir a vida útil, adicione a propriedade `ttl` e selecione **Atualizar**. 
@@ -272,7 +272,7 @@ const itemDefinition = {
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
-Java SDK V4 (Maven com. Azure:: Azure-Cosmos)
+SDK do Java V4 (Maven com.azure::azure-cosmos)
 
 ```java
 // Include a property that serializes to "ttl" in JSON
@@ -351,9 +351,9 @@ Você pode redefinir a vida útil de um item executando uma operação de grava�
 
 ### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a>SDK DO .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-SDK do .NET v2 (Microsoft. Azure. DocumentDB)
+SDK do .NET v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -367,7 +367,7 @@ readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 SDK do .NET v3 (Microsoft. Azure. Cosmos)
 
@@ -385,7 +385,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
-Java SDK V4 (Maven com. Azure:: Azure-Cosmos)
+SDK do Java V4 (Maven com.azure::azure-cosmos)
 
 ```java
 // This examples leverages the Sales Order class above.
@@ -425,9 +425,9 @@ Se a vida útil foi definida em um item e você não deseja mais que esse item e
 
 ### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a>SDK DO .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-SDK do .NET v2 (Microsoft. Azure. DocumentDB)
+SDK do .NET v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -442,7 +442,7 @@ readDocument.ttl = null; // inherit the default TTL of the container
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 SDK do .NET v3 (Microsoft. Azure. Cosmos)
 
@@ -460,7 +460,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
-Java SDK V4 (Maven com. Azure:: Azure-Cosmos)
+SDK do Java V4 (Maven com.azure::azure-cosmos)
 
 ```java
 // This examples leverages the Sales Order class above.
@@ -500,9 +500,9 @@ Para desabilitar a vida útil de um contêiner e interromper o processo em segun
 
 ### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a>SDK DO .NET
 
-# <a name="net-sdk-v2"></a>[SDK DO .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-SDK do .NET v2 (Microsoft. Azure. DocumentDB)
+SDK do .NET v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Get the container, update DefaultTimeToLive to null
@@ -512,7 +512,7 @@ collection.DefaultTimeToLive = null;
 await client.ReplaceDocumentCollectionAsync(collection);
 ```
 
-# <a name="net-sdk-v3"></a>[SDK DO .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 SDK do .NET v3 (Microsoft. Azure. Cosmos)
 
@@ -529,7 +529,7 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
-Java SDK V4 (Maven com. Azure:: Azure-Cosmos)
+SDK do Java V4 (Maven com.azure::azure-cosmos)
 
 ```java
 CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/myPartitionKey");

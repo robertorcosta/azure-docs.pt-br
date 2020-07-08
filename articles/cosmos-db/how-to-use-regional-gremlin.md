@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4880fa5bdccdc6416962e2f7e6da395f3db7be44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78897856"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263588"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos de extremidade regionais para a conta de grafo do Azure Cosmos DB
 O banco de dados de grafo do Azure Cosmos DB é [distribuído globalmente](distribute-data-globally.md) para que os aplicativos possam usar vários pontos de extremidade de leitura. Aplicativos que precisam de acesso de gravação em vários locais devem habilitar a funcionalidade de [vários mestres](how-to-multi-master.md).
@@ -43,7 +43,7 @@ O CNAME da conta do banco de dados global sempre aponta para uma região de grav
 
 A maneira mais fácil de obter a lista de regiões para a conta de grafo do Azure Cosmos DB é a folha visão geral no portal do Azure. Ela funcionará para aplicativos que não alteram regiões com frequência ou que têm uma maneira de atualizar a lista por meio da configuração do aplicativo.
 
-![Recuperar regiões da conta de grafo do Cosmos DB no portal](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+:::image type="content" source="./media/how-to-use-regional-gremlin/get-end-point-portal.png " alt-text="Recuperar regiões da conta de grafo do Cosmos DB no portal":::
 
 O exemplo a seguir demonstra os princípios gerais de acesso ao ponto de extremidade Gremlin regional. O aplicativo deve considerar o número de regiões às quais enviará o tráfego e o número de clientes Gremlin correspondentes a serem instanciados.
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: HT
+ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118548"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298949"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -74,7 +74,12 @@ Distribuições e versões compatíveis:
 
 ### <a name="sample-installation"></a>Instalação de exemplo
 
-Preencha os valores corretos para as variáveis na primeira seção antes de executar:
+> [!NOTE]
+> Para qualquer um dos exemplos, preencha os valores corretos para as variáveis na primeira seção antes de executar. 
+
+A configuração de exemplo baixada nesses exemplos coleta um conjunto de dados padrão e os envia para o Armazenamento de Tabelas. A URL para a configuração de exemplo e o respectivo conteúdo estão sujeitos a alterações. Na maioria dos casos, você deve baixar uma cópia do arquivo JSON de configurações do portal e personalizá-lo para suas necessidades e, em seguida, fazer com que qualquer modelo ou automação que você construa use sua versão do arquivo de configuração, em vez de baixar essa URL a cada vez.
+
+#### <a name="azure-cli-sample"></a>Exemplo de CLI do Azure
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -103,8 +108,6 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-
-A configuração de exemplo baixada nesses exemplos coleta um conjunto de dados padrão e os envia para o Armazenamento de Tabelas. A URL para a configuração de exemplo e o respectivo conteúdo estão sujeitos a alterações. Na maioria dos casos, você deve baixar uma cópia do arquivo JSON de configurações do portal e personalizá-lo para suas necessidades e, em seguida, fazer com que qualquer modelo ou automação que você construa use sua versão do arquivo de configuração, em vez de baixar essa URL a cada vez.
 
 #### <a name="powershell-sample"></a>Exemplo do PowerShell
 
@@ -439,6 +442,9 @@ As informações de "tabela" ou "coletores" ou de ambos devem ser especificadas.
 
 Controla a captura de arquivos de log. O LAD captura novas linhas de texto, como elas são gravadas no arquivo e as grava em linhas da tabela e/ou qualquer coletor especificado (JsonBlob ou EventHub).
 
+> [!NOTE]
+> Os logs de filesão capturados por um subcomponente de LAD chamado `omsagent` . Para coletar filelogs, você deve garantir que o `omsagent` usuário tenha permissões de leitura nos arquivos especificados, bem como permissões de execução em todos os diretórios no caminho para esse arquivo. Você pode verificar isso executando `sudo su omsagent -c 'cat /path/to/file'` após a instalação do Lad.
+
 ```json
 "fileLogs": [
     {
@@ -451,7 +457,7 @@ Controla a captura de arquivos de log. O LAD captura novas linhas de texto, como
 
 Elemento | Valor
 ------- | -----
-file | O nome de caminho completo do arquivo de log a ser observado e capturado. O nome do caminho deve nomear um único arquivo; ele não pode nomear um diretório ou conter curingas.
+file | O nome de caminho completo do arquivo de log a ser observado e capturado. O nome do caminho deve nomear um único arquivo; ele não pode nomear um diretório ou conter curingas. A conta de usuário ' omsagent ' deve ter acesso de leitura ao caminho do arquivo.
 tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual novas linhas depois do "final" do arquivo são gravadas.
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores adicionais para os quais as linhas de log são enviadas.
 
@@ -564,23 +570,36 @@ BytesPerSecond | Número de bytes lidos ou gravados por segundo
 
 Os valores agregados em todos os discos podem ser obtidos pela configuração `"condition": "IsAggregate=True"`. Para saber mais para um dispositivo específico (por exemplo, /dev/sdf1), defina `"condition": "Name=\\"/dev/sdf1\\""`.
 
-## <a name="installing-and-configuring-lad-30-via-cli"></a>Instalação e configuração do LAD 3.0 via CLI
+## <a name="installing-and-configuring-lad-30"></a>Instalando e Configurando o LAD 3,0
 
-Supondo que as configurações protegidas estejam no arquivo PrivateConfig.json e suas informações de configuração pública estejam em PublicConfig.json, execute este comando:
+### <a name="azure-cli"></a>CLI do Azure
+
+Supondo que as configurações protegidas estejam no arquivo ProtectedSettings.jsem e suas informações de configuração pública estejam em PublicSettings.jsem, execute este comando:
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-O comando supõe que você esteja usando o modo de Gerenciamento de Recursos do Azure (arm) da CLI do Azure. Para configurar o LAD para as VMs do modelo de implantação clássico (ASM), alterne para o modo "asm" (`azure config mode asm`) e omita o nome do grupo de recursos no comando. Para saber mais, confira a [documentação da CLI entre plataformas](https://docs.microsoft.com/azure/xplat-cli-connect).
+O comando pressupõe que você esteja usando o modo ARM (gerenciamento de recursos do Azure) da CLI do Azure. Para configurar o LAD para as VMs do modelo de implantação clássico (ASM), alterne para o modo "asm" (`azure config mode asm`) e omita o nome do grupo de recursos no comando. Para saber mais, confira a [documentação da CLI entre plataformas](https://docs.microsoft.com/azure/xplat-cli-connect).
+
+### <a name="powershell"></a>PowerShell
+
+Supondo que as configurações protegidas estejam na `$protectedSettings` variável e que suas informações de configuração pública estejam na `$publicSettings` variável, execute este comando:
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## <a name="an-example-lad-30-configuration"></a>Uma configuração de exemplo do LAD 3.0
 
 Com base nas definições anteriores, aqui está uma configuração de extensão de amostra do LAD 3.0 com alguma explicação. Para aplicar este exemplo ao seu caso, você deverá usar seu próprio nome da conta de armazenamento, token de SAS de conta e tokens de SAS de EventHubs.
 
-### <a name="privateconfigjson"></a>PrivateConfig.json
+> [!NOTE]
+> Dependendo se você usar o CLI do Azure ou o PowerShell para instalar o LAD, o método para fornecer configurações públicas e protegidas será diferente. Se estiver usando o CLI do Azure, salve as configurações a seguir para ProtectedSettings.jse PublicSettings.jsem para usar com o comando de exemplo acima. Se estiver usando o PowerShell, salve as configurações em `$protectedSettings` e `$publicSettings` executando `$protectedSettings = '{ ... }'` .
 
-Essas configurações privadas definem os parâmetros de:
+### <a name="protected-settings"></a>Configurações protegidas
+
+Essas configurações protegidas são configuradas:
 
 * uma conta de armazenamento
 * um token de SAS de conta correspondente
@@ -628,7 +647,7 @@ Essas configurações privadas definem os parâmetros de:
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig.json
+### <a name="public-settings"></a>Configurações públicas
 
 Essas configurações públicas fazem o LAD:
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234134"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85292139"
 ---
 **Requisitos do servidor de configuração e processo**
 
@@ -52,14 +52,12 @@ Tipo de NIC | VMXNET3 (se o servidor de configuração for uma VM VMware)
  |
 **Acesso à Internet** (o servidor precisa acessar as seguintes URLs, diretamente ou via proxy):|
 \*.backup.windowsazure.com | Usado para transferência de dados replicados e coordenação
-\*.store.core.windows.net | Usado para transferência de dados replicados e coordenação
-\*.blob.core.windows.net | Usado para acessar a conta de armazenamento que armazena os dados replicados
+\*.blob.core.windows.net | Usado para acessar a conta de armazenamento que armazena os dados replicados. Você pode fornecer a URL específica da sua conta de armazenamento de cache.
 \*.hypervrecoverymanager.windowsazure.com | Usado para operações de gerenciamento de replicação e coordenação
-https:\//management.azure.com | Usado para operações de gerenciamento de replicação e coordenação 
-*.services.visualstudio.com | Usado para fins de telemetria (opcional)
+https:\//login.microsoftonline.com | Usado para operações de gerenciamento de replicação e coordenação 
 time.nist.gov | Usado para verificar a sincronização de horário entre o sistema e a hora global
 time.windows.com | Usado para verificar a sincronização de horário entre o sistema e a hora global
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.Live.com </li><li> https:\//Graph.Windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.Live.com </li><li> https:\//www.Microsoft.com </li></ul> | A instalação do OVF precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.Live.com </li><li> https: \/ /Graph.Windows.net </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (opcional) </li><li> https: \/ /www.Live.com </li><li> https: \/ /www.Microsoft.com </li></ul> | A instalação do OVF precisa de acesso a essas URLs adicionais. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também está na lista de permissões, se necessário.
 |
 
@@ -76,7 +74,7 @@ MySQL | MySQL deve ser instalado. Você pode instalar manualmente ou o Azure Sit
 A tabela a seguir resume os requisitos de capacidade do servidor de configuração. Se você estiver replicando várias VMs VMware, examine as [considerações de planejamento de capacidade](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) e execute a [ferramenta de planejador de implantações do Azure site Recovery](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
-**CPUs** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Computadores replicados**
+**CPU** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Computadores replicados**
 --- | --- | --- | --- | ---
 8 vCPUs<br/><br/> 2 soquetes * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | < 100 computadores
 12 vCPUs<br/><br/> 2 soquetes  * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB -1 TB | 100 a 150 computadores

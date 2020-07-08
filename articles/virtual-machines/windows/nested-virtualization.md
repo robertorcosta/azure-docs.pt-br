@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 2c66f88cc49028fae50d89a9a7c24233d5a926b4
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: cf12e1c5c4f220aca7a1d1125581f41b1f0ada91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85297844"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
@@ -94,7 +94,7 @@ Crie um novo adaptador de rede virtual para a máquina virtual convidada e confi
 4. Crie um endereço IP para o Gateway de NAT.
     
 Para configurar o gateway, você precisa de algumas informações sobre a rede:    
-  * IPAddress – o IP do Gateway de NAT especifica o endereço IPv4 ou IPv6 a ser usado como o endereço de gateway padrão da sub-rede da rede virtual. O formulário genérico é a.b.c. 1 (por exemplo, “192.168.0.1”). Embora a posição final não precise ser 0,1, geralmente é (com base no comprimento do prefixo). Normalmente, você deve usar um espaço de endereço de rede privada RFC 1918. 
+  * IPAddress – o IP do Gateway de NAT especifica o endereço IPv4 ou IPv6 a ser usado como o endereço de gateway padrão da sub-rede da rede virtual. O formulário genérico é a.b.c. 1 (por exemplo, “192.168.0.1”). Embora a posição final não tenha de ser 1, ela geralmente é (com base no comprimento do prefixo). Normalmente, você deve usar um espaço de endereço de rede privada RFC 1918. 
   * PrefixLength – o tamanho do prefixo da sub-rede define o tamanho da sub-rede local (máscara de sub-rede). O tamanho do prefixo de sub-rede será um valor inteiro entre 0 e 32. O valor 0 mapeará toda a Internet e 32 permitirá somente um IP mapeado. Os valores comuns variam de 24 a 12, dependendo de quantos IPs precisam ser anexados ao NAT. Um PrefixLength comum é 24 – essa é uma máscara de sub-rede igual a 255.255.255.0.
   * InterfaceIndex – **ifIndex** é o índice de interface do comutador virtual criado na etapa anterior. 
 
@@ -118,7 +118,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->O agente convidado do Azure não é suportado em VMs aninhados e pode causar problemas tanto nas VMs host quanto nas AvMs aninhadas. Não instale o agente Azure em VMs aninhados e não use uma imagem para criar as VMs aninhadas que já têm o agente convidado do Azure instalado.
+>O agente convidado do Azure não tem suporte em VMs aninhadas e pode causar problemas no host e nas VMs aninhadas. Não instale o agente do Azure em VMs aninhadas e não use uma imagem para criar as VMs aninhadas que já têm o agente convidado do Azure instalado.
 
 1. Abra o Gerenciador do Hyper-V e crie uma nova máquina virtual. Configure a máquina virtual para usar a nova rede Interna criada.
     
@@ -137,9 +137,9 @@ Atribua um endereço IP à máquina virtual convidada definindo um endereço IP 
 ###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: configurar o DHCP para atribuir dinamicamente um endereço IP à máquina virtual convidada
 Siga as etapas abaixo para configurar o DHCP na máquina virtual host para a atribuição de endereço dinâmico.
 
-#### <a name="install-dchp-server-on-the-azure-vm"></a>Instalar o Servidor DHCP na VM do Azure
+#### <a name="install-dhcp-server-on-the-azure-vm"></a>Instalar o servidor DHCP na VM do Azure
 
-1. Abra o Gerenciador de Servidor. No Painel, clique em **Adicionar funções e recursos**. O Assistente de Adição de Funções e Recursos será exibido.
+1. Abra o Gerenciador de Servidor. No Painel, clique em **Adicionar funções e recursos**. O Assistente para Adicionar Funções e Recursos é aberto.
   
 2. No assistente, clique em **Avançar** até a página Funções de Servidor.
   
@@ -155,7 +155,7 @@ Siga as etapas abaixo para configurar o DHCP na máquina virtual host para a atr
   
 3. Insira um Nome e uma Descrição para o escopo e clique em **Avançar**.
   
-4. Defina um Intervalo de IP para o Servidor DHCP (por exemplo, 192.168.0.100 a 192.168.0.200).
+4. Defina um intervalo de IP para o servidor DHCP (por exemplo, 192.168.0.100 para 192.168.0.200).
   
 5. Clique em **Avançar** até a página Gateway Padrão. Insira o Endereço IP criado anteriormente (por exemplo, 192.168.0.1) como o Gateway Padrão e, em seguida, clique em **Adicionar**.
   
@@ -168,7 +168,7 @@ Se você não configurou o DHCP para atribuir dinamicamente um endereço IP à m
 
 2. Clique com o botão direito do mouse na máquina virtual convidada e clique em Conectar.
 
-3. Faça login na máquina virtual convidada.
+3. Entre na máquina virtual convidada.
 
 4. Na máquina virtual convidada, abra a Central de Rede e Compartilhamento.
 

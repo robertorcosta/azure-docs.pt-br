@@ -3,14 +3,14 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298490"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jsreferência para Azure Functions 2. x e posterior 
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
@@ -21,15 +21,15 @@ O arquivo de metadados *host.json* contém opções de configuração global que
 > [!NOTE]
 > Este artigo é para o Azure Functions 2. x e versões posteriores.  Para obter uma referência de host.json no Functions 1.x, confira [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
 
-Outras opções de configuração de aplicativo de funções são gerenciadas nas [configurações do aplicativo](functions-app-settings.md) (para aplicativos implantados) ou no arquivo [local. Settings. JSON](functions-run-local.md#local-settings-file) (para o desenvolvimento local).
+Outras opções de configuração de aplicativo de funções são gerenciadas em suas [configurações de aplicativo](functions-app-settings.md) (para aplicativos implantados) ou seu [local.settings.jsno](functions-run-local.md#local-settings-file) arquivo (para desenvolvimento local).
 
-As configurações em host. JSON relacionadas às associações são aplicadas igualmente a cada função no aplicativo de funções. 
+As configurações no host.jsrelacionadas às associações são aplicadas igualmente a cada função no aplicativo de funções. 
 
 Você também pode [substituir ou aplicar configurações por ambiente](#override-hostjson-values) usando as configurações do aplicativo.
 
 ## <a name="sample-hostjson-file"></a>Arquivo host.json de exemplo
 
-O seguinte arquivo *host. JSON* de exemplo para a versão 2. x + tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
+O exemplo a seguir *host.jsno* arquivo para a versão 2. x + tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
 
 ```json
 {
@@ -140,12 +140,12 @@ Essa configuração é a filha de [Registro em log](#logging).
 
 Controla opções para Application Insights, incluindo [Opções de amostragem](./functions-monitoring.md#configure-sampling).
 
-Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo host. JSON](#sample-hostjson-file).
+Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arquivo](#sample-hostjson-file).
 
 > [!NOTE]
-> A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights. Para evitar a amostragem de log `excludedTypes: "Request"` , adicione `samplingSettings` ao valor.
+> A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights. Para evitar a amostragem de log, adicione `excludedTypes: "Request"` ao `samplingSettings` valor.
 
-| Propriedade | Padrão | Descrição |
+| Property | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | samplingSettings | N/D | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Habilita a coleta de métricas em tempo real. |
@@ -157,7 +157,7 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo ho
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Propriedade | Padrão | Descrição |
+|Property | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | isEnabled | true | Habilita ou desabilita a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número de destino de itens de telemetria registrados por segundo em cada host do servidor. Se seu aplicativo for executado em vários hosts, reduza esse valor para permanecer dentro da taxa de destino de tráfego geral. | 
@@ -165,28 +165,28 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior de arquivo ho
 | initialSamplingPercentage| 1.0 | A porcentagem de amostragem inicial aplicada no início do processo de amostragem para variar dinamicamente a porcentagem. Não reduza o valor enquanto estiver depurando. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Quando o valor da porcentagem de amostragem é alterado, essa propriedade determina quanto tempo depois Application Insights tem permissão para aumentar a porcentagem de amostragem novamente para capturar mais dados. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Quando o valor da porcentagem de amostragem é alterado, essa propriedade determina quanto tempo depois Application Insights tem permissão para reduzir a porcentagem de amostragem novamente para capturar menos dados. |
-| minSamplingPercentage | 0,1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
-| maxSamplingPercentage | 0,1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
+| minSamplingPercentage | 0.1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
+| maxSamplingPercentage | 0.1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
 | movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
-| excludedTypes | null | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos `Event`são `Exception`: `PageView` `Dependency`, `Request`,, `Trace`, e. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
-| includedTypes | null | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos `Event`são `Exception`: `PageView` `Dependency`, `Request`,, `Trace`, e. As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
+| excludedTypes | nulo | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
+| includedTypes | nulo | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Propriedade | Padrão | Descrição |
+|Property | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Habilita ou desabilita informações de solicitação HTTP estendidas para gatilhos HTTP: cabeçalhos de correlação de solicitação de entrada, suporte para chaves de várias instrumentação, método HTTP, caminho e resposta. |
 | enableW3CDistributedTracing | true | Habilita ou desabilita o suporte do protocolo de rastreamento distribuído W3C (e ativa o esquema de correlação herdado). Habilitado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdadeiro. Se `enableHttpTriggerExtendedInfoCollection` for false, esse sinalizador se aplicará somente a solicitações de saída, não a solicitações de entrada. |
-| enableResponseHeaderInjection | true | Habilita ou desabilita a injeção de cabeçalhos de correlação de vários componentes em respostas. Habilitar a injeção permite que Application Insights Construa um mapa de aplicativo para quando várias chaves de instrumentação são usadas. Habilitado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdadeiro. Essa configuração não se aplica `enableHttpTriggerExtendedInfoCollection` se for false. |
+| enableResponseHeaderInjection | true | Habilita ou desabilita a injeção de cabeçalhos de correlação de vários componentes em respostas. Habilitar a injeção permite que Application Insights Construa um mapa de aplicativo para quando várias chaves de instrumentação são usadas. Habilitado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdadeiro. Essa configuração não se aplica se `enableHttpTriggerExtendedInfoCollection` for false. |
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
 Para obter mais informações sobre instantâneos, consulte [depurar instantâneos em exceções em aplicativos .net](/azure/azure-monitor/app/snapshot-debugger) e [solucionar problemas ao habilitar Application insights depurador de instantâneos ou exibir instantâneos](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
-|Propriedade | Padrão | Descrição |
+|Property | Padrão | Descrição |
 | --------- | --------- | --------- | 
-| agentEndpoint | null | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
-| captureSnapshotMemoryWeight | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
+| agentEndpoint | nulo | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
+| captureSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | O limite do número de solicitações com falha para solicitar instantâneos antes que o processador de telemetria seja desabilitado.|
 | handleUntrackedExceptions | true | Habilita ou desabilita o rastreamento de exceções que não são controladas pela telemetria do Application Insights. |
 | isEnabled | true | Habilita ou desabilita a coleta de instantâneos | 
@@ -195,18 +195,18 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 | isExceptionSnappointsEnabled | false | Habilita ou desabilita a filtragem de exceções. |
 | isLowPrioritySnapshotUploader | true | Determina se o processo SnapshotUploader deve ser executado na prioridade normal abaixo. |
 | maximumCollectionPlanSize | 50 | O número máximo de problemas que podemos rastrear a qualquer momento em um intervalo de um a 9999. |
-| maximumSnapshotsRequired | 3 | O número máximo de instantâneos coletados para um único problema, em um intervalo de um a 999. Um problema pode ser considerado uma instrução Throw individual em seu aplicativo. Depois que o número de instantâneos coletados para um problema atingir esse valor, nenhum instantâneo será coletado para esse problema até que os contadores de problema sejam `problemCounterResetInterval`redefinidos `thresholdForSnapshotting` (consulte) e o limite seja atingido novamente. |
-| problemCounterResetInterval | 24:00:00 | Com que frequência os contadores de problema são redefinidos em um intervalo de um minuto a sete dias. Quando esse intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Problemas existentes que já atingiram o limite para fazer instantâneos, mas que ainda não geraram o número de instantâneos em `maximumSnapshotsRequired`, permanecem ativos. |
+| maximumSnapshotsRequired | 3 | O número máximo de instantâneos coletados para um único problema, em um intervalo de um a 999. Um problema pode ser considerado uma instrução Throw individual em seu aplicativo. Depois que o número de instantâneos coletados para um problema atingir esse valor, nenhum instantâneo será coletado para esse problema até que os contadores de problema sejam redefinidos (consulte `problemCounterResetInterval` ) e o `thresholdForSnapshotting` limite seja atingido novamente. |
+| problemCounterResetInterval | 24:00:00 | Com que frequência os contadores de problema são redefinidos em um intervalo de um minuto a sete dias. Quando esse intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Problemas existentes que já atingiram o limite para fazer instantâneos, mas que ainda não geraram o número de instantâneos em `maximumSnapshotsRequired` , permanecem ativos. |
 | provideAnonymousTelemetry | true | Determina se o uso anônimo e a telemetria de erro devem ser enviados à Microsoft. Essa telemetria poderá ser usada se você entrar em contato com a Microsoft para ajudar a solucionar problemas com o Depurador de Instantâneos. Ele também é usado para monitorar padrões de uso. |
 | reconnectInterval | 00:15:00 | Com que frequência reconectamos ao ponto de extremidade de Depurador de Instantâneos. O intervalo permitido é de um minuto a um dia. |
-| shadowCopyFolder | null | Especifica a pasta a ser usada para binários de cópia de sombra. Se não estiver definido, as pastas especificadas pelas seguintes variáveis de ambiente serão tentadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| shadowCopyFolder | nulo | Especifica a pasta a ser usada para binários de cópia de sombra. Se não estiver definido, as pastas especificadas pelas seguintes variáveis de ambiente serão tentadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | Se for true, apenas uma instância de SnapshotUploader coletará e carregará instantâneos para vários aplicativos que compartilham o InstrumentationKey. Se definido como false, o SnapshotUploader será exclusivo para cada tupla (ProcessName, InstrumentationKey). |
 | snapshotInLowPriorityThread | true | Determina se os instantâneos devem ou não ser processados em um thread de prioridade baixa e/s. A criação de um instantâneo é uma operação rápida, mas, para carregar um instantâneo no serviço de Depurador de Instantâneos, ele deve ser gravado primeiro no disco como um minidespejo. Isso acontece no processo de SnapshotUploader. Definir esse valor como true usa a e/s de baixa prioridade para gravar o minidespejo, que não concorrerá em seu aplicativo para recursos. Definir esse valor como false acelera a criação de minidespejos com a despesa de reduzir o seu aplicativo. |
 | snapshotsPerDayLimit | 30 | O número máximo de instantâneos permitido em um dia (24 horas). Esse limite também é imposto no lado do serviço Application Insights. Os carregamentos têm uma taxa limitada a 50 por dia por aplicativo (isto é, por chave de instrumentação). Esse valor ajuda a impedir a criação de instantâneos adicionais que eventualmente serão rejeitados durante o carregamento. Um valor de zero remove totalmente o limite, o que não é recomendado. |
 | snapshotsPerTenMinutesLimit | 1 | O número máximo de instantâneos permitido em 10 minutos. Embora não haja nenhum limite superior nesse valor, tome cuidado ao aumentá-lo nas cargas de trabalho de produção, pois isso pode afetar o desempenho do seu aplicativo. Criar um instantâneo é rápido, mas criar um minidespejo do instantâneo e carregá-lo para o serviço de Depurador de Instantâneos é uma operação muito mais lenta que conseguirá competir com seu aplicativo para recursos (CPU e e/s). |
-| tempFolder | null | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não for definido, *%Temp%\Dumps* será usado. |
+| tempFolder | nulo | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não for definido, *%Temp%\Dumps* será usado. |
 | thresholdForSnapshotting | 1 | Quantas vezes Application Insights precisa ver uma exceção antes de solicitar instantâneos. |
-| uploaderProxy | null | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
+| uploaderProxy | nulo | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -242,11 +242,16 @@ Uma lista de funções que o host de trabalho executa. Uma matriz vazia signific
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica a duração do tempo limite para todas as funções. Ele segue o formato de cadeia de caracteres TimeSpan. Em um plano de Consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos.  
+Indica a duração do tempo limite para todas as funções. Ele segue o formato de cadeia de caracteres TimeSpan. 
 
-No plano Premium, o intervalo válido é de 1 segundo a 60 minutos e o valor padrão é 30 minutos.
+| Tipo de plano | Padrão (min) | Máximo (min) |
+| -- | -- | -- |
+| Consumo | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (não associado)<sup>2</sup> |
+| Dedicado (serviço de aplicativo) | 30 | -1 (não associado)<sup>2</sup> |
 
-Em um plano dedicado (serviço de aplicativo), não há nenhum limite geral e o valor padrão é 30 minutos. Um valor de `-1` indica a execução não associada, mas é recomendável manter um limite superior fixo.
+<sup>1</sup> a execução do plano Premium só é garantida por 60 minutos, mas tecnicamente desassociada.   
+<sup>2</sup> um valor de `-1` indica a execução não associada, mas é recomendável manter um limite superior fixo.
 
 ```json
 {
@@ -270,7 +275,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Property  |Padrão | Descrição |
 |---------|---------|---------| 
 |Habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
@@ -302,7 +307,7 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Property  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
 |logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
@@ -325,13 +330,13 @@ Essa configuração é a filha de [Registro em log](#logging). Ela controla o lo
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Property  |Padrão | Descrição |
 |---------|---------|---------| 
 |isEnabled|false|Habilita ou desabilita o log de console.| 
 
 ## <a name="manageddependency"></a>managedDependency
 
-A dependência gerenciada é um recurso que atualmente só tem suporte com funções baseadas no PowerShell. Ele permite que as dependências sejam gerenciadas automaticamente pelo serviço. Quando a `enabled` propriedade é definida como `true`, o `requirements.psd1` arquivo é processado. As dependências são atualizadas quando qualquer versão secundária é lançada. Para obter mais informações, consulte [dependência gerenciada](functions-reference-powershell.md#dependency-management) no artigo do PowerShell.
+A dependência gerenciada é um recurso que atualmente só tem suporte com funções baseadas no PowerShell. Ele permite que as dependências sejam gerenciadas automaticamente pelo serviço. Quando a `enabled` propriedade é definida como `true` , o `requirements.psd1` arquivo é processado. As dependências são atualizadas quando qualquer versão secundária é lançada. Para obter mais informações, consulte [dependência gerenciada](functions-reference-powershell.md#dependency-management) no artigo do PowerShell.
 
 ```json
 {
@@ -369,7 +374,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Property  |Padrão | Descrição |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
@@ -379,7 +384,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 
 ## <a name="version"></a>version
 
-Esse valor indica a versão do esquema de host. JSON. A cadeia de `"version": "2.0"` caracteres de versão é necessária para um aplicativo de funções que tenha como destino o tempo de execução v2 ou uma versão posterior. Não há nenhuma alteração de esquema host. JSON entre V2 e v3.
+Esse valor indica a versão do esquema do host.jsno. A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que tenha como destino o tempo de execução v2 ou uma versão posterior. Não há host.jsem alterações de esquema entre V2 e v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
@@ -391,11 +396,11 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 }
 ```
 
-## <a name="override-hostjson-values"></a>Substituir valores de host. JSON
+## <a name="override-hostjson-values"></a>Substituir host.jsem valores
 
-Pode haver instâncias em que você deseja configurar ou modificar configurações específicas em um arquivo host. JSON para um ambiente específico, sem alterar o próprio arquivo host. JSON.  Você pode substituir os valores de host. JSON específicos ao criar um valor equivalente como uma configuração de aplicativo. Quando o tempo de execução encontra uma configuração de aplicativo `AzureFunctionsJobHost__path__to__setting`no formato, ele substitui a configuração de host. JSON `path.to.setting` equivalente localizada em no JSON. Quando expressa como uma configuração de aplicativo, o ponto`.`() usado para indicar a hierarquia JSON é substituído por um sublinhado duplo (`__`). 
+Pode haver instâncias em que você deseja configurar ou modificar configurações específicas em um host.jsno arquivo para um ambiente específico, sem alterar o host.jsno próprio arquivo.  Você pode substituir host.jsespecíficos em valores para criar um valor equivalente como uma configuração de aplicativo. Quando o tempo de execução encontra uma configuração de aplicativo no formato `AzureFunctionsJobHost__path__to__setting` , ele substitui a host.jsequivalente na configuração localizada em `path.to.setting` no JSON. Quando expressa como uma configuração de aplicativo, o ponto ( `.` ) usado para indicar a hierarquia JSON é substituído por um sublinhado duplo ( `__` ). 
 
-Por exemplo, digamos que você quisesse desabilitar a amostragem do Application Insight ao executar localmente. Se você alterou o arquivo host. JSON local para desabilitar Application Insights, essa alteração poderá ser enviada por push ao seu aplicativo de produção durante a implantação. A maneira mais segura de fazer isso é, em vez disso, criar uma `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` configuração de `local.settings.json` aplicativo como no arquivo. Você pode ver isso no arquivo a `local.settings.json` seguir, que não é publicado:
+Por exemplo, digamos que você quisesse desabilitar a amostragem do Application Insight ao executar localmente. Se você alterou o host.jslocal no arquivo para desabilitar a Application Insights, essa alteração poderá ser enviada por push ao seu aplicativo de produção durante a implantação. A maneira mais segura de fazer isso é, em vez disso, criar uma configuração de aplicativo como `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` no `local.settings.json` arquivo. Você pode ver isso no arquivo a seguir `local.settings.json` , que não é publicado:
 
 ```json
 {

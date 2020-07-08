@@ -4,14 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 926434d7110877e234888682cb6c946afe3ae685
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298592"
 ---
 As funções permitem o uso de chaves para dificultar o acesso aos pontos de extremidade de função HTTP durante o desenvolvimento. A menos que o nível de acesso HTTP em uma função disparada por HTTP seja definido como `anonymous`, as solicitações devem incluir uma chave de acesso à API na solicitação. 
+
+Embora as chaves forneçam um mecanismo de segurança padrão, talvez você queira considerar opções adicionais para proteger um ponto de extremidade HTTP na produção. Por exemplo, geralmente não é uma boa prática distribuir o segredo compartilhado em aplicativos públicos. Se sua função estiver sendo chamada de um cliente público, talvez você queira considerar a implementação de outro mecanismo de secrity. Para obter mais informações, confira [Proteger um ponto de extremidade HTTP em produção](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+
+Ao renovar os valores de chave de função, você deve redistribuir manualmente os valores de chave atualizados para todos os clientes que chamam sua função.  
 
 #### <a name="authorization-scopes-function-level"></a>Escopos de autorização (nível de função)
 
