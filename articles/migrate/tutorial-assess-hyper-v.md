@@ -4,12 +4,12 @@ description: Descreve como avaliar as VMs locais do Hyper-V para migração para
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 4c95916bf5f92f8a82b9dfae50aa311891857e7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106485"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114237"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
@@ -54,12 +54,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     - A região do projeto é usada apenas para armazenar os metadados coletados das VMs locais.
     - Você pode selecionar uma região de destino do Azure diferente ao migrar as VMs. Todas as regiões do Azure têm suporte como destino de migração.
 
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
+    ![Criar um projeto de Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Clique em **Próximo**.
 8. Em **Selecionar ferramenta de avaliação**, selecione **Migrações para Azure: Avaliação de Servidor** > **Avançar**.
 
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
+    ![Criar um projeto de Migrações para Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
 9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por enquanto** > **Avançar**.
 10. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
@@ -124,13 +124,13 @@ Importe o arquivo baixado e crie a VM.
 
     ![Implantar o VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
-2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Avançar**.
+2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Próximo**.
 3. Em **Localizar Pasta**, selecione a pasta **Máquinas Virtuais**. Em seguida, clique em **Próximo**.
-1. Em **Selecionar Máquina Virtual**, clique em **Avançar**.
+1. Em **Selecionar Máquina Virtual**, clique em **Próximo**.
 2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
 3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Próximo**.
 4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Próximo**.
-5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) sobre como criar um comutador virtual.
+5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure. [Saiba mais](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) sobre como criar um comutador virtual.
 6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
 7. No Gerenciador do Hyper-V, > **Máquinas Virtuais**, inicie a máquina virtual.
 
