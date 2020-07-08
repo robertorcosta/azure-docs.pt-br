@@ -4,19 +4,18 @@ description: Saiba mais sobre a função de sistema ENDSWITH do SQL no Azure Cos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322679"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 
- Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda.  
+Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -75,6 +74,8 @@ Por exemplo, considere duas propriedades: cidade e país. A cardinalidade de cid
 ```
 
 A primeira consulta provavelmente usará mais RUs do que a segunda consulta, pois a cardinalidade da cidade é maior do que a do país.
+
+Se o tamanho da propriedade em EndsWith for maior que 1 KB para alguns documentos, o mecanismo de consulta precisará carregar esses documentos. Nesse caso, o mecanismo de consulta não conseguirá avaliar totalmente o EndsWith com um índice. O encargo de RU para EndsWith será alto se você tiver um grande número de documentos com tamanhos de propriedade maiores que 1 KB.
 
 ## <a name="next-steps"></a>Próximas etapas
 

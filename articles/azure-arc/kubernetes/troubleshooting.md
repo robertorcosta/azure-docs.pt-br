@@ -10,7 +10,6 @@ description: Solução de problemas comuns de clusters do Kubernetes habilitado 
 keywords: Kubernetes, Arc, Azure, contêineres
 ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
 ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83725577"

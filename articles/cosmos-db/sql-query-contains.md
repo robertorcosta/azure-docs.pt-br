@@ -4,19 +4,18 @@ description: Saiba mais sobre como a função de sistema CONTAINS do SQL no Azur
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a08fe47122d7e9ddd1c9038bb5f15ebbb0be30fa
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322696"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
 
- Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda.  
+Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -75,6 +74,8 @@ Por exemplo, considere duas propriedades: cidade e país. A cardinalidade de cid
 ```
 
 A primeira consulta provavelmente usará mais RUs do que a segunda consulta, pois a cardinalidade da cidade é maior do que a do país.
+
+Se o tamanho da propriedade em contém for maior que 1 KB para alguns documentos, o mecanismo de consulta precisará carregar esses documentos. Nesse caso, o mecanismo de consulta não será capaz de avaliar totalmente Contains com um índice. A carga de RU para Contains será alta se você tiver um grande número de documentos com tamanhos de propriedade mais de 1 KB.
 
 ## <a name="next-steps"></a>Próximas etapas
 

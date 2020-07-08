@@ -4,13 +4,12 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como instalar e configurar um controlador de entrada NGINX com um endereço IP público estático em um cluster do AKS (Serviço de Kubernetes do Azure).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: a44a41806af30479f06ec4daba936c7aa71ef5d7
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.date: 07/02/2020
+ms.openlocfilehash: f10bed46f93af3579f07e04d9940fc98eef67826
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920304"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -27,7 +26,7 @@ Também é possível:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
 Este artigo usa [Helm 3][helm] para instalar o controlador de entrada e o Gerenciador de certificados do nginx. Verifique se você está usando a versão mais recente do Helm. Para obter instruções de atualização, consulte o [Helm instalar documentos][helm-install]. Para obter mais informações sobre como configurar e usar o Helm, consulte [instalar aplicativos com Helm no serviço kubernetes do Azure (AKs)][use-helm].
 
@@ -59,16 +58,19 @@ Você deve passar dois parâmetros adicionais para a versão Helm para que o con
 O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, `--set rbac.create=false` adicione aos comandos Helm.
+> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, adicione `--set rbac.create=false` aos comandos Helm.
 
 > [!TIP]
-> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu `--set controller.service.externalTrafficPolicy=Local` cluster, adicione ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
+> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
 
 Atualize o script a seguir com o **endereço IP** do controlador de entrada e um **nome exclusivo** que você deseja usar para o prefixo FQDN:
 
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -167,7 +169,7 @@ clusterissuer.cert-manager.io/letsencrypt-staging created
 
 Um controlador de entrada e uma solução de gerenciamento de certificados foi configurado. Agora, vamos executar duas demonstrações de aplicativos no cluster do AKS. Neste exemplo, o Helm é utilizado para executar várias instâncias de um aplicativo simples hello world.
 
-Para ver o controlador de entrada em ação, execute dois aplicativos de demonstração no cluster AKS. Neste exemplo, você usa `kubectl apply` o para implantar duas instâncias de um aplicativo *Hello World* simples.
+Para ver o controlador de entrada em ação, execute dois aplicativos de demonstração no cluster AKS. Neste exemplo, você usa o `kubectl apply` para implantar duas instâncias de um aplicativo *Hello World* simples.
 
 Crie um arquivo *AKs-HelloWorld. YAML* e copie no seguinte exemplo YAML:
 
@@ -245,7 +247,7 @@ spec:
     app: ingress-demo
 ```
 
-Execute os dois aplicativos de demonstração `kubectl apply`usando:
+Execute os dois aplicativos de demonstração usando `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -348,9 +350,9 @@ certificate.cert-manager.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>Testar a configuração de entrada
 
-Abra um navegador da Web para o FQDN do controlador de entrada do kubernetes, como *`https://demo-aks-ingress.eastus.cloudapp.azure.com`*.
+Abra um navegador da Web para o FQDN do controlador de entrada do kubernetes, como *`https://demo-aks-ingress.eastus.cloudapp.azure.com`* .
 
-Como esses exemplos usam `letsencrypt-staging`, o certificado TLS/SSL emitido não é confiável pelo navegador. Aceite a mensagem de aviso para continuar a seu aplicativo. As informações de certificado mostram que este certificado *Fake LE Intermediate X1* é emitido pelo Vamos Criptografar. Esse certificado falso indica que `cert-manager` processou a solicitação corretamente e que foi recebida de um certificado do provedor:
+Como esses exemplos usam `letsencrypt-staging` , o certificado TLS/SSL emitido não é confiável pelo navegador. Aceite a mensagem de aviso para continuar a seu aplicativo. As informações de certificado mostram que este certificado *Fake LE Intermediate X1* é emitido pelo Vamos Criptografar. Esse certificado falso indica que `cert-manager` processou a solicitação corretamente e que foi recebida de um certificado do provedor:
 
 ![Certificado de preparo Vamos Criptografar](media/ingress/staging-certificate.png)
 
@@ -366,13 +368,13 @@ Agora, adicione o caminho */hello-world-two* para o FQDN, como *`https://demo-ak
 
 ![Exemplo de aplicativo dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso, os certificados e os aplicativos de exemplo. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Excluir o namespace de exemplo e todos os recursos
 
-Para excluir o namespace de exemplo inteiro, use `kubectl delete` o comando e especifique o nome do namespace. Todos os recursos no namespace são excluídos.
+Para excluir o namespace de exemplo inteiro, use o `kubectl delete` comando e especifique o nome do namespace. Todos os recursos no namespace são excluídos.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -397,7 +399,7 @@ nginx-ingress           ingress-basic   1               2020-01-11 14:51:03.4541
 cert-manager            ingress-basic   1               2020-01-06 21:19:03.866212286  deployed        cert-manager-v0.13.0    v0.13.0
 ```
 
-Desinstale as versões com `helm uninstall` o comando. O exemplo a seguir desinstala a implantação de entrada do NGINX e as implantações do Gerenciador de certificados.
+Desinstale as versões com o `helm uninstall` comando. O exemplo a seguir desinstala a implantação de entrada do NGINX e as implantações do Gerenciador de certificados.
 
 ```
 $ helm uninstall nginx-ingress cert-manager -n ingress-basic

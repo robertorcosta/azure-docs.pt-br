@@ -3,21 +3,20 @@ title: Configurar as chaves gerenciadas pelo cliente para a conta do Azure Cosmo
 description: Saiba como configurar chaves gerenciadas pelo cliente para sua conta do Azure Cosmos DB com o Azure Key Vault
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: 5629ddfe496ef1abd071ab579c885cbe1adeb344
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592076"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027763"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure Cosmos DB com o Azure Key Vault
 
 Os dados armazenados em sua conta do Azure Cosmos são criptografados de forma automática e direta, com as chaves gerenciadas pela Microsoft (**chaves gerenciadas pelo serviço**). Você pode optar por adicionar uma segunda camada de criptografia com chaves gerenciadas por você (**chaves gerenciadas pelo cliente**).
 
-![Camadas de criptografia em relação aos dados do cliente](./media/how-to-setup-cmk/cmk-intro.png)
+:::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Camadas de criptografia em relação aos dados do cliente":::
 
 Você deve armazenar chaves gerenciadas pelo cliente no [Azure Key Vault](../key-vault/general/overview.md) e fornecer uma chave para cada conta do Azure Cosmos que esteja habilitada com chaves gerenciadas pelo cliente. Essa chave é usada para criptografar todos os dados armazenados nessa conta.
 
@@ -28,11 +27,11 @@ Você deve armazenar chaves gerenciadas pelo cliente no [Azure Key Vault](../key
 
 1. Entre no [portal do Azure](https://portal.azure.com/), acesse sua assinatura do Azure e selecione **Provedores de recursos** na guia **configurações**:
 
-   ![Entrada de “Provedores de recursos” no menu à esquerda](./media/how-to-setup-cmk/portal-rp.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Entrada de provedores de recursos no menu à esquerda":::
 
 1. Pesquise o provedor de recursos do **Microsoft.DocumentDB**. Verifique se o provedor de recursos já está marcado como registrado. Caso contrário, escolha o provedor de recursos e selecione **Registrar**:
 
-   ![Registrar o provedor de recursos do Microsoft.DocumentDB](./media/how-to-setup-cmk/portal-rp-register.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Registrar o provedor de recursos do Microsoft.DocumentDB":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configurar sua instância do Azure Key Vault
 
@@ -40,7 +39,7 @@ O uso de chaves gerenciadas pelo cliente com Azure Cosmos DB exige que você def
 
 Se você criar uma nova instância do Azure Key Vault, habilite essas propriedades durante a criação:
 
-![Habilitar a exclusão reversível e a proteção de limpeza para uma nova instância do Azure Key Vault](./media/how-to-setup-cmk/portal-akv-prop.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Habilitar a exclusão reversível e a proteção de limpeza para uma nova instância do Azure Key Vault":::
 
 Se estiver usando uma instância existente do Azure Key Vault, você poderá verificar se essas propriedades estão habilitadas examinando a seção **Propriedades** no portal do Azure. Se qualquer uma dessas propriedades não estiver habilitada, consulte as seções “Habilitar a exclusão reversível” e “Habilitar a proteção de limpeza” em um dos seguintes artigos:
 
@@ -51,17 +50,17 @@ Se estiver usando uma instância existente do Azure Key Vault, você poderá ver
 
 1. No portal do Azure, vá até a instância do Azure Key Vault que você planeja usar para hospedar suas chaves de criptografia. Selecione **Políticas de acesso** no menu à esquerda:
 
-   ![“Políticas de acesso” no menu à esquerda](./media/how-to-setup-cmk/portal-akv-ap.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Políticas de acesso no menu à esquerda":::
 
 1. Selecione **+ Adicionar política de acesso**.
 
 1. No menu suspenso **Permissões de chave**, selecione as permissões **Obter**, **Desencapsular chave** e **Encapsular chave**:
 
-   ![Selecionar as permissões certas](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Selecionar as permissões certas":::
 
 1. Em **Selecionar entidade de segurança**, selecionar **Nenhuma selecionada**. Em seguida, pesquise a entidade de segurança do **Azure Cosmos DB** e selecione-a (para facilitar a localização, você também pode pesquisar pela ID da entidade de segurança: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região do Azure, exceto regiões do Azure Governamental onde a ID da entidade de segurança é `57506a73-e302-42a9-b869-6f12d9ec29e9`). Por último, escolha **Selecionar** na parte inferior da tela. Se a entidade de segurança do **Azure Cosmos DB** não estiver na lista, talvez seja necessário registrar novamente o provedor de recursos **Microsoft.DocumentDB**, conforme descrito na seção [Registrar o provedor de recursos](#register-resource-provider) deste artigo.
 
-   ![Selecionar a entidade de segurança do Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-add-ap.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selecionar a entidade de segurança do Azure Cosmos DB":::
 
 1. Selecione **Adicionar** para adicionar a nova política de acesso.
 
@@ -69,17 +68,17 @@ Se estiver usando uma instância existente do Azure Key Vault, você poderá ver
 
 1. No portal do Azure, vá até a instância do Azure Key Vault que você planeja usar para hospedar suas chaves de criptografia. Em seguida, selecione **Chaves** no menu à esquerda:
 
-   ![Entrada para “Chaves” no menu à esquerda](./media/how-to-setup-cmk/portal-akv-keys.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Entrada de chaves no menu à esquerda":::
 
 1. Selecione **Gerar/Importar**, forneça um nome para a nova chave e selecione um tamanho de chave RSA. Recomendamos um mínimo de 3072 para maior segurança. Em seguida, selecione **Criar**:
 
-   ![Criar uma nova chave](./media/how-to-setup-cmk/portal-akv-gen.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Criar uma nova chave":::
 
 1. Depois que a chave for criada, selecione a chave recém-criada e, em seguida, sua versão atual.
 
 1. Copie o **Identificador de chave** da chave, exceto a parte após a última barra “/”:
 
-   ![Copiar o identificador de chave da chave](./media/how-to-setup-cmk/portal-akv-keyid.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Copiar o identificador de chave da chave":::
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Criar uma nova conta do Azure Cosmos
 
@@ -87,7 +86,7 @@ Se estiver usando uma instância existente do Azure Key Vault, você poderá ver
 
 Quando criar uma nova conta do Azure Cosmos DB no portal do Azure, escolha **Chave gerenciada pelo cliente** na etapa **Criptografia**. No campo **URI da chave**, cole o URI/identificador de chave da chave do Azure Key Vault que você copiou da etapa anterior:
 
-![Definir os parâmetros da chave gerenciada pelo cliente no portal do Azure](./media/how-to-setup-cmk/portal-cosmos-enc.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Definir os parâmetros da chave gerenciada pelo cliente no portal do Azure":::
 
 ### <a name="using-azure-powershell"></a><a id="using-powershell"></a> Usar o PowerShell do Azure
 
@@ -220,6 +219,35 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="key-rotation"></a>Alteração de chaves
+
+A rotação da chave gerenciada pelo cliente usada pela sua conta do Azure Cosmos pode ser feita de duas maneiras.
+
+- Crie uma nova versão da chave atualmente usada no Azure Key Vault:
+
+  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Criar uma nova versão da chave":::
+
+- Troque a chave usada atualmente por uma que seja totalmente diferente, atualizando a `keyVaultKeyUri` propriedade da sua conta. Veja como fazer isso no PowerShell:
+
+    ```powershell
+    $resourceGroupName = "myResourceGroup"
+    $accountName = "mycosmosaccount"
+    $newKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-new-key>"
+    
+    $account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
+        -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+    
+    $account.Properties.keyVaultKeyUri = $newKeyUri
+    
+    $account | Set-AzResource -Force
+    ```
+
+A versão de chave ou chave anterior pode ser desabilitada após 24 horas, ou depois que os [logs de auditoria Azure Key Vault](../key-vault/general/logging.md) não mostram mais a atividade de Azure Cosmos DB nessa chave ou versão de chave.
+    
+## <a name="error-handling"></a>Tratamento de erros
+
+Ao usar chaves gerenciadas pelo cliente (CMK) no Azure Cosmos DB, se houver erros, Azure Cosmos DB retornará os detalhes do erro junto com um código de substatus HTTP na resposta. Você pode usar esse código de substatus para depurar a causa raiz do problema. Consulte o artigo [códigos de status HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) para obter a lista de códigos de substatus HTTP com suporte.
+
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="is-there-an-additional-charge-to-enable-customer-managed-keys"></a>Há encargos adicionais para habilitar chaves gerenciadas pelo cliente?
@@ -264,23 +292,15 @@ Você pode buscar programaticamente os detalhes da sua conta do Azure Cosmos e v
 
 O Azure Cosmos DB realiza [backups regulares e automáticos](./online-backup-and-restore.md) dos dados armazenados em sua conta. Esta operação faz backup dos dados criptografados. Para usar o backup restaurado, a chave de criptografia que você usou no momento do backup é necessária. Isso significa que nenhuma revogação foi feita e a versão da chave que foi usada no momento do backup ainda estará habilitada.
 
-### <a name="how-do-i-rotate-an-encryption-key"></a>Como fazer a rotação de uma chave de criptografia?
-
-A rotação de chaves é executada por meio da criação de uma nova versão da chave no Azure Key Vault:
-
-![Criar uma nova versão da chave](./media/how-to-setup-cmk/portal-akv-rot.png)
-
-A versão anterior pode ser desabilitada após 24 horas, ou após os [logs de auditoria no Azure Key Vault](../key-vault/general/logging.md) não mostrarem mais a atividade do Azure Cosmos DB nessa versão.
-
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Como fazer para revogar uma chave de criptografia?
 
 A revogação de uma chave é feita desabilitando a versão mais recente da chave:
 
-![Desabilitar a versão de uma chave](./media/how-to-setup-cmk/portal-akv-rev2.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="Desabilitar a versão de uma chave":::
 
 Como alternativa, para revogar todas as chaves de uma instância do Azure Key Vault, você pode excluir a política de acesso concedida à entidade de segurança do Azure Cosmos DB:
 
-![Excluir a política de acesso para a entidade de segurança do Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-rev.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="Excluir a política de acesso para a entidade de segurança do Azure Cosmos DB":::
 
 ### <a name="what-operations-are-available-after-a-customer-managed-key-is-revoked"></a>Quais operações estão disponíveis depois que uma chave gerenciada pelo cliente é revogada?
 

@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9f92a6277765447cbc1a9b12f06c3ec49548f4d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "64693230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513458"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
 
@@ -91,7 +90,7 @@ Execute as etapas a seguir para editar um ACR.
 
     ![Editar os registros de controle de acesso](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Clique em **Salvar**. Quando solicitada a confirmação, clique em **Sim**. 
+4. Clique em **Save** (Salvar). Quando solicitada a confirmação, clique em **Sim**. 
 
     ![Editar os registros de controle de acesso](./media/storsimple-8000-manage-acrs/editacr3.png)
 

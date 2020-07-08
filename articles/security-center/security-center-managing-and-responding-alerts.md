@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769754"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerenciar e responder a alertas de segurança na central de segurança do Azure
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerencie e responda a alertas de segurança na Central de Segurança do Azure
 
 Este tópico mostra como exibir e processar os alertas que você recebeu para proteger seus recursos. 
 
@@ -58,21 +57,26 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
 
 1. Depois de revisar as informações, clique em um recurso que foi atacado.
 
+    O painel esquerdo da página alerta de segurança mostra informações de alto nível sobre o alerta de segurança: título, severidade, status, tempo de atividade, descrição da atividade suspeita e o recurso afetado. Junto com o recurso afetado estão as marcas do Azure relevantes para o recurso. Use-os para inferir o contexto organizacional do recurso ao investigar o alerta.
+
+    O painel direito inclui a guia **detalhes do alerta** que contém mais detalhes do alerta para ajudá-lo a investigar o problema: endereços IP, arquivos, processos e muito mais.
+     
     ![Sugestões sobre o que fazer sobre alertas de segurança](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    A seção **informações gerais** pode oferecer uma percepção do que disparou o alerta de segurança. Ele exibe informações como o recurso de destino, endereço IP de origem (quando aplicável), se o alerta ainda estiver ativo e recomendações sobre como corrigir.  
+    Também no painel direito está a guia **executar ação** . Use esta guia para executar mais ações em relação ao alerta de segurança. Ações como:
+    - *Atenuar a ameaça* -fornece etapas de correção manual para este alerta de segurança
+    - *Evitar ataques futuros* – fornece recomendações de segurança para ajudar a reduzir a superfície de ataque, aumentar a postura de segurança e, portanto, evitar ataques futuros
+    - *Disparar resposta automatizada* – fornece a opção para disparar um aplicativo lógico como uma resposta a este alerta de segurança
+    - *Suprimir alertas semelhantes* – fornece a opção de suprimir alertas futuros com características semelhantes se o alerta não for relevante para sua organização
 
-    > [!NOTE]
-    >Em alguns casos, o endereço IP de origem não está disponível, alguns logs de eventos de segurança do Windows não incluem o endereço IP.
+    ![Executar a guia ação](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-1. As etapas de correção sugeridas pela Central de Segurança variam de acordo com o alerta de segurança. Siga-os para cada alerta. 
 
-    Em alguns casos, para atenuar um alerta de segurança, talvez seja necessário usar outros controles ou serviços do Azure para implementar a correção recomendada. 
 
-## <a name="see-also"></a>Confira também
 
-Neste documento, você aprendeu a configurar políticas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
+## <a name="see-also"></a>Consulte também
 
-- [O módulo Microsoft Learn sobre como usar os recursos de alerta da central de segurança do Azure para observar e responder às ameaças](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
-* [Alertas de segurança na central de segurança do Azure](security-center-alerts-overview.md).
-* [Lidando com incidentes de segurança](security-center-incident.md)
+Neste documento, você aprendeu a exibir alertas de segurança. Consulte as páginas a seguir para obter material relacionado:
+
+- [Configurar regras de supressão de alerta](alerts-suppression-rules.md)
+- [Automatizar as respostas a alertas e recomendações com a automação do fluxo de trabalho](workflow-automation.md)

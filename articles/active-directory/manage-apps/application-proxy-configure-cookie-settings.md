@@ -2,22 +2,21 @@
 title: Configurações de cookie do Proxy de Aplicativo – Azure Active Directory | Microsoft Docs
 description: O Azure AD (Azure Active Directory) tem cookies de sessão e de acesso para acessar aplicativos locais por meio do Proxy de Aplicativo. Neste artigo, você descobrirá como usar e definir as configurações de cookie.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481357"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764886"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Configurações de cookie para acessar aplicativos locais no Azure Active Directory
 
@@ -49,7 +48,7 @@ Além disso, se o aplicativo de back-end tiver cookies que precisam estar dispon
 Para definir as configurações de cookie usando o portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
-2. Navegue até **Azure Active Directory** >> **aplicativos** empresariais **todos os aplicativos**.
+2. Navegue até **Azure Active Directory**   >  **aplicativos empresariais**   >  **todos os aplicativos**.
 3. Selecione o aplicativo para o qual você deseja habilitar a configuração de um cookie.
 4. Clique em **proxy de aplicativo**.
 5. Em **Configurações Adicionais**, defina a configuração do cookie como **Sim** ou **Não**.
@@ -65,7 +64,7 @@ Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl *
 
 ## <a name="set-cookie-settings---powershell"></a>Definir configurações de cookie-PowerShell
 
-Nos comandos do PowerShell a seguir ```<ObjectId>``` , é o ObjectID do aplicativo. 
+Nos comandos do PowerShell a seguir, ```<ObjectId>``` é o ObjectID do aplicativo. 
 
 **Cookie somente http** 
 

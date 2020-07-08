@@ -8,12 +8,11 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273053"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920068"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
 Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração. 
@@ -300,7 +299,7 @@ Você pode fazer com que sua tarefa de inicialização execute etapas diferentes
 
 Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [Servicedefinition]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
 
-Para criar a variável de ambiente, adicione o elemento [Variable]/[RoleInstanceValue] e crie um valor XPath `/RoleEnvironment/Deployment/@emulated`de. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
+Para criar a variável de ambiente, adicione o elemento [Variable] / [RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated` . O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -377,9 +376,7 @@ EXIT /B 0
 A seguir, algumas práticas recomendadas que você deve seguir ao configurar a tarefa para sua função Web ou de trabalho.
 
 ### <a name="always-log-startup-activities"></a>Sempre registrar em log as atividades de inicialização
-O Visual Studio não fornece um depurador para percorrer arquivos em lotes e, portanto, será bom ter tantos dados sobre a operação de arquivos em lotes quanto possível. O registro em log da saída de arquivos em lotes, **stdout** e **stderr**, pode fornecer informações importantes ao tentar depurar e corrigir arquivos em lotes. Para registrar em log **stdout** e **stderr** para o arquivo StartupLog.txt no diretório apontado pela variável de ambiente **%TEMP%**, adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao final de linhas específicas que deseja registrar em log. Por exemplo, para executar setup.exe no diretório **%PathToApp1Install%** :
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+O Visual Studio não fornece um depurador para percorrer arquivos em lotes e, portanto, será bom ter tantos dados sobre a operação de arquivos em lotes quanto possível. O registro em log da saída de arquivos em lotes, **stdout** e **stderr**, pode fornecer informações importantes ao tentar depurar e corrigir arquivos em lotes. Para registrar em log **stdout** e **stderr** para o arquivo StartupLog.txt no diretório apontado pela variável de ambiente **%TEMP%**, adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao final de linhas específicas que deseja registrar em log. Por exemplo, para executar setup.exe no diretório **% PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Para simplificar o xml, você pode criar um arquivo wrapper *cmd* que chama todas as tarefas de inicialização, juntamente com o registro em log, e garante que cada tarefa filho compartilhe as mesmas variáveis de ambiente.
 
@@ -483,7 +480,7 @@ A função só será iniciada se o **errorlevel** de cada uma de suas tarefas de
 Um `EXIT /B 0` ausente no final de um arquivo em lotes de inicialização é uma causa comum de funções que não são iniciadas.
 
 > [!NOTE]
-> Observei que arquivos em lotes aninhados às vezes travarm ao usar o parâmetro `/B`. Convém verificar se esse problema de suspensão não acontece se outro arquivo em lotes chama o arquivo em lotes atual, como quando você usa o [wrapper de log](#always-log-startup-activities). Você pode omitir o parâmetro `/B` nesse caso.
+> Observei que arquivos em lote aninhados às vezes param de responder ao usar o `/B` parâmetro. Talvez você queira certificar-se de que esse problema não ocorrerá se outro arquivo em lotes chamar o arquivo em lotes atual, como se você usa o [wrapper de log](#always-log-startup-activities). Você pode omitir o parâmetro `/B` nesse caso.
 > 
 > 
 
@@ -491,7 +488,7 @@ Um `EXIT /B 0` ausente no final de um arquivo em lotes de inicialização é uma
 Nem todas as reciclagens de função incluem uma reinicialização, mas todas as reciclagens incluem a execução de todas as tarefas de inicialização. Isso significa que deve ser possível executar as tarefas de inicialização várias vezes entre as reinicializações sem problemas. Isso é discutido na [seção anterior](#detect-that-your-task-has-already-run).
 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Usar o armazenamento local para armazenar arquivos que devem ser acessados na função
-Se você quiser copiar ou criar um arquivo enquanto sua tarefa de inicialização estiver acessível para sua função, esse arquivo deverá ser colocado no armazenamento local. Confira a [seção anterior](#create-files-in-local-storage-from-a-startup-task).
+Se você quiser copiar ou criar um arquivo enquanto sua tarefa de inicialização estiver acessível para sua função, esse arquivo deverá ser colocado no armazenamento local. Consulte a [seção anterior](#create-files-in-local-storage-from-a-startup-task).
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine o [modelo de serviço e o pacote da nuvem](cloud-services-model-and-package.md)
@@ -505,13 +502,10 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Ela]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [Pontos de extremidade]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-

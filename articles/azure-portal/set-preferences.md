@@ -6,15 +6,14 @@ keywords: configurações, tempo limite, idioma, regional
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310672"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763951"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Definir suas preferências do portal do Azure
 
@@ -71,7 +70,7 @@ A configuração de exibição padrão controla qual portal do Azure exibição 
 O modo padrão do menu do portal controla a quantidade de espaço que o menu do portal ocupa na página.
 
 * Quando o menu do portal estiver no modo de **submenu** , ele ficará oculto até que você precise dele. Selecione o ícone de menu para abrir ou fechar o menu.
-* Se você escolher o modo **encaixado** para o menu do portal, ele estará sempre visível. Você pode recolher o menu para fornecer mais espaço de trabalho. 
+* Se você escolher o modo **encaixado** para o menu do portal, ele estará sempre visível. Você pode recolher o menu para oferecer mais espaço de trabalho. 
 
 ### <a name="choose-a-theme"></a>Escolher um tema
 
@@ -79,7 +78,7 @@ O tema escolhido afeta as cores de plano de fundo e fonte que aparecem no portal
 
    ![Captura de tela mostrando configurações de portal do Azure com temas realçados](./media/set-preferences/theme.png)
 
-Você pode escolher um dos temas de alto contraste em vez disso. As configurações de alto contraste tornam a portal do Azure mais fácil de ler para usuários com deficiência visual e substituir todas as outras seleções de tema. Para obter mais informações, consulte [ativar o alto contraste ou alterar o tema](azure-portal-change-theme-high-contrast.md).
+Você pode escolher um dos temas de alto contraste em vez disso. As configurações de alto contraste tornam a portal do Azure mais fácil de ler para as pessoas que têm um deficiência visual e substituem todas as outras seleções de tema. Para obter mais informações, consulte [ativar o alto contraste ou alterar o tema](azure-portal-change-theme-high-contrast.md).
 
 ### <a name="enable-or-disable-pop-up-notifications"></a>Habilitar ou desabilitar notificações pop-up
 

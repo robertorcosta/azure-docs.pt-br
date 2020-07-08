@@ -5,16 +5,15 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022411"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de Z-fighting
 
-Quando duas superfícies se sobrepõem, não fica claro qual delas deve ser renderizada sobre a outra. O resultado até varia por pixel, resultando em artefatos dependentes da exibição. Consequentemente, quando a câmera ou a malha se move, esses padrões se deslocam visivelmente. Esse artefato é chamado *Z-fighting*. No caso de aplicativos de RA e RV, o problema é intensificado porque os dispositivos com capacete naturalmente sempre se movem. Para evitar desconforto do usuário, a funcionalidade de mitigação de Z-fighting está disponível no Azure Remote Rendering.
+Quando duas superfícies se sobrepõem, não fica claro qual delas deve ser renderizada sobre a outra. O resultado até varia por pixel, resultando em artefatos dependentes da exibição da câmera. Consequentemente, quando a câmera ou a malha se move, esses padrões se deslocam visivelmente. Esse artefato é chamado *Z-fighting*. No caso de aplicativos de RA e RV, o problema é intensificado porque os dispositivos com capacete naturalmente sempre se movem. Para evitar desconforto do usuário, a funcionalidade de mitigação de Z-fighting está disponível no Azure Remote Rendering.
 
 ## <a name="z-fighting-mitigation-modes"></a>Modos de mitigação de Z-fighting
 

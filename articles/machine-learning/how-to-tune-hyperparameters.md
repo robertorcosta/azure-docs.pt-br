@@ -8,15 +8,14 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 93418369724286e8b8c967754b2fb37135094008
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189293"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027582"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ajustar os hiperparâmetros para o seu modelo com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +108,7 @@ Na amostragem Aleatória, os valores de hiperparâmetro serão selecionadas alea
 
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
+from azureml.train.hyperdrive import normal, uniform, choice
 param_sampling = RandomParameterSampling( {
         "learning_rate": normal(10, 3),
         "keep_probability": uniform(0.05, 0.1),
@@ -123,6 +123,7 @@ A [amostragem de grade](https://docs.microsoft.com/python/api/azureml-train-core
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
+from azureml.train.hyperdrive import choice
 param_sampling = GridParameterSampling( {
         "num_hidden_layers": choice(1, 2, 3),
         "batch_size": choice(16, 32)
@@ -136,10 +137,11 @@ A [amostragem de Bayesiana](https://docs.microsoft.com/python/api/azureml-train-
 
 Ao usar a amostragem Bayesiana, o número de execuções simultâneas tem um impacto sobre a eficácia do processo de ajuste. Normalmente, um número menor de execuções simultâneas pode levar a convergência de amostragem melhor, desde que o menor grau de paralelismo aumente o número de execuções que se beneficiam de execuções concluídas anteriormente.
 
-A amostragem de Bayesiana `choice`dá `uniform`suporte apenas `quniform` a distribuições, e no espaço de pesquisa.
+A amostragem de Bayesiana dá suporte apenas `choice` `uniform` `quniform` a distribuições, e no espaço de pesquisa.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
+from azureml.train.hyperdrive import uniform, choice
 param_sampling = BayesianParameterSampling( {
         "learning_rate": uniform(0.05, 0.1),
         "batch_size": choice(16, 32, 64, 128)
@@ -329,7 +331,7 @@ warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
 warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
 ```
 
-Além disso, pode haver ocasiões em que o treinamento individual é executado de um experimento de ajuste de hiperparâmetro é cancelado devido a restrições de orçamento ou falha devido a outros motivos. Agora é possível retomar essas execuções de treinamento individuais do último ponto de verificação (supondo que o script de treinamento manipule pontos de verificação). Retomar uma execução de treinamento individual usará a mesma configuração de hiperparâmetro e montará a pasta de saídas usada para essa execução. O script de treinamento deve aceitar `resume-from` o argumento, que contém os arquivos de ponto de verificação ou modelo dos quais retomar a execução de treinamento. Você pode retomar as execuções de treinamento individuais usando o seguinte trecho:
+Além disso, pode haver ocasiões em que o treinamento individual é executado de um experimento de ajuste de hiperparâmetro é cancelado devido a restrições de orçamento ou falha devido a outros motivos. Agora é possível retomar essas execuções de treinamento individuais do último ponto de verificação (supondo que o script de treinamento manipule pontos de verificação). Retomar uma execução de treinamento individual usará a mesma configuração de hiperparâmetro e montará a pasta de saídas usada para essa execução. O script de treinamento deve aceitar o `resume-from` argumento, que contém os arquivos de ponto de verificação ou modelo dos quais retomar a execução de treinamento. Você pode retomar as execuções de treinamento individuais usando o seguinte trecho:
 
 ```Python
 from azureml.core.run import Run
@@ -339,7 +341,7 @@ resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
 child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```
 
-Você pode configurar o teste de ajuste de hiperparâmetro para iniciar a quente de um experimento anterior ou retomar execuções de `resume_from` treinamento `resume_child_runs` individuais usando os parâmetros opcionais e na configuração:
+Você pode configurar o teste de ajuste de hiperparâmetro para iniciar a quente de um experimento anterior ou retomar execuções de treinamento individuais usando os parâmetros opcionais `resume_from` e `resume_child_runs` na configuração:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig

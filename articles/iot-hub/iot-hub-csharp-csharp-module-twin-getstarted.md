@@ -10,10 +10,9 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp
 ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733386"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introdução à identidade e módulo do módulo do Hub IoT (.NET)
@@ -36,13 +35,13 @@ No fim deste tutorial, você terá dois aplicativos de console .NET:
 
 * Visual Studio.
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
 ## <a name="create-a-hub"></a>Criar um hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do hub IoT
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
@@ -58,7 +57,7 @@ Antes de começar, obtenha a cadeia de conexão do módulo. Entre no [portal do 
 
    ![Detalhes do módulo do Portal do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. No Visual Studio, adicione um novo projeto à sua solução selecionando **arquivo** > **novo** > **projeto**. Em criar um novo projeto, selecione **aplicativo de console (.NET Framework)** e selecione **Avançar**.
+1. No Visual Studio, adicione um novo projeto à sua solução selecionando **arquivo**  >  **novo**  >  **projeto**. Em criar um novo projeto, selecione **aplicativo de console (.NET Framework)** e selecione **Avançar**.
 
 1. Nomeie o projeto *UpdateModuleTwinReportedProperties*. Para **solução**, selecione **Adicionar à solução**. Verifique se a versão do .NET Framework é 4.6.1 ou posterior.
 
@@ -66,13 +65,13 @@ Antes de começar, obtenha a cadeia de conexão do módulo. Entre no [portal do 
 
 1. Selecione **criar** para criar seu projeto.
 
-1. No Visual Studio, abra **ferramentas** > **Gerenciador** > **de pacotes NuGet gerenciar pacotes NuGet para solução**. Selecione a guia **Procurar**.
+1. No Visual Studio, abra **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **gerenciar pacotes NuGet para solução**. Selecione a guia **Procurar**.
 
 1. Pesquise e selecione **Microsoft. Azure. Devices. Client**e, em seguida, selecione **instalar**.
 
     ![Instalar a versão atual do SDK do serviço .NET do Hub IoT do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. Adicione as seguintes `using` instruções na parte superior do arquivo **Program.cs** :
+1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

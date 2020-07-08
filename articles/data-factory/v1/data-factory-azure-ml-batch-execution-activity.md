@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c40b58dfb63ac6bf1b5532eb06bfd2ad0cdccde9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73683135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022020"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 
@@ -29,8 +28,8 @@ ms.locfileid: "73683135"
 > * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics atividade U-SQL](data-factory-usql-activity.md)
-> * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
+> * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
+> * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Introdução
 > [!NOTE]
@@ -80,7 +79,7 @@ Nesse cenário, o serviço Web de Azure Machine Learning faz previsões usando d
 > [!IMPORTANT]
 > Se o serviço Web receber várias entradas, use a propriedade **webServiceInputs** em vez de usar **webServiceInput**. Veja a seção [Serviço Web exige várias entradas](#web-service-requires-multiple-inputs) para obter um exemplo de como usar a propriedade webServiceInputs.
 >
-> Os conjuntos de resultados que são referenciados pelas propriedades **webServiceInput**/**webServiceInputs** e **webServiceOutputs** (em **typeproperties**) também devem ser incluídos nas **entradas** e **saídas**da atividade.
+> Os conjuntos de resultados que são referenciados pelas propriedades **webServiceInput** / **webServiceInputs** e **webServiceOutputs** (em **typeproperties**) também devem ser incluídos nas **entradas** e **saídas**da atividade.
 >
 > Em seu experimento do Azure Machine Learning Studio, as portas de entrada e saída do serviço Web e os parâmetros globais têm nomes padrão ("input1", "input2") que você pode personalizar. Os nomes que você usa para as configurações webServiceInputs, webserviceoutputs e globalParameters devem corresponder exatamente aos nomes nos testes. Você pode exibir o conteúdo da solicitação de exemplo na página Ajuda da Execução em Lotes do ponto de extremidade do Azure Machine Learning Studio a fim de verificar o mapeamento esperado.
 >
@@ -301,7 +300,7 @@ Recomendamos que você percorra o tutorial [Compilar seu primeiro pipeline com o
       }
       ```
 
-      Os DateTimes de **início** e **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**" Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
+      Os DateTimes de **início** e **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end** , ele será calculado como "**Start + 48 hours".** Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
       > [!NOTE]
       > A especificação de entrada para a atividade AzureMLBatchExecution é opcional.
@@ -311,7 +310,7 @@ Recomendamos que você percorra o tutorial [Compilar seu primeiro pipeline com o
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Experimentos usando módulos Leitor/Gravador para fazer referência a dados em vários armazenamentos
 Outro cenário comum durante a criação de experimentos do Azure Machine Learning Studio é usar módulos de Leitor e Gravador. O módulo leitor é usado para carregar dados em um experimento e o módulo gravador é usado para salvar os dados dos experimentos. Para obter detalhes sobre os módulos de leitor e gravador, consulte os tópicos [Leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Gravador](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN.
 
-Ao usar os módulos leitor e gravador, é recomendável usar um parâmetro de serviço Web para cada propriedade desses módulos leitor/gravador. Esses parâmetros da Web permitem que você configure os valores durante o runtime. Por exemplo, você poderia criar um experimento com um módulo leitor que usa um banco de dados SQL do Azure: XXX.database.windows.net. Depois que o serviço web tiver sido implantado, você precisa habilitar os consumidores do serviço Web para especificar outro servidor SQL do Azure chamado YYY.database.windows.net. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
+Ao usar os módulos leitor e gravador, é recomendável usar um parâmetro de serviço Web para cada propriedade desses módulos leitor/gravador. Esses parâmetros da Web permitem que você configure os valores durante o runtime. Por exemplo, você poderia criar um experimento com um módulo leitor que usa um banco de dados SQL do Azure: XXX.database.windows.net. Depois que o serviço Web tiver sido implantado, você deverá habilitar os consumidores do serviço Web para especificar outro SQL Server lógico chamado YYY.database.windows.net. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
 
 > [!NOTE]
 > A saída e entrada de serviço Web são diferentes dos parâmetros de serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificadas para um serviço Web do Azure Machine Learning Studio. Nesse cenário, você pode passar parâmetros para um serviço Web que correspondem às propriedades dos módulos de leitor/gravador.
@@ -405,7 +404,7 @@ Ao usar o módulo de leitor em uma experiência de Azure Machine Learning, é po
 No exemplo JSON acima:
 
 * O serviço Web implantado de Azure Machine Learning usa um modulo leitor e gravador para ler/gravar dados de/para um banco de dados SQL do Azure. Este serviço Web expõe os seguintes quatro parâmetros: Nome do servidor de banco de dados, Nome do banco de dados, Nome de conta de usuário do servidor e Senha de conta de usuário do servidor.
-* Os DateTimes de **início** e **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**" Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
+* Os DateTimes de **início** e **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end** , ele será calculado como "**Start + 48 hours".** Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
 ### <a name="other-scenarios"></a>Outros cenários
 #### <a name="web-service-requires-multiple-inputs"></a>Serviço Web exige várias entradas
@@ -555,7 +554,7 @@ Para obter detalhes sobre leitor/gravador do SQL do Azure/Blob do Azure, consult
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 **P:** Tenho vários arquivos que são gerados pelos meus pipelines de Big Data. Posso usar a atividade AzureMLBatchExecution para trabalhar em todos os arquivos?
 
-**R:** Ok. Confira a seção **Usando um módulo Leitor para ler dados de vários arquivos no Blob do Azure** para obter detalhes.
+**R:** Sim. Confira a seção **Usando um módulo Leitor para ler dados de vários arquivos no Blob do Azure** para obter detalhes.
 
 ## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Atividade de pontuação em lote do Azure Machine Learning Studio
 Se você estiver usando a atividade **AzureMLBatchScoring** para integrar-se ao Azure Machine Learning, recomendamos que você use a atividade **AzureMLBatchExecution** mais recente.

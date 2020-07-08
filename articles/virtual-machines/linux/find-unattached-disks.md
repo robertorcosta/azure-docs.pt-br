@@ -3,16 +3,15 @@ title: Localizar e excluir discos gerenciados e não gerenciados do Azure descon
 description: Como localizar e excluir discos gerenciados e não gerenciados (VHDs/Blobs de páginas) do Azure desconectados, usando a CLI do Azure.
 author: roygara
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b4a46e79b3bb2feabe7af739086b8e0166c4ac55
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 87fe277bbd2fa618d43ce3274c1d2c05a5d7b396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660158"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Localizar e excluir discos gerenciados e não gerenciados desanexados do Azure usando a CLI do Azure
 Quando você exclui uma VM (máquina virtual) no Azure, por padrão, nenhum disco anexado à máquina virtual é excluído. Esse recurso ajuda a evitar a perda de dados devido à exclusão não intencional de VMs. Depois que uma VM for excluída, você continuará a pagar pelos discos desanexados. Este artigo mostra como localizar e excluir discos desanexados e reduzir custos desnecessários. 

@@ -5,15 +5,14 @@ services: azure-portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/21/2020
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: af0c72f0bc5dd8f3a3cbae7b82b1ac56447cbb08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7b3cc088a87731d2a118a4fe5183831e4d1bd6cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77133284"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763968"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Recuperar um painel excluído no portal do Azure
 
@@ -21,7 +20,7 @@ Se você estiver na nuvem pública do Azure e excluir um painel _publicado_ no p
 
 1. No menu portal do Azure, selecione **grupos de recursos**e, em seguida, selecione o grupo de recursos em que você publicou o painel (por padrão, eles são nomeados como **painéis**).
 
-1. Em **log de atividades**, expanda a operação **excluir painel** . Selecione a guia **histórico de alterações** e, em seguida, selecione ** \<recurso\>excluído**.
+1. Em **log de atividades**, expanda a operação **excluir painel** . Selecione a guia **histórico de alterações** e, em seguida, selecione **\<deleted resource\>** .
 
     ![Captura de tela da guia histórico de alterações](media/recover-shared-deleted-dashboard/change-history-tab.png)
 

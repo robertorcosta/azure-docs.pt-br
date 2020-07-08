@@ -6,12 +6,11 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ae27aba9fb6dc1421d224dab0c36373753acd5a2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: f56d3a364e38d13931f8e07d749d3a5958dcee67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322522"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrando o Azure Data Lake Storage Gen1 com outros serviços do Azure
 O Azure Data Lake Storage Gen1 pode ser usado em conjunto com outros serviços do Azure para permitir uma gama mais ampla de cenários. O artigo a seguir lista os serviços com os quais o Data Lake Storage Gen1 pode ser integrado.
@@ -39,7 +38,7 @@ Para obter instruções sobre como usar o Azure Data Factory com o Data Lake Sto
 O Data Storage do Azure Data Lake fornece uma ferramenta de linha de comando, AdlCopy, que permite copiar dados do Armazenamento de Blocos do Azure para uma conta do Data Lake Storage Gen1. Para obter mais informações, consulte [Copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="copy-data-between-azure-sql-database-and-data-lake-storage-gen1"></a>Copiar dados entre o Banco de Dados SQL do Azure e o Data Lake Storage Gen1
-Você pode usar o Apache Sqoop para importar e exportar dados entre o Banco de Dados SQL do Azure e o Data Lake Storage Gen1. Para obter mais informações, consulte [Copiar dados entre o Data Lake Storage Gen1 e o banco de dados SQL do Azure usando o Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+Você pode usar o Apache Sqoop para importar e exportar dados entre o Banco de Dados SQL do Azure e o Data Lake Storage Gen1. Para obter mais informações, consulte [copiar dados entre o data Lake Storage Gen1 e o Azure SQL Database usando o Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
 
 ## <a name="use-data-lake-storage-gen1-with-stream-analytics"></a>Use o Data Lake Storage Gen1 com o Stream Analytics
 Você pode usar o Data Lake Storage Gen1 como uma das saídas para armazenar dados transmitidos usando o Azure Stream Analytics. Para obter mais informações, consulte [Transmitir dados do Blob de armazenamento do Azure para o Data Lake Storage Gen1 usando o Azure Stream Analytics](data-lake-store-stream-analytics.md).

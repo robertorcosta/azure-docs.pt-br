@@ -6,16 +6,18 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 1fa34deaa12400a164602d38b6b2d349a64850c6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: db7bfbef7435c47aa011c5f19e8c52d013c88dc3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636675"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usar o Azure Active Directory para autenticação com o MySQL
 
 Este artigo explicará as etapas de como configurar o acesso do Azure Active Directory com o Banco de Dados do Azure para MySQL e como se conectar usando um token do Azure Active Directory.
+
+> [!IMPORTANT]
+> Azure Active Directory autenticação só está disponível para MySQL 5,7 e mais recente.
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Configurar o usuário administrador do Azure Active Directory
 
@@ -54,21 +56,19 @@ Também testamos os drivers de aplicativos mais comuns. Veja os detalhes no fina
 
 Estas são as etapas que um usuário/aplicativo precisará fazer a autenticação no Azure Active Directory descrito abaixo:
 
+### <a name="prerequisites"></a>Pré-requisitos
+
+Você pode acompanhar em Azure Cloud Shell, uma VM do Azure ou em seu computador local. Garanta que você tem o [CLI do Azure instalado](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Etapa 1: Autenticar com o Azure AD
 
-Garanta que você tem o [CLI do Azure instalado](/cli/azure/install-azure-cli).
-
-Invoque a ferramenta de CLI do Azure para autenticar-se no Azure Active Directory. Ele exige que você forneça a ID de usuário e a senha do Azure Active Directory.
+Comece Autenticando com o Azure AD usando a ferramenta de CLI do Azure. Esta etapa não é necessária no Azure Cloud Shell.
 
 ```
 az login
 ```
 
-Esse comando abrirá uma janela do navegador na página de autenticação do Azure Active Directory.
-
-> [!NOTE]
-> Você também pode usar o Azure Cloud Shell para executar essas etapas.
-> Lembre-se de que, ao recuperar o token de acesso do Azure Active Directory no Azure Cloud Shell, você precisará chamar explicitamente `az login` e entrar novamente (na janela separada com um código). Depois, o comando `get-access-token` funcionará conforme o esperado.
+O comando iniciará uma janela do navegador na página de autenticação do Azure AD. Ele exige que você forneça a ID de usuário e a senha do Azure Active Directory.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Etapa 2: Recuperar um token de acesso do Azure Active Directory
 
@@ -76,19 +76,19 @@ Invoque a ferramenta de CLI do Azure para adquirir um token de acesso para o usu
 
 Exemplo (para nuvem pública):
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 O valor do recurso acima deve ser especificado exatamente como o mostrado. Para outras nuvens, é possível pesquisar o valor do recurso usando:
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 Para a versão 2.0.71 do CLI do Azure e posteriores, o comando pode ser especificado na seguinte versão mais conveniente para todas as nuvens:
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 
@@ -122,6 +122,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Considerações importantes ao se conectar:
+
+* `user@tenant.onmicrosoft.com`é o nome do usuário ou grupo do Azure AD ao qual você está tentando se conectar
+* Sempre acrescentar o nome do servidor após o nome de usuário/grupo do Azure AD (por exemplo, `@mydb` )
+* Certifique-se de usar a maneira exata de que o nome de usuário ou grupo do Azure AD está escrito
+* Os nomes de usuário e grupo do Azure AD diferenciam maiúsculas de minúsculas
+* Ao conectar-se como um grupo, use apenas o nome do grupo (por exemplo, `GroupName@mydb` )
+* Se o nome contiver espaços, use `\` antes de cada espaço para escapar
 
 Observe a configuração "enable-cleartext-plugin": é preciso usar uma configuração semelhante com outros clientes para garantir que o token seja enviado ao servidor sem que haja hash.
 

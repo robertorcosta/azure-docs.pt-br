@@ -7,11 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708868"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados do agente no Azure Monitor
 Os dados coletados pelo Azure Monitor dos agentes são definidos pelas fontes de dados configuradas.  Os dados dos agentes são armazenados como [dados de log](data-platform-logs.md) com um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
@@ -29,7 +28,7 @@ A tabela a seguir lista as fontes de dados de agente atualmente disponíveis no 
 | [Logs do IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depende da configuração de rolagem de arquivo de log |
 | [Contadores de desempenho](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |conforme agendado, mínimo de 10 segundos |
 | [Contadores de desempenho](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |conforme agendado, mínimo de 10 segundos |
-| [syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |do armazenamento do Azure: 10 minutos; do agente: na chegada |
+| [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |do armazenamento do Azure: 10 minutos; do agente: na chegada |
 | [Logs de eventos do Windows](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | na chegada |
 
 

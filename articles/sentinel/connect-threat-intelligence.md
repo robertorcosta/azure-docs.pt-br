@@ -5,19 +5,19 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: security-center
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769866"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados de provedores de inteligência contra ameaças
 
@@ -70,7 +70,7 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 2. [Configurar permissões de API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) para o aplicativo registrado: Adicione a permissão de aplicativo Microsoft Graph **ThreatIndicators. ReadWrite. OwnedBy** ao seu aplicativo registrado.
 
-3. Peça ao administrador de locatários do Azure Active Directory para conceder consentimento de administrador para o aplicativo registrado para sua organização. Na portal do Azure: **Azure Active Directory** > **registros de aplicativo** > **\<_app name_nome>** > do aplicativo**exibir permissões** > **de API conceder consentimento de \<administrador para o _nome_>do locatário**.
+3. Peça ao administrador de locatários do Azure Active Directory para conceder consentimento de administrador para o aplicativo registrado para sua organização. No portal do Azure: **Azure Active Directory**  >  **registros de aplicativo**  >  **\<_app name_>**  >  **exibir permissões**  >  **de API conceder consentimento de administrador \<_tenant name_> para **o.
 
 4. Configure seu produto ou aplicativo TIP que usa a integração direta com a API do Microsoft Graph Security tiIndicators para enviar indicadores para o Azure Sentinel, especificando o seguinte:
     
@@ -80,11 +80,11 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
     
     c. Para a ação, especifique alerta.
 
-5. Na portal do Azure, navegue até**conectores de dados** **do Azure Sentinel** > e selecione o conector de **plataformas de inteligência contra ameaças (versão prévia)** .
+5. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector de **plataformas de inteligência contra ameaças (versão prévia)** .
 
 6. Selecione a **página abrir conector**e **Conecte-se**.
 
-7. Para exibir os indicadores de ameaça importados para o Azure Sentinel, navegue até **Azure Sentinel-logs** > **SecurityInsights**e, em seguida, expanda **ThreatIntelligenceIndicator**.
+7. Para exibir os indicadores de ameaça importados para o Azure Sentinel, navegue até **Azure Sentinel-logs**  >  **SecurityInsights**e, em seguida, expanda **ThreatIntelligenceIndicator**.
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Conectar o Azure Sentinel a servidores TÁXIi
 
@@ -96,7 +96,7 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 ## <a name="instructions"></a>Instruções
 
-1. Na portal do Azure, navegue até**conectores de dados** **do Azure Sentinel** > e selecione o conector **Threat Intelligence-táxii (versão prévia)** .
+1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector **Threat Intelligence-táxii (versão prévia)** .
 
 2. Selecione a **página abrir conector**.
 
@@ -106,7 +106,7 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 5. Se você tiver servidores adicionais de TÁXIi 2,0: Repita as etapas 3 e 4.
 
-6. Para exibir os indicadores de ameaça importados para o Azure Sentinel, navegue até **Azure Sentinel-logs** > **SecurityInsights**e, em seguida, expanda **ThreatIntelligenceIndicator**.
+6. Para exibir os indicadores de ameaça importados para o Azure Sentinel, navegue até **Azure Sentinel-logs**  >  **SecurityInsights**e, em seguida, expanda **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

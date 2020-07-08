@@ -8,14 +8,13 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416589"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037589"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerenciada para o Data Factory
 
@@ -163,7 +162,7 @@ Você pode encontrar as informações de identidade gerenciadas de portal do Azu
 - Locatário de identidade gerenciada
 - ID do aplicativo de identidade gerenciada
 
-As informações de identidade gerenciadas também aparecerão quando você criar um serviço vinculado que dá suporte à autenticação de identidade gerenciada, como blob do Azure, Azure Data Lake Storage, Azure Key Vault, etc.
+As informações de identidade gerenciadas também aparecerão quando você criar um serviço vinculado, que dá suporte à autenticação de identidade gerenciada, como blob do Azure, Azure Data Lake Storage, Azure Key Vault, etc.
 
 Ao conceder permissão, use ID de objeto ou nome de data factory (como nome de identidade gerenciada) para localizar essa identidade.
 
@@ -189,6 +188,61 @@ ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
 DisplayName           : ADFV2DemoFactory
 Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
+```
+
+### <a name="retrieve-managed-identity-using-rest-api"></a>Recuperar identidade gerenciada usando a API REST
+
+A ID da entidade de identidade gerenciada e a ID do locatário serão retornadas quando você obter uma data factory específica da seguinte maneira.
+
+Chame a API abaixo na solicitação:
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
+```
+
+**Resposta**: você receberá uma resposta como mostrada no exemplo abaixo. A seção "identidade" é preenchida de acordo.
+
+```json
+{
+    "name":"<dataFactoryName>",
+    "identity":{
+        "type":"SystemAssigned",
+        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
+        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+    },
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+    "type":"Microsoft.DataFactory/factories",
+    "properties":{
+        "provisioningState":"Succeeded",
+        "createTime":"2020-02-12T02:22:50.2384387Z",
+        "version":"2018-06-01",
+        "factoryStatistics":{
+            "totalResourceCount":0,
+            "maxAllowedResourceCount":0,
+            "factorySizeInGbUnits":0,
+            "maxAllowedFactorySizeInGbUnits":0
+        }
+    },
+    "eTag":"\"03006b40-XXXX-XXXX-XXXX-5e43617a0000\"",
+    "location":"<region>",
+    "tags":{
+
+    }
+}
+```
+
+> [!TIP] 
+> Para recuperar a identidade gerenciada de um modelo do ARM, adicione uma seção **Outputs** no JSON do ARM:
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.DataFactory/factories', parameters('<dataFactoryName>')), '2018-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

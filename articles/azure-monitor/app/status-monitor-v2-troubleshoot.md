@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732945"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Solucionando problemas do agente de Application Insights (anteriormente denominado Status Monitor v2)
@@ -24,9 +23,9 @@ Se você entrar em um problema que não está listado aqui, poderá entrar em co
 
 Se qualquer uma dessas DLLs estiver presente no diretório bin, o monitoramento poderá falhar:
 
-- Microsoft. ApplicationInsights. dll
-- Microsoft. AspNet. TelemetryCorrelation. dll
-- System. Diagnostics. Diagnosticname. dll
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
+- System.Diagnostics.DiagnosticSource.dll
 
 Algumas dessas DLLs estão incluídas nos modelos de aplicativo padrão do Visual Studio, mesmo que seu aplicativo não as use.
 Você pode usar ferramentas de solução de problemas para ver o comportamento do sintoma:
@@ -42,7 +41,7 @@ Você pode usar ferramentas de solução de problemas para ver o comportamento d
     FormattedMessage="Found 'System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' assembly, skipping attaching redfield binaries" 
     ```
 
-- IISReset e carga do aplicativo (sem telemetria). Investigue com o Sysinternals (Handle. exe e ListDLLs. exe):
+- IISReset e carga do aplicativo (sem telemetria). Investigue com o Sysinternals (Handle.exe e ListDLLs.exe):
     ```
     .\handle64.exe -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
     E54: File  (R-D)   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
@@ -60,7 +59,7 @@ O HttpModule não pode ser injetado nessa configuração compartilhada.
 Execute o comando Enable em cada servidor Web para instalar a DLL no GAC de cada servidor.
 
 Depois de executar o comando Enable, conclua estas etapas:
-1. Vá para o diretório de configuração compartilhada e localize o arquivo applicationHost. config.
+1. Vá para o diretório de configuração compartilhada e localize o arquivo de applicationHost.config.
 2. Adicione essa linha à seção módulos de sua configuração:
     ```
     <modules>
@@ -89,7 +88,7 @@ Estamos acompanhando esse problema [aqui](https://github.com/microsoft/Applicati
 Você pode usar o `Get-Module -ListAvailable` comando para determinar quais módulos estão instalados.
 
 #### <a name="import-a-module-into-the-current-session"></a>Importar um módulo para a sessão atual
-Se um módulo não tiver sido carregado em uma sessão do PowerShell, você poderá carregá-lo manualmente `Import-Module <path to psd1>` usando o comando.
+Se um módulo não tiver sido carregado em uma sessão do PowerShell, você poderá carregá-lo manualmente usando o `Import-Module <path to psd1>` comando.
 
 
 ### <a name="troubleshooting-the-application-insights-agent-module"></a>Solucionando problemas do módulo Application Insights Agent
@@ -133,21 +132,21 @@ Examine a [referência da API](status-monitor-v2-api-reference.md) para obter um
 
 #### <a name="setup"></a>Instalação
 
-1. Baixe PerfView. exe e PerfView64. exe do [GitHub](https://github.com/Microsoft/perfview/releases).
-2. Inicie o PerfView64. exe.
+1. Baixe PerfView.exe e PerfView64.exe do [GitHub](https://github.com/Microsoft/perfview/releases).
+2. Iniciar PerfView64.exe.
 3. Expanda **Opções Avançadas**.
 4. Desmarque estas caixas de seleção:
     - **Rápida**
-    - **Mescle**
+    - **Mesclar**
     - **Coleção de símbolos .NET**
 5. Defina estes **provedores adicionais**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>Coletando logs
 
-1. Em um console de comando com privilégios de administrador, `iisreset /stop` execute o comando para desligar o IIS e todos os aplicativos Web.
+1. Em um console de comando com privilégios de administrador, execute o `iisreset /stop` comando para desligar o IIS e todos os aplicativos Web.
 2. Em PerfView, selecione **Iniciar coleta**.
-3. Em um console de comando com privilégios de administrador, `iisreset /start` execute o comando para iniciar o IIS.
+3. Em um console de comando com privilégios de administrador, execute o `iisreset /start` comando para iniciar o IIS.
 4. Tente navegar até seu aplicativo.
 5. Depois que o aplicativo for carregado, retorne para PerfView e selecione **parar coleta**.
 

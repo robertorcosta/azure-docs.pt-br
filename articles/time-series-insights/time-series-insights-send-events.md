@@ -11,12 +11,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254242"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037283"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights usando um hub de eventos
 
@@ -55,13 +54,13 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
 
 ## <a name="add-a-time-series-insights-instance"></a>Adicionar uma instância do Time Series Insights
 
-A atualização do Time Series Insights usa instâncias para adicionar dados contextuais aos dados de telemetria recebidos. Os dados são unidos no momento da consulta usando uma **ID da série temporal**. A **ID da série temporal** para o projeto Windmills de exemplo que usamos mais adiante neste artigo `id`é. Para saber mais sobre as instâncias do time Series insights e a **ID da série temporal**, leia [modelos de série temporal](./time-series-insights-update-tsm.md).
+A atualização do Time Series Insights usa instâncias para adicionar dados contextuais aos dados de telemetria recebidos. Os dados são unidos no momento da consulta usando uma **ID da série temporal**. A **ID da série temporal** para o projeto Windmills de exemplo que usamos mais adiante neste artigo é `id` . Para saber mais sobre as instâncias do time Series insights e a **ID da série temporal**, leia [modelos de série temporal](./concepts-model-overview.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Criar uma origem de evento do Time Series Insights
 
 1. Se você ainda não criou uma origem de evento, conclua as etapas para [criar uma origem de evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Defina um valor para `timeSeriesId`. Para saber mais sobre a **ID da série temporal**, leia [modelos de série temporal](./time-series-insights-update-tsm.md).
+1. Defina um valor para `timeSeriesId`. Para saber mais sobre a **ID da série temporal**, leia [modelos de série temporal](./concepts-model-overview.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Enviar eventos por push para o exemplo de Windmills
 
@@ -69,11 +68,11 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
 1. Selecione sua instância do hub de eventos.
 
-1. Vá para **políticas** > de acesso compartilhado**MySendPolicy**. Copie o valor da **cadeia de conexão-chave primária**.
+1. Vá para **políticas de acesso compartilhado**  >  **MySendPolicy**. Copie o valor da **cadeia de conexão-chave primária**.
 
     [![Copiar o valor da cadeia de conexão da chave primária](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Acesse https://tsiclientsample.azurewebsites.net/windFarmGen.html. A URL cria e executa dispositivos simulados do Windmill.
+1. Ir para https://tsiclientsample.azurewebsites.net/windFarmGen.html. A URL cria e executa dispositivos simulados do Windmill.
 1. Na caixa **cadeia de conexão do hub de eventos** na página da Web, Cole a cadeia de conexão que você copiou no [campo de entrada Windmill](#push-events-to-windmills-sample).
   
     [![Colar a cadeia de conexão da chave primária na caixa Cadeia de Conexão do Hub de Eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)

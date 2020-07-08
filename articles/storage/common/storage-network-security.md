@@ -4,17 +4,16 @@ description: Configure a segurança de rede em camadas para sua conta de armazen
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 01/21/2020
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 4b72f94548a5222fcb950141e983007efde7fe4e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 75f2e20db6ad1155e62691b711d8084a1feb5bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513328"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -223,7 +222,7 @@ Você pode gerenciar as regras da rede virtual para contas de armazenamento atra
     ```
 
     > [!TIP]
-    > Para adicionar uma regra para uma sub-rede em uma VNet que pertence a outro locatário do Azure AD, use uma ID de sub-rede totalmente qualificada no formato "/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<nome-da-sub-rede\>".
+    > Para adicionar uma regra para uma sub-rede em uma VNet que pertence a outro locatário do Azure AD, use uma ID de sub-rede totalmente qualificada no formato "/subscriptions/ \<subscription-ID\> /ResourceGroups/ \<resourceGroup-Name\> /Providers/Microsoft.Network/virtualNetworks/ \<vNet-name\> /Subnets/ \<subnet-name\> ".
     >
     > Você pode usar o parâmetro **subscription** para recuperar a ID de sub-rede de uma VNet que pertence a outro locatário do Azure AD.
 
@@ -374,14 +373,14 @@ Quando você habilita a configuração **Permitir serviços confiáveis da Micro
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Serviço de Backup do Azure             | Microsoft.RecoveryServices | Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para o Azure usando o Data Box. [Saiba mais](/azure/databox/data-box-overview). |
-| Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefato. [Saiba mais](/azure/devtest-lab/devtest-lab-overview). |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefato. [Saiba mais](../../devtest-labs/devtest-lab-overview.md). |
 | Grade de Eventos do Azure         | Microsoft.EventGrid        | Habilite a publicação de eventos do Armazenamento de Blobs e permita que a Grade de Eventos publique em filas de armazenamento. Saiba mais sobre [eventos de Armazenamento de Blobs](/azure/event-grid/event-sources) e [publicação em filas](/azure/event-grid/event-handlers). |
 | Hubs de eventos do Azure         | Microsoft.EventHub         | Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview). |
 | Sincronização de Arquivos do Azure          | Microsoft.StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de Arquivos do Azure. Isso permite a sincronização de vários sites, recuperação rápida de desastre e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Importação/Exportação do Azure      | Microsoft.ImportExport     | Permite a importação de dados para o Azure e a exportação de dados do Azure usando o serviço de Importação/Exportação. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
 | Azure Monitor            | Microsoft.insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de recursos, logs de entrada e de auditoria do Azure Active Directory e logs do Microsoft Intune. [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Rede do Azure         | Microsoft.Network          | Armazenar e analisar os logs de tráfego de rede. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
+| Rede do Azure         | Microsoft.Network          | Armazene e analise logs de tráfego de rede, incluindo por meio do observador de rede e serviços de Análise de Tráfego. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais de IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 A configuração **Permitir serviços confiáveis da Microsoft...** também permitirá que uma instância específica dos serviços a seguir acesse a conta de armazenamento, se você [atribuir explicitamente uma função RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recurso. Nesse caso, o escopo de acesso para a instância corresponde à função RBAC atribuída à identidade gerenciada.

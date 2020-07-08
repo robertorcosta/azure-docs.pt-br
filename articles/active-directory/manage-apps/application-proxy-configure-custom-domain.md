@@ -3,25 +3,24 @@ title: Domínios Personalizados no Proxy de Aplicativo do Azure AD | Microsoft D
 description: Configurar e gerenciar domínios personalizados no Proxy de Aplicativo do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
-ms.reviewer: harshja
+ms.author: kenwith
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764903"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurar domínios personalizados com o Proxy de Aplicativo do Azure AD
 
@@ -138,7 +137,7 @@ Não recomendamos o uso de uma AC raiz privada, pois ela também precisaria ser 
 
 Todo o gerenciamento de certificados é realizado por meio das páginas individuais do aplicativo. Vá para a página **Proxy de aplicativo** do aplicativo para acessar o campo **Certificado**.
 
-Você pode usar o mesmo certificado para vários aplicativos. Se um certificado carregado operar com outro aplicativo, ele será aplicado automaticamente. Você não será solicitado a carregá-lo novamente quando adicionar ou configurar o aplicativo. 
+Depois que um certificado é carregado para um aplicativo, ele também será aplicado automaticamente a **novos** aplicativos configurados que usam o mesmo certificado. Você precisará carregar novamente o certificado para aplicativos existentes em seu locatário.
 
 Quando um certificado expirar, você receberá um aviso instruindo você a carregar outro certificado. Se o certificado for revogado, os usuários poderão ver um aviso de segurança ao acessarem o aplicativo. Para atualizar o certificado de um aplicativo, navegue até a página **Proxy de aplicativo** do aplicativo, selecione **Certificado** e carregue um novo certificado. Se o certificado antigo não estiver sendo usado por outros aplicativos, ele será excluído automaticamente. 
 

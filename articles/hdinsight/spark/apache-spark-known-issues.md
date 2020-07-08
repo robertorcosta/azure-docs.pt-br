@@ -8,12 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: eec5de7521c98e8147a8439844fd2a2a6b1bd2bc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73494528"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037487"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos do cluster do Apache Spark no HDInsight
 
@@ -30,13 +29,17 @@ Use o procedimento a seguir para contornar o problema:
 
 2. Execute o seguinte comando para encontrar as IDs de aplicativo dos trabalhos interativos iniciados por Livy.
 
-        yarn application –list
+   ```bash
+   yarn application –list
+   ```
 
     Os nomes de trabalho padrão serão Livy se os trabalhos foram iniciados com uma sessão interativa Livy sem nenhum nome explícito especificado. Para a sessão Livy iniciada pelo [Jupyter Notebook](https://jupyter.org/), o nome do trabalho começa com `remotesparkmagics_*` .
 
 3. Execute o seguinte comando para eliminar esses trabalhos.
 
-        yarn application –kill <Application ID>
+   ```bash
+   yarn application –kill <Application ID>
+   ```
 
 A execução de novos trabalhos tem início.
 
@@ -115,7 +118,7 @@ Quando o cluster Spark está sem recursos, os kernels Spark e PySpark no noteboo
 
 2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

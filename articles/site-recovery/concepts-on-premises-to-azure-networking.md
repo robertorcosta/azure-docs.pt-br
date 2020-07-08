@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770485"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conectar-se a VMs do Azure após o failover do local 
 
@@ -45,7 +44,7 @@ Em computadores Windows locais, faça o seguinte:
 
 4. Para acessar uma VM do Azure pela Internet após o failover, no firewall do Windows no computador local, permita TCP e UDP no perfil público e defina o RDP como um aplicativo permitido para todos os perfis.
 
-5. Se você quiser acessar uma VM do Azure em uma VPN site a site após o failover, no firewall do Windows no computador local, permita o RDP para o domínio e os perfis particulares. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como dar permissão ao tráfego RDP.
+5. Se você quiser acessar uma VM do Azure em uma VPN site a site após o failover, no firewall do Windows no computador local, permita o RDP para o domínio e os perfis particulares. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como permitir o tráfego RDP.
 6. Certifique-se de que não haja nenhuma atualização do Windows pendente na VM local quando você disparar um failover. Se houver, as atualizações poderão iniciar a instalação na VM do Azure após o failover e você não poderá entrar na VM até que as atualizações sejam concluídas.
 
 ### <a name="prepare-linux-machines"></a>Preparar computadores Linux
@@ -62,7 +61,7 @@ Após o failover, faça o seguinte nas VMs do Azure que são criadas.
 
 1. Para se conectar à VM pela Internet, atribua um endereço IP público à VM. Você não pode usar o mesmo endereço IP público para a VM do Azure que você usou para seu computador local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md)
 2. Verifique se as regras do NSG (grupo de segurança de rede) na VM permitem conexões de entrada à porta RDP ou SSH.
-3. Confira [Diagnóstico de inicialização](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para exibir a VM.
+3. Verifique o [diagnóstico de inicialização](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para exibir a VM.
 
 
 > [!NOTE]
@@ -96,7 +95,7 @@ A retenção de endereços IP requer as seguintes etapas:
 
 ### <a name="failover-example"></a>Exemplo de failover
 
-Vamos examinar um exemplo.
+Vejamos um exemplo.
 
 - O Woodgrove Bank da empresa fictícia hospeda seus aplicativos de negócios locais, eles hospedam seus aplicativos móveis no Azure.
 - Eles se conectam do local para o Azure por VPN site a site. 
@@ -149,11 +148,21 @@ Antes do failover, especifique as configurações de rede e o endereço IP para 
 
 ## <a name="get-new-ip-addresses"></a>Obter novos endereços IP
 
-Nesse cenário, a VM do Azure Obtém um novo endereço IP após o failover. Uma atualização de DNS para atualizar registros de computadores com failover para apontar para o endereço IP da VM do Azure.
+Nesse cenário, a VM do Azure Obtém um novo endereço IP após o failover. Para configurar um novo endereço IP para a máquina virtual criada após o failover, as etapas a seguir podem ser referenciadas-
 
+1. Vá para **itens replicados**.
+2. Selecione a máquina virtual do Azure desejada.
+3. Selecione **computação e rede** e selecione **Editar**.
 
+     ![Personalizar as configurações de rede de failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+
+4. Para atualizar as configurações de rede de failover, selecione **Editar** para a NIC que você deseja configurar. Na próxima página que é aberta, forneça o endereço IP pré-criado correspondente no local de failover e failover de teste.
+
+    ![Editar a configuração da NIC](media/azure-to-azure-customize-networking/nic-drilldown.png)
+
+5. Selecione **OK**.
+
+Site Recovery agora respeitará essas configurações e garantirá que a máquina virtual no failover esteja conectada ao recurso selecionado por meio do endereço IP correspondente, se estiver disponível no intervalo de IP de destino. Nesse cenário, não há necessidade de fazer failover de toda a sub-rede. Uma atualização de DNS será necessária para atualizar registros para o computador com failover para apontar para o novo endereço IP da máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre como](site-recovery-active-directory.md) replicar o Active Directory local e o DNS para o Azure.
-
-

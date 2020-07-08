@@ -4,15 +4,14 @@ description: Este artigo ajuda você a entender as maneiras de superar o limite 
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983336"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para o protocolo OpenVPN ou IKEv2 do SSTP
 
@@ -22,7 +21,7 @@ Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma con
 
 VPN Ponto a Site pode usar um dos seguintes protocolos:
 
-* **Protocolo&reg; OpenVPN**, um protocolo VPN baseado em SSL/TLS. Uma solução de VPN SSL pode penetrar em firewalls, pois a maioria dos firewalls abre a porta TCP 443 de saída, que o SSL usa. O OpenVPN pode ser usado para se conectar do Android, iOS (versões 11,0 e superiores), Windows, Linux e dispositivos Mac (OSX versões 10,13 e posteriores).
+* **OpenVPN &reg; Protocolo**, um protocolo VPN baseado em SSL/TLS. Uma solução de VPN SSL pode penetrar em firewalls, pois a maioria dos firewalls abre a porta TCP 443 de saída, que o SSL usa. O OpenVPN pode ser usado para se conectar do Android, iOS (versões 11,0 e superiores), Windows, Linux e dispositivos Mac (OSX versões 10,13 e posteriores).
 
 * **SSTP**, um protocolo de VPN com base em SSL proprietário. Uma solução de VPN SSL pode penetrar em firewalls, pois a maioria dos firewalls abre a porta TCP 443 de saída, que o SSL usa. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior). **O SSTP dá suporte a até 128 conexões simultâneas apenas independentemente da SKU do gateway**.
 
@@ -94,7 +93,7 @@ O arquivo zip também fornece os valores de algumas das configurações importan
 ### <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>Quais políticas de IKE/IPsec são configuradas em gateways de VPN para P2S?
 
 
-**Conexões**
+**IKEv2**
 
 |**Codificação** | **Integridade** | **PRF** | **Grupo DH** |
 |---        | ---            | ---        | ---     |

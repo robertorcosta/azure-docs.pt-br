@@ -2,41 +2,46 @@
 title: Configurar a análise de dependência baseada em agente na avaliação do servidor de migrações para Azure
 description: Este artigo descreve como configurar a análise de dependência baseada em agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: 47fd7e7c864e82400288bb67da952a18b648849e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.date: 6/09/2020
+ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770570"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização de dependência
 
-Este artigo descreve como configurar a análise de dependência baseada em agente no migrações para Azure: avaliação do servidor. A [análise de dependência](concepts-dependency-visualization.md) ajuda a identificar e compreender as dependências entre as máquinas que você deseja avaliar e migrar para o Azure.
+Este artigo descreve como configurar a análise de dependência sem agente em migrações para Azure: avaliação de servidor. A [análise de dependência](concepts-dependency-visualization.md) ajuda a identificar e compreender as dependências entre as máquinas que você deseja avaliar e migrar para o Azure.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- [Saiba mais sobre](concepts-dependency-visualization.md#agent-based-analysis) a análise de dependência baseada em agente.
-- Examine os pré-requisitos e os requisitos de suporte para configurar a visualização de dependência baseada em agente para [VMs VMware](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)e [VMs do Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
-- Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
-- Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment.
-- Verifique se você configurou um [dispositivo de migrações para Azure](migrate-appliance.md) para descobrir suas máquinas locais. Saiba como configurar um dispositivo para [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md). O dispositivo descobre máquinas locais e envia metadados, dados de desempenho para migrações para Azure: avaliação do servidor.
+- Examine os requisitos de suporte e implantação para a análise de dependência baseada em agente para:
+    - [VMs do VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+    - [Servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
+    - [VMs do Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- Verifique se você:
+    - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](how-to-add-tool-first-time.md) um agora.
+    - Verifique se você [adicionou](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment ao projeto.
+    - Configure um [dispositivo de migrações para Azure](migrate-appliance.md) para descobrir computadores locais. O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. Configurar um dispositivo para:
+        - [VMware](how-to-set-up-appliance-vmware.md) VMs.
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs.
+        - [Servidores físicos](how-to-set-up-appliance-physical.md).
 - Para usar a visualização de dependência, você associa um [espaço de trabalho log Analytics](../azure-monitor/platform/manage-access.md) a um projeto de migrações para Azure:
     - Você pode anexar um espaço de trabalho somente após a configuração do dispositivo de migrações para Azure e a descoberta de máquinas no projeto de migrações para Azure.
     - Verifique se você tem um espaço de trabalho na assinatura que contém o projeto de migrações para Azure.
-    - O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste asiático ou Europa Ocidental. Espaços de trabalho em outras regiões não podem ser associados a um projeto.
-    - O espaço de trabalho deve estar em uma região na qual [mapa do serviço tem suporte](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste da Ásia ou oeste da Europa. Os espaços de trabalho em outras regiões não podem ser associados a um projeto.
+    - O espaço de trabalho deve estar em uma região em que o [Mapa do Serviço é compatível](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
     - Você pode associar um espaço de trabalho Log Analytics novo ou existente a um projeto de migrações para Azure.
-    - Você anexa o espaço de trabalho na primeira vez em que configura a visualização de dependência para um computador. O espaço de trabalho para um projeto de migrações para Azure não pode ser modificado após ser adicionado.
-    - No Log Analytics, o espaço de trabalho associado à migração do Azure é marcado com a chave do projeto de migração e o nome do projeto.
+    - Você anexa o espaço de trabalho na primeira vez em que configura a visualização de dependência para um computador. Não é possível modificar o espaço de trabalho de um projeto de Migrações para Azure depois que ele foi adicionado.
+    - No Log Analytics, o espaço de trabalho associado às Migrações para Azure é marcado com a chave do Projeto de Migração e o nome do projeto.
 
-## <a name="associate-a-workspace"></a>Associar um espaço de trabalho
+## <a name="associate-a-workspace"></a>Associar um workspace
 
-1. Depois de descobrir as máquinas para avaliação, em **servidores** > **migrações para Azure: avaliação do servidor**, clique em **visão geral**.  
+1. Depois de descobrir as máquinas para avaliação, em **servidores**  >  **migrações para Azure: avaliação do servidor**, clique em **visão geral**.  
 2. Em **migrações para Azure: avaliação de servidor**, clique em **Essentials**.
 3. No **espaço de trabalho do OMS**, clique em **requer configuração**.
 
-     ![Configurar Log Analytics espaço de trabalho](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
+     ![Configurar o espaço de trabalho do Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
 4. Em **Configurar espaço de trabalho do OMS**, especifique se deseja criar um novo espaço de trabalho ou usar um existente.
     - Você pode selecionar um espaço de trabalho existente de todos os espaços de trabalho na assinatura migrar projeto.
@@ -70,10 +75,10 @@ Instale o MMA em cada computador Windows ou Linux que você deseja analisar.
 Para instalar o agente em uma máquina com Windows:
 
 1. Clique duas vezes no agente baixado.
-2. Na página **Bem-vindo**, clique em **Avançar**. Na página **termos de licença** , clique em **concordo** para aceitar a licença.
+2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **termos de licença** , clique em **concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Avançar**.
+5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
 
 Você pode instalar o agente da linha de comando ou usando um método automatizado, como Configuration Manager ou [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre como usar esses métodos para instalar o agente do MMA.

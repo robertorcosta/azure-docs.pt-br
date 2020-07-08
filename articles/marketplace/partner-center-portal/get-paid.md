@@ -5,13 +5,12 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/09/2020
+ms.openlocfilehash: 57a5f3046ce7a1f968bb823a0e13008d076b78c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636556"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Ser pago no marketplace comercial
 
@@ -27,21 +26,6 @@ Quando você [se inscreve em uma conta de desenvolvedor](https://go.microsoft.co
 Os valores são definidos oficialmente no [Contrato de Editor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560). Sempre examine esse documento se você tiver alguma dúvida.
 
 O valor de armazenamento é aplicado a todas as vendas de ofertas coletadas pelo marketplace comercial, incluindo complementos.
-
-## <a name="price-tiers"></a>Faixas de preço
-
-As faixas de preço selecionadas definem o preço de vendas em todos os países/regiões em que você opta por distribuir sua oferta. Você também pode usar recursos de preços adicionais, como escolher preços diferentes para diferentes mercados.
-
-Você pode oferecer seu aplicativo gratuitamente ou pode escolher um preço que os clientes devem pagar para adquirir sua oferta. As faixas de preço começam a US$ 0,99, com incrementos adicionais (US$ 1,09, US$ 1,19 e assim por diante). Os incrementos entre as faixas de preço aumentam conforme o preço sobe.
-
-> [!NOTE] 
-> Essas faixas de preço também se aplicam aos complementos que você oferece em sua oferta.
-
-Cada faixa de preço tem um valor correspondente em cada uma das moedas oferecidas pela Loja. Usamos esses valores para ajudá-lo a vender sua oferta a um preço equivalente em todo o mundo. No entanto, devido às alterações nas taxas de câmbio estrangeiras, o valor de vendas exato pode variar um pouco de uma moeda para outra.
-
-Você também tem a opção de inserir um preço de forma livre de sua escolha em uma moeda local do mercado específico. Com essa prática, o preço não será ajustado (mesmo se as taxas de conversão forem alteradas), a menos que você envie uma atualização com um novo preço. 
-
-Lembre-se de que o preço selecionado pode incluir vendas ou imposto sobre valor agregado que seus clientes devem pagar. Para obter detalhes, confira [Detalhes fiscais da oferta paga](tax-details-paid-transactions.md).
 
 ## <a name="payout-reporting"></a>Relatório de pagamento
 

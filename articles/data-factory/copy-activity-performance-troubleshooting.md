@@ -11,13 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770944"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solucionar problemas de desempenho da atividade de cópia
 
@@ -40,13 +39,14 @@ Como referência, no momento as dicas de ajuste de desempenho fornecem sugestõe
 | Específico do armazenamento de dados   | Carregando dados no **Azure Synpase Analytics (anteriormente conhecido como SQL DW)**: sugira usar o polybase ou a instrução de cópia se ele não for usado. |
 | &nbsp;                | Copiando dados de/para o banco de dado **SQL do Azure**: quando DTU está sob alta utilização, sugira atualizar para uma camada superior. |
 | &nbsp;                | Copiando dados de/para **Azure Cosmos DB**: quando ru está sob alta utilização, sugira atualizar para ru maior. |
+|                       | Copiando dados da **tabela SAP**: ao copiar uma grande quantidade de dados, sugira para aproveitar a opção de partição do conector SAP para habilitar a carga paralela e aumentar o número máximo de partições. |
 | &nbsp;                | Ingestão de dados do **Amazon redshift**: sugira o uso de Unload se ele não for usado. |
 | Limitação do repositório de dados | Se várias operações de leitura/gravação forem limitadas pelo armazenamento de dados durante a cópia, sugira verificar e aumentar a taxa de solicitação permitida para o armazenamento de dados ou reduzir a carga de trabalho simultânea. |
 | Tempo de execução de integração  | Se você usar um **ir (autohospedado Integration Runtime)** e a atividade de cópia aguardar tempo na fila até que o ir tenha o recurso disponível para ser executado, sugira escalar horizontalmente/verticalmente o ir. |
 | &nbsp;                | Se você usar um **Azure Integration Runtime** que esteja em uma região não ideal, resultando em leitura/gravação lenta, sugira configurar para usar um ir em outra região. |
 | Tolerância a falhas       | Se você configurar a tolerância a falhas e ignorar linhas incompatíveis resultar em desempenho lento, sugira garantir que os dados de origem e de coletor sejam compatíveis. |
 | Cópia em etapas           | Se a cópia preparada estiver configurada, mas não for útil para seu par de coletor de origem, sugira removê-la. |
-| Continuar                | Quando a atividade de cópia é retomada do último ponto de falha, mas você altera a configuração DIU após a execução original, observe que a nova configuração DIU não tem efeito. |
+| Retomar                | Quando a atividade de cópia é retomada do último ponto de falha, mas você altera a configuração DIU após a execução original, observe que a nova configuração DIU não tem efeito. |
 
 ## <a name="understand-copy-activity-execution-details"></a>Entender os detalhes da execução da atividade de cópia
 
@@ -56,7 +56,7 @@ Os detalhes e as durações de execução na parte inferior da exibição de mon
 | --------------- | ------------------------------------------------------------ |
 | Fila           | O tempo decorrido até que a atividade de cópia realmente seja iniciada no Integration Runtime. |
 | Script de pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia concluindo a execução do script de pré-cópia no repositório de dados do coletor. Aplique quando você configurar o script de pré-cópia para coletores de banco de dados, por exemplo, ao gravar dados no banco de dados SQL do Azure, faça uma limpeza antes de copiar novos dados. |
-| Transferência        | O tempo decorrido entre o fim da etapa anterior e o IR transferindo todos os dados da origem para o coletor. As subetapas em "transferência" são executadas em paralelo.<br><br>- **Tempo até o primeiro byte:** O tempo decorrido entre o fim da etapa anterior e a hora em que o IR recebe o primeiro byte do armazenamento de dados de origem. Aplica-se a fontes não baseadas em arquivo.<br>- **Fonte de listagem:** A quantidade de tempo gasto na enumeração de arquivos de origem ou partições de dados. O último se aplica quando você configura opções de partição para fontes de banco de dados, por exemplo, ao copiar dados de bancos de dados como Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Lendo da origem:** A quantidade de tempo gasto na recuperação de dados do armazenamento de dados de origem.<br/>- **Gravando no coletor:** A quantidade de tempo gasto na gravação de dados no armazenamento de dados do coletor. |
+| Transferência        | O tempo decorrido entre o fim da etapa anterior e o IR transferindo todos os dados da origem para o coletor. <br/>Observe que as subetapas em transferência são executadas em paralelo, e algumas operações não são mostradas agora, por exemplo, analisando/gerando o formato de arquivo.<br><br/>- **Tempo até o primeiro byte:** O tempo decorrido entre o fim da etapa anterior e a hora em que o IR recebe o primeiro byte do armazenamento de dados de origem. Aplica-se a fontes não baseadas em arquivo.<br>- **Fonte de listagem:** A quantidade de tempo gasto na enumeração de arquivos de origem ou partições de dados. O último se aplica quando você configura opções de partição para fontes de banco de dados, por exemplo, ao copiar dados de bancos de dados como Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Lendo da origem:** A quantidade de tempo gasto na recuperação de dados do armazenamento de dados de origem.<br/>- **Gravando no coletor:** A quantidade de tempo gasto na gravação de dados no armazenamento de dados do coletor. Observe que alguns conectores não têm essa métrica no momento, incluindo Pesquisa Cognitiva do Azure, Azure Data Explorer, armazenamento de tabelas do Azure, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, nuvem do serviço Salesforce/Salesforce. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Solucionar problemas de atividade de cópia no Azure IR
 
@@ -69,8 +69,7 @@ Quando o desempenho da atividade de cópia não atender à sua expectativa, para
 - **"Tempo de transferência até o primeiro byte" com duração de trabalho longa**: isso significa que sua consulta de origem demora muito para retornar qualquer dado. Verifique e otimize a consulta ou o servidor. Se precisar de mais ajuda, entre em contato com sua equipe de armazenamento de dados.
 
 - **"Origem da listagem de transferência" sofreu duração de trabalho longa**: isso significa que a enumeração de arquivos de origem ou partições de dados de banco de dado de origem está lenta.
-
-  - Ao copiar dados da fonte baseada em arquivo, se você usar **o filtro curinga** no caminho da pasta ou no`wildcardFolderPath` nome `wildcardFileName`do arquivo (ou), ou usar o filtro`modifiedDatetimeStart` de`modifiedDatetimeEnd` **tempo da última modificação do arquivo** (ou), observe que esse filtro resultaria na atividade de cópia listando todos os arquivos na pasta especificada para o lado do cliente e, em seguida, aplicaria o filtro. Tal enumeração de arquivo poderia se tornar o afunilamento, especialmente quando apenas pequenos conjuntos de arquivos atingirem a regra de filtro.
+  - Ao copiar dados da fonte baseada em arquivo, se você usar o **filtro curinga** no caminho da pasta ou no nome do arquivo ( `wildcardFolderPath` ou `wildcardFileName` ), ou usar o **filtro de tempo da última modificação do arquivo** ( `modifiedDatetimeStart` ou `modifiedDatetimeEnd` ), observe que esse filtro resultaria na atividade de cópia listando todos os arquivos na pasta especificada para o lado do cliente e, em seguida, aplicaria o filtro. Tal enumeração de arquivo poderia se tornar o afunilamento, especialmente quando apenas pequenos conjuntos de arquivos atingirem a regra de filtro.
 
     - Verifique se você pode [copiar arquivos com base no caminho ou nome do arquivo particionado DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Dessa forma, não traz a responsabilidade de listar a origem.
 
@@ -124,7 +123,7 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
 
   - Verifique se a máquina IR auto-hospedada tem baixa latência conectando-se ao armazenamento de dados de origem. Se sua fonte estiver no Azure, você poderá usar [essa ferramenta](http://www.azurespeed.com/Azure/Latency) para verificar a latência da máquina ir hospedada internamente para a região do Azure, o que é menos o melhor.
 
-  - Ao copiar dados da fonte baseada em arquivo, se você usar **o filtro curinga** no caminho da pasta ou no`wildcardFolderPath` nome `wildcardFileName`do arquivo (ou), ou usar o filtro`modifiedDatetimeStart` de`modifiedDatetimeEnd` **tempo da última modificação do arquivo** (ou), observe que esse filtro resultaria na atividade de cópia listando todos os arquivos na pasta especificada para o lado do cliente e, em seguida, aplicaria o filtro. Tal enumeração de arquivo poderia se tornar o afunilamento, especialmente quando apenas pequenos conjuntos de arquivos atingirem a regra de filtro.
+  - Ao copiar dados da fonte baseada em arquivo, se você usar o **filtro curinga** no caminho da pasta ou no nome do arquivo ( `wildcardFolderPath` ou `wildcardFileName` ), ou usar o **filtro de tempo da última modificação do arquivo** ( `modifiedDatetimeStart` ou `modifiedDatetimeEnd` ), observe que esse filtro resultaria na atividade de cópia listando todos os arquivos na pasta especificada para o lado do cliente e, em seguida, aplicaria o filtro. Tal enumeração de arquivo poderia se tornar o afunilamento, especialmente quando apenas pequenos conjuntos de arquivos atingirem a regra de filtro.
 
     - Verifique se você pode [copiar arquivos com base no caminho ou nome do arquivo particionado DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Dessa forma, não traz a responsabilidade de listar a origem.
 
@@ -181,11 +180,11 @@ Aqui estão as referências de monitoramento e ajuste do desempenho para alguns 
 * Banco de dados SQL do Azure: você pode [monitorar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a porcentagem de DTU (unidade de transação do banco de dados).
 * SQL Data Warehouse do Azure: seu recurso é medido em unidades de data warehouse (DWUs). Consulte [gerenciar poder de computação no Azure SQL data warehouse (visão geral)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [níveis de desempenho no Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server local: [monitorar e ajustar o desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
+* SQL Server: [monitorar e ajustar o desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 * Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os outros artigos de atividade de cópia:
+Confira os outros artigos sobre atividade de cópia:
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Guia de desempenho e escalabilidade da atividade de cópia](copy-activity-performance.md)
