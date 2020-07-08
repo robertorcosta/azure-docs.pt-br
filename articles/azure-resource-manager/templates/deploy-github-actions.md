@@ -2,13 +2,13 @@
 title: Implantar modelos do Resource Manager usando GitHub Actions
 description: Descreve como implantar modelos do Azure Resource Manager usando GitHub Actions.
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.date: 07/02/2020
+ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869176"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854733"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implantar modelos do Azure Resource Manager usando GitHub Actions
 
@@ -82,7 +82,7 @@ Você pode colocar o arquivo em qualquer lugar do repositório. O exemplo do flu
 
 ## <a name="create-workflow"></a>Criar fluxo de trabalho
 
-O arquivo do fluxo de trabalho deve ser armazenado na pasta **.github/workflow** na raiz do repositório. A extensão do arquivo do fluxo de trabalho pode ser **.yml** ou **.yaml**.
+O arquivo de fluxo de trabalho deve ser armazenado na pasta **. github/fluxos de trabalho** na raiz do seu repositório. A extensão do arquivo do fluxo de trabalho pode ser **.yml** ou **.yaml**.
 
 Você pode criar um arquivo de fluxo de trabalho e efetuar push/carregar o arquivo para o repositório ou usar o seguinte procedimento:
 

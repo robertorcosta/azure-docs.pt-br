@@ -3,12 +3,12 @@ title: Instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 description: Saiba como instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855241"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalar o agente MARS do backup do Azure
 
@@ -42,7 +42,7 @@ Os dados que estão disponíveis para backup dependem de onde o agente está ins
 
 ## <a name="modify-storage-replication"></a>Modificar a replicação de armazenamento
 
-Por padrão, os cofres usam o [grs (armazenamento com redundância geográfica)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
 * Se o cofre for seu mecanismo de backup primário, recomendamos que você use GRS.
 * Você pode usar o [LRS (armazenamento com redundância local)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para reduzir os custos de armazenamento do Azure.
@@ -66,11 +66,12 @@ Para modificar o tipo de replicação de armazenamento:
 Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem as seguintes URLs e endereços IP:
 
 * URLs
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * Endereços IP
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Você pode fazer backup de seus dados por meio do Azure ExpressRoute usando o em
 Para usar o emparelhamento público, primeiro garanta o acesso aos seguintes domínios e endereços:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -133,7 +135,7 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registrar o agente
 
-1. Execute o arquivo *MARSagentinstaller. exe* nos computadores que você deseja fazer backup.
+1. Execute o arquivo de *MARSagentinstaller.exe* nos computadores que você deseja fazer backup.
 1. No assistente de instalação do agente MARS, selecione **configurações de instalação**. Lá, escolha onde instalar o agente e escolha um local para o cache. Em seguida, selecione **Avançar**.
    * O backup do Azure usa o cache para armazenar instantâneos de dados antes de enviá-los para o Azure.
    * O local do cache deve ter espaço livre igual a pelo menos 5% do tamanho dos dados que você fará backup.
@@ -149,7 +151,7 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
 1. Para **instalação**, examine os pré-requisitos e selecione **instalar**.
 1. Depois que o agente for instalado, selecione **prosseguir para o registro**.
-1. Na > **identificação do cofre**do **Assistente para servidor de registro**, navegue até e selecione o arquivo de credenciais que você baixou. Em seguida, selecione **Avançar**.
+1. Na identificação do cofre do **Assistente para servidor de registro**  >  **Vault Identification**, navegue até e selecione o arquivo de credenciais que você baixou. Em seguida, selecione **Avançar**.
 
     ![Adicionar credenciais do cofre usando o assistente para registrar servidor](./media/backup-configure-vault/register1.png)
 

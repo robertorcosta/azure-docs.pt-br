@@ -3,12 +3,12 @@ title: Usar configurações de diagnóstico para cofres dos serviços de recuper
 description: Este artigo descreve como usar os eventos de diagnóstico novos e antigos para o backup do Azure.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 4efc00da96493c751c4a85dbdcc280d1ca0ef5ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183697"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854801"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Usar configurações de diagnóstico para cofres dos serviços de recuperação
 
@@ -28,6 +28,8 @@ O backup do Azure fornece os seguintes eventos de diagnóstico. Cada evento forn
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
+
+Se você estiver usando o [evento herdado](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport, será recomendável alternar para o uso dos eventos acima mais cedo.
 
 Para obter mais informações, consulte [modelo de dados para eventos de diagnóstico de backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
 
@@ -112,7 +114,7 @@ Os eventos de backup e Azure Site Recovery do Azure são enviados do mesmo cofre
 
 ![Eventos de Site Recovery](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
-Resumidamente:
+Para resumir:
 
 * Se você já tiver Log Analytics diagnósticos configurados com Diagnóstico do Azure e tiver escrito consultas personalizadas sobre ele, mantenha essa configuração *intacta* até migrar suas consultas para usar dados dos novos eventos.
 * Se você também quiser integrar novas tabelas, como recomendamos, crie uma **nova** configuração de diagnóstico, selecione específico do **recurso**e selecione os seis novos eventos.

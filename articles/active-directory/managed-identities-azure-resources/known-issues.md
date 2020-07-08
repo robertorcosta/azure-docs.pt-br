@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714042"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855130"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -32,6 +32,24 @@ ms.locfileid: "83714042"
 
 > [!NOTE]
 > Identidades gerenciadas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como MSI (Identidade de Serviço Gerenciada).
+
+
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Como você pode encontrar recursos que têm uma identidade gerenciada?
+
+Você pode encontrar a lista de recursos que têm uma identidade gerenciada atribuída pelo sistema usando o seguinte comando de CLI do Azure: 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### <a name="do-managed-identities-have-a-backing-app-object"></a>Identidades gerenciadas têm um objeto de aplicativo de backup?
+
+Não. As identidades gerenciadas e os registros de Aplicativo Azure AD não são a mesma coisa no diretório. 
+
+Registros de aplicativo tem dois componentes: um objeto de aplicativo + um objeto de entidade de serviço. Identidades gerenciadas para recursos do Azure têm apenas um desses componentes: um objeto de entidade de serviço. 
+
+Identidades gerenciadas não têm um objeto de aplicativo no diretório, que é comumente usado para conceder permissões de aplicativo para o MS Graph. Em vez disso, as permissões do MS Graph para identidades gerenciadas precisam ser concedidas diretamente à entidade de serviço.  
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>As identidades gerenciadas dos recursos do Azure funcionam com os serviços de nuvem do Azure?
 
@@ -114,6 +132,8 @@ Para identidades gerenciadas em uma assinatura movidas para outro diretório, co
 
  - Para sistema atribuído a identidades gerenciadas: desabilite e habilite novamente. 
  - Para identidades gerenciadas atribuídas ao usuário: exclua, recrie e anexe-os novamente para os recursos necessários (por exemplo, máquinas virtuais)
+
+Para obter mais informações, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Mover a identidade gerenciada atribuída pelo usuário para uma assinatura/um grupo de recursos diferente
 
