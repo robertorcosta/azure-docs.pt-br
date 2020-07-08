@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171954"
 ---
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Para instalar hotfixes normais por meio do Windows PowerShell para StorSimple
 1. Conecte-se ao console serial do dispositivo. Para saber mais, consulte [Etapa 1: Conectar-se ao console serial](../articles/storsimple/storsimple-update-device.md#step1).
-2. No menu do console serial, selecione a opção 1, **Log in com acesso completo**. Digite a senha. A senha padrão é **Password1**.
+2. No menu do console serial, selecione a opção 1, **Log in com acesso completo**. Digite a senha. A senha padrão é **Senha1**.
 3. No prompt de comando, digite:
    
     ```

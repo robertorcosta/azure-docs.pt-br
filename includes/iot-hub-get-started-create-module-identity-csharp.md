@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68883793"
 ---
 ## <a name="create-a-module-identity"></a>Criar uma identidade de módulo
@@ -29,13 +29,13 @@ Quando você executa esse aplicativo de console, ele gera ID e chave exclusivas 
 
     ![Insira o nome e a estrutura da sua solução do Visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. No Visual Studio, abra **ferramentas** > **Gerenciador** > **de pacotes NuGet gerenciar pacotes NuGet para solução**. Selecione a guia **Procurar**.
+1. No Visual Studio, abra **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **gerenciar pacotes NuGet para solução**. Selecione a guia **Procurar**.
 
 1. Pesquise **Microsoft. Azure. Devices**. Selecione-o e, em seguida, selecione **instalar**.
 
     ![Instalar a versão atual do SDK do serviço .NET do Hub IoT do Azure](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Adicione as seguintes `using` instruções na parte superior do arquivo **Program.cs** :
+1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -104,7 +104,7 @@ Quando você executa esse aplicativo de console, ele gera ID e chave exclusivas 
 
     O `AddDeviceAsync` método cria uma identidade de dispositivo com a ID **myFirstDevice**. Se essa ID de dispositivo já existir no registro de identidade, o código simplesmente recuperará as informações do dispositivo existente. Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no aplicativo de dispositivo simulado para se conectar ao seu hub.
 
-    O `AddModuleAsync` método cria uma identidade de módulo com a ID **MyFirstModule** em Device **myFirstDevice**. Se essa ID de módulo já existir no registro de identidade, o código simplesmente recuperará as informações de módulo existentes. Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao seu hub.
+    O `AddModuleAsync` método cria uma identidade de módulo com a ID **myFirstModule** em Device **myFirstDevice**. Se essa ID de módulo já existir no registro de identidade, o código simplesmente recuperará as informações de módulo existentes. Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao seu hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 

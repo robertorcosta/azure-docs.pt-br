@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171875"
 ---
 É importante perceber que há duas maneiras de configurar um ouvinte do grupo de disponibilidade no Azure. Esses métodos são diferentes do tipo de balanceador de carga do Azure que você utiliza ao criar o ouvinte. A tabela a seguir lista as diferenças:
 
 | Tipo de balanceador de carga | Implementação | Use quando: |
 | --- | --- | --- |
-| **Externo** |Usa o *endereço de IP virtual público* do serviço de nuvem que hospeda as máquinas virtuais (VMs). |Você precisa acessar o ouvinte de fora da rede virtual, inclusive da Internet. |
-| **Interno** |Usa um *balanceador de carga interno* com um endereço privado para o ouvinte. |Você pode acessar o ouvinte somente de dentro da mesma rede virtual. Esse acesso inclui VPN site a site em cenários híbridos. |
+| **Terceiros** |Usa o *endereço de IP virtual público* do serviço de nuvem que hospeda as máquinas virtuais (VMs). |Você precisa acessar o ouvinte de fora da rede virtual, inclusive da Internet. |
+| **Interna** |Usa um *balanceador de carga interno* com um endereço privado para o ouvinte. |Você pode acessar o ouvinte somente de dentro da mesma rede virtual. Esse acesso inclui VPN site a site em cenários híbridos. |
 
 > [!IMPORTANT]
 > Para um ouvinte que usa o VIP público (balanceador de carga externo) do serviço de nuvem, desde que o cliente, o ouvinte e os bancos de dados estejam na mesma região do Azure, você não incorrerá em encargos de saída. Caso contrário, os dados retornados através do ouvinte são considerados dados de saída e serão cobradas as taxas de transferência de dados normais. 

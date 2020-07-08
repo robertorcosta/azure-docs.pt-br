@@ -4,15 +4,15 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d679767f1a4be3ecdcf1811662c72dbbe2df33a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67171863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84014752"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Abrir portas TCP no firewall do Windows para a instância padrão do Mecanismo de Banco de Dados
-1. Conecte-se à máquina virtual usando a Área de Trabalho Remota. Para obter instruções detalhadas sobre como se conectar à VM, confira [Abrir uma VM do SQL com a Área de Trabalho Remota](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
+1. Conecte-se à máquina virtual usando a Área de Trabalho Remota. Para obter instruções detalhadas sobre como se conectar à VM, confira [Abrir uma VM do SQL com a Área de Trabalho Remota](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md#remotedesktop).
 2. Uma vez conectado na tela inicial, digite **WF. msc**e pressione ENTER.
    
     ![Iniciar o Programa de Firewall](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
@@ -23,13 +23,13 @@ ms.locfileid: "67171863"
 5. Na caixa de diálogo **Protocolo e Portas**, use o **TCP** padrão. Na caixa **Portas locais específicas**, digite o número da porta da instância do Mecanismo de Banco de Dados (**1433** para a instância padrão ou sua opção para a porta privada na etapa de ponto de extremidade).
    
     ![Porta TCP 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
-6. Clique em **Avançar**.
+6. Clique em **Próximo**.
 7. Na caixa de diálogo **Ação**, selecione **Permitir a conexão** e clique em **Avançar**.
    
     **Observação sobre segurança:** a seleção de **Permitir a conexão se for segura** pode fornecer segurança adicional. Selecione essa opção se você desejar configurar opções de segurança adicionais em seu ambiente.
    
     ![Permitir Conexões](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. Na caixa de diálogo **Perfil**, selecione **Público**, **Privado** e **Domínio**. Em seguida, clique em **Próximo**.
+8. Na caixa de diálogo **Perfil**, selecione **Público**, **Privado** e **Domínio**. Clique em **Avançar**.
    
     **Observação sobre segurança:** a seleção de **Público** permite acesso pela internet. Sempre que possível, selecione um perfil mais restritivo.
    

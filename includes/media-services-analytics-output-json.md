@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67172336"
 ---
 O trabalho produz um arquivo de saída JSON que contém metadados sobre as faces detectadas e controladas. Os metadados incluem coordenadas que indicam o local das faces, bem como um número de identificação da face indicando o acompanhamento dessa pessoa. Os números de identificação de face estão sujeitos à redefinição em circunstâncias nas quais a face frontal é perdida ou sobreposta no quadro, resultando na atribuição de várias IDs às mesmas pessoas.
@@ -19,7 +19,7 @@ O JSON de saída contém os seguintes elementos:
 
 | Elemento | Descrição |
 | --- | --- |
-| Versão |Refere-se à versão da API de Vídeo. |
+| version |Refere-se à versão da API de Vídeo. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
 | deslocamento |Essa é a diferença de tempo para carimbos de hora. Na versão 1.0 das APIs de Vídeo, sempre será 0. Em cenários futuro para os quais oferecemos suporte, esse valor poderá ser alterado. |
 | largura, altura |A largura e a altura do quadro de vídeo de saída, em pixels.|
@@ -30,7 +30,7 @@ O JSON de saída contém os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| start |A hora de início do primeiro evento em "tiques". |
+| iniciar |A hora de início do primeiro evento em "tiques". |
 | duration |A duração do fragmento, em “tiques”. |
 | índice | (Aplicável somente ao Azure Media Redactor) define o índice do quadro do evento atual. |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |

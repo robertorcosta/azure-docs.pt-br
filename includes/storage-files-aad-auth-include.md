@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 167d50e5c7f3049f46fd8540630e47044240809f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d470160a9b54af8751371aa4ca58202646c8fab8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263322"
 ---
-[Os arquivos do Azure](../articles/storage/files/storage-files-introduction.md) oferecem suporte à autenticação baseada em identidade sobre o protocolo SMB por meio [do Active Directory Domain Services local (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (visualização) e [Azure Active Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md). Este artigo se concentra em como os compartilhamentos de arquivos do Azure podem usar os serviços de domínio, no local ou no Azure, para dar suporte ao acesso baseado em identidade aos compartilhamentos de arquivos do Azure por SMB. Habilitar o acesso baseado em identidade para seus compartilhamentos de arquivos do Azure permite que você substitua servidores de arquivos existentes por compartilhamentos de arquivos do Azure sem substituir o serviço de diretório existente, mantendo acesso contínuo de usuário a compartilhamentos. 
+[Os arquivos do Azure](../articles/storage/files/storage-files-introduction.md) oferecem suporte à autenticação baseada em identidade sobre o protocolo SMB por meio [do Active Directory Domain Services local (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) e [Azure Active Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md). Este artigo se concentra em como os compartilhamentos de arquivos do Azure podem usar os serviços de domínio, no local ou no Azure, para dar suporte ao acesso baseado em identidade aos compartilhamentos de arquivos do Azure por SMB. Habilitar o acesso baseado em identidade para seus compartilhamentos de arquivos do Azure permite que você substitua servidores de arquivos existentes por compartilhamentos de arquivos do Azure sem substituir o serviço de diretório existente, mantendo acesso contínuo de usuário a compartilhamentos. 
 
 Os arquivos do Azure impõe a autorização no acesso do usuário ao compartilhamento e aos níveis de diretório/arquivo. A atribuição de permissão de nível de compartilhamento pode ser executada em usuários do Azure Active Directory (Azure AD) ou grupos gerenciados por meio do modelo [RBAC (controle de acesso baseado em função)](../articles/role-based-access-control/overview.md) . Com o RBAC, as credenciais usadas para o acesso ao arquivo devem estar disponíveis ou sincronizadas com o Azure AD. Você pode atribuir funções RBAC internas como o leitor de compartilhamento SMB de dados de arquivo de armazenamento a usuários ou grupos no Azure AD para conceder acesso de leitura a um compartilhamento de arquivos do Azure.
 

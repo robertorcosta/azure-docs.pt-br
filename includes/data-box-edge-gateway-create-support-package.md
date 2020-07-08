@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67172381"
 ---
 Se você tiver problemas de dispositivo, poderá criar um pacote de suporte nos logs do sistema. Suporte da Microsoft usa esse pacote para solucionar os problemas. Siga estas etapas para criar um pacote de suporte:
@@ -34,7 +34,7 @@ Se você tiver problemas de dispositivo, poderá criar um pacote de suporte nos 
     - `-Path`-Especifique a rede ou o caminho local para o qual copiar o pacote de suporte. (obrigatório)
     - `-Credential`-Especifique as credenciais para acessar o caminho protegido.
     - `-Zip`-Especifique para gerar um arquivo zip.
-    - `-Include`-Especifique para incluir os componentes a serem incluídos no pacote de suporte. Se não for especificado `Default` , será assumido.
+    - `-Include`-Especifique para incluir os componentes a serem incluídos no pacote de suporte. Se não for especificado, `Default` será assumido.
     - `-IncludeArchived`-Especifique para incluir logs arquivados no pacote de suporte.
     - `-IncludePeriodicStats`-Especifique para incluir logs de estatísticas periódicas no pacote de suporte.
 

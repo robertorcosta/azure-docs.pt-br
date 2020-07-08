@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171976"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 1. Use as suas credenciais da conta da Microsoft para fazer logon no [Portal do Microsoft Azure Governamental](https://portal.azure.us/).
-2. No portal do governo, clique **+** em e, no Marketplace, clique em **ver tudo**. Procure _StorSimple Físico_. Selecione e clique em **Série de Dispositivos Físicos StorSimple** e então clique em **Criar**. Como alternativa, no portal do governo, clique **+** em e, em **armazenamento**, clique em **série de dispositivos físicos StorSimple**.
+2. No portal do governo, clique em **+** e, no Marketplace, clique em **ver tudo**. Procure _StorSimple Físico_. Selecione e clique em **Série de Dispositivos Físicos StorSimple** e então clique em **Criar**. Como alternativa, no portal do governo, clique em e, em **+** **armazenamento**, clique em **série de dispositivos físicos StorSimple**.
 3. Na folha **StorSimple Device Manager**, siga estas etapas:
    
    1. Forneça um **Nome do recurso** exclusivo para o serviço. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 2 e 50 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171959"
 ---
 #### <a name="to-cable-for-power"></a>Para cabear o recebimento de energia
@@ -25,7 +25,7 @@ ms.locfileid: "67171959"
    
     **Fiação de energia em um dispositivo 8100**
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Controlador 1 |

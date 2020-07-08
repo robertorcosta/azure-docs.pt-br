@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171871"
 ---
 Nesta etapa, você cria manualmente o ouvinte do grupo de disponibilidade no Gerenciador de Cluster de Failover e no Server Management Studio.
@@ -29,7 +29,7 @@ Nesta etapa, você cria manualmente o ouvinte do grupo de disponibilidade no Ger
 6. Clique na guia **Recursos** e, em seguida, expanda o ponto de acesso do cliente que você acabou de criar. 
     O recurso de endereço IP para cada uma das redes de cluster no seu cluster é exibido. Se essa é uma solução somente no Azure, somente um recurso de endereço IP é exibido.
 
-7. Execute um destes procedimentos:
+7. Siga um destes procedimentos:
    
    * Para configurar uma solução híbrida:
      

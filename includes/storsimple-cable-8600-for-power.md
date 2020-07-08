@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171958"
 ---
 #### <a name="to-cable-your-device-for-power"></a>Para conectar seu dispositivo à alimentação
@@ -37,7 +37,7 @@ ms.locfileid: "67171958"
     
     **Cabeamento de energia**
     
-    | Rotular | Descrição |
+    | Rótulo | Descrição |
     |:--- |:--- |
     | 1 |Compartimento principal |
     | 2 |PCM 0 |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171956"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Para conectar os cabos do SAS
@@ -18,7 +18,7 @@ ms.locfileid: "67171956"
    
     **Para traseira dos compartimentos principal e EBOD**
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Compartimento principal |
    | 2 |Compartimento EBOD |
@@ -28,7 +28,7 @@ ms.locfileid: "67171956"
    
     **Posição da etiqueta do número de série**
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Orelha do compartimento |
 3. Use os cabos SAS fornecidos para conectar o compartimento EBOD ao compartimento principal, conforme segue:
@@ -41,7 +41,7 @@ ms.locfileid: "67171956"
       
       **Cabeamento SAS**
       
-      | Rotular | Descrição |
+      | Rótulo | Descrição |
       |:--- |:--- |
       | Um |Compartimento principal |
       | B |Compartimento EBOD |
