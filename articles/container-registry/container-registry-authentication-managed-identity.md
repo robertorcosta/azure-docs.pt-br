@@ -4,10 +4,9 @@ description: Forneça acesso a imagens em seu registro de contêiner privado usa
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456500"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use uma identidade gerenciada do Azure para autenticar para um registro de contêiner do Azure 
@@ -239,7 +238,7 @@ Neste artigo, você aprendeu sobre identidades gerenciadas com o Registro de Con
 > * Conceder à identidade o acesso ao registro de contêiner do Azure
 > * Use a identidade gerenciada para acessar o registro e efetuar pull de uma imagem de contêiner
 
-* Aprenda sobre [identidades gerenciadas dos recursos do Azure](/azure/active-directory/managed-identities-azure-resources/).
+* Saiba mais sobre [identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/).
 
 
 <!-- LINKS - external -->

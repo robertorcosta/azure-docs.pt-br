@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2912777c001a36ec913e2cfd618091ada5aa107a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74807129"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
@@ -26,7 +25,7 @@ A cobrança do cluster HDInsight começa quando um cluster é criado e para quan
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. No menu à esquerda, navegue até **todos os serviços** > **Analytics** > **clusters HDInsight** de análise e selecione o cluster.
+2. No menu à esquerda, navegue até **todos os serviços**  >  **Analytics**  >  **clusters HDInsight** de análise e selecione o cluster.
 
 3. No modo de exibição padrão, selecione o ícone **excluir** . Siga o prompt para excluir o cluster.
 

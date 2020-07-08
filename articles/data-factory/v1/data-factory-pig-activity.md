@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703204"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade Pig no Azure Data Factory
@@ -29,8 +28,8 @@ ms.locfileid: "74703204"
 > * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics atividade U-SQL](data-factory-usql-activity.md)
-> * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
+> * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
+> * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [ transformar dados usando a atividade Pig no Data Factory ](../transform-data-using-hadoop-pig.md).
@@ -82,15 +81,15 @@ A atividade de Pig do HDInsight em um [pipeline](data-factory-create-pipelines.m
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | name |Nome da atividade |Sim |
 | descrição |Texto que descreve qual a utilidade da atividade |Não |
 | type |HDinsightPig |Sim |
-| inputs |Uma ou mais entradas consumidas pela atividade Pig |Não |
+| entradas |Uma ou mais entradas consumidas pela atividade Pig |Não |
 | outputs |Uma ou mais saídas produzidas pela atividade Pig |Sim |
 | linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |Sim |
-| script |Especificar o script de Pig embutido |Não |
+| Script |Especificar o script de Pig embutido |Não |
 | scriptPath |Armazenar o script de Pig em um armazenamento de blob do Azure e fornecer o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
 | defines |Especificar parâmetros como pares chave/valor para referenciar dentro do script de Pig |Não |
 

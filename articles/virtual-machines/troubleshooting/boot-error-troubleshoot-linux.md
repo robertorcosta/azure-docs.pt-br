@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 11/20/2019
 ms.author: vilibert
 ms.openlocfilehash: 37cb201751f72918838efe5837aa0e357d483f24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74408736"
 ---
 # <a name="troubleshoot-azure-linux-virtual-machines-boot-errors"></a>Solucionar erros de inicialização do Azure Máquinas Virtuais do Linux
@@ -37,15 +36,15 @@ Solucione problemas de uma VM Linux anexando o disco do sistema operacional a um
 
  Troca de disco – isso pode ser automatizado usando:
 - [Scripts de recuperação do Power Shell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
-- [Scripts de recuperação bash](https://github.com/sribs/azure-support-scripts)
+- [Scripts de recuperação de bash](https://github.com/sribs/azure-support-scripts)
 
 - [CLI](troubleshoot-recovery-disks-linux.md)
 - [Azure portal](troubleshoot-recovery-disks-portal-linux.md)
 
 
-## <a name="disk-swap-video"></a>Vídeo de permuta de disco:
+## <a name="disk-swap-video"></a>Vídeo de troca de disco:
 
-Se você não tiver acesso ao GRUB Assista a [este](https://youtu.be/m5t0GZ5oGAc) vídeo e veja como é possível automatizar facilmente o procedimento de permuta de disco para recuperar sua VM
+Caso não tenha acesso ao GRUB assista [este](https://youtu.be/m5t0GZ5oGAc) vídeo e veja como é possível automatizar facilmente o procedimento de troca de disco para recuperar a VM.
 
 ## <a name="unofficial-solution"></a>Solução não oficial
 

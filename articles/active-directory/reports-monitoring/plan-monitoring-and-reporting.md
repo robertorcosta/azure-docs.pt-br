@@ -13,10 +13,9 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232116"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planejar uma Azure Active Directory a implantação de relatórios e monitoramento
@@ -75,9 +74,9 @@ Neste projeto, você definirá as audiências que consumirão e monitorarão rel
 
 Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](https://aka.ms/deploymentplans). Além disso, certifique-se de que as funções de Stakeholder no projeto sejam bem compreendidas documentando os participantes e suas entradas de projeto e responsabilidades.
 
-### <a name="plan-communications"></a>Planejar a comunicação
+### <a name="plan-communications"></a>Planejar comunicações
 
-A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se de forma proativa com seus usuários como sua experiência será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas.
+A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique de forma proativa a seus usuários como e quando sua experiência será alterada e como obter suporte em caso de problemas.
 
 ### <a name="document-your-current-infrastructure-and-policies"></a>Documente sua infraestrutura e políticas atuais
 

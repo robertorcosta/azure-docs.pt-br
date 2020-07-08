@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74226733"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a versão prévia 2 do Azure Functions Runtime
@@ -46,7 +45,7 @@ O instalador da versão prévia do Azure Functions Runtime orienta você durante
 
     ![Instalador da versão prévia do Azure Functions Runtime][1]
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e clique em **Avançar** para avançar.
 1. Selecione as funções que você deseja instalar no computador **Função de Gerenciamento do Functions** e/ou **Função de Trabalho do Functions** e clique em **Avançar**.
 
@@ -99,7 +98,7 @@ Para concluir a instalação do Azure Functions Runtime, você deverá concluir 
 
 Para criar sua primeira função na versão prévia do Azure Functions Runtime
 
-1. Navegue até o **portal** de Azure Functions Runtime `https://<machinename>.<domain>` como por `https://mycomputer.mydomain.com`exemplo.
+1. Navegue até o **portal de Azure Functions Runtime** como `https://<machinename>.<domain>` por exemplo `https://mycomputer.mydomain.com` .
 
 1. Você será solicitado a **Entrar**; se implantado em um domínio, use seu nome de usuário da conta do domínio e a senha. Caso contrário, use seu nome de usuário de conta local e a senha para fazer logon no portal.
 

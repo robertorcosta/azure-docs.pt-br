@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792428"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Trocar mensagens RosettaNet para integração de empresas B2B em aplicativos lógicos do Azure
@@ -151,7 +150,7 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
       | **Algoritmo de assinatura** | Sim, se a assinatura estiver habilitada | O algoritmo de assinatura a ser usado com base no certificado selecionado |
       | **Certificado** | Sim, se a assinatura estiver habilitada | O certificado a ser usado para assinatura |
       | **Habilitar a criptografia de mensagem** | Não | Criptografar saída com o algoritmo de criptografia e o certificado selecionados. |
-      | **Algoritmo de Criptografia** | Sim, se a criptografia estiver habilitada | O algoritmo de criptografia a ser usado com base no certificado selecionado |
+      | **Algoritmo de criptografia** | Sim, se a criptografia estiver habilitada | O algoritmo de criptografia a ser usado com base no certificado selecionado |
       | **Certificado** | Sim, se a criptografia estiver habilitada | O certificado a ser usado para criptografia |
       ||||
 
@@ -201,8 +200,8 @@ Para acelerar o desenvolvimento e recomendar os padrões de integração, você 
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Mensagem** | Sim | A mensagem RosettaNet a ser decodificada  |
-   | **headers** | Sim | Os cabeçalhos HTTP que fornecem os valores para a versão, que é a versão RNIF, e o tipo de resposta, que indica o tipo de comunicação entre os parceiros e pode ser síncrono ou assíncrono |
+   | **Message** | Sim | A mensagem RosettaNet a ser decodificada  |
+   | **Cabeçalhos** | Sim | Os cabeçalhos HTTP que fornecem os valores para a versão, que é a versão RNIF, e o tipo de resposta, que indica o tipo de comunicação entre os parceiros e pode ser síncrono ou assíncrono |
    | **Função** | Sim | A função do parceiro de host no PIP |
    ||||
 
@@ -230,7 +229,7 @@ Para acelerar o desenvolvimento e recomendar os padrões de integração, você 
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Mensagem** | Sim | A mensagem RosettaNet a ser codificada  |
+   | **Message** | Sim | A mensagem RosettaNet a ser codificada  |
    | **Parceiro de host** | Sim | O nome do parceiro de host |
    | **Parceiro convidado** | Sim | O nome do parceiro convidado |
    | **Código PIP** | Sim | O código de PIP |

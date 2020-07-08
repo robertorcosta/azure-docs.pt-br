@@ -5,10 +5,9 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74324501"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
@@ -698,7 +697,7 @@ Contém informações sobre quando um aplicativo é carregado no Workbench, como
 |------|-------------|
 | id | Identificador exclusivo da propriedade de fluxo de trabalho do aplicativo no Azure Blockchain Workbench |
 | name | Nome da propriedade |
-| type | Tipo de propriedade |
+| tipo | Tipo de propriedade |
 
 Exemplo de uma *EventMessage ApplicationIngestion* do Blockchain Workbench:
 
@@ -855,7 +854,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | Nome | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| type | Tipo do atribuidor |
+| tipo | Tipo do atribuidor |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 #### <a name="roleassignment-assignee"></a>Destinatário da RoleAssignment
@@ -863,7 +862,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | Nome | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| type | Tipo do destinatário |
+| tipo | Tipo do destinatário |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 Exemplo de uma *EventMessage RoleAssignment* do Blockchain Workbench:

@@ -4,10 +4,9 @@ description: Saiba como testar a unidade das Funções Duráveis.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74231217"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de Funções Duráveis
@@ -39,7 +38,7 @@ Há suporte para a simulação por meio de três classes abstratas no Durable Fu
 
 * `DurableActivityContextBase`
 
-Essas classes são classes base para `DurableOrchestrationClient`, `DurableOrchestrationContext`e `DurableActivityContext` que definem os métodos de cliente de orquestração, orquestrador e atividade. As simulações definirão o comportamento esperado para métodos de classe base para que o teste de unidade possa verificar a lógica de negócios. Há um fluxo de trabalho de duas etapas para testes de unidade da lógica de negócios em Cliente de Orquestração e Orchestrator:
+Essas classes são classes base para `DurableOrchestrationClient` , `DurableOrchestrationContext` e `DurableActivityContext` que definem os métodos de cliente de orquestração, orquestrador e atividade. As simulações definirão o comportamento esperado para métodos de classe base para que o teste de unidade possa verificar a lógica de negócios. Há um fluxo de trabalho de duas etapas para testes de unidade da lógica de negócios em Cliente de Orquestração e Orchestrator:
 
 1. Use as classes base em vez da implementação concreta ao definir as assinaturas de cliente de orquestração e de função de orquestrador.
 2. Nos testes de unidade, simule o comportamento das classes base e verifique a lógica de negócios.
@@ -52,9 +51,9 @@ Nesta seção, o teste de unidade validará a lógica da seguinte função de ga
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-A tarefa de teste de unidade será verificar o valor do cabeçalho `Retry-After` fornecido na carga de resposta. Portanto, o teste de unidade simulará `DurableOrchestrationClientBase` alguns métodos para garantir um comportamento previsível.
+A tarefa de teste de unidade será verificar o valor do cabeçalho `Retry-After` fornecido na carga de resposta. Portanto, o teste de unidade simulará alguns `DurableOrchestrationClientBase` métodos para garantir um comportamento previsível.
 
-Primeiro, uma simulação da classe base é necessária, `DurableOrchestrationClientBase`. A simulação pode ser uma nova classe que implementa `DurableOrchestrationClientBase`. No entanto, o uso de uma estrutura de simulação como [moq](https://github.com/moq/moq4) simplifica o processo:
+Primeiro, uma simulação da classe base é necessária, `DurableOrchestrationClientBase` . A simulação pode ser uma nova classe que implementa `DurableOrchestrationClientBase` . No entanto, o uso de uma estrutura de simulação como [moq](https://github.com/moq/moq4) simplifica o processo:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -172,7 +171,7 @@ Nesta seção, o teste de unidade validará o comportamento da função de Ativi
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-E os testes de unidade verificarão o formato da saída. Os testes de unidade podem usar os tipos de parâmetro diretamente `DurableActivityContextBase` ou a classe fictícia:
+E os testes de unidade verificarão o formato da saída. Os testes de unidade podem usar os tipos de parâmetro diretamente ou a `DurableActivityContextBase` classe fictícia:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

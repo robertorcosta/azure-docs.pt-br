@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74535451"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guia de referência de operações de governança de Azure Active Directory
@@ -76,7 +75,7 @@ Há alterações que exigem considerações especiais durante o teste, desde té
 
 Ao longo do tempo, os usuários podem acumular o acesso aos recursos à medida que eles se movem em diferentes equipes e cargos. É importante que os proprietários de recursos revisem o acesso a aplicativos regularmente e removam os privilégios que não são mais necessários durante todo o ciclo de vida dos usuários. As [revisões de acesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) do Azure ad permitem que as organizações gerenciem com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. Os proprietários de recursos devem revisar o acesso dos usuários regularmente para garantir que apenas as pessoas certas tenham acesso contínuo. Idealmente, você deve considerar o uso de revisões de acesso do Azure AD para essa tarefa.
 
-![Página inicial de revisões de acesso](./media/active-directory-ops-guide/active-directory-ops-img15.png)
+![Página inicial das revisões de acesso](./media/active-directory-ops-guide/active-directory-ops-img15.png)
 
 > [!NOTE]
 > Cada usuário que interage com as revisões de acesso deve ter uma licença paga de Azure AD Premium P2.

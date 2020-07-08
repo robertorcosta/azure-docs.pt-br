@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74793037"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Referência para configurações de mensagem AS2 em aplicativos lógicos do Azure com Enterprise Integration Pack
@@ -49,7 +48,7 @@ Esta referência descreve as propriedades que você pode definir para especifica
 | **Habilitar a assinatura de mensagens** | Não | Especifica se todas as mensagens de saída devem ser assinadas digitalmente. Se você precisar de assinatura, selecione estes valores: <p>-Na lista **algoritmo de assinatura** , selecione o algoritmo a ser usado para assinar mensagens. <br>-Na lista de **certificados** , selecione um certificado privado de parceiro de host existente para assinar mensagens. Se você não tiver um certificado, saiba mais sobre como [adicionar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Habilitar a criptografia de mensagem** | Não | Especifica se todas as mensagens de saída devem ser criptografadas. Se você precisar de criptografia, selecione estes valores: <p>-Na lista **algoritmo de criptografia** , selecione o algoritmo de certificado público do parceiro convidado a ser usado para criptografar mensagens. <br>-Na lista de **certificados** , selecione um certificado privado de parceiro convidado existente para criptografar mensagens de saída. Se você não tiver um certificado, saiba mais sobre como [adicionar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Habilitar a compactação de mensagem** | Não | Especifica se todas as mensagens de saída devem ser compactadas. |
-| **Desdobrar cabeçalhos HTTP** | Não | Coloca o cabeçalho `content-type` http em uma única linha. |
+| **Desdobrar cabeçalhos HTTP** | Não | Coloca o `content-type` cabeçalho HTTP em uma única linha. |
 | **Nome do arquivo de transmissão no cabeçalho MIME** | Não | Especifica se o nome do arquivo deve ser incluído no cabeçalho MIME. |
 | **Solicitar MDN** | Não | Especifica se as notificações de disposição de mensagem (MDNs) devem ser recebidas para todas as mensagens de saída. |
 | **Solicitar MDN assinada** | Não | Especifica se deve receber MDNs assinadas para todas as mensagens de saída. Se você precisar de assinatura, na lista de **algoritmos do MIC** , selecione o algoritmo a ser usado para assinar mensagens. |

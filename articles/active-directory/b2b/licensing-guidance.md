@@ -12,10 +12,9 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28d02160163da4081ad8adbe233b27fee970a0df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74868840"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Diretrizes de licenciamento da colaboração B2B do Azure Active Directory
@@ -40,5 +39,5 @@ Depois de determinar quantos usuários convidados precisam acessar seus serviço
 Confira os seguintes recursos sobre a colaboração B2B do Azure AD:
 
 * [Preço do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
-* [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+* [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](faq.md)

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870557"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos de subconsulta do SQL para Azure Cosmos DB
@@ -47,7 +46,7 @@ Subconsultas de vários valores retornam um conjunto de documentos e são sempre
 
 Subconsultas com vários valores podem otimizar as expressões de junção enviando predicados após cada expressão Select-many em vez de todas as junções cruzadas na cláusula WHERE.
 
-Considere a consulta a seguir.
+Considere a consulta a seguir:
 
 ```sql
 SELECT Count(1) AS Count
@@ -79,7 +78,7 @@ Suponha que apenas um item na matriz de marcas corresponda ao filtro e que haja 
 
 As subconsultas podem ajudar a otimizar consultas com expressões caras, como UDFs (funções definidas pelo usuário), cadeias de caracteres complexas ou expressões aritméticas. Você pode usar uma subconsulta juntamente com uma expressão de junção para avaliar a expressão uma vez, mas fazer referência a ela muitas vezes.
 
-A consulta a seguir executa o `GetMaxNutritionValue` UDF duas vezes:
+A consulta a seguir executa o UDF `GetMaxNutritionValue` duas vezes:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -109,7 +108,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-A abordagem não está limitada a UDFs. Ele se aplica a qualquer expressão potencialmente dispendiosa. Por exemplo, você pode usar a mesma abordagem com a função `avg`matemática:
+A abordagem não está limitada a UDFs. Ele se aplica a qualquer expressão potencialmente dispendiosa. Por exemplo, você pode usar a mesma abordagem com a função matemática `avg` :
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -366,7 +365,7 @@ Se a palavra-chave VALUE na subconsulta anterior for omitida, a consulta será a
 SELECT EXISTS (SELECT undefined) 
 ```
 
-A subconsulta colocará a lista de valores na lista selecionada em um objeto. Se a lista selecionada não tiver valores, a subconsulta retornará o único valor '{}'. Esse valor é definido, portanto, EXISTs é avaliado como true.
+A subconsulta colocará a lista de valores na lista selecionada em um objeto. Se a lista selecionada não tiver valores, a subconsulta retornará o único valor ' {} '. Esse valor é definido, portanto, EXISTs é avaliado como true.
 
 ### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exemplo: reescrever ARRAY_CONTAINS e INGRESSAr como existe
 

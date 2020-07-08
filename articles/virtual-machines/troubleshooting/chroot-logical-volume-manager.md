@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74684142"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solução de problemas de uma VM do Linux quando não há acesso ao console serial do Azure e o layout do disco está usando o LVM (Gerenciador de volume lógico)
@@ -143,7 +142,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Os comandos podem ser usados para instalar, remover e atualizar o software. Solucionar problemas de VMs a fim de corrigir erros.
 
 
-Execute o comando lsblk e/Rescue agora é/e/Rescue/boot é/boot ![chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Execute o comando lsblk e/Rescue agora é/e/Rescue/boot é/boot ![ chrooted](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Executar correções
 
@@ -171,13 +170,13 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 O comando **grep** lista os kernels dos quais o **grub. cfg** está ciente.
 ![Kernels](./media/chroot-logical-volume-manager/kernels.png)
 
-**Grub2-editenv lista** exibe qual kernel será carregado no próximo padrão do ![kernel de inicialização](./media/chroot-logical-volume-manager/kernel-default.png)
+**Grub2-editenv lista** exibe qual kernel será carregado no próximo padrão do ![ kernel de inicialização](./media/chroot-logical-volume-manager/kernel-default.png)
 
-**Grub2-Set-Default** é usado para alterar para outro kernel ![Grub2 Set](./media/chroot-logical-volume-manager/grub2-set-default.png)
+**Grub2-Set-Default** é usado para alterar para outro kernel ![ Grub2 Set](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
-**Grub2-editenv** lista exibe qual kernel será carregado na próxima inicialização ![novo kernel](./media/chroot-logical-volume-manager/kernel-new.png)
+**Grub2-editenv** lista exibe qual kernel será carregado na próxima inicialização ![ novo kernel](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**Grub2-mkconfig** recompila o grub. cfg usando as versões necessárias ![Grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+**Grub2-mkconfig** recompila o grub. cfg usando as versões necessárias ![ Grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
@@ -204,8 +203,8 @@ Consultar o **kernel** instalado
 
 ![Avançado](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-Se necessário, remova ou atualize o **kernel**
-![avançado](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
+Se necessário, remova ou atualize o **kernel** 
+ ![ avançado](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### <a name="example-3---enable-serial-console"></a>Exemplo 3 – habilitar o console serial
@@ -252,15 +251,15 @@ umount /rescue
 
 Desanexe o disco da VM de resgate e execute uma troca de disco.
 
-Selecione a VM nos **discos** do portal **e escolha**
-![desanexar desanexar disco](./media/chroot-logical-volume-manager/detach-disk.png) 
+Selecione a VM nos **discos** do portal **e escolha desanexar** 
+ ![ desanexar disco](./media/chroot-logical-volume-manager/detach-disk.png) 
 
-Salvar as alterações ![salvar desanexar](./media/chroot-logical-volume-manager/save-detach.png) 
+Salvar as alterações ![ salvar desanexar](./media/chroot-logical-volume-manager/save-detach.png) 
 
 O disco agora ficará disponível, permitindo que ele seja trocado pelo disco do sistema operacional original da VM afetada.
 
-Navegue na portal do Azure para a VM com falha e selecione **discos** -> **alternar**
-![disco de permuta de disco do so](./media/chroot-logical-volume-manager/swap-disk.png) 
+Navegue na portal do Azure para a VM com falha e selecione **discos**  ->  **alternar**disco de 
+ ![ permuta de disco do so](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 Preencha os campos a **escolha disco** é o disco de instantâneo que acabou de ser desanexado na etapa anterior. O nome da VM da VM afetada também é necessário e, em seguida, selecione **OK**
 

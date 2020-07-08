@@ -8,10 +8,9 @@ ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6f41adbb726313ef095084d079dc7852736e0c06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870523"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funções do sistema (Azure Cosmos DB)
@@ -33,7 +32,7 @@ Se você estiver usando uma UDF (função definida pelo usuário) para a qual um
 
 ## <a name="built-in-versus-ansi-sql-functions"></a>Funções SQL internas versus ANSI
 
-A principal diferença entre Cosmos DB funções e funções ANSI SQL é que Cosmos DB funções são projetadas para funcionar bem com dados de esquema misto e sem esquema. Por exemplo, se uma propriedade estiver ausente ou tiver um valor não numérico como `unknown`, o item será ignorado em vez de retornar um erro.
+A principal diferença entre Cosmos DB funções e funções ANSI SQL é que Cosmos DB funções são projetadas para funcionar bem com dados de esquema misto e sem esquema. Por exemplo, se uma propriedade estiver ausente ou tiver um valor não numérico como `unknown` , o item será ignorado em vez de retornar um erro.
 
 ## <a name="next-steps"></a>Próximas etapas
 

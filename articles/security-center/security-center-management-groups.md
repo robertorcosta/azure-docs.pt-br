@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74559339"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
@@ -40,7 +39,7 @@ Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de 
 
  
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** > **grupos de gerenciamento**.
+2. Selecione **Todos os serviços** > **Grupos de gerenciamento**.
 3. Na página principal, selecione **Novo grupo de gerenciamento.** 
 
     ![Grupo Principal](./media/security-center-management-groups/main.png) 
@@ -113,7 +112,7 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-az-ps).
-2. Execute os comandos a seguir: 
+2. Execute os seguintes comandos: 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user
@@ -192,5 +191,5 @@ Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para C
 > [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [Gerenciar e responder a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md)
+> [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 

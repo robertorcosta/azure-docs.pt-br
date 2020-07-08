@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74483527"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
@@ -72,7 +71,7 @@ A solução de failover manual do DNS do Azure para recuperação de desastre us
 
 As suposições feitas para a solução são:
 - Os pontos de extremidade primários e secundários têm IPs estáticos que não são alterados com frequência. Digamos que para o site primário, o IP é 100.168.124.44 e o IP para o site secundário é 100.168.124.43.
-- Existe uma zona DNS do Azure para o site primário e secundário. Digamos que, para o site primário o ponto de extremidade é prod.contoso.com e para o site de backup é dr.contoso.com. Um registro DNS para o aplicativo principal conhecido como www\.contoso.com também existe.   
+- Existe uma zona DNS do Azure para o site primário e secundário. Digamos que, para o site primário o ponto de extremidade é prod.contoso.com e para o site de backup é dr.contoso.com. Um registro DNS para o aplicativo principal conhecido como www \. contoso.com também existe.   
 - O TTL está no limite ou abaixo do SLA de RTO definido na organização. Por exemplo, se uma empresa define o RTO da resposta de desastre do aplicativo para ser de 60 minutos, então o valor TTL deve ser menor que 60 minutos, preferencialmente quanto menor, melhor. 
   Você pode configurar o DNS do Azure para failover manual da seguinte maneira:
 - Criar uma zona DNS
@@ -80,7 +79,7 @@ As suposições feitas para a solução são:
 - Atualizar um registro CNAME
 
 ### <a name="step-1-create-a-dns"></a>Etapa 1: Criar um DNS
-Crie uma zona DNS (por exemplo, contoso.com\.da Web), conforme mostrado abaixo:
+Crie uma zona DNS (por exemplo, contoso.com da Web \. ), conforme mostrado abaixo:
 
 ![Criar uma zona DNS no Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +87,13 @@ Crie uma zona DNS (por exemplo, contoso.com\.da Web), conforme mostrado abaixo:
 
 ### <a name="step-2-create-dns-zone-records"></a>Etapa 2: Criar registros de zona DNS
 
-Nessa zona, crie três registros (por exemplo, www\.contoso.com, prod.contoso.com e Dr.consoto.com), conforme mostrado abaixo.
+Nessa zona, crie três registros (por exemplo, www \. contoso.com, prod.contoso.com e Dr.consoto.com), conforme mostrado abaixo.
 
 ![Criar registros de zona DNS](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Figura - Criar registros de zona DNS no Azure*
 
-Neste cenário, site, www\.contoso.com tem um TTL de 30 minutos, que está bem abaixo do RTO declarado e está apontando para o site de produção prod.contoso.com. Essa configuração é aplicável durante operações normais de negócios. O TTL de prod.contoso.com e dr.contoso.com foi definido para 300 segundos ou 5 minutos. Você pode usar o serviço de monitoramento do Azure ou o Aplicativo Azure Insights, ou qualquer solução de monitoramento de parceiros como Dynatrace, você pode até usar soluções personalizadas que podem monitorar ou detectar falhas no nível de infraestrutura virtual ou do aplicativo.
+Neste cenário, site, www \. contoso.com tem um TTL de 30 minutos, que está bem abaixo do RTO declarado e está apontando para o site de produção prod.contoso.com. Essa configuração é aplicável durante operações normais de negócios. O TTL de prod.contoso.com e dr.contoso.com foi definido para 300 segundos ou 5 minutos. Você pode usar o serviço de monitoramento do Azure ou o Aplicativo Azure Insights, ou qualquer solução de monitoramento de parceiros como Dynatrace, você pode até usar soluções personalizadas que podem monitorar ou detectar falhas no nível de infraestrutura virtual ou do aplicativo.
 
 ### <a name="step-3-update-the-cname-record"></a>Etapa 3: Atualizar o registro CNAME
 
@@ -104,7 +103,7 @@ Depois da falha ser detectada, altere o valor de registro para apontar para dr.c
 
 *Figura - Atualizar o registro CNAME no Azure*
 
-Dentro de 30 minutos, durante o qual a maioria dos resolvedores atualizará o arquivo de zona armazenado em cache\., qualquer consulta ao contoso.com da Web será redirecionada para Dr.contoso.com.
+Dentro de 30 minutos, durante o qual a maioria dos resolvedores atualizará o arquivo de zona armazenado em cache, qualquer consulta ao contoso.com da Web \. será redirecionada para Dr.contoso.com.
 Você também pode executar o seguinte comando na CLI do Azure para alterar o valor CNAME:
  ```azurecli
    az network dns record-set cname set-record \

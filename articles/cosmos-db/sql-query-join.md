@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74871135"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
@@ -19,9 +18,9 @@ Em um banco de dados relacional, as junções entre as tabelas são o registro l
 
 Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
-O idioma dá suporte à `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`sintaxe. Essa consulta retorna um conjunto de tuplas com `N` valores. Cada tupla possui valores produzidos pela iteração de todos os aliases de contêiner sobre seus respectivos conjuntos. 
+O idioma dá suporte à sintaxe `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . Essa consulta retorna um conjunto de tuplas com `N` valores. Cada tupla possui valores produzidos pela iteração de todos os aliases de contêiner sobre seus respectivos conjuntos. 
 
 Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
@@ -118,7 +117,7 @@ O resultado é:
     }]
 ```
 
-No exemplo a seguir, a junção é um produto cruzado entre dois objetos JSON, a raiz `id` do item `children` e a subraiz. O fato de `children` que uma matriz não é eficaz na junção, porque lida com uma única raiz que é a `children` matriz. O resultado contém apenas dois resultados, porque o produto cruzado de cada item com a matriz produz exatamente apenas um item.
+No exemplo a seguir, a junção é um produto cruzado entre dois objetos JSON, a raiz do item `id` e a `children` subraiz. O fato de que `children` uma matriz não é eficaz na junção, porque lida com uma única raiz que é a `children` matriz. O resultado contém apenas dois resultados, porque o produto cruzado de cada item com a matriz produz exatamente apenas um item.
 
 ```sql
     SELECT f.id
@@ -165,11 +164,11 @@ Os resultados são:
 
 A origem da cláusula de junção é um iterador. Portanto, o fluxo no exemplo anterior é:  
 
-1. Expanda cada elemento `c` filho na matriz.
-2. Aplique um produto cruzado com a raiz do item `f` a cada elemento `c` filho que a primeira etapa achatada.
-3. Por fim, projeto apenas a `f` `id` Propriedade do objeto raiz.
+1. Expanda cada elemento filho `c` na matriz.
+2. Aplique um produto cruzado com a raiz do item a `f` cada elemento filho `c` que a primeira etapa achatada.
+3. Por fim, projeto apenas a propriedade do objeto raiz `f` `id` .
 
-O primeiro item, `AndersenFamily`, contém apenas um `children` elemento, portanto, o conjunto de resultados contém apenas um único objeto. O segundo item, `WakefieldFamily`, contém dois `children`, portanto, o produto cruzado produz dois objetos, um `children` para cada elemento. Os campos raiz em ambos os itens são os mesmos, exatamente como você esperaria em um produto cruzado.
+O primeiro item, `AndersenFamily` , contém apenas um `children` elemento, portanto, o conjunto de resultados contém apenas um único objeto. O segundo item, `WakefieldFamily` , contém dois `children` , portanto, o produto cruzado produz dois objetos, um para cada `children` elemento. Os campos raiz em ambos os itens são os mesmos, exatamente como você esperaria em um produto cruzado.
 
 O verdadeiro utilitário da cláusula JOIN é formar tuplas do produto cruzado em uma forma que seja difícil de projetar. O exemplo a seguir filtra na combinação de uma tupla que permite que o usuário escolha uma condição satisfeita pelas tuplas como um todo.
 
@@ -224,9 +223,9 @@ A seguinte extensão do exemplo anterior executa uma junção dupla. Você pode 
     }
 ```
 
-`AndersenFamily`tem um filho que tem um animal de estimação, portanto, o produto cruzado produz\*uma\*linha (1 1 1) dessa família. `WakefieldFamily`tem dois filhos, apenas um de quem tem animais de estimação, mas esse filho tem dois animais de estimação. O produto cruzado para esta família gera 1\*1\*2 = 2 linhas.
+`AndersenFamily`tem um filho que tem um animal de estimação, portanto, o produto cruzado produz uma linha (1 \* 1 \* 1) dessa família. `WakefieldFamily`tem dois filhos, apenas um de quem tem animais de estimação, mas esse filho tem dois animais de estimação. O produto cruzado para esta família gera 1 \* 1 \* 2 = 2 linhas.
 
-No próximo exemplo, há um filtro adicional em `pet`, que exclui todas as tuplas em que o nome do animal de estimação `Shadow`não é. Você pode criar tuplas de matrizes, filtrar em qualquer um dos elementos da tupla e projetar qualquer combinação dos elementos.
+No próximo exemplo, há um filtro adicional em `pet` , que exclui todas as tuplas em que o nome do animal de estimação não é `Shadow` . Você pode criar tuplas de matrizes, filtrar em qualquer um dos elementos da tupla e projetar qualquer combinação dos elementos.
 
 ```sql
     SELECT 
@@ -254,6 +253,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Subconsultas](sql-query-subquery.md)

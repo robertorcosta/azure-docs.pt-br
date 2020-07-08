@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74267319"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
@@ -53,7 +52,7 @@ O Azure HDInsight é uma distribuição de nuvem dos componentes do Hadoop. O Az
 
 - **Extensibilidade com ferramentas personalizadas ou aplicativos de terceiros** – clusters do HDInsight podem ser estendidos com componentes instalados e também podem ser integrados com outras soluções de Big Data usando implantações com [um único clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) do Azure Marketplace.
 
-- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se com [os logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) de Azure monitor para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
+- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se com [os logs de Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md)   para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
 
 - **Integração com outros serviços do Azure** – o HDInsight pode ser facilmente integrado a outros serviços populares do Azure, como os seguintes:
 
@@ -87,7 +86,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 
 ### <a name="on-premises-deployment-questionnaire"></a>Questionário de implantação local
 
-| **Pergunta** | **Exemplo** | **Atenda** |
+| **Pergunta** | **Exemplo** | **Resposta** |
 |---|---|---|
 |**Tópico**: **ambiente**|||
 |Versão de Distribuição do Cluster|HDP 2.6.5, CDH 5.7|
@@ -119,7 +118,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 
 ### <a name="project-details-questionnaire"></a>Questionário de detalhes do projeto
 
-|**Pergunta**|**Exemplo**|**Atenda**|
+|**Pergunta**|**Exemplo**|**Resposta**|
 |---|---|---|
 |**Tópico**: **cargas de trabalho e frequência**|||
 |Trabalhos do MapReduce|10 trabalhos – duas vezes por dia||
@@ -128,7 +127,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Trabalhos do Spark Streaming|5 trabalhos – a cada 3 minutos||
 |Trabalhos de Streaming estruturados|5 trabalhos – a cada minuto||
 |Trabalhos de treinamento do Modelo de ML|2 trabalhos – uma vez por semana||
-|Linguagens de Programação|Python, Scala, Java||
+|Linguagens de programação|Python, Scala, Java||
 |Scripting|Shell do Python||
 |**Tópico**: **dados**|||
 |Fontes de dados|Arquivos simples, JSON, Kafka, RDBMS||
@@ -165,7 +164,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 
 |**Tópico**: **infraestrutura** |||
 |---|---|---|
-|**Pergunta**|**Exemplo**|**Atenda**|
+|**Pergunta**|**Exemplo**|**Resposta**|
 | Região preferida|Leste dos EUA||
 |Rede virtual preferida?|Sim||
 |HA/DR necessárias?|Sim||

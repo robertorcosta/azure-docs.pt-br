@@ -8,10 +8,9 @@ ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74672343"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hospedagem de alta densidade no serviço de Azure App usando o dimensionamento por aplicativo
@@ -74,7 +73,7 @@ O seguinte modelo do Azure Resource Manager cria:
 - Um Plano de Serviço de Aplicativo que é dimensionado para 10 instâncias
 - Um aplicativo configurado para dimensionar para um máximo de cinco instâncias.
 
-O Plano do Serviço de Aplicativo está definindo a propriedade **PerSiteCalling** como verdadeira (`"perSiteScaling": true`). O aplicativo está definindo o **número de trabalhadores** a serem usados como `"properties": { "numberOfWorkers": "5" }`5.
+O Plano do Serviço de Aplicativo está definindo a propriedade **PerSiteCalling** como verdadeira (`"perSiteScaling": true`). O aplicativo está definindo o **número de trabalhadores** a serem usados como 5 `"properties": { "numberOfWorkers": "5" }` .
 
 ```json
 {

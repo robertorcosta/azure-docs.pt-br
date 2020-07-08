@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74888488"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Conectar-se à API dos serviços de mídia v3-Java
@@ -33,7 +32,7 @@ Neste artigo, o Visual Studio Code é usado para desenvolver o aplicativo de exe
    - JDK
    - Apache Maven
    - Pacote de extensão do Java
-- Certifique-se de `JAVA_HOME` definir `PATH` as variáveis de ambiente e.
+- Certifique-se de definir as `JAVA_HOME` `PATH` variáveis de ambiente e.
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
 - Siga as etapas no tópico [APIs de acesso](access-api-cli-how-to.md) . Registre a ID da assinatura, a ID do aplicativo (ID do cliente), a chave de autenticação (segredo) e a ID de locatário que você precisa em uma etapa posterior.
 
@@ -47,13 +46,13 @@ Examine também:
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-Abra uma ferramenta de linha de comando `cd` e um diretório onde você deseja criar o projeto.
+Abra uma ferramenta de linha de comando e `cd` um diretório onde você deseja criar o projeto.
     
 ```
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-Quando você executa o comando, o `pom.xml`, `App.java`o e outros arquivos são criados. 
+Quando você executa o comando, o `pom.xml` , o `App.java` e outros arquivos são criados. 
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
@@ -119,7 +118,7 @@ Quando você executa o comando, o `pom.xml`, `App.java`o e outros arquivos são 
    ```
 1. Execute o aplicativo.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Conceitos dos Serviços de Mídia](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)

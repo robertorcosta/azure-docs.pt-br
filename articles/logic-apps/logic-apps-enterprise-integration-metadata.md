@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792478"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerenciar metadados de artefato em contas de integração a Aplicativos Lógicos do Azure e o Enterprise Integration Pack
@@ -25,10 +24,10 @@ ms.locfileid: "74792478"
 
 * Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica que tem os artefatos em que você deseja adicionar os metadados, por exemplo: 
 
-  * [Parceiro](logic-apps-enterprise-integration-partners.md)
+  * [Partner (parceiro)](logic-apps-enterprise-integration-partners.md)
   * [Contrato](logic-apps-enterprise-integration-agreements.md)
   * [Esquema](logic-apps-enterprise-integration-schemas.md)
-  * [Mapeada](logic-apps-enterprise-integration-maps.md)
+  * [Map](logic-apps-enterprise-integration-maps.md)
 
 * Um aplicativo lógico que está vinculado à conta de integração e aos metadados de artefato que você deseja usar. Se o aplicativo lógico ainda não estiver vinculado, saiba [como vincular aplicativos lógicos a contas de integração](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
@@ -53,7 +52,7 @@ ms.locfileid: "74792478"
 
 1. No portal do Azure, abra o aplicativo lógico que está vinculado à conta de integração que você deseja. 
 
-1. No designer de aplicativo lógico, se você estiver adicionando a etapa para obter metadados no gatilho ou na última ação no fluxo de trabalho, escolha **nova etapa** > **Adicionar uma ação**. 
+1. No designer de aplicativo lógico, se você estiver adicionando a etapa para obter metadados no gatilho ou na última ação no fluxo de trabalho, escolha **nova etapa**  >  **Adicionar uma ação**. 
 
 1. Na caixa de pesquisa, digite “conta de integração”. Na caixa de pesquisa, escolha **Tudo**. Na lista ações, selecione esta ação: **pesquisa de artefato da conta de integração-conta de integração**
 
@@ -85,10 +84,10 @@ ms.locfileid: "74792478"
 
       | Propriedade | Obrigatório | Valor | Descrição | 
       |----------|----------|-------|-------------| 
-      | **Forma** | Sim | <*operação-para-executar*> | A operação de HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa p método **GET**. | 
+      | **Método** | Sim | <*operação-para-executar*> | A operação de HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa p método **GET**. | 
       | **URI** | Sim | <*metadados-local*> | Para acessar o valor de metadados `routingUrl` do artefato recuperado, você poderá usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **headers** | Não | <*valores de cabeçalho*> | Qualquer cabeçalho de saídas do gatilho que você deseja passar para a ação HTTP. Por exemplo, para passar o valor de propriedade `headers` do gatinho: é possível usar uma expressão: <p>`@triggeroutputs()['headers']` | 
-      | **Conteúdo** | Não | <*corpo-conteúdo*> | Qualquer outro conteúdo que você deseje passar por meio da propriedade `body` da ação HTTP. Este exemplo passa os valores `properties` do artefato para a ação HTTP: <p>1. Clique dentro da propriedade **corpo** para que a lista de conteúdo dinâmico seja exibida. Se nenhuma propriedade aparecer, escolha **Ver mais**. <br>2. na lista de conteúdo dinâmico, em **pesquisa de artefato da conta de integração**, selecione **Propriedades**. | 
+      | **Cabeçalhos** | Não | <*valores de cabeçalho*> | Qualquer cabeçalho de saídas do gatilho que você deseja passar para a ação HTTP. Por exemplo, para passar o valor de propriedade `headers` do gatinho: é possível usar uma expressão: <p>`@triggeroutputs()['headers']` | 
+      | **Corpo** | Não | <*corpo-conteúdo*> | Qualquer outro conteúdo que você deseje passar por meio da propriedade `body` da ação HTTP. Este exemplo passa os valores `properties` do artefato para a ação HTTP: <p>1. Clique dentro da propriedade **corpo** para que a lista de conteúdo dinâmico seja exibida. Se nenhuma propriedade aparecer, escolha **Ver mais**. <br>2. na lista de conteúdo dinâmico, em **pesquisa de artefato da conta de integração**, selecione **Propriedades**. | 
       |||| 
 
       Por exemplo:

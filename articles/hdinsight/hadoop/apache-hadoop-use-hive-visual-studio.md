@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687798"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive usando as ferramentas do Data Lake para Visual Studio
@@ -23,7 +22,7 @@ Saiba como usar as ferramentas do Data Lake para Visual Studio para consultar o 
 
 * Um cluster do Apache Hadoop no HDInsight. Para obter informações sobre como criar esse item, consulte [criar Apache Hadoop cluster no Azure HDInsight usando o modelo do Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/). As etapas neste artigo usam o Visual Studio 2019.
+* [Do Visual Studio](https://visualstudio.microsoft.com/vs/). As etapas neste artigo usam o Visual Studio 2019.
 
 * Ferramentas do HDInsight para Visual Studio ou ferramentas do Azure Data Lake para Visual Studio. Para obter informações sobre como instalar e configurar as ferramentas, consulte [instalar o data Lake Tools para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio).
 
@@ -50,7 +49,7 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
     SELECT * FROM hivesampletable;
     ```
 
-5. Selecione **executar**. O modo de execução usa como padrão a **interatividade**.
+5. Selecione **Executar**. O modo de execução usa como padrão a **interatividade**.
 
     ![Executar consulta de Hive interativa, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
@@ -58,7 +57,7 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
 
     ![Enviar consulta do hive do lote, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
-    O editor do Hive é compatível com o IntelliSense. Agora as Ferramentas do Data Lake para Visual Studio dão suporte à obtenção de metadados remotos quando você edita o script do Hive. Por exemplo, se você digitar `SELECT * FROM`, o IntelliSense listará todos os nomes de tabela sugeridos. Quando um nome de tabela for especificado, o IntelliSense listará os nomes de coluna. As ferramentas dão suporte a quase todas as instruções DML Hive, subconsultas e UDFs internos. O IntelliSense sugere apenas os metadados dos clusters selecionados na Barra de Ferramentas do HDInsight.
+    O editor do Hive é compatível com o IntelliSense. Agora as Ferramentas do Data Lake para Visual Studio dão suporte à obtenção de metadados remotos quando você edita o script do Hive. Por exemplo, se você digitar `SELECT * FROM` , o IntelliSense listará todos os nomes de tabela sugeridos. Quando um nome de tabela for especificado, o IntelliSense listará os nomes de coluna. As ferramentas dão suporte a quase todas as instruções DML Hive, subconsultas e UDFs internos. O IntelliSense sugere apenas os metadados dos clusters selecionados na Barra de Ferramentas do HDInsight.
 
 7. Na barra de ferramentas de consulta (a área abaixo da guia consulta e acima do texto da consulta), selecione **Enviar**ou selecione a seta suspensa ao lado de **Enviar** e escolha **avançado** na lista suspensa. Se você selecionar a última opção,
 
@@ -104,7 +103,7 @@ Para executar uma consulta de Hive criando um aplicativo Hive, siga estas etapas
 
     * `STORED AS TEXTFILE LOCATION`: Informa ao hive que os dados são armazenados no diretório de *exemplo/dados* e que são armazenados como texto.
 
-    * `SELECT`: Seleciona uma contagem de todas as linhas em `t4` que a coluna `[ERROR]`contém o valor. Essa instrução retorna um valor de `3`, porque três linhas contêm esse valor.
+    * `SELECT`: Seleciona uma contagem de todas as linhas em que `t4` a coluna contém o valor `[ERROR]` . Essa instrução retorna um valor de `3` , porque três linhas contêm esse valor.
 
     * `INPUT__FILE__NAME LIKE '%.log'`: Informa ao hive para retornar apenas dados de arquivos que terminam em. log. Essa cláusula restringe a pesquisa ao arquivo *Sample. log* que contém os dados.
 
@@ -143,7 +142,7 @@ O exemplo a seguir depende da `log4jLogs` tabela criada no procedimento anterior
 
 3. Altere **interativo** para **lote** , se necessário, e selecione **Enviar**.
 
-4. Para verificar se o trabalho criou a tabela, vá para **Gerenciador de servidores** e expanda **Azure** > **HDInsight**. Expanda seu cluster HDInsight e, em seguida, expanda **bancos de dados** > do hive**padrão**. As tabelas **errorLogs** e **log4jLogs** são listadas.
+4. Para verificar se o trabalho criou a tabela, vá para **Gerenciador de servidores** e expanda **Azure**  >  **HDInsight**. Expanda seu cluster HDInsight e, em seguida, expanda **bancos de dados do hive**  >  **padrão**. As tabelas **errorLogs** e **log4jLogs** são listadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,10 +8,9 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687253"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de um Ambiente do Serviço de Aplicativo v1
@@ -125,13 +124,13 @@ Em um ASE, todos os Planos de Serviço de Aplicativo são planos de serviço de 
 ### <a name="settings"></a>Configurações
 Na folha do ASE, há uma seção **Configurações** que contém vários recursos importantes:
 
-**Settings** > **Propriedades**de configurações: a folha **configurações** é aberta automaticamente quando você abre sua folha ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
+**Configurações**  >  do **Propriedades**: a folha **configurações** será aberta automaticamente quando você abrir sua folha ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
 
 ![Folha Configurações e propriedades][4]
 
-**Configurações** > **endereços IP**: ao criar um aplicativo de protocolo SSL IP (SSL) em seu ASE, você precisa de um endereço de IP SSL. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há uma cobrança por endereços IP SSL adicionais, conforme indicado em [Preços do Serviço de Aplicativo][AppServicePricing] (na seção Conexões SSL). O preço adicional é o preço do IP SSL.
+**Configurações**  >  do **Endereços IP**: ao criar um aplicativo de protocolo SSL IP (SSL) em seu ASE, você precisa de um endereço de IP SSL. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há uma cobrança por endereços IP SSL adicionais, conforme indicado em [Preços do Serviço de Aplicativo][AppServicePricing] (na seção Conexões SSL). O preço adicional é o preço do IP SSL.
 
-**Configurações** > pools de**front-end** / **grupos de trabalho**: cada uma dessas folhas de pool de recursos oferece a capacidade de ver informações somente no pool de recursos, além de fornecer controles para dimensionar totalmente esse pool de recursos.  
+**Configurações**  >  do Pool de front **-ends**  /  **Pools de trabalho**: cada uma dessas folhas de pool de recursos oferece a capacidade de ver informações apenas sobre esse pool de recursos, além de fornecer controles para dimensionar totalmente esse pool de recursos.  
 
 A folha base de cada pool de recursos oferece um gráfico com métricas para o pool de recursos. Assim como acontece com os gráficos da folha ASE, você pode entrar no gráfico e configurar alertas como desejado. A configuração de um alerta da folha ASE para um pool de recursos específico é igual à configuração feita do pool de recursos. Da folha **Configurações** do pool de trabalho, você tem acesso a todos os Aplicativos ou os Planos do Serviço de Aplicativo em execução nesse pool de trabalho.
 
@@ -154,7 +153,7 @@ Para usar a operação Escala na folha ASE, arraste o controle deslizante até a
 
 ![Interface do usuário de escala][6]
 
-Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, acesse **configurações** > pool de**front-end** / **pools de trabalho** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **configurações** > **scale out** ou **configurações** > **escalar verticalmente**. A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
+Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, acesse **configurações**pool de  >  **front-end**  /  **pools de trabalho** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **configurações**  >  **scale out** ou **configurações**  >  **escalar verticalmente**. A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
 
 ![Interface do usuário de configurações de escala][7]
 

@@ -12,10 +12,9 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74273007"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para usuários de colaboração B2B
@@ -109,6 +108,6 @@ Atualmente, as políticas de entrada baseadas em risco não podem ser aplicadas 
 
 Consulte os seguintes artigos na colaboração B2B do Azure AD:
 
-* [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+* [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Licenciamento da colaboração B2B do Azure AD](licensing-guidance.md)
 * [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](faq.md)

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74787329"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Atraso ao executar a próxima ação nos aplicativos lógicos do Azure
@@ -30,9 +29,9 @@ Aqui estão alguns exemplos de maneiras de usar essas ações:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá se [inscrever para uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Antes de você poder usar uma ação, seu aplicativo lógico deve começar primeiro com um gatilho. Você pode usar qualquer gatilho que desejar e adicionar outras ações antes de adicionar uma ação de atraso. Este tópico usa um gatilho do Outlook do Office 365. Se você for novo em aplicativos lógicos, saiba [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Antes de você poder usar uma ação, seu aplicativo lógico deve começar primeiro com um gatilho. Você pode usar qualquer gatilho que desejar e adicionar outras ações antes de adicionar uma ação de atraso. Este tópico usa um gatilho do Outlook do Office 365. Se ainda não estiver familiarizado com aplicativos lógicos, aprenda [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-delay"></a>
 
@@ -50,10 +49,10 @@ Aqui estão alguns exemplos de maneiras de usar essas ações:
 
    ![Definir a quantidade de tempo para o atraso](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
+   | Property | Nome JSON | Obrigatório | Type | Descrição |
    |----------|-----------|----------|------|-------------|
    | Contagem | count | Sim | Integer | O número de unidades de tempo a serem atrasadas |
-   | Unidade | unit | Sim | String | A unidade de tempo, por exemplo: `Second`, `Minute`, `Hour`, `Day` `Week`, ou`Month` |
+   | Unidade | unit | Sim | String | A unidade de tempo, por exemplo: `Second` , `Minute` , `Hour` , `Day` , `Week` ou`Month` |
    ||||||
 
 1. Adicione outras ações que você deseja executar em seu fluxo de trabalho.
@@ -76,7 +75,7 @@ Aqui estão alguns exemplos de maneiras de usar essas ações:
 
    ![Especifique o carimbo de data/hora para quando terminar o atraso](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
+   | Property | Nome JSON | Obrigatório | Type | Descrição |
    |----------|-----------|----------|------|-------------|
    | Timestamp | timestamp | Sim | String | A data e a hora de término para retomar o fluxo de trabalho usando este formato: <p>AAAA-MM-DDThh: mm: ssZ <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00Z". <p>**Observação:** Esse formato de hora deve seguir a especificação de data e hora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Sem um fuso horário, você deve adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||

@@ -9,10 +9,9 @@ description: Use um feed NuGet personalizado para acessar e usar os pacotes NuGe
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 manager: gwallace
 ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74325735"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Usar um feed do NuGet personalizado com o Azure Dev Spaces
@@ -31,7 +30,7 @@ Adicione uma [referência de pacote](https://docs.microsoft.com/nuget/consume-pa
 </ItemGroup>
 ```
 
-Crie um arquivo [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) na pasta do projeto e defina as `packageSources` seções `packageSourceCredentials` e para o feed do NuGet. A `packageSources` seção contém a URL do feed, que deve ser acessível do seu cluster AKs. O `packageSourceCredentials` são as credenciais para acessar o feed. Por exemplo:
+Crie um arquivo de [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) na pasta do projeto e defina `packageSources` as `packageSourceCredentials` seções e para o feed do NuGet. A `packageSources` seção contém a URL do feed, que deve ser acessível do seu cluster AKs. O `packageSourceCredentials` são as credenciais para acessar o feed. Por exemplo:
 
 ```xml
 <packageSources>
@@ -53,10 +52,10 @@ COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
 ```
 
 > [!TIP]
-> No Windows, `NuGet.Config`, `Nuget.Config`e `nuget.config` todos funcionam como nomes de arquivo válidos. No Linux, apenas `NuGet.Config` um nome de arquivo válido para esse arquivo. Como o Azure Dev Spaces usa o Docker e o Linux, esse arquivo `NuGet.Config`deve ser nomeado. Você pode corrigir a nomenclatura manualmente ou executando `dotnet restore --configfile nuget.config`.
+> No Windows, `NuGet.Config` , `Nuget.Config` e `nuget.config` todos funcionam como nomes de arquivo válidos. No Linux, apenas `NuGet.Config` um nome de arquivo válido para esse arquivo. Como o Azure Dev Spaces usa o Docker e o Linux, esse arquivo deve ser nomeado `NuGet.Config` . Você pode corrigir a nomenclatura manualmente ou executando `dotnet restore --configfile nuget.config` .
 
 
-Se você estiver usando o Git, não deverá ter as credenciais para o feed do NuGet no controle de versão. Adicione `NuGet.Config` ao `.gitignore` para o seu projeto para que o `NuGet.Config` arquivo não seja adicionado ao controle de versão. Azure Dev Spaces precisará desse arquivo durante o processo de criação da imagem de contêiner, mas, por padrão, ele respeita `.gitignore` as `.dockerignore` regras definidas no e durante a sincronização. Para alterar o padrão e permitir que Azure Dev Spaces Sincronize o `NuGet.Config` arquivo, atualize o `azds.yaml` arquivo:
+Se você estiver usando o Git, não deverá ter as credenciais para o feed do NuGet no controle de versão. Adicione `NuGet.Config` ao `.gitignore` para o seu projeto para que o `NuGet.Config` arquivo não seja adicionado ao controle de versão. Azure Dev Spaces precisará desse arquivo durante o processo de criação da imagem de contêiner, mas, por padrão, ele respeita as regras definidas no `.gitignore` e `.dockerignore` durante a sincronização. Para alterar o padrão e permitir que Azure Dev Spaces Sincronize o `NuGet.Config` arquivo, atualize o `azds.yaml` arquivo:
 
 ```yaml
 build:
@@ -67,7 +66,7 @@ ignore:
 
 Se você não estiver usando o Git, poderá ignorar esta etapa.
 
-Na próxima vez que você `azds up` executar ou `F5` acessar o Visual Studio Code ou o Visual Studio, Azure dev Spaces sincronizará o arquivo e o usará para instalar as dependências do `NuGet.Config` pacote.
+Na próxima vez que você executar `azds up` ou acessar `F5` o Visual Studio Code ou o Visual Studio, Azure dev Spaces sincronizará o `NuGet.Config` arquivo e o usará para instalar as dependências do pacote.
 
 ## <a name="next-steps"></a>Próximas etapas
 

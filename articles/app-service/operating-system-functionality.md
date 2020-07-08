@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74671619"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
@@ -55,7 +54,7 @@ Basicamente, o Serviço de Aplicativo é um serviço em execução na infraestru
 
 - O aplicativo pode gerar um erro indicando que não há espaço suficiente no disco.
 - Você poderá ver erros de disco ao navegar para o console do Kudu.
-- A implantação do Azure DevOps ou do Visual Studio pode `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`falhar com.
+- A implantação do Azure DevOps ou do Visual Studio pode falhar com `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` .
 - Seu aplicativo pode sofrer um desempenho lento.
 
 <a id="NetworkDrives"></a>
@@ -76,7 +75,7 @@ Nas unidades locais conectadas à máquina virtual que executa um aplicativo, o 
 
 Dois exemplos de como o Serviço de Aplicativo utiliza o armazenamento local temporário são o diretório para arquivos do ASP.NET temporários e o diretório para arquivos compactados do IIS. O sistema de compilação do ASP.NET usa o diretório "Arquivos do ASP.NET Temporários" como um local de cache de compilação temporária. O IIS usa o diretório "Arquivos Compactados Temporários do IIS" para armazenar a saída de resposta compactada. Os usos desses tipos de arquivo (bem como outros) são remapeados no Serviço de Aplicativo para o armazenamento local temporário por aplicativo. Esse remapeamento garante que a funcionalidade continua conforme esperado.
 
-Cada aplicativo no serviço de aplicativo é executado como uma identidade de processo de trabalho de baixo privilégio aleatória exclusiva chamada "identidade do pool de aplicativos" [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities), descrita mais adiante aqui:. O código do aplicativo usa essa identidade no acesso somente leitura básico à unidade do sistema operacional (a unidade D:\). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco mais amplo, os mesmos diretórios e arquivos permanecem acessíveis quando você provisiona uma função de trabalho em um serviço hospedado do Azure e ler o conteúdo da unidade. 
+Cada aplicativo no serviço de aplicativo é executado como uma identidade de processo de trabalho de baixo privilégio aleatória exclusiva chamada "identidade do pool de aplicativos", descrita mais adiante aqui: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) . O código do aplicativo usa essa identidade no acesso somente leitura básico à unidade do sistema operacional (a unidade D:\). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco mais amplo, os mesmos diretórios e arquivos permanecem acessíveis quando você provisiona uma função de trabalho em um serviço hospedado do Azure e ler o conteúdo da unidade. 
 
 <a name="multipleinstances"></a>
 

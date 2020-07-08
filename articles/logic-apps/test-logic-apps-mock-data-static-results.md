@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74790272"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicativos lógicos com dados fictícios Configurando resultados estáticos
@@ -45,16 +44,16 @@ Por exemplo, se você configurar resultados estáticos para a ação enviar emai
 
       Por exemplo, aqui estão as propriedades necessárias para a ação HTTP:
 
-      | Propriedade | Descrição |
+      | Property | Descrição |
       |----------|-------------|
       | **Status** | O status da ação a ser retornado |
       | **Código de status** | O código de status específico a ser retornado |
-      | **headers** | O conteúdo do cabeçalho a ser retornado |
+      | **Cabeçalhos** | O conteúdo do cabeçalho a ser retornado |
       |||
 
       ![Selecione "Habilitar resultado estático"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
 
-      Para inserir os dados fictícios no formato JavaScript Object Notation (JSON), escolha **alternar para o modo JSON** (![escolha "alternar para o](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)modo JSON").
+      Para inserir os dados fictícios no formato JavaScript Object Notation (JSON), escolha **alternar para o modo JSON** ( ![ escolha "alternar para o modo JSON" ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) ).
 
    1. Para propriedades opcionais, abra a lista **Selecionar campos opcionais** e selecione as propriedades que você deseja simular.
 
@@ -62,7 +61,7 @@ Por exemplo, se você configurar resultados estáticos para a ação enviar emai
 
 1. Quando estiver pronto para salvar, escolha **concluído**.
 
-   No canto superior direito da ação, a barra de título agora mostra um ícone de Beaker de teste![(ícone para resultados](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)estáticos), que indica que você habilitou resultados estáticos.
+   No canto superior direito da ação, a barra de título agora mostra um ícone de Beaker de teste ( ![ ícone para resultados estáticos ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), que indica que você habilitou resultados estáticos.
 
    ![Ícone mostrando os resultados estáticos habilitados](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
@@ -90,7 +89,7 @@ Se seu aplicativo lógico tiver uma execução anterior com saídas, você poder
 
 1. Depois que a caixa de **resultado estático** for aberta, escolha uma das etapas:
 
-   * Para colar um objeto JSON completo, escolha **alternar para o modo JSON** (![escolha "alternar para o modo](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)JSON"):
+   * Para colar um objeto JSON completo, escolha **alternar para o modo JSON** ( ![ escolha "alternar para o modo JSON" ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) ):
 
      ![Escolha "alternar para o modo JSON" para o objeto completo](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
 
@@ -102,7 +101,7 @@ Se seu aplicativo lógico tiver uma execução anterior com saídas, você poder
 
    ![Modo JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Quando tiver terminado, escolha **Concluído**. Ou, para retornar ao designer, escolha **alternar modo do editor** (![escolha "alternar modo do editor](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)").
+1. Quando tiver terminado, escolha **Concluído**. Ou, para retornar ao designer, escolha **alternar modo do editor** ( ![ escolha "alternar modo do editor" ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
 
 <a name="find-runs-mock-data"></a>
 
@@ -120,7 +119,7 @@ O histórico de execuções do seu aplicativo lógico identifica as execuções 
 
 1. Para exibir as ações que usam resultados estáticos, selecione a execução desejada onde a coluna de **resultados estáticos** está definida como **habilitada**.
 
-   As ações que usam resultados estáticos mostram o ícone![testar Beaker (ícone](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)para resultados estáticos), por exemplo:
+   As ações que usam resultados estáticos mostram o ícone testar Beaker ( ![ ícone para resultados estáticos ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), por exemplo:
 
    ![Histórico de execuções-ações que usam resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
@@ -128,11 +127,11 @@ O histórico de execuções do seu aplicativo lógico identifica as execuções 
 
 Desativar os resultados estáticos não retira os valores de sua última configuração. Assim, quando você ativar os resultados estáticos da próxima vez, poderá continuar usando os valores anteriores.
 
-1. Localize a ação na qual você deseja desabilitar as saídas estáticas. No canto superior direito da ação, escolha o ícone testar Beaker (![ícone para resultados](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)estáticos).
+1. Localize a ação na qual você deseja desabilitar as saídas estáticas. No canto superior direito da ação, escolha o ícone testar Beaker ( ![ ícone para resultados estáticos ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ).
 
    ![Desabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Escolha **desabilitar resultado** > estático**concluído**.
+1. Escolha **desabilitar resultado estático**  >  **concluído**.
 
    ![Desabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 

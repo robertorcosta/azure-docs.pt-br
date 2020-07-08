@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74379112"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
@@ -73,7 +72,7 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
    - Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) esteja aguardando a interação do usuário, o que evita que o **autoworkplace.exe** solicite silenciosamente um token.
    - É possível que o AD FS e as URLs do Azure AD estejam ausentes na zona de intranet do IE no cliente.
    - Problemas de conectividade de rede podem estar impedindo o **autoworkplace.exe** de alcançar o AD FS ou as URLs do Azure AD. 
-   - O **autoworkplace. exe** exige que o cliente tenha uma linha de visão direta do cliente para o controlador de domínio do AD local da organização, o que significa que a junção híbrida do Azure AD é realizada com sucesso somente quando o cliente está conectado à intranet da organização.
+   - **Autoworkplace.exe** exige que o cliente tenha uma linha de visão direta do cliente para o controlador de domínio do AD local da organização, o que significa que a junção híbrida do Azure AD é realizada com sucesso somente quando o cliente está conectado à intranet da organização.
    - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
 - Você não está conectado como um usuário de domínio
 

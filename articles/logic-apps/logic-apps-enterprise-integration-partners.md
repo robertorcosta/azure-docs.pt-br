@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792429"
 ---
-# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Adicionar parceiros comerciais a contas de integração para aplicativos lógicos do Azure
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Adicionar parceiros comerciais a contas de integração para Aplicativos Lógicos do Azure
 
-Nos [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), você pode criar fluxos de trabalho de integração entre empresas (B2B) automatizados usando uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) com seus aplicativos lógicos. Para representar sua organização e outras, você cria e adiciona parceiros comerciais como artefatos à sua conta de integração. Os parceiros são entidades que participam de transações B2B e trocam mensagens entre si.
+Nos [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), você pode criar fluxos de trabalho de integração entre empresas (B2B) automatizados usando uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) com seus aplicativos lógicos. Para representar sua organização e outras, você cria e adiciona parceiros comerciais como artefatos à sua conta de integração. Parceiros são entidades que participam de transações B2B e trocam mensagens entre si.
 
 Antes de criar esses parceiros, certifique-se de discutir e compartilhar informações com seus parceiros sobre como identificar e validar as mensagens que o outro envia. Depois de concordar com esses detalhes, você estará pronto para criar parceiros em sua conta de integração.
 
@@ -91,7 +90,7 @@ Escolha o bloco **Parceiros**.
    | **Nome do contato** | Não | O nome do contato do parceiro |
    | **Email** | Não | O endereço de email do parceiro |
    | **Fax** | Não | O número de fax do parceiro |
-   | **Ligue** | Não | O número de telefone do parceiro |
+   | **Telephone** | Não | O número de telefone do parceiro |
    ||||
 
 1. Quando terminar, escolha **OK** para salvar as alterações.

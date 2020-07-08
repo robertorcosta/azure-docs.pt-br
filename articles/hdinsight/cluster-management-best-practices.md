@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74782015"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Práticas recomendadas de gerenciamento de cluster HDInsight
@@ -40,7 +39,7 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 
 | Opção | Documentos |
 |---|---|
-| Ações de script | [Personalizar clusters do Azure HDInsight usando ações de script](./hdinsight-hadoop-customize-cluster-linux.md) |
+| Ações de script | [Personalização de clusters do HDInsight através de ações de script](./hdinsight-hadoop-customize-cluster-linux.md) |
 | Inicialização | [Personalizar clusters do HDInsight usando a Inicialização](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
 | Metastores externos | [Usar armazenamentos de metadados externos no Azure HDInsight](./hdinsight-use-external-metadata-stores.md) |
 | BD Ambari personalizado | [Configurar clusters do HDInsight com um Ambari DB personalizado](./hdinsight-custom-ambari-db.md) |
@@ -61,7 +60,7 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 | Autoscale | [Dimensionar automaticamente os clusters do Azure HDInsight](./hdinsight-autoscale-clusters.md) |
 | Dimensionamento manual | [Dimensionar clusters do Azure HDInsight](./hdinsight-scaling-best-practices.md) |
 | Monitoramento com o Ambari| [Monitorar o desempenho do cluster no Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
-| Monitoramento com logs de Azure Monitor | [Como usar logs do Azure Monitor para monitorar clusters do HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Monitoramento com logs de Azure Monitor | [Uso de logs do Azure Monitor para monitorar clusters do HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Como fazer verificar em clusters HDInsight excluídos?
 
@@ -76,5 +75,5 @@ AzureActivity
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Planejamento de capacidade para clusters do HDInsight](./hdinsight-capacity-planning.md)
-* [Quais são as configurações de nó padrão e recomendadas para o Azure HDInsight?](./hdinsight-supported-node-configuration.md)
+* [Planejamento de capacidade para clusters HDInsight](./hdinsight-capacity-planning.md)
+* [Quais são as configurações de nó padrão e recomendadas do Azure HDInsight?](./hdinsight-supported-node-configuration.md)

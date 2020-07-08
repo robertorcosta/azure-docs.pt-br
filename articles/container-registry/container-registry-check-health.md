@@ -4,10 +4,9 @@ description: Saiba como executar um comando de diagnóstico rápido para identif
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456431"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Verificar a integridade de um registro de contêiner do Azure
@@ -18,7 +17,7 @@ Como uma primeira etapa de diagnóstico, execute o comando [AZ ACR check-Health]
 
 ## <a name="run-az-acr-check-health"></a>Executar AZ ACR check-Health
 
-Os exemplos a seguir mostram diferentes maneiras de executar `az acr check-health` o comando.
+Os exemplos a seguir mostram diferentes maneiras de executar o `az acr check-health` comando.
 
 > [!NOTE]
 > Se você executar o comando em Azure Cloud Shell, o ambiente local não será verificado. No entanto, você pode verificar o acesso a um registro de destino.
