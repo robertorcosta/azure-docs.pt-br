@@ -4,18 +4,18 @@ description: Saiba como instalar e usar a extensão CLI do Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
+ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 5a532ec11cdcd97bd1f72c40f603bce7cc4b12c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659799"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611757"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalar e usar a extensão CLI do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,6 +158,49 @@ Os comandos a seguir demonstram como usar a CLI para gerenciar recursos usados p
 
     Para obter mais informações, consulte [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
++ <a id="computeinstance"></a>Gerenciar instâncias de computação.  Em todos os exemplos abaixo, o nome da instância de computação é **CPU**
+
+    + Crie um novo computeinstance.
+
+        ```azurecli-interactive
+        az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
+        ```
+    
+        Para obter mais informações, consulte [AZ ml computetarget Create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
+
+    + Parar um computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget stop computeinstance -n cpu -v
+        ```
+    
+        Para obter mais informações, consulte [AZ ml computetarget Stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    
+    + Inicie um computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget start computeinstance -n cpu -v
+       ```
+    
+        Para obter mais informações, consulte [AZ ml computetarget Start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    
+    + Reinicie um computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget restart computeinstance -n cpu -v
+       ```
+    
+        Para obter mais informações, consulte [AZ ml computetarget Restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    
+    + Excluir um computeinstance.
+    
+        ```azurecli-interactive
+        az ml computetarget delete -n cpu -v
+       ```
+    
+        Para obter mais informações, consulte [AZ ml computetarget Delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+
+
 ## <a name="run-experiments"></a><a id="experiments"></a>Executar experimentos
 
 * Comece uma corrida de sua experiência. Ao usar esse comando, especifique o nome do arquivo runconfig (o texto antes de \*.runconfig se você estiver olhando seu sistema de arquivos) em relação ao parâmetro -c.
@@ -195,23 +238,7 @@ Os seguintes comandos demonstram como trabalhar com conjuntos de dados no Azure 
 
     Para obter informações sobre o formato do arquivo JSON usado para definir o conjunto de dados, use `az ml dataset register --show-template`.
 
-    Para obter mais informações, consulte [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Arquivar um conjunto de dados ativo ou preterido:
-
-    ```azurecli-interactive
-    az ml dataset archive -n dataset-name
-    ```
-
-    Para obter mais informações, consulte [az ml dataset archive](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Preterir um conjunto de dados:
-
-    ```azurecli-interactive
-    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
-    ```
-
-    Para obter mais informações, consulte [az ml dataset deprecate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Para obter mais informações, consulte [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
 
 + Listar todos os conjuntos de dados em um workspace:
 
@@ -219,7 +246,7 @@ Os seguintes comandos demonstram como trabalhar com conjuntos de dados no Azure 
     az ml dataset list
     ```
 
-    Para obter mais informações, consulte [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Para obter mais informações, consulte [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list).
 
 + Obter detalhes de um conjunto de dados:
 
@@ -227,15 +254,7 @@ Os seguintes comandos demonstram como trabalhar com conjuntos de dados no Azure 
     az ml dataset show -n dataset-name
     ```
 
-    Para obter mais informações, consulte [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Reativar um conjunto de dados arquivado ou preterido:
-
-    ```azurecli-interactive
-    az ml dataset reactivate -n dataset-name
-    ```
-
-    Para obter mais informações, consulte [az ml dataset reactivate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Para obter mais informações, consulte [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
 
 + Cancelar o registro de um conjunto de dados:
 

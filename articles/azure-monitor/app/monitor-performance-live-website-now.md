@@ -3,17 +3,17 @@ title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Ins
 description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos Web ASP.NET hospedado localmente ou em máquinas virtuais.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807257"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
 > [!IMPORTANT]
-> O Status Monitor não é mais recomendado para uso. Ele foi substituído pelo agente de Application Insights de Azure Monitor (anteriormente denominado Status Monitor v2). Consulte nossa documentação para [implantações de servidor local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou [máquinas virtuais do Azure e implantações do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> O Status Monitor não é mais recomendado para uso e a **partir de 1º de junho de 2021** esta versão do monitor de status não terá suporte. Ele foi substituído pelo agente de Application Insights de Azure Monitor (anteriormente denominado Status Monitor v2). Consulte nossa documentação para [implantações de servidor local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou [máquinas virtuais do Azure e implantações do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. É necessário ter uma assinatura do [Microsoft Azure](https://azure.com) .
 
@@ -84,7 +84,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -92,12 +92,12 @@ Estas são algumas etapas que você pode executar para confirmar se a instalaç�
 
 - Verifique se o arquivo applicationInsights.config está presente no diretório de aplicativo de destino e contém sua ikey.
 
-- Se você suspeitar que faltam dados, poderá executar uma consulta simples no [Analytics](../log-query/get-started-portal.md) para listar todas as funções de nuvem atualmente enviando telemetria.
+- Se você suspeitar de que os dados estão ausentes, poderá executar uma consulta no [Analytics](../log-query/get-started-portal.md) para listar todas as funções de nuvem que estão enviando telemetria no momento.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Se você precisar confirmar se o Application Insights foi anexado com êxito, poderá executar [Identificador Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) em uma janela Comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
+- Se você precisar confirmar se o Application Insights foi anexado com êxito, poderá executar o [identificador do Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) em uma janela de comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
   ```cmd
   handle.exe /p w3wp.exe
   ```
@@ -172,7 +172,7 @@ Exclua qualquer um destes arquivos encontrados no diretório do aplicativo:
 
 * Confira [Solução de problemas][qna] adicional.
 
-## <a name="system-requirements"></a>Requisitos do Sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 Suporte de sistema operacional para Application Insights Status Monitor no servidor:
 
 * Windows Server 2008
@@ -298,7 +298,7 @@ Para aplicativos já instrumentados em tempo de compilação:
  * Chamadas de dependência (.NET 4.5); valores de retorno em chamadas de dependência (.NET 4.6).
  * Exceção dos valores do rastreamento de pilha.
 
-[Saiba mais](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Saiba mais](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Vídeo
 

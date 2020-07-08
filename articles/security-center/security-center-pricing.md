@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801131"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard para segurança aprimorada
 
@@ -51,9 +51,9 @@ Para obter a camada Standard:
 > [!NOTE]
 > Para habilitar todos os recursos da central de segurança, incluindo recursos de proteção contra ameaças, você deve aplicar o tipo de preço padrão à assinatura que contém as cargas de trabalho aplicáveis. A configuração de preços para um espaço de trabalho não permite o acesso just-in-time à VM, controles de aplicativos adaptáveis e detecções de rede para recursos do Azure. 
 >
-> Você pode habilitar a proteção contra ameaças para **contas de armazenamento do Azure** no nível de assinatura ou nível de recurso.
-> Você pode habilitar a proteção contra ameaças para **SQL Servers do banco de dados SQL do Azure** no nível de assinatura ou no nível de recurso.
-> Você pode habilitar a proteção contra ameaças para o **banco de dados do Azure para MariaDB/MySQL/PostgreSQL** somente no nível de recurso.
+> Você pode habilitar a proteção contra ameaças para **contas de Armazenamento do Azure** no nível da assinatura ou no nível do recurso.
+> Você pode habilitar a proteção contra ameaças para **servidores SQL do Banco de Dados SQL do Azure** no nível da assinatura ou no nível do recurso.
+> Você pode habilitar a proteção contra ameaças para o **Banco de Dados do Azure para MariaDB/MySQL/PostgreSQL** apenas no nível do recurso.
 
 
 ## <a name="why-upgrade-to-standard"></a>Por que atualizar para o padrão?
@@ -63,7 +63,9 @@ A Central de Segurança oferece maior segurança e proteção contra ameaças pa
 - **Alertas de segurança** -use a análise avançada e a gráfico de segurança inteligente da Microsoft para obter uma borda sobre ataques cibernéticos em evolução. Aproveite a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem contra ataques recebidos e atividade pós-violação. Simplifique a investigação com ferramentas interativas e inteligência contextual contra ameaças.
 - **Verificação de vulnerabilidades de máquinas virtuais** – implante facilmente um scanner em todas as suas máquinas virtuais que forneçam a solução mais avançada do setor para o gerenciamento de vulnerabilidades. Exiba, investigue e corrija as descobertas diretamente na central de segurança. 
 - **Controles de acesso e de aplicativo** – bloquear malware e outros aplicativos indesejados aplicando recomendações de lista de permissões de aprendizado de máquina adaptadas para suas cargas de trabalho específicas. Reduza a superfície de ataque de rede com acesso controlado just-in-time a portas de gerenciamento em VMs do Azure. Isso reduz drasticamente a exposição à força bruta e a outros ataques de rede.
-- **Recursos de segurança do contêiner** -beneficie-se do gerenciamento de vulnerabilidades e da proteção contra ameaças em tempo real em seus ambientes em contêineres. Ao habilitar o recurso de registros de contêiner, pode levar até 12hrs até que todos os recursos estejam habilitados.
+- **Recursos de segurança do contêiner** -beneficie-se do gerenciamento de vulnerabilidades e da proteção contra ameaças em tempo real em seus ambientes em contêineres. Ao habilitar o recurso de registros de contêiner, pode levar até 12hrs até que todos os recursos estejam habilitados. As cobranças são baseadas no número de imagens de contêiner exclusivas enviadas por push para o registro conectado. Depois que uma imagem for verificada uma vez, ela não será cobrada novamente, a menos que seja modificada e enviada por push mais uma vez. 
+
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

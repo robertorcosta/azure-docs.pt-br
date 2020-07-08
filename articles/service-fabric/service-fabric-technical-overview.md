@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611723"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
 
@@ -58,7 +58,7 @@ Todos os pacotes de códigos definidos como parte de um recurso de aplicativo s�
 
 Leia o artigo [modelo de aplicativo](service-fabric-application-model.md) para obter mais informações.
 
-**Pacote de aplicativos**: um diretório de disco que contém o `ApplicationManifest.xml` arquivo do tipo de aplicativo. Faz referência aos pacotes de serviço de cada tipo de serviço que compõe o tipo de aplicativo. Os arquivos no diretório do pacote de aplicativos são copiados no armazenamento de imagens do cluster do Service Fabric. Por exemplo, um pacote de aplicativos para um tipo de aplicativo de email pode conter referências a um pacote de serviços fila, um pacote de serviços front-end e um pacote de serviços de banco de dados.
+**Pacote de aplicativos**: um diretório de disco que contém o arquivo do tipo de aplicativo `ApplicationManifest.xml` . Faz referência aos pacotes de serviço de cada tipo de serviço que compõe o tipo de aplicativo. Os arquivos no diretório do pacote de aplicativos são copiados no armazenamento de imagens do cluster do Service Fabric. Por exemplo, um pacote de aplicativos para um tipo de aplicativo de email pode conter referências a um pacote de serviços fila, um pacote de serviços front-end e um pacote de serviços de banco de dados.
 
 **Aplicativo de chamada**: depois de copiar um pacote de aplicativos para o repositório de imagens, você cria uma instância do aplicativo no cluster. Você cria uma instância ao especificar o tipo de aplicativo do pacote de aplicativo usando seu nome ou versão. Cada instância de tipo de aplicativo recebe um nome de URI (Uniform Resource Identifier) que se parece com: `"fabric:/MyNamedApp"`. Em um cluster, você pode criar vários aplicativos nomeados a partir de um tipo de aplicativo único. Você também pode criar aplicativos nomeados a partir de diferentes tipos de aplicativos. Cada aplicativo nomeado é gerenciado e possui controle de versão independente.
 
@@ -75,7 +75,7 @@ Há dois tipos de serviço:
 
 **Reconfiguração** refere-se ao processo de qualquer alteração no conjunto de réplicas de um serviço. Consulte [reconfiguração](service-fabric-concepts-reconfiguration.md).
 
-**Pacote de serviço**: um diretório de disco que contém o `ServiceManifest.xml` arquivo do tipo de serviço. Este arquivo faz referência ao código, aos dados estáticos e a pacotes de configuração para o tipo de serviço. Os arquivos no diretório do pacote de serviços são referenciados pelo arquivo `ApplicationManifest.xml` do tipo de aplicativo. Por exemplo, um pacote de serviços pode fazer referência ao código, aos dados estáticos e aos pacotes de configuração que compõem um serviço de banco de dados.
+**Pacote de serviço**: um diretório de disco que contém o arquivo do tipo de serviço `ServiceManifest.xml` . Este arquivo faz referência ao código, aos dados estáticos e a pacotes de configuração para o tipo de serviço. Os arquivos no diretório do pacote de serviços são referenciados pelo arquivo `ApplicationManifest.xml` do tipo de aplicativo. Por exemplo, um pacote de serviços pode fazer referência ao código, aos dados estáticos e aos pacotes de configuração que compõem um serviço de banco de dados.
 
 **Serviço nomeado**: depois de criar um aplicativo nomeado, você pode criar uma instância de um de seus tipos de serviço dentro do cluster. Você especifica o tipo de serviço usando seu nome/versão. Cada instância de tipo de serviço recebe um nome de URI com escopo dentro do URI de seu aplicativo nomeado. Por exemplo, se você criar um serviço chamado "MyDatabase" dentro de um aplicativo chamado "MyNamedApp", o URI terá esta aparência: `"fabric:/MyNamedApp/MyDatabase"`. Dentro de um aplicativo nomeado, você pode criar vários serviços nomeados. Cada serviço nomeado pode ter seu próprio esquema de partição e contagens de instância ou réplica.
 
@@ -116,7 +116,7 @@ Leia o artigo [Implantar um aplicativo](service-fabric-deploy-remove-application
 
 **Reparar o serviço do Gerenciador**: este é um serviço de sistema opcional que permite que as ações de reparo sejam executadas em um cluster de maneira segura, automática e transparente. O Gerenciador de reparo é usado em:
 
-   - Realizar reparos de manutenção do Azure na [durabilidade Silver e Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) dos clusters do Azure Service Fabric.
+   - Realizar reparos de manutenção do Azure na [durabilidade Silver e Gold](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) dos clusters do Azure Service Fabric.
    - Realizar ações de reparo para [Aplicativo de Orquestração de Patch](service-fabric-patch-orchestration-application.md)
 
 ## <a name="deployment-and-application-models"></a>Implantação e modelos de aplicativos
@@ -141,7 +141,7 @@ Você também pode executar os aplicativos existentes no Service Fabric:
 
 **Contêineres**: o Service Fabric dá suporte à implantação de contêineres do Docker em contêineres do Linux e do Windows Server no Windows Server 2016, juntamente com o suporte para o modo de isolamento do Hyper-V. No modelo de [aplicativo](service-fabric-application-model.md)Service Fabric, um contêiner representa um host de aplicativo no qual várias réplicas de serviço são colocadas. O Service Fabric pode executar qualquer contêiner, e o cenário é semelhante ao cenário executável de convidado, no qual você pode empacotar um aplicativo existente dentro de um contêiner. Além disso, você também pode [executar Service Fabric serviços dentro de contêineres](service-fabric-services-inside-containers.md) .
 
-**Executáveis convidados**: você pode executar qualquer tipo de código, como node. js, Python, Java ou C++ no Azure Service Fabric como um serviço. O Service Fabric se refere a esses tipos de serviço como executáveis convidados, que são tratados como serviços sem estado. As vantagens para executar um executável de convidado no cluster do Service Fabric inclui uma disponibilidade alta, monitoramento de integridade, gerenciamento do ciclo de vida do aplicativo, densidade alta e descoberta.
+**Executáveis convidados**: você pode executar qualquer tipo de código, como Node.js, Python, Java ou C++ no Azure Service Fabric como um serviço. O Service Fabric se refere a esses tipos de serviço como executáveis convidados, que são tratados como serviços sem estado. As vantagens para executar um executável de convidado no cluster do Service Fabric inclui uma disponibilidade alta, monitoramento de integridade, gerenciamento do ciclo de vida do aplicativo, densidade alta e descoberta.
 
 Leia o artigo [escolher um modelo de programação para o seu serviço](service-fabric-choose-framework.md) para obter mais informações.
 
@@ -165,14 +165,14 @@ Ambientes diferentes têm diferentes níveis de suporte para estruturas e modelo
 | Tipo de aplicativo | Descrito por | Malha do Microsoft Azure Service Fabric | Clusters do Microsoft Azure Service Fabric (qualquer sistema operacional)| Cluster local | Cluster autônomo |
 |---|---|---|---|---|---|
 | Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | Com suporte |Sem suporte | Windows- com suporte, Linux e Mac - sem suporte | Windows- sem suporte |
-|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | Sem suporte| Suportado|Com suporte|Windows- sem suporte|
+|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | Sem suporte| Com suporte|Suportado|Windows- sem suporte|
 
 A tabela a seguir descreve os diferentes modelos de aplicativos e as ferramentas existentes no Service Fabric.
 
-| Tipo de aplicativo | Descrito por | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
+| Tipo de aplicativo | Descrito por | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | VS 2017 |Sem suporte |Sem suporte | Com suporte - apenas ambiente de Malha | Sem suporte|
-|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Suportado|Suportado|Suportado|Com suporte|
+|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Suportado|Suportado|Suportado|Suportado|
 
 ## <a name="next-steps"></a>Próximas etapas
 

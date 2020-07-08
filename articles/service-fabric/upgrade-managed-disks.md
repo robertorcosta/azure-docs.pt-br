@@ -3,12 +3,12 @@ title: Atualizar nós de cluster para usar o Azure Managed disks
 description: Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611621"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar nós de cluster para usar o Azure Managed disks
 
@@ -16,13 +16,13 @@ Os [discos gerenciados do Azure](../virtual-machines/windows/managed-disks-overv
 
 A estratégia geral para atualizar um Service Fabric nó de cluster para usar discos gerenciados é:
 
-1. Implante um conjunto de escala de máquina virtual duplicado de outra forma do tipo de [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) nó, mas com o `osDisk` objeto managedDisk adicionado à seção do modelo de implantação do conjunto de dimensionamento de máquinas virtuais. O novo conjunto de dimensionamento deve se associar ao mesmo balanceador de carga/IP que o original, para que os clientes não tenham uma interrupção de serviço durante a migração.
+1. Implante um conjunto de escala de máquina virtual duplicado de outra forma do tipo de nó, mas com o objeto [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) adicionado à `osDisk` seção do modelo de implantação do conjunto de dimensionamento de máquinas virtuais. O novo conjunto de dimensionamento deve se associar ao mesmo balanceador de carga/IP que o original, para que os clientes não tenham uma interrupção de serviço durante a migração.
 
 2. Depois que os conjuntos de dimensionamento original e atualizado estiverem em execução lado a lado, desabilite as instâncias de nó originais uma de cada vez para que os serviços do sistema (ou réplicas dos serviços com estado) migrem para o novo conjunto de dimensionamento.
 
 3. Verifique se o cluster e os novos nós estão íntegros e, em seguida, remova o conjunto de dimensionamento original e o estado do nó para os nós excluídos.
 
-Este artigo orientará você pelas etapas de atualização do tipo de nó primário de um cluster de exemplo para usar discos gerenciados, ao mesmo tempo em que evita qualquer tempo de inatividade do cluster (consulte a observação abaixo). O estado inicial do exemplo de cluster de teste consiste em um tipo de nó de [durabilidade prateada](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), apoiado por um único conjunto de dimensionamento com cinco nós.
+Este artigo orientará você pelas etapas de atualização do tipo de nó primário de um cluster de exemplo para usar discos gerenciados, ao mesmo tempo em que evita qualquer tempo de inatividade do cluster (consulte a observação abaixo). O estado inicial do exemplo de cluster de teste consiste em um tipo de nó de [durabilidade prateada](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), apoiado por um único conjunto de dimensionamento com cinco nós.
 
 > [!CAUTION]
 > Você terá uma interrupção com esse procedimento somente se tiver dependências no DNS do cluster (por exemplo, ao acessar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). A [prática recomendada de arquitetura para serviços de front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) é ter algum tipo de [balanceador de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) na frente de seus tipos de nó para tornar a troca de nó possível sem uma interrupção.
@@ -31,9 +31,9 @@ Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-s
 
 ## <a name="set-up-the-test-cluster"></a>Configurar o cluster de teste
 
-Vamos configurar o cluster inicial de teste de Service Fabric. Primeiro, [Baixe](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) os modelos de exemplo do Azure Resource Manager que usaremos para concluir este cenário.
+Vamos configurar o cluster inicial de teste de Service Fabric. Primeiro, [Baixe](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) o Azure Resource Manager modelos de exemplo que usaremos para concluir este cenário.
 
-Em seguida, entre em sua conta do Azure.
+Em seguida, entre na sua conta do Azure.
 
 ```powershell
 # Sign in to your Azure account
@@ -44,7 +44,7 @@ Os comandos a seguir irão orientá-lo na geração de um novo certificado autoa
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Gerar um certificado autoassinado e implantar o cluster
 
-Primeiro, atribua as variáveis necessárias para a implantação de Cluster Service Fabric. Ajuste os valores para `resourceGroupName`, `certSubjectName`, `parameterFilePath`e `templateFilePath` para sua conta e ambiente específicos:
+Primeiramente, atribua as variáveis necessárias para a implantação do cluster do Service Fabric. Ajuste os valores de `resourceGroupName`, `certSubjectName`, `parameterFilePath` e `templateFilePath` da sua conta e ambiente específicos:
 
 ```powershell
 # Assign deployment variables
@@ -57,11 +57,11 @@ $parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 ```
 
 > [!NOTE]
-> Verifique se o `certOutputFolder` local existe no computador local antes de executar o comando para implantar um novo cluster Service Fabric.
+> Verifique se a localização de `certOutputFolder` existe no computador local, antes de executar o comando para implantar um novo cluster do Service Fabric.
 
-Em seguida, abra o arquivo [*inicial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) e `clusterName` ajuste `dnsName` os valores de e para corresponder aos valores dinâmicos definidos no PowerShell e salve as alterações.
+Em seguida, abra o [*Initial-1NodeType-UnmanagedDisks.parameters.jsno*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) arquivo e ajuste os valores de `clusterName` e `dnsName` para corresponder aos valores dinâmicos definidos no PowerShell e salve as alterações.
 
-Em seguida, implante o cluster de teste Service Fabric:
+Em seguida, implante o cluster de teste do Service Fabric:
 
 ```powershell
 # Deploy the initial test cluster
@@ -74,7 +74,7 @@ New-AzServiceFabricCluster `
     -ParameterFile $parameterFilePath
 ```
 
-Depois que a implantação for concluída, localize o arquivo *. pfx* (`$certPfx`) no computador local e importe-o para o repositório de certificados:
+Quando a implantação for concluída, localize o arquivo *.pfx* (`$certPfx`) no seu computador local e importe-o para o repositório de certificados:
 
 ```powershell
 cd c:\certificates
@@ -99,9 +99,9 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Abra o arquivo [*inicial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) e altere os `clusterName` valores `dnsName` de e para algo exclusivo.
+Abra o [*Initial-1NodeType-UnmanagedDisks.parameters.jsno*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) arquivo e altere os valores de `clusterName` e `dnsName` para algo exclusivo.
 
-Por fim, designe um nome de grupo de recursos para o cluster `templateFilePath` e `parameterFilePath` defina os locais e dos arquivos *iniciais-1NodeType-UnmanagedDisks* :
+Por fim, designe um nome de grupo de recursos para o cluster e defina os `templateFilePath` `parameterFilePath` locais e dos arquivos *iniciais-1NodeType-UnmanagedDisks* :
 
 > [!NOTE]
 > O grupo de recursos designado já deve existir e estar localizado na mesma região que o seu Key Vault.
@@ -126,9 +126,9 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Conectar-se ao novo cluster e verificar o status de integridade
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Conectar-se ao novo cluster e verificar o status da integridade
 
-Conecte-se ao cluster e verifique se todos os cinco nós estão íntegros ( `clusterName` substituindo `thumb` as variáveis e para o cluster):
+Conecte-se ao cluster e verifique se todos os cinco nós estão íntegros (substituindo as `clusterName` `thumb` variáveis e para o cluster):
 
 ```powershell
 # Connect to the cluster
@@ -153,7 +153,7 @@ Com isso, estamos prontos para iniciar o procedimento de atualização.
 
 ## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Implantar um conjunto de dimensionamento atualizado para o tipo de nó primário
 
-Para atualizar ou *dimensionar verticalmente*, um tipo de nó, precisaremos implantar uma cópia do conjunto de dimensionamento de máquinas virtuais do tipo de nó, que, de outra forma, é idêntico ao conjunto de dimensionamento original (incluindo `nodeTypeRef`referência `subnet`ao mesmo `loadBalancerBackendAddressPools`,, e), exceto que ele inclui a atualização/alterações desejadas e sua própria sub-rede separada e pool de endereços NAT de entrada. Como estamos atualizando um tipo de nó primário, o novo conjunto de dimensionamento será marcado como`isPrimary: true`primário (), assim como o conjunto de dimensionamento original. (Para atualizações de tipo de nó não primário, basta omitir isso.)
+Para atualizar ou *dimensionar verticalmente*, um tipo de nó, precisaremos implantar uma cópia do conjunto de dimensionamento de máquinas virtuais do tipo de nó, que, de outra forma, é idêntico ao conjunto de dimensionamento original (incluindo referência ao mesmo `nodeTypeRef` , `subnet` , e `loadBalancerBackendAddressPools` ), exceto que ele inclui a atualização/alterações desejadas e sua própria sub-rede separada e pool de endereços NAT de entrada. Como estamos atualizando um tipo de nó primário, o novo conjunto de dimensionamento será marcado como primário ( `isPrimary: true` ), assim como o conjunto de dimensionamento original. (Para atualizações de tipo de nó não primário, basta omitir isso.)
 
 Para sua conveniência, as alterações necessárias já foram feitas para você no modelo *upgrade-1NodeType-2ScaleSets-ManagedDisks* [template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) e nos arquivos de [parâmetros](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) .
 
@@ -204,7 +204,7 @@ Adicione parâmetros para o nome da instância, a contagem e o tamanho do novo c
 
 ### <a name="variables"></a>Variáveis
 
-Na seção modelo `variables` de implantação, adicione uma entrada para o pool de endereços NAT de entrada do novo conjunto de dimensionamento.
+Na seção modelo de implantação `variables` , adicione uma entrada para o pool de endereços NAT de entrada do novo conjunto de dimensionamento.
 
 **Arquivo de modelo**
 
@@ -260,19 +260,19 @@ Depois de implementar todas as alterações em seus arquivos de modelo e de par�
 
 Para implantar a configuração atualizada, primeiro você deve obter várias referências ao seu certificado de cluster armazenado em seu Key Vault. A maneira mais fácil de encontrar esses valores é por meio de portal do Azure. Você precisará de:
 
-* **A URL de Key Vault do seu certificado de cluster.** Em seu Key Vault em portal do Azure, selecione **certificados** > o > **identificador secreto***do certificado desejado*:
+* **A URL de Key Vault do seu certificado de cluster.** Em seu Key Vault em portal do Azure, selecione **certificados**  >  *o*  >  **identificador secreto**do certificado desejado:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **A impressão digital do seu certificado de cluster.** (Provavelmente você já terá isso se estiver [conectado ao cluster inicial](#connect-to-the-new-cluster-and-check-health-status) para verificar seu status de integridade.) Na mesma folha de certificado (**certificados** > *seu certificado desejado*) em portal do Azure, copie **a impressão digital X. 509 SHA-1 (em Hex)**:
+* **A impressão digital do seu certificado de cluster.** (Provavelmente você já terá isso se estiver [conectado ao cluster inicial](#connect-to-the-new-cluster-and-check-health-status) para verificar seu status de integridade.) Na mesma folha de certificado (**certificados**  >  *seu certificado desejado*) em portal do Azure, copie **a impressão digital X. 509 SHA-1 (em Hex)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **A ID de recurso do seu Key Vault.** Em seu Key Vault em portal do Azure, selecione **Propriedades** > **ID do recurso**:
+* **A ID de recurso do seu Key Vault.** Em seu Key Vault em portal do Azure, selecione **Propriedades**  >  **ID do recurso**:
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
@@ -280,7 +280,7 @@ Para implantar a configuração atualizada, primeiro você deve obter várias re
 
 ### <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
 
-Ajuste `parameterFilePath` e `templateFilePath` conforme necessário e, em seguida, execute o seguinte comando:
+Ajuste `parameterFilePath` e `templateFilePath` conforme necessário e execute este comando:
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
@@ -305,7 +305,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="migrate-seed-nodes-to-the-new-scale-set"></a>Migrar nós de semente para o novo conjunto de dimensionamento
 
-Agora estamos prontos para começar a desabilitar os nós do conjunto de dimensionamento original. Como esses nós se tornam desabilitados, os serviços do sistema e os nós de propagação migram para as VMs do novo conjunto de dimensionamento porque ele também está marcado como o tipo de nó primário.
+Agora estamos prontos para começar a desabilitar os nós do conjunto de dimensionamento original. Com a desabilitação desses nós, os serviços do sistema e os nós semente migram para as VMs do novo conjunto de dimensionamento porque ele também está marcado como tipo de nó primário.
 
 ```powershell
 # Disable the nodes in the original scale set.
@@ -317,12 +317,12 @@ foreach($name in $nodeNames){
 }
 ```
 
-Use Service Fabric Explorer para monitorar a migração de nós de semente para o novo conjunto de dimensionamento e a progressão de nós no conjunto de dimensionamento original, desde a *desabilitação* até o status *desabilitado* .
+Use o Service Fabric Explorer para monitorar a migração dos nós semente para o novo conjunto de dimensionamento e a progressão dos nós no conjunto de dimensionamento original do status *Desabilitando* para o status *Desabilitado*.
 
 ![Service Fabric Explorer mostrando o status dos nós desabilitados](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
 
 > [!NOTE]
-> Pode levar algum tempo para concluir a operação de desabilitação em todos os nós do conjunto de dimensionamento original. Para garantir a consistência dos dados, apenas um nó semente pode ser alterado de cada vez. Cada alteração de nó de semente requer uma atualização de cluster; assim, a substituição de um nó semente exige duas atualizações de cluster (uma para adição e remoção de nós). Atualizar os cinco nós de semente neste cenário de exemplo resultará em dez atualizações de cluster.
+> Pode levar algum tempo para concluir a operação de desabilitação em todos os nós do conjunto de dimensionamento original. Para garantir a consistência dos dados, apenas um nó semente pode ser alterado por vez. Cada alteração de nó semente requer uma atualização do cluster. Portanto, a substituição de um nó semente exige duas atualizações do cluster (uma para adição e outra para remoção do nó). Atualizar os cinco nós semente neste cenário de exemplo resultará em dez atualizações do cluster.
 
 ## <a name="remove-the-original-scale-set"></a>Remover o conjunto de dimensionamento original
 
@@ -340,7 +340,7 @@ Remove-AzVmss `
 Write-Host "Removed scale set $scaleSetName"
 ```
 
-No Service Fabric Explorer, os nós removidos (e, portanto, o *estado de integridade do cluster*) aparecerão agora no estado de *erro* .
+No Service Fabric Explorer, os nós removidos (e, portanto, o *estado de integridade do cluster*) agora aparecerão no estado de *Erro*.
 
 ![Service Fabric Explorer mostrando nós desabilitados no estado de erro](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
 

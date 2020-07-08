@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.author: curtand
 ms.date: 04/30/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c87eabec8f09f082c258a439a17b9f3aa79336
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807852"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -90,8 +90,8 @@ Depois de ativar Azure AD Privileged Identity Management, visualize os usuários
 
 * Administrador global
 * Administrador de função com privilégios
-* Administrador do Exchange Online
-* Administrador do SharePoint Online
+* Administradores do Exchange
+* Administrador do SharePoint
 
 Se você não tiver o Azure AD Privileged Identity Management em sua organização, poderá usar a [API do PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comece com a função de administrador global porque um administrador global tem as mesmas permissões em todos os serviços de nuvem ao quais sua organização tenha assinado. Essas permissões são concedidas independentemente de onde foram atribuídas: no Centro de Administração do Microsoft 365, no portal do Azure ou pelo módulo do Azure AD para Microsoft PowerShell.
 
@@ -114,7 +114,7 @@ Avalie as contas que são atribuídas ou qualificadas para a função de adminis
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ativar autenticação multifator e registrar todas as outras contas de administrador de usuário único, não federadas e altamente privilegiadas
 
-Exigir MFA (Autenticação Multifator) na entrada para todos os usuários individuais atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: Administrador global, Administrador de Função com Privilégios, administrador do Exchange Online e administrador SharePoint Online. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e 3 do guia [Proteger o acesso a dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exigir a MFA (autenticação multifator) do Azure na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: administrador global, administrador de função com privilégios, administrador do Exchange e administrador do SharePoint. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e 3 do guia [Proteger o acesso a dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Etapa 2: Atenuar ataques usados com frequência
 

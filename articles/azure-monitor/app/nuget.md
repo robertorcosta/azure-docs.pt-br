@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights pacotes NuGet
 description: Azure Monitor Application Insights listas de pacotes NuGet para ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807155"
 ---
 # <a name="application-insights-nuget-packages"></a>Pacotes NuGet do Application Insights
 
@@ -79,7 +79,7 @@ Veja abaixo a lista atual de pacotes NuGet de versão estável para o Applicatio
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita a coleta de dados de runtime para aplicativos x64 | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita a coleta de dados de runtime para aplicativos x86. | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Esses pacotes fazem parte da funcionalidade principal do monitoramento de runtime no [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Você não precisa baixar esses pacotes diretamente. Basta usar o instalador do Status Monitor. Se você quiser entender mais sobre como esses pacotes funcionam nos bastidores, essa [postagem no blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de um de nossos desenvolvedores é um bom começo.
+Esses pacotes fazem parte da funcionalidade principal do monitoramento de runtime no [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Você não precisa baixar esses pacotes diretamente. Basta usar o instalador do Status Monitor. Se você quiser entender mais sobre como esses pacotes funcionam nos bastidores, essa [postagem no blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) de um de nossos desenvolvedores é um bom começo.
 
 ## <a name="additional-packages"></a>Pacotes adicionais
 

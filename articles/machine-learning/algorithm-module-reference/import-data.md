@@ -9,22 +9,22 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611808"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para carregar dados em um pipeline de Machine Learning dos serviços de dados de nuvem existentes. 
 
 > [!Note]
 > Toda a funcionalidade fornecida por esse módulo pode ser feita pelo **armazenamento de datastore** e por **conjuntos de valores** na página de aterrissagem espaço. É recomendável que você use o **armazenamento** de dados e o **DataSet** , que inclui recursos adicionais, como o monitoramento de dados. Para obter mais informações, consulte [o artigo como acessar dados](../how-to-access-data.md) e [como registrar os DataSets](../how-to-create-register-datasets.md) .
-> Depois de registrar um conjunto de registros, você pode encontrá-lo na categoria **conjuntos** -> de os**meus conjuntos** de valores na interface do designer. Este módulo é reservado para usuários do Studio (clássicos) para uma experiência familiar. 
+> Depois de registrar um conjunto de registros, você pode encontrá-lo na categoria **conjuntos**de os  ->  **meus conjuntos** de valores na interface do designer. Este módulo é reservado para usuários do Studio (clássicos) para uma experiência familiar. 
 >
 
 O módulo **importar dados** dá suporte à leitura de dados das seguintes fontes:
@@ -44,6 +44,10 @@ Depois de definir os dados desejados e conectar-se à origem, **[importar dados]
 
 Se os dados de origem forem alterados, você poderá atualizar o conjunto de dados e adicionar novos data executando novamente os [dados de importação](./import-data.md).
 
+> [!WARNING]
+> Se o seu espaço de trabalho estiver em uma rede virtual, você deverá configurar seus armazenamentos de dados para usar os recursos de visualização do dado do designer. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [isolamento de rede durante o treinamento & inferência com redes virtuais privadas](../how-to-enable-virtual-network.md#machine-learning-studio).
+
+
 ## <a name="how-to-configure-import-data"></a>Como configurar dados de importação
 
 1. Adicione o módulo **importar dados** ao seu pipeline. Você pode encontrar esse módulo na categoria **entrada e saída de dados** no designer.
@@ -52,7 +56,7 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
 1. Selecione **fonte de dados**e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
-    Se você escolher repositório de armazenamento, poderá selecionar os repositórios de armazenamento existentes que já estão registrados em seu espaço de trabalho Azure Machine Learning ou criar um novo repositório de armazenamento. Em seguida, defina o caminho dos dados a serem importados no datastore. Você pode navegar facilmente pelo caminho clicando em **procurar caminho** ![importar-Data-Path](media/module/import-data-path.png)
+    Se você escolher repositório de armazenamento, poderá selecionar os repositórios de armazenamento existentes que já estão registrados em seu espaço de trabalho Azure Machine Learning ou criar um novo repositório de armazenamento. Em seguida, defina o caminho dos dados a serem importados no datastore. Você pode navegar facilmente pelo caminho clicando em **procurar caminho** ![ importar-Data-Path](media/module/import-data-path.png)
 
 1. Selecione o esquema de visualização para filtrar as colunas que você deseja incluir. Você também pode definir configurações avançadas como delimitador nas opções de análise.
 
@@ -89,4 +93,4 @@ Depois de importar os dados, talvez sejam necessários alguns preparativos adici
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

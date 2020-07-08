@@ -8,22 +8,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 63097ac520f1d49098054d64ceae614036f59df3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807797"
 ---
-# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir rótulos de sensibilidade a grupos do Office 365 no Azure Active Directory (versão prévia)
+# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory"></a>Atribuir rótulos de sensibilidade a grupos do Office 365 no Azure Active Directory
 
-O Azure Active Directory (AD do Azure) dá suporte à aplicação de rótulos de sensibilidade publicados pelo [centro de conformidade do Microsoft 365](https://sip.protection.office.com/homepage) para grupos do Office 365. Os rótulos de sensibilidade se aplicam ao grupo entre serviços, como o Outlook, o Microsoft Teams e o SharePoint. Esse recurso está atualmente em visualização pública. Para obter mais informações sobre o suporte a aplicativos do Office 365, consulte [suporte do office 365 para rótulos de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+O Azure Active Directory (AD do Azure) dá suporte à aplicação de rótulos de sensibilidade publicados pelo [centro de conformidade do Microsoft 365](https://sip.protection.office.com/homepage) para grupos do Office 365. Os rótulos de sensibilidade se aplicam ao grupo entre serviços, como o Outlook, o Microsoft Teams e o SharePoint. Esse recurso está atualmente em GA público. Para obter mais informações sobre o suporte a aplicativos do Office 365, consulte [suporte do office 365 para rótulos de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esse recurso, deve haver pelo menos uma licença do Active Azure Active Directory Premium P1 na sua organização do Azure AD.
@@ -68,7 +68,7 @@ Para aplicar rótulos publicados a grupos, você deve primeiro habilitar o recur
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-É isso. Você habilitou o recurso e pode aplicar rótulos publicados a grupos.
+Isso é tudo. Você habilitou o recurso e pode aplicar rótulos publicados a grupos.
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribuir um rótulo a um novo grupo no portal do Azure
 
@@ -85,7 +85,7 @@ Seu grupo é criado e as configurações de site e grupo associadas ao rótulo s
 ## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Atribuir um rótulo a um grupo existente no portal do Azure
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta de administrador de grupos ou como um proprietário de grupo.
-1. Selecione **Grupos**.
+1. Selecione **grupos**.
 1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
 1. Na página do grupo selecionado, selecione **Propriedades** e selecione um rótulo de sensibilidade na lista.
 
@@ -96,7 +96,7 @@ Seu grupo é criado e as configurações de site e grupo associadas ao rótulo s
 ## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>Remover um rótulo de um grupo existente no portal do Azure
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta de administrador global ou de grupos ou como um proprietário de grupo.
-1. Selecione **Grupos**.
+1. Selecione **grupos**.
 1. Na página **todos os grupos** , selecione o grupo do qual você deseja remover o rótulo.
 1. Na página **grupo** , selecione **Propriedades**.
 1. Selecione **Remover**.
@@ -104,7 +104,7 @@ Seu grupo é criado e as configurações de site e grupo associadas ao rótulo s
 
 ## <a name="using-classic-azure-ad-classifications"></a>Usando classificações clássicas do Azure AD
 
-Depois de habilitar esse recurso, as classificações "clássicas" para grupos só aparecerão em grupos e sites existentes, e você deverá usá-los para novos grupos somente se criar grupos em aplicativos que não dão suporte a rótulos de sensibilidade. O administrador poderá convertê-los em rótulos de sensibilidade posteriormente, se necessário. As classificações clássicas são as classificações antigas que você define definindo valores para `ClassificationList` a configuração no PowerShell do Azure AD. Quando esse recurso estiver habilitado, essas classificações não serão aplicadas a grupos.
+Depois de habilitar esse recurso, as classificações "clássicas" para grupos só aparecerão em grupos e sites existentes, e você deverá usá-los para novos grupos somente se criar grupos em aplicativos que não dão suporte a rótulos de sensibilidade. O administrador poderá convertê-los em rótulos de sensibilidade posteriormente, se necessário. As classificações clássicas são as classificações antigas que você define definindo valores para a `ClassificationList` configuração no PowerShell do Azure AD. Quando esse recurso estiver habilitado, essas classificações não serão aplicadas a grupos.
 
 ## <a name="troubleshooting-issues"></a>Solução de problemas
 
@@ -132,10 +132,10 @@ Se o rótulo que você está procurando não estiver na lista, esse pode ser o c
 Os rótulos podem ser trocados a qualquer momento usando as mesmas etapas que atribui um rótulo a um grupo existente, da seguinte maneira:
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta global ou de administrador de grupo ou como proprietário do grupo.
-1. Selecione **Grupos**.
+1. Selecione **grupos**.
 1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
 1. Na página do grupo selecionado, selecione **Propriedades** e selecione um novo rótulo de sensibilidade na lista.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações de configuração de grupo em rótulos publicados não são atualizadas nos grupos
 

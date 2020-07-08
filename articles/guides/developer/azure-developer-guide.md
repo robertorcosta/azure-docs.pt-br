@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829390"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -50,7 +50,7 @@ O Azure oferece serviços que dão suporte ao desenvolvimento de aplicativos e n
 ![Opções de hospedagem de aplicativo do Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Serviço de Aplicativo do Azure
+#### <a name="azure-app-service"></a>Serviço de aplicativo do Azure
 
 Ao buscar o caminho mais rápido para publicar seus projetos baseados na web, considere o Serviço de Aplicativo do Azure. O Serviço de Aplicativo facilita a extensão de seus aplicativos Web para oferecer suporte aos clientes móveis e publicar facilmente as APIs REST consumidas. Essa plataforma fornece autenticação utilizando provedores sociais, dimensionamento automático baseado em tráfego, teste em produção e implantações baseadas em contêiner e contínuas.
 
@@ -124,13 +124,13 @@ A maioria dos aplicativos deve armazenar dados, portanto, você decide hospedar 
 
   > **Quando utilizar**: quando seu aplicativo armazena dados não relacionais, como pares chave-valor (tabelas), blobs, compartilhamentos de arquivos ou mensagens (filas).
   >
-  > **Introdução**: Escolher entre um desses tipos de armazenamento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabelas](../../cosmos-db/table-storage-how-to-use-dotnet.md),     [filas](../../storage/queues/storage-dotnet-how-to-use-queues.md) ou [arquivos](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Introdução**: escolha um desses tipos de armazenamento: [BLOBs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabelas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [filas](../../storage/queues/storage-dotnet-how-to-use-queues.md)ou [arquivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 - **Banco de Dados SQL do Azure**: uma versão baseada no Azure do mecanismo do Microsoft SQL Server para armazenar dados tabulares relacionais na nuvem. O Banco de Dados SQL fornece desempenho previsível, escalabilidade sem tempo de inatividade, continuidade dos negócios e proteção de dados.
 
   > **Quando utilizar**: quando seu aplicativo requer armazenamento de dados com integridade referencial, suporte transacional e suporte para consultas TSQL.
   >
-  > **Introdução**: [criar um banco de dados SQL em minutos utilizando o portal do Azure](../../sql-database/sql-database-get-started.md).
+  > **Introdução**: [crie um banco de dados no banco de dados SQL do Azure em minutos usando o portal do Azure](../../sql-database/sql-database-get-started.md).
 
 
 É possível utilizar o [Azure Data Factory](../../data-factory/introduction.md) para mover dados locais existentes para o Azure. Se você não estiver pronto para mover dados para a nuvem, [conexões híbridas](../../app-service/app-service-hybrid-connections.md) no serviço Azure App permite que você conecte seu aplicativo hospedado do serviço de aplicativo a recursos locais. Além disso, é possível conectar-se aos dados do Azure e aos serviços de armazenamento a partir de seus aplicativos locais.
@@ -240,7 +240,7 @@ O Azure fornece duas maneiras de gerenciar seus aplicativos e serviços na linha
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-O [portal do Azure](https://portal.azure.com) é um aplicativo baseado na Web. Você pode usar o portal do Azure para criar, gerenciar e remover recursos e serviços do Azure.  Ele inclui:
+O [portal do Azure](https://portal.azure.com) é um aplicativo baseado na Web. Você pode usar o portal do Azure para criar, gerenciar e remover recursos e serviços do Azure. Ele inclui:
 
 * Um painel configurável
 * Ferramentas de gerenciamento de recursos do Azure
@@ -255,7 +255,7 @@ O Azure é desenvolvido em um conjunto de APIs REST que suportam a interface do 
 Juntamente com as APIs REST, muitos serviços do Azure também permitem que você gerencie programaticamente recursos de seus aplicativos usando SDKs do Azure específicos da plataforma, incluindo SDKs para as seguintes plataformas de desenvolvimento:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/azure/javascript/)
+-   [Node.js](https://docs.microsoft.com/azure/developer/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
@@ -268,7 +268,7 @@ Serviços como [Aplicativos Móveis](../../app-service-mobile/app-service-mobile
 
 A execução do aplicativo no Azure provavelmente envolve o trabalho com vários serviços do Azure. Esses serviços seguem o mesmo ciclo de vida e podem ser considerados como uma unidade lógica. Por exemplo, um aplicativo Web pode usar Aplicativos Web, Banco de Dados SQL, Armazenamento, Cache Redis do Azure e serviços de Rede de Distribuição de Conteúdo do Azure. O [Azure Resource Manager](../../azure-resource-manager/management/overview.md) permite que você trabalhe com os recursos em seu aplicativo como um grupo. É possível implantar, atualizar ou excluir todos os recursos em uma operação coordenada única.
 
-Juntamente com o agrupamento lógico e o gerenciamento de recursos relacionados, o Azure Resource Manager inclui recursos de implantação que permitem personalizar a implantação e a configuração de recursos relacionados. Por exemplo, você pode usar a implantação do Resource Manager e configurar um aplicativo. Esse aplicativo pode consistir em várias máquinas virtuais, um balanceador de carga e um banco de dados SQL do Azure como uma única unidade.
+Juntamente com o agrupamento lógico e o gerenciamento de recursos relacionados, o Azure Resource Manager inclui recursos de implantação que permitem personalizar a implantação e a configuração de recursos relacionados. Por exemplo, você pode usar a implantação do Resource Manager e configurar um aplicativo. Esse aplicativo pode consistir em várias máquinas virtuais, um balanceador de carga e um banco de dados no banco de dados SQL do Azure como uma única unidade.
 
 Essas implantações são desenvolvidas utilizando um modelo do Azure Resource Manager, que é um documento no formato JSON. Os modelos permitem que você defina uma implantação e gerencie seus aplicativos utilizando modelos declarativos, em vez de scripts. Seus modelos podem funcionar para diferentes ambientes, como teste, de preparo e produção. Por exemplo, você pode usar modelos para adicionar um botão a um repositório GitHub que implanta o código no repositório para um conjunto de serviços do Azure com um único clique.
 
@@ -288,7 +288,7 @@ Cada assinatura do Azure tem uma relação de confiança com uma instância do A
 
 Além de definir identidades de conta individuais do Azure, também chamadas de *usuários*, você pode definir *grupos* no Azure AD. Criar grupos de usuários é uma boa maneira de gerenciar o acesso aos recursos em uma assinatura utilizando o controle de acesso baseado em função (RBAC). Para saber como criar grupos, consulte [Criar um grupo na versão prévia do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Também é possível criar e gerenciar grupos [utilizando o PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
-### <a name="manage-your-subscriptions"></a>Gerencie suas assinaturas
+### <a name="manage-your-subscriptions"></a>Gerenciar suas assinaturas
 
 Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. Para obter uma lista das ofertas de assinatura disponíveis por tipo, consulte os [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). As assinaturas do Azure têm um administrador de conta que tem controle total sobre a assinatura. Eles também têm um administrador de serviços que tem controle sobre todos os serviços na assinatura. Para obter informações sobre os administradores clássicos de assinatura, confira [Adicionar ou alterar administradores de assinatura do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Contas individuais podem receber controle detalhado dos recursos do Azure usando o [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md).
 

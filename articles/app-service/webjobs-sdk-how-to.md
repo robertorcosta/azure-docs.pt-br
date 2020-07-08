@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: e4a7ae00edd8ff86e27037df1a26828c400f6ccf
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 97b17f7e80590b9b907b8dc25253e6d706117357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807971"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -750,7 +750,7 @@ Alguns gatilhos têm suporte interno para gerenciamento de simultaneidade:
 Você pode usar essas configurações para garantir que sua função seja executada como um singleton em uma única instância. Para garantir que apenas uma única instância da função esteja em execução quando o aplicativo Web for expandido para várias instâncias, aplique um bloqueio de Singleton em nível de ouvinte na função (`[Singleton(Mode = SingletonMode.Listener)]`). Os bloqueios de ouvinte são adquiridos quando o JobHost é iniciado. Se três instâncias expandidas forem iniciadas ao mesmo tempo, somente uma das instâncias adquirirá o bloqueio e somente um ouvinte será iniciado.
 
 > [!NOTE]
-> Consulte este [Repositório do Github](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) para saber mais sobre como o SingletonMode.Function funciona.
+> Consulte este [repositório GitHub](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) para saber mais sobre como a função singleton. Function funciona.
 
 ### <a name="scope-values"></a>Valores de escopo
 
@@ -959,7 +959,7 @@ Na versão 3.*x*, você já não precisa liberar o [`TelemetryClient`] quando o 
 
 #### <a name="version-2x"></a>Versão 2.*x*
 
-Na versão 2.*x*, o [`TelemetryClient`] criado internamente pelo provedor do Application Insights para o SDK do WebJobs usa [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). Quando o ponto de extremidade do Application Insights está indisponível ou limitando solicitações de entrada, este canal [salva as solicitações no sistema de arquivos do aplicativo Web e reenvia-as depois](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+Na versão 2.*x*, o [`TelemetryClient`] criado internamente pelo provedor do Application Insights para o SDK do WebJobs usa [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). Quando o ponto de extremidade do Application Insights está indisponível ou limitando solicitações de entrada, este canal [salva as solicitações no sistema de arquivos do aplicativo Web e reenvia-as depois](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
 
 O [`TelemetryClient`] é criado por uma classe que implementa `ITelemetryClientFactory`. Por padrão, é [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 

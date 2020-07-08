@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb8243041bb93ba8be6a65bb83df6f84affaee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807580"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tarefas de configuração de postagem para junção do Microsoft Azure Active Directory Híbrido
 
@@ -86,15 +86,10 @@ O instalador cria uma tarefa agendada no sistema que é executada no contexto do
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. configurar a política de grupo para permitir o registro do dispositivo
 
-* Crie um objeto de diretiva de grupo no seu Active Directory - se ainda não tiver criado.
-* Coloque um nome (por exemplo, junção do Azure AD Híbrido).
-* Editar e ir para: Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Registro do Dispositivo
-* Habilitar: Registrar computadores ingressados no domínio como dispositivos
-* Aplique e clique em OK.
-* Vincule o GPO para o local de sua escolha (unidade organizacional, grupo de segurança, ou para o domínio para todos os dispositivos).
+Para obter informações sobre como permitir a junção híbrida do Azure AD para dispositivos individuais, consulte [validação controlada do ingresso no Azure ad híbrido](../devices/hybrid-azuread-join-control.md).
 
->[!NOTE]
->Para 2012R2 as configurações da política estão em **Configuração do computador > Políticas > Modelos Administrativos > Componentes do Windows > Ingresso no Local de Trabalho > Ingressar computadores cliente no local de trabalho automaticamente**
+> [!NOTE]
+> As configurações de política para 2012 R2 estão em **configuração do computador > políticas > Modelos Administrativos > componentes do Windows > Workplace Join > Workplace ingressar automaticamente nos computadores cliente**.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configurar o write-back de dispositivo](how-to-connect-device-writeback.md)

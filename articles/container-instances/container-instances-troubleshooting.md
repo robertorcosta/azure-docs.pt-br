@@ -2,14 +2,14 @@
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas comuns ao implantar, executar ou gerenciar instâncias de contêiner do Azure
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807835"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -20,16 +20,17 @@ Se precisar de suporte adicional, consulte Opções de **ajuda + suporte** dispo
 ## <a name="issues-during-container-group-deployment"></a>Problemas durante a implantação do grupo de contêineres
 ### <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, confira as [convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
+Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações, consulte [convenções de nomenclatura][azure-name-restrictions] no centro de arquitetura do Azure e [regras de nomenclatura e restrições para recursos do Azure][naming-rules].
 
 | Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
 | --- | --- | --- | --- | --- | --- |
-| Nome do grupo de contêineres | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nome do contêiner<sup>1</sup> | 1-63 |Letras minúsculas | Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Portas de contêiner | Entre 1 e 65535 |Integer |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
-| Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hifens em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
+| Nome do volume | 5 a 63 |Letras minúsculas |Alfanuméricos e hifens em qualquer lugar, exceto o primeiro ou o último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup> Restrição também para nomes de grupos de contêineres quando não especificados independentemente de instâncias de contêiner, por exemplo, com `az container create` implantações de comando.
 
 ### <a name="os-version-of-image-not-supported"></a>Não há suporte para a versão do SO da imagem
 
@@ -186,7 +187,7 @@ Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização
 
 #### <a name="cached-images"></a>Imagens armazenadas em cache
 
-As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens `nanoserver:1809`criadas `servercore:ltsc2019`em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo, e `servercore:1809`. Imagens do Linux comumente usadas, `ubuntu:1604` como `alpine:3.6` e também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
+As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens criadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo `nanoserver:1809` , `servercore:ltsc2019` e `servercore:1809` . Imagens do Linux comumente usadas, como `ubuntu:1604` e `alpine:3.6` também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
 
 > [!NOTE]
 > Use as imagens com base no Windows Server 2019 nas instâncias de contêiner do Azure nesta versão prévia.
@@ -201,9 +202,9 @@ As Instâncias de Contêiner do Azure não expõem acesso direto para a infraest
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contêineres pode não estar acessível devido a portas incompatíveis
 
-As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe `ports` em seu grupo de contêineres com a propriedade.
+As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe em seu grupo de contêineres com a `ports` propriedade.
 
-Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma `aci-helloworld` implantação da imagem que expõe a porta. Execute também o `aci-helloworld` aplicativo para que ele escute na porta. `aci-helloworld`aceita uma variável `PORT` de ambiente opcional para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000, defina a [variável de ambiente](container-instances-environment-variables.md) ao criar o grupo de contêineres:
+Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma implantação da `aci-helloworld` imagem que expõe a porta. Execute também o `aci-helloworld` aplicativo para que ele escute na porta. `aci-helloworld`aceita uma variável de ambiente opcional `PORT` para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000, defina a [variável de ambiente](container-instances-environment-variables.md) ao criar o grupo de contêineres:
 
 1. Configure o grupo de contêineres para expor a porta 9000 e passe o número da porta como o valor da variável de ambiente. O exemplo é formatado para o shell bash. Se preferir outro shell, como o PowerShell ou o prompt de comando, você precisará ajustar a atribuição de variável de forma adequada.
     ```azurecli
@@ -212,8 +213,8 @@ Se você quiser confirmar que as instâncias de contêiner do Azure podem escuta
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Localize o endereço IP do grupo de contêineres na saída de comando `az container create`de. Procure o valor de **IP**. 
-1. Depois que o contêiner for provisionado com êxito, navegue até o endereço IP e a porta do aplicativo de contêiner em seu navegador, por exemplo: `192.0.2.0:9000`. 
+1. Localize o endereço IP do grupo de contêineres na saída de comando de `az container create` . Procure o valor de **IP**. 
+1. Depois que o contêiner for provisionado com êxito, navegue até o endereço IP e a porta do aplicativo de contêiner em seu navegador, por exemplo: `192.0.2.0:9000` . 
 
     Você deve ver o "bem-vindo às instâncias de contêiner do Azure!" mensagem exibida pelo aplicativo Web.
 1. Quando você terminar o contêiner, remova-o usando o `az container delete` comando:
@@ -228,6 +229,7 @@ Saiba como [recuperar logs de contêiner e eventos](container-instances-get-logs
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
@@ -235,4 +237,4 @@ Saiba como [recuperar logs de contêiner e eventos](container-instances-get-logs
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

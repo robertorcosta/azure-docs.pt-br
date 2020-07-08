@@ -4,12 +4,12 @@ description: Saiba como implantar um cluster do Service Fabric do Linux em uma r
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611689"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
@@ -33,17 +33,17 @@ Baixe os seguintes arquivos do modelo do Resource Manager:
 
 Para o Ubuntu 16, 4 LTS:
 
-* [AzureDeploy. JSON][template]
-* [AzureDeploy. Parameters. JSON][parameters]
+* [AzureDeploy.jsem][template]
+* [AzureDeploy.Parameters.jsem][parameters]
 
 Para o Ubuntu 18, 4 LTS:
 
-* [AzureDeploy. JSON][template2]
-* [AzureDeploy. Parameters. JSON][parameters2]
+* [AzureDeploy.jsem][template2]
+* [AzureDeploy.Parameters.jsem][parameters2]
 
 A diferença entre os dois modelos é o atributo **vmImageSku** sendo definido como "18, 4-LTS" e o **typeHandlerVersion** de cada nó sendo definido como 1,1.
 
-Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [AzureDeploy. JSON][template] implanta um número de recursos, incluindo o seguinte.
+Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [AzureDeploy.jsem][template] implanta um número de recursos, incluindo o seguinte.
 
 ### <a name="service-fabric-cluster"></a>Cluster do Service Fabric
 
@@ -54,8 +54,8 @@ No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Linux é implanta
 * Sistema operacional: (Ubuntu 16, 4 LTS/Ubuntu 18, 4 LTS) (configurável nos parâmetros de modelo)
 * certificado protegidos (configurável nos parâmetros de modelo)
 * O [serviço DNS](service-fabric-dnsservice.md) está habilitado
-* [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de bronze (configurável nos parâmetros de modelo)
-* [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de prata (configurável nos parâmetros de modelo)
+* [Nível de durabilidade](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de bronze (configurável nos parâmetros de modelo)
+* [Nível de confiabilidade](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) de prata (configurável nos parâmetros de modelo)
 * ponto de extremidade de conexão de cliente: 19000 (configurável nos parâmetros de modelo)
 * ponto de extremidade de conexão de cliente: 19080 (configurável nos parâmetros de modelo)
 
@@ -81,7 +81,7 @@ Se forem necessárias outras portas de aplicativo, você precisará ajustar o re
 
 O arquivo **AzureDeploy. Parameters** declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que você talvez precise modificar para sua implantação:
 
-|Parâmetro|Valor de exemplo|Anotações|
+|Parâmetro|Valor de exemplo|Observações|
 |---|---||
 |adminUserName|vmadmin| Um nome de usuário de administrador para as VMs do cluster. |
 |adminPassword|Password#1234| Uma senha de administrador para as VMs do cluster.|
@@ -160,7 +160,7 @@ Verifique se você está conectado e se o cluster está íntegro usando o comand
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não for imediatamente para o próximo artigo, [exclua o cluster](service-fabric-cluster-delete.md) para evitar a cobrança de encargos.
 
