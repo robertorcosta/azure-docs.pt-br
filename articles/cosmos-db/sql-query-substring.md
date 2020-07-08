@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303691"
 ---
 # <a name="substring-azure-cosmos-db"></a>Subcadeia de caracteres (Azure Cosmos DB)
@@ -54,10 +53,10 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
 
 ## <a name="remarks"></a>Comentários
 
-Essa função do sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy) se a `0`posição inicial for.
+Essa função do sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy) se a posição inicial for `0` .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de cadeia de caracteres do Azure Cosmos DB](sql-query-string-functions.md)
+- [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

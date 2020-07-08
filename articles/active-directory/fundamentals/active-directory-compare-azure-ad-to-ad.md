@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78926893"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Comparar Active Directory com Azure Active Directory
@@ -37,18 +36,18 @@ A maioria dos administradores de ti está familiarizada com os conceitos de Acti
 | **Aplicativos**|||
 | Aplicativos de infraestrutura|Active Directory forma a base para muitos componentes locais de infraestrutura, por exemplo, DNS, DHCP, IPSec, WiFi, NPS e acesso VPN|Em um novo mundo de nuvem, o Azure AD é o novo plano de controle para acessar aplicativos em comparação com controles de rede. Quando os usuários se autenticam[, o acesso condicional (CA)](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)controla quais usuários terão acesso a quais aplicativos sob condições necessárias.|
 | Aplicativos tradicionais e herdados| A maioria dos aplicativos locais usa LDAP, autenticação integrada do Windows (NTLM e Kerberos) ou autenticação baseada em cabeçalho para controlar o acesso aos usuários.| O Azure AD pode fornecer acesso a esses tipos de aplicativos locais usando agentes de [proxy de aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) em execução no local. Usando esse método, o Azure AD pode autenticar Active Directory usuários locais usando o Kerberos enquanto você migra ou precisa coexistir com aplicativos herdados. |
-| Aplicativos SaaS|Active Directory não dá suporte a aplicativos SaaS nativamente e requer o sistema de Federação, como AD FS.|Aplicativos SaaS com suporte a OAuth2, SAML e WS\* -Authentication podem ser integrados para usar o Azure ad para autenticação. |
+| Aplicativos SaaS|Active Directory não dá suporte a aplicativos SaaS nativamente e requer o sistema de Federação, como AD FS.|Aplicativos SaaS com suporte a OAuth2, SAML e WS- \* Authentication podem ser integrados para usar o Azure ad para autenticação. |
 | Aplicativos LOB (linha de negócios) com autenticação moderna|As organizações podem usar AD FS com Active Directory para dar suporte a aplicativos LOB que exigem autenticação moderna.| Os aplicativos LOB que exigem autenticação moderna podem ser configurados para usar o Azure AD para autenticação. |
 | Serviços de camada intermediária/daemon|Os serviços em execução em ambientes locais normalmente usam contas de serviço do AD ou contas de serviço gerenciado de grupo (gMSA) para serem executados. Esses aplicativos herdarão as permissões da conta de serviço.| O Azure AD fornece [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) para executar outras cargas de trabalho na nuvem. O ciclo de vida dessas identidades é gerenciado pelo Azure AD e está vinculado ao provedor de recursos não pode ser usado para outras finalidades para obter acesso ao Backdoor.|
 | **Dispositivos**|||
-| Celular|Active Directory não oferece suporte nativo a dispositivos móveis sem soluções de terceiros.| A solução de gerenciamento de dispositivo móvel da Microsoft, Microsoft Intune, é integrada ao Azure AD. Microsoft Intune fornece informações de estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
+| Dispositivos móveis|Active Directory não oferece suporte nativo a dispositivos móveis sem soluções de terceiros.| A solução de gerenciamento de dispositivo móvel da Microsoft, Microsoft Intune, é integrada ao Azure AD. Microsoft Intune fornece informações de estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
 | Áreas de trabalho do Windows|Active Directory fornece a capacidade de ingressar no domínio em dispositivos Windows para gerenciá-los usando Política de Grupo, System Center Configuration Manager ou outras soluções de terceiros.|Os dispositivos Windows podem ser [ingressados no Azure ad](https://docs.microsoft.com/azure/active-directory/devices/). O acesso condicional pode verificar se um dispositivo é ingressado no Azure AD como parte do processo de autenticação. Os dispositivos Windows também podem ser gerenciados com [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). Nesse caso, o acesso condicional irá considerar se um dispositivo é uma reclamação (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso aos aplicativos.|
 | Servidores Windows| O Active Directory fornece recursos de gerenciamento robustos para servidores Windows locais usando Política de Grupo ou outras soluções de gerenciamento.| As máquinas virtuais do Windows Server no Azure podem ser gerenciadas com [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/). [Identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) podem ser usadas quando as VMs precisam acessar os recursos ou o diretório do sistema de identidade.|
 | Cargas de trabalho do Linux/Unix|O Active Directory não oferece suporte nativo a não-Windows sem soluções de terceiros, embora os computadores Linux possam ser configurados para autenticar com Active Directory como um realm do Kerberos.|As VMs Linux/Unix podem usar [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) para acessar o sistema de identidade ou os recursos. Algumas organizações, migram essas cargas de trabalho para tecnologias de contêiner de nuvem, que também podem usar identidades gerenciadas.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Active Directory do Azure?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [O que é o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 - [Comparar o Active Directory Domain Services autogerenciado, o Azure Active Directory e o Azure Active Directory Domain Services gerenciado](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions)
 - [Perguntas frequentes sobre o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-faq)
 - [O que há de novo no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/whats-new)

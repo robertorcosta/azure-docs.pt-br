@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78939212"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com os serviços de mídia v2
@@ -57,13 +56,13 @@ As seguintes considerações se aplicam:
 * .NET Framework 4.5 ou .NET Framework 4.
 * Visual Studio 2010 SP1 ou versão posterior (Professional, Premium, Ultimate ou Express).
 
-## <a name="set-up-your-project"></a>Configurar o seu projeto
+## <a name="set-up-your-project"></a>Configurar o projeto
 
 Nesta seção, você cria e configura um projeto de aplicativo de console em C#.
 
 1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#. Digite **HandleRedundancyForOnDemandStreaming** para o nome e clique em **OK**.
-2. Crie a pasta **SupportFiles** no mesmo nível que o arquivo de projeto **HandleRedundancyForOnDemandStreaming. csproj** . Na pasta **SupportFiles** , crie as pastas **OutputFiles** e **MP4Files** . Copie um arquivo. mp4 para a pasta **MP4Files**. (Neste exemplo, o arquivo **Ignite. mp4** é usado.) 
-3. Use o **NuGet** para adicionar referências a DLLs relacionadas aos serviços de mídia. No **menu principal do Visual Studio**, selecione **ferramentas** > **Gerenciador** > de pacotes NuGet**console do Gerenciador de pacotes**. Na janela do console, digite **install-Package WindowsAzure. mediaservices**e pressione Enter.
+2. Crie a pasta **SupportFiles** no mesmo nível que o arquivo de projeto **HandleRedundancyForOnDemandStreaming. csproj** . Na pasta **SupportFiles** , crie as pastas **OutputFiles** e **MP4Files** . Copie um arquivo. mp4 para a pasta **MP4Files**. (Neste exemplo, o arquivo de **ignite.mp4** é usado.) 
+3. Use o **NuGet** para adicionar referências a DLLs relacionadas aos serviços de mídia. No **menu principal do Visual Studio**, selecione **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **console do Gerenciador de pacotes**. Na janela do console, digite **install-Package WindowsAzure. mediaservices**e pressione Enter.
 4. Adicione outras referências que são necessárias para este projeto: System. Runtime. Serialization e System. Web.
 5. Substitua o **uso** de instruções que foram adicionadas ao arquivo **Programs.cs** por padrão com os seguintes itens:
 
@@ -752,7 +751,7 @@ O exemplo neste tópico mostra Clear streaming. Se você quiser fazer streaming 
 
 Para obter mais informações sobre a proteção de conteúdo, consulte [usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Usar WebHooks do Azure para monitorar notificações de trabalho dos serviços de mídia](media-services-dotnet-check-job-progress-with-webhooks.md)
 
@@ -763,6 +762,6 @@ Agora você pode usar um gerenciador de tráfego para rotear solicitações entr
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78926704"
 ---
 # <a name="import-the-postman-environment"></a>Importar o ambiente Postman  
@@ -25,7 +24,7 @@ ms.locfileid: "78926704"
 Este artigo contém uma definição das variáveis de ambiente de **Postman** que são usadas na [coleção de Postman](postman-collection.md) que contêm as solicitações HTTP agrupadas que chamam as APIs REST dos Serviços de Mídia. Esses arquivos de ambiente e de coleção são usados pelo tutorial [Configurar o Postman para chamadas da API REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 
 > [!NOTE]
-> O valor de `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`. Para obter sua ID de locatário, você pode passar o mouse sobre seu nome de usuário no portal (no canto superior direito) e ele estará no "diretório: Microsoft ({{TENANTid}}).
+> O valor de `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token` . Para obter sua ID de locatário, você pode passar o mouse sobre seu nome de usuário no portal (no canto superior direito) e ele estará no "diretório: Microsoft ({{TENANTid}}).
 
 ```
 {

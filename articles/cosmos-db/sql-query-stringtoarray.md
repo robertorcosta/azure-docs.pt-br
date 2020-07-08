@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302909"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
@@ -37,7 +36,7 @@ StringToArray(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra `StringToArray` como o se comporta entre diferentes tipos. 
+  O exemplo a seguir mostra como o `StringToArray` se comporta entre diferentes tipos. 
   
  Veja a seguir exemplos de entrada válida.
 
@@ -59,7 +58,7 @@ Este é o conjunto de resultados.
 Veja a seguir um exemplo de entrada inválida. 
    
  Aspas simples dentro da matriz não são JSON válidos.
-Mesmo que eles sejam válidos em uma consulta, eles não serão analisados em matrizes válidas. As cadeias de caracteres da matriz devem ser de escape\\"\\[" "]" ou a aspa ao redor deve ser única "[" "]".
+Mesmo que eles sejam válidos em uma consulta, eles não serão analisados em matrizes válidas. As cadeias de caracteres da matriz devem ser de escape "[ \\ " \\ "]" ou a aspa ao redor deve ser única "[" "]".
 
 ```sql
 SELECT
@@ -97,6 +96,6 @@ Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de cadeia de caracteres do Azure Cosmos DB](sql-query-string-functions.md)
+- [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

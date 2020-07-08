@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78897907"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conectar o HDInsight à sua rede local
@@ -46,7 +45,7 @@ No diagrama a seguir, linhas verdes são solicitações de recursos que terminam
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Se estiver usando o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Se desejar usar CLI do Azure e você ainda não o tiver instalado, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se desejar usar a CLI do Azure e você ainda não a instalou, veja [Instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Criar configuração de rede virtual
 
@@ -65,11 +64,11 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
 
 1. Entre no [portal do Azure](https://portal.azure.com).
   
-1. No menu superior, selecione **+ criar um recurso**.
+1. No menu superior, selecione **+ Criar um recurso**.
 
     ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-1. Selecione **Compute** > **máquina virtual** de computação para ir para a página **criar uma máquina virtual** .
+1. Selecione **Compute**  >  **máquina virtual** de computação para ir para a página **criar uma máquina virtual** .
 
 1. Na guia __Básico__, insira as seguintes informações:  
   
@@ -80,7 +79,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
     |Nome da máquina virtual | Insira um nome amigável que identifica esta máquina virtual. Este exemplo usa **DNSProxy**.|
     |Região | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
     |Opções de disponibilidade |  Selecione o nível desejado de disponibilidade.  O Azure oferece várias opções de gerenciamento da disponibilidade e da resiliência de seus aplicativos.  Projete sua solução a fim de usar VMs replicadas em Zonas de Disponibilidade ou Conjuntos de Disponibilidade para proteger seus aplicativos e dados contra falhas do datacenter e eventos de manutenção. Este exemplo usa **Nenhuma redundância de infraestrutura necessária**. |
-    |Imagem | Deixe no **Ubuntu Server 18, 4 LTS**. |
+    |Image | Deixe no **Ubuntu Server 18, 4 LTS**. |
     |Tipo de autenticação | __Senha__ ou __chave pública SSH__: o método de autenticação para a conta SSH. É recomendável usar chaves públicas, pois elas são mais seguras. Este exemplo usa **senha**.  Para obter mais informações, consulte o documento [Criar e usar chaves SSH para VMs Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nome de usuário |Insira o nome de usuário do administrador da VM.  Este exemplo usa **sshuser**.|
     |Senha ou chave pública SSH | O campo disponível é determinado por sua escolha de **Tipo de autenticação**.  Insira o valor apropriado.|
@@ -129,7 +128,7 @@ Depois que a máquina virtual tiver sido criada, você receberá uma notificaç�
     sudo apt-get install bind9 -y
     ```
 
-3. Para configurar o BIND para encaminhar solicitações de resolução de nomes para o servidor DNS local, use o seguinte texto como o `/etc/bind/named.conf.options` conteúdo do arquivo:
+3. Para configurar o BIND para encaminhar solicitações de resolução de nomes para o servidor DNS local, use o seguinte texto como o conteúdo do `/etc/bind/named.conf.options` arquivo:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -234,7 +233,7 @@ Depois que a máquina virtual tiver sido criada, você receberá uma notificaç�
 
 Para configurar a rede virtual a fim de usar o servidor DNS personalizado em vez do resolvedor recursivo do Azure, use estas etapas no [portal do Azure](https://portal.azure.com):
 
-1. No menu à esquerda, navegue até **todos os serviços** > **rede** > **redes virtuais**.
+1. No menu à esquerda, navegue até **todos os serviços**  >  **rede**  >  **redes virtuais**.
 
 2. Selecione sua rede virtual na lista, que abrirá a exibição padrão da sua rede virtual.  
 
@@ -343,4 +342,4 @@ Para conectar-se diretamente ao HDInsight por meio da rede virtual, use as segui
 
 * Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
 
-* Para obter mais informações sobre rotas definidas pelo usuário, consulte [rotas definidas pelo usuário e encaminhamento de IP](../virtual-network/virtual-networks-udr-overview.md).
+* Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).

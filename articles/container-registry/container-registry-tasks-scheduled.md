@@ -4,10 +4,9 @@ description: Neste tutorial, saiba como executar uma tarefa de registro de cont�
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402872"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um agendamento definido
@@ -43,7 +42,7 @@ Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure pa
 
 Ao criar uma tarefa com o comando [AZ ACR Task Create][az-acr-task-create] , você pode opcionalmente adicionar um gatilho de temporizador. Adicione o `--schedule` parâmetro e passe uma expressão cron para o temporizador.
 
-Como um exemplo simples, o comando a seguir dispara a `hello-world` execução da imagem do Hub do Docker todos os dias às 21:00 UTC. A tarefa é executada sem um contexto de código-fonte.
+Como um exemplo simples, o comando a seguir dispara a execução da `hello-world` imagem do Hub do Docker todos os dias às 21:00 UTC. A tarefa é executada sem um contexto de código-fonte.
 
 ```azurecli
 az acr task create \
@@ -54,7 +53,7 @@ az acr task create \
   --context /dev/null
 ```
 
-Execute o comando [AZ ACR Task show][az-acr-task-show] para ver que o gatilho do temporizador está configurado. Por padrão, o gatilho de atualização da imagem base também está habilitado.
+Execute o comando [az acr task show][az-acr-task-show] para ver se o gatilho do temporizador está configurado. Por padrão, o gatilho de atualização da imagem base também está habilitado.
 
 ```azurecli
 az acr task show --name mytask --registry registry --output table
@@ -174,11 +173,11 @@ As tarefas ACR usam a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab
 O fuso horário usado com as expressões cron é UTC (tempo Universal Coordenado). As horas estão no formato de 24 horas.
 
 > [!NOTE]
-> As tarefas de ACR não dão `{second}` suporte `{year}` ao campo ou em expressões cron. Se você copiar uma expressão cron usada em outro sistema, certifique-se de remover esses campos, se eles forem usados.
+> As tarefas de ACR não dão suporte ao `{second}` `{year}` campo ou em expressões cron. Se você copiar uma expressão cron usada em outro sistema, certifique-se de remover esses campos, se eles forem usados.
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Type  |Exemplo  |Quando disparado  |
+|Tipo  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>`"5 * * * *"`</nobr>|a cada hora às 5 minutos após a hora|
 |Todos os valores (`*`)|<nobr>`"* 5 * * *"`</nobr>|a cada minuto da hora começando em 5:00 UTC (60 vezes por dia)|
@@ -200,7 +199,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |`"30 9 * * 1-5"`|às 9:30 UTC a cada dia da semana|
 |`"30 9 * Jan Mon"`|às 9:30 UTC a cada segunda-feira em janeiro|
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover todos os recursos que você criou nesta série de tutoriais, incluindo o registro de contêiner ou registros, a instância de contêiner, o cofre de chaves e a entidade de serviço, emita os seguintes comandos:
 

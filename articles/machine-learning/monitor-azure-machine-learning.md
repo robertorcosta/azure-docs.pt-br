@@ -10,10 +10,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78399105"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning de monitoramento
@@ -42,7 +41,7 @@ Azure Machine Learning coleta os mesmos tipos de dados de monitoramento que outr
 
 ## <a name="analyzing-metric-data"></a>Analisando dados de métrica
 
-Você pode analisar as métricas para Azure Machine Learning abrindo as **métricas** no menu **Azure monitor** . Consulte [introdução ao Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) para obter detalhes sobre como usar essa ferramenta.
+Você pode analisar as métricas para Azure Machine Learning abrindo as **métricas** no menu **Azure monitor** . Consulte [Introdução ao Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) para obter detalhes sobre como usar essa ferramenta.
 
 Todas as métricas para Azure Machine Learning estão no namespace **Machine Learning espaço de trabalho do serviço**.
 
@@ -50,7 +49,7 @@ Todas as métricas para Azure Machine Learning estão no namespace **Machine Lea
 
 ### <a name="filtering-and-splitting"></a>Filtragem e divisão
 
-Para métricas que dão suporte a dimensões, você pode aplicar filtros usando um valor de dimensão. Por exemplo, a filtragem de **núcleos ativos** para um nome `cpu-cluster`de **cluster** do. 
+Para métricas que dão suporte a dimensões, você pode aplicar filtros usando um valor de dimensão. Por exemplo, a filtragem de **núcleos ativos** para um **nome de cluster** do `cpu-cluster` . 
 
 Você também pode dividir uma métrica por dimensão para visualizar como os segmentos diferentes da métrica se comparam entre si. Por exemplo, dividindo o **tipo de etapa de pipeline** para ver uma contagem dos tipos de etapas usados no pipeline.
 
@@ -64,9 +63,9 @@ A tabela a seguir lista as regras de alerta de métrica comuns e recomendadas pa
 
 | Tipo de alerta | Condição | Descrição |
 |:---|:---|:---|
-| Falha na Implantação de Modelo | Tipo de agregação: total, operador: maior que, valor do limite: 0 | Quando uma ou mais implantações de modelo falharam |
-| Porcentagem de utilização de cota | Tipo de agregação: Average, Operator: maior que, valor de limite: 90| Quando a porcentagem de utilização de cota é maior que 90% |
-| Nós inutilizáveis | Tipo de agregação: total, operador: maior que, valor do limite: 0 | Quando há um ou mais nós inutilizáveis |
+| Implantação de Modelo com Falha | Tipo de agregação: total, operador: maior que, valor do limite: 0 | Quando uma ou mais implantações de modelo falharam |
+| Percentual de Utilização de Cota | Tipo de agregação: Average, Operator: maior que, valor de limite: 90| Quando a porcentagem de utilização de cota é maior que 90% |
+| Nós Inutilizáveis | Tipo de agregação: total, operador: maior que, valor do limite: 0 | Quando há um ou mais nós inutilizáveis |
 
 ## <a name="configuration"></a>Configuração
 
@@ -94,7 +93,7 @@ Você pode configurar os seguintes logs para Azure Machine Learning:
 > [!NOTE]
 > Quando você habilita as métricas em uma configuração de diagnóstico, as informações de dimensão não são incluídas atualmente como parte das informações enviadas para uma conta de armazenamento, Hub de eventos ou log Analytics.
 
-## <a name="analyzing-log-data"></a>Analisando dados de log
+## <a name="analyzing-log-data"></a>Como analisar os dados de log
 
 Usando Azure Monitor Log Analytics exige que você crie uma configuração de diagnóstico e habilite __as informações de envio para log Analytics__. Para obter mais informações, consulte a seção [configuração](#configuration) .
 
@@ -107,7 +106,7 @@ Os dados em logs de Azure Monitor são armazenados em tabelas, sendo que cada ta
 | AmlComputeJobEvent | Eventos de trabalhos em execução no Azure Machine Learning computação. |
 
 > [!IMPORTANT]
-> Quando você seleciona **logs** no menu Azure Machine Learning, log Analytics é aberto com o escopo de consulta definido como o espaço de trabalho atual. Isso significa que as consultas de log incluirão apenas os dados desse recurso. Se você quiser executar uma consulta que inclua dados de outros bancos de dados ou de outros serviços do Azure, selecione **logs** no menu **Azure monitor** . Consulte [escopo de consulta de log e intervalo de tempo em Azure Monitor log Analytics](/azure/azure-monitor/log-query/scope/) para obter detalhes.
+> Quando você seleciona **logs** no menu Azure Machine Learning, log Analytics é aberto com o escopo de consulta definido como o espaço de trabalho atual. Isso significa que as consultas de log incluirão apenas os dados desse recurso. Se você quiser executar uma consulta que inclua dados de outros bancos de dados ou de outros serviços do Azure, selecione **Logs** no menu **Azure Monitor**. Confira [Escopo da consulta de log e intervalo de tempo no Log Analytics do Azure Monitor](/azure/azure-monitor/log-query/scope/) para obter detalhes.
 
 Para obter uma referência detalhada dos logs e métricas, consulte [Azure Machine Learning referência de dados de monitoramento](monitor-resource-reference.md).
 

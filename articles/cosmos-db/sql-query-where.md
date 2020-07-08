@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78898760"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE em Azure Cosmos DB
 
-A cláusula WHERE opcional (`WHERE <filter_condition>`) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições `true` especificadas a serem consideradas para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
+A cláusula WHERE opcional ( `WHERE <filter_condition>` ) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições especificadas a serem `true` consideradas para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -37,13 +36,13 @@ WHERE <filter_condition>
   
 ## <a name="remarks"></a>Comentários
   
-  Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como verdadeira. Somente o valor `true` booliano atenderá à condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não atenderá à condição.
+  Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como verdadeira. Somente o valor booliano `true` atenderá à condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não atenderá à condição.
 
   Se você incluir sua chave de partição na `WHERE` cláusula como parte de um filtro de igualdade, sua consulta filtrará automaticamente somente as partições relevantes.
 
 ## <a name="examples"></a>Exemplos
 
-A consulta a seguir solicita itens que contêm `id` uma propriedade cujo valor `AndersenFamily`é. Ele exclui qualquer item que não tenha uma `id` propriedade ou cujo valor não corresponda. `AndersenFamily`
+A consulta a seguir solicita itens que contêm uma `id` propriedade cujo valor é `AndersenFamily` . Ele exclui qualquer item que não tenha uma `id` propriedade ou cujo valor não corresponda `AndersenFamily` .
 
 ```sql
     SELECT f.address
@@ -73,9 +72,9 @@ Você pode usar os seguintes operadores binários com suporte:
 |---------|---------|
 |Aritmético | +,-,*,/,% |
 |Bit a bit    | \|, &, ^, <<, >>, >>> (deslocamento à direita com preenchimento com zero) |
-|Lógico    | AND, OR, NOT      |
+|Logical    | AND, OR, NOT      |
 |Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Cadeia de caracteres     |  \|\| (concatenar) |
+|String     |  \|\| (concatenar) |
 
 As consultas a seguir usam operadores binários:
 
@@ -105,10 +104,10 @@ Você também pode usar os operadores unários +,-, ~, e não em consultas, conf
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a `isRegistered` Propriedade com valor igual `true`a. Qualquer outro valor, como `false`, `null` `Undefined` `<number>`,,, `<string>`, `<object>`ou `<array>`, exclui o item do resultado.
+Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true` . Qualquer outro valor, como,,,, `false` `null` `Undefined` `<number>` `<string>` , `<object>` ou `<array>` , exclui o item do resultado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Palavra-chave IN](sql-query-keywords.md#in)
 - [Cláusula FROM](sql-query-from.md)

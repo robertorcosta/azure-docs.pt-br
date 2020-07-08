@@ -14,16 +14,15 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78330661"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introdução à autenticação do Azure AD utilizando o Portal do Azure
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Saiba como utilizar o portal do Azure para acessar a autenticação do Azure Active Directory (Azure AD) para acessar a API dos Serviços de Mídia do Azure.
 
@@ -47,25 +46,25 @@ Esta página permite que você selecione o método de autenticação que deseja 
 
 ## <a name="service-principal-authentication--recommended"></a>Autenticação de entidade de serviço (recomendada)
 
-Autentica um serviço usando um aplicativo Azure Active Directory (Azure AD) e o segredo. Isso é recomendado para qualquer serviço de camada intermediária que chame a API dos serviços de mídia. Os exemplos são aplicativos Web, funções, aplicativos lógicos, APIs e microservices. Esse é o método de autenticação recomendado.
+Autentica um serviço usando um aplicativo e segredo do Azure Active Directory (Azure AD). Isso é recomendado para qualquer serviço de camada intermediária que chame a API de Serviços de Mídia. Entre os exemplos estão aplicativos Web, funções, Aplicativos Lógicos, APIs e microsserviços. Este é o método de autenticação recomendado.
 
 ### <a name="manage-your-azure-ad-app-and-secret"></a>Gerenciar seu aplicativo e segredo do Azure AD
 
-A seção **gerenciar seu aplicativo e segredo do AAD** permite que você selecione ou crie um novo aplicativo do Azure AD e gere um segredo. Para fins de segurança, o segredo não pode ser mostrado depois que a folha é fechada. O aplicativo usa a ID do aplicativo e o segredo para autenticação para obter um token válido para os serviços de mídia.
+A seção **Gerenciar seu aplicativo e segredo do ADD** permite selecionar ou criar um novo aplicativo do Azure AD e gerar um segredo. Por motivos de segurança, o segredo não pode ser mostrado depois que a folha é fechada. O aplicativo usa a ID e o segredo do aplicativo para autenticação para obter um token válido para serviços de mídia.
 
-Verifique se você tem permissões suficientes para registrar um aplicativo com seu locatário do Azure AD e atribuir o aplicativo a uma função em sua assinatura do Azure. Para obter mais informações, consulte [Required Permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Verifique se você tem permissões suficientes para registrar um aplicativo com o seu locatário do Azure AD e para atribuir o aplicativo a uma função na sua assinatura do Azure. Para obter mais informações, consulte [Permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-### <a name="connect-to-media-services-api"></a>Conectar-se à API dos serviços de mídia
+### <a name="connect-to-media-services-api"></a>Conecte-se à API de Serviços de Mídia
 
-A **API conectar a serviços de mídia** fornece valores que você usa para conectar seu aplicativo de entidade de serviço. Você pode obter valores de texto ou copiar os blocos JSON ou XML.
+O **Conecte-se à API de Serviços de Mídia** fornece valores que você usa para conectar seu aplicativo de entidade de serviço. É possível obter valores de texto ou copiar os blocos JSON ou XML.
 
 ## <a name="user-authentication"></a>Autenticação de usuário
 
-Essa opção pode ser usada para autenticar um funcionário ou membro de um Azure Active Directory que está usando um aplicativo para interagir com os recursos dos serviços de mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Esse método de autenticação deve ser usado somente para aplicativos de gerenciamento.
+Essa opção pode ser usada para autenticar um funcionário ou membro de um Azure Active Directory que está usando um aplicativo para interagir com os recursos de Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Este método de autenticação deve ser usado apenas para aplicativos de gerenciamento.
 
-### <a name="connect-to-media-services-api"></a>Conectar-se à API dos serviços de mídia
+### <a name="connect-to-media-services-api"></a>Conecte-se à API de Serviços de Mídia
 
-Copie suas credenciais para conectar seu aplicativo de usuário da seção **conectar-se à API dos serviços de mídia** . Você pode obter valores de texto ou copiar os blocos JSON ou XML.
+Copie as credenciais para conectar seu aplicativo de usuário na seção  **Conecte-se à API de Serviços de Mídia**. É possível obter valores de texto ou copiar os blocos JSON ou XML.
 
 ## <a name="next-steps"></a>Próximas etapas
 
