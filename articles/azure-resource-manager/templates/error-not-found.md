@@ -1,29 +1,28 @@
 ---
 title: Erros de recurso não encontrado
-description: Descreve como resolver erros quando um recurso não pode ser encontrado ao implantar com um modelo de Azure Resource Manager.
+description: Descreve como resolver erros quando um recurso não pode ser encontrado. O erro pode ocorrer ao implantar um modelo de Azure Resource Manager ou ao tomar ações de gerenciamento.
 ms.topic: troubleshooting
-ms.date: 01/21/2020
-ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667940"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Solucione erros que ocorrem quando recursos do Azure não são encontrados
+# <a name="resolve-resource-not-found-errors"></a>Resolver erros de recurso não encontrado
 
-Este artigo descreve os erros com que você pode ver quando um recurso não é encontrado durante a implantação.
+Este artigo descreve o erro que você vê quando um recurso não pode ser encontrado durante uma operação. Normalmente, você vê esse erro ao implantar recursos. Você também verá esse erro ao realizar tarefas de gerenciamento e Azure Resource Manager não conseguir localizar o recurso necessário. Por exemplo, se você tentar adicionar marcas a um recurso que não existe, você receberá esse erro.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando o modelo inclui o nome de um recurso que não pode ser resolvido, você recebe um erro semelhante a:
+Há dois códigos de erro que indicam que o recurso não foi encontrado. O erro não **encontrado** retorna um resultado semelhante a:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Se usar as funções [reference](template-functions-resource.md#reference) ou [listKeys](template-functions-resource.md#listkeys) com um recurso que não pode ser resolvido, você receberá o seguinte erro:
+O erro **ResourceNotFound** retorna um resultado semelhante a:
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +32,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Causa
 
-O Resource Manager precisa recuperar as propriedades de um recurso, mas não consegue identificar o recurso em sua assinatura.
+O Resource Manager precisa recuperar as propriedades de um recurso, mas não consegue localizar o recurso em suas assinaturas.
 
-## <a name="solution-1---set-dependencies"></a>Solução 1: Definir dependências
+## <a name="solution-1---check-resource-properties"></a>Solução 1-verificar as propriedades do recurso
 
-Caso você esteja tentando implantar o recurso ausente no modelo, verifique se você precisa adicionar uma dependência. O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisará usar o elemento **dependsOn** em seu modelo. Por exemplo, ao implantar um aplicativo Web, o plano do Serviço de Aplicativo deve existir. Se você não tiver especificado que o aplicativo Web depende do plano do Serviço de Aplicativo, o Gerenciador de Recursos criará os dois recursos ao mesmo tempo. Você recebe um erro informando que o recurso do plano do Serviço de Aplicativo não pode ser encontrado porque ele ainda não existe ao tentar definir uma propriedade no aplicativo Web. Você evita esse erro configurando a dependência no aplicativo Web.
+Quando você receber esse erro durante uma tarefa de gerenciamento, verifique os valores fornecidos para o recurso. Os três valores a serem verificados são:
+
+* Nome do recurso
+* Nome do grupo de recursos
+* Subscription
+
+Se você estiver usando o PowerShell ou CLI do Azure, verifique se está executando o comando na assinatura que contém o recurso. Você pode alterar a assinatura com Set [-AzContext](/powershell/module/Az.Accounts/Set-AzContext) ou [AZ Account Set](/cli/azure/account#az-account-set). Muitos comandos também fornecem um parâmetro de assinatura que permite especificar uma assinatura diferente do contexto atual.
+
+Se você estiver tendo problemas para verificar as propriedades, entre no [portal](https://portal.azure.com). Localize o recurso que você está tentando usar e examine o nome do recurso, o grupo de recursos e a assinatura.
+
+## <a name="solution-2---set-dependencies"></a>Solução 2 – definir dependências
+
+Se você receber esse erro ao implantar um modelo, talvez seja necessário adicionar uma dependência. O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisará usar o elemento **dependsOn** em seu modelo. Por exemplo, ao implantar um aplicativo Web, o plano do Serviço de Aplicativo deve existir. Se você não tiver especificado que o aplicativo Web depende do plano do Serviço de Aplicativo, o Gerenciador de Recursos criará os dois recursos ao mesmo tempo. Você recebe um erro informando que o recurso do plano do Serviço de Aplicativo não pode ser encontrado porque ele ainda não existe ao tentar definir uma propriedade no aplicativo Web. Você evita esse erro configurando a dependência no aplicativo Web.
 
 ```json
 {
@@ -70,9 +81,13 @@ Quando você vir os problemas de dependência, você precisa obter informações
 
    ![implantação sequencial](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Solução 2: Obter recursos de outro grupo de recursos
+## <a name="solution-3---get-external-resource"></a>Solução 3 – obter recurso externo
 
-Quando o recurso existir em um grupo de recursos diferente daquele que está sendo implantado, use a [função resourceId](template-functions-resource.md#resourceid) para obter o nome totalmente qualificado desse recurso.
+Ao implantar um modelo e você precisar obter um recurso que existe em uma assinatura ou grupo de recursos diferente, use a [função ResourceId](template-functions-resource.md#resourceid). Essa função retorna para obter o nome totalmente qualificado do recurso.
+
+Os parâmetros de grupo de recursos e assinatura na função ResourceId são opcionais. Se você não fornecê-los, eles assumem como padrão a assinatura atual e o grupo de recursos. Ao trabalhar com um recurso em um grupo de recursos ou assinatura diferente, certifique-se de fornecer esses valores.
+
+O exemplo a seguir obtém a ID de recurso de um recurso que existe em um grupo de recursos diferente.
 
 ```json
 "properties": {
@@ -81,22 +96,39 @@ Quando o recurso existir em um grupo de recursos diferente daquele que está sen
 }
 ```
 
-## <a name="solution-3---check-reference-function"></a>Solução 3: Verificar função de referência
-
-Procure por uma expressão que inclui a função [reference](template-functions-resource.md#reference). Os valores que você fornecerá serão diferentes se o recurso estiver no mesmo modelo, grupo de recursos e assinatura. Verifique se você está fornecendo os valores de parâmetro necessários para seu cenário. Se o recurso estiver em um grupo de recursos diferente, forneça a ID do recurso completa. Por exemplo, para fazer referência a uma conta de armazenamento em outro grupo de recursos, use:
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
-```
-
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Solução 4 – obter a identidade gerenciada do recurso
 
 Se você estiver implantando um recurso que cria implicitamente uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md), deverá aguardar até que esse recurso seja implantado antes de recuperar os valores na identidade gerenciada. Se você passar o nome da identidade gerenciada para a função de [referência](template-functions-resource.md#reference) , o Gerenciador de recursos tentará resolver a referência antes que o recurso e a identidade sejam implantados. Em vez disso, passe o nome do recurso ao qual a identidade é aplicada. Essa abordagem garante que o recurso e a identidade gerenciada sejam implantados antes que o Resource Manager resolva a função de referência.
 
 Na função de referência, use `Full` para obter todas as propriedades, incluindo a identidade gerenciada.
 
-Por exemplo, para obter a ID de locatário para uma identidade gerenciada que é aplicada a um conjunto de dimensionamento de máquinas virtuais, use:
+O padrão é:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+> [!IMPORTANT]
+> Não use o padrão:
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> Seu modelo falhará.
+
+Por exemplo, para obter a ID da entidade de segurança para uma identidade gerenciada que é aplicada a uma máquina virtual, use:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Ou, para obter a ID de locatário para uma identidade gerenciada que é aplicada a um conjunto de dimensionamento de máquinas virtuais, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>Solução 5-verificar funções
+
+Ao implantar um modelo, procure expressões que usam as funções [Reference](template-functions-resource.md#reference) ou [listKeys](template-functions-resource.md#listkeys) . Os valores que você fornecerá serão diferentes se o recurso estiver no mesmo modelo, grupo de recursos e assinatura. Verifique se você está fornecendo os valores de parâmetro necessários para seu cenário. Se o recurso estiver em um grupo de recursos diferente, forneça a ID do recurso completa. Por exemplo, para fazer referência a uma conta de armazenamento em outro grupo de recursos, use:
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

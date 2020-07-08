@@ -4,15 +4,14 @@ description: Definir uma linha de comando para substituir o ponto de entrada em 
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84693049"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando em uma instância de contêiner para substituir a operação de linha de comando padrão
 
-Ao criar uma instância de contêiner, especifique opcionalmente um comando para substituir a instrução de linha de comando padrão inclusas na imagem de contêiner. Esse comportamento é semelhante ao argumento `--entrypoint` de linha de comando para `docker run`.
+Ao criar uma instância de contêiner, especifique opcionalmente um comando para substituir a instrução de linha de comando padrão inclusas na imagem de contêiner. Esse comportamento é semelhante ao `--entrypoint` argumento de linha de comando para `docker run` .
 
 Como definir [variáveis de ambiente](container-instances-environment-variables.md) para instâncias de contêiner, especificar uma linha de comando inicial é útil para trabalhos em lotes onde você precisa preparar cada contêiner dinamicamente com a configuração específica de tarefa.
 
@@ -36,17 +35,17 @@ Como definir [variáveis de ambiente](container-instances-environment-variables.
 
 * Se você precisar de informações sobre o ponto de entrada padrão definido em uma imagem de contêiner, use o comando [Docker Image eninspecione](https://docs.docker.com/engine/reference/commandline/image_inspect/) .
 
-## <a name="command-line-syntax"></a>Sintaxe da linha de comando
+## <a name="command-line-syntax"></a>Sintaxe de linha de comando
 
 A sintaxe da linha de comando varia dependendo da API do Azure ou da ferramenta usada para criar as instâncias. Se você especificar um ambiente de Shell, observe também as convenções de sintaxe de comando do Shell.
 
-* comando [AZ container Create][az-container-create] : passe uma cadeia de caracteres `--command-line` com o parâmetro. Exemplo: `--command-line "python myscript.py arg1 arg2"`).
+* comando [AZ container Create][az-container-create] : passe uma cadeia de caracteres com o `--command-line` parâmetro. Exemplo: `--command-line "python myscript.py arg1 arg2"` ).
 
-* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: passe uma cadeia de caracteres `-Command` com o parâmetro. Exemplo: `-Command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: passe uma cadeia de caracteres com o `-Command` parâmetro. Exemplo: `-Command "echo hello"`.
 
-* Portal do Azure: na propriedade de **substituição de comando** da configuração do contêiner, forneça uma lista separada por vírgulas de cadeias de caracteres, sem aspas. Exemplo: `python, myscript.py, arg1, arg2`). 
+* Portal do Azure: na propriedade de **substituição de comando** da configuração do contêiner, forneça uma lista separada por vírgulas de cadeias de caracteres, sem aspas. Exemplo: `python, myscript.py, arg1, arg2` ). 
 
-* Modelo do Resource Manager ou arquivo YAML ou um dos SDKs do Azure: Especifique a propriedade de linha de comando como uma matriz de cadeias de caracteres. Exemplo: a matriz `["python", "myscript.py", "arg1", "arg2"]` JSON em um modelo do Resource Manager. 
+* Modelo do Resource Manager ou arquivo YAML ou um dos SDKs do Azure: Especifique a propriedade de linha de comando como uma matriz de cadeias de caracteres. Exemplo: a matriz JSON `["python", "myscript.py", "arg1", "arg2"]` em um modelo do Resource Manager. 
 
   Se você estiver familiarizado com a sintaxe [Dockerfile](https://docs.docker.com/engine/reference/builder/) , esse formato será semelhante ao formulário *exec* da instrução cmd.
 

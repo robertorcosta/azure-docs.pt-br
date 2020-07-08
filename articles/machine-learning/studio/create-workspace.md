@@ -5,21 +5,18 @@ description: Para usar Azure Machine Learning Studio (clássico), você precisa 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 7b01e7667392d475bcab70dcd3dfaad2c3956e8f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: ede84fefed7db9d2afcc0ad65833ab2c0fefbc03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208526"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696517"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Criar e compartilhar um espaço de trabalho Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Para usar Azure Machine Learning Studio (clássico), você precisa ter um espaço de trabalho Machine Learning Studio (clássico). Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.
 
@@ -56,11 +53,11 @@ Se você excluir acidentalmente a conta de armazenamento, recrie-a com o mesmo n
 
 Depois que o espaço de trabalho for implantado, você poderá abri-lo no Machine Learning Studio (clássico).
 
-1. Navegue até Machine Learning Studio (clássico) em [https://studio.azureml.net/](https://studio.azureml.net/).
+1. Navegue até Machine Learning Studio (clássico) em [https://studio.azureml.net/](https://studio.azureml.net/) .
 
 2. Selecione seu workspace no canto superior direito.
 
-    ![Selecione o workspace](./media/create-workspace/open-workspace.png)
+    ![Selecione workspace](./media/create-workspace/open-workspace.png)
 
 3. Clique em **meus experimentos**.
 

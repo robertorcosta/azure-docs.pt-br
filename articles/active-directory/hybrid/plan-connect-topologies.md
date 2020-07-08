@@ -17,11 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253826"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698760"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -37,7 +36,7 @@ Aqui está a legenda para imagens neste artigo:
 | “Modo de preparo” do servidor de sincronização do Azure AD Connect |![“Modo de preparo” do servidor de sincronização do Azure AD Connect](./media/plan-connect-topologies/LegendSync2.png) |
 | GALSync com o Forefront Identity Manager (FIM) 2010 ou o Microsoft Identity Manager (MIM) 2016 |![GALSync com o FIM 2010 ou MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
 | Servidor do Azure AD Connect Sync detalhado |![Servidor do Azure AD Connect Sync detalhado](./media/plan-connect-topologies/LegendSync4.png) |
-| AD do Azure |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
+| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
 | Cenário sem suporte |![Cenário sem suporte](./media/plan-connect-topologies/LegendUnsupported.png) |
 
 
@@ -197,4 +196,4 @@ Para saber como instalar o Azure AD Connect para esses cenários, veja [Instala�
 
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

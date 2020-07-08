@@ -13,11 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689751"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -70,7 +69,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado à Web.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade type deve ser definida como: **Web** |Sim |
 | Url |URL para a origem da Web |Sim |
@@ -98,10 +97,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeProperties para o conjunto de dados do tipo **WebTable** tem as propriedades a seguir
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type |tipo do conjunto de dados. Deve ser definido como **WebTable** |Sim |
-| path |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
+| caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
 | índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
 
 **Exemplo:**
@@ -163,7 +162,7 @@ O exemplo a seguir mostra como copiar dados de uma tabela da Web para um blob do
 }
 ```
 
-**Serviço vinculado do armazenamento do Azure**
+**Serviço vinculado de armazenamento do Azure**
 
 ```json
 {
@@ -205,7 +204,7 @@ O exemplo a seguir mostra como copiar dados de uma tabela da Web para um blob do
 ```
 
 
-**Conjunto de resultados de saída de blob do Azure**
+**Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
 

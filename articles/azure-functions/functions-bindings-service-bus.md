@@ -7,24 +7,23 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.openlocfilehash: 44e4114b328701d5de363e91f5562f1daad351c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277408"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697163"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
 O Azure Functions integra-se com o [barramento de serviço do Azure](https://azure.microsoft.com/services/service-bus) por meio [de gatilhos e associações](./functions-triggers-bindings.md). A integração com o barramento de serviço permite que você crie funções que reajam e enviem mensagens de tópico ou de fila.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função quando uma fila ou mensagem de tópico do barramento de serviço for criada | [Gatilho](./functions-bindings-service-bus-trigger.md) |
 | Enviar mensagens do barramento de serviço do Azure |[Associação de saída](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
-### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
+### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 

@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697333"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar Azure Functions extensões de associação
 
@@ -33,7 +32,7 @@ A tabela a seguir indica quando e como você registra as associações.
 
 ## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Pacotes de extensão para desenvolvimento local
 
-Os pacotes de extensão são uma tecnologia de implantação que permite adicionar um conjunto compatível de extensões de associação de funções ao seu aplicativo de funções. Um conjunto predefinido de extensões é adicionado quando você cria seu aplicativo. Os pacotes de extensão definidos em um pacote são compatíveis entre si, o que ajuda a evitar conflitos entre pacotes. Você habilita pacotes de extensão no arquivo host. JSON do aplicativo.  
+Os pacotes de extensão são uma tecnologia de implantação que permite adicionar um conjunto compatível de extensões de associação de funções ao seu aplicativo de funções. Um conjunto predefinido de extensões é adicionado quando você cria seu aplicativo. Os pacotes de extensão definidos em um pacote são compatíveis entre si, o que ajuda a evitar conflitos entre pacotes. Você habilita os pacotes de extensão no host.jsdo aplicativo no arquivo.  
 
 Você pode usar pacotes de extensão com a versão 2. x e versões posteriores do tempo de execução do functions. Ao desenvolver localmente, verifique se você está usando a versão mais recente do [Azure Functions Core Tools](functions-run-local.md#v2).
 
@@ -41,13 +40,13 @@ Use pacotes de extensão para o desenvolvimento local usando Azure Functions Cor
 
 Se você não usar pacotes de extensão, deverá instalar o SDK do .NET Core 2. x em seu computador local antes de instalar qualquer extensão de associação. Os pacotes de extensão eliminam esse requisito para o desenvolvimento local. 
 
-Para usar pacotes de extensão, atualize o arquivo *host. JSON* para incluir a seguinte entrada para `extensionBundle`:
+Para usar pacotes de extensão, atualize o *host.jsno* arquivo para incluir a seguinte entrada para `extensionBundle` :
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>Biblioteca\# de classes C com o Visual Studio
+## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteca de classes C com o Visual Studio
 
 No **Visual Studio**, você pode instalar pacotes do console do Gerenciador de pacotes usando o comando [install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , conforme mostrado no exemplo a seguir:
 

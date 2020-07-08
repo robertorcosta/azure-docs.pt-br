@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697683"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Melhore o desempenho e a confiabilidade do Azure Functions
 
@@ -24,7 +23,7 @@ A seguir, estão as melhores práticas para criar e projetar soluções sem serv
 
 As funções grandes de longa duração podem causar problemas de tempo limite inesperados. Para saber mais sobre os tempos limite de um determinado plano de hospedagem, confira [duração do tempo limite do aplicativo de funções](functions-scale.md#timeout). 
 
-Uma função pode se tornar grande devido a muitas dependências de Node. js. A importação dessas dependências pode causar aumento no tempo de carregamento resultando em tempos limite inesperados. As dependências são carregadas explícita e implicitamente. Um único módulo carregado pelo seu código pode carregar seus próprios módulos adicionais. 
+Uma função pode se tornar grande devido a muitas dependências de Node.js. A importação dessas dependências pode causar aumento no tempo de carregamento resultando em tempos limite inesperados. As dependências são carregadas explícita e implicitamente. Um único módulo carregado pelo seu código pode carregar seus próprios módulos adicionais. 
 
 Sempre que possível, refatore funções grandes em conjuntos menores de funções que funcionem juntos e retornem respostas rápidas. Por exemplo, um webhook ou uma função de gatilho HTTP pode exigir uma resposta de confirmação dentro de um determinado limite de tempo; é comum que WebHooks exijam uma resposta imediata. Você pode passar o conteúdo do gatilho HTTP para uma fila para ser processado por uma função de gatilho de fila. Essa abordagem permite que você adie o trabalho real e retorne uma resposta imediata.
 
@@ -74,7 +73,7 @@ Reutilize conexões a recursos externos sempre que possível. Veja [como gerenci
 
 ### <a name="avoid-sharing-storage-accounts"></a>Evite compartilhar contas de armazenamento
 
-Ao criar um aplicativo de funções, você deve associá-lo a uma conta de armazenamento. A conexão da conta de armazenamento é mantida na [configuração do aplicativo AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+Ao criar um aplicativo de funções, você deve associá-lo a uma conta de armazenamento. A conexão da conta de armazenamento é mantida na [configuração de aplicativo AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
@@ -92,29 +91,29 @@ Não use o log detalhado no código de produção, que tem um impacto negativo n
 
 A programação assíncrona é uma prática recomendada, especialmente ao bloquear operações de e/s envolvidas.
 
-No C#, sempre Evite referenciar `Result` a propriedade ou `Wait` o método de `Task` chamada em uma instância. Essa abordagem pode levar ao esgotamento de thread.
+No C#, sempre Evite referenciar a `Result` propriedade ou o `Wait` método de chamada em uma `Task` instância. Essa abordagem pode levar ao esgotamento de thread.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ### <a name="use-multiple-worker-processes"></a>Usar vários processos de trabalho
 
-Por padrão, qualquer instância de host para o Functions usa um único processo de trabalho. Para melhorar o desempenho, especialmente com tempos de execução de thread único como Python, use o [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar o número de processos de trabalho por host (até 10). Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
+Por padrão, qualquer instância de host para o Functions usa um único processo de trabalho. Para melhorar o desempenho, especialmente com tempos de execução de thread único como Python, use o [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar o número de processos de trabalho por host (até 10). O Azure Functions tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
 
-O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria ao escalar horizontalmente seu aplicativo para atender à demanda. 
+O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria quando escala horizontalmente seu aplicativo para atender à demanda. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Receber mensagens em lote sempre que possível
 
 Alguns gatilhos, como o Hub de Eventos, habilitam o recebimento de um lote de mensagens em uma única invocação.  As mensagens em lote têm um desempenho melhor.  É possível configurar o tamanho máximo do lote no arquivo `host.json`, conforme detalhado na [documentação de referência do host.json](functions-host-json.md)
 
-Para funções C#, você pode alterar o tipo para uma matriz fortemente tipada.  Por exemplo, em vez de `EventData sensorEvent`, a assinatura do método pode ser `EventData[] sensorEvent`.  Para outros idiomas, você precisará definir explicitamente a propriedade cardinalidade em seu `function.json` para `many` para habilitar o envio em lote, [conforme mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Para funções C#, você pode alterar o tipo para uma matriz fortemente tipada.  Por exemplo, em vez de `EventData sensorEvent`, a assinatura do método pode ser `EventData[] sensorEvent`.  Para outros idiomas, você precisará definir explicitamente a propriedade cardinalidade em seu para para `function.json` `many` habilitar o envio em lote, [conforme mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurar comportamentos de host para lidar melhor com a simultaneidade
 
 O arquivo `host.json` no aplicativo de funções permite configurar os comportamentos do runtime e do gatilho do host.  Além do envio em lote de comportamentos, é possível gerenciar a simultaneidade de diversos gatilhos. Geralmente, ajustar os valores nessas opções pode ajudar a escalar cada instância adequadamente para as demandas das funções invocadas.
 
-As configurações no arquivo host. JSON se aplicam a todas as funções dentro do aplicativo, dentro de uma *única instância* da função. Por exemplo, se você tivesse um aplicativo de funções com duas funções e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) solicitações HTTP definidas como 25, uma solicitação para o gatilho http contaria para as 25 solicitações simultâneas compartilhadas.  Quando esse aplicativo de funções é dimensionado para 10 instâncias, as duas funções permitem efetivamente 250 solicitações simultâneas (10 instâncias * 25 solicitações simultâneas por instância). 
+As configurações na host.jsno arquivo se aplicam a todas as funções dentro do aplicativo, dentro de uma *única instância* da função. Por exemplo, se você tivesse um aplicativo de funções com duas funções e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) solicitações HTTP definidas como 25, uma solicitação para o gatilho http contaria para as 25 solicitações simultâneas compartilhadas.  Quando esse aplicativo de funções é dimensionado para 10 instâncias, as duas funções permitem efetivamente 250 solicitações simultâneas (10 instâncias * 25 solicitações simultâneas por instância). 
 
-Outras opções de configuração de host são encontradas no [artigo de configuração host. JSON](functions-host-json.md).
+Outras opções de configuração de host são encontradas no [artigohost.jsno Configuration](functions-host-json.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

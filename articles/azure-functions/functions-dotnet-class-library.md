@@ -4,11 +4,10 @@ description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: reference
 ms.date: 09/12/2018
 ms.openlocfilehash: cfa53fe2defca768196af595c1d088d41bc60f71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697180"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -29,7 +28,7 @@ As versões do tempo de execução do Functions funcionam com versões específi
 
 | Versão de tempo de execução do Functions | Versão máxima do .NET |
 | ---- | ---- |
-| Funções 3. x | .NET Core 3,1 |
+| Funções 3. x | .NET Core 3.1 |
 | Funções 2.x | .NET Core 2.2 |
 | Funções 1.x | .NET Framework 4.6 |
 
@@ -77,7 +76,7 @@ public static class SimpleExample
 } 
 ```
 
-O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto, começar com uma letra e conter apenas letras, números, `_`e `-`até 127 caracteres de comprimento. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
+O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto, começar com uma letra e conter apenas letras, números, `_` e `-` até 127 caracteres de comprimento. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo é disparada por uma mensagem de fila, a qual é transmitida para o método no parâmetro `myQueueItem`.
 
@@ -216,7 +215,7 @@ Use o valor retornado apenas se uma execução de função com êxito sempre res
 
 ## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
 
-Para gravar vários valores em uma associação de saída ou se uma invocação de função bem-sucedida pode não resultar em nada para passar para a associação de saída, [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) use [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) os tipos ou. Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
+Para gravar vários valores em uma associação de saída ou se uma invocação de função com êxito não resultar em nada a ser passado para a associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
 
 Este exemplo grava várias mensagens de fila na mesma fila usando `ICollector`:
 
@@ -236,7 +235,7 @@ public static class ICollectorExample
 }
 ```
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 A saída de log para logs de streaming em C#, inclue um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). É recomendável que você nomeie `log`, conforme mostrado no exemplo a seguir:  
 
@@ -255,7 +254,7 @@ public static class SimpleExample
 
 Evite usar `Console.Write` no Azure Functions. Para obter mais informações, consulte [Gravar logs mas funções C#](functions-monitoring.md#write-logs-in-c-functions) no artigo **Monitorar o Azure Functions**.
 
-## <a name="async"></a>Async
+## <a name="async"></a>Assíncrono
 
 Para tornar uma função [assíncrona](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use a palavra-chave `async` e retorne um objeto `Task`.
 
@@ -339,7 +338,7 @@ No C# e em outras linguagens .NET, é possível usar um padrão de associação 
 Defina uma associação obrigatória da seguinte maneira:
 
 - **Não** inclua um atributo em na assinatura de função para as associações obrigatórias desejadas.
-- Passe um parâmetro [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) de entrada ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Passe um parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
 - Use o padrão de C# a seguir para realizar a associação de dados.
 
   ```cs
@@ -349,7 +348,7 @@ Defina uma associação obrigatória da seguinte maneira:
   }
   ```
 
-  `BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela de aplicativos móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [\<ICollector t>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector\<>t](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com associação imperativa.
+  `BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com a associação imperativa.
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 

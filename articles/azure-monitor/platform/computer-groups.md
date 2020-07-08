@@ -7,11 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689003"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
 Os grupos de computadores no Azure Monitor permitem que você defina o escopo de [consultas de log](../log-query/log-query-overview.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
@@ -26,7 +25,7 @@ Os grupos de computadores no Azure Monitor permitem que você defina o escopo de
 | Consulta de log |Crie uma consulta de log que retorne uma lista de computadores. |
 | API da Pesquisa de Log |Use a API da Pesquisa de Logs para criar programaticamente um grupo de computadores com base nos resultados de uma consulta de log. |
 | Active Directory |Examine automaticamente a associação de grupo de qualquer computador de agente que seja membro de um domínio do Active Directory e crie um grupo no Azure Monitor para cada grupo de segurança. (computadores Windows, somente)|
-| Configuration Manager | Importe coleções do Microsoft Endpoint Configuration Manager e crie um grupo no Azure Monitor para cada uma. |
+| Gerenciador de Configurações | Importe coleções do Microsoft Endpoint Configuration Manager e crie um grupo no Azure Monitor para cada uma. |
 | Windows Server Update Services |Examine automaticamente clientes ou servidores do WSUS para grupos de direcionamento e crie um grupo no Azure Monitor para cada um. |
 
 ### <a name="log-query"></a>Consulta de log
@@ -46,7 +45,7 @@ Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa 
 
 A tabela a seguir descreve as propriedades que definem um grupo de computadores.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:---|:---|
 | Nome   | Nome da consulta a ser exibida no portal. |
 | Alias da função | Um alias exclusivo usado para identificar o grupo de computadores em uma consulta. |
@@ -74,7 +73,7 @@ Você configura o Azure Monitor para importar grupos do WSUS a partir de **Confi
 
 Quando os grupos são importados, o menu lista o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
 
-### <a name="configuration-manager"></a>Configuration Manager
+### <a name="configuration-manager"></a>Gerenciador de Configurações
 Quando você configura o Azure Monitor para importar associações de coleção do Configuration Manager, ele cria um grupo de computadores para cada coleção.  As informações de associação de coleção são recuperadas a cada 3 horas para manter os grupos de computadores atualizados. 
 
 Antes de importar as coleções do Gerenciador de Configurações, será necessário [conectar o Configuration Manager ao Azure Monitor](collect-sccm.md).  
@@ -118,16 +117,16 @@ A consulta a seguir retornaria registros UpdateSummary apenas para computadores 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
 Um registro é criado no espaço de trabalho do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Os registros não são criados para grupos de computadores com base em consultas de log.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |
 | `Computer` |Nome do computador membro. |
 | `Group` |Nome do grupo. |
 | `GroupFullName` |Caminho completo para o grupo, incluindo a fonte e o nome da fonte. |
-| `GroupSource` |Fonte da qual o grupo foi coletado. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSource` |Fonte da qual o grupo foi coletado. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | `GroupSourceName` |Nome da origem da qual o grupo foi coletado.  Para o Active Directory, este é o nome de domínio. |
-| `ManagementGroupName` |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
+| `ManagementGroupName` |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<workspace ID\> |
 | `TimeGenerated` |Data e hora em que o grupo de computadores foi criado ou atualizado. |
 
 ## <a name="next-steps"></a>Próximas etapas

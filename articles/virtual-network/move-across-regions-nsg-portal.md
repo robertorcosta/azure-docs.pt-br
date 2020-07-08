@@ -3,21 +3,20 @@ title: Mover o NSG (grupo de segurança de rede) do Azure para outra região do 
 description: Use Azure Resource Manager modelo para mover o grupo de segurança de rede do Azure de uma região do Azure para outra usando o portal do Azure.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: dce267178c3caf813ccdcac4bba86ccfde3f3421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689309"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Mover o NSG (grupo de segurança de rede) do Azure para outra região usando o portal do Azure
 
 Há vários cenários em que você deseja mover seu NSGs existente de uma região para outra. Por exemplo, talvez você queira criar um NSG com as mesmas regras de configuração e segurança para teste. Você também pode querer mover um NSG para outra região como parte do planejamento de recuperação de desastre.
 
-Os grupos de segurança do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar as regras de segurança e configuração existentes de um NSG.  Em seguida, você pode preparar o recurso em outra região exportando o NSG para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região.  Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Os grupos de segurança do Azure não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar as regras de segurança e configuração existentes de um NSG.  Em seguida, você pode preparar o recurso em outra região exportando o NSG para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região.  Para obter mais informações sobre o Resource Manager e modelos, consulte [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -41,11 +40,11 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportar o modelo e implantar por meio do portal
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) > **grupos de recursos**.
+1. Faça logon no [portal do Azure](https://portal.azure.com)  >  **grupos de recursos**.
 2. Localize o grupo de recursos que contém o NSG de origem e clique nele.
-3. Selecione **configurações** > de >**modelo de exportação**.
+3. Selecione **configurações**de >  >  **modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
-5. Clique em **modelo** > **Editar parâmetros** para abrir o arquivo **Parameters. JSON** no editor online.
+5. Clique em **modelo**  >  **Editar parâmetros** para abrir o **parameters.jsno** arquivo no editor online.
 6. Para editar o parâmetro do nome NSG, altere a propriedade **Value** em **parâmetros**:
 
     ```json
@@ -64,7 +63,7 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
 8.  Clique em **salvar** no editor.
 
-9.  Clique em **modelo** > **Editar modelo** para abrir o arquivo **Template. JSON** no editor online.
+9.  Clique em **modelo**  >  **Editar modelo** para abrir o **template.jsno** arquivo no editor online.
 
 10. Para editar a região de destino em que as regras de configuração e segurança do NSG serão movidas, altere a propriedade **local** em **recursos** no editor online:
 
@@ -84,11 +83,11 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
     ```
 
-11. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central** = **centralus**.
+11. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central**  =  **centralus**.
 
-12. Você também pode alterar outros parâmetros no modelo se escolher e forem opcionais, dependendo dos seus requisitos:
+12. Você também pode alterar outros parâmetros no modelo se quiser, e eles podem ser opcionais dependendo dos seus requisitos:
 
-    * **Regras de segurança** – você pode editar quais regras são implantadas no NSG de destino adicionando ou removendo regras para a seção **securityRules** no arquivo **Template. JSON** :
+    * **Regras de segurança** – você pode editar quais regras são implantadas no NSG de destino adicionando ou removendo regras para a seção **securityRules** na **template.jsno** arquivo:
 
         ```json
            "resources": [
@@ -124,7 +123,7 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
             }
         ```
 
-      Para concluir a adição ou a remoção das regras no NSG de destino, você também deve editar os tipos de regra personalizada no final do arquivo **Template. JSON** no formato do exemplo abaixo:
+      Para concluir a adição ou a remoção das regras no NSG de destino, você também deve editar os tipos de regra personalizada no final da **template.jsno** arquivo no formato do exemplo abaixo:
 
       ```json
            {
@@ -153,11 +152,11 @@ As etapas a seguir mostram como preparar o grupo de segurança de rede para a co
 
 13. Clique em **salvar** no editor online.
 
-14. Clique em**assinatura** **básica** > para escolher a assinatura na qual o NSG de destino será implantado.
+14. Clique **BASICS**em  >  **assinatura** básica para escolher a assinatura na qual o NSG de destino será implantado.
 
-15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos no qual o NSG de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o NSG de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do NSG existente.
+15. Clique **BASICS**em  >  **grupo de recursos** básico para escolher o grupo de recursos no qual o NSG de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o NSG de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do NSG existente.
 
-16. Verifique se o**local** **básico** > está definido como o local de destino onde você deseja que o NSG seja implantado.
+16. Verifique **BASICS**se o  >  **local** básico está definido como o local de destino onde você deseja que o NSG seja implantado.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.
 
@@ -175,8 +174,8 @@ Para confirmar as alterações e concluir a movimentação do NSG, exclua o NSG 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você moveu um grupo de segurança de rede do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte:
+Neste tutorial, você moveu um grupo de segurança de rede do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
 - [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

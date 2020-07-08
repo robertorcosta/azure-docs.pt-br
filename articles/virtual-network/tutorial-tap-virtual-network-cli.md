@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 56288a65dc9e5b12a12393965b9670e394146181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9460208d66e859f5fe1ce0e9ae4d62087ea3f4ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696011"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Trabalhar com um TAP de rede virtual usando a CLI do Azure
 
@@ -28,7 +27,7 @@ O TAP (Ponto de Acesso do Terminal) de rede virtual do Azure permite que você t
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Criar um recurso de TAP de rede virtual
 
-Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes de criar um recurso de TAP de rede virtual. Você pode executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI (interface de linha de comando) do Azure no computador. O Azure Cloud Shell é um shell interativo gratuito que não exige a instalação da CLI do Azure no computador. É necessário entrar no Azure com uma conta que tenha as [permissões](virtual-network-tap-overview.md#permissions) apropriadas. Este artigo requer a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). O toque de rede virtual está disponível atualmente como uma extensão. Para instalar a extensão, você precisa executar `az extension add -n virtual-network-tap`. Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes de criar um recurso de TAP de rede virtual. Você pode executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI (interface de linha de comando) do Azure no computador. O Azure Cloud Shell é um shell interativo gratuito que não exige a instalação da CLI do Azure no computador. É necessário entrar no Azure com uma conta que tenha as [permissões](virtual-network-tap-overview.md#permissions) apropriadas. Este artigo requer a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). O toque de rede virtual está disponível atualmente como uma extensão. Para instalar a extensão, você precisa executar `az extension add -n virtual-network-tap` . Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 1. Recupere a ID da assinatura em uma variável que será usada em uma etapa posterior:
 

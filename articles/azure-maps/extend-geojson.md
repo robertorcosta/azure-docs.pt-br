@@ -9,11 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687490"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrias geojson estendidas
 
@@ -49,7 +48,7 @@ Uma `Circle` geometria representada usando o `GeoJSON Feature` objeto __deve__ c
 
 - SubType
 
-    A geometria do círculo também deve conter a propriedade `subType`. Essa propriedade deve ser uma parte das propriedades `GeoJSON Feature`do e seu valor deve ser _Circle_
+    A geometria do círculo também deve conter a propriedade `subType`. Essa propriedade deve ser uma parte das `GeoJSON Feature` Propriedades do e seu valor deve ser _Circle_
 
 #### <a name="example"></a>Exemplo
 
@@ -77,11 +76,11 @@ Uma `Rectangle` geometria representada usando o `GeoJSON Polygon Feature` objeto
 
 - Corner
 
-    Os cantos do retângulo são representados usando as coordenadas de `GeoJSON Polygon` um objeto. Deve haver cinco coordenadas, uma para cada canto. E, uma quinta coordenada que seja igual à primeira coordenada, para fechar o anel do polígono. Supõe-se que essas coordenadas se alinhem e que o desenvolvedor pode girá-las conforme desejado.
+    Os cantos do retângulo são representados usando as coordenadas de um `GeoJSON Polygon` objeto. Deve haver cinco coordenadas, uma para cada canto. E, uma quinta coordenada que seja igual à primeira coordenada, para fechar o anel do polígono. Supõe-se que essas coordenadas se alinhem e que o desenvolvedor pode girá-las conforme desejado.
 
 - SubType
 
-    A geometria do retângulo também deve conter `subType` a propriedade. Essa propriedade deve ser uma parte das propriedades `GeoJSON Feature`do e seu valor deve ser _Rectangle_
+    A geometria do retângulo também deve conter a `subType` propriedade. Essa propriedade deve ser uma parte das `GeoJSON Feature` Propriedades do e seu valor deve ser _Rectangle_
 
 ### <a name="example"></a>Exemplo
 
@@ -108,6 +107,6 @@ Saiba mais sobre dados geojson no Azure Maps:
 Examine o Glossário de termos técnicos comuns associados a aplicativos do Azure Maps e do local Intelligence:
 
 > [!div class="nextstepaction"]
-> [Glossário do Azure Maps](glossary.md)
+> [Glossário do Azure Mapas](glossary.md)
 
 [1]: https://tools.ietf.org/html/rfc7946

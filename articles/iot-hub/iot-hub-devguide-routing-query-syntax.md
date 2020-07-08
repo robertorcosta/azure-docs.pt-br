@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688952"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do roteamento de mensagens do Hub IoT
 
@@ -50,13 +49,13 @@ O Hub IoT define um [formato comum](iot-hub-devguide-messages-construct.md) para
 
 As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensagens. 
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| contentType | cadeia de caracteres | O usuário especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, esse valor deve ser definido como application/JSON. |
-| contentEncoding | cadeia de caracteres | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType for definido como application/JSON. |
-| iothub-connection-device-id | cadeia de caracteres | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
-| iothub-enqueuedtime | cadeia de caracteres | Esse valor é definido pelo Hub IoT e representa a hora real de enfileiramento da mensagem em UTC. Para consultar, use `enqueuedTime`. |
-| iothub-interface-nome | cadeia de caracteres | Esse valor é definido pelo usuário e representa o nome da interface de entrelaçamento digital que implementa a mensagem de telemetria. Para consultar, use `$interfaceName`. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
+| contentType | string | O usuário especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, esse valor deve ser definido como application/JSON. |
+| contentEncoding | string | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType for definido como application/JSON. |
+| iothub-connection-device-id | string | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
+| iothub-enqueuedtime | string | Esse valor é definido pelo Hub IoT e representa a hora real de enfileiramento da mensagem em UTC. Para consultar, use `enqueuedTime`. |
+| iothub-interface-name | string | Esse valor é definido pelo usuário e representa o nome da interface de entrelaçamento digital que implementa a mensagem de telemetria. Para consultar, use `$interfaceName`. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Conforme descrito nas [Mensagens do Hub IoT](iot-hub-devguide-messages-construct.md), há propriedades de sistema adicionais em uma mensagem. Além de **ContentType**, **contentEncoding**e **enqueuedTime**, o **connectionDeviceId** e o **connectionModuleId** também podem ser consultados.
 
@@ -200,7 +199,7 @@ O roteamento de mensagens permite a você consultar marcas e propriedades de [Di
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta na mensagem de pesquisa precisa ser prefixada com `$twin`o. A expressão de consulta também pode combinar uma referência de propriedade ou marca de dispositivo gêmeo com uma referência de corpo, propriedades do sistema de mensagens e referência das propriedades do aplicativo de mensagens. É recomendável usar nomes exclusivos em marcas e propriedades, visto que a consulta não diferencia maiúsculas de minúsculas. Isso se aplica ao dispositivo gêmeos e ao módulo gêmeos. Também evite usar `twin`, `$twin`, `body` ou `$body`, como nomes de propriedade. Por exemplo, a seguir estão todas as expressões de consulta válidas: 
+Uma consulta na mensagem de pesquisa precisa ser prefixada com o `$twin` . A expressão de consulta também pode combinar uma referência de propriedade ou marca de dispositivo gêmeo com uma referência de corpo, propriedades do sistema de mensagens e referência das propriedades do aplicativo de mensagens. É recomendável usar nomes exclusivos em marcas e propriedades, visto que a consulta não diferencia maiúsculas de minúsculas. Isso se aplica ao dispositivo gêmeos e ao módulo gêmeos. Também evite usar `twin`, `$twin`, `body` ou `$body`, como nomes de propriedade. Por exemplo, a seguir estão todas as expressões de consulta válidas: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

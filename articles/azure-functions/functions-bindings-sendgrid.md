@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697350"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
@@ -203,7 +202,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra uma função disparada por HTTP que envia um email usando a associação SendGrid. Você pode fornecer valores padrão na configuração de associação. Por exemplo, o endereço *de email de* é configurado em *Function. JSON*. 
+O exemplo a seguir mostra uma função disparada por HTTP que envia um email usando a associação SendGrid. Você pode fornecer valores padrão na configuração de associação. Por exemplo, o endereço *de email de* é configurado no *function.jsem*. 
 
 ```json
 {
@@ -260,7 +259,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir usa `@SendGridOutput` a anotação da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para enviar um email usando a associação de saída SendGrid.
+O exemplo a seguir usa a `@SendGridOutput` anotação da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para enviar um email usando a associação de saída SendGrid.
 
 ```java
 package com.function;
@@ -330,33 +329,33 @@ public static void Run(
 }
 ```
 
-Para ver um exemplo completo, consulte [Exemplo de C#](#example).
+Para obter um exemplo completo, consulte [C# example](#example).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Não há suporte para atributos no Python.
+O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) permite configurar declarativamente a associação SendGrid fornecendo valores de configuração. Consulte as seções [exemplo](#example) e [configuração](#configuration) para obter mais detalhes.
+A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) permite configurar declarativamente a associação SendGrid fornecendo valores de configuração. Confira as seções [exemplo](#example) e [configuração](#configuration) para obter mais detalhes.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir lista as propriedades de configuração de associação disponíveis no arquivo *Function. JSON* e o `SendGrid` atributo/anotação.
+A tabela a seguir lista as propriedades de configuração de associação disponíveis no *function.jsno* arquivo e o `SendGrid` atributo/anotação.
 
-| Propriedade *Function. JSON* | Propriedade de atributo/anotação | Descrição | Opcional |
+| *function.jsna* Propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| type |N/D| Deve ser definido como `sendGrid`.| Não |
+| tipo |N/D| Deve ser definido como `sendGrid`.| Não |
 | direction |N/D| Deve ser definido como `out`.| Não |
 | name |N/D| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | Não |
 | apiKey | ApiKey | O nome de uma configuração de aplicativo que contém sua chave de API. Se não estiver definido, o nome da configuração do aplicativo padrão será *AzureWebJobsSendGridApiKey*.| Não |
@@ -373,7 +372,7 @@ As propriedades opcionais podem ter valores padrão definidos na associação e 
 
 ## <a name="hostjson-settings"></a>configurações de host.json
 
-Esta seção descreve as definições de configuração global disponíveis para essa associação nas versões 2. x e superior. O arquivo host. JSON de exemplo abaixo contém apenas as configurações da versão 2. x + para essa associação. Para obter mais informações sobre definições de configuração global nas versões 2. x e posteriores, consulte [referência de host. JSON para Azure Functions](functions-host-json.md).
+Esta seção descreve as definições de configuração global disponíveis para essa associação nas versões 2. x e superior. O exemplo host.jsno arquivo abaixo contém apenas as configurações da versão 2. x + para essa associação. Para obter mais informações sobre definições de configuração global nas versões 2. x e posteriores, consulte [host.jsem referência para Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Para obter uma referência de host.json no Functions 1.x, confira [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
@@ -389,7 +388,7 @@ Esta seção descreve as definições de configuração global disponíveis para
 }
 ```  
 
-|Propriedade  |Padrão | Descrição |
+|Property  |Padrão | Descrição |
 |---------|---------|---------| 
 |de|N/D|Endereço de email do remetente em todas as funções.| 
 

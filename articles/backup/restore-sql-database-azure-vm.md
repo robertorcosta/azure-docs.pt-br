@@ -4,11 +4,10 @@ description: Este artigo descreve como restaurar SQL Server bancos de dados que 
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687422"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -95,7 +94,7 @@ Restaure da seguinte maneira:
 
 ### <a name="restore-and-overwrite"></a>Restaurar e substituir
 
-1. No menu **configuração de restauração** , em **onde restaurar**, selecione **substituir DB** > **OK**.
+1. No menu **configuração de restauração** , em **onde restaurar**, selecione **substituir DB**  >  **OK**.
 
     ![Selecione Substituir Banco de Dados](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
@@ -142,7 +141,7 @@ Se você tiver selecionado **Logs (Pontual)** como o tipo de restauração, faç
     ![Abrir o calendário](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Depois de você selecionar uma data, o gráfico de linha do tempo exibirá os pontos de recuperação disponíveis em um intervalo contínuo.
-1. Especifique uma hora para a recuperação no grafo da linha do tempo ou selecione uma hora. Em seguida, selecione **OK**.
+1. Especifique uma hora para a recuperação no grafo da linha do tempo ou selecione uma hora. Depois, selecione **OK**.
 
     ![Selecionar um tempo de restauração](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 

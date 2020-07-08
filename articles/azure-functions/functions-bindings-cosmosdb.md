@@ -7,11 +7,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697615"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -166,23 +165,23 @@ Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 ---
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `CosmosDBTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `CosmosDBTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como `cosmosDBTrigger`. |
-|**direção** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | N/D | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
+|**direction** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | n/d | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
 |**NomeDoBancoDeDados**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está sendo monitorada. |
@@ -1101,23 +1100,23 @@ O construtor do atributo toma o nome do banco de dados e o nome da coleção. Pa
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 ---
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `DocumentDB`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**     | N/D | Deve ser definido como `documentdb`.        |
-|**direção**     | N/D | Deve ser definido como `in`.         |
-|**name**     | N/D | Nome do parâmetro de associação que representa o documento na função.  |
+|**direction**     | N/D | Deve ser definido como `in`.         |
+|**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
 |**NomeDoBancoDeDados** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
 |**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
@@ -1440,26 +1439,26 @@ Para obter um exemplo completo, consulte [saída](#output).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 ---
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `DocumentDB`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**     | N/D | Deve ser definido como `documentdb`.        |
-|**direção**     | N/D | Deve ser definido como `out`.         |
-|**name**     | N/D | Nome do parâmetro de associação que representa o documento na função.  |
+|**direction**     | N/D | Deve ser definido como `out`.         |
+|**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
 |**NomeDoBancoDeDados** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
-|**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` for true, define o caminho da chave de partição para a coleção criada.|
 |**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` for true, define a [taxa de transferência](../cosmos-db/set-throughput.md) da coleção criada.|
 |**connection**    |**ConnectionStringSetting** |O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |

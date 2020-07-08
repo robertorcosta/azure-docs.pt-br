@@ -4,20 +4,18 @@ description: Você pode gerenciar zonas DNS usando o Portal do Azure. Este artig
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
-ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689156"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerenciar zonas DNS usando o Portal do Azure
 
@@ -51,7 +49,7 @@ Este artigo mostra como gerenciar suas zonas DNS usando o Portal do Azure. Você
 
 ## <a name="list-dns-zones"></a>Listar as zonas DNS
 
-Na portal do Azure, navegue até **mais serviços** > **rede** > **zonas DNS**. Cada zona DNS é seu próprio recurso e as informações como número de conjuntos de registros e servidores de nomes são visíveis a partir dessa exibição. A coluna **SERVIDORES DE NOMES** não está na exibição padrão. Para adicioná-la, clique em **Colunas**, selecione **Servidores de nomes** e, em seguida, clique em **Concluído**.
+Na portal do Azure, navegue até **mais serviços**  >  **rede**  >  **zonas DNS**. Cada zona DNS é seu próprio recurso e as informações como número de conjuntos de registros e servidores de nomes são visíveis a partir dessa exibição. A coluna **SERVIDORES DE NOMES** não está na exibição padrão. Para adicioná-la, clique em **Colunas**, selecione **Servidores de nomes** e, em seguida, clique em **Concluído**.
 
 ![listagem de zonas DNS](./media/dns-operations-dnszones-portal/listzones.png)
 

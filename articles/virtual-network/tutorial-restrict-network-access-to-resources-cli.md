@@ -11,18 +11,17 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d08dd2705c69f3fa8f8e0830e487833f7cf96f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689326"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restrinja o acesso à rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual usando a CLI do Azure
 
@@ -272,7 +271,7 @@ A VM demora alguns minutos para criar. Após a criação, anote o **publicIpAddr
 
 ## <a name="confirm-access-to-storage-account"></a>Confirmar acesso à conta de armazenamento
 
-SSH para a VM *myVmPrivate*. Substitua * \<publicIpAddress>* pelo endereço IP público da VM *myVmPrivate* .
+SSH para a VM *myVmPrivate*. Substitua *\<publicIpAddress>* pelo endereço IP público da VM *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
@@ -316,7 +315,7 @@ Crie um diretório para um ponto de montagem:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Tente montar o compartilhamento de arquivos do Azure para o diretório que você criou. Este artigo presume que você implantou a versão mais recente do Ubuntu. Se você estiver usando versões anteriores do Ubuntu, consulte [Montar no Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter instruções adicionais sobre como montar compartilhamentos de arquivos. Antes de executar o comando a seguir `<storage-account-name>` , substitua pelo nome da `<storage-account-key>` conta e pela chave que você recuperou em [criar uma conta de armazenamento](#create-a-storage-account):
+Tente montar o compartilhamento de arquivos do Azure para o diretório que você criou. Este artigo presume que você implantou a versão mais recente do Ubuntu. Se você estiver usando versões anteriores do Ubuntu, consulte [Montar no Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter instruções adicionais sobre como montar compartilhamentos de arquivos. Antes de executar o comando a seguir, substitua `<storage-account-name>` pelo nome da conta e `<storage-account-key>` pela chave que você recuperou em [criar uma conta de armazenamento](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -336,7 +335,7 @@ az storage share list \
 
 Acesso negado, e você recebe um erro *Esta solicitação não está autorizada a executar esta operação*, porque o computador não está na sub-rede *Privada* da rede virtual *MyVirtualNetwork*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure) para remover o grupo de recursos e todos os recursos que ele contém.
 

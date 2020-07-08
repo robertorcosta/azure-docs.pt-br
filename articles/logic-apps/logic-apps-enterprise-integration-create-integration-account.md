@@ -9,13 +9,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691750"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerenciar contas de integração para integrações corporativas B2B em aplicativos lógicos do Azure
+# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerenciar contas de integração para integrações empresariais B2B nos Aplicativos Lógicos do Azure
 
 Antes de criar [soluções de integração corporativa e B2B](../logic-apps/logic-apps-enterprise-integration-overview.md) usando [os aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), você precisa criar uma conta de integração, que é um recurso separado do Azure que fornece uma solução segura, escalonável e o contêiner gerenciável para os artefatos de integração que você define e usa com seus fluxos de trabalho de aplicativo lógico.
 
@@ -57,15 +56,15 @@ Para essa tarefa, você pode usar a portal do Azure seguindo as etapas nesta se�
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome** | Sim | <*integração-nome da conta*> | O nome da sua conta de integração, que pode conter apenas letras, números,`-`hifens (), sublinhados (`_`), parênteses (`(`, `)`) e pontos`.`(). Este exemplo usa "fabrikam integração". |
-   | **Assinatura** | Sim | <*Azure-nome da assinatura*> | O nome e a ID da assinatura do Azure |
-   | **Grupo de recursos** | Sim | <*Azure-Resource-Group-Name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) a ser usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome "FabrikamIntegration-RG". |
+   | **Nome** | Sim | <*integração-nome da conta*> | O nome da sua conta de integração, que pode conter apenas letras, números, hifens ( `-` ), sublinhados ( `_` ), parênteses ( `(` , `)` ) e pontos ( `.` ). Este exemplo usa "fabrikam integração". |
+   | **Assinatura** | Sim | <*Azure-subscription-name*> | O nome e a ID da assinatura do Azure |
+   | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) a ser usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome "FabrikamIntegration-RG". |
    | **Tipo de preço** | Sim | <*nível de preço*> | O tipo de preço da conta de integração, que você pode alterar posteriormente. Para este exemplo, selecione **gratuito**. Para saber mais, consulte esses tópicos: <p>- [Modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limites e configuração de aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Local** | Sim | <*Azure-região*> | A região onde armazenar os metadados da conta de integração. Selecione o mesmo local que seu aplicativo lógico ou crie seus aplicativos lógicos no mesmo local que sua conta de integração. Para este exemplo, use "oeste dos EUA". <p>**Observação**: para criar uma conta de integração dentro de um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selecione esse ISE como o local. Para obter mais informações, consulte [criar contas de integração em um ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Localidade** | Sim | <*Azure-region*> | A região onde armazenar os metadados da conta de integração. Selecione o mesmo local que seu aplicativo lógico ou crie seus aplicativos lógicos no mesmo local que sua conta de integração. Para este exemplo, use "oeste dos EUA". <p>**Observação**: para criar uma conta de integração dentro de um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selecione esse ISE como o local. Para obter mais informações, consulte [criar contas de integração em um ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | Não | Desligado, ativado | Mantenha a configuração **desativado** para este exemplo. |
    |||||
 
-1. Quando tiver terminado, selecione **criar**.
+1. Ao terminar, selecione **Criar**.
 
    Após a conclusão da implantação, o Azure abrirá sua conta de integração.
 
@@ -144,7 +143,7 @@ Para fazer essa alteração, você pode usar a portal do Azure seguindo as etapa
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
-   Por exemplo, se você tiver a camada básica, poderá definir `skuName` como: `Standard`
+   Por exemplo, se você tiver a camada básica, poderá definir `skuName` como `Standard` :
 
    ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
@@ -168,7 +167,7 @@ Para fazer essa alteração, use o [CLI do Azure](https://docs.microsoft.com/cli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
-   Por exemplo, se você tiver a camada Standard, poderá definir `skuName` como: `Basic`
+   Por exemplo, se você tiver a camada Standard, poderá definir `skuName` como `Basic` :
 
    ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
@@ -178,7 +177,7 @@ Para fazer essa alteração, use o [CLI do Azure](https://docs.microsoft.com/cli
 
 Se você quiser vincular seu aplicativo lógico a outra conta de integração ou não usar mais uma conta de integração com seu aplicativo lógico, exclua o link usando Azure Resource Explorer.
 
-1. Abra a janela do navegador e vá para [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com). Entre com as mesmas credenciais de conta do Azure.
+1. Abra a janela do navegador e vá para [Azure Resource Explorer ( https://resources.azure.com) ](https://resources.azure.com). Entre com as mesmas credenciais de conta do Azure.
 
    ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 

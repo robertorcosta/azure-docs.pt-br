@@ -6,13 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667991"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -23,12 +22,9 @@ Você pode usar um [modelo do Azure Resource Manager](../azure-resource-manager/
 * Vinculação da conta da Automação ao workspace do Log Analytics se ela ainda não estiver vinculada.
 * Habilitação do Gerenciamento de Atualizações.
 
-O modelo não automatiza a habilitação de uma ou mais máquinas virtuais do Azure ou não.
+O modelo não automatiza a habilitação de Gerenciamento de Atualizações em uma ou mais VMs do Azure ou não Azure.
 
-Se você já tiver um workspace do Log Analytics e uma conta da Automação implantada em uma região com suporte em sua assinatura, eles não serão vinculados. O workspace ainda não tem o Gerenciamento de Atualizações habilitado. O uso desse modelo cria o link com êxito e implanta o Gerenciamento de Atualizações para suas VMs. 
-
->[!NOTE]
->O usuário **nxautomation** habilitado como parte do Gerenciamento de Atualizações no Linux executa apenas runbooks assinados.
+Se você já tiver um workspace do Log Analytics e uma conta da Automação implantada em uma região com suporte em sua assinatura, eles não serão vinculados. O uso desse modelo cria com êxito o link e implanta Gerenciamento de Atualizações.
 
 ## <a name="api-versions"></a>Versões de API
 
@@ -36,8 +32,8 @@ A tabela a seguir lista as versões de API para os recursos usados neste modelo.
 
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
-| Workspace | workspaces | 2017-03-15-preview |
-| Conta de automação | automação | 2015-10-31 | 
+| Workspace | workspaces | 2020-03-01-visualização |
+| Conta de automação | automação | 2018-06-30 | 
 | Solução | solutions | 2015-11-01-preview |
 
 ## <a name="before-using-the-template"></a>Antes de usar o modelo
@@ -49,8 +45,9 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que es
 O modelo JSON está configurado para solicitar:
 
 * O nome do workspace.
-* A região na qual criar o workspace.
-* O nome da conta da Automação.
+* A região na qual criar o espaço de trabalho.
+* Para habilitar permissões de recurso ou espaço de trabalho.
+* O nome da conta de Automação.
 * A região na qual criar a conta.
 
 O modelo JSON especifica um valor padrão para os outros parâmetros que provavelmente serão usados para uma configuração padrão em seu ambiente. Você pode armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado na sua organização. Para obter mais informações sobre como trabalhar com modelos, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
@@ -59,7 +56,6 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
 
 * SKU – assume por padrão o novo tipo de preço por GB lançado no modelo de preço de abril de 2018
 * retenção de dados - usa como padrão trinta dias
-* reserva de capacidade - usa como padrão 100 GB
 
 >[!WARNING]
 >Se criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**.
@@ -114,18 +110,17 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             }
         },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-            }
-        },
         "location": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -150,13 +145,11 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -168,7 +161,7 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "name": "[variables('Updates').name]",
                     "type": "Microsoft.OperationsManagement/solutions",
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
@@ -189,7 +182,7 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
         },
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [],
@@ -201,10 +194,10 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
             },
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -242,8 +235,7 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para usar o Gerenciamento de Atualizações para VMs, confira [Gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).
+
 * Se você não precisar mais do workspace do Log Analytics, confira as instruções em [Desvincular workspace da conta da Automação para Gerenciamento de Atualizações](automation-unlink-workspace-update-management.md).
+
 * Para excluir VMs do Gerenciamento de Atualizações, confira [Remover VMs do Gerenciamento de Atualizações](automation-remove-vms-from-update-management.md).
-* Para solucionar problemas gerais do Gerenciamento de Atualizações, confira [Solucionar problemas do Gerenciamento de Atualizações](troubleshoot/update-management.md).
-* Para solucionar problemas com o agente de atualização do Windows, confira [Solucionar problemas do agente de atualização do Windows](troubleshoot/update-agent-issues.md).
-* Para solucionar problemas com o agente de atualização do Linux, confira [Solucionar problemas do agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md).

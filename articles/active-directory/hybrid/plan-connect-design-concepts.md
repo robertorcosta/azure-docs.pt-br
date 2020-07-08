@@ -18,11 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698590"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceitos de design
 O objetivo deste documento é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este documento é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros documentos.
@@ -119,7 +118,7 @@ Ao instalar o Azure AD Connect com o modo Personalizado, o assistente do Azure A
 
 ![Instalação personalizada – configuração do sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Configuração | Descrição |
+| Setting | Descrição |
 | --- | --- |
 | Permitir que o Azure gerencie a âncora de origem para mim | Selecione esta opção se deseja que Azure AD escolha o atributo para você. Se você selecionar essa opção, o Assistente do Azure AD Connect aplicará a mesma [lógica de seleção de atributo sourceAnchor usada durante a instalação do Expresso](#express-installation). De modo semelhante à instalação do Expresso, o assistente informará qual atributo foi selecionado como atributo Source Anchor após a conclusão da instalação Personalizada. |
 | Um atributo específico | Selecione esta opção se você quiser especificar um atributo existente do AD como o atributo sourceAnchor. |
@@ -198,4 +197,4 @@ Leia [Adicionar seu nome de domínio personalizado ao Azure Active Directory](..
 O Azure AD Connect detecta se você está executando em um ambiente de domínio não roteável e avisa corretamente para não prosseguir com configurações expressas. Se você está operando em um domínio não roteável, é provável que o UPN dos usuários também tenha sufixos não roteáveis. Por exemplo, se você estiver executando em contoso.local, o Azure AD Connect vai sugerir o uso de configurações personalizadas em vez de usar as configurações expressas. Usando as configurações personalizadas, você pode especificar o atributo que deve ser usado como o UPN para entrar no Azure depois que os usuários são sincronizados com o Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

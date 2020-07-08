@@ -7,11 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690007"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -69,7 +68,7 @@ Comece criando os testes para monitorar a conectividade de rede aos pontos de ex
 
 9. Se não quiser criar eventos de integridade para os itens que você selecionou, desmarque **Ativar o Monitoramento de Integridade nos destinos cobertos por esse teste**. 
 10. Escolha as condições de monitoramento. Você pode definir limites personalizados para geração de eventos de integridade digitando os valores de limite. Sempre que o valor da condição ultrapassar o limite selecionado para o par de rede ou sub-rede selecionado, será gerado um evento de integridade. 
-11. Selecione **Salvar** para salvar a configuração. 
+11. Selecione **salvar** para salvar a configuração. 
 
     ![Configurações de teste do Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 
@@ -101,7 +100,7 @@ Depois de determinar que o problema é devido à rede, selecione a exibição **
 
 ![Testes do Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
-## <a name="diagnostics"></a>Diagnóstico 
+## <a name="diagnostics"></a>Diagnósticos 
 
 Se você observar uma anormalidade, siga estas etapas:
 

@@ -1,15 +1,14 @@
 ---
 title: Escolher tamanhos de VM para pools
 description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure
-ms.topic: how-to
-ms.date: 09/12/2019
+ms.topic: conceptual
+ms.date: 06/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: c1621bbbe6676144176636346f3f5c34db169b7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84693151"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -35,9 +34,13 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | DC | Nenhum |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3, Dsv3 | Todos os tamanhos |
-| Dav4, Dasv4 | Nenhum - ainda não disponível |
+| Dav4<sup>1</sup> | Nenhum - ainda não disponível |
+| Dasv4<sup>1</sup> | Todos os tamanhos, exceto para Standard_D48as_v4, Standard_D64as_v4 Standard_D96as_v4 |
+| Ddv4, Ddsv4 |  Nenhum - ainda não disponível |
 | Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 e E64i_v3 |
-| Eav4, Easv4 | Nenhum - ainda não disponível |
+| Eav4<sup>1</sup> | Todos os tamanhos, exceto para Standard_E48a_v4, Standard_E64a_v4 Standard_E96a_v4 |
+| Easv4<sup>1</sup> | Todos os tamanhos, exceto para Standard_E48as_v4, Standard_E64as_v4 Standard_E96as_v4 |
+| Edv4, Edsv4 |  Nenhum - ainda não disponível |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
 | G, Gs | Todos os tamanhos |
@@ -46,8 +49,8 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | HBv2<sup>1</sup> | Todos os tamanhos |
 | HC<sup>1</sup> | Todos os tamanhos |
 | Ls | Todos os tamanhos |
-| Lsv2 | Nenhum - ainda não disponível |
-| M<sup>1</sup> | Todos os tamanhos, exceto para M64, M64m, M128, M128m |
+| Lsv2<sup>1</sup> | Todos os tamanhos |
+| M<sup>1</sup> | Todos os tamanhos |
 | Mv2 | Nenhum - ainda não disponível |
 | NC | Todos os tamanhos |
 | NCv2<sup>1</sup> | Todos os tamanhos |

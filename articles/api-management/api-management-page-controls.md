@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690176"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página do Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelos de portal do desenvolvedor.  
@@ -41,7 +40,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 -   [ações de aplicativo](#app-actions)  
 -   [entrada básica](#basic-signin)  
 -   [paging-control](#paging-control)  
--   [fornecedor](#providers)  
+-   [providers](#providers)  
 -   [controle de pesquisa](#search-control)  
 -   [sign-up](#sign-up)  
 -   [assinar-botão](#subscribe-button)  
@@ -187,7 +186,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `subscribe-button` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
--   [Remessa](api-management-product-templates.md#Product)  
+-   [Product](api-management-product-templates.md#Product)  
   
 ##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a> subscription-cancel  
  O controle `subscription-cancel` fornece um controle para cancelar uma assinatura de um produto na página de perfil do usuário no portal do desenvolvedor.  
@@ -212,7 +211,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `subscription-cancel` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
--   [Remessa](api-management-product-templates.md#Product)
+-   [Product](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

@@ -5,21 +5,18 @@ description: Saiba como usar o módulo executar script Python para usar o códig
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4afb6dca94642ab9b908a4f07ff5de56677626f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696296"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Executar scripts do Python Machine Learning no Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 O Python é uma ferramenta valiosa na conjunto de ferramentas de muitos cientistas de dados. Ele é usado em todos os estágios de fluxos de trabalho de aprendizado de máquina típicos, incluindo exploração de dados, extração de recursos, treinamento e validação de modelo e implantação.
 
@@ -27,7 +24,7 @@ Este artigo descreve como você pode usar o módulo executar script Python para 
 
 ## <a name="using-the-execute-python-script-module"></a>Usando o módulo executar script Python
 
-A interface principal para Python no Studio (clássico) é por meio do módulo [Executar script Python][execute-python-script] . Ele aceita até três entradas e produz até duas saídas, semelhante ao módulo [Executar script R][execute-r-script] . O código Python é inserido na caixa de parâmetros por meio de uma função de ponto de `azureml_main`entrada especialmente nomeada chamada.
+A interface principal para Python no Studio (clássico) é por meio do módulo [Executar script Python][execute-python-script] . Ele aceita até três entradas e produz até duas saídas, semelhante ao módulo [Executar script R][execute-r-script] . O código Python é inserido na caixa de parâmetros por meio de uma função de ponto de entrada especialmente nomeada chamada `azureml_main` .
 
 ![Executar módulo de script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -43,7 +40,7 @@ O mapeamento entre as portas de entrada e os parâmetros de função é posicion
 - A segunda entrada (se conectada) é mapeada para o segundo parâmetro da função.
 - A terceira entrada é usada para [Importar módulos Python adicionais](#import-modules).
 
-Uma semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros `azureml_main` da função são mostradas abaixo.
+Uma semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros da `azureml_main` função são mostradas abaixo.
 
 ![Tabela de configurações de porta de entrada e assinatura do Python resultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
@@ -81,9 +78,9 @@ Em seguida, criamos um arquivo Hello.zip que contenha o Hello.py:
 
 ![Arquivo zip que contém o código Python definido pelo usuário](./media/execute-python-scripts/figure5.png)
 
-Carregue o arquivo zip como um conjunto de um DataSet no Studio (clássico). Em seguida, crie e execute um experimento que use o código Python no arquivo Hello. zip anexando-o à terceira porta de entrada do módulo **Executar script Python** , conforme mostrado na imagem a seguir.
+Carregue o arquivo zip como um conjunto de um DataSet no Studio (clássico). Em seguida, crie e execute um experimento que use o código Python no arquivo Hello.zip anexando-o à terceira porta de entrada do módulo **Executar script Python** , conforme mostrado na imagem a seguir.
 
-![Teste de exemplo com Hello. zip como uma entrada para um módulo executar script Python](./media/execute-python-scripts/figure6a.png)
+![Teste de exemplo com Hello.zip como uma entrada para um módulo executar script Python](./media/execute-python-scripts/figure6a.png)
 
 ![Código Python definido pelo usuário carregado como um arquivo zip](./media/execute-python-scripts/figure6b.png)
 

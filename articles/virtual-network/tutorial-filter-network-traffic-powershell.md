@@ -11,18 +11,17 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3b941b81feb54ae6eed0333a9dcb4863cc885686
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66730025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688090"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o PowerShell
 
@@ -277,7 +276,7 @@ Use o comando a seguir para instalar os Serviços de Informações da Internet d
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Após a conclusão da instalação dos Serviços de Informações da Internet, desconecte-se da VM *myVmWeb*, que direciona para a conexão da área de trabalho remota da VM *myVmMgmt*. Para exibir a tela de boas-vindas do IIS, abra um navegador da\/Internet e navegue até http:/myVmWeb.
+Após a conclusão da instalação dos Serviços de Informações da Internet, desconecte-se da VM *myVmWeb*, que direciona para a conexão da área de trabalho remota da VM *myVmMgmt*. Para exibir a tela de boas-vindas do IIS, abra um navegador da Internet e navegue até http: \/ /myVmWeb.
 
 Desconecte a VM *myVmMgmt*.
 
@@ -292,7 +291,7 @@ Get-AzPublicIpAddress `
 
 Para confirmar se é possível acessar o servidor Web *myVmWeb* de fora do Azure, abra um navegador da Internet no seu computador e navegue até `http://<public-ip-address-from-previous-step>`. É uma conexão com êxito porque a porta 80 tem permissão de entrada da Internet para o grupo de segurança de aplicativo *myAsgWebServers* ao qual o adaptador de rede conectado à VM *myVmWeb* está.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 

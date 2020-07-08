@@ -4,11 +4,10 @@ description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695650"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 
@@ -56,12 +55,12 @@ Abra o menu suspenso tipos de eventos e escolha os tipos de eventos que você de
 
 Os tipos de evento são:
 
-* **Rastreie** - [logs de diagnóstico](../../azure-monitor/app/asp-net-trace-logs.md) , incluindo chamadas TrackTrace, log4Net, NLog e System. Diagnostics. Trace.
+* **Rastrear**  -  [Logs de diagnóstico](../../azure-monitor/app/asp-net-trace-logs.md) , incluindo chamadas TrackTrace, log4net, NLog e System. Diagnostics. Trace.
 * **Solicitar** -Solicitações HTTP recebidas pelo seu aplicativo para servidores, incluindo páginas, scripts, imagens, arquivos de estilo e dados. Esses eventos são usados para criar os gráficos de visão geral de solicitação e de resposta.
-* **Page View** - [Telemetria de exibição de página enviada pelo cliente Web](../../azure-monitor/app/javascript.md), usada para criar relatórios de exibição de página.
+* **Exibição**  -  de página [Telemetria enviada pelo cliente Web](../../azure-monitor/app/javascript.md), usada para criar relatórios de exibição de página.
 * **Evento Personalizado** ‑ Se você tiver inserido chamadas TrackEvent() para [monitorar o uso](../../azure-monitor/app/api-custom-events-metrics.md), você poderá pesquisá-las aqui.
 * **Exceção** -exceções não capturadas [no servidor](../../azure-monitor/app/asp-net-exceptions.md)e aquelas que você registra usando trackexception ().
-* **Dependency** - [Chamadas de dependência de seu aplicativo de servidor](../../azure-monitor/app/asp-net-dependencies.md) para outros serviços, como APIs REST ou bancos de dados, e chamadas AJAX do seu [código de cliente](../../azure-monitor/app/javascript.md).
+* **Dependência**  -  de [Chamadas de seu aplicativo de servidor](../../azure-monitor/app/asp-net-dependencies.md) para outros serviços, como APIs REST ou bancos de dados, e chamadas AJAX do seu [código de cliente](../../azure-monitor/app/javascript.md).
 * **Disponibilidade** ‑ Resultados de [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrar pelos valores de propriedade
@@ -92,7 +91,7 @@ Você talvez queira definir um tempo de intervalo, já que pesquisas em um inter
 
 Pesquisar por palavras inteiras, não subcadeias de caracteres. Use aspas para delimitar caracteres especiais.
 
-| Cadeia de caracteres | *Não* encontrado | Encontrado |
+| String | *Não* encontrado | Encontrado |
 | --- | --- | --- |
 | ControladorInicial.Sobre |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Estados Unidos|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

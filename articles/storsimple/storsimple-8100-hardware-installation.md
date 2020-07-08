@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699100"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
 
@@ -42,7 +41,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    
     **Exibição do dispositivo de armazenamento desempacotado**
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    | --- | --- |
    |   1 |Embalagem |
    |   2 |Espuma inferior |
@@ -104,7 +103,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
     **Fixando corrediças do trilho interno às laterais do compartimento**
    
-    Rotular | Descrição
+    Rótulo | Descrição
     ----- | -----------
     1     | Parafusos de cabeça abaulada M 3x4
     2     | Corrediças dos chassis
@@ -118,7 +117,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
    
     **Fixando os conjuntos de trilhos internos ao rack**
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    | --- | --- |
    |   1 |Parafuso de travamento |
    |   2 |Parafuso da coluna do rack frontal para orifício quadrado |
@@ -144,7 +143,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -184,7 +183,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
     **Parte traseira do dispositivo mostrando as portas de dados**
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede de 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -195,7 +194,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
     **Cabeamento de rede para o dispositivo**
 
-   |Rotular | Descrição |
+   |Rótulo | Descrição |
    |----- | ----------- |
    | Um    | LAN com acesso à Internet |
    | B    | Controlador 0 |

@@ -8,17 +8,16 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687966"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP a máquinas virtuais usando o Portal do Azure
 
@@ -52,8 +51,8 @@ Você pode adicionar endereços IP públicos e privados a uma interface de rede 
 
 Conclua as etapas a seguir para adicionar um novo endereço IP privado:
 
-1. Conclua as etapas na seção [Principais etapas](#coreadd) deste artigo.
-2. Clique em **Adicionar**. No painel **Adicionar configuração de IP** que é exibido, crie uma configuração de IP denominada *IPConfig-4* com *10.0.0.7* como um endereço IP privado *Estático* e clique em **OK**.
+1. Conclua as etapas na seção [principais etapas](#coreadd) deste artigo e verifique se você está na seção **configurações de IP** da interface de rede da VM.  Examine a sub-rede mostrada como padrão (como 10.0.0.0/24).
+2. Clique em **Adicionar**. No painel **Adicionar configuração de IP** que aparece, crie uma configuração de IP *chamada ipconfig-4* com um novo endereço IP privado *estático* escolhendo um novo número para o octeto final e, em seguida, clique em **OK**.  (Para a sub-rede 10.0.0.0/24, um exemplo de IP seria *10.0.0.7*.)
 
     > [!NOTE]
     > Ao adicionar um endereço IP estático, você deve especificar um endereço válido, não utilizado, na sub-rede a qual a NIC está conectada. Se o endereço selecionado não estiver disponível, o portal mostrará um X para o endereço IP, e você deverá selecionar outro.
@@ -75,7 +74,7 @@ Um endereço IP público é adicionado por meio da associação de um recurso de
 Um endereço IP público é uma configuração para um recurso de endereço IP público. Se você tiver um recurso de endereço IP público que não está associado no momento a uma configuração de IP, e você deseja associá-lo, ignore as etapas a seguir e conclua as etapas em uma das seções seguintes, de acordo com sua necessidade. Se você não tiver um recurso de endereço IP público disponível, conclua as seguintes etapas para criar um:
 
 1. Navegue até o portal do Azure em https://portal.azure.com e entre nele, se for necessário.
-3. No portal, clique em **criar um recurso** > **rede** > **endereço IP público**.
+3. No portal, clique em **criar um recurso**  >  **rede**  >  **endereço IP público**.
 4. No painel **Criar endereço IP público** que é exibido, insira um **Nome**, selecione um tipo de **Atribuição de endereço IP**, uma **Assinatura**, um **Grupo de recursos** e um **Local** e, em seguida, clique em **Criar**, conforme mostrado na imagem a seguir:
 
     ![Criar um recurso de endereço IP público](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)

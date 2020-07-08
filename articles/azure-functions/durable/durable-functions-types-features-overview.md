@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697700"
 ---
 # <a name="durable-functions-types-and-features"></a>Tipos de Durable Functions e recursos
 
@@ -36,7 +35,7 @@ Ao contrário das funções de orquestrador, as funções de atividade não são
 > [!NOTE]
 > Como as funções de atividade garantem apenas *pelo menos uma vez a* execução, recomendamos que você torne a lógica da função de atividade *idempotente* sempre que possível.
 
-Use um [gatilho de atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. As funções do .NET `DurableActivityContext` recebem um como parâmetro. Você também pode associar o gatilho a qualquer outro objeto serializável em JSON para transmitir entradas para a função. No JavaScript, você pode acessar uma entrada por meio `<activity trigger binding name>` da propriedade no [ `context.bindings` objeto](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado a elas. Para passar vários valores, você deve usar tuplas, matrizes ou tipos complexos.
+Use um [gatilho de atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. As funções do .NET recebem um `DurableActivityContext` como parâmetro. Você também pode associar o gatilho a qualquer outro objeto serializável em JSON para transmitir entradas para a função. No JavaScript, você pode acessar uma entrada por meio da `<activity trigger binding name>` propriedade no [ `context.bindings` objeto](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado a elas. Para passar vários valores, você deve usar tuplas, matrizes ou tipos complexos.
 
 > [!NOTE]
 > Você pode disparar uma função de atividade somente de uma função de orquestrador.

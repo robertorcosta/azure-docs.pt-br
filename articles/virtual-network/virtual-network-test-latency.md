@@ -9,25 +9,24 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74896368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687796"
 ---
 # <a name="test-vm-network-latency"></a>Testar latência da rede de VMs
 
-Para obter os resultados mais precisos, meça a latência de rede da VM (máquina virtual) do Azure com uma ferramenta projetada para a tarefa. Ferramentas disponíveis publicamente como SockPerf (para Linux) e expresso. exe (para Windows) podem isolar e medir a latência de rede enquanto exclui outros tipos de latência, como a latência do aplicativo. Essas ferramentas se concentram no tipo de tráfego de rede que afeta o desempenho do aplicativo (ou seja, o protocolo TCP e o tráfego do protocolo UDP). 
+Para obter os resultados mais precisos, meça a latência de rede da VM (máquina virtual) do Azure com uma ferramenta projetada para a tarefa. Ferramentas disponíveis publicamente como SockPerf (para Linux) e latte.exe (para Windows) podem isolar e medir a latência de rede enquanto exclui outros tipos de latência, como a latência do aplicativo. Essas ferramentas se concentram no tipo de tráfego de rede que afeta o desempenho do aplicativo (ou seja, o protocolo TCP e o tráfego do protocolo UDP). 
 
 Outras ferramentas de conectividade comuns, como ping, podem medir a latência, mas seus resultados podem não representar o tráfego de rede usado em cargas de trabalho reais. Isso porque a maioria dessas ferramentas emprega o protocolo ICMP, que pode ser tratado diferentemente do tráfego do aplicativo e cujos resultados podem não se aplicar a cargas de trabalho que usam TCP e UDP. 
 
-Para um teste preciso de latência de rede dos protocolos usados pela maioria dos aplicativos, SockPerf (para Linux) e expresso. exe (para Windows) produzem os resultados mais relevantes. Este artigo aborda essas duas ferramentas.
+Para um teste preciso de latência de rede dos protocolos usados pela maioria dos aplicativos, SockPerf (para Linux) e latte.exe (para Windows) produzem os resultados mais relevantes. Este artigo aborda essas duas ferramentas.
 
 ## <a name="overview"></a>Visão geral
 
@@ -45,7 +44,7 @@ Você pode usar essa abordagem para medir a latência de rede entre duas VMs ou 
 ### <a name="tools-for-testing"></a>Ferramentas para teste
 Para medir a latência, você tem duas opções de ferramenta diferentes:
 
-* Para sistemas baseados no Windows: [expresso. exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Para sistemas baseados no Windows: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 * Para sistemas baseados em Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Ao usar essas ferramentas, você ajuda a garantir que apenas os tempos de entrega de carga TCP ou UDP sejam medidos e não ICMP (ping) ou outros tipos de pacotes que não são usados por aplicativos e não afetam seu desempenho.
@@ -69,29 +68,29 @@ Conforme você está analisando os resultados do teste, tenha em mente as seguin
 
 ## <a name="test-vms-that-are-running-windows"></a>Testar as VMs que estão executando o Windows
 
-### <a name="get-latteexe-onto-the-vms"></a>Obter o expresso. exe nas VMs
+### <a name="get-latteexe-onto-the-vms"></a>Obter latte.exe nas VMs
 
-Baixe a [versão mais recente do expresso. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Baixe a [versão mais recente do latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
 
-Considere colocar expresso. exe em uma pasta separada, como *c:\Tools*.
+Considere colocar latte.exe em uma pasta separada, como *c:\Tools*.
 
-### <a name="allow-latteexe-through-windows-defender-firewall"></a>Permitir expresso. exe por meio do Windows Defender firewall
+### <a name="allow-latteexe-through-windows-defender-firewall"></a>Permitir latte.exe por meio do Windows Defender firewall
 
-No *receptor*, crie uma regra de permissão no Windows Defender firewall para permitir que o tráfego expresso. exe chegue. É mais fácil permitir todo o programa expresso. exe por nome em vez de permitir portas TCP específicas de entrada.
+No *receptor*, crie uma regra de permissão no Windows Defender firewall para permitir que o tráfego de latte.exe chegue. É mais fácil permitir todo o programa de latte.exe por nome em vez de permitir portas TCP específicas de entrada.
 
-Permita o expresso. exe por meio do Windows Defender firewall executando o seguinte comando:
+Permita latte.exe por meio do Windows Defender firewall executando o seguinte comando:
 
 ```cmd
 netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
-Por exemplo, se você copiou expresso. exe para a pasta *c:\Tools* , esse seria o comando:
+Por exemplo, se você copiou latte.exe para a pasta *c:\Tools* , esse seria o comando:
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Executar testes de latência
 
-* No *receptor*, inicie o expresso. exe (execute-o na janela cmd, não no PowerShell):
+* No *receptor*, inicie latte.exe (execute-o na janela cmd, não no PowerShell):
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
@@ -105,13 +104,13 @@ Por exemplo, se você copiou expresso. exe para a pasta *c:\Tools* , esse seria 
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* No *remetente*, inicie o expresso. exe (execute-o na janela cmd, não no PowerShell):
+* No *remetente*, inicie latte.exe (execute-o na janela cmd, não no PowerShell):
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    O comando resultante é o mesmo que no receptor, exceto com a adição de&nbsp;*-c* para indicar que este é o *cliente*ou *remetente*:
+    O comando resultante é o mesmo que no receptor, exceto com a adição de &nbsp; *-c* para indicar que este é o *cliente*ou *remetente*:
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 
@@ -127,7 +126,7 @@ Nas VMs do Linux, *remetente* e *destinatário*, execute os seguintes comandos p
 
 #### <a name="for-red-hat-enterprise-linux-rhelcentos"></a>Para Red Hat Enterprise Linux (RHEL)/CentOS
 
-Execute os comandos a seguir:
+Execute os seguintes comandos:
 
 ```bash
 #RHEL/CentOS - Install Git and other helpful tools
@@ -141,7 +140,7 @@ Execute os comandos a seguir:
 
 #### <a name="for-ubuntu"></a>Para Ubuntu
 
-Execute os comandos a seguir:
+Execute os seguintes comandos:
 
 ```bash
 #Ubuntu - Install Git and other helpful tools

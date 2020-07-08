@@ -1,19 +1,16 @@
 ---
 title: Mover recursos associados a uma configuração de manutenção para outra região
 description: Saiba como mover os recursos associados a uma configuração de manutenção de VM para outra região do Azure
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 3e271e2467b495e79a93ce5eab5edee36e65e619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: baf7201176fc3d6c70881817ff21b44c2615241a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676884"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Mover recursos em uma configuração de controle de manutenção para outra região
 
@@ -42,7 +39,7 @@ Antes de começar a mover os recursos associados a uma configuração de control
 
 1. Antes de começar, defina essas variáveis. Fornecemos um exemplo para cada um.
 
-    **Variável** | **Detalhes** | **Exemplo**
+    **Ela** | **Detalhes** | **Exemplo**
     --- | ---
     $subId | ID da assinatura que contém as configurações de manutenção | "nossa-Subscription-ID"
     $rsrcGroupName | Nome do grupo de recursos (VM do Azure) | "VMResourceGroup"

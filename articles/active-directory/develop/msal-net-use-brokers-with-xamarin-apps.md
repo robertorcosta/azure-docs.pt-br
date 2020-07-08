@@ -13,11 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692318"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -36,7 +35,7 @@ Use também as instruções nas seções a seguir para configurar a autenticaç�
 Use as etapas a seguir para habilitar seu aplicativo Xamarin. iOS para se comunicar com o aplicativo [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) .
 
 ### <a name="step-1-enable-broker-support"></a>Etapa 1: habilitar o suporte do Broker
-Você deve habilitar o suporte do Broker para instâncias `PublicClientApplication`individuais do. O suporte está desabilitado por padrão. Ao criar `PublicClientApplication` por meio `PublicClientApplicationBuilder`do, use `WithBroker()` o parâmetro como mostra o exemplo a seguir. O `WithBroker()` parâmetro é definido como true por padrão.
+Você deve habilitar o suporte do Broker para instâncias individuais do `PublicClientApplication` . O suporte está desabilitado por padrão. Ao criar `PublicClientApplication` por meio `PublicClientApplicationBuilder` do, use o `WithBroker()` parâmetro como mostra o exemplo a seguir. O `WithBroker()` parâmetro é definido como true por padrão.
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -61,7 +60,7 @@ var builder = PublicClientApplicationBuilder
 Para obter mais informações, consulte [habilitar o acesso](msal-net-xamarin-ios-considerations.md#enable-keychain-access)ao conjunto de chaves.
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Etapa 3: atualizar AppDelegate para manipular o retorno de chamada
-Quando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET) chama o agente, o agente chama de volta para `OpenUrl` seu aplicativo por `AppDelegate` meio do método da classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o `AppDelegate.cs` arquivo para substituir o método a seguir.
+Quando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET) chama o agente, o agente chama de volta para seu aplicativo por meio do `OpenUrl` método da `AppDelegate` classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o `AppDelegate.cs` arquivo para substituir o método a seguir.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, 
@@ -89,7 +88,7 @@ Esse método é invocado toda vez que o aplicativo é iniciado. Ele é usado com
 Ainda no `AppDelegate.cs` arquivo, você precisa definir uma janela de objeto. Normalmente, para o Xamarin iOS, você não precisa definir a janela de objeto. Mas você precisa de uma janela de objeto para enviar e receber respostas do agente. 
 
 Para configurar a janela de objeto: 
-1. No `AppDelegate.cs` arquivo, defina `App.RootViewController` para um novo. `UIViewController()` Essa atribuição garante que a chamada para o agente inclua `UIViewController`. Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
+1. No `AppDelegate.cs` arquivo, defina `App.RootViewController` para um novo `UIViewController()` . Essa atribuição garante que a chamada para o agente inclua `UIViewController` . Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
@@ -117,11 +116,11 @@ Para configurar a janela de objeto:
     ```
 
 ### <a name="step-5-register-a-url-scheme"></a>Etapa 5: registrar um esquema de URL
-O MSAL.NET usa URLs para invocar o agente e, em seguida, retornar a resposta do agente para seu aplicativo. Para concluir a viagem de ida e volta, registre um esquema de URL para `Info.plist` seu aplicativo no arquivo.
+O MSAL.NET usa URLs para invocar o agente e, em seguida, retornar a resposta do agente para seu aplicativo. Para concluir a viagem de ida e volta, registre um esquema de URL para seu aplicativo no `Info.plist` arquivo.
 
-O `CFBundleURLSchemes` nome deve incluir `msauth.` como um prefixo. Siga o prefixo com `CFBundleURLName`. 
+O `CFBundleURLSchemes` nome deve incluir `msauth.` como um prefixo. Siga o prefixo com `CFBundleURLName` . 
 
-No esquema de URL, `BundleId` identifica exclusivamente o aplicativo: `$"msauth.(BundleId)"`. Portanto, `BundleId` se `com.yourcompany.xforms`for, o esquema de URL `msauth.com.yourcompany.xforms`será.
+No esquema de URL, `BundleId` identifica exclusivamente o aplicativo: `$"msauth.(BundleId)"` . Portanto `BundleId` , se for `com.yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
 > [!NOTE]
 > Esse esquema de URL se torna parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando recebe a resposta do agente.
@@ -144,7 +143,7 @@ No esquema de URL, `BundleId` identifica exclusivamente o aplicativo: `$"msauth.
 
 ### <a name="step-6-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Etapa 6: Adicionar o identificador do agente à seção LSApplicationQueriesSchemes
 
-O MSAL `–canOpenURL:` usa para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. 
+O MSAL usa `–canOpenURL:` para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. 
 
 Adicione `msauthv2` à `LSApplicationQueriesSchemes` seção do `Info.plist` arquivo, como no exemplo a seguir:
 
@@ -170,7 +169,7 @@ Aqui está um exemplo:
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
 
-Observe que o URI de redirecionamento corresponde ao `CFBundleURLSchemes` nome que você `Info.plist` incluiu no arquivo.
+Observe que o URI de redirecionamento corresponde ao `CFBundleURLSchemes` nome que você incluiu no `Info.plist` arquivo.
 
 ### <a name="step-8-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Etapa 8: Verifique se o URI de redirecionamento está registrado com seu aplicativo
 
@@ -180,7 +179,7 @@ O portal de registro de aplicativo fornece uma nova experiência para ajudá-lo 
 
 Para calcular o URI de redirecionamento:
 
-1. No portal de registro de aplicativo, escolha **autenticação** > **Experimente a nova experiência**.
+1. No portal de registro de aplicativo, escolha **autenticação**  >  **Experimente a nova experiência**.
 
    ![Experimente a nova experiência de registro de aplicativo](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -204,7 +203,7 @@ Quando você terminar as etapas, o URI de redirecionamento será calculado para 
 
 ### <a name="step-1-enable-broker-support"></a>Etapa 1: habilitar o suporte do Broker
 
-O suporte do Broker é habilitado por PublicClientApplication. Isso está desabilitado por padrão. Use o `WithBroker()` parâmetro (definido como true por padrão) ao criar o `IPublicClientApplication` através do `PublicClientApplicationBuilder`.
+O suporte do Broker é habilitado por PublicClientApplication. Isso está desabilitado por padrão. Use o `WithBroker()` parâmetro (definido como true por padrão) ao criar o `IPublicClientApplication` através do `PublicClientApplicationBuilder` .
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -256,7 +255,7 @@ O URI de redirecionamento necessário para seu aplicativo depende do certificado
 Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
-A última parte do URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, é a assinatura com a qual o apk é assinado, codificado em base64.
+A última parte do URI, `hgbUYHVBYUTvuvT&Y6tr554365466=` , é a assinatura com a qual o apk é assinado, codificado em base64.
 No entanto, durante a fase de desenvolvimento do seu aplicativo usando o Visual Studio, se você estiver Depurando seu código sem assinar o apk com um certificado específico, o Visual Studio assinará o apk para você para fins de depuração, dando ao APK uma assinatura exclusiva para o computador no qual ele foi criado. Assim, sempre que você criar seu aplicativo em um computador diferente, precisará atualizar o URI de redirecionamento no código do aplicativo e o registro do aplicativo no portal do Azure para autenticar com o MSAL. 
 
 Durante a depuração, você pode encontrar uma exceção MSAL (ou mensagem de log) informando que o URI de redirecionamento fornecido está incorreto. **Essa exceção também fornecerá o URI de redirecionamento que você deve usar** com o computador atual no qual você está depurando. Você pode usar esse URI de redirecionamento para continuar desenvolvendo por enquanto.

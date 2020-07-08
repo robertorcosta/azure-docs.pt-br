@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687643"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -44,7 +43,7 @@ Os gatilhos e as associações são definidos de forma diferente, dependendo da 
 | Plataforma | Gatilhos e associações são configurados por... |
 |-------------|--------------------------------------------|
 | Biblioteca de classes C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decoração de métodos e parâmetros com atributos C# |
-| Todos os outros (incluindo portal do Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atualizando [Function. JSON](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
+| Todos os outros (incluindo portal do Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atualizando [function.jsem](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
 
 O portal fornece uma interface do usuário para essa configuração, mas você pode editar o arquivo diretamente abrindo o **Editor avançado** disponível por meio da guia **integrar** da sua função.
 
@@ -69,7 +68,7 @@ Todos os disparadores e associações têm uma propriedade `direction` no arquiv
 
 - Para gatilhos, a direção sempre é `in`
 - Associações de entrada e saída usam `in` e `out`
-- Algumas associações dão suporte a uma direção especial `inout`. Se você usar `inout`, somente o **Editor avançado** estará disponível por meio da guia **integrar** no Portal.
+- Algumas associações dão suporte a uma direção especial `inout`. Se você usar `inout` , somente o **Editor avançado** estará disponível por meio da guia **integrar** no Portal.
 
 Quando você usa [atributos em uma biblioteca de classes](functions-dotnet-class-library.md) para configurar associações e gatilhos, a direção é fornecida em um construtor de atributo ou inferida do tipo de parâmetro.
 

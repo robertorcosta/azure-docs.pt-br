@@ -7,11 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691809"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Alterações de nomenclatura e de terminologia do Azure Monitor
 Alterações significativas foram feitas ao Azure Monitor recentemente, com diferentes serviços sendo consolidados para simplificar o monitoramento para os clientes do Azure. Este artigo descreve as alterações recentes de nomes e de terminologia na documentação do Azure Monitor.

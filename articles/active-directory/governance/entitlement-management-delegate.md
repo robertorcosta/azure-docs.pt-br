@@ -17,11 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692131"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções no gerenciamento de direitos do Azure AD
 
@@ -65,7 +64,7 @@ O diagrama a seguir mostra os catálogos com recursos para os departamentos de m
 
 Após a delegação, o departamento de marketing pode ter funções semelhantes à tabela a seguir.
 
-| Usuário | Função de trabalho | Função de AD do Azure | Função de gerenciamento de direitos |
+| Usuário | Função de trabalho | Função do Azure AD | Função de gerenciamento de direitos |
 | --- | --- | --- | --- |
 | Hana | Administrador de ti | Administrador global ou administrador de usuário |  |
 | Mamta | Gerente de marketing | Usuário | Criador do catálogo e proprietário do catálogo |
@@ -84,14 +83,14 @@ O gerenciamento de direitos tem as seguintes funções que são específicas par
 
 Além disso, um Aprovador designado e um solicitante de um pacote de acesso também têm direitos, embora não sejam funções.
 
-| Right | Descrição |
+| Direita | Descrição |
 | --- | --- |
 | Aprovador | Autorizado por uma política para aprovar ou negar solicitações para acessar pacotes, embora eles não possam alterar as definições de pacote de acesso. |
 | Solicitante | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
 
 A tabela a seguir lista as tarefas que as funções de gerenciamento de direitos podem executar.
 
-| Tarefa | Admin | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso |
+| Tarefa | Administrador | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegar a um criador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Adicionar uma organização conectada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
@@ -122,8 +121,8 @@ Para um usuário que não seja um administrador global ou um administrador de us
 
 | Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança | Pode adicionar o grupo do Office 365 | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Administrador global](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Administrador do usuário](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Administrador global](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Administrador de usuários](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Administrador do Intune](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Administrador do Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
 | [Administrador de serviços de equipes](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |

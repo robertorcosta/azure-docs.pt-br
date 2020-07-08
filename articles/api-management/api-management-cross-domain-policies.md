@@ -14,11 +14,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690312"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -53,7 +52,7 @@ Use a política `cross-domain` para tornar a API acessível por clientes baseado
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |cross-domain|Elemento raiz. Elementos filho devem estar de acordo com a [Especificação de arquivo de política entre domínios do Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
 
@@ -122,7 +121,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |cors|Elemento raiz.|Sim|N/D|
 |allowed-origins|Contém elementos `origin` que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins` pode conter um único elemento `origin` que especifica `*` para permitir qualquer origem, ou um ou mais elementos `origin` que contêm uma URI.|Sim|N/D|
@@ -131,11 +130,11 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 |method|Especifica um verbo HTTP.|Pelo menos um elemento `method` é necessário se a seção `allowed-methods` estiver presente.|N/D|
 |allowed-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que podem ser incluídos na solicitação.|Não|N/D|
 |expose-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que ficarão acessíveis para o cliente.|Não|N/D|
-|cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um elemento `header` é necessário em `allowed-headers` ou `expose-headers` se a seção estiver presente.|N/D|
+|header|Especifica um nome de cabeçalho.|Pelo menos um elemento `header` é necessário em `allowed-headers` ou `expose-headers` se a seção estiver presente.|N/D|
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do cliente de enviar credenciais em solicitações entre domínios.|Não|false|
 |preflight-result-max-age|O `Access-Control-Max-Age` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do agente do usuário de armazenar em cache a resposta de simulação.|Não|0|
@@ -167,13 +166,13 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |jsonp|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|N/D|
 

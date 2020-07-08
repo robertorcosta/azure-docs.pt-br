@@ -17,11 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261613"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689207"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
 Este tópico aborda a arquitetura básica para Azure AD Connect sincronização. Em muitos aspectos, é semelhante a seus predecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
@@ -146,7 +145,7 @@ Um objeto de importação é criado como um objeto separado. Um objeto de export
 O processo de gerenciamento de identidades controla como as informações de identidade são atualizadas entre as diferentes fontes de dados conectadas. O gerenciamento de identidades ocorre em três processos:
 
 * Importar
-* Synchronization
+* Sincronização
 * Exportação
 
 Durante o processo de importação, o mecanismo de sincronização avaliará as informações de identidade de entrada de uma fonte de dados conectada. Quando forem detectadas alterações, ele criará novos objetos de preparação ou atualizará os objetos de preparação existentes no espaço do conector para sincronização.
@@ -259,5 +258,5 @@ Por exemplo, se o mecanismo de sincronização exportar o atributo C, com um val
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
 

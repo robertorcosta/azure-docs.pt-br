@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497526"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689037"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -43,9 +42,9 @@ Apenas os dispositivos a seguir estão listados sob os **dispositivos do usuári
 - Para versões de sistema operacional de nível inferior, execute `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
 
 **R:** Para obter informações sobre solução de problemas, consulte estes artigos:
-- [Solucionando problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
+- [Solução de problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
 - [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
-- [Solucionando problemas de Azure Active Directory híbrido ingressado em dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
+- [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -100,7 +99,7 @@ Veja abaixo como essas ações podem ser corrigidas.
 
       Para dispositivos Windows 10 registrados no Azure AD, execute as seguintes etapas:
 
-      1. Vá para **configurações** > **contas** > **acesso corporativo ou de estudante**. 
+      1. Vá para **configurações**  >  **contas**  >  **acesso corporativo ou de estudante**. 
       1. Selecione a conta e selecione **Desconectar**.
       1. Clique em "+ conectar" e registre o dispositivo novamente ao passar pelo processo de entrada.
 
@@ -148,13 +147,13 @@ Veja abaixo como essas ações podem ser corrigidas.
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>P: Como fazer desassociar um dispositivo ingressado no Azure AD localmente no dispositivo?
 
-**R:** Para dispositivos adicionados ao Azure AD puro, verifique se você tem uma conta de administrador local offline ou crie uma. Você não pode entrar com as credenciais de usuário do Azure AD. Em seguida, vá para **configurações** > **contas** > **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. Siga os prompts e forneça as credenciais de administrador local, quando solicitado. Reinicie o dispositivo para concluir o processo de cancelar a associação.
+**R:** Para dispositivos adicionados ao Azure AD puro, verifique se você tem uma conta de administrador local offline ou crie uma. Você não pode entrar com as credenciais de usuário do Azure AD. Em seguida, vá para **configurações**  >  **contas**  >  **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. Siga os prompts e forneça as credenciais de administrador local, quando solicitado. Reinicie o dispositivo para concluir o processo de cancelar a associação.
 
 ---
 
 ### <a name="q-can-my-users-sign-in-to-azure-ad-joined-devices-that-are-deleted-or-disabled-in-azure-ad"></a>P: meus usuários podem entrar em dispositivos ingressados no Azure AD que são excluídos ou desabilitados no Azure AD?
 
-**R:** Ok. O Windows tem uma funcionalidade de armazenamento em cache de nome de usuário e senha que permite aos usuários que se conectaram anteriormente acessarem a área de trabalho rapidamente, mesmo sem conectividade de rede. 
+**R:** Sim. O Windows tem uma funcionalidade de armazenamento em cache de nome de usuário e senha que permite aos usuários que se conectaram anteriormente acessarem a área de trabalho rapidamente, mesmo sem conectividade de rede. 
 
 Quando um dispositivo é excluído ou desabilitado no Azure AD, ele não é reconhecido pelo dispositivo do Windows. Portanto, os usuários que se conectaram anteriormente continuam a acessar a área de trabalho com o nome de usuário e a senha armazenados em cache. Mas como o dispositivo é excluído ou desabilitado, os usuários não podem acessar os recursos protegidos pelo acesso condicional baseado em dispositivo. 
 
@@ -175,6 +174,8 @@ Os usuários excluídos ou desabilitados que não se conectaram anteriormente n�
 ### <a name="q-why-do-my-users-have-issues-on-azure-ad-joined-devices-after-changing-their-upn"></a>P: por que meus usuários têm problemas em dispositivos adicionados ao Azure AD depois de alterar seu UPN?
 
 **R:** Atualmente, as alterações de UPN não têm suporte total em dispositivos ingressados no Azure AD. Portanto, a autenticação com o Azure AD falha após o UPN mudar. Como resultado, os usuários têm problemas de SSO e Acesso Condicional em seus dispositivos. Neste momento, os usuários precisam entrar no Windows por meio do bloco "Outro usuário" usando o novo UPN para resolver esse problema. Estamos trabalhando para solucionar esse problema. No entanto, os usuários que entram no Windows Hello para Empresas não enfrentam esse problema. 
+
+Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os usuários em dispositivos com esta atualização não terão problemas depois de alterar seus UPNs
 
 ---
 
@@ -253,7 +254,7 @@ Esse comportamento:
 **R:** Para obter informações sobre solução de problemas, consulte estes artigos:
 
 - [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos do Windows 10 e do Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
-- [Solucionando problemas de Azure Active Directory híbrido ingressado em dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
+- [Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>P: por que vejo um registro registrado do Azure AD com o meu dispositivo ingressado no Azure AD híbrido do Windows 10 na lista de dispositivos do Azure AD?
 
@@ -266,6 +267,8 @@ O ingresso do Azure AD híbrido tem precedência sobre o estado de registrado pe
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>P: por que meus usuários têm problemas em dispositivos ingressados no Azure AD híbrido do Windows 10 depois de alterar seu UPN?
 
 **R:** Atualmente, as alterações de UPN não têm suporte total com dispositivos ingressados no Azure AD híbrido. Embora os usuários possam entrar dispositivo e acessar seus aplicativos locais, a autenticação com o Azure AD falhará após a alteração de um UPN. Como resultado, os usuários têm problemas de SSO e Acesso Condicional em seus dispositivos. Neste momento, você precisa desassociar o dispositivo do Azure AD (execute "dsregcmd/Leave" com privilégios elevados) e reingresse (ocorre automaticamente) para resolver o problema. Estamos trabalhando para solucionar esse problema. No entanto, os usuários que entram no Windows Hello para Empresas não enfrentam esse problema. 
+
+Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os usuários em dispositivos com esta atualização não terão problemas depois de alterar seus UPNs
 
 ---
 
@@ -286,8 +289,8 @@ O ingresso do Azure AD híbrido tem precedência sobre o estado de registrado pe
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>P: Como fazer remover um estado registrado do Azure AD de um dispositivo localmente?
 
 **Um** 
-- Para dispositivos registrados no Azure AD do Windows 10, acesse **configurações** > **contas** > **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. O registro de dispositivo é por perfil de usuário no Windows 10.
-- Para IOS e Android, você pode usar o registro de **Settings** > **dispositivo** Microsoft Authenticator configurações de aplicativo e selecionar **Cancelar registro de dispositivo**.
+- Para dispositivos registrados no Azure AD do Windows 10, acesse **configurações**  >  **contas**  >  **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. O registro de dispositivo é por perfil de usuário no Windows 10.
+- Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações**de aplicativo  >  **Device Registration** e selecionar **Cancelar registro de dispositivo**.
 - Para o macOS, você pode usar o aplicativo Microsoft Intune Portal da Empresa para cancelar o registro do dispositivo do gerenciamento e remover qualquer registro. 
 
 ---

@@ -7,11 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696959"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -29,34 +28,34 @@ A seguir, são apresentados os caminhos para alguns logs e artefatos importantes
 ### <a name="azure-cloud-services"></a>Serviços de nuvem do Azure
 | Artefato | Caminho |
 | --- | --- |
-| **Arquivo de configuração de Diagnóstico do Microsoft Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Arquivo de configuração de Diagnóstico do Microsoft Azure** | \<version>\Config.txt%systemdrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics |
 | **Arquivos de log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
-| **Armazenamento local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
-| **Arquivo de configuração do agente de monitoramento** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Armazenamento local para dados de diagnóstico** | Pasta c:\resources\directory \<CloudServiceDeploymentID> . \<RoleName> . DiagnosticStore\WAD0107\Tables |
+| **Arquivo de configuração do agente de monitoramento** | Pasta c:\resources\directory \<CloudServiceDeploymentID> . \<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Pacote de extensão Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Caminho do utilitário de coleta de log** | %SystemDrive%\Packages\GuestAgent\ |
-| **Arquivo de log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
+| **Arquivo de log MonAgentHost** | Pasta c:\resources\directory \<CloudServiceDeploymentID> . \<RoleName> . DiagnosticStore\WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 | Artefato | Caminho |
 | --- | --- |
-| **Arquivo de configuração de Diagnóstico do Microsoft Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Arquivo de configuração de Diagnóstico do Microsoft Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<version> \RuntimeSettings |
 | **Arquivos de log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
-| **Armazenamento local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
-| **Arquivo de configuração do agente de monitoramento** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
-| **Arquivo de status** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Armazenamento local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Tables |
+| **Arquivo de configuração do agente de monitoramento** | \<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics |
+| **Arquivo de status** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<version> \Status |
 | **Pacote de extensão Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Caminho do utilitário de coleta de log** | C:\WindowsAzure\Logs\WaAppAgent.log |
-| **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
+| **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados de métrica não aparecem no Portal do Azure
-O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se você tiver problemas para ver os dados no portal, verifique a\* tabela WADMetrics na conta de armazenamento diagnóstico do Azure para ver se os registros de métrica correspondentes estão lá e certifique-se de que o [provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. insights está registrado.
+O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se você tiver problemas para ver os dados no portal, verifique a \* tabela WADMetrics na conta de armazenamento diagnóstico do Azure para ver se os registros de métrica correspondentes estão lá e certifique-se de que o [provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. insights está registrado.
 
 Aqui, o **PartitionKey** da tabela é a ID de recurso, máquina virtual ou conjunto de dimensionamento de máquinas virtuais. **RowKey** é o nome da métrica (também conhecido como o nome do contador de desempenho).
 
 Se a ID de recurso estiver incorreta, verifique **Diagnósticos** **Configuração** > **Métrica** > **ResourceId** para ver se a ID de recurso está definida corretamente.
 
-Se não houver dados para a métrica específica, verifique **configuração** > de diagnóstico**PerformanceCounter** para ver se a métrica (contador de desempenho) está incluída. Os seguintes contadores são habilitados por padrão:
+Se não houver dados para a métrica específica, verifique **configuração de diagnóstico**  >  **PerformanceCounter** para ver se a métrica (contador de desempenho) está incluída. Os seguintes contadores são habilitados por padrão:
 - \Processador(_Total)\% Tempo do processador
 - \Memória\Bytes Disponíveis
 - \Aplicativos ASP.NET (__Total__)\Solicitações/s
@@ -70,7 +69,7 @@ Se não houver dados para a métrica específica, verifique **configuração** >
 - \Processo(WaWorkerHost)\% Tempo do Processador
 - \Processo(WaWorkerHost)\Bytes Privados
 - \Memória\Falhas de Página/s
-- \.Tempo de memória do_Global_.NET CLR\% (global) no GC
+- \.Tempo de memória do .NET CLR (_global_) \% no GC
 - \LogicalDisk(C:)\Bytes de Gravação de Disco/s
 - \LogicalDisk(C:)\Bytes de Leitura de Disco/s
 - \LogicalDisk(D:)\Bytes de Gravação de Disco/s
@@ -102,7 +101,7 @@ O motivo mais comum para os dados de evento não serem sempre exibidos é porque
 
 Solução: corrija sua configuração do Diagnóstico e o reinstale.
 
-Se a conta de armazenamento estiver configurada corretamente, acesse o acesso remoto na máquina e verifique se *DiagnosticsPlugin. exe* e *MonAgentCore. exe* estão em execução. Se eles não estiverem em execução, siga as etapas em [diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting).
+Se a conta de armazenamento estiver configurada corretamente, acesse o acesso remoto na máquina e verifique se *DiagnosticsPlugin.exe* e *MonAgentCore.exe* estão em execução. Se eles não estiverem em execução, siga as etapas em [diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting).
 
 Se os processos estiverem executando, acesse [Os dados estão sendo capturados localmente?](#is-data-getting-captured-locally) e siga as instruções.
 
@@ -125,7 +124,7 @@ A configuração de Diagnóstico contém instruções para um determinado tipo d
 - **Logs de rastreamento**:  Acesso remoto na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Veja https://msdn.microsoft.com/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
 Se você não visualizar os logs de rastreamento sendo gerados, confira Mais informações sobre logs de rastreamento ausentes.
 
-- **Rastreamento de ETW**: Acesso remoto na VM e instale o PerfView.  No Perfview, execute o**comando** >  **File** > user**Listen etwprovder1** > **etwprovider2**e assim por diante. O comando **Escutar** diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW. Se o comando falhar na execução, você poderá selecionar o botão **Log**na parte inferior direita da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, uma nova janela aparece. Em alguns segundos, você começará a ver o rastreamento de ETW.
+- **Rastreamento de ETW**: Acesso remoto na VM e instale o PerfView.  No Perfview, execute o comando **File**  >  **User**  >  **Listen etwprovder1**  >  **etwprovider2**e assim por diante. O comando **Escutar** diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW. Se o comando falhar na execução, você poderá selecionar o botão **Log**na parte inferior direita da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, uma nova janela aparece. Em alguns segundos, você começará a ver o rastreamento de ETW.
 
 - **Logs de vento**: Acesso remoto na VM. Abra `Event Viewer` e, em seguida, assegure-se de que os eventos existem.
 
@@ -207,10 +206,10 @@ Esse código gera quatro tabelas:
 
 | Evento | Nome da tabela |
 | --- | --- |
-| Provider = "prov1" &lt;ID do evento = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
-| Provider = "prov1" &lt;ID do evento = "2" eventDestination = "dest1"/&gt; |WADdest1 |
-| Provider = "prov1" &lt;DefaultEvents/&gt; |WADDefault + MD5 ("prov1") |
-| Provider = "prov2" &lt;eventDestination = "dest2"/&gt; |WADdest2 |
+| Provider = "prov1" &lt; ID do evento = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
+| Provider = "prov1" &lt; ID do evento = "2" eventDestination = "dest1"/&gt; |WADdest1 |
+| Provider = "prov1" &lt; DefaultEvents/&gt; |WADDefault + MD5 ("prov1") |
+| Provider = "prov2" &lt; eventDestination = "dest2"/&gt; |WADdest2 |
 
 ## <a name="references"></a>Referências
 
@@ -230,7 +229,7 @@ O plug-in retorna os seguintes códigos de saída:
 
 | Código de saída | Descrição |
 | --- | --- |
-| 0 |Sucesso. |
+| 0 |Êxito. |
 | -1 |Erro genérico. |
 | -2 |Não foi possível carregar o arquivo rcf.<p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
 | -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |
@@ -266,9 +265,9 @@ Um novo arquivo chamado `<relevantLogFile>.csv` será criado no mesmo caminho co
 >[!NOTE]
 > As informações a seguir são aplicáveis principalmente aos Serviços de Nuvem do Azure, exceto se o DiagnosticsMonitorTraceListener foi configurado em um aplicativo que está executando na VM da IaaS.
 
-- Verifique se o **DiagnosticMonitorTraceListener** está configurado no Web. config ou app. config.  Isso é configurado por padrão em projetos de serviço de nuvem. No entanto, alguns clientes comentam que as instruções de rastreamento não são coletadas pelos diagnósticos.
+- Verifique se o **DiagnosticMonitorTraceListener** está configurado no web.config ou app.config.  Isso é configurado por padrão em projetos de serviço de nuvem. No entanto, alguns clientes comentam que as instruções de rastreamento não são coletadas pelos diagnósticos.
 
-- Se os logs não estiverem sendo gravados do método **OnStart** ou **Run** , verifique se o **DiagnosticMonitorTraceListener** está no app. config.  Por padrão, ele está no Web. config, mas isso se aplica somente ao código em execução no w3wp. exe. Portanto, é necessário que esteja no app.config para capturar rastreamentos executando no WaIISHost.exe.
+- Se os logs não estiverem sendo gravados do método **OnStart** ou **Run** , verifique se o **DiagnosticMonitorTraceListener** está na app.config.  Por padrão, ele está na web.config, mas isso se aplica somente à execução de código dentro de w3wp.exe. Portanto, é necessário que esteja no app.config para capturar rastreamentos executando no WaIISHost.exe.
 
 - Certifique-se de que está utilizando o **Diagnostics.Trace.TraceXXX** em vez do **Diagnostics.Debug.WriteXXX.** As instruções de depuração são removidas a partir de uma compilação da versão.
 
@@ -294,7 +293,7 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 A experiência do portal nas máquinas virtuais mostra determinados contadores de desempenho por padrão. Se não for possível visualizar os contadores de desempenho mas souber que os dados estão sendo gerados porque estão disponíveis no armazenamento, verifique o seguinte:
 
-- Se os dados armazenados possuem nomes dos contadores no idioma inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não será capaz de reconhecê-los. **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Para fazer isso, selecione **Control Panel** > **região** > do painel de controle**configurações de cópia****administrativa** > . Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema.
+- Se os dados armazenados possuem nomes dos contadores no idioma inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não será capaz de reconhecê-los. **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Para fazer isso, selecione região do **painel de controle**  >  **Region**  >  **Administrative**  >  **configurações de cópia**administrativa. Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema.
 
-- Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado quando os contadores de desempenho são enviados ao coletor do armazenamento do Azure. **Mitigação**: para garantir que você possa usar curingas e fazer com que o portal expanda o (\*), encaminhe seus contadores de desempenho para o coletor de Azure monitor.
+- Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado quando os contadores de desempenho são enviados ao coletor do armazenamento do Azure. **Mitigação**: para garantir que você possa usar curingas e fazer com que o portal expanda o ( \* ), encaminhe seus contadores de desempenho para o coletor de Azure monitor.
 

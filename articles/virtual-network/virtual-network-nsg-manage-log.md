@@ -6,16 +6,15 @@ services: virtual-network
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: cfc1b933abbbc3736145ff3c6a600f48260538d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695990"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Log de recursos para um grupo de segurança de rede
 
@@ -45,7 +44,7 @@ Você pode usar o [portal do Azure](#azure-portal), o [PowerShell](#powershell)o
 
 5. Em ** Configurações de diagnóstico **, insira ou selecione as seguintes informações e, em seguida, selecione ** Salvar **:
 
-    | Configuração                                                                                     | Valor                                                          |
+    | Setting                                                                                     | Valor                                                          |
     | ---------                                                                                   |---------                                                       |
     | Nome                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
     | **Arquivo para uma conta de armazenamento**, **fluxo para um hub de eventos**, e **enviar para análise de Log** | Você pode selecionar quantas destinos que escolher. Para saber mais sobre cada um, consulte [destinos de Log](#log-destinations).                                                                                                                                           |

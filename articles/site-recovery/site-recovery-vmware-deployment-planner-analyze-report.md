@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
 ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699185"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware para o Azure
 
@@ -186,7 +185,7 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 * 1025 GB a 2048 GB é P40.
 * 2049 GB a 4095 GB é P50.
 
-Por exemplo, se as características de carga de trabalho de um disco o colocarem na categoria P20 ou p30, mas o tamanho o mapear para um tipo de disco de armazenamento Premium inferior, a ferramenta marcará essa VM como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
+Por exemplo, se as características de carga de trabalho de um disco o colocarem na categoria P20 ou p30, mas o tamanho o mapear para um tipo de disco de armazenamento Premium inferior, a ferramenta marcará essa VM como **Sim** \* . A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
 
 **Tipo de armazenamento**: standard ou premium.
 
@@ -260,14 +259,14 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 ## <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são baseados em nossos testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Para obter os melhores resultados, mesmo após planejar a implantação, é sempre recomendável executar amplos testes de aplicativos usando um failover de teste para obter a visão real do desempenho do aplicativo.
 
-**Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de rotatividade de dados do disco de origem por dia**
+**Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 ou P15 | 32 KB ou maior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior | 20 MB/s | 1684 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior | 20 MB/s | 1\.684 GB por disco
 
 **Variação de dados de origem** | **Limite máximo**
 ---|---

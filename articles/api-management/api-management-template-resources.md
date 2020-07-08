@@ -14,11 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689980"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso em modelos de portal do desenvolvedor.  
@@ -113,13 +112,13 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |PageTitleApis|APIs|  
   
 ###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Visualização de aplicativo|  
 |WebApplicationsRequirementsHeader|Requisitos|  
@@ -128,13 +127,13 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Tem certeza de que deseja remover o aplicativo?|  
 |WebDevelopersAppNotPublished|Não publicado|  
 |WebDevelopersAppNotSubmitted|Não enviado|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
-|WebDevelopersAppTableNameHeader|Name|  
+|WebDevelopersAppTableNameHeader|Nome|  
 |WebDevelopersAppTableStateHeader|Estado|  
 |WebDevelopersEditLink|Editar|  
 |WebDevelopersRegisterAppLink|Registrar aplicativo|  
@@ -144,13 +143,13 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="appstrings"></a><a name="AppStrings"></a> AppStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|Aplicativos|  
   
 ###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |NoItemsToDisplay|Nenhum resultado encontrado.|  
 |GeneralExceptionMessage|Algo não está correto. Pode ser uma falha temporária ou um bug. Tente novamente.|  
@@ -161,7 +160,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
 |ButtonLabelSave|Salvar|  
@@ -169,7 +168,7 @@ Há suporte para as seguintes opções de localização:
 |NoItemsToDisplay|Não existem itens a apresentar.|  
 |PagerButtonLabelFirst|Primeiro|  
 |PagerButtonLabelLast|Último|  
-|PagerButtonLabelNext|Próximo|  
+|PagerButtonLabelNext|Avançar|  
 |PagerButtonLabelPrevious|Prev|  
 |PagerLabelPageNOfM|Página {0} de {1}|  
 |PasswordTooShort|A senha é muito curta|  
@@ -181,11 +180,11 @@ Há suporte para as seguintes opções de localização:
 |PagerLabelPageSize|Tamanho da página|  
 |CurtainLabelLoading|Carregando...|  
 |TablePlaceholderNothingToDisplay|Não há dados para o período e escopo selecionados|  
-|ButtonLabelClose|Feche|  
+|ButtonLabelClose|Fechar|  
   
 ###  <a name="documentation"></a><a name="Documentation"></a>Sobre  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Cabeçalho inválido '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|URL da Solicitação Inválida|  
@@ -324,16 +323,16 @@ Há suporte para as seguintes opções de localização:
 |ButtonLinkOpenConsole|Experimentar|  
 |SectionHeadingRequestBody|Corpo da solicitação|  
 |SectionHeadingRequestParameters|Parâmetros da solicitação|  
-|SectionHeadingRequestUrl|URL de Solicitação|  
+|SectionHeadingRequestUrl|URL da solicitação|  
 |SectionHeadingResponse|Resposta|  
 |SectionHeadingRequestHeaders|Cabeçalhos de solicitação|  
 |FormLabelSubtextOptional|opcionais|  
 |SectionHeadingCodeSamples|Exemplos de código|  
-|TextblockOpenidConnectHeaderDescription|Token de ID do OpenID Connect obtido do\> {0} <eu\></i. Tipos de concessão com suporte: < i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|Token de ID do OpenID Connect obtido do <eu \> {0}</i \> . Tipos de concessão com suporte: < i\>{1}</i\>.|  
   
 ###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |LinkLabelBack|voltar|  
 |LinkLabelHomePage|home page|  
@@ -351,9 +350,9 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
-|WebIssuesIndexTitle|Problemas|  
+|WebIssuesIndexTitle|Questões|  
 |WebIssuesNoActiveSubscriptions|Você não tem nenhuma assinatura ativa. Você precisa assinar um produto para relatar um problema.|  
 |WebIssuesNotSignin|Você não está conectado. Por favor {0} para relatar um problema ou postar um comentário.|  
 |WebIssuesReportIssueButton|Relatar Problema|  
@@ -362,7 +361,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|envie-nos um email|  
@@ -377,11 +376,11 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebProductsAgreement|Ao assinar o {0} Produto, concordo com o `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Termos de Uso|  
-|WebProductsSubscribeButton|Assinar|  
+|WebProductsSubscribeButton|Subscribe|  
 |WebProductsUsageLimitsHeader|Limites de uso|  
 |WebProductsYouAreNotSubscribed|Você assinou este produto.|  
 |WebProductsYouRequestedSubscription|Você solicitou a assinatura para este produto.|  
@@ -399,13 +398,13 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |PageTitleProducts|Produtos|  
   
 ###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|A entrada está desabilitada pelos administradores no momento.|  
 |TextboxExternalIdentitiesSigninInvitation|Como alternativa, entre com|  
@@ -413,7 +412,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="signinresources"></a><a name="SigninResources"></a> SigninResources  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |PrincipalNotFound|A entidade de segurança não foi encontrada ou a assinatura é inválida|  
 |ErrorSsoAuthenticationFailed|Falha na autenticação de SSO|  
@@ -434,7 +433,7 @@ Há suporte para as seguintes opções de localização:
 |ValidationErrorEmailInvalid|Endereço de email inválido|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|O email é obrigatório.|  
-|WebAuthenticationErrorNoticeHeader|Erro do|  
+|WebAuthenticationErrorNoticeHeader|Erro|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve ser um comprimento máximo de {1}|  
 |TextboxLabelEmailFirstName|Nome|  
 |ValidationErrorFirstNameRequired|O nome é obrigatório.|  
@@ -509,7 +508,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Esqueceu sua senha?|  
 |WebAuthenticationIfAdministrator|Se você é um administrador, você deve entrar em `<a href="{0}"\>here</a\>`.|  
@@ -521,7 +520,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |PageTitleSignup|Inscrição|  
 |WebAuthenticationAlreadyAMember|Já é membro?|  
@@ -531,11 +530,11 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Tem certeza de que deseja cancelar esta assinatura?|  
 |SubscriptionRenewConfirmation|Tem certeza de que deseja renovar esta assinatura?|  
-|WebDevelopersManageSubscriptions|Gerenciar Assinaturas|  
+|WebDevelopersManageSubscriptions|Gerenciar assinaturas|  
 |WebDevelopersPrimaryKey|Chave primária|  
 |WebDevelopersRegenerateLink|Regenerar|  
 |WebDevelopersSecondaryKey|Chave secundária|  
@@ -543,7 +542,7 @@ Há suporte para as seguintes opções de localização:
 |ButtonLabelRenewSubscription|Renew|  
 |WebDevelopersSubscriptionRequested|Solicitado em {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitado|  
-|WebDevelopersSubscriptionTableNameHeader|Name|  
+|WebDevelopersSubscriptionTableNameHeader|Nome|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  
 |WebDevelopersUsageStatisticsLink|Relatórios de análise|  
 |WebDevelopersYourSubscriptions|Suas assinaturas|  
@@ -554,7 +553,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Deseja para fechar sua conta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -565,14 +564,14 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Atualizar perfil|  
 |PageTitleUpdateProfile|Atualizar informações da conta|  
   
 ###  <a name="userprofile"></a><a name="UserProfile"></a> UserProfile  
   
-|Name|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Alterar informações da conta|  
 |ButtonLabelChangePassword|Alterar senha|  

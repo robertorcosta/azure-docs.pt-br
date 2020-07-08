@@ -8,11 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249081"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686657"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -29,22 +28,22 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="windows-agents"></a>Agentes do Windows
 
-| | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
+| | Diagnósticos<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|
 | Ambientes com suporte | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
 | Requisitos do agente  | Nenhum | Nenhum | Requer agente de Log Analytics |
 | Dados coletados | Logs de eventos<br>eventos ETW<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Logs do aplicativo .NET<br>Despejos de memória<br>Logs de diagnóstico do agente | Logs de eventos<br>Desempenho<IIS logs><br>Logs baseados em arquivo<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de conexão de rede |
-| Dados enviados para | Armazenamento do Azure<br>Métricas de Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor |
+| Dados enviados para | Armazenamento do Azure<br>Métricas do Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor |
 
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
-| | Diagnóstico<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
+| | Diagnósticos<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
 | Ambientes com suporte | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
 | Requisitos do agente  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
 | Dados coletados | syslog<br>Desempenho | Desempenho | syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de conexão de rede |
-| Dados enviados para | Armazenamento do Azure<br>Hub de evento | Métricas de Azure Monitor | Logs do Azure Monitor | Logs do Azure Monitor |
+| Dados enviados para | Armazenamento do Azure<br>Hub de evento | Métricas do Azure Monitor | Logs do Azure Monitor | Logs do Azure Monitor |
 
 ## <a name="log-analytics-agent"></a>Agente do Log Analytics
 

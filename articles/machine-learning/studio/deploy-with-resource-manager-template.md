@@ -5,21 +5,18 @@ description: Como implantar um espaço de trabalho para Azure Machine Learning S
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8a6ec4c8f5e59546c0ec5ee3cdd128e70d89802b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696245"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implantar Azure Machine Learning Studio espaço de trabalho (clássico) usando Azure Resource Manager
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar os espaços de trabalho do Azure Machine Learning Studio (clássico), por exemplo, você precisa primeiro configurar uma conta de armazenamento do Azure e, em seguida, implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de workspaces. Uma alternativa mais fácil é usar um modelo de Azure Resource Manager para implantar um espaço de trabalho do Studio (clássico) e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
@@ -143,7 +140,7 @@ Depois que o espaço de trabalho for provisionado, você também poderá automat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [como criar modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+* Saiba mais sobre a [criação de modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 * Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 * Assista a este vídeo sobre o [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * Consulte a [Ajuda da referência de modelo do Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)

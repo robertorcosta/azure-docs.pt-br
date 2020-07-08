@@ -11,18 +11,17 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b593630d6702f66b1b877c15688b9aea0e227fca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688221"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o CLI do Azure
 
@@ -196,7 +195,7 @@ A VM demora alguns minutos para criar. Depois que a VM é criada, anote o **publ
 
 ## <a name="test-traffic-filters"></a>Testar filtros de tráfego
 
-Use o comando a seguir para criar uma sessão SSH com a VM *myVmMgmt*. Substitua * \<publicIpAddress>* pelo endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Use o comando a seguir para criar uma sessão SSH com a VM *myVmMgmt*. Substitua *\<publicIpAddress>* pelo endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -232,7 +231,7 @@ curl myVmWeb
 
 Faça logoff da VM *myVmMgmt*. Para confirmar que você pode acessar o servidor da Web *myVmWeb* de fora do Azure, digite `curl <publicIpAddress>` de seu próprio computador. A conexão é realizada com sucesso, porque a porta 80 tem permissão de entrada da Internet para o grupo de segurança de aplicativo *myAsgWebServers* no qual o adaptador de rede conectado à VM *myVmWeb* está.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 
