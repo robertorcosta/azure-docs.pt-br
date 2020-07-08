@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dffa9571706c067834e47a656ec1d47cb884fb48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831872"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 
 
@@ -41,13 +41,16 @@ Você não pode criar o ASE e carregar o certificado como uma única ação no p
 
 Se desejar criar um certificado autoassinado rapidamente para testar, você poderá usar o seguinte trecho de PowerShell:
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.pfx"
-    Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
+```
+
 Ao criar um certificado autoassinado, você precisará garantir que o nome da entidade tenha o formato CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificados de aplicativo 
@@ -80,15 +83,18 @@ Para carregar o certificado em seu aplicativo no ASE:
 
 O certificado ficará disponível para todos os aplicativos no mesmo Plano do Serviço de Aplicativo que definiu essa configuração. Se você precisar que ele fique disponível para aplicativos de outro Plano do Serviço de Aplicativo, será necessário repetir a operação de Configuração de Aplicativo em um aplicativo desse Plano do Serviço de Aplicativo. Para verificar se o certificado está definido, vá para o console do Kudu e emita o seguinte comando no console de depuração do PowerShell:
 
-    dir cert:\localmachine\root
+```azurepowershell-interactive
+dir cert:\localmachine\root
+```
 
 Para executar testes, você pode criar um certificado autoassinado e gerar um arquivo *.cer* com o PowerShell a seguir: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.cer"
-    export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
-
+$fileName = "exportedcert.cer"
+export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
+```

@@ -12,18 +12,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830920"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -176,7 +176,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
     Depois de escolher o domínio, o assistente fornece as informações apropriadas sobre outras ações que o assistente realizará e o impacto da configuração. Em alguns casos, se você selecionar um domínio que ainda não seja verificado no Azure AD, o assistente fornecerá informações para ajudá-lo a verificar o domínio. Confira [Adicionar seu nome de domínio personalizado ao Azure Active Directory](../active-directory-domains-add-azure-portal.md) para obter mais detalhes.
 
-5. Clique em **Avançar**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
+5. Clique em **Próximo**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
 
    ![Pronto para configurar](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
@@ -192,7 +192,9 @@ Para alterar o logotipo da empresa que é exibido na página de **Entrada**, use
 > [!NOTE]
 > As dimensões recomendadas para o logotipo são de 260 x 35 \@ 96 dpi com um tamanho de arquivo máximo de 10 KB.
 
-    Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```azurepowershell-interactive
+Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```
 
 > [!NOTE]
 > O parâmetro *TargetName* é necessário. O tema padrão liberado com o AD FS é denominado Default.
@@ -200,7 +202,9 @@ Para alterar o logotipo da empresa que é exibido na página de **Entrada**, use
 ## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>Adicionar uma descrição de entrada 
 Para adicionar uma descrição à página de **Entrada**, use o seguinte cmdlet e sintaxe do Windows PowerShell.
 
-    Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```azurepowershell-interactive
+Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificar AD FS regras de declaração 
 O AD FS dá suporte a uma linguagem de declarações avançada que você pode usar para criar regras de declaração personalizada. Para obter mais informações, confira [A função da linguagem de regras de declaração](https://technet.microsoft.com/library/dd807118.aspx).
@@ -214,8 +218,10 @@ Por exemplo, você pode selecionar **ms-ds-consistencyguid** como o atributo de 
 
 **Regra 1: consultar atributos**
 
-    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
-    => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```claim-rule-language
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
+=> add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```
 
 Nessa regra, você simplesmente consulta os valores de **ms-ds-consistencyguid** e **objectGuid** do usuário do Active Directory. Altere o nome do repositório para um nome de armazenamento apropriado em sua implantação do AD FS. Altere também o tipo de declarações para um tipo de declaração adequado para sua Federação, conforme definido para **objectGUID** e **MS-DS-consistencyguid**.
 
@@ -223,23 +229,29 @@ Além disso, usando **add** e não **issue**, você evita adicionar uma emissão
 
 **Regra 2: verificar se ms-ds-consistencyguid existe para o usuário**
 
-    NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
-    => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```claim-rule-language
+NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
+=> add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```
 
 Essa regra define um sinalizador temporário chamado **idflag** que é definido como **useguid** se não há nenhum **ms-ds-consistencyguid** populado para o usuário. A lógica por trás disso é o fato de que o AD FS não permite declarações vazias. Portanto, quando você adicionar as declarações `http://contoso.com/ws/2016/02/identity/claims/objectguid` e `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` na regra 1, o resultado será uma declaração **msdsconsistencyguid** apenas se o valor for populado para o usuário. Se ele não estiver populado, o AD FS verá que ele terá um valor vazio e o descartará imediatamente. Todos os objetos terão **objectGuid**. Portanto, essa declaração sempre estará presente após a Regra 1 ser executada.
 
 **Regra 3: emitir ms-ds-consistencyguid como a ID imutável, se estiver presente**
 
-    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```claim-rule-language
+c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```
 
 Essa é uma verificação **Exist** implícita. Se o valor para a declaração existir, emita-o como a ID imutável. O exemplo anterior usa a declaração **nameidentifier** . Você precisará alterar isso para o tipo de declaração adequado para a ID imutável no seu ambiente.
 
 **Regra 4: emitir o objectGuid como a ID imutável se ms-ds-consistencyGuid não estiver presente**
 
-    c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
-    && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```claim-rule-language
+c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
+&& c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```
 
 Nessa regra, você simplesmente verifica o sinalizador temporário **idflag**. Você decide se deve emitir a declaração com base em seu valor.
 

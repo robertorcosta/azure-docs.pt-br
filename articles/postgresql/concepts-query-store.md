@@ -5,17 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/01/2020
+ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74768258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830274"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
-**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
+**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões do servidor único 9,6 e posteriores
 
 O recurso de Repositório de Consultas no Banco de Dados do Azure para PostgreSQL fornece uma maneira de acompanhar o desempenho de consultas ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de runtime e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Os dados de todos os usuários, bancos de dados e consultas são armazenados em um banco de dados chamado **azure_sys** na instância do Banco de Dados do Azure para PostgreSQL.
 
@@ -72,9 +72,6 @@ Ou essa consulta para estatísticas de espera:
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
 
-Você também pode emitir Repositório de Consultas dados para [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md) para análise e alertas, hubs de eventos para streaming e armazenamento do Azure para arquivamento. As categorias de log a serem configuradas são **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**. Para saber mais sobre a instalação, visite o artigo [Azure monitor configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) .
-
-
 ## <a name="finding-wait-queries"></a>Localizando consultas de espera
 Os tipos de evento de espera combinam diferentes eventos de espera em buckets por semelhança. O Repositório de Consultas fornece o tipo de evento de espera, o nome do evento de espera específico e a consulta em questão. Ser capaz de correlacionar essas informações de espera com as estatísticas de runtime de consulta significa que você pode obter uma compreensão mais profunda do que contribui para as características de desempenho de consulta.
 
@@ -91,18 +88,18 @@ Quando o Repositório de Consultas está habilitado, ele salva dados em janelas 
 
 As opções a seguir estão disponíveis para configurar os parâmetros do Repositório de Consultas.
 
-| **Parâmetro** | **Descrição** | **Os** | **Amplitude**|
+| **Parâmetro** | **Descrição** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Define quais instruções são rastreadas. | none | none, top, all |
+| pg_qs.query_capture_mode | Define quais instruções são rastreadas. | nenhum | none, top, all |
 | pg_qs.max_query_text_length | Define o comprimento máximo de consulta que pode ser salvo. Consultas mais longas serão truncadas. | 6000 | 100 a 10 mil |
 | pg_qs.retention_period_in_days | Define o período de retenção. | 7 | 1 a 30 |
 | pg_qs.track_utility | Define se os comandos do utilitário são rastreados | on | on, off |
 
 As opções a seguir se aplicam especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Os** | **Amplitude**|
+| **Parâmetro** | **Descrição** | **Default** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | none | none, all|
+| pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | nenhum | none, all|
 | Pgms_wait_sampling.history_period | Define a frequência, em milissegundos, com a qual são realizadas amostras dos eventos de espera. | 100 | 1 a 600000 |
 
 > [!NOTE] 
@@ -124,30 +121,30 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 |runtime_stats_entry_id |BIGINT | | ID da tabela runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID do usuário que executou a instrução|
 |db_id  |oid    |pg_database.oid    |OID do banco de dados no qual a instrução foi executada|
-|query_id   |BIGINT  || Código hash interno, computado da árvore de análise da instrução|
-|query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
+|query_id   |BIGINT  || Código hash interno, computado da árvore de análise da instrução|
+|query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
 |plan_id    |BIGINT |   |ID do plano correspondente a essa consulta, ainda não disponível|
 |start_time |timestamp  ||  Consultas são agregadas por buckets de tempo: o período de um bucket é de 15 minutos por padrão. Essa é a hora de início correspondente ao bucket de tempo para esta entrada.|
 |end_time   |timestamp  ||  Hora de término correspondente ao bucket de tempo para esta entrada.|
-|chamadas  |BIGINT  || Número de vezes que a consulta foi executada|
-|total_time |double precision   ||  Tempo total de execução da consulta em milissegundos|
+|chamadas  |BIGINT  || Número de vezes que a consulta foi executada|
+|total_time |double precision   ||  Tempo total de execução da consulta em milissegundos|
 |min_time   |double precision   ||  Tempo mínimo de execução da consulta em milissegundos|
 |max_time   |double precision   ||  Tempo máximo de execução da consulta em milissegundos|
 |mean_time  |double precision   ||  Tempo médio de execução da consulta em milissegundos|
 |stddev_time|   double precision    ||  Desvio padrão de tempo de execução da consulta em milissegundos |
-|rows   |BIGINT ||  Número total de linhas recuperadas ou afetadas pela instrução|
-|shared_blks_hit|   BIGINT  ||  Número total de ocorrências no cache do bloco compartilhado pela instrução|
+|rows   |BIGINT ||  Número total de linhas recuperadas ou afetadas pela instrução|
+|shared_blks_hit|   BIGINT  ||  Número total de ocorrências no cache do bloco compartilhado pela instrução|
 |shared_blks_read|  BIGINT  ||  Número total de blocos compartilhados lidos pela instrução|
-|shared_blks_dirtied|   BIGINT   || Número total de blocos compartilhados sujos pela instrução |
-|shared_blks_written|   BIGINT  ||  Número total de blocos compartilhados gravados pela instrução|
+|shared_blks_dirtied|   BIGINT   || Número total de blocos compartilhados sujos pela instrução |
+|shared_blks_written|   BIGINT  ||  Número total de blocos compartilhados gravados pela instrução|
 |local_blks_hit|    BIGINT ||   Número total de ocorrências no cache do bloco local pela instrução|
-|local_blks_read|   BIGINT   || Número total de leituras de blocos locais pela instrução|
-|local_blks_dirtied|    BIGINT  ||  Número total de blocos locais sujos pela instrução|
-|local_blks_written|    BIGINT  ||  Número total de blocos locais gravados pela instrução|
-|temp_blks_read |BIGINT  || Número total de leituras de blocos temporários pela instrução|
-|temp_blks_written| BIGINT   || Número total de gravações de blocos temporários pela instrução|
-|blk_read_time  |double precision    || Tempo total que a instrução passou lendo blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
-|blk_write_time |double precision    || Tempo total que a instrução passou gravando blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
+|local_blks_read|   BIGINT   || Número total de leituras de blocos locais pela instrução|
+|local_blks_dirtied|    BIGINT  ||  Número total de blocos locais sujos pela instrução|
+|local_blks_written|    BIGINT  ||  Número total de blocos locais gravados pela instrução|
+|temp_blks_read |BIGINT  || Número total de leituras de blocos temporários pela instrução|
+|temp_blks_written| BIGINT   || Número total de gravações de blocos temporários pela instrução|
+|blk_read_time  |double precision    || Tempo total que a instrução passou lendo blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
+|blk_write_time |double precision    || Tempo total que a instrução passou gravando blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
     
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Essa exibição retorna os dados de texto da consulta no Repositório de Consultas. Há uma linha para cada query_text distinto.
@@ -155,7 +152,7 @@ Essa exibição retorna os dados de texto da consulta no Repositório de Consult
 |**Nome**|  **Tipo**|   **Descrição**|
 |---|---|---|
 |query_text_id  |BIGINT     |ID da tabela query_texts|
-|query_sql_text |Varchar(10000)     |Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
+|query_sql_text |Varchar(10000)     |Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distinto.
@@ -164,8 +161,8 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |OID do usuário que executou a instrução|
 |db_id  |oid    |pg_database.oid    |OID do banco de dados no qual a instrução foi executada|
-|query_id   |BIGINT     ||Código hash interno, computado da árvore de análise da instrução|
-|event_type |text       ||O tipo de evento pelo qual o back-end está esperando|
+|query_id   |BIGINT     ||Código hash interno, computado da árvore de análise da instrução|
+|event_type |text       ||O tipo de evento pelo qual o back-end está esperando|
 |event  |text       ||O nome do evento de espera se o back-end estiver esperando no momento|
 |chamadas  |Integer        ||Número do mesmo evento capturado|
 
@@ -173,11 +170,82 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 ### <a name="functions"></a>Funções
 Query_store.qs_reset() retorna void
 
-`qs_reset` descarta todas as estatísticas coletadas até o momento pelo Repositório de Consultas. Essa função só pode ser executada pela função de administrador de servidor.
+`qs_reset` descarta todas as estatísticas coletadas até o momento pelo Repositório de Consultas. Essa função só pode ser executada pela função de administrador de servidor.
 
 Query_store.staging_data_reset() retorna void
 
-`staging_data_reset` descarta todas as estatísticas coletadas na memória pelo Repositório de Consultas (isto é, os dados na memória que ainda não foram liberados para o banco de dados). Essa função só pode ser executada pela função de administrador de servidor.
+`staging_data_reset` descarta todas as estatísticas coletadas na memória pelo Repositório de Consultas (isto é, os dados na memória que ainda não foram liberados para o banco de dados). Essa função só pode ser executada pela função de administrador de servidor.
+
+
+## <a name="azure-monitor"></a>Azure Monitor
+O banco de dados do Azure para PostgreSQL é integrado com [Azure monitor configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md). As configurações de diagnóstico permitem que você envie os logs do postgres no formato JSON para [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md) para análise e alertas, hubs de eventos para streaming e armazenamento do Azure para arquivamento.
+
+>[!IMPORTANT]
+> Este recurso de diagnóstico do está disponível somente nos tipos de preço Uso Geral e com otimização de memória.
+
+### <a name="configure-diagnostic-settings"></a>Definir as configurações de diagnóstico
+Você pode habilitar as configurações de diagnóstico para o servidor postgres usando o portal do Azure, a CLI, a API REST e o PowerShell. As categorias de log a serem configuradas são **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**. 
+
+Para habilitar os logs de recursos usando o portal do Azure:
+
+1. No portal, vá para configurações de diagnóstico no menu de navegação do seu servidor do Postgres.
+2. Selecione Adicionar configuração de diagnóstico.
+3. Nomeie essa configuração.
+4. Selecione seu ponto de extremidade preferido (conta de armazenamento, Hub de eventos, log Analytics).
+5. Selecione os tipos de log **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**.
+6. Salve sua configuração.
+
+Para habilitar essa configuração usando o PowerShell, a CLI ou a API REST, visite o [artigo configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md).
+
+### <a name="json-log-format"></a>Formato de log JSON
+As tabelas a seguir descrevem os campos para os dois tipos de log. Dependendo do ponto de extremidade de saída escolhido, os campos incluídos e a ordem em que aparecem podem variar.
+
+#### <a name="querystoreruntimestatistics"></a>QueryStoreRuntimeStatistics
+|**Campo** | **Descrição** |
+|---|---|
+| TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado, em UTC |
+| ResourceId | URI de recurso do Azure do servidor postgres |
+| Categoria | `QueryStoreRuntimeStatistics` |
+| OperationName | `QueryStoreRuntimeStatisticsEvent` |
+| LogicalServerName_s | Nome do servidor postgres | 
+| runtime_stats_entry_id_s | ID da tabela runtime_stats_entries |
+| user_id_s | OID do usuário que executou a instrução |
+| db_id_s | OID do banco de dados no qual a instrução foi executada |
+| query_id_s | Código hash interno, computado da árvore de análise da instrução |
+| end_time_s | Hora de término correspondente ao Bucket de tempo para esta entrada |
+| calls_s | Número de vezes que a consulta foi executada |
+| total_time_s | Tempo total de execução da consulta em milissegundos |
+| min_time_s | Tempo mínimo de execução da consulta em milissegundos |
+| max_time_s | Tempo máximo de execução da consulta em milissegundos |
+| mean_time_s | Tempo médio de execução da consulta em milissegundos |
+| ResourceGroup | O grupo de recursos | 
+| SubscriptionId | Sua ID de assinatura |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Recurso | Nome do servidor postgres |
+| ResourceType | `Servers` | 
+
+
+#### <a name="querystorewaitstatistics"></a>QueryStoreWaitStatistics
+|**Campo** | **Descrição** |
+|---|---|
+| TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado, em UTC |
+| ResourceId | URI de recurso do Azure do servidor postgres |
+| Categoria | `QueryStoreWaitStatistics` |
+| OperationName | `QueryStoreWaitEvent` |
+| user_id_s | OID do usuário que executou a instrução |
+| db_id_s | OID do banco de dados no qual a instrução foi executada |
+| query_id_s | Código hash interno da consulta |
+| calls_s | Número do mesmo evento capturado |
+| event_type_s | O tipo de evento pelo qual o back-end está esperando |
+| event_s | O nome do evento de espera se o back-end estiver aguardando |
+| start_time_t | Hora de início do evento |
+| end_time_s | Hora de término do evento | 
+| LogicalServerName_s | Nome do servidor postgres | 
+| ResourceGroup | O grupo de recursos | 
+| SubscriptionId | Sua ID de assinatura |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Recurso | Nome do servidor postgres |
+| ResourceType | `Servers` | 
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 - Se um servidor PostgreSQL tem o parâmetro default_transaction_read_only ativo, o Repositório de Consultas não é capaz de capturar dados.

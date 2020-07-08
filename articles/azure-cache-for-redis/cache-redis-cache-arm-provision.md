@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0dbcbd173ce0a7c4c6a123f0644b870aa3cec2f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75412400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829883"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Criar um Cache Redis do Azure usando um modelo
 
@@ -52,76 +52,91 @@ Você deve definir um parâmetro para os valores que variam de acordo com o proj
 ### <a name="rediscachelocation"></a>redisCacheLocation
 O local do Cache Redis do Azure. Para obter o melhor desempenho, use o mesmo local que o aplicativo a ser usado com o cache.
 
-    "redisCacheLocation": {
-      "type": "string"
-    }
+```json
+  "redisCacheLocation": {
+    "type": "string"
+  }
+```
 
 ### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
 O nome da conta de armazenamento existente a ser usada para o diagnóstico. 
 
-    "existingDiagnosticsStorageAccountName": {
-      "type": "string"
-    }
+```json
+  "existingDiagnosticsStorageAccountName": {
+    "type": "string"
+  }
+```
 
 ### <a name="enablenonsslport"></a>enableNonSslPort
 Um valor booliano que indica a permissão de acesso por meio de portas não SSL.
 
-    "enableNonSslPort": {
-      "type": "bool"
-    }
+```json
+  "enableNonSslPort": {
+    "type": "bool"
+  }
+```
 
 ### <a name="diagnosticsstatus"></a>diagnosticsStatus
 Um valor que indica se o diagnóstico está habilitado. Use ATIVAR ou DESATIVAR.
 
-    "diagnosticsStatus": {
-      "type": "string",
-      "defaultValue": "ON",
-      "allowedValues": [
-            "ON",
-            "OFF"
-        ]
-    }
+```json
+  "diagnosticsStatus": {
+    "type": "string",
+    "defaultValue": "ON",
+    "allowedValues": [
+          "ON",
+          "OFF"
+      ]
+  }
+```
 
 ## <a name="resources-to-deploy"></a>Recursos a implantar
 ### <a name="azure-cache-for-redis"></a>Cache Redis do Azure
 Cria o Cache Redis do Azure.
 
-    {
-      "apiVersion": "2015-08-01",
-      "name": "[parameters('redisCacheName')]",
-      "type": "Microsoft.Cache/Redis",
-      "location": "[parameters('redisCacheLocation')]",
-      "properties": {
-        "enableNonSslPort": "[parameters('enableNonSslPort')]",
-        "sku": {
-          "capacity": "[parameters('redisCacheCapacity')]",
-          "family": "[parameters('redisCacheFamily')]",
-          "name": "[parameters('redisCacheSKU')]"
+```json
+  {
+    "apiVersion": "2015-08-01",
+    "name": "[parameters('redisCacheName')]",
+    "type": "Microsoft.Cache/Redis",
+    "location": "[parameters('redisCacheLocation')]",
+    "properties": {
+      "enableNonSslPort": "[parameters('enableNonSslPort')]",
+      "sku": {
+        "capacity": "[parameters('redisCacheCapacity')]",
+        "family": "[parameters('redisCacheFamily')]",
+        "name": "[parameters('redisCacheSKU')]"
+      }
+    },
+    "resources": [
+      {
+        "apiVersion": "2017-05-01-preview",
+        "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
+        "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
+        "location": "[parameters('redisCacheLocation')]",
+        "dependsOn": [
+          "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
+        ],
+        "properties": {
+          "status": "[parameters('diagnosticsStatus')]",
+          "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
         }
-      },
-      "resources": [
-        {
-          "apiVersion": "2017-05-01-preview",
-          "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
-          "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
-          "location": "[parameters('redisCacheLocation')]",
-          "dependsOn": [
-            "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
-          ],
-          "properties": {
-            "status": "[parameters('diagnosticsStatus')]",
-            "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
-          }
-        }
-      ]
-    }
+      }
+    ]
+  }
+```
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
 
+```azurepowershell
     New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+```
 
 ### <a name="azure-cli"></a>CLI do Azure
+
+```azurecli
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
+```

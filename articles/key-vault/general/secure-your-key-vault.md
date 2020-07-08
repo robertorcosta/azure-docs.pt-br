@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833631"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -54,7 +54,7 @@ A tabela a seguir mostra os pontos de extremidade para os planos de gerenciament
 
 | Plano de&nbsp;acesso | Pontos de extremidade de acesso | Operações | Mecanismo de controle de&nbsp;acesso |
 | --- | --- | --- | --- |
-| Plano de gerenciamento | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 | Criar, ler, atualizar e excluir cofres de chaves<br><br>Definir políticas de acesso do Key Vault<br><br>Definir marcas do Key Vault | RBAC do Azure Resource Manager |
+| Plano de gerenciamento | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 | Criar, ler, atualizar e excluir cofres de chaves<br><br>Definir políticas de acesso do Key Vault<br><br>Definir marcas do Key Vault | Azure RBAC |
 | Plano de dados | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Governo dos EUA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Chaves: descriptografar, criptografar,<br> desencapsular, encapsular, verificar, assinar,<br> obter, listar, atualizar, criar,<br> importar, excluir, fazer backup, restaurar<br><br> Segredos: obter, listar, definir, excluir | Política de acesso ao cofre de chaves |
 
 ## <a name="management-plane-and-rbac"></a>RBAC e o plano de gerenciamento
@@ -79,6 +79,8 @@ Há várias funções predefinidas. Se uma função predefinida não atender às
 Conceda acesso ao plano de dados definindo as políticas de acesso ao Key Vault para um cofre de chaves. Para definir essas políticas de acesso, o usuário, grupo ou aplicativo deve ter permissões `Contributor` para o plano de gerenciamento desse cofre de chaves.
 
 Conceda acesso a um usuário, grupo ou aplicativo para executar operações específicas para chaves ou segredos em um cofre de chaves. O Key Vault dá suporte a até 1.024 entradas de política de acesso para um cofre de chaves. Para conceder acesso ao plano de dados a vários usuários, crie um grupo de segurança do Azure Active Directory e adicione usuários a esse grupo.
+
+Você pode ver a lista completa de operações de cofre e segredo e entender as operações permitidas ao configurar políticas de acesso do cofre de chaves exibindo a referência a seguir. [Referência de operação de Key Vault](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a> As políticas de acesso ao Key Vault concedem separadamente as permissões a chaves, segredos e certificados. Você pode conceder a um usuário o acesso apenas às chaves e não aos segredos. As permissões de acesso para chaves, segredos e certificados estão no nível do cofre. As políticas de acesso do Key Vault não aceitam permissões granulares no nível do objeto, como uma chave, um segredo ou um certificado específicos. Para definir as políticas de acesso para um cofre de chaves, use o [Portal do Microsoft Azure](https://portal.azure.com/), a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST de gerenciamento do Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 

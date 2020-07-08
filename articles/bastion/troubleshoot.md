@@ -4,15 +4,15 @@ description: Neste artigo, saiba como solucionar problemas de bastiões do Azure
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831923"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solucionar problemas do Azure Bastion
 
@@ -20,7 +20,7 @@ Este artigo mostra como solucionar problemas de bastiões do Azure.
 
 ## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>Não é possível criar um NSG em AzureBastionSubnet
 
-**P:** Quando tento criar um NSG na sub-rede de bastiões do Azure, obtenho o seguinte erro: *' o grupo <NSG name> de segurança de rede não tem as regras necessárias para a AzureBastionSubnet de sub-rede de bastiões do Azure "*.
+**P:** Quando tento criar um NSG na sub-rede de bastiões do Azure, obtenho o seguinte erro: *' o grupo de segurança de rede <NSG name> não tem as regras necessárias para a AzureBastionSubnet de sub-rede de bastiões do Azure "*.
 
 **R:** Se você criar e aplicar um NSG ao *AzureBastionSubnet*, certifique-se de ter adicionado as regras a seguir em seu NSG. Se você não adicionar essas regras, a criação/atualização do NSG falhará.
 
@@ -28,7 +28,7 @@ Este artigo mostra como solucionar problemas de bastiões do Azure.
 2. Log de diagnóstico e outros – saída em 443 para AzureCloud (as marcas regionais nesta marcação de serviço ainda não têm suporte.)
 3. VM de destino – saída de 3389 e 22 para VirtualNetwork
 
-Um exemplo das regras NSG está disponível para referência no modelo de [início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Um exemplo das regras NSG está disponível para referência no modelo de [início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Para obter mais informações, consulte [NSG Guidance for Azure bastiões](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Não é possível usar minha chave SSH com a bastiões do Azure
@@ -39,7 +39,7 @@ Para obter mais informações, consulte [NSG Guidance for Azure bastiões](basti
 
 Por exemplo, você pode usar o seguinte comando para criar uma nova chave RSA SSH:
 
-**ssh-keygen-t RSA-b 4096-C "email@domain.com"**
+**ssh-keygen-t RSA-b 4096-C " email@domain.com "**
 
 Saída:
 
@@ -71,7 +71,7 @@ The key's randomart image is:
 
 **P:** Não consigo me conectar à minha máquina virtual do Windows que ingressou no domínio.
 
-**R:** A bastiões do Azure dá suporte à entrada de VM ingressada no domínio somente para logon de domínio baseado em senha de nome de usuário. Ao especificar as credenciais de domínio no portal do Azure, use o formato UPNusername@domain() em vez de *Domain* Format para entrar. Isso tem suporte para máquinas virtuais associadas ao domínio ou ao ingresso híbrido (ingressado no domínio, bem como ao Azure AD). Não há suporte para máquinas virtuais somente ingressadas no Azure AD.
+**R:** A bastiões do Azure dá suporte à entrada de VM ingressada no domínio somente para logon de domínio baseado em senha de nome de usuário. Ao especificar as credenciais de domínio no portal do Azure, use o formato UPN ( username@domain ) em vez de *Domain* Format para entrar. Isso tem suporte para máquinas virtuais associadas ao domínio ou ao ingresso híbrido (ingressado no domínio, bem como ao Azure AD). Não há suporte para máquinas virtuais somente ingressadas no Azure AD.
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problemas de transferência de arquivo
 

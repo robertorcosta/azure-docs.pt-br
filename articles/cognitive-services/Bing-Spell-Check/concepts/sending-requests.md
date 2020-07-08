@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 4f79e3d8d8d32bb577e8c6c6f6f6c247de13c58a
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801233"
+ms.locfileid: "85832535"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Enviar solicitações para a API de Verificação Ortográfica do Bing
 
@@ -65,14 +65,14 @@ Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, j�
 
 O exemplo a seguir mostra uma solicitação que inclui todos os cabeçalhos e parâmetros de consulta sugeridos. Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua o cabeçalho da ID do cliente. Só inclua a ID do cliente se você já tiver chamado uma API do Bing e o Bing retornou uma ID de cliente para a combinação de usuário e dispositivo. 
   
-> ```  
-> GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
-> X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-> X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-> Host: api.cognitive.microsoft.com  
-> ```  
+```http
+GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
+Ocp-Apim-Subscription-Key: 123456789ABCDE  
+X-MSEdge-ClientIP: 999.999.999.999  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
+X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
+Host: api.cognitive.microsoft.com  
+```
 
 O exemplo a seguir mostra a resposta à solicitação anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing.
 

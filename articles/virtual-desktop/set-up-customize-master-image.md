@@ -4,16 +4,16 @@ description: Como preparar, personalizar e carregar uma imagem mestra de área d
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832518"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
@@ -37,11 +37,13 @@ Para criar uma VM com o VHD copiado:
 
 2. Na página especificar geração, selecione **geração 1**.
 
-    ![Uma captura de tela da página especificar geração. A opção "geração 1" está selecionada.](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página especificar geração. A opção "geração 1" está selecionada.](media/a41174fd41302a181e46385e1e701975.png)
 
 3. Em tipo de ponto de verificação, desabilite os pontos de verificação desmarcando a caixa de seleção.
 
-    ![Uma captura de tela da seção tipo de ponto de verificação da página pontos de verificação.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da seção tipo de ponto de verificação da página pontos de verificação.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 Você também pode executar o seguinte cmdlet no PowerShell para desabilitar pontos de verificação.
 
@@ -53,7 +55,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 Se você criar uma VM de um VHD existente, ele criará um disco dinâmico por padrão. Ele pode ser alterado para um disco fixo selecionando **Editar disco...** conforme mostrado na imagem a seguir. Para obter instruções mais detalhadas, consulte [preparar um VHD do Windows ou VHDX para carregar no Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![Uma captura de tela da opção Editar disco.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela da opção Editar disco.](media/35772414b5a0f81f06f54065561d1414.png)
 
 Você também pode executar o seguinte cmdlet do PowerShell para alterar o disco para um disco fixo.
 
@@ -63,9 +66,9 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 ## <a name="software-preparation-and-installation"></a>Preparação e instalação de software
 
-Esta seção aborda como preparar e instalar o FSLogix e o Windows Defender, bem como algumas opções de configuração básicas para aplicativos e o registro da imagem. 
+Esta seção aborda como preparar e instalar o FSLogix e o Windows Defender, bem como algumas opções de configuração básicas para aplicativos e o registro da imagem.
 
-Se você estiver instalando o Office 365 ProPlus e o OneDrive em sua VM, vá para [instalar o Office em uma imagem VHD mestre](install-office-on-wvd-master-image.md) e siga as instruções para instalar os aplicativos. Depois de terminar, retorne a este artigo.
+Se você estiver instalando Microsoft 365 aplicativos para Enterprise e OneDrive em sua VM, vá para [instalar o Office em uma imagem VHD mestre](install-office-on-wvd-master-image.md) e siga as instruções para instalar os aplicativos. Depois de terminar, retorne a este artigo.
 
 Se os usuários precisarem acessar determinados aplicativos LOB, recomendamos que você os instale depois de concluir as instruções desta seção.
 
@@ -87,7 +90,7 @@ Para saber mais sobre como configurar o Windows Defender para excluir determinad
 
 Para desabilitar Atualizações Automáticas via Política de Grupo local:
 
-1. Abra **Editor de Política de Grupo Local\\modelos administrativos\\componentes\\do Windows Windows Update**.
+1. Abra **Editor de Política de Grupo Local \\ modelos administrativos \\ componentes do Windows \\ Windows Update**.
 2. Clique com o botão direito do mouse em **Configurar atualização automática** e defina-a como **desabilitada**.
 
 Você também pode executar o comando a seguir em um prompt de comando para desabilitar o Atualizações Automáticas.
@@ -113,7 +116,7 @@ Para redirecionar fusos horários:
 1. No Active Directory Server, abra o **console de gerenciamento de política de grupo**.
 2. Expanda seu domínio e Política de Grupo objetos.
 3. Clique com o botão direito do mouse no **objeto política de grupo** que você criou para as configurações da política de grupo e selecione **Editar**.
-4. No **Editor de gerenciamento de política de grupo**, navegue até **configurações** > do computador**políticas** > **modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** > **redirecionamento de dispositivo e recurso**.
+4. No **Editor de gerenciamento de política de grupo**, navegue até **configurações do computador**  >  **políticas**  >  **modelos administrativos**  >  **componentes do Windows**  >  **serviços de área de trabalho remota**  >  **host da sessão da área de trabalho remota**  >  **redirecionamento de dispositivo e recurso**.
 5. Habilite a configuração **permitir redirecionamento de fuso horário** .
 
 Você também pode executar esse comando na imagem mestra para redirecionar os fusos horários:
@@ -126,7 +129,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 Para o host de sessão de área de trabalho virtual do Windows que usa o Windows 10 Enterprise ou Windows 10 Enterprise Multi-Session, é recomendável desabilitar o sensor de armazenamento. Você pode desabilitar o sensor de armazenamento no menu configurações, em **armazenamento**, conforme mostrado na seguinte captura de tela:
 
-![Uma captura de tela do menu armazenamento em configurações. A opção "sensor de armazenamento" está desativada.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![Uma captura de tela do menu armazenamento em configurações. A opção "sensor de armazenamento" está desativada.](media/storagesense.png)
 
 Você também pode alterar a configuração com o registro executando o seguinte comando:
 
@@ -183,28 +187,31 @@ Depois de preparar a imagem para upload, verifique se a VM permanece no estado d
 
 Esta seção se aplica somente quando a imagem mestra foi criada localmente.
 
-As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento do Azure, siga as instruções neste [artigo](/azure/javascript/tutorial-vscode-static-website-node-03) para criar uma.
+As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta de armazenamento do Azure. Se você ainda não tiver uma conta de armazenamento do Azure, siga as instruções neste [artigo](/azure/developer/javascript/tutorial-vscode-static-website-node-03) para criar uma.
 
 1. Converta a imagem de VM (VHD) para fixa se você ainda não tiver feito isso. Se você não converter a imagem em Fixed, não será possível criar a imagem com êxito.
 
 2. Carregue o VHD em um contêiner de BLOB em sua conta de armazenamento. Você pode carregar rapidamente com a [ferramenta de Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta de Gerenciador de Armazenamento, consulte [Este artigo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![Uma captura de tela da janela de pesquisa da ferramenta de Gerenciador de Armazenamento do Microsoft Azure. A caixa de seleção "carregar arquivos. VHD ou vhdx como BLOBs de página (recomendado)" está marcada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da janela de pesquisa da ferramenta de Gerenciador de Armazenamento do Microsoft Azure. A caixa de seleção "carregar arquivos. VHD ou vhdx como BLOBs de página (recomendado)" está marcada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Em seguida, vá para o portal do Azure no navegador e pesquise "imagens". Sua pesquisa deve levá-lo para a página **criar imagem** , conforme mostrado na seguinte captura de tela:
 
-    ![Uma captura de tela da página Criar imagem do portal do Azure, preenchida com valores de exemplo para a imagem.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página Criar imagem do portal do Azure, preenchida com valores de exemplo para a imagem.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Depois de criar a imagem, você deverá ver uma notificação como a da captura de tela a seguir:
 
-    ![Uma captura de tela da notificação "imagem criada com êxito".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da notificação "imagem criada com êxito".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma imagem, você pode criar ou atualizar pools de hosts. Para saber mais sobre como criar e atualizar pools de hosts, consulte os seguintes artigos:
 
 - [Criar um pool de host com um modelo do Azure Resource Manager](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
-- [Tutorial: criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Tutorial: Criar um pool de host com o Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Criar um pool de host com o PowerShell](create-host-pools-powershell.md)
 - [Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivo](create-host-pools-user-profile.md)
 - [Configurar o método de balanceamento de carga da Área de Trabalho Virtual do Windows](configure-host-pool-load-balancing.md)

@@ -3,15 +3,15 @@ title: Exibir e gerenciar alertas para o dispositivo StorSimple da série 8000
 description: Descreve as condições e a gravidade de alertas do StorSimple, como configurar notificações de alerta e como usar o serviço StorSimple Device Manager para gerenciar alertas.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830036"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usar o serviço StorSimple Device Manager para exibir e gerenciar alertas do StorSimple
 
@@ -48,11 +48,11 @@ Você pode escolher se deseja ser notificado por email das condições de alerta
 > [!NOTE]
 > Você pode inserir um máximo de 20 endereços de email por dispositivo.
 
-Depois de habilitar a notificação por email para um dispositivo, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-Alerts-noresponder\@mail.WindowsAzure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar assinatura** para sair da lista de notificação de email.
+Depois de habilitar a notificação por email para um dispositivo, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-Alerts-noresponder \@ mail.WindowsAzure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar assinatura** para sair da lista de notificação de email.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Para habilitar a notificação por email de alertas para um dispositivo
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na lista de dispositivos, selecione e clique no dispositivo que você deseja configurar.
-2. Vá para **configurações** > **geral** para o dispositivo.
+2. Vá para **configurações**  >  **geral** para o dispositivo.
 
    ![Folha Alertas](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
@@ -60,7 +60,7 @@ Depois de habilitar a notificação por email para um dispositivo, os membros da
    
    1. No campo **Enviar notificação por email**, selecione **SIM**.
    2. No campo **Administradores do serviço de email**, selecione **SIM** para que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
-   3. No campo **Outros destinatários de email** , insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira nomes no formato *alguém\@Somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo. 
+   3. No campo **Outros destinatários de email** , insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira nomes no formato *alguém \@ Somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo. 
       
 3. Para enviar uma notificação de email de teste, clique em **Enviar email de teste**. O serviço Gerenciador de Dispositivo do StorSimple exibirá mensagens de status conforme ele encaminha a notificação de teste.
 
@@ -120,6 +120,7 @@ As tabelas a seguir listam alguns dos alertas do Microsoft Azure StorSimple que 
 * [Alertas de desempenho](#performance-alerts)
 * [Alertas de segurança](#security-alerts)
 * [Alertas do pacote de suporte](#support-package-alerts)
+* [Alertas de ambiente de compartimento](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividade de nuvem
 
@@ -192,9 +193,9 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |
-| Endereço IP duplicado detectado para 'Data0'. | |O sistema detectou um conflito para o endereço IP '10.0.0.1'. O recurso de rede ' Data0 ' no dispositivo * \<Device1>* está offline. Verifique se esse endereço IP não está sendo usado por qualquer outra entidade nessa rede. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para ajudar a resolver esse problema, entre em contato com o administrador da rede. Se o problema persistir, contate o Suporte da Microsoft. |
-| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP '10.0.0.1'. e o comprimento do prefixo ' 22 ' no dispositivo * \<Device1>* está offline. Certifique-se de que as portas de comutação às quais esta interface está conectada estejam operacionais. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticar não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL no portal do Azure, vá para\/https:/aka.ms/SS-8000-Network-reqs. Se estiver usando a nuvem do Azure governamental, vá para os padrões de\/URL em https:/aka.ms/ss8000-gov-Network-reqs.|
+| Endereço IP duplicado detectado para 'Data0'. | |O sistema detectou um conflito para o endereço IP '10.0.0.1'. O recurso de rede ' Data0 ' no dispositivo *\<device1>* está offline. Verifique se esse endereço IP não está sendo usado por qualquer outra entidade nessa rede. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para ajudar a resolver esse problema, entre em contato com o administrador da rede. Se o problema persistir, contate o Suporte da Microsoft. |
+| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP '10.0.0.1'. e o comprimento do prefixo ' 22 ' no dispositivo *\<device1>* está offline. Certifique-se de que as portas de comutação às quais esta interface está conectada estejam operacionais. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticar não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL no portal do Azure, vá para https: \/ /aka.ms/SS-8000-Network-reqs. Se estiver usando a nuvem do Azure governamental, vá para os padrões de URL em https: \/ /aka.ms/ss8000-gov-Network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 
@@ -219,7 +220,12 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 |:--- |:--- |:--- |
 | Falha na criação do pacote de suporte. |O StorSimple não pôde gerar o pacote. |Repita a operação. Se o problema persistir, contate o Suporte da Microsoft. Depois de resolver o problema, exclua este alerta da página de alertas. |
 
+### <a name="enclosure-environment-alerts"></a>Alertas de ambiente de compartimento
+
+| Texto de alerta | Evento | Mais informações / ações recomendadas |
+|:--- |:--- |:--- |
+| O sensor de temperatura ambiente do componente de hardware relata o status como com falha.  | Tipo de compartimento: compartimento principal | Esse alerta é disparado quando a temperatura externa do ambiente em volta do StorSimple está acima de um intervalo aceitável. Verifique a temperatura externa do ambiente ou o fluxo de ar do ventilação AC no datacenter. Quando a temperatura retorna ao normal, o alerta é limpo automaticamente depois de algum tempo ter decorrido. Se o problema persistir, contate o Suporte da Microsoft.   |
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [Erros do StorSimple e solução de problemas de implantação de um dispositivo](storsimple-8000-troubleshoot-deployment.md).
-

@@ -3,14 +3,16 @@ title: Perfil do usuário e ID para uso com Azure Notebooks versão prévia
 description: Como criar e gerenciar seu perfil de usuário e a ID de usuário com Azure Notebooks, que se torna parte da URL de blocos de anotações compartilhados.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646272"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831345"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Seu perfil e ID de usuário para Azure Notebooks versão prévia
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 No espaço de colaboração avançado do Azure Notebooks, o perfil do usuário apresenta a imagem pública para outras pessoas:
 
@@ -23,8 +25,6 @@ A ID de usuário faz parte das URLs que você usa para compartilhar projetos e n
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Arquivos de projeto.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones de projetos específicos.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: A visualização em HTML de um arquivo ou bloco de anotações específico.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>Sua ID de usuário
 
@@ -49,16 +49,16 @@ Seu perfil é composto de informações visíveis publicamente na URL, `https://
 
 Para editar seu perfil, use o comando **Editar Informações de Perfil** na sua página de perfil. As seções do seu perfil são as seguintes:
 
-| Seção | Conteúdo |
+| Seção | Sumário |
 | --- | --- |
 | Foto de perfil | Uma imagem que é mostrada na sua página de perfil. |
 | Informações da conta | Seu nome de exibição, ID de usuário e conta de email pública. Aqui, a conta de email fornece aos outros usuários uma maneira de como contatá-lo e essa conta pode ser diferente da [conta](azure-notebooks-user-account.md) que você usa para entrar no Azure Notebooks. |
 | Informações do perfil | Sua localização, empresa, cargo, site e uma breve descrição sobre você. |
 | Perfis sociais | As IDs do Facebook, Twitter e GItHub, se você quiser compartilhá-las. |
-| Configurações de privacidade | Fornece dois comandos:<ul><li>**Exportar Meu Perfil**: cria e baixa um arquivo *.zip* contendo todas as informações que o Azure Notebooks salva no seu perfil, incluindo fotos, informações de perfil e logs de segurança.</li><li>**Excluir minha conta**: exclui permanentemente todas as suas informações pessoais armazenadas no Azure notebooks.</li></ul> |
+| Configurações de Privacidade | Fornece dois comandos:<ul><li>**Exportar Meu Perfil**: cria e baixa um arquivo *.zip* contendo todas as informações que o Azure Notebooks salva no seu perfil, incluindo fotos, informações de perfil e logs de segurança.</li><li>**Excluir minha conta**: exclui permanentemente todas as suas informações pessoais armazenadas no Azure notebooks.</li></ul> |
 | Ativar Recursos do Site | Permite controlar aspectos do comportamento do Azure Notebooks:<ul><li>**Front-end unificado para notebooks**: permite inicialização mais rápida do notebook e melhor persistência.</li><li>**Executar no JupyterLab por padrão**: por padrão, o Azure notebooks fornece uma interface de usuário simples que é adequada para a maioria dos usuários. O JupyterLab fornece uma interface mais avançada, porém mais complexa para usuários experientes.</li><li>**Site VNext**: permite o layout da Web modernizado mostrado nesta documentação.</li></ul> |
 
 ## <a name="next-steps"></a>Próximas etapas  
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar e executar um bloco de anotações Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

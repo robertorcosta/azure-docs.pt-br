@@ -3,15 +3,15 @@ title: Guia de referência de funções em expressões
 description: Guia de referência de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: fea444f2e864683d6350e1c08872ec574a36852c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.openlocfilehash: 30806880b3ce9ab89479cedbce60435f44024efd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833011"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -120,6 +120,9 @@ Para trabalhar com coleções, matrizes em geral, cadeias de caracteres e, às v
 ## <a name="logical-comparison-functions"></a>Funções de comparação lógica
 
 Para trabalhar com condições, comparar valores e resultados de expressão ou avaliar vários tipos de lógica, é possível usar essas funções de comparação lógica. Para a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> Se você usar funções lógicas ou condições para comparar valores, os valores nulos serão convertidos em valores de cadeia de caracteres vazia ( `""` ). O comportamento das condições é diferente quando você compara com uma cadeia de caracteres vazia em vez de um valor nulo. Para obter mais informações, consulte a [função String ()](#string). 
 
 | Função de comparação lógica | Tarefa |
 | --------------------------- | ---- |
@@ -347,7 +350,7 @@ action()
 action().outputs.body.<property>
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*property*> | Não | String | O nome da propriedade do objeto de ação cuo valor você deseja: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. No portal do Azure, é possível localizar essas propriedades revisando os detalhes de um histórico de execuções específico. Para obter mias informações, consulte [REST API – Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST – Ações de execução de fluxo de trabalho). |
 |||||
@@ -369,7 +372,7 @@ Consulte [body()](#body) e [actions()](#actions).
 actionBody('<actionName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | O nome da saída `body` da ação desejada |
 |||||
@@ -414,7 +417,7 @@ Retornar a saída de uma ação em runtime.  e é a abreviação de `actions('<a
 actionOutputs('<actionName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | O nome da saída da ação desejada |
 |||||
@@ -475,6 +478,9 @@ Retornar a saída da ação em runtime ou os valores de outros pares de nome e v
 Para versões abreviadas, consulte [actionBody()](#actionBody), [actionOutputs()](#actionOutputs) e [body()](#body).
 Para a ação atual, consulte [action()](#action).
 
+> [!TIP]
+> A `actions()` função retorna a saída como uma cadeia de caracteres. Se você precisar trabalhar com um valor retornado como um objeto JSON, primeiro será necessário converter o valor da cadeia de caracteres. Você pode transformar o valor da cadeia de caracteres em um objeto JSON usando a [ação analisar JSON](logic-apps-perform-data-operations.md#parse-json-action).
+
 > [!NOTE]
 > Anteriormente, era possível usar a função `actions()` ou o elemento `conditions` ao especificar que uma ação foi executada com base na saída de outra ação. No entanto, para declarar explicitamente dependências entre ações, agora é necessário usar a propriedade `runAfter` da ação dependente.
 > Para saber mais sobre a propriedade `runAfter`, confira [Detectar e lidar com falhas com a propriedade runAfter](../logic-apps/logic-apps-workflow-definition-language.md).
@@ -484,7 +490,7 @@ actions('<actionName>')
 actions('<actionName>').outputs.body.<property>
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | O nome do objeto de ação cuja saída você deseja  |
 | <*property*> | Não | String | O nome da propriedade do objeto de ação cuo valor você deseja: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. No portal do Azure, é possível localizar essas propriedades revisando os detalhes de um histórico de execuções específico. Para obter mias informações, consulte [REST API – Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST – Ações de execução de fluxo de trabalho). |
@@ -515,7 +521,7 @@ Retornar o resultado da adição de dois números.
 add(<summand_1>, <summand_2>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*summand_1*>, <*summand_2*> | Sim | Integer, Float ou misto | Os números a serem adicionados |
 |||||
@@ -545,7 +551,7 @@ Adicionar um número de dias a um carimbo de data/hora.
 addDays('<timestamp>', <days>, '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*days*> | Sim | Integer | O número positivo ou negativo de dias a ser adicionado |
@@ -587,7 +593,7 @@ Adicionar um número de horas a um carimbo de data/hora.
 addHours('<timestamp>', <hours>, '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*hours*> | Sim | Integer | O número positivo ou negativo de horas a ser adicionado |
@@ -629,7 +635,7 @@ Adicionar um número de minutos a um carimbo de data/hora.
 addMinutes('<timestamp>', <minutes>, '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*minutes*> | Sim | Integer | O número positivo ou negativo de minutos a ser adicionado |
@@ -671,7 +677,7 @@ Adicionar uma propriedade e seu valor, ou par nome-valor, a um objeto JSON e ret
 addProperty(<object>, '<property>', <value>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Sim | Objeto | O objeto JSON em que você deseja adicionar uma propriedade |
 | <*property*> | Sim | String | O nome da propriedade a ser adicionada |
@@ -689,7 +695,7 @@ Para adicionar uma propriedade filho a uma propriedade existente, use esta sinta
 addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Sim | Objeto | O objeto JSON em que você deseja adicionar uma propriedade |
 | <*parent-property*> | Sim | String | O nome da propriedade pai à qual você deseja adicionar a propriedade filho |
@@ -770,7 +776,7 @@ Adicionar um número de segundos a um carimbo de data/hora.
 addSeconds('<timestamp>', <seconds>, '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*seconds*> | Sim | Integer | O número positivo ou negativo de segundos a ser adicionado |
@@ -813,7 +819,7 @@ Consulte também [getFutureTime()](#getFutureTime).
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a ser adicionado |
@@ -857,7 +863,7 @@ Retornará true quando todas as expressões forem true ou retornar false quando 
 and(<expression1>, <expression2>, ...)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*expression1*>, <*expression2*>, ... | Sim | Boolean | As expressões a serem verificadas |
 |||||
@@ -910,7 +916,7 @@ Para várias entradas, consulte [createArray()](#createArray).
 array('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres para criar uma matriz |
 |||||
@@ -943,7 +949,7 @@ Retornar a versão codificada em Base64 de uma cadeia de caracteres.
 base64('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres de entrada |
 |||||
@@ -976,7 +982,7 @@ Retornar a versão binária de uma cadeia de caracteres codificada em Base64.
 base64ToBinary('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres codificada em Base64 a ser convertida |
 |||||
@@ -1011,7 +1017,7 @@ Retorne a versão da cadeia de caracteres para uma cadeia de caracteres codifica
 base64ToString('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres codificada em Base64 a ser decodificada |
 |||||
@@ -1041,7 +1047,7 @@ Retornar a versão binária de uma cadeia de caracteres.
 binary('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres a ser convertida |
 |||||
@@ -1075,7 +1081,7 @@ Consulte [actionBody()](#actionBody) e [actions()](#actions).
 body('<actionName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | O nome da saída `body` da ação desejada |
 |||||
@@ -1120,7 +1126,7 @@ Retornar a versão booliana de um valor.
 bool(<value>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | Qualquer | O valor a ser convertido |
 |||||
@@ -1155,7 +1161,7 @@ Cadeias de caracteres vazias, matrizes vazias e objetos vazios não são nulos.
 coalesce(<object_1>, <object_2>, ...)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object_1*>, <*object_2*>, ... | Sim | Qualquer um, pode misturar tipos | Um ou mais itens para verificar se são nulos |
 |||||
@@ -1191,7 +1197,7 @@ Combinar duas ou mais cadeias de caracteres e retornar a cadeia de caracteres co
 concat('<text1>', '<text2>', ...)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text1*>, <*text2*>, ... | Sim | String | Pelo menos duas cadeias de caracteres a serem combinadas |
 |||||
@@ -1230,7 +1236,7 @@ Especificamente, essa função funciona nestes tipos de coleção:
 * Uma *matriz* para localizar um *valor*
 * Um *dicionário* para localizar uma *chave*
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | String, Array ou Dictionary | A coleção a ser verificada |
 | <*value*> | Sim | String, Array ou Dictionary, respectivamente | O item a ser localizado |
@@ -1267,7 +1273,7 @@ Converter um carimbo de data/hora de UTC (Tempo Universal Coordenado) no fuso ho
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário de destino. Para obter nomes de fuso horário, confira [Valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). Talvez seja necessário remover alguma pontuação do nome do fuso horário. |
@@ -1309,7 +1315,7 @@ Converter um carimbo de data/hora do fuso horário de origem no fuso horário de
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para obter nomes de fuso horário, confira [Valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). Talvez seja necessário remover alguma pontuação do nome do fuso horário. |
@@ -1352,7 +1358,7 @@ Converter um carimbo de data/hora do fuso horário de origem em UTC (Tempo Unive
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para obter nomes de fuso horário, confira [Valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). Talvez seja necessário remover alguma pontuação do nome do fuso horário. |
@@ -1395,7 +1401,7 @@ Para matrizes de entrada únicas, consulte [array()](#array).
 createArray('<object1>', '<object2>', ...)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object1*>, <*object2*>, ... | Sim | Qualquer um, mas não misto | Pelo menos dois itens para criar a matriz |
 |||||
@@ -1425,7 +1431,7 @@ Retornar um URI (Uniform Resource Identifier) de dados para uma cadeia de caract
 dataUri('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres a ser convertida |
 |||||
@@ -1457,7 +1463,7 @@ Embora as funções funcionem da mesma forma, `dataUriBinary()` é preferencial.
 dataUriToBinary('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | O URI de dados a ser convertido |
 |||||
@@ -1492,7 +1498,7 @@ Retornar a versão de cadeia de caracteres de um URI (Uniform Resource Identifie
 dataUriToString('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | O URI de dados a ser convertido |
 |||||
@@ -1522,7 +1528,7 @@ Retorna o dia do mês de um carimbo de data/hora.
 dayOfMonth('<timestamp>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 |||||
@@ -1552,7 +1558,7 @@ Retornar o dia da semana de um carimbo de data/hora.
 dayOfWeek('<timestamp>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 |||||
@@ -1582,7 +1588,7 @@ Retorna o dia do ano de um carimbo de data/hora.
 dayOfYear('<timestamp>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 |||||
@@ -1621,7 +1627,7 @@ Retorne a versão binária de um URI (Uniform Resource Identifier) de dados. Con
 decodeDataUri('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres do URI de dados a ser decodificada |
 |||||
@@ -1656,7 +1662,7 @@ Retornar uma cadeia de caracteres que substitui caracteres de escape por versõe
 decodeUriComponent('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres com os caracteres de escape a ser decodificada |
 |||||
@@ -1687,7 +1693,7 @@ Para obter o resultado restante, consulte [mod()](#mod).
 div(<dividend>, <divisor>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Sim | Integer ou Float | O número a ser dividido pelo *divisor* |
 | <*divisor*> | Sim | Integer ou Float | O número que divide o *dividendo*, mas não pode ser 0 |
@@ -1722,7 +1728,7 @@ Retornar uma versão codificada para URI (Uniform Resource Identifier) para uma 
 encodeUriComponent('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres a ser convertida em um formato codificado para URI |
 |||||
@@ -1754,7 +1760,7 @@ empty('<collection>')
 empty([<collection>])
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | String, Array ou Object | A coleção a ser verificada |
 |||||
@@ -1790,7 +1796,7 @@ Essa função não diferencia maiúsculas de minúsculas.
 endsWith('<text>', '<searchText>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres a ser verificada |
 | <*searchText*> | Sim | String | A subcadeia de caracteres final a ser localizada |
@@ -1832,7 +1838,7 @@ Retornará true quando ambos forem equivalentes ou retornará false quando não 
 equals('<object1>', '<object2>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object1*>, <*object2*> | Sim | Vários | Os valores, expressões ou objetos a serem comparados |
 |||||
@@ -1867,7 +1873,7 @@ first('<collection>')
 first([<collection>])
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | String ou Array | A coleção na qual localizar o primeiro item |
 |||||
@@ -1902,7 +1908,7 @@ Use essa função apenas ao passar parâmetros personalizados para um aplicativo
 float('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres que tem um número de ponto flutuante válido a ser convertido |
 |||||
@@ -1932,7 +1938,7 @@ Retornar um carimbo de data/hora no formato especificado.
 formatDateTime('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*format*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
@@ -1963,7 +1969,7 @@ Retornar uma matriz com valores correspondentes a um nome de chave na saída de 
 formDataMultiValues('<actionName>', '<key>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | A ação cuja saída tem o valor de chave desejado |
 | <*key*> | Sim | String | O nome da chave cujo valor você deseja |
@@ -1995,7 +2001,7 @@ Se a função localizar mais de uma correspondência, a função gerará um erro
 formDataValue('<actionName>', '<key>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | A ação cuja saída tem o valor de chave desejado |
 | <*key*> | Sim | String | O nome da chave cujo valor você deseja |
@@ -2026,7 +2032,7 @@ Retorna um número como uma cadeia de caracteres com base no formato especificad
 formatNumber(<number>, <format>, <locale>?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*number*> | Sim | Inteiro ou duplo | O valor que você deseja formatar. |
 | <*format*> | Sim | String | Uma cadeia de caracteres de formato composto que especifica o formato que você deseja usar. Para obter as cadeias de caracteres de formato numérico compatíveis, confira [Cadeias de caracteres de formato numérico padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings), que são compatíveis com `number.ToString(<format>, <locale>)`. |
@@ -2043,7 +2049,7 @@ formatNumber(<number>, <format>, <locale>?)
 Suponha que você deseje formatar o número `1234567890`. Este exemplo formata esse número como a cadeia de caracteres "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'en-us')
+formatNumber(1234567890, '0,0.00', 'en-us')
 ```
 
 *Exemplo 2
@@ -2051,7 +2057,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 Suponha que você deseje formatar o número `1234567890`. Este exemplo formata o número como a cadeia de caracteres "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'is-is')
+formatNumber(1234567890, '0,0.00', 'is-is')
 ```
 
 *Exemplo 3*
@@ -2080,7 +2086,7 @@ Retornar o carimbo de data/hora atual mais as unidades de tempo especificadas.
 getFutureTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a ser adicionado |
 | <*timeUnit*> | Sim | String | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
@@ -2124,7 +2130,7 @@ Retornar o carimbo de data/hora atual menos as unidades de tempo especificadas.
 getPastTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a serem subtraídas |
 | <*timeUnit*> | Sim | String | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
@@ -2170,7 +2176,7 @@ greater(<value>, <compareTo>)
 greater('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | Integer, Float ou String | O primeiro valor para verificar se é maior do que o segundo |
 | <*compareTo*> | Sim | Integer, Float ou String, respectivamente | O valor de comparação |
@@ -2207,7 +2213,7 @@ greaterOrEquals(<value>, <compareTo>)
 greaterOrEquals('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | Integer, Float ou String | O primeiro valor para verificar se é superior ou igual ao segundo |
 | <*compareTo*> | Sim | Integer, Float ou String, respectivamente | O valor de comparação |
@@ -2248,7 +2254,7 @@ Além disso, é possível especificar um formato diferente para o GUID que não 
 guid('<format>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*format*> | Não | String | Um único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para o GUID retornado. Por padrão, o formato é "D", mas é possível usar "N", "D", "B", "P" ou "X". |
 |||||
@@ -2278,7 +2284,7 @@ Verificar se uma expressão é verdadeira ou falsa. Com base no resultado, retor
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*expression*> | Sim | Boolean | A expressão a ser verificada |
 | <*valueIfTrue*> | Sim | Qualquer | O valor a ser retornado quando a expressão for verdadeira |
@@ -2310,7 +2316,7 @@ Essa função não diferencia maiúsculas de minúsculas, e os índices começam
 indexOf('<text>', '<searchText>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser localizada |
 | <*searchText*> | Sim | String | A subcadeia de caracteres a ser localizada |
@@ -2341,7 +2347,7 @@ Retornar a versão em inteiros de uma cadeia de caracteres.
 int('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres a ser convertida |
 |||||
@@ -2396,7 +2402,7 @@ Use esta função dentro do loop for-each.
 items('<loopName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*loopName*> | Sim | String | O nome do loop for-each |
 |||||
@@ -2424,7 +2430,7 @@ Retorna o valor de índice da iteração atual dentro de um loop Until. Você po
 iterationIndexes('<loopName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição | 
+| Parâmetro | Obrigatório | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*loopName*> | Sim | String | O nome do loop Until | 
 ||||| 
@@ -2525,7 +2531,7 @@ Retornar o objeto ou valor de tipo JSON (JavaScript Object Notation) corresponde
 json('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String ou XML | A cadeia de caracteres ou XML a ser convertido |
 |||||
@@ -2597,7 +2603,7 @@ intersection([<collection1>], [<collection2>], ...)
 intersection('<collection1>', '<collection2>', ...)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection1*>, <*collection2*>, ... | Sim | Matriz ou objeto, mas não ambos | As coleções da qual você deseja *somente* os itens comuns |
 |||||
@@ -2627,7 +2633,7 @@ Retornar uma cadeia de caracteres que tem todos os itens de uma matriz e tem cad
 join([<collection>], '<delimiter>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | Array | A matriz que tem os itens a serem ingressados |
 | <*delimiter*> | Sim | String | O separador exibido entre cada caractere na cadeia de caracteres resultante |
@@ -2659,7 +2665,7 @@ last('<collection>')
 last([<collection>])
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | String ou Array | A coleção na qual localizar o último item |
 |||||
@@ -2694,7 +2700,7 @@ Essa função não diferencia maiúsculas de minúsculas, e os índices começam
 lastIndexOf('<text>', '<searchText>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser localizada |
 | <*searchText*> | Sim | String | A subcadeia de caracteres a ser localizada |
@@ -2726,7 +2732,7 @@ length('<collection>')
 length([<collection>])
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | String ou Array | A coleção com os itens a serem contados |
 |||||
@@ -2759,7 +2765,7 @@ less(<value>, <compareTo>)
 less('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | Integer, Float ou String | O primeiro valor para verificar se é menor do que o segundo |
 | <*compareTo*> | Sim | Integer, Float ou String, respectivamente | O item de comparação |
@@ -2796,7 +2802,7 @@ lessOrEquals(<value>, <compareTo>)
 lessOrEquals('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | Integer, Float ou String | O primeiro valor para verificar se é inferior ou igual ao segundo |
 | <*compareTo*> | Sim | Integer, Float ou String, respectivamente | O item de comparação |
@@ -2854,7 +2860,7 @@ max(<number1>, <number2>, ...)
 max([<number1>, <number2>, ...])
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*number1*>, <*number2*>, ... | Sim | Integer, Float ou ambos | O conjunto de números do qual você deseja o valor mais alto |
 | [<*number1*>, <*number2*>, ...] | Sim | Array – Integer, Float ou ambos | A matriz de números da qual você deseja o valor mais alto |
@@ -2887,7 +2893,7 @@ min(<number1>, <number2>, ...)
 min([<number1>, <number2>, ...])
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*number1*>, <*number2*>, ... | Sim | Integer, Float ou ambos | O conjunto de números do qual você deseja o valor mais baixo |
 | [<*number1*>, <*number2*>, ...] | Sim | Array – Integer, Float ou ambos | A matriz de números da qual você deseja o valor mais baixo |
@@ -2920,7 +2926,7 @@ Para obter o resultado inteiro, consulte [div()](#div).
 mod(<dividend>, <divisor>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Sim | Integer ou Float | O número a ser dividido pelo *divisor* |
 | <*divisor*> | Sim | Integer ou Float | O número que divide o *dividendo*, mas não pode ser 0. |
@@ -2951,7 +2957,7 @@ Retornar o produto da multiplicação de dois números.
 mul(<multiplicand1>, <multiplicand2>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*multiplicand1*> | Sim | Integer ou Float | O número a ser multiplicado por *multiplicand2* |
 | <*multiplicand2*> | Sim | Integer ou Float | O número que multiplica *multiplicand1* |
@@ -2986,7 +2992,7 @@ Retornar o corpo de uma parte específica na saída de uma ação que tem vária
 multipartBody('<actionName>', <index>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | O nome da ação que tem saída com várias partes |
 | <*index*> | Sim | Integer | O valor de índice da parte desejada |
@@ -3008,7 +3014,7 @@ Retornará true quando a expressão for falsa ou retornará false quando for ver
 not(<expression>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*expression*> | Sim | Boolean | A expressão a ser verificada |
 |||||
@@ -3057,7 +3063,7 @@ Retornará true quando pelo menos uma expressão for verdadeira ou false quando 
 or(<expression1>, <expression2>, ...)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*expression1*>, <*expression2*>, ... | Sim | Boolean | As expressões a serem verificadas |
 |||||
@@ -3105,7 +3111,7 @@ Retorna as saídas de uma ação em runtime. Use essa função, em vez de `actio
 outputs('<actionName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | O nome da saída da ação desejada |
 |||||
@@ -3168,7 +3174,7 @@ Retorna o valor de um parâmetro descrito na definição de fluxo de trabalho.
 parameters('<parameterName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*parameterName*> | Sim | String | O nome do parâmetro cujo valor você deseja |
 |||||
@@ -3206,7 +3212,7 @@ Retornar um inteiro aleatório de um intervalo especificado, inclusivo apenas na
 rand(<minValue>, <maxValue>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*minValue*> | Sim | Integer | O menor inteiro no intervalo |
 | <*maxValue*> | Sim | Integer | O inteiro que segue o inteiro mais alto no intervalo que a função pode retornar |
@@ -3237,7 +3243,7 @@ Retornar uma matriz de inteiros que começa em um inteiro especificado.
 range(<startIndex>, <count>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Sim | Integer | Um valor inteiro que inicia a matriz como o primeiro item |
 | <*count*> | Sim | Integer | O número de inteiros na matriz |
@@ -3268,7 +3274,7 @@ Substituir uma subcadeia de caracteres pela cadeia de caracteres especificada e 
 replace('<text>', '<oldText>', '<newText>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser substituída |
 | <*oldText*> | Sim | String | A subcadeia de caracteres a ser substituída |
@@ -3300,7 +3306,7 @@ Remover uma propriedade de um objeto e retornar o objeto atualizado. Se a propri
 removeProperty(<object>, '<property>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Sim | Objeto | O objeto JSON do qual você deseja remover uma propriedade |
 | <*property*> | Sim | String | O nome da propriedade a ser removida |
@@ -3317,7 +3323,7 @@ Para remover uma propriedade filho de uma propriedade existente, use esta sintax
 removeProperty(<object>['<parent-property>'], '<child-property>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Sim | Objeto | O objeto JSON cuja propriedade você deseja remover |
 | <*parent-property*> | Sim | String | O nome da propriedade pai com a propriedade filho que você deseja remover |
@@ -3397,7 +3403,7 @@ Retorna as entradas e as saídas de todas as ações que estão dentro da ação
 result('<scopedActionName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*scopedActionName*> | Sim | String | O nome da ação no escopo da qual as entradas e as saídas de todas as ações internas serão retornadas |
 ||||
@@ -3518,7 +3524,7 @@ Define o valor da propriedade do objeto JSON e retorna o objeto atualizado. Se a
 setProperty(<object>, '<property>', <value>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Sim | Objeto | O objeto JSON cuja propriedade você deseja definir |
 | <*property*> | Sim | String | O nome da propriedade nova ou existente a ser definida |
@@ -3531,7 +3537,7 @@ Para definir a propriedade filho em um objeto filho, use uma chamada `setPropert
 setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Sim | Objeto | O objeto JSON cuja propriedade você deseja definir |
 | <*parent-property*> | Sim | String | O nome da propriedade pai com a propriedade filho que você deseja definir |
@@ -3610,7 +3616,7 @@ Remover itens do início de uma coleção e retornar *todos os outros* itens.
 skip([<collection>], <count>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | Array | A coleção cujos itens você deseja remover |
 | <*count*> | Sim | Integer | Um inteiro positivo para o número de itens a ser removido no início |
@@ -3635,13 +3641,13 @@ E retorna essa matriz com os itens restantes: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Retorna uma matriz que contém substrings separadas por vírgulas, com base no caractere delimitador especificado na cadeia de caracteres original.
+Retorna uma matriz que contém substrings separadas por vírgulas com base no caractere delimitador especificado na cadeia de caracteres original.
 
 ```
 split('<text>', '<delimiter>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres para separar em subcadeias de caracteres com base no delimitador especificado na cadeia de caracteres original |
 | <*delimiter*> | Sim | String | O caractere na cadeia de caracteres original para usar como delimitador |
@@ -3672,7 +3678,7 @@ Retornar o início do dia de um carimbo de data/hora.
 startOfDay('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*format*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
@@ -3703,7 +3709,7 @@ Retornar o início da hora de um carimbo de data/hora.
 startOfHour('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*format*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
@@ -3734,7 +3740,7 @@ Retornar o início do mês de um carimbo de data/hora.
 startOfMonth('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*format*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
@@ -3777,7 +3783,7 @@ Essa função não diferencia maiúsculas de minúsculas.
 startsWith('<text>', '<searchText>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres a ser verificada |
 | <*searchText*> | Sim | String | A cadeia de caracteres inicial a ser localizada |
@@ -3818,15 +3824,19 @@ Retornar a versão de cadeia de caracteres para um valor.
 string(<value>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sim | Qualquer | O valor a ser convertido |
+| <*value*> | Sim | Qualquer | O valor a ser convertido. Se esse valor for nulo ou for avaliado como NULL, o valor será convertido em um valor de cadeia de caracteres vazia ( `""` ). <p><p>Por exemplo, se você atribuir uma variável de cadeia de caracteres a uma propriedade não existente, que você pode acessar com o `?` operador, o valor nulo será convertido em uma cadeia de caracteres vazia. No entanto, comparar um valor nulo não é o mesmo que comparar uma cadeia de caracteres vazia. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*string-value*> | String | A versão de cadeia de caracteres do valor especificado |
+| <*string-value*> | String | A versão da cadeia de caracteres para o valor especificado. Se o parâmetro de *valor* for nulo ou for avaliado como NULL, esse valor será retornado como um valor de cadeia de caracteres ( `""` ) vazio. |
 ||||
+
+
+
+
 
 *Exemplo 1*
 
@@ -3858,7 +3868,7 @@ Retornar o resultado da subtração do segundo número do primeiro.
 sub(<minuend>, <subtrahend>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*minuend*> | Sim | Integer ou Float | O número do qual subtrair o *subtraendo* |
 | <*subtrahend*> | Sim | Integer ou Float | O número a ser subtraído do *minuendo* |
@@ -3890,7 +3900,7 @@ Os valores de índice começam com o número 0.
 substring('<text>', <startIndex>, <length>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres cujos caracteres você deseja |
 | <*startIndex*> | Sim | Integer | Um número positivo igual ou superior a 0 que você deseja usar como a posição inicial ou o valor do índice |
@@ -3923,7 +3933,7 @@ Confira também [getPastTime](#getPastTime).
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a serem subtraídas |
@@ -3967,7 +3977,7 @@ take('<collection>', <count>)
 take([<collection>], <count>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | String ou Array | A coleção cujos itens você deseja |
 | <*count*> | Sim | Integer | Um inteiro positivo para o número de itens que você deseja no início |
@@ -4002,7 +4012,7 @@ Retorna o número de tiques, que são intervalos de 100 nanossegundos, desde 1º
 ticks('<timestamp>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | String | A cadeia de caracteres de um carimbo de data/hora |
 |||||
@@ -4022,7 +4032,7 @@ Retornar uma cadeia de caracteres em letras minúsculas. Se um caractere na cade
 toLower('<text>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres a ser retornada no formato em minúsculas |
 |||||
@@ -4052,7 +4062,7 @@ Retornar uma cadeia de caracteres em letras maiúsculas. Se um caractere na cade
 toUpper('<text>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres a ser retornada no formato em maiúsculas |
 |||||
@@ -4121,7 +4131,7 @@ Retornar uma matriz com valores que correspondem a um nome de chave na saída de
 triggerFormDataMultiValues('<key>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*key*> | Sim | String | O nome da chave cujo valor você deseja |
 |||||
@@ -4152,7 +4162,7 @@ Se a função localizar mais de uma correspondência, a função gerará um erro
 triggerFormDataValue('<key>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*key*> | Sim | String | O nome da chave cujo valor você deseja |
 |||||
@@ -4182,7 +4192,7 @@ Retornar o corpo de uma parte específica na saída de um gatilho que tem vária
 triggerMultipartBody(<index>)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*index*> | Sim | Integer | O valor de índice da parte desejada |
 |||||
@@ -4219,7 +4229,7 @@ Remover espaços em branco à esquerda e à direita de uma cadeia de caracteres 
 trim('<text>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres que tem o espaço em branco à esquerda e à direita a ser removida |
 |||||
@@ -4251,7 +4261,7 @@ union('<collection1>', '<collection2>', ...)
 union([<collection1>], [<collection2>], ...)
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection1*>, <*collection2*>, ...  | Sim | Matriz ou objeto, mas não ambos | As coleções das quais você deseja *todos* os itens |
 |||||
@@ -4283,7 +4293,7 @@ Embora as funções funcionem da mesma forma, `uriComponent()` é preferencial.
 uriComponent('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres a ser convertida em um formato codificado para URI |
 |||||
@@ -4313,7 +4323,7 @@ Retornar a versão binária de um componente URI (Uniform Resource Identifier).
 uriComponentToBinary('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres codificada para URI a ser convertida |
 |||||
@@ -4348,7 +4358,7 @@ Retornar a versão de cadeia de caracteres para uma cadeia de caracteres codific
 uriComponentToString('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres codificada para URI a ser decodificada |
 |||||
@@ -4378,7 +4388,7 @@ Retornar o valor `host` de um URI (Uniform Resource Identifier).
 uriHost('<uri>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Sim | String | O URI cujo valor `host` você deseja |
 |||||
@@ -4408,7 +4418,7 @@ Retornar o valor `path` de um URI (Uniform Resource Identifier).
 uriPath('<uri>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Sim | String | O URI cujo valor `path` você deseja |
 |||||
@@ -4438,7 +4448,7 @@ Retornar os valores `path` e `query` de um URI (Uniform Resource Identifier).
 uriPathAndQuery('<uri>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Sim | String | O URI cujos valores `path` e `query` você deseja |
 |||||
@@ -4468,7 +4478,7 @@ Retornar o valor `port` de um URI (Uniform Resource Identifier).
 uriPort('<uri>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Sim | String | O URI cujo valor `port` você deseja |
 |||||
@@ -4498,7 +4508,7 @@ Retornar o valor `query` de um URI (Uniform Resource Identifier).
 uriQuery('<uri>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Sim | String | O URI cujo valor `query` você deseja |
 |||||
@@ -4528,7 +4538,7 @@ Retornar o valor `scheme` de um URI (Uniform Resource Identifier).
 uriScheme('<uri>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*uri*> | Sim | String | O URI cujo valor `scheme` você deseja |
 |||||
@@ -4561,7 +4571,7 @@ utcNow('<format>')
 Ou é possível especificar um formato diferente com o parâmetro <*formato*>.
 
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*format*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
@@ -4603,7 +4613,7 @@ Retornar o valor de uma variável especificada.
 variables('<variableName>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*variableName*> | Sim | String | O nome da variável cujo valor você deseja |
 |||||
@@ -4634,7 +4644,7 @@ Retornar todos os detalhes sobre o próprio fluxo de trabalho durante o tempo de
 workflow().<property>
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*property*> | Não | String | O nome da propriedade de fluxo de trabalho cujo valor você deseja <p>Um objeto de fluxo de trabalho tem estas propriedades: **name**, **type**, **id**, **location** e **run**. O valor da propriedade **run** também é um objeto que tem estas propriedades: **name**, **type** e **id**. |
 |||||
@@ -4657,7 +4667,7 @@ Retornar a versão XML de uma cadeia de caracteres que contém um objeto JSON.
 xml('<value>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Sim | String | A cadeia de caracteres com o objeto JSON a ser convertido <p>O objeto JSON deve ter apenas uma propriedade raiz, que não pode ser uma matriz. <br>Use o caractere de barra invertida (\\) como um caractere de escape para aspas duplas ("). |
 |||||
@@ -4715,7 +4725,7 @@ Verificar o XML em busca de nós ou valores correspondentes a uma expressão XPa
 xpath('<xml>', '<xpath>')
 ```
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*xml*> | Sim | Qualquer | A cadeia de caracteres XML na qual pesquisar nós ou valores correspondentes a um valor de expressão XPath |
 | <*xpath*> | Sim | Qualquer | A expressão XPath usada para localizar valores ou nós XML correspondentes |

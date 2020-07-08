@@ -3,22 +3,22 @@ title: Entrar no Azure Notebooks visualização
 description: Configure sua conta de usuário para blocos de anotações do Azure usando uma conta da Microsoft ou uma conta de trabalho/estudante.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832178"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Sua conta de usuário para Azure Notebooks versão prévia
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Você pode usar o Azure Notebooks com ou sem entrar com uma conta de usuário:
 
 - Sem precisar entrar, você pode criar e executar blocos de anotações, mas não é possível manter blocos de anotações ou arquivos de dados como parte dos projetos. Os usuários que recebem um link para um Azure Notebook, por exemplo, podem aproveitar o bloco de anotações sem a necessidade de entrar.
 - Quando conectado, o Azure Notebooks retém todos os seus projetos com sua conta. Usuários conectados também tem uma ID de usuário que permite compartilhar seus projetos e notebooks com outras pessoas.
 - Quando a conta usada para Microsoft Azure Notebooks também está associada uma assinatura do Azure, você obtém benefícios adicionais como a execução de blocos de anotações em servidores mais poderosos, criação de blocos de anotações privados e conceder permissões a blocos de anotações para usuários individuais.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Entrar no Azure Notebooks requer uma Conta da Microsoft ou uma conta "Corporativa ou de estudante". Você será solicitado para sua conta ao selecionar o **Entrar** no canto superior direito da página Notebooks:
 
@@ -53,7 +53,7 @@ Para habilitar o acessos, os pais devem fazer as seguintes etapas:
 
 ## <a name="work-or-school-accounts"></a>Contas corporativas ou de estudante
 
-Uma conta corporativa ou de estudante é criada por um administrador da organização para permitir que um membro da organização acesse os serviços de nuvem da Microsoft como o Office 365 e também como uma conta para entrar no Windows em um computador ingressado no domínio. Uma conta corporativa ou de estudante normalmente usa um endereço de email organizacional, tais como any-user@contoso.com.
+Uma conta corporativa ou de estudante é criada pelo administrador de uma organização para permitir que um membro da organização acesse os serviços de nuvem da Microsoft, como Microsoft 365, e também como uma conta para entrar no Windows em um computador ingressado no domínio. Uma conta corporativa ou de estudante normalmente usa um endereço de email organizacional, tais como any-user@contoso.com.
 
 Entrar no Azure Notebooks com uma conta corporativa ou de estudante pode exigir o consentimento do administrador porque os Azure Notebooks coleta ou usa (mas não revela) informações como o endereço de email da conta e informações sobre o navegador do usuário. (os dados do navegador são usados para otimizar os recursos de acordo com o uso popular).
 

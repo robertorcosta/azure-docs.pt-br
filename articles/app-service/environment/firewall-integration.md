@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: e56e5878c2f3528bee50137b4d40d947feda3ece
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832977"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -96,8 +96,10 @@ Esse uso do Gateway de Aplicativo é apenas um exemplo de como configurar o sist
 
 O Firewall do Azure pode enviar logs para o Armazenamento do Azure, o Hub de Eventos ou os Logs do Azure Monitor. Para integrar seu aplicativo com qualquer destino compatível, acesse o portal do Firewall do Azure > Logs de Diagnóstico e habilite os logs para o destino desejado. Se você fizer a integração com os logs do Azure Monitor, poderá ver os logs de qualquer tráfego enviado para o Firewall do Azure. Para ver o tráfego que está sendo negado, abra o portal de espaços de trabalho do Log Analytics existentes &gt; Logs e insira uma consulta como 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
 A integração do Firewall do Azure aos logs do Azure Monitor é útil ao tornar o aplicativo funcional pela primeira vez, quando você não está ciente de todas as dependências de aplicativo. Saiba mais sobre os logs do Azure Monitor em [Analisar dados de log no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Dependências
@@ -248,6 +250,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |security.ubuntu.com:80 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
+|\*. data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
 |apt-mo.trafficmanager.net:80 |

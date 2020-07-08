@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833096"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Como usar um Balanceador de Carga Interno com um Ambiente do Serviço do Aplicativo
 
@@ -118,9 +118,10 @@ Os itens adicionais de gerenciamento são gerenciamento de certificados e gerenc
 #### <a name="dns-configuration"></a>Configuração de DNS
 Ao usar um VIP Externo, o DNS é gerenciado pelo Azure. Qualquer aplicativo criado no ASE é automaticamente adicionado ao DNS do Azure, que é um DNS público. Em um ASE ILB, é necessário gerenciar seu próprio DNS. Para um subdomínio específico, como contoso.corp.net, é necessário criar registros de DNS A que apontem para o endereço ILB para:
 
-    * 
-    publicação de ftp *.scm 
-
+- \*
+- *.scm
+- ftp
+- Publicar
 
 ## <a name="getting-started"></a>Introdução
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução aos ambientes de Serviço de Aplicativo][WhatisASE]

@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832994"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da Grade de Eventos do Azure para o Azure Functions
 
@@ -419,11 +419,15 @@ O comando requer a URL do ponto de extremidade que invoca a função. O exemplo 
 
 #### <a name="version-2x-and-higher-runtime"></a>Runtime Versão 2.x (e posterior)
 
-    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```
 
 #### <a name="version-1x-runtime"></a>runtime versão 1.x
 
-    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```
 
 A chave do sistema é uma chave de autorização que deve ser incluída na URL do ponto de extremidade para um gatilho de Grade de Eventos. A seção a seguir explica como obter a chave do sistema.
 

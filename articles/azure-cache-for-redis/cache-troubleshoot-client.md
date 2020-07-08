@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829662"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solucionar problemas no lado do cliente do Cache do Azure para Redis
 
@@ -30,7 +30,7 @@ A pressão de memória na máquina cliente leva a todos os tipos de problemas de
 Para detectar a pressão de memória no cliente:
 
 - Monitore o uso de memória no computador para garantir que ele não exceda a memória disponível.
-- Monitore o contador `Page Faults/Sec` de desempenho do cliente. Durante a operação normal, a maioria dos sistemas tem algumas falhas de página. Picos em falhas de página correspondentes a tempos limite de solicitação podem indicar a pressão de memória.
+- Monitore o contador de desempenho do cliente `Page Faults/Sec` . Durante a operação normal, a maioria dos sistemas tem algumas falhas de página. Picos em falhas de página correspondentes a tempos limite de solicitação podem indicar a pressão de memória.
 
 A alta pressão de memória no cliente pode ser atenuada de várias maneiras:
 
@@ -41,14 +41,16 @@ A alta pressão de memória no cliente pode ser atenuada de várias maneiras:
 
 A intermitência de tráfego, combinada com configurações de `ThreadPool` ruins, podem resultar em atrasos no processamento de dados que já foram enviados pelo servidor Redis, mas ainda não foram consumidos no lado do cliente.
 
-Monitore como `ThreadPool` suas estatísticas são alteradas ao longo do tempo usando [um exemplo `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Você pode usar `TimeoutException` mensagens de stackexchange. Redis como mostrado abaixo para investigar ainda mais:
+Monitore como suas `ThreadPool` estatísticas são alteradas ao longo do tempo usando [um exemplo `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Você pode usar `TimeoutException` mensagens de stackexchange. Redis como mostrado abaixo para investigar ainda mais:
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 Na exceção anterior, há vários problemas que são interessantes:
 
-- Observe que, na seção `IOCP` e na seção `WORKER`, você tem um valor `Busy` que é maior que o valor `Min`. Essa diferença significa que `ThreadPool` suas configurações precisam ser ajustadas.
+- Observe que, na seção `IOCP` e na seção `WORKER`, você tem um valor `Busy` que é maior que o valor `Min`. Essa diferença significa que suas `ThreadPool` configurações precisam ser ajustadas.
 - Você também pode ver `in: 64221`. Esse valor indica que 64.211 bytes foram recebidos na camada de soquete do kernel do cliente, mas que não foram lidos pelo aplicativo. Essa diferença normalmente significa que seu aplicativo (por exemplo, StackExchange. Redis) não está lendo dados da rede tão rapidamente quanto o servidor o está enviando para você.
 
 Você pode [definir suas `ThreadPool` configurações](cache-faq.md#important-details-about-threadpool-growth) para garantir que seu pool de threads seja dimensionado rapidamente em cenários de disparo contínuo.
@@ -57,7 +59,7 @@ Você pode [definir suas `ThreadPool` configurações](cache-faq.md#important-de
 
 Alto uso de CPU do cliente indica que o sistema não pode acompanhar o trabalho que ele foi solicitado a fazer. Embora o cache tenha enviado a resposta rapidamente, o cliente pode falhar ao processar a resposta em tempo hábil.
 
-Monitore o uso de CPU de todo o sistema do cliente usando métricas disponíveis no portal do Azure ou por meio de contadores de desempenho no computador. Tenha cuidado para não monitorar a CPU do *processo* , pois um único processo pode ter baixa utilização da CPU, mas a CPU de todo o sistema pode ser alta. Fique atento a picos de uso de CPU que correspondem aos tempos limite. A alta CPU também pode causar `in: XXX` valores altos `TimeoutException` em mensagens de erro, conforme descrito na seção de [intermitência de tráfego](#traffic-burst) .
+Monitore o uso de CPU de todo o sistema do cliente usando métricas disponíveis no portal do Azure ou por meio de contadores de desempenho no computador. Tenha cuidado para não monitorar a CPU do *processo* , pois um único processo pode ter baixa utilização da CPU, mas a CPU de todo o sistema pode ser alta. Fique atento a picos de uso de CPU que correspondem aos tempos limite. A alta CPU também pode causar `in: XXX` valores altos em `TimeoutException` mensagens de erro, conforme descrito na seção de [intermitência de tráfego](#traffic-burst) .
 
 > [!NOTE]
 > O StackExchange 1.1.603 e versões posteriores incluem a métrica `local-cpu` em mensagens de erro `TimeoutException`. Certifique-se de estar usando a versão mais recente do [Pacote NuGet do StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Constantemente são corrigidos bugs no código para torná-lo mais robusto com relação a tempos limite, de modo que ter a versão mais recente é importante.

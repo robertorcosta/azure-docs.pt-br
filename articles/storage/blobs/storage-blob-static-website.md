@@ -3,26 +3,27 @@ title: Hospedagem de site estático no Armazenamento do Microsoft Azure
 description: O Armazenamento do Microsoft Azure agora oferece um site estático hospedand, fornecendo uma solução econômica e dimensionável para hospedar aplicativos web modernos.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833339"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 
 Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Hospedar seu conteúdo no Armazenamento do Azure permite que você use arquiteturas sem servidor que incluem [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS (plataforma como serviço).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > Se o seu site depende do código do servidor, use [Azure App Service](/azure/app-service/overview).
+Certifique-se de criar uma conta de armazenamento padrão de uso geral v2. Os sites estáticos não estão disponíveis em nenhum outro tipo de conta de armazenamento.
 
 ## <a name="setting-up-a-static-website"></a>Configuração de um site estático
 
@@ -46,7 +47,7 @@ Você pode usar qualquer uma dessas ferramentas para carregar conteúdo para o c
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensão do Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Extensão do Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Exibição de conteúdo
 
@@ -63,11 +64,11 @@ A URL do seu site contém um código regional. Por exemplo, a URL `https://conto
 
 Embora esse código deva permanecer na URL, ele é apenas para uso interno, e você não precisará usar esse código de nenhuma outra maneira.
 
-O documento de índice especificado quando você habilita a hospedagem de site estático é exibido quando os usuários abrem o site e não especificam um arquivo (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net`).  
+O documento de índice especificado quando você habilita a hospedagem de site estático é exibido quando os usuários abrem o site e não especificam um arquivo (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### <a name="secondary-endpoints"></a>Pontos de extremidade secundários
 
-Se você configurar a [redundância em uma região secundária](../common/storage-redundancy.md#redundancy-in-a-secondary-region), também poderá acessar o conteúdo do site usando um ponto de extremidade secundário. Como os dados são replicados para regiões secundárias de forma assíncrona, os arquivos que estão disponíveis no ponto de extremidade secundário nem sempre estão em sincronia com os arquivos disponíveis no ponto de extremidade primário. 
+Se você configurar a [redundância em uma região secundária](../common/storage-redundancy.md#redundancy-in-a-secondary-region), também poderá acessar o conteúdo do site usando um ponto de extremidade secundário. Como os dados são replicados para regiões secundárias de forma assíncrona, os arquivos que estão disponíveis no ponto de extremidade secundário nem sempre estão em sincronia com os arquivos disponíveis no ponto de extremidade primário.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto da configuração do nível de acesso público do contêiner da Web
 
@@ -85,11 +86,11 @@ No entanto, o acesso público ao ponto de extremidade de serviço blob primário
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapeamento de um domínio personalizado para uma URL de site estático
 
-Você pode disponibilizar seu site estático por meio de um domínio personalizado. 
+Você pode disponibilizar seu site estático por meio de um domínio personalizado.
 
 É mais fácil habilitar o acesso HTTP para seu domínio personalizado, pois o Armazenamento do Azure dá suporte nativo a ele. Para habilitar o HTTPS, você precisará usar a CDN do Azure porque o Armazenamento do Azure ainda não oferece suporte nativo a HTTPS com domínios personalizados. Confira [Mapear um domínio personalizado para um ponto de extremidade do Armazenamento de Blobs do Azure](storage-custom-domain-name.md) para ter orientações passo a passo.
 
-Se a conta de armazenamento estiver configurada para [exigir transferência segura](../common/storage-require-secure-transfer.md) via HTTPS, os usuários deverão usar o ponto de extremidade HTTPS. 
+Se a conta de armazenamento estiver configurada para [exigir transferência segura](../common/storage-require-secure-transfer.md) via HTTPS, os usuários deverão usar o ponto de extremidade HTTPS.
 
 > [!TIP]
 > Hospede seu domínio no Azure. Para saber mais, confira [Hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md).

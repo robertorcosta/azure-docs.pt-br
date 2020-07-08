@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2018
 ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343671c1d9ee82950a9822648f9831588da7e9f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03a8d1f3e541d61d515b28bf56964c0add3b390e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80876177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830631"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicionar informações de privacidade de sua organização usando o Azure Active Directory
 Este artigo explica como um administrador de locatário pode adicionar informações relacionadas à privacidade ao locatário do Azure Active Directory (Azure AD) de uma organização, por meio do portal do Azure.
@@ -32,15 +32,15 @@ Você adiciona informações de privacidade da sua organização na área **Prop
 
 ### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Para acessar a área de Propriedades e adicionar suas informações de privacidade
 
-1.    Entre no portal do Azure como um administrador de locatário.
+1. Entre no portal do Azure como um administrador de locatário.
 
-2.    Na barra de navegação à esquerda, selecione **Azure Active Directory**e, em seguida, selecione **Propriedades**.
+2. Na barra de navegação à esquerda, selecione **Azure Active Directory**e, em seguida, selecione **Propriedades**.
 
     A área **Propriedades** é exibida.
 
     ![A área de Propriedades do Azure AD realçando a área de informações de privacidade](media/active-directory-properties-area/properties-area.png)
 
-3.    Adicione as informações de privacidade de seus funcionários:
+3. Adicione as informações de privacidade de seus funcionários:
 
     - **Contato técnico.** Digite o endereço de email da pessoa de contato para suporte técnico dentro de sua organização.
     
@@ -53,7 +53,7 @@ Você adiciona informações de privacidade da sua organização na área **Prop
 
         ![Caixa Permissões de Revisão de Colaboração B2B com mensagem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.    Clique em **Salvar**.
+4. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Resgate do convite de colaboração do Azure Active Directory B2B](../b2b/redemption-experience.md)

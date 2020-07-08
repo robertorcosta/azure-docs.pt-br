@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 0cbe91de889b787d6f417afbe74720b40c3026e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833376"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
 
@@ -39,6 +39,7 @@ Versão do Spring Boot | Versão do Spring Cloud
 ---|---
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton.RELEASE
+2.3 | Hoxton.SR5
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dependências do Spring Boot versão 2.1
 
@@ -91,7 +92,31 @@ Para o Spring Boot versão 2.2, adicione as dependências a seguir ao arquivo PO
         </dependencies>
     </dependencyManagement>
 ```
+### <a name="dependencies-for-spring-boot-version-23"></a>Dependências para o Spring boot versão 2,3
 
+Para o Spring boot versão 2,3, adicione as seguintes dependências ao arquivo POM do aplicativo.
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
 ## <a name="azure-spring-cloud-client-dependency"></a>Dependência de cliente do Azure Spring Cloud
 
 O Azure Spring Cloud hospeda e gerencia os componentes do Spring Cloud. Os componentes incluem o Registro de Serviço do Spring Cloud e o Servidor de Configuração do Spring Cloud. Inclua a biblioteca de clientes do Azure Spring Cloud em suas dependências para permitir a comunicação com sua instância de serviço do Azure Spring Cloud.
@@ -102,6 +127,7 @@ Versão do Spring Boot | Versão do Spring Cloud | Versão do Azure Spring Cloud
 ---|---|---
 2.1 | Greenwich.RELEASE | 2.1
 2.2 | Hoxton.RELEASE | 2.2
+2.3 | Hoxton.SR5 | 2.3
 
 Inclua uma das dependências a seguir no arquivo pom.xml. Selecione a dependência cuja versão do Azure Spring Cloud corresponde à sua.
 
@@ -113,7 +139,7 @@ Para o Spring Boot versão 2.1, adicione a dependência a seguir ao arquivo POM 
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.1</version>
+        <version>2.1.2</version>
 </dependency>
 ```
 
@@ -125,7 +151,17 @@ Para o Spring Boot versão 2.2, adicione a dependência a seguir ao arquivo POM 
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.0</version>
+        <version>2.2.1</version>
+</dependency>
+```
+
+Para o Spring boot versão 2,3 Adicione a seguinte dependência ao arquivo POM do aplicativo.
+
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.3.0</version>
 </dependency>
 ```
 
@@ -198,6 +234,9 @@ Inclua a dependência `spring-boot-starter-actuator` na seção de dependências
 ```
 
  As métricas são extraídas periodicamente dos pontos de extremidade JMX. Visualize as métricas usando o portal do Azure.
+
+ > [!WARNING]
+ > Especifique `spring.jmx.enabled=true` na sua propriedade de configuração. Caso contrário, as métricas não podem ser visualizadas em portal do Azure.
 
 ### <a name="distributed-tracing"></a>Rastreamento distribuído
 

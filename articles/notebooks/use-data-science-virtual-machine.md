@@ -6,21 +6,21 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830292"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usar máquinas virtuais de ciência de dados do Azure
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Por padrão, os projetos são executados na camada de **computação gratuita** , que é limitada a 4 GB de memória e 1 GB de dados para evitar abusos. Você pode ignorar essas limitações usando uma máquina virtual diferente da provisionada em uma assinatura do Azure. Para essa finalidade, a melhor opção é uma Máquina Virtual de Ciência de Dados do Azure (DSVM) usando a imagem do **máquina virtual de ciência de dados para Linux (Ubuntu)** . Tal DSVM vem pré-configurado com tudo o que você precisa para Azure Notebooks e aparece automaticamente na lista suspensa **executar** no Azure notebooks.
 
 > [!Note]
 > Só há suporte para Azure Notebooks no DSVMs criado com a imagem do Linux Ubuntu. Não há suporte para blocos de anotações em imagens do Windows 2012, do Windows 2016 ou do Linux CentOS.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>Criar uma instância do DSVM
 
@@ -49,7 +49,7 @@ Você obtém esses valores da página DSVM no portal do Azure.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Acessando Azure Notebooks arquivos do DSVM
 
-O acesso ao sistema de arquivos tem suporte para DSVM versões 19.06.15 ou posteriores. Para verificar a versão, primeiro conecte-se ao seu DSVM via SSH e execute o seguinte comando `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` : (você deve usar o endereço IP exato mostrado aqui). O número de versão é mostrado na saída de "Version".
+O acesso ao sistema de arquivos tem suporte para DSVM versões 19.06.15 ou posteriores. Para verificar a versão, primeiro conecte-se ao seu DSVM via SSH e execute o seguinte comando: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (você deve usar o endereço IP exato mostrado aqui). O número de versão é mostrado na saída de "Version".
 
 Para preservar a paridade de caminhos de arquivo com a camada de **computação gratuita** , você pode abrir apenas um projeto por vez em um DSVM. Para abrir um novo projeto, você deve desligar primeiro o projeto aberto.
 

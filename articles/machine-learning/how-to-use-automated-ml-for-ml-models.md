@@ -1,22 +1,22 @@
 ---
-title: Usar o autoML para criar modelos e implantar
+title: Usar o AutoML para criar modelos & implantar
 titleSuffix: Azure Machine Learning
 description: Crie, revise e implante modelos de machine learning automatizado com o Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
-author: tsikiksr
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/10/2020
-ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/20/2020
+ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831906"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -106,7 +106,7 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
 
     Selecione **Avançar**.
 
-1. No formulário **Tipo de tarefa e configurações**, selecione o tipo de tarefa: classificação, regressão ou previsão. Confira [Como definir tipos de tarefa](how-to-define-task-type.md) para obter mais informações.
+1. No formulário **Tipo de tarefa e configurações**, selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [tipos de tarefas com suporte](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
 
     1. Para classificação, você também pode habilitar o aprendizado profundo, o qual é usado para definição de recursos de texto.
 
@@ -120,14 +120,16 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
     Configurações adicionais|Descrição
     ------|------
     Métrica principal| Métrica principal usada para a pontuação do seu modelo. [Saiba mais sobre as métricas do modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Personalização automática| Selecione para habilitar ou desabilitar o pré-processamento feito pelo machine learning automatizado. O pré-processamento inclui limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. Não tem suporte para o tipo de tarefa de previsão de série temporal. [Saiba mais sobre o pré-processamento](#featurization). 
+    Personalização automática| Selecione para habilitar ou desabilitar o personalização feito pelo Machine Learning automatizado. O personalização automático inclui limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. Não tem suporte para o tipo de tarefa de previsão de série temporal. [Saiba mais sobre o personalização](how-to-configure-auto-features.md#featurization). 
     Explicar o melhor modelo | Selecione para habilitar ou desabilitar a exibição da explicação do melhor modelo recomendado.
     Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento.
     Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento é interrompido. <br> *Tempo do trabalho de treinamento (horas)* : o tempo permitido de execução do trabalho de treinamento. <br> *Limite de pontuação da métrica*:  pontuação mínima da métrica para todos os pipelines. Isso garante que, caso você tenha uma métrica de destino definida e que deseje alcançar, não gastará mais tempo no trabalho de treinamento do que o necessário.
-    Validação| Selecione uma das opções de validação cruzada para ser usada no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-auto-train.md).
+    Validação| Selecione uma das opções de validação cruzada para ser usada no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).
     Simultaneidade| *Máximo de iterações simultâneas*: número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais vezes do que o número de iterações especificado.
 
-1. (Opcional) Exibir configurações de personalização: caso opte por habilitar a **Definição de recursos automática** no formulário **Definições de configuração adicionais**, é nesse formulário que você especifica em quais colunas essas definições de recursos devem ser executadas e seleciona qual valor estatístico deve ser usado para imputações de valor ausentes.
+1. Adicional Exibir configurações de personalização: se você optar por habilitar o **personalização automático** no formulário de **definições de configuração adicional, as** técnicas padrão do personalização serão aplicadas. Em **exibir configurações de personalização** , você pode alterar esses padrões e personalizá-los adequadamente. Saiba como [Personalizar o featurizations](#customize-featurization). 
+
+    ![Formulário tipo de tarefa do Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -155,58 +157,19 @@ Variance| A medida de quão difundidos estão os dados dessa coluna em comparaç
 Distorção| Medida de quão diferentes os dados dessa coluna são em comparação a uma distribuição normal.
 Curtose| Medida de quão profundamente conectados os dados dessa coluna estão em comparação a uma distribuição normal.
 
-<a name="featurization"></a>
+## <a name="customize-featurization"></a>Personalizar o personalização
 
-## <a name="advanced-featurization-options"></a>Opções avançadas de definição de recursos
+No formulário **personalização** , você pode habilitar/desabilitar o personalização automático e personalizar as configurações de personalização automática para o experimento. Para abrir esse formulário, consulte a etapa 10 na seção [criar e executar experimento](#create-and-run-experiment) . 
 
-O machine learning automatizado oferece pré-processamento e verificadores de integridade dos dados automaticamente para ajudar você a identificar e gerenciar possíveis problemas com seus dados, como [dados com sobreajuste e desequilibrados](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
+A tabela a seguir resume as personalizações disponíveis no momento por meio do estúdio. 
 
-### <a name="preprocessing"></a>Pré-processamento
+Coluna| Personalização
+---|---
+Incluso | Especifica quais colunas incluir para treinamento.
+Tipo de recurso| Altere o tipo de valor da coluna selecionada.
+Imputar com| Selecione o valor com o qual imputar valores ausentes em seus dados.
 
-> [!NOTE]
-> Se você planeja exportar seus modelos de machine learning automatizado para um [modelo de ONNX](concept-onnx.md), somente as opções de definição de recursos marcadas com um * têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx). 
-
-|Etapas de&nbsp;pré-processamento| Descrição |
-| ------------- | ------------- |
-|Remover alta cardinalidade ou nenhum recurso de variação* |Remova-os de conjuntos de treinamento e validação, inclusive recursos com todos os valores ausentes, o mesmo valor em todas as linhas ou cardinalidade extremamente alta (por exemplo, hashes, IDs ou GUIDs).|
-|Acrescentar valores ausentes* |Para recursos numéricos, atribua com a média dos valores na coluna.<br/><br/>Para recursos categóricos, atribua com o valor mais frequente.|
-|Gerar recursos adicionais* |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br/><br/>Para recursos Text: A frequência do termo com base em unigramas, bigramas e gramas de três caracteres.|
-|Transformar e codificar*|Os recursos numéricos com poucos valores únicos são transformados em recursos categóricos.<br/><br/>A codificação one-hot é executada para uma baixa cardinalidade categórica; para alta cardinalidade, use a codificação one-hot-hash.|
-|Inserções de palavras|O definidor de recursos de texto que converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de inserção de cada palavra em um documento é agregado em conjunto para produzir um vetor de recurso de documento.|
-|Codificações de destino|Para recursos categóricos, mapeia cada categoria com o valor de destino médio para problemas de regressão e para a probabilidade de classe de cada classe para problemas de classificação. A pesagem baseada na frequência e a validação cruzada k-fold são aplicadas para reduzir o sobreajuste do mapeamento e do ruído causado por categorias de dados esparsas.|
-|Codificação de destino de texto|Para uma entrada de texto, um modelo linear empilhado com um conjunto de palavras é usado para gerar a probabilidade de cada classe.|
-|Peso de evidência (WoE)|Calcula o WoE como uma medida de correlação de colunas categóricas para a coluna de destino. Ele é calculado como o log da taxa de probabilidades de em classe vs. fora da classe. Essa etapa gera uma coluna de recurso numérico por classe e remove a necessidade de imputar explicitamente os valores ausentes e o tratamento de exceções.|
-|Distância do cluster|Treina um modelo de clustering k-means em todas as colunas numéricas.  Gera novos recursos de k, um novo recurso numérico por cluster, contendo a distância de cada amostra para o centroide de cada cluster.|
-
-### <a name="data-guardrails"></a>Verificadores de integridade dos dados
-
-Os verificadores de integridade dos dados são aplicados quando a definição de recursos automática está habilitada ou quando a validação está definida como automática. Os verificadores de integridade dos dados ajudam a identificar possíveis problemas com seus dados (por exemplo, valores ausentes, desequilíbrio de classe) e ajudam a tomar ações corretivas para obter resultados melhores. 
-
-Os usuários podem revisar os verificadores de integridade dos dados no estúdio na guia **Verificadores de integridade dos dados** de uma execução de ML automatizado ou ao definir ```show_output=True``` ao enviar um experimento usando o SDK do Python. 
-
-#### <a name="data-guardrail-states"></a>Estados dos verificadores de integridade dos dados
-
-Os verificadores de integridade dos dados exibirão um de três estados: **Aprovado**, **Concluído** ou **Alertado**.
-
-Estado| Descrição
-----|----
-Aprovado| Nenhum problema de dados foi detectado, e nenhuma ação é necessária por parte do usuário. 
-Concluído| As alterações foram aplicadas aos seus dados. Incentivamos os usuários a examinar as ações corretivas que o ML automatizado tomou para garantir que as alterações estejam alinhadas aos resultados esperados. 
-Alertado| Foi detectado um problema de dados que não pôde ser corrigido. Incentivamos os usuários a revisar e a corrigir o problema. 
-
->[!NOTE]
-> Versões anteriores de experimentos de ML automatizado exibiram um quarto estado: **Corrigido**. Experimentos mais recentes não exibirão esse estado, e todos os verificadores de integridade que exibiram o estado **Corrigido** passarão a exibir o estado **Concluído**.   
-
-A tabela a seguir descreve os verificadores de integridade dos dados que têm suporte atualmente, além de exibir os status associados que os usuários podem obter ao enviar seus experimentos.
-
-Verificador de integridade|Status|Condição&nbsp;para&nbsp;gatilho
----|---|---
-Imputação de valores de recurso ausente |**Aprovado** <br><br><br> **Concluído**| Não foram detectados valores de recursos ausentes em seus dados de treinamento. Saiba mais sobre a [imputação de valores ausentes](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Foram detectados valores de recursos ausentes em seus dados de treinamento.
-Tratamento de recursos de alta cardinalidade |**Aprovado** <br><br><br> **Concluído**| As entradas foram analisadas, e nenhum recurso de alta cardinalidade foi detectado. Saiba mais sobre [Detecção de recursos de alta cardinalidade.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Foram detectados recursos de alta cardinalidade nas suas entradas, os quais foram tratados.
-Tratamento de divisão de validação |**Concluído**| *A configuração de validação foi definida como “automática”, e os dados de treinamento continham **menos** de 20.000 linhas.* <br> Cada iteração do modelo treinado foi validada por meio da validação cruzada. Saiba mais sobre os [dados de validação.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *A configuração de validação foi definida como “automática”, e os dados de treinamento continham **mais** de 20.000 linhas.* <br> Os dados de entrada foram divididos em um conjunto de dados de treinamento e um conjunto de dados de validação para a validação do modelo.
-Detecção de equilíbrio de classe |**Aprovado** <br><br><br><br> **Alertado** | Suas entradas foram analisadas, e todas as classes estão equilibradas nos dados de treinamento. Um conjunto de dados é considerado equilibrado caso cada classe tenha uma boa representação no conjunto de dados, conforme medido pela quantidade e proporção de exemplos. <br><br><br> Foram detectadas classes desequilibradas nas suas entradas. Para corrigir o desvio de modelo, corrija o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
-Detecção de problemas de memória |**Aprovado** <br><br><br><br> **Concluído** |<br> Os valores {horizonte, retardo, janela sem interrupção} selecionados foram analisados, mas nenhum problema de falta de memória potencial foi detectado. Saiba mais sobre as [configurações de previsão](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de série temporal. <br><br><br>Os valores selecionados {horizonte, retardo, janela sem interrupção} foram analisados e, potencialmente, farão com que o teste fique sem memória. As configurações de retardo ou de janela sem interrupção foram desativadas.
-Detecção de frequência |**Aprovado** <br><br><br><br> **Concluído** |<br> A série temporal foi analisada, e todos os pontos de dados estão alinhados com a frequência detectada. <br> <br> A série temporal foi analisada, e foram detectados pontos de dados que não estão alinhados com a frequência detectada. Esses pontos de dados foram removidos do conjunto de dados. Saiba mais sobre a [preparação de dados de para a previsão de série temporal.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+![Formulário tipo de tarefa do Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Executar o experimento e exibir os resultados
 
@@ -255,6 +218,7 @@ O ML automatizado ajuda a implantar o modelo sem escrever códigos:
     O menu *Avançado* oferece recursos de implantação padrão, como [coleta de dados](how-to-enable-app-insights.md) e configurações de utilização de recursos. Caso queira substituir esses padrões, você deve fazê-lo nesse menu.
 
 1. Selecione **Implantar**. A implantação pode levar cerca de 20 minutos para ser concluída.
+    Depois que a implantação for iniciada, a guia **detalhes do modelo** será exibida. Consulte o progresso da implantação na seção **implantar status** do painel **Propriedades** . 
 
 Agora você tem um serviço Web operacional para gerar previsões. Você pode testar as previsões por meio de consultas ao serviço de [Suporte ao Azure Machine Learning interno do Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

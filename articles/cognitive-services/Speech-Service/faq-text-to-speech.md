@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f647727c01bbddafe3b10877af3e1d5652bedd29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74110501"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833580"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Perguntas Frequentes sobre a Conversão de Texto em Fala
 
@@ -59,7 +59,7 @@ Nós fornecemos serviços adicionais para ajudá-lo a preparar scripts para grav
 
 **Pergunta: são minhas solicitações limitadas?**
 
-**Resposta**: A API REST limita as solicitações para 25 por 5 segundos. Detalhes podem ser encontrados em nossas páginas para [Conversão de Texto em Fala](text-to-speech.md).
+**R**: a API REST limita as solicitações a 25 por 5 segundos para assinaturas padrão. A camada gratuita (F0) é limitada a 20 solicitações por minuto.
 
 ## <a name="next-steps"></a>Próximas etapas
 
