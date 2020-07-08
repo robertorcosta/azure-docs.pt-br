@@ -1,20 +1,20 @@
 ---
-title: Conecte-se em particular a um aplicativo Web usando o Ponto de extremidade privado do Azure
+title: Conectar-se de forma privada a um aplicativo Web do Azure usando o ponto de extremidade privado
 description: Conecte-se em particular a um aplicativo Web usando o Ponto de extremidade privado do Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295432"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054569"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure (versão prévia)
 
@@ -45,7 +45,7 @@ A sub-rede na qual você conecta o ponto de extremidade privado pode ter outros 
 Você também pode implantar o ponto de extremidade privado em uma região diferente do aplicativo Web. 
 
 > [!Note]
->O recurso de integração da VNet não pode usar a mesma sub-rede que o Private Endpoint; essa é uma limitação do recurso de integração da VNet.
+>O recurso de integração VNet não pode usar a mesma sub-rede que o ponto de extremidade privado, essa é uma limitação do recurso de integração VNet.
 
 Do ponto de vista da segurança:
 
@@ -57,7 +57,7 @@ Do ponto de vista da segurança:
 - Quando você ativa o Ponto de extremidade privado no seu Web App, a configuração de [restrições de acesso][accessrestrictions] do Web App não é avaliada.
 - Você pode eliminar o risco de vazamento de dados da VNet removendo todas as regras de NSG em que o destino é marca Internet ou serviços do Azure. Ao implantar um ponto de extremidade privado para um aplicativo da Web, você só pode acessar esse aplicativo da Web específico por meio do ponto de extremidade privado. Se você tiver outro aplicativo da Web, implante outro ponto de extremidade privado dedicado para esse outro aplicativo da Web.
 
-Nos logs HTTP da Web do seu Web App, você encontrará o IP de origem do cliente. Isso é implementado usando o protocolo TCP Proxy, encaminhando a propriedade IP do cliente até o Web App. Para obter mais informações, consulte [Obtendo informações de conexão usando o TCP Proxy v2][tcpproxy].
+Nos logs HTTP da Web do seu Web App, você encontrará o IP de origem do cliente. Esse recurso é implementado usando o protocolo proxy TCP, encaminhando a propriedade IP do cliente para o aplicativo Web. Para obter mais informações, consulte [Obtendo informações de conexão usando o TCP Proxy v2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
@@ -65,12 +65,50 @@ Nos logs HTTP da Web do seu Web App, você encontrará o IP de origem do cliente
 
 ## <a name="dns"></a>DNS
 
-Como esse recurso está em versão prévia, não alteramos a entrada DNS durante a visualização. Você mesmo precisa gerenciar a entrada DNS no seu servidor DNS privado ou na zona privada do DNS do Azure.
+Quando você usa o ponto de extremidade privado para o aplicativo Web, a URL solicitada deve corresponder ao nome do seu aplicativo Web. Por padrão, mywebappname.azurewebsites.net.
+
+Por padrão, sem o ponto de extremidade privado, o nome público do seu aplicativo Web é um nome canônico para o cluster.
+Por exemplo, a resolução de nome será:
+
+|Nome |Tipo |Valor |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|Um|40.122.110.154| 
+
+
+Quando você implanta um ponto de extremidade privado, atualizamos a entrada DNS para apontar para o nome canônico mywebapp.privatelink.azurewebsites.net.
+Por exemplo, a resolução de nome será:
+
+|Nome |Tipo |Valor |Comentário |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|Um|40.122.110.154|<--esse IP público não é seu ponto de extremidade privado, você receberá um erro 403|
+
+Você deve configurar um servidor DNS privado ou uma zona privada de DNS do Azure, para testes, você pode modificar a entrada de host do seu computador de teste.
+A zona DNS que você precisa criar é: **privatelink.azurewebsites.net**. Registre o registro para seu aplicativo Web com um registro a e o IP do ponto de extremidade privado.
+Por exemplo, a resolução de nome será:
+
+|Nome |Tipo |Valor |Comentário |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|Um|10.10.10.8|<--você gerencia essa entrada em seu sistema DNS para apontar para seu endereço IP do ponto de extremidade privado|
+
+Após essa configuração de DNS, você pode acessar seu aplicativo Web de forma privada com o nome padrão mywebappname.azurewebsites.net.
+
+
 Se você precisar usar um nome DNS personalizado, deverá adicionar o nome personalizado em seu aplicativo Web. Durante a visualização, o nome personalizado deve ser validado como qualquer nome personalizado, usando a resolução de DNS público. Para mais informações, consulte [validação DNS personalizada][dnsvalidation].
 
-Se você precisar usar o console do kudu ou a API REST do kudu (implantação com agentes do Azure DevOps auto-hospedados, por exemplo), será necessário criar dois registros na zona privada do DNS do Azure ou no servidor DNS personalizado. 
-- PrivateEndpointIP yourwebappname.azurewebsites.net 
-- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+Para o console do kudu ou a API REST do kudu (implantação com agentes do Azure DevOps auto-hospedados, por exemplo), você deve criar dois registros em sua zona privada do DNS do Azure ou seu servidor DNS personalizado. 
+
+| Nome | Tipo | Valor |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
+
+
 
 ## <a name="pricing"></a>Preços
 
@@ -86,8 +124,9 @@ Estamos melhorando o recurso de link privado e o ponto de extremidade privado re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para implantar o ponto de extremidade privado para seu aplicativo Web por meio do portal, consulte [como conectar-se em modo privado a um aplicativo Web][howtoguide]
-
+- Para implantar o ponto de extremidade privado para seu aplicativo Web por meio do portal, consulte [como conectar-se de forma privada a um aplicativo Web com o portal][howtoguide1]
+- Para implantar o ponto de extremidade privado para seu aplicativo Web usando CLI do Azure, consulte [como conectar-se de forma privada a um aplicativo Web com CLI do Azure][howtoguide2]
+- Para implantar o ponto de extremidade privado para seu aplicativo Web usando o PowerShell, consulte [como conectar-se de forma privada a um aplicativo Web com o PowerShell][howtoguide3]
 
 
 
@@ -101,4 +140,6 @@ Para implantar o ponto de extremidade privado para seu aplicativo Web por meio d
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

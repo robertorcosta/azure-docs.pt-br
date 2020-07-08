@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76715674"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054518"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicativos gerenciados do Azure com notificações
 
@@ -20,7 +20,7 @@ As notificações de aplicativo gerenciado do Azure permitem que os editores aut
 Para começar a receber aplicativos gerenciados, crie um ponto de extremidade HTTPS público e especifique-o ao publicar a definição de aplicativo do catálogo de serviços ou a oferta do Azure Marketplace.
 
 Aqui estão as etapas recomendadas para começar rapidamente:
-1. Crie um ponto de extremidade HTTPS público que registra as solicitações POST recebidas `200 OK`e retorna.
+1. Crie um ponto de extremidade HTTPS público que registra as solicitações POST recebidas e retorna `200 OK` .
 2. Adicione o ponto de extremidade à definição de aplicativo do catálogo de serviços ou à oferta do Azure Marketplace, conforme explicado posteriormente neste artigo.
 3. Crie uma instância de aplicativo gerenciado que faça referência à definição de aplicativo ou à oferta do Azure Marketplace.
 4. Valide se as notificações estão sendo recebidas.
@@ -36,7 +36,7 @@ Para começar, consulte [publicar um aplicativo de catálogo de serviços por me
 #### <a name="rest-api"></a>API REST
 
 > [!NOTE]
-> No momento, você pode fornecer apenas um ponto de `notificationEndpoints` extremidade no nas propriedades de definição do aplicativo.
+> No momento, você pode fornecer apenas um ponto de extremidade no `notificationEndpoints` nas propriedades de definição do aplicativo.
 
 ``` JSON
     {
@@ -61,7 +61,7 @@ Para começar, consulte [publicar um aplicativo de catálogo de serviços por me
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Adicionar notificações de aplicativo gerenciado do Azure Marketplace
-Para obter mais informações, consulte [criar uma oferta de aplicativo do Azure](../../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+Para obter mais informações, consulte [criar uma oferta de aplicativo do Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 ![Notificações de aplicativo gerenciado do Azure Marketplace no portal do Azure](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Gatilhos de evento
@@ -69,13 +69,13 @@ A tabela a seguir descreve todas as combinações possíveis de EventType e Prov
 
 EventType | ProvisioningState | Gatilho para notificação
 ---|---|---
-PUT | Aceita | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
+PUT | Aceito | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
 PUT | Êxito | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
-PUT | Failed (Falha) | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
+PUT | Falhou | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
 PATCH | Êxito | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
 Delete (excluir) | Excluindo | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
-Delete (excluir) | Deleted | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
-Delete (excluir) | Failed (Falha) | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
+Delete (excluir) | Excluído | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
+Delete (excluir) | Falhou | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
 ## <a name="notification-schema"></a>Esquema de notificação
 Ao criar o ponto de extremidade do webhook para lidar com notificações, você precisará analisar a carga para obter propriedades importantes e, em seguida, agir sobre a notificação. As notificações do catálogo de serviços e do aplicativo gerenciado do Azure Marketplace fornecem muitas das mesmas propriedades. Duas pequenas diferenças são descritas na tabela que segue os exemplos.
 
@@ -182,16 +182,16 @@ eventType | O tipo de evento que disparou a notificação. (Por exemplo, PUT, PA
 applicationId | O identificador de recurso totalmente qualificado do aplicativo gerenciado para o qual a notificação foi disparada.
 eventTime | O carimbo de data/hora do evento que disparou a notificação. (Data e hora no formato UTC ISO 8601.)
 provisioningState | O estado de provisionamento da instância do aplicativo gerenciado. (Por exemplo, com êxito, com falha, excluindo, excluiu.)
-error | *Especificado somente quando ProvisioningState falhou*. Contém o código de erro, a mensagem e os detalhes do problema que causou a falha.
+erro | *Especificado somente quando ProvisioningState falhou*. Contém o código de erro, a mensagem e os detalhes do problema que causou a falha.
 applicationDefinitionId | *Especificado somente para aplicativos gerenciados do catálogo de serviços*. Representa o identificador de recurso totalmente qualificado da definição de aplicativo para a qual a instância do aplicativo gerenciado foi provisionada.
 plan | *Especificado somente para aplicativos gerenciados do Azure Marketplace*. Representa o editor, a oferta, a SKU e a versão da instância do aplicativo gerenciado.
 billingDetails | *Especificado somente para aplicativos gerenciados do Azure Marketplace.* Os detalhes de cobrança da instância do aplicativo gerenciado. Contém o resourceUsageId que você pode usar para consultar o Azure Marketplace para obter detalhes de uso.
 
 ## <a name="endpoint-authentication"></a>Autenticação de ponto de extremidade
 Para proteger o ponto de extremidade do webhook e garantir a autenticidade da notificação:
-1. Forneça um parâmetro de consulta na parte superior do URI do webhook, assim:\:https//Your-Endpoint.com? SIG = GUID. Com cada notificação, verifique se o parâmetro `sig` de consulta tem o valor `Guid`esperado.
+1. Forneça um parâmetro de consulta na parte superior do URI do webhook, assim: https \: //Your-Endpoint.com? SIG = GUID. Com cada notificação, verifique se o parâmetro de consulta `sig` tem o valor esperado `Guid` .
 2. Emita um GET na instância do aplicativo gerenciado usando applicationId. Valide se o provisioningState corresponde ao provisioningState da notificação para garantir a consistência.
 
 ## <a name="notification-retries"></a>Tentativas de notificação
 
-O serviço de notificação de aplicativo gerenciado `200 OK` espera uma resposta do ponto de extremidade do webhook para a notificação. O serviço de notificação será repetido se o ponto de extremidade do webhook retornar um código de erro HTTP maior ou igual a 500, se ele retornar um código de erro 429 ou se o ponto de extremidade estiver temporariamente inacessível. Se o ponto de extremidade do webhook não ficar disponível em 10 horas, a mensagem de notificação será descartada e as novas tentativas serão interrompidas.
+O serviço de notificação de aplicativo gerenciado espera uma `200 OK` resposta do ponto de extremidade do webhook para a notificação. O serviço de notificação será repetido se o ponto de extremidade do webhook retornar um código de erro HTTP maior ou igual a 500, se ele retornar um código de erro 429 ou se o ponto de extremidade estiver temporariamente inacessível. Se o ponto de extremidade do webhook não ficar disponível em 10 horas, a mensagem de notificação será descartada e as novas tentativas serão interrompidas.

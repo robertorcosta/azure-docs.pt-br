@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 5bde217601d27129e044b64d90184727ea717950
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 329db6b3fc0bd6d11e5fbac9472aa03899caec2a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67171730"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050403"
 ---
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada Parâmetros, que contém todos os valores de parâmetro.
 Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados. 
@@ -21,56 +21,64 @@ Descreveremos cada parâmetro no modelo.
 ### <a name="sitename"></a>siteName
 O nome do aplicativo Web que você deseja criar.
 
-    "siteName":{
-      "type":"string"
-    }
+```config
+"siteName":{
+  "type":"string"
+}
+```
 
 ### <a name="hostingplanname"></a>hostingPlanName
 O nome do plano do Serviço de Aplicativo a usar para hospedar o aplicativo Web.
 
-    "hostingPlanName":{
-      "type":"string"
-    }
+```config
+"hostingPlanName":{
+  "type":"string"
+}
+```
 
 ### <a name="sku"></a>sku
 A camada de preços do plano de hospedagem.
 
-    "sku": {
-      "type": "string",
-      "allowedValues": [
-        "F1",
-        "D1",
-        "B1",
-        "B2",
-        "B3",
-        "S1",
-        "S2",
-        "S3",
-        "P1",
-        "P2",
-        "P3",
-        "P4"
-      ],
-      "defaultValue": "S1",
-      "metadata": {
-        "description": "The pricing tier for the hosting plan."
-      }
-    }
+```config
+"sku": {
+  "type": "string",
+  "allowedValues": [
+    "F1",
+    "D1",
+    "B1",
+    "B2",
+    "B3",
+    "S1",
+    "S2",
+    "S3",
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "defaultValue": "S1",
+  "metadata": {
+    "description": "The pricing tier for the hosting plan."
+  }
+}
+```
 
 O modelo define os valores permitidos para esse parâmetro e atribui um valor padrão (S1) se nenhum valor é especificado.
 
 ### <a name="workersize"></a>workerSize
 O tamanho da instância do plano de hospedagem (pequeno, médio ou grande).
 
-    "workerSize":{
-      "type":"string",
-      "allowedValues":[
-        "0",
-        "1",
-        "2"
-      ],
-      "defaultValue":"0"
-    }
+```config
+"workerSize":{
+  "type":"string",
+  "allowedValues":[
+    "0",
+    "1",
+    "2"
+  ],
+  "defaultValue":"0"
+}
+```
 
 O modelo define os valores que são permitidos para esse parâmetro (0, 1 ou 2) e atribui um valor padrão (0) se nenhum valor é especificado. Os valores correspondem a pequeno, médio e grande.
 

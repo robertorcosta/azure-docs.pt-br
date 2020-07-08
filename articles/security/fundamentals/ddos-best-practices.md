@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548672"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054433"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção contra DDoS do Azure-criando soluções resilientes
 
@@ -97,7 +97,7 @@ A Proteção contra DDoS Standard expõe uma telemetria sofisticada por meio do 
 
 ##### <a name="ddos-mitigation-policies"></a>Políticas de mitigação de DDoS
 
-Na portal do Azure, selecione **monitorar** > **métricas**. No painel **Métricas**, selecione o grupo de recursos, o tipo de recurso do **Endereço IP Público** e o endereço IP público do Azure. As métricas de DDoS estão visíveis no painel de **Métricas disponíveis**.
+Na portal do Azure, selecione **monitorar**  >  **métricas**. No painel **Métricas**, selecione o grupo de recursos, o tipo de recurso do **Endereço IP Público** e o endereço IP público do Azure. As métricas de DDoS estão visíveis no painel de **Métricas disponíveis**.
 
 A Proteção contra DDoS Standard aplica três políticas de mitigação ajustadas automaticamente (TCP SYN, TCP e UDP) em cada endereço IP público do recurso protegido, na rede virtual que tem o DDoS habilitado. Você pode exibir os limites da política selecionando os pacotes de entrada da métrica **para disparar a mitigação de DDoS**.
 
@@ -235,7 +235,7 @@ Nesta arquitetura, a Proteção contra DDoS Standard está habilitada na rede vi
 
 #### <a name="paas-web-application"></a>Aplicativo Web PaaS
 
-Essa arquitetura de referência mostra a execução de um aplicativo do Serviço de Aplicativo do Azure em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa o [serviço](https://azure.microsoft.com/documentation/services/app-service/) Azure app e o [banco de dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
+Essa arquitetura de referência mostra a execução de um aplicativo do Serviço de Aplicativo do Azure em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa o [serviço Azure app](https://azure.microsoft.com/documentation/services/app-service/)   e o [banco de dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
 Uma região em espera está configurada para cenários de failover.
 
 ![Diagrama da arquitetura de referência para um aplicativo da Web de PaaS](./media/ddos-best-practices/image11.png)
@@ -269,7 +269,5 @@ Para obter mais informações sobre a arquitetura de referência, consulte a doc
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Responsabilidade compartilhada na nuvem](shared-responsibility.md)
-
 * [Página do produto proteção contra DDoS do Azure](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Documentação da proteção contra DDoS do Azure](/azure/virtual-network/ddos-protection-overview)

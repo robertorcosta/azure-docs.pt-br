@@ -123,7 +123,7 @@
           href: partitioning-overview.md
         - name: Particionamento e dimensionamento horizontal
           href: partition-data.md
-        - name: Crie uma chave de partição sintética
+        - name: Chave de partição sintética
           href: synthetic-partition-keys.md
     - name: Taxa de transferência provisionada
       items:

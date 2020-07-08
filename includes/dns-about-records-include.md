@@ -4,18 +4,18 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73832036"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050500"
 ---
 ### <a name="record-names"></a>Nomes de registros
 
-No DNS do Azure, os registros são especificados usando nomes relativos. Um FQDN (nome de domínio *totalmente qualificado* ) inclui o nome da zona, enquanto que um nome *relativo* não. Por exemplo, o nome `www` relativo do registro na zona `contoso.com` fornece o nome `www.contoso.com`totalmente qualificado do registro.
+No DNS do Azure, os registros são especificados usando nomes relativos. Um FQDN (nome de domínio *totalmente qualificado* ) inclui o nome da zona, enquanto que um nome *relativo* não. Por exemplo, o nome relativo do registro `www` na zona `contoso.com` fornece o nome totalmente qualificado do registro `www.contoso.com` .
 
-Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona `contoso.com`DNS, um registro de Apex também tem o nome `contoso.com` totalmente qualificado (isso, às vezes, é chamado de domínio *descoberto* ).  Por convenção, o nome relativo '\@' é usado para representar os registros de apex.
+Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona DNS `contoso.com` , um registro de Apex também tem o nome totalmente qualificado `contoso.com` (isso, às vezes, é chamado de domínio *descoberto* ).  Por convenção, o nome relativo '\@' é usado para representar os registros de apex.
 
 ### <a name="record-types"></a>Tipos de registro
 
@@ -27,8 +27,10 @@ O DNS do Azure dá suporte a todos os tipos de registro DNS comuns: A, AAAA, CAA
 
 Às vezes, você precisa criar mais de um registro DNS com determinado nome e tipo. Por exemplo, vamos supor que o site 'www.contoso.com' seja hospedado em dois endereços IP diferentes. O site exige dois registros A diferentes, um para cada endereço IP. Aqui está um exemplo de um conjunto de registros:
 
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
+```dns
+www.contoso.com.        3600    IN    A    134.170.185.46
+www.contoso.com.        3600    IN    A    134.170.188.221
+```
 
 O DNS do Azure gerencia todos os registros DNS usando *conjuntos de registros*. Um conjunto de registros (também conhecido como conjunto de registros de *recurso*) é uma coleção de registros DNS em uma zona que tem o mesmo nome e o mesmo tipo. A maioria dos conjuntos de registros contém um único registro. No entanto, exemplos como o que é mostrado acima, em que um conjunto de registros contém mais de um registro, não são incomuns.
 

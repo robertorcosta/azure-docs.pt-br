@@ -4,25 +4,29 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 652d42d6e2d9e909c3a03bd82a3a36f91bc73807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419528"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050377"
 ---
-O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas** > **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools** > **console**de ferramentas.
+O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools**  >  **console**de ferramentas.
 
 #### <a name="tools"></a>Ferramentas
-As ferramentas **ping**, **nslookup**e **tracert** não funcionarão no console do devido a restrições de segurança. Para preencher o void, duas ferramentas separadas são adicionadas. Para testar a funcionalidade do DNS, adicionamos uma ferramenta chamada **nameresolver. exe**. A sintaxe do é:
+As ferramentas **ping**, **nslookup**e **tracert** não funcionarão no console do devido a restrições de segurança. Para preencher o void, duas ferramentas separadas são adicionadas. Para testar a funcionalidade do DNS, adicionamos uma ferramenta chamada **nameresolver.exe**. A sintaxe do é:
 
-    nameresolver.exe hostname [optional: DNS Server]
+```console
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 Você pode usar a nameresolver para verificar os nomes de host de que seu aplicativo depende. Dessa forma, você pode testar se alguma coisa está configurada incorretamente com seu DNS ou talvez não tenha acesso ao seu servidor DNS. Você pode ver o servidor DNS que seu aplicativo usa no console examinando as variáveis de ambiente WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER.
 
 Você pode usar a próxima ferramenta para testar a conectividade TCP com uma combinação de host e porta. Essa ferramenta é chamada **tcpping** e a sintaxe é:
 
-    tcpping.exe hostname [optional: port]
+```console
+tcpping.exe hostname [optional: port]
+```
 
 O utilitário **tcpping** informa se você pode alcançar um host e uma porta específicos. Ele pode mostrar o sucesso somente se houver um aplicativo escutando na combinação de host e porta, e houver acesso à rede do seu aplicativo para o host e a porta especificados.
 
@@ -34,7 +38,7 @@ Várias coisas podem impedir que seu aplicativo atinja um host e uma porta espec
 
 Se esses itens não responderem a seus problemas, veja primeiro algo como:
 
-**Integração de VNet regional**
+**Integração VNET regional**
 * Seu destino é um endereço não RFC1918 e você não tem WEBSITE_VNET_ROUTE_ALL definido como 1?
 * Há um NSG bloqueando a saída de sua sub-rede de integração?
 * Se você estiver entrando no Azure ExpressRoute ou em uma VPN, seu gateway local será configurado para rotear o tráfego de volta para o Azure? Se você puder acessar pontos de extremidade em sua rede virtual, mas não no local, verifique suas rotas.
@@ -62,7 +66,9 @@ As etapas de depuração adicionais incluem:
 
 * Conecte-se a uma VM em sua rede virtual e tente acessar a porta do host de recursos: a partir daí. Para testar o acesso TCP, use o comando do PowerShell **test-netconnection**. A sintaxe do é:
 
-      test-netconnection hostname [optional: -Port]
+```powershell
+test-netconnection hostname [optional: -Port]
+```
 
 * Traga um aplicativo em uma VM e teste o acesso ao host e à porta do console a partir do seu aplicativo usando o **tcpping**.
 

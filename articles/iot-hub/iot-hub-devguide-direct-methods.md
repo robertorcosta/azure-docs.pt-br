@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9fb2242f6e3f8ce78a0e5043a53ce3055819725b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 873f871625b812937d1e6ac360f7e0565121a4eb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583673"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045987"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Entender e chamar métodos diretos do Hub IoT
 
@@ -33,7 +33,7 @@ Veja as [diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devgui
 
 ## <a name="method-lifecycle"></a>Ciclo de vida do método
 
-Os métodos diretos são implementados no dispositivo e podem precisar ou não de entradas no conteúdo do método para instanciar corretamente. Você invoca um método direto por meio de um URI voltado para serviços (`{iot hub}/twins/{device id}/methods/`). Um dispositivo recebe métodos diretos por meio de um tópico MQTT específico do dispositivo (`$iothub/methods/POST/{method name}/`) ou de links do AMQP (as propriedades de aplicativo `IoThub-methodname` e `IoThub-status`). 
+Os métodos diretos são implementados no dispositivo e podem precisar ou não de entradas no conteúdo do método para instanciar corretamente. Você invoca um método direto por meio de um URI voltado para serviços (`{iot hub}/twins/{device id}/methods/`). Um dispositivo recebe métodos diretos por meio de um tópico MQTT específico do dispositivo (`$iothub/methods/POST/{method name}/`) ou de links do AMQP (as propriedades de aplicativo `IoThub-methodname` e `IoThub-status`).
 
 > [!NOTE]
 > Quando você invoca um método direto em um dispositivo, os valores e nomes de propriedade só podem conter caracteres alfanuméricos imprimíveis US-ASCII, exceto pelo seguinte conjunto: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -41,7 +41,7 @@ Os métodos diretos são implementados no dispositivo e podem precisar ou não d
 
 Os métodos diretos são síncronos e são bem-sucedidos ou falham após o período de tempo limite (padrão: 30 segundos, configurável entre 5 e 300 segundos). Os métodos diretos são úteis em cenários interativos em que você deseja que um dispositivo atue somente, e somente se, o dispositivo estiver online e recebendo comandos. Por exemplo, ativar a luz de um telefone. Nesses cenários, você deseja ver uma falha ou êxito imediatamente, para que o serviço de nuvem possa atuar quanto ao resultado o mais rápido possível. O dispositivo pode retornar algum corpo de mensagem como resultado do método, mas não é obrigatório que o método faça isso. Não há nenhuma garantia quanto à ordenação ou semântica de simultaneidade nas chamadas de método.
 
-Os métodos diretos servem somente para HTTPS do lado da nuvem, e MQTT ou AMQP do lado do dispositivo.
+Os métodos diretos são somente HTTPS do lado da nuvem e MQTT, AMQP, MQTT sobre WebSockets ou AMQP por WebSockets do lado do dispositivo.
 
 A carga das solicitações e respostas do método é um documento JSON de até 128 KB.
 
@@ -80,18 +80,17 @@ O valor fornecido como `responseTimeoutInSeconds` na solicitação é a quantida
 
 O valor fornecido como `connectTimeoutInSeconds` na solicitação é a quantidade de tempo na invocação de um método direto que o serviço do Hub IOT deve aguardar para que um dispositivo desconectado fique online. O valor padrão é 0, o que significa que os dispositivos já devem estar online na invocação de um método direto. O valor máximo de `connectTimeoutInSeconds` é de 300 segundos.
 
-
 #### <a name="example"></a>Exemplo
 
 Este exemplo permitirá que você inicie com segurança uma solicitação para invocar um método direto em um dispositivo IoT registrado para um hub IoT do Azure.
 
-Para começar, use a [extensão de IoT Microsoft Azure para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para criar um SharedAccessSignature. 
+Para começar, use a [extensão de IoT Microsoft Azure para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para criar um SharedAccessSignature.
 
 ```bash
 az iot hub generate-sas-token -n <iothubName> -du <duration>
 ```
 
-Em seguida, substitua o cabeçalho Authorization pelo SharedAccessSignature gerado recentemente, `iothubName`modifique os parâmetros, `deviceId` `methodName` e `payload` para corresponder à sua implementação no comando de exemplo `curl` abaixo.  
+Em seguida, substitua o cabeçalho Authorization pelo SharedAccessSignature gerado recentemente, modifique os `iothubName` parâmetros, `deviceId` `methodName` e `payload` para corresponder à sua implementação no comando de exemplo `curl` abaixo.  
 
 ```bash
 curl -X POST \
@@ -114,7 +113,7 @@ Execute o comando Modified para invocar o método direto especificado. As solici
 > O exemplo acima demonstra como invocar um método direto em um dispositivo.  Se você quiser invocar um método direto em um módulo IoT Edge, precisaria modificar a solicitação de URL, conforme mostrado abaixo:
 
 ```bash
-https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
 ### <a name="response"></a>Resposta
 
@@ -122,8 +121,8 @@ O aplicativo de back-end recebe uma resposta que é composta pelos itens a segui
 
 * *Código de status http*:
   * 200 indica a execução bem-sucedida do método direto;
-  * 404 indica que a ID do dispositivo é inválida ou que o dispositivo não estava online após a invocação de um método direto `connectTimeoutInSeconds` e para depois (use a mensagem de erro acompanhada para entender a causa raiz);
-  * 504 indica o tempo limite do gateway causado pelo dispositivo não responder a uma chamada `responseTimeoutInSeconds`de método direta no.
+  * 404 indica que a ID do dispositivo é inválida ou que o dispositivo não estava online após a invocação de um método direto e para `connectTimeoutInSeconds` depois (use a mensagem de erro acompanhada para entender a causa raiz);
+  * 504 indica o tempo limite do gateway causado pelo dispositivo não responder a uma chamada de método direta no `responseTimeoutInSeconds` .
 
 * *Cabeçalhos* que contêm a ETag, a ID da solicitação, o tipo de conteúdo e a codificação de conteúdo.
 
@@ -217,7 +216,7 @@ Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md) descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
 
-* [Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
+* O [suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT ao protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas
 
