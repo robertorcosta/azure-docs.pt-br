@@ -3,11 +3,12 @@ title: Faça backup de VMs VMware com o Servidor de Backup do Azure
 description: Neste artigo, saiba como usar Servidor de Backup do Azure para fazer backup de VMs VMware em execução em um servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628462"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081053"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Faça backup de VMs VMware com o Servidor de Backup do Azure
 
@@ -26,9 +27,8 @@ Este artigo explica como:
 - Verifique se você está executando uma versão do vCenter/ESXi com suporte para backup. Consulte a matriz de suporte [aqui](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Verifique se que você configurou o Servidor de Backup do Azure. Caso contrário, [faça isso](backup-azure-microsoft-azure-backup.md) antes de começar. Você deve estar executando o Servidor de Backup do Azure com as atualizações mais recentes.
 - Verifique se as seguintes portas de rede estão abertas:
-    - TCP 443 entre MABS e vCenter
-    - TCP 443 e TCP 902 entre MABS e host ESXi
-
+  - TCP 443 entre MABS e vCenter
+  - TCP 443 e TCP 902 entre MABS e host ESXi
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Criar uma conexão segura com o servidor vCenter
 
@@ -133,72 +133,75 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
 ### <a name="role-permissions"></a>Permissões de função
 
-| Privilégios para a conta de usuário do vCenter 6,7                     | Privilégios para a conta de usuário do vCenter 6,5                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| cluster.Configdo repositório de armazenamento lhar um cluster datatstore            | cluster.Configdo repositório de armazenamento lhar um cluster datatstore            |
-| Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
-| Datastore.Browse datastore                                   | Datastore.Browse datastore                                   |
-| Datastore.Low-level file operations                          | Datastore.Low-level file operations                          |
-| Global.Disable methods                                       | Global.Disable methods                                       |
-| Global.Enable methods                                        | Global.Enable methods                                        |
-| Global.Licenses                                              | Global.Licenses                                              |
-| Global.Log event                                             | Global.Log event                                             |
-| Global.Manage custom attributes                              | Global.Manage custom attributes                              |
-| Global.Set custom attribute                                  | Global.Set custom attribute                                  |
-| Operações de host. local. Criar máquina virtual                | Operações de host. local. Criar máquina virtual                |
-| Network.Assign network                                       | Network.Assign network                                       |
-| Resource. Atribuir máquina virtual ao pool de recursos           | Resource. Atribuir máquina virtual ao pool de recursos           |
-| vApp.Add virtual machine                                     | vApp.Add virtual machine                                     |
-| vApp.Assign resource pool                                    | vApp.Assign resource pool                                    |
-| vApp.Unregister                                              | vApp.Unregister                                              |
-| VirtualMachine.Configuration. Adicionar ou remover dispositivo          | VirtualMachine.Configuration. Adicionar ou remover dispositivo          |
-| Uração virtual machine.Config. Adquirir concessão de disco            | Virtual machine.Configuration.Disk lease                     |
-| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Add new disk                   |
-| Uração virtual machine.Config. Configuração avançada        | Virtual machine.Configuration.Advanced                       |
-| Uração virtual machine.Config. Alternar controle de alterações do disco   | Uração virtual machine.Config. Controle de alterações do disco          |
-| Dispositivo USB do virtual machine.Configuration.Configlhar host     | Uração virtual machine.Config. Dispositivo USB do host               |
-| Uração virtual machine.Config. Estender disco virtual           | Uração virtual machine.Config. Estender disco virtual           |
-| Uração virtual machine.Config. Consultar arquivos sem proprietário           | Uração virtual machine.Config. Consultar arquivos sem proprietário           |
-| Uração virtual machine.Config. Alterar o posicionamento do Swapfile     | Uração virtual machine.Config. Posicionamento do Swapfile            |
-| Máquina virtual. Operações de convidado. execução do programa de operação de convidado | Máquina virtual. Operações de convidado. execução do programa de operação de convidado |
-| Máquina virtual. Operações de convidado. modificações de operação de convidado | Máquina virtual. Operações de convidado. modificações de operação de convidado |
-| Máquina virtual. Operações de convidado. consultas de operação de convidado    | Máquina virtual. Operações de convidado. consultas de operação de convidado    |
-| Máquina virtual. Inter. Conexão do dispositivo             | Máquina virtual. Inter. Conexão do dispositivo             |
-| Máquina virtual. Inter. Gerenciamento do sistema operacional convidado pela API do VIX | Máquina virtual. Inter. Gerenciamento do sistema operacional convidado pela API do VIX |
-| Virtual machine .Interaction .Power Off                      | Virtual machine .Interaction .Power Off                      |
-| Virtual machine .Inventory.Create new                        | Virtual machine .Inventory.Create new                        |
-| Virtual machine .Inventory.Remove                            | Virtual machine .Inventory.Remove                            |
-| Virtual machine .Inventory.Register                          | Virtual machine .Inventory.Register                          |
-| Máquina virtual. Provisionamento. permitir acesso ao disco             | Máquina virtual. Provisionamento. permitir acesso ao disco             |
-| Máquina virtual. Provisionamento. permitir acesso a arquivos             | Máquina virtual. Provisionamento. permitir acesso a arquivos             |
-| Máquina virtual. Provisionamento. permitir acesso ao disco somente leitura   | Máquina virtual. Provisionamento. permitir acesso ao disco somente leitura   |
-| Máquina virtual. Provisionamento. permitir download da máquina virtual | Máquina virtual. Provisionamento. permitir download da máquina virtual |
-| Virtual machine .Snapshot management.  Create snapshot       | Virtual machine .Snapshot management.  Create snapshot       |
-| Máquina virtual. Gerenciamento de instantâneo. Remover instantâneo        | Máquina virtual. Gerenciamento de instantâneo. Remover instantâneo        |
-| Máquina virtual. Gerenciamento de instantâneo. Reverter para instantâneo     | Máquina virtual. Gerenciamento de instantâneo. Reverter para instantâneo     |
+A seguinte tabela captura os privilégios que precisam ser atribuídos à conta de usuário que você criar:
 
-<br>
+| Privilégios para conta de usuário do vCenter 6.5                          | Privilégios para conta de usuário do vCenter 6.7                            |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Datastore cluster.Configure a datastore cluster                           | Datastore cluster.Configure a datastore cluster                           |
+| Datastore.AllocateSpace                                                    | Datastore.AllocateSpace                                                    |
+| Datastore.Browse datastore                                                 | Datastore.Browse datastore                                                 |
+| Datastore.Low-level file operations                                        | Datastore.Low-level file operations                                        |
+| Global.Disable methods                                                     | Global.Disable methods                                                     |
+| Global.Enable methods                                                      | Global.Enable methods                                                      |
+| Global.Licenses                                                            | Global.Licenses                                                            |
+| Global.Log event                                                           | Global.Log event                                                           |
+| Global.Manage custom attributes                                            | Global.Manage custom attributes                                            |
+| Global.Set custom attribute                                                | Global.Set custom attribute                                                |
+| Host.Local operations.Create virtual machine                               | Host.Local operations.Create virtual machine                               |
+| Network.Assign network                                                     | Network.Assign network                                                     |
+| Resource. Assign virtual machine to resource pool                          | Resource. Assign virtual machine to resource pool                          |
+| vApp.Add virtual machine                                                   | vApp.Add virtual machine                                                   |
+| vApp.Assign resource pool                                                  | vApp.Assign resource pool                                                  |
+| vApp.Unregister                                                            | vApp.Unregister                                                            |
+| VirtualMachine.Configuration. Add Or Remove Device                         | VirtualMachine.Configuration. Add Or Remove Device                         |
+| Virtual machine.Configuration.Disk lease                                   | Virtual machine.Configuration.Acquire disk lease                           |
+| Virtual machine.Configuration.Add new disk                                 | Virtual machine.Configuration.Add new disk                                 |
+| Virtual machine.Configuration.Advanced                                     | Virtual machine.Configuration.Advanced configuration                       |
+| Virtual machine.Configuration.Disk change tracking                         | Virtual machine.Configuration.Toggle disk change tracking                  |
+| Virtual machine.Configuration.Host USB device                              | Virtual machine.Configuration.Configure Host USB device                    |
+| Virtual machine.Configuration.Extend virtual disk                          | Virtual machine.Configuration.Extend virtual disk                          |
+| Virtual machine.Configuration.Query unowned files                          | Virtual machine.Configuration.Query unowned files                          |
+| Virtual machine.Configuration.Swapfile placement                           | Virtual machine.Configuration.Change Swapfile placement                    |
+| Virtual machine.Guest Operations.Guest Operation Program Execution         | Virtual machine.Guest Operations.Guest Operation Program Execution         |
+| Virtual machine.Guest Operations.Guest Operation Modifications             | Virtual machine.Guest Operations.Guest Operation Modifications             |
+| Virtual machine.Guest Operations.Guest Operation Queries                   | Virtual machine.Guest Operations.Guest Operation Queries                   |
+| Virtual machine .Interaction .Device connection                            | Virtual machine .Interaction .Device connection                            |
+| Virtual machine .Interaction .Guest operating system management by VIX API | Virtual machine .Interaction .Guest operating system management by VIX API |
+| Virtual machine .Interaction .Power Off                                    | Virtual machine .Interaction .Power Off                                    |
+| Virtual machine .Inventory.Create new                                      | Virtual machine .Inventory.Create new                                      |
+| Virtual machine .Inventory.Remove                                          | Virtual machine .Inventory.Remove                                          |
+| Virtual machine .Inventory.Register                                        | Virtual machine .Inventory.Register                                        |
+| Virtual machine .Provisioning.Allow disk access                            | Virtual machine .Provisioning.Allow disk access                            |
+| Virtual machine .Provisioning.Allow file access                            | Virtual machine .Provisioning.Allow file access                            |
+| Virtual machine .Provisioning.Allow read-only disk access                  | Virtual machine .Provisioning.Allow read-only disk access                  |
+| Virtual machine .Provisioning.Allow virtual machine download               | Virtual machine .Provisioning.Allow virtual machine download               |
+| Virtual machine .Snapshot management. Create snapshot                      | Virtual machine .Snapshot management. Create snapshot                      |
+| Virtual machine .Snapshot management.Remove Snapshot                       | Virtual machine .Snapshot management.Remove Snapshot                       |
+| Virtual machine .Snapshot management.Revert to snapshot                    | Virtual machine .Snapshot management.Revert to snapshot                    |
 
-| **Privilégios para conta de usuário do vCenter 6.0**                | **Privilégios para conta de usuário do vCenter 5.5** |
-| ---------------------------------------------------------- | ------------------------------------------- |
-| Datastore.AllocateSpace                                    | Network.Assign                              |
-| Global. gerenciar atributos personalizados                           | Datastore.AllocateSpace                     |
-| Global. definir atributo personalizado                               | VirtualMachine.Config.ChangeTracking        |
-| Operações de host. local. Criar máquina virtual              | VirtualMachine.State.RemoveSnapshot         |
-| Network.  Assign network                                   | VirtualMachine.State.CreateSnapshot         |
-| Resource.  Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Uração virtual machine.Config. Adicionar novo disco                | VirtualMachine.Interact.PowerOff            |
-| Uração virtual machine.Config. Avançadas                    | VirtualMachine.Inventory.Create             |
-| Uração virtual machine.Config. Controle de alterações do disco        | VirtualMachine.Config.AddNewDisk            |
-| Uração virtual machine.Config. Dispositivo USB do host             | VirtualMachine.Config.HostUSBDevice         |
-| Uração virtual machine.Config. Consultar arquivos sem proprietário         | VirtualMachine.Config.AdvancedConfig        |
-| Uração virtual machine.Config. Posicionamento do Swapfile          | VirtualMachine.Config.SwapPlacement         |
-| Máquina virtual. Interação. desligar                     | Global.ManageCustomFields                   |
-| Máquina virtual. Levantamento. Create new                     |                                             |
-| Máquina virtual. Provisionamento. permitir acesso ao disco            |                                             |
-| Máquina virtual. Provisionamento. Allow read-only disk access |                                             |
-| Máquina virtual. Gerenciamento de instantâneo. Criar instantâneo       |                                             |
-| Máquina virtual. Gerenciamento de instantâneo. Remover instantâneo       |                                             |
+> [!NOTE]
+> A tabela a seguir lista os privilégios para as contas de usuário do vCenter 6.0 e do vCenter 5.5.
+
+| Privilégios para conta de usuário do vCenter 6.0 | Privilégios para conta de usuário do vCenter 5.5 |
+| --- | --- |
+| Datastore.AllocateSpace | Network.Assign |
+| Global.Manage custom attributes | Datastore.AllocateSpace |
+| Global.Set custom attribute | VirtualMachine.Config.ChangeTracking |
+| Host.Local operations.Create virtual machine | VirtualMachine.State.RemoveSnapshot |
+| Network. Assign network | VirtualMachine.State.CreateSnapshot |
+| Resource. Assign virtual machine to resource pool | VirtualMachine.Provisioning.DiskRandomRead |
+| Virtual machine.Configuration.Add new disk | VirtualMachine.Interact.PowerOff |
+| Virtual machine.Configuration.Advanced | VirtualMachine.Inventory.Create |
+| Virtual machine.Configuration.Disk change tracking | VirtualMachine.Config.AddNewDisk |
+| Virtual machine.Configuration.Host USB device | VirtualMachine.Config.HostUSBDevice |
+| Virtual machine.Configuration.Query unowned files | VirtualMachine.Config.AdvancedConfig |
+| Virtual machine.Configuration.Swapfile placement | VirtualMachine.Config.SwapPlacement |
+| Virtual machine.Interaction.Power Off | Global.ManageCustomFields |
+| Virtual machine.Inventory. Create new |   |
+| Virtual machine.Provisioning.Allow disk access |   |
+| Virtual machine.Provisioning. Allow read-only disk access |   |
+| Virtual machine.Snapshot management.Create snapshot |   |
+| Virtual machine.Snapshot management.Remove Snapshot |   |
 
 ## <a name="create-a-vmware-account"></a>Criar uma conta do VMware
 

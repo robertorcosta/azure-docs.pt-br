@@ -3,12 +3,12 @@ title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 8ff4e2d8f778d05e9a0fa271600446e1c24380be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130622"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078554"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
@@ -60,7 +60,7 @@ O Advisor analisa os padrões de uso dos últimos 30 dias para os seguintes recu
 O Advisor analisa seus padrões de uso Azure Cosmos DB nos últimos 30 dias e recomenda as compras de capacidade reservada para otimizar os custos. Usando a capacidade reservada, você pode adquirir previamente Azure Cosmos DB uso por hora e economizar os custos pagos conforme o uso. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
 
 ### <a name="sql-paas-reserved-capacity"></a>Capacidade reservada de PaaS do SQL
-O Advisor analisa os pools de banco de dados elástico do SQL e os padrões de uso de instância gerenciada nos últimos 30 dias. Em seguida, ele recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode pré-configurar o uso por hora do BD SQL e economizar os custos de computação do SQL. Sua licença do SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
+O Advisor analisa os pools de banco de dados elástico do SQL e os padrões de uso do SQL Instância Gerenciada nos últimos 30 dias. Em seguida, ele recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode pré-configurar o uso por hora do BD SQL e economizar os custos de computação do SQL. Sua licença do SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Capacidade reservada da taxa de selo do serviço de aplicativo
 O Advisor analisa o padrão de uso de taxas de selo para o ambiente isolado do serviço de Azure App nos últimos 30 dias e recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode adquirir previamente o uso por hora da taxa de carimbo de ambiente isolado e economizar os custos pagos conforme o uso. Observe que a capacidade reservada se aplica somente à taxa de carimbo e não às instâncias do serviço de aplicativo. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula as estimativas de salvamento de assinaturas individuais usando preços de reserva de 3 anos com base nos padrões de uso nos últimos 30 dias.

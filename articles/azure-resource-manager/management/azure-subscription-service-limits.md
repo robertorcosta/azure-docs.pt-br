@@ -4,19 +4,19 @@ description: Fornece uma lista de assinaturas comuns do Azure e limites de servi
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
-ms.openlocfilehash: 865c39ea9a48f9f5e0fbf04dea629b6886cf7ae4
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 06/04/2020
+ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584072"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080968"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas.
 
-Para saber mais sobre os preços do Azure, consulte [visão geral de preços do Azure](https://azure.microsoft.com/pricing/). Lá, você pode estimar seus custos usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/). Você também pode ir para a página de detalhes de preços de um serviço específico, por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Para obter dicas sobre como ajudar a gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](../../billing/billing-getting-started.md).
+Para saber mais sobre os preços do Azure, consulte [visão geral de preços do Azure](https://azure.microsoft.com/pricing/). Lá, você pode estimar seus custos usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/). Você também pode ir para a página de detalhes de preços de um serviço específico, por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Para obter dicas sobre como ajudar a gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](../../cost-management-billing/manage/getting-started.md).
 
 ## <a name="managing-limits"></a>Gerenciando limites
 
@@ -29,7 +29,7 @@ Para saber mais sobre os preços do Azure, consulte [visão geral de preços do 
 >
 > Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação de atendimento ao cliente online sem encargos](../templates/error-resource-quota.md).
 
-As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se você tiver uma [assinatura de Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), você poderá atualizar para uma assinatura de [pagamento conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obter mais informações, consulte [atualizar sua assinatura de avaliação gratuita do Azure para uma assinatura paga conforme o uso](../../billing/billing-upgrade-azure-subscription.md) e as [perguntas frequentes sobre assinatura de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
+As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se você tiver uma [assinatura de Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), você poderá atualizar para uma assinatura de [pagamento conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obter mais informações, consulte [atualizar sua assinatura de avaliação gratuita do Azure para uma assinatura paga conforme o uso](../../cost-management-billing/manage/upgrade-azure-subscription.md) e as [perguntas frequentes sobre assinatura de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
 
 Alguns limites são gerenciados em um nível regional.
 
@@ -127,6 +127,8 @@ Para limites do Banco de Dados do Azure para PostgreSQL, consulte [Limitações 
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
+Para obter mais informações, consulte [comparação de funções de Hospedagem de planos](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+
 ## <a name="azure-kubernetes-service-limits"></a>Limites do serviço kubernetes do Azure
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
@@ -217,6 +219,13 @@ A tabela a seguir fornece detalhes dos recursos e limites das [camadas de servi�
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## <a name="digital-twins-limits"></a>Limites de gêmeos digital
+
+> [!NOTE]
+> Algumas áreas desse serviço têm limites ajustáveis e outras não. Isso é representado nas tabelas abaixo com a coluna *ajustável?* . Quando o limite pode ser ajustado, o valor *ajustável?* é *Sim*.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+
 ## <a name="event-grid-limits"></a>Limites de grade de eventos
 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
@@ -250,7 +259,7 @@ A tabela a seguir fornece detalhes dos recursos e limites das [camadas de servi�
 
 ### <a name="media-services-v2-legacy"></a>Serviços de Mídia v2 (herdado)
 
-Para limites específicos para os serviços de mídia v2 (herdados), consulte [serviços de mídia v2 (Herdado)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
+Para limites específicos para os serviços de mídia v2 (herdados), consulte [serviços de mídia v2 (Herdado)](../../media-services/previous/media-services-quotas-and-limitations.md)
 
 ## <a name="mobile-services-limits"></a>Limites de Serviços Móveis
 
@@ -323,11 +332,11 @@ A tabela a seguir se aplica aos SKUs v1, v2, Standard e WAF, salvo indicação e
 
 ## <a name="sql-database-limits"></a>Limites de banco de dados SQL
 
-Para os limites do banco de dados SQL, consulte [limites de recursos do banco de dados SQL para bancos únicos](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [limites de recursos do banco de dados SQL para pools elásticos e bancos](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)de dados em pool e [limites de recursos do banco de dados SQL para instâncias gerenciadas](../../sql-database/sql-database-managed-instance-resource-limits.md).
+Para os limites do banco de dados SQL, consulte [limites de recursos do banco de dados SQL para bancos únicos](../../azure-sql/database/resource-limits-vcore-single-databases.md), [limites de recursos do banco de dados SQL para pools elásticos e bancos](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)de dados em pool e [limites de recursos do banco de dados SQL para o SQL instância gerenciada](../../azure-sql/managed-instance/resource-limits.md).
 
-## <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
+## <a name="azure-synapse-analytics-limits"></a>Limites do Azure Synapse Analytics
 
-Para limites de SQL Data Warehouse, confira [SQL data warehouse limites de recursos](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Para limites do Azure Synapse Analytics, consulte [limites de recursos do Synapse do Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 
@@ -401,11 +410,11 @@ Os limites a seguir se aplicam quando você usa Azure Resource Manager e grupos 
 
 ### <a name="shared-image-gallery-limits"></a>Limites da Galeria de imagens compartilhadas
 
-Há limites, por assinatura, para implantar recursos usando galerias de imagens compartilhadas:
+Há limites por assinatura para implantar recursos usando Galerias de Imagens Compartilhadas:
 
-- 100 galerias de imagens compartilhadas, por assinatura, por região
-- 1.000 definições de imagem, por assinatura, por região
-- 10.000 versões de imagem, por assinatura, por região
+- 100 galerias de imagens compartilhadas por assinatura por região
+- 1\.000 definições de imagem por assinatura por região
+- 10.000 versões de imagem por assinatura por região
 
 ## <a name="virtual-machine-scale-sets-limits"></a>Limites dos conjuntos de dimensionamento de máquinas virtuais
 

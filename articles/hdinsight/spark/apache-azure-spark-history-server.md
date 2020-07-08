@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76548927"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079285"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usar os recursos estendidos do servidor de histórico de Apache Spark para depurar e diagnosticar aplicativos Spark
 
@@ -32,7 +32,7 @@ O servidor de histórico do Spark é a interface do usuário da Web para aplicat
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Abrir a interface do usuário da Web do servidor de histórico do Spark por URL
 
-Abra o servidor de histórico do Spark navegando até `https://CLUSTERNAME.azurehdinsight.net/sparkhistory`, em que **ClusterName** é o nome do cluster Spark.
+Abra o servidor de histórico do Spark navegando até `https://CLUSTERNAME.azurehdinsight.net/sparkhistory` , em que **ClusterName** é o nome do cluster Spark.
 
 A interface do usuário da Web do servidor de histórico do Spark pode ser semelhante a esta imagem:
 
@@ -137,7 +137,7 @@ Selecione a ID do trabalho e, em seguida, selecione **dados** no menu ferramenta
   + Gravação de dados: a soma do tamanho de saída e o tamanho de gravação de ordem aleatória
   + Tempo de execução: o tempo entre a hora de início da primeira tentativa e o tempo de conclusão da última tentativa
   + Contagem de linhas: a soma dos registros de entrada, os registros de saída, os registros de leitura em ordem aleatória e os registros de gravação em ordem aleatória
-  + Andamento
+  + Progresso
 
     > [!NOTE]  
     > Por padrão, o nó do grafo de trabalho exibirá informações da última tentativa de cada estágio (exceto para o tempo de execução do estágio). Mas durante a reprodução, o nó do grafo de trabalho mostrará informações sobre cada tentativa.
@@ -208,12 +208,12 @@ Selecione o ícone de cor para selecionar ou desmarcar o conteúdo correspondent
 Para reverter para a versão da Comunidade, execute as etapas a seguir.
 
 1. Abra o cluster no Ambari.
-1. Navegue até **Spark2** > **configurações**do Spark2.
+1. Navegue até **Spark2**  >  **configurações**do Spark2.
 1. Selecione **Spark2 personalizados-padrões**.
 1. Selecione **Adicionar Propriedade...**.
 1. Adicione **Spark. UI. Enhancement. Enabled = False**e, em seguida, salve-o.
 1. A propriedade define **falsos** agora.
-1. Selecione **Salvar** para salvar a configuração.
+1. Selecione **salvar** para salvar a configuração.
 
     ![Desative um recurso no Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
@@ -245,7 +245,7 @@ Se você encontrar um erro no servidor de histórico do Spark, execute as etapas
 
 ### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>Como fazer atualizar um arquivo. jar em um cenário de hotfix?
 
-Se você quiser atualizar com um hotfix, use o script a seguir, que será atualizado `spark-enhancement.jar*`.
+Se você quiser atualizar com um hotfix, use o script a seguir, que será atualizado `spark-enhancement.jar*` .
 
 **upgrade_spark_enhancement.sh**:
 
@@ -310,7 +310,7 @@ Se você quiser atualizar com um hotfix, use o script a seguir, que será atuali
     |Propriedade |Valor |
     |---|---|
     |Tipo de script|- Personalizado|
-    |Name|UpgradeJar|
+    |Nome|UpgradeJar|
     |URI do script Bash|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
     |Tipo(s) de nó|Cabeçalho, trabalhador|
     |Parâmetros|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
@@ -326,8 +326,8 @@ Se você quiser atualizar com um hotfix, use o script a seguir, que será atuali
 ## <a name="next-steps"></a>Próximas etapas
 
 + [Gerenciar recursos para um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
-+ [Definir configurações do Apache Spark](apache-spark-settings.md)
++ [Definir as configurações do Apache Spark](apache-spark-settings.md)
 
-## <a name="feedback"></a>Comentários
+## <a name="suggestions"></a>Sugestões
 
-Se você tiver algum comentário ou surgir algum problema ao usar essa ferramenta, envie um email para ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).
+Se você tiver algum comentário ou surgir algum problema ao usar essa ferramenta, envie um email para ( [hdivstool@microsoft.com](mailto:hdivstool@microsoft.com) ).

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918233"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078622"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível conectar área de trabalho remota em uma VM porque o adaptador de rede está desabilitado
 
@@ -39,21 +40,29 @@ Para habilitar o adaptador de rede da VM, use o Controle serial ou [redefina o a
 ). Se o console serial não estiver habilitado em sua VM, consulte [Redefinir interface de rede](#reset-network-interface).
 2. Verifique o estado do adaptador de rede:
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Anote o nome do adaptador de rede desabilitado.
 
 3. Habilite o adaptador de rede:
 
-        netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     Por exemplo, se o adaptador de rede nomear "Ethernet 2", execute o seguinte comando:
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  Verifique o estado do adaptador de rede novamente para certificar-se de que o adaptador de rede está habilitado.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Não é necessário reiniciar a VM nesse momento. A VM retornará acessível.
 

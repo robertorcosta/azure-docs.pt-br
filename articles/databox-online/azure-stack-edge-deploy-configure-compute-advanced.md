@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: eb7bb7933303aaf16f320e219ad3673bf1efde72
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080347"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com o Azure Stack Edge para o fluxo de implantação avançada
 
@@ -22,7 +22,7 @@ Este tutorial descreve como configurar uma função de computação para um flux
 
 Computação pode ser configurada para o fluxo de implantação simples ou avançada em seu dispositivo.
 
-|                  | Implantação simples                                | Implantação avançada                   |
+| Critérios | Implantação simples                                | Implantação avançada                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Destinado a     | Administradores de TI                                | Desenvolvedores                            |
 | Type             | Usar o serviço Azure Stack Edge para implantar módulos      | Usar o serviço de Hub IoT para implantar módulos |
@@ -215,9 +215,9 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 
         ![Adicionar módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.    Em **Especificar Rotas**, defina rotas entre módulos.  
-    
-    ![A seção Especificar Rotas](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
+5. Em **Especificar Rotas**, defina rotas entre módulos.  
+   
+   ![A seção Especificar Rotas](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
     Você pode substituir *rota* pela cadeia de caracteres a seguir, que você copiou anteriormente. Neste exemplo, insira o nome do compartilhamento local que efetuará push de dados para o compartilhamento de nuvem. Substitua o `modulename` pelo nome do módulo. Selecione **Avançar**.
         
@@ -227,9 +227,9 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 
     ![A seção Especificar Rotas](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.    Em **Examinar implantação**, examine todas as configurações e, em seguida, selecione **Enviar** para enviar o módulo para implantação.
+6. Em **Examinar implantação**, examine todas as configurações e, em seguida, selecione **Enviar** para enviar o módulo para implantação.
 
-    ![A página Definir Módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![A página Definir Módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Essa ação inicia a implantação do módulo. Depois que a implantação for concluída, o **Status de runtime** do módulo será **em execução**.
 
@@ -241,13 +241,13 @@ A etapa final é garantir que o módulo esteja conectado e funcionando como espe
 
 Execute as etapas a seguir para verificar a transformação e transferência de dados para o Azure.
  
-1.    No Explorador de Arquivos, conecte-se aos compartilhamentos do Microsoft Edge e local do Microsoft Edge criados anteriormente.
+1. No Explorador de Arquivos, conecte-se aos compartilhamentos do Microsoft Edge e local do Microsoft Edge criados anteriormente.
 
-    ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
+   ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.    Adicione dados ao compartilhamento de local.
+1. Adicione dados ao compartilhamento de local.
 
-    ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Os dados são movidos para o compartilhamento em nuvem.
 

@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: fb3484d013314897ea2e9157b642d8f2b85dcd60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437640"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080152"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters Enterprise Security Package no Azure HDInsight
 
@@ -47,7 +47,7 @@ Nesta seção, você usará um modelo de implantação de início rápido do Azu
     |---|---|
     |Subscription|Selecione a assinatura na qual você deseja implantar os recursos.|
     |Resource group|Selecione **criar novo**e insira o nome`OnPremADVRG`|
-    |Local|Selecione um local.|
+    |Location|Selecione um local.|
     |Nome de Usuário do Administrador|`HDIFabrikamAdmin`|
     |Senha do Administrador|Digite uma senha.|
     |Nome de domínio|`HDIFabrikam.com`|

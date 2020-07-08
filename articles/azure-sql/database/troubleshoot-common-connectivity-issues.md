@@ -12,11 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668399"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078962"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Solucionar erros de conexão transitória no banco de dados SQL e no SQL Instância Gerenciada
 
@@ -104,7 +105,7 @@ Para tornar esse teste prático, desconecte o computador da rede antes de inicia
 - Pause a execução usando o método **Console.ReadLine** ou uma caixa de diálogo com um botão OK. O usuário pressiona a tecla Enter depois que o computador é conectado à rede.
 - Tente se conectar novamente, esperando êxito.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testar errando o nome do banco de dados ao se conectar
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>Teste digitando incorretamente o nome de usuário ao conectar
 
 Seu programa pode errar intencionalmente o nome de usuário antes da primeira tentativa de conexão. O erro é:
 

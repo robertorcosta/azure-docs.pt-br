@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d1dff01c9e7b5232cfac0cf5581c077e67f6937
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75552637"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079489"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Práticas recomendadas de desempenho do Apache Phoenix
 
@@ -82,13 +82,17 @@ O Phoenix permite que você controle o número de regiões em que seus dados sã
 
 Para incrementar uma tabela durante a criação, especifique o número de salt buckets:
 
-    CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```sql
+CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```
 
 Este incremento divide a tabela entre os valores de chaves primárias, escolhendo os valores automaticamente. 
 
 Para controlar onde as divisões de tabela ocorrerem, você pode dividir previamente a tabela fornecendo os valores de intervalo ao longo do qual a divisão ocorre. Por exemplo, para criar uma tabela dividida em três regiões:
 
-    CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```sql
+CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```
 
 ## <a name="index-design"></a>Design de índice
 
@@ -120,11 +124,15 @@ Por exemplo, no exemplo de tabela de contato, você pode criar um índice secund
 
 No entanto, se você geralmente deseja procurar o FirstName e o lastName dado o socialSecurityNum, pode criar um índice abrangido que inclui o FirstName e o lastName como dados reais na tabela de índice:
 
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```sql
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```
 
 Esse índice abrangido permite que a consulta a seguir obtenha todos os dados apenas com a leitura da tabela que contém o índice secundário:
 
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```sql
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```
 
 ### <a name="use-functional-indexes"></a>Usar índices funcionais
 
@@ -132,7 +140,9 @@ Esse índice abrangido permite que a consulta a seguir obtenha todos os dados ap
 
 Por exemplo, você pode criar um índice para que possa fazer pesquisas que façam distinção entre maiúsculas e minúsculas no conjunto de nome e sobrenome de uma pessoa:
 
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```sql
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```
 
 ## <a name="query-design"></a>Design de consulta
 
@@ -153,46 +163,64 @@ Em [SQLLine](http://sqlline.sourceforge.net/), use EXPLAIN seguido por sua consu
 
 Por exemplo, digamos que você tenha uma tabela chamada VOOS que armazena informações de atrasos de voo.
 
-Para selecionar todos os vôos com uma linha de entrada do `19805`, em que o traço de linha é um campo que não está na chave primária ou em qualquer índice:
+Para selecionar todos os vôos com uma linha de entrada do `19805` , em que o traço de linha é um campo que não está na chave primária ou em qualquer índice:
 
-    select * from "FLIGHTS" where airlineid = '19805';
+```sql
+select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Execute o comando explicar como a seguir:
 
-    explain select * from "FLIGHTS" where airlineid = '19805';
+```sql
+explain select * from "FLIGHTS" where airlineid = '19805';
+```
 
 O plano de consulta tem esta aparência:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
-        SERVER FILTER BY AIRLINEID = '19805'
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
+   SERVER FILTER BY AIRLINEID = '19805'
+```
 
 Nesse plano, observe a expressão FULL SCAN OVER FLIGHTS. Essa expressão indica que a execução faz uma VERIFICAÇÃO DE TABELA em todas as linhas na tabela, em vez de usar a opção mais eficiente de VERIFICAÇÃO DE INTERVALO ou IGNORAR VERIFICAÇÃO.
 
 Agora, digamos que você deseja consultar voos em 2 de janeiro de 2014 para a operadora `AA` onde seu flightnum era maior que 1. Vamos supor que as colunas ano, mês, dia do mês, operadora e número do voo existem na tabela de exemplo e fazem parte da chave primária composta. A consulta deve ser semelhante ao seguinte:
 
-    select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Vamos examinar o plano para essa consulta com:
 
-    explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 O plano resultante é:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```
 
 Os valores entre colchetes são o intervalo de valores para as chaves primárias. Nesse caso, os valores do intervalo são corrigidos com o ano 2014, mês 1 e dia do mês 2, mas permitem valores de número de voo iniciando com 2 e aumentando (`*`). Esse plano de consulta confirma que a chave primária está sendo usada como o esperado.
 
 Em seguida, crie um índice na tabela VOOS denominada `carrier2_idx` que esteja apenas no campo da operadora. Esse índice também inclui a data do voo, número de cauda, origem e número do voo como colunas abrangidas cujos dados também são armazenados no índice.
 
-    CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```sql
+CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```
 
 Digamos que você deseja obter a operadora juntamente com a data do voo e o número de cauda, como a consulta a seguir:
 
-    explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```sql
+explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```
 
 Você deve ver este índice sendo usado:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```
 
 Para obter uma lista completa dos itens que podem aparecer nos resultados de explicação de planos, consulte a seção explicam Explicar Planos no [Guia de Ajuste do Apache Phoenix](https://phoenix.apache.org/tuning_guide.html).
 
@@ -222,7 +250,9 @@ Ao excluir um conjunto de dados grande, ative a confirmação automática antes 
 
 Se seu cenário favorece a velocidade de gravação na integridade dos dados, considere desabilitar o log write-ahead durante a criação de tabelas:
 
-    CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```sql
+CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```
 
 Para obter mais detalhes sobre esta e outras opções, consulte [Gramática do Apache Phoenix](https://phoenix.apache.org/language/index.html#options).
 

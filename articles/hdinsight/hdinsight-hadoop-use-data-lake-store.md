@@ -5,22 +5,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b45af924b75392374265ca41bd4dc1627edd4e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89e3aa1fec2157d77ac5c180bc4dd193f10398cd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190802"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078945"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usar Data Lake Storage Gen1 com clusters Azure HDInsight
 
 > [!Note]
 > Implante novos clusters HDInsight usando o [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) para ter um melhor desempenho e novos recursos.
 
-Para analisar dados no cluster HDInsight, você pode armazenar os dados no [`Azure Storage`](../storage/common/storage-introduction.md), [Azure data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)ou [Azure data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Todas as opções de armazenamento permitem que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
+Para analisar dados no cluster HDInsight, você pode armazenar os dados no [`Azure Storage`](../storage/common/storage-introduction.md) , [Azure data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)ou [Azure data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Todas as opções de armazenamento permitem que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
 
 Neste artigo, você aprenderá como funciona o Data Lake Storage Gen1 com clusters HDInsight. Para saber como o Armazenamento do Azure funciona com clusters HDInsight, consulte [Usar o Armazenamento do Azure com clusters do Azure HDInsight](hdinsight-hadoop-use-blob-storage.md). Para saber mais sobre a criação de um cluster HDInsight, consulte [Criar clusters do Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -62,7 +62,7 @@ Quando o HDInsight é implantado com o Data Lake Storage Gen1 como armazenamento
 * O Cluster1 pode usar o caminho `adl://mydatalakestore/cluster1storage`
 * O Cluster2 pode usar o caminho `adl://mydatalakestore/cluster2storage`
 
-Observe que os dois clusters usam a mesma conta **mydatalakestore** do Data Lake Storage Gen1. Cada cluster tem acesso ao seu próprio sistema de arquivos raiz no Data Lake Storage. A experiência de implantação portal do Azure solicita que você use um nome de pasta, **como\</clusters/ClusterName>** para o caminho raiz.
+Observe que os dois clusters usam a mesma conta **mydatalakestore** do Data Lake Storage Gen1. Cada cluster tem acesso ao seu próprio sistema de arquivos raiz no Data Lake Storage. A experiência de implantação portal do Azure solicita que você use um nome de pasta, **como \<clustername> /clusters/** para o caminho raiz.
 
 Para usar Data Lake Storage Gen1 como armazenamento padrão, você deve conceder acesso à entidade de serviço para os seguintes caminhos:
 
@@ -110,13 +110,13 @@ New-AzResourceGroupDeployment `
 
 É possível usar o Data Lake Storage Gen1 como armazenamento adicional para o cluster também. Nesses casos, o armazenamento padrão do cluster pode ser um Azure Storage Blob ou uma conta do Data Lake Storage. Ao executar trabalhos do HDInsight em relação aos dados armazenados em Data Lake Storage como armazenamento adicional, use o caminho totalmente qualificado. Por exemplo:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 Não há **cluster_root_path** na URL agora. Isso porque Data Lake Storage não é um armazenamento padrão nesse caso. Portanto, tudo o que você precisa fazer é fornecer o caminho para os arquivos.
 
 Para usar um Data Lake Storage Gen1 como armazenamento adicional, conceda à entidade de serviço acesso aos caminhos em que os arquivos são armazenados.  Por exemplo:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 Para saber mais sobre como criar a entidade de serviço e conceder acesso, confira Configurar acesso ao Data Lake Storage.
 
@@ -143,7 +143,7 @@ Há várias maneiras de acessar os arquivos no Data Lake Storage em um cluster H
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Usando o formato de caminho encurtado**. Com essa abordagem, você substitui o caminho até a raiz do cluster por:
+* **Usando o formato de caminho encurtado**. Com essa abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     adl:///<file path>
@@ -157,17 +157,17 @@ Há várias maneiras de acessar os arquivos no Data Lake Storage em um cluster H
 
 ### <a name="data-access-examples"></a>Exemplos de acesso a dados
 
-Os exemplos são baseados em uma [conexão SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) com o nó principal do cluster. Os exemplos usam todos os três esquemas de URI. Substitua `DATALAKEACCOUNT` e `CLUSTERNAME` pelos valores relevantes.
+Os exemplos são baseados em uma [conexão SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) ao nó principal do cluster. Os exemplos usam todos os três esquemas de URI. Substitua `DATALAKEACCOUNT` e `CLUSTERNAME` pelos valores relevantes.
 
 #### <a name="a-few-hdfs-commands"></a>Alguns comandos do HDFS
 
-1. Crie um arquivo no armazenamento local.
+1. Criar um arquivo no armazenamento local.
 
     ```bash
     touch testFile.txt
     ```
 
-1. Crie diretórios no armazenamento de cluster.
+1. Criar diretórios no armazenamento de cluster.
 
     ```bash
     hdfs dfs -mkdir adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -175,7 +175,7 @@ Os exemplos são baseados em uma [conexão SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copie dados do armazenamento local para o armazenamento de cluster.
+1. Copiar dados do armazenamento local para o armazenamento de cluster.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -183,7 +183,7 @@ Os exemplos são baseados em uma [conexão SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -copyFromLocal testFile.txt /sampledata3/
     ```
 
-1. Liste o conteúdo do diretório no armazenamento de cluster.
+1. Listar o conteúdo do diretório no armazenamento de cluster.
 
     ```bash
     hdfs dfs -ls adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -191,9 +191,9 @@ Os exemplos são baseados em uma [conexão SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -ls /sampledata3/
     ```
 
-#### <a name="creating-a-hive-table"></a>Criando uma tabela Hive
+#### <a name="creating-a-hive-table"></a>Como criar uma tabela Hive
 
-Três locais de arquivo são mostrados para fins ilustrativos. Para a execução real, use apenas uma das `LOCATION` entradas.
+Três locais de arquivo são mostrados para fins ilustrativos. Para a execução real, use apenas uma das entradas `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -214,7 +214,7 @@ LOCATION '/example/data/';
 
 ## <a name="identify-storage-path-from-ambari"></a>Identificar o caminho de armazenamento do Ambari
 
-Para identificar o caminho completo para o repositório padrão configurado, navegue até **HDFS** > **configurações** do HDFS e insira `fs.defaultFS` na caixa de entrada do filtro.
+Para identificar o caminho completo para o repositório padrão configurado, navegue até **HDFS**  >  **configurações** do HDFS e insira `fs.defaultFS` na caixa de entrada do filtro.
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Criar clusters HDInsight com acesso ao Data Lake Storage Gen1
 
@@ -227,7 +227,7 @@ Use os links a seguir para obter instruções detalhadas sobre como criar cluste
 
 ## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-gen1-access"></a>Atualizar o certificado do HDInsight para acesso do Data Lake Storage Gen1
 
-O código de exemplo do PowerShell a seguir lê um certificado de um arquivo local ou do Azure Key Vault e atualiza seu cluster HDInsight com o novo certificado para acessar o Azure Data Lake Storage Gen1. Forneça seu próprio nome de cluster HDInsight, nome do grupo de recursos, `app ID`ID da assinatura,, caminho local para o certificado. Digite a senha quando solicitado.
+O código de exemplo do PowerShell a seguir lê um certificado de um arquivo local ou do Azure Key Vault e atualiza seu cluster HDInsight com o novo certificado para acessar o Azure Data Lake Storage Gen1. Forneça seu próprio nome de cluster HDInsight, nome do grupo de recursos, ID da assinatura, `app ID` , caminho local para o certificado. Digite a senha quando solicitado.
 
 ```powershell-interactive
 $clusterName = '<clustername>'

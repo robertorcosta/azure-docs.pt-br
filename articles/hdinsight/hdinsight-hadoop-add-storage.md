@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192477"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079999"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
@@ -28,7 +28,7 @@ Saiba como usar ações de script para adicionar mais *contas* de armazenamento 
 * Nome e chave da conta de armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 * Se estiver usando o PowerShell, você precisará do módulo AZ.  Consulte [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como funciona
 
 Durante o processamento, o script executa as seguintes ações:
 
@@ -133,14 +133,6 @@ Para contornar esse problema:
 
 > [!IMPORTANT]  
 > Não há suporte para a rotação da chave de armazenamento para a conta de armazenamento primária anexada a um cluster.
-
-### <a name="poor-performance"></a>Desempenho ruim
-
-Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá enfrentar um desempenho ruim. O acesso a dados em uma região diferente envia o tráfego de rede fora do data center do Azure regional. E pela Internet pública, que pode introduzir latência.
-
-### <a name="additional-charges"></a>Custos adicionais
-
-Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá observar encargos adicionais em sua cobrança do Azure. Um encargo de saída é aplicado quando os dados saem de um data center regional. Esse encargo se aplica mesmo se o tráfego for destinado a outro data center do Azure em uma região diferente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

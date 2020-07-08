@@ -7,11 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 96881154a368da15d703b43ba2ffe5d6dd034bd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213254"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081087"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a Área de Trabalho Virtual do Windows
 
@@ -59,27 +60,41 @@ Por padrão, aplicativos e áreas de trabalho sendo executados em configuraçõe
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurar codificação de quadros acelerada por GPU
 
-Área de Trabalho Remota codifica todos os gráficos renderizados por aplicativos e áreas de trabalho (sejam renderizados com GPU ou com CPU) para transmissão para clientes da Área de Trabalho Remota. Por padrão, a Área de Trabalho Remota não utiliza as GPUs disponíveis para essa codificação. Configure a Política de Grupo para que o host da sessão habilite a codificação de quadros acelerada por GPU. Continuando as etapas acima:
+Área de Trabalho Remota codifica todos os gráficos renderizados por aplicativos e áreas de trabalho (sejam renderizados com GPU ou com CPU) para transmissão para clientes da Área de Trabalho Remota. Quando parte da tela é atualizada com frequência, essa parte da tela é codificada com um codec de vídeo (H. 264/AVC). Por padrão, a Área de Trabalho Remota não utiliza as GPUs disponíveis para essa codificação. Configure a Política de Grupo para que o host da sessão habilite a codificação de quadros acelerada por GPU. Continuando as etapas acima:
+ 
+>[!NOTE]
+>A codificação de quadro acelerada por GPU não está disponível nas VMs da série NVv4.
 
-1. Selecione a política **Priorizar o modo gráfico H.264/AVC 444 para conexões da Área de Trabalho Remota** e defina essa política como **Habilitada** para forçar o codec H.264/AVC 444 na sessão remota.
-2. Selecione a política **Configurar codificação de hardware H.264/AVC para conexões da Área de Trabalho Remota** e defina essa política como **Habilitada** para habilitar a codificação de hardware para AVC/H.264 na sessão remota.
+1. Selecione a política **Configurar codificação de hardware H.264/AVC para conexões da Área de Trabalho Remota** e defina essa política como **Habilitada** para habilitar a codificação de hardware para AVC/H.264 na sessão remota.
 
     >[!NOTE]
     >No Windows Server 2016, defina a opção **Preferir a codificação de hardware AVC** como **Sempre tentar**.
 
-3. Agora que as políticas de grupo foram editadas, force uma atualização da política de grupo. Abra o Prompt de Comando e digite:
+2. Agora que as políticas de grupo foram editadas, force uma atualização da política de grupo. Abra o Prompt de Comando e digite:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Saia da sessão de Área de Trabalho Remota.
+3. Saia da sessão de Área de Trabalho Remota.
 
+## <a name="configure-fullscreen-video-encoding"></a>Configurar a codificação de vídeo em tela inteira
+
+Se você geralmente usa aplicativos que produzem um conteúdo de alta taxa de quadros, como modelagem 3D, CAD/CAM e aplicativos de vídeo, você pode optar por habilitar uma codificação de vídeo em tela inteira para uma sessão remota. O perfil de vídeo de tela inteira fornece uma taxa de quadros mais alta e uma melhor experiência de usuário para aplicativos, com despesas de largura de banda de rede e recursos de host de sessão e de cliente. É recomendável usar a codificação de quadro acelerada por GPU para uma codificação de vídeo de tela inteira. Configure Política de Grupo para o host de sessão para habilitar a codificação de vídeo em tela inteira. Continuando as etapas acima:
+
+1. Selecione a política **Priorizar o modo gráfico H.264/AVC 444 para conexões da Área de Trabalho Remota** e defina essa política como **Habilitada** para forçar o codec H.264/AVC 444 na sessão remota.
+2. Agora que as políticas de grupo foram editadas, force uma atualização da política de grupo. Abra o Prompt de Comando e digite:
+
+    ```batch
+    gpupdate.exe /force
+    ```
+
+3. Saia da sessão de Área de Trabalho Remota.
 ## <a name="verify-gpu-accelerated-app-rendering"></a>Verificar a renderização de aplicativo acelerada por GPU
 
 Para verificar se os aplicativos estão usando a GPU para renderização, tente qualquer um dos seguintes:
 
-* Para VMs do Azure com uma GPU NVIDIA, use o utilitário `nvidia-smi`, conforme descrito em [Verificar a instalação do driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para verificar a utilização da GPU ao executar seus aplicativos.
+* Para VMs do Azure com uma GPU NVIDIA, use o `nvidia-smi` utilitário conforme descrito em [verificar a instalação do driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para verificar a utilização da GPU ao executar seus aplicativos.
 * Em versões do sistema operacional com suporte, você pode usar o Gerenciador de Tarefas para verificar a utilização da GPU. Selecione a GPU na guia "Desempenho" para ver se os aplicativos estão utilizando a GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificar a codificação de quadros acelerada por GPU
@@ -89,7 +104,14 @@ Para verificar se Área de Trabalho Remota está usando a codificação acelerad
 1. Conecte-se à área de trabalho da VM usando o cliente da Área de Trabalho Virtual do Windows.
 2. Inicie o Visualizador de Eventos e navegue até o seguinte nó: **Logs de Aplicativos e Serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operacional**
 3. Para determinar se a codificação acelerada por GPU é usada, procure a ID de evento 170. Se você está vendo "Codificador de hardware AVC habilitado: 1", então a codificação de GPU é usada.
-4. Para determinar se o modo AVC 444 é usado, procure a ID do evento 162. Se você está vendo "AVC Disponível: 1 Perfil Inicial: 2048", então o AVC 444 é usado.
+
+## <a name="verify-fullscreen-video-encoding"></a>Verificar a codificação de vídeo em tela inteira
+
+Para verificar se Área de Trabalho Remota está usando a codificação de vídeo de tela inteira:
+
+1. Conecte-se à área de trabalho da VM usando o cliente da Área de Trabalho Virtual do Windows.
+2. Inicie o Visualizador de Eventos e navegue até o seguinte nó: **Logs de Aplicativos e Serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operacional**
+3. Para determinar se a codificação de vídeo de tela inteira é usada, procure a ID de evento 162. Se você está vendo "AVC Disponível: 1 Perfil Inicial: 2048", então o AVC 444 é usado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

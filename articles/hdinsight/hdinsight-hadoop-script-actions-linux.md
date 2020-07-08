@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767543"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082243"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -123,7 +123,7 @@ A melhor prática é baixar e arquivar tudo em uma conta de Armazenamento do Azu
 > [!IMPORTANT]  
 > A conta de armazenamento usada deve ser a conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento.
 
-Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) de armazenamento. Esse local é um contêiner público somente leitura mantido pela equipe do HDInsight.
+Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) conta de armazenamento. Esse local é um contêiner público somente leitura mantido pela equipe do HDInsight.
 
 ### <a name="use-pre-compiled-resources"></a><a name="bPS4"></a>Usar os recursos pré-compilados
 
@@ -173,7 +173,7 @@ Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo
 >&2 echo "An error occurred installing Foo"
 ```
 
-Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre redirecionamento de e [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)/s, consulte.
+Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre redirecionamento de e/s, consulte [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html) .
 
 Para obter mais informações sobre como exibir informações registradas em log por ações de script, consulte [solucionar problemas de ações de script](./troubleshoot-script-action.md).
 
@@ -264,11 +264,15 @@ Valores passados para o script como parâmetros devem ser inseridos entre aspas 
 
 Definir uma variável de ambiente é uma ação realizada pela seguinte instrução:
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 Em que VARIABLENAME é o nome da variável. Para acessar a variável, use `$VARIABLENAME`. Por exemplo, para atribuir um valor fornecido por um parâmetro posicional como uma variável de ambiente denominada PASSWORD, use a seguinte instrução:
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 O acesso subsequente às informações poderia, então, usar `$PASSWORD`.
 
@@ -328,7 +332,7 @@ A Microsoft fornece scripts de exemplo para instalar componentes em um cluster H
 
 Estes são os erros que podem surgir ao usar os scripts que você desenvolveu:
 
-**Erro**: `$'\r': command not found`. Às vezes, seguido por `syntax error: unexpected end of file`.
+**Erro**: `$'\r': command not found` . Às vezes, seguido por `syntax error: unexpected end of file`.
 
 *Causa*: este erro é gerado quando as linhas em um script terminam com CRLF. Os sistemas UNIX esperam apenas LF como terminação da linha.
 
@@ -346,13 +350,15 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica o arquivo diretamente |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contém uma versão apenas com terminações LF. |
 
-**Erro**: `line 1: #!/usr/bin/env: No such file or directory`.
+**Erro**: `line 1: #!/usr/bin/env: No such file or directory` .
 
 *Causa*: este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (Marca de Ordem de Byte).
 
 *Solução*: salve o arquivo como ASCII ou UTF-8, sem nenhuma BOM. Você também pode usar o seguinte comando em um sistema Linux ou Unix para criar um arquivo sem a BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 Substitua `INFILE` com o arquivo que contém a BOM. `OUTFILE` deve ser um novo nome de arquivo contendo o script sem a BOM.
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/4/2020
-ms.openlocfilehash: d9d600b4ac34e4608b7747bee0e0a704ad2ab3be
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 7/7/2020
+ms.openlocfilehash: b733ef771444e080eb794b300e75d4396c3ef674
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846045"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079166"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -20,6 +20,12 @@ O recurso de réplica de leitura permite replicar dados de um servidor de Banco 
 As réplicas são novos servidores que você gerencia de modo semelhante aos servidores normais do Banco de Dados do Azure para PostgreSQL. Para cada réplica de leitura, você será cobrado pela computação provisionada em vCores e pelo armazenamento em GB/mês.
 
 Para saber mais sobre recursos e problemas de replicação do MySQL, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+
+> [!NOTE]
+> Comunicação sem tendência
+>
+> A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+>
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
 
@@ -41,9 +47,7 @@ Você pode ter um servidor mestre em qualquer [região do Banco de Dados do Azur
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre estiver localizado. As regiões de réplica universal compatíveis incluem:
 
-Leste da Austrália, Sudeste da Austrália, EUA Central, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste da Ásia, Sul do Reino Unido, Oeste do Reino Unido, Oeste da Europa, Oeste dos EUA.
-
-*Oeste dos EUA 2 está temporariamente indisponível como um local de réplica entre regiões.
+Leste da Austrália, sudeste da Austrália, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Você pode criar uma réplica de leitura na região emparelhada do Azure do seu servidor mestre além das regiões de réplica universal. Se não souber o par da sua região, você pode encontrar essa informação no [artigo Regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
@@ -52,16 +56,19 @@ Se você estiver usando réplicas entre regiões para o planejamento de recupera
 
 No entanto, há certas limitações a serem consideradas: 
 
-* Disponibilidade regional: O Banco de Dados do Azure para MySQL está disponível no Oeste dos EUA 2, França Central, Norte dos EAU e Alemanha Central. Entretanto, suas regiões emparelhadas não estão disponíveis.
+* Disponibilidade regional: o banco de dados do Azure para MySQL está disponível na França central, Norte dos EAU e na Alemanha central. Entretanto, suas regiões emparelhadas não estão disponíveis.
     
 * Pares unidirecionais: Algumas regiões do Azure são emparelhadas em uma direção apenas. Essas regiões incluem Oeste da Índia, Sul do Brasil e US Gov - Virgínia. 
    Isso significa que um servidor mestre no Oeste da Índia pode criar uma réplica no Sul da Índia. Entretanto, um servidor mestre no Sul da Índia não pode criar uma réplica no Oeste da Índia. Isso ocorre porque a região secundária do Oeste da Índia é o Sul da Índia, mas a região secundária do Sul da Índia não é o Oeste da Índia.
 
 ## <a name="create-a-replica"></a>Criar uma réplica
 
+> [!IMPORTANT]
+> O recurso de réplica de leitura está disponível apenas para bancos de dados do Azure para servidores MySQL nas camadas de preços de uso geral ou de otimização de memória. Assegure-se de que o servidor principal esteja em um desses níveis de preços.
+
 Se um servidor mestre não tiver servidores de réplica, o mestre será reiniciado primeiro para se preparar para a replicação.
 
-Quando você inicia o fluxo de trabalho de criação de réplica, um servidor do Banco de Dados do Azure para MySQL é criado. O novo servidor é preenchido com os dados que estavam no servidor mestre. A hora de criação depende da quantidade de dados no mestre e do tempo decorrido desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma assinatura do servidor mestre. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, você pode [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação.
+Quando você inicia o fluxo de trabalho de criação de réplica, um servidor do Banco de Dados do Azure para MySQL é criado. O novo servidor é preenchido com os dados que estavam no servidor mestre. A hora de criação depende da quantidade de dados no mestre e do tempo decorrido desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma assinatura do servidor mestre. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, poderá [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação.
 
 Cada réplica é habilitada para armazenamento de [aumento automático](concepts-pricing-tiers.md#storage-auto-grow). O recurso de aumento automático permite que a réplica acompanhe os dados replicados e evita uma interrupção na replicação causada por erros de falta de armazenamento.
 
@@ -101,11 +108,33 @@ Quando você escolhe interromper a replicação em uma réplica, ela perde todos
 
 Saiba como [interromper a replicação para uma réplica](howto-read-replicas-portal.md).
 
+## <a name="failover"></a>Failover
+
+Não há nenhum failover automatizado entre servidores mestre e de réplica. 
+
+Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor mestre e a latência entre os data centers. Na maioria dos casos, a latência de réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+
+> [!Tip]
+> Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica do mestre indicará a quantidade de dados perdidos.
+
+Depois que você decidir que deseja fazer failover para uma réplica, 
+
+1. Parar a replicação na réplica<br/>
+   Essa etapa é necessária para tornar o servidor de réplica capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será desvinculado do mestre. Depois que você inicia a interrupção da replicação, o processo de back-end normalmente leva cerca de 2 minutos para ser concluído. Consulte a seção [parar replicação](#stop-replication) deste artigo para entender as implicações dessa ação.
+    
+2. Aponte seu aplicativo para a réplica (antiga)<br/>
+   Cada servidor tem uma cadeia de conexão exclusiva. Atualize seu aplicativo para apontar para a réplica (antiga) em vez do mestre.
+    
+Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
+
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
 ### <a name="pricing-tiers"></a>Tipos de preço
 
 No momento, as réplicas de leitura estão disponíveis apenas nas camadas de preços de uso geral e de otimização de memória.
+
+> [!NOTE]
+> O custo da execução do servidor de réplica é baseado na região em que o servidor de réplica está sendo executado.
 
 ### <a name="master-server-restart"></a>Reinicialização do servidor mestre
 

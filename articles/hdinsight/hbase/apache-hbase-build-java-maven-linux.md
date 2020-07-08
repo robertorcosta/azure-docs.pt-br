@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
-ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f367f7fb6201a62c7fb47e0c593d04d41e0b378
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079506"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 
@@ -57,13 +57,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    Esse comando cria um diretório chamado `hbaseapp` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho `hbaseapp`para. O terceiro comando cria um novo diretório, `conf`, que será usado posteriormente. O diretório `hbaseapp` contém os seguintes itens:
+    Esse comando cria um diretório chamado `hbaseapp` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho para `hbaseapp` . O terceiro comando cria um novo diretório, `conf` , que será usado posteriormente. O diretório `hbaseapp` contém os seguintes itens:
 
     * `pom.xml`: O[POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(modelo de objeto de projeto) contém informações e detalhes de configuração usados para compilar o projeto.
     * `src\main\java\com\microsoft\examples`: contém o código do aplicativo.
     * `src\test\java\com\microsoft\examples`: contém testes para o seu aplicativo.
 
-2. Remova o código de exemplo gerado. Exclua os arquivos `AppTest.java`de teste e de aplicativo `App.java` gerados e insira os comandos abaixo:
+2. Remova o código de exemplo gerado. Exclua os arquivos de teste e de aplicativo gerados `AppTest.java` e `App.java` Insira os comandos abaixo:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -80,7 +80,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Adicionar dependências
 
-No `pom.xml`, adicione o seguinte texto na `<dependencies>` seção:
+No `pom.xml` , adicione o seguinte texto na `<dependencies>` seção:
 
 ```xml
 <dependency>
@@ -179,7 +179,7 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### <a name="implement-a-createtable-class"></a>Implementar uma classe CreateTable
 
-Digite o comando a seguir para criar e abrir um novo `CreateTable.java`arquivo. Selecione **Sim** no prompt para criar um novo arquivo.
+Digite o comando a seguir para criar e abrir um novo arquivo `CreateTable.java` . Selecione **Sim** no prompt para criar um novo arquivo.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
@@ -261,7 +261,7 @@ Esse código é a `CreateTable` classe, que cria uma tabela chamada `people` e a
 
 ### <a name="implement-a-searchbyemail-class"></a>Implementar uma classe SearchByEmail
 
-Digite o comando a seguir para criar e abrir um novo `SearchByEmail.java`arquivo. Selecione **Sim** no prompt para criar um novo arquivo.
+Digite o comando a seguir para criar e abrir um novo arquivo `SearchByEmail.java` . Selecione **Sim** no prompt para criar um novo arquivo.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
@@ -346,7 +346,7 @@ A `SearchByEmail` classe pode ser usada para consultar linhas por endereço de e
 
 ### <a name="implement-a-deletetable-class"></a>Implementar uma classe deleteTable
 
-Digite o comando a seguir para criar e abrir um novo `DeleteTable.java`arquivo. Selecione **Sim** no prompt para criar um novo arquivo.
+Digite o comando a seguir para criar e abrir um novo arquivo `DeleteTable.java` . Selecione **Sim** no prompt para criar um novo arquivo.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
@@ -425,12 +425,14 @@ As etapas a seguir usam `scp` para copiar o JAR para o nó principal primário d
 
     Você receberá as resultados a seguir:
 
-        Franklin Holtz - ID: 2
-        Franklin Holtz - franklin@contoso.com - ID: 2
-        Rae Schroeder - ID: 4
-        Rae Schroeder - rae@contoso.com - ID: 4
-        Gabriela Ingram - ID: 6
-        Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```console
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
 5. Para excluir a tabela, use o seguinte comando:
 
@@ -442,7 +444,7 @@ As etapas a seguir usam `scp` para copiar o JAR para o nó principal primário d
 
 As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) para carregar o jar para o armazenamento padrão para o cluster do Apache HBase. Os cmdlets do HDInsight serão usados para executar os exemplos remotamente.
 
-1. Depois de instalar e configurar o módulo AZ, crie um arquivo `hbase-runner.psm1`chamado. Use o seguinte texto como o conteúdo deste arquivo:
+1. Depois de instalar e configurar o módulo AZ, crie um arquivo chamado `hbase-runner.psm1` . Use o seguinte texto como o conteúdo deste arquivo:
 
    ```powershell
     <#
@@ -648,7 +650,7 @@ As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.c
 
 2. Salve o `hbase-runner.psm1` arquivo no `hbaseapp` diretório.
 
-3. Registre os módulos com Azure PowerShell. Abra uma nova janela de Azure PowerShell e edite o comando abaixo `CLUSTERNAME` , substituindo pelo nome do cluster. Em seguida, insira os seguintes comandos:
+3. Registre os módulos com Azure PowerShell. Abra uma nova janela de Azure PowerShell e edite o comando abaixo, substituindo pelo `CLUSTERNAME` nome do cluster. Em seguida, insira os seguintes comandos:
 
     ```powershell
     cd C:\HDI\hbaseapp
@@ -684,12 +686,14 @@ As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.c
 
     Esse comando usa a classe `SearchByEmail` para procurar por quaisquer linhas nas quais a família de colunas `contactinformation` e a coluna `email` contenham a cadeia de caracteres `contoso.com`. Você deve receber os seguintes resultados:
 
-          Franklin Holtz - ID: 2
-          Franklin Holtz - franklin@contoso.com - ID: 2
-          Rae Schroeder - ID: 4
-          Rae Schroeder - rae@contoso.com - ID: 4
-          Gabriela Ingram - ID: 6
-          Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```output
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
     Usar **fabrikam.com** como o valor de `-emailRegex` retornará os usuários que tenham **fabrikam.com** no campo de email. Você também pode usar expressões regulares como o termo de pesquisa. Por exemplo, **^ r** retorna endereços que começam com a letra 'r'.
 

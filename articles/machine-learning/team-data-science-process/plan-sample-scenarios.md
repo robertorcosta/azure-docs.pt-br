@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d462f146f3f094602835d88e48815d5537c58665
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687439"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078775"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários para análises avançadas no Azure Machine Learning
 Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo [TDSP (Processo de Ciência de Dados de Equipe)](overview.md). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
@@ -193,9 +194,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 1. Personalize um cluster Hadoop do Azure HDInsight.
 1. (Opcional) Pré-processe e limpe os dados.
    
-   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
-   
-       blobs.
+   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados nos blobs do Azure.
    
    b.  Transforme dados em um formulário tabular limpo, se necessário.
    

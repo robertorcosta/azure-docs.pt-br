@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74559339"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080866"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo explica como gerenciar a postura de segurança de sua organização em escala aplicando políticas de segurança a todas as assinaturas do Azure vinculadas ao seu locatário de Azure Active Directory.
@@ -73,7 +74,7 @@ Um administrador de locatário do Azure Active Directory não tem acesso direto 
 
 3. Em **Gerenciamento de acesso para recursos do Azure**, defina a opção para **Sim**.
 
-   ![O Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento – captura de tela](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Gerenciamento de acesso para recursos do Azure - captura de tela](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - Quando você define a opção para Sim, recebe a função de Administrador do Acesso do Usuário no RBAC do Azure no escopo raiz (/). Isso concede a você permissão para atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Essa opção está disponível apenas para usuários com a função de administrador global no Azure AD.
 
@@ -160,7 +161,7 @@ Uma vez que as funções RBAC tenham sido designadas aos usuários, o administra
 
 2. Na lista de navegação, clique em **Azure Active Directory**, depois clique em **Propriedades**.
 
-3. Em **Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento**, selecione a opção **Não**.
+3. Em **Gerenciamento de acesso para recursos do Azure**, defina a opção como **não**.
 
 4. Clique em **Salvar**, para salvar suas configurações.
 

@@ -13,11 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344621"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080169"
 ---
 # <a name="what-is-azure-sql"></a>O que é o SQL Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -58,7 +59,7 @@ O Azure monitora constantemente seus dados em busca de ameaças. Com o Azure SQL
 Há vários fatores que podem influenciar sua decisão de escolher entre as diferentes ofertas de dados:
 
 - [Custo](#cost): a opção PaaS e IaaS incluem o preço base que cobre a infraestrutura subjacente e o licenciamento. No entanto, com a opção IaaS, você precisa investir tempo e recursos adicionais para gerenciar seu banco de dados, enquanto, em PaaS, você obtém esses recursos de administração incluídos no preço. O IaaS permite que você desligue os recursos enquanto não os estiver usando para diminuir o custo, enquanto a PaaS sempre está em execução, a menos que você remova e recrie seus recursos quando eles forem necessários.
-- [Administração](#administration): as opções de PaaS reduzem a quantidade de tempo que você precisa investir para administrar o banco de dados. No entanto, ele também limita o intervalo de tarefas e scripts de administração personalizados que você pode executar ou executar. Por exemplo, o CLR não tem suporte com bancos de dados únicos ou em pool, mas tem suporte para uma instância do SQL Instância Gerenciada. Além disso, nenhuma opção de implantação no PaaS dá suporte ao uso de sinalizadores de rastreamento.
+- [Administração](#administration): as opções de PaaS reduzem a quantidade de tempo que você precisa investir para administrar o banco de dados. No entanto, ele também limita o intervalo de tarefas e scripts de administração personalizados que você pode executar ou executar. Por exemplo, o CLR não tem suporte com o banco de dados SQL, mas tem suporte para uma instância do SQL Instância Gerenciada. Além disso, nenhuma opção de implantação no PaaS dá suporte ao uso de sinalizadores de rastreamento.
 - [Contrato de nível de serviço](#service-level-agreement-sla): tanto IaaS quanto PaaS fornecem SLA de alto, padrão do setor. A opção PaaS garante SLA de 99,99%, enquanto IaaS, garante SLA de 99,95% para a infraestrutura, o que significa que você precisa implementar mecanismos adicionais para garantir a disponibilidade de seus bancos de dados. Você pode obter o SLA de 99,99% criando uma máquina virtual do SQL adicional e implementando a solução de alta disponibilidade do grupo de disponibilidade SQL Server Always On. 
 - [Tempo para mover para o Azure](#market): SQL Server na VM do Azure é a correspondência exata do seu ambiente, portanto, a migração do local para a VM do Azure não é diferente de mover os bancos de dados de um servidor local para outro. O SQL Instância Gerenciada também permite a fácil migração; no entanto, pode haver algumas alterações que você precisa aplicar antes da migração. 
 

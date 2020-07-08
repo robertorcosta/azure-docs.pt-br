@@ -1,5 +1,5 @@
 ---
-title: SQL Server migração de banco de dados para um banco de dados individual ou em pool no banco de dados SQL do Azure
+title: Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 description: Saiba mais sobre a migração SQL Server banco de dados para o banco de dados SQL do Azure.
 keywords: migração de banco de dados, migração de banco de dados do sql server, ferramentas de migração de banco de dados, migrar banco de dados, migrar banco de dados sql
 services: sql-database
@@ -12,20 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 861c6749c7843d64a39376366544668c77883c9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338338"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081903"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Neste artigo, você aprende sobre os principais métodos para migrar um banco de dados do SQL Server 2005 ou posterior para um banco de dados individual ou em pool no Banco de Dados SQL do Azure. Para obter informações sobre como migrar para o Azure SQL Instância Gerenciada, consulte [migrar uma instância de SQL Server para instância gerenciada do SQL do Azure](../managed-instance/migrate-to-instance-from-sql-server.md). Para obter informações de migração sobre como migrar de outras plataformas, confira o [Guia de Migração de Banco de Dados do Azure](https://datamigration.microsoft.com/).
+Neste artigo, você aprende sobre os principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o banco de dados SQL do Azure. Para obter informações sobre como migrar para o Azure SQL Instância Gerenciada, consulte [migrar uma instância de SQL Server para instância gerenciada do SQL do Azure](../managed-instance/migrate-to-instance-from-sql-server.md). Para obter informações de migração sobre como migrar de outras plataformas, confira o [Guia de Migração de Banco de Dados do Azure](https://datamigration.microsoft.com/).
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrar para um banco de dados individual ou um banco de dados em pool
 
-Há dois métodos principais para migrar um banco de dados do SQL Server 2005 ou posterior para um banco de dados individual ou em pool no Banco de Dados SQL do Azure. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
+Há dois métodos principais para migrar um banco de dados SQL Server 2005 ou posterior para o banco de dados SQL do Azure. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
 
 Em ambos os casos, você precisa garantir que o banco de dados de origem seja compatível com o Banco de Dados SQL do Azure usando o [DMA (Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595). O banco de dados SQL está se aproximando da [paridade de recursos](features-comparison.md) com SQL Server, além de problemas relacionados a operações de nível de servidor e de banco de dados. Os bancos de dados e os aplicativos que dependem de [funções com suporte parcial ou sem suporte](transact-sql-tsql-differences-sql-server.md) precisarão de alguma [reengenharia que corrija essas incompatibilidades](migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues) para que o banco de dados SQL Server possa ser migrado.
 

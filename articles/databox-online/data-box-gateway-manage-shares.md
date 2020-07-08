@@ -8,11 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ca8f5d629a110d2a4d3b35cb357af2c723ec312
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079133"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Data Box Gateway 
 
@@ -91,23 +92,23 @@ O recurso de atualização permite que você atualize o conteúdo de um comparti
 
 Para atualizar um compartilhamento, siga estas etapas no portal do Azure.
 
-1.   No portal do Azure, acesse **Compartilhamentos**. Selecione e clique no compartilhamento que você deseja atualizar.
+1. No portal do Azure, acesse **Compartilhamentos**. Selecione e clique no compartilhamento que você deseja atualizar.
 
-    ![Selecionar compartilhamento](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Selecionar compartilhamento](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   Clique em **Atualizar**. 
+2. Clique em **Atualizar**. 
 
-    ![Clique em atualizar](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![Clique em atualizar](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   Quando solicitada a confirmação, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local. 
+3. Quando solicitada a confirmação, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local. 
 
-    ![Confirmar atualização](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![Confirmar atualização](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   Enquanto a atualização está em andamento, a opção de atualização fica esmaecida no menu de contexto. Clique na notificação de trabalho para exibir o status do trabalho de atualização.
 
-5.   O tempo para atualização depende do número de arquivos no contêiner do Azure, bem como dos arquivos no dispositivo. Depois que a atualização tiver sido concluída com êxito, o carimbo de data/hora de compartilhamento será atualizado. Mesmo que a atualização tenha falhas parciais, a operação será considerada bem-sucedida e o carimbo de data/hora será atualizado. 
+5. O tempo para atualização depende do número de arquivos no contêiner do Azure, bem como dos arquivos no dispositivo. Depois que a atualização tiver sido concluída com êxito, o carimbo de data/hora de compartilhamento será atualizado. Mesmo que a atualização tenha falhas parciais, a operação será considerada bem-sucedida e o carimbo de data/hora será atualizado. 
 
-    ![Carimbo de data/hora atualizado](media/data-box-gateway-manage-shares/refresh-4.png)
+   ![Carimbo de data/hora atualizado](media/data-box-gateway-manage-shares/refresh-4.png)
  
 Se houver uma falha, um alerta será gerado. O alerta detalha a causa e a recomendação para corrigir o problema. O alerta também fornece links para um arquivo que tem o resumo completo das falhas, incluindo os arquivos que falharam em ser atualizados ou excluídos.
 

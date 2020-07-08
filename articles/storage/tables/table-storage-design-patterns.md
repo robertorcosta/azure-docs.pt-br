@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529332"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081223"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  
@@ -539,7 +539,7 @@ Esta seção descreve como o Storage Analytics armazena dados de log no armazena
 
 O Storage Analytics armazena mensagens de log em um formato delimitado em vários blobs. O formato delimitado facilita para um aplicativo cliente analisar os dados na mensagem de log.  
 
-O Storage Analytics usa uma convenção de nomenclatura para blobs que permite que você localize o blob (ou blobs) que contêm as mensagens de log que você está pesquisando. Por exemplo, um blob denominado "queue/2014/07/31/1800/000001.log" contém mensagens de log que se relacionam com o serviço Fila para a hora de início às 18:00 em 31 de julho de 2014. "000001" indica que este é o primeiro arquivo de log para esse período. O Storage Analytics também registra carimbos de data/hora das últimas e primeiras mensagens de log armazenadas no arquivo como parte dos metadados do blob. A API do armazenamento ativo permite localizar blobs em um contêiner com base em um prefixo de nome: para localizar todos os blobs que contêm dados de log na fila para o horário com início às 18:00, você pode usar o prefixo "queue/2014/07/31/1800."  
+O Storage Analytics usa uma convenção de nomenclatura para blobs que permite que você localize o blob (ou blobs) que contêm as mensagens de log que você está pesquisando. Por exemplo, um blob denominado "queue/2014/07/31/1800/000001.log" contém mensagens de log que se relacionam com o serviço Fila para a hora de início às 18:00 em 31 de julho de 2014. "000001" indica que este é o primeiro arquivo de log para esse período. O Storage Analytics também registra carimbos de data/hora das últimas e primeiras mensagens de log armazenadas no arquivo como parte dos metadados do blob. A API para armazenamento de BLOBs permite que você localize BLOBs em um contêiner com base em um prefixo de nome: para localizar todos os blobs que contêm dados de log de fila para a hora que começa em 18:00, você pode usar o prefixo "Queue/2014/07/31/1800."  
 
 O Storage Analytics armazena em buffer as mensagens de log internamente, e periodicamente atualiza o blob apropriado ou cria um novo com o último lote de entradas de log. Isso reduz o número de gravações que ele deve realizar para o serviço Blob.  
 

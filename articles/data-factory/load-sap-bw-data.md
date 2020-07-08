@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415831"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081274"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -269,7 +269,7 @@ Depois disso, todas as extrações Delta DTPs e Data Factory Delta funcionam con
 
 Para definir o status do Delta DTP a ser **buscado**, você pode usar a seguinte opção para executar o conjunto de DTP Delta manualmente:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*Sem Transferência de Dados; Status Delta na origem: buscada*
 
 ## <a name="next-steps"></a>Próximas etapas
 

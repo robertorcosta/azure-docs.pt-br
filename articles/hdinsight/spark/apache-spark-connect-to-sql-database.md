@@ -1,35 +1,35 @@
 ---
 title: Usar Apache Spark para ler e gravar dados no banco de dado SQL do Azure
-description: Saiba como configurar uma conexão entre o cluster HDInsight Spark e um banco de dados SQL do Azure. Para ler dados, gravar dados e transmitir dados em um banco de dado SQL
+description: Saiba como configurar uma conexão entre o cluster HDInsight Spark e o banco de dados SQL do Azure. Para ler dados, gravar dados e transmitir dados em um banco de dado SQL
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: c04280bf1cffea08204e1ea5ab54dbb87c23cf9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193200"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078809"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usar o cluster HDInsight Spark para ler e gravar dados no banco de dado SQL do Azure
 
-Saiba como conectar um cluster Apache Spark no Azure HDInsight com um banco de dados SQL do Azure. Em seguida, leia, grave e transmita dados para o SQL Database. As instruções neste artigo usam um Jupyter Notebook para executar os trechos de código escalares. No entanto, você pode criar um aplicativo autônomo em escala ou Python e fazer as mesmas tarefas.
+Saiba como conectar um cluster Apache Spark no Azure HDInsight com o banco de dados SQL do Azure. Em seguida, leia, grave e transmita dados para o SQL Database. As instruções neste artigo usam um Jupyter Notebook para executar os trechos de código escalares. No entanto, você pode criar um aplicativo autônomo em escala ou Python e fazer as mesmas tarefas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Cluster do Azure HDInsight Spark.  Siga as instruções em [Criar um cluster do Apache Spark no HDInsight ](apache-spark-jupyter-spark-sql.md).
 
-* Banco de Dados SQL do Azure. Siga as instruções em [criar um banco de dados SQL do Azure](../../sql-database/sql-database-get-started-portal.md). Certifique-se de criar um banco de dados com o esquema e dados **AdventureWorksLT** de exemplo. Além disso, certifique-se de criar uma regra de firewall no nível do servidor para permitir que o endereço IP do seu cliente acesse o banco de dados SQL no servidor. As instruções para adicionar a regra de firewall estão disponíveis no mesmo artigo. Depois de criar o banco de dados SQL do Azure, certifique-se de manter os valores a seguir à mão. Esses valores serão necessários para se conectar ao banco de dados de um cluster Spark.
+* Banco de Dados SQL do Azure. Siga as instruções em [criar um banco de dados no banco de dados SQL do Azure](../../azure-sql/database/single-database-create-quickstart.md). Certifique-se de criar um banco de dados com o esquema e dados **AdventureWorksLT** de exemplo. Além disso, certifique-se de criar uma regra de firewall no nível de servidor para permitir que o endereço IP do cliente acesse o banco de dados SQL. As instruções para adicionar a regra de firewall estão disponíveis no mesmo artigo. Depois de criar o banco de dados SQL, certifique-se de manter os valores a seguir à mão. Esses valores serão necessários para se conectar ao banco de dados de um cluster Spark.
 
-    * Nome do servidor que hospeda o banco de dados SQL do Azure.
-    * Nome do banco de dados SQL do Azure.
+    * Nome de servidor.
+    * nome do banco de dados.
     * Nome de usuário/senha do administrador do banco de dados SQL do Azure.
 
-* SQL Server Management Studio (SSMS). Siga as instruções em [Usar SSMS para conectar e consultar dados](../../sql-database/sql-database-connect-query-ssms.md).
+* SQL Server Management Studio (SSMS). Siga as instruções em [Usar SSMS para conectar e consultar dados](../../azure-sql/database/connect-query-ssms.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Criar um Jupyter Notebook
 
@@ -52,7 +52,7 @@ Comece criando um Jupyter Notebook associado ao cluster Spark. Você usa esse no
     Para saber mais sobre os três kernels, consulte [clusters kernels de blocos de anotações do Jupyter de uso com o Apache Spark no HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
    > [!NOTE]  
-   > Neste artigo, usamos um kernel (Scala) Spark porque atualmente os dados de streaming do Spark para banco de dados SQL têm suporte apenas em Scala e Java. Embora a leitura e gravação em SQL possam ser feitas usando o Python, visando manter a consistência neste artigo nós usamos o Scala para todas as três operações.
+   > Neste artigo, usamos um kernel Spark (escala) porque há suporte para streaming de dados do Spark para o banco de dado SQL apenas em escala e Java no momento. Embora a leitura e gravação em SQL possam ser feitas usando o Python, visando manter a consistência neste artigo nós usamos o Scala para todas as três operações.
 
 1. Um novo bloco de anotações é aberto com um nome padrão, sem **título**. Clique no nome do notebook e insira o nome de sua escolha.
 
@@ -64,10 +64,10 @@ Agora, você pode iniciar a criação do seu aplicativo.
 
 Nesta seção, você faz a leitura dos dados de uma tabela (por exemplo, **SalesLT.Address**) que existe no banco de dados AdventureWorks.
 
-1. Em um novo notebook Jupyter, em uma célula de código, Cole o trecho a seguir e substitua os valores de espaço reservado pelos valores para seu banco de dados SQL do Azure.
+1. Em um novo notebook Jupyter, em uma célula de código, Cole o trecho a seguir e substitua os valores de espaço reservado pelos valores do seu banco de dados.
 
     ```scala
-    // Declare the values for your Azure SQL database
+    // Declare the values for your database
 
     val jdbcUsername = "<SQL DB ADMIN USER>"
     val jdbcPassword = "<SQL DB ADMIN PWD>"
@@ -89,7 +89,7 @@ Nesta seção, você faz a leitura dos dados de uma tabela (por exemplo, **Sales
     connectionProperties.put("password", s"${jdbcPassword}")
     ```
 
-1. Use o trecho abaixo para criar um dataframe com os dados de uma tabela no banco de dados SQL do Azure. Neste trecho, usamos uma `SalesLT.Address` tabela que está disponível como parte do banco de dados **AdventureWorksLT** . Cole o snippet de código a seguir em uma célula de código e pressione **SHIFT+ENTER** para executar.
+1. Use o trecho de código abaixo para criar um dataframe com os dados de uma tabela no banco de dado. Neste trecho, usamos uma `SalesLT.Address` tabela que está disponível como parte do banco de dados **AdventureWorksLT** . Cole o snippet de código a seguir em uma célula de código e pressione **SHIFT+ENTER** para executar.
 
     ```scala
     val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
@@ -119,12 +119,12 @@ Nesta seção, você faz a leitura dos dados de uma tabela (por exemplo, **Sales
 
 ## <a name="write-data-into-azure-sql-database"></a>Gravar dados no banco de dado SQL do Azure
 
-Nesta seção, usamos um arquivo CSV de exemplo disponível no cluster para criar uma tabela no banco de dados SQL do Azure e preenchê-la com os Data. O arquivo CSV de exemplo (**HVAC.csv**) está disponível em todos os clusters HDInsight em `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv`.
+Nesta seção, usamos um arquivo CSV de exemplo disponível no cluster para criar uma tabela em seu banco de dados e preenchê-la com data. O arquivo CSV de exemplo (**HVAC.csv**) está disponível em todos os clusters HDInsight em `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv`.
 
-1. Em um novo notebook Jupyter, em uma célula de código, Cole o trecho a seguir e substitua os valores de espaço reservado pelos valores para seu banco de dados SQL do Azure.
+1. Em um novo notebook Jupyter, em uma célula de código, Cole o trecho a seguir e substitua os valores de espaço reservado pelos valores do seu banco de dados.
 
     ```scala
-    // Declare the values for your Azure SQL database
+    // Declare the values for your database
 
     val jdbcUsername = "<SQL DB ADMIN USER>"
     val jdbcPassword = "<SQL DB ADMIN PWD>"
@@ -160,19 +160,19 @@ Nesta seção, usamos um arquivo CSV de exemplo disponível no cluster para cria
     spark.sql("create table hvactable_hive as select * from temphvactable")
     ```
 
-1. Por fim, use a tabela Hive para criar uma tabela no banco de dados SQL do Azure. O trecho a seguir `hvactable` cria no banco de dados SQL do Azure.
+1. Por fim, use a tabela Hive para criar uma tabela em seu banco de dados. O trecho a seguir cria `hvactable` no banco de dados SQL do Azure.
 
     ```scala
     spark.table("hvactable_hive").write.jdbc(jdbc_url, "hvactable", connectionProperties)
     ```
 
-1. Conecte-se ao banco de dados SQL do Azure usando o `dbo.hvactable` SSMS e verifique se você vê aqui.
+1. Conecte-se ao banco de dados SQL do Azure usando o SSMS e verifique se você vê `dbo.hvactable` aqui.
 
     a. Inicie o SSMS e conecte-se ao banco de dados SQL do Azure fornecendo detalhes de conexão, conforme mostrado na captura de tela abaixo.
 
     ![Conectar-se ao banco de dados SQL usando SSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Conectar-se ao banco de dados SQL usando SSMS1")
 
-    b. No **pesquisador de objetos**, expanda o banco de dados SQL do Azure e o nó da tabela para ver o **dbo. hvactable** criado.
+    b. No **pesquisador de objetos**, expanda o banco de dados e o nó da tabela para ver o **dbo. hvactable** criado.
 
     ![Conectar-se ao banco de dados SQL usando SSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Conectar-se ao banco de dados SQL usando SSMS2")
 
@@ -184,9 +184,9 @@ Nesta seção, usamos um arquivo CSV de exemplo disponível no cluster para cria
 
 ## <a name="stream-data-into-azure-sql-database"></a>Transmita dados para o Azure SQL Database
 
-Nesta seção, transmitimos dados para o `hvactable` que você já criou no banco de dado SQL do Azure na seção anterior.
+Nesta seção, transmitimos dados para o `hvactable` que você criou na seção anterior.
 
-1. Como uma primeira etapa, verifique se não há registros no `hvactable`. Usando SSMS, execute a seguinte consulta na tabela.
+1. Como uma primeira etapa, verifique se não há registros no `hvactable` . Usando SSMS, execute a seguinte consulta na tabela.
 
     ```sql
     TRUNCATE TABLE [dbo].[hvactable]
@@ -202,7 +202,7 @@ Nesta seção, transmitimos dados para o `hvactable` que você já criou no banc
     import java.sql.{Connection,DriverManager,ResultSet}
     ```
 
-1. Transmitimos dados do **HVAC. csv** para o `hvactable`. O arquivo HVAC. csv está disponível no cluster em `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`. No snippet de código a seguir, primeiro recebemos o esquema dos dados a serem transmitidos. Em seguida, criamos um dataframe de transmissão usando esse esquema. Cole o snippet de código a seguir em uma célula de código e pressione **SHIFT+ENTER** para executar.
+1. Nós transmitimos dados do **HVAC.csv** para o `hvactable` . HVAC.csv arquivo está disponível no cluster em `/HdiSamples/HdiSamples/SensorSampleData/HVAC/` . No snippet de código a seguir, primeiro recebemos o esquema dos dados a serem transmitidos. Em seguida, criamos um dataframe de transmissão usando esse esquema. Cole o snippet de código a seguir em uma célula de código e pressione **SHIFT+ENTER** para executar.
 
     ```scala
     val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
@@ -214,7 +214,7 @@ Nesta seção, transmitimos dados para o `hvactable` que você já criou no banc
 
     ![' tabela de esquema do hdinsight Apache Spark '](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Esquema da tabela")
 
-1. Por fim, use o trecho a seguir para ler dados do HVAC. csv e transmiti-los `hvactable` para o no banco de dados SQL do Azure. Cole o trecho em uma célula de código, substitua os valores de espaço reservado pelos valores de seu banco de dados SQL do Azure e pressione **Shift + Enter** para executar.
+1. Por fim, use o trecho a seguir para ler dados do HVAC.csv e transmiti-los para o `hvactable` no seu banco de dados. Cole o trecho em uma célula de código, substitua os valores de espaço reservado pelos valores do seu banco de dados e pressione **Shift + Enter** para executar.
 
     ```scala
     val WriteToSQLQuery  = readStreamDf.writeStream.foreach(new ForeachWriter[Row] {
