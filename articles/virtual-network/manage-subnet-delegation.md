@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 6f767abdf8673e3adffc6c4e3748733054ba723d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77201859"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703869"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adicionar ou remover uma delegação de sub-rede
 
@@ -33,7 +32,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 Nesta seção, você criará uma rede virtual e a sub-rede que você delegará posteriormente a um serviço do Azure.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **Networking** > rede redes**virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso**rede redes  >  **Networking**  >  **virtuais**.
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -42,7 +41,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede que você delegará p
     | Espaço de endereço | Insira *10.0.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Local | Selecione **lesteus**.|
+    | Location | Selecione **lesteus**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.0.0.0/24*. |
     |||
@@ -50,7 +49,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede que você delegará p
 
 ### <a name="permissions"></a>Permissões
 
-Se você não criou a sub-rede que deseja delegar a um serviço do Azure, precisará da seguinte permissão: `Microsoft.Network/virtualNetworks/subnets/write`.
+Se você não criou a sub-rede que deseja delegar a um serviço do Azure, precisará da seguinte permissão: `Microsoft.Network/virtualNetworks/subnets/write` .
 
 A função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) interna também contém as permissões necessárias.
 
@@ -90,7 +89,7 @@ O exemplo a seguir cria um grupo de recursos chamado **myResourceGroup** na loca
 ```
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma rede virtual chamada **myVnet** com uma sub-rede denominada **mysubnet** no **MyResource** , usando [AZ Network vnet Create](https://docs.microsoft.com/cli/azure/network/vnet).
+Crie uma rede virtual chamada **myVnet** com uma sub-rede chamada **mySubnet** no **myResourceGroup** usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -103,7 +102,7 @@ Crie uma rede virtual chamada **myVnet** com uma sub-rede denominada **mysubnet*
 ```
 ### <a name="permissions"></a>Permissões
 
-Se você não criou a sub-rede que deseja delegar a um serviço do Azure, precisará da seguinte permissão: `Microsoft.Network/virtualNetworks/subnets/write`.
+Se você não criou a sub-rede que deseja delegar a um serviço do Azure, precisará da seguinte permissão: `Microsoft.Network/virtualNetworks/subnets/write` .
 
 A função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) interna também contém as permissões necessárias.
 
@@ -177,7 +176,7 @@ A saída do comando é um colchete nulo:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="connect-to-azure"></a>Conecte-se ao Azure
+### <a name="connect-to-azure"></a>Conectar-se ao Azure
 
 ```azurepowershell-interactive
   Connect-AzAccount
@@ -193,7 +192,7 @@ O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na locali
 ```
 ### <a name="create-virtual-network"></a>Criar rede virtual
 
-Crie uma rede virtual denominada **myVnet** com uma sub-rede denominada **mysubnet** usando [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) no **myresourceattribute** usando [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). O espaço de endereço IP para a rede virtual é **10.0.0.0/16**. A sub-rede na rede virtual é **10.0.0.0/24**.  
+Crie uma rede virtual chamada **myVnet** com uma sub-rede chamada **mySubnet** usando [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) no **myResourceGroup** usando [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). O espaço de endereço IP para a rede virtual é **10.0.0.0/16**. A sub-rede na rede virtual é **10.0.0.0/24**.  
 
 ```azurepowershell-interactive
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
@@ -202,7 +201,7 @@ Crie uma rede virtual denominada **myVnet** com uma sub-rede denominada **mysubn
 ```
 ### <a name="permissions"></a>Permissões
 
-Se você não criou a sub-rede que deseja delegar a um serviço do Azure, precisará da seguinte permissão: `Microsoft.Network/virtualNetworks/subnets/write`.
+Se você não criou a sub-rede que deseja delegar a um serviço do Azure, precisará da seguinte permissão: `Microsoft.Network/virtualNetworks/subnets/write` .
 
 A função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) interna também contém as permissões necessárias.
 

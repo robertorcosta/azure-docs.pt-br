@@ -4,25 +4,24 @@ description: Neste artigo, saiba como rotear tráfego com uma tabela de rotas ut
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703342"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
@@ -210,7 +209,7 @@ Anote o **publicIpAddress**. Esse endereço será usado para acessar a VM da int
 
 ## <a name="route-traffic-through-an-nva"></a>Rotear o tráfego por meio de uma NVA
 
-Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua * \<publicIpAddress>* pelo endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua *\<publicIpAddress>* pelo endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -269,7 +268,7 @@ Você pode ver que o primeiro salto é 10.0.2.4, que é o endereço IP privado d
 
 Feche as sessões SSH para as VMs *myVmPublic* e *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 
