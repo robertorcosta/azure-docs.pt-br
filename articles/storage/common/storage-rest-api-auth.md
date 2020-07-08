@@ -5,17 +5,17 @@ description: Use a API REST do armazenamento do Azure para fazer uma solicitaç�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/01/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509176"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chamar operações da API REST com autorização de chave compartilhada
 
@@ -63,9 +63,9 @@ Se você observar a [API REST do serviço Blob](/rest/api/storageservices/Blob-S
 
 Examine a referência para a operação [ListContainers](/rest/api/storageservices/List-Containers2) . Essas informações ajudarão você a entender onde vêm alguns dos campos na solicitação e na resposta.
 
-**Método de Solicitação**: GET. Esse verbo é o método HTTP que você especifica como uma propriedade do objeto de solicitação. Outros valores para esse verbo incluem HEAD, PUT e DELETE, dependendo da API chamada.
+**Método de solicitação**: Get. Esse verbo é o método HTTP que você especifica como uma propriedade do objeto de solicitação. Outros valores para esse verbo incluem HEAD, PUT e DELETE, dependendo da API chamada.
 
-**URI**da solicitação `https://myaccount.blob.core.windows.net/?comp=list`:.O URI de solicitação é criado do ponto de extremidade `http://myaccount.blob.core.windows.net` da conta de armazenamento de `/?comp=list`BLOBs e da cadeia de caracteres do recurso.
+**URI da solicitação**: `https://myaccount.blob.core.windows.net/?comp=list` .O URI de solicitação é criado do ponto de extremidade da conta de armazenamento de BLOBs `http://myaccount.blob.core.windows.net` e da cadeia de caracteres do recurso `/?comp=list` .
 
 [Parâmetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): há parâmetros de consulta adicionais que você pode usar ao chamar ListContainers. Alguns desses parâmetros são *timeout* para a chamada (em segundos) e *prefix*, que é usado para filtragem.
 
@@ -130,7 +130,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-Adicione os cabeçalhos de solicitação `x-ms-date` para `x-ms-version`e. Esse local no código também é onde você pode adicionar outros cabeçalhos de solicitação obrigatórios para a chamada. Neste exemplo, não há nenhum cabeçalho adicional. Um exemplo de uma API que passa em cabeçalhos extras é a operação definir ACL de contêiner. Essa chamada à API adiciona um cabeçalho chamado "x-ms-blob-Public-Access" e o valor para o nível de acesso.
+Adicione os cabeçalhos de solicitação para `x-ms-date` e `x-ms-version` . Esse local no código também é onde você pode adicionar outros cabeçalhos de solicitação obrigatórios para a chamada. Neste exemplo, não há nenhum cabeçalho adicional. Um exemplo de uma API que passa em cabeçalhos extras é a operação definir ACL de contêiner. Essa chamada à API adiciona um cabeçalho chamado "x-ms-blob-Public-Access" e o valor para o nível de acesso.
 
 ```csharp
 // Add the request headers for x-ms-date and x-ms-version.
@@ -177,7 +177,7 @@ Agora que você construiu a solicitação, você pode chamar o método SendAsync
 
 Se você executar um rastreador de rede, como o [Fiddler](https://www.telerik.com/fiddler), ao fazer a chamada a SendAsync, poderá ver as informações de solicitação e resposta. Vamos conferir isso. O nome da conta de armazenamento é *contosorest*.
 
-**Quest**
+**Solicitação:**
 
 ```
 GET /?comp=list HTTP/1.1
@@ -488,7 +488,7 @@ SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 
 Os valores a seguir são do [Fiddler](https://www.telerik.com/fiddler):
 
-**Quest**
+**Solicitação:**
 
 ```
 GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=list HTTP/1.1

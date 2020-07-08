@@ -4,16 +4,16 @@ description: Como exportar dados de seu aplicativo de IoT Central do Azure para 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: c83c97aab43b6978922202cc96ff92e1e046a7e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483917"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exportar dados de IoT para destinos no Azure
 
@@ -66,7 +66,7 @@ Se você não tiver uma conta de armazenamento do Azure existente para a qual ex
     |-|-|
     |Standard|Uso Geral v2|
     |Standard|Uso Geral v1|
-    |Standard|Armazenamento de Blobs|
+    |Standard|Armazenamento de blob|
     |Premium|Armazenamento de blobs de blocos|
 
 2. Crie um contêiner em sua conta de armazenamento. Vá até sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.
@@ -82,27 +82,31 @@ Agora que você tem um destino para exportar dados para o, siga estas etapas par
     > [!Tip]
     > Se você não vir a **exportação de dados** no painel esquerdo, você não tem permissões para configurar a exportação de dados em seu aplicativo. Contate o administrador para configurar a exportação de dados.
 
-3. Selecione o botão **+ novo** no canto superior direito. Escolha um dos **hubs de eventos**do Azure, o **barramento de serviço do Azure**ou o **armazenamento de BLOBs do Azure** como o destino de sua exportação. O número máximo de exportações por aplicativo é cinco.
+3. Selecione o botão **+ Novo**. Escolha um dos **armazenamento de BLOBs do Azure**, **hubs de eventos do Azure**, **fila do barramento de serviço do Azure**ou o **tópico do barramento de serviço do Azure** como o destino de sua exportação. O número máximo de exportações por aplicativo é cinco.
 
-    ![Criar nova exportação de dados](media/howto-export-data/new-export-definition.png)
+4. Insira um nome para a exportação. Na caixa de listagem suspensa, selecione o **namespace**ou **Insira uma cadeia de conexão**.
 
-4. Na caixa de listagem suspensa, selecione seu namespace de **hubs de eventos**, **namespace do barramento de serviço**, namespace da conta de **armazenamento**ou **Insira uma cadeia de conexão**.
-
-    - Você só vê contas de armazenamento, namespaces de hubs de eventos e namespaces do barramento de serviço na mesma assinatura que seu aplicativo IoT Central. Se você quiser exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e veja a próxima etapa.
+    - Você só vê contas de armazenamento, namespaces de hubs de eventos e namespaces do barramento de serviço na mesma assinatura que seu aplicativo IoT Central. Se você quiser exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e consulte a etapa 6.
     - Para aplicativos criados usando o plano de preços gratuito, a única maneira de configurar a exportação de dados é por meio de uma cadeia de conexão. Os aplicativos no plano de preços gratuito não têm uma assinatura do Azure associada.
 
     ![Criar novo hub de eventos](media/howto-export-data/export-event-hub.png)
 
-5. (Opcional) Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para:
-    - Hubs de eventos ou barramento de serviço, acesse o namespace no portal do Azure:
-        - Em **configurações**, selecione **políticas de acesso compartilhado**
-        - Escolha a **RootManageSharedAccessKey** padrão ou crie uma
-        - Copie a cadeia de conexão primária ou secundária
-    - Conta de armazenamento, vá para a conta de armazenamento no portal do Azure:
-        - Em **configurações**, selecione **chaves de acesso**
-        - Copie a cadeia de conexão key1 ou a cadeia de conexão Key2
+5. Escolha um hub de eventos, uma fila, um tópico ou um contêiner na caixa de listagem suspensa.
 
-6. Escolha um hub de eventos, uma fila, um tópico ou um contêiner na caixa de listagem suspensa.
+6. (Opcional) Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para:
+
+    - Hubs de eventos ou barramento de serviço, acesse o namespace no portal do Azure:
+        - Para usar uma cadeia de conexão para o namespace inteiro:
+            1. Em **configurações**, selecione **políticas de acesso compartilhado**
+            2. Crie uma nova chave ou escolha uma chave existente que tenha permissões de **envio** .
+            3. Copie a cadeia de conexão primária ou secundária
+        - Para usar a cadeia de conexão para uma instância específica do hub de eventos ou uma fila ou tópico do barramento de serviço, acesse **entidades > hubs de eventos** ou **entidades > filas** ou **entidades > tópicos**. Escolha uma instância específica e siga as mesmas etapas acima para obter uma cadeia de conexão.
+    - Conta de armazenamento, vá para a conta de armazenamento no portal do Azure:
+        - Há suporte apenas para cadeias de conexão para toda a conta de armazenamento. Não há suporte para cadeias de conexão com escopo para um único contêiner.
+          1. Em **configurações**, selecione **chaves de acesso**
+          2. Copie a cadeia de conexão key1 ou a cadeia de conexão Key2
+
+    Cole a cadeia de conexão. Digite o nome da instância ou do **contêiner**, tendo em mente que isso diferencia maiúsculas de minúsculas.
 
 7. Em **dados a serem exportados**, escolha os tipos de dados a serem exportados definindo o tipo como **ativado**.
 
@@ -114,7 +118,7 @@ Agora que você tem um destino para exportar dados para o, siga estas etapas par
 
 Os dados de telemetria exportados contêm todo o valor da mensagem que seus dispositivos enviaram para IoT Central, não apenas os próprios valores de telemetria. Dados de dispositivos exportados contém alterações em Propriedades e metadados de todos os dispositivos, e os modelos de dispositivo exportados contêm alterações em todos os modelos de dispositivo.
 
-Para os hubs de eventos e o barramento de serviço, os dados são exportados quase em tempo real. Os dados estão na `body` Propriedade e estão no formato JSON. Consulte abaixo para obter exemplos.
+Para os hubs de eventos e o barramento de serviço, os dados são exportados quase em tempo real. Os dados estão na `body` propriedade e estão no formato JSON. Consulte abaixo para obter exemplos.
 
 Para o armazenamento de BLOBs, os dados são exportados uma vez por minuto, com cada arquivo que contém o lote de alterações desde o último arquivo exportado. Os dados exportados são colocados em três pastas no formato JSON. Os caminhos padrão em sua conta de armazenamento são:
 
@@ -131,7 +135,7 @@ Para os hubs de eventos e o barramento de serviço, IoT Central exporta uma nova
 Para o armazenamento de BLOBs, as mensagens são agrupadas em lote e exportadas uma vez por minuto. Os arquivos exportados usam o mesmo formato que os arquivos de mensagem exportados pelo [Roteamento de mensagens do Hub IOT](../../iot-hub/tutorial-routing.md) para o armazenamento de BLOBs.
 
 > [!NOTE]
-> Para o armazenamento de BLOBs, verifique se os dispositivos estão enviando `contentType: application/JSON` mensagens `contentEncoding:utf-8` que têm `utf-16`e `utf-32`(ou). Consulte a [documentação do Hub IOT](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) para obter um exemplo.
+> Para o armazenamento de BLOBs, verifique se os dispositivos estão enviando mensagens que têm `contentType: application/JSON` e `contentEncoding:utf-8` (ou `utf-16` `utf-32` ). Consulte a [documentação do Hub IOT](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) para obter um exemplo.
 
 O dispositivo que enviou a telemetria é representado pela ID do dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os dados do dispositivo e correlacione cada mensagem usando o **connectionDeviceId** que corresponde à **DeviceID** da mensagem do dispositivo.
 
@@ -297,7 +301,7 @@ Cada registro de mensagem ou de instantâneo representa uma ou mais alterações
 
 - `id`do modelo de dispositivo que corresponde ao `instanceOf` do fluxo de dispositivos acima
 - `displayName` do modelo de dispositivo
-- O dispositivo `capabilityModel` que inclui `interfaces`suas e as definições telemetria, propriedades e comandos
+- O dispositivo que `capabilityModel` inclui suas `interfaces` e as definições telemetria, propriedades e comandos
 - `cloudProperties`definições
 - Substituições e valores iniciais, embutidos com o`capabilityModel`
 
@@ -553,7 +557,7 @@ Se você tiver uma exportação de dados existente em seu aplicativo de visualiz
 A partir de 3 de fevereiro de 2020, todas as novas exportações em aplicativos com dispositivos e modelos de dispositivo habilitados terão o formato de dados descrito acima. Todas as exportações criadas antes dessa data permanecem no formato de dados antigo até 30 de junho de 2020, no momento em que essas exportações serão migradas automaticamente para o novo formato de dados. O novo formato de dados corresponde ao [dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devices/get), à [propriedade de dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), à propriedade de nuvem de [dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)e aos objetos de modelo de [dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) na API pública IOT central.
 
 Para **dispositivos**, as diferenças notáveis entre o formato de dados antigo e o novo formato de dados incluem:
-- `@id`para o dispositivo é removido `deviceId` , é renomeado para`id` 
+- `@id`para o dispositivo é removido, `deviceId` é renomeado para`id` 
 - `provisioned`o sinalizador é adicionado para descrever o status de provisionamento do dispositivo
 - `approved`o sinalizador é adicionado para descrever o estado de aprovação do dispositivo
 - `properties`incluindo propriedades de dispositivo e de nuvem, corresponde às entidades na API pública
@@ -561,7 +565,7 @@ Para **dispositivos**, as diferenças notáveis entre o formato de dados antigo 
 Para **modelos de dispositivo**, as diferenças notáveis entre o formato de dados antigo e o novo formato de dados incluem:
 
 - `@id`para o modelo de dispositivo é renomeado para`id`
-- `@type`para o modelo de dispositivo é renomeado `types`para e agora é uma matriz
+- `@type`para o modelo de dispositivo é renomeado para `types` e agora é uma matriz
 
 ### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Dispositivos (formato preterido a partir de 3 de fevereiro de 2020)
 
@@ -748,4 +752,4 @@ Para **modelos de dispositivo**, as diferenças notáveis entre o formato de dad
 Agora que você sabe como exportar seus dados para os hubs de eventos do Azure, o barramento de serviço do Azure e o armazenamento de BLOBs do Azure, vá para a próxima etapa:
 
 > [!div class="nextstepaction"]
-> [Como criar WebHooks](./howto-create-webhooks.md)
+> [Como executar análises personalizadas com o databricks](./howto-create-custom-analytics.md)

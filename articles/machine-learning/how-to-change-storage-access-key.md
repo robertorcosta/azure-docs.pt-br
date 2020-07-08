@@ -5,17 +5,17 @@ description: Saiba como alterar as chaves de acesso para a conta de armazenament
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/19/2020
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80296937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483305"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,6 +23,9 @@ ms.locfileid: "80296937"
 Saiba como alterar as chaves de acesso para contas de armazenamento do Azure usadas pelo Azure Machine Learning. Azure Machine Learning pode usar contas de armazenamento para armazenar dados ou modelos treinados.
 
 Para fins de segurança, talvez seja necessário alterar as chaves de acesso de uma conta de armazenamento do Azure. Quando você regenera a chave de acesso, Azure Machine Learning deve ser atualizado para usar a nova chave. Azure Machine Learning pode estar usando a conta de armazenamento para o armazenamento de modelo e como um repositório de armazenamento.
+
+> [!IMPORTANT]
+> As credenciais que acompanham os repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) habilitada para seu Key Vault, certifique-se de seguir este artigo para atualizar as credenciais. Cancelar o registro do repositório de armazenamento e registrá-lo novamente com o mesmo nome falhará.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,7 +88,7 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
 
 1. Gere novamente a chave. Para obter informações sobre como regenerar uma chave de acesso, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md). Salve a nova chave.
 
-1. Para atualizar o espaço de trabalho para usar a nova chave, use as seguintes etapas:
+1. O espaço de trabalho Azure Machine Learning sincronizará automaticamente a nova chave e começará a usá-la após uma hora. Para forçar o espaço de trabalho a sincronizar a nova chave imediatamente, use as seguintes etapas:
 
     1. Para entrar na assinatura do Azure que contém seu espaço de trabalho usando o seguinte comando de CLI do Azure:
 
@@ -95,7 +98,7 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
 
         [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-    1. Para atualizar o espaço de trabalho para usar a nova chave, use o comando a seguir. Substitua `myworkspace` pelo nome do espaço de trabalho Azure Machine Learning e `myresourcegroup` substitua pelo nome do grupo de recursos do Azure que contém o espaço de trabalho.
+    1. Para atualizar o espaço de trabalho para usar a nova chave, use o comando a seguir. Substitua `myworkspace` pelo nome do espaço de trabalho Azure Machine Learning e substitua `myresourcegroup` pelo nome do grupo de recursos do Azure que contém o espaço de trabalho.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -105,28 +108,36 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
 
         Esse comando sincroniza automaticamente as novas chaves para a conta de armazenamento do Azure usada pelo espaço de trabalho.
 
-1. Para registrar novamente os repositórios de os que usam a conta de armazenamento, use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o seguinte código:
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. Você pode registrar novamente os armazenamentos de os (s) que usam a conta de armazenamento por meio do SDK ou [do Azure Machine Learning Studio](https://ml.azure.com).
+    1. **Para registrar novamente os repositórios de armazenamento por meio do SDK do Python**, use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o código a seguir. 
+    
+        Como `overwrite=True` é especificado, esse código substitui o registro existente e o atualiza para usar a nova chave.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
-
-    Como `overwrite=True` é especificado, esse código substitui o registro existente e o atualiza para usar a nova chave.
+    1. **Para registrar novamente os repositórios de armazenamento por meio do estúdio**, selecione **repositórios de armazenamento** no painel esquerdo do estúdio. 
+        1. Selecione qual repositório de armazenamento você deseja atualizar.
+        1. Selecione o botão **Atualizar credenciais** na parte superior esquerda. 
+        1. Use a nova chave de acesso da etapa 1 para preencher o formulário e clique em **salvar**.
+        
+            Se você estiver atualizando as credenciais para seu **repositório de armazenamento padrão**, conclua esta etapa e repita a etapa 2B para ressincronizar sua nova chave com o repositório de armazenamento padrão do espaço de trabalho. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como registrar armazenamentos de dados, [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) consulte a referência de classe.
+Para obter mais informações sobre como registrar armazenamentos de dados, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) referência de classe.

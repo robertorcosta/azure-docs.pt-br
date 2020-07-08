@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504313"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
 
@@ -52,6 +52,8 @@ O computador de origem se registra no servidor de configuração quando você in
     b. Abra o arquivo Installation_Directory/Vx/bin/uninstall.sh e comente a chamada para a função **stop_services**.
     c. Abra o arquivo Installation_Directory/Fx/uninstall.sh e comente a seção completa que está tentando interromper o serviço de Fx.
     d. [Desinstale](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) o agente de mobilidade. Após a desinstalação bem-sucedida, reinicialize o sistema e tente reinstalar o agente de mobilidade.
+
+8. Verifique se a autenticação multifator não está habilitada para a conta de usuário. O Azure Site Recovery não dá suporte à autenticação multifator para a conta de usuário a partir de agora. Registre o servidor de configuração sem a conta de usuário habilitada da autenticação multifator.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Falha na instalação: falha ao carregar as contas
 
@@ -191,7 +193,7 @@ Você não tem permissões suficientes para criar um aplicativo no Azure Active 
 Para resolver o problema, entre no portal do Azure e siga um destes procedimentos:
 
 - Solicite a função de Desenvolvedor de Aplicativos no AAD. Para obter mais informações sobre a função de Desenvolvedor de Aplicativos, consulte [Permissões da função de Administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Verifique se o sinalizador **Usuário pode criar aplicativo** está definido como *true* no AAD. Para obter mais informações, consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Verifique se o sinalizador **Usuário pode criar aplicativo** está definido como *true* no AAD. Para obter mais informações, consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>O servidor de processo e o destino mestre não conseguem se comunicar com o servidor de configuração 
 
@@ -203,7 +205,7 @@ Normalmente, isso ocorre devido a um erro na porta 443. Use as etapas a seguir p
 
 Para verificar se o agente de destino mestre pode criar uma sessão TCP para o IP do servidor de configuração, procure um rastreamento semelhante ao seguinte nos logs do agente de destino mestre:
 
-TCP \<substitua IP por IP cs aqui>:52739 \<substituir IP por IP cs aqui>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here>:52739 \<Replace IP with CS IP here>:443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Substitua o IP pelo IP do CS aqui
 

@@ -5,23 +5,29 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/08/2020
-ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507068"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Habilitar Azure Monitor para VMs visão geral
 
-Este artigo fornece uma visão geral das opções disponíveis para habilitar Azure Monitor para VMs em suas máquinas virtuais para monitorar a integridade e o desempenho. Descubra dependências de aplicativos que são executadas em VMs (máquinas virtuais) do Azure e conjuntos de dimensionamento de máquinas virtuais, VMs locais ou VMs hospedadas em outro ambiente de nuvem.  
+Este artigo fornece uma visão geral das opções disponíveis para permitir que o Azure Monitor para VMs monitore a integridade e o desempenho do seguinte:
+
+- Máquinas Virtuais do Azure 
+- Conjuntos de dimensionamento de máquinas virtuais do Azure
+- Máquinas virtuais híbridas conectadas com o arco do Azure
+- Máquinas virtuais locais
+- Máquinas virtuais hospedadas em outro ambiente de nuvem.  
 
 Para configurar Azure Monitor para VMs:
 
-* Habilite uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais selecionando **insights** diretamente da VM ou do conjunto de dimensionamento de máquinas virtuais.
-* Habilite duas ou mais VMs do Azure e conjuntos de dimensionamento de máquinas virtuais usando Azure Policy. Esse método garante que, em VMs e conjuntos de dimensionamento novos e existentes, as dependências necessárias sejam instaladas e configuradas corretamente. VMs não compatíveis e conjuntos de dimensionamento são relatados, para que você possa decidir se deseja habilitá-los e corrigi-los.
-* Habilite duas ou mais VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais em uma assinatura ou um grupo de recursos especificado usando o PowerShell.
+* Habilite uma única VM do Azure, Azure VMSS ou máquina de Arc do Azure selecionando **insights** diretamente em seu menu na portal do Azure.
+* Habilite várias VMs do Azure, VMSS do Azure ou máquinas de Arc do Azure usando Azure Policy. Esse método garante que, em VMs e conjuntos de dimensionamento novos e existentes, as dependências necessárias sejam instaladas e configuradas corretamente. VMs não compatíveis e conjuntos de dimensionamento são relatados, para que você possa decidir se deseja habilitá-los e corrigi-los.
+* Habilite várias VMs do Azure, VMs de arco do Azure, Azure VMSS ou máquinas de Arc do Azure em uma assinatura ou grupo de recursos especificado usando o PowerShell.
 * Habilite Azure Monitor para VMs para monitorar VMs ou computadores físicos hospedados em sua rede corporativa ou em outro ambiente de nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,6 +49,8 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Leste dos EUA 2
 - Centro dos EUA
 - Centro-Norte dos EUA
+- US Gov AZ
+- VA US Gov
 - Canadá Central
 - Sul do Reino Unido
 - Norte da Europa
@@ -66,17 +74,15 @@ Se você não tiver um espaço de trabalho Log Analytics, poderá criar um usand
 
 Você também pode criar um espaço de trabalho enquanto estiver habilitando o monitoramento para uma única VM do Azure ou um conjunto de dimensionamento de máquinas virtuais no portal do Azure.
 
-Para configurar um cenário em escala que usa Azure Policy, Azure PowerShell ou modelos de Azure Resource Manager, em seu espaço de trabalho do Log Analytics:
-
-* Instale as soluções *ServiceMap* e *InfrastructureInsights* . Você pode concluir esta instalação usando um modelo de Azure Resource Manager fornecido. Ou na guia **introdução** na portal do Azure, selecione **Configurar espaço de trabalho**.
-* Configure o espaço de trabalho do Log Analytics para coletar contadores de desempenho.
-
-Para configurar seu espaço de trabalho para o cenário em escala, use um dos seguintes métodos:
+Para configurar um cenário em escala que usa Azure Policy, Azure PowerShell ou modelos de Azure Resource Manager, você deve instalar a solução *VMInsights* . Você pode fazer isso com um dos seguintes métodos:
 
 * Use [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * Na página [**cobertura da política**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) de Azure monitor para VMs, selecione **Configurar espaço de trabalho**. 
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+### <a name="azure-arc-machines"></a>Computadores do Arc do Azure
+Azure Monitor para VMs está disponível para servidores habilitados para Arc do Azure em regiões em que o serviço de extensão Arc está disponível. Os usuários devem estar executando a versão 0,9 ou superior do agente ARC para habilitar Azure Monitor para VMs em seus servidores habilitados para Arc.
+
+### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure Monitor para VMs dá suporte. Mais adiante nesta seção, você encontrará uma lista completa que detalha a versão principal e secundária do sistema operacional Linux e as versões de kernel com suporte.
 
@@ -113,7 +119,7 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 | Versão do SO | Versão do kernel |
 |:--|:--|
 | 7.6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
+| 7,5 | 3.10.0-862 |
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
@@ -134,7 +140,7 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 18.04 | 5,0 (inclui kernel ajustado pelo Azure)<br>4,18*<br>4,15* |
+| 18.04 | 5.3.0-1020<br>5,0 (inclui kernel ajustado pelo Azure)<br>4,18* <br> 4,15* |
 | 16.04.3 | 4,15. * |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
@@ -173,10 +179,10 @@ A tabela a seguir descreve as fontes conectadas para as quais o recurso Mapa dá
 
 Você pode baixar o Dependency Agent nestes locais:
 
-| Arquivo | SO | Versão | SHA-256 |
+| Arquivo | Sistema operacional | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.3.9380 | 40763BD0A5B60707DF3F9E7BCC17D917F5CE995F2F5A4633D8B733F3BE143921  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.3.9380 | BB41BB59BDD293968F02A9EF821F9639406AA1BDF1F67925DB9EE00D54AA7F0B |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
@@ -190,16 +196,16 @@ Habilite Azure Monitor para VMs usando um dos métodos descritos nesta tabela:
 
 | Estado da implantação | Método | Descrição |
 |------------------|--------|-------------|
-| Uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais | [Habilitar da VM](vminsights-enable-single-vm.md) | Você pode habilitar uma única VM do Azure selecionando **insights** diretamente da VM ou do conjunto de dimensionamento de máquinas virtuais. |
-| Várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais | [Habilitar por meio de Azure Policy](vminsights-enable-at-scale-policy.md) | Você pode habilitar várias VMs do Azure usando Azure Policy e definições de política disponíveis. |
-| Várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais | [Habilitar por meio de modelos Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Você pode habilitar várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais em uma assinatura ou grupo de recursos especificado usando modelos Azure PowerShell ou Azure Resource Manager. |
-| Nuvem híbrida | [Habilitar para o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Você pode implantar em VMs ou computadores físicos hospedados em seu datacenter ou em outros ambientes de nuvem. |
+| VM do Azure única, Azure VMSS ou máquina de Arc do Azure | [Habilitar no portal](vminsights-enable-single-vm.md) | Selecione **insights** diretamente no menu na portal do Azure. |
+| Várias VMs do Azure, Azure VMSS ou máquina de Arc do Azure | [Habilitar por meio de Azure Policy](vminsights-enable-at-scale-policy.md) | Use Azure Policy para habilitar automaticamente quando uma VM ou VMSS for criada. |
+| | [Habilitar por meio de modelos Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Use modelos Azure PowerShell ou Azure Resource Manager para habilitar várias VMs do Azure, VM de arco do Azure ou VMSS do Azure em uma assinatura ou grupo de recursos especificado pelo. |
+| Nuvem híbrida | [Habilitar para o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Implante em VMs ou computadores físicos hospedados em seu datacenter ou em outros ambientes de nuvem. |
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
 Quando Azure Monitor para VMs é habilitado e configurado com um espaço de trabalho do Log Analytics, um pacote de gerenciamento é encaminhado para todos os computadores Windows que se reportam a esse espaço de trabalho. Se você [integrou seu grupo de gerenciamento de System Center Operations Manager](../../azure-monitor/platform/om-agents.md) com o espaço de trabalho log Analytics, o pacote de gerenciamento do mapa do serviço é implantado do grupo de gerenciamento para os computadores Windows que se reportam ao grupo de gerenciamento.  
 
-O pacote de gerenciamento é denominado *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Sua gravação na `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` pasta. A fonte de dados que o pacote de gerenciamento `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`usa é.
+O pacote de gerenciamento é denominado *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Sua gravação na `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` pasta. A fonte de dados que o pacote de gerenciamento usa é `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll` .
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 

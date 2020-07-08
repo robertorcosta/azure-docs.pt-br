@@ -5,14 +5,14 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506966"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
 
@@ -28,11 +28,11 @@ Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários mét
 - Instrua seu aplicativo usando o SDK do Azure Application Insights e envie a telemetria personalizada ao Monitor do Azure. 
 - Instale a extensão WAD (Windows Azure Diagnostics) em [VM](collect-custom-metrics-guestos-resource-manager-vm.md), [máquina virtual do Azure configurada](collect-custom-metrics-guestos-resource-manager-vmss.md), [VM clássica](collect-custom-metrics-guestos-vm-classic.md) ou [Serviços em nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e enviar contadores de desempenho para o Monitor do Azure. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) em sua VM do Azure Linux e envie as métricas usando o plug-in de saída do Monitor do Azure.
-- Envie métricas personalizadas [diretamente para a API REST do Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Envie métricas personalizadas [diretamente para a API REST do Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
-## <a name="pricing-model-and-rentention"></a>Modelo de preços e a retenção
+## <a name="pricing-model-and-retention"></a>Modelo de preços e retenção
 
-Verifique a [página de preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes sobre quando a cobrança será habilitada para métricas personalizadas e consultas de métricas. Detalhes específicos de preços de todas as métricas, incluindo métricas personalizadas e consultas de métricas, estão disponíveis nesta página. Em resumo, não há nenhum custo para ingerir métricas padrão (métricas de plataforma) em Azure Monitor repositório de métricas, mas as métricas personalizadas terão custos incorridos quando entrarem em disponibilidade geral. As consultas de API de métricas geram custos incorridos.
+Verifique a [página de preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes sobre quando a cobrança será habilitada para métricas personalizadas e consultas de métricas. Detalhes específicos de preços de todas as métricas, incluindo métricas personalizadas e consultas de métricas, estão disponíveis nesta página. Em resumo, não há nenhum custo para ingerir métricas padrão (métricas de plataforma) em Azure Monitor repositório de métricas, mas as métricas personalizadas incorrerão em custos quando eles entrarem em disponibilidade geral. As consultas de API de métricas incorrem em custos.
 
 As métricas personalizadas são mantidas durante o [mesmo período de tempo que as métricas de plataforma](data-platform-metrics.md#retention-of-metrics). 
 
@@ -47,7 +47,7 @@ Quando você envia as métricas personalizadas para o Azure Monitor, cada ponto 
 ### <a name="authentication"></a>Autenticação
 Para enviar métricas personalizadas para o Monitor do Azure, a entidade que envia a métrica precisa de um token válido do Azure AD (Azure Active Directory) no cabeçalho **Portador** da solicitação. Há algumas maneiras para adquirir um token de portador válido:
 1. [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fornece uma identidade a um recurso do Azure, como uma VM. A MSI (Managed Service Identity, identidade de serviço gerenciado) foi projetada para fornecer permissões de recursos para executar determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou seu MSI, pode receber permissões de **Monitoring Metrics Publisher** em outro recurso. Com essa permissão, o MSI também pode emitir métricas para outros recursos.
-2. [Entidade de serviço do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Nesse cenário, um aplicativo ou serviço do Azure AD pode receber permissões para emitir métricas sobre um recurso do Azure.
+2. [Entidade de serviço do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Nesse cenário, um aplicativo ou serviço do Azure AD pode receber permissões para emitir métricas sobre um recurso do Azure.
 Para autenticar a solicitação, o Monitor do Azure valida o token do aplicativo usando as chaves públicas do Azure AD. A função **existente do Monitoring Metrics Publisher** já tem essa permissão. Ele está disponível no portal do Azure. A entidade de serviço, dependendo dos recursos para os quais ela emite métricas personalizadas, pode receber a função **Monitoring Metrics Publisher** no escopo necessário. Exemplos são uma assinatura, grupo de recursos ou recurso específico.
 
 > [!TIP]  
@@ -78,7 +78,7 @@ Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao 
 **Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Pode ter um nome de métrica como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
-Uma dimensão é um par de chave ou valor que ajuda a descrever características adicionais sobre a métrica que está sendo coletada. Usando as características adicionais, você pode coletar mais informações sobre a métrica, o que permite insights mais profundos. Por exemplo, a métrica **Memory Bytes In Use** pode ter uma chave de dimensão chamada **Process** que captura quantos bytes de memória cada processo em uma VM consome. Usando essa chave, você pode filtrar a métrica para ver quantos processos específicos de memória usam ou para identificar os cinco principais processos pelo uso da memória.
+Uma dimensão é um par de chave ou valor que ajuda a descrever características adicionais sobre a métrica que está sendo coletada. Usando as características adicionais, você pode coletar mais informações sobre a métrica, o que permite insights mais profundos. Por exemplo, a métrica **Memory Bytes In Use** pode ter uma chave de dimensão chamada **Process** que captura quantos bytes de memória cada processo em uma VM consome. Usando essa chave, você pode filtrar a métrica para ver quantos processos específicos de memória usam ou para identificar os cinco principais processos por uso de memória.
 As dimensões são opcionais, nem todas as métricas podem ter dimensões. Uma métrica personalizada pode ter até 10 dimensões.
 
 ### <a name="dimension-values"></a>Valores de dimensão
@@ -189,31 +189,32 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Região do Azure |Prefixo de ponto de extremidade regional|
 |---|---|
 | **EUA e Canadá** | |
-|Centro-Oeste dos EUA | https:\//westcentralus.Monitoring.Azure.com/ |
-|Oeste dos EUA 2       | https:\//westus2.Monitoring.Azure.com/ |
-|Centro-Norte dos EUA | https:\//northcentralus.Monitoring.Azure.com
-|Centro-Sul dos Estados Unidos| https:\//southcentralus.Monitoring.Azure.com/ |
-|Centro dos EUA      | https:\//centralus.Monitoring.Azure.com |
-|Canadá Central | https:\//canadacentral.Monitoring.Azure.comc
-|Leste dos EUA| https:\//eastus.Monitoring.Azure.com/ |
+|Centro-Oeste dos EUA | https: \/ /westcentralus.Monitoring.Azure.com |
+|Oeste dos EUA 2       | https: \/ /westus2.Monitoring.Azure.com |
+|Centro-Norte dos EUA | https: \/ /northcentralus.Monitoring.Azure.com
+|Centro-Sul dos Estados Unidos| https: \/ /southcentralus.Monitoring.Azure.com |
+|Centro dos EUA      | https: \/ /centralus.Monitoring.Azure.com |
+|Canadá Central | https: \/ /canadacentral.Monitoring.Azure.com |
+|Leste dos EUA| https: \/ /eastus.Monitoring.Azure.com |
+|Leste dos EUA 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
-|Norte da Europa    | https:\//northeurope.Monitoring.Azure.com/ |
-|Europa Ocidental     | https:\//westeurope.Monitoring.Azure.com/ |
-|Sul do Reino Unido | https:\//uksouth.Monitoring.Azure.com
-|França Central | https:\//francecentral.Monitoring.Azure.com |
+|Norte da Europa    | https: \/ /northeurope.Monitoring.Azure.com |
+|Europa Ocidental     | https: \/ /westeurope.Monitoring.Azure.com |
+|Sul do Reino Unido | https: \/ /uksouth.Monitoring.Azure.com
+|França Central | https: \/ /francecentral.Monitoring.Azure.com |
 | **África** | |
-|Norte da África do Sul | https:\//southafricanorth.Monitoring.Azure.com
+|Norte da África do Sul | https: \/ /southafricanorth.Monitoring.Azure.com |
 | **Ásia** | |
-|Índia Central | https:\//centralindia.Monitoring.Azure.com
-|Leste da Austrália | https:\//australiaeast.Monitoring.Azure.com
-|Leste do Japão | https:\//japaneast.Monitoring.Azure.com
-|Sudeste Asiático  | https:\//southeastasia.Monitoring.Azure.com |
-|Leste da Ásia | https:\//eastasia.Monitoring.Azure.com
-|Coreia Central   | https:\//koreacentral.Monitoring.Azure.com
+|Índia Central | https: \/ /centralindia.Monitoring.Azure.com |
+|Leste da Austrália | https: \/ /australiaeast.Monitoring.Azure.com |
+|Leste do Japão | https: \/ /japaneast.Monitoring.Azure.com |
+|Sudeste Asiático  | https: \/ /southeastasia.Monitoring.Azure.com |
+|Leste da Ásia | https: \/ /eastasia.Monitoring.Azure.com |
+|Coreia Central   | https: \/ /koreacentral.Monitoring.Azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Latência e retenção de armazenamento
 
-Adicionar uma nova métrica ou uma nova dimensão que está sendo adicionada a uma métrica pode levar até 2 a 3 minutos para aparecer. Uma vez no sistema, os dados devem aparecerão em menos de 30 segundos 99% do tempo. 
+Adicionar uma nova métrica ou uma nova dimensão que está sendo adicionada a uma métrica pode levar até 2 a 3 minutos para aparecer. Uma vez no sistema, os dados devem aparecer em menos de 30 segundos 99% do tempo. 
 
 Se você excluir uma métrica ou remover uma dimensão, a alteração poderá levar uma semana a um mês para ser excluída do sistema.
 
@@ -230,7 +231,7 @@ Uma série temporal ativa é definida como qualquer combinação exclusiva de m�
 
 ## <a name="next-steps"></a>Próximas etapas
 Use métricas personalizadas de diferentes serviços: 
- - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjunto de escala de máquina virtual](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)

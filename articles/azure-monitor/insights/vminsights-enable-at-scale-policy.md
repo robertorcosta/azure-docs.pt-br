@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 7d3c4e0f4bd34f996bb39426af39a692a6f79c5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507170"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitar o Azure Monitor para VMs usando o Azure Policy
 
-Este artigo explica como habilitar Azure Monitor para VMs para máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando Azure Policy. No final desse processo, você terá configurado com êxito a habilitação do Log Analytics e dos agentes de dependência e das máquinas virtuais identificadas que não são compatíveis.
+Este artigo explica como habilitar Azure Monitor para VMs para máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais do Azure e máquinas de Arc do Azure usando Azure Policy. No final desse processo, você terá configurado com êxito a habilitação do Log Analytics e dos agentes de dependência e das máquinas virtuais identificadas que não são compatíveis.
 
 Para descobrir, gerenciar e habilitar Azure Monitor para VMs para todas as suas máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais, você pode usar o Azure Policy ou Azure PowerShell. Azure Policy é o método que recomendamos porque você pode gerenciar definições de política para controlar com eficiência suas assinaturas a fim de garantir a conformidade consistente e a habilitação automática de VMs provisionadas recentemente. Estas definições de política:
 
@@ -46,10 +46,7 @@ A partir daqui, você pode verificar e gerenciar a cobertura da iniciativa em se
 
 Essas informações são úteis para ajudá-lo a planejar e executar seu cenário de governança para Azure Monitor para VMs de um local central. Embora Azure Policy forneça uma exibição de conformidade quando uma política ou iniciativa é atribuída a um escopo, com essa nova página, você pode descobrir onde a política ou a iniciativa não está atribuída e atribuí-la em vigor. Todas as ações como atribuir, exibir e editar redirecionamento para Azure Policy diretamente. A página de **cobertura da política de Azure monitor para VMs** é uma experiência expandida e integrada somente para a iniciativa **habilitar Azure monitor para VMs**.
 
-Nessa página, você também pode configurar seu espaço de trabalho do Log Analytics para Azure Monitor para VMs, que:
-
-- Instala a solução Mapa do Serviço.
-- Habilita os contadores de desempenho do sistema operacional usados pelos gráficos de desempenho, pastas de trabalho e suas consultas e alertas de log personalizados.
+Nessa página, você também pode configurar seu espaço de trabalho do Log Analytics para Azure Monitor para VMs, que instala a solução *VMInsights* .
 
 ![Azure Monitor para VMs configurar espaço de trabalho](media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
 
@@ -85,7 +82,7 @@ Para obter mais informações sobre como atribuir o Azure Policy, confira [Visã
 
 As definições de política para uma VM do Azure são listadas na tabela a seguir.
 
-|Name |Descrição |Type |
+|Nome |Descrição |Type |
 |-----|------------|-----|
 |Habilitar o Azure Monitor para VMs |Habilite Azure Monitor para as máquinas virtuais no escopo especificado (grupo de gerenciamento, assinatura ou grupo de recursos). Usa o espaço de trabalho do Log Analytics como parâmetro. |Iniciativa |
 |Implantação do agente de dependência de auditoria – imagem da VM (SO) não listada |Relata as VMs como não compatíveis se a imagem de VM (SO) não estiver definida na lista e o agente não estiver instalado. |Política |
@@ -95,13 +92,28 @@ As definições de política para uma VM do Azure são listadas na tabela a segu
 |Implantar o agente do Log Analytics para VMs do Linux |Implante Log Analytics agente para VMs Linux se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
 |Implantar o agente do Log Analytics para VMs do Windows |Implante Log Analytics agente para VMs do Windows se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
 
+
+### <a name="policies-for-hybrid-azure-arc-machines"></a>Políticas para computadores híbridos do Azure Arc
+
+As definições de política para computadores híbridos do Azure ARC são listadas na tabela a seguir.
+
+|Nome |Descrição |Type |
+|-----|------------|-----|
+| [Versão prévia]: o agente de Log Analytics deve ser instalado em seus computadores Linux do Azure Arc |Relata os computadores do Arc do Azure híbrido como não compatíveis para VMs do Linux se a imagem da VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
+| [Versão prévia]: o agente de Log Analytics deve ser instalado em seus computadores Windows Azure Arc |Relata os computadores do Arc do Azure híbrido como não compatíveis para VMs do Windows se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
+| [Visualização]: implantar o agente de dependência em computadores com o Azure ARC para Linux híbrido |Implante o agente de dependência para máquinas de Arc do Azure híbridos do Linux se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
+| [Visualização]: implantar o agente de dependência em computadores Windows Azure Arc híbridos |Implante o agente de dependência para máquinas Windows híbridas do Azure se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
+| [Visualização]: implantar o agente de Log Analytics em computadores com o Arc do Azure para Linux |Implante o agente de Log Analytics para máquinas de Arc do Azure híbridos do Linux se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
+| [Visualização]: implantar o agente de Log Analytics em computadores Windows Azure Arc |Implante o agente de Log Analytics para máquinas Windows híbridas do Azure se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
+
+
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Políticas para conjuntos de dimensionamento de máquinas virtuais do Azure
 
 As definições de política para um conjunto de dimensionamento de máquinas virtuais do Azure estão listadas na tabela a seguir.
 
-|Name |Descrição |Type |
+|Nome |Descrição |Type |
 |-----|------------|-----|
-|Habilitar Azure Monitor para conjuntos de dimensionamento de máquinas virtuais |Habilite Azure Monitor para os conjuntos de dimensionamento de máquinas virtuais no escopo especificado (grupo de gerenciamento, assinatura ou grupo de recursos). Usa o espaço de trabalho do Log Analytics como parâmetro. Observação: se a política de atualização do conjunto de dimensionamento estiver definida como manual, aplique a extensão a todas as VMs no conjunto chamando a atualização nelas. Na CLI, isso é `az vmss update-instances`. |Iniciativa |
+|Habilitar Azure Monitor para conjuntos de dimensionamento de máquinas virtuais |Habilite Azure Monitor para os conjuntos de dimensionamento de máquinas virtuais no escopo especificado (grupo de gerenciamento, assinatura ou grupo de recursos). Usa o espaço de trabalho do Log Analytics como parâmetro. Observação: se a política de atualização do conjunto de dimensionamento estiver definida como manual, aplique a extensão a todas as VMs no conjunto chamando a atualização nelas. Na CLI, isso é `az vmss update-instances` . |Iniciativa |
 |Auditoria de implantação de agente de dependência em conjuntos de dimensionamento de máquinas virtuais – imagem de VM (SO) não listada |Relata o conjunto de dimensionamento de máquinas virtuais como não compatível se a imagem da VM (SO) não estiver definida na lista e o agente não estiver instalado. |Política |
 |Auditoria de implantação de agente de Log Analytics em conjuntos de dimensionamento de máquinas virtuais – imagem de VM (SO) não listada |Relata o conjunto de dimensionamento de máquinas virtuais como não compatível se a imagem da VM (SO) não estiver definida na lista e o agente não estiver instalado. |Política |
 |Implantar o Dependency Agent em conjuntos de dimensionamento de máquinas virtuais do Linux |Implante o agente de dependência para conjuntos de dimensionamento de máquinas virtuais do Linux se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |Política |
@@ -111,7 +123,7 @@ As definições de política para um conjunto de dimensionamento de máquinas vi
 
 A política independente (não incluída com a iniciativa) é descrita aqui:
 
-|Name |Descrição |Type |
+|Nome |Descrição |Type |
 |-----|------------|-----|
 |Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade |Relate as VMs como não compatíveis se elas não estiverem registradas no espaço de trabalho Log Analytics especificado na política ou na atribuição de iniciativa. |Política |
 
@@ -123,7 +135,7 @@ Quando você atribui a política ou iniciativa, o escopo selecionado na atribui�
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Na portal do Azure, selecione **Monitor**. 
+2. No portal do Azure, selecione **Monitor**. 
 
 3. Escolha **máquinas virtuais** na seção **insights** .
  
@@ -156,8 +168,8 @@ A matriz a seguir mapeia cada Estado de conformidade possível para a iniciativa
 | **Em conformidade** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
 | **Não compatível** | Nem todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados e podem exigir correção.|
 | **Não iniciado** | Uma nova atribuição foi adicionada. |
-| **Proprietário** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
-| **Em branco** | Nenhuma política foi atribuída. | 
+| **Bloqueio** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
+| **Em Branco** | Nenhuma política foi atribuída. | 
 
 <sup>1</sup> se você não tiver acesso ao grupo de gerenciamento, peça ao proprietário para fornecer acesso. Ou então, exiba a conformidade e gerencie atribuições por meio dos grupos de gerenciamento filho ou assinaturas. 
 
@@ -166,10 +178,10 @@ A tabela a seguir mapeia cada possível status de atribuição para a iniciativa
 | Status da atribuição | Descrição | 
 |------------------|-------------|
 | **Êxito** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
-| **Alerta** | A assinatura não está sob um grupo de gerenciamento.|
+| **Aviso** | A assinatura não está sob um grupo de gerenciamento.|
 | **Não iniciado** | Uma nova atribuição foi adicionada. |
-| **Proprietário** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
-| **Em branco** | Não existem VMs ou uma política não está atribuída. | 
+| **Bloqueio** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
+| **Em Branco** | Não existem VMs ou uma política não está atribuída. | 
 | **Ação** | Atribua uma política ou edite uma atribuição. | 
 
 <sup>1</sup> se você não tiver acesso ao grupo de gerenciamento, peça ao proprietário para fornecer acesso. Ou então, exiba a conformidade e gerencie atribuições por meio dos grupos de gerenciamento filho ou assinaturas.
@@ -205,7 +217,7 @@ A qualquer momento depois de atribuir uma iniciativa a um grupo de gerenciamento
 - Nome da atribuição
 - Descrição
 - Atribuído por
-- Espaço de trabalho do Log Analytics
+- Workspace do Log Analytics
 - Exceções
 
 ## <a name="next-steps"></a>Próximas etapas

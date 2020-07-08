@@ -6,16 +6,16 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ef8196cebfbdda72f98fee0e9c75bcb80172a55e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482523"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -47,7 +47,7 @@ a. Visite a página [Conformidade da Microsoft](https://www.microsoft.com/trustc
 
 Q. Posso conectar Power BI?
 
-a. Sim. Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar Power BI sobre o Azure Analysis Services ou o IaaS do Analysis Service.
+a. Sim! Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar Power BI sobre o Azure Analysis Services ou o IaaS do Analysis Service.
 
 Q. Quais são os limites de capacidade do pool SQL Synapse?
 

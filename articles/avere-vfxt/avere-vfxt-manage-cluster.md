@@ -3,15 +3,15 @@ title: Gerenciar cluster do Avere vFXT – Azure
 description: Como gerenciar o cluster do Avere – adicionar ou remover nós, reiniciar, parar ou destruir o cluster vFXT
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505487"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerenciar cluster do Avere vFXT
 

@@ -3,15 +3,15 @@ title: Como mover dados para o Avere vFXT para Azure
 description: Como adicionar dados a um novo volume de armazenamento para uso com o Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505589"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover dados para o cluster vFXT – ingestão de dados paralela
 
@@ -25,7 +25,7 @@ Os comandos ``cp`` ou ``copy`` comumente usados para transferir dados de um sist
 
 Este artigo explica estratégias para criar um sistema de cópia de arquivo com vários threads e vários clientes para mover dados para o cluster do Avere vFXT. Ele explica os conceitos de transferência de arquivo e os pontos de decisão que podem ser usados para cópia de dados eficiente usando vários clientes e comandos de cópia simples.
 
-Também explica alguns utilitários que podem ajudar. O ``msrsync`` utilitário pode ser usado para automatizar parcialmente o processo de dividir um conjunto de um DataSet em buckets e usar ``rsync`` comandos. O script ``parallelcp`` é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente. Além disso, ``rsync`` a ferramenta pode ser usada em duas fases para fornecer uma cópia mais rápida que ainda fornece consistência de dados.
+Também explica alguns utilitários que podem ajudar. O ``msrsync`` utilitário pode ser usado para automatizar parcialmente o processo de dividir um conjunto de um DataSet em buckets e usar ``rsync`` comandos. O script ``parallelcp`` é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente. Além disso, a ``rsync`` ferramenta pode ser usada em duas fases para fornecer uma cópia mais rápida que ainda fornece consistência de dados.
 
 Clique no link para ir para uma seção:
 
@@ -260,9 +260,9 @@ A meta é executar vários threads desses scripts simultaneamente por cliente em
 
 ## <a name="use-a-two-phase-rsync-process"></a>Usar um processo rsync de duas fases
 
-O utilitário ``rsync`` Standard não funciona bem para popular o armazenamento em nuvem por meio do avere VFXT for Azure System, pois ele gera um grande número de operações de criação e renomeação de arquivo para garantir a integridade dos dados. No entanto, você pode usar com ``--inplace`` segurança a ``rsync`` opção com para ignorar o procedimento de cópia mais cuidadoso se seguir isso com uma segunda execução que verifica a integridade do arquivo.
+O utilitário Standard não ``rsync`` funciona bem para popular o armazenamento em nuvem por meio do avere vFXT for Azure System, pois ele gera um grande número de operações de criação e renomeação de arquivo para garantir a integridade dos dados. No entanto, você pode usar com segurança a ``--inplace`` opção com ``rsync`` para ignorar o procedimento de cópia mais cuidadoso se seguir isso com uma segunda execução que verifica a integridade do arquivo.
 
-Uma operação ``rsync`` de cópia padrão cria um arquivo temporário e o preenche com os dados. Se a transferência de dados for concluída com êxito, o arquivo temporário será renomeado para o nome de arquivo original. Esse método garante a consistência, mesmo que os arquivos sejam acessados durante a cópia. Mas esse método gera mais operações de gravação, o que reduz a movimentação de arquivos por meio do cache.
+Uma ``rsync`` operação de cópia padrão cria um arquivo temporário e o preenche com os dados. Se a transferência de dados for concluída com êxito, o arquivo temporário será renomeado para o nome de arquivo original. Esse método garante a consistência, mesmo que os arquivos sejam acessados durante a cópia. Mas esse método gera mais operações de gravação, o que reduz a movimentação de arquivos por meio do cache.
 
 A opção ``--inplace`` grava o novo arquivo diretamente em seu local final. Não há garantia de que os arquivos sejam consistentes durante a transferência, mas isso não é importante se você estiver esficando um sistema de armazenamento para uso posterior.
 
@@ -293,9 +293,9 @@ Para usar ``msrsync`` o para popular um volume de nuvem do Azure com um cluster 
 1. Instalar ``msrsync`` e seus pré-requisitos (rsync e Python 2,6 ou posterior)
 1. Determine o número total de arquivos e diretórios a serem copiados.
 
-   Por exemplo, use o utilitário ``prime.py`` avere com argumentos ```prime.py --directory /path/to/some/directory``` (disponíveis por download de <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>URL).
+   Por exemplo, use o utilitário avere ``prime.py`` com argumentos ```prime.py --directory /path/to/some/directory``` (disponíveis por download de URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> ).
 
-   Se não estiver ``prime.py``usando o, você poderá calcular o número de itens com ``find`` a ferramenta GNU da seguinte maneira:
+   Se não estiver usando ``prime.py`` o, você poderá calcular o número de itens com a ferramenta GNU da ``find`` seguinte maneira:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -311,7 +311,7 @@ Para usar ``msrsync`` o para popular um volume de nuvem do Azure com um cluster 
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Se estiver ``--inplace``usando, adicione uma segunda execução sem a opção para verificar se os dados foram copiados corretamente:
+   Se estiver usando ``--inplace`` , adicione uma segunda execução sem a opção para verificar se os dados foram copiados corretamente:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>

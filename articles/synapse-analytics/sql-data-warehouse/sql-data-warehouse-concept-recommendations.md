@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-ms.date: 04/30/2020
+ms.subservice: sql-dw
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482846"
 ---
 # <a name="synapse-sql-recommendations"></a>Recomendações do SQL do Synapse
 
@@ -70,3 +70,7 @@ Quando você tem um grande conjunto de trabalho, pode experimentar um percentual
 ## <a name="tempdb-contention"></a>Contenção de Tempdb
 
 O desempenho da consulta pode diminuir quando há uma contenção de tempdb alta.  A contenção de tempdb pode ocorrer por meio de tabelas temporárias definidas pelo usuário ou quando há uma grande quantidade de movimentação de dados. Neste cenário, você pode aumentar a alocação de tempdb e [configurar o gerenciamento de carga de trabalho e classes de recursos](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) para fornecer mais memória às consultas. 
+
+## <a name="data-loading-misconfiguration"></a>Carregamento de dados de configuração incorreta
+
+Você sempre deve carregar dados de uma conta de armazenamento na mesma região que o pool SQL para minimizar a latência. Use a [instrução de cópia para a ingestão de dados de alta taxa de transferência](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os arquivos de preparo em sua conta de armazenamento para maximizar a taxa de transferência. Se você não puder usar a instrução de cópia, poderá usar a API SqlBulkCopy ou o bcp com um tamanho de lote alto para obter uma melhor taxa de transferência. Para obter diretrizes adicionais de carregamento de dados, visite a [documentação](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)a seguir. 

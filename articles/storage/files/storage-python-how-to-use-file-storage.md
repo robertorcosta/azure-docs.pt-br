@@ -3,16 +3,17 @@ title: Desenvolvimento para Arquivos do Azure com Python | Microsoft Docs
 description: Saiba como desenvolver aplicativos e serviços Python que usam os Arquivos do Azure para armazenar dados de arquivo.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509635"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -47,7 +48,7 @@ pip install azure-storage-file
 Para métodos de instalação alternativos, visite o [SDK do Armazenamento do Microsoft Azure para Python no GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="view-the-sample-application"></a>Visualizar o aplicativo de exemplo
-f para exibir e executar um aplicativo de exemplo que mostra como usar o Python com os arquivos do Azure, consulte [armazenamento do Azure: introdução com arquivos do Azure em Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+Para exibir e executar um aplicativo de exemplo que mostra como usar o Python com os arquivos do Azure, consulte [armazenamento do Azure: introdução com os arquivos do Azure no Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
 Para executar o aplicativo de exemplo, verifique se você instalou os pacotes `azure-storage-file` e `azure-storage-common`.
 
@@ -179,6 +180,6 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como manipular s Arquivos do Azure com o Python, siga estes links para saber mais.
 
-* [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
-* [Azure Storage Services REST API Reference](https://msdn.microsoft.com/library/azure/dd179355) (Referência de API REST dos Serviços de Armazenamento do Azure)
+* [Central de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
+* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355)
 * [SDK do Armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python)

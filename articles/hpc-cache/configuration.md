@@ -3,15 +3,15 @@ title: Definir configurações de cache do HPC do Azure
 description: Explica como definir configurações adicionais para o cache, como MTU e não-raiz-comprimir, e como acessar os instantâneos Express de destinos do armazenamento de BLOBs do Azure.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505300"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Definir configurações adicionais de cache do HPC do Azure
 
@@ -22,6 +22,9 @@ Este artigo também descreve como usar o recurso de instantâneo para destinos d
 Para ver as configurações, abra a página de **configuração** do cache no portal do Azure.
 
 ![captura de tela da página de configuração no portal do Azure](media/configuration.png)
+
+> [!TIP]
+> O [vídeo Gerenciando o cache HPC do Azure](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) mostra a página de configuração e suas configurações.
 
 ## <a name="adjust-mtu-value"></a>Ajustar o valor de MTU
 <!-- linked from troubleshoot-nas article -->
@@ -48,7 +51,7 @@ Quando o comprimir raiz está habilitado, os usuários raiz de um cliente são m
 
 Se o comprimir raiz estiver desabilitado, uma solicitação do usuário raiz do cliente (UID 0) será passada para um sistema de armazenamento NFS de back-end como raiz. Essa configuração pode permitir o acesso impróprio a arquivos.
 
-A configuração de comprimir raiz no cache pode ajudar a compensar ``no_root_squash`` a configuração necessária em sistemas nas que são usados como destinos de armazenamento. (Leia mais sobre os [pré-requisitos de destino de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements).) Ele também pode melhorar a segurança quando usado com destinos do armazenamento de BLOBs do Azure.
+A configuração de comprimir raiz no cache pode ajudar a compensar a ``no_root_squash`` configuração necessária em sistemas nas que são usados como destinos de armazenamento. (Leia mais sobre os [pré-requisitos de destino de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements).) Ele também pode melhorar a segurança quando usado com destinos do armazenamento de BLOBs do Azure.
 
 A configuração padrão é **Sim**. (Os caches criados antes de abril de 2020 podem ter a configuração padrão **não**.)
 

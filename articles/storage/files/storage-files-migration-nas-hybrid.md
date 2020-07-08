@@ -3,16 +3,16 @@ title: Migração de NAS local para Sincronização de Arquivos do Azure
 description: Saiba como migrar arquivos de um local de armazenamento conectado à rede local (NAS) para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure e compartilhamentos de arquivos do Azure.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7b0c7a30580d3863a78e85b8b45287a598bbf394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510298"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migre do NAS (armazenamento anexado à rede) para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure
 
@@ -124,7 +124,7 @@ Plano de fundo:
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /UNILOG:\<nome do arquivo\>
+      /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
       Gera o status do arquivo de LOG como UNICODE (Substitui o log existente).

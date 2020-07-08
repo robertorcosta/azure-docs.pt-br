@@ -3,16 +3,16 @@ title: Montagem do compartilhamento de arquivos do Azure no SMB com macOS | Micr
 description: Saiba como montar um compartilhamento de arquivos do Azure no SMB com macOS.
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 0e3420e469b117d90efb2949dab828021bfedcb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87271cfc602ff81a65a63426360f3bc0a8a8f030
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74924702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509822"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montagem do compartilhamento de arquivos do Azure no SMB com macOS
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados com o protocolo SMB 3 padrão do setor do macOS El Capitan 10.11 e versões posteriores. Este artigo mostra duas maneiras diferentes para montar um compartilhamento de arquivos do Azure no macOS: com a interface do usuário do Finder e usando o Terminal.
@@ -27,7 +27,7 @@ ms.locfileid: "74924702"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Pré-requisitos para montar um compartilhamento de arquivos do Azure no macOS
-* **Nome da conta de armazenamento**: para montar um compartilhamento de arquivos do Azure, será necessário o nome da conta de armazenamento.
+* **Nome da conta de armazenamento**: Para montar um compartilhamento de arquivos do Azure, você precisará do nome da conta de armazenamento.
 
 * **Chave de conta de armazenamento**: Para montar um compartilhamento de arquivos do Azure, você precisará da chave de armazenamento primária (ou secundária). Atualmente, as chaves SAS não têm suporte para montagem.
 
@@ -37,7 +37,7 @@ ms.locfileid: "74924702"
 1. **Abrir o Localizador**: o Localizador é aberto no macOS por padrão, mas você pode garantir que ele é o aplicativo selecionado clicando no "ícone de rosto do macOS" no encaixe:  
     ![O ícone de rosto do macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selecione "conectar ao servidor" no menu "ir"**`\\`: usando o caminho UNC dos pré-requisitos, converta a barra invertida dupla inicial () para `smb://` e todas as barras invertidas (`\`) para encaminhar barras (`/`). O link deve ser semelhante ao seguinte: ![a caixa de diálogo "Conectar ao servidor"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selecione "conectar ao servidor" no menu "ir"**: usando o caminho UNC dos pré-requisitos, converta a barra invertida dupla inicial ( `\\` ) para `smb://` e todas as barras invertidas ( `\` ) para encaminhar barras () `/` . O link deve ser semelhante ao seguinte: ![a caixa de diálogo "Conectar ao servidor"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Use o nome da conta de armazenamento e a chave da conta de armazenamento quando solicitado a fornecer um nome de usuário e senha**: ao clicar em "Conectar" na caixa de diálogo "Conectar ao servidor", você será solicitado a fornecer o nome de usuário e senha (Isso será preenchido automaticamente com seu nome de usuário macOS). Você tem a opção de colocar a chave da conta de armazenamento/nome da conta de armazenamento em seu conjunto de chaves do macOS.
 
@@ -60,6 +60,6 @@ ms.locfileid: "74924702"
 Veja estes links para obter mais informações sobre o Arquivos do Azure.
 
 * [Artigo de suporte da Apple - Como conectar-se com o compartilhamento de arquivos em seu Mac](https://support.apple.com/HT204445)
-* [Perguntas frequentes](../storage-files-faq.md)
+* [perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solução de problemas no Linux](storage-troubleshoot-linux-file-connection-problems.md)    

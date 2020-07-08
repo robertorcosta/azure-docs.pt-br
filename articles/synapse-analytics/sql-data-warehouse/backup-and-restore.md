@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482540"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Backup e restauração no pool do SQL Synapse do Azure
 
@@ -30,7 +30,7 @@ A *restauração de um data warehouse* é um novo data warehouse criado por meio
 
 ## <a name="automatic-restore-points"></a>Pontos de restauração automática
 
-Instantâneos são um recurso interno do serviço que cria pontos de restauração. Não é necessário habilitar essa funcionalidade. No entanto, o pool do SQL deve estar em um estado ativo para a criação do ponto de restauração. Se o pool do SQL for pausado com frequência, os pontos de restauração automáticas não poderão ser criados, portanto, certifique-se de criar um ponto de restauração definido pelo usuário antes de pausar o pool SQL. Atualmente, os pontos de restauração automáticos não podem ser excluídos pelos usuários, pois o serviço usa esses pontos de restauração para manter os SLAs para recuperação.
+Instantâneos são um recurso interno que cria pontos de restauração. Não é necessário habilitar essa funcionalidade. No entanto, o pool do SQL deve estar em um estado ativo para a criação do ponto de restauração. Se o pool do SQL for pausado com frequência, os pontos de restauração automáticas não poderão ser criados, portanto, certifique-se de criar um ponto de restauração definido pelo usuário antes de pausar o pool SQL. Atualmente, os pontos de restauração automáticos não podem ser excluídos pelos usuários, pois o serviço usa esses pontos de restauração para manter os SLAs para recuperação.
 
 Os instantâneos de seus data warehouse são obtidos durante o dia criando pontos de restauração que estão disponíveis por sete dias. Esse período de retenção não pode ser alterado. O pool SQL dá suporte a um RPO (objetivo de ponto de recuperação) de oito horas. É possível restaurar seu data warehouse na região primária com base em qualquer um dos instantâneos tirados nos últimos sete dias.
 
@@ -65,7 +65,7 @@ A lista a seguir detalha os períodos de retenção do ponto de restauração:
 Quando você remove um pool SQL, um instantâneo final é criado e salvo por sete dias. Você pode restaurar o pool SQL para o ponto de restauração final criado na exclusão. Se o pool do SQL for descartado em um estado de pausa, nenhum instantâneo será obtido. Nesse cenário, certifique-se de criar um ponto de restauração definido pelo usuário antes de descartar o pool SQL.
 
 > [!IMPORTANT]
-> Se você excluir uma instância lógica do SQL Server, todos os bancos de dados que pertencerem a essa instância também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
+> Se você excluir o servidor que hospeda um pool SQL, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Backups geográficos e recuperação de desastre
 
@@ -96,7 +96,7 @@ Para restaurar um data warehouse excluído ou em pausa, será possível [criar u
 
 ## <a name="cross-subscription-restore"></a>Restauração de assinatura cruzada
 
-Se você precisar restaurar diretamente na assinatura, vote nesse recurso [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaure para um servidor lógico diferente e [' mova '](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o servidor em assinaturas para executar uma restauração de assinatura cruzada.
+Se você precisar restaurar diretamente na assinatura, vote nesse recurso [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaure para um servidor diferente e [' mova '](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o servidor em assinaturas para executar uma restauração de assinatura cruzada.
 
 ## <a name="geo-redundant-restore"></a>Restauração com redundância geográfica
 
@@ -107,4 +107,4 @@ Você pode [restaurar seu pool SQL](sql-data-warehouse-restore-from-geo-backup.m
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre planejamento de desastre, consulte [Visão geral sobre a continuidade dos negócios](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Para obter mais informações sobre pontos de restauração, consulte [pontos de restauração definidos pelo usuário](sql-data-warehouse-restore-points.md)

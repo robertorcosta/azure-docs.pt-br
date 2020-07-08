@@ -9,24 +9,24 @@ editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: ced075395c4f2a51308d5d3b0cbe4c0153a17816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508819"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Usar as ações de menu do MMC no StorSimple Snapshot Manager
 
 ## <a name="overview"></a>Visão geral
 No StorSimple Snapshot Manager, você verá as seguintes ações listadas em todos os menus de ação e todas as variações do painel de **Ações** .
 
-* Visualizar
+* Exibir
 * Nova Janela a Partir Daqui 
 * Atualizar 
 * Exportar Lista 
@@ -34,7 +34,7 @@ No StorSimple Snapshot Manager, você verá as seguintes ações listadas em tod
 
 Essas ações fazem parte do MMC (Console de Gerenciamento Microsoft) e não são específicas ao StorSimple Snapshot Manager. Este tutorial descreve essas ações e explica como usar cada uma delas no StorSimple Snapshot Manager.
 
-## <a name="view"></a>Visualizar
+## <a name="view"></a>Exibir
 Você pode usar a opção **Visualizar** para alterar a visualização do painel **Resultados** e alterar a visualização da janela do console. 
 
 #### <a name="to-change-the-results-pane-view"></a>Para alterar o modo de exibição de painel de Resultados
@@ -87,7 +87,7 @@ Você pode usar a ação **Exportar lista** para salvar a lista em um arquivo de
    1. Na caixa **Nome do arquivo**, digite um nome para o arquivo CSV ou clique na seta para selecionar a partir da lista suspensa.
    2. Na caixa **Salvar como tipo**, clique na seta e selecione um tipo de arquivo na lista suspensa.
    3. Para salvar apenas os itens selecionados, selecione as linhas e depois clique na caixa de seleção **Salvar apenas linhas selecionadas**. Para salvar todas as listas exportadas, desmarque a caixa de seleção **Salvar apenas linhas selecionadas** .
-   4. Clique em **Salvar**.
+   4. Clique em **Save** (Salvar).
       
       ![Exportar lista como um arquivo de valores separados por vírgula](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

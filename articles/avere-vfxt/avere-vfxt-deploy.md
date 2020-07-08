@@ -3,15 +3,15 @@ title: Implantar o Avere vFXT para Azure
 description: Etapas para implantar o cluster do Avere vFXT no Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c42abdbfaf5c867a9d8d4cbc6b4519a86adaac0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505640"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implantar cluster vFXT
 
@@ -87,7 +87,7 @@ A segunda página do modelo de implantação permite que você defina o tamanho 
 
 * **Contagem de nós de cluster avere vFXT** -escolha o número de nós no cluster. O mínimo é de três nós e o máximo é de doze.
 
-* **Senha de administração de cluster** – crie a senha de administração de cluster. Essa senha é usada com o nome ```admin``` de usuário para entrar no painel de controle de cluster, no qual você pode monitorar o cluster e definir as configurações de cluster.
+* **Senha de administração de cluster** – crie a senha de administração de cluster. Essa senha é usada com o nome de usuário ```admin``` para entrar no painel de controle de cluster, no qual você pode monitorar o cluster e definir as configurações de cluster.
 
 * **Nome do cluster do Avere vFXT** – dê ao cluster um nome exclusivo.
 

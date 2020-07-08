@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 7490eef7b6203b6bb2623efa4518c7bee5400fb3
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506558"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
 
@@ -44,7 +44,7 @@ Os arquivos fora de `$HOME` e do estado da máquina não são mantidos entre ses
 
 ### <a name="azure-drive-azure"></a>Unidade do Azure (Azure:)
 
-O PowerShell no Cloud Shell fornece a unidade do`Azure:`Azure (). Você pode alternar para a unidade do Azure `cd Azure:` com e de volta para o diretório `cd  ~`base com.
+O PowerShell no Cloud Shell fornece a unidade do Azure ( `Azure:` ). Você pode alternar para a unidade do Azure com `cd Azure:` e de volta para o diretório base com `cd  ~` .
 A unidade do Azure permite a fácil detecção e navegação de recursos do Azure, como computação, rede, armazenamento e etc. de forma semelhante à navegação de sistema de arquivos.
 Você pode continuar usando os [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure) comuns para gerenciar esses recursos, independentemente da unidade em que estiver.
 Todas as alterações feitas nos recursos do Azure, diretamente no portal do Azure ou por meio de cmdlets do Azure PowerShell, são refletidas na unidade do Azure.  Você pode executar `dir -Force` para atualizar seus recursos.
@@ -59,7 +59,7 @@ O PowerShell no Cloud Shell contém uma compilação particular do módulo do Ex
 
  Execute `Get-Command -Module tmp_*`
 > [!NOTE]
-> O nome do módulo deve começar `tmp_`com, se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão exibidos. 
+> O nome do módulo deve começar com `tmp_` , se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão exibidos. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -78,7 +78,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |Ferramentas de build            |make<br> maven<br> npm<br> pip         |
 |Contêineres             |[Computador do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI do DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [Utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)|
+|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)<br> [CLI do Office 365](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Suporte ao idioma
 

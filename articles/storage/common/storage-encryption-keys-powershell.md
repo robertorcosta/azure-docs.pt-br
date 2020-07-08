@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506184"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o PowerShell
 
@@ -74,7 +74,7 @@ Em seguida, crie uma nova chave no cofre de chaves. Para criar uma nova chave, c
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
 
-Somente as chaves RSA de 2048 bits e RSA-HSM têm suporte com a criptografia de armazenamento do Azure. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+A criptografia de armazenamento do Azure dá suporte às chaves RSA e RSA-HSM de tamanhos 2048, 3072 e 4096. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar a criptografia com chaves gerenciadas pelo cliente
 
@@ -120,5 +120,5 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
 - [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

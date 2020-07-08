@@ -4,16 +4,16 @@ titleSuffix: Azure Files
 description: Como criar um compartilhamento de arquivos do Azure usando o portal do Azure, o PowerShell ou o CLI do Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ed6abbac7c5953eaec4fa4584248d0d98b49ba63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba6f4bcaffbf9fa11c949853362485d524bec23a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77596854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510009"
 ---
 # <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
@@ -32,9 +32,9 @@ Para criar um compartilhamento de arquivos do Azure, você precisa responder a t
 Para obter mais informações sobre essas três opções, consulte [planejando uma implantação de arquivos do Azure](storage-files-planning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Este artigo pressupõe que você já criou uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Se você pretende usar Azure PowerShell, [Instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se você pretende usar o CLI do Azure, [Instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Este artigo pressupõe que você já tenha criado uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Se pretende usar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Os compartilhamentos de arquivos do Azure são implantados em *contas de armazenamento*, que são objetos de nível superior que representam um pool de armazenamento compartilhado. Esse pool de armazenamento pode ser usado para implantar vários compartilhamentos de arquivos. 
@@ -81,7 +81,7 @@ A seção avançado contém várias configurações importantes para compartilha
 As outras configurações disponíveis na guia Avançado (exclusão reversível de BLOB, namespace hierárquico para Azure Data Lake armazenamento Gen 2 e NFSv3 para armazenamento de BLOB) não se aplicam aos arquivos do Azure.
 
 #### <a name="tags"></a>Marcas
-As marcas são pares de nome/valor que permitem categorizar recursos e exibir a cobrança consolidada aplicando a mesma marca a vários recursos e grupos de recursos. Eles são opcionais e podem ser aplicados após a criação da conta de armazenamento.
+Marcas são pares nome/valor que permitem categorizar recursos e exibir a cobrança consolidada por meio da aplicação da mesma marca a vários recursos e grupos de recursos. Eles são opcionais e podem ser aplicados após a criação da conta de armazenamento.
 
 #### <a name="review--create"></a>Examinar + criar
 A etapa final para criar a conta de armazenamento é selecionar o botão **criar** na guia **revisar + criar** . Esse botão não estará disponível se todos os campos obrigatórios para uma conta de armazenamento não estiverem preenchidos.
@@ -97,7 +97,7 @@ $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos padrão do Azure, usaremos o comando a seguir. O `-SkuName` parâmetro está relacionado ao tipo de redundância desejado; Se desejar uma conta de armazenamento com redundância geográfica ou com redundância de zona geográfica, você também deverá remover o `-EnableLargeFileShare` parâmetro.
+Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos padrão do Azure, usaremos o comando a seguir. O `-SkuName` parâmetro está relacionado ao tipo de redundância desejado; se desejar uma conta de armazenamento com redundância geográfica ou com redundância de zona geográfica, você também deverá remover o `-EnableLargeFileShare` parâmetro.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -109,7 +109,7 @@ $storAcct = New-AzStorageAccount `
     -EnableLargeFileShare
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos premium do Azure, usaremos o comando a seguir. Observe que o `-SkuName` parâmetro foi alterado para incluir `Premium` e o nível de redundância desejado de localmente redundante (`LRS`). O `-Kind` parâmetro é `FileStorage` , em `StorageV2` vez de, porque os compartilhamentos de arquivos Premium devem ser criados em uma conta de armazenamento de armazenamento em vez de uma conta de armazenamento GPv2.
+Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos premium do Azure, usaremos o comando a seguir. Observe que o `-SkuName` parâmetro foi alterado para incluir `Premium` e o nível de redundância desejado de localmente redundante ( `LRS` ). O `-Kind` parâmetro é `FileStorage` , em vez de, `StorageV2` porque os compartilhamentos de arquivos Premium devem ser criados em uma conta de armazenamento de armazenamento em vez de uma conta de armazenamento GPv2.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -131,7 +131,7 @@ storageAccountName="mystorageacct$RANDOM"
 region="westus2"
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos padrão do Azure, usaremos o comando a seguir. O `--sku` parâmetro está relacionado ao tipo de redundância desejado; Se desejar uma conta de armazenamento com redundância geográfica ou com redundância de zona geográfica, você também deverá remover o `--enable-large-file-share` parâmetro.
+Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos padrão do Azure, usaremos o comando a seguir. O `--sku` parâmetro está relacionado ao tipo de redundância desejado; se desejar uma conta de armazenamento com redundância geográfica ou com redundância de zona geográfica, você também deverá remover o `--enable-large-file-share` parâmetro.
 
 ```azurecli-interactive
 az storage account create \
@@ -143,7 +143,7 @@ az storage account create \
     --output none
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos premium do Azure, usaremos o comando a seguir. Observe que o `--sku` parâmetro foi alterado para incluir `Premium` e o nível de redundância desejado de localmente redundante (`LRS`). O `--kind` parâmetro é `FileStorage` , em `StorageV2` vez de, porque os compartilhamentos de arquivos Premium devem ser criados em uma conta de armazenamento de armazenamento em vez de uma conta de armazenamento GPv2.
+Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos premium do Azure, usaremos o comando a seguir. Observe que o `--sku` parâmetro foi alterado para incluir `Premium` e o nível de redundância desejado de localmente redundante ( `LRS` ). O `--kind` parâmetro é `FileStorage` , em vez de, `StorageV2` porque os compartilhamentos de arquivos Premium devem ser criados em uma conta de armazenamento de armazenamento em vez de uma conta de armazenamento GPv2.
 
 ```azurecli-interactive
 az storage account create \
@@ -175,13 +175,13 @@ A folha novo compartilhamento de arquivos deve aparecer na tela. Preencha os cam
 - **Nome**: o nome do compartilhamento de arquivos a ser criado.
 - **Cota**: a cota do compartilhamento de arquivos para compartilhamentos de arquivos padrão; o tamanho provisionado do compartilhamento de arquivos para compartilhamentos de arquivos premium.
 
-Selecione **criar** para concluir a criação do novo compartilhamento. Observe que se sua conta de armazenamento estiver em uma rede virtual, você não poderá criar com êxito um compartilhamento de arquivos do Azure, a menos que o cliente também esteja na rede virtual. Você também pode contornar essa limitação pontual usando o cmdlet Azure PowerShell `New-AzRmStorageShare` .
+Selecione **criar** para concluir a criação do novo compartilhamento. Observe que se sua conta de armazenamento estiver em uma rede virtual, você não poderá criar com êxito um compartilhamento de arquivos do Azure, a menos que o cliente também esteja na rede virtual. Você também pode contornar essa limitação pontual usando o `New-AzRmStorageShare` cmdlet Azure PowerShell.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Você pode criar o compartilhamento de arquivos do Azure [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) com o cmdlet. Os comandos do PowerShell a seguir pressupõem que você `$resourceGroupName` definiu as variáveis e `$storageAccountName` conforme definido acima na seção criando uma conta de armazenamento com Azure PowerShell. 
+Você pode criar o compartilhamento de arquivos do Azure com o [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. Os comandos do PowerShell a seguir pressupõem que você definiu as variáveis `$resourceGroupName` e `$storageAccountName` conforme definido acima na seção criando uma conta de armazenamento com Azure PowerShell. 
 
 > [!Important]  
-> Para compartilhamentos de arquivos `-QuotaGiB` Premium, o parâmetro refere-se ao tamanho provisionado do compartilhamento de arquivos. O tamanho provisionado do compartilhamento de arquivos é o valor que será cobrado, independentemente do uso. Os compartilhamentos de arquivos padrão são cobrados com base no uso em vez do tamanho provisionado.
+> Para compartilhamentos de arquivos premium, o `-QuotaGiB` parâmetro refere-se ao tamanho provisionado do compartilhamento de arquivos. O tamanho provisionado do compartilhamento de arquivos é o valor que será cobrado, independentemente do uso. Os compartilhamentos de arquivos padrão são cobrados com base no uso em vez do tamanho provisionado.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -206,10 +206,10 @@ storageAccountKey=$(az storage account keys list \
     --query "[0].value" | tr -d '"')
 ```
 
-Quando tiver a chave da conta de armazenamento, você poderá criar o compartilhamento de arquivos do [`az storage share create`](/cli/azure/storage/share) Azure com o comando. 
+Quando tiver a chave da conta de armazenamento, você poderá criar o compartilhamento de arquivos do Azure com o [`az storage share create`](/cli/azure/storage/share) comando. 
 
 > [!Important]  
-> Para compartilhamentos de arquivos `--quota` Premium, o parâmetro refere-se ao tamanho provisionado do compartilhamento de arquivos. O tamanho provisionado do compartilhamento de arquivos é o valor que será cobrado, independentemente do uso. Os compartilhamentos de arquivos padrão são cobrados com base no uso em vez do tamanho provisionado.
+> Para compartilhamentos de arquivos premium, o `--quota` parâmetro refere-se ao tamanho provisionado do compartilhamento de arquivos. O tamanho provisionado do compartilhamento de arquivos é o valor que será cobrado, independentemente do uso. Os compartilhamentos de arquivos padrão são cobrados com base no uso em vez do tamanho provisionado.
 
 ```azurecli-interactive
 shareName="myshare"
@@ -222,7 +222,7 @@ az storage share create \
     --output none
 ```
 
-Esse comando falhará se a conta de armazenamento estiver contida em uma rede virtual e o computador para o qual você está invocando este comando não fizer parte da rede virtual. Você pode contornar essa limitação pontual usando o cmdlet Azure PowerShell `New-AzRmStorageShare` conforme descrito acima, ou executando o CLI do Azure de um computador que faz parte da rede virtual, incluindo por meio de uma conexão VPN.
+Esse comando falhará se a conta de armazenamento estiver contida em uma rede virtual e o computador para o qual você está invocando este comando não fizer parte da rede virtual. Você pode contornar essa limitação pontual usando o `New-AzRmStorageShare` cmdlet Azure PowerShell conforme descrito acima, ou executando o CLI do Azure de um computador que faz parte da rede virtual, incluindo por meio de uma conexão VPN.
 
 ---
 

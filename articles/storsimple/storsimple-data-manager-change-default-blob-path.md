@@ -3,15 +3,15 @@ title: Alterar o caminho do blob do padrão
 description: Saiba como configurar uma função do Azure para renomear um caminho de arquivo de blob
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504824"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Alterar o caminho de blob padrão
 
@@ -193,7 +193,7 @@ Para criar uma função do Azure, realize as etapas a seguir:
         
         ![O link “Exibir arquivos”](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Digite **Project. JSON**e pressione **Enter**. No arquivo **project.json**, cole o seguinte código:
+    3. Digite **project.jsem**e pressione **Enter**. No arquivo **project.json**, cole o seguinte código:
 
         ```
         {
@@ -209,7 +209,7 @@ Para criar uma função do Azure, realize as etapas a seguir:
         ```
 
     
-    4. Clique em **Salvar**.
+    4. Clique em **Save** (Salvar).
 
         ![O link “Exibir arquivos”](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 

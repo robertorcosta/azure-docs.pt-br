@@ -3,15 +3,15 @@ title: Gerenciar volumes do StorSimple (atualização 3)
 description: Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508241"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar volumes (Atualização 3 e posterior)
 
@@ -163,9 +163,9 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
 7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
    
-   1. Vá para **Gerenciamento** ->do computador gerenciamento de**disco**.
+   1. Vá para **Gerenciamento do computador**gerenciamento de  -> **disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
    4. Conclua o assistente, aceitando os valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]

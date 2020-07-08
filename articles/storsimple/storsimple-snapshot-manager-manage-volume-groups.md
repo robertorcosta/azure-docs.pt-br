@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506252"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
 ## <a name="overview"></a>Visão geral
@@ -52,7 +52,7 @@ Se você clicar no nó **Grupos de Volumes**, o painel **Resultados** mostrará 
 |:--- |:--- |
 | Nome |A coluna **Nome** contém o nome do grupo de volumes. |
 | Aplicativo |A coluna **Aplicativos** mostra o número de gravadores VSS atualmente instalados e em execução no host do Windows. |
-| Selecionado |A coluna **Selecionado** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes. |
+| Selecionada |A coluna **Selecionado** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes. |
 | Importado |A coluna **Importado** mostra o número de volumes importados. Quando definida como **True**, essa coluna indica que um grupo de volumes foi importado do portal do Azure e não foi criado no StorSimple Snapshot Manager. |
 
 > [!NOTE]

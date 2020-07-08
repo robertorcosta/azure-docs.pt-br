@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506185"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando CLI do Azure
 
@@ -86,13 +86,13 @@ az keyvault key create \
     --vault-name <key-vault>
 ```
 
-Somente as chaves RSA de 2048 bits e RSA-HSM têm suporte com a criptografia de armazenamento do Azure. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+A criptografia de armazenamento do Azure dá suporte às chaves RSA e RSA-HSM de tamanhos 2048, 3072 e 4096. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar a criptografia com chaves gerenciadas pelo cliente
 
 Por padrão, a criptografia de armazenamento do Azure usa chaves gerenciadas pela Microsoft. Configure sua conta de armazenamento do Azure para chaves gerenciadas pelo cliente e especifique a chave a ser associada à conta de armazenamento.
 
-Para atualizar as configurações de criptografia da conta de armazenamento, chame [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update), conforme mostrado no exemplo a seguir. Inclua o `--encryption-key-source` parâmetro e defina-o `Microsoft.Keyvault` como para habilitar chaves gerenciadas pelo cliente para a conta de armazenamento. O exemplo também consulta o URI do Key Vault e a versão mais recente da chave, ambos os valores necessários para associar a chave à conta de armazenamento. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores.
+Para atualizar as configurações de criptografia da conta de armazenamento, chame [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update), conforme mostrado no exemplo a seguir. Inclua o `--encryption-key-source` parâmetro e defina-o como `Microsoft.Keyvault` para habilitar chaves gerenciadas pelo cliente para a conta de armazenamento. O exemplo também consulta o URI do Key Vault e a versão mais recente da chave, ambos os valores necessários para associar a chave à conta de armazenamento. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -134,7 +134,7 @@ az keyvault delete-policy \
 
 ## <a name="disable-customer-managed-keys"></a>Desabilitar chaves gerenciadas pelo cliente
 
-Quando você desabilita chaves gerenciadas pelo cliente, sua conta de armazenamento é novamente criptografada com chaves gerenciadas pela Microsoft. Para desabilitar as chaves gerenciadas pelo cliente, chame [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) e `--encryption-key-source parameter` defina `Microsoft.Storage`como, conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores e usar as variáveis definidas nos exemplos anteriores.
+Quando você desabilita chaves gerenciadas pelo cliente, sua conta de armazenamento é novamente criptografada com chaves gerenciadas pela Microsoft. Para desabilitar as chaves gerenciadas pelo cliente, chame [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) e defina como `--encryption-key-source parameter` `Microsoft.Storage` , conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores e usar as variáveis definidas nos exemplos anteriores.
 
 ```azurecli-interactive
 az storage account update
@@ -145,5 +145,5 @@ az storage account update
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md) 
+- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md) 
 - [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

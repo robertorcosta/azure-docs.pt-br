@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70012580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483662"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta do NetApp
 Criar uma conta do NetApp permite que você configure um pool de capacidade e, subsequentemente, crie um volume. Você pode usar a folha de Azure NetApp Files para criar uma nova conta do NetApp.
@@ -31,7 +31,7 @@ Você também deve ter registrado sua assinatura para usar o provedor de recurso
 
 ## <a name="steps"></a>Etapas 
 
-1. Entre no portal do Azure. 
+1. Entre no Portal do Azure. 
 2. Acesse a folha Azure NetApp Files usando um dos seguintes métodos:  
    * Procure os **Azure NetApp Files** na caixa de pesquisa do portal do Azure.  
    * Clique em **Todos os serviços** na navegação e, em seguida, filtre para o Azure NetApp Files.  

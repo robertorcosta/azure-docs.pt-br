@@ -3,27 +3,27 @@ title: Copiar ou mover dados para o armazenamento do Azure usando AzCopy v10 | M
 description: AzCopy é um utilitário de linha de comando que você pode usar para copiar dados para, de ou entre as contas de armazenamento. Este artigo ajuda você a baixar o AzCopy, conectar-se à sua conta de armazenamento e, em seguida, transferir arquivos.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780871"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504467"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
-AzCopy é um utilitário de linha de comando que você pode usar para copiar BLOBs ou arquivos de ou para uma conta de armazenamento. Este artigo ajuda você a baixar o AzCopy, conectar-se à sua conta de armazenamento e, em seguida, transferir arquivos.
+AzCopy é um utilitário de linha de comando que você pode usar para copiar blobs ou arquivos de ou para uma conta de armazenamento. Este artigo ajuda você a baixar o AzCopy, conectar-se à sua conta de armazenamento e, em seguida, transferir arquivos.
 
 > [!NOTE]
 > AzCopy **V10** é a versão com suporte no momento do AzCopy.
 >
 > Se você precisar usar uma versão anterior do AzCopy, consulte a seção [usar a versão anterior do AzCopy](#previous-version) deste artigo.
 
-<a id="download-and-install-azcopy" />
+<a id="download-and-install-azcopy"></a>
 
 ## <a name="download-azcopy"></a>Baixar o AzCopy
 
@@ -42,13 +42,13 @@ Esses arquivos são compactados como um arquivo zip (Windows e Mac) ou um arquiv
 
 ## <a name="run-azcopy"></a>Executar AzCopy
 
-Para sua conveniência, considere adicionar o local do diretório do executável AzCopy ao caminho do sistema para facilitar o uso. Dessa forma, você pode `azcopy` digitar de qualquer diretório em seu sistema.
+Para sua conveniência, considere adicionar o local do diretório do executável AzCopy ao caminho do sistema para facilitar o uso. Dessa forma, você pode digitar `azcopy` de qualquer diretório em seu sistema.
 
 Se você optar por não adicionar o diretório AzCopy ao seu caminho, terá que alterar os diretórios para o local do seu executável AzCopy e digitar `azcopy` ou `.\azcopy` em prompts de comando do Windows PowerShell.
 
 Para ver uma lista de comandos, digite `azcopy -h` e pressione a tecla Enter.
 
-Para saber mais sobre um comando específico, apenas inclua o nome do comando (por exemplo: `azcopy list -h`).
+Para saber mais sobre um comando específico, apenas inclua o nome do comando (por exemplo: `azcopy list -h` ).
 
 ![Ajuda embutida](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
@@ -65,7 +65,7 @@ Use esta tabela como um guia:
 
 | Tipo de armazenamento | Método de autorização atualmente com suporte |
 |--|--|
-|**Armazenamento de Blobs** | SAS do Azure AD & |
+|**Armazenamento de BLOBs** | SAS do Azure AD & |
 |**Armazenamento de BLOBs (namespace hierárquico)** | SAS do Azure AD & |
 |**Armazenamento de arquivos** | Somente SAS |
 
@@ -125,7 +125,7 @@ Esse comando retorna um código de autenticação e a URL de um site. Abra o sit
 
 Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, feche a janela do navegador e comece a usar o AzCopy.
 
-<a id="service-principal" />
+<a id="service-principal"></a>
 
 #### <a name="authenticate-a-service-principal"></a>Autenticar uma entidade de serviço
 
@@ -158,7 +158,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 Em seguida, digite o comando a seguir e pressione a tecla ENTER.
 
 ```azcopy
-azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
+azcopy login --service-principal --certificate-path path-to-certificate-file --application-id application-id --tenant-id=tenant-id
 ```
 
 Substitua o `<application-id>` espaço reservado pela ID do aplicativo do registro do aplicativo da sua entidade de serviço. Substitua o `<tenant-id>` espaço reservado pela ID de locatário da organização à qual a conta de armazenamento pertence. Para localizar a ID de locatário, selecione **Azure Active Directory Propriedades de > > ID de diretório** no portal do Azure. 
@@ -169,7 +169,7 @@ Se preferir usar suas próprias credenciais para autorização, você poderá ca
 
 Além de carregar seu certificado para o registro do aplicativo, você também precisará ter uma cópia do certificado salvo no computador ou na VM em que o AzCopy será executado. Esta cópia do certificado deve estar no. PFX ou. O formato PEM e deve incluir a chave privada. A chave privada deve ser protegida por senha. Se você estiver usando o Windows e seu certificado existir somente em um repositório de certificados, certifique-se de exportar esse certificado para um arquivo PFX (incluindo a chave privada). Para obter diretrizes, consulte [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
 
-Em seguida, defina `AZCOPY_SPA_CERT_PASSWORD` a variável de ambiente como a senha do certificado.
+Em seguida, defina a `AZCOPY_SPA_CERT_PASSWORD` variável de ambiente como a senha do certificado.
 
 > [!NOTE]
 > Certifique-se de definir esse valor no prompt de comando e não nas configurações de variável de ambiente do seu sistema operacional. Dessa forma, o valor estará disponível somente para a sessão atual.
@@ -191,7 +191,7 @@ Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo
 > [!NOTE]
 > Considere usar um prompt, conforme mostrado neste exemplo. Dessa forma, sua senha não aparecerá no histórico de comandos do console. 
 
-<a id="managed-identity" />
+<a id="managed-identity"></a>
 
 #### <a name="authenticate-a-managed-identity"></a>Autenticar uma identidade gerenciada
 
@@ -277,7 +277,7 @@ Para obter o link, execute este comando:
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
-> Para o Linux `--strip-components=1` , no `tar` comando Remove a pasta de nível superior que contém o nome da versão e, em vez disso, extrai o binário diretamente para a pasta atual. Isso permite que o script seja atualizado com uma nova versão do `azcopy` atualizando apenas a `wget` URL.
+> Para o Linux, `--strip-components=1` no `tar` comando Remove a pasta de nível superior que contém o nome da versão e, em vez disso, extrai o binário diretamente para a pasta atual. Isso permite que o script seja atualizado com uma nova versão do `azcopy` atualizando apenas a `wget` URL.
 
 A URL aparece na saída deste comando. O script pode então baixar o AzCopy usando essa URL.
 
@@ -288,7 +288,7 @@ A URL aparece na saída deste comando. O script pode então baixar o AzCopy usan
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Caracteres especiais de escape em tokens SAS
 
-Em arquivos em lotes que têm `.cmd` a extensão, você terá que escapar os `%` caracteres que aparecem nos tokens SAS. Você pode fazer isso adicionando um caractere adicional `%` ao lado dos caracteres `%` existentes na cadeia de caracteres do token SAS.
+Em arquivos em lotes que têm a `.cmd` extensão, você terá que escapar os `%` caracteres que aparecem nos tokens SAS. Você pode fazer isso adicionando um caractere adicional ao `%` lado `%` dos caracteres existentes na cadeia de caracteres do token SAS.
 
 ### <a name="run-scripts-by-using-jenkins"></a>Executar scripts usando Jenkins
 
@@ -300,11 +300,11 @@ Se você planeja usar o [Jenkins](https://jenkins.io/) para executar scripts, ce
 
 ## <a name="use-azcopy-in-azure-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento do Azure
 
-[Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) usa AzCopy para executar todas as operações de transferência de dados. Você pode usar [Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) se quiser aproveitar as vantagens de desempenho do AzCopy, mas preferir usar uma interface gráfica do usuário em vez da linha de comando para interagir com seus arquivos.
+[Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) usa AzCopy para executar todas as suas operações de transferência de dados. Você pode usar [Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) se quiser aproveitar as vantagens de desempenho do AzCopy, mas preferir usar uma interface gráfica do usuário em vez da linha de comando para interagir com seus arquivos.
 
 Gerenciador de Armazenamento usa sua chave de conta para executar operações, portanto, depois de entrar no Gerenciador de Armazenamento, você não precisará fornecer credenciais de autorização adicionais.
 
-<a id="previous-version" />
+<a id="previous-version"></a>
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Usar a versão anterior do AzCopy
 

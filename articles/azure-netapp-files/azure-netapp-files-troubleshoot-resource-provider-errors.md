@@ -12,15 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: 62e67d4965444df0e731b4387808ed3b89e4673a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72597203"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483458"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Solucionar problemas de erros do Provedor de Recursos do Azure NetApp Files 
 
@@ -30,12 +30,12 @@ Este artigo descreve os erros comuns do provedor de recursos Azure NetApp Files,
 
 ***BareMetalTenantId não pode ser alterado.***  
 
-Esse erro ocorre quando você tenta atualizar ou aplicar um patch a um volume `BaremetalTenantId` e a propriedade tem um valor alterado.
+Esse erro ocorre quando você tenta atualizar ou aplicar um patch a um volume e a `BaremetalTenantId` propriedade tem um valor alterado.
 
 * Causa:   
 Você está tentando atualizar um volume e a `BaremetalTenantId` propriedade tem um valor diferente do valor armazenado no Azure.
 * Solução:   
-Não inclua `BaremetalTenantId` o patch e a solicitação Update (put). Como alternativa, certifique- `BaremetalTenantId` se de que é o mesmo na solicitação.
+Não inclua `BaremetalTenantId` o patch e a solicitação Update (put). Como alternativa, certifique-se `BaremetalTenantId` de que é o mesmo na solicitação.
 
 ***O imnível não pode ser alterado.***  
 
@@ -50,32 +50,32 @@ Crie outro pool de capacidade e, em seguida, crie os volumes novamente no novo p
 
 ***Poolid não pode ser alterado***  
 
-Esse erro ocorre quando você tenta atualizar ou aplicar patch em um pool de capacidade com `PoolId` uma propriedade alterada.
+Esse erro ocorre quando você tenta atualizar ou aplicar patch em um pool de capacidade com uma `PoolId` propriedade alterada.
 
 * Causa:   
-Você está tentando atualizar uma propriedade de pool `PoolId` de capacidade. A `PoolId` propriedade é uma propriedade somente leitura e não pode ser alterada.
+Você está tentando atualizar uma propriedade de pool de capacidade `PoolId` . A `PoolId` propriedade é uma propriedade somente leitura e não pode ser alterada.
 * Solução:   
-Não inclua `PoolId` o patch e a solicitação Update (put).  Como alternativa, certifique- `PoolId` se de que é o mesmo na solicitação.
+Não inclua `PoolId` o patch e a solicitação Update (put).  Como alternativa, certifique-se `PoolId` de que é o mesmo na solicitação.
 
 ***CreationToken não pode ser alterado.***
 
-Esse erro ocorre quando você tenta alterar o caminho do arquivo (`CreationToken`) após a criação do volume. O caminho do`CreationToken`arquivo () deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
+Esse erro ocorre quando você tenta alterar o caminho do arquivo ( `CreationToken` ) após a criação do volume. O caminho do arquivo ( `CreationToken` ) deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
 
 * Causa:   
-Você está tentando alterar o caminho do arquivo (`CreationToken`) após a criação do volume, o que não é uma operação com suporte. 
+Você está tentando alterar o caminho do arquivo ( `CreationToken` ) após a criação do volume, o que não é uma operação com suporte. 
 * Solução:   
 Se a alteração do caminho do arquivo não for necessária, considere remover o parâmetro da solicitação para ignorar a mensagem de erro.
 * Solução alternativa:   
-Se precisar alterar o caminho do arquivo (`CreationToken`), você poderá criar um novo volume com um novo caminho de arquivo e, em seguida, migrar os dados para o novo volume.
+Se precisar alterar o caminho do arquivo ( `CreationToken` ), você poderá criar um novo volume com um novo caminho de arquivo e, em seguida, migrar os dados para o novo volume.
 
 ***CreationToken deve ter pelo menos 16 caracteres.***
 
-Esse erro ocorre quando o caminho do arquivo`CreationToken`() não atende ao requisito de comprimento. O comprimento do caminho do arquivo deve ter pelo menos um caractere de comprimento.
+Esse erro ocorre quando o caminho do arquivo ( `CreationToken` ) não atende ao requisito de comprimento. O comprimento do caminho do arquivo deve ter pelo menos um caractere de comprimento.
 
 * Causa:   
 O caminho do arquivo está vazio.  Quando você cria um volume usando a API, um token de criação é necessário. Se você estiver usando o portal do Azure, o caminho do arquivo será gerado automaticamente.
 * Solução:   
-Insira pelo menos um caractere como o caminho do arquivo`CreationToken`().
+Insira pelo menos um caractere como o caminho do arquivo ( `CreationToken` ).
 
 ***O nome de domínio não pode ser alterado.***
 
@@ -101,7 +101,7 @@ Use um índice diferente para a regra que você está tentando definir.
 
 ***Erro {ação} {resourceTypename}***
 
-Esse erro é exibido quando outro tratamento de erros falha ao manipular o erro durante a execução de uma ação em um recurso.   Ele inclui o texto ' error '. O `{action}` pode ser qualquer um de`getting`( `creating`, `updating`, ou `deleting`).  O `{resourceTypeName}` é o `resourceTypeName` (por exemplo, `netAppAccount` `capacityPool` `volume`,, e assim por diante).
+Esse erro é exibido quando outro tratamento de erros falha ao manipular o erro durante a execução de uma ação em um recurso.   Ele inclui o texto ' error '. O `{action}` pode ser qualquer um de ( `getting` , `creating` , `updating` ou `deleting` ).  O `{resourceTypeName}` é o `resourceTypeName` (por exemplo,,, `netAppAccount` `capacityPool` `volume` e assim por diante).
 
 * Causa:   
 Esse erro é uma exceção sem tratamento em que a causa não é conhecida.
@@ -123,7 +123,7 @@ Você pode substituir um sublinhado por um hífen ou usar maiúsculas e minúscu
 
 ***Não é possível alterar filesystemid.***
 
-Esse erro ocorre quando você tenta alterar `FileSystemId`.  A `FileSystemdId` alteração não é uma operação com suporte. 
+Esse erro ocorre quando você tenta alterar `FileSystemId` .  `FileSystemdId`A alteração não é uma operação com suporte. 
 
 * Causa:   
 A ID do sistema de arquivos é definida quando o volume é criado. `FileSystemId`Não pode ser alterado subsequentemente.
@@ -132,10 +132,10 @@ Não inclua `FileSystemId` em uma solicitação de patch e atualização (put). 
 
 ***O ActiveDirectory com a ID: ' {String} ' não existe.***
 
-A `{string}` parte é o valor que você inseriu `ActiveDirectoryId` na propriedade para a conexão Active Directory.
+A `{string}` parte é o valor que você inseriu na `ActiveDirectoryId` propriedade para a conexão Active Directory.
 
 * Causa:   
-Quando você criou uma conta com a configuração de Active Directory, você inseriu um valor `ActiveDirectoryId` para que deve estar vazio.
+Quando você criou uma conta com a configuração de Active Directory, você inseriu um valor para `ActiveDirectoryId` que deve estar vazio.
 * Solução:   
 Não inclua `ActiveDirectoryId` na solicitação de criação (put).
 
@@ -144,22 +144,22 @@ Não inclua `ActiveDirectoryId` na solicitação de criação (put).
 A versão da API não foi enviada ou contém um valor inválido.
 
 * Causa:   
-O valor no parâmetro `api-version` de consulta contém um valor inválido.
+O valor no parâmetro de consulta `api-version` contém um valor inválido.
 * Solução:   
 Use o valor correto da versão da API.  O provedor de recursos dá suporte a várias versões de API. O valor está no formato aaaa-mm-dd.
 
-***Um valor inválido ' {value} ' foi recebido para {1}.***
+***Um valor inválido ' {value} ' foi recebido para {1} .***
 
-Essa mensagem indica um erro nos campos `RuleIndex`para, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite` `Nfsv3`, e. `Nfsv4`
+Essa mensagem indica um erro nos campos para `RuleIndex` , `AllowedClients` ,, `UnixReadOnly` , `UnixReadWrite` `Nfsv3` e `Nfsv4` .
 
 * Causa:   
-A solicitação de validação de entrada falhou para pelo menos um dos seguintes campos: `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv`3 e `Nfsv4`.
+A solicitação de validação de entrada falhou para pelo menos um dos seguintes campos: `RuleIndex` , `AllowedClients` , `UnixReadOnly` , `UnixReadWrite` , `Nfsv` 3 e `Nfsv4` .
 * Solução:   
-Certifique-se de definir todos os parâmetros necessários e não conflitantes na linha de comando. Por exemplo, você não pode definir os `UnixReadOnly` parâmetros `UnixReadWrite` e ao mesmo tempo.
+Certifique-se de definir todos os parâmetros necessários e não conflitantes na linha de comando. Por exemplo, você não pode definir os `UnixReadOnly` `UnixReadWrite` parâmetros e ao mesmo tempo.
 * Solução alternativa:   
 Consulte a solução acima.
 
-***O intervalo {0} de {1} IP para {2} para VLAN já está em uso***
+***O intervalo {0} de IP para {1} para VLAN {2} já está em uso***
 
 Esse erro ocorre porque os registros internos dos intervalos de IP usados têm um conflito com o endereço IP atribuído recentemente.
 
@@ -183,7 +183,7 @@ Certifique-se de definir todas as propriedades obrigatórias e não conflitantes
 Esse erro ocorre quando um usuário está tentando atualizar ou aplicar patch na propriedade MountTargets do volume.
 
 * Causa:   
-Você está tentando atualizar a propriedade de `MountTargets` volume. Não há suporte para a alteração dessa propriedade.
+Você está tentando atualizar a propriedade de volume `MountTargets` . Não há suporte para a alteração dessa propriedade.
 * Solução:   
 Não inclua `MountTargets` em uma solicitação de patch e atualização (put).  Como alternativa, verifique se `MountTargets` é o mesmo na solicitação.
 
@@ -252,7 +252,7 @@ O problema provavelmente será temporário. A solicitação deve ter sucesso dep
 * Solução alternativa:   
 Nenhum. A API subjacente é essencial para o gerenciamento de volumes.
 
-***Nenhuma ID de resultado de operação encontrada{0}para ' '.***
+***Nenhuma ID de resultado de operação encontrada para ' {0} '.***
 
 Esse erro indica que um erro interno está impedindo a conclusão da operação.
 
@@ -335,7 +335,7 @@ Nenhum. Esses recursos não têm nenhuma propriedade que possa ser alterada.
 
 ***Tamanho do pool muito pequeno para o tamanho total do volume.***
 
-Esse erro ocorre quando você está atualizando o tamanho do pool de capacidade e o tamanho é menor do `usedBytes` que o valor total de todos os volumes nesse pool de capacidade.  Esse erro também pode ocorrer quando você está criando um novo volume ou redimensionando um volume existente, e o novo tamanho do volume excede o espaço livre no pool de capacidade.
+Esse erro ocorre quando você está atualizando o tamanho do pool de capacidade e o tamanho é menor do que o `usedBytes` valor total de todos os volumes nesse pool de capacidade.  Esse erro também pode ocorrer quando você está criando um novo volume ou redimensionando um volume existente, e o novo tamanho do volume excede o espaço livre no pool de capacidade.
 
 * Causa:   
 Você está tentando atualizar o pool de capacidade para um tamanho menor do que usedBytes em todos os volumes no pool de capacidade.  Ou, você está tentando criar um volume que seja maior do que o espaço livre no pool de capacidade.  Como alternativa, você está tentando redimensionar um volume e o novo tamanho excede o espaço livre no pool de capacidade.
@@ -355,21 +355,21 @@ Defina uma cadeia de caracteres válida na propriedade Location.
 
 ***O nome {resourceType} deve ser igual ao nome do identificador de recurso.***
 
-Esse erro ocorre quando você está criando um recurso e preenche a propriedade Name com outro valor da propriedade Name de `resourceId`.
+Esse erro ocorre quando você está criando um recurso e preenche a propriedade Name com outro valor da propriedade Name de `resourceId` .
 
 * Causa:   
 Valor inválido na propriedade Name quando você cria um recurso.
 * Solução:   
-Deixe a propriedade Name vazia ou permita que ela use o mesmo valor que a propriedade Name (entre a última barra invertida "/" e o ponto de interrogação "? `resourceId`") em.
+Deixe a propriedade Name vazia ou permita que ela use o mesmo valor que a propriedade Name (entre a última barra invertida "/" e o ponto de interrogação "?") em `resourceId` .
 
 ***Tipo de protocolo {value} não conhecido***
 
 Esse erro ocorre quando você está criando um volume com um tipo de protocolo desconhecido.  Os valores válidos são "NFSv3", "NFSv4" e "CIFS".
 
 * Causa:   
-Você está tentando definir um valor inválido na propriedade volume `protocolType` .
+Você está tentando definir um valor inválido na `protocolType` Propriedade volume.
 * Solução:   
-Defina uma cadeia de caracteres `protocolType`válida em.
+Defina uma cadeia de caracteres válida em `protocolType` .
 * Solução alternativa:   
 Definir `protocolType` como nulo.
 
@@ -386,10 +386,10 @@ Crie outro volume com novos tipos de protocolo.
 
 ***A criação do recurso do tipo {resourceType} excederia a cota de recursos de {quota} do tipo {resourceType} por {parentResourceType}. A contagem de recursos atual é {currentCount}, exclua alguns recursos desse tipo antes de criar um novo.***
 
-Esse erro ocorre quando você está tentando criar um recurso`NetAppAccount`(, `CapacityPool`, `Volume`ou `Snapshot`), mas sua cota atingiu seu limite.
+Esse erro ocorre quando você está tentando criar um recurso ( `NetAppAccount` , `CapacityPool` , `Volume` ou `Snapshot` ), mas sua cota atingiu seu limite.
 
 * Causa:   
-Você está tentando criar um recurso, mas o limite de cota é atingido (exemplo: `NetAppAccounts` por assinatura ou `CapacityPools` por `NetAppAccount`).
+Você está tentando criar um recurso, mas o limite de cota é atingido (exemplo: `NetAppAccounts` por assinatura ou `CapacityPools` por `NetAppAccount` ).
 * Solução:   
 Aumente o limite de cota.
 * Solução alternativa:   
@@ -444,9 +444,9 @@ Esse erro ocorre quando você tenta alterar o `subnetId` depois que o volume é 
 * Causa:   
 Você está tentando alterar o `subnetId` depois que o volume foi criado, o que não é uma operação com suporte. 
 * Solução:   
-Se a `subnetId` alteração não for necessária, considere remover o parâmetro da solicitação para ignorar a mensagem de erro.
+Se a alteração `subnetId` não for necessária, considere remover o parâmetro da solicitação para ignorar a mensagem de erro.
 * Solução alternativa:   
-Se você precisar alterar o `subnetId`, poderá criar um novo volume com um novo `subnetId`e, em seguida, migrar os dados para o novo volume.
+Se você precisar alterar o `subnetId` , poderá criar um novo volume com um novo `subnetId` e, em seguida, migrar os dados para o novo volume.
 
 ***Sub-rede está em um formato inválido.***
 
@@ -455,18 +455,18 @@ Esse erro ocorre quando você tenta criar um novo volume, mas o `subnetId` não 
 * Causa:   
 Esse erro ocorre quando você tenta criar um novo volume, mas o `subnetId` não é um `resourceId` para uma sub-rede. 
 * Solução:   
-Verifique o valor para `subnetId` para garantir que ele contenha um `resourceId` para a sub-rede usada.
+Verifique o valor para para `subnetId` garantir que ele contenha um `resourceId` para a sub-rede usada.
 * Solução alternativa:   
 Nenhum. Consulte a solução acima. 
 
 ***A sub-rede deve ter uma delegação de ' Microsoft. NetApp/volumes '.***
 
-Esse erro ocorre quando você está criando um volume e a sub-rede selecionada não é delegada para `Microsoft.NetApp/volumes`.
+Esse erro ocorre quando você está criando um volume e a sub-rede selecionada não é delegada para `Microsoft.NetApp/volumes` .
 
 * Causa:   
-Você tentou criar o volume e selecionou uma sub-rede que não é delegada para `Microsoft.NetApp/volumes`o.
+Você tentou criar o volume e selecionou uma sub-rede que não é delegada para o `Microsoft.NetApp/volumes` .
 * Solução:   
-Selecione outra sub-rede à `Microsoft.NetApp/volumes`qual é delegada.
+Selecione outra sub-rede à qual é delegada `Microsoft.NetApp/volumes` .
 * Solução alternativa:   
 Adicione uma delegação correta à sub-rede.
 

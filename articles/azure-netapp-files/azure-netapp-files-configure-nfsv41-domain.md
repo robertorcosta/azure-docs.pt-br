@@ -10,15 +10,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 77178a23206eadae941794c92b8dd99fe2ca1e05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dda911add42568e76160e4233502a1f4f550520d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73906280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483713"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configurar o domínio padrão do NFSv4.1 para o Azure NetApp Files
 
@@ -26,16 +26,16 @@ NFSv4 introduz o conceito de domínio de autenticação. O Azure NetApp Files at
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>Comportamento padrão do mapeamento de usuário/grupo
 
-O mapeamento raiz é padronizado `nobody` para o usuário porque o domínio NFSv4 está `localdomain`definido como. Ao montar um volume Azure NetApp Files NFSv 4.1 como raiz, você verá permissões de arquivo da seguinte maneira:  
+O mapeamento raiz é padronizado para o `nobody` usuário porque o domínio NFSv4 está definido como `localdomain` . Ao montar um volume Azure NetApp Files NFSv 4.1 como raiz, você verá permissões de arquivo da seguinte maneira:  
 
 ![Comportamento padrão do mapeamento de usuário/grupo para NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-Como mostra o exemplo acima, o usuário `file1` deve ser `root`, mas é mapeado para `nobody` por padrão.  Este artigo mostra como definir o `file1` usuário como. `root`  
+Como mostra o exemplo acima, o usuário `file1` deve ser `root` , mas é mapeado para `nobody` por padrão.  Este artigo mostra como definir o `file1` usuário como `root` .  
 
 ## <a name="steps"></a>Etapas 
 
-1. Edite `/etc/idmapd.conf` o arquivo no cliente NFS.   
-    Remova a marca de `#Domain` comentário da linha (ou seja `#` , remove a da linha) e altere o `localdomain` valor `defaultv4iddomain.com`para. 
+1. Edite o `/etc/idmapd.conf` arquivo no cliente NFS.   
+    Remova a marca de comentário da linha `#Domain` (ou seja, remove a `#` da linha) e altere o valor `localdomain` para `defaultv4iddomain.com` . 
 
     Configuração inicial: 
     
@@ -47,7 +47,7 @@ Como mostra o exemplo acima, o usuário `file1` deve ser `root`, mas é mapeado 
 
 2. Desmonte todos os volumes NFS montados no momento.
 3. Atualize o `/etc/idmapd.conf` arquivo.
-4. Reinicie `rpcbind` o serviço no host (`service rpcbind restart`) ou simplesmente reinicialize o host.
+4. Reinicie o `rpcbind` serviço no host ( `service rpcbind restart` ) ou simplesmente reinicialize o host.
 5. Monte os volumes de NFS conforme necessário.   
 
     Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
@@ -56,17 +56,17 @@ O exemplo a seguir mostra a alteração de usuário/grupo resultante:
 
 ![Configuração resultante para NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
-Como mostra o exemplo, o usuário/grupo agora mudou de `nobody` para. `root`
+Como mostra o exemplo, o usuário/grupo agora mudou de `nobody` para `root` .
 
 ## <a name="behavior-of-other-non-root-users-and-groups"></a>Comportamento de outros usuários e grupos (não raiz)
 
 O Azure NetApp Files dá suporte a usuários locais (usuários criados localmente em um host) que têm permissões associadas a arquivos ou pastas nos volumes NFSv 4.1. No entanto, no momento, o serviço não dá suporte ao mapeamento de usuários/grupos em vários nós. Portanto, os usuários criados em um host não são mapeados por padrão para os usuários criados em outro host. 
 
-No exemplo a seguir, `Host1` tem três contas de usuário de teste`testuser01`existentes `testuser02`( `testuser03`,,): 
+No exemplo a seguir, `Host1` tem três contas de usuário de teste existentes ( `testuser01` , `testuser02` , `testuser03` ): 
 
 ![Configuração resultante para NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
-No `Host2`, observe que as contas de usuário de teste não foram criadas, mas o mesmo volume é montado em ambos os hosts:
+No `Host2` , observe que as contas de usuário de teste não foram criadas, mas o mesmo volume é montado em ambos os hosts:
 
 ![Configuração resultante para NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host2-users.png)
 

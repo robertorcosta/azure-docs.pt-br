@@ -3,16 +3,16 @@ title: Adicionar/remover um ponto de extremidade do servidor da Sincronização 
 description: Saiba o que considerar ao planejar uma implantação de Arquivos do Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70cdf01cb327d1be6b2ac4b9cae414f87e27964f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509465"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -54,7 +54,7 @@ Para garantir que todos os arquivos em camadas são recuperados antes de remover
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-Se `-Order CloudTieringPolicy` você especificar, os arquivos modificados mais recentemente serão relembrados primeiro.
+`-Order CloudTieringPolicy`Se você especificar, os arquivos modificados mais recentemente serão relembrados primeiro.
 Outros parâmetros opcionais, mas úteis a serem considerados, são:
 * `-ThreadCount`determina a quantidade de arquivos que podem ser recuperados em paralelo.
 * `-PerFileRetryCount`determina com que frequência uma recall será tentada de um arquivo bloqueado no momento.

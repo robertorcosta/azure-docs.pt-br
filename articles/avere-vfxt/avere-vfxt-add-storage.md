@@ -3,15 +3,15 @@ title: Configurar o armazenamento do Avere vFXT – Azure
 description: Como adicionar um sistema de armazenamento de back-end ao seu Avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505742"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -47,7 +47,7 @@ Siga estas etapas para adicionar um Filer do NAS Core:
 
 1. No Painel de Controle do Avere, clique na guia **Configurações** na parte superior.
 
-1. Clique em **principal Filer** > **gerenciar os principais Filers** à esquerda.
+1. Clique em **principal Filer**  >  **gerenciar os principais Filers** à esquerda.
 
 1. Clique em **Criar**.
 
@@ -130,14 +130,14 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    | Nome da credencial | qualquer nome descritivo |
    | Tipo de serviço | (selecione a chave de acesso de armazenamento do Azure) |
    | Locatário | nome da conta de armazenamento |
-   | Assinatura | ID da assinatura |
+   | Subscription | ID da assinatura |
    | Chave de Acesso de Armazenamento | Chave de conta de Armazenamento do Azure (copiada na etapa anterior) |
 
    Clique em **Enviar**.
 
    ![Concluído o formulário de credencial de nuvem no Painel de Controle do Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Em seguida, crie o arquivista central. No lado esquerdo do painel de controle avere, clique em **principal Filer** >  **gerenciar os principais Filers**.
+1. Em seguida, crie o arquivista central. No lado esquerdo do painel de controle avere, clique em **principal Filer**  >   **gerenciar os principais Filers**.
 
 1. Clique no botão **Criar** na página de configurações **Gerenciar Arquivistas Centrais**.
 
@@ -151,7 +151,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    * Definir **Conteúdos do Bucket** como **Vazio**
    * Mude **Verificação de certificado** para **Desabilitada**
    * Mude **Modo de compactação** para **Nenhum**
-   * Clique em **Avançar**.
+   * Clique em **Próximo**.
    * Na quarta página, digite o nome do contêiner em **Nome do Bucket** como *storage_account_name*/*container_name*.
    * Opcionalmente, defina **Tipo de Criptografia** como **Nenhum**.  O Armazenamento do Azure é criptografado por padrão.
    * Clique em **Adicionar Arquivista**.
@@ -172,11 +172,11 @@ Mais informações sobre junções podem ser encontradas na [seção de namespac
 
 Siga estas etapas na interface do painel de controle do avere:
 
-* Clique em**namespace** **vserver** > no canto superior esquerdo.
+* Clique **VServer**em  >  **namespace** vserver no canto superior esquerdo.
 * Forneça um caminho de namespace que comece com / (barra), como ``/vfxt/data``.
 * Escolha seu arquivista central.
 * Escolha a exportação do arquivista central.
-* Clique em **Avançar**.
+* Clique em **Próximo**.
 
   ![Captura de tela da página "Adicionar nova junção" com os campos preenchidos para junção, arquivista central e exportação](media/avere-vfxt-add-junction.png)
 

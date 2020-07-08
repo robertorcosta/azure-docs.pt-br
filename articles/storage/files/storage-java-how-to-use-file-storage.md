@@ -3,16 +3,16 @@ title: Desenvolvimento para o Arquivos do Azure com Java | Microsoft Docs
 description: Saiba como desenvolver aplicativos e serviços Java que usam o Arquivos do Azure para armazenar dados de arquivo.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54f545c2d4f897f85ab3e5fd10d07666e93e4f41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73837466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509669"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolvimento para o Arquivos do Azure com Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -225,10 +225,10 @@ if ( file.deleteIfExists() ) {
 Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga estes links.
 
 * [Azure para desenvolvedores Java](/java/azure)/)
-* [Microsoft Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) (SDK de Armazenamento do Microsoft Azure para Java)
+* [SDK do armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 * [SDK de Armazenamento do Azure para Android](https://github.com/azure/azure-storage-android)
 * [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [Azure Storage Services REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx) (Referência de API REST dos Serviços de Armazenamento do Azure)
+* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Transferir dados com o Utilitário da Linha de Comando AzCopy](../common/storage-use-azcopy.md)
 * [Solução de problemas de Arquivos do Azure – Windows](storage-troubleshoot-windows-file-connection-problems.md)

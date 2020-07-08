@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/19/2020
+ms.date: 6/26/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 8e62d00deed2310437b231bf68ccd9f0cca2fe57
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 54a7f3f50de27747ab15f6895ebfb4f65faf5fdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85484053"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -25,14 +25,15 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
 | Marco | Número de versão do agente | Data de liberação | Status |
 |----|----------------------|--------------|------------------|
+| V 10.1 versão- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 de junho de 2020 | Com suporte-comprovante |
 | Pacote cumulativo de atualizações de maio de 2020 – [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 de maio de 2020 | Com suporte |
 | Versão V10 – [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 de abril de 2020 | Com suporte |
 | Pacote cumulativo de atualizações de dezembro de 2019 – [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 de dezembro de 2019 | Com suporte |
 | Versão V9 – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Com suporte |
 | Versão V8 – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Com suporte |
-| Pacote cumulativo de atualizações de julho de 2019 – [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Compatível – As versões de agente expirarão em 1º de setembro de 2020 |
-| Pacote cumulativo de atualizações de julho de 2019 – [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Compatível – As versões de agente expirarão em 1º de setembro de 2020 |
-| Versão V7 – [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junho de 2019 | Compatível – As versões de agente expirarão em 1º de setembro de 2020 |
+| Pacote cumulativo de atualizações de julho de 2019 – [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Com suporte-a versão do agente irá expirar em 1º de setembro de 2020 |
+| Pacote cumulativo de atualizações de julho de 2019 – [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Com suporte-a versão do agente irá expirar em 1º de setembro de 2020 |
+| Versão V7 – [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junho de 2019 | Com suporte-a versão do agente irá expirar em 1º de setembro de 2020 |
 | Versão V6 | 6.0.0.0 – 6.3.0.0 | N/D | Não compatível – As versões de agente expiraram em 21 de abril de 2020 |
 | Versão V5 | 5.0.2.0 – 5.2.0.0 | N/D | Não compatível – As versões de agente expiraram em 18 de março de 2020 |
 | Lançamento V4 | 4.0.1.0 – 4.3.0.0 | N/D | Não compatível – As versões de agente expiraram em 6 de novembro de 2019 |
@@ -41,6 +42,16 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-10100"></a>Versão do agente 10.1.0.0
+As notas de versão a seguir são para a versão 10.1.0.0 do agente de Sincronização de Arquivos do Azure lançado em 5 de junho de 2020. Essas observações são além das notas de versão listadas para a versão 10.0.0.0 e 10.0.2.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Problemas corrigidos e aprimoramentos
+
+- Suporte ao ponto de extremidade privado do Azure
+    - O tráfego de sincronização para o serviço de sincronização de armazenamento agora pode ser enviado para um ponto de extremidade privado. Isso habilita o túnel em uma conexão de ExpressRoute ou VPN. Para saber mais, confira [Configurando pontos de extremidade de rede sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints).
+- Arquivos sincronizados a métrica agora exibirá o progresso enquanto uma sincronização grande estiver em execução, em vez de no final.
+- Melhorias de confiabilidade diversas para a instalação do agente, camadas de nuvem, sincronização e telemetria
 
 ## <a name="agent-version-10020"></a>Versão do agente 10.0.2.0
 As notas sobre a versão a seguir são da versão 10.0.2.0 do agente de Sincronização de Arquivos do Azure lançada em 19 de maio de 2020. Estas notas complementam as notas sobre a versão listadas para a versão 10.0.0.0.
@@ -119,7 +130,7 @@ Os seguintes itens não são sincronizados, mas o restante do sistema continua a
 
 ### <a name="cloud-endpoint"></a>Ponto de extremidade da nuvem
 - A Sincronização de Arquivos do Azure dá suporte a alterações diretamente no compartilhamento de arquivos do Azure. No entanto, as alterações feitas no compartilhamento de arquivos do Azure precisam primeiro ser descobertas por um trabalho de detecção de alteração da Sincronização de Arquivos do Azure. Um trabalho de detecção de alterações é iniciado para um ponto de extremidade da nuvem uma vez a cada 24 horas. Para sincronizar imediatamente os arquivos alterados no compartilhamento de arquivo do Azure, o cmdlet [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) do PowerShell pode ser usado para iniciar manualmente a detecção de alterações no compartilhamento de arquivo do Azure. Além disso, as alterações feitas em um compartilhamento de arquivos do Azure através do protocolo REST não atualizarão a hora da última modificação do SMB e não serão vistas como uma alteração de sincronização.
-- O serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos ou assinatura diferente dentro do locatário do Azure AD existente. Se a conta de armazenamento for movida, você precisará conceder o acesso do Serviço de Sincronização de Arquivos Híbrido para a conta de armazenamento (consulte [Certifique-se de que a Sincronização de Arquivos do Azure tenha acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- O serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos, uma assinatura ou um locatário do Azure AD diferente. Depois que o serviço de sincronização de armazenamento ou a conta de armazenamento for movido, você precisará conceder ao aplicativo Microsoft. StorageSync acesso à conta de armazenamento (consulte [garantir que sincronização de arquivos do Azure tenha acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Ao criar o ponto de extremidade na nuvem, o serviço de sincronização de armazenamento e a conta de armazenamento devem estar no mesmo locatário do Azure AD. Depois que o ponto de extremidade na nuvem é criado, o serviço de sincronização de armazenamento e a conta de armazenamento podem ser movidos para diferentes locatários do Azure AD.

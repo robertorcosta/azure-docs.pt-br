@@ -3,15 +3,15 @@ title: Pré-requisitos de Avere vFXT – Azure
 description: Pré-requisitos do Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505334"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o Avere vFXT
 
@@ -98,7 +98,7 @@ Crie o ponto de extremidade do serviço de armazenamento no portal do Azure.
 1. Selecione a rede virtual para o cluster.
 1. Clique em **pontos de extremidade de serviço** no menu à esquerda.
 1. Clique em **Adicionar** na parte superior.
-1. Escolha o serviço ``Microsoft.Storage``.
+1. Escolha o serviço ``Microsoft.Storage`` .
 1. Selecione a sub-rede do cluster.
 1. Na parte inferior, clique em **Adicionar**.
 

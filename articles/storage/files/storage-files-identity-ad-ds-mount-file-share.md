@@ -1,0 +1,49 @@
+---
+title: Montar o compartilhamento de arquivos do Azure para uma VM unida AD DS
+description: Saiba como montar um compartilhamento de arquivos para seus computadores ingressados no Active Directory Domain Services local.
+author: roygara
+ms.service: storage
+ms.subservice: files
+ms.topic: how-to
+ms.date: 06/22/2020
+ms.author: rogarana
+ms.openlocfilehash: 9a8805666e1e162f76cf5fa6f7d828833c573bed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510446"
+---
+# <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte quatro: montar um compartilhamento de arquivos de uma VM ingressada no domínio
+
+Antes de começar este artigo, certifique-se de concluir o artigo anterior, [configurar permissões de diretório e de nível de arquivo sobre SMB](storage-files-identity-ad-ds-configure-permissions.md).
+
+O processo descrito neste artigo verifica se o compartilhamento de arquivos e as permissões de acesso estão configurados corretamente e se você pode acessar um compartilhamento de arquivos do Azure de uma VM ingressada no domínio. A atribuição de função RBAC de nível de compartilhamento pode levar algum tempo para entrar em vigor. 
+
+Entre no cliente usando as credenciais às quais você concedeu permissões, conforme mostrado na imagem a seguir.
+
+![Captura de tela mostrando a tela de entrada do Azure AD para autenticação do usuário](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
+
+## <a name="mounting-prerequisites"></a>Pré-requisitos de montagem
+
+Antes de poder montar o compartilhamento de arquivos, verifique se você passou pelos seguintes pré-requisitos:
+
+- Se você estiver montando o compartilhamento de arquivos de um cliente que tenha montado anteriormente o compartilhamento de arquivos usando sua chave de conta de armazenamento, verifique se você desconectou o compartilhamento, removeu as credenciais persistentes da chave da conta de armazenamento e está usando as credenciais AD DS para autenticação.
+- Seu cliente deve ter uma linha de visão para seu AD DS. Se seu computador ou VM estiver fora da rede gerenciada pelo seu AD DS, você precisará habilitar a VPN para alcançar AD DS para autenticação.
+
+Substitua os valores de espaço reservado pelos seus próprios valores e, em seguida, use o seguinte comando para montar o compartilhamento de arquivos do Azure:
+
+```cli
+# Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.
+net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+```
+
+Se você tiver problemas para montar com credenciais de AD DS, consulte [não é possível montar os arquivos do Azure com credenciais do AD](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) para obter diretrizes.
+
+Se a montagem do compartilhamento de arquivos tiver sido bem-sucedida, você terá habilitado e configurado com êxito a autenticação de AD DS local para seus compartilhamentos de arquivos do Azure.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Se a identidade que você criou no AD DS para representar a conta de armazenamento estiver em um domínio ou uma unidade organizacional que impõe a rotação de senha, vá para o próximo artigo para obter instruções sobre como atualizar sua senha:
+
+[Atualize a senha da sua identidade de conta de armazenamento no AD DS](storage-files-identity-ad-ds-update-password.md)

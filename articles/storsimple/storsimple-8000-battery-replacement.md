@@ -3,15 +3,15 @@ title: Substitua a bateria no dispositivo da série Microsoft Azure StorSimple 8
 description: Descreve como remover, substituir e realizar manutenção no módulo de bateria de backup do dispositivo StorSimple.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508972"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo de bateria de backup no dispositivo StorSimple
 
@@ -32,14 +32,14 @@ Este tutorial explica como:
 O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade substituível no local. Antes de ser instalado no PCM, o módulo de bateria deve ser armazenado em seu pacote original. Execute as etapas a seguir para remover a bateria de backup.
 
 #### <a name="to-remove-the-backup-battery-module"></a>Para remover o módulo de bateria de backup
-1. No Portal do Azure, acesse sua folha do serviço do Gerenciador de Dispositivos do StorSimple. Acesse **Dispositivos** e selecione seu dispositivo na lista de dispositivos. Navegue até **monitorar** > **integridade do hardware**. Em **Componentes Compartilhados**, observe o status da bateria.
+1. No Portal do Azure, acesse sua folha do serviço do Gerenciador de Dispositivos do StorSimple. Acesse **Dispositivos** e selecione seu dispositivo na lista de dispositivos. Navegue até **monitorar**  >  **integridade do hardware**. Em **Componentes Compartilhados**, observe o status da bateria.
 2. Identifique o PCM no qual a bateria falhou. A Figura 1 mostra a parte traseira do dispositivo StorSimple.
    
     ![Backplane dos módulos do compartimento primário do dispositivo](./media/storsimple-battery-replacement/IC740994.png)
    
     **Figura 1** Parte traseira do dispositivo primário mostrando os módulos de controlador e PCM
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -52,7 +52,7 @@ O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade subs
    
     **Figura 2** Parte traseira do PCM mostrando os LEDs indicadores de monitoramento
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Falha de energia CA |
    | 2 |Falha do ventilador |
@@ -76,7 +76,7 @@ Execute as etapas a seguir para instalar o módulo de bateria de reposição no 
 1. Coloque o módulo de bateria de backup na direção correta no PCM.
 2. Pressione para baixo a alça do módulo da bateria até o conector no banco
 3. Substitua o PCM no compartimento primário, seguindo as orientações em [Substituir um módulo de energia e refrigeração no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md).
-4. Após a conclusão da substituição, vá para o dispositivo e vá para **monitorar** > a**integridade do hardware** na portal do Azure. Verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Um status verde indica que a bateria está íntegra.
+4. Após a conclusão da substituição, vá para o dispositivo e vá para **monitorar**a  >  **integridade do hardware** na portal do Azure. Verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Um status verde indica que a bateria está íntegra.
 
 ## <a name="maintain-the-backup-battery-module"></a>Realizar manutenção no módulo de bateria de backup
 No seu dispositivo StorSimple, o módulo de bateria de backup fornece energia ao controlador durante um evento de perda de energia. Ele permite que o dispositivo StorSimple salve dados críticos antes de encerrar de maneira controlada. Com duas baterias completamente carregadas nos PCMs, o sistema pode manipular dois eventos consecutivos de perda.

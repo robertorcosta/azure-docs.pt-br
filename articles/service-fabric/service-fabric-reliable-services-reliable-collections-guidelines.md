@@ -3,12 +3,12 @@ title: Diretrizes para coleções confiáveis
 description: Diretrizes e recomendações para usar Service Fabric coleções confiáveis em um aplicativo de Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f196df4b58f1acb01a497b5fa08e9af99a4707d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81398535"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483118"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -20,7 +20,7 @@ As diretrizes são organizadas como recomendações simples prefixadas com *uma 
 * Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
 * Não use uma transação depois que ela tiver sido confirmada, anulada ou descartada.
 * Não use uma enumeração fora do escopo da transação que em foi criado.
-* Não crie uma transação dentro da instrução de `using` outra transação porque ela pode causar deadlocks.
+* Não crie uma transação dentro da instrução de outra transação `using` porque ela pode causar deadlocks.
 * Não crie um estado confiável com `IReliableStateManager.GetOrAddAsync` e use o estado confiável na mesma transação. Isso resulta em uma InvalidOperationException.
 * Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende de `IComparable<TKey>` para mesclar os pontos de verificação.
 * Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
@@ -39,7 +39,8 @@ Eis aqui algumas coisas que se deve manter em mente:
 * As operações de leitura no secundário podem ler versões que não são confirmadas por quorum.
   Isso significa que uma versão dos dados que é lida por meio de um único secundário pode ter um progresso falso.
   As leituras do Primário são sempre estáveis: elas nunca podem ter um progresso falso.
-* Segurança/privacidade dos dados persistidos pelo seu aplicativo em uma coleção confiável é a sua decisão e estão sujeitas às proteções fornecidas pelo seu gerenciamento de armazenamento; OU SEJA Criptografia de disco do sistema operacional pode ser usada para proteger seus dados em repouso.  
+* Segurança/privacidade dos dados persistidos pelo seu aplicativo em uma coleção confiável é a sua decisão e estão sujeitas às proteções fornecidas pelo seu gerenciamento de armazenamento; OU SEJA Criptografia de disco do sistema operacional pode ser usada para proteger seus dados em repouso.
+* `ReliableDictionary`a enumeração usa uma estrutura de dados classificada ordenada por chave. Para tornar a enumeração eficiente, as confirmações são adicionadas a uma Hashtable temporária e posteriormente movidas para o ponto de verificação de postagem de estrutura de dados classificados principal. O ADDS/atualizações/exclusões têm O melhor tempo de execução de caso de O (1) e o pior tempo de execução de caso do (log n), no caso de verificações de validação na presença da chave. Gets pode ser O (1) ou O (log n) dependendo se você estiver lendo de uma confirmação recente ou de uma confirmação mais antiga.
 
 ## <a name="volatile-reliable-collections"></a>Coleções confiáveis voláteis
 Ao decidir usar coleções confiáveis voláteis, considere o seguinte:

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504450"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
 
@@ -43,7 +43,7 @@ Neste artigo, estamos supondo que você se conectou ao console serial do disposi
 Após conectar-se à interface do Windows PowerShell do dispositivo, execute as seguintes etapas para executar o cmdlet.
 1. Faça logon no console serial do dispositivo seguindo as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Digite o seguinte comando: 
+2. Digite o seguinte comando:
 
     `Invoke-HcsDiagnostics`
 
@@ -417,10 +417,10 @@ Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windo
 | Parâmetro do PowerShell    | Descrição  |
 |-------------------------|------------------|
 | ID da instância             | Cada controlador tem um identificador exclusivo ou um GUID associado a ele.|
-| Name                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
+| Nome                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
 | Modelo                   | O modelo do seu dispositivo StorSimple série 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo vem configurado de fábrica e possui 15 caracteres. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 – É o modelo do dispositivo.<br>SHX – É o local de produção.<br> 0991003 - É um produto específico. <br> G44HT- os últimos cinco dígitos são incrementados para criar números de série exclusivos. Pode ser um conjunto não sequencial de números.|
-| timeZone                | O fuso horário do dispositivo conforme configurado no portal do Azure durante a implantação do dispositivo.|
+| TimeZone                | O fuso horário do dispositivo conforme configurado no portal do Azure durante a implantação do dispositivo.|
 | CurrentController       | O controlador ao qual você está conectado por meio da interface do Windows PowerShell do seu dispositivo StorSimple.|
 | ActiveController        | O controlador que está ativo no seu dispositivo e que está controlando todas as operações de rede e disco. Pode ser o Controlador 0 ou Controlador 1.  |
 | Controller0Status       | O status do Controlador 0 no seu dispositivo. O status do controlador pode ser normal, modo de recuperação ou inacessível.|

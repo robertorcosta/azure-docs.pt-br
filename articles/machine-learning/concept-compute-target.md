@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
-ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/26/2020
+ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780106"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483271"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -52,21 +52,23 @@ Você pode criar Azure Machine Learning instâncias de computação (versão pr�
 * Azure Machine Learning Studio
 * Portal do Azure
 * Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) do SDK do Python
-* [SDK do R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* [SDK do R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (visualização)
 * Modelo do Resource Manager
-
-Você também pode criar clusters de computação usando a [extensão do Machine Learning para o CLI do Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+* Extensão do Machine Learning [para o CLI do Azure](reference-azure-machine-learning-cli.md#resource-management).  
 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
 
-### <a name="compute-clusters"></a>Clusters de cálculo
 
-Você pode usar Azure Machine Learning clusters de computação para treinamento e inferência do lote (versão prévia).  Com esse recurso de computação, você tem:
+|Funcionalidade  |Cluster de computação  |Instância de computação  |
+|---------|---------|---------|
+|Cluster único ou com vários nós     |    **&check;**       |         |
+|Dimensionamento a cada vez que você envia uma execução     |     **&check;**      |         |
+|Gerenciamento automático de clusters e agendamento de trabalhos     |   **&check;**        |     **&check;**      |
+|Suporte para recursos de CPU e GPU     |  **&check;**         |    **&check;**       |
 
-* Cluster único ou com vários nós
-* Dimensionamento automático a cada vez que você envia uma execução 
-* Gerenciamento automático de clusters e agendamento de trabalhos 
-* Suporte para recursos de CPU e GPU
+
+> [!NOTE]
+> Quando um cluster de computação está ocioso, ele é dimensionado em escala para 0 nós, portanto, você não paga quando não está em uso.  Uma *instância*de computação, no entanto, é sempre ativada e não faz dimensionamento automático.  Você deve [interromper a instância de computação](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando não a estiver usando para evitar custo extra.
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
 

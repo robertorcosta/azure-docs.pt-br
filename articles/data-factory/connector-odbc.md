@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de fontes ODBC usando Azure Data Factory
-description: Saiba como copiar dados de fontes OData para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
+title: Copiar dados de e para armazenamentos de dados ODBC usando o Azure Data Factory
+description: Saiba como copiar dados de e para armazenamentos de dados ODBC usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 71b05d8607c174dbe9298a1c02f4927ed2218374
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506524"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -30,7 +30,7 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Este conector ODBC tem suporte para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de uma fonte ODBC para qualquer armazenamento de dados de coletor com suporte ou copiar de qualquer armazenamento de dados de origem com suporte para um coletor ODBC. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -54,13 +54,13 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do ODBC:
 
-| Propriedade | Descrição | Necessária |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Odbc** | Sim |
-| connectionString | A cadeia de conexão, exceto a parte de credencial. Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do Integration Runtime com o `"DSN=<name of the DSN on IR machine>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente).<br>Você também pode colocar uma senha em Azure Key Vault e extrair a `password` configuração da cadeia de conexão.Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
+| connectionString | A cadeia de conexão, exceto a parte de credencial. Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do Integration Runtime com o `"DSN=<name of the DSN on IR machine>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente).<br>Você também pode colocar uma senha em Azure Key Vault e extrair a  `password`   configuração da cadeia de conexão.Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md)   com mais detalhes.| Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC.<br/>Os valores permitidos são: **Básica** e **Anônima**. | Sim |
 | userName | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não |
-| password | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
+| password | Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marque esse campo como uma SecureString. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
 
@@ -113,11 +113,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do ODBC:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados ODBC.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados ODBC.
 
 Para copiar dados de/para o armazenamento de dados compatível com ODBC, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **odbctable** | Sim |
 | tableName | Nome da tabela no repositório de dados ODBC. | Não para fonte (se "query" na fonte da atividade for especificada);<br/>Sim para coletor |
@@ -141,7 +141,7 @@ Para copiar dados de/para o armazenamento de dados compatível com ODBC, há sup
 }
 ```
 
-Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo no futuro.
+Se você estava usando o conjunto de dados com tipos `RelationalTable`, ele ainda tem suporte como está, mas é recomendável usar o novo de agora em diante.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
@@ -151,7 +151,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do armazenamento de dados compatível com ODBC, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessária |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **odbcname** | Sim |
 | Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
@@ -188,13 +188,13 @@ Para copiar dados do armazenamento de dados compatível com ODBC, as propriedade
 ]
 ```
 
-Se você estiver usando `RelationalSource` a fonte digitada, ainda haverá suporte como está, enquanto você é sugerido para usar a nova no futuro.
+Se você estava usando a fonte com tipos `RelationalSource`, ela ainda tem suporte como está, mas é recomendável usar a nova no futuro.
 
 ### <a name="odbc-as-sink"></a>ODBC como coletor
 
-Para copiar dados para um armazenamento de dados compatível com ODBC, defina o tipo de coletor na atividade de cópia como **OdbcSink**. As propriedades a seguir têm suporte na seção **coletor** de atividade de cópia:
+Para copiar dados para um armazenamento de dados compatível com ODBC, defina o tipo de coletor na atividade de cópia como **OdbcSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **BlobSink** | Sim |
 | writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período.  Exemplo: "00:30:00" (30 minutos). |Não |
@@ -236,9 +236,9 @@ Para copiar dados para um armazenamento de dados compatível com ODBC, defina o 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique [Pesquisar atividade](control-flow-lookup-activity.md).
 
 ## <a name="troubleshoot-connectivity-issues"></a>Solucionar problemas de conectividade
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f2a514b6f44df7be15f18aa8f7c42668c872ab4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509686"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como um destino de backup com o Veeam
 
@@ -56,8 +56,8 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**StorSimple tiering**
-![Diagrama de camadas storsimple de camada do storsimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+**StorSimple tiering** 
+ Camadas ![ do StorSimple Diagrama de camadas do StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 
@@ -260,7 +260,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal | 1 | 4  | 4 |
-| Incremental diário | 0.5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário | 0,5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |

@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 3f341271c208cc56a704c836433c33af0129a4ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6560f11d26200bdd9f39c4cbae643022872d362
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506065"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Implantar VMs especiais usando o CLI do Azure
 
@@ -21,9 +21,9 @@ O uso de [VMs do Azure Spot](spot-vms.md) permite que você aproveite a capacida
 
 Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1`, a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível. Para obter mais informações sobre como definir o preço máximo, consulte [VMs pontuais – preços](spot-vms.md#pricing).
+Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0,98765 USD por hora. Se você definir o preço máximo como `-1` , a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível. Para obter mais informações sobre como definir o preço máximo, consulte [VMs pontuais – preços](spot-vms.md#pricing).
 
-O processo para criar uma VM com o Spot usando o CLI do Azure é o mesmo detalhado no [artigo de início rápido](/azure/virtual-machines/linux/quick-create-cli). Basta adicionar o parâmetro '--priority spot ' e fornecer um preço máximo ou `-1`.
+O processo para criar uma VM com o Spot usando o CLI do Azure é o mesmo detalhado no [artigo de início rápido](/azure/virtual-machines/linux/quick-create-cli). Basta adicionar o parâmetro '--priority spot ', definir `--eviction-policy` como desalocar (esse é o padrão) ou `Delete` e fornecer um preço máximo ou `-1` . 
 
 
 ## <a name="install-azure-cli"></a>Instalar a CLI do Azure.
@@ -38,7 +38,7 @@ az login
 
 ## <a name="create-a-spot-vm"></a>Criar uma VM Spot
 
-Este exemplo mostra como implantar uma VM de ponto do Linux que não será removida com base no preço. 
+Este exemplo mostra como implantar uma VM de ponto do Linux que não será removida com base no preço. A política de remoção é definida para desalocar a VM, para que ela possa ser reiniciada posteriormente. Se você quiser excluir a VM e o disco subjacente quando a VM for removida, defina `--eviction-policy` como `Delete` .
 
 ```azurecli
 az group create -n mySpotGroup -l eastus
@@ -49,8 +49,11 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1
+    --max-price -1 \
+    --eviction-policy Deallocate
 ```
+
+
 
 Depois que a VM for criada, você poderá consultar para ver o preço máximo de cobrança de todas as VMs no grupo de recursos.
 
@@ -63,6 +66,6 @@ az vm list \
 
 **Próximas etapas**
 
-Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md) ou um [modelo](spot-template.md).
+Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md), [portal](../windows/spot-portal.md)ou um [modelo](spot-template.md).
 
 Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

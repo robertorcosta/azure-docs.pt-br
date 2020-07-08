@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67357031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504330"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
  
@@ -42,10 +42,10 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transferência de dados de rede/programáticas com script
 
-| Recurso                  | AzCopy                                 | APIs REST do Armazenamento do Microsoft Azure       |
+| Funcionalidade                  | AzCopy                                 | APIs REST do Armazenamento do Microsoft Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fator forma                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem em relação ao armazenamento <br> APIs REST usando bibliotecas de cliente do Azure |
-| Configuração única inicial     | Mínimo                                | Esforço moderado, variáveis, desenvolvimento    |
+| Configuração única inicial     | Minimal                                | Esforço moderado, variáveis, desenvolvimento    |
 | Formato de Dados                 | Blobs do Azure, Azure Files, Tabelas do Azure | Blobs do Azure, Azure Files, Tabelas do Azure   |
 | Desempenho                 | Já otimizado                      | Otimize à medida que desenvolve                  |
 | Preços                     | Gratuito, são cobrados encargos de saída de dados      | Gratuito, são cobrados encargos de saída de dados        |

@@ -3,16 +3,16 @@ title: Gerenciar servidores registrados com a Sincronização de Arquivos do Azu
 description: Saiba como registrar e cancelar o registro de um Windows Server com um Serviço de Sincronização de Armazenamento de Sincronização de Arquivo do Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509499"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerenciar servidores registrados com a Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -76,9 +76,6 @@ Para que um servidor possa ser usado como um *ponto de extremidade do servidor* 
 > Se o servidor for um membro de um Cluster de Failover, o agente de Sincronização de Arquivo do Azure precisará ser instalado em cada nó no cluster.
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>Registrar o servidor usando a interface do usuário de registro do servidor
-> [!Important]  
-> As assinaturas CSP (Provedor de Soluções na Nuvem) não podem usar a interface do usuário de registro de servidor. Em vez disso, use o PowerShell (abaixo desta seção).
-
 1. Se a interface do usuário de registro do servidor não for iniciada imediatamente após a conclusão da instalação do agente de Sincronização de Arquivo do Azure, ela poderá ser iniciada manualmente executando `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Clique em *Entrar* para acessar sua assinatura do Azure. 
 
@@ -96,7 +93,7 @@ Para que um servidor possa ser usado como um *ponto de extremidade do servidor* 
 > Se o servidor for um membro de um Cluster de Failover, cada servidor precisará executar o Registro do Servidor. Quando você exibe os servidores registrados no Portal do Azure, a Sincronização de arquivos do Azure reconhece automaticamente cada nó como um membro do mesmo Cluster de Failover e agrupa-os corretamente.
 
 #### <a name="register-the-server-with-powershell"></a>Registrar o servidor com o PowerShell
-Você também pode executar o registro do servidor por meio do PowerShell. Essa é a única maneira permitida para o registro do servidor em assinaturas de CSP (Provedor de Soluções na Nuvem):
+Você também pode executar o registro do servidor por meio do PowerShell. 
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
@@ -161,7 +158,7 @@ Como a Sincronização de arquivos do Azure raramente será o único serviço em
 Você pode limitar a utilização de rede da Sincronização de arquivos do Azure usando os cmdlets `StorageSyncNetworkLimit`.
 
 > [!Note]  
-> Limites de rede não se aplicam quando um arquivo em camadas é acessado ou o cmdlet Invoke-StorageSyncFileRecall é usado.
+> Os limites de rede não se aplicam quando um arquivo em camadas é acessado.
 
 Por exemplo, você pode criar uma nova limitação para garantir que a Sincronização de arquivos do Azure não use mais de 10 Mbps entre 9h e 17h de segunda a sexta-feira: 
 

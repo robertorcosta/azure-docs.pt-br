@@ -3,15 +3,15 @@ title: Gerenciar recursos de Data Lake Storage Gen1-Gerenciador de Armazenamento
 description: Saiba como acessar e gerenciar seus dados e recursos do Azure Data Lake Storage Gen1 no Azure Storage Explorer
 author: jejiang
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a5117f72f933e1e48dc471a75624a8d3921f55af
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: a99196cfad7abad38408c847a8a0b64ffe95fff5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73832271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508785"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerenciar recursos do Armazenamento de Dados do Azure Data Lake Gen1 usando o Storage Explorer
 
@@ -142,7 +142,7 @@ Os itens a seguir ilustram como gerenciar recursos dentro de uma conta do Data L
 1. Selecione as pastas ou os arquivos que deseja baixar.
 2. Na barra de ferramentas do painel principal, escolha **Baixar**.
 3. Na caixa diálogo **Selecionar uma pasta na qual salvar os arquivos baixados**, especifique o local e o nome.
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ### <a name="open-a-folder-or-file-from-your-local-computer"></a>Abrir uma pasta ou um arquivo do computador local
 

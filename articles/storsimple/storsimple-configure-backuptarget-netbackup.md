@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67876201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509380"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
 
@@ -55,8 +55,8 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**StorSimple tiering**
-![Diagrama de camadas storsimple de camada do storsimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+**StorSimple tiering** 
+ Camadas ![ do StorSimple Diagrama de camadas do StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 -   Realize suas restaurações mais frequentes do conjunto de dados de trabalho local.
@@ -253,7 +253,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal | 1 | 4  | 4 |
-| Incremental diário | 0.5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário | 0,5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
@@ -265,7 +265,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 ### <a name="to-set-up-netbackup-storage"></a>Configurar o armazenamento do NetBackup
 
-1.  No console de administração do NetBackup, selecione**dispositivos** >  >  **de gerenciamento de mídia e dispositivo****pools de discos**. No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk**e, em seguida, selecione **Avançar**.
+1.  No console de administração do NetBackup, selecione dispositivos **de gerenciamento de mídia e dispositivo**  >  **Devices**  >  **pools de discos**. No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk**e, em seguida, selecione **Avançar**.
 
     ![Console de Administração do NetBackup, Assistente de Configuração do Pool de Disco](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
     ![Console de Administração do NetBackup, selecionar o disco de volume do StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Insira um nome para o destino de backup e, em seguida, selecione **Avançar** > ao**lado** de concluir o assistente.
+4.  Insira um nome para o destino de backup e, em seguida, selecione **Avançar**ao  >  **lado** de concluir o assistente.
 
 5.  Examine as configurações e selecione **Concluir**.
 
@@ -340,7 +340,7 @@ A sequência a seguir pressupõe que NetBackup e o host de destino estão config
 
    ![Console de Administração do NetBackup, frequência e rotação de backup para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selecione **próxima** > **próxima** > **conclusão**.  É possível modificar o agendamento depois que a política for criada.
+8. Selecione **próxima**  >  **próxima**  >  **conclusão**.  É possível modificar o agendamento depois que a política for criada.
 
 9. Expanda a política que você criou e selecione **Agendamentos**.
 
@@ -430,7 +430,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Para atribuir os volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup
 
-1. No console de administração do NetBackup, selecione **armazenamento** > **políticas** > de ciclo de vida de armazenamento**nova política de ciclo de vida de armazenamento**.
+1. No console de administração do NetBackup, selecione **armazenamento**  >  **políticas de ciclo de vida**de armazenamento  >  **nova política de ciclo de vida de armazenamento**.
 
    ![Console de Administração do NetBackup, nova política de ciclo de vida de armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
@@ -472,7 +472,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal |  1  |  4 | 4  |
-| Incremental diário  | 0.5  | 20 (os ciclos são iguais ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário  | 0,5  | 20 (os ciclos são iguais ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo  | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS  |     |     | 38 |

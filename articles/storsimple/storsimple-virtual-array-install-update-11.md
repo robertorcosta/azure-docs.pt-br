@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f8ec56cc5747921ee786bd4c069070ff865f9fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507918"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Instalar a atualização 1.1 na sua matriz virtual StorSimple
 
@@ -66,7 +66,7 @@ Execute as etapas a seguir para baixar a atualização 1.1 do catálogo do Micro
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para baixar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e navegue [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)até.
+1. Inicie o Internet Explorer e navegue até [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Se você estiver usando o Catálogo do Microsoft Update pela primeira vez neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
@@ -99,7 +99,7 @@ Esse procedimento leva cerca de 4 minutos para ser concluído. Execute as etapas
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Na interface do usuário da Web local, vá para **manutenção** > **atualização de software**. Anote a versão do software que você está executando. **Continue com esta atualização somente se você estiver executando a atualização 1 (10.0.10296.0). Se você estiver executando a atualização 0,6, [Instale a atualização 1](storsimple-virtual-array-install-update-1.md) no seu dispositivo primeiro e aplique a atualização 1,1.**
+1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. Anote a versão do software que você está executando. **Continue com esta atualização somente se você estiver executando a atualização 1 (10.0.10296.0). Se você estiver executando a atualização 0,6, [Instale a atualização 1](storsimple-virtual-array-install-update-1.md) no seu dispositivo primeiro e aplique a atualização 1,1.**
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
@@ -115,7 +115,7 @@ Esse procedimento leva cerca de 4 minutos para ser concluído. Execute as etapas
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
-5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção** > **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10307** para a Atualização 1.1.
+5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. A versão de software exibida deve ser **10.0.0.0.0.10307** para a Atualização 1.1.
    
    > [!NOTE]
    > Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal do Azure. Por exemplo, a interface do usuário da Web local relata **10.0.0.0.0.10307** e o portal do Azure relata **10.0.10307.0** para a mesma versão.

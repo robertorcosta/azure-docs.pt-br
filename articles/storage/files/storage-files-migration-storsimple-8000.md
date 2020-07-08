@@ -3,16 +3,16 @@ title: Migração da série StorSimple 8000 para Sincronização de Arquivos do 
 description: Saiba como migrar um dispositivo StorSimple 8100 ou 8600 para Sincronização de Arquivos do Azure.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 9091d3bd6b57f14bd12083319595cb855a0d42ee
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510356"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
@@ -23,7 +23,7 @@ A série StorSimple 8000 atingirá o [fim da vida útil](https://support.microso
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 
 > [!IMPORTANT]
-> A Microsoft está comprometida em auxiliar os clientes em sua migração. Envie AzureFiles@microsoft.com um email para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está comprometida em auxiliar os clientes em sua migração. Email AzureFilesMigration@microsoft . com para um plano de migração personalizado, bem como assistência durante a migração.
 
 Sincronização de Arquivos do Azure é um serviço de nuvem da Microsoft, com base em dois componentes principais:
 
@@ -458,5 +458,5 @@ Familiarize-se com o Sincronização de Arquivos do Azure. Especialmente com a f
 Se você vir no portal do Azure ou nos eventos anteriores, que alguns arquivos não estão sincronizando permanentemente, examine o guia de solução de problemas para obter as etapas para resolver esses problemas.
 
 * [Visão geral do Sincronização de Arquivos do Azure: aka.ms/AFS](https://aka.ms/AFS)
-* [Camadas de nuvem](storage-sync-cloud-tiering.md) 
+* [Disposição em camadas de nuvem](storage-sync-cloud-tiering.md) 
 * [Guia de solução de problemas Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

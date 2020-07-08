@@ -3,16 +3,16 @@ title: Criar um compartilhamento de arquivos premium do Azure
 description: Neste artigo, você aprenderá a criar um compartilhamento de arquivos premium do Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79529100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509975"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar um compartilhamento de arquivos premium do Azure
 Os compartilhamentos de arquivos Premium são oferecidos na mídia de armazenamento de SSD (disco de estado sólido) e são úteis para cargas de trabalho com uso intensivo de e/s, incluindo bancos de dados de hospedagem e HPC (computação de alto desempenho). Os compartilhamentos de arquivos Premium são hospedados em um tipo de conta de armazenamento de finalidade especial, chamado de conta de armazenamento de arquivo. Os compartilhamentos de arquivos Premium são projetados para aplicativos de alto desempenho e escala empresarial, fornecendo compartilhamentos de baixa latência, IOPS e alta taxa de transferência consistentes.
@@ -46,6 +46,9 @@ Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um g
 1. Em seguida, insira um nome para sua conta de armazenamento. O nome escolhido deve ser exclusivo no Azure. O nome também deve ter entre 3 e 24 caracteres e pode incluir apenas números e letras minúsculas.
 1. Selecione um local para sua conta de armazenamento ou use o local padrão.
 1. Para **desempenho** , selecione **Premium**.
+
+    Você deve selecionar **Premium** para **armazenamento** de filepara ser uma opção disponível na lista suspensa **tipo de conta** .
+
 1. Selecione **tipo de conta** e escolha **FileStorage**.
 1. Deixe a **replicação** definida com seu valor padrão de **armazenamento com REDUNDÂNCIA local (LRS)**.
 
@@ -67,7 +70,7 @@ Depois que o recurso da conta de armazenamento tiver sido criado, navegue até e
 
    ![Criar um compartilhamento de arquivo premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Se você quiser limpar os recursos criados neste artigo, bastará excluir o grupo de recursos. Excluir o grupo de recursos também exclui a conta de armazenamento associada, bem como quaisquer outros recursos associados ao grupo de recursos.
 
@@ -132,7 +135,7 @@ New-AzStorageShare `
    -Context $storageAcct.Context
 ```
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
 
@@ -198,7 +201,7 @@ az storage share create \
     --name "myshare" 
 ```
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [az group delete](/cli/azure/group).
 
