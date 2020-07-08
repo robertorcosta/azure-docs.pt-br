@@ -3,12 +3,12 @@ title: Atualizar uma atribuição existente do portal
 description: Saiba mais sobre o mecanismo de atualização de uma atribuição de Blueprint existente do portal em plantas do Azure.
 ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381799"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969457"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -50,18 +50,18 @@ A implantação das atribuições atualizadas segue algumas regras importantes. 
   - Se a definição da atribuição de política for alterada, uma nova atribuição de política será criada.
     Atribuições de política implantadas anteriormente são deixadas no lugar.
   - Se o artefato de atribuição de política for removido do plano gráfico, implantado atribuições são deixadas no lugar de política.
-- Modelos do Azure Resource Manager
+- Modelos de Azure Resource Manager (modelos ARM)
   - O modelo é processado por meio do Resource Manager como **PUT**. Como cada tipo de recurso manipula isso de uma forma diferente, examine a documentação de cada recurso incluído para determinar o impacto dessa ação quando executada por blueprints.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possíveis erros na atualização de atribuições
 
-Ao atualizar atribuições, é possível fazer alterações que falham ao serem executadas. Um exemplo disso é alterar o local de um grupo de recursos depois que ele já foi implantado. É possível fazer qualquer alteração que seja compatível com o [Azure Resource Manager](../../../azure-resource-manager/management/overview.md), mas qualquer alteração que resulte em erro por meio do Azure Resource Manager também resultará na falha da atribuição.
+Ao atualizar atribuições, é possível fazer alterações que falham ao serem executadas. Um exemplo disso é alterar o local de um grupo de recursos depois que ele já foi implantado. Qualquer alteração com suporte do [Resource Manager](../../../azure-resource-manager/management/overview.md) pode ser feita, mas qualquer alteração que resulte em um erro por meio do Resource Manager também resultará na falha da atribuição.
 
 Não há nenhum limite para o número de vezes que uma atribuição pode ser atualizada. Se ocorrer um erro, determine o erro e faça outra atualização da atribuição.  Cenários de erro de exemplo:
 
 - Parâmetro inválido
 - Um objeto já existente
-- Uma maudança não suportada pelo Resource Manager do Azure
+- Uma alteração sem suporte pelo Resource Manager
 
 ## <a name="next-steps"></a>Próximas etapas
 

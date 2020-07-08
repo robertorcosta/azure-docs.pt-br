@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/20/2020
-ms.openlocfilehash: 037edb8af6e04a2ff65977a92a66482c9f4f880f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 07/05/2020
+ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845091"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969595"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -29,7 +29,7 @@ O Azure Monitor usa a criptografia de modo idêntico à [operação da criptogr
 
 A CMK permite controlar o acesso aos seus dados e revogá-lo a qualquer momento. O armazenamento do Azure Monitor sempre respeita as alterações nas permissões de chave em uma hora. Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft, independentemente da configuração da CMK, mas seu controle sobre os dados SSD segue a  [revogação de chave](#cmk-kek-revocation). Estamos trabalhando para ter dados SSD criptografados com a CMK no segundo semestre de 2020.
 
-O recurso CMK é fornecido em clusters dedicados do Log Analytics. Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja incluída na lista de permissões anteriormente. Use seu contato da Microsoft para incluir sua assinatura na lista de permissões antes de começar a configurar a CMK.
+O recurso CMK é fornecido em clusters dedicados do Log Analytics. Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja permitida antecipadamente. Use seu contato da Microsoft para obter a assinatura permitida antes de começar a configurar o CMK.
 
 O  [modelo de preços de clusters do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)  usa reservas de capacidade que começam no nível de 1000 GB/dia.
 
@@ -40,7 +40,7 @@ O Azure Monitor utiliza a identidade gerenciada atribuída pelo sistema para con
 Após a configuração da CMK, todos os dados ingeridos em workspaces associados ao seu recurso de *cluster* são criptografados com sua chave no Key Vault. Você pode desassociar workspaces do recurso de *cluster* a qualquer momento. Novos dados são ingeridos no armazenamento do Log Analytics e criptografados com a chave da Microsoft, enquanto você pode consultar facilmente os dados novos e antigos.
 
 
-![Visão geral da CMK](media/customer-managed-keys/cmk-overview-8bit.png)
+![Visão geral da CMK](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. Recurso de *cluster* do Log Analytics com identidade gerenciada com permissões para Key Vault -- A identidade é propagada para o armazenamento de cluster do Log Analytics dedicado subjacente
@@ -69,16 +69,16 @@ As seguintes regras se aplicam:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedimento de provisionamento da CMK
 
-1. Inclusão da assinatura na lista de permissões -- O recurso CMK é fornecido em clusters dedicados do Log Analytics. Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja incluída na lista de permissões anteriormente. Use seu contato da Microsoft para incluir sua assinatura na lista de permissões
+1. Permitindo a assinatura – o recurso CMK é fornecido em clusters de Log Analytics dedicados. Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja permitida antecipadamente. Use seu contato da Microsoft para obter a assinatura permitida.
 2. Criar o Azure Key Vault e armazenar a chave
 3. Criar um recurso de *cluster*
 4. Conceder permissões ao Key Vault
 5. Associar workspaces do Log Analytics
 
-O procedimento não tem suporte na interface do usuário no momento e o processo de provisionamento é executado por meio da API REST.
+O procedimento não tem suporte no portal do Azure e o provisionamento é executado por meio de solicitações do PowerShell ou REST.
 
 > [!IMPORTANT]
-> Qualquer solicitação de API deve incluir um token de autorização de portador no cabeçalho da solicitação.
+> Qualquer solicitação REST deve incluir um token de autorização de portador no cabeçalho da solicitação.
 
 Por exemplo:
 
@@ -100,12 +100,12 @@ Você pode adquirir o token usando um destes métodos:
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operações assíncronas e verificação de status
 
-Algumas das operações neste procedimento de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. A resposta para a operação assíncrona retorna inicialmente um código de status HTTP 200 (OK) e o cabeçalho com propriedade *Azure-AsyncOperation* quando aceito:
+Algumas das operações neste procedimento de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. Ao usar solicitações REST na configuração, a resposta inicialmente retorna um código de status HTTP 200 (OK) e o cabeçalho com a propriedade *Azure-AsyncOperation* quando aceita:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
-Você pode verificar o status da operação assíncrona enviando uma solicitação GET ao valor do cabeçalho *Azure-AsyncOperation*:
+Em seguida, você pode verificar o status da operação assíncrona enviando uma solicitação GET para o valor do cabeçalho *Azure-AsyncOperation* :
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -172,9 +172,9 @@ Falha na operação
 }
 ```
 
-### <a name="subscription-whitelisting"></a>Inclusão da assinatura na lista de permissões
+### <a name="allowing-subscription-for-cmk-deployment"></a>Permitindo a assinatura para a implantação do CMK
 
-O recurso CMK é fornecido em clusters dedicados do Log Analytics. Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja incluída na lista de permissões anteriormente. Use seus contatos na Microsoft para fornecer suas IDs de assinaturas.
+O recurso CMK é fornecido em clusters dedicados do Log Analytics.Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja permitida antecipadamente. Use seus contatos na Microsoft para fornecer suas IDs de assinaturas.
 
 > [!IMPORTANT]
 > O recurso CMK é regional. Seu Azure Key Vault, recurso de *cluster* e workspaces do Log Analytics associados devem estar na mesma região, mas podem estar em assinaturas diferentes.
@@ -191,20 +191,27 @@ Essas configurações estão disponíveis por meio da CLI e do PowerShell:
 
 ### <a name="create-cluster-resource"></a>Criar recurso de *cluster*
 
-Esse recurso é usado como uma conexão de identidade intermediária entre seu Key Vault e seus workspaces do Log Analytics. Depois de receber a confirmação de que suas assinaturas foram colocadas na lista de permissões, crie um recurso de *cluster* do Log Analytics na região em que seus workspaces estão localizados.
+Esse recurso é usado como uma conexão de identidade intermediária entre seu Key Vault e seus workspaces do Log Analytics. Depois de receber a confirmação de que suas assinaturas foram permitidas, crie um Log Analytics recurso de *cluster* na região em que os espaços de trabalho estão localizados.
 
 Você deve especificar o nível de *reserva de capacidade* (SKU) ao criar um recurso de *cluster*. O nível de *reserva de capacidade* pode estar no intervalo de 1.000 a 2.000 GB por dia e você pode atualizá-lo em etapas de 100 posteriormente. Se você precisar de um nível de reserva de capacidade maior que 2.000 GB por dia, escreva para LAIngestionRate@microsoft.com. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
 A propriedade *billingType* determina atribuição de cobrança para o recurso de *cluster* e seus dados:
-- *cluster* (padrão) -- A cobrança é atribuída à assinatura que hospeda seu recurso de *cluster*
-- *workspaces* -- A cobrança é atribuída às assinaturas que hospedam seus workspaces proporcionalmente
+- *Cluster* (padrão)--os custos de reserva de capacidade para o cluster são atribuídos ao recurso de *cluster* .
+- *Espaços de trabalho* – os custos de reserva de capacidade para o cluster são atribuídos proporcionalmente aos espaços de trabalho no cluster, com o recurso de *cluster* sendo cobrado como parte do uso se o total de dados ingeridos para o dia estiver sob a reserva de capacidade. Consulte [log Analytics clusters dedicados](manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços do cluster. 
 
 > [!NOTE]
-> Depois de criar o recurso de *cluster*, você pode atualizá-lo com *SKU*, *keyVaultProperties* ou *billingType* usando a solicitação PATCH REST.
+> * Depois de criar o recurso de *cluster*, você pode atualizá-lo com *SKU*, *keyVaultProperties* ou *billingType* usando a solicitação PATCH REST.
+> * Você pode atualizar o *billtype* usando a solicitação REST atualmente, isso não tem suporte no PowerShell
 
-**Criar**
+Esta operação é assíncrona e pode um tempo para ser concluída.
 
-Essa solicitação do Resource Manager é uma operação assíncrona.
+> [!IMPORTANT]
+> Copie e salve a resposta, pois você precisará das informações nas próximas etapas.
+> 
+
+```powershell
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
+```
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -242,9 +249,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-> [!IMPORTANT]
-> Copie e salve a resposta, pois você precisará das informações nas próximas etapas.
-
 **Resposta**
 
 ```json
@@ -261,7 +265,6 @@ Authorization: Bearer <token>
     },
   "properties": {
     "provisioningState": "ProvisioningAccount",
-    "clusterType": "LogAnalytics",
     "billingType": "cluster",
     "clusterId": "cluster-id"
     },
@@ -276,10 +279,10 @@ O GUID "principalId" é gerado pelo serviço de identidade gerenciada para o rec
 
 ### <a name="grant-key-vault-permissions"></a>Conceder permissões do Key Vault
 
-Atualize seu Key Vault com uma nova política de acesso que concede permissões ao seu recurso de *cluster*. Essas permissões são usadas pelo Armazenamento do Azure Monitor subjacente para criptografia de dados. Abra o Key Vault no portal do Azure e clique em “Políticas de acesso” e, em seguida, em “+ Adicionar política de acesso” para criar uma política com estas configurações:
+Atualize seu Key Vault com uma nova política de acesso para conceder permissões para o recurso de *cluster* . Essas permissões são usadas pelo Armazenamento do Azure Monitor subjacente para criptografia de dados. Abra o Key Vault no portal do Azure e clique em “Políticas de acesso” e, em seguida, em “+ Adicionar política de acesso” para criar uma política com estas configurações:
 
 - Permissões da chave: selecione as permissões “Obter”, “Encapsular Chave” e “Desencapsular chave”.
-- Selecionar entidade de segurança: insira o valor de principal-id que retornou como resposta na etapa anterior.
+- Selecionar entidade de segurança: Insira o nome do recurso de *cluster* ou o valor da ID principal que foi retornado na resposta na etapa anterior.
 
 ![conceder permissões do Key Vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -295,12 +298,14 @@ Para atualizar o recurso de *cluster* com detalhes do seu *identificador de chav
 
 Atualize KeyVaultProperties do recurso de *cluster* com os detalhes do identificador de chave.
 
-**Atualização**
+Esta operação é assíncrona ao atualizar os detalhes do identificador de chave e pode demorar um pouco para ser concluída. É síncrono ao atualizar o valor da capacidade.
 
-Essa solicitação do Resource Manager é uma operação assíncrona ao atualizar detalhes do identificador de chave, e é síncrona ao atualizar o valor da capacidade.
+```powershell
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
 
 > [!NOTE]
-> Você pode fornecer corpo parcial no recurso de *cluster* para atualizar uma *sku*, *keyVaultProperties* ou *billingType*.
+> Você pode atualizar o *SKU*do recurso de *cluster* , *keyvaultproperties* ou *billtype* usando patch.
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -357,7 +362,6 @@ Uma resposta à solicitação GET no recurso de *cluster* deve ser semelhante a 
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "clusterType": "LogAnalytics", 
     "billingType": "cluster",
     "clusterId": "cluster-id"
   },
@@ -378,9 +382,12 @@ Você precisa ter permissões de “gravação” tanto no workspace, quanto no 
 > [!IMPORTANT]
 > Esta etapa deve ser executada somente após a conclusão do provisionamento de cluster do Log Analytics. Se você associar workspaces e ingerir dados antes do provisionamento, os dados ingeridos serão descartados e não poderão ser recuperados.
 
-**Associar um workspace**
+Esta operação é assíncrona e pode um tempo para ser concluída.
 
-Essa solicitação do Resource Manager é uma operação assíncrona.
+```powershell
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
+Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId
+```
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
@@ -454,9 +461,84 @@ A rotação da CMK requer atualização explícita para o recurso de *cluster* c
 
 Todos os seus dados continuam acessíveis após a operação de revezamento de chaves, já que os dados são sempre criptografados com a AEK (Chave de Criptografia de Conta), embora a AEK seja agora criptografada com sua nova versão de KEK (Chave de Criptografia de Chave) no Key Vault.
 
-## <a name="cmk-manage"></a>Gerenciamento da CMK
+## <a name="saving-queries-protected-with-cmk"></a>Salvando consultas protegidas com CMK
+
+A linguagem de consulta usada em Log Analytics é expressiva e pode conter informações confidenciais em comentários que você adiciona a consultas ou na sintaxe de consulta. Algumas organizações exigem que essas informações sejam mantidas protegidas como parte da política de CMK e você precisa salvar suas consultas criptografadas com sua chave. Azure Monitor permite armazenar *pesquisas salvas* e consultas de *alertas de log* em sua própria conta de armazenamento que você conecta ao seu espaço de trabalho. 
+
+> Observação o CMK para consultas usadas em pastas de trabalho e painéis do Azure ainda não tem suporte. Essas consultas permanecem criptografadas com a chave da Microsoft.  
+
+Com o BYOS (Traga seu próprio armazenamento), o serviço carrega consultas na conta de armazenamento que você controla. Isso significa que você controla a [política de criptografia em repouso](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) usando a mesma chave usada para criptografar dados no cluster log Analytics ou em uma chave diferente. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. 
+
+**Considerações antes de definir CMK para consultas**
+* Você precisa ter permissões de ' gravação ' no espaço de trabalho e na conta de armazenamento
+* Certifique-se de criar sua conta de armazenamento na mesma região que o espaço de trabalho Log Analytics está localizado
+* As *pesquisas salvas* no armazenamento são consideradas como artefatos de serviço e seu formato pode ser alterado
+* As *pesquisas de gravações* existentes são removidas do seu espaço de trabalho. Copie e *salve as pesquisas* necessárias antes da configuração. Você pode exibir suas *pesquisas salvas* usando este [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* Não há suporte para o histórico de consulta e você não poderá ver as consultas que executou
+* Você pode associar uma única conta de armazenamento ao espaço de trabalho com a finalidade de salvar consultas, mas pode ser usado partir as *pesquisas salvas* e as consultas *de alertas de log*
+* Não há suporte para fixar no painel
+
+**Configuração de BYOS para consultas**
+
+Associe uma conta de armazenamento a um DataSourceType de *consulta* ao seu espaço de trabalho. 
+
+```powershell
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
+```
+
+```rst
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-03-01-preview
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "dataSourceType": "Query", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
+}
+```
+
+Após a configuração, qualquer nova consulta de *pesquisa salva* será salva no armazenamento.
+
+**Configuração de BYOS para alertas de log**
+
+Associe uma conta de armazenamento com *alertas* DataSourceType ao seu espaço de trabalho. 
+
+```powershell
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
+```
+
+```rst
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-03-01-preview
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "dataSourceType": "Alerts", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
+}
+```
+
+Após a configuração, qualquer consulta de alerta nova será salva no armazenamento.
+
+## <a name="cmk-management"></a>Gerenciamento de CMK
 
 - **Obter todos os recursos de *cluster* para um grupo de recursos**
+  
+  ```powershell
+  Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
+  ```
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -486,7 +568,6 @@ Todos os seus dados continuam acessíveis após a operação de revezamento de c
               "keyVersion": "current-version"
               },
           "provisioningState": "Succeeded",
-          "clusterType": "LogAnalytics", 
           "billingType": "cluster",
           "clusterId": "cluster-id"
         },
@@ -500,6 +581,10 @@ Todos os seus dados continuam acessíveis após a operação de revezamento de c
   ```
 
 - **Obter todos os recursos de *cluster* para uma assinatura**
+  
+  ```powershell
+  Get-AzOperationalInsightsCluster
+  ```
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -514,8 +599,15 @@ Todos os seus dados continuam acessíveis após a operação de revezamento de c
 
   Quando o volume de dados para seus workspaces associados muda ao longo do tempo e você deseja atualizar o nível de reserva de capacidade adequadamente. Siga a [atualização de recurso de *cluster*](#update-cluster-resource-with-key-identifier-details) e forneça o novo valor de capacidade. Ele pode estar no intervalo de 1.000 a 2.000 GB por dia e em etapas de 100. Para um nível superior a 2.000 GB por dia, entre em contato com a Microsoft para habilitá-lo. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o sku:
 
-  **body**
-  ```json
+  ```powershell
+  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
+  ```
+
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  Authorization: Bearer <token>
+  Content-type: application/json
+
   {
     "sku": {
       "name": "capacityReservation",
@@ -532,8 +624,11 @@ Todos os seus dados continuam acessíveis após a operação de revezamento de c
   
   Siga a [atualização do recurso de *cluster*](#update-cluster-resource-with-key-identifier-details) e forneça o novo valor de billingType. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o *billingType*:
 
-  **body**
-  ```json
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  Authorization: Bearer <token>
+  Content-type: application/json
+
   {
     "properties": {
       "billingType": "cluster",
@@ -545,7 +640,11 @@ Todos os seus dados continuam acessíveis após a operação de revezamento de c
 
   Você precisa de permissões de “gravação” no workspace e no recurso de *cluster* para executar essa operação. Você pode desassociar um workspace do seu recurso de *cluster* quando quiser. Novos dados ingeridos após a operação de desassociação são armazenados no armazenamento do Log Analytics e criptografados com a chave da Microsoft. Você pode consultar os dados que foram ingeridos no seu workspace antes e depois da desassociação sem interrupções, desde que o recurso de *cluster* seja provisionado e configurado com uma chave válida do Key Vault.
 
-  Essa solicitação do Resource Manager é uma operação assíncrona.
+  Esta operação é assíncrona e pode um tempo para ser concluída.
+
+  ```powershell
+  Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
+  ```
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
@@ -561,9 +660,23 @@ Todos os seus dados continuam acessíveis após a operação de revezamento de c
   1. Copie o valor da URL de Azure-AsyncOperation da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
   2. Envie uma solicitação [Workspaces - Obter](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) e observe a resposta, o workspace desassociado não terá *clusterResourceId* em *recursos*.
 
+- **Verificar o status da associação do espaço de trabalho**
+  
+  Execute a operação get no espaço de trabalho e observe se a propriedade *clusterResourceId* está presente na resposta em *recursos*. O espaço de trabalho associado terá a propriedade *clusterResourceId* .
+
+  ```powershell
+  Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
+  ```
+
 - **Excluir seu recurso de *cluster***
 
-  Você precisa de permissões de “gravação” no recurso de *cluster* para executar essa operação. Uma operação de exclusão temporária é executada para permitir a recuperação do seu recurso de *cluster*, incluindo seus dados dentro de 14 dias, seja a exclusão acidental ou intencional. O nome do recurso de *cluster* permanece reservado durante o período de exclusão temporária e você não pode criar um novo cluster com esse nome. Após o período de exclusão temporária, o nome do recurso de *cluster* é liberado, seu recurso de *cluster* e dados são excluídos permanentemente e não podem ser recuperados. Qualquer workspace associado é desassociado do recurso de *cluster* na operação de exclusão. Novos dados ingeridos são armazenados no armazenamento do Log Analytics e criptografados com a chave da Microsoft. A operação de desassociação dos workspaces é assíncrona e pode levar até 90 minutos para ser concluída.
+  Você precisa de permissões de “gravação” no recurso de *cluster* para executar essa operação. Uma operação de exclusão temporária é executada para permitir a recuperação do seu recurso de *cluster*, incluindo seus dados dentro de 14 dias, seja a exclusão acidental ou intencional. O nome do recurso de *cluster* permanece reservado durante o período de exclusão temporária e você não pode criar um novo cluster com esse nome. Após o período de exclusão temporária, o nome do recurso de *cluster* é liberado, seu recurso de *cluster* e dados são excluídos permanentemente e não podem ser recuperados. Qualquer workspace associado é desassociado do recurso de *cluster* na operação de exclusão. Novos dados ingeridos são armazenados no armazenamento do Log Analytics e criptografados com a chave da Microsoft. 
+  
+  A operação de desassociação dos workspaces é assíncrona e pode levar até 90 minutos para ser concluída.
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+  ```
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -590,8 +703,10 @@ Todos os seus dados continuam acessíveis após a operação de revezamento de c
 
 \- A criptografia de CMK se aplica a dados recentemente ingeridos após a     configuração de CMK. Os dados que foram ingeridos antes da     configuração de CMK, permanecem criptografados com a chave da Microsoft. Você pode consultar     dados ingeridos antes e depois da configuração do CMK sem problemas.
 
-\- O Azure Key Vault deve ser configurado como recuperável. Essas propriedades não são habilitadas por padrão e devem ser configuradas usando a CLI ou o PowerShell:   - [A exclusão temporária](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-    deve ser ativada   - [A proteção contra limpeza](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)  deve ser ativada para proteger contra a exclusão forçada do segredo/cofre, mesmo após a exclusão temporária.
+\- O Azure Key Vault deve ser configurado como recuperável.Essas propriedades não são habilitadas por padrão e devem ser configuradas usando a CLI ou o PowerShell:
+
+  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
+ Exclusão      reversível deve ser ativado na    -  [proteção](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   de limpeza deve ser ativado para proteção contra a exclusão forçada do segredo/cofre mesmo após a exclusão reversível.
 
 A transferência do recurso de - *cluster* para outro grupo de recursos ou assinatura     não tem suporte no momento.
 
@@ -614,8 +729,6 @@ A transferência do recurso de - *cluster* para outro grupo de recursos ou ass
 
 - Se você atualizar o recurso de *cluster* existente com KeyVaultProperties e a Política de Acesso de chave “Get” estiver ausente no Key Vault, a operação falhará.
 
-- Se você tentar excluir um recurso de *cluster* associado a um workspace, a operação de exclusão falhará.
-
 - Se você receber um erro de conflito ao criar um recurso de *cluster* pode ser que você tenha excluído seu recurso de *cluster* nos últimos 14 dias e ele esteja em um período de exclusão temporária. O nome do recurso de *cluster* permanece reservado durante o período de exclusão temporária e você não pode criar um novo cluster com esse nome. O nome é liberado após o período de exclusão temporária quando o recurso de *cluster* é excluído permanentemente.
 
 - Se você atualizar seu recurso de *cluster* enquanto uma operação estiver em andamento, a operação falhará.
@@ -623,5 +736,9 @@ A transferência do recurso de - *cluster* para outro grupo de recursos ou ass
 - Se você não implantar o recurso de *cluster*, verifique se seu recurso de  *cluster* do Azure Key Vault e os workspaces do Log Analytics associados estão na mesma região. Eles podem estar em assinaturas diferentes.
 
 - Se você atualizar a versão de chave no Key Vault e não atualizar os novos detalhes do identificador de chave no recurso de *cluster*, o cluster de Log Analytics continuará usando sua chave anterior e seus dados ficarão inacessíveis. Atualize os novos detalhes do identificador de chave no recurso de *cluster* para retomar a ingestão de dados e a capacidade de consultar dados.
+
+- Algumas operações são longas e podem demorar um pouco para serem concluídas--são elas *: criação de cluster,* atualização de chave de *cluster* e exclusão de *cluster* . Você pode verificar o status da operação de duas maneiras:
+  1. ao usar o REST, copie o valor da URL Azure-AsyncOperation da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
+  2. Enviar solicitação GET para *cluster* ou espaço de trabalho e observar a resposta. Por exemplo, o espaço de trabalho desassociado não terá o *clusterResourceId* em *recursos*.
 
 - Para obter suporte e ajuda relacionados à chave gerenciada pelo cliente, use seus contatos na Microsoft.

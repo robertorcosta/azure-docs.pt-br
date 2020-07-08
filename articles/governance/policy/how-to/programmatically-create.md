@@ -3,12 +3,12 @@ title: Cria políticas de maneira programática
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy com a CLI do Azure, o Azure PowerShell e a API REST.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682124"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969882"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -95,7 +95,7 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
    - Assinatura – `/subscriptions/{subId}/`
    - Grupo de gerenciamento – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo PowerShell do Azure Resource Manager, confira [Az.Resources](/powershell/module/az.resources/#policies).
+Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo do PowerShell do Gerenciador de recursos, consulte [AZ. Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Criar e atribuir uma definição de política usando ARMClient
 
