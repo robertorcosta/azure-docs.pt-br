@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79244089"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
@@ -38,7 +37,7 @@ Você pode encontrar mais detalhes no portal do desenvolvedor na [visão geral d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conclua o início rápido a seguir: [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
+- Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 - Importar e publicar uma instância de gerenciamento de API do Azure. Para obter mais informações, consulte [importar e publicar](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -68,7 +67,7 @@ Você pode adicionar linhas a uma página clicando em um ícone azul com um sina
 
 Os layouts definem como as páginas são exibidas. Por exemplo, no conteúdo padrão, há dois layouts: um se aplica ao home page e o outro a todas as páginas restantes.
 
-Um layout é aplicado a uma página, correspondendo seu modelo de URL à URL da página. Por exemplo, o layout com um modelo de `/wiki/*` URL será aplicado a cada página com o `/wiki/` segmento na URL: `/wiki/getting-started`, `/wiki/styles`, etc.
+Um layout é aplicado a uma página, correspondendo seu modelo de URL à URL da página. Por exemplo, o layout com um modelo de URL `/wiki/*` será aplicado a cada página com o `/wiki/` segmento na URL: `/wiki/getting-started` , `/wiki/styles` , etc.
 
 Na imagem acima, o conteúdo que pertence ao layout é marcado em azul, enquanto a página é marcada em vermelho. As seções de menu são marcadas respectivamente.
 
@@ -91,9 +90,9 @@ Sempre que você fizer uma alteração no portal, precisará salvá-lo manualmen
 Antes de disponibilizar seu portal para os visitantes, você deve personalizar o conteúdo gerado automaticamente. As alterações recomendadas incluem layouts, estilos e o conteúdo do home page.
 
 > [!NOTE]
-> Devido a considerações de integração, as seguintes páginas não podem ser removidas ou movidas em uma `/change-password`URL `/config.json`diferente `/confirm/invitation`: `/confirm-v2/identities/basic/signup` `/404`, `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin` `/500` `/captcha`,,,, `/signin-sso`, `/signup`,,,,,.
+> Devido a considerações de integração, as seguintes páginas não podem ser removidas ou movidas em uma URL diferente:,,,,,, `/404` `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` , `/confirm-v2/password` , `/internal-status-0123456789abcdef` ,, `/publish` `/signin` , `/signin-sso` `/signup` .
 
-### <a name="home-page"></a>Página inicial
+### <a name="home-page"></a>Home page
 
 A **Home** Page padrão é preenchida com conteúdo fictício. Você pode remover as seções inteiras com o conteúdo ou manter a estrutura e ajustar os elementos um a um. Substitua o texto gerado e as imagens pelos seus próprios e verifique se os links apontam para os locais desejados.
 
@@ -124,7 +123,7 @@ Para tornar seu portal e suas alterações mais recentes disponíveis para os vi
 
 ## <a name="visit-the-published-portal"></a>Visite o portal publicado
 
-Depois de publicar o portal, você pode acessá-lo na mesma URL do painel administrativo, por exemplo `https://contoso-api.developer.azure-api.net`. Exiba-o em uma sessão de navegador separada (modo de navegação Incognito/privada) como um visitante externo.
+Depois de publicar o portal, você pode acessá-lo na mesma URL do painel administrativo, por exemplo `https://contoso-api.developer.azure-api.net` . Exiba-o em uma sessão de navegador separada (modo de navegação Incognito/privada) como um visitante externo.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Aplicar a política CORS em APIs
 

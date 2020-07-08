@@ -4,10 +4,9 @@ description: Criptografe os dados do aplicativo no armazenamento do Azure e impl
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 62179e900ace0d6d7b8b1f07e8f0ab685508f991
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79408717"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Criptografia em repouso usando chaves gerenciadas pelo cliente
@@ -31,7 +30,7 @@ Em seguida, use o Gerenciador de Armazenamento para [gerar uma SAS](../vs-azure-
 
 ### <a name="configure-running-from-a-package-from-your-storage-account"></a>Configurar a execução de um pacote de sua conta de armazenamento
   
-Depois de carregar o arquivo no armazenamento de BLOBs e ter uma URL SAS para o arquivo, `WEBSITE_RUN_FROM_PACKAGE` defina a configuração de aplicativo para a URL SAS. O exemplo a seguir faz isso usando CLI do Azure:
+Depois de carregar o arquivo no armazenamento de BLOBs e ter uma URL SAS para o arquivo, defina a `WEBSITE_RUN_FROM_PACKAGE` configuração de aplicativo para a URL SAS. O exemplo a seguir faz isso usando CLI do Azure:
 
 ```
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
@@ -41,9 +40,9 @@ A adição dessa configuração de aplicativo faz com que seu aplicativo de fun�
 
 ### <a name="encrypt-the-application-setting-using-key-vault-references"></a>Criptografar a configuração do aplicativo usando referências de Key Vault
 
-Agora você pode substituir o valor da configuração `WEBSITE_RUN_FROM_PACKAGE` do aplicativo por um Key Vault referência à URL codificada para SAS. Isso mantém a URL SAS criptografada no Key Vault, que fornece uma camada extra de segurança.
+Agora você pode substituir o valor da `WEBSITE_RUN_FROM_PACKAGE` configuração do aplicativo por um Key Vault referência à URL codificada para SAS. Isso mantém a URL SAS criptografada no Key Vault, que fornece uma camada extra de segurança.
 
-1. Use o comando [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) a seguir para criar uma instância de Key Vault.       
+1. Use o comando a seguir [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) para criar uma instância de Key Vault.       
 
     ```azurecli    
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
@@ -57,13 +56,13 @@ Agora você pode substituir o valor da configuração `WEBSITE_RUN_FROM_PACKAGE`
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  Use o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) a seguir para criar `WEBSITE_RUN_FROM_PACKAGE` a configuração de aplicativo com o valor como uma referência Key Vault para a URL externa:
+1.  Use o comando a seguir [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) para criar a `WEBSITE_RUN_FROM_PACKAGE` configuração de aplicativo com o valor como uma referência Key Vault para a URL externa:
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    O `<secret-version>` estará na saída do comando anterior `az keyvault secret set` .
+    O `<secret-version>` estará na saída do `az keyvault secret set` comando anterior.
 
 A atualização dessa configuração de aplicativo faz com que seu aplicativo de funções seja reiniciado. Depois que o aplicativo for reiniciado, navegue até ele para verificar se ele foi iniciado corretamente usando a referência de Key Vault.
 
@@ -71,7 +70,7 @@ A atualização dessa configuração de aplicativo faz com que seu aplicativo de
 
 É uma prática recomendada girar periodicamente a chave SAS da sua conta de armazenamento. Para garantir que o aplicativo de funções não tenha acesso inadvertidamente, você também deve atualizar a URL SAS no Key Vault.
 
-1. Gire a chave SAS navegando até sua conta de armazenamento no portal do Azure. Em **configurações** > **chaves de acesso**, clique no ícone para girar a chave SAS.
+1. Gire a chave SAS navegando até sua conta de armazenamento no portal do Azure. Em **configurações**  >  **chaves de acesso**, clique no ícone para girar a chave SAS.
 
 1. Copie a nova URL de SAS e use o comando a seguir para definir a URL SAS atualizada no cofre de chaves:
 
@@ -85,7 +84,7 @@ A atualização dessa configuração de aplicativo faz com que seu aplicativo de
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    O `<secret-version>` estará na saída do comando anterior `az keyvault secret set` .
+    O `<secret-version>` estará na saída do `az keyvault secret set` comando anterior.
 
 ## <a name="how-to-revoke-the-function-apps-data-access"></a>Como revogar o acesso a dados do aplicativo de funções
 
@@ -120,4 +119,4 @@ Somente o custo associado à conta de armazenamento do Azure e quaisquer encargo
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Referências de Key Vault para o serviço de aplicativo](../app-service/app-service-key-vault-references.md)
-- [Criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
+- [Criptografia do Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)

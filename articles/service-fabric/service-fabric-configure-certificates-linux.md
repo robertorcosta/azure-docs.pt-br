@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
 ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79282569"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança em clusters do Linux
@@ -33,7 +32,7 @@ Para alguns serviços, você pode configurar certificados X.509 no [ConfigPackag
 
 ### <a name="using-x509-securitycredentialstype"></a>Usando X509 SecurityCredentialsType
 
-Com o .NET ou Java SDks, você consegue especificar **X509** para o **SecurityCredentialsType**. Isso corresponde ao tipo `X509Credentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[.net Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) de `SecurityCredentials` ([.net](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
+Com o .NET ou Java SDks, você consegue especificar **X509** para o **SecurityCredentialsType**. Isso corresponde ao `X509Credentials` tipo ([.net](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) de `SecurityCredentials` ([.net](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
 
 A referência **X509** localiza o certificado em um armazenamento de certificados. O XML a seguir mostra os parâmetros usados para especificar o local do certificado:
 
@@ -43,7 +42,7 @@ A referência **X509** localiza o certificado em um armazenamento de certificado
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Para um serviço em execução no Linux, a **LocalMachine**/**aponta para** o local padrão para certificados, o diretório */var/lib/sfcerts* . Para Linux, quaisquer outras combinações de **CertificateStoreLocation** e **CertificateStoreName** são indefinidas. 
+Para um serviço em execução no Linux, a **LocalMachine** / **My** aponta para o local padrão para certificados, o diretório */var/lib/sfcerts* . Para Linux, quaisquer outras combinações de **CertificateStoreLocation** e **CertificateStoreName** são indefinidas. 
 
 Sempre especificar **LocalMachine** para o parâmetro **CertificateStoreLocation**. Não há necessidade de especificar o parâmetro **CertificateStoreName** porque ele tem como padrão “My”. Com uma referência **X509**, os arquivos de certificado devem estar localizados no diretório */var/lib/sfcerts* no nó do cluster.  
 

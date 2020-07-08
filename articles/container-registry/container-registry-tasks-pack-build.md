@@ -4,15 +4,14 @@ description: Use o comando AZ ACR Pack Build para criar uma imagem de contêiner
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087075"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Criar e enviar por push uma imagem de um aplicativo usando um Buildpack nativo de nuvem
 
-O comando `az acr pack build` CLI do Azure usa a [`pack`](https://github.com/buildpack/pack) ferramenta CLI, de [Buildpacks](https://buildpacks.io/), para criar um aplicativo e enviar por push sua imagem para um registro de contêiner do Azure. Esse recurso fornece uma opção para criar rapidamente uma imagem de contêiner do código-fonte do aplicativo em node. js, Java e em outras linguagens sem precisar definir um Dockerfile.
+O comando CLI do Azure `az acr pack build` usa a [`pack`](https://github.com/buildpack/pack) ferramenta CLI, de [Buildpacks](https://buildpacks.io/), para criar um aplicativo e enviar por push sua imagem para um registro de contêiner do Azure. Esse recurso fornece uma opção para criar rapidamente uma imagem de contêiner do código-fonte do seu aplicativo em Node.js, Java e outras linguagens sem precisar definir um Dockerfile.
 
 Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos neste artigo. Se você quiser usá-lo localmente, a versão 2.0.70 ou posterior será necessária. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
@@ -21,20 +20,20 @@ Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure pa
 
 ## <a name="use-the-build-command"></a>Usar o comando de Build
 
-Para criar e enviar por push uma imagem de contêiner usando a nuvem nativa Buildpacks, execute o comando [AZ ACR Pack Build][az-acr-pack-build] . Enquanto o comando [AZ ACR Build][az-acr-build] cria e envia uma imagem de uma fonte Dockerfile e de um código relacionado, `az acr pack build` com você especifica uma árvore de origem do aplicativo diretamente.
+Para criar e enviar por push uma imagem de contêiner usando a nuvem nativa Buildpacks, execute o comando [AZ ACR Pack Build][az-acr-pack-build] . Enquanto o comando [AZ ACR Build][az-acr-build] cria e envia uma imagem de uma fonte Dockerfile e de um código relacionado, com `az acr pack build` você especifica uma árvore de origem do aplicativo diretamente.
 
 No mínimo, especifique o seguinte ao executar `az acr pack build`:
 
 * Um registro de contêiner do Azure em que você executa o comando
 * Um nome de imagem e uma marca para a imagem resultante
 * Um dos [locais de contexto com suporte](container-registry-tasks-overview.md#context-locations) para tarefas ACR, como um diretório local, um repositório GitHub ou um tarball remoto
-* O nome de uma imagem do Buildpack Builder adequada para seu aplicativo. O `cloudfoundry/cnb:0.0.34-cflinuxfs3` registro de contêiner do Azure armazena em cache as imagens do Construtor, como para compilações mais rápidas.  
+* O nome de uma imagem do Buildpack Builder adequada para seu aplicativo. O registro de contêiner do Azure armazena em cache as imagens do Construtor, como `cloudfoundry/cnb:0.0.34-cflinuxfs3` para compilações mais rápidas.  
 
-`az acr pack build`oferece suporte a outros recursos de tarefas ACR, incluindo a [execução de variáveis](container-registry-tasks-reference-yaml.md#run-variables) e logs de [execução de tarefas](container-registry-tasks-logs.md) que são transmitidos e também salvos para recuperação posterior.
+O `az acr pack build` é compatível com outros recursos dos comandos das Tarefas do ACR, incluindo [variáveis de execução](container-registry-tasks-reference-yaml.md#run-variables) e [logs de execução de tarefa](container-registry-tasks-logs.md) que são transmitidos e também salvos para recuperação posterior.
 
-## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemplo: criar imagem do node. js com o construtor de Cloud Foundry
+## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemplo: criar Node.js imagem com o construtor de Cloud Foundry
 
-O exemplo a seguir cria uma imagem de contêiner de um aplicativo node. js no repositório [Azure-Samples/NodeJS-docs-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) , `cloudfoundry/cnb:0.0.34-cflinuxfs3` usando o construtor. Esse construtor é armazenado em cache pelo registro de contêiner do Azure `--pull` , portanto, um parâmetro não é necessário:
+O exemplo a seguir cria uma imagem de contêiner de um aplicativo Node.js no repositório [Azure-Samples/NodeJS-docs-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) , usando o `cloudfoundry/cnb:0.0.34-cflinuxfs3` Construtor. Esse construtor é armazenado em cache pelo registro de contêiner do Azure, portanto, um `--pull` parâmetro não é necessário:
 
 ```azurecli
 az acr pack build \
@@ -95,7 +94,7 @@ Navegue até `localhost:8080` em seu navegador favorito para ver o aplicativo We
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar e enviar por push uma imagem `az acr pack build`de contêiner com o, você pode implantá-la como qualquer imagem para um destino de sua escolha. As opções de implantação do Azure incluem executá-lo no [serviço de aplicativo](../app-service/containers/tutorial-custom-docker-image.md) ou no [serviço kubernetes do Azure](../aks/tutorial-kubernetes-deploy-cluster.md), entre outros.
+Depois de criar e enviar por push uma imagem de contêiner com `az acr pack build` o, você pode implantá-la como qualquer imagem para um destino de sua escolha. As opções de implantação do Azure incluem executá-lo no [serviço de aplicativo](../app-service/containers/tutorial-custom-docker-image.md) ou no [serviço kubernetes do Azure](../aks/tutorial-kubernetes-deploy-cluster.md), entre outros.
 
 Para obter mais informações sobre recursos de tarefas de ACR, consulte [automatizar compilações de imagem de contêiner e manutenção com tarefas ACR](container-registry-tasks-overview.md).
 

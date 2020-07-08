@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79126949"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com Aplicativos Lógicos
@@ -21,7 +20,7 @@ Para saber mais sobre como usar as APIs REST com Azure Analysis Services, consul
 
 ## <a name="authentication"></a>Autenticação
 
-Todas as chamadas devem ser autenticadas com um token de Azure Active Directory (OAuth 2) válido.  Os exemplos neste artigo usarão uma entidade de serviço (SPN) para autenticar para Azure Analysis Services. Para saber mais, confira [criar uma entidade de serviço usando portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+Todas as chamadas devem ser autenticadas com um token válido do Azure Active Directory (OAuth 2).  Os exemplos neste artigo usarão uma entidade de serviço (SPN) para autenticar para Azure Analysis Services. Para saber mais, confira [criar uma entidade de serviço usando portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="design-the-logic-app"></a>Criar o aplicativo lógico
 
@@ -32,7 +31,7 @@ Todas as chamadas devem ser autenticadas com um token de Azure Active Directory 
 
 #### <a name="create-a-service-principal-spn"></a>Criar uma entidade de serviço (SPN)
 
-Para saber mais sobre como criar uma entidade de serviço, consulte [criar uma entidade de serviço usando portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+Para saber como criar uma entidade de serviço, consulte [Criar uma entidade de serviço usando o portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="configure-permissions-in-azure-analysis-services"></a>Configurar permissões no Azure Analysis Services
  
@@ -65,12 +64,12 @@ Configure a atividade HTTP da seguinte maneira:
 |Propriedade  |Valor  |
 |---------|---------|
 |**Método**     |POST         |
-|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https:\//westus.asazure.Windows.net/servers/MyServer/Models/AdventureWorks/refreshes|
-|**headers**     |   Tipo de conteúdo, aplicativo/JSON <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
-|**Conteúdo**     |   Para saber mais sobre como formar o corpo da solicitação, consulte [atualização assíncrona com a API REST – post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
+|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https: \/ /westus.asazure.Windows.net/servers/MyServer/Models/AdventureWorks/refreshes|
+|**Cabeçalhos**     |   Tipo de conteúdo, aplicativo/JSON <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Corpo**     |   Para saber mais sobre como formar o corpo da solicitação, consulte [atualização assíncrona com a API REST – post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticação**     |Active Directory OAuth         |
 |**Locatário**     |Preencha seu Azure Active Directory Tenantid         |
-|**Platéia**     |https://*. asazure. Windows. net         |
+|**Público-alvo**     |https://*. asazure. Windows. net         |
 |**ID do Cliente**     |Insira o nome da entidade de serviço ClientID         |
 |**Tipo de Credencial**     |Segredo         |
 |**Segredo**     |Insira o segredo do nome da entidade de serviço         |

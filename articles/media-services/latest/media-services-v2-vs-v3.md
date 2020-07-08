@@ -16,10 +16,9 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087825"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de mídia v2 versus v3
@@ -95,7 +94,7 @@ A tabela a seguir mostra como as propriedades do [ativo](https://docs.microsoft.
 |`id`-(exclusivo) o caminho de Azure Resource Manager completo, consulte os exemplos no [ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
 |`name`-(exclusivo) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
-|`assetId`|`Id`-o valor (exclusivo) começa com `nb:cid:UUID:` o prefixo.|
+|`assetId`|`Id`-o valor (exclusivo) começa com o `nb:cid:UUID:` prefixo.|
 |`created`|`Created`|
 |`description`|`Name`|
 |`lastModified`|`LastModified`|

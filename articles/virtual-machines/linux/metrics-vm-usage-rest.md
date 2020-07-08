@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944749"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métricas de uso da Máquina Virtual usando a API REST
@@ -38,9 +37,9 @@ Os cabeçalhos a seguir são necessários:
 |*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
 |*Autorização:*|Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |  
 
-### <a name="uri-parameters"></a>Parâmetros de URI
+### <a name="uri-parameters"></a>Parâmetros do URI
 
-| Name | Descrição |
+| Nome | Descrição |
 | :--- | :---------- |
 | subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos do Azure associado ao recurso. É possível obter esse valor na API do Azure Resource Manager, na CLI ou no portal. |

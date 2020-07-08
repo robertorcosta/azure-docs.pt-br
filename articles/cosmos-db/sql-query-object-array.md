@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246546"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos no Azure Cosmos DB
@@ -90,7 +89,7 @@ Os resultados são:
     ]
 ```
 
-A próxima consulta executa a iteração `children` no `Families` contêiner. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children`e mescla os resultados em uma única matriz:  
+A próxima consulta executa a iteração `children` no `Families` contêiner. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children` e mescla os resultados em uma única matriz:  
 
 ```sql
     SELECT *
@@ -157,6 +156,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Junções](sql-query-join.md)

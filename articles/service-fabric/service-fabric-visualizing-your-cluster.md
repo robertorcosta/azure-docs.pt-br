@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79258181"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
@@ -37,7 +36,7 @@ Use os links a seguir para fazer o download do Service Fabric Explorer como um a
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Executando o Service Fabric Explorer pelo cluster
 
-O Service Fabric Explorer também está hospedado em um ponto de extremidade de gerenciamento de HTTP de um cluster do Service Fabric. Para iniciar o SFX em um navegador da Web, navegue até o ponto de extremidade de gerenciamento HTTP do cluster em qualquer navegador\/, por exemplo, https:/clusterFQDN: 19080.
+O Service Fabric Explorer também está hospedado em um ponto de extremidade de gerenciamento de HTTP de um cluster do Service Fabric. Para iniciar o SFX em um navegador da Web, navegue até o ponto de extremidade de gerenciamento HTTP do cluster em qualquer navegador, por exemplo, https: \/ /clusterFQDN: 19080.
 
 Para a instalação da estação de trabalho de desenvolvedor, você pode iniciar o Service Fabric Explorer no cluster local, navegando até https://localhost:19080/Explorer. Leia este artigo para [preparar seu ambiente de desenvolvimento](service-fabric-get-started.md).
 
@@ -47,7 +46,7 @@ Para a instalação da estação de trabalho de desenvolvedor, você pode inicia
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Conectar a um cluster do Service Fabric
-Para se conectar a um cluster do Service Fabric, você precisará do ponto de extremidade de gerenciamento de clusters (IP/FQDN) e a porta do ponto de extremidade de gerenciamento de HTTP (19080 por padrão). Por exemplo,\:https//mysfcluster.westus.cloudapp.Azure.com:19080. Use a caixa de seleção "Conectar ao localhost" para se conectar a um cluster local em sua estação de trabalho.
+Para se conectar a um cluster do Service Fabric, você precisará do ponto de extremidade de gerenciamento de clusters (IP/FQDN) e a porta do ponto de extremidade de gerenciamento de HTTP (19080 por padrão). Por exemplo, https \: //mysfcluster.westus.cloudapp.Azure.com:19080. Use a caixa de seleção "Conectar ao localhost" para se conectar a um cluster local em sua estação de trabalho.
 
 ### <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
 Você pode controlar o acesso do cliente ao cluster do Service Fabric com certificados ou usando o AAD (Azure Active Directory).
@@ -83,7 +82,7 @@ A exibição de nós mostra o layout físico do cluster. Para um nó específico
 ## <a name="actions"></a>Ações
 O Explorador do Service Fabric oferece uma maneira rápida de invocar ações em nós, aplicativos e serviços no cluster.
 
-Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e, em seguida, escolha **ações** > **excluir aplicativo**.
+Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e, em seguida, escolha **ações**  >  **excluir aplicativo**.
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 

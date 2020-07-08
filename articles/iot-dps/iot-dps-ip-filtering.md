@@ -8,10 +8,9 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79284909"
 ---
 # <a name="use-ip-filters"></a>Usar filtros IP
@@ -40,34 +39,34 @@ Por padrão, a grade de **filtro IP** no portal para DPS está vazia. Essa confi
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Adicionar ou editar uma regra de filtro IP
 
-Para adicionar uma regra de filtro IP, selecione **+ Adicionar regra de filtro IP**.
+Para adicionar uma regra de filtro de IP, selecione **+ Adicionar regra de filtro de IP**.
 
 ![Adicionar uma regra de filtro IP a um DPS de IoT](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
 
-Depois de selecionar **Adicionar regra de filtro IP**, preencha os campos.
+Após selecionar **Adicionar regra de filtro de IP**, preencha os campos.
 
-![Depois de selecionar Adicionar uma regra de filtro IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
+![Após selecionar Adicionar uma regra de filtro de IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Forneça um **nome** para a regra de filtro IP. Deve ser uma cadeia de caracteres alfanumérica, não diferencia maiúsculas de minúsculas, de até 128 caracteres de comprimento. Somente são aceitos caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Forneça um **nome** para a regra de filtro de IP. O nome deve ser uma cadeia exclusiva de caracteres alfanuméricos, que não diferencia maiúsculas de minúsculas, de até 128 caracteres. Somente são aceitos caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255.
 
-* Selecione **permitir** ou **Bloquear** como a **ação** para a regra de filtro IP.
+* Selecione **Permitir** ou **Bloquear** como a **ação** para a regra de filtro de IP.
 
-Depois de preencher os campos, selecione **salvar** para salvar a regra. Você verá um alerta notificando que a atualização está em andamento.
+Depois de preencher os campos, selecione **Salvar** para salvar a regra. Você verá um alerta informando que a atualização está em andamento.
 
 ![Notificação sobre como salvar uma regra de filtro IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
 A opção **Adicionar** é desabilitada quando você atinge o máximo de dez regras de filtro IP.
 
-Para editar uma regra existente, selecione os dados que você deseja alterar, faça a alteração e, em seguida, selecione **salvar** para salvar a edição.
+Para editar uma regra existente, selecione os dados que você deseja alterar, faça a alteração e, em seguida, selecione **Salvar** para salvar a alteração.
 
 > [!NOTE]
 > Rejeitar endereços IP pode impedir que outros serviços do Azure interajam com a instância do DPS.
 
 ## <a name="delete-an-ip-filter-rule"></a>Excluir uma regra de filtro IP
 
-Para excluir uma regra de filtro IP, selecione o ícone de lixeira na linha e, em seguida, selecione **salvar**. A regra é removida e a alteração é salva.
+Para excluir uma regra de filtro de IP, selecione o ícone de lixeira na respectiva linha e, em seguida, selecione **Salvar**. Isso removerá a regra e salvará a alteração.
 
 ![Excluir uma regra de filtro IP de DPS de IoT](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
 
@@ -135,8 +134,8 @@ Atualize os atributos de regra de filtro IP do modelo com base em seus requisito
 
 | Atributo                | Descrição |
 | ------------------------ | ----------- |
-| **Filter**           | Forneça um nome para a regra de filtro IP. Deve ser uma cadeia de caracteres alfanumérica, não diferencia maiúsculas de minúsculas, de até 128 caracteres de comprimento. Somente os caracteres alfanuméricos ASCII de 7 bits mais {'-', ': ', '/',\'', '. ', ' + ', '% ', ' _ ', ' # ', ' * ', '? ', '! ', ' (', ') ', ', ', ' = ', ' @ ', '; ', ' ' '} são aceitos. |
-| **Ação**               | Os valores aceitos são **Accept** ou **Reject** como a ação para a regra de filtro IP. |
+| **Filter**           | Forneça um nome para a regra de filtro IP. O nome deve ser uma cadeia exclusiva de caracteres alfanuméricos, que não diferencia maiúsculas de minúsculas, de até 128 caracteres. Somente os caracteres alfanuméricos ASCII de 7 bits mais {'-', ': ', '/', ' \' , '. ', ' + ', '% ', ' _ ', ' # ', ' * ', '? ', '! ', ' (', ') ', ', ', ' = ', ' @ ', '; ', ' ' '} são aceitos. |
+| **Ação**               | Os valores aceitos são **Accept**   ou **Reject**   como a ação para a regra de filtro IP. |
 | **ipMask**               | Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255. |
 
 

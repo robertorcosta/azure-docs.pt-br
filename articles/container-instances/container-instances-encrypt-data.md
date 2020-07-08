@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79080353"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
@@ -27,7 +26,7 @@ Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de s
 |    |    Chaves gerenciadas pela Microsoft     |     Chaves gerenciadas pelo cliente     |
 |----|----|----|
 |    Operações de criptografia/descriptografia    |    Azure    |    Azure    |
-|    Armazenamento de chaves    |    Repositório de chaves da Microsoft    |    Cofre de Chave do Azure    |
+|    Armazenamento de chave    |    Repositório de chaves da Microsoft    |    Cofre de Chave do Azure    |
 |    Responsabilidade de rotação de chave    |    Microsoft    |    Cliente    |
 |    Acesso à chave    |    Somente Microsoft    |    Microsoft, cliente    |
 
@@ -83,7 +82,7 @@ Crie uma nova política de acesso para permitir que o serviço ACI acesse sua ch
 
 * Depois que a chave tiver sido gerada, volte na folha de recursos do cofre de chaves, em configurações, clique em **políticas de acesso**.
 * Na página "políticas de acesso" do cofre de chaves, clique em **Adicionar política de acesso**.
-* Defina as *permissões de chave* para incluir as permissões **Get** e **Unwrap** ![chave do conjunto de chaves](./media/container-instances-encrypt-data/set-key-permissions.png)
+* Defina as *permissões de chave* para incluir as permissões **Get** e **Unwrap** chave do conjunto de chaves ![](./media/container-instances-encrypt-data/set-key-permissions.png)
 * Para *selecionar entidade de segurança*, selecione **serviço de instância de contêiner do Azure**
 * Clique em **Adicionar** na parte inferior 
 
@@ -97,12 +96,12 @@ A política de acesso agora deve aparecer nas políticas de acesso do cofre de c
 > A criptografia de dados de implantação com uma chave gerenciada pelo cliente está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação. Se você tiver problemas com isso, entre em contato com o suporte do Azure.
 
 Depois que a chave do Key Vault e a política de acesso forem configuradas, adicione as propriedades a seguir ao modelo de implantação do ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* Em `resources`, defina `apiVersion` como `2019-12-01`.
-* Na seção Propriedades do grupo de contêineres do modelo de implantação, `encryptionProperties`adicione um, que contém os seguintes valores:
+* Em `resources` , defina `apiVersion` como `2019-12-01` .
+* Na seção Propriedades do grupo de contêineres do modelo de implantação, adicione um `encryptionProperties` , que contém os seguintes valores:
   * `vaultBaseUrl`: o nome DNS do cofre de chaves pode ser encontrado na folha visão geral do recurso do cofre de chaves no portal
   * `keyName`: o nome da chave gerada anteriormente
   * `keyVersion`: a versão atual da chave. Isso pode ser encontrado ao clicar na chave em si (em "chaves" na seção de configurações do recurso do cofre de chaves)
-* Nas propriedades do grupo de contêineres, `sku` adicione uma propriedade `Standard`com valor. A `sku` propriedade é necessária na versão de API 2019-12-01.
+* Nas propriedades do grupo de contêineres, adicione uma `sku` propriedade com valor `Standard` . A `sku` propriedade é necessária na versão de API 2019-12-01.
 
 O trecho de código de modelo a seguir mostra essas propriedades adicionais para criptografar os dados de implantação:
 

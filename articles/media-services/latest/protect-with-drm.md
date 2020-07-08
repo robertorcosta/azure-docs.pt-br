@@ -16,10 +16,9 @@ ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79086739"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: usar o serviço de entrega de licença e criptografia dinâmica de DRM
@@ -57,7 +56,7 @@ Os seguintes itens são necessários para concluir o tutorial:
 * Instale o Visual Studio Code ou o Visual Studio.
 * Crie uma nova conta dos Serviços de Mídia do Azure, conforme descrito [neste início rápido](create-account-cli-quickstart.md).
 * Obtenha as credenciais necessárias para usar as APIs dos Serviços de Mídia seguindo as [APIs de acesso](access-api-cli-how-to.md)
-* Defina os valores apropriados no arquivo de configuração de aplicativo (appSettings. JSON).
+* Defina os valores apropriados no arquivo de configuração de aplicativo (appsettings.jsem).
 
 ## <a name="download-code"></a>Código de download
 
@@ -135,7 +134,7 @@ Depois que a codificação for concluída e a política de chave de conteúdo fo
 
 O processo de criação do **localizador de streaming** é chamado publicação. Por padrão, o **localizador de streaming** é válido imediatamente depois que você faz as chamadas à API. Ela dura até ser excluída, a menos que você configure as horas de início e de término opcionais.
 
-Ao criar um **localizador de streaming**, você precisa especificar o `StreamingPolicyName`desejado. Neste tutorial, estamos usando uma das políticas de streaming predefinidas, que informa aos serviços de mídia do Azure como publicar o conteúdo para streaming. Neste exemplo, definimos a StreamingLocator.StreamingPolicyName à política do “Predefined_MultiDrmCencStreaming”. As criptografias PlayReady e Widevine são aplicadas e a chave é entregue ao cliente de reprodução com base nas licenças DRM configuradas. Se você também quiser criptografar seu fluxo com CBCS (FairPlay), use “Predefined_MultiDrmStreaming”.
+Ao criar um **localizador de streaming**, você precisa especificar o desejado `StreamingPolicyName` . Neste tutorial, estamos usando uma das políticas de streaming predefinidas, que informa aos serviços de mídia do Azure como publicar o conteúdo para streaming. Neste exemplo, definimos a StreamingLocator.StreamingPolicyName à política do “Predefined_MultiDrmCencStreaming”. As criptografias PlayReady e Widevine são aplicadas e a chave é entregue ao cliente de reprodução com base nas licenças DRM configuradas. Se você também quiser criptografar seu fluxo com CBCS (FairPlay), use “Predefined_MultiDrmStreaming”.
 
 > [!IMPORTANT]
 > Ao usar uma [Política de Streaming](streaming-policy-concept.md) personalizada, você deve criar um conjunto limitado de políticas para a conta de Serviço de Mídia e reutilizá-los para os Localizadores de Streaming sempre que as mesmas opções e protocolos de criptografia forem necessários. Sua conta de Serviço de Mídia tem uma cota para o número de entradas de StreamingPolicy. Você não deve criar um novo StreamingPolicy para cada StreamingLocator.

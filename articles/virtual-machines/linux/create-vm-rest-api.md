@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970268"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
@@ -54,10 +53,10 @@ Para obter informações gerais sobre como trabalhar com solicitações da API R
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-| Name                       | Obrigatório | Type                                                                                | Descrição  |
+| Nome                       | Obrigatório | Tipo                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | local                   | True     | string                                                                              | Local do recurso. |
-| name                       |          | cadeia de caracteres                                                                              | Nome da máquina virtual. |
+| name                       |          | string                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as configurações de hardware da máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as configurações de armazenamento dos discos da máquina virtual. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as configurações do sistema operacional da máquina virtual. |
@@ -128,7 +127,7 @@ Para obter uma lista completa das definições disponíveis no corpo da solicita
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
 
-| Nome        | Type                                                                              | Descrição |
+| Nome        | Tipo                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79257167"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Proteja Novamente do Azure para o local
@@ -42,7 +41,7 @@ Depois de [failover](site-recovery-failover.md) de máquinas virtuais do VMware 
 
 ## <a name="enable-reprotection"></a>Habilitar nova proteção
 
-Habilite a replicação. Você pode proteger novamente VMs específicas ou um plano de recuperação:
+Habilitar a replicação. Você pode proteger novamente VMs específicas ou um plano de recuperação:
 
 - Se você proteger novamente um plano de recuperação, deverá fornecer os valores para cada computador protegido.
 - Se as VMs pertencerem a um grupo de replicação para consistência de várias VMS, elas só poderão ser protegidas novamente usando um plano de recuperação. As VMs em um grupo de replicação devem usar o mesmo servidor de destino mestre
@@ -55,7 +54,7 @@ Habilite a replicação. Você pode proteger novamente VMs específicas ou um pl
 
 Habilite a nova proteção da seguinte maneira:
 
-1. Selecione **cofre** > **itens replicados**. A máquina virtual que falhou e, em seguida, selecione **proteger novamente**. Ou, os botões de comando, selecione a máquina e, em seguida, selecione **proteger novamente**.
+1. Selecione **cofre**  >  **itens replicados**. A máquina virtual que falhou e, em seguida, selecione **proteger novamente**. Ou, os botões de comando, selecione a máquina e, em seguida, selecione **proteger novamente**.
 2. Verifique o **do Azure para local** direção de proteção está selecionada.
 3. Em **servidor de destino mestre** e **servidor de processo**, selecione o servidor de destino mestre local e o servidor de processo.  
 4. Para **Repositório de Dados**, selecione o repositório de dados no qual você deseja recuperar os discos localmente. Essa opção é usada quando a máquina virtual no local é excluída e você precisa criar novos discos. Essa opção será ignorada se os discos já existem. Você ainda precisa especificar um valor.

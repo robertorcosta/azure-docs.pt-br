@@ -8,10 +8,9 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: ae9a421a165d6c8bda688819c5233ae5bb1a8562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79139089"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Função de administrador de clientes do Red Hat OpenShift do Azure
@@ -23,23 +22,23 @@ Quando sua conta tiver a função de autorização Customer-admin-cluster associ
 > [!Note] 
 > A função de cluster Customer-admin-cluster não é a mesma que a função de cluster de administrador de cluster.
 
-Por exemplo, você pode executar ações associadas a um conjunto de verbos (`create`) para operar em um conjunto de nomes de recursos (`templates`). Para exibir os detalhes dessas funções e seus conjuntos de verbos e recursos, execute o seguinte comando:
+Por exemplo, você pode executar ações associadas a um conjunto de verbos ( `create` ) para operar em um conjunto de nomes de recursos ( `templates` ). Para exibir os detalhes dessas funções e seus conjuntos de verbos e recursos, execute o seguinte comando:
 
 `$ oc get clusterroles customer-admin-cluster -o yaml`
 
-Os nomes de verbo não necessariamente são mapeados `oc` diretamente para comandos. Eles correspondem mais geralmente aos tipos de operações da CLI que você pode executar. 
+Os nomes de verbo não necessariamente são mapeados diretamente para `oc` comandos. Eles correspondem mais geralmente aos tipos de operações da CLI que você pode executar. 
 
-Por exemplo, ter o `list` verbo significa que você pode exibir uma lista de todos os objetos de um nome de`oc get`recurso (). O `get` verbo significa que você pode exibir os detalhes de um objeto específico se souber seu nome (`oc describe`).
+Por exemplo, ter o `list` verbo significa que você pode exibir uma lista de todos os objetos de um nome de recurso ( `oc get` ). O `get` verbo significa que você pode exibir os detalhes de um objeto específico se souber seu nome ( `oc describe` ).
 
 ## <a name="configure-the-customer-administrator-role"></a>Configurar a função de administrador do cliente
 
-Você pode configurar a função de cluster Customer-admin-cluster somente durante a criação do cluster, `--customer-admin-group-id`fornecendo o sinalizador. Este campo não é configurável no momento no portal do Azure. Para saber como configurar Azure Active Directory e o grupo de administradores, confira [integração Azure Active Directory para o Azure Red Hat OpenShift](howto-aad-app-configuration.md).
+Você pode configurar a função de cluster Customer-admin-cluster somente durante a criação do cluster, fornecendo o sinalizador `--customer-admin-group-id` . Este campo não é configurável no momento no portal do Azure. Para saber como configurar Azure Active Directory e o grupo de administradores, confira [integração Azure Active Directory para o Azure Red Hat OpenShift](howto-aad-app-configuration.md).
 
 ## <a name="confirm-membership-in-the-customer-administrator-role"></a>Confirmar associação na função de administrador do cliente
 
-Para confirmar sua associação no grupo administrador do cliente, tente os comandos `oc get nodes` da CLI do `oc projects`OpenShift ou. `oc get nodes`mostrará uma lista de nós se você tiver a função Customer-admin-cluster e um erro de permissão se você tiver apenas a função Customer-admin-Project. `oc projects`mostrará todos os projetos no cluster em vez de apenas os projetos nos quais você está trabalhando.
+Para confirmar sua associação no grupo administrador do cliente, tente os comandos da CLI do OpenShift `oc get nodes` ou `oc projects` . `oc get nodes`mostrará uma lista de nós se você tiver a função Customer-admin-cluster e um erro de permissão se você tiver apenas a função Customer-admin-Project. `oc projects`mostrará todos os projetos no cluster em vez de apenas os projetos nos quais você está trabalhando.
 
-Para explorar ainda mais as funções e permissões no cluster, você pode usar [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) o comando.
+Para explorar ainda mais as funções e permissões no cluster, você pode usar o [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) comando.
 
 ## <a name="next-steps"></a>Próximas etapas
 

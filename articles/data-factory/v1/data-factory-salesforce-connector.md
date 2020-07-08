@@ -13,10 +13,9 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281126"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
@@ -66,11 +65,11 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Salesforce.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade Type deve ser definida como: **Salesforce**. |Sim |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> -O padrão é "https\/:/login.Salesforce.com". <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
-| username |Especifique um nome de usuário para a conta de usuário. |Sim |
+| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> -O padrão é "https: \/ /login.Salesforce.com". <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
+| Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
 | password |Especifique um senha para a conta de usuário. |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |Sim |
 
@@ -79,7 +78,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as propriedades a seguir:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Necessária |
 | --- | --- | --- |
 | tableName |Nome da tabela no Salesforce. |Não (se uma **consulta** de **RelationalSource** for especificada) |
 
@@ -95,7 +94,7 @@ As propriedades que estão disponíveis na seção typeProperties da atividade, 
 
 Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que inclui Salesforce), as seguintes propriedades estarão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta |Utiliza a consulta personalizada para ler os dados. |Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: `select * from MyTable__c`. |Não (se **tableName** do **conjunto de dados** for especificado) |
 
@@ -152,7 +151,7 @@ Este exemplo usa o serviço vinculado **Salesforce** . Veja a seção [Serviço 
     }
 }
 ```
-**Serviço vinculado do armazenamento do Azure**
+**Serviço vinculado de armazenamento do Azure**
 
 ```json
 {
@@ -199,7 +198,7 @@ Configurar **external** como **true** informa ao serviço Data Factory que o con
 
 ![Data Factory — conexão Salesforce — nome da API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
-**Conjunto de dados de saída de blob do Azure**
+**Conjunto de dados de saída do blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
 

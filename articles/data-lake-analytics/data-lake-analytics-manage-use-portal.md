@@ -10,10 +10,9 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79265695"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
@@ -30,7 +29,7 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 ### <a name="create-an-account"></a>Criar uma conta
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Clique em **criar um Resource** > **Intelligence + Analytics** > **Data Lake Analytics**.
+2. Clique em **criar um Resource**  >  **Intelligence + Analytics**  >  **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens: 
    1. **Nome**: o nome da conta do Data Lake Analytics.
    2. **Assinatura**: a assinatura do Azure usada para a conta.
@@ -51,7 +50,7 @@ Antes de excluir uma conta do Data Lake Analytics, exclua sua conta padrão do D
 <!-- ################################ -->
 <!-- ################################ -->
 
-## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar fontes de dados
 
 O Data Lake Analytics dá suporte às seguintes fontes de dados:
 
@@ -111,7 +110,7 @@ Use a função de desenvolvedor do Data Lake Analytics para permitir que os dese
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Adicionar usuários ou grupos de segurança a uma conta do Data Lake Analytics
 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
-2. Clique em **controle de acesso (iam)** > **Adicionar atribuição de função**.
+2. Clique em **controle de acesso (iam)**  >  **Adicionar atribuição de função**.
 3. Selecione uma função.
 4. Adicione um usuário.
 5. Clique em **OK**.
@@ -131,7 +130,7 @@ Use a função de desenvolvedor do Data Lake Analytics para permitir que os dese
 
 2. Clique em **Novo Trabalho**. Para cada trabalho, configure:
 
-    1. **Nome do Trabalho**: o nome do trabalho.
+    1. **Nome do trabalho**: o nome do trabalho.
     2. **Prioridade**: números menores têm prioridade mais alta. Se dois trabalhos estiverem enfileirados, aquele com o menor valor de prioridade será executado primeiro.
     3. **Paralelismo**: o número máximo de processos de computação a serem reservados para este trabalho.
 

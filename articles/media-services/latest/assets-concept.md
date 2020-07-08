@@ -14,10 +14,9 @@ ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9b04941a5799955097fbd54ad9bdf50eccb87541
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087916"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Ativos nos serviços de mídia do Azure v3
@@ -38,12 +37,12 @@ Os nomes dos ativos devem ser exclusivos. Os nomes de recursos dos serviços de 
 
 ### <a name="blobs"></a>Blobs
 
-Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome do blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e os requisitos de nome do [NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). O motivo para esses requisitos é que os arquivos podem ser copiados do armazenamento de BLOBs para um disco NTFS local para processamento.
+Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome de blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e os [requisitos de nome de NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). O motivo para esses requisitos é que os arquivos podem ser copiados do armazenamento de blobs para um disco NTFS local para processamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar ativos nos serviços de mídia](manage-asset-concept.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Diferenças entre os Serviços de Mídia do Azure v2 e v3](migrate-from-v2-to-v3.md)

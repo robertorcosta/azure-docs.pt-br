@@ -7,10 +7,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087865"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
@@ -103,7 +102,7 @@ O comportamento de Upsert é *Inserir ou substituir*.
 
 **Níveis anteriores:** Não havia validação estrita dos prefixos de função.
 
-**nível de 1,2:** Azure Stream Analytics tem uma validação estrita dos prefixos de função. A adição de um prefixo a uma função interna causa um erro. Por exemplo,`myprefix.ABS(…)` não tem suporte.
+**nível de 1,2:** Azure Stream Analytics tem uma validação estrita dos prefixos de função. A adição de um prefixo a uma função interna causa um erro. Por exemplo, `myprefix.ABS(…)` não tem suporte.
 
 Adicionar um prefixo a agregações internas também resulta em erro. Por exemplo, `myprefix.SUM(…)` não tem suporte.
 

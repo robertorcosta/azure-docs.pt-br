@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79249536"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página no Gerenciamento de API do Azure
@@ -104,7 +103,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 -   [entrada básica](api-management-page-controls.md#basic-signin)  
   
--   [fornecedor](api-management-page-controls.md#providers)  
+-   [providers](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Modelo de dados  
  Entidade [Entrada do usuário](api-management-template-data-model-reference.md#UseSignIn).  
@@ -185,7 +184,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="page-not-found"></a><a name="PageNotFound"></a> Página não encontrada  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a>Página não encontrada  
  O modelo **página não encontrada** permite personalizar a página “não encontrada” no portal do desenvolvedor.  
   
  ![Página não encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM de página não encontrado modelos do portal do desenvolvedor")  
@@ -227,13 +226,13 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|referenceCode|cadeia de caracteres|Código gerado se esta página foi exibida devido a um erro interno.|  
-|errorCode|cadeia de caracteres|Código gerado se esta página foi exibida devido a um erro interno.|  
-|emailBody|cadeia de caracteres|Corpo de email gerado se esta página foi exibida devido a um erro interno.|  
-|requestedUrl|cadeia de caracteres|A URL solicitada quando a página não foi encontrada.|  
-|referrerUrl|cadeia de caracteres|A URL de referência para a URL solicitada.|  
+|referenceCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  
+|errorCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  
+|emailBody|string|Corpo de email gerado se esta página foi exibida devido a um erro interno.|  
+|requestedUrl|string|A URL solicitada quando a página não foi encontrada.|  
+|referrerUrl|string|A URL de referência para a URL solicitada.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   

@@ -6,17 +6,16 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: d4dbf43fb5684d829e581be29832e94ad46b2936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79277421"
 ---
 # <a name="azure-iot-hub-output-binding-for-azure-functions"></a>Associação de saída do Hub IoT do Azure para Azure Functions
 
 Este artigo explica como trabalhar com Azure Functions associações de saída para o Hub IoT. O suporte ao Hub IoT é baseado na [Associação de hubs de eventos do Azure](functions-bindings-event-hubs.md).
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](functions-bindings-event-iot.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-event-iot.md).
 
 > [!IMPORTANT]
 > Embora os exemplos de código a seguir usem a API do hub de eventos, a sintaxe fornecida é aplicável a funções do Hub IoT.

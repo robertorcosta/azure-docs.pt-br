@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79269478"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrar VMs VMware para VMs do Azure habilitadas com criptografia do lado do servidor e chaves gerenciadas pelo cliente
@@ -52,7 +51,7 @@ A experiência do portal de migração do servidor simplifica a preparação da 
 
 1. Na portal do Azure, acesse a página grupos de recursos e selecione o grupo de recursos no qual o projeto de migração do Azure foi criado.
 2. Selecione **implantações** no menu à esquerda e procure um nome de implantação começando com a cadeia de caracteres *"Microsoft. MigrateV2. VMwareV2EnableMigrate"*. Você verá uma lista de modelos do Resource Manager criados pela experiência do portal para configurar a replicação para VMs neste projeto. Vamos baixar um desses modelos e usá-lo como base para preparar o modelo para replicação com o CMK.
-3. Para baixar o modelo, selecione qualquer implantação que corresponda ao padrão de cadeia de caracteres na etapa anterior > selecione **modelo** no menu à esquerda > clique em **baixar** no menu superior. Salve o arquivo template. JSON localmente. Você editará esse arquivo de modelo na última etapa.
+3. Para baixar o modelo, selecione qualquer implantação que corresponda ao padrão de cadeia de caracteres na etapa anterior > selecione **modelo** no menu à esquerda > clique em **baixar** no menu superior. Salve o template.jsno arquivo localmente. Você editará esse arquivo de modelo na última etapa.
 
 ## <a name="create-a-disk-encryption-set"></a>Criar um conjunto de criptografia de disco
 

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79263641"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solução de problemas: proteção de senha do Azure AD local
@@ -40,7 +39,7 @@ O principal sintoma desse problema é 30018 eventos no log de eventos do adminis
 
 1. O computador host proxy está bloqueando o acesso ao ponto de extremidade RPC (dinâmico ou estático) escutado pelo serviço de proxy
 
-   O instalador de proxy de proteção de senha do Azure AD cria automaticamente uma regra de entrada do firewall do Windows que permite o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Se essa regra for excluída ou desabilitada posteriormente, os agentes de DC não poderão se comunicar com o serviço de proxy. Se o firewall interno do Windows tiver sido desabilitado no lugar de outro produto de firewall, você deverá configurar esse firewall para permitir o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Essa configuração pode se tornar mais específica se o serviço de proxy tiver sido configurado para escutar em uma porta RPC estática específica (usando `Set-AzureADPasswordProtectionProxyConfiguration` o cmdlet).
+   O instalador de proxy de proteção de senha do Azure AD cria automaticamente uma regra de entrada do firewall do Windows que permite o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Se essa regra for excluída ou desabilitada posteriormente, os agentes de DC não poderão se comunicar com o serviço de proxy. Se o firewall interno do Windows tiver sido desabilitado no lugar de outro produto de firewall, você deverá configurar esse firewall para permitir o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Essa configuração pode se tornar mais específica se o serviço de proxy tiver sido configurado para escutar em uma porta RPC estática específica (usando o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
 
 1. O computador host proxy não está configurado para permitir que os controladores de domínio possam fazer logon no computador. Esse comportamento é controlado por meio da atribuição de privilégio de usuário "acessar este computador pela rede". Todos os controladores de domínio em todos os domínios na floresta devem receber esse privilégio. Essa configuração geralmente é restrita como parte de um esforço maior de proteção de rede.
 
@@ -50,9 +49,9 @@ O principal sintoma desse problema é 30018 eventos no log de eventos do adminis
 
 1. Verifique se a floresta e todos os servidores proxy estão registrados no mesmo locatário do Azure.
 
-   Você pode verificar esse requisito executando os `Get-AzureADPasswordProtectionProxy` cmdlets `Get-AzureADPasswordProtectionDCAgent` do e do PowerShell e, em `AzureTenant` seguida, comparar a propriedade de cada item retornado. Para a operação correta, o nome do locatário relatado deve ser o mesmo em todos os agentes de DC e servidores proxy.
+   Você pode verificar esse requisito executando os `Get-AzureADPasswordProtectionProxy` cmdlets do e do `Get-AzureADPasswordProtectionDCAgent` PowerShell e, em seguida, comparar a `AzureTenant` propriedade de cada item retornado. Para a operação correta, o nome do locatário relatado deve ser o mesmo em todos os agentes de DC e servidores proxy.
 
-   Se houver uma condição de incompatibilidade de registro de locatário do Azure, esse problema poderá ser `Register-AzureADPasswordProtectionProxy` corrigido executando os `Register-AzureADPasswordProtectionForest` cmdlets do PowerShell e/ou conforme necessário, certificando-se de usar credenciais do mesmo locatário do Azure para todos os registros.
+   Se houver uma condição de incompatibilidade de registro de locatário do Azure, esse problema poderá ser corrigido executando os `Register-AzureADPasswordProtectionProxy` cmdlets do PowerShell e/ou `Register-AzureADPasswordProtectionForest` conforme necessário, certificando-se de usar credenciais do mesmo locatário do Azure para todos os registros.
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>O agente de DC não pode criptografar ou descriptografar arquivos de política de senha
 
@@ -94,7 +93,7 @@ Esse problema pode ter várias causas.
 
 1. O algoritmo de validação de senha pode realmente estar funcionando conforme o esperado. Veja [como as senhas são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>O Ntdsutil. exe falha ao definir uma senha de DSRM fraca
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil.exe falha ao definir uma senha de DSRM fraca
 
 Active Directory sempre validará uma nova senha do modo de reparo dos serviços de diretório para garantir que ele atenda aos requisitos de complexidade de senha do domínio; essa validação também chama as DLLs de filtro de senha, como a proteção de senha do Azure AD. Se a nova senha do DSRM for rejeitada, os seguintes resultados da mensagem de erro:
 

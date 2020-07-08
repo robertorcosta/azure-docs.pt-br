@@ -12,15 +12,14 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944884"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB em uma VM Linux
 
-[O MongoDB](https://www.mongodb.org) é um popular banco de dados NoSQL de software livre e alto desempenho. Este artigo mostra como instalar e configurar o MongoDB em uma VM Linux com a CLI do Azure. São mostrados exemplos que explicam em detalhes como:
+[O MongoDB](https://www.mongodb.org) é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo mostra como instalar e configurar o MongoDB em uma VM Linux com a CLI do Azure. São mostrados exemplos que explicam em detalhes como:
 
 * [Instalar e configurar uma instância básica do MongoDB manualmente](#manually-install-and-configure-mongodb-on-a-vm)
 * [Criar uma instância básica do MongoDB usando um Modelo do Resource Manager](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -59,7 +58,7 @@ Para adicionar fontes de instalação para o MongoDB, crie um arquivo de reposit
 sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Abra o arquivo de repositório do MongoDB para edição, com `vi` ou `nano`. Adicione as linhas a seguir:
+Abra o arquivo de repositório do MongoDB para edição, com `vi` ou `nano`. Adicione as seguintes linhas:
 
 ```sh
 [mongodb-org-3.6]

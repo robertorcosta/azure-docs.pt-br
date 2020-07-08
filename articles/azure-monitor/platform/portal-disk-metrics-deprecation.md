@@ -8,10 +8,9 @@ author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
 ms.openlocfilehash: f2b960c2198800e04da77ad6b5be78d7b4762354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79299797"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Reprovação de métricas de disco no portal do Azure
@@ -24,11 +23,11 @@ Esta tabela mapeia cada métrica preterida para a nova métrica correspondente.
 
 |Métrica preterida|Nova métrica (substituição)|
 |----|----|
-|Disco de dados QD (preterido)|Profundidade da fila do disco de dados (visualização)|
-|Bytes de leitura do disco de dados/s (preterido)|Bytes de Leitura do Disco de Dados/s (Visualização)|
-|Operações de leitura de disco de dados/s (preterido)|Operações de Leitura do Disco de Dados/s (Visualização)|
-|Bytes de gravação do disco de dados/s (preterido)|Bytes de Gravação do Disco de Dados/s (Visualização)|
-|Operações de gravação do disco de dados/s (preterido)|Operações de Gravação do Disco de Dados/s (Visualização)|
+|QD do Disco de Dados (Preterido)|Profundidade da Fila de Disco de Dados (Versão prévia)|
+|Bytes de Leitura do Disco de Dados/s (Preterido)|Bytes de Leitura do Disco de Dados/s (Visualização)|
+|Operações de Leitura do Disco de Dados/s (Preterido)|Operações de Leitura do Disco de Dados/s (Visualização)|
+|Bytes de Gravação do Disco de Dados/s (Preterido)|Bytes de Gravação do Disco de Dados/s (Visualização)|
+|Operações de Gravação do Disco de Dados/s (Preterido)|Operações de Gravação do Disco de Dados/s (Visualização)|
 |Sistema operacional QD (preterido)|Profundidade da fila do so (visualização)|
 |Bytes de leitura do sistema operacional/s (preterido)|Bytes de leitura do sistema operacional/s (visualização)|
 |Operações de leitura do sistema operacional/s (preterido)|Operações de leitura do sistema operacional/s (visualização)|

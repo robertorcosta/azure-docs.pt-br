@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367509"
 ---
 # <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use o módulo **inserir dados manualmente** para criar um pequeno DataSet digitando valores. O conjunto de linhas pode ter várias colunas.
   
@@ -57,7 +56,7 @@ Esse módulo pode ser útil em cenários como:
   
    - **ARFF**: colar um arquivo de formato ARFF existente. Se você estiver digitando valores diretamente, certifique-se de adicionar o cabeçalho opcional e os campos de atributo necessários no início dos dados. 
 
-     Por exemplo, as linhas de cabeçalho e de atributo a seguir podem ser adicionadas a uma lista simples. O título da coluna seria `SampleText`. Observe que o tipo de cadeia de caracteres não tem suporte.
+     Por exemplo, as linhas de cabeçalho e de atributo a seguir podem ser adicionadas a uma lista simples. O título da coluna seria `SampleText` . Observe que o tipo de cadeia de caracteres não tem suporte.
     
      ```text
      % Title: SampleText.ARFF  
@@ -96,4 +95,4 @@ Esse módulo pode ser útil em cenários como:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

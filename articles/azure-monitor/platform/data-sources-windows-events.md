@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79274678"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados do log de eventos do Windows no Azure Monitor
@@ -21,7 +20,7 @@ Logs de eventos do Windows são uma das mais comuns [fontes de dados](agent-data
 ## <a name="configuring-windows-event-logs"></a>Configurando os logs de eventos do Windows
 Configure os logs de Eventos do Windows no [menu Dados em Configurações Avançadas](agent-data-sources.md#configuring-data-sources).
 
-O Azure Monitor coleta apenas os eventos dos logs de eventos do Windows especificados nas configurações.  Você pode adicionar um log de eventos digitando o nome do log e clicando **+** em.  Para cada log, somente eventos com as severidades selecionadas são coletados.  Marque as severidades para o log específico que você deseja coletar.  Você não pode fornecer quaisquer critérios adicionais para filtrar eventos.
+O Azure Monitor coleta apenas os eventos dos logs de eventos do Windows especificados nas configurações.  Você pode adicionar um log de eventos digitando o nome do log e clicando em **+** .  Para cada log, somente eventos com as severidades selecionadas são coletados.  Marque as severidades para o log específico que você deseja coletar.  Você não pode fornecer quaisquer critérios adicionais para filtrar eventos.
 
 Conforme você digita o nome de um log de eventos, o Azure Monitor fornece sugestões de nomes comuns de log de eventos. Se o log que você deseja adicionar não aparecer na lista, você ainda poderá adicioná-lo digitando o nome completo do log. Você pode encontrar o nome completo do log usando o visualizador de eventos. No visualizador de eventos, abra a página *Propriedades* para o log e copie a cadeia de caracteres do campo *Nome Completo*.
 
@@ -40,7 +39,7 @@ O Azure Monitor coleta cada evento que corresponde a uma severidade selecionada 
 ## <a name="windows-event-records-properties"></a>Propriedades de registros de eventos do Windows
 Os registros de eventos do Windows têm um tipo de **evento** e têm as propriedades na tabela a seguir:
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | Computador |Nome do computador do qual o evento foi coletado. |
 | EventCategory |Categoria do evento. |
@@ -52,7 +51,7 @@ Os registros de eventos do Windows têm um tipo de **evento** e têm as propried
 | ParameterXml |Valores de parâmetro de evento em formato XML. |
 | ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, esse valor é`AOI-<workspace ID>` |
 | RenderedDescription |Descrição do evento com valores de parâmetro |
-| Fonte |Origem do evento. |
+| Origem |Origem do evento. |
 | SourceSystem |Tipo de agente do qual o evento foi coletado. <br> OpsManager - agente do Windows: conexão direta ou Operations Manager gerenciado <br>  Linux: todos os agentes do Linux  <br>  AzureStorage: Diagnóstico do Azure |
 | TimeGenerated |Data e hora em que o evento foi criado no Windows. |
 | UserName |Nome de usuário da conta que registrou o evento. |

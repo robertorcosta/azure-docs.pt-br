@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
 ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79366289"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Planejador de Implantação do Azure Site Recovery para VMware para o Azure
@@ -62,7 +61,7 @@ A ferramenta fornece os seguintes detalhes:
 
 ## <a name="support-matrix"></a>Matriz de suporte
 
-| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para o Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
+| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
 Cenários com suporte |Sim|Sim|Não|Sim*|Não
 Versão com suporte | vCenter 6,7, 6,5, 6,0 ou 5,5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371640"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
@@ -60,7 +59,7 @@ Um único computador pode falhar por diversos tipos de motivos. Às vezes, são 
 
 Independentemente do tipo de serviço, executar uma única instância resulta em tempo de inatividade para esse serviço se essa única cópia do código falhar por qualquer motivo. 
 
-Para lidar com qualquer falha única, a coisa mais simples que você pode fazer é garantir que seus serviços sejam executados em mais de um nó por padrão. Para serviços sem estado, certifique- `InstanceCount` se de que seja maior que 1. Para serviços com estado, a recomendação mínima é `TargetReplicaSetSize` que `MinReplicaSetSize` e são definidos como 3. Executar mais cópias do código de seu serviço garante que o serviço seja capaz de lidar com qualquer falha única automaticamente. 
+Para lidar com qualquer falha única, a coisa mais simples que você pode fazer é garantir que seus serviços sejam executados em mais de um nó por padrão. Para serviços sem estado, certifique-se de que `InstanceCount` seja maior que 1. Para serviços com estado, a recomendação mínima é que `TargetReplicaSetSize` e `MinReplicaSetSize` são definidos como 3. Executar mais cópias do código de seu serviço garante que o serviço seja capaz de lidar com qualquer falha única automaticamente. 
 
 ### <a name="handling-coordinated-failures"></a>Lidando com falhas coordenadas
 Falhas coordenadas em um cluster podem ser devido a falhas de infraestrutura planejadas ou não planejadas, alterações ou alterações de software planejadas. O Service Fabric modela zonas de infraestrutura que experimentam falhas coordenadas como *domínios de falha*. As áreas que apresentarão alterações de software coordenadas serão modeladas como *domínios de atualização*. Para obter mais informações sobre domínios de falha, domínios de atualização e topologia de cluster, consulte [descrever um cluster de Service Fabric usando o Gerenciador de recursos de cluster](service-fabric-cluster-resource-manager-cluster-description.md).
@@ -97,7 +96,7 @@ Várias falhas aleatórias simultâneas também podem ocorrer. É mais provável
 #### <a name="stateless-services"></a>Serviços sem estado
 A contagem de instâncias para um serviço sem estado indica o número desejado de instâncias que precisam estar em execução. Quando qualquer (ou todas) das instâncias falha, Service Fabric responde criando automaticamente as instâncias de substituição em outros nós. Service Fabric continua a criar substituições até que o serviço volte à contagem de instâncias desejada.
 
-Por exemplo, suponha que o serviço sem estado tenha `InstanceCount` um valor de-1. Esse valor significa que uma instância deve ser executada em cada nó no cluster. Se algumas dessas instâncias falharem, Service Fabric detectará que o serviço não está em seu estado desejado e tentará criar as instâncias nos nós em que estão ausentes.
+Por exemplo, suponha que o serviço sem estado tenha um `InstanceCount` valor de-1. Esse valor significa que uma instância deve ser executada em cada nó no cluster. Se algumas dessas instâncias falharem, Service Fabric detectará que o serviço não está em seu estado desejado e tentará criar as instâncias nos nós em que estão ausentes.
 
 #### <a name="stateful-services"></a>Serviços com estado
 Há dois tipos de serviços com estado:
@@ -130,7 +129,7 @@ Determinar se um desastre ocorreu para um serviço com estado e, em seguida, ger
    O motivo pelo qual sempre dizem que a perda de dados _suspeita_ é que é possível que a réplica restante tenha o mesmo estado que o primário quando o quorum fosse perdido. No entanto, sem o estado para compará-la, não há nenhum modo adequado do Service Fabric ou dos operadores terem certeza.     
    
    Então, o que uma implementação típica do método `OnDataLossAsync` faz?
-   1. Os logs de implementação `OnDataLossAsync` que foram disparados e que são acionados por todos os alertas administrativos necessários.
+   1. Os logs de implementação que `OnDataLossAsync` foram disparados e que são acionados por todos os alertas administrativos necessários.
    1. Normalmente, a implementação pausa e aguarda mais decisões e ações manuais a serem tomadas. Isso ocorre porque, mesmo que os backups estejam disponíveis, talvez eles precisem ser preparados. 
    
       Por exemplo, se dois serviços diferentes coordenarem informações, talvez esses backups precisem ser modificados para garantir que, após a restauração, as informações que esses dois serviços se preocupam sejam consistentes. 
@@ -171,7 +170,7 @@ As ações a seguir podem resultar em perda de dados. Verifique antes de segui-l
 > _Nunca_ é seguro usar esses métodos além de uma maneira direcionada contra partições específicas. 
 >
 
-- Use a `Repair-ServiceFabricPartition -PartitionId` API `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` ou. Essa API permite especificar a ID da partição a ser movida da perda de quorum e em potencial perda de dados.
+- Use a `Repair-ServiceFabricPartition -PartitionId` `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API ou. Essa API permite especificar a ID da partição a ser movida da perda de quorum e em potencial perda de dados.
 - Se o cluster encontrar falhas frequentes que fazem com que os serviços entrem em um estado de perda de quorum e a possível _perda de dados for aceitável_, a especificação de um valor [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) apropriado poderá ajudar seu serviço a se recuperar automaticamente. Service Fabric aguardará o valor fornecido `QuorumLossWaitDuration` (o padrão é infinito) antes de executar a recuperação. *Não* recomendamos esse método porque isso pode causar perdas de dados inesperadas.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Disponibilidade do cluster do Service Fabric

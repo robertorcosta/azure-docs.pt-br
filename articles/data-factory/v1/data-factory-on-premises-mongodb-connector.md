@@ -10,10 +10,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281334"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
@@ -61,13 +60,13 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |Sim |
 | Servidor |Endereço IP ou nome do host do servidor MongoDB. |Sim |
 | porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Opcional, valor padrão: 27017 |
 | authenticationType |Básica ou Anônima. |Sim |
-| username |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
+| Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
 | password |Senha do usuário. |Sim (se a autenticação básica for usada). |
 | authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). Padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
 | databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
@@ -79,7 +78,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Necessária |
 | --- | --- | --- |
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
@@ -90,7 +89,7 @@ As propriedades disponíveis na seção **typeproperties** da atividade, por out
 
 Quando a fonte é do tipo **MongoDbSource** , as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: select * from MyTable. |Não (se **collectionName** de **dataset** for especificado) |
 
@@ -298,8 +297,8 @@ Ao mover dados para o MongoDB, os seguintes mapeamentos serão usados dos tipos 
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadeia de caracteres |
-| Cadeia de caracteres |Cadeia de caracteres |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Objeto |Renormalizado para colunas simples com “_” como separador aninhado |
 
@@ -345,7 +344,7 @@ Tabela "TabelaDeExemplo_Faturas":
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |torradeira |456 |0,2 |
 | 1111 |1 |124 |forno |1235 |0,2 |
-| 2222 |0 |135 |geladeira |12543 |0.0 |
+| 2222 |0 |135 |geladeira |12543 |0,0 |
 
 Tabela "TabelaDeExemplo_Classificações":
 

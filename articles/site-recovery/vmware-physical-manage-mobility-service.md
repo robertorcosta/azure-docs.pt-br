@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79256959"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerenciar o agente Mobilidade 
@@ -66,8 +65,8 @@ Quando você implantou o Site Recovery para habilitar a instalação por push do
 
 Desinstale pela interface do usuário ou por um prompt de comando.
 
-- **Pela interface de usuário**: no Painel de Controle do computador, selecione **Programas**. Selecione **Microsoft Azure site Recovery serviço de mobilidade/** > **desinstalação**do servidor de destino mestre.
-- **Por um prompt de comando**: Abra uma janela de prompt de comando como administrador no computador local. Execute o seguinte comando: 
+- **Pela interface de usuário**: no Painel de Controle do computador, selecione **Programas**. Selecione **Microsoft Azure site Recovery serviço de mobilidade/desinstalação do servidor de destino mestre**  >  **Uninstall**.
+- **Por um prompt de comando**: Abra uma janela de prompt de comando como administrador no computador local. Execute o comando a seguir: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
@@ -75,7 +74,7 @@ Desinstale pela interface do usuário ou por um prompt de comando.
 ### <a name="on-a-linux-machine"></a>Em um computador Linux
 1. No computador Linux, entre como um usuário **raiz**.
 2. Em um terminal, vá para/usr/local/ASR.
-3. Execute o seguinte comando:
+3. Execute o comando a seguir:
     ```
     uninstall.sh -Y
    ```

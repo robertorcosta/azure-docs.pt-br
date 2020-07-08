@@ -9,10 +9,9 @@ ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298624"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Como verificar seu codificador de transmissão ao vivo local
@@ -67,7 +66,7 @@ Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#p
 
 Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amshelp@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Codificadores locais testados](recommended-on-premises-live-encoders.md)
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79368716"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
@@ -70,7 +69,7 @@ A ferramenta fornece os seguintes detalhes:
 
 ## <a name="support-matrix"></a>Matriz de suporte
 
-| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para o Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
+| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
 Cenários com suporte |Sim|Sim|Não|Sim*|Não
 Versão com suporte | vCenter 6,7, 6,5, 6,0 ou 5,5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA

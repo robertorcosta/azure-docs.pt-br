@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79117280"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box Disk
@@ -71,7 +70,7 @@ O Azure Data Box Disk reúne e exibe informações pessoais nas seguintes instâ
 - **Detalhes do pedido** - após a ordem ser criada, o endereço de envio, email e as informações de contato dos usuários são armazenadas no portal do Azure. As informações salvas incluem:
 
   - Nome de contato
-  - Número do telefone
+  - Número de telefone
   - Email
   - Endereço
   - City

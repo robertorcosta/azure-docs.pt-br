@@ -7,24 +7,23 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79277304"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Gatilhos e associações do armazenamento de filas do Azure para Azure Functions visão geral
 
 Azure Functions pode executar como novas mensagens de armazenamento de fila do Azure são criadas e podem gravar mensagens de fila em uma função.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função como armazenamento de filas alterações de dados | [Gatilho](./functions-bindings-storage-queue-trigger.md) |
 | Gravar mensagens de armazenamento de fila |[Associação de saída](./functions-bindings-storage-queue-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
-### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
+### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 

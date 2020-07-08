@@ -6,17 +6,16 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79275094"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciar e manter o agente de Log Analytics para o Windows e Linux
 
 Após a implantação inicial do agente Log Analytics Windows ou Linux no Azure Monitor, talvez seja necessário reconfigurar o agente, atualizá-lo ou removê-lo do computador se ele tiver atingido o estágio de aposentadoria em seu ciclo de vida. Você pode gerenciar facilmente essas tarefas de manutenção de rotina, manualmente ou por meio de automação, o que reduz o erro operacional e as despesas.
 
-## <a name="upgrading-agent"></a>Atualizando agente
+## <a name="upgrading-agent"></a>Atualizando o agente
 
 O agente de Log Analytics para Windows e Linux pode ser atualizado para a versão mais recente manualmente ou automaticamente, dependendo do cenário de implantação e do ambiente em que a VM está sendo executada. Os métodos a seguir podem ser usados para atualizar o agente.
 
@@ -28,13 +27,13 @@ O agente de Log Analytics para Windows e Linux pode ser atualizado para a versã
 
 ### <a name="upgrade-windows-agent"></a>Atualizar o agente do Windows 
 
-Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM Log Analytics, você pode executar no prompt de comando, script ou outra solução de automação ou usando o\<assistente\>de instalação MMASetup-Platform. msi.  
+Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM Log Analytics, você pode executar no prompt de comando, script ou outra solução de automação ou usando o \<platform\> Assistente de instalação MMASetup-. msi.  
 
 Você pode baixar a versão mais recente do agente do Windows do seu espaço de trabalho Log Analytics, executando as etapas a seguir.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Na portal do Azure, clique em **todos os serviços**. Na lista de recursos, digite **log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **log Analytics espaços de trabalho**.
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Escolha **workspaces do Log Analytics**.
 
 3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho.
 
@@ -46,11 +45,11 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 >Durante a atualização do agente de Log Analytics para Windows, ele não oferece suporte à configuração ou reconfiguração de um espaço de trabalho para relatar. Para configurar o agente, você precisa seguir um dos métodos com suporte listados em [adicionando ou removendo um espaço de trabalho](#adding-or-removing-a-workspace).
 >
 
-#### <a name="to-upgrade-using-the-setup-wizard"></a>Para atualizar usando o assistente de instalação
+#### <a name="to-upgrade-using-the-setup-wizard"></a>Para atualizar com o assistente de instalação
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute **MMASetup-\<Platform\>. exe** para iniciar o assistente de instalação.
+2. Execute **MMASetup- \<platform\> . exe** para iniciar o assistente de instalação.
 
 3. Na primeira página do assistente de instalação, clique em **Avançar**.
 
@@ -60,7 +59,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 6. Quando a **configuração de Microsoft Monitoring Agent foi concluída com êxito.** aparecerá, clique em **concluir**.
 
-#### <a name="to-upgrade-from-the-command-line"></a>Para atualizar a partir da linha de comando
+#### <a name="to-upgrade-from-the-command-line"></a>Para atualizar na linha de comando
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 

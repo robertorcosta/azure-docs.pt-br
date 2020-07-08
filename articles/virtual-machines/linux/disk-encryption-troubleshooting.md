@@ -9,17 +9,16 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: eeacea9e3305865881747801100dc17770b7df63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970467"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
 Este guia destina-se a profissionais de TI, analistas de segurança da informação e administradores de nuvem cujas organizações usam o Azure Disk Encryption. Este artigo é para ajudar na solução de problemas relacionados à criptografia de disco.
 
-Antes de executar qualquer uma das etapas a seguir, primeiro verifique se as VMs que você está tentando criptografar estão entre os [tamanhos de VM e sistemas operacionais com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems)e se você atendeu a todos os pré-requisitos:
+Antes de executar qualquer uma das etapas abaixo, primeiro verifique se as VMs que você está tentando criptografar estão entre os [tamanhos e sistemas operacionais de VM com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems) e se você atendeu a todos os pré-requisitos:
 
 - [Requisitos adicionais para VMs](disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Requisitos de rede](disk-encryption-overview.md#networking-requirements)
@@ -101,11 +100,11 @@ Consulte [criptografia de disco em uma rede isolada](disk-encryption-isolated-ne
 
 ## <a name="troubleshooting-encryption-status"></a>Solução de problemas de status de criptografia 
 
-O portal pode exibir um disco como criptografado mesmo após ele ter sido descriptografado na VM.  Isso pode ocorrer quando comandos de baixo nível são usados para descriptografar diretamente o disco de dentro da VM, em vez de usar os comandos de gerenciamento de Azure Disk Encryption de nível superior.  Os comandos de nível superior não apenas descriptografam o disco de dentro da VM, mas fora da VM eles também atualizam configurações importantes de criptografia de nível de plataforma e configurações de extensão associadas à VM.  Se eles não forem mantidos em alinhamento, a plataforma não poderá relatar o status de criptografia nem provisionar a VM corretamente.   
+O portal pode exibir um disco como criptografado mesmo após ele ter sido descriptografado na VM.  Isso pode ocorrer quando comandos de baixo nível são usados para descriptografar diretamente o disco de dentro da VM, em vez de usar os comandos de gerenciamento do Azure Disk Encryption de nível superior.  Os comandos de nível superior não apenas descriptografam o disco de dentro da VM, mas fora da VM eles também atualizam configurações importantes de criptografia de nível de plataforma e configurações de extensão associadas à VM.  Se eles não forem mantidos alinhados, a plataforma não poderá relatar o status de criptografia nem provisionar a VM corretamente.   
 
-Para desabilitar Azure Disk Encryption com o PowerShell, use [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido de [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). A execução de Remove-AzVMDiskEncryptionExtension antes da criptografia ser desabilitada falhará.
+Para desabilitar Azure Disk Encryption com o PowerShell, use [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido por [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). A execução de Remove-AzVMDiskEncryptionExtension falhará antes de a criptografia ser desabilitada.
 
-Para desabilitar Azure Disk Encryption com a CLI, use [AZ VM Encryption Disable](/cli/azure/vm/encryption). 
+Para desabilitar o Azure Disk Encryption com a CLI, use [az vm encryption disable](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367577"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados geoespaciais e de localização geojson em Azure Cosmos DB
@@ -174,7 +173,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-Se você estiver trabalhando com as APIs do SQL, poderá usar as `Point` `MultiPolygon` classes `LineString`, `Polygon`, e dentro do `Microsoft.Azure.Cosmos.Spatial` namespace para inserir informações de localização em seus objetos de aplicativo. Essas classes ajudam a simplificar a serialização e a desserialização de dados espaciais no GeoJSON.
+Se você estiver trabalhando com as APIs do SQL, poderá usar as `Point` `LineString` classes,, e `Polygon` `MultiPolygon` dentro do `Microsoft.Azure.Cosmos.Spatial` namespace para inserir informações de localização em seus objetos de aplicativo. Essas classes ajudam a simplificar a serialização e a desserialização de dados espaciais no GeoJSON.
 
 **Criar documentos com dados geoespaciais no .NET**
 

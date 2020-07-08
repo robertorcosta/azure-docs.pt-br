@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 2902ff17ac14a48f1a11259339c2ab1bc4595980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79299253"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Solucionar problemas de criptografia de dados no banco de dado do Azure para PostgreSQL-servidor único
@@ -21,7 +20,7 @@ Este artigo ajuda você a identificar e resolver problemas comuns que podem ocor
 
 Quando você configura a criptografia de dados para usar uma chave gerenciada pelo cliente no Azure Key Vault, o servidor requer acesso contínuo à chave. Se o servidor perder o acesso à chave gerenciada pelo cliente no Azure Key Vault, ele negará todas as conexões, retornará a mensagem de erro apropriada e alterará seu estado para ***inacessível*** no portal do Azure.
 
-Se você não precisar mais de um banco de dados do Azure inacessível para o servidor PostgreSQL, poderá excluí-lo para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre de chaves tenha sido restaurado e o servidor esteja disponível. Também não é possível alterar a opção de criptografia de dados de `Yes`(gerenciada pelo cliente) `No` para (gerenciada pelo serviço) em um servidor inacessível quando ele é criptografado com uma chave gerenciada pelo cliente. Você precisará revalidar a chave manualmente para que o servidor possa ser acessado novamente. Essa ação é necessária para proteger os dados contra o acesso não autorizado enquanto as permissões para a chave gerenciada pelo cliente são revogadas.
+Se você não precisar mais de um banco de dados do Azure inacessível para o servidor PostgreSQL, poderá excluí-lo para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre de chaves tenha sido restaurado e o servidor esteja disponível. Também não é possível alterar a opção de criptografia de dados de `Yes` (gerenciada pelo cliente) para `No` (gerenciada pelo serviço) em um servidor inacessível quando ele é criptografado com uma chave gerenciada pelo cliente. Você precisará revalidar a chave manualmente para que o servidor possa ser acessado novamente. Essa ação é necessária para proteger os dados contra o acesso não autorizado enquanto as permissões para a chave gerenciada pelo cliente são revogadas.
 
 ## <a name="common-errors-causing-server-to-become-inaccessible"></a>Erros comuns que fazem com que o servidor se torne inacessível
 

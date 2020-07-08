@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281230"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando o Azure Data Factory
@@ -70,14 +69,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de vinculado do PostgreSQL.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade tipo deve ser definida como: **OnPremisesPostgreSql** |Sim |
 | Servidor |Nome do servidor PostgreSQL. |Sim |
 | Banco de Dados |Nome do banco de dados PostgreSQL. |Sim |
 | esquema |Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados PostgreSQL. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
-| username |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
+| Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
 | password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
 | gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. |Sim |
 
@@ -86,7 +85,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do PostgreSQL) tem as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Necessária |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do banco de dados PostgreSQL à qual o serviço vinculado se refere. O tableName diferencia maiúsculas de minúsculas. |Não (se **query** de **RelationalSource** for especificado) |
 
@@ -97,7 +96,7 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 
 Quando a fonte é do tipo **RelationalSource** (que inclui o PostgreSQL), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **tableName** de **dataset** for especificado) |
 
@@ -309,31 +308,31 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| booleano |bool |Booliano |
+| booleano |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| character [(n)] |char [(n)] |Cadeia de caracteres |
-| character varying [(n)] |varchar [(n)] |Cadeia de caracteres |
-| cid | |Cadeia de caracteres |
-| cidr | |Cadeia de caracteres |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
+| cid | |String |
+| cidr | |String |
 | circle | |Byte[], String |
 | date | |Datetime |
-| daterange | |Cadeia de caracteres |
+| daterange | |String |
 | double precision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |Cadeia de caracteres |
-| int4range | |Cadeia de caracteres |
-| int8range | |Cadeia de caracteres |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | inteiro |int, int4 |Int32 |
 | interval [fields] [(p)] | |Timespan |
-| json | |Cadeia de caracteres |
+| json | |String |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Cadeia de caracteres |
+| numrange | |String |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
@@ -343,7 +342,7 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | SMALLINT |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Cadeia de caracteres |
+| text | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

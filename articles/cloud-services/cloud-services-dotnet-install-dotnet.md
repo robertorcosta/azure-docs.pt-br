@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79214717"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos Serviços de Nuvem do Azure
@@ -36,7 +35,7 @@ Para baixar o instalador da Web para o .NET Framework, escolha a versão que voc
 
 Para adicionar o instalador para uma função *web*:
   1. No **Gerenciador de Soluções**, em **Funções** no projeto do serviço de nuvem, clique com o botão direito do mouse em sua função *web* e selecione **Adicionar** > **Nova Pasta**. Crie uma pasta chamada **bin**.
-  2. Clique com o botão direito do mouse na pasta bin e selecione **Adicionar** > **Item existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
+  2. Clique com o botão direito do mouse na pasta bin e selecione **Adicionar**  >  **Item existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
   
 Para adicionar o instalador para uma função de *trabalho*:
 * Clique com o botão direito do mouse na função de *trabalho* e selecione **Adicionar** > **Item Existente**. Selecione o instalador do .NET e adicione-o à função. 
@@ -197,7 +196,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
    EXIT /B 0
    ```
 
-3. Adicione o arquivo install. cmd a cada função usando **Adicionar** > **Item existente** no **Gerenciador de soluções** , conforme descrito anteriormente neste tópico. 
+3. Adicione o arquivo install. cmd a cada função usando **Adicionar**  >  **Item existente** no **Gerenciador de soluções** , conforme descrito anteriormente neste tópico. 
 
     Após a conclusão desta etapa, todas as funções devem ter o arquivo do instalador do .NET, assim como o arquivo install.cmd.
 

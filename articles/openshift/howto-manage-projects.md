@@ -9,10 +9,9 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79139106"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift 
@@ -69,7 +68,7 @@ Você pode impedir que um grupo de usuários autenticado provisione novos projet
    oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
-3. Remova a função do processo de atualização da toa adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`.
+3. Remova a função do processo de atualização da toa adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"` .
 
    ```
    ...
@@ -79,7 +78,7 @@ Você pode impedir que um grupo de usuários autenticado provisione novos projet
    ...
    ```
 
-4. Altere a associação de função de cluster `system:authenticated:oauth` para evitar a criação de projetos:
+4. Altere a associação de função de cluster para evitar a `system:authenticated:oauth` criação de projetos:
 
    ```
    apiVersion: rbac.authorization.k8s.io/v1
@@ -101,8 +100,8 @@ Você pode impedir que um grupo de usuários autenticado provisione novos projet
 
 ## <a name="manage-default-templates-and-imagestreams"></a>Gerenciar modelos padrão e imageStreams
 
-No Azure Red Hat OpenShift, você pode desabilitar atualizações para todos os modelos padrão e fluxos de `openshift` imagem dentro do namespace.
-Para desabilitar atualizações para todos `Templates` os `ImageStreams` e `openshift` no namespace:
+No Azure Red Hat OpenShift, você pode desabilitar atualizações para todos os modelos padrão e fluxos de imagem dentro do `openshift` namespace.
+Para desabilitar atualizações para todos os `Templates` e `ImageStreams` no `openshift` namespace:
 
 1. Faça logon como um usuário com `customer-admin` privilégios.
 

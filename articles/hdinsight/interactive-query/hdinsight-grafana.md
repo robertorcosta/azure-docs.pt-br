@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: cd515bfd1dc57e78a041ed96686e1ba692bf6d3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79082856"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Acessar Grafana no Microsoft Azure HDInsight
@@ -28,7 +27,7 @@ Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-ha
 
 ## <a name="access-the-grafana-dashboard"></a>Acessar o painel do Grafana
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net/grafana/` até onde ClusterName é o nome do cluster.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/grafana/` onde ClusterName é o nome do cluster.
 
 1. Insira as credenciais de usuário do cluster Hadoop.
 

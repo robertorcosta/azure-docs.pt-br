@@ -4,10 +4,9 @@ description: Uma introdução às tarefas do ACR, um conjunto de recursos no reg
 ms.topic: article
 ms.date: 01/22/2020
 ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087278"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
@@ -117,9 +116,9 @@ A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para 
 
 ## <a name="image-platforms"></a>Plataformas de imagem
 
-Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64. Especifique a `--platform` marca para criar imagens do Windows ou imagens do Linux para outras arquiteturas. Especifique o sistema operacional e, opcionalmente, uma arquitetura com suporte no formato de sistema operacional `--platform Linux/arm`/arquitetura (por exemplo,). Para arquiteturas ARM, especifique opcionalmente uma variante no formato do sistema operacional/arquitetura/variante (por `--platform Linux/arm64/v8`exemplo,):
+Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64. Especifique a `--platform` marca para criar imagens do Windows ou imagens do Linux para outras arquiteturas. Especifique o sistema operacional e, opcionalmente, uma arquitetura com suporte no formato de sistema operacional/arquitetura (por exemplo, `--platform Linux/arm` ). Para arquiteturas ARM, especifique opcionalmente uma variante no formato do sistema operacional/arquitetura/variante (por exemplo, `--platform Linux/arm64/v8` ):
 
-| SO | Arquitetura|
+| Sistema operacional | Arquitetura|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

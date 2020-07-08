@@ -8,10 +8,9 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79284922"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>Endereços IP do DPS do Hub IoT
@@ -28,9 +27,9 @@ Os prefixos de endereço IP para os pontos de extremidade públicos de um servi�
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-* Ao adicionar regras de permissão na configuração de firewall de seus dispositivos, é melhor fornecer [portas específicas usadas por protocolos aplicáveis](../iot-hub/iot-hub-devguide-protocols.md#port-numbers).
+* Ao adicionar regras de permissão na configuração de firewall dos dispositivos, é melhor fornecer [portas específicas usadas pelos protocolos aplicáveis](../iot-hub/iot-hub-devguide-protocols.md#port-numbers).
 
-* Os prefixos de endereço IP das instâncias de DPS do IoT estão sujeitos a alterações. Essas alterações são publicadas periodicamente por meio de marcas de serviço antes de entrar em vigor. Portanto, é importante que você desenvolva processos para recuperar e usar regularmente as marcas de serviço mais recentes. Esse processo pode ser automatizado por meio da [API de descoberta de marcas de serviço](../virtual-network/service-tags-overview.md#service-tags-on-premises). A API de descoberta de marcas de serviço ainda está em visualização e, em alguns casos, pode não produzir a lista completa de marcas e endereços IP. Até que a API de descoberta esteja disponível ao público geral, considere usar as [marcas de serviço no formato JSON baixável](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+* Os prefixos de endereço IP das instâncias de DPS do IoT estão sujeitos a alterações. Essas alterações são publicadas periodicamente por meio de marcas de serviço antes de entrarem em vigor. Portanto, é importante que você desenvolva processos de recuperação e uso regulares das marcas de serviço mais recentes. Esse processo pode ser automatizado por meio da [API de descoberta de marcas de serviço](../virtual-network/service-tags-overview.md#service-tags-on-premises). A API de descoberta de marcas de serviço ainda está em visualização e, em alguns casos, pode não produzir a lista completa de marcas e endereços IP. Até que a API de descoberta esteja disponível para o público geral, considere usar as [marcas de serviço no formato JSON baixável](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
 
 * Use o *AzureIoTHub. [ nome da região]* para identificar os prefixos IP usados pelos pontos de extremidade do DPS em uma região específica. Para considerar a recuperação de desastres do Datacenter ou o [failover regional](../iot-hub/iot-hub-ha-dr.md), verifique se a conectividade com os prefixos de IP da região de par geográfico da instância do DPS também está habilitada.
 
@@ -39,7 +38,7 @@ Os prefixos de endereço IP para os pontos de extremidade públicos de um servi�
 
 ## <a name="limitations-and-workarounds"></a>Limitações e Soluções Alternativas
 
-* O recurso de filtro IP do DPS tem um limite de 100 regras. Esse limite e pode ser gerado por meio de solicitações por meio do atendimento ao cliente do Azure. 
+* O recurso de filtro IP do DPS tem um limite de 100 regras. Esse limite pode ser aumentado via solicitações pelo atendimento ao cliente do Azure. 
 
 * Suas [regras de filtragem de IP](iot-dps-ip-filtering.md) configuradas são aplicadas somente nos pontos de extremidade do DPS e não nos pontos de extremidade do Hub IOT vinculado. A filtragem de IP para hubs IoT vinculados deve ser configurada separadamente. Para obter mais informações, consulte [regras de filtragem de IP do Hub IOT](../iot-hub/iot-hub-ip-filtering.md).
 

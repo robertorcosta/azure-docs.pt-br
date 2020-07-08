@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
 ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79365749"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
@@ -115,4 +114,4 @@ Se a Federação estiver sendo usada e os hashes de senha forem sincronizados co
 
 - [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md)
 - [Configurar políticas do Apache Hive para clusters HDInsight com ESP](apache-domain-joined-run-hive.md)
-- [Gerenciar clusters HDInsight com o ESP](apache-domain-joined-manage.md)
+- [Gerenciar clusters do HDInsight com ESP](apache-domain-joined-manage.md)

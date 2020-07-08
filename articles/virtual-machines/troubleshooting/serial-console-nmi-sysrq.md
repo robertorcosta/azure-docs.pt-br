@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79250082"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
@@ -98,7 +97,7 @@ Para obter a documentação específica de distribuição em SysRq e as etapas p
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Interrupção Não Mascarável (NMI)
-Uma interrupção não mascarável (NMI) foi projetada para criar um sinal que o software em uma máquina virtual não irá ignorar. Historicamente, as NMIs são usadas para monitorar os problemas de hardware em sistemas que necessitam de tempos de resposta específicos.  Atualmente, os programadores e administradores de sistema geralmente usam NMI como um mecanismo para depurar ou solucionar problemas de sistemas que não estão respondendo.
+Uma interrupção não mascarável (NMI) foi projetada para criar um sinal que o software em uma máquina virtual não irá ignorar. Historicamente, as NMIs são usadas para monitorar os problemas de hardware em sistemas que necessitam de tempos de resposta específicos.  Hoje, os programadores e os administradores do sistema geralmente usam a NMI como um mecanismo para depurar ou solucionar problemas de sistemas que não respondem.
 
 O Console Serial pode ser usado para enviar uma NMI a uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo. Depois que a NMI for entregue, a configuração de máquina virtual irá controlar como o sistema responde.  Os sistemas operacionais Linux poderão ser configurados para parar e criar um despejo de memória quando o sistema operacional receber uma NMI.
 
@@ -131,4 +130,4 @@ Para obter mais informações sobre configurações de kernel do Linux, incluind
 * A página principal da documentação do Linux do Console Serial está localizada [aqui](serial-console-linux.md).
 * Usar o Console Serial para inicializar em [GRUB e entrar no modo de usuário único](serial-console-grub-single-user-mode.md)
 * O console serial também está disponível para VMs do [Windows](serial-console-windows.md)
-* Saiba mais sobre [diagnóstico de inicialização](boot-diagnostics.md)
+* Saiba mais sobre o [diagnóstico de inicialização](boot-diagnostics.md)

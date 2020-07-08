@@ -8,10 +8,9 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79096786"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Preparar para a alteração de formato para Azure Monitor logs de plataforma arquivados em uma conta de armazenamento
@@ -25,7 +24,7 @@ ms.locfileid: "79096786"
 O Azure Monitor oferece um recurso que permite que você envie logs de recursos e logs de atividade para uma conta de armazenamento do Azure, namespace de hubs de eventos ou em um espaço de trabalho Log Analytics no Azure Monitor. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 12:00, meia-noite UTC** o formato dos dados de log enviados ao armazenamento de BLOBs foi alterado. Caso tenha ferramentas que leem dados fora do armazenamento de blobs, você precisará atualizá-las para que elas reconheçam o novo formato de dados.
 
 * Na quinta-feira, 1º de novembro de 2018 às 12:00, meia-noite UTC, o formato de blob mudou para [as linhas JSON](http://jsonlines.org/). Isso significa que cada registro será delimitado por uma nova linha, sem nenhuma matriz de registros externa e sem vírgulas entre os registros JSON.
-* O formato de blob alterado para todas as configurações de diagnóstico em todas as assinaturas de uma só vez. O primeiro arquivo PT1H. JSON emitido para 1º de novembro usou esse novo formato. Os nomes de blob e de contêiner permanecem os mesmos.
+* O formato de blob alterado para todas as configurações de diagnóstico em todas as assinaturas de uma só vez. O primeiro PT1H.jsno arquivo emitido para 1º de novembro usou esse novo formato. Os nomes de blob e de contêiner permanecem os mesmos.
 * Definir uma configuração de diagnóstico entre antes de 1º de novembro continuou a emitir dados no formato atual até 1º de novembro.
 * Essa alteração ocorreu ao mesmo tempo em todas as regiões de nuvem pública. A alteração não ocorrerá no Microsoft Azure operado pelas nuvens da 21Vianet, do Azure Alemanha ou do Azure governamental ainda.
 * Essa alteração afeta os seguintes tipos de dados:

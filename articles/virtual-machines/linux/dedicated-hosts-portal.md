@@ -8,15 +8,14 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79086774"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
 
-Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
+Este artigo orienta como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMs). 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
@@ -32,7 +31,7 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 
     ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
 
-1. Em **regras** > de porta de entrada**portas públicas de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **SSH (22)** na lista suspensa. 
+1. Em **regras de porta de entrada**  >  **portas públicas de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **SSH (22)** na lista suspensa. 
 1. Na parte superior da página, selecione a guia **avançado** e, na seção **host** , selecione *myhost* Group para o **grupo de hosts** e *myhost* para o **host**. 
     ![Selecionar grupo de hosts e host](./media/dedicated-hosts-portal/advanced.png)
 1. Deixe os padrões restantes e, em seguida, selecione o botão **Examinar + criar** na parte inferior da página.
@@ -62,9 +61,9 @@ Mova a VM para um host dedicado usando o [portal](https://portal.azure.com).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
+- Para mais informações, consulte a visão geral de [hosts dedicados](dedicated-hosts.md).
 
-- Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
+- Há um exemplo de modelo, [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter resiliência máxima em uma região.
 
 - Você também pode implantar um host dedicado usando o [CLI do Azure](dedicated-hosts-cli.md).
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79082873"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
@@ -95,7 +94,7 @@ Em alguns casos, a economia pode ocorrer devido a pouco espaço em disco no clus
     du -h --max-depth=1 / | sort -h
     ```
 
-1. Examine a saída e verifique a presença de arquivos grandes na `mnt` pasta ou em outras pastas. Normalmente, as `usercache`pastas e `appcache` (mnt/Resource/Hadoop/yarn/local/usercache/Hive/AppCache/) contêm arquivos grandes.
+1. Examine a saída e verifique a presença de arquivos grandes na `mnt` pasta ou em outras pastas. Normalmente, as `usercache` pastas e `appcache` (mnt/Resource/Hadoop/yarn/local/usercache/Hive/AppCache/) contêm arquivos grandes.
 
 1. Se houver arquivos grandes, um trabalho atual está causando o crescimento do arquivo ou um trabalho anterior com falha pode ter contribuído para esse problema. Para verificar se esse comportamento é causado por um trabalho atual, execute o seguinte comando:
 

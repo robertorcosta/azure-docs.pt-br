@@ -4,10 +4,9 @@ description: Como exibir e gerenciar logs de execução gerados por tarefas ACR.
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246962"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Exibir e gerenciar logs de execução de tarefa
@@ -64,8 +63,8 @@ Se uma tarefa for disparada automaticamente, por exemplo, por uma atualização 
 
 Para exibir os logs de execução no Portal:
 
-1. Navegue até o registro de contêiner.
-1. Em **Serviços**, selecione **tarefas** > **execuções**.
+1. Navegue até seu registro de contêiner.
+1. Em **Serviços**, selecione **tarefas**  >  **execuções**.
 1. Selecione uma **ID de execução** para exibir o status de execução e os logs de execução. O log contém as mesmas informações que um log transmitido, se um for gerado.
 
 ![Exibir o portal de logon da execução de tarefa](./media/container-registry-tasks-logs/portal-task-run-logs.png)

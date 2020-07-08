@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371045"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Enviar por push e efetuar pull de um artefato de OCI usando um registro de contêiner do Azure
@@ -22,9 +21,9 @@ Para demonstrar esse recurso, este artigo mostra como usar a ferramenta de [regi
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Registro de contêiner do Azure** -crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
-* **Ferramenta oras** – Baixe e instale uma versão atual do oras para o seu sistema operacional do [repositório GitHub](https://github.com/deislabs/oras/releases). A ferramenta é lançada como um tarball compactado`.tar.gz` (arquivo). Extraia e instale o arquivo usando os procedimentos padrão para seu sistema operacional.
+* **Ferramenta oras** – Baixe e instale uma versão atual do oras para o seu sistema operacional do [repositório GitHub](https://github.com/deislabs/oras/releases). A ferramenta é lançada como um tarball compactado ( `.tar.gz` arquivo). Extraia e instale o arquivo usando os procedimentos padrão para seu sistema operacional.
 * **Azure Active Directory entidade de serviço (opcional)** – para autenticar diretamente com o Oras, crie uma [entidade de serviço](container-registry-auth-service-principal.md) para acessar o registro. Verifique se a entidade de serviço recebe uma função como AcrPush para que ela tenha permissões para enviar e extrair artefatos.
-* **CLI do Azure (opcional)** – para usar uma identidade individual, você precisa de uma instalação local do CLI do Azure. A versão 2.0.71 ou posterior é recomendada. Execute `az --version `para localizar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+* **CLI do Azure (opcional)** – para usar uma identidade individual, você precisa de uma instalação local do CLI do Azure. A versão 2.0.71 ou posterior é recomendada. Execute `az --version ` para localizar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 * **Docker (opcional)** – para usar uma identidade individual, você também deve ter o Docker instalado localmente para autenticar com o registro. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 
@@ -34,13 +33,13 @@ Esta seção mostra dois fluxos de trabalho sugeridos para entrar no registro, d
 
 ### <a name="sign-in-with-oras"></a>Entrar com ORAS
 
-Usando uma [entidade de serviço](container-registry-auth-service-principal.md) com direitos de push, `oras login` execute o comando para entrar no registro usando a ID do aplicativo da entidade de serviço e a senha. Especifique o nome totalmente qualificado do registro (todas as letras minúsculas), neste caso, *myregistry.azurecr.Io*. A ID do aplicativo da entidade de serviço é passada na `$SP_APP_ID`variável de ambiente e a senha na `$SP_PASSWD`variável.
+Usando uma [entidade de serviço](container-registry-auth-service-principal.md) com direitos de push, execute o `oras login` comando para entrar no registro usando a ID do aplicativo da entidade de serviço e a senha. Especifique o nome totalmente qualificado do registro (todas as letras minúsculas), neste caso, *myregistry.azurecr.Io*. A ID do aplicativo da entidade de serviço é passada na variável de ambiente `$SP_APP_ID` e a senha na variável `$SP_PASSWD` .
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Para ler a senha de stdin, use `--password-stdin`.
+Para ler a senha de stdin, use `--password-stdin` .
 
 ### <a name="sign-in-with-azure-cli"></a>Entrar com a CLI do Azure
 
@@ -64,7 +63,7 @@ Crie um arquivo de texto em um diretório de trabalho de trabalho local com algu
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Use o `oras push` comando para enviar esse arquivo de texto por push para o registro. O exemplo a seguir envia por push o arquivo de texto `samples/artifact` de exemplo para o repositório. O registro é identificado com o nome de registro totalmente qualificado *myregistry.azurecr.Io* (todas as letras minúsculas). O artefato está marcado `1.0`. O artefato tem um tipo indefinido, por padrão, identificado pela cadeia de caracteres do *tipo* de mídia `artifact.txt`após o nome do arquivo. Consulte [artefatos de OCI](https://github.com/opencontainers/artifacts) para tipos adicionais. 
+Use o `oras push` comando para enviar esse arquivo de texto por push para o registro. O exemplo a seguir envia por push o arquivo de texto de exemplo para o `samples/artifact` repositório. O registro é identificado com o nome de registro totalmente qualificado *myregistry.azurecr.Io* (todas as letras minúsculas). O artefato está marcado `1.0` . O artefato tem um tipo indefinido, por padrão, identificado pela cadeia de caracteres do *tipo de mídia* após o nome do arquivo `artifact.txt` . Consulte [artefatos de OCI](https://github.com/opencontainers/artifacts) para tipos adicionais. 
 
 **Linux**
 

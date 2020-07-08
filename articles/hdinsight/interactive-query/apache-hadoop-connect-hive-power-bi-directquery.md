@@ -9,15 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: adcd4d9e81eecad9540a4ef1be5e675f940ffb8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367985"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualizar dados interativos Apache Hive de consulta com o Microsoft Power BI usando a consulta direta no HDInsight
 
-Este artigo descreve como conectar o Microsoft Power BI a clusters da consulta interativa do Azure HDInsight e visualizar os dados do Apache Hive usando a consulta direta. O exemplo fornecido carrega os dados de uma `hivesampletable` tabela do Hive para Power bi. A `hivesampletable` tabela Hive contém alguns dados de uso de telefone celular. Em seguida, você cria gráficos com os dados de uso em um mapa mundial:
+Este artigo descreve como conectar o Microsoft Power BI a clusters da consulta interativa do Azure HDInsight e visualizar os dados do Apache Hive usando a consulta direta. O exemplo fornecido carrega os dados de uma `hivesampletable` tabela do hive para Power bi. A `hivesampletable` tabela Hive contém alguns dados de uso de telefone celular. Em seguida, você cria gráficos com os dados de uso em um mapa mundial:
 
 ![Relatório de mapa de Power BI do HDInsight](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -35,7 +34,7 @@ A `hivesampletable` tabela Hive vem com todos os clusters HDInsight.
 
 1. Inicie o Power BI Desktop.
 
-2. Na barra de menus, navegue até **página inicial** > **obter dados** > **mais...**.
+2. Na barra de menus, navegue até **página inicial**  >  **obter dados**  >  **mais...**.
 
     ![O HDInsight Power BI obter mais dados](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
@@ -49,7 +48,7 @@ A `hivesampletable` tabela Hive vem com todos os clusters HDInsight.
 
     |Propriedade | Valor |
     |---|---|
-    |Server (Servidor) |Insira o nome do cluster, por exemplo, *myiqcluster.azurehdinsight.net*.|
+    |Servidor |Insira o nome do cluster, por exemplo, *myiqcluster.azurehdinsight.net*.|
     |Banco de dados |Insira o **padrão** para este artigo.|
     |Modo de Conectividade de Dados |Selecione **DirectQuery** para este artigo.|
 

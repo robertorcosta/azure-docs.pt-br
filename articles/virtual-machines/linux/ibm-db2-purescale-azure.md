@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78945049"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale no Azure
@@ -73,13 +72,13 @@ Essa arquitetura executa os níveis de aplicativo, armazenamento e dados nas má
 
 -   O DB2 CF usa máquinas virtuais otimizadas para memória, como E-series ou L-series.
 
--   Um cluster de armazenamento compartilhado que usa\_máquinas\_virtuais DS4 v2 padrão que executam o Linux.
+-   Um cluster de armazenamento compartilhado que usa \_ \_ máquinas virtuais DS4 v2 padrão que executam o Linux.
 
--   O Jumpbox de gerenciamento é uma\_máquina\_virtual DS2 v2 padrão que executa o Linux.  Uma alternativa é a bastiões do Azure, um serviço que fornece uma experiência segura de RDP/SSH para todas as VMs em sua rede virtual.
+-   O Jumpbox de gerenciamento é uma \_ \_ máquina virtual DS2 v2 padrão que executa o Linux.  Uma alternativa é a bastiões do Azure, um serviço que fornece uma experiência segura de RDP/SSH para todas as VMs em sua rede virtual.
 
 -   O cliente é uma máquina virtual padrão \_DS3\_ v2 executando o Windows (usada para teste).
 
--   *Opcional*. Um servidor testemunha. Isso é necessário apenas com determinadas versões anteriores do DB2 pureScale. Este exemplo usa uma máquina\_virtual\_DS3 v2 padrão executando o Linux (usada para DB2 pureScale).
+-   *Opcional*. Um servidor testemunha. Isso é necessário apenas com determinadas versões anteriores do DB2 pureScale. Este exemplo usa uma \_ \_ máquina virtual DS3 v2 padrão executando o Linux (usada para DB2 pureScale).
 
 > [!NOTE]
 > Um cluster DB2 pureScale requer pelo menos duas instâncias de DB2. Também requer uma instância de cache e uma instância do gerenciador de bloqueio.

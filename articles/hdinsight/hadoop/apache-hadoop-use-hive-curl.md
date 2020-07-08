@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 10a2f413142124db7547e68280a0d5e9abac9b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298743"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST
@@ -23,15 +22,15 @@ Aprenda a usar a API REST do WebHCat para executar consultas do Apache Hive com 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Um cluster do Apache Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Um cliente REST. Este documento usa [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) no Windows PowerShell e a [ondulação](https://curl.haxx.se/) no [bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-* Se você usar bash, também precisará de JQ, um processador JSON de linha de comando.  Consulte [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* Se você usar bash, também precisará de JQ, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 ## <a name="base-uri-for-rest-api"></a>URI de base para a API REST
 
-O URI (Uniform Resource Identifier base) para a API REST no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, em `CLUSTERNAME` que é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI`CLUSTERNAME.azurehdinsight.net`() não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
+O URI (Uniform Resource Identifier base) para a API REST no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , em que `CLUSTERNAME` é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI ( `CLUSTERNAME.azurehdinsight.net` ) não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
 
 ## <a name="authentication"></a>Autenticação
 
@@ -42,7 +41,7 @@ Ao usar o cURL ou qualquer outra comunicação REST com WebHCat, você deve aute
 Preserve suas credenciais para evitar reinseri-las para cada exemplo.  O nome do cluster será preservado em uma etapa separada.
 
 **A. bash**  
-Edite o script a seguir `PASSWORD` substituindo pela sua senha real.  Em seguida, digite o comando.
+Edite o script a seguir substituindo `PASSWORD` pela sua senha real.  Em seguida, digite o comando.
 
 ```bash
 export password='PASSWORD'
@@ -58,7 +57,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 
 A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado.  As etapas aqui mostrarão o capital real e, em seguida, o armazenará em uma variável para todos os exemplos posteriores.
 
-Edite os scripts abaixo para `CLUSTERNAME` substituir pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
+Edite os scripts abaixo para substituir `CLUSTERNAME` pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
