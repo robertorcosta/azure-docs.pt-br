@@ -1,18 +1,14 @@
 ---
 title: Integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
 description: Saiba como integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
-services: service-bus-relay
-author: spelluru
-ms.author: spelluru
-ms.date: 05/13/2020
-ms.service: service-bus-relay
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 3c2426b65e16d8d6bcdd9733280c8f97f4aa79d6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317311"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrar a Retransmissão do Azure com o Link Privado do Azure (versão prévia)
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, Retransmissão do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure, Armazenamento do Microsoft Azure e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual. Para obter mais informações, confira [O que é o Link Privado do Azure (versão prévia)?](../private-link/private-link-overview.md)

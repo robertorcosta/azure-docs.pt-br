@@ -1,25 +1,14 @@
 ---
 title: Perguntas frequentes de retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o serviço de retransmissão do Azure.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ac8967ab036929bf5363a79c9d7c60485bc98841
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317018"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -128,7 +117,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 Para obter uma descrição de exceções comuns e ações sugeridas que você executar, consulte [Exceções de retransmissão][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas posso usar para gerar uma assinatura?
-As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Python, Java, C e C#, consulte [autenticação do barramento de serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
+As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em Node.js, PHP, Python, Java, C e C#, consulte [autenticação do barramento de serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível colocar pontos de extremidade de retransmissão em uma lista de permissões?
 Sim. O cliente de retransmissão faz conexões com o serviço de Retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` nos firewalls que dão suporte à lista de permissões de DNS.

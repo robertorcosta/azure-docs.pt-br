@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes
 titleSuffix: Azure Cognitive Search
 description: Obtenha respostas para perguntas comuns sobre o Microsoft Azure Pesquisa Cognitiva Service, um serviço de pesquisa hospedado na nuvem no Microsoft Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3c5a998db5e76118b0c5a73b6df8bdedadc6dfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317224"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Pesquisa Cognitiva do Azure-perguntas frequentes (FAQ)
 
@@ -53,7 +53,7 @@ Para recriar um índice, você deve reindexar dados de fontes externas. Por esse
 
 Como alternativa, você pode usar o código de exemplo **index-backup-restore** neste [repositório de exemplo do Azure pesquisa cognitiva .net](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup de uma definição de índice e de um instantâneo de índice para uma série de arquivos JSON. Posteriormente, você pode usar a ferramenta e os arquivos para restaurar o índice, se necessário.  
 
-### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Posso indexar a partir das réplicas de banco de dados SQL? (Aplica-se a [indexadores de Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers).)
+### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Posso indexar de réplicas do banco de dados SQL (aplica-se aos [indexadores do banco de dados SQL do Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
 Não há nenhuma restrição quanto ao uso de réplicas primárias ou secundárias como fonte de dados na criação de um índice do zero. No entanto, a atualização de um índice com atualizações incrementais (com base em registros modificados) exige a réplica primária. Esse requisito vem do Banco de Dados SQL, que garante o controle de alterações somente em réplicas primárias. Se você tentar usar réplicas secundárias para uma carga de trabalho de atualização do índice, não há nenhuma garantia de que obterá todos os dados.
 
@@ -101,7 +101,7 @@ A maioria dos clientes escolhe campos dedicados em vez de uma coleção quando s
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Solicite o recurso no [site do User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
  [StackOverflow: Pesquisa Cognitiva do Azure](https://stackoverflow.com/questions/tagged/azure-search)   
  [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)  

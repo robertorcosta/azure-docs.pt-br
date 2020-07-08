@@ -1,25 +1,14 @@
 ---
 title: Criar um namespace do retransmissão usando o Portal do Azure | Microsoft Docs
 description: Este artigo fornece instruções que mostram como criar um namespace de retransmissão usando o portal do Azure.
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
-ms.service: service-bus-relay
-ms.devlang: tbd
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: b9811ef92aba4891627c20e0269be136582a3304
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 4c26928d2ee53a5c76ff982b5d57b59f9a7a8ab8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317002"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Criar um namespace de retransmissão usando o Portal do Azure
 
@@ -36,7 +25,7 @@ Parabéns! Agora, você criou um namespace de retransmissão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Perguntas frequentes sobre Retransmissão](relay-faq.md)
+* [Perguntas frequentes sobre retransmissão](relay-faq.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
 
