@@ -3,12 +3,12 @@ title: Trabalhos e tarefas no Lote do Azure
 description: Saiba mais sobre trabalhos e tarefas e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: aeffd05a26066675ca320ab4b3c3c09e6807e6df
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790803"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955362"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Trabalhos e tarefas no Lote do Azure
 
@@ -22,7 +22,7 @@ Um trabalho especifica o [pool](nodes-and-pools.md#pools) no qual o trabalho é 
 
 ### <a name="job-priority"></a>prioridade de trabalho
 
-Você tem a opção de atribuir uma prioridade aos trabalhos criados. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame a operação [Atualizar as propriedades de um trabalho](https://docs.microsoft.com/rest/api/batchservice/job/update) (REST do Lote) ou modifique a propriedade [CloudJob.Priority](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) (.NET do Lote).
+Você tem a opção de atribuir uma prioridade aos trabalhos criados. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame a operação [Atualizar as propriedades de um trabalho](/rest/api/batchservice/job/update) (REST do Lote) ou modifique a propriedade [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (.NET do Lote).
 
 Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente. As tarefas com prioridade mais baixa que já estejam em execução não são antecipadas.
 
@@ -39,13 +39,13 @@ Você pode usar as restrições do trabalho para especificar certos limites para
 
 O aplicativo do cliente pode adicionar tarefas a um trabalho ou você pode especificar uma [tarefa do gerenciador de trabalhos](#job-manager-task). Uma tarefa do gerenciador de trabalhos contém as informações necessárias para criar as tarefas necessárias para um trabalho, com a tarefa do gerenciador de trabalhos sendo executada em um de nós de computação no pool. A tarefa do gerenciador de trabalhos é tratada especificamente pelo Lote. Ela é colocada na fila assim que o trabalho é criado e é reiniciada, caso falhe. Uma tarefa do gerenciador de trabalhos é necessária para os trabalhos criados por [um agendamento de trabalho](#scheduled-jobs), pois é a única maneira de definir as tarefas antes do trabalho ser instanciado.
 
-Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([OnAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) no .NET do Lote) para *terminatejob* para encerrar automaticamente o trabalho quando todas as tarefas estão no estado concluído.
+Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) no .NET do Lote) para *terminatejob* para encerrar automaticamente o trabalho quando todas as tarefas estão no estado concluído.
 
 O serviço de Lote considera que um trabalho *sem* tarefas tem todas as suas tarefas concluídas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se você quiser usar o encerramento automático de trabalho sem um gerenciador de trabalhos, defina inicialmente a propriedade **onAllTasksComplete** de um novo trabalho como *noaction*. Depois, defina-a como *terminatejob* somente depois que você terminar de adicionar tarefas ao trabalho.
 
 ### <a name="scheduled-jobs"></a>Trabalhos agendados
 
-Os [agendamentos de trabalho](https://docs.microsoft.com/rest/api/batchservice/jobschedule) permitem criar trabalhos recorrentes dentro do serviço de Lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento (quanto tempo e quando o agendamento entra em vigor) e com que frequência os trabalhos são criados durante o período agendado.
+Os [agendamentos de trabalho](/rest/api/batchservice/jobschedule) permitem criar trabalhos recorrentes dentro do serviço de Lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento (quanto tempo e quando o agendamento entra em vigor) e com que frequência os trabalhos são criados durante o período agendado.
 
 ## <a name="tasks"></a>Tarefas
 
@@ -153,11 +153,11 @@ Para ver mais detalhes, confira as [Dependências da tarefa no Lote do Azure](ba
 
 ### <a name="environment-settings-for-tasks"></a>Configurações do ambiente para tarefas
 
-Cada tarefa executada pelo serviço Lote tem acesso a variáveis de ambiente definidas em nós de computação. Isso inclui as variáveis de ambiente definidas pelo serviço de Lote ([service-defined](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables)) e as variáveis de ambiente personalizadas que você pode definir para suas tarefas. Os aplicativos e scripts executados pelas tarefas têm acesso a essas variáveis de ambiente durante a execução.
+Cada tarefa executada pelo serviço Lote tem acesso a variáveis de ambiente definidas em nós de computação. Isso inclui as variáveis de ambiente definidas pelo serviço de Lote ([service-defined](./batch-compute-node-environment-variables.md)) e as variáveis de ambiente personalizadas que você pode definir para suas tarefas. Os aplicativos e scripts executados pelas tarefas têm acesso a essas variáveis de ambiente durante a execução.
 
-Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Para obter mais detalhes, consulte a operação [Adicionar uma tarefa a um trabalho](https://docs.microsoft.com/rest/api/batchservice/task/add?)] (API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) e [CloudJob.CommonEnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) no .NET do Lote.
+Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Para obter mais detalhes, consulte a operação [Adicionar uma tarefa a um trabalho](/rest/api/batchservice/task/add?)] (API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) e [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob) no .NET do Lote.
 
-Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente da tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa](https://docs.microsoft.com/rest/api/batchservice/task/get) (REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) (.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente da tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa](/rest/api/batchservice/task/get) (REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) (.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
 Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [Variáveis de ambiente do nó de computação](batch-compute-node-environment-variables.md).
 

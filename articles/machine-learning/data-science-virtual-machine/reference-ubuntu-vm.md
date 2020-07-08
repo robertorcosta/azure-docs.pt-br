@@ -5,15 +5,16 @@ description: Detalhes sobre as ferramentas incluídas no Ubuntu Máquina Virtual
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161274"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955532"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Máquina Virtual de Ciência de Dados
 
@@ -142,7 +143,7 @@ O servidor do notebook Jupyter foi previamente configurado com os kernels do Pyt
 > [!NOTE]
 > Continue se você obtiver quaisquer avisos de certificado.
 
-Você pode acessar o servidor de bloco de anotações do Jupyter por meio de qualquer host. Insira **https://\<endereço IP ou nome DNS da VM\>:8000/**.
+Você pode acessar o servidor de bloco de anotações do Jupyter por meio de qualquer host. Insira **https:// \<VM DNS name or IP address\> : 8000/**.
 
 > [!NOTE]
 > A porta 8000 é aberta no firewall por padrão quando a VM é provisionada. 
@@ -207,7 +208,7 @@ O pacote de driver ODBC do SQL Server também vem com duas ferramentas de linha 
 
 - **bcp**: a ferramenta bcp copia dados em massa entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. Você pode usá-la para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela. Ou você deve entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
 
-  Para obter mais informações, veja [Como conectar-se com bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+  Para obter mais informações, consulte [conectando-se com o bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
 - **sqlcmd**: você pode inserir instruções TRANSACT-SQL usando a ferramenta sqlcmd. Você também pode inserir procedimentos do sistema e arquivos de script no prompt de comando. Essa ferramenta usa o ODBC para executar lotes do Transact-SQL.
 
@@ -254,7 +255,7 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 
 ## <a name="machine-learning-tools"></a>Ferramentas de Machine Learning
 
-A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Eles incluem:
+A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Elas incluem:
 
 * **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
 * **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
@@ -262,8 +263,10 @@ A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-
 * **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
 * **LightGBM**: um gradiente rápido, distribuído e de alto desempenho aumentando a estrutura com base em algoritmos de árvore de decisão.
 * **R**: uma biblioteca avançada de funções de aprendizado de máquina está disponível para R. as bibliotecas pré-instaladas incluem LM, GLM, randomForest e rpart. Você pode instalar outras bibliotecas executando este comando:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Veja algumas informações adicionais sobre as três primeiras ferramentas de aprendizado de máquina na lista.
 
@@ -329,9 +332,9 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Use as seguint
 > [!NOTE]
 > Se não tiver acesso para instalar o pacote no diretório do sistema (o padrão), você poderá ver uma solicitação na janela do console do R para instalar pacotes na sua biblioteca pessoal. Caso veja essas solicitações, responda **s** .
 
-1. Selecione **executar**.
+1. Selecione **Executar**.
 1. Uma caixa de diálogo é exibida perguntando se você deseja usar o conjunto de dados meteorológicos de exemplo. Selecione **Sim** para carregar o exemplo.
-1. Selecione a guia **Modelo**.
+1. Selecione a guia **modelo** .
 1. Selecione **Executar** para criar uma árvore de decisão.
 1. Selecione **Desenhar** para exibir a árvore de decisão.
 1. Selecione a opção **Floresta** e **Executar** para criar uma floresta aleatória.

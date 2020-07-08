@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76514214"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954682"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Aditamento do Protocolo Smooth Streaming para HEVC 
 
@@ -242,10 +242,12 @@ O ProtectionElement DEVERÁ estar presente quando a Criptografia Comum (CENC) fo
 > 
 >   A sintaxe dos campos definidos nesta seção, especificada em ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) é a seguinte:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Observação**: as marcas de compatibilidade ‘ccff’ e ‘iso8’ indicam que os fragmentos estão em conformidade com o "Formato de Arquivo de Contêiner Comum" e Criptografia Comum [ISO/IEC 23001-7] e Formato de Arquivo de Mídia Base ISO Edição 4 [ISO/IEC 14496-12].
 
@@ -281,21 +283,25 @@ O ProtectionElement DEVERÁ estar presente quando a Criptografia Comum (CENC) fo
 > * **MajorVersion**
 > * **MinorVersion**
 > * **TimeScale**
-> * **Permanência**
+> * **Duration**
 > * **IsLive**
 > * **LookaheadCount**
 > * **DVRWindowLength**
 > 
 >   Apresentações contendo Fluxos HEVC DEVERÃO definir:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (observação: caixas preteridas)
 > 
 >   As apresentações também DEVERIAM definir:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Coleta de fluxo: uma coleção de elementos de dados de Descrição de Fluxo, conforme especificado na seção *3.1.1.1.2*.
 > 
@@ -385,7 +391,7 @@ As caixas a seguir podem estar presentes nas respostas de fragmentos quando a Cr
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

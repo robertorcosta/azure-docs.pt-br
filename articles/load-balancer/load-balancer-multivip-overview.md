@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771250"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956365"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
@@ -69,7 +69,7 @@ Definimos duas regras:
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Endereço IP DIP |80 |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Endereço IP DIP |81 |
@@ -102,20 +102,31 @@ Para cada VM no pool de back-end, execute os comandos a seguir em um prompt de c
 
 Para obter a lista de nomes de interface que você tem em sua VM, digite este comando:
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 Para a NIC da VM (gerenciado pelo Azure), digite este comando:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (substitua InterfaceName pelo nome desta interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(substitua InterfaceName pelo nome desta interface)
 
 Para cada interface de loopback que você adicionou, Repita estes comandos:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (substitua InterfaceName pelo nome desta interface de loopback)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (substitua InterfaceName pelo nome desta interface de loopback)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(substitua InterfaceName pelo nome desta interface de loopback)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(substitua InterfaceName pelo nome desta interface de loopback)
 
 > [!IMPORTANT]
 > A configuração das interfaces de loopback é executada no SO Convidado. Essa configuração não é executada ou gerenciada pelo Azure. Sem essa configuração, as regras não funcionarão. As definições de investigação de integridade usam o DIP da VM em vez da interface de loopback que representa o front-end de DSR. Portanto, o serviço deve fornecer respostas de investigação em uma porta DIP que refletem o status do serviço oferecido na interface de loopback que representa o front-end de DSR.
@@ -137,7 +148,7 @@ Definimos duas regras:
 
 A tabela a seguir mostra o mapeamento completo no balanceador de carga:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |mesmo que front-end (65.52.0.1) |mesmo que front-end (80) |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |mesmo que front-end (65.52.0.2) |mesmo que front-end (80) |
@@ -146,7 +157,7 @@ O destino do fluxo de entrada é o endereço IP de front-end na interface de loo
 
 Observe que este exemplo não altera a porta de destino. Embora esse seja um cenário de IP Flutuante, o Azure Load Balancer também oferece suporte à definição de uma regra para reescrever a porta de destino de back-end e diferenciar da porta de destino do front-end.
 
-O tipo de regra de IP Flutuante é a base de vários padrões de configuração do balanceador de carga. Um exemplo disponível atualmente é a configuração [AlwaysOn com vários ouvintes](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Ao longo do tempo, documentaremos mais esses cenários.
+O tipo de regra de IP Flutuante é a base de vários padrões de configuração do balanceador de carga. Um exemplo disponível atualmente é a configuração [AlwaysOn com vários ouvintes](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) . Ao longo do tempo, documentaremos mais esses cenários.
 
 ## <a name="limitations"></a>Limitações
 

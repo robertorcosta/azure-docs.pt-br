@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: a8c299a6f0e6732d50b40fc29bde07179fc2c412
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be18a9d54049562eebc27720988b085c3e14f2da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185635"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956502"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -64,7 +64,7 @@ Todos os volumes de Azure NetApp Files são criptografados usando o padrão FIPS
 
 O gerenciamento de chaves para Azure NetApp Files é tratado pelo serviço. Uma chave de criptografia de dados XTS-AES-256 exclusiva é gerada para cada volume. Uma hierarquia de chave de criptografia é usada para criptografar e proteger todas as chaves de volume. Essas chaves de criptografia nunca são exibidas ou relatadas em um formato não criptografado. As chaves de criptografia são excluídas imediatamente quando um volume é excluído.
 
-O suporte para chaves gerenciadas pelo usuário (Traga suas próprias chaves) usando o HSM dedicado do Azure está disponível de acordo com as regiões do leste dos EUA, US West2 e centro-sul dos EUA.  Você pode solicitar acesso em **anffeedback@microsoft.com**. À medida que a capacidade estiver disponível, as solicitações serão aprovadas.
+O suporte para chaves gerenciadas pelo usuário (Traga suas próprias chaves) usando o HSM dedicado do Azure está disponível de acordo com as regiões do leste dos EUA, US West2 e centro-sul dos EUA.  Você pode solicitar acesso em **anffeedback@microsoft.com** . À medida que a capacidade estiver disponível, as solicitações serão aprovadas.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Posso configurar as regras da política de exportação do NFS para controlar o acesso ao destino de montagem do serviço Azure NetApp Files?
 
@@ -79,7 +79,7 @@ Não, no momento, não é possível aplicar grupos de segurança de rede à sub-
 
 Sim, Azure NetApp Files dá suporte a recursos de RBAC com IAM do Azure.
 
-## <a name="performance-faqs"></a>Perguntas frequentes sobre desempenho
+## <a name="performance-faqs"></a>Perguntas frequentes sobre o desempenho
 
 ### <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>O que devo fazer para otimizar ou ajustar o desempenho de Azure NetApp Files?
 
@@ -107,7 +107,7 @@ Azure NetApp Files fornece métricas de desempenho de volume. Você também pode
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Quero ter um volume montado automaticamente quando uma VM do Azure é iniciada ou reinicializada.  Como fazer configurar meu host para volumes NFS persistentes?
 
-Para que um volume NFS seja montado automaticamente na inicialização ou na reinicialização da VM, `/etc/fstab` adicione uma entrada ao arquivo no host. 
+Para que um volume NFS seja montado automaticamente na inicialização ou na reinicialização da VM, adicione uma entrada ao `/etc/fstab` arquivo no host. 
 
 Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) para obter detalhes.  
 
@@ -125,6 +125,10 @@ No momento, não há suporte para o desatualização raiz.
 
 ## <a name="smb-faqs"></a>Perguntas frequentes sobre o SMB
 
+### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Quais versões SMB têm suporte pelo Azure NetApp Files?
+
+O Azure NetApp Files dá suporte a SMB 2,1 e SMB 3,1 (que inclui suporte para SMB 3,0).    
+
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>É uma conexão Active Directory necessária para acesso SMB? 
 
 Sim, você deve criar uma conexão de Active Directory antes de implantar um volume SMB. Os controladores de domínio especificados devem ser acessíveis pela sub-rede delegada do Azure NetApp Files para uma conexão bem-sucedida.  Consulte [criar um volume SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) para obter detalhes. 
@@ -139,7 +143,7 @@ Uma conexão do AD é configurada por conta da NetApp; a conexão do AD é visí
 
 Há suporte para os [serviços de domínio Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) e [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) . Você pode usar os controladores de domínio Active Directory existentes com Azure NetApp Files. Os controladores de domínio podem residir no Azure como máquinas virtuais ou localmente por meio de ExpressRoute ou VPN S2S. O Azure NetApp Files não oferece suporte ao ingresso no AD para [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) no momento.
 
-Se você estiver usando Azure NetApp Files com Azure Active Directory Domain Services, o caminho da unidade organizacional `OU=AADDC Computers` será quando você configurar Active Directory para sua conta do NetApp.
+Se estiver usando o Azure NetApp Files com o Azure Active Directory Domain Services, o caminho da unidade organizacional será `OU=AADDC Computers` quando você configurar o Active Directory para sua conta do NetApp.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Quais versões do Windows Server Active Directory têm suporte?
 
@@ -173,23 +177,26 @@ Não. O Gerenciador de Armazenamento do Azure não dá suporte a Azure NetApp Fi
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Como fazer determinar se um diretório está se aproximando do tamanho do limite?
 
-Você pode usar o `stat` comando de um cliente para ver se um diretório está se aproximando do limite de tamanho máximo (320 MB).
+Você pode usar o `stat` comando de um cliente para ver se um diretório está se aproximando do limite de tamanho máximo para metadados de diretório (320 MB).
 
 Para um diretório de 320 MB, o número de blocos é 655360, sendo que cada tamanho de bloco é de 512 bytes.  (Ou seja, 320x1024x1024/512.)  
 
 Exemplos:
 
-    [makam@cycrh6rtp07 ~]$ stat bin
-    File: 'bin'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
 
-    [makam@cycrh6rtp07 ~]$ stat tmp
-    File: 'tmp'
-    Size: 12288           Blocks: 24         IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
  
-    [makam@cycrh6rtp07 ~]$ stat tmp1
-    File: 'tmp1'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
+
 
 ## <a name="data-migration-and-protection-faqs"></a>Perguntas frequentes sobre migração de dados e proteção
 
@@ -234,5 +241,5 @@ Não. O serviço de importação/exportação do Azure não oferece suporte a Az
 - [Perguntas frequentes Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Perguntas frequentes Rede Virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox)
 - [Perguntas frequentes sobre o desempenho do SMB para Azure NetApp Files](azure-netapp-files-smb-performance.md)

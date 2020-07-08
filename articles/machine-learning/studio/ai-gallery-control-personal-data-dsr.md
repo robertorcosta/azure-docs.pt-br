@@ -5,18 +5,18 @@ description: Você pode exportar e excluir seus dados de usuário do produto da 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bf0d889d70272988c9d2b243ae255f9654656bd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204538"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955583"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Exibir e excluir dados de usuário do produto da Galeria de IA do Azure
 
@@ -45,11 +45,13 @@ As respostas de catálogo são retornadas no formato JSON.
 ### <a name="get-an-author-id"></a>Obter uma ID do autor
 A ID do autor baseia-se no endereço de email usado ao publicar na Galeria de IA do Azure. Ela não altera:
 
-1.    Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
-2.    Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
-3.    A URL na barra de endereços exibe a ID alfanumérica após `authorId=`. Por exemplo, para a URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
-        
-    ID do autor: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1. Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
+2. Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
+3. A URL na barra de endereços exibe a ID alfanumérica após `authorId=`. Por exemplo, para a URL: \
+    `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+
+    ID do autor: \
+    `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 ### <a name="get-your-access-token"></a>Obter o token de acesso
 
@@ -61,22 +63,23 @@ Para obter um token de acesso, você precisa inspecionar o `DataLabAccessToken` 
 2.    Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
 3.    Abra o painel Ferramentas para Desenvolvedores do navegador pressionando F12, selecione a guia Rede e atualize a página. 
 4. Filtre solicitações na cadeia de caracteres *catálogo* digitando na caixa de texto Filtro.
-5.    Em solicitações para a URL `https://catalog.cortanaanalytics.com/entities`, localize uma solicitação get e selecione a guia *cabeçalhos* . Role para baixo até a seção *cabeçalhos de solicitação* .
+5.    Em solicitações para a URL `https://catalog.cortanaanalytics.com/entities` , localize uma solicitação get e selecione a guia *cabeçalhos* . Role para baixo até a seção *cabeçalhos de solicitação* .
 6.    Sob o cabeçalho `DataLabAccessToken` está o token alfanumérico. Para ajudar a manter seus dados protegidos, não compartilhe este token.
 
 ### <a name="view-user-information"></a>Exibir informações do usuário
 Usando a ID do autor que você obteve nas etapas anteriores, exiba informações no perfil do usuário substituindo `[AuthorId]` na seguinte URL:
 
-    https://catalog.cortanaanalytics.com/users/[AuthorID]
+`https://catalog.cortanaanalytics.com/users/[AuthorID]`
 
 Por exemplo, esta solicitação de URL:
-    
-    https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA
+
+`https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 Retorna uma resposta, como:
 
-    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
-
+```json
+{"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+```
 
 ### <a name="view-public-entities"></a>Exibir entidades públicas
 
@@ -84,11 +87,11 @@ A API de catálogo armazena informações sobre as entidades publicadas na Galer
 
 Para exibir as entidades publicadas, visite a URL a seguir, substituindo `[AuthorId]` pela ID do autor obtida em [Obter uma ID do autor](#get-an-author-id) acima.
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
 Por exemplo:
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 
 ### <a name="view-unlisted-and-public-entities"></a>Exibir entidades não listadas e públicas
 

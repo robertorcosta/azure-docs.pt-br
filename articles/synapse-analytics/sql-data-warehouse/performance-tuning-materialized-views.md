@@ -6,18 +6,18 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7a54d1d644d1069957db7f94d6f5e261e1a8dfb2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747543"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956382"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
+# <a name="performance-tune-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
 
 As exibições materializadas no pool de SQL do Synapse fornecem um método de baixa manutenção para que as consultas analíticas complexas obtenham desempenho rápido sem nenhuma alteração na consulta. Este artigo discute as orientações gerais sobre o uso de exibições materializadas.
 

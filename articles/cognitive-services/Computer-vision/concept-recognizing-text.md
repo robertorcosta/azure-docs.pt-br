@@ -1,7 +1,7 @@
 ---
-title: Ler texto de imagens e documentos-Pesquisa Visual Computacional
+title: OCR (reconhecimento óptico de caracteres)-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados ao OCR (reconhecimento óptico de caracteres) e texto de imagens e documentos para impressão e texto manuscrito usando o API da Pesquisa Visual Computacional.
+description: Conceitos relacionados ao OCR (reconhecimento óptico de caracteres) de imagens e documentos com texto impresso e manuscrito usando o API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: msbbonsu
 manager: netahw
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: d1c642a660b24cfc54c9c4308b8956582e13d50a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560801"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954733"
 ---
-# <a name="read-text-from-images-and-documents"></a>Ler texto de imagens e documentos
+# <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
 O Pesquisa Visual Computacional inclui novos recursos de OCR (reconhecimento ótico de caracteres ópticos) baseados em aprendizado profundo que extraem texto impresso ou manuscrito de imagens e documentos em PDF. Pesquisa Visual Computacional extrai texto de documentos analógicos (imagens, documentos digitalizados) e documentos digitalizados. Você pode extrair texto de imagens no mesmo, como fotos de chapas de licença ou contêineres com números de série, bem como de documentos-faturas, títulos, relatórios financeiros, artigos e muito mais. Essa funcionalidade de OCR está disponível como parte do serviço gerenciado na nuvem ou localmente (contêineres). Além disso, ele dá suporte a redes virtuais e pontos de extremidade privados para atender às suas necessidades de privacidade e conformidade de nível empresarial.
 
@@ -26,7 +26,7 @@ O Pesquisa Visual Computacional inclui novos recursos de OCR (reconhecimento ót
 
 A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente da Microsoft que extrai texto impresso (sete idiomas), texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos PDF de várias páginas. Ele é otimizado para extrair texto de imagens de texto intenso e documentos em PDF com várias páginas com idiomas mistos. Ele dá suporte à detecção de texto impresso e manuscrito (somente em inglês) na mesma imagem ou documento. A lista completa de idiomas com suporte pode ser encontrada na página [suporte de idioma para pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) .
 
-### <a name="how-it-works"></a>Como ele funciona
+### <a name="how-it-works"></a>Como funciona
 
 A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) dá suporte a documentos com texto pesado de até 2000 páginas e, portanto, é executada de forma assíncrona. A primeira etapa é chamar a operação de leitura. A operação de leitura usa um documento de imagem ou PDF como entrada e retorna uma ID de operação. 
 

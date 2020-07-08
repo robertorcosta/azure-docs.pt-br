@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/29/2020
+ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75977533"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955805"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB 
 
@@ -28,18 +28,18 @@ A taxa de transferência provisionada, especificada como [RU/s](request-units.md
 
 Para obter mais informações, confira a [página de preços do Microsoft Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) e [Entendendo sua fatura do Microsoft Azure Cosmos DB](understand-your-bill.md).
 
-O modelo de preços do Azure Cosmos DB é consistente em todas as APIs. Saiba mais em [Como o modelo de preços do Microsoft Azure Cosmos DB é econômico para os clientes](total-cost-ownership.md). Há uma taxa de transferência mínima exigida em um banco de dados ou contêiner para garantir os SLAs, e você pode aumentar ou diminuir a taxa de transferência provisionada por US$ 6 para cada 100 RU/s.
+O modelo de preços do Azure Cosmos DB é consistente em todas as APIs. Saiba mais em [Como o modelo de preços do Microsoft Azure Cosmos DB é econômico para os clientes](total-cost-ownership.md). Há uma taxa de transferência mínima necessária em um banco de dados ou em um contêiner para garantir os SLAs e você pode aumentar ou diminuir a taxa de transferência provisionada para cada 100 RU/s.
 
-Atualmente, o preço mínimo para a taxa de transferência baseada em contêiner e em banco de dados é de US$ 24/mês (confira a [página de preços do Microsoft Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para informações mais recentes. Se sua carga de trabalho usa vários contêineres, ela ser otimizada em termos de custo usando taxa de transferência no nível do banco de dados, pois a taxa de transferência no nível do banco de dados permite que você tenha qualquer quantidade de contêineres em um banco de dados compartilhando a taxa de transferência entre eles. A tabela a seguir resume a taxa de transferência provisionada e os custos para entidades diferentes:
+Se você implantar sua conta de Azure Cosmos DB em uma região não governamental nos EUA, no momento o preço mínimo para o banco de dados e a taxa de transferência baseada em contêiner será de aproximadamente US $24/mês. O preço varia de acordo com a região que você está usando, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre preços. Se sua carga de trabalho usa vários contêineres, ela ser otimizada em termos de custo usando taxa de transferência no nível do banco de dados, pois a taxa de transferência no nível do banco de dados permite que você tenha qualquer quantidade de contêineres em um banco de dados compartilhando a taxa de transferência entre eles. A tabela a seguir resume a taxa de transferência provisionada e os custos para entidades diferentes:
 
-|**Entidade**  | **Taxa de transferência mínima e custo** |**Incrementos de escala e custo** |**Escopo de provisionamento** |
+|**Entidade**  | **Taxa de transferência mínima** |**Incrementos de escala** |**Escopo de provisionamento** |
 |---------|---------|---------|-------|
-|Banco de dados    | 400 RU/s (US$ 24/mês)    | 100 RU/s (US$ 6/mês)   |A taxa de transferência é reservada para o banco de dados e compartilhada por contêineres dentro do banco de dados |
-|Contêiner     | 400 RU/s (US$ 24/mês)    | 100 RU/s (US$ 6/mês)  |A taxa de transferência é reservada para um contêiner específico |
+|Banco de dados    | 400 RU/s    | 100 RU/s   |A taxa de transferência é reservada para o banco de dados e compartilhada por contêineres dentro do banco de dados |
+|Contêiner     | 400 RU/s   | 100 RU/s  |A taxa de transferência é reservada para um contêiner específico |
 
-Conforme mostrado na tabela anterior, o valor da taxa de transferência mínima no Azure Cosmos DB começa em US$ 24/mês. Se você começar com a taxa de transferência mínima e a escalar verticalmente ao longo do tempo para dar suporte às cargas de trabalho de produção, os custos aumentarão suavemente em incrementos de US$ 6/mês. O modelo de preços do Azure Cosmos DB é flexível e há um aumento ou diminuição suave no preço durante o aumento ou redução.
+Conforme mostrado na tabela anterior, a taxa de transferência mínima no Azure Cosmos DB começa com um preço de aproximadamente US $24/mês. Se você começar com a taxa de transferência mínima e escalar verticalmente ao longo do tempo para dar suporte às suas cargas de trabalho de produção, seus custos aumentarão suavemente, em incrementos de aproximadamente US $6/mês. O preço varia de acordo com a região que você está usando, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre preços. O modelo de preços do Azure Cosmos DB é flexível e há um aumento ou diminuição suave no preço durante o aumento ou redução.
 
-## <a name="try-azure-cosmos-db-for-free"></a>Experimente o Azure Cosmos DB gratuitamente 
+## <a name="try-azure-cosmos-db-for-free"></a>Experimente o Azure Cosmos DB gratuitamente
 
 O Azure Cosmos DB oferece várias opções para os desenvolvedores gratuitamente. Estas opções incluem:
 

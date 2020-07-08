@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: f00d93a639bacd1d0862fed7b6b003302bb2920e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/9/2020
+ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097652"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954187"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Banco de dados do Azure para níveis de preços do MariaDB
 
 Você pode criar um Banco de Dados do Azure para o servidor MariaDB em um dos três níveis de preços diferentes: Básico, Uso Geral e Memória Otimizada. Os tipos de preço são diferenciados pela quantidade de computação nos vCores que pode ser provisionada, pela memória por vCore e pela tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são provisionados no nível do servidor MariaDB. Um servidor pode ter um ou vários bancos de dados.
 
-|    | **Basic** | **Uso Geral** | **Otimizado para memória** |
+| Recurso | **Basic** | **Uso Geral** | **Otimizado para memória** |
 |:---|:----------|:--------------------|:---------------------|
 | Geração de computação | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 
 O armazenamento que você provisiona é a quantidade de capacidade de armazenamento disponível para seu banco de dados do Azure para o servidor MariaDB. O armazenamento é usado para os arquivos de banco de dados, arquivos temporários, logs de transações e os logs do servidor MariaDB. A quantidade total de armazenamento que você provisiona também define a capacidade disponível para o servidor.
 
-|    | **Basic** | **Uso Geral** | **Otimizado para memória** |
+| Atributos de armazenamento   | Basic | Uso Geral | Otimizado para memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento Uso Geral | Armazenamento Uso Geral |
 | Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
@@ -58,6 +58,20 @@ Você pode adicionar capacidade de armazenamento adicional durante e após a cri
 A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 
 Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos da CLI do Azure. As métricas relevantes para monitorar são o [limite de armazenamento, a porcentagem de armazenamento, o armazenamento usado e a porcentagem de e/s](concepts-monitoring.md).
+
+### <a name="large-storage-preview"></a>Armazenamento grande (visualização)
+
+Estamos aumentando os limites de armazenamento em nossas camadas de Uso Geral e com otimização de memória. Servidores recém-criados que aceitam a visualização podem provisionar até 16 TB de armazenamento. A escala de IOPS em uma proporção de 3:1 até 20.000 IOPS. Assim como acontece com o armazenamento atual disponível, você pode adicionar capacidade de armazenamento adicional após a criação do servidor e permitir que o sistema aumente o armazenamento automaticamente com base no consumo de armazenamento de sua carga de trabalho.
+
+| Atributos de armazenamento | Uso Geral | Otimizado para memória |
+|:-------------|:--------------------|:---------------------|
+| Tipo de armazenamento | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
+| Tamanho de armazenamento | 32 GB a 16 TB| 32 a 16 TB |
+| Tamanho do incremento de armazenamento | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000| 3 IOPS/GB<br/>Mín 100 IOPS<br/>IOPS máx. 20.000 |
+
+> [!IMPORTANT]
+> Atualmente, o armazenamento grande está em visualização pública nas seguintes regiões: leste dos EUA, leste dos EUA 2, EUA Central, oeste dos EUA, norte EUA Central, Sul EUA Central, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, leste da Austrália, sudeste da Austrália, oeste dos EUA 2 e Oeste EUA Central.
 
 ### <a name="reaching-the-storage-limit"></a>Alcançando o limite de armazenamento
 
