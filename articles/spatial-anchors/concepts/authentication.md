@@ -1,19 +1,18 @@
 ---
 title: Autenticação e autorização
 description: Saiba mais sobre as várias maneiras pelas quais um aplicativo ou serviço pode se autenticar para Âncoras Espaciais do Azure e os níveis de controle que você precisa para portar acesso a Âncoras Espaciais do Azure.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456497"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para Âncoras Espaciais do Azure
 
@@ -39,7 +38,6 @@ Os tokens de autenticação do Azure AD podem ser obtidos de duas maneiras:
 O uso de chaves de conta para acesso à sua conta de Âncoras Espaciais do Azure é a maneira mais simples de começar. Você encontrará suas chaves de conta no portal do Azure. Navegue até sua conta e selecione a guia "Chaves".
 
 ![Uma visão geral de autenticação para Âncoras Espaciais do Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Duas chaves são disponibilizadas, que são simultaneamente válidas para acesso à conta de Âncoras Espaciais. É recomendável que você atualize regularmente a chave usada para acessar a conta; ter duas chaves válidas separadas habilita tais atualizações sem tempo de inatividade; você só precisa atualizar a chave primária e a chave secundária como alternativa.
 
@@ -175,13 +173,14 @@ O token de acesso do Azure AD é recuperado usando a [biblioteca MSAL](../../act
         1.  No portal do Azure, navegue até **Microsoft Azure Active Directory** e selecione **registros de aplicativo**
         2.  Selecione **novo registro de aplicativo**
         3.  Insira o nome do seu aplicativo, selecione **aplicativo Web/API** como o tipo de aplicativo e insira a URL de autenticação para seu serviço. Em seguida, clique em **Criar**.
-        4.  Nesse aplicativo, clique em **Configurações** e selecione a guia **Chaves**. Insira o nome da sua chave, selecione uma duração e clique em **Salvar**. Salve o valor de chave que é exibido nesse momento, pois você precisará incluí-lo no código do serviço Web.
+        4.  Nesse aplicativo, clique em **configurações**e, em seguida, selecione a guia **certificados e segredos** . Crie um novo segredo do cliente, selecione uma duração e clique em **Adicionar**. Certifique-se de salvar o valor secreto, pois será necessário incluí-lo no código do serviço Web.
     2.  Conceda ao seu aplicativo e/ou usuários acesso ao seu recurso:
         1.  Navegue até o recurso Âncoras Espaciais no portal do Azure
         2.  Mude para a guia **Controle de acesso (IAM)**
         3.  Pressione **Adicionar atribuição de função**
         1.  [Selecionar uma função](#role-based-access-control)
         2.  No campo **Selecione**, insira o nome dos aplicativos criados e aos quais você deseja atribuir o acesso. Se você quiser que os usuários do aplicativo tenham funções diferentes em relação à conta de Âncoras Espaciais, registre vários aplicativos no Azure AD e atribua a cada um uma função separada. Em seguida, implemente sua lógica de autorização para usar a função certa para seus usuários.
+        3.  Observação-na seleção **Adicionar atribuição de função** , você deseja que o **acesso de atribuição** seja definido como "usuário, grupo ou entidade de serviço do Azure AD".
     3.  Pressione **Salvar**.
 2.  Em seu código (observação: você pode usar o exemplo de serviço incluído no GitHub):
     1.  Use a ID do aplicativo, o segredo do aplicativo e a URI de redirecionamento do seu aplicativo do Azure AD como os parâmetros ID do cliente, segredo e RedirectUri no MSAL

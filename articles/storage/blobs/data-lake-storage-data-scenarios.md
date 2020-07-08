@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b0ebe6cb505fa2a145dd3cbb94398912f2933a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77369705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193502"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando o Azure Data Lake Storage Gen2 para exigências de big data
 
@@ -52,9 +51,9 @@ Isso representa os dados que podem ser gerados por várias fontes, como aplicati
 
 Aqui está uma lista de ferramentas que você pode usar para a ingestão de dados transmitidos.
 
-|Ferramenta | Orientação |
+|Ferramenta | Diretrizes |
 |---|--|
-|Stream Analytics do Azure|[Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Saída para Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
+|Stream Analytics do Azure|[Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Saída para Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
 |Azure HDInsight Storm | [Gravar no HDFS do Apache Hadoop usando o Apache Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
 
 ### <a name="relational-data"></a>Dados relacionais
@@ -63,7 +62,7 @@ Você também pode originar dados nos bancos de dados relacionais. Durante um pe
 
 Aqui está uma lista de ferramentas que você pode usar para a ingestão de dados relacionais.
 
-|Ferramenta | Orientação |
+|Ferramenta | Diretrizes |
 |---|--|
 |Fábrica de dados do Azure | [Atividade Copiar no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
@@ -73,7 +72,7 @@ Esse tipo de conjunto de dados é especificamente chamado porque a análise dos 
 
 Aqui está uma lista de ferramentas que você pode usar para a ingestão de dados de log de servidor Web.
 
-|Ferramenta | Orientação |
+|Ferramenta | Diretrizes |
 |---|--|
 |Fábrica de dados do Azure | [Atividade Copiar no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 |CLI do Azure|[CLI do Azure](data-lake-storage-directory-file-acl-cli.md)|
@@ -87,7 +86,7 @@ A maioria dos tipos de cluster HDInsight (Hadoop, HBase, Storm) é compatível c
 
 Aqui está uma lista de ferramentas que você pode usar para a ingestão de dados associados a clusters do HDInsight.
 
-|Ferramenta | Orientação |
+|Ferramenta | Diretrizes |
 |---|--|
 |Apache DistCp | [Use o DistCp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |Ferramenta AzCopy | [Transferir dados com AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
@@ -116,9 +115,9 @@ Depois que os dados estiverem disponíveis no Azure Data Lake Storage Gen2, voc�
 
 Aqui está uma lista de ferramentas que você pode usar para executar trabalhos de análise de dados em dados armazenados no Data Lake Storage Gen2.
 
-|Ferramenta | Orientação |
+|Ferramenta | Diretrizes |
 |---|--|
-|Azure HDInsight | [Usar Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
+|Azure HDInsight | [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Início rápido: analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Visualizar os dados
@@ -129,7 +128,7 @@ Use o conector de Power BI para criar representações visuais de dados armazena
 
 Você também pode querer baixar ou mover dados do Azure Data Lake Storage Gen2 para cenários como:
 
-* Mover dados para outros repositórios para fazer interface com os pipelines de processamento de dados existentes. Por exemplo, você pode querer mover os dados do Azure Data Lake Storage Gen2 para o Banco de Dados SQL do Azure ou SQL Server local.
+* Mover dados para outros repositórios para fazer interface com os pipelines de processamento de dados existentes. Por exemplo, talvez você queira mover dados de Data Lake Storage Gen2 para o banco de dados SQL do Azure ou uma instância de SQL Server.
 
 * Baixar dados no computador local para processamento em ambientes IDE durante a criação de protótipos de aplicativo.
 
@@ -137,7 +136,7 @@ Você também pode querer baixar ou mover dados do Azure Data Lake Storage Gen2 
 
 Aqui está uma lista de ferramentas que você pode usar para baixar dados do Data Lake Storage Gen2.
 
-|Ferramenta | Orientação |
+|Ferramenta | Diretrizes |
 |---|--|
 |Fábrica de dados do Azure | [Atividade Copiar no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCp | [Use o DistCp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

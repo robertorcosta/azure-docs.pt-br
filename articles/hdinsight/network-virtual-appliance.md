@@ -6,13 +6,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: cbc2104ae3c55ae3670867b7a253d812f3a4be0e
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: abedaf6f66bdd7aea36512c90bb5ee799f8e7a99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800937"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar solução de virtualização de rede no Azure HDInsight
 
@@ -21,51 +20,38 @@ ms.locfileid: "82864702"
 
 O Firewall do Azure é configurado automaticamente para permitir o tráfego para muitos dos cenários importantes comuns. Usar outra solução de virtualização de rede exigirá que você configure vários recursos adicionais. Lembre-se dos seguintes fatores ao configurar sua solução de virtualização de rede:
 
-* Os serviços compatíveis com o Ponto de Extremidade de Serviço devem ser configurados com pontos de extremidade de serviço.
+* Os serviços com capacidade de ponto de extremidade de serviço podem ser configurados com pontos de extremidade de serviço que resultam em ignorar o NVA, geralmente para considerações de custo ou desempenho.
 * As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP).
-* Os pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo NVA.
-* Pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar com base em vários qualificadores.
+* Os pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados na lista de permissões em seu dispositivo NVA.
 * Atribua a tabela de rotas que você cria à sub-rede do HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dependências compatíveis com ponto de extremidade de serviço
+
+Opcionalmente, você pode habilitar um ou mais dos seguintes pontos de extremidade de serviço, o que resultará em ignorar o NVA. Essa opção pode ser útil para grandes quantidades de transferências de dados para economizar em custos e também para otimizações de desempenho. 
 
 | **Ponto de extremidade** |
 |---|
 | SQL do Azure |
 | Armazenamento do Azure |
-| Active Directory do Azure |
+| Azure Active Directory |
 
 ### <a name="ip-address-dependencies"></a>Dependências de endereço IP
 
 | **Ponto de extremidade** | **Detalhes** |
 |---|---|
-| \*:123 | Verificação do relógio do NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
-| IPs publicados [aqui](hdinsight-management-ip-addresses.md) | Esses IPs são o serviço do HDInsight |
-| Os IPs privados do AAD-DS para clusters ESP |
-| \*: 16800 para ativação do Windows KMS |
-| \*12000 para Log Analytics |
+| IPs publicados [aqui](hdinsight-management-ip-addresses.md) | Esses IPs são para o local de controle do HDInsight e devem ser incluídos no UDR para evitar o roteamento assimétrico |
+| AAD – IPs privados DS | Necessário somente para clusters ESP|
+
 
 ### <a name="fqdn-httphttps-dependencies"></a>Dependências de HTTP/HTTPS do FQDN
 
 > [!Important]
-> A lista a seguir fornece apenas alguns dos FQDNs mais importantes. Você pode obter FQDNs adicionais (principalmente o armazenamento do Azure e o barramento de serviço do Azure) para configurar seu NVA [neste arquivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> A lista a seguir fornece apenas alguns dos FQDNs mais importantes. Você pode obter a lista completa de FQDNs (principalmente o armazenamento do Azure e o barramento de serviço do Azure) para configurar seu NVA [neste arquivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Essas dependências são usadas pelas operações do plano de controle do HDInsight para criar um cluster com êxito.
 
 | **Ponto de extremidade**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
 

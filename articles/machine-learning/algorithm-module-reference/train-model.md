@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4aec156821a7d38907602cc1def0459dbf996b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447553"
 ---
 # <a name="train-model-module"></a>Módulo Treinar Modelo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para treinar um modelo de classificação ou regressão. O treinamento ocorre depois que você define um modelo e define seus parâmetros e requer dados marcados. Você também pode usar **treinar modelo** para treinar novamente um modelo existente com novos dados. 
 
@@ -64,7 +63,7 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
   
 5.  Envie o pipeline. Se você tiver muitos dados, isso pode levar algum tempo.
 
-## <a name="results"></a><a name="bkmk_results"></a>Da
+## <a name="results"></a>Resultados
 
 Depois que o modelo for treinado:
 
@@ -76,4 +75,4 @@ Depois que o modelo for treinado:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

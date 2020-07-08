@@ -5,25 +5,21 @@ description: Saiba como coletar Azure Machine Learning dados de modelo de entrad
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475434"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433002"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> O SDK de monitoramento de Azure Machine Learning será desativado em breve. O SDK ainda é apropriado para os desenvolvedores que atualmente usam o SDK para monitorar a descompasso de dados em modelos. Mas para novos clientes, é recomendável usar o [monitoramento de dados simplificado com Application insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 Este artigo mostra como coletar dados de modelo de entrada de Azure Machine Learning. Ele também mostra como implantar os dados de entrada em um cluster AKS (serviço kubernetes do Azure) e armazenar os dados de saída no armazenamento de BLOBs do Azure.
 
@@ -56,7 +52,7 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 ```
 
 >[!NOTE]
-> Em versões do SDK do Azure Machine Learning para Python anteriores à versão 0.1.0 A16, o `designation` argumento é nomeado `identifier`. Se você desenvolveu seu código com uma versão anterior, precisará atualizá-lo adequadamente.
+> Em versões do SDK do Azure Machine Learning para Python anteriores à versão 0.1.0 A16, o `designation` argumento é nomeado `identifier` . Se você desenvolveu seu código com uma versão anterior, precisará atualizá-lo adequadamente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -125,7 +121,7 @@ Se você já tiver um serviço com as dependências instaladas em seu arquivo de
 
 1. Abra seu workspace.
 
-1. Selecione **implantações** > **selecionar serviço** > **Editar**.
+1. Selecione **implantações**  >  **selecionar serviço**  >  **Editar**.
 
    ![Editar o serviço](././media/how-to-enable-data-collection/EditService.PNG)
 
@@ -143,7 +139,7 @@ Você pode interromper a coleta de dados a qualquer momento. Use o código Pytho
 
 1. Abra seu workspace.
 
-1. Selecione **implantações** > **selecionar serviço** > **Editar**.
+1. Selecione **implantações**  >  **selecionar serviço**  >  **Editar**.
 
    [![Selecione a opção Editar](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
@@ -189,7 +185,7 @@ Você pode escolher uma ferramenta de sua preferência para analisar os dados co
 
     [![Power BI configuração de BLOB](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. Adicione o nome da sua conta de armazenamento e insira sua chave de armazenamento. Você pode encontrar essas informações selecionando **configurações** > **chaves de acesso** em seu BLOB.
+1. Adicione o nome da sua conta de armazenamento e insira sua chave de armazenamento. Você pode encontrar essas informações selecionando **configurações**  >  **chaves de acesso** em seu BLOB.
 
 1. Selecione o contêiner de **dados do modelo** e selecione **Editar**.
 
@@ -199,7 +195,7 @@ Você pode escolher uma ferramenta de sua preferência para analisar os dados co
 
 1. Insira o caminho do modelo no filtro. Se você quiser procurar apenas os arquivos de um ano ou mês específico, basta expandir o caminho do filtro. Por exemplo, para procurar apenas dados de março, use este caminho de filtro:
 
-   /modeldata/\<subscriptionid>/\<resourcegroupname>/\<workspacename>/\<WebServiceName>/\<ModelName>/\<modelversion>/\<designação>/\<year>/3
+   /modeldata/ \<subscriptionid> / \<resourcegroupname> / \<workspacename> / \<webservicename> / \<modelname> / \<modelversion> / \<designation> / \<year> /3
 
 1. Filtre os dados que são relevantes para você com base nos valores de **nome** . Se você armazenou previsões e entradas, precisará criar uma consulta para cada uma.
 
@@ -227,7 +223,7 @@ Você pode escolher uma ferramenta de sua preferência para analisar os dados co
 
     [![Selecionando a opção de dados de carregamento do databricks](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. Selecione **criar nova tabela** e selecione **outras fontes** > de dados armazenamento > de**BLOBs do Azure****criar tabela no bloco de anotações**.
+1. Selecione **criar nova tabela** e selecione **outras fontes de dados**  >  **armazenamento de BLOBs do Azure**  >  **criar tabela no bloco de anotações**.
 
     [![Criação de tabela do databricks](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

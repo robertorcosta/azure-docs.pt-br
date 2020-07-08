@@ -4,18 +4,17 @@ description: Saiba como carregar mapas de origem em seu próprio contêiner de b
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
-ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249730"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Suporte do mapa de origem para aplicativos JavaScript
 
 Application Insights dá suporte ao carregamento de mapas de origem para seu próprio contêiner de BLOB da conta de armazenamento.
-Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas na página de detalhes de transação de ponta a ponta. Qualquer exceção enviada pelo [SDK do JavaScript][ApplicationInsights-JS] ou pelo [SDK do node. js][ApplicationInsights-Node.js] pode ser unminified com mapas de origem.
+Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas na página de detalhes de transação de ponta a ponta. Qualquer exceção enviada pelo [SDK do JavaScript][ApplicationInsights-JS] ou pelo [SDK doNode.js][ApplicationInsights-Node.js] pode ser unminified com mapas de origem.
 
 ![Unminify uma pilha de chamadas vinculando-se a uma conta de armazenamento](./media/source-map-support/details-unminify.gif)
 
@@ -24,14 +23,16 @@ Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas
 Se você já tiver uma conta de armazenamento ou um contêiner de blob existente, poderá ignorar esta etapa.
 
 1. [Criar uma nova conta de armazenamento][create storage account]
-2. [Crie um contêiner de BLOBs][create blob container] dentro de sua conta de armazenamento. Certifique-se de definir o "nível de acesso público `Private`" como, para garantir que os mapas de origem não sejam acessíveis publicamente.
+2. [Crie um contêiner de BLOBs][create blob container] dentro de sua conta de armazenamento. Certifique-se de definir o "nível de acesso público" como `Private` , para garantir que os mapas de origem não sejam acessíveis publicamente.
 
 > [!div class="mx-imgBorder"]
 >![O nível de acesso do contêiner deve ser definido como privado](./media/source-map-support/container-access-level.png)
 
 ## <a name="push-your-source-maps-to-your-blob-container"></a>Enviar por push seus mapas de origem para o contêiner de BLOB
 
-Você deve integrar seu pipeline de implantação contínua à sua conta de armazenamento Configurando-a para carregar automaticamente os mapas de origem para o contêiner de blob configurado. Você não deve carregar seus mapas de origem para uma subpasta no contêiner de BLOBs; no momento, o mapa de origem só será obtido da pasta raiz.
+Você deve integrar seu pipeline de implantação contínua à sua conta de armazenamento Configurando-a para carregar automaticamente os mapas de origem para o contêiner de blob configurado.
+
+Os mapas de origem podem ser carregados no contêiner de armazenamento de BLOBs com a mesma estrutura de pastas em que foram compilados & implantados. Um caso de uso comum é prefixar uma pasta de implantação com sua versão, por exemplo, `1.2.3/static/js/main.js` . Quando unminifying por meio de um contêiner de blob do Azure chamado `sourcemaps` , ele tentará buscar um mapa de origem localizado em `sourcemaps/1.2.3/static/js/main.js.map` .
 
 ### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Carregar mapas de origem por meio de Azure Pipelines (recomendado)
 
@@ -74,7 +75,7 @@ Qualquer usuário no portal que usa esse recurso deve ser pelo menos atribuído 
 ### <a name="source-map-not-found"></a>Mapa de origem não encontrado
 
 1. Verifique se o mapa de origem correspondente é carregado para o contêiner de blob correto
-2. Verifique se o arquivo do mapa de origem é nomeado após o arquivo JavaScript para o qual ele é `.map`mapeado, com sufixo.
+2. Verifique se o arquivo do mapa de origem é nomeado após o arquivo JavaScript para o qual ele é mapeado, com sufixo `.map` .
     - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará o blob chamado`main.4e2ca5fa.chunk.js.map`
 3. Verifique o console do navegador para ver se algum erro está sendo registrado. Inclua isso em qualquer tíquete de suporte.
 

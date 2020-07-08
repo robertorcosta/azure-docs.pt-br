@@ -8,16 +8,15 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449296"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
-Uma conta de armazenamento do Azure usa credenciais que compreendem um nome de conta e uma chave. A chave é gerada automaticamente e serve como uma senha, em vez de uma como uma chave de criptografia. Key Vault gerencia chaves de conta de armazenamento armazenando-as como segredos Key Vault. 
+Uma conta de armazenamento do Azure usa credenciais que compreendem um nome de conta e uma chave. A chave é gerada automaticamente e serve como uma senha, em vez de uma como uma chave de criptografia. O Key Vault gerencia chaves de conta de armazenamento regerando-as periodicamente na conta de armazenamento e fornece tokens de assinatura de acesso compartilhado para acesso delegado a recursos em sua conta de armazenamento.
 
 Você pode usar o Key Vault recurso chave de conta de armazenamento gerenciado para listar (sincronizar) chaves com uma conta de armazenamento do Azure e regenerar (girar) as chaves periodicamente. Você pode gerenciar chaves para contas de armazenamento e contas de armazenamento clássicas.
 
@@ -55,7 +54,7 @@ Para concluir este guia, primeiro você deve fazer o seguinte:
 
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Criar um cofre de chaves](quick-create-powershell.md)
-- [Crie uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
+- [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 
 ## <a name="manage-storage-account-keys"></a>Gerenciar chaves de conta de armazenamento

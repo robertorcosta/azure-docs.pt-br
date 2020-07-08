@@ -6,12 +6,11 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449508"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
 
@@ -86,6 +85,10 @@ Sim, o dimensionamento automático é compatível com os bancos de dados de taxa
 
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>Qual é o número de contêineres permitidos por banco de dados de taxa de transferência compartilhada, quando o dimensionamento automático está habilitado?
 O Azure Cosmos DB impõe no máximo 25 contêineres em um banco de dados de taxa de transferência compartilhada, o que se aplica a bancos de dados com dimensionamento automático ou taxa de transferência padrão (manual). 
+
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>Qual é o impacto do dimensionamento automático no nível de consistência do banco de dados?
+Não há nenhum impacto sobre o dimensionamento automático no nível de consistência do banco de dados.
+Consulte o artigo [níveis de consistência](consistency-levels.md) para obter mais informações sobre os níveis de consistência disponíveis.
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Qual é o limite de armazenamento associado a cada opção do máximo de RU/s?  
 O limite de armazenamento em GB para cada máximo de RU/s é: Máximo de RU/s do banco de dados ou contêiner / 100. Por exemplo, se o máximo de RU/s for 20.000 RU/s, o recurso pode dar suporte a 200 GB de armazenamento. Confira o artigo [limites de dimensionamento automático](provision-throughput-autoscale.md#autoscale-limits) para obter o máximo de RU/s e as opções de armazenamento disponíveis. 

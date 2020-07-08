@@ -13,24 +13,23 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444447"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de Rede Virtual
 
-Os pontos de extremidade de serviço de rede virtual (VNet) estendem o espaço de endereço privado da rede virtual. Os pontos de extremidade também estendem a identidade de sua VNet para os serviços do Azure por meio de uma conexão direta. Os pontos de extremidade permitem que você possa garantir os recursos essenciais do serviço do Azure somente para suas redes virtuais. O tráfego de sua rede virtual para o serviço do Azure sempre permanece na rede de backbone do Microsoft Azure.
+O ponto de extremidade do serviço de rede virtual (VNet) fornece conectividade segura e direta aos serviços do Azure por meio de uma rota otimizada pela rede de backbone do Azure. Os pontos de extremidade permitem que você possa garantir os recursos essenciais do serviço do Azure somente para suas redes virtuais. Os pontos de extremidade de serviço permitem que endereços IP privados na VNet alcancem o ponto final de um serviço do Azure sem precisar de um endereço IP público na VNet.
 
-Esse recurso está disponível para os seguintes serviços e regiões do Azure. O *Microsoft.\* * Resource está entre parênteses. Habilite esse recurso do lado da sub-rede ao configurar pontos de extremidade de serviço para seu serviço:
+Esse recurso está disponível para os seguintes serviços e regiões do Azure. O *Microsoft. \* * Resource está entre parênteses. Habilite esse recurso do lado da sub-rede ao configurar pontos de extremidade de serviço para seu serviço:
 
-**Disponível**
+**Disponível para o público geral**
 
 - **[Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. Storage*): geralmente disponível em todas as regiões do Azure.
-- **[Banco de dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em todas as regiões do Azure.
-- **[SQL data warehouse do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em todas as regiões do Azure.
+- **[Banco de dados SQL do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em todas as regiões do Azure.
+- **[SQL data warehouse do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em todas as regiões do Azure.
 - **[Banco de dados do Azure para servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em regiões do Azure em que o serviço de banco de dados está disponível.
 - **[Banco de dados do Azure para servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em regiões do Azure em que o serviço de banco de dados está disponível.
 - **[Banco de dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): geralmente disponível em regiões do Azure em que o serviço de banco de dados está disponível.
@@ -39,7 +38,7 @@ Esse recurso está disponível para os seguintes serviços e regiões do Azure. 
 - **[Barramento de serviço do Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. ServiceBus*): geralmente disponível em todas as regiões do Azure.
 - **[Hubs de eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. EventHub*): geralmente disponíveis em todas as regiões do Azure.
 - **[Azure data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureActiveDirectory*): geralmente disponível em todas as regiões do Azure em que ADLS Gen1 está disponível.
-- **[Azure app serviço](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)**: geralmente disponível em todas as regiões do Azure em que o serviço de aplicativo está disponível.
+- **[Serviço de Azure app](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft. Web*): geralmente disponível em todas as regiões do Azure em que o serviço de aplicativo está disponível.
 
 **Visualização pública**
 
@@ -76,7 +75,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
   Por padrão, os recursos de serviço do Azure protegidos para redes virtuais não são acessíveis de redes locais. Se você quiser permitir o tráfego do local, também deverá permitir endereços IP públicos (normalmente, NAT) do seu local ou ExpressRoute. Você pode adicionar esses endereços IP por meio da configuração de firewall IP para recursos de serviço do Azure.
 
-  ExpressRoute: se você estiver usando o [expressroute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para emparelhamento público ou emparelhamento da Microsoft de seu local, será necessário identificar os endereços IP de NAT que você está usando. Para o emparelhamento público, cada circuito do ExpressRoute usa dois endereços IP NAT, por padrão, aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede Microsoft Azure. Para o emparelhamento da Microsoft, os endereços IP de NAT são fornecidos pelo cliente ou fornecidos pelo provedor de serviços.Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso.Para localizar os endereços IP públicos do circuito do ExpressRoute de emparelhamento, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Para obter mais informações sobre NAT para emparelhamento público e da Microsoft para o ExpressRoute, consulte [requisitos de NAT do expressroute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: se você estiver usando o [expressroute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para emparelhamento público ou emparelhamento da Microsoft de seu local, será necessário identificar os endereços IP de NAT que você está usando. Para o emparelhamento público, cada circuito do ExpressRoute usa dois endereços IP NAT, por padrão, aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede Microsoft Azure. Para o emparelhamento da Microsoft, os endereços IP de NAT são fornecidos pelo cliente ou fornecidos pelo provedor de serviços.Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso.Para localizar os endereços IP do circuito do ExpressRoute de emparelhamento público, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Para obter mais informações sobre NAT para emparelhamento público e da Microsoft para o ExpressRoute, consulte [requisitos de NAT do expressroute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Proteção dos serviços do Azure em redes virtuais](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -90,7 +89,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
 ### <a name="considerations"></a>Considerações
 
-- Depois de habilitar um ponto de extremidade de serviço, os endereços IP de origem das máquinas virtuais na chave de sub-rede. Os endereços IP de origem são alternados do uso de endereços IPv4 públicos para usar seu endereço IPv4 privado ao se comunicar com o serviço dessa sub-rede. Eventuais conexões TCP abertas existentes para o serviço são fechadas durante essa mudança. Verifique se não há tarefas críticas em execução ao habilitar ou desabilitar um ponto de extremidade de serviço para um serviço que atende a uma sub-rede. Além disso, verifique se seus aplicativos podem se conectar automaticamente aos serviços do Azure após a mudança de endereço IP.
+- Depois de habilitar um ponto de extremidade de serviço, os endereços IP de origem são alternados do uso de endereços IPv4 públicos para usar seu endereço IPv4 privado ao se comunicar com o serviço dessa sub-rede. Eventuais conexões TCP abertas existentes para o serviço são fechadas durante essa mudança. Verifique se não há tarefas críticas em execução ao habilitar ou desabilitar um ponto de extremidade de serviço para um serviço que atende a uma sub-rede. Além disso, verifique se seus aplicativos podem se conectar automaticamente aos serviços do Azure após a mudança de endereço IP.
 
   A mudança de endereço IP só afeta o tráfego do serviço de sua rede virtual. Não há nenhum impacto em qualquer outro tráfego endereçado de ou para os endereços IPv4 públicos atribuídos às suas máquinas virtuais. No caso dos serviços do Azure, se você tem regras de firewall existentes usando endereços IP públicos do Azure, essas regras param de funcionar com a mudança para endereços de rede virtual privados.
 - Com os pontos de extremidade de serviço, as entradas DNS dos serviços do Azure permanecem como estão hoje e continuam a ser resolvidas para endereços IP públicos atribuídos ao serviço do Azure.
@@ -147,8 +146,8 @@ Para perguntas frequentes, consulte [ponto de extremidade de serviço de rede vi
 
 - [Configurar pontos de extremidade de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - [Proteger uma conta de armazenamento do Azure para uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Proteger um banco de dados SQL do Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Proteger um SQL Data Warehouse do Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Proteger um banco de dados SQL do Azure para uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Proteger um SQL Data Warehouse do Azure para uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integração de serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
 - [Políticas de Ponto de Extremidade de Serviço de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

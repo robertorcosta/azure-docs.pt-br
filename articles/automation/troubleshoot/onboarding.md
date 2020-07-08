@@ -2,18 +2,14 @@
 title: Solucionar problemas de implantação do recurso de Automação do Azure
 description: Este artigo informa como solucionar e resolver problemas que surgem ao implantar os recursos de Automação do Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/22/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739372"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801022"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solucionar problemas de implantação de recurso
 
@@ -71,7 +67,7 @@ Esse erro é causado por permissões incorretas ou ausentes na VM ou espaço de 
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se você tem as [permissões de implantação de recurso](../automation-role-based-access-control.md#feature-setup-permissions) corretas e tente implantar o recurso novamente. Se você receber a mensagem de erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, verifique se tem a permissão `Microsoft.OperationalInsights/workspaces/read` para descobrir se a VM está habilitada para um espaço de trabalho.
+Verifique se você tem as [permissões de implantação de recurso](../automation-role-based-access-control.md#feature-setup-permissions) corretas e tente implantar o recurso novamente. Se você receber a mensagem de erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing` , consulte as [informações de solução de problemas](update-management.md#failed-to-enable-error)a seguir.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: Falha na implantação de recurso com a mensagem "falha ao configurar a conta de automação para log de diagnóstico"
 

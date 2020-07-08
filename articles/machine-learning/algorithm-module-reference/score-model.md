@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 56d8cad05a42da8de680ade487dddee9a97aab3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447604"
 ---
-# <a name="score-model-module"></a>Módulo de Modelo de Pontuação
+# <a name="score-model"></a>Pontuar Modelo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
 
 Use este módulo para gerar previsões usando um modelo de classificação ou regressão treinado.
 
@@ -30,7 +29,7 @@ Use este módulo para gerar previsões usando um modelo de classificação ou re
 
     Os dados devem estar em um formato compatível com o tipo de modelo treinado que você está usando. O esquema do conjunto de dados de entrada também deve corresponder ao esquema dos dados usados para treinar o modelo.
 
-3. Envie o pipeline.
+3. Enviar o pipeline.
 
 ## <a name="results"></a>Resultados
 
@@ -52,4 +51,4 @@ Um uso comum de pontuação é retornar a saída como parte de um serviço Web d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

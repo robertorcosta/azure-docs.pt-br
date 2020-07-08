@@ -5,16 +5,15 @@ description: Configure VS Code remoto para depurar de forma interativa seu códi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77169750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433127"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depurar interativamente em uma instância de computação Azure Machine Learning com VS Code remoto
 
@@ -34,7 +33,7 @@ Em plataformas Windows, você deve [instalar um cliente SSH compatível com Open
 
 ## <a name="get-ip-and-ssh-port"></a>Obter IP e porta SSH 
 
-1. Acesse o Azure Machine Learning Studio em https://ml.azure.com/.
+1. Acesse o Azure Machine Learning Studio em https://ml.azure.com/ .
 
 2. Selecione seu [espaço de trabalho](concept-workspace.md).
 1. Clique na guia **instâncias de computação** .
@@ -94,7 +93,7 @@ Aqui estão alguns detalhes sobre os campos:
 |Usuário|Isso precisa ser `azureuser` |
 |IdentityFile|Deve apontar para o arquivo em que você salvou a chave privada |
 
-Agora, você deve ser capaz de usar o ssh em sua instância de computação usando a abreviação `ssh azmlci1`usada acima,. 
+Agora, você deve ser capaz de usar o ssh em sua instância de computação usando a abreviação usada acima, `ssh azmlci1` . 
 
 ## <a name="connect-vs-code-to-the-instance"></a>Conectar VS Code à instância 
 
@@ -114,4 +113,4 @@ Daqui em diante, você está trabalhando totalmente na instância de computaçã
 
 Agora que você configurou o Visual Studio Code remoto, é possível usar uma instância de computação como computação remota do Visual Studio Code para depurar interativamente seu código. 
 
-[Tutorial: treinar seu primeiro modelo de ml](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância de computação com um bloco de anotações integrado.
+[Tutorial: Treinar seu primeiro modelo de ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância de computação com um notebook integrado.

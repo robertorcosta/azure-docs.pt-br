@@ -5,17 +5,16 @@ description: Saiba como executar scripts de treinamento do TensorFlow em escala 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2bbd81f3858aa78b9e0e2d610c0fdb0a67816c8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 679e44a8949f283c0e01c47ca3e602ae6fc0eacf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78228315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433788"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Crie um modelo de aprendizado profundo TensorFlow em escala com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,16 +29,16 @@ Saiba mais sobre o [aprendizado profundo em relação ao aprendizado de máquina
 
 Execute este código em qualquer um destes ambientes:
 
- - Instância de computação de Azure Machine Learning-nenhum download ou instalação é necessário
+ - Instância de computação do Azure Machine Learning - nenhum download ou instalação é necessária
 
-     - Conclua o [tutorial: ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
+     - Conclua o [Tutorial: Configure o ambiente e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o exemplo de repositório.
     - Na pasta exemplos de aprendizado profundo no servidor do notebook, encontre um bloco de anotações concluído e expandido navegando até este diretório: **como usar-azureml > ml-frameworks > tensorflow > implantação > Train-hiperparameter-ajustar-deploy-com-tensorflow** pasta. 
  
  - Seu próprio servidor Jupyter Notebook
 
     - [Instale o SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - [Crie um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
-    - `mnist-tf.py` [Baixe os arquivos de script de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow) e`utils.py`
+    - [Criar um arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
+    - [Baixar os arquivos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` de script de exemplo e`utils.py`
      
     Você também pode encontrar uma versão completa do [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) deste guia na página de exemplos do github. O notebook inclui seções expandidas que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e widgets de notebook.
 
@@ -65,11 +64,11 @@ from azureml.core.compute_target import ComputeTargetException
 from azureml.train.dnn import TensorFlow
 ```
 
-### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
+### <a name="initialize-a-workspace"></a>Inicializar um workspace
 
-O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) trabalho criando um objeto.
+O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objeto.
 
-Crie um objeto de espaço de `config.json` trabalho a partir do arquivo criado na [seção pré-requisitos](#prerequisites).
+Crie um objeto de espaço de trabalho a partir do `config.json` arquivo criado na [seção pré-requisitos](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
@@ -140,9 +139,9 @@ Para obter mais informações sobre destinos de computação, consulte o artigo 
 
 O [estimador do TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornece uma maneira simples de iniciar um trabalho de treinamento do TensorFlow em um destino de computação.
 
-O estimador TensorFlow é implementado por meio [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) da classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Para obter mais informações sobre modelos de treinamento usando o estimador genérico, consulte [treinar modelos com Azure Machine Learning usando o estimador](how-to-train-ml-models.md)
+O estimador TensorFlow é implementado por meio da [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe genérica, que pode ser usada para dar suporte a qualquer estrutura. Para ver mais informações sobre modelos de treinamento que usam o estimador genérico, consulte [Treinar modelos com Azure Machine Learning usando o estimador](how-to-train-ml-models.md)
 
-Se o script de treinamento precisar de pacotes PIP ou Conda adicionais para execução, você poderá ter os pacotes instalados na imagem do Docker resultante passando seus nomes pelos `pip_packages` argumentos `conda_packages` e.
+Se o script de treinamento precisar de pacotes PIP ou Conda adicionais para execução, você poderá ter os pacotes instalados na imagem do Docker resultante passando seus nomes pelos `pip_packages` `conda_packages` argumentos e.
 
 ```python
 script_params = {
@@ -164,7 +163,7 @@ est = TensorFlow(source_directory=script_folder,
 > [!TIP]
 > O suporte para **Tensorflow 2,0** foi adicionado à classe estimada Tensorflow. Confira a [postagem do blog](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) para saber mais.
 
-Para obter mais informações sobre como personalizar seu ambiente Python, consulte [criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md). 
+Para obter mais informações sobre como personalizar o ambiente do Python, confira [Criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md). 
 
 ## <a name="submit-a-run"></a>Enviar uma execução
 
@@ -187,7 +186,7 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="register-or-download-a-model"></a>Registrar ou baixar um modelo
 
-Depois de treinar o modelo, você poderá registrá-lo em seu espaço de trabalho. O registro de modelo permite que você armazene e versione seus modelos em seu espaço de trabalho para simplificar o [Gerenciamento e a implantação de modelos](concept-model-management-and-deployment.md). Ao especificar os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, a implantação do modelo sem código fica disponível. Isso permite que você implante diretamente seu modelo como um serviço Web do modelo registrado, e o `ResourceConfiguration` objeto define o recurso de computação para o serviço Web.
+Depois de treinar o modelo, você poderá registrá-lo em seu espaço de trabalho. O registro de modelo permite que você armazene e versione os modelos no workspace para simplificar o [gerenciamento e a implantação de modelos](concept-model-management-and-deployment.md). Ao especificar os parâmetros `model_framework` , `model_framework_version` e `resource_configuration` , a implantação do modelo sem código fica disponível. Isso permite que você implante diretamente seu modelo como um serviço Web do modelo registrado, e o `ResourceConfiguration` objeto define o recurso de computação para o serviço Web.
 
 ```Python
 from azureml.core import Model
@@ -200,7 +199,7 @@ model = run.register_model(model_name='tf-dnn-mnist',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
-Você também pode baixar uma cópia local do modelo usando o objeto Run. No script `mnist-tf.py`de treinamento, um objeto TensorFlow de proteção persiste o modelo para uma pasta local (local para o destino de computação). Você pode usar o objeto Run para baixar uma cópia.
+Você também pode baixar uma cópia local do modelo usando o objeto Run. No script de treinamento `mnist-tf.py` , um objeto TensorFlow de proteção persiste o modelo para uma pasta local (local para o destino de computação). Você pode usar o objeto Run para baixar uma cópia.
 
 ```Python
 # Create a model folder in the current directory
@@ -249,7 +248,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 Também é possível executar o [TensorFlow distribuído nativo](https://www.tensorflow.org/deploy/distributed), que usa o modelo de servidor de parâmetros. Nesse método, é preciso treinar em um cluster de servidores de parâmetro e trabalhos. Os trabalhos calculam os gradientes durante o treinamento, enquanto os servidores de parâmetros agregam os gradientes.
 
-Para usar o método de servidor de parâmetros, [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) especifique um objeto `distributed_training` para o parâmetro no Construtor TensorFlow.
+Para usar o método de servidor de parâmetros, especifique um [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) objeto para o `distributed_training` parâmetro no Construtor TensorFlow.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -274,7 +273,7 @@ run = exp.submit(tf_est)
 
 #### <a name="define-cluster-specifications-in-tf_config"></a>Definir as especificações de cluster em ' TF_CONFIG '
 
-Você também precisa dos endereços de rede e das portas do cluster para [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec)o, portanto Azure Machine Learning define `TF_CONFIG` a variável de ambiente para você.
+Você também precisa dos endereços de rede e das portas do cluster para o [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec) , portanto Azure Machine Learning define a `TF_CONFIG` variável de ambiente para você.
 
 A variável de ambiente `TF_CONFIG` é uma cadeia de caracteres JSON. Confira um exemplo da variável para um servidor de parâmetros:
 
@@ -289,9 +288,9 @@ TF_CONFIG='{
 }'
 ```
 
-Para a API de alto [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) nível do TensorFlow, o TensorFlow `TF_CONFIG` analisa a variável e cria a especificação do cluster para você.
+Para a API de alto nível do TensorFlow [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) , o TensorFlow analisa a `TF_CONFIG` variável e cria a especificação do cluster para você.
 
-Para as APIs principais de nível inferior do TensorFlow para treinamento, analise `TF_CONFIG` a variável e compile `tf.train.ClusterSpec` o em seu código de treinamento.
+Para as APIs principais de nível inferior do TensorFlow para treinamento, analise a `TF_CONFIG` variável e compile o `tf.train.ClusterSpec` em seu código de treinamento.
 
 ```Python
 import os, json
@@ -311,7 +310,7 @@ O modelo que você acabou de registrar pode ser implantado exatamente da mesma m
 
 ## <a name="preview-no-code-model-deployment"></a>Apresentação Implantação de modelo sem código
 
-Em vez da rota de implantação tradicional, você também pode usar o recurso de implantação sem código (versão prévia) para Tensorflow. Ao registrar seu modelo, conforme mostrado acima com os `model_framework`parâmetros `model_framework_version`, e `resource_configuration` , você pode simplesmente usar a `deploy()` função estática para implantar seu modelo.
+Em vez da rota de implantação tradicional, você também pode usar o recurso de implantação sem código (versão prévia) para Tensorflow. Ao registrar seu modelo, conforme mostrado acima com os `model_framework` `model_framework_version` parâmetros, e `resource_configuration` , você pode simplesmente usar a `deploy()` função estática para implantar seu modelo.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])

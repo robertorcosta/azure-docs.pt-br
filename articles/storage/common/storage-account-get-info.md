@@ -8,13 +8,12 @@ ms.author: mhopkins
 ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: 1495ed55c24a0f94b911d60d1db0f32940ea134a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 0a8eca9e7b3e890b67daf915ffe733dd54ef5896
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515045"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obter tipo de conta de armazenamento e nome de SKU com .NET
 
@@ -24,9 +23,9 @@ As informações de conta estão disponíveis nas versões de serviço que come�
 
 ## <a name="about-account-type-and-sku-name"></a>Sobre o tipo de conta e o nome do SKU
 
-**Tipo de conta**: os tipos de `BlobStorage`conta `BlockBlobStorage`válidos `FileStorage`incluem `Storage`,, `StorageV2`, e. A [visão geral da conta de armazenamento do Azure](storage-account-overview.md) tem mais informações, incluindo descrições das várias contas de armazenamento.
+**Tipo de conta**: os tipos de conta válidos incluem,,, `BlobStorage` `BlockBlobStorage` `FileStorage` `Storage` e `StorageV2` . A [visão geral da conta de armazenamento do Azure](storage-account-overview.md) tem mais informações, incluindo descrições das várias contas de armazenamento.
 
-**Nome do SKU**: nomes de SKU `Premium_LRS`válidos `Premium_ZRS`incluem `Standard_GRS`, `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS`,,,,, `Standard_ZRS`e. Os nomes de SKU diferenciam maiúsculas de minúsculas e são campos de cadeia de caracteres na [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
+**Nome do SKU**: nomes de SKU válidos incluem,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` e `Standard_ZRS` . Os nomes de SKU diferenciam maiúsculas de minúsculas e são campos de cadeia de caracteres na [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
 ## <a name="retrieve-account-information"></a>Recuperar informações da conta
 

@@ -7,18 +7,17 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.openlocfilehash: 6281e729c2663666cd61f22b2697edd61bbf88f5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839106"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040785"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 
-Este artigo discute dicas para obter o melhor desempenho de taxa de transferência de gravação quando você está carregando dados para o Banco de Dados SQL do Azure usando o Azure Stream Analytics.
+Este artigo aborda as dicas para obter um melhor desempenho de taxa de transferência de gravação quando você estiver carregando dados no Azure SQL Database usando Azure Stream Analytics.
 
-A saída do SQL no Azure Stream Analytics dá suporte à gravação em paralelo como uma opção. Essa opção permite topologias de trabalho [totalmente paralelas](stream-analytics-parallelization.md#embarrassingly-parallel-jobs), em que várias partições de saída estão gravando na tabela de destino em paralelo. Porém, habilitar essa opção no Azure Stream Analytics pode não ser suficiente para alcançar taxas de transferência maiores, pois isso depende significativamente da sua configuração de banco de dados do SQL Azure e do esquema da tabela. A escolha de índices, chave de clustering, fator de preenchimento de índice e compactação afetam o tempo para carregar as tabelas. Para obter mais informações sobre como otimizar seu banco de dados do SQL Azure para melhorar a consulta e o desempenho de carga com base nos parâmetros de comparação internos, veja [Diretrizes de desempenho do Banco de Dados SQL](../sql-database/sql-database-performance-guidance.md). A ordem das gravações não é garantida ao gravar em paralelo no Banco de Dados SQL do Azure.
+A saída do SQL no Azure Stream Analytics dá suporte à gravação em paralelo como uma opção. Essa opção permite topologias de trabalho [totalmente paralelas](stream-analytics-parallelization.md#embarrassingly-parallel-jobs), em que várias partições de saída estão gravando na tabela de destino em paralelo. Habilitar essa opção no Azure Stream Analytics no entanto pode não ser suficiente para obter taxas de transferência mais altas, pois depende significativamente da configuração do banco de dados e do esquema de tabela. A escolha de índices, chave de clustering, fator de preenchimento de índice e compactação afetam o tempo para carregar as tabelas. Para obter mais informações sobre como otimizar seu banco de dados para melhorar o desempenho da consulta e da carga com base em parâmetros de comparação internos, consulte [diretrizes de desempenho do banco de dados SQL](../azure-sql/database/performance-guidance.md). A ordenação de gravações não é garantida durante a gravação em paralelo ao banco de dados SQL.
 
 Aqui estão algumas configurações dentro de cada serviço que podem ajudar a melhorar a taxa de transferência geral de sua solução.
 

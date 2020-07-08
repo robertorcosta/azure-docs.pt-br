@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249679"
 ---
 # <a name="monitor-copy-activity"></a>Monitorar atividade de cópia
 
@@ -26,7 +25,7 @@ Este artigo descreve como monitorar a execução da atividade de cópia em Azure
 
 ## <a name="monitor-visually"></a>Monitorar visualmente
 
-Depois de criar e publicar um pipeline no Azure Data Factory, você pode associá-lo a um gatilho ou iniciar manualmente uma execução ad hoc. Você pode monitorar todas as execuções de pipeline nativamente no Azure Data Factory experiência do usuário. Saiba mais sobre o monitoramento de Azure Data Factory em geral do [Visual monitor Azure data Factory](monitor-visually.md).
+Depois de criar e publicar um pipeline no Azure Data Factory, você pode associá-lo a um gatilho ou iniciar manualmente uma execução ad hoc. Você pode monitorar todas as execuções de pipeline nativamente na experiência de usuário do Azure Data Factory. Saiba mais sobre o monitoramento de Azure Data Factory em geral do [Visual monitor Azure data Factory](monitor-visually.md).
 
 Para monitorar a execução da atividade de cópia, vá para a interface do usuário do monitor do data factory **autor &** . Na guia **Monitor** , você vê uma lista de execuções de pipeline, clica no link **nome do pipeline** para acessar a lista de execuções de atividade na execução do pipeline.
 
@@ -48,7 +47,7 @@ Os **detalhes e as durações da execução** inferior descrevem as principais e
 
 ## <a name="monitor-programmatically"></a>Monitorar programaticamente
 
-Os detalhes de execução da atividade de cópia e as características de desempenho também são retornados na seção**saída** de **resultado** > da execução da atividade de cópia, que é usada para renderizar a exibição de monitoramento da interface do usuário. A seguir está uma lista completa de propriedades que podem ser retornadas. Você verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorar as execuções de atividade programaticamente em geral, consulte [monitorar programaticamente um data Factory do Azure](monitor-programmatically.md).
+Os detalhes de execução da atividade de cópia e as características de desempenho também são retornados na seção saída de **resultado da execução da atividade de cópia**  >  **Output** , que é usada para renderizar a exibição de monitoramento da interface do usuário. A seguir está uma lista completa de propriedades que podem ser retornadas. Você verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorar as execuções de atividade programaticamente em geral, consulte [monitorar programaticamente um data Factory do Azure](monitor-programmatically.md).
 
 | Nome da propriedade  | Descrição | Unidade na saída |
 |:--- |:--- |:--- |
@@ -58,17 +57,17 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | filesWritten | O número de arquivos gravados/confirmados no coletor baseado em arquivo. | Valor Int64 (nenhuma unidade) |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int64 (nenhuma unidade) |
 | sinkPeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia. | Valor Int64 (nenhuma unidade) |
-| rowsRead | Número de linhas lidas da origem (não aplicável à cópia binária). | Valor Int64 (nenhuma unidade) |
-| rowsCopied | Número de linhas copiadas para o coletor (não aplicável para cópia binária). | Valor Int64 (nenhuma unidade) |
+| rowsRead | Número de linhas lidas da origem. Essa métrica não se aplica ao copiar arquivos no estado em que se encontram sem analisá-los, por exemplo, quando os conjuntos de fontes de origem e de coletor são do tipo formato binário ou outro tipo de formato com configurações idênticas. | Valor Int64 (nenhuma unidade) |
+| rowsCopied | Número de linhas copiadas para o coletor. Essa métrica não se aplica ao copiar arquivos no estado em que se encontram sem analisá-los, por exemplo, quando os conjuntos de fontes de origem e de coletor são do tipo formato binário ou outro tipo de formato com configurações idênticas.  | Valor Int64 (nenhuma unidade) |
 | rowsSkipped | Número de linhas incompatíveis que foram ignoradas. Você pode habilitar linhas incompatíveis para serem ignoradas definindo `enableSkipIncompatibleRow` como true. | Valor Int64 (nenhuma unidade) |
 | copyDuration | Duração da execução da cópia. | Valor Int32, em segundos |
 | throughput | Taxa de transferência de dados. | Número de ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int32 (nenhuma unidade) |
 | sinkPeakConnections| Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia.| Valor Int32 (nenhuma unidade) |
-| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para SQL Data Warehouse. | Booliano |
-| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Booliano |
-| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Booliano |
-| effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de `<IR name> (<region if it's Azure IR>)`execução, no formato. | Texto (cadeia de caracteres) |
+| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para SQL Data Warehouse. | Boolean |
+| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Boolean |
+| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Boolean |
+| effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de execução, no formato `<IR name> (<region if it's Azure IR>)` . | Texto (cadeia de caracteres) |
 | usedDataIntegrationUnits | As unidades de integração de dados efetivas durante a cópia. | Valor Int32 |
 | usedParallelCopies | ParallelCopies efetivos durante a cópia. | Valor Int32 |
 | redirectRowPath | Caminho para o log de linhas incompatíveis ignoradas no armazenamento de BLOBs que você configurou na `redirectIncompatibleRowSettings` propriedade. Consulte [tolerância a falhas](copy-activity-overview.md#fault-tolerance). | Texto (cadeia de caracteres) |
@@ -153,6 +152,6 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os outros artigos sobre atividade de cópia:
 
-\-[Visão geral da atividade de cópia](copy-activity-overview.md)
+\- [Visão geral da atividade de cópia](copy-activity-overview.md)
 
 \- [Desempenho da atividade de cópia](copy-activity-performance.md)

@@ -1,5 +1,5 @@
 ---
-title: Controle de versão de BLOB (visualização)
+title: Controle de versão de blob (versão prévia)
 titleSuffix: Azure Storage
 description: O controle de versão do armazenamento de BLOBs (visualização) mantém automaticamente as versões anteriores de um objeto e as identifica com carimbos de data/hora. Você pode restaurar versões anteriores de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente.
 services: storage
@@ -9,14 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433596"
 ---
-# <a name="blob-versioning-preview"></a>Controle de versão de BLOB (visualização)
+# <a name="blob-versioning-preview"></a>Controle de versão de blob (versão prévia)
 
 Você pode habilitar o controle de versão do armazenamento de BLOBs (visualização) para manter automaticamente as versões anteriores de um objeto.  Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente.
 
@@ -82,10 +81,10 @@ Quando o controle de versão de blob está habilitado para uma conta de armazena
 
 Para BLOBs de páginas e blobs de acréscimo, apenas um subconjunto de operações de gravação e exclusão aciona a criação de uma versão. Essas operações incluem:
 
-- [Colocar Blob](/rest/api/storageservices/put-blob)
-- [Colocar lista de blocos](/rest/api/storageservices/put-block-list)
-- [Excluir Blob](/rest/api/storageservices/delete-blob)
-- [Definir Metadados de Blob](/rest/api/storageservices/set-blob-metadata)
+- [Put Blob](/rest/api/storageservices/put-blob)
+- [Put Block List](/rest/api/storageservices/put-block-list)
+- [Delete Blob](/rest/api/storageservices/delete-blob)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Copiar blob](/rest/api/storageservices/copy-blob)
 
 As operações a seguir não disparam a criação de uma nova versão. Para capturar alterações dessas operações, faça um instantâneo manual:
@@ -167,7 +166,7 @@ O diagrama a seguir mostra o que acontece quando você tira um instantâneo de u
 Você pode autorizar o acesso a versões de BLOB usando uma das seguintes abordagens:
 
 - Usando o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança do Azure Active Directory (Azure AD). A Microsoft recomenda usar o Azure AD para segurança superior e facilidade de uso. Para obter mais informações sobre como usar o Azure AD com operações de BLOB, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](../common/storage-auth-aad.md).
-- Usando uma SAS (assinatura de acesso compartilhado) para delegar o acesso a versões de BLOB. Especifique a ID da versão para o tipo de recurso assinado `bv` , que representa uma versão de BLOB, para criar um token SAS para operações em uma versão específica. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
+- Usando uma SAS (assinatura de acesso compartilhado) para delegar o acesso a versões de BLOB. Especifique a ID da versão para o tipo de recurso assinado `bv` , que representa uma versão de BLOB, para criar um token SAS para operações em uma versão específica. Para obter mais informações sobre assinaturas de acesso compartilhado, confira [Conceder acesso limitado a recursos de Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
 - Usando as chaves de acesso da conta para autorizar operações em versões de blob com chave compartilhada. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](/rest/api/storageservices/authorize-with-shared-key).
 
 O controle de versão de blob foi projetado para proteger seus dados contra exclusão acidental ou mal-intencionada. Para aprimorar a proteção, a exclusão de uma versão de blob requer permissões especiais. As seções a seguir descrevem as permissões necessárias para excluir uma versão de BLOB.
@@ -178,8 +177,8 @@ A tabela a seguir mostra quais ações do RBAC dão suporte à exclusão de um B
 
 | Descrição | Operação do serviço blob | Ação de dados RBAC necessária | Suporte à função interna RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Excluindo a versão atual do blob | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/excluir/actionDeleting** | Colaborador de dados de blob de armazenamento |
-| Excluindo uma versão | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/deleteBlobVersion/** | Proprietário de Dados do Blob de Armazenamento |
+| Excluindo a versão atual do blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de dados de blob de armazenamento |
+| Excluindo uma versão | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/deleteBlobVersion/ação** | Proprietário de Dados do Blob de Armazenamento |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parâmetros de assinatura de acesso compartilhado (SAS)
 
@@ -313,7 +312,7 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 
 ![Recursos de Armazenamento do Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Habilitar controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

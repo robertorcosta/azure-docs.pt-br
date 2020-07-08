@@ -10,12 +10,11 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193399"
 ---
 # <a name="query-acceleration-sql-language-reference-preview"></a>Referência da linguagem SQL de aceleração de consulta (versão prévia)
 
@@ -32,7 +31,7 @@ A única instrução SQL com suporte da aceleração de consulta é a instruçã
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-Para dados formatados em CSV *table* , a tabela `BlobStorage`deve ser.  Isso significa que a consulta será executada em qualquer blob especificado na chamada REST.
+Para dados formatados em CSV, a *tabela* deve ser `BlobStorage` .  Isso significa que a consulta será executada em qualquer blob especificado na chamada REST.
 Para dados formatados em JSON, a *tabela* é um "descritor de tabela".   Consulte a seção [descritores de tabela](#table-descriptors) deste artigo.
 
 No exemplo a seguir, para cada linha para a qual a *expressão* WHERE retorna true, essa instrução retornará uma nova linha que é feita da avaliação de cada uma das expressões de projeção.
@@ -54,7 +53,7 @@ O exemplo a seguir retorna deslocamentos adequados para a divisão de um blob fo
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## <a name="data-types"></a>Tipos de dados
 
@@ -109,7 +108,7 @@ Aqui estão alguns exemplos:
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-A função [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) ajuda a pesquisar um padrão. Aqui estão alguns exemplos que usam a função [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) para pesquisar a cadeia ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``de dados.
+A função [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) ajuda a pesquisar um padrão. Aqui estão alguns exemplos que usam a função [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) para pesquisar a cadeia de dados ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
 
 |Consulta|Exemplo|
 |--|--|
@@ -129,7 +128,7 @@ Atualmente, convertemos todos os [formatos de data de IS08601 padrão](https://w
 
 #### <a name="date_add-function"></a>Função DATE_ADD
 
-A linguagem SQL de aceleração de consulta dá suporte a ano, mês, dia, hora, ``DATE_ADD`` minuto, segundo para a função.
+A linguagem SQL de aceleração de consulta dá suporte a ano, mês, dia, hora, minuto, segundo para a ``DATE_ADD`` função.
 
 Exemplos:
 
@@ -140,7 +139,7 @@ DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 
 #### <a name="date_diff-function"></a>Função DATE_DIFF
 
-A linguagem SQL de aceleração de consulta dá suporte a ano, mês, dia, hora, ``DATE_DIFF`` minuto, segundo para a função.
+A linguagem SQL de aceleração de consulta dá suporte a ano, mês, dia, hora, minuto, segundo para a ``DATE_DIFF`` função.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -149,7 +148,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 #### <a name="extract-function"></a>EXTRAIR função
 
-Para EXTRAção diferente da parte de data com ``DATE_ADD`` suporte para a função, a linguagem SQL de aceleração de consulta dá suporte a timezone_hour e timezone_minute como parte de data.
+Para EXTRAção diferente da parte de data com suporte para a ``DATE_ADD`` função, a linguagem SQL de aceleração de consulta dá suporte a timezone_hour e timezone_minute como parte de data.
 
 Exemplos:
 
@@ -167,12 +166,12 @@ TO_STRING(TimeStamp , format)
 TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
-Esta tabela descreve as cadeias de caracteres que você pode usar para especificar o ``TO_STRING`` formato de saída da função.
+Esta tabela descreve as cadeias de caracteres que você pode usar para especificar o formato de saída da ``TO_STRING`` função.
 
 |Cadeia de formato    |Saída                               |
 |-----------------|-------------------------------------|
 |yy               |Ano no formato de 2 dígitos – 1999 como ' 99 '|
-|y                |Ano no formato de 4 dígitos               |
+|a                |Ano no formato de 4 dígitos               |
 |yyyy             |Ano no formato de 4 dígitos               |
 |M                |Mês do ano – 1                    |
 |MM               |Zero preenchido por mês – 01               |
@@ -220,7 +219,7 @@ Uma instrução SELECT pode conter uma ou mais expressões de projeção ou uma 
 
 |Expression|Descrição|
 |--|--|
-|[CONTAGEM (\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Retorna o número de registros que correspondem à expressão de predicado.|
+|[CONTAGEM ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Retorna o número de registros que correspondem à expressão de predicado.|
 |[CONTAGEM (expressão)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Retorna o número de registros para os quais a expressão é não nula.|
 |[MÉDIA (expressão)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Retorna a média dos valores não nulos da expressão.|
 |[MIN (expressão)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Retorna o valor não nulo mínimo da expressão.|
@@ -229,13 +228,13 @@ Uma instrução SELECT pode conter uma ou mais expressões de projeção ou uma 
 
 ### <a name="missing"></a>AUSÊNCIA
 
-O ``IS MISSING`` operador é o único não padrão com suporte da linguagem SQL de aceleração de consulta.  Para dados JSON, se um campo estiver ausente de um registro de entrada específico, o campo ``IS MISSING`` de expressão será avaliado como o valor booliano true.
+O ``IS MISSING`` operador é o único não padrão com suporte da linguagem SQL de aceleração de consulta.  Para dados JSON, se um campo estiver ausente de um registro de entrada específico, o campo de expressão ``IS MISSING`` será avaliado como o valor booliano true.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## <a name="table-descriptors"></a>Descritores de tabela
 
-Para dados CSV, o nome da tabela é `BlobStorage`sempre.  Por exemplo:
+Para dados CSV, o nome da tabela é sempre `BlobStorage` .  Por exemplo:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -279,7 +278,7 @@ Estes são os nossos dados de exemplo:
 }
 ```
 
-Você pode estar interessado apenas no objeto `warehouses` JSON dos dados acima. O `warehouses` objeto é um tipo de matriz JSON, portanto, você pode mencionar isso na cláusula FROM. A consulta de exemplo pode ser semelhante a esta.
+Você pode estar interessado apenas no `warehouses` objeto JSON dos dados acima. O `warehouses` objeto é um tipo de matriz JSON, portanto, você pode mencionar isso na cláusula FROM. A consulta de exemplo pode ser semelhante a esta.
 
 ```sql
 SELECT latitude FROM BlobStorage[*].warehouses[*]
@@ -287,7 +286,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 A consulta obtém todos os campos, mas seleciona apenas a latitude.
 
-Se você quisesse acessar apenas o valor `dimensions` do objeto JSON, poderia usar referir-se a esse objeto em sua consulta. Por exemplo:
+Se você quisesse acessar apenas o `dimensions` valor do objeto JSON, poderia usar referir-se a esse objeto em sua consulta. Por exemplo:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
@@ -300,9 +299,9 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage e BlobStorage [\*] fazem referência a todo o objeto. No entanto, se você tiver um caminho na cláusula FROM, precisará usar BlobStorage [\*]. Path
+> BlobStorage e BlobStorage [ \* ] fazem referência a todo o objeto. No entanto, se você tiver um caminho na cláusula FROM, precisará usar BlobStorage [ \* ]. Path
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## <a name="syssplit"></a>Sys. Split
 
@@ -321,7 +320,7 @@ Na maioria dos casos, o tamanho de cada lote será um pouco maior do que o núme
 >[!NOTE]
 > O split_size deve ser pelo menos 10 MB (10485760).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Aceleração de consulta de Azure Data Lake Storage (versão prévia)](data-lake-storage-query-acceleration.md)
 - [Filtrar dados usando a aceleração de consulta do Azure Data Lake Storage (versão prévia)](data-lake-storage-query-acceleration-how-to.md)

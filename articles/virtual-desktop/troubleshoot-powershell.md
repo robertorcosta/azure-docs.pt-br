@@ -5,27 +5,26 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 6e4459eea07f60d90dad692d6625dd45c5038093
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456956"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell da Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use este artigo para resolver erros e problemas ao usar o PowerShell com a área de trabalho virtual do Windows. Para obter mais informações sobre Serviços de Área de Trabalho Remota PowerShell, consulte [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 
 Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para comentar sobre o serviço da Área de Trabalho Virtual do Windows com a equipe do produto e membros ativos da comunidade.
 
@@ -36,7 +35,7 @@ Esta seção lista os comandos do PowerShell que normalmente são usados durante
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Erro: New-AzRoleAssignment: as informações fornecidas não são mapeadas para uma ID de objeto do AD
 
 ```powershell
-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
 **Causa:** O usuário especificado pelo parâmetro *-SignInName* não pode ser encontrado no Azure Active Directory vinculado ao ambiente de área de trabalho virtual do Windows. 
@@ -73,15 +72,15 @@ Correção: na mensagem de erro, uma lista de regiões com suporte será publica
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
 ```
 
-**Causa:** Há uma incompatibilidade de local. Todos os pools de hosts, grupos de aplicativos e espaços de trabalho têm um local para armazenar metadados de serviço. Todos os objetos que você criar que estão associados entre si devem estar no mesmo local. Por exemplo, se um pool de hosts `eastus`estiver em, você também precisará criar os grupos de `eastus`aplicativos no. Se você criar um espaço de trabalho para registrar esses grupos de aplicativos, esse espaço de trabalho `eastus` também precisará estar.
+**Causa:** Há uma incompatibilidade de local. Todos os pools de hosts, grupos de aplicativos e espaços de trabalho têm um local para armazenar metadados de serviço. Todos os objetos que você criar que estão associados entre si devem estar no mesmo local. Por exemplo, se um pool de hosts estiver em `eastus` , você também precisará criar os grupos de aplicativos no `eastus` . Se você criar um espaço de trabalho para registrar esses grupos de aplicativos, esse espaço de trabalho também precisará estar `eastus` .
 
 **Correção:** Recupere o local em que o pool de hosts foi criado e, em seguida, atribua o grupo de aplicativos que você está criando para o mesmo local.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
+- Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a configuração de seu ambiente de área de trabalho virtual do Windows e pools de hosts, consulte [ambiente e criação de pool de hosts](troubleshoot-set-up-issues.md).
-- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
+- Confira como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
