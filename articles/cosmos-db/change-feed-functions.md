@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834056"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com Azure Cosmos DB e Azure Functions
 
 Azure Functions fornece a maneira mais simples de se conectar ao [feed de alterações](change-feed.md). Você pode criar pequenas Azure Functions reativas que serão disparadas automaticamente em cada novo evento em seu feed de alterações do contêiner Cosmos do Azure.
 
-![Funções baseadas em evento sem servidor trabalhando com o gatilho Azure Functions para Cosmos DB](./media/change-feed-functions/functions.png)
+:::image type="content" source="./media/change-feed-functions/functions.png" alt-text="Funções baseadas em evento sem servidor trabalhando com o gatilho Azure Functions para Cosmos DB" border="false":::
 
 Com o [gatilho de Azure Functions para Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), você pode aproveitar o dimensionamento do [processador do feed de alterações](./change-feed-processor.md)e a funcionalidade de detecção de eventos confiáveis sem a necessidade de manter qualquer infraestrutura de [trabalho](./change-feed-processor.md). Concentre-se apenas na lógica da função do Azure sem se preocupar com o restante do pipeline de fornecimento de eventos. Você pode até mesmo misturar o gatilho com quaisquer outras [associações de Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
@@ -30,14 +30,14 @@ Com o [gatilho de Azure Functions para Cosmos DB](../azure-functions/functions-b
 Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
 * **O contêiner monitorado**: o contêiner monitorado é o contêiner Cosmos do Azure que está sendo monitorado e armazena os dados dos quais o feed de alterações é gerado. Quaisquer inserções, atualizações para o contêiner monitorado são refletidas no feed de alterações do contêiner.
-* **O contêiner de concessão**: o contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os contêineres de concessão particionados devem ter `/id` uma definição de chave de partição.
+* **O contêiner de concessão**: o contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os contêineres de concessão particionados devem ter uma `/id` definição de chave de partição.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Criar seu gatilho de Azure Functions para Cosmos DB
 
 A criação de sua função do Azure com um gatilho Azure Functions para Cosmos DB agora tem suporte em todas as integrações de IDE e CLI do Azure Functions:
 
 * [Extensão do Visual Studio](../azure-functions/functions-develop-vs.md) para usuários do Visual Studio.
-* [Extensão de Visual Studio Code](/azure/javascript/tutorial-vscode-serverless-node-01) para usuários de Visual Studio Code.
+* [Extensão de Visual Studio Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01) para usuários de Visual Studio Code.
 * E, finalmente, as [ferramentas da CLI principal](../azure-functions/functions-run-local.md#create-func) para uma experiência independente de IDE de plataforma cruzada.
 
 ## <a name="run-your-trigger-locally"></a>Executar o gatilho localmente
@@ -48,10 +48,10 @@ Se você quiser testar cenários ao vivo na nuvem, poderá [tentar Cosmos DB gra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você pode continuar a saber mais sobre o feed de alterações nos seguintes artigos:
+Agora, você pode prosseguir para saber mais sobre o feed de alterações nos seguintes artigos:
 
 * [Visão geral do feed de alterações](change-feed.md)
 * [Maneiras de ler o feed de alterações](read-change-feed.md)
-* [Usando a biblioteca do processador do feed de alterações](change-feed-processor.md)
+* [Biblioteca do processador do feed usando a alteração](change-feed-processor.md)
 * [Como trabalhar com a biblioteca do processador de feed de alterações](change-feed-processor.md)
 * [Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions](serverless-computing-database.md)

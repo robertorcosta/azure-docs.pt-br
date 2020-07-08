@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: af0f7ef04ce746c502a8ddf7b0d3971f13a42484
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 469138da19248bc7872028508f3080de5fae4a52
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82844582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839025"
 ---
 | Recurso | Grátis | Compartilhado | Basic | Standard | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "82844582"
 | Tempo de CPU (5 minutos)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a>|
 | Tempo de CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague com [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |
 | Memória (1 hora) |1.024 MB por plano do serviço de aplicativo |1.024 MB por aplicativo |N/D |N/D |N/D |N/D |
-| Largura de Banda |165 MB |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |
+| Largura de banda |165 MB |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | Arquitetura do aplicativo |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets por instância<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |
 | Conexões IP | 600 | 600 | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | 16.000 |
@@ -45,7 +45,7 @@ ms.locfileid: "82844582"
 <sup>4</sup> Mais permissões são permitidas mediante solicitação.  
 <sup>5</sup> O limite de armazenamento é o tamanho total do conteúdo em todos os aplicativos no mesmo plano do serviço de aplicativo. O tamanho total do conteúdo de todos os aplicativos em todos os planos do serviço de aplicativo em um único grupo de recursos e região não pode exceder 500 GB.  
 <sup>6</sup>Esses recursos são limitados pelos recursos físicos nas instâncias dedicadas (o tamanho de instância e o número de instâncias).  
-<sup>7</sup>Ao escalar um aplicativo na camada Basic para duas instâncias, você tem 350 conexões simultâneas para cada uma das duas instâncias. Para a camada Standard e superior, não há limites teóricos para os soquetes da Web, mas outros fatores podem limitar o número de soquetes da Web. Por exemplo, as solicitações simultâneas máximas permitidas `maxConcurrentRequestsPerCpu`(definidas por) são: 7.500 por VM pequena, 15.000 por VM média (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).  
+<sup>7</sup>Ao escalar um aplicativo na camada Basic para duas instâncias, você tem 350 conexões simultâneas para cada uma das duas instâncias. Para a camada Standard e superior, não há limites teóricos para os soquetes da Web, mas outros fatores podem limitar o número de soquetes da Web. Por exemplo, as solicitações simultâneas máximas permitidas (definidas por `maxConcurrentRequestsPerCpu` ) são: 7.500 por VM pequena, 15.000 por VM média (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).  
 <sup>8</sup> As conexões IP máximas são por instância e dependem do tamanho da instância: 1.920 por instância B1/S1/P1V2, 3.968 por instância B2/S2/P2V2, 8.064 por instância B3/S3/P3V2.  
 <sup>9</sup> O limite de cota de Certificado do Serviço de Aplicativo por assinatura pode ser aumentado por meio de uma solicitação de suporte para um limite máximo de 200.  
 <sup>10</sup> Serviço do Aplicativo Isolado SKUs podem ter balanceamento de carga internamente (ILB) com Azure Load Balancer, portanto, não há conectividade pública da Internet. Como resultado, alguns recursos do Serviço de Aplicativo Isolado de ILB devem ser usados de computadores com acesso direto ao ponto de extremidade de rede de ILB.  

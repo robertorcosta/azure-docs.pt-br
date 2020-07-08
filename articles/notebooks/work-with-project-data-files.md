@@ -3,18 +3,18 @@ title: Importar e exportar dados com projetos com Azure Notebooks visualização
 description: Saiba como inserir dados em um Azure Notebooks projeto de visualização de fontes externas e como exportar dados de um projeto do.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834107"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabalhar com arquivos de dados em Azure Notebooks projetos de visualização
 
-Os dados são a força vital de muitos blocos de notas do Jupyter, especialmente os blocos de notas utilizados na ciência de dados. Com o Azure Notebooks, é fácil importar de várias fontes para um projeto e, em seguida, usar esses dados dos blocos de anotações. Você também pode fazer com que os blocos de anotações gerem dados que serão armazenados no projeto e que poderão ser baixados para serem usados em outro lugar.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Os dados são a força vital de muitos blocos de notas do Jupyter, especialmente os blocos de notas utilizados na ciência de dados. Com o Azure Notebooks, é fácil importar de várias fontes para um projeto e, em seguida, usar esses dados dos blocos de anotações. Você também pode fazer com que os blocos de anotações gerem dados que serão armazenados no projeto e que poderão ser baixados para serem usados em outro lugar.
 
 O menu **Dados** dentro de um bloco de anotações em execução também disponibiliza comandos **Carregar** e **Fazer o download** que funcionam com arquivos no projeto e com arquivos temporários da sessão atual do bloco de anotações.
 
@@ -46,7 +46,7 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 ### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Importar arquivos do menu Arquivo em um bloco de anotações
 
-1. Em um notebook em execução, selecione o comando de**upload** de **arquivo** > :
+1. Em um notebook em execução, selecione o comando de upload de **arquivo**  >  **Upload** :
 
     ![Comando de menu Carregar Arquivo dentro de um bloco de anotações](media/file-menu-upload.png)
 
@@ -54,7 +54,7 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 1. No popup **Carregar status** exibido, escolha uma **Pasta de destino** na lista suspensa:
 
-    - Pasta de sessão*~/* (): carrega arquivos na sessão atual do bloco de anotações, mas não cria arquivos no projeto. A pasta de sessão cria um par com a pasta do projeto, mas ela não persistirá após o término da sessão. Para acessar arquivos de sessão no código, use o prefixo *../* nos nomes de arquivo com o caminho relativo.
+    - Pasta de sessão ( *~/* ): carrega arquivos na sessão atual do bloco de anotações, mas não cria arquivos no projeto. A pasta de sessão cria um par com a pasta do projeto, mas ela não persistirá após o término da sessão. Para acessar arquivos de sessão no código, use o prefixo *../* nos nomes de arquivo com o caminho relativo.
 
         O uso da pasta de sessão é útil para experimentações e evita a acumulação de arquivos que poderão ou não ser necessários a longo prazo no projeto. Você também pode carregar arquivos para a pasta de sessão que tenha nomes idênticos aos arquivos do projeto sem causar conflitos ou precisar renomear os arquivos. Por exemplo, digamos que você tenha uma versão de *data.csv* no projeto, mas deseja experimentar uma versão diferente de *data.csv*. Ao carregar o arquivo na pasta de sessão, você pode executar o bloco de anotações usando dados no arquivo carregado (referindo-se a ele no código usando *../data.csv*) em vez dos dados no arquivo do projeto.
 
@@ -100,7 +100,7 @@ Você também pode escolher um arquivo e usar o comando **Fazer o download** (at
 
 ## <a name="export-files-from-the-data-menu-in-a-notebook"></a>Exportar arquivos do menu Dados em um bloco de anotações
 
-1. Selecione o comando de menu**Download** de **arquivo** > :
+1. Selecione o **File**  >  comando de menu**Download** de arquivo:
 
     ![Comando de menu Fazer o download dos dados dentro de um bloco de anotações](media/file-menu-download.png)
 

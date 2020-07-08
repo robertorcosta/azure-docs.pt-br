@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846902"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>ActivityResume</td><td>A atividade estiver em pausa e não poderá executar as janelas de atividades até ser retomada.</td>
 </tr>
 <tr>
-<td>Repetir</td><td>A execução da atividade está sendo repetida.</td>
+<td>Tentar novamente</td><td>A execução da atividade está sendo repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -193,7 +193,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
@@ -286,7 +286,7 @@ Você pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os 
 
 ## <a name="perform-batch-actions"></a>Execute ações em lote
 ### <a name="rerun-selected-activity-windows"></a>Executar novamente as janelas de atividades selecionadas
-Selecione uma janela de atividade, clique na seta para baixo do primeiro botão da barra de comandos **e selecione** / executar**novamente executar novamente com upstream no pipeline**. Quando você escolhe a opção **Executar novamente com upstream no pipeline**, todas as janelas de atividades upstream também são executadas novamente.
+Selecione uma janela de atividade, clique na seta para baixo do primeiro botão da barra de comandos **e selecione executar**  /  **novamente executar novamente com upstream no pipeline**. Quando você escolhe a opção **Executar novamente com upstream no pipeline**, todas as janelas de atividades upstream também são executadas novamente.
     ![Executar novamente uma janela de atividades](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 Também é possível escolher várias janelas de atividades na lista e executá-las novamente ao mesmo tempo. Talvez você queira filtrar as janelas de atividades com base no status (por exemplo: **Com falha**) e executar novamente as janelas de atividades com falha após corrigir o problema que faz com que as janelas de atividades falhem. Confira a seção a seguir para obter os detalhes sobre como filtrar janelas de atividades na lista.  

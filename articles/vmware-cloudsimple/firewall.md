@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846867"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurar tabelas e regras de firewall para nuvens privadas
 
@@ -72,7 +72,7 @@ As regras de firewall determinam como o firewall trata tipos específicos de tr�
 
 Depois de definir uma tabela de firewall, você pode especificar as sub-redes que estão sujeitas às regras na tabela.
 
-1. Na página **Network** > **tabelas de firewall** de rede, selecione uma tabela de firewall.
+1. Na página **Network**  >  **tabelas de firewall** de rede, selecione uma tabela de firewall.
 2. Abra a guia **VLANs/sub-rede anexadas** .
 3. Clique em **anexar a uma VLAN/sub-rede**.
 4. Selecione a nuvem privada e a VLAN. O nome de sub-rede e o bloco CIDR associados são mostrados.

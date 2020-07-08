@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846730"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
 
@@ -48,7 +48,7 @@ FunctionsProject
 
 Há um arquivo [host.json](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.fsx) e arquivo de configuração de associação (function.json).
 
-As extensões de associação necessárias na [versão 2. x e versões posteriores](functions-versions.md) do tempo de execução do Functions são definidas no `extensions.csproj` arquivo, com os arquivos `bin` de biblioteca reais na pasta. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de associação necessárias na [versão 2.x e versões posteriores](functions-versions.md) do runtime do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
 Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo:
@@ -89,7 +89,7 @@ let Run(input: string, item: byref<Item>) =
     item <- result
 ```
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 Para registrar a saída em seus [logs de streaming](../app-service/troubleshoot-diagnostic-logs.md) em F#, sua função deve usar um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo:
 
 ```fsharp
@@ -98,7 +98,7 @@ let Run(blob: string, output: byref<string>, log: ILogger) =
     output <- input
 ```
 
-## <a name="async"></a>Async
+## <a name="async"></a>Assíncrono
 O fluxo de trabalho de `async` pode ser usado, mas o resultado precisa retornar um `Task`. Isso pode ser feito com `Async.StartAsTask`, por exemplo:
 
 ```fsharp
@@ -109,7 +109,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Token de cancelamento
-Se sua função precisar controlar o desligamento normalmente, você poderá dar [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) a ele um argumento. Isso pode ser combinado com `async`, por exemplo:
+Se sua função precisar controlar o desligamento normalmente, você poderá dar a ele um [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) argumento. Isso pode ser combinado com `async`, por exemplo:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)

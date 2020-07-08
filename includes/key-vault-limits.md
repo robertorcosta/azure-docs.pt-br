@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838996"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transações de chave (máximo de transações permitidas em 10 segundos, por cofre por região<sup>1</sup>):
 
@@ -28,7 +28,7 @@ ms.locfileid: "81768759"
 >
 > Os limites de limitação são ponderados e a imposição está em sua soma. Por exemplo, conforme mostrado na tabela anterior, quando você executa operações GET em chaves RSA HSM, é oito vezes mais caro usar chaves de 4.096 bits comparadas com chaves de 2.048 bits. Isso ocorre porque 1000/125 = 8.
 >
-> Em um determinado intervalo de 10 segundos, um cliente Azure Key Vault pode fazer *apenas uma* das seguintes operações antes de encontrar um código `429` de status HTTP de limitação:
+> Em um determinado intervalo de 10 segundos, um cliente Azure Key Vault pode fazer *apenas uma* das seguintes operações antes de encontrar um `429` código de status HTTP de limitação:
 > - 2.000 RSA 2.048-bit software-chave obter transações
 > - 1.000 RSA 2.048 bits HSM-chave obter transações
 > - 125 RSA 4.096 bits HSM-chave obter transações
@@ -46,7 +46,10 @@ Para obter informações sobre como lidar com a limitação quando esses limites
 
 ### <a name="azure-private-link-integration"></a>Integração de link privado do Azure
 
+> [!NOTE]
+> O número de cofres de chaves com pontos de extremidade privados habilitados por assinatura é um limite ajustável. Esse limite mostrado abaixo é o limite padrão. Se você quiser solicitar um aumento de limite para o serviço, envie um email para akv-privatelink@microsoft.com. Aprovaremos essas solicitações dependendo do caso.
+
 | Recurso | Limite |
 | -------- | ----- |
 | Pontos de extremidade privados por cofre de chaves | 64 |
-| Cofres de chaves com pontos de extremidade privados por assinatura | 64 |
+| Cofres de chaves com pontos de extremidade privados por assinatura | 400 |

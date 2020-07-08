@@ -1,7 +1,7 @@
 ---
 title: Listas de frases-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como fornecer o serviço de fala com uma lista de frases usando `PhraseListGrammar` o objeto para melhorar os resultados de reconhecimento de fala em texto.
+description: Saiba como fornecer o serviço de fala com uma lista de frases usando o `PhraseListGrammar` objeto para melhorar os resultados de reconhecimento de fala em texto.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
-ms.openlocfilehash: d6418a863e8af75e4f2f063d9e6151e19a0e7e6e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7347fee0cd8bdaae73467a84806819c913599a51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977576"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834005"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para conversão de fala em texto
 
@@ -31,7 +31,7 @@ Palavras ou frases completas podem ser adicionadas a uma Lista de Frases. Durant
 
 ## <a name="how-to-use-phrase-lists"></a>Como usar listas de frases
 
-Os exemplos a seguir ilustram como criar uma lista de frases `PhraseListGrammar` usando o objeto.
+Os exemplos a seguir ilustram como criar uma lista de frases usando o `PhraseListGrammar` objeto.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -91,7 +91,7 @@ phraseListGrammar.addPhrase("Move to Ted");
 >[!Note]
 > O número máximo de listas de frases que o serviço de fala usará para corresponder à fala é de 1024 frases.
 
-Você também pode limpar as frases associadas `PhraseListGrammar` ao chamando Clear ().
+Você também pode limpar as frases associadas ao `PhraseListGrammar` chamando Clear ().
 
 ::: zone pivot="programming-language-csharp"
 
@@ -134,7 +134,7 @@ phraseListGrammar.clear();
 ::: zone-end
 
 > [!NOTE]
-> As alterações em `PhraseListGrammar` um objeto entram em vigor no próximo reconhecimento ou após uma reconexão ao serviço de fala.
+> As alterações em um `PhraseListGrammar` objeto entram em vigor no próximo reconhecimento ou após uma reconexão ao serviço de fala.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846843"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -24,7 +24,7 @@ Esta página explica os principais conceitos de domínios, zonas DNS, conjuntos 
 
 O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa no domínio ' raiz ', cujo nome é simplesmente '**.**'.  Abaixo dele vêm domínios de nível superior, como 'com', 'net', 'org', 'uk' ou 'jp'.  Abaixo desses estão domínios de segundo nível, como 'org.uk' ou 'co.jp'. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
-Um registrador de nome de domínio é uma organização que permite que você compre um nome de `contoso.com`domínio, como.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo `www.contoso.com` que você direcione o nome para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você permitir que você especifique servidores de nomes alternativos.
+Um registrador de nome de domínio é uma organização que permite que você compre um nome de domínio, como `contoso.com` .  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome `www.contoso.com` para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você permitir que você especifique servidores de nomes alternativos.
 
 O DNS do Azure fornece uma infraestrutura de servidores de nomes de alta disponibilidade e distribuída globalmente que você pode usar para hospedar seu domínio. Ao hospedar seus domínios no DNS do Azure, você poderá gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas, cobrança e suporte que seus outros serviços do Azure.
 
@@ -127,10 +127,10 @@ Por padrão, o PowerShell do DNS do Azure usa as Etags bloquear alterações sim
 
 No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeçalhos HTTP.  Seu comportamento é descrito na tabela a seguir:
 
-| Cabeçalho | Comportamento |
+| parâmetro | Comportamento |
 | --- | --- |
 | Nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
-| > de eTag \<If-Match |PUT só terá êxito se o recurso existir e a Etag corresponder |
+| If-match \<etag> |PUT só terá êxito se o recurso existir e a Etag corresponder |
 | If-match * |PUT só terá êxito se houver recursos |
 | If-none-match * |PUT só terá êxito se não houver recursos |
 

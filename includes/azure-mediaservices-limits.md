@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: media-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 2fe091a4ff0295ecadfd69ba3f2d4ca59e9612e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839027"
 ---
 >[!NOTE]
 >Para recursos que não são corrigidos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie outras contas dos serviços de mídia do Azure em uma tentativa de obter limites mais altos.
@@ -20,7 +20,7 @@ ms.locfileid: "80334606"
 | Unidades reservadas de mídia por conta de serviços de mídia |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
 | Trabalhos por conta dos Serviços de Mídia | 50.000<sup>2</sup> |
 | Tarefas encadeadas por trabalho | 30 (fixo) |
-| Ativos por conta de serviços de mídia | 1.000.000|
+| Ativos por conta de serviços de mídia | 1\.000.000|
 | Ativos por tarefa | 50 |
 | Ativos por trabalho | 100 |
 | Localizadores exclusivos associados a um ativo simultaneamente | 5<sup>4</sup> |
