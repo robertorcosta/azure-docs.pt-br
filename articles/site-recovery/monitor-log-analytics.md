@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300783"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorar Site Recovery com os logs do Azure Monitor
 
@@ -42,7 +41,7 @@ Recomendamos que você revise as [perguntas comuns de monitoramento](monitoring-
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Configurar Site Recovery para enviar logs
 
-1. No cofre, clique em **configurações** > de diagnóstico**Adicionar configuração de diagnóstico**.
+1. No cofre, clique em **configurações de diagnóstico**  >  **Adicionar configuração de diagnóstico**.
 
     ![Selecionar log de recursos](./media/monitoring-log-analytics/add-diagnostic.png)
 
@@ -51,7 +50,7 @@ Recomendamos que você revise as [perguntas comuns de monitoramento](monitoring-
 4. Selecione **diagnóstico do Azure** na alternância.
 5. Na lista log, selecione todos os logs com o prefixo **AzureSiteRecovery**. Em seguida, clique em **OK**.
 
-    ![Selecione o workspace](./media/monitoring-log-analytics/select-workspace.png)
+    ![Selecione workspace](./media/monitoring-log-analytics/select-workspace.png)
 
 Os logs de Site Recovery começam a ser alimentados em uma tabela (**AzureDiagnostics**) no espaço de trabalho selecionado.
 
@@ -252,7 +251,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurar alertas-exemplos
 
-Você pode configurar alertas de Site Recovery com base em dados de Azure Monitor. [Saiba mais](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) sobre como configurar alertas de log. 
+Você pode configurar alertas de Site Recovery com base em dados de Azure Monitor. [Saiba mais](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) sobre como configurar alertas de log. 
 
 > [!NOTE]
 > Alguns dos exemplos usam **replicationProviderName_s** definido como **A2A**. Isso define alertas para VMs do Azure que são replicadas para uma região secundária do Azure. Nesses exemplos, você pode substituir **A2A** por **InMageAzureV2** se quiser definir alertas para VMs VMware locais ou servidores físicos replicados para o Azure.

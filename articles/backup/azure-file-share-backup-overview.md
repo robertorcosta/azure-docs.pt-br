@@ -3,12 +3,11 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299223"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
@@ -16,11 +15,12 @@ O backup de compartilhamento de arquivos do Azure é uma solução de backup nat
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Principais benefícios do backup de compartilhamento de arquivos do Azure
 
-* Infraestrutura zero: nenhuma implantação é necessária para configurar a proteção para seus compartilhamentos de arquivos.
-* Retenção personalizada: você pode configurar backups com retenção diária/semanal/mensal/anual de acordo com suas necessidades.
-* Recursos de gerenciamento internos: você pode agendar backups e especificar o período de retenção desejado sem a sobrecarga adicional de remoção de dados.
-* Restauração instantânea: o backup de compartilhamento de arquivos do Azure usa instantâneos de compartilhamento de arquivos, para que você possa selecionar apenas os arquivos que deseja restaurar instantaneamente.
-* Alertas e relatórios: você pode configurar alertas para falhas de backup e restauração e usar a solução de relatórios fornecida pelo backup do Azure para obter informações sobre backups em seus compartilhamentos de arquivos.
+* **Infraestrutura zero**: nenhuma implantação é necessária para configurar a proteção para seus compartilhamentos de arquivos.
+* **Retenção personalizada**: você pode configurar backups com retenção diária/semanal/mensal/anual de acordo com suas necessidades.
+* **Recursos de gerenciamento internos**: você pode agendar backups e especificar o período de retenção desejado sem a sobrecarga adicional de remoção de dados.
+* **Restauração instantânea**: o backup de compartilhamento de arquivos do Azure usa instantâneos de compartilhamento de arquivos, para que você possa selecionar apenas os arquivos que deseja restaurar instantaneamente.
+* **Alertas e relatórios**: você pode configurar alertas para falhas de backup e restauração e usar a solução de relatórios fornecida pelo backup do Azure para obter informações sobre backups em seus compartilhamentos de arquivos.
+* **Proteção contra exclusão acidental de compartilhamentos de arquivos**: o backup do Azure habilita o [recurso de exclusão reversível](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) em um nível de conta de armazenamento com um período de retenção de 14 dias. Mesmo que um ator mal-intencionado exclua o compartilhamento de arquivos, o conteúdo e os pontos de recuperação (instantâneos) do compartilhamento de arquivos são mantidos para um período de retenção configurável, permitindo a recuperação bem-sucedida e completa de conteúdo de origem e instantâneos sem perda de dados.
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -51,5 +51,5 @@ No momento, você será cobrado apenas pelos instantâneos, já que o backup do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [fazer backup de compartilhamentos de arquivos do Azure](backup-afs.md)
+* Saiba como [Fazer backup de compartilhamentos de arquivos do Azure](backup-afs.md)
 * Encontre respostas para [perguntas sobre como fazer backup de arquivos do Azure](backup-azure-files-faq.md)

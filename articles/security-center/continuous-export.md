@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158955"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299937"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporte alertas e recomendações
 
@@ -28,6 +27,21 @@ Usando essas ferramentas, você pode:
 * Exportar para CSV (uma vez)
 
 
+
+
+## <a name="availability"></a>Disponibilidade
+
+- Estado da versão: **Disponível para o público geral**
+- Funções e permissões necessárias:
+    - **Leitor** na assinatura que contém a configuração de exportação
+    - **Função de administrador de segurança** no grupo de recursos (ou **proprietário**)
+    - Também deve ter permissões de gravação para o recurso de destino
+- Nuvens: 
+    - ✔ Nuvens comerciais
+    - ✔ US Gov
+    - ✘ China gov, outros gov
+
+
 ## <a name="setting-up-a-continuous-export"></a>Configurando uma exportação contínua
 
 As etapas a seguir são necessárias se você estiver configurando uma exportação contínua para Log Analytics espaço de trabalho ou hubs de eventos do Azure.
@@ -38,13 +52,13 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
     
 1. Na barra lateral da página de configurações dessa assinatura, selecione **exportação contínua**.
 
-    [Opções de exportação na central de segurança do Azure ![](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) Aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
+    [ ![ Opções de exportação na central de segurança do Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
 
 1. Selecione o tipo de dados que você deseja exportar e escolha um dos filtros em cada tipo (por exemplo, exportar somente alertas de severidade alta).
 
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 
 

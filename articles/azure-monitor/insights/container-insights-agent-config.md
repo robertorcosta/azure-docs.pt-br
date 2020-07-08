@@ -2,13 +2,12 @@
 title: Configurar Azure Monitor para coleta de dados de agente de contêineres | Microsoft Docs
 description: Este artigo descreve como você pode configurar o Azure Monitor para agente de contêineres para controlar stdout/stderr e a coleção de logs de variáveis de ambiente.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 28b93190298ae61732ff7d2e297899af4ba0e5f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299274"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a coleta de dados do agente para Azure Monitor para contêineres
 
@@ -31,16 +30,17 @@ Um arquivo de modelo ConfigMap é fornecido para que você possa editá-lo facil
 
 A seguir estão as configurações que podem ser definidas para controlar a coleta de dados.
 
-|Chave |Tipo de dados |Valor |Descrição |
-|----|----------|------|------------|
-|`schema-version` |Cadeia de caracteres (diferencia maiúsculas de minúsculas) |v1 |Esta é a versão do esquema usada pelo agente ao analisar este ConfigMap. A versão de esquema com suporte atualmente é v1. Não há suporte para a modificação desse valor e ele será rejeitado quando ConfigMap for avaliado.|
-|`config-version` |String | | Dá suporte à capacidade de controlar a versão deste arquivo de configuração no sistema/repositório do controle do código-fonte. Os caracteres máximos permitidos são 10 e todos os outros caracteres são truncados. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true ou false | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stdout.exclude_namespaces` (configuração abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String | Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stdout não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` o for definido `true`como. Se não for especificado em ConfigMap, o valor padrão `exclude_namespaces = ["kube-system"]`será.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true ou false |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stderr.exclude_namespaces` (configuração), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |String |Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` o for definido `true`como. Se não for especificado em ConfigMap, o valor padrão `exclude_namespaces = ["kube-system"]`será. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true ou false | Essa configuração controla a coleção de variáveis de ambiente em todos os pods/nós no cluster e `enabled = true` usa como padrão quando não especificado em ConfigMaps. Se a coleção de variáveis de ambiente for habilitada globalmente, você poderá desabilitá-la para um contêiner específico `AZMON_COLLECT_ENV` definindo a variável de ambiente como **false** com uma configuração Dockerfile ou no [arquivo de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) na seção **env:** . Se a coleção de variáveis de ambiente for desabilitada globalmente, você não poderá habilitar a coleta para um contêiner específico (ou seja, a única substituição que pode ser aplicada no nível de contêiner será desabilitar a coleta quando ela já estiver habilitada globalmente.). |
-| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean | true ou false | Essa configuração controla o enriquecimento do log de contêiner para popular os valores de propriedade Name e Image para cada registro de log gravado na tabela ContainerLog para todos os logs de contêiner no cluster. O padrão é `enabled = false` quando não especificado em ConfigMap. |
+| Chave | Tipo de dados | Valor | Descrição |
+|--|--|--|--|
+| `schema-version` | Cadeia de caracteres (diferencia maiúsculas de minúsculas) | v1 | Esta é a versão do esquema usada pelo agente<br> ao analisar este ConfigMap.<br> A versão de esquema com suporte atualmente é v1.<br> Não há suporte para modificar esse valor e ele será<br> rejeitado quando ConfigMap é avaliado. |
+| `config-version` | String |  | Dá suporte à capacidade de controlar a versão deste arquivo de configuração no sistema/repositório do controle do código-fonte.<br> Os caracteres máximos permitidos são 10 e todos os outros caracteres são truncados. |
+| `[log_collection_settings.stdout] enabled =` | Boolean | true ou false | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout<br> ( `log_collection_settings.stdout.exclude_namespaces` Configurando abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps,<br> o valor padrão é `enabled = true` . |
+| `[log_collection_settings.stdout] exclude_namespaces =` | String | Matriz separada por vírgulas | Matriz de namespaces kubernetes para os quais os logs de stdout não serão coletados. Essa configuração só será eficaz se<br> `log_collection_settings.stdout.enabled`<br> é definido como `true`.<br> Se não for especificado em ConfigMap, o valor padrão será<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stderr] enabled =` | Boolean | true ou false | Isso controla se a coleta de log de contêiner stderr está habilitada.<br> Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout<br> ( `log_collection_settings.stderr.exclude_namespaces` configuração), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster.<br> Se não for especificado em ConfigMaps, o valor padrão será<br> `enabled = true`. |
+| `[log_collection_settings.stderr] exclude_namespaces =` | String | Matriz separada por vírgulas | Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados.<br> Essa configuração só será eficaz se<br> `log_collection_settings.stdout.enabled` está definido como `true`.<br> Se não for especificado em ConfigMap, o valor padrão será<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` | Boolean | true ou false | Essa configuração controla a coleção de variáveis de ambiente<br> em todos os pods/nós no cluster<br> e o padrão é `enabled = true` quando não especificado<br> em ConfigMaps.<br> Se a coleção de variáveis de ambiente for habilitada globalmente, você poderá desabilitá-la para um contêiner específico<br> definindo a variável de ambiente<br> `AZMON_COLLECT_ENV`para **false** com uma configuração Dockerfile ou no [arquivo de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) na seção **env:** .<br> Se a coleção de variáveis de ambiente for desabilitada globalmente, você não poderá habilitar a coleta para um contêiner específico (ou seja, a única substituição que pode ser aplicada no nível de contêiner será desabilitar a coleta quando ela já estiver habilitada globalmente.). |
+| `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true ou false | Essa configuração controla o enriquecimento do log de contêiner para popular os valores de propriedade Name e Image<br> para cada registro de log gravado na tabela ContainerLog para todos os logs de contêiner no cluster.<br> O padrão é `enabled = false` quando não especificado em ConfigMap. |
+| `[log_collection_settings.collect_all_kube_events]` | Boolean | true ou false | Essa configuração permite a coleta de eventos Kube de todos os tipos.<br> Por padrão, os eventos de Kube com tipo *normal* não são coletados. Quando essa configuração é definida como `true` , os eventos *normais* não são mais filtrados e todos os eventos são coletados.<br> Por padrão, ele é definido como `false`. |
 
 ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agente. Você não pode ter outro ConfigMaps que se refaça com as coleções.
 
@@ -53,13 +53,13 @@ Execute as etapas a seguir para configurar e implantar o arquivo de configuraç�
    >[!NOTE]
    >Esta etapa não é necessária ao trabalhar com o Azure Red Hat OpenShift, pois o modelo ConfigMap já existe no cluster.
 
-2. Edite o arquivo ConfigMap YAML com suas personalizações para coletar stdout, stderr e/ou variáveis ambientais. Se você estiver editando o arquivo ConfigMap YAML para o Red Hat OpenShift do Azure, primeiro `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` execute o comando para abrir o arquivo em um editor de texto.
+2. Edite o arquivo ConfigMap YAML com suas personalizações para coletar stdout, stderr e/ou variáveis ambientais. Se você estiver editando o arquivo ConfigMap YAML para o Red Hat OpenShift do Azure, primeiro execute o comando `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` para abrir o arquivo em um editor de texto.
 
-    - Para excluir namespaces específicos para coleta de log de stdout, configure a chave/valor usando o exemplo a `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`seguir:.
+    - Para excluir namespaces específicos para coleta de log de stdout, configure a chave/valor usando o exemplo a seguir: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]` .
     
-    - Para desabilitar a coleção de variáveis de ambiente para um contêiner específico, defina a `[log_collection_settings.env_var] enabled = true` chave/o valor para habilitar a coleção de variáveis globalmente e siga as etapas [aqui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) para concluir a configuração do contêiner específico.
+    - Para desabilitar a coleção de variáveis de ambiente para um contêiner específico, defina a chave/o valor `[log_collection_settings.env_var] enabled = true` para habilitar a coleção de variáveis globalmente e siga as etapas [aqui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) para concluir a configuração do contêiner específico.
     
-    - Para desabilitar a coleção de logs stderr em todo o cluster, configure a chave/valor usando o exemplo `[log_collection_settings.stderr] enabled = false`a seguir:.
+    - Para desabilitar a coleção de logs stderr em todo o cluster, configure a chave/valor usando o exemplo a seguir: `[log_collection_settings.stderr] enabled = false` .
 
 3. Para clusters diferentes do Azure Red Hat OpenShift, crie ConfigMap executando o seguinte comando kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` em clusters diferente do Azure Red Hat OpenShift. 
     
@@ -67,11 +67,11 @@ Execute as etapas a seguir para configurar e implantar o arquivo de configuraç�
 
     Para o Azure Red Hat OpenShift, salve suas alterações no editor.
 
-A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" created`.
+A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="verify-configuration"></a>Verificar a configuração
 
-Para verificar se a configuração foi aplicada com êxito a um cluster diferente do Azure Red Hat OpenShift, use o seguinte comando para examinar os logs de um pod do `kubectl logs omsagent-fdf58 -n=kube-system`agente:. Se houver erros de configuração do pods omsagent, a saída mostrará erros semelhantes ao seguinte:
+Para verificar se a configuração foi aplicada com êxito a um cluster diferente do Azure Red Hat OpenShift, use o seguinte comando para examinar os logs de um pod do agente: `kubectl logs omsagent-fdf58 -n kube-system` . Se houver erros de configuração do pods omsagent, a saída mostrará erros semelhantes ao seguinte:
 
 ``` 
 ***************Start Config Processing******************** 
@@ -80,7 +80,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 Os erros relacionados à aplicação de alterações de configuração também estão disponíveis para revisão. As opções a seguir estão disponíveis para executar a solução de problemas adicional de alterações de configuração:
 
-- De logs de pod de agente usando o `kubectl logs` mesmo comando. 
+- De logs de pod de agente usando o mesmo `kubectl logs` comando. 
 
     >[!NOTE]
     >Este comando não é aplicável ao cluster do Azure Red Hat OpenShift.
@@ -96,7 +96,7 @@ Os erros relacionados à aplicação de alterações de configuração também e
 
 - Com o Azure Red Hat OpenShift, verifique os logs do omsagent pesquisando a tabela **ContainerLog** para verificar se a coleta de log de OpenShift-Azure-Logging está habilitada.
 
-Depois de corrigir os erros no ConfigMap em clusters diferentes do Azure Red Hat OpenShift, salve o arquivo YAML e aplique o ConfigMaps atualizado executando o comando: `kubectl apply -f <configmap_yaml_file.yaml`. Para o Azure Red Hat OpenShift, edite e salve o ConfigMaps atualizado executando o comando:
+Depois de corrigir os erros no ConfigMap em clusters diferentes do Azure Red Hat OpenShift, salve o arquivo YAML e aplique o ConfigMaps atualizado executando o comando: `kubectl apply -f <configmap_yaml_file.yaml` . Para o Azure Red Hat OpenShift, edite e salve o ConfigMaps atualizado executando o comando:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -104,13 +104,13 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 ## <a name="applying-updated-configmap"></a>Aplicando ConfigMap atualizado
 
-Se você já tiver implantado um ConfigMap em clusters diferentes do Azure Red Hat OpenShift e quiser atualizá-lo com uma configuração mais recente, poderá editar o arquivo ConfigMap que você usou anteriormente e, em seguida, aplicar usando o `kubectl apply -f <configmap_yaml_file.yaml`mesmo comando que antes,. Para o Azure Red Hat OpenShift, edite e salve o ConfigMaps atualizado executando o comando:
+Se você já tiver implantado um ConfigMap em clusters diferentes do Azure Red Hat OpenShift e quiser atualizá-lo com uma configuração mais recente, poderá editar o arquivo ConfigMap que você usou anteriormente e, em seguida, aplicar usando o mesmo comando que antes, `kubectl apply -f <configmap_yaml_file.yaml` . Para o Azure Red Hat OpenShift, edite e salve o ConfigMaps atualizado executando o comando:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 ```
 
-A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" updated`.
+A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" updated` .
 
 ## <a name="verifying-schema-version"></a>Verificando a versão do esquema
 

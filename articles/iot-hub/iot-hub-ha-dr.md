@@ -7,12 +7,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79499101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267623"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 
@@ -60,7 +59,7 @@ Ambas as opções de failover oferecem os seguintes objetivos de ponto de recupe
 Depois que a operação de failover do hub IoT for concluída, espera-se que todas as operações do dispositivo e dos aplicativos de back-end continuem funcionando sem exigir uma intervenção manual. Isso significa que as mensagens do dispositivo para a nuvem devem continuar funcionando e todo o registro do dispositivo está intacto. Os eventos emitidos por meio da grade de eventos podem ser consumidos por meio da mesma assinatura (s) configurada anteriormente, desde que as assinaturas da grade de eventos continuem disponíveis.
 
 > [!CAUTION]
-> - O nome compatível com o Hub de eventos e o ponto de extremidade do ponto de extremidade de eventos internos do Hub IoT são alterados após o failover e os grupos de consumidores configurados são removidos (esse é um bug que será corrigido antes de 2020). Ao receber mensagens de telemetria do ponto de extremidade interno usando o cliente do hub de eventos ou o host do processador de eventos, você deve [usar a cadeia de conexão do Hub IOT](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para estabelecer a conexão. Isso garante que seus aplicativos de back-end continuem a funcionar sem exigir o failover de pós-intervenção manual. Se você usar o nome compatível com o Hub de eventos e o ponto de extremidade em seu aplicativo diretamente, será necessário [reconfigurar o grupo de consumidores que eles usam e buscar o novo ponto de extremidade compatível com o Hub de eventos](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) após o failover para continuar as operações. Se você usar Azure Functions ou Azure Stream Analytics para conectar o ponto de extremidade interno, talvez seja necessário executar uma **reinicialização**.
+> - O nome e o ponto final do Hub compatível com eventos do ponto de extremidade de eventos internos do Hub IoT são alterados após o failover. Ao receber mensagens de telemetria do ponto de extremidade interno usando o cliente do hub de eventos ou o host do processador de eventos, você deve [usar a cadeia de conexão do Hub IOT](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para estabelecer a conexão. Isso garante que seus aplicativos de back-end continuem a funcionar sem exigir o failover de pós-intervenção manual. Se você usar o nome compatível com o Hub de eventos e o ponto de extremidade em seu aplicativo diretamente, será necessário [buscar o novo ponto de extremidade compatível com o Hub de eventos após o](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) failover para continuar as operações. Se você usar Azure Functions ou Azure Stream Analytics para conectar o ponto de extremidade interno, talvez seja necessário executar uma **reinicialização**.
 >
 > - Ao rotear para o armazenamento, é recomendável listar os BLOBs ou arquivos e, em seguida, iterar sobre eles, para garantir que todos os BLOBs ou arquivos sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover iniciado pela Microsoft ou um failover manual. Você pode usar a [API listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de BLOBs ou [listar ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de arquivos. 
 

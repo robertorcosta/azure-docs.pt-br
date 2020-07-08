@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70881275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300708"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM Dedicado do Azure
 
@@ -78,7 +77,7 @@ Os dispositivos HSM têm a capacidade de, por meio de bibliotecas de software, r
 
 ### <a name="cross-region-ha-using-vpn-gateway"></a>Entre a HA de região usando gateway de VPN
 
-Para aplicativos distribuídos globalmente ou para cenários de alta disponibilidade de failover regional, é necessário conectar redes virtuais entre regiões. Com o HSM Dedicado do Azure, a alta disponibilidade pode ser obtida usando um Gateway de VPN que fornece um túnel seguro entre as duas redes virtuais. Para obter mais informações sobre conexões de Rede Virtual para Rede Virtual usando o Gateway de VPN, consulte o artigo intitulado [O que é o Gateway de VPN?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
+Para aplicativos distribuídos globalmente ou para cenários de alta disponibilidade de failover regional, é necessário conectar redes virtuais entre regiões. Com o HSM Dedicado do Azure, a alta disponibilidade pode ser obtida usando um Gateway de VPN que fornece um túnel seguro entre as duas redes virtuais. Para obter mais informações sobre conexões de Rede Virtual para Rede Virtual usando o Gateway de VPN, consulte o artigo intitulado [O que é o Gateway de VPN?](../vpn-gateway/design.md#V2V)
 
 > [!NOTE]
 > O emparelhamento de Rede Virtual global não está disponível em cenários de conectividade entre regiões com os HSMs Dedicados neste momento e, em vez disso, o gateway de VPN deve ser usado. 
@@ -88,7 +87,7 @@ Para aplicativos distribuídos globalmente ou para cenários de alta disponibili
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Perguntas frequentes](faq.md)
-- [Capacidade de suporte](supportability.md)
+- [Suporte](supportability.md)
 - [Alta disponibilidade](high-availability.md)
 - [Segurança física](physical-security.md)
 - [Monitoring](monitoring.md)

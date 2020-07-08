@@ -3,12 +3,11 @@ title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 description: Encontre respostas para algumas das perguntas mais comuns sobre o AKS (Serviço de Kubernetes do Azure).
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300919"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -75,11 +74,13 @@ Ao trabalhar com o grupo de recursos do nó, tenha em mente que não é possíve
 * Especificar uma assinatura diferente para o grupo de recursos do nó.
 * Alterar o nome do grupo de recursos do nó depois que o cluster for criado.
 * Especificar nomes para os recursos gerenciados dentro do grupo de recursos do nó.
-* Modificar ou excluir marcas de recursos gerenciados dentro do grupo de recursos do nó. (Confira as informações adicionais na próxima seção.)
+* Modificar ou excluir marcas criadas pelo Azure de recursos gerenciados dentro do grupo de recursos do nó. (Confira as informações adicionais na próxima seção.)
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Posso modificar marcas e outras propriedades dos recursos do AKS no grupo de recursos do nó?
 
-Se você modificar ou excluir as marcas criadas pelo Azure e outras propriedades de recursos no grupo de recursos do nó, poderá obter resultados inesperados, como erros de dimensionamento e atualização. O AKS permite que você crie e modifique marcas personalizadas. O ideal é criar ou modificar marcas personalizadas, por exemplo, para atribuir uma unidade de negócios ou um centro de custo. Ao modificar os recursos no grupo de recursos do nó no cluster do AKS, você viola o SLO (objetivo de nível de serviço). Para obter mais informações, confira [O AKS oferece um SLA?](#does-aks-offer-a-service-level-agreement)
+Se você modificar ou excluir as marcas criadas pelo Azure e outras propriedades de recursos no grupo de recursos do nó, poderá obter resultados inesperados, como erros de dimensionamento e atualização. O AKS permite que você crie e modifique marcas personalizadas criadas por usuários finais. O ideal é criar ou modificar marcas personalizadas, por exemplo, para atribuir uma unidade de negócios ou um centro de custo. Isso pode ser feito criando políticas do Azure com um escopo no grupo de recursos gerenciado.
+
+No entanto, a modificação de **marcas criadas pelo Azure** em recursos no grupo de recursos de nó no cluster AKs é uma ação sem suporte que interrompe o Slo (objetivo de nível de serviço). Para obter mais informações, confira [O AKS oferece um SLA?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quais os controles de admissão de Kubernetes que o AKS suporta? Controladores de admissão podem ser adicionados ou removidos?
 

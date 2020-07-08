@@ -1,6 +1,6 @@
 ---
 title: Práticas recomendadas para o Azure Maps Serviço de Roteiros | Mapas do Microsoft Azure
-description: Saiba como rotear com eficiência usando Serviço de Roteiros de mapas de Microsoft Azure.
+description: Saiba como encaminhar veículos usando Serviço de Roteiros de mapas Microsoft Azure.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266688"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Práticas recomendadas para o serviço de rota do Azure Maps
 
@@ -31,9 +30,9 @@ As APIs de direção de rota e matriz de rota no Azure Maps [serviço de roteiro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs do Azure Maps, você precisa de uma conta e uma chave do Azure Maps. Para obter mais informações, consulte [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e [obter uma chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account). A chave primária também é conhecida como chave de assinatura primária ou chave de assinatura.
+Para fazer chamadas para as APIs do Azure Maps, você precisa de uma conta e uma chave do Azure Maps. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e [Obter uma chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account). A chave primária também é conhecida como chave de assinatura primária ou chave de assinatura.
 
-Para obter informações sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md). Para obter mais informações sobre a cobertura do Serviço de Roteiros, consulte a [cobertura de roteamento](routing-coverage.md).
+Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md). Para obter mais informações sobre a cobertura do Serviço de Roteiros, consulte a [cobertura de roteamento](routing-coverage.md).
 
 Este artigo usa o [aplicativo de postmaster](https://www.postman.com/downloads/) para criar chamadas REST, mas você pode escolher qualquer ambiente de desenvolvimento de API.
 
@@ -129,9 +128,9 @@ A resposta contém um resumo, conforme mostrado abaixo. Devido a congestionament
 
 ## <a name="request-route-and-leg-details"></a>Detalhes da rota e do segmento da solicitação
 
-Por padrão, o serviço de rota retornará uma matriz de coordenadas. A resposta conterá as coordenadas que compõem o caminho em uma lista chamada `points`. A resposta de rota também inclui a distância desde o início da rota e o tempo decorrido estimado. Esses valores podem ser usados para calcular a velocidade média de toda a rota.
+Por padrão, o serviço de rota retornará uma matriz de coordenadas. A resposta conterá as coordenadas que compõem o caminho em uma lista chamada `points` . A resposta de rota também inclui a distância desde o início da rota e o tempo decorrido estimado. Esses valores podem ser usados para calcular a velocidade média de toda a rota.
 
-A imagem a seguir mostra `points` o elemento.
+A imagem a seguir mostra o `points` elemento.
 
 <center>
 
@@ -139,7 +138,7 @@ A imagem a seguir mostra `points` o elemento.
 
 </center>
 
-Expanda `point` o elemento para ver a lista de coordenadas para o caminho:
+Expanda o `point` elemento para ver a lista de coordenadas para o caminho:
 
 <center>
 
@@ -149,7 +148,7 @@ Expanda `point` o elemento para ver a lista de coordenadas para o caminho:
 
 As APIs de direção de rota dão suporte a formatos diferentes de instruções que podem ser usadas especificando o parâmetro de **instruções** . Para formatar instruções para facilitar o processamento do computador, use o **instruçõestype = codificado**. Use o **instruçõestype = marcado** para exibir instruções como texto para o usuário. Além disso, as instruções podem ser formatadas como texto em que alguns elementos das instruções são marcados e a instrução é apresentada com formatação especial. Para obter mais informações, consulte a [lista de tipos de instrução com suporte](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
-Quando as instruções são solicitadas, a resposta retorna um novo `guidance`elemento chamado. O `guidance` elemento contém duas informações: instruções ativas e instruções resumidas.
+Quando as instruções são solicitadas, a resposta retorna um novo elemento chamado `guidance` . O `guidance` elemento contém duas informações: instruções ativas e instruções resumidas.
 
 <center>
 
@@ -183,7 +182,7 @@ A solicitação de exemplo abaixo consulta uma rota para um caminhão comercial.
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-A API de rota retorna direções que acomodam as dimensões do caminhão e o desperdício perigoso. Você pode ler as instruções de rota expandindo `guidance` o elemento.
+A API de rota retorna direções que acomodam as dimensões do caminhão e o desperdício perigoso. Você pode ler as instruções de rota expandindo o `guidance` elemento.
 
 <center>
 
@@ -209,11 +208,11 @@ A resposta abaixo é para um caminhão que tem um material perigoso de classe 9,
 
 ## <a name="request-traffic-information-along-a-route"></a>Solicitar informações de tráfego ao longo de uma rota
 
-Com as APIs de direção de rota do Azure Maps, os desenvolvedores podem solicitar detalhes para cada tipo `sectionType` de seção, incluindo o parâmetro na solicitação. Por exemplo, você pode solicitar as informações de velocidade para cada segmento de obstrução de tráfego. Consulte a [lista de valores para a chave de sectiontype](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) para saber mais sobre os vários detalhes que você pode solicitar.
+Com as APIs de direção de rota do Azure Maps, os desenvolvedores podem solicitar detalhes para cada tipo de seção, incluindo o `sectionType` parâmetro na solicitação. Por exemplo, você pode solicitar as informações de velocidade para cada segmento de obstrução de tráfego. Consulte a [lista de valores para a chave de sectiontype](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) para saber mais sobre os vários detalhes que você pode solicitar.
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-A consulta a seguir define `sectionType` o `traffic`para. Ele solicita as seções que contêm informações de tráfego de Seattle a San Diego.
+A consulta a seguir define o `sectionType` para `traffic` . Ele solicita as seções que contêm informações de tráfego de Seattle a San Diego.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
@@ -249,7 +248,7 @@ Se você quiser otimizar a melhor ordem para visitar o Marcos fornecido, será n
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-A consulta a seguir solicita o caminho para seis Marcos, com `computeBestOrder` o parâmetro definido `false`como. Também é o valor padrão para o `computeBestOrder` parâmetro.
+A consulta a seguir solicita o caminho para seis Marcos, com o `computeBestOrder` parâmetro definido como `false` . Também é o valor padrão para o `computeBestOrder` parâmetro.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
@@ -323,7 +322,7 @@ A imagem abaixo é um exemplo de processamento de rotas alternativas com limites
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Usar o serviço de roteamento em um aplicativo Web
 
-O SDK da Web do Azure Maps fornece um [módulo de serviço](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Esse módulo é uma biblioteca auxiliar que torna mais fácil usar as APIs REST do Azure Maps em aplicativos Web ou node. js, usando JavaScript ou TypeScript. O módulo de serviço pode ser usado para renderizar as rotas retornadas no mapa. O módulo determina automaticamente qual API usar com solicitações GET e POST.
+O SDK da Web do Azure Maps fornece um [módulo de serviço](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Esse módulo é uma biblioteca auxiliar que torna mais fácil usar as APIs REST do Azure Maps em aplicativos Web ou Node.js, usando JavaScript ou TypeScript. O módulo de serviço pode ser usado para renderizar as rotas retornadas no mapa. O módulo determina automaticamente qual API usar com solicitações GET e POST.
 
 ## <a name="next-steps"></a>Próximas etapas
 

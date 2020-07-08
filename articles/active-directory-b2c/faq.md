@@ -10,12 +10,11 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84297897"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -134,21 +133,20 @@ Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na 
 
 Siga estas etapas para excluir seu locatário Azure AD B2C.
 
-Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Você pode usar nossa nova experiência unificada de **registros de aplicativo** ou nossa experiência **de aplicativos herdados (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Aplicativos](#tab/applications/)
+#### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
-1. Exclua todos os **aplicativos** que você registrou em seu locatário Azure ad B2C.
-1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Selecione **registros de aplicativo**e, em seguida, selecione a guia **todos os aplicativos** .
+1. Exclua todos os aplicativos que você registrou.
+1. Exclua o **B2C-Extensions-app**.
 1. Em **Gerenciar**, selecione **Usuários**.
 1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
-1. Em **gerenciar**, selecione **Registros de aplicativo** (ou **registros de aplicativo (Herdado)**).
-1. Selecione **Exibir todos os aplicativos**
-1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir**e, em seguida, selecione **Sim** quando solicitado.
+1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
@@ -157,18 +155,19 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
 
-#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
-1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione a guia **todos os aplicativos** .
-1. Exclua todos os aplicativos que você registrou.
-1. Exclua o **B2C-Extensions-app**.
+1. Exclua todos os **aplicativos (herdados)** que você registrou em seu locatário Azure ad B2C.
+1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Em **Gerenciar**, selecione **Usuários**.
 1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
-1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Em **Gerenciar**, selecione **Registros de aplicativo**.
+1. Selecione **Exibir todos os aplicativos**
+1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir**e, em seguida, selecione **Sim** quando solicitado.
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**

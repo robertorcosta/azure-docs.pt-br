@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76710316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267934"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
 
@@ -75,7 +74,7 @@ Considere o uso do ADF (Azure Data Factory) quando os dados precisam ser migrado
 * um cenário híbrido que envolve tanto recursos locais quanto na nuvem
 * um cenário em que os dados são transacionados, modificados ou alterados pela lógica de negócios durante a migração
 
-Para obter mais informações, consulte [mover dados de um SQL Server local para SQL Azure com Azure data Factory](move-sql-azure-adf.md).
+Para obter mais informações, consulte [mover dados de um banco de SQL Server para SQL Azure com Azure data Factory](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quanto dos dados será movido para o Azure?
 
@@ -150,9 +149,9 @@ Há muitas opções para ferramentas, ambientes de desenvolvimento e linguagens.
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Ferramentas Python para Visual Studio](https://aka.ms/ptvsdocs)
-* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Anaconda](https://www.anaconda.com/)
 * [Blocos de anotações do Jupyter](https://jupyter.org/)
-* [Power BI da Microsoft](https://powerbi.microsoft.com)
+* [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificar seu cenário de análise avançada
 

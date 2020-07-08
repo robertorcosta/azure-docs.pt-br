@@ -6,13 +6,12 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890867"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298594"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -52,7 +51,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Se decidirmos adicionar uma transformação derivar, primeiro precisamos criar o texto de transformação principal, que tem uma expressão simples para adicionar uma nova coluna em maiúsculas `upperCaseTitle`chamada:
+Se decidirmos adicionar uma transformação derivar, primeiro precisamos criar o texto de transformação principal, que tem uma expressão simples para adicionar uma nova coluna em maiúsculas chamada `upperCaseTitle` :
 ```
 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 ```
@@ -71,7 +70,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-E agora redirecionamos o fluxo de entrada identificando a transformação que queremos que a nova transformação venha após (nesse caso, `source1`) e copiando o nome do fluxo para a nova transformação:
+E agora redirecionamos o fluxo de entrada identificando a transformação que queremos que a nova transformação venha após (nesse caso, `source1` ) e copiando o nome do fluxo para a nova transformação:
 ```
 source(output(
         movieId as string,
@@ -85,7 +84,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Por fim, identificamos a transformação que desejamos vir após essa nova transformação e substituo seu fluxo de entrada ( `sink1`nesse caso,) pelo nome do fluxo de saída da nossa nova transformação:
+Por fim, identificamos a transformação que desejamos vir após essa nova transformação e substituo seu fluxo de entrada (nesse caso, `sink1` ) pelo nome do fluxo de saída da nossa nova transformação:
 ```
 source(output(
         movieId as string,
@@ -173,7 +172,7 @@ aggregate(groupBy(movie),
 ```
 
 ### <a name="create-row-hash-fingerprint"></a>Criar impressão digital de hash de linha 
-Use esse código em seu script de fluxo de dados para criar uma nova coluna ```DWhash``` derivada chamada que ```sha1``` produz um hash de três colunas.
+Use esse código em seu script de fluxo de dados para criar uma nova coluna derivada chamada ```DWhash``` que produz um ```sha1``` hash de três colunas.
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
@@ -186,12 +185,22 @@ derive(DWhash = sha1(columns()))
 ```
 
 ### <a name="string_agg-equivalent"></a>String_agg equivalente
-Esse código funcionará como a função T- ```string_agg()``` SQL e irá agregar valores de cadeia de caracteres em uma matriz. Em seguida, você pode converter essa matriz em uma cadeia de caracteres para usar com destinos SQL.
+Esse código funcionará como a função T-SQL ```string_agg()``` e irá agregar valores de cadeia de caracteres em uma matriz. Em seguida, você pode converter essa matriz em uma cadeia de caracteres para usar com destinos SQL.
 
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
 Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Número de contagem de atualizações, upserts, inserções, exclusões
+Ao usar uma transformação ALTER Row, talvez você queira contar o número de atualizações, upserts, inserções, que resultam de suas políticas de alteração de linha. Adicione uma transformação Agregação após a alteração da linha e cole esse script de fluxo de dados na definição de agregação para essas contagens:
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+        inserts = countIf(isInsert(), 1),
+        upserts = countIf(isUpsert(), 1),
+        deletes = countIf(isDelete(),1)) ~> RowCount
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

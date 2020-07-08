@@ -3,16 +3,15 @@ title: Intermitência de disco gerenciado
 description: Saiba mais sobre intermitência de disco para discos do Azure e intermitência de disco para máquinas virtuais do Azure
 author: albecker1
 ms.author: albecker
-ms.date: 04/27/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: baabad550f5e6b0ae39936fc182e6d9789d189d8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: f92fae38d49c51dfe87a68b023ba779e89b0e0bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84295449"
 ---
 # <a name="disk-bursting"></a>Intermitência de disco
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -24,9 +23,6 @@ O suporte à intermitência no nível da VM está habilitado em todas as regiõe
 A intermitência é habilitada por padrão para máquinas virtuais que dão suporte a ela.
 
 ## <a name="disk-level-bursting"></a>Intermitência no nível de disco
-A intermitência também está disponível em nossos [SSDs permium](disks-types.md#premium-ssd) para tamanhos de disco P20 e menores em todas as regiões na nuvem pública do Azure, na nuvem do Azure Governamental e na nuvem do Azure China. A intermitência de disco é habilitada por padrão em novas implantações dos tamanhos de disco que dão suporte a ela. Os tamanhos de disco existentes, se derem suporte à intermitência de disco, podem habilitar a intermitência por meio de qualquer um dos seguintes métodos: 
-- **Reinicializar a VM** 
-- **Desanexar e anexar novamente o disco**
-
+A intermitência também está disponível em nossos [SSDs permium](disks-types.md#premium-ssd) para tamanhos de disco P20 e menores em todas as regiões na nuvem pública do Azure, na nuvem do Azure Governamental e na nuvem do Azure China. A intermitência de disco é habilitada por padrão em todas as implantações novas e existentes dos tamanhos de disco que dão suporte a ela. 
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting-2.md)]

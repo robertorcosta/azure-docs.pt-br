@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300599"
 ---
 # <a name="system-requirements"></a>Requisitos do sistema
 
@@ -69,6 +68,9 @@ Para solucionar problemas de rede, consulte o [Guia de solução de problemas](.
 O seguinte software deve ser instalado:
 
 * A versão mais recente do **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Ferramentas do Visual Studio para Realidade Misturada](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Especificamente, as seguintes instalações de *carga de trabalho* são obrigatórias:
+  * **Desenvolvimento para desktop com C++**
+  * **Desenvolvimento da UWP (Plataforma Universal do Windows)**
 * **SDK do Windows 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **Git** [(download)](https://git-scm.com/downloads)
 * Opcional: para exibir o fluxo de vídeo do servidor em um computador desktop, você precisa das **extensões de vídeo HEVC** [(link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).

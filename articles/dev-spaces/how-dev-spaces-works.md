@@ -1,16 +1,15 @@
 ---
 title: Como o Azure Dev Spaces funciona
 services: azure-dev-spaces
-ms.date: 03/24/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces
-keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
-ms.openlocfilehash: 99b0b3309d115b450bfca94871b6defd885349fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
+ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84307360"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Como o Azure Dev Spaces funciona
 
@@ -22,13 +21,13 @@ Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente aplica
 
 Azure Dev Spaces reduz o esforço para desenvolver, testar e iterar seu aplicativo kubernetes no contexto do cluster AKS. Essa redução no esforço permite que os desenvolvedores se concentrem na lógica de negócios de seus aplicativos e não Configurando seus serviços para serem executados no kubernetes.
 
-### <a name="connect-your-development-machine-to-aks"></a>Conectar seu computador de desenvolvimento ao AKS
+### <a name="local-process-with-kubernetes"></a>Processo Local com o Kubernetes
 
-Com o Azure Dev Spaces, você pode conectar seu computador de desenvolvimento ao cluster AKS, permitindo que você execute e depure o código no seu computador de desenvolvimento como se ele estivesse em execução no cluster. Azure Dev Spaces redireciona o tráfego entre o cluster AKS conectado executando um pod no cluster que atua como um agente remoto para redirecionar o tráfego entre o computador de desenvolvimento e o cluster. Esse redirecionamento de tráfego permite que o código em seu computador de desenvolvimento e serviços em execução no cluster AKS se comuniquem como se estivessem no mesmo cluster AKS. Para obter mais informações sobre como conectar o computador de desenvolvimento ao AKS, consulte [como funciona a conexão do computador de desenvolvimento ao cluster do AKS][how-it-works-connect].
+Com o processo local com o kubernetes, você pode conectar o computador de desenvolvimento ao cluster do kubernetes, permitindo que você execute e depure o código no seu computador de desenvolvimento como se ele estivesse em execução no cluster. Azure Dev Spaces redireciona o tráfego entre o cluster conectado executando um pod no cluster que atua como um agente remoto para redirecionar o tráfego entre o computador de desenvolvimento e o cluster. Esse redirecionamento de tráfego permite que o código em seu computador de desenvolvimento e serviços em execução no cluster se comuniquem como se estivessem no mesmo cluster. Para obter mais informações sobre como conectar seu computador de desenvolvimento a um cluster kubernetes, consulte [como o processo local com o kubernetes funciona][how-it-works-local-process-kubernetes].
 
 ### <a name="run-your-code-in-aks"></a>Execute seu código no AKS
 
-Além de redirecionar o tráfego entre o computador de desenvolvimento e o cluster AKS, com Azure Dev Spaces você pode configurar e executar rapidamente seu código diretamente no AKS. Com o Visual Studio, Visual Studio Code, ou a CLI do Azure Dev Spaces, os espaços de desenvolvimento do Azure carregarão seu código no cluster, criarão e executarão o mesmo. Os espaços de desenvolvimento do Azure também podem sincronizar as alterações de código de forma inteligente e reiniciar o serviço para refletir as alterações conforme necessário. Durante a execução do código, os logs de compilação e os rastreamentos HTTP são transmitidos de volta ao cliente para que você possa monitorar o progresso e diagnosticar quaisquer problemas. Você também pode usar Azure Dev Spaces, para anexar o depurador no Visual Studio e Visual Studio Code aos serviços Java, Node. js e .NET Core. Para obter mais informações, consulte [como a preparação de um projeto para Azure dev Spaces funciona][how-it-works-prep], [como executar seu código com o Azure dev Spaces funciona][how-it-works-up]e [como a depuração remota de seu código com o Azure dev Spaces funciona][how-it-works-remote-debugging].
+Além de redirecionar o tráfego entre o computador de desenvolvimento e o cluster AKS, com Azure Dev Spaces você pode configurar e executar rapidamente seu código diretamente no AKS. Com o Visual Studio, Visual Studio Code, ou a CLI do Azure Dev Spaces, os espaços de desenvolvimento do Azure carregarão seu código no cluster, criarão e executarão o mesmo. Os espaços de desenvolvimento do Azure também podem sincronizar as alterações de código de forma inteligente e reiniciar o serviço para refletir as alterações conforme necessário. Durante a execução do código, os logs de compilação e os rastreamentos HTTP são transmitidos de volta ao cliente para que você possa monitorar o progresso e diagnosticar quaisquer problemas. Você também pode usar Azure Dev Spaces, para anexar o depurador no Visual Studio e Visual Studio Code aos serviços Java, Node.js e .NET Core. Para obter mais informações, consulte [como a preparação de um projeto para Azure dev Spaces funciona][how-it-works-prep], [como executar seu código com o Azure dev Spaces funciona][how-it-works-up]e [como a depuração remota de seu código com o Azure dev Spaces funciona][how-it-works-remote-debugging].
 
 ## <a name="team-development"></a>Desenvolvimento da equipe
 
@@ -46,10 +45,10 @@ Você também pode usar ações do GitHub com Azure Dev Spaces para testar alter
 
 Para começar a conectar seu computador de desenvolvimento local ao cluster AKS, consulte [conectar seu computador de desenvolvimento a um cluster AKs][connect].
 
-Para começar a usar o Azure Dev Spaces para o desenvolvimento em equipe, consulte o [desenvolvimento de equipe no guia de][quickstart-team] início rápido Azure dev Spaces.
+Para começar a usar o Azure Dev Spaces no desenvolvimento em equipe, confira o início rápido [Desenvolvimento de equipe no Azure Dev Spaces][quickstart-team].
 
-[connect]: how-to/connect.md
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[connect]: how-to/local-process-kubernetes-vs-code.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

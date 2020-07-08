@@ -5,12 +5,11 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299775"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação de desastre do Azure para o Azure
 
@@ -52,6 +51,14 @@ Sim. O Site Recovery é compatível com a recuperação de desastre de VMs que t
 - O Site Recovery é compatível com a versão 0.1 do Azure Disk Encryption, que tem um esquema que requer o Azure AD (Azure Active Directory). O Site Recovery também é compatível com a versão 1.1, que não requer o Azure AD. [Saiba mais sobre o esquema de extensão do Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - Para o Azure Disk Encryption versão 1.1, você precisa usar as VMs do Windows com discos gerenciados.
   - [Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre como habilitar a replicação de VMs criptografadas.
+
+### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>Posso selecionar uma conta de automação de um grupo de recursos diferente?
+
+Atualmente, não há suporte para isso por meio do portal, mas você pode escolher uma conta de automação de um grupo de recursos diferente por meio do PowerShell.
+
+### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>Depois de especificar uma conta de automação que esteja em um grupo de recursos diferente do cofre, tenho permissão para excluir o runbook se não houver outro cofre para especificar?
+
+O runbook personalizado criado é uma ferramenta e é seguro excluir se o mesmo não for mais necessário.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>É possível replicar VMs para outra assinatura?
 
@@ -172,6 +179,10 @@ O primeiro ponto de recuperação gerado tem a cópia completa. Os pontos de rec
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Aumentar o período de retenção de pontos de recuperação aumenta o custo de armazenamento?
 
 Sim, se você aumentar o período de retenção de 24 horas para 72 horas, o Site Recovery salvará os pontos de recuperação por mais 48 horas. Adicionar tempo gerará em encargos de armazenamento. Por exemplo, um ponto de recuperação pode ter alterações delta de 10 GB com um custo por GB de US$ 0,16 por mês. Os encargos adicionais seriam de US$ 1,60 × 48 por mês.
+
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso habilitar a replicação com consistência de aplicativo em servidores Linux?
+
+Sim. O Azure Site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com pré e pós-opções será usado pelo agente de mobilidade Azure Site Recovery durante a consistência do aplicativo. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Consistência de várias VMs
 

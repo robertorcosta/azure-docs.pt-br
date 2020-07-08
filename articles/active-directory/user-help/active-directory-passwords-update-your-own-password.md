@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266110"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança
 
 Caso você tenha esquecido sua senha corporativa ou de estudante, nunca tenha recebido uma da empresa ou sua conta tenha sido bloqueada, você pode usar suas informações de segurança e o dispositivo móvel para redefinir sua senha corporativa ou de estudante. Seu administrador deve ativar esse recurso para que você possa configurar suas informações e [redefinir sua senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
 
-Se você souber sua senha, mas desejar alterá-la, confira as seções de etapas [Alterar sua senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) deste artigo.
+Se você souber sua senha e quiser alterá-la, consulte as seções [alterar as etapas de senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) deste artigo.
 
 >[!Important]
 >Este artigo destina-se aos usuários que estão tentando redefinir uma senha de conta corporativa ou de estudante esquecida ou desconhecida. Se você for um administrador procurando informações sobre como ativar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Implantar a redefinição de senha por autoatendimento do Azure AD e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
@@ -103,7 +102,7 @@ Se você não conseguir acessar sua conta do Azure AD (Azure Active Directory), 
 
      Se você ainda não conseguir acessar sua conta, entre em contato com o administrador da organização para obter mais ajuda.
 
-Depois de redefinir sua senha, você pode receber um e-mail de confirmação proveniente de uma conta como "Microsoft em nome de \<*your_organization*>". Se você receber um e-mail semelhante, mas não redefiniu sua senha recentemente, entre em contato com o administrador da organização imediatamente.
+Depois de redefinir sua senha, você pode receber um email de confirmação proveniente de uma conta como "Microsoft em nome de \<*your_organization*> ". Se você receber um e-mail semelhante, mas não redefiniu sua senha recentemente, entre em contato com o administrador da organização imediatamente.
 
 ## <a name="how-to-change-your-password"></a>Como alterar sua senha
 

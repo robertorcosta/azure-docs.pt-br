@@ -11,15 +11,14 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: 077fd70f0908dcef3af0c1e037fe137d636a4ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299869"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicativos Oracle que integram o Microsoft Azure e o Oracle Cloud Infrastructure
 
@@ -35,10 +34,7 @@ Se você estiver interessado em implantar soluções Oracle totalmente na infrae
 
 A conectividade entre nuvens fornece uma solução para que você execute aplicativos líderes do setor da Oracle e seus aplicativos personalizados em máquinas virtuais do Azure, aproveitando os benefícios dos serviços de banco de dados hospedados no OCI. 
 
-> [!IMPORTANT]
-> A Oracle garantirá que esses aplicativos sejam executados no Azure ao usar a solução de interconexão do Azure/Oracle Cloud de maio de 2020.
-
-Os aplicativos que você pode executar em uma configuração entre nuvens incluem:
+A partir de maio de 2020, os seguintes aplicativos são certificados em uma configuração de nuvem cruzada:
 
 * E-Business Suite
 * JD Edwards EnterpriseOne

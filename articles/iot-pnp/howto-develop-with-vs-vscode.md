@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 91e7b1c0be9a38c3d79440f07d944d182980dc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298220"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Usar o Visual Studio e Visual Studio Code para criar dispositivos de Plug and Play IoT
 
@@ -25,7 +24,7 @@ Este artigo mostra como:
 - Use o código gerado em seu projeto de dispositivo.
 - Iterar gerando novamente o código esqueleto.
 
-Para saber mais sobre como usar o VS Code para desenvolver dispositivos IoT, [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench)consulte.
+Para saber mais sobre como usar o VS Code para desenvolver dispositivos IoT, consulte [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,11 +52,11 @@ Em VS Code, use **Ctrl + Shift + P** para abrir a paleta de comandos, digite **I
 
 - **Tipo de projeto**. O gerador de código também gera um projeto CMake ou Arduino. Atualmente, os tipos de projeto com suporte são:
 
-    - **Projeto CMake no Windows**: para um projeto de dispositivo que usa o [CMake](https://cmake.org/) como sistema de compilação no Windows. Essa opção é `CMakeLists.txt` gerada com as configurações do SDK do dispositivo na mesma pasta que o código C.
-    - **Projeto CMake no Linux**: para um projeto de dispositivo que usa o [CMake](https://cmake.org/) como sistema de compilação no Linux. Essa opção é `CMakeLists.txt` gerada com as configurações do SDK do dispositivo na mesma pasta que o código C.
+    - **Projeto CMake no Windows**: para um projeto de dispositivo que usa o [CMake](https://cmake.org/) como sistema de compilação no Windows. Essa opção é gerada `CMakeLists.txt` com as configurações do SDK do dispositivo na mesma pasta que o código C.
+    - **Projeto CMake no Linux**: para um projeto de dispositivo que usa o [CMake](https://cmake.org/) como sistema de compilação no Linux. Essa opção é gerada `CMakeLists.txt` com as configurações do SDK do dispositivo na mesma pasta que o código C.
     - **Projeto MXChip IOT devkit**: para um projeto de dispositivo executado em um dispositivo [MXChip IOT devkit](https://aka.ms/iot-devkit) . Essa opção gera um projeto Arduino que você pode [usar em vs Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) ou no IDE Arduino para compilar e executar em um dispositivo IOT devkit.
 
-- **Tipo de SDK do dispositivo**. Se você selecionar CMake como tipo de projeto, esta é a etapa para configurar como o código gerado incluirá o SDK do dispositivo do `CMakeLists.txt`Azure IOT C no:
+- **Tipo de SDK do dispositivo**. Se você selecionar CMake como tipo de projeto, esta é a etapa para configurar como o código gerado incluirá o SDK do dispositivo do Azure IoT C no `CMakeLists.txt` :
 
     - **Por meio do código-fonte**: o código gerado depende do [código-fonte do SDK do dispositivo](https://github.com/Azure/azure-iot-sdk-c) para incluir e criar junto com ele. Isso é recomendado quando você personalizou o código-fonte do SDK do dispositivo.
     - **Via Vcpkg**: o código gerado depende do SDK do [dispositivo Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) para incluir no e criar junto com ele. Essa é a maneira recomendada para dispositivos que executam Windows, Linux ou macOS.
@@ -69,7 +68,7 @@ O gerador de código tenta usar o DCM e os arquivos de interface localizados na 
 
 Após a conclusão da geração de código, a extensão abre uma nova janela de VS Code com o código. Se você abrir um arquivo gerado como **Main. c**, talvez ache que o IntelliSense relata que ele não pode abrir os arquivos de origem do SDK do c. Para habilitar o IntelliSense e a navegação de código corretos, use as seguintes etapas para incluir a origem do SDK do C:
 
-1. Em VS Code, use **Ctrl + Shift + P** para abrir a paleta de comandos, digite e selecione **C/C++: Editar configurações (JSON)** para abrir o arquivo **c_cpp_properties. JSON** .
+1. Em VS Code, use **Ctrl + Shift + P** para abrir a paleta de comandos, digite e selecione **C/C++: Editar configurações (JSON)** para abrir o **c_cpp_properties.jsno** arquivo.
 
 1. Adicione o caminho do SDK do dispositivo na `includePath` seção:
 
@@ -92,7 +91,7 @@ Para criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg usand
 
 1. Abra um aplicativo de terminal.
 
-1. Instale o **gcc**, **git**, `cmake`e todas as dependências `apt-get` usando o comando:
+1. Instale o **gcc**, **git**, `cmake` e todas as dependências usando o `apt-get` comando:
 
     ```bash
     sudo apt-get update
@@ -156,7 +155,7 @@ Para criar o código do dispositivo junto com o SDK do dispositivo C no Windows 
 
 1. Instalar o [Visual Studio 2019 (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) -certifique-se de incluir o componente do **Gerenciador de pacotes NuGet** e o **desenvolvimento de desktop com** a carga de trabalho do C++.
 
-1. Abra o Visual Studio, escolha **arquivo > abrir > CMake...** para abrir `CMakeLists.txt` o na pasta contém o código gerado.
+1. Abra o Visual Studio, escolha **arquivo > abrir > CMake...** para abrir o `CMakeLists.txt` na pasta contém o código gerado.
 
 1. Na barra de ferramentas **geral** , localize o menu suspenso **configurações** . Selecione **gerenciar configuração** para adicionar a configuração CMake para seu projeto.
 
@@ -176,7 +175,7 @@ Para criar o código do dispositivo junto com o SDK do dispositivo C no Windows 
 
     ![Saída de CMake](media/howto-develop-with-vs-vscode/vs-cmake-output.png)
 
-1. Na **Gerenciador de soluções**, clique com o `CMakeLists.txt` botão direito do mouse na pasta raiz e selecione **Compilar** no menu de contexto para criar o stub de código gerado com o SDK do dispositivo.
+1. Na **Gerenciador de soluções**, clique com o botão direito do mouse na `CMakeLists.txt` pasta raiz e selecione **Compilar** no menu de contexto para criar o stub de código gerado com o SDK do dispositivo.
 
 1. Depois que a compilação for realizada com sucesso, no prompt de comando, execute o aplicativo especificando a cadeia de conexão do dispositivo do Hub IoT como um parâmetro.
 
@@ -193,7 +192,7 @@ As etapas a seguir mostram como criar o código do dispositivo junto com o códi
 
 1. Abra o aplicativo de terminal.
 
-1. Use [homebrew](https://homebrew.sh) para instalar todas as dependências:
+1. Use [homebrew](https://brew.sh) para instalar todas as dependências:
 
     ```bash
     brew update
@@ -247,7 +246,7 @@ O gerador de código pode gerar o código novamente se você atualizar o DCM ou 
 
 1. Selecione **gerar código novamente para {nome do projeto}**.
 
-1. O gerador de código usa a configuração anterior que você configurou e regenera o código. No entanto, ele não substitui os arquivos que podem conter código de `main.c` usuário `{project_name}_impl.c`, como e.
+1. O gerador de código usa a configuração anterior que você configurou e regenera o código. No entanto, ele não substitui os arquivos que podem conter código de usuário, como `main.c` e `{project_name}_impl.c` .
 
 > [!NOTE]
 > Se você atualizar a ID de URN em seu arquivo de interface, ela será tratada como uma nova interface. Quando você gera novamente o código, o gerador de código gera código para interface, mas não substitui o original no `{project_name}_impl.c` arquivo.

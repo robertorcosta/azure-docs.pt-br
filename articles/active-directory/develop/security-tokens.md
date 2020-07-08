@@ -13,12 +13,11 @@ ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 88dc4bb86459cd0390c4c01deb871aa93e39c6d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266739"
 ---
 # <a name="security-tokens"></a>Tokens de segurança
 
@@ -71,23 +70,23 @@ Para saber mais sobre como a plataforma de identidade da Microsoft implementa to
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
 
-Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte pela plataforma de identidade da Microsoft. Esses fluxos podem produzir uma variedade de tokens (tokens de ID, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
+Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte pela plataforma de identidade da Microsoft. Esses fluxos podem produzir uma variedade de tokens (tokens de ID, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Veja uma visão geral neste gráfico:
 
-|Flow | Requisitos | token de ID | o token de acesso | token de atualização | código de autorização |
+|Flow | Exige | token de ID | o token de acesso | token de atualização | código de autorização |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
+|[Fluxo do código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Fluxo de OIDC híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Fluxo de OIDC híbrido](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[Resgate de token de atualização](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token de atualização | x | x | x| |
-|[Fluxo em nome de](v2-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
-|[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
+|[Fluxo em-nome-de](v2-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
+|[Credenciais do cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
 
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (onde `response_mode` é `query` ou `fragment` ).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm `groups` `wids` declarações ou.
+Tokens emitidos no modo implícito têm uma limitação de comprimento, porque são passados de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite de tamanho da URL que pode ser digitada na barra do navegador e falham quando ela é muito longa.  Portanto, esses tokens não têm declarações de `groups` ou `wids`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para outros tópicos que abrangem noções básicas de autenticação e autorização:
+Para outros tópicos de noções básicas sobre autenticação e autorização:
 
-* Consulte [autenticação vs. autorização](authentication-vs-authorization.md) para saber mais sobre os conceitos básicos de autenticação e autorização na plataforma Microsoft Identity.
-* Consulte [modelo de aplicativo](application-model.md) para saber mais sobre o processo de registro de seu aplicativo para que ele possa ser integrado à plataforma de identidade da Microsoft.
-* Consulte [fluxo de entrada do aplicativo](app-sign-in-flow.md) para saber mais sobre o fluxo de entrada de aplicativos Web, de área de trabalho e móveis na plataforma Microsoft Identity.
+* Confira [Autenticação versus autorização](authentication-vs-authorization.md) para saber mais sobre os conceitos básicos de autenticação e autorização na plataforma de identidade da Microsoft.
+* Confira [Modelo de aplicativo](application-model.md) para saber mais sobre o processo de registro de seu aplicativo para que ele possa se integrar à plataforma de identidade da Microsoft.
+* Confira [Fluxo de entrada de aplicativos](app-sign-in-flow.md) para saber mais sobre o fluxo de entrada de aplicativos da Web, de desktop e móveis na plataforma de identidade da Microsoft.

@@ -6,12 +6,11 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 6014e98d01755f29da74160fb1ef38ba29a74ba6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 661cfb4798ef553918ddc238a5388b11a54e23f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298679"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -44,6 +43,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Leste dos EUA | 40.121.158.30, 191.238.6.43  |
 | Leste dos EUA 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | França Central | 40.79.137.0, 40.79.129.1  |
+| Sul da França | 40.79.177.0     |
 | Alemanha Central | 51.4.144.100     |
 | Nordeste da Alemanha | 51.5.144.179  |
 | Centro da Índia | 104.211.96.159     |
@@ -78,7 +78,7 @@ Esse recurso tem suporte no banco de dados do Azure para servidores MySQL com ve
 O suporte para redirecionamento está disponível na extensão de [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) do PHP, desenvolvida pela Microsoft e está disponível em [PECL](https://pecl.php.net/package/mysqlnd_azure). Consulte o artigo [Configurando o redirecionamento](./howto-redirection.md) para obter mais informações sobre como usar o redirecionamento em seus aplicativos.
 
 > [!IMPORTANT]
-> O suporte para redirecionamento na extensão de [MYSQLND_AZURE](https://github.com/microsoft/mysqlnd_azure) php está atualmente em versão prévia.
+> No momento, o suporte para redirecionamento na extensão [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) do PHP está na versão prévia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

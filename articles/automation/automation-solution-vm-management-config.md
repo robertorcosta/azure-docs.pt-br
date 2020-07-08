@@ -3,14 +3,13 @@ title: Configurar Iniciar/Parar VMs fora do horário comercial da Automação do
 description: Este artigo informa como configurar o recurso Iniciar/Parar VMs fora do horário comercial para dar suporte a cenários ou casos de uso diferentes.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127c924da44c7e596d93b21d89ff4591a90ba7cf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827668"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266705"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar Iniciar/Parar VMs fora do horário comercial
 
@@ -44,11 +43,15 @@ Você pode habilitar o direcionamento da ação a uma assinatura e um grupo de r
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>Direcionar a ação de início e parada por lista de VMs
 
-1. Execute o runbook **ScheduledStartStop_Parent** com **ACTION** definido como **iniciar**, adicione uma lista de VMs separadas por vírgula no campo de parâmetro **VMList** e, em seguida, defina o campo de parâmetro **WHATIF** como True. Visualize as alterações.
+1. Execute o runbook **ScheduledStartStop_Parent** com a **ação** definida como **Iniciar**.
 
-2. Configure a variável `External_ExcludeVMNames` com uma lista de VMs separada por vírgulas (VM1, VM2, VM3).
+2. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-3. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
+3. Defina o campo de parâmetro **WHATIF** como true.
+
+4. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs (VM1, VM2, VM3), sem espaços entre valores separados por vírgulas.
+
+5. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
 
     > [!NOTE]
     > O valor para **nomes do ResourceGroup de destino** é armazenado como os valores para `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. Para obter uma maior granularidade, você pode modificar cada uma das variáveis para direcionar diferentes grupos de recursos. Para iniciar a ação, use `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` para interromper a ação. As VMs são adicionadas automaticamente aos agendamentos de início e parada.
@@ -71,13 +74,17 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 
 1. Adicione um `sequencestart` e uma marca `sequencestop` com valores inteiros positivos às VMs que você planeja adicionar ao parâmetro `VMList`.
 
-2. Execute o runbook **SequencedStartStop_Parent** com **ACTION** definido como **iniciar**, adicione uma lista de VMs separadas por vírgula no campo de parâmetro **VMList** e, em seguida, defina **WHATIF** como True. Visualize as alterações.
+2. Execute o runbook **SequencedStartStop_Parent** com a **ação** definida como **Iniciar**.
 
-3. Configure a variável `External_ExcludeVMNames` com uma lista de VMs separada por vírgulas (VM1, VM2, VM3).
+3. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-4. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
+4. Defina **WHATIF** como verdadeiro. 
 
-5. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute manualmente o **Monitoring-and-Diagnostics/Monitoring-Action-groupsrunbook** com o parâmetro definido como **False**. Como alternativa, permita que os agendamentos da Automação **Sequenced-StartVM** e **Sequenced-StopVM** executem automaticamente seguindo o agendamento prescrito.
+5. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs, sem espaços entre valores separados por vírgulas.
+
+6. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
+
+7. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute manualmente o **Monitoring-and-Diagnostics/Monitoring-Action-groupsrunbook** com o parâmetro definido como **False**. Como alternativa, permita que os agendamentos da Automação **Sequenced-StartVM** e **Sequenced-StopVM** executem automaticamente seguindo o agendamento prescrito.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Cenário 3: Iniciar ou parar automaticamente com base na utilização da CPU
 
@@ -120,7 +127,7 @@ Quando você executa o runbook **AutoStop_CreateAlert_Parent**, ele verifica se 
 
 1. Crie um novo [agendamento](shared-resources/schedules.md#create-a-schedule) e vincule-o ao runbook **AutoStop_CreateAlert_Parent**, adicionando uma lista separada por vírgulas de nomes de VM ao parâmetro `VMList`.
 
-2. Opcionalmente, se você quiser excluir algumas VMs da ação autostop, poderá adicionar uma lista separada por vírgulas de nomes de VM à variável `External_ExcludeVMNames`.
+2. Opcionalmente, se você quiser excluir algumas VMs da ação autostop, poderá adicionar uma lista separada por vírgulas de nomes de VM (sem espaços) à `External_ExcludeVMNames` variável.
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
@@ -151,13 +158,13 @@ O recurso permite que você adicione VMs a serem destinadas ou excluídas.
 
 Há duas maneiras de garantir que uma VM seja incluída quando o recurso é executado:
 
-* Cada um dos runbooks [pai](automation-solution-vm-management.md#runbooks) do recurso tem um parâmetro `VMList`. Você pode passar uma lista separada por vírgulas de nomes de VM para esse parâmetro quando fizer o agendamento do runbook pai apropriado para sua situação, e essas VMs serão incluídas quando o recurso for executado.
+* Cada um dos runbooks [pai](automation-solution-vm-management.md#runbooks) do recurso tem um parâmetro `VMList`. Você pode passar uma lista separada por vírgulas de nomes de VM (sem espaços) para esse parâmetro ao agendar o runbook pai apropriado para sua situação e essas VMs serão incluídas quando o recurso for executado.
 
 * Para selecionar várias VMs, defina `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` com os nomes do grupo de recursos que contêm as VMs que você deseja iniciar ou parar. Você também pode definir esse valor como `*` para fazer o recurso ser executado em todos os grupos de recursos na assinatura.
 
 ### <a name="exclude-a-vm"></a>Excluir uma VM
 
-Para excluir uma VM do recurso Iniciar/Parar VMs fora do horário comercial, você pode adicionar seu nome à variável `External_ExcludeVMNames`. Essa variável é uma lista separada por vírgulas de VMs específicas a serem excluídas do recurso. Essa lista é limitada a 140 VMs. Se você adicionar mais de 140 VMs a essa lista, as VMs que estão definidas para serem excluídas poderão ser acidentalmente iniciadas ou interrompidas.
+Para excluir uma VM do recurso Iniciar/Parar VMs fora do horário comercial, você pode adicionar seu nome à variável `External_ExcludeVMNames`. Essa variável é uma lista separada por vírgulas de VMs específicas (sem espaços) a serem excluídas do recurso. Essa lista é limitada a 140 VMs. Se você adicionar mais de 140 VMs a essa lista, as VMs que estão definidas para serem excluídas poderão ser acidentalmente iniciadas ou interrompidas.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificar as agendas de inicialização e desligamento
 

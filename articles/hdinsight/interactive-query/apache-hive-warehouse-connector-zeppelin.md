@@ -6,13 +6,12 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f9d2d9bd2a58fa4c6f14db8ffd067bb39fc1553
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 05/28/2020
+ms.openlocfilehash: fa90c3579e241fd6b7dc53c9df7d996402fc78a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84296862"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrar o Apache Zeppelin com o Hive Warehouse Connector no Azure HDInsight
 
@@ -91,10 +90,17 @@ Conclua as etapas da [Instalação do Hive Warehouse Connector](apache-hive-ware
 
     | Configuração| Valor|
     |---|---|
-    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
 
-    Substitua `<headnode-FQDN>` pelo nome de domínio totalmente qualificado do nó principal do cluster de Consulta Interativa.
-    Substitua `<AAD-DOMAIN>` pelo nome do Azure Active Directory (AAD) ao qual o cluster está associado. Use uma cadeia de caracteres em maiúsculas para o valor `<AAD-DOMAIN>`, caso contrário, a credencial não será encontrada. Marque `/etc/krb5.conf` para os nomes de realm, se necessário.
+    * Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` onde ClusterName é o nome do seu cluster de consulta interativa. Clique em **HiveServer2 Interactive**. Você verá o FQDN (nome de domínio totalmente qualificado) do nó principal no qual o LLAP está em execução, conforme mostrado na captura de tela. Substituir `<llap-headnode>` pelo valor.
+
+        ![Nó principal do conector do depósito do hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao seu cluster de consulta interativa. Procure `default_realm` o parâmetro no `/etc/krb5.conf` arquivo. Substitua `<AAD-DOMAIN>` por esse valor como uma cadeia de caracteres em maiúsculas, caso contrário, a credencial não será encontrada.
+
+        ![Domínio AAD do conector do depósito do hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * Por exemplo, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
 
 1. Salve as alterações e reinicie o interpretador do Livy.
 

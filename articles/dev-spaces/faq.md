@@ -5,12 +5,11 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas para algumas das perguntas mais comuns sobre Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6328515232b257e01b9b453de4ca0aca820c4038
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267487"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre Azure Dev Spaces
 
@@ -30,7 +29,7 @@ Sim, se você quiser mover o cluster AKS com Azure Dev Spaces para outra [regiã
 
 ## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Posso usar Azure Dev Spaces com gráficos Dockerfiles ou Helm existentes?
 
-Sim, se o seu projeto já tiver um gráfico Dockerfile ou Helm, você poderá usar esses arquivos com Azure Dev Spaces. Ao executar `azds prep`, use o `--chart` parâmetro e especifique o local do gráfico. Azure Dev Spaces ainda irá gerar um arquivo *azds. YAML* e *Dockerfile. develop* , mas ele não substituirá ou modificará um gráfico Dockerfile ou Helm existente. Talvez seja necessário modificar os arquivos *azds. YAML* e *Dockerfile. develop* para que tudo funcione corretamente com o aplicativo existente durante a execução `azds up`.
+Sim, se o seu projeto já tiver um gráfico Dockerfile ou Helm, você poderá usar esses arquivos com Azure Dev Spaces. Ao executar `azds prep` , use o `--chart` parâmetro e especifique o local do gráfico. Azure Dev Spaces ainda irá gerar um arquivo *azds. YAML* e *Dockerfile. develop* , mas ele não substituirá ou modificará um gráfico Dockerfile ou Helm existente. Talvez seja necessário modificar os arquivos *azds. YAML* e *Dockerfile. develop* para que tudo funcione corretamente com o aplicativo existente durante a execução `azds up` .
 
 Ao usar seu próprio gráfico Dockerfile ou Helm, há as seguintes limitações:
 * Se estiver usando apenas um Dockerfile, ele deverá incluir tudo o que você precisa para habilitar cenários de desenvolvimento, como o SDK do idioma, não apenas o tempo de execução. Se estiver usando um Dockerfile separado para Azure Dev Spaces, como um Dockerfile. desenvolver, tudo o que você precisa para habilitar cenários de desenvolvimento deve ser incluído nesse Dockerfile.
@@ -99,7 +98,6 @@ Neste momento, você não pode usar Azure Dev Spaces com malhas de serviço como
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
-[aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
 [aks-migration]: ../aks/aks-migration.md
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
