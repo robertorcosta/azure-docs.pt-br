@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5608d71c4a91c9b46b8ed7de13c9d4c06a3f195f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cb99a0690e1d07f058572b188ae0b76995f48504
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194594"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961771"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticação do Serviço do Azure SignalR
 
@@ -67,8 +67,10 @@ Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
 4. Quando o novo registro de aplicativo OAuth for concluído, adicione a *ID do cliente* e *Segredo do cliente* ao Gerenciador de segredo usando os seguintes comandos. Substituir *Your_GitHub_Client_Id* e *Your_GitHub_Client_Secret* pelos valores para seu aplicativo OAuth.
 
-        dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
-        dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```dotnetcli
+    dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
+    dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```
 
 ## <a name="implement-the-oauth-flow"></a>Implementar o fluxo de OAuth
 
@@ -76,9 +78,11 @@ Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
 1. Adicione uma referência aos pacotes mais recentes do *Microsoft.AspNetCore.Authentication.Cookies* e do *AspNet.Security.OAuth.GitHub* e restaure todos os pacotes.
 
-        dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
-        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
-        dotnet restore
+    ```dotnetcli
+    dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+    dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
+    dotnet restore
+    ```
 
 1. Abra *Startup.cs*e adicione `using` instruções para os namespaces a seguir:
 
@@ -345,19 +349,25 @@ Nesta seção, você ativará autenticação real, adicionando o `Authorize` atr
 
 2. Compilar o aplicativo usando a CLI do .NET Core, execute o seguinte comando no shell de comando:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 3. Após a compilação, execute o seguinte comando para executar o aplicativo Web localmente:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     Por padrão, o aplicativo será hospedado localmente na porta 5000:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Production
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Production
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+                    Application started. Press Ctrl+C to shut down.
+    ```
 
 4. Inicie uma janela de navegador e navegue até `http://localhost:5000`. Clique no link **aqui** na parte superior para fazer logon com GitHub.
 

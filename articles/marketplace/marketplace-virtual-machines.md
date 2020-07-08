@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: a01c8658ff4929d07cd185dcea45393cfe3b2a17
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e0f0f0fdb75961f3ea9ed90e1684ff5ecd2a792d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858299"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961533"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guia de publicação para ofertas de máquina virtual
 
@@ -54,14 +54,14 @@ Use o tipo de oferta de *máquina virtual* ao implantar um dispositivo de virtua
 | Requisito | Detalhes |  
 |:--- |:--- | 
 | Cobrança e medição | Sua VM deve dar suporte a cobrança mensal BYOL ou paga conforme o uso. |  
-| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. Para obter mais informações sobre como criar um VHD, consulte: <ul> <li>[Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (para VHDs do Linux).</li> <li>[Crie um VHD compatível com o Azure](./partner-center-portal/azure-vm-create-offer.md) (para VHDs do Windows).</li> </ul> |  
+| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. Para obter mais informações sobre como criar um VHD, consulte: <ul> <li>[Distribuições do Linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md) (para VHDs do Linux).</li> <li>[Crie um VHD compatível com o Azure](./partner-center-portal/azure-vm-create-offer.md) (para VHDs do Windows).</li> </ul> |  
 
 >[!Note]
 >A aceitação do canal de parceiros do CSP (provedor de soluções na nuvem) já está disponível. Para obter mais informações sobre como comercializar sua oferta por meio de canais de parceiros do Microsoft CSP, consulte [provedores de soluções de nuvem](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não fez isso, saiba como [aumentar seu negócio de nuvem com o Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Se você ainda não fez isso, saiba como [Aumentar seus negócios na nuvem com o Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 
 Para se registrar e começar a trabalhar no Partner Center:
 

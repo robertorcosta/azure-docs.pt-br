@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 471675de58161fc0c0110e2968089da062c6da87
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845775"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960555"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de blobs do Azure para gerenciar clientes potenciais do Marketplace comercial
 
@@ -33,11 +33,11 @@ ms.locfileid: "83845775"
 3. No portal do Azure, use o procedimento a seguir para criar uma conta de armazenamento.  
     1. Selecione **+Criar um recurso** na barra de menu esquerda.  O painel (folha) **Novo** será exibido à direita.
     2. Selecione **Armazenamento** no painel **Novo**.  Uma lista **Em destaque** aparece à direita.
-    3. Selecione a **conta de armazenamento**  para iniciar a criação da conta.  Siga as instruções no artigo [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    3. Selecione a **conta de armazenamento**  para iniciar a criação da conta.  Siga as instruções no artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
     ![Etapas para criar uma conta de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    Para obter mais informações sobre contas de armazenamento, selecione [Tutorial de Início Rápido](https://docs.microsoft.com/azure/storage/).  Para obter mais informações sobre preços de armazenamento, veja [preço de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
+    Para obter mais informações sobre contas de armazenamento, consulte este guia de [início rápido](../../storage/blobs/storage-quickstart-blobs-portal.md).  Para obter mais informações sobre preços de armazenamento, veja [preço de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 4. Aguarde alguns minutos até que sua conta de armazenamento seja provisionada.  Em seguida, acesse sua conta de armazenamento na **página inicial** do portal do Azure selecionando **Ver todos os seus recursos** ou **Todos os recursos** na barra de navegação esquerda do portal do Azure.
 

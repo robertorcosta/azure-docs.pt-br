@@ -4,12 +4,12 @@ description: Habilite o dimensionamento automático em um pool de nuvem para aju
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ad1bf47cd2b9d8db950154b5a36786c294549566
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: cb40ea72dad2313618fb3c38bf73bf822f4b4433
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780240"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960836"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático de nós de computação em um pool do Lote
 
@@ -127,6 +127,9 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 | $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo nós que tenham sofrido preempção. |
 | $PreemptedNodeCount | O número de nós no pool que estão em estado de prevenção. |
 
+> [!IMPORTANT]
+> As tarefas de liberação do trabalho não estão atualmente incluídas nas variáveis acima que fornecem contagens de tarefas, como $ActiveTasks e $PendingTasks. Dependendo de sua fórmula de dimensionamento automático, isso pode resultar em nós sendo removidos e nenhum nó estar disponível para executar as tarefas de liberação do trabalho.
+
 > [!TIP]
 > As variáveis definidas pelo serviço de somente leitura mostradas na tabela anterior são *objetos* que fornecem vários métodos para acessar os dados associados a cada um. Para obter mais informações, consulte [Obter amostras de dados](#getsampledata) a seguir neste artigo.
 >
@@ -172,7 +175,7 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 | double *operador* timeinterval |* |timeinterval |
 | doubleVec *operador* double |+, -, *, / |doubleVec |
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
-| timeinterval *operador* double |\*, / |timeinterval |
+| timeinterval *operador* double |*, / |timeinterval |
 | timeinterval *operador* timeinterval |+, - |timeinterval |
 | timeinterval *operador* timestamp |+ |timestamp |
 | timestamp *operador* timeinterval |+ |timestamp |
@@ -372,17 +375,17 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Criar um pool habilitado para dimensionamento automático com os SDKs do Lote
 
-É possível configurar o dimensionamento automático do pool usando qualquer um dos [SDKs do Lote](batch-apis-tools.md#azure-accounts-for-batch-development), a [API REST do Lote](https://docs.microsoft.com/rest/api/batchservice/), os [cmdlets do PowerShell do Lote](batch-powershell-cmdlets-get-started.md) e a [CLI do Lote](batch-cli-get-started.md). Nesta seção, há exemplos de .NET e Python.
+É possível configurar o dimensionamento automático do pool usando qualquer um dos [SDKs do Lote](batch-apis-tools.md#azure-accounts-for-batch-development), a [API REST do Lote](/rest/api/batchservice/), os [cmdlets do PowerShell do Lote](batch-powershell-cmdlets-get-started.md) e a [CLI do Lote](batch-cli-get-started.md). Nesta seção, há exemplos de .NET e Python.
 
 ### <a name="net"></a>.NET
 
 Para criar um pool habilitado para dimensionamento automático em .NET, siga as etapas a seguir:
 
-1. Crie o pool com [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Defina a propriedade [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) como `true`.
-1. Defina a propriedade [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) com a fórmula de autoescala.
-1. (Opcional) Defina a propriedade [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é de 15 minutos).
-1. Confirmar o pool com [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Crie o pool com [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+1. Defina a propriedade [CloudPool.AutoScaleEnabled](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) como `true`.
+1. Defina a propriedade [CloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) com a fórmula de autoescala.
+1. (Opcional) Defina a propriedade [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é de 15 minutos).
+1. Confirmar o pool com [CloudPool.Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 O snippet de código a seguir cria um pool habilitado para autoescala em .NET. A fórmula de autoescala do pool define o número de nós dedicados de destino para 5 às segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros snippets C# deste artigo, `myBatchClient` é uma instância corretamente inicializada da classe [BatchClient][net_batchclient].
 
@@ -519,11 +522,11 @@ Você pode avaliar uma fórmula antes de aplicá-la a um pool. Desta forma, é p
 
 Para avaliar uma fórmula de autoescala será necessário, primeiro, habilitar o dimensionamento automático no pool com uma fórmula válida. Para testar uma fórmula em um pool que ainda não possui dimensionamento automático habilitado, utilize a fórmula de uma linha `$TargetDedicatedNodes = 0` quando você habilitar o dimensionamento automático pela primeira vez. Depois, use um dos seguintes itens para avaliar a fórmula que você deseja testar:
 
-* [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient.PoolOperations.EvaluateAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [EvaluateAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     Estes métodos .NET do Lote exigem a identificação de um pool existente e uma cadeia de caracteres que contém a fórmula de autoescala a ser avaliada.
 
-* [Avaliar uma fórmula de autoescala](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Avaliar uma fórmula de autoescala](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
     Nessa solicitação da API REST, especifique a ID do pool no URI e a fórmula de autoescala no elemento *autoScaleFormula* do corpo da solicitação. A resposta da operação contém quaisquer informações de erro que possam estar relacionadas à fórmula.
 
@@ -609,13 +612,13 @@ AutoScaleRun.Results:
 
 Para garantir que sua fórmula esteja funcionando conforme o esperado, é recomendável que você verifique periodicamente os resultados das execuções de dimensionamento automático que o Lote executa em seu pool. Para isso, obtenha (ou atualize) uma referência para o pool e examine as propriedades de sua última execução de autoescala.
 
-No .NET do Lote, a propriedade [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) possui várias propriedades que fornecem informações sobre a última execução de dimensionamento automático executada no pool:
+No .NET do Lote, a propriedade [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) possui várias propriedades que fornecem informações sobre a última execução de dimensionamento automático executada no pool:
 
-* [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+* [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+* [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+* [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-Na API REST a solicitação [Obter informações sobre um pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) retorna informações sobre o pool, que inclui as últimas informações de execução de dimensionamento automático na propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool).
+Na API REST a solicitação [Obter informações sobre um pool](/rest/api/batchservice/get-information-about-a-pool) retorna informações sobre o pool, que inclui as últimas informações de execução de dimensionamento automático na propriedade [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool).
 
 O seguinte snippet de código C# utiliza a biblioteca .NET do Lote para imprimir informações sobre a última execução de dimensionamento automático executada no pool _myPool_:
 
@@ -732,15 +735,15 @@ string formula = string.Format(@"
 * [Maximizar o uso dos recursos de computação do Lote do Azure com tarefas simultâneas do nó](batch-parallel-node-tasks.md) contém detalhes sobre como executar várias tarefas simultaneamente nos nós de computação em seu pool. Além de dimensionamento automático, esse recurso pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, economizando dinheiro.
 * Para outro auxiliar de eficiência, certifique-se de que o aplicativo do Lote consulte o serviço de Lote da maneira ideal. Consulte [Consultar o serviço do Lote do Azure com eficiência](batch-efficient-list-queries.md) para saber como limitar a quantidade de dados que passam por transmissão ao consultar o status de potencialmente milhares de nós de computação ou tarefas.
 
-[net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
-[net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
-[net_cloudpool_autoscaleevalinterval]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
-[net_enableautoscaleasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
-[net_maxtasks]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
-[net_poolops_resizepoolasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
+[net_api]: /dotnet/api/microsoft.azure.batch
+[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudpool_autoscaleformula]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
+[net_cloudpool_autoscaleevalinterval]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
+[net_enableautoscaleasync]: /dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
+[net_maxtasks]: /dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
+[net_poolops_resizepoolasync]: /dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
 
-[rest_api]: https://docs.microsoft.com/rest/api/batchservice/
-[rest_autoscaleformula]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_autoscaleinterval]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_enableautoscale]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_api]: /rest/api/batchservice/
+[rest_autoscaleformula]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_autoscaleinterval]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_enableautoscale]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool

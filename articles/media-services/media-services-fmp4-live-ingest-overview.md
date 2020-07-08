@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74888046"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958548"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure 
 
@@ -56,7 +56,7 @@ A lista a seguir descreve as definições de formato especial que se aplicam à 
 ## <a name="4-protocol-format--http"></a>4. formato de protocolo – HTTP
 A ingestão dinâmica com base no MP4 fragmentado ISO para Serviços de Mídia usa uma solicitação HTTP POST padrão de longa execução para transmitir ao serviço dados de mídia codificados que são empacotados no formato MP4 fragmentado. Cada HTTP POST envia um fluxo de bits (“fluxo”) MP4 fragmentado completo, começando do início com as caixas de cabeçalho (caixas **ftyp**, **Live Server Manifest Box** e **moov**) e continuando com uma sequência de fragmentos (caixas **moof** e **mdat**). Para obter a sintaxe de URL para a solicitação HTTP POST, consulte a seção 9.2 em [1]. Veja um exemplo de URL de POST: 
 
-    http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
 ### <a name="requirements"></a>Requisitos
 Veja os requisitos em detalhes:
@@ -174,7 +174,7 @@ As etapas a seguir são uma implementação recomendada para ingestão de faixa 
 
     f. O fragmento de faixa esparso é disponibilizado para o cliente quando o fragmento da faixa pai correspondente que tiver um valor de carimbo de data/hora igual ou maior for disponibilizado para o cliente. Por exemplo, se o fragmento esparso tiver um carimbo de data/hora de t=1000, espera-se que depois que o cliente veja o carimbo de data/hora do fragmento de vídeo (supondo que o nome da faixa pai seja “vídeo”) de 1000 ou superior, ele possa baixar o fragmento esparso t-1000. Observe que o sinal real pode ser usado para uma posição diferente na linha do tempo da apresentação para os fins pretendidos. No exemplo acima, é possível que o fragmento esparso de t=1000 tenha uma carga XML que seja para inserção de um anúncio em uma posição que esteja alguns segundos depois.
 
-    g. A carga de fragmentos de faixa esparsa pode ser em formatos diferentes (como XML, texto ou binário), dependendo do cenário.
+    (por exemplo, A carga de fragmentos de faixa esparsa pode ser em formatos diferentes (como XML, texto ou binário), dependendo do cenário.
 
 ### <a name="redundant-audio-track"></a>Faixa de áudio redundante
 Em um cenário normal de HTTP de streaming adaptável (por exemplo, Streaming Suave ou DASH), muitas vezes, há apenas uma faixa de áudio em toda a apresentação. Diferentemente das faixas de vídeo que têm vários níveis de qualidade para o cliente escolher em condições de erro, a faixa de áudio poderá ser um ponto único de falha se a ingestão do fluxo que contém a faixa de áudio for quebrada. 
@@ -193,7 +193,7 @@ A implementação a seguir é recomendada para faixas de áudio redundantes:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

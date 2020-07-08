@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62d4e26d5a0d3d86cc58421dab4167d5d9d2562d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727236"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961772"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Player de Mídia do Azure #
 
@@ -20,20 +20,23 @@ O Player de Mídia do Azure é fácil de configurar. Leva apenas alguns minutos 
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Etapa 1: incluir os arquivos JavaScript e CSS no cabeçalho da página ##
 
-Com Player de Mídia do Azure, você pode acessar os scripts da versão hospedada da CDN. Geralmente, é recomendável colocar o JavaScript antes da marca `<body>` do corpo final em vez `<head>`de, mas player de mídia do Azure inclui um ' HTML5 Shiv ', que precisa estar no cabeçalho das versões mais antigas do IE para respeitar a marca de vídeo como um elemento válido.
+Com Player de Mídia do Azure, você pode acessar os scripts da versão hospedada da CDN. Geralmente, é recomendável colocar o JavaScript antes da marca do corpo final `<body>` em vez de `<head>` , mas player de mídia do Azure inclui um ' HTML5 Shiv ', que precisa estar no cabeçalho das versões mais antigas do IE para respeitar a marca de vídeo como um elemento válido.
 
 > [!NOTE]
-> Se você já estiver usando um HTML5 Shiv como o [Modernizr](http://modernizr.com/) , poderá incluir o player de mídia do Azure JavaScript em qualquer lugar. No entanto, verifique se sua versão do Modernizr inclui o Shiv para vídeo.
+> Se você já estiver usando um HTML5 Shiv como o [Modernizr](https://modernizr.com/) , poderá incluir o player de mídia do Azure JavaScript em qualquer lugar. No entanto, verifique se sua versão do Modernizr inclui o Shiv para vídeo.
 
 ### <a name="cdn-version"></a>Versão da CDN ###
+
+```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+```
 
 > [!IMPORTANT]
-> Você **não** deve usar a `latest` versão em produção, pois isso está sujeito a alterações sob demanda. Substituir `latest` por uma versão do player de mídia do Azure. Por exemplo, substitua `latest` por `2.1.1`. As versões do Player de Mídia do Azure podem ser consultadas [aqui](azure-media-player-changelog.md).
+> Você **NÃO** deve usar a versão `latest` na produção, pois ela está sujeita a alterações sob demanda. Substituir `latest` por uma versão do player de mídia do Azure. Por exemplo, substitua `latest` por `2.1.1`. As versões do Player de Mídia do Azure podem ser consultadas [aqui](azure-media-player-changelog.md).
 
 > [!NOTE]
-> Desde o `1.2.0` lançamento, não é mais necessário incluir o local para os Techs de fallback (ele irá selecionar automaticamente o local do caminho relativo do arquivo azuremediaplayer. min. js). Você pode modificar o local das tecnologias de fallback adicionando o script a seguir no `<head>` após os scripts acima.
+> Desde o `1.2.0` lançamento, não é mais necessário incluir o local para os Techs de fallback (ele irá selecionar automaticamente o local do caminho relativo do arquivo de azuremediaplayer.min.js). Você pode modificar o local das tecnologias de fallback adicionando o script a seguir no `<head>` após os scripts acima.
 
 > [!NOTE]
 > Devido à natureza dos plug-ins flash e Silverlight, os arquivos SWF e XAP devem ser hospedados em um domínio sem informações confidenciais ou dados-isso é automaticamente levado para você com a versão hospedada da CDN do Azure.
@@ -57,7 +60,7 @@ Com Player de Mídia do Azure, você pode usar uma marca de vídeo HTML5 para in
 1. O `<source>` inclui dois atributos necessários
     - `src`o atributo pode incluir um arquivo **. ISM/manifest* dos serviços de mídia do Azure é adicionado, player de mídia do Azure adiciona automaticamente as URLs para traço, Smooth e HLS ao Player
     - `type`o atributo é o tipo MIME necessário do fluxo. O tipo MIME associado a *". ISM/Manifest"* é *"application/vnd. ms-SSTR + XML"*
-1. O atributo *opcional* `<data-setup>` no `<source>` informa player de mídia do Azure se há alguma política de entrega exclusiva para o fluxo dos serviços de mídia do Azure, incluindo, mas não se limitando a, tipo de criptografia (AES ou PlayReady, Widevine ou Fairplay) e token.
+1. O *optional* `<data-setup>` atributo opcional no `<source>` informa player de mídia do Azure se há alguma política de entrega exclusiva para o fluxo dos serviços de mídia do Azure, incluindo, mas não se limitando a, tipo de criptografia (AES ou PlayReady, Widevine ou Fairplay) e token.
 
 Inclua/exclua atributos, configurações, fontes e faixas exatamente como você faria para o vídeo do HTML5.
 
@@ -117,4 +120,4 @@ Em vez de usar uma ID de elemento, você também pode passar uma referência par
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

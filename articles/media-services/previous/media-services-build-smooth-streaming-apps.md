@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69016783"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960357"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store  
 
@@ -71,7 +71,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
     | Grupo de modelos |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |Aplicativo em branco (XAML) |
     | Nome |SSPlayer |
-    | Local |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | Nome da Solução |SSPlayer |
     | Criar diretório para a solução |(selecionado) |
 
@@ -94,7 +94,7 @@ Depois de adicionar as referências, você deve selecionar a plataforma de desti
 ### <a name="to-design-the-player-user-interface"></a>Para criar a interface do usuário do player
 
 1. No Gerenciador de Soluções, clique duas vezes em **MainPage.xaml** para abri-lo no modo de exibição de design.
-2. Localize as ** &lt;marcas&gt; Grid** e ** &lt;/Grid&gt; ** do arquivo XAML e cole o código a seguir entre as duas marcas:
+2. Localize as marcas ** &lt; Grid &gt; ** e ** &lt; /Grid &gt; ** do arquivo XAML e cole o código a seguir entre as duas marcas:
 
    ```xml
          <Grid.RowDefinitions>
@@ -151,15 +151,24 @@ Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controle
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e clique em **Exibir Código**.
 2. Na parte superior do arquivo, adicione a seguinte instrução using:
-   
+
+    ```csharp
         using Windows.Media;
+    ```
+
 3. No início da classe **MainPage** adicione os membros de dados a seguir:
-   
-         private MediaExtensionManager extensions = new MediaExtensionManager();
+
+    ```csharp
+        private MediaExtensionManager extensions = new MediaExtensionManager();
+    ```
+
 4. No final do construtor **MainPage** adicione as duas linhas a seguir:
-   
+
+    ```csharp
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
+    ```
+
 5. No final da classe **MainPage** cole o código a seguir:
    ```csharp
          # region UI Button Click Events
@@ -1027,7 +1036,7 @@ Você concluiu a lição 4.  Nesta lição, você adicionará a funcionalidade d
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Outros recursos:
