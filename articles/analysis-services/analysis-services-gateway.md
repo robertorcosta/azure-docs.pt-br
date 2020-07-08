@@ -8,10 +8,9 @@ ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76310145"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
@@ -32,10 +31,10 @@ Por Azure Analysis Services, obter a configuração com o gateway na primeira ve
 
 
 
-## <a name="how-it-works"></a><a name="how-it-works"> </a>Como isso funciona
+## <a name="how-it-works"></a><a name="how-it-works"> </a>Como funciona
 O gateway que você instala em um computador de sua organização é executado como um serviço Windows, o **Gateway de dados local**. Esse serviço local é registrado no Serviço de Nuvem do Gateway por meio do Barramento de Serviço do Azure. Em seguida, você cria um recurso de gateway de dados local para sua assinatura do Azure. Seus servidores de Azure Analysis Services são então conectados ao recurso de gateway do Azure. Quando modelos em seu servidor precisarem se conectar às fontes de dados locais para consultas ou processamento, um fluxo de dados e consultas atravessará o recurso de gateway, o Barramento de Serviço do Azure, o serviço de gateway de dados local e suas fontes de dados. 
 
-![Como isso funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Como funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Fluxo de dados e consultas:
 
@@ -87,7 +86,7 @@ Você pode forçar o gateway para se comunicar com o Barramento de Serviço do A
 
 Os artigos a seguir estão incluídos no conteúdo geral do gateway de dados local que se aplica a todos os serviços aos quais o gateway dá suporte:
 
-* [Perguntas frequentes do gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
+* [Perguntas frequentes de gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
 * [Usar o aplicativo de gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
 * [Administração de nível de locatário](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
 * [Definir configurações de proxy](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   

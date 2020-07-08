@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
 ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511137"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Conectar dispositivos Modbus TCP por meio de um gateway de dispositivo do IoT Edge
@@ -33,7 +32,7 @@ Este artigo pressupõe que você está usando o protocolo TCP Modbus. Para obter
 
 ## <a name="prepare-a-modbus-container"></a>Preparar um contêiner Modbus
 
-Se você quiser testar a funcionalidade de gateway Modbus, a Microsoft tem um exemplo de módulo que pode usar. Você pode acessar o módulo no Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)ou com o URI da imagem, `mcr.microsoft.com/azureiotedge/modbus:1.0`.
+Se você quiser testar a funcionalidade de gateway Modbus, a Microsoft tem um exemplo de módulo que pode usar. Você pode acessar o módulo no Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)ou com o URI da imagem, `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
 Se quiser criar seu próprio módulo e personalizá-lo para o seu ambiente, haverá um projeto de software livre do [Módulo Modbus do Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) no GitHub. Siga as orientações no projeto para criar sua própria imagem de contêiner. Para criar uma imagem de contêiner, consulte [desenvolver módulos C# no Visual Studio](how-to-visual-studio-develop-csharp-module.md) ou [desenvolver módulos no Visual Studio Code](how-to-vs-code-develop-module.md). Esses artigos fornecem instruções sobre como criar novos módulos e publicar imagens de contêiner em um registro.
 
@@ -54,11 +53,11 @@ Esta seção percorre a implantação do módulo Modbus de exemplo da Microsoft 
    3. O módulo é configurado automaticamente para o Hub IoT e aparece na lista de módulos IoT Edge. As rotas também são configuradas automaticamente. Selecione **Examinar + criar**.
    4. Examine o manifesto de implantação e selecione **criar**.
 
-5. Selecione o módulo MODBUS, `ModbusTCPModule`, na lista e selecione a guia **configurações de configuração do módulo** . O JSON necessário para as propriedades desejadas do módulo para cima é populado automaticamente.
+5. Selecione o módulo MODBUS, `ModbusTCPModule` , na lista e selecione a guia **configurações de configuração do módulo** . O JSON necessário para as propriedades desejadas do módulo para cima é populado automaticamente.
 
 6. Procure a propriedade **SlaveConnection** no JSON e defina seu valor como o endereço IPv4 do seu dispositivo Modbus.
 
-7. Selecione **Atualizar**.
+7. Selecione **Atualização**.
 
 8. Selecione **revisão + criar**, examine a implantação e, em seguida, selecione **criar**.
 

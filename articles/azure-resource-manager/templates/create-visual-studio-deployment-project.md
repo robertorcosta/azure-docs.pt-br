@@ -4,10 +4,9 @@ description: Use o Visual Studio para criar um projeto do grupo de recursos do A
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76152724"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
@@ -20,7 +19,7 @@ Este artigo mostra como usar o [Visual Studio 2019 ou posterior com as cargas de
 
 Nesta seção, você cria um projeto do Grupo de Recursos do Azure com um modelo do **Aplicativo Web**.
 
-1. No Visual Studio, escolha **arquivo**>**novo**>**projeto**.
+1. No Visual Studio, escolha **arquivo** > **novo** > **projeto**.
 1. Selecione o modelo de projeto **Grupo de Recursos do Azure** e **Avançar**.
 
     ![Criar projeto](./media/create-visual-studio-deployment-project/create-project.png)
@@ -139,7 +138,7 @@ Para o script do módulo Az, abra um console do PowerShell e execute:
 
 Para o script do módulo AzureRM, use o Visual Studio:
 
-1. No menu de atalho do nó do projeto de implantação, escolha **implantar** > **novo**.
+1. No menu de atalho do nó do projeto de implantação, escolha **implantar**  >  **novo**.
 
     ![Item de menu da nova implantação](./media/create-visual-studio-deployment-project/deploy.png)
 
@@ -167,7 +166,7 @@ Vamos verificar os resultados.
 
 Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há nenhum código real implantado com o projeto.
 
-1. Adicione esse projeto à sua solução do Visual Studio. Clique com o botão direito do mouse na solução e selecione **Adicionar** > **novo projeto**.
+1. Adicione esse projeto à sua solução do Visual Studio. Clique com o botão direito do mouse na solução e selecione **Adicionar**  >  **novo projeto**.
 
     ![Adicionar projeto](./media/create-visual-studio-deployment-project/add-project.png)
 

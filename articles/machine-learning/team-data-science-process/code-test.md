@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721931"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
@@ -24,7 +23,7 @@ Este artigo oferece diretrizes preliminares para testar o código em um fluxo de
 ## <a name="introduction-on-code-testing"></a>Introdução ao teste de código
 "Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas, para a ciência de dados, muitas vezes não está claro o que significa "teste de unidade" e como você deve testar o código para diferentes estágios de um ciclo de vida de ciência de dados, como:
 
-* Preparação dos dados
+* Preparação de dados
 * Análise da qualidade dos dados
 * Modelagem
 * Implantação de modelo 
@@ -138,7 +137,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
     ![Detalhes do PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecione **salvar & fila** para concluir o processo de pipeline de compilação.
+    (por exemplo, Selecione **salvar & fila** para concluir o processo de pipeline de compilação.
 
     ![Botão "Salvar e enfileirar"](./media/code-test/save_and_queue_build_definition.PNG)
 
@@ -158,4 +157,4 @@ Se os alertas estiverem configurados corretamente, você receberá uma notifica�
 * [Processo de ciência de dados de equipe](https://aka.ms/tdsp)
 * [Ferramentas de Teste do Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Recursos de teste do Azure DevOps](https://www.visualstudio.com/team-services/)
-* [Máquina Virtual de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Máquinas Virtuais de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

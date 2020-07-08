@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76024748"
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicativos do Service Fabric
@@ -55,15 +54,15 @@ A criação de aplicativos com as funções de trabalho dos serviços de nuvem d
 
 Os serviços com estado no Service Fabric trazem alta disponibilidade para todos os tipos de aplicativos, não apenas para bancos de dados e outros armazenamentos. Essa é uma progressão natural. Os aplicativos já passaram do uso de bancos de dados totalmente relacionais para bancos de dados NoSQL de alta disponibilidade. Agora os próprios aplicativos podem ter seu estado e dados "hot" gerenciados dentro deles para ganhos de desempenho adicionais sem sacrificar a disponibilidade, a consistência e a confiabilidade.
 
-Quando você estiver criando aplicativos que consistem em microservices, normalmente terá uma combinação de aplicativos Web sem estado (como ASP.NET e node. js) chamando em serviços de camada intermediária de negócios com e sem estado. Os aplicativos e serviços são todos implantados no mesmo cluster Service Fabric por meio dos comandos de implantação Service Fabric. Cada um desses serviços é independente em relação à escala, confiabilidade e uso de recursos. Essa independência melhora a agilidade e a flexibilidade no desenvolvimento e no gerenciamento do ciclo de vida.
+Quando você estiver criando aplicativos que consistem em microservices, normalmente terá uma combinação de aplicativos Web sem estado (como ASP.NET e Node.js) chamando serviços de camada intermediária de negócios com e sem estado. Os aplicativos e serviços são todos implantados no mesmo cluster Service Fabric por meio dos comandos de implantação Service Fabric. Cada um desses serviços é independente em relação à escala, confiabilidade e uso de recursos. Essa independência melhora a agilidade e a flexibilidade no desenvolvimento e no gerenciamento do ciclo de vida.
 
 Os microsserviços com monitoração de estado simplificam o design dos aplicativos porque eliminam a necessidade de filas e caches adicionais que têm sido tradicionalmente necessários para abordar os requisitos de disponibilidade e de latência de um aplicativo totalmente sem monitoração de estado. Como os serviços com estado têm alta disponibilidade e baixa latência, há menos detalhes a serem gerenciados em seu aplicativo.
 
 Os diagramas a seguir ilustram as diferenças entre a criação de um aplicativo sem estado e um com estado. Aproveitando os modelos de programação [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md) , os serviços com estado reduzem a complexidade do aplicativo enquanto alcançam alta taxa de transferência e baixa latência.
 
-Aqui está um aplicativo de exemplo que usa serviços sem ![Estado: aplicativo que usa serviços sem estado][Image1]
+Aqui está um aplicativo de exemplo que usa serviços sem estado: ![ aplicativo que usa serviços sem estado][Image1]
 
-Aqui está um exemplo de aplicativo que usa serviços com ![Estado: aplicativo que usa serviços com estado][Image2]
+Aqui está um exemplo de aplicativo que usa serviços com estado: ![ aplicativo que usa serviços com estado][Image2]
 
 ## <a name="next-steps"></a>Próximas etapas
 

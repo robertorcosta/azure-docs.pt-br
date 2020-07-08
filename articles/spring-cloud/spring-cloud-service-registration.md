@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76278852"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>Descobrir e registrar seus serviços de nuvem Spring
@@ -19,8 +18,8 @@ A descoberta de serviço é um requisito fundamental para uma arquitetura basead
 
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrar seu aplicativo usando o registro de serviço do Spring Cloud
 
-Antes que seu aplicativo possa gerenciar o registro e a descoberta de serviços usando o registro de serviço do Spring Cloud, várias dependências devem ser incluídas no arquivo *pom. xml* do aplicativo.
-Inclua dependências para *Spring-Cloud-startr-Netflix-Eureka-Client* e *Spring-Cloud-startr-Azure-Spring-Cloud-Client* ao seu *pom. xml*
+Antes que seu aplicativo possa gerenciar o registro de serviço e a descoberta usando o registro de serviço do Spring Cloud, várias dependências devem ser incluídas no arquivo de *pom.xml* do aplicativo.
+Inclua dependências para *Spring-Cloud-startr-Netflix-Eureka-Client* e *Spring-Cloud-startr-Azure-Spring-Cloud-client* ao seu *pom.xml*
 
 ```xml
     <dependency>

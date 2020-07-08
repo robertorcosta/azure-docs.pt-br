@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76119611"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar problemas de uma VM do Azure com falha usando a virtualização aninhada no Azure
@@ -42,13 +41,13 @@ Para montar a VM com falha, a VM de resgate deve usar o mesmo tipo de conta de a
 
 2.  Após a VM de resgate ser criada, acesse a VM de resgate via área de trabalho remota.
 
-3.  Em Gerenciador do servidor, selecione **gerenciar** > **adicionar funções e recursos**.
+3.  Em Gerenciador do servidor, selecione **gerenciar**  >  **adicionar funções e recursos**.
 
 4.  Na seção **Tipo de Instalação**, selecione **Instalação baseada em função ou recurso**.
 
 5.  Na seção **Selecionar servidor de destino**, verifique se a VM de resgate está selecionada.
 
-6.  Selecione > a **função Hyper-V****Adicionar recursos**.
+6.  Selecione a **função Hyper-V**  >  **Adicionar recursos**.
 
 7.  Selecione **Próximo** na seção **Recursos**.
 
@@ -74,7 +73,7 @@ Para montar a VM com falha, a VM de resgate deve usar o mesmo tipo de conta de a
 
 4.  Abra o Gerenciador do Hyper-V: em **Gerenciador do Servidor**, selecione a **Função do Hyper-V**. Clique com o botão direito do mouse no servidor e, em seguida, selecione o **Gerenciador do Hyper-V**.
 
-5.  No Gerenciador do Hyper-V, clique com o botão direito do mouse na VM de resgate e selecione **nova** > **máquina** > virtual**Avançar**.
+5.  No Gerenciador do Hyper-V, clique com o botão direito do mouse na VM de resgate e selecione **nova**  >  **máquina virtual**  >  **Avançar**.
 
 6.  Digite um nome para a VM e, em seguida, selecione **Avançar**.
 

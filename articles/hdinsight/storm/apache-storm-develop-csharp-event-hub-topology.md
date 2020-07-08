@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981630"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)
@@ -35,7 +34,7 @@ As topologias C# também devem ser destinadas ao .NET 4.5.
 
 ## <a name="how-to-work-with-event-hubs"></a>Como trabalhar com Hubs de Eventos
 
-A Microsoft fornece um conjunto de componentes Java que podem ser usados para comunicação com os Hubs de Eventos de uma topologia Storm. Você pode encontrar o arquivo Java Archive (JAR) que contém uma versão compatível do HDInsight 3,6 desses componentes em [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+A Microsoft fornece um conjunto de componentes Java que podem ser usados para comunicação com os Hubs de Eventos de uma topologia Storm. Você pode encontrar o arquivo Java Archive (JAR) que contém uma versão compatível do HDInsight 3,6 desses componentes em [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) .
 
 > [!IMPORTANT]  
 > Embora os componentes sejam escritos em Java, você pode usá-los facilmente em uma topologia C#.
@@ -113,7 +112,7 @@ Você pode baixar uma versão completa do projeto criado neste artigo do [GitHub
 
 ## <a name="download-the-event-hubs-components"></a>Baixar os componentes dos Hubs de Eventos
 
-Baixe o componente Spout e dehubs de eventos [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)de.
+Baixe o componente Spout e dehubs de eventos de [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) .
 
 Crie um diretório chamado `eventhubspout` e salve o arquivo no diretório.
 

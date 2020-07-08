@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721737"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
@@ -76,7 +75,7 @@ Aqui está uma breve cartilha sobre os dados de localização de latitude/longit
 * A quinta casa decimal representa até 1,1 m: ela distingue as árvores umas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
 * A sexta casa decimal vale até 0,11 m: você pode usar esse nível para dispor estruturas em detalhes, para criar cenários, criando estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Essa meta pode ser obtida por meio de medidas criteriosas com GPS, como o GPS com uma diferença diferencial.
 
-As informações de localização podem ser distinguidas separando a região, a localização e as informações da cidade. Uma vez também pode chamar um ponto de extremidade REST, como a API do `https://msdn.microsoft.com/library/ff701710.aspx` Bing Maps (consulte para obter as informações de região/distrito).
+As informações de localização podem ser distinguidas separando a região, a localização e as informações da cidade. Uma vez também pode chamar um ponto de extremidade REST, como a API do Bing Maps (consulte `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito).
 
     select
         <location_columnname>

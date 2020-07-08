@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/16/2020
 ms.openlocfilehash: a37a8bb45c11d5b74f3059a153806e3d083cf452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76311947"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Desenvolva programas Java MapReduce para o Apache Hadoop no HDInsight
@@ -50,7 +49,7 @@ cd C:\HDI
     * src\main\java\org\apache\hadoop\examples: contém o código do aplicativo.
     * src\test\java\org\apache\hadoop\examples: contém testes para seu aplicativo.
 
-1. Remova o código de exemplo gerado. Exclua os arquivos `AppTest.java`de teste e de aplicativo `App.java` gerados e insira os comandos abaixo:
+1. Remova o código de exemplo gerado. Exclua os arquivos de teste e de aplicativo gerados `AppTest.java` e `App.java` Insira os comandos abaixo:
 
     ```cmd
     cd wordcountjava
@@ -68,7 +67,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Adicionar dependências
 
-No `pom.xml`, adicione o seguinte texto na `<dependencies>` seção:
+No `pom.xml` , adicione o seguinte texto na `<dependencies>` seção:
 
 ```xml
 <dependency>
@@ -147,7 +146,7 @@ Salve o arquivo `pom.xml`.
 
 ## <a name="create-the-mapreduce-application"></a>Criar o aplicativo MapReduce
 
-1. Digite o comando a seguir para criar e abrir um novo `WordCount.java`arquivo. Selecione **Sim** no prompt para criar um novo arquivo.
+1. Digite o comando a seguir para criar e abrir um novo arquivo `WordCount.java` . Selecione **Sim** no prompt para criar um novo arquivo.
 
     ```cmd
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java

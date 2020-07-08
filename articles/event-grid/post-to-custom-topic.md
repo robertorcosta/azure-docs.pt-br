@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721544"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar para tópico personalizado para Grade de Eventos do Azure
@@ -39,7 +38,7 @@ Para obter o ponto de extremidade para um tópico personalizado com Azure PowerS
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Cabeçalho
+## <a name="header"></a>parâmetro
 
 Na solicitação, inclua um valor de cabeçalho chamado `aeg-sas-key` que contém uma chave para autenticação.
 
@@ -103,7 +102,7 @@ Após a postagem para o ponto de extremidade do tópico, você receberá uma res
 
 |Result  |Resposta  |
 |---------|---------|
-|Êxito  | 200 OK  |
+|Sucesso  | 200 OK  |
 |Os dados de evento têm formato incorreto | 400 Solicitação Inválida |
 |Chave de acesso inválida | 401 Não Autorizado |
 |Ponto de extremidade incorreto | 404 Não Encontrado |

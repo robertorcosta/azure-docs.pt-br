@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263754"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos hubs de notificação
@@ -64,7 +63,7 @@ Usar as políticas de acesso no nível de namespace (credenciais) para operaçõ
 
 Para criar uma nova declaração de segurança ou para exibir as chaves SAS existentes, faça o seguinte:
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 2. Selecione **Todos os recursos**.
 3. Selecione o nome do hub de notificação para o qual você deseja criar a declaração ou exibir a chave SAS.
 4. No menu à esquerda, selecione políticas de **acesso**.

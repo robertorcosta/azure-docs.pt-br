@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: c4756c36c2243840df69f3696e7ddac3628f3a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68727169"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
@@ -102,7 +101,7 @@ Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrut
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
 - [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

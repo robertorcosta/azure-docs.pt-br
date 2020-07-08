@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/15/2020
 ms.openlocfilehash: e50510f2420d69be37af584a2648a794e1561ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157042"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar trabalhos MapReduce usando o SDK do .NET do HDInsight
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight. Os clusters HDInsight vêm com um arquivo jar com alguns exemplos de MapReduce. O arquivo JAR é `/example/jars/hadoop-mapreduce-examples.jar`.  Um dos exemplos é **wordcount**. Você desenvolve um aplicativo do console C# para enviar um trabalho wordcount.  O trabalho lê o `/example/data/gutenberg/davinci.txt` arquivo e gera os resultados para `/example/data/davinciwordcount`.  Se você desejar executar novamente o aplicativo, você deve limpar a pasta de saída.
+Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight. Os clusters HDInsight vêm com um arquivo jar com alguns exemplos de MapReduce. O arquivo JAR é `/example/jars/hadoop-mapreduce-examples.jar` .  Um dos exemplos é **wordcount**. Você desenvolve um aplicativo do console C# para enviar um trabalho wordcount.  O trabalho lê o `/example/data/gutenberg/davinci.txt` arquivo e gera os resultados para `/example/data/davinciwordcount` .  Se você desejar executar novamente o aplicativo, você deve limpar a pasta de saída.
 
 > [!NOTE]  
 > As etapas neste artigo devem ser executadas em um cliente do Windows. Para obter informações sobre como usar um cliente Linux, OS X ou Unix para trabalhar com o Hive, use o seletor de tabulação mostrado na parte superior do artigo.
@@ -28,7 +27,7 @@ Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight. Os clus
 
 * Um cluster do Apache Hadoop no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
+* [Do Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight
 
@@ -36,13 +35,13 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET, que facilitam o 
 
 1. Inicie o Visual Studio e crie um aplicativo de console em C#.
 
-1. Navegue até **ferramentas** > **Gerenciador** > de pacotes NuGet**console do Gerenciador de pacotes** e digite o seguinte comando:
+1. Navegue até **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **console do Gerenciador de pacotes** e digite o seguinte comando:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copie o código abaixo em **Program.cs**. Em seguida, edite o código definindo os valores `existingClusterName`para `existingClusterPassword`: `defaultStorageAccountName`, `defaultStorageAccountKey`,, `defaultStorageContainerName`e.
+1. Copie o código abaixo em **Program.cs**. Em seguida, edite o código definindo os valores para:,,, `existingClusterName` `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` e `defaultStorageContainerName` .
 
     ```csharp
     using System.Collections.Generic;
@@ -163,9 +162,9 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET, que facilitam o 
 
 1. Pressione **F5** para executar o aplicativo.
 
-Para executar o trabalho novamente, você deve alterar o nome da pasta de saída do trabalho, no exemplo `/example/data/davinciwordcount`, é.
+Para executar o trabalho novamente, você deve alterar o nome da pasta de saída do trabalho, no exemplo, é `/example/data/davinciwordcount` .
 
-Quando o trabalho for concluído com êxito, o aplicativo imprime o conteúdo do arquivo `part-r-00000`de saída.
+Quando o trabalho for concluído com êxito, o aplicativo imprime o conteúdo do arquivo de saída `part-r-00000` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

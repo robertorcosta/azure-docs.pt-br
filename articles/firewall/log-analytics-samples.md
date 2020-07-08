@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: victorh
 ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705951"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Amostras do log Analytics do firewall do Azure
@@ -30,7 +29,7 @@ Execute as seguintes etapas para adicionar o modo de exibição ao seu espaço d
 2. Abra **Designer de Exibição** abaixo de **Geral**.
 3. Clique em **Importar**.
 4. Procure e selecione o arquivo **AzureFirewall.omsview** baixado anteriormente.
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 Veja como é o modo de exibição para os dados de log de regra de aplicativo:
 

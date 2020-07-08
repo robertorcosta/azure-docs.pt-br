@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76261476"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas Funções Duráveis (Azure Functions)
@@ -23,7 +22,7 @@ Quando você cria um temporizador que expira às 4:30 PM, o Framework de tarefa 
 
 > [!NOTE]
 > * Temporizadores duráveis atualmente estão limitados a 7 dias. Se forem necessários atrasos maiores, eles poderão ser simulados usando as APIs do temporizador em um `while` loop.
-> * Sempre use `CurrentUtcDateTime` em vez `DateTime.UtcNow` de em .NET `currentUtcDateTime` ou em `Date.now` vez `Date.UTC` de ou em JavaScript ao calcular o tempo de acionamento para temporizadores duráveis. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
+> * Sempre use em `CurrentUtcDateTime` vez de `DateTime.UtcNow` em .net ou em `currentUtcDateTime` vez de `Date.now` ou `Date.UTC` em JavaScript ao calcular o tempo de acionamento para temporizadores duráveis. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Uso para atrasos
 
@@ -46,7 +45,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> O exemplo de C# anterior tem como destino Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O exemplo de C# anterior tem como destino Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -104,7 +103,7 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> O exemplo de C# anterior tem como destino Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O exemplo de C# anterior tem como destino Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -135,7 +134,7 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!WARNING]
-> Use um `CancellationTokenSource` (.net) ou uma `cancel()` chamada sobre o `TimerTask` retorno (JavaScript) para cancelar um temporizador durável se o seu código não esperar que ele seja concluído. O Framework de tarefa durável não alterará o status de uma orquestração para "concluído" até que todas as tarefas pendentes sejam concluídas ou canceladas.
+> Use um `CancellationTokenSource` (.net) ou uma chamada `cancel()` sobre o retorno `TimerTask` (JavaScript) para cancelar um temporizador durável se o seu código não esperar que ele seja concluído. O Framework de tarefa durável não alterará o status de uma orquestração para "concluído" até que todas as tarefas pendentes sejam concluídas ou canceladas.
 
 Esse mecanismo de cancelamento não encerra as execuções da função de atividade em andamento ou da suborquestração. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e prossiga. Se seu aplicativo de funções usar o plano de consumo, você ainda será cobrado por qualquer tempo e memória consumida pela função de atividade abandonada. Por padrão, funções em execução pelo Plano de Consumo têm um tempo limite de cinco minutos. Se esse limite for ultrapassado, o host do Azure Functions será reciclado para interromper toda a execução e evitar uma situação de cobrança sem controle. O [tempo limite da função é configurável](../functions-host-json.md#functiontimeout).
 

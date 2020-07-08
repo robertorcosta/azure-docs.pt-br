@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 78140fea74272dff6056bebfbd44ed9d55b0e1db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76153676"
 ---
 <!-- filename is linked to in the marketplace template, make sure it gets a redirect if we rename it -->
@@ -21,7 +20,7 @@ Este artigo fornece uma visão geral das etapas necessárias para ativar e execu
 
 Várias tarefas são necessárias antes e depois de criar o cluster vFXT do Azure Marketplace. Ter uma noção clara do processo de início ao fim irá ajudá-lo a definir o esforço necessário.
 
-## <a name="deployment-steps"></a>Etapas de implantação
+## <a name="deployment-steps"></a>Etapas de implantação.
 
 Após [planejar seu sistema](avere-vfxt-deploy-plan.md), você pode começar a criar seu cluster Avere vFXT.
 

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76544711"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão para VM do Chef para Linux e Windows
@@ -67,26 +66,26 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 ### <a name="core-property-values"></a>Valores de propriedades principais
 
-| Name | Valor/Exemplo | Tipo de Dados
+| Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| editor | `Chef.Bootstrap.WindowsAzure` | cadeia de caracteres |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | cadeia de caracteres |
+| publicador | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.13` | string (double) |
 
 ### <a name="settings"></a>Configurações
 
-| Name | Valor/Exemplo | Tipo de Dados | Necessário?
+| Nome | Valor/Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | cadeia de caracteres | S |
-| settings/runlist | `recipe[mycookbook::default]` | cadeia de caracteres | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| settings/runlist | `recipe[mycookbook::default]` | string | S |
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
-| Name | Exemplo | Tipo de Dados | Necessário?
+| Nome | Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | cadeia de caracteres | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings
@@ -106,7 +105,7 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
 
 Um modelo do Resource Manager de exemplo que inclui a extensão de VM chefe pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [definir nome e tipo para recursos filho](../../azure-resource-manager/resource-manager-template-child-resource.md).
+A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-template-child-resource.md).
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
@@ -157,4 +156,4 @@ Informações adicionais sobre solução de problemas podem ser encontradas no [
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

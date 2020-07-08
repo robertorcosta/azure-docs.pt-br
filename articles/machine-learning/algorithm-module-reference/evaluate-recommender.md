@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76312253"
 ---
 # <a name="evaluate-recommender"></a>Avaliar o sistema de recomendação
@@ -65,7 +64,7 @@ Quando você estiver avaliando as classificações previstas, o conjunto de dado
 -   A terceira coluna contém as classificações de usuário-item correspondentes.  
   
 > [!IMPORTANT] 
-> Para que a avaliação seja bem sucedida, os `User`nomes `Item`das colunas `Rating`devem ser, e, respectivamente.  
+> Para que a avaliação seja bem sucedida, os nomes das colunas devem ser `User` , `Item` e `Rating` , respectivamente.  
   
 Avaliar Recomendador compara as classificações no conjunto de "verdadeiro verdade" com as classificações previstas do conjunto de valores de pontuação. Em seguida, ele computa o erro de média absoluta (MAE) e o erro de raiz quadrada da média (RMSE).
 
@@ -81,7 +80,7 @@ Quando você estiver avaliando as recomendações de item, use um conjunto de um
 Antes de conectar esse conjunto de resultados, recomendamos que você classifique o conjunto de resultados para que os itens mais relevantes sejam apresentados primeiro.  
 
 > [!IMPORTANT] 
-> Para avaliar recomendador para funcionar, os nomes de coluna devem `User`ser `Item 1`, `Item 2`, `Item 3` e assim por diante.  
+> Para avaliar recomendador para funcionar, os nomes de coluna devem `User` ser `Item 1` , `Item 2` , `Item 3` e assim por diante.  
   
 Avaliar Recomendador computa o NDCG (lucro cumulativo médio normalizado) e o retorna no conjunto de saída.  
   
@@ -90,4 +89,4 @@ Como é impossível saber a verdadeira "verdadeira verdade" para os itens recome
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

@@ -7,10 +7,9 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76288907"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento de mainframe para o Azure
@@ -51,7 +50,7 @@ O armazenamento do Azure está disponível como [discos do Azure](/azure/virtual
 
 <table>
 <thead>
-    <tr><th>Type</th><th>Descrição</th><th>Use quando desejar:</th></tr>
+    <tr><th>Tipo</th><th>Descrição</th><th>Use quando desejar:</th></tr>
 </thead>
 <tbody>
 <tr><td>Arquivos do Azure
@@ -94,7 +93,7 @@ O tipo de armazenamento de um determinado sistema depende dos requisitos do sist
 
 O SSDs fornece o melhor desempenho de armazenamento no Azure. As seguintes opções estão disponíveis (a partir da escrita deste documento):
 
-| Digite         | Tamanho           | IOPS                  |
+| Tipo         | Tamanho           | IOPS                  |
 |--------------|----------------|-----------------------|
 | SSD Ultra    | 4 GB a 64 TB  | 1.200 a 160.000 IOPS |
 | SSD Premium  | 32 GB a 32 TB | 12 a 15.000 IOPS     |

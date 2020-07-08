@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76543011"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Entender as mensagens de erro comuns ao gerenciar máquinas virtuais no Azure
@@ -205,7 +204,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  VMExtensionManagementInternalError  |  Vários erros ocorreram ao preparar as extensões da VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
 |  VMExtensionProvisioningError  |  A VM reportou uma falha durante o processamento da extensão "{0}". Mensagem de erro: “{1}”.  |
 |  VMExtensionProvisioningError  |  Houve falha no provisionamento de várias extensões de VM na VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
-|  VMExtensionProvisioningTimeout  |  O provisionamento da extensão de VM '{0}' atingiu o tempo limite. A instalação da extensão pode estar demorando muito ou não foi possível obter o status da extensão.  |
+|  VMExtensionProvisioningTimeout  |  O provisionamento da extensão de VM ' {0} ' atingiu o tempo limite. A instalação da extensão pode estar demorando muito ou não foi possível obter o status da extensão.  |
 |  VMMarketplaceInvalidInput  |  A criação de uma máquina virtual a partir de uma imagem do tipo não Mercado não necessita de Informações do plano. Remova as Informações do plano existentes no pedido. O nome de disco do SO é {0}.  |
 |  VMMarketplaceInvalidInput  |  As informações de compra não coincidem. Não é possível implantar a partir da imagem do Marketplace. O nome de disco do SO é {0}.  |
 |  VMMarketplaceInvalidInput  |  A criação de uma máquina virtual a partir da imagem de Mercado necessita que o pedido inclua as Informações do plano. O nome de disco do SO é {0}.  |
@@ -216,4 +215,4 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Se precisar de mais ajuda, você pode contatar os especialistas do Azure nos [fóruns do MSDN do Azure e nos fóruns do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Se precisar de mais ajuda, você pode contatar os especialistas do Azure nos [fóruns do MSDN do Azure e nos fóruns do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

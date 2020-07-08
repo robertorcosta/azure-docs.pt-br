@@ -1,6 +1,6 @@
 ---
 title: Suporte da plataforma de SDKs do dispositivo IoT do Azure | Microsoft Docs
-description: Os SDKs de dispositivo de software livre estão disponíveis no GitHub em C, .NET (C#), Java, Node. js e Python, para conectar dispositivos ao Hub IoT do Azure e ao DPS (serviço de provisionamento de dispositivos).
+description: Os SDKs de dispositivo de software livre estão disponíveis no GitHub em C, .NET (C#), Java, Node.js e Python, para conectar dispositivos ao Hub IoT do Azure e ao DPS (serviço de provisionamento de dispositivos).
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76045126"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte à plataforma de SDKs do dispositivo IoT do Azure
 
-A Microsoft se esforça para expandir continuamente o universo de dispositivos compatíveis com o Hub IoT do Azure. A Microsoft publica SDKs de dispositivo de software livre no GitHub para ajudar a conectar dispositivos ao Hub IoT do Azure e ao serviço de provisionamento de dispositivos. Os SDKs do dispositivo estão disponíveis para C, .NET (C#), Java, Node. js e Python. A Microsoft testa cada SDK para garantir que ele seja executado nas configurações com suporte detalhadas para ele na seção [Microsoft SDKs e suporte à plataforma de dispositivo](#microsoft-sdks-and-device-platform-support) .
+A Microsoft se esforça para expandir continuamente o universo de dispositivos compatíveis com o Hub IoT do Azure. A Microsoft publica SDKs de dispositivo de software livre no GitHub para ajudar a conectar dispositivos ao Hub IoT do Azure e ao serviço de provisionamento de dispositivos. Os SDKs do dispositivo estão disponíveis para C, .NET (C#), Java, Node.js e Python. A Microsoft testa cada SDK para garantir que ele seja executado nas configurações com suporte detalhadas para ele na seção [Microsoft SDKs e suporte à plataforma de dispositivo](#microsoft-sdks-and-device-platform-support) .
 
 Além dos SDKs do dispositivo, a Microsoft fornece vários outros caminhos para capacitar clientes e desenvolvedores a conectarem seus dispositivos à IoT do Azure:
 
@@ -30,7 +29,7 @@ Este tópico fornece informações sobre os SDKs da Microsoft e as configuraçõ
 
 ## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft SDKs e suporte a plataforma de dispositivo
 
-A Microsoft publica SDKs de código aberto no GitHub para os seguintes idiomas: C, .NET (C#), Node. js, Java e Python. Os SDKs e suas dependências são listados nesta seção. Os SDKs têm suporte em qualquer plataforma de dispositivo que satisfaça essas dependências.
+A Microsoft publica SDKs de código aberto no GitHub para os seguintes idiomas: C, .NET (C#), Node.js, Java e Python. Os SDKs e suas dependências são listados nesta seção. Os SDKs têm suporte em qualquer plataforma de dispositivo que satisfaça essas dependências.
 
 Para cada um dos SDKs listados, Microsoft:
 
@@ -44,7 +43,7 @@ Para cada um dos SDKs listados, Microsoft:
 
 O [SDK do dispositivo C do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-c) é testado com o e oferece suporte às seguintes configurações.
 
-| SO                  | Biblioteca TLS                  | Requisitos adicionais                                                                     |
+| Sistema operacional                  | Biblioteca TLS                  | Requisitos adicionais                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL ou BearSSL | Berkeley Sockets</br></br>Interface do sistema operacional portátil (POSIX)                       |
 | iOS 12,2            | OpenSSL                      | XCode emulado no OSX 10.13.4                                                               |
@@ -57,7 +56,7 @@ O [SDK do dispositivo C do Hub IOT do Azure](https://github.com/Azure/azure-iot-
 
 O [SDK do dispositivo Python do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-python) é testado com o e oferece suporte às seguintes configurações.
 
-| SO                  | Compilador                          |
+| Sistema operacional                  | Compilador                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2,7. *, 3,5 ou posterior |
 | MacOS High Sierra   | Python 2,7. *, 3,5 ou posterior |
@@ -69,7 +68,7 @@ Somente o Python versão 3.5.3 ou posterior dá suporte às APIs assíncronas, r
 
 O [SDK do dispositivo .net (C#) do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-csharp) é testado com o e oferece suporte às seguintes configurações.
 
-| SO                                   | Standard                                                   |
+| Sistema operacional                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | SKUs do Windows 10 desktop e Server   | .NET Core 2,1, .NET Framework 4.5.1 ou .NET Framework 4,7 |
@@ -78,9 +77,9 @@ O SDK do .NET também pode ser usado com o Windows IoT core com o [agente de dis
 
 ### <a name="nodejs-sdk"></a>SDK do Node.js
 
-O [SDK do dispositivo node. js do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-node) é testado com o e oferece suporte às seguintes configurações.
+O [SDK do dispositivo Node.js Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-node) é testado com o e oferece suporte às seguintes configurações.
 
-| SO                  | Versão do nó    |
+| Sistema operacional                  | Versão do nó    |
 |---------------------|-----------------|
 | Linux               | LTS e atual |
 | Família Windows 10   | LTS e atual |
@@ -89,7 +88,7 @@ O [SDK do dispositivo node. js do Hub IOT do Azure](https://github.com/Azure/azu
 
 O [SDK do dispositivo Java do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-java) é testado com o e oferece suporte às seguintes configurações.
 
-| SO                     | Versão Java |
+| Sistema operacional                     | Versão Java |
 |------------------------|--------------|
 | Android API 28         | Java 8       |
 | Linux x64             | Java 8       |
@@ -99,7 +98,7 @@ O [SDK do dispositivo Java do Hub IOT do Azure](https://github.com/Azure/azure-i
 
 A Microsoft trabalha com vários parceiros para fornecer kits de desenvolvimento para várias arquiteturas de microprocessador. Esses parceiros portaram o SDK do Azure IoT C para sua plataforma. Os parceiros criam e mantêm a PAL (camada de abstração de plataforma) do SDK. A Microsoft trabalha com esses parceiros para fornecer suporte estendido.
 
-| Parceiro             | Dispositivos                            | Link                     | Suporte |
+| Partner (parceiro)             | Dispositivos                            | Link                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE para SDK de IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -134,7 +133,7 @@ Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há vária
 
 * [Problemas do SDK do Java do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-java/issues)
 
-* [Problemas do SDK do node. js do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-node/issues)
+* [Problemas do SDK Node.js do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Problemas do SDK do Python no Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-python/issues)
 

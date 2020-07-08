@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981159"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Crie seu primeiro aplicativo sem servidor usando os aplicativos lógicos do Azure e o Azure Functions no Visual Studio
@@ -64,7 +63,7 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
 
    ![Criar um novo projeto no Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. Em **Instalado**, selecione **Visual C#** ou **Visual Basic**. Em seguida, selecione**grupo de recursos do Azure** **na nuvem** > .
+1. Em **Instalado**, selecione **Visual C#** ou **Visual Basic**. Em seguida, **Cloud**selecione  >  **grupo de recursos do Azure**na nuvem.
 
    > [!NOTE]
    > Se a categoria de **nuvem** ou o projeto de **grupo de recursos do Azure** não existir, verifique se você instalou o SDK do Azure para Visual Studio.
@@ -90,7 +89,7 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
    ![Selecionar modelo de início rápido do Azure](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    O Visual Studio cria e abre uma solução para o projeto do grupo de recursos. 
-   O modelo de início rápido do Azure que você selecionou cria um modelo de implantação chamado azuredeploy. JSON dentro do seu projeto de grupo de recursos. Esse modelo de implantação inclui a definição para um aplicativo lógico simples que é disparado por uma solicitação HTTP, chama uma função do Azure e retorna o resultado como uma resposta HTTP.
+   O modelo de início rápido do Azure que você selecionou cria um modelo de implantação chamado azuredeploy.jsdentro de seu projeto de grupo de recursos. Esse modelo de implantação inclui a definição para um aplicativo lógico simples que é disparado por uma solicitação HTTP, chama uma função do Azure e retorna o resultado como uma resposta HTTP.
 
    ![Nova solução sem servidor](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
@@ -100,13 +99,13 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
 
 Antes de abrir seu aplicativo lógico no designer do aplicativo lógico no Visual Studio, você deve ter um grupo de recursos do Azure que já está implantado no Azure. O designer então pode criar conexões com recursos e serviços no aplicativo lógico. Para essa tarefa, siga estas etapas para implantar sua solução do Visual Studio no portal do Azure:
 
-1. No Gerenciador de soluções, no menu de atalho do projeto de recursos, selecione **implantar** > **novo**.
+1. No Gerenciador de soluções, no menu de atalho do projeto de recursos, selecione **implantar**  >  **novo**.
 
    ![Criar nova implantação para o grupo de recursos](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
 1. Se eles ainda não estiverem selecionados, selecione sua assinatura do Azure e o grupo de recursos para o qual você deseja implantar. Em seguida, selecione **implantar**.
 
-   ![Configurações de implantação](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+   ![Configurações da implantação](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
 1. Se a caixa **Editar parâmetros** for exibida, forneça os nomes de recursos a serem usados para seu aplicativo lógico e seu aplicativo de funções do Azure na implantação e salve as configurações. Use um nome globalmente exclusivo para o aplicativo de funções.
 
@@ -119,9 +118,9 @@ Antes de abrir seu aplicativo lógico no designer do aplicativo lógico no Visua
 
 Para editar seu aplicativo lógico após a implantação, abra seu aplicativo lógico usando o designer de aplicativo lógico no Visual Studio.
 
-1. No Gerenciador de Soluções, no menu de atalho do arquivo azuredeploy. JSON, selecione **abrir com o designer de aplicativo lógico**.
+1. No Gerenciador de Soluções, no menu de atalho do azuredeploy.jsno arquivo, selecione **abrir com o designer de aplicativo lógico**.
 
-   ![Abrir azuredeploy. JSON no designer de aplicativo lógico](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+   ![Abrir azuredeploy.jsno designer de aplicativo lógico](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
    > [!TIP]
    > Caso não tenha esse comando no Visual Studio 2019, verifique se você tem as atualizações mais recentes do Visual Studio.
@@ -140,7 +139,7 @@ Para criar seu projeto e função do Functions usando JavaScript, Python, F #, P
 
 ## <a name="deploy-functions-from-visual-studio"></a>Implantar funções a partir do Visual Studio
 
-Seu modelo de implantação implanta todas as funções do Azure que você tem em sua solução do repositório git especificado por variáveis no arquivo azuredeploy. JSON. Se você criar e autorar seu projeto de funções em sua solução, poderá verificar esse projeto no controle do código-fonte git (por exemplo, GitHub ou DevOps do Azure `repo` ) e, em seguida, atualizar a variável para que o modelo implante sua função do Azure.
+Seu modelo de implantação implanta todas as funções do Azure que você tem em sua solução do repositório git que é especificado por variáveis no azuredeploy.jsno arquivo. Se você criar e autorar seu projeto de funções em sua solução, poderá verificar esse projeto no controle do código-fonte git (por exemplo, GitHub ou DevOps do Azure) e, em seguida, atualizar a `repo` variável para que o modelo implante sua função do Azure.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Gerenciar os aplicativos lógicos exibir o histórico de execuções
 

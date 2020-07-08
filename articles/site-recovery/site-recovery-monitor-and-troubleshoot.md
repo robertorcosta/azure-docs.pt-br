@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68717362"
 ---
 # <a name="monitor-site-recovery"></a>Monitorar Site Recovery
@@ -48,7 +47,7 @@ Em **itens replicados**, monitore a integridade de todos os computadores no cofr
 
 **State** | **Detalhes**
 --- | ---
-Íntegros | A replicação está progredindo normalmente. Nenhum erro ou sintomas de aviso são detectados.
+Healthy | A replicação está progredindo normalmente. Nenhum erro ou sintomas de aviso são detectados.
 Aviso | Um ou mais sintomas de aviso que podem afetar a replicação são detectados.
 Crítico | Um ou mais sintomas de erro de replicação críticos foram detectados.<br/><br/> Esses sintomas de erro geralmente são indicadores de que a replicação está paralisada ou não progrediu tão rapidamente quanto a taxa de alteração de dados.
 Não aplicável | Servidores que atualmente não parecem estar replicando. Isso pode incluir computadores que tenham feito failover.

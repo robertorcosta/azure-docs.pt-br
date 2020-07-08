@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277352"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o Bocal do Azure Log Analytics para Monitoramento do Sistema do Cloud Foundry
@@ -67,7 +66,7 @@ Antes de configurar o cliente de linha de comando UAA, verifique se o RubyGems e
    * **Local**: insira o local.
    * **Tipo de preço**: selecione **OK** para concluir.
 
-Para obter mais informações, consulte Introdução [aos logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Para obter mais informações, confira [Introdução aos logs do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar o espaço de trabalho do Log Analytics por meio do modelo de monitoramento do Azure Marketplace:
 
@@ -111,7 +110,7 @@ cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 
 #### <a name="create-a-cf-user-and-grant-required-privileges"></a>Criar um usuário do CF e conceder as permissões necessárias
 
-Execute os comandos a seguir:
+Execute os seguintes comandos:
 ```
 uaac target https://uaa.${SYSTEM_DOMAIN} --skip-ssl-validation
 uaac token client get admin
@@ -183,7 +182,7 @@ Se você tiver criado o espaço de trabalho do Log Analytics manualmente, siga a
 
 ### <a name="1-import-the-oms-view"></a>1. importar a exibição do OMS
 
-No portal do OMS, navegue até **o designer** > de exibição**importar** > **procurar**e selecione um dos arquivos omsview. Por exemplo, selecione *Cloud Foundry.omsview* e salve a exibição. Agora um bloco é exibido na página **Visão Geral** do OMS. Selecione-a para ver as métricas visualizadas.
+No portal do OMS, navegue até o **Designer de exibição**  >  **importar**  >  **procurar**e selecione um dos arquivos omsview. Por exemplo, selecione *Cloud Foundry.omsview* e salve a exibição. Agora um bloco é exibido na página **Visão Geral** do OMS. Selecione-a para ver as métricas visualizadas.
 
 É possível personalizar essas exibições ou criar novas por meio do **Designer de exibição**.
 

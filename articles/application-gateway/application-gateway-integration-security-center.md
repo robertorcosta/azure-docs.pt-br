@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277183"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure
@@ -30,7 +29,7 @@ Clicando em uma recomendação sobre o firewall do aplicativo Web abre uma nova 
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Adicionar o firewall do aplicativo Web a um recurso existente
 
-Navegue até **todos os serviços** > **segurança + identidade** > **central de segurança** e na **central de segurança-visão geral**, clique em **aplicativos**. Em **Central de Segurança - Aplicativos**, a tabela contém uma lista de aplicativos que a Central de Segurança detectou na sua assinatura.
+Navegue até **todos os serviços**  >  **segurança + identidade**  >  **central de segurança** e na **central de segurança-visão geral**, clique em **aplicativos**. Em **Central de Segurança - Aplicativos**, a tabela contém uma lista de aplicativos que a Central de Segurança detectou na sua assinatura.
 
 ![aplicativos Web][3]
 
@@ -50,7 +49,7 @@ Adicionar um aplicativo Web a um gateway de aplicativo através da Central de Se
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Adicionar um recurso a um firewall do aplicativo Web existente
 
-Navegue até **todos os serviços** > **segurança + identidade** > **central de segurança** e na **central de segurança-visão geral**, clique em **soluções de parceiros**. Gateways de aplicativo com reconhecimento da Central de Segurança do Azure existentes na página **Soluções de Parceiros**.
+Navegue até **todos os serviços**  >  **segurança + identidade**  >  **central de segurança** e na **central de segurança-visão geral**, clique em **soluções de parceiros**. Gateways de aplicativo com reconhecimento da Central de Segurança do Azure existentes na página **Soluções de Parceiros**.
 
 ![soluções de parceiros][7]
 
@@ -66,7 +65,7 @@ A Central de segurança controla os aplicativos adicionados a um gateway de apli
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
-Na central de segurança, navegue até **detecção** > **alertas de segurança**.  Aqui você encontra alertas do WAF para seus gateways de aplicativo. Os alertas são divididos pela regra do WAF.
+Na central de segurança, navegue até **detecção**  >  **alertas de segurança**.  Aqui você encontra alertas do WAF para seus gateways de aplicativo. Os alertas são divididos pela regra do WAF.
 
 ![alertas de segurança][8]
 

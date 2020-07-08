@@ -12,10 +12,9 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76046286"
 ---
 # <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Implantar e gerenciar instâncias de contêiner do Azure usando aplicativos lógicos do Azure
@@ -31,7 +30,7 @@ Use essas ações em seus aplicativos lógicos para tarefas como a execução de
 
 Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, use um gatilho separado, como um gatilho de **recorrência** para executar uma carga de trabalho de contêiner em um agendamento regular. Ou talvez você precise disparar uma implantação de grupo de contêineres após um evento, como a chegada de um email do Outlook. 
 
-Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +53,7 @@ Se você for novo em aplicativos lógicos, examine [o que são os aplicativos l�
      -ou-
 
    * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, digite "instância do contêiner" como filtro. Na lista ações, selecione a ação de conector da instância de contêiner do Azure desejada.
 

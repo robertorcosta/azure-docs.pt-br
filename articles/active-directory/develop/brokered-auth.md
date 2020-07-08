@@ -14,10 +14,9 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
 ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76697890"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticação orientada no Android
@@ -56,7 +55,7 @@ Se um dispositivo ainda não tiver um aplicativo de agente instalado, o MSAL ins
 
 ### <a name="when-a-broker-is-installed"></a>Quando um agente é instalado
 
-Quando um agente é instalado em um dispositivo, todas as solicitações de token interativo subsequentes `acquireToken()`(chamadas para) são tratadas pelo agente em vez de localmente por MSAL. Qualquer estado de SSO disponível anteriormente para MSAL não está disponível para o agente. Como resultado, o usuário precisará autenticar novamente ou selecionar uma conta da lista de contas existente conhecida pelo dispositivo.
+Quando um agente é instalado em um dispositivo, todas as solicitações de token interativo subsequentes (chamadas para `acquireToken()` ) são tratadas pelo agente em vez de localmente por MSAL. Qualquer estado de SSO disponível anteriormente para MSAL não está disponível para o agente. Como resultado, o usuário precisará autenticar novamente ou selecionar uma conta da lista de contas existente conhecida pelo dispositivo.
 
 A instalação de um agente não exige que o usuário entre novamente. Somente quando o usuário precisar resolver um `MsalUiRequiredException` , a próxima solicitação vai para o agente. `MsalUiRequiredException`é lançada por vários motivos e precisa ser resolvida interativamente. Estes são alguns motivos comuns:
 
@@ -118,7 +117,7 @@ O MSAL se comunica com o agente de duas maneiras:
 
 O MSAL primeiro usa o serviço ligado do agente, pois chamar esse serviço não requer nenhuma permissão do Android. Se a associação ao serviço ligado falhar, o MSAL usará a API de conta do Androidmanager. MSAL faz isso apenas se seu aplicativo já tiver recebido a `"READ_CONTACTS"` permissão.
 
-Se você receber um `MsalClientException` código `"BROKER_BIND_FAILURE"`de erro com, haverá duas opções:
+Se você receber um `MsalClientException` código de erro com `"BROKER_BIND_FAILURE"` , haverá duas opções:
 
 - Peça ao usuário para desabilitar a otimização de energia para o aplicativo Microsoft Authenticator e o Portal da Empresa do Intune.
 - Peça ao usuário para conceder a `"READ_CONTACTS"` permissão

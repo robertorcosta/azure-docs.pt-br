@@ -14,17 +14,16 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
 ms.openlocfilehash: f8fe1b13db6473e80f0d7cdc638b775a0c8062c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513494"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrar do Azure Media Encoder para Media Encoder Standard
 
-Este artigo discute as etapas para migrar do processador de mídia do Azure Media Encoder (AME) herdado (que está sendo desativado) para o processador de mídia Media Encoder Standard. Para as datas de desativação, consulte este tópico de [componentes herdados](legacy-components.md) .
+Este artigo discute as etapas para migrar do processador de mídia do Azure Media Encoder (AME) herdado (que está sendo desativado) para o processador de mídia Media Encoder Standard. Para ver as datas de desativação, consulte o tópico de [componentes herdados](legacy-components.md).
 
-Ao codificar arquivos com o AME, os clientes normalmente usaram uma cadeia de caracteres `H264 Adaptive Bitrate MP4 Set 1080p`predefinida nomeada, como. Para migrar, seu código precisa ser atualizado para usar o processador de mídia **Media Encoder Standard** em vez de ame, e uma das [predefinições de sistema](media-services-mes-presets-overview.md) equivalentes `H264 Multiple Bitrate 1080p`, como. 
+Ao codificar arquivos com o AME, os clientes normalmente usaram uma cadeia de caracteres predefinida nomeada, como `H264 Adaptive Bitrate MP4 Set 1080p` . Para migrar, seu código precisa ser atualizado para usar o processador de mídia **Media Encoder Standard** em vez de ame, e uma das [predefinições de sistema](media-services-mes-presets-overview.md) equivalentes, como `H264 Multiple Bitrate 1080p` . 
 
 ## <a name="migrating-to-media-encoder-standard"></a>Migrando para o Media Encoder Standard
 

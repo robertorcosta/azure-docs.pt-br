@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705761"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Carregar arquivos em uma conta dos serviços de mídia v3 usando REST
@@ -39,7 +38,7 @@ Para concluir as etapas descritas neste tópico, você precisa:
 
 Esta seção mostra como criar um novo ativo.
 
-1. Selecione **ativos** -> **criar ou atualizar um ativo**.
+1. Selecione **ativos**  ->  **criar ou atualizar um ativo**.
 2. Pressione **Enviar**.
 
     ![Criar um ativo](./media/upload-files/postman-create-asset.png)
@@ -50,7 +49,7 @@ Você vê a **resposta** com as informações sobre o ativo criado recentemente.
 
 Esta seção mostra como obter uma URL de SAS que foi gerado para o ativo criado. A URL de SAS foi criada com permissões de leitura-gravação e pode ser usada para carregar arquivos digitais em contêiner do ativo.
 
-1. Selecione **ativos** -> **listar as URLs de ativo**.
+1. Selecione **ativos**  ->  **listar as URLs de ativo**.
 2. Pressione **Enviar**.
 
     ![Carregar um arquivo](./media/upload-files/postman-create-sas-locator.png)

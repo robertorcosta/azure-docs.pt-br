@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722094"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
@@ -39,7 +38,7 @@ Na estrutura de planejamento do TDSP Sprint, há quatro tipos de *item de trabal
 
 Aqui estão as definições para os tipos de item de trabalho:
 
-- **Recurso**: um recurso corresponde a um envolvimento do projeto. Compromissos diferentes com um cliente são recursos diferentes, e é melhor considerar diferentes fases de um projeto como recursos diferentes. Se você escolher um esquema como * \<ClientName>-\<engagementname>* para nomear seus recursos, você poderá reconhecer facilmente o contexto do projeto e do Engagement a partir dos próprios nomes.
+- **Recurso**: um recurso corresponde a um envolvimento do projeto. Compromissos diferentes com um cliente são recursos diferentes, e é melhor considerar diferentes fases de um projeto como recursos diferentes. Se você escolher um esquema, por exemplo *\<ClientName>-\<EngagementName>* , para nomear seus recursos, poderá facilmente reconhecer o contexto do projeto e do Engagement com base nos próprios nomes.
   
 - **História de usuário**: as histórias de usuários são itens de trabalho necessários para concluir um recurso de ponta a ponta. Exemplos de histórias de usuários incluem:
   - Obter dados 
@@ -72,7 +71,7 @@ Para obter mais informações sobre o planejamento do Sprint em Azure Boards, co
 
 Depois que o projeto e o repositório de código do projeto forem criados, você poderá adicionar um recurso à lista de pendências para representar o trabalho do seu projeto.
 
-1. Na página do seu projeto, selecione **quadros** > de**pendências** na navegação à esquerda. 
+1. Na página do seu projeto, selecione **quadros**  >  de**pendências** na navegação à esquerda. 
    
 1. Na guia lista de **pendências** , se o tipo de item de trabalho na barra superior for **histórias**, menu suspenso e selecione **recursos**. Em seguida, selecione **novo item de trabalho.**
    
@@ -112,7 +111,7 @@ Para adicionar uma nova história de usuário a um recurso:
 
 Tarefas são etapas detalhadas específicas que são necessárias para concluir cada história de usuário. Depois que todas as tarefas de uma história de usuário forem concluídas, a história de usuário também deverá ser concluída. 
 
-Para adicionar uma tarefa a uma história de usuário, selecione **+** o próximo ao item de história de usuário e selecione **tarefa**. Preencha o título e outras informações na tarefa.
+Para adicionar uma tarefa a uma história de usuário, selecione o **+** próximo ao item de história de usuário e selecione **tarefa**. Preencha o título e outras informações na tarefa.
 
 ![Adicionar uma tarefa a uma história de usuário](./media/agile-development/7-sprint-add-task.png)
 
@@ -183,7 +182,7 @@ Você pode usar o modelo de processo de ciência de dados para criar projetos do
    
    ![Criar um projeto TDSP](./media/agile-development/15-newproject.png)
    
-1. No projeto recém-criado, selecione **quadros** > de**pendências** na navegação à esquerda.
+1. No projeto recém-criado, selecione **quadros**  >  de**pendências** na navegação à esquerda.
    
 1. Para tornar os projetos do TDSP visíveis, selecione o ícone **definir configurações da equipe** . Na tela **configurações** , marque a caixa de seleção **projetos TDSP** e, em seguida, selecione **salvar e fechar**.
    

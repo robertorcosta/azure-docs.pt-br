@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76314531"
 ---
 # <a name="apply-sql-transformation"></a>Aplicar transformação de SQL
@@ -33,7 +32,7 @@ Usando o módulo aplicar transformação SQL, você pode:
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Como configurar aplicar transformação SQL  
 
-O módulo pode ter até três conjuntos de dados como entradas. Ao fazer referência aos conjuntos de dados conectados a cada porta de entrada, você deve usar `t1`os `t2`nomes, `t3`e. O número da tabela indica o índice da porta de entrada.  
+O módulo pode ter até três conjuntos de dados como entradas. Ao fazer referência aos conjuntos de dados conectados a cada porta de entrada, você deve usar os nomes `t1` , `t2` e `t3` . O número da tabela indica o índice da porta de entrada.  
   
 O parâmetro restante é uma consulta SQL, que usa a sintaxe do SQLite. Ao digitar várias linhas na caixa de texto **script SQL** , use um ponto-e-vírgula para encerrar cada instrução. Caso contrário, as quebras de linha serão convertidas em espaços.  
 
@@ -45,7 +44,7 @@ Esta seção contém detalhes de implementação, dicas e respostas para pergunt
 
 -   Uma entrada é sempre necessária na porta 1.  
   
--   Para identificadores de coluna que contêm um espaço ou outros caracteres especiais, sempre coloque o identificador de coluna entre colchetes ou aspas duplas ao se referir à coluna nas `SELECT` cláusulas ou `WHERE` .  
+-   Para identificadores de coluna que contêm um espaço ou outros caracteres especiais, sempre coloque o identificador de coluna entre colchetes ou aspas duplas ao se referir à coluna nas `SELECT` `WHERE` cláusulas ou.  
   
 ### <a name="unsupported-statements"></a>Instruções sem suporte  
 
@@ -53,7 +52,7 @@ Embora SQLite suporte a maior parte do padrão ANSI SQL, ele não inclui muitos 
   
 - O SQLite usa digitação dinâmica para valores, em vez de atribuir um tipo a uma coluna como na maioria dos sistemas de banco de dados relacional. Ele é digitado sem rigidez e permite a conversão implícita de tipos.  
   
-- `LEFT OUTER JOIN`é implementado, mas não `RIGHT OUTER JOIN` ou `FULL OUTER JOIN`.  
+- `LEFT OUTER JOIN`é implementado, mas não `RIGHT OUTER JOIN` ou `FULL OUTER JOIN` .  
 
 - Você pode usar as instruções `RENAME TABLE` e `ADD COLUMN` com o comando `ALTER TABLE`, mas outras cláusulas não são suportadas, incluindo `DROP COLUMN`, `ALTER COLUMN` e `ADD CONSTRAINT`.  
   
@@ -64,4 +63,4 @@ Além da lista de funções não suportadas fornecida no site do SQLite oficial,
     
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

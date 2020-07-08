@@ -4,10 +4,9 @@ description: Este artigo explica como usar o suporte do Service-Fabric KeyVaultR
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76545476"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
@@ -24,7 +23,7 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
 
     O repositório de segredos central (CSS) é o cache de segredos locais criptografados do Service Fabric. O CSS é um cache de repositório de segredo local que mantém dados confidenciais, como senha, tokens e chaves, criptografados na memória. KeyVaultReference, depois de buscados, são armazenados em cache em CSS.
 
-    Adicione o abaixo à sua configuração de cluster `fabricSettings` em para habilitar todos os recursos necessários para o suporte do KeyVaultReference.
+    Adicione o abaixo à sua configuração de cluster em `fabricSettings` para habilitar todos os recursos necessários para o suporte do KeyVaultReference.
 
     ```json
     "fabricSettings": 
@@ -86,9 +85,9 @@ Para que as alterações entrem em vigor, você também precisará alterar a pol
     Referencie este [documento](how-to-grant-access-other-resources.md) para ver como conceder acesso de identidade gerenciada ao keyvault. Observe também que se você estiver usando a identidade gerenciada atribuída pelo sistema, a identidade gerenciada será criada somente após a implantação do aplicativo.
 
 ## <a name="keyvault-secret-as-application-parameter"></a>Segredo do keyvault como parâmetro de aplicativo
-Digamos que o aplicativo precise ler a senha do banco de dados de back-end armazenada no keyvault, Service Fabric suporte a KeyVaultReference o torna mais fácil. O exemplo abaixo `DBPassword` lê o segredo do keyvault usando Service Fabric suporte KeyVaultReference.
+Digamos que o aplicativo precise ler a senha do banco de dados de back-end armazenada no keyvault, Service Fabric suporte a KeyVaultReference o torna mais fácil. O exemplo abaixo lê o `DBPassword` segredo do keyvault usando Service Fabric suporte KeyVaultReference.
 
-- Adicionar uma seção a Settings. xml
+- Adicionar uma seção a settings.xml
 
     Definir `DBPassword` parâmetro com tipo `KeyVaultReference` e valor`<KeyVaultURL>`
 
@@ -97,7 +96,7 @@ Digamos que o aplicativo precise ler a senha do banco de dados de back-end armaz
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Faça referência à nova seção em ApplicationManifest. xml em`<ConfigPackagePolicies>`
+- Faça referência à nova seção no ApplicationManifest.xml`<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -126,7 +125,7 @@ Digamos que o aplicativo precise ler a senha do banco de dados de back-end armaz
     }
     ```
     > [!NOTE] 
-    > Para o cenário de contêiner, você pode usar o ponto de montagem para `secrets` controlar onde o será montado.
+    > Para o cenário de contêiner, você pode usar o ponto de montagem para controlar onde o `secrets` será montado.
 
 ## <a name="keyvault-secret-as-environment-variable"></a>Segredo do keyvault como variável de ambiente
 

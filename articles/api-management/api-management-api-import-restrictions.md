@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
 ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513364"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
@@ -51,21 +50,21 @@ Caso esteja recebendo erros ao importar seu documento da OpenAPI, verifique se v
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>OpenAPI versão 3
 
 -   Se muitos `servers` forem especificados, o gerenciamento de API tentará selecionar a primeira URL https. Se não houver URLs HTTPs, a primeira URL HTTP. Se não houver URLs HTTP, a URL do servidor ficará vazia.
--   `Examples`Não tem suporte, `example` mas é.
+-   `Examples`Não tem suporte, mas `example` é.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Mecanismos de importação, atualização e exportação do OpenAPI
 
 ### <a name="add-new-api-via-openapi-import"></a>Adicionar nova API por meio da importação de OpenAPI
 
-Para cada operação encontrada no documento OpenAPI, uma nova operação será criada com o nome do recurso do Azure e o nome de `operationId` exibição `summary` definido como e, respectivamente. `operationId`o valor é normalizado seguindo as regras descritas abaixo. `summary`o valor é importado como está e seu comprimento é limitado a 300 caracteres.
+Para cada operação encontrada no documento OpenAPI, uma nova operação será criada com o nome do recurso do Azure e o nome de exibição definido como `operationId` e, `summary` respectivamente. `operationId`o valor é normalizado seguindo as regras descritas abaixo. `summary`o valor é importado como está e seu comprimento é limitado a 300 caracteres.
 
-Se `operationId` não for especificado (ou seja, não estiver `null`presente, ou vazio), o valor do nome de recurso do Azure será gerado pela combinação do método http e do `get-foo`modelo de caminho, por exemplo,.
+Se `operationId` não for especificado (ou seja, não estiver presente, `null` ou vazio), o valor do nome de recurso do Azure será gerado pela combinação do método http e do modelo de caminho, por exemplo, `get-foo` .
 
-Se `summary` não for especificado (ou seja, não estiver `null`presente, ou vazio) `display name` , o valor será `operationId`definido como. Se `operationId` não for especificado, o valor do nome de exibição será gerado pela combinação do método http e do modelo de `Get - /foo`caminho, por exemplo,.
+Se `summary` não for especificado (ou seja, não estiver presente, `null` ou vazio), o `display name` valor será definido como `operationId` . Se `operationId` não for especificado, o valor do nome de exibição será gerado pela combinação do método http e do modelo de caminho, por exemplo, `Get - /foo` .
 
 ### <a name="update-an-existing-api-via-openapi-import"></a>Atualizar uma API existente por meio da importação do OpenAPI
 
-Durante a importação, a API existente é alterada para corresponder à API descrita no documento OpenAPI. Cada operação no documento OpenAPI é correspondida à operação existente, comparando `operationId` seu valor com o nome de recurso do Azure da operação existente.
+Durante a importação, a API existente é alterada para corresponder à API descrita no documento OpenAPI. Cada operação no documento OpenAPI é correspondida à operação existente, comparando seu `operationId` valor com o nome de recurso do Azure da operação existente.
 
 Se uma correspondência for encontrada, as propriedades da operação existente serão atualizadas "in-loco".
 
@@ -75,20 +74,20 @@ Todas as operações incompatíveis existentes serão excluídas.
 
 Para tornar a importação mais previsível, siga estas diretrizes:
 
-- Certifique-se de `operationId` especificar a propriedade para cada operação.
+- Certifique-se de especificar a `operationId` propriedade para cada operação.
 - Evite alterar `operationId` após a importação inicial.
 - Nunca altere `operationId` e o modelo de método ou caminho http ao mesmo tempo.
 
 ### <a name="export-api-as-openapi"></a>Exportar API como OpenAPI
 
-Para cada operação, seu nome de recurso do Azure será exportado como um `operationId`, e o nome de exibição `summary`será exportado como um.
+Para cada operação, seu nome de recurso do Azure será exportado como um `operationId` , e o nome de exibição será exportado como um `summary` .
 Regras de normalização para operationId
 
 - Converter para letras minúsculas.
-- Substituir cada sequência de caracteres não alfanuméricos por um único traço, por exemplo, `GET-/foo/{bar}?buzz={quix}` será transformado `get-foo-bar-buzz-quix-`em.
-- Os traços de corte em ambos os lados, `get-foo-bar-buzz-quix-` por exemplo, ficarão`get-foo-bar-buzz-quix`
+- Substituir cada sequência de caracteres não alfanuméricos por um único traço, por exemplo, `GET-/foo/{bar}?buzz={quix}` será transformado em `get-foo-bar-buzz-quix-` .
+- Os traços de corte em ambos os `get-foo-bar-buzz-quix-` lados, por exemplo, ficarão`get-foo-bar-buzz-quix`
 - Truncar para se ajustar a 76 caracteres, com quatro caracteres menores que o limite máximo para um nome de recurso.
-- Use os quatro caracteres restantes para um sufixo de eliminação de duplicação, se necessário, na `-1, -2, ..., -999`forma de.
+- Use os quatro caracteres restantes para um sufixo de eliminação de duplicação, se necessário, na forma de `-1, -2, ..., -999` .
 
 
 ## <a name="wsdl"></a><a name="wsdl"> </a>WSDL

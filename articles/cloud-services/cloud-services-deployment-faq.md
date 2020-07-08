@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75980640"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação para Serviços de Nuvem do Azure: perguntas frequentes
@@ -54,7 +53,7 @@ Para verificar os tamanhos disponíveis em sua região, consulte [Microsoft Azur
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Por que implantar um serviço de nuvem às vezes falha devido a limites/cotas/restrições em minha assinatura ou o serviço?
 A implantação de um serviço de nuvem poderá falhar se os recursos que precisam ser alocados excederem a cota padrão ou máxima permitida para o serviço no nível da região/do datacenter. Para obter mais informações, consulte [Limites de Serviços de Nuvem](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-Também é possível controlar a cota/uso atual da sua assinatura no portal: portal do Azure => Assinaturas => \<assinatura adequada>=> "Uso + cota".
+Você também pode acompanhar o uso/cota atual de sua assinatura no Portal: portal do Azure => assinaturas => \<appropriate subscription>   => "uso + cota".
 
 Informações relacionadas ao uso/consumo de recursos também podem ser recuperadas por meio das APIs de Cobrança do Azure. Confira [API de uso de recursos do Azure (versão prévia)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

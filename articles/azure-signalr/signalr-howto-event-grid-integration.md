@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
 ms.openlocfilehash: a76c9aaabf984723e2b60a7cd42425c9b29c916a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76710823"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do Serviço do Azure SignalR para a Grade de Eventos
@@ -141,7 +140,7 @@ Quando a assinatura estiver concluída, você deverá ver uma saída semelhante 
 
 ## <a name="trigger-registry-events"></a>Disparar eventos de registro
 
-Alterne para o modo de serviço `Serverless Mode` para e configure uma conexão de cliente com o serviço signalr. Você pode escolher um [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como uma referência.
+Alterne para o modo de serviço para `Serverless Mode` e configure uma conexão de cliente com o serviço signalr. Você pode escolher um [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como uma referência.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +161,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Exibir eventos do registro
 
-Agora você conectou um cliente ao serviço Signalr. Navegue até o aplicativo Web do Visualizador de grade de eventos e você verá `ClientConnectionConnected` um evento. Se você encerrar o cliente, também verá um `ClientConnectionDisconnected` evento.
+Agora você conectou um cliente ao serviço Signalr. Navegue até o aplicativo Web do Visualizador de grade de eventos e você verá um `ClientConnectionConnected` evento. Se você encerrar o cliente, também verá um `ClientConnectionDisconnected` evento.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

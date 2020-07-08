@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720462"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
@@ -23,7 +22,7 @@ ms.locfileid: "76720462"
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de modelagem do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
    1. **Noções básicas sobre negócios**
-   2. **Aquisição e compreensão de dados**
+   2. **Compreensão e aquisição de dados**
    3. **Modelagem**
    4. **Implantação**
    5. **Aceitação do cliente**
@@ -38,7 +37,7 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 * Crie um modelo de aprendizado de máquina informativo que preveja o destino da maneira mais precisa.
 * Crie um modelo de aprendizado de máquina adequado para a produção.
 
-## <a name="how-to-do-it"></a>Como fazer isso
+## <a name="how-to-do-it"></a>Como fazer
 Há três tarefas principais abordadas neste estágio:
 
   * **Engenharia de recursos**: crie recursos de dados dos dados brutos para facilitar o treinamento do modelo.
@@ -69,7 +68,7 @@ O processo de treinamento do modelo inclui as seguintes etapas:
 
 Fornecemos uma [ferramenta automatizada de modelagem e relatório](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) com o TDSP que pode ser executada por meio de vários algoritmos e limpezas de parâmetros para produzir um modelo de linha de base. Ela também produz um relatório de modelagem de linha de base que fornece um resumo do desempenho de cada combinação de modelo e de parâmetro, incluindo a importância da variável. Esse processo também é iterativo, pois pode gerar mais engenharia de recursos. 
 
-## <a name="artifacts"></a>Artefatos
+## <a name="artifacts"></a>Artifacts
 Os artefatos produzidos neste estágio incluem:
 
    * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a modelagem são descritos na seção **conjuntos de recursos** do relatório definição de **dados** . Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
@@ -83,7 +82,7 @@ Os artefatos produzidos neste estágio incluem:
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
    1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Aquisição e compreensão de dados](lifecycle-data.md)
+   2. [Compreensão e aquisição de dados](lifecycle-data.md)
    3. [Modelagem](lifecycle-modeling.md)
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)

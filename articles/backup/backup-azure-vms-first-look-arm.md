@@ -4,10 +4,9 @@ description: Neste artigo, saiba como fazer backup de uma VM do Azure singular o
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705438"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure usando as configurações da VM
@@ -64,7 +63,7 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 
 ## <a name="run-a-backup-immediately"></a>Executar um backup imediatamente
 
-1. Para executar um backup imediatamente, no menu VM, clique em backup de **backup** > **agora**.
+1. Para executar um backup imediatamente, no menu VM, clique em backup de **backup**  >  **agora**.
 
     ![Executar backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
@@ -79,11 +78,11 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 Siga as instruções neste artigo para habilitar o backup para VMs do Azure por meio da configuração de um cofre dos Serviços de Recuperação do Backup do Azure, habilitando o backup no cofre.
 
 >[!NOTE]
-> **O backup do Azure agora oferece suporte a backup e restauração de disco seletivo usando a solução de backup de máquina virtual do Azure.**
+> **O Backup do Azure agora dá suporte a backup e restauração de disco seletivo usando a solução de backup de Máquina Virtual do Azure.**
 >
->Hoje, o backup do Azure dá suporte ao backup de todos os discos (sistema operacional e dados) em uma VM em conjunto usando a solução de backup de máquina virtual. Com a funcionalidade excluir disco, você obtém uma opção para fazer backup de um ou alguns dos vários discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica à restauração tanto do instantâneo quanto do cofre.
+>Hoje, o Backup do Azure dá suporte ao backup de todos os discos (Sistema Operacional e dados) em uma VM usando a solução de backup de Máquina Virtual. Com a funcionalidade de exclusão de disco, você obtém uma opção para fazer backup de um ou alguns dos vários discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica à restauração tanto do instantâneo quanto do cofre.
 >
->**Para se inscrever na versão prévia, escreva-nos emAskAzureBackupTeam@microsoft.com**
+>**Para se inscrever na versão prévia, escreva-nos em AskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Próximas etapas
 

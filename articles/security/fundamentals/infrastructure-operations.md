@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
 ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68727123"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Gerenciamento e operação da rede de produção do Azure    
@@ -58,7 +57,7 @@ Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Az
 - [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
 - [Proteção de dados do cliente do Microsoft Azure](protection-customer-data.md)

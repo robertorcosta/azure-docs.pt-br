@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721771"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar recursos para os dados em um cluster Hadoop usando as consultas do Hive
@@ -89,14 +88,14 @@ O Hive vem com um conjunto de UDFs para processar campos datetime. No Hive, o fo
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Essa consulta de Hive pressupõe que o * \<campo DateTime>* está no formato DateTime padrão.
+Essa consulta de Hive pressupõe que o *\<datetime field>* está no formato de data e hora padrão.
 
 Se um campo datetime não estiver no formato padrão, é necessário primeiro converter o campo datetime em carimbo de data/hora de Unix e, em seguida, converter o carimbo de data/hora do Unix em uma cadeia de caracteres datetime no formato padrão. Quando o datetime estiver no formato padrão, os usuários poderão aplicar UDFs datetime incorporadas para extrair recursos.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Nessa consulta, se o * \<campo DateTime>* tem o padrão como 03/26/2015 12:04:39, o * \<padrão do campo DateTime> '* deve ser. *03/26/2015 12:04:39* `'MM/dd/yyyy HH:mm:ss'` Para testá-lo, os usuários podem executar
+Nessa consulta, se o *\<datetime field>* tiver o padrão como *03/26/2015 12:04:39*, o * \<pattern of the datetime field> '* deve ser `'MM/dd/yyyy HH:mm:ss'` . Para testá-lo, os usuários podem executar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -132,7 +131,7 @@ Os campos que são usados nesta consulta são coordenadas de GPS de locais de sa
 
 As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. Nesse JavaScript, a função `toRad()` é apenas *lat_or_lon*PI/180, que converte graus em radianos. Aqui, *lat_or_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
-![Criar workspace](./media/create-features-hive/atan2new.png)
+![Criar o workspace](./media/create-features-hive/atan2new.png)
 
 Uma lista completa de UDFs internas do Hive pode ser encontrada na seção **Funções Internas** no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki do Apache Hive</a>.  
 

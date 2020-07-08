@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263856"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como usar os Hubs de notificação do Java
@@ -374,7 +373,7 @@ A execução do código Java agora deve produzir uma notificação que aparece n
 
 ## <a name="next-steps"></a><a name="next-steps"></a>Próximas etapas
 
-Este tópico mostrou como criar um cliente REST simples do Java para Hubs de Notificação. Nela você pode:
+Este tópico mostrou como criar um cliente REST simples do Java para Hubs de Notificação. A partir daqui, você pode:
 
 * Baixe o [SDK do Java]completo, que contém todo o código do SDK.
 * Brincar com os exemplos:

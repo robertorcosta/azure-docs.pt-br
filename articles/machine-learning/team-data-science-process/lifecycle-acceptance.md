@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720513"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe
@@ -23,7 +22,7 @@ ms.locfileid: "76720513"
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de aceitação do cliente do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
    1. **Noções básicas sobre negócios**
-   2. **Aquisição e compreensão de dados**
+   2. **Compreensão e aquisição de dados**
    3. **Modelagem**
    4. **Implantação**
    5. **Aceitação do cliente**
@@ -36,7 +35,7 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 ## <a name="goal"></a>Goal
 **Finalizar resultados finais do projeto**: Confirme se o pipeline, o modelo e sua implantação em um ambiente de produção atendem aos objetivos do cliente.
 
-## <a name="how-to-do-it"></a>Como fazer isso
+## <a name="how-to-do-it"></a>Como fazer
 Há duas tarefas principais abordadas neste estágio:
 
    * **Validação do sistema**: confirme se o modelo e o pipeline implantados atendem às necessidades do cliente.
@@ -44,7 +43,7 @@ Há duas tarefas principais abordadas neste estágio:
 
 O cliente deverá validar se o sistema atende às suas necessidades de negócios e se ele responde às perguntas com uma precisão aceitável para implantar o sistema em produção para uso pelo aplicativo do cliente. Toda a documentação é finalizada e revisada. O projeto é entregue à entidade responsável por operações. Essa entidade poderá ser, por exemplo, uma equipe de TI ou de ciência de dados do cliente ou um agente do cliente responsável por executar o sistema na produção. 
 
-## <a name="artifacts"></a>Artefatos
+## <a name="artifacts"></a>Artifacts
 O principal artefato produzido neste estágio final é o **Relatório de saída do projeto para o cliente**. Este relatório técnico contém todos os detalhes do projeto úteis para saber como operar o sistema. O TDSP oferece um modelo de [Relatório de saída](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md). É possível usar o modelo como ele se encontra ou personalizá-lo para as necessidades específicas do cliente. 
 
 
@@ -53,7 +52,7 @@ O principal artefato produzido neste estágio final é o **Relatório de saída 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
    1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Aquisição e compreensão de dados](lifecycle-data.md)
+   2. [Compreensão e aquisição de dados](lifecycle-data.md)
    3. [Modelagem](lifecycle-modeling.md)
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
