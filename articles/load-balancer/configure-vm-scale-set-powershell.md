@@ -4,14 +4,14 @@ description: Saiba como configurar um conjunto de dimensionamento de máquinas v
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 0db09083a2197ce72e6d6eed2381b0308239586e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 858315008434f511e3adc0a91d591d924634fc39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809493"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell
 

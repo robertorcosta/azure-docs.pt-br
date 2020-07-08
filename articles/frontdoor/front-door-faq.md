@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809472"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -46,7 +46,7 @@ Os principais cenários pelos quais um deve usar o gateway de aplicativo por tr�
 
 - A porta frontal pode executar o balanceamento de carga baseado em caminho apenas no nível global, mas se um quiser balancear a carga do tráfego ainda mais dentro de sua rede virtual (VNET), eles deverão usar o gateway de aplicativo.
 - Como a porta da frente não funciona em nível de VM/contêiner, isso não pode fazer o descarregamento da conexão. No entanto, o gateway de aplicativo permite que você faça o descarregamento de conexão. 
-- Com um gateway de aplicativo por trás de AFD, é possível obter um descarregamento de 100% TLS/SSL e rotear apenas solicitações HTTP em sua VNET (rede virtual).
+- Com um gateway de aplicativo por trás da porta frontal, é possível obter um descarregamento de 100% TLS/SSL e rotear apenas solicitações HTTP em sua VNET (rede virtual).
 - A porta de frente e o gateway de aplicativo dão suporte à afinidade de sessão. Embora a porta frontal possa direcionar o tráfego subsequente de uma sessão de usuário para o mesmo cluster ou back-end em uma determinada região, o gateway de aplicativo pode direcionar relacionar o tráfego para o mesmo servidor dentro do cluster.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Podemos implantar Azure Load Balancer atrás da porta frontal?
@@ -93,12 +93,12 @@ Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de fre
  
     - Consulte a seção *AzureFrontDoor. backend* em [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para o intervalo de endereços IP de back-end IPv4 da porta frontal ou você também pode usar a marca de serviço *AzureFrontDoor. backend* em seus [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
     - O espaço IP de back-end **IPv6** da porta frontal, enquanto coberto na marca de serviço, não está listado no arquivo JSON de intervalos de IP do Azure. Se você estiver procurando um intervalo de endereços IPv6 explícito, ele estará atualmente limitado a`2a01:111:2050::/44`
-    - Serviços de [infraestrutura básica](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) do Azure por meio de endereços IP de `168.63.129.16` host virtualizados: e`169.254.169.254`
+    - Serviços de [infraestrutura básica](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) do Azure por meio de endereços IP de host virtualizados: `168.63.129.16` e`169.254.169.254`
 
     > [!WARNING]
     > O espaço de IP de back-end da porta frontal pode ser alterado mais tarde. no entanto, garantiremos que, antes disso, isso seria integrado aos [intervalos de IP e às marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que você assine [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
 
--    Execute uma operação GET na sua porta frontal com a versão `2020-01-01` da API ou superior. Na chamada à API, procure o `frontdoorID` campo. Filtre o cabeçalho de entrada '**X-Azure-FDID**' enviado pela porta frontal ao seu back-end com o valor como o do `frontdoorID`campo. 
+-    Execute uma operação GET na sua porta frontal com a versão da API `2020-01-01` ou superior. Na chamada à API, procure o `frontdoorID` campo. Filtre o cabeçalho de entrada '**X-Azure-FDID**' enviado pela porta frontal ao seu back-end com o valor como o do campo `frontdoorID` . Você também pode encontrar `Front Door ID` o valor na seção visão geral da página do portal de porta frontal. 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>O IP anycast pode ser alterado durante o tempo de vida da minha porta frontal?
 
@@ -139,7 +139,7 @@ Saiba mais sobre todos os [tempos limite e limites documentados para a porta fro
 
 O Azure front door é uma plataforma multilocatário distribuída globalmente com grandes volumes de capacidade para atender às necessidades de escalabilidade do seu aplicativo. Entregue da borda da rede global da Microsoft, a porta da frente fornece o recurso de balanceamento de carga global que permite que você faça failover de todo o seu aplicativo ou mesmo de microserviços individuais entre regiões ou nuvens diferentes.
 
-## <a name="tls-configuration"></a>Configuração de TLS
+## <a name="tls-configuration"></a>Configuração TLS
 
 ### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Quais versões do TLS têm suporte na porta frontal do Azure?
 
@@ -213,7 +213,7 @@ Não, não há suporte para certificados autoassinados na porta frontal e a rest
 
 Para ter conexões HTTPS bem-sucedidas para o back-end se for para investigações de integridade ou solicitações de encaminhamento, pode haver dois motivos pelos quais o tráfego HTTPS pode falhar:
 
-1. **Incompatibilidade de nome de entidade do certificado**: para conexões HTTPS, a porta frontal espera que seu back-end apresente o certificado de uma AC válida com nome (s) de entidade correspondente ao nome de host de back-end. Por exemplo, se o nome de host de back- `myapp-centralus.contosonews.net` end for definido como e o certificado que seu back-end apresenta durante `myapp-centralus.contosonews.net` o `*myapp-centralus*.contosonews.net` handshake de TLS que não tem nem no nome da entidade, a porta da frente recusará a conexão e resultará em um erro. 
+1. **Incompatibilidade de nome de entidade do certificado**: para conexões HTTPS, a porta frontal espera que seu back-end apresente o certificado de uma AC válida com nome (s) de entidade correspondente ao nome de host de back-end. Por exemplo, se o nome de host de back-end for definido como `myapp-centralus.contosonews.net` e o certificado que seu back-end apresenta durante o handshake de TLS que não tem `myapp-centralus.contosonews.net` nem `*myapp-centralus*.contosonews.net` no nome da entidade, a porta da frente recusará a conexão e resultará em um erro. 
     1. **Solução**: embora não seja recomendado em um ponto de vista de conformidade, você pode solucionar esse erro ao desabilitar a verificação do nome da entidade do certificado para sua porta frontal. Isso está presente em configurações em portal do Azure e em BackendPoolsSettings na API.
 2. **Certificado de Hospedagem de back-end de AC inválida**: somente certificados de [CAS válidas](/azure/frontdoor/front-door-troubleshoot-allowed-ca) podem ser usados no back-end com a porta frontal. Certificados de CAs internos ou certificados autoassinados não são permitidos.
 

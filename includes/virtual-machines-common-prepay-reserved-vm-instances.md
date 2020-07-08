@@ -5,10 +5,10 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 03/27/2020
 ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371659"
 ---
 Ao se comprometer com uma instância de VM reservada do Azure, você pode economizar dinheiro. O desconto da reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao escopo e atributos da reserva. Você não precisa atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada abrange apenas a parte de computação do uso da VM. Para VMs do Windows, o medidor de uso é dividido em dois medidores separados. Há um medidor de computação, que é o mesmo que o medidor do Linux e um medidor de IP do Windows. Os encargos que você vê quando faz a compra são apenas para os custos de computação. Os encargos não incluem os custos de software do Windows. Para obter mais informações sobre os custos de software, consulte [custos de software não incluídos com instâncias de VM reservadas do Azure](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
@@ -37,7 +37,7 @@ A configuração de flexibilidade de tamanho da instância determina quais servi
 Se a configuração estiver ativada ou desativada, os descontos de reserva se aplicarão automaticamente a qualquer uso da VM correspondente quando *ConsumedService* for `Microsoft.Compute`. Portanto, verifique os dados de uso para o valor *ConsumedService*. Alguns exemplos incluem:
 
 - Máquinas virtuais
-- Conjuntos de dimensionamento de máquinas virtuais
+- conjuntos de escala de máquina virtual
 - Serviço de contêiner
 - Implantações do Lote do Azure (no modo de assinaturas do usuário)
 - AKS (Serviço de Kubernetes do Azure)
@@ -57,7 +57,7 @@ Para obter mais informações sobre a flexibilidade de tamanho da instância, co
 
 ### <a name="analyze-your-usage-information"></a>Analisar suas informações de uso
 
-Analise suas informações de uso para ajudar a determinar quais reservas devem ser compradas. Os dados de uso estão disponíveis no arquivo de uso e nas APIs. Use-os juntos para determinar qual reserva deve ser comprada. Verifique as instâncias de VM que têm alto uso diariamente para determinar a quantidade de reservas a serem compradas. Evite a `Meter` subcategoria e `Product` os campos nos dados de uso. Eles não fazem distinção entre os tamanhos de VM que usam o armazenamento Premium. Se você usar esses campos para determinar o tamanho da VM para a compra de reserva, você poderá comprar o tamanho errado. Em seguida, você não obterá o desconto de reserva esperado. Em vez disso, consulte `AdditionalInfo` o campo em seu arquivo de uso ou API de uso para determinar o tamanho correto da VM.
+Analise suas informações de uso para ajudar a determinar quais reservas devem ser compradas. Os dados de uso estão disponíveis no arquivo de uso e nas APIs. Use-os juntos para determinar qual reserva deve ser comprada. Verifique as instâncias de VM que têm alto uso diariamente para determinar a quantidade de reservas a serem compradas. Evite a `Meter` subcategoria e os `Product` campos nos dados de uso. Eles não fazem distinção entre os tamanhos de VM que usam o armazenamento Premium. Se você usar esses campos para determinar o tamanho da VM para a compra de reserva, você poderá comprar o tamanho errado. Em seguida, você não obterá o desconto de reserva esperado. Em vez disso, consulte o `AdditionalInfo` campo em seu arquivo de uso ou API de uso para determinar o tamanho correto da VM.
 
 Seu arquivo de uso mostra os encargos por período de cobrança e uso diário. Para obter informações sobre como baixar seu arquivo de uso, consulte [Exibir e baixar o uso e os encargos do Azure](../articles/cost-management-billing/understand/download-azure-daily-usage.md). Em seguida, usando as informações do arquivo de uso, você pode [determinar a reserva a ser comprada](../articles/cost-management-billing/reservations/determine-reservation-purchase.md).
 
@@ -87,7 +87,7 @@ Esses requisitos se aplicam à compra de uma instância de VM reservada:
 Para comprara uma instância:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione **todas as** > **reservas**de serviços.
+1. Selecione **Todos os serviços** > **Reservas**.
 1. Selecione **Adicionar** para comprar uma nova reserva e, em seguida, clique em **máquina virtual**.
 1. Preencha os campos obrigatórios. As instâncias de VM em execução que correspondem com os atributos que você selecionar, ficam qualificados para obter o desconto de reserva. O número real de suas instâncias VM que obtêm o desconto depende do escopo e da quantidade selecionada.
 
@@ -133,7 +133,7 @@ No entanto, você pode *trocar* uma reserva se desejar fazer alterações.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
@@ -143,8 +143,8 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 
 - Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md).
 - Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
-    - [O que são as reservas do Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
-    - [Gerenciar reservas no Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    - [O que são Reservas do Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+    - [Gerenciar Reservas no Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
     - [Entender como o desconto de reserva é aplicado](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
     - [Noções básicas sobre o uso de reserva para uma assinatura com taxas pagas conforme o uso](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Entender o uso de reserva para seu registro de empresa](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

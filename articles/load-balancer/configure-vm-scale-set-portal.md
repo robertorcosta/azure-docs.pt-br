@@ -4,14 +4,14 @@ description: Saiba como configurar um conjunto de dimensionamento de máquinas v
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: b2a83b226a4b2ddbbd554783de6a2b5c85c92f0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349716"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809453"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure
 
@@ -36,13 +36,13 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
 > [!NOTE]
 > As etapas a seguir pressupõem uma rede virtual chamada **myVNet** e um Azure Load Balancer chamado **myLoadBalancer** foi implantado anteriormente.
 
-1. No canto superior esquerdo da tela, clique em **criar um recurso** > **computação** > **máquina virtual conjunto de dimensionamento** ou procure por **conjunto de dimensionamento de máquinas virtuais** na pesquisa do Marketplace.
+1. No canto superior esquerdo da tela, clique em **criar um recurso**  >  **computação**  >  **máquina virtual conjunto de dimensionamento** ou procure por **conjunto de dimensionamento de máquinas virtuais** na pesquisa do Marketplace.
 
 2. Selecione **Criar**.
 
 3. Em **criar um conjunto de dimensionamento de máquinas virtuais**, insira ou selecione essas informações na guia **noções básicas** :
 
-    | Configuração                        | Valor                                                                                                 |
+    | Setting                        | Valor                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
     | **Detalhes do projeto**            |                                                                                                       |
     | Subscription                   | Selecionar sua assinatura do Azure                                                                        |
@@ -52,7 +52,7 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
     | Região                         | Selecione **leste dos EUA 2**                                                                                    |
     | Zona de disponibilidade              | Selecionar **nenhum**                                                                                       |
     | **Detalhes da instância**           |                                                                                                       |
-    | Imagem                          | Selecione **Ubuntu Server 18, 4 LTS**                                                                    |
+    | Image                          | Selecione **Ubuntu Server 18, 4 LTS**                                                                    |
     | Instância do Azure Spot            | Selecione **Não**                                                                                         |
     | Tamanho                           | Deixar no padrão                                                                                      |
     | **Conta de administrador**      |                                                                                                       |
@@ -64,11 +64,11 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
 
     :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Criar conjunto de dimensionamento de máquinas virtuais." border="true":::
 
-4. Selecione a guia **rede** .
+4. Selecione a guia **Rede**.
 
 5. Insira ou selecione essas informações na guia **rede** :
 
-     Configuração                           | Valor                                                    |
+     Setting                           | Valor                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Configuração da rede virtual** |                                                          |
     | Rede virtual                   | Selecione **myVNet** ou sua rede virtual existente.      |

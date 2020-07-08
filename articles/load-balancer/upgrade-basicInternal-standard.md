@@ -4,15 +4,15 @@ description: Este artigo mostra como atualizar o Load Balancer interno do Azure 
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 960897abca67bf2a43c4c056b8dfa8cce0119faa
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 801f57c8d5b67e31bd6b3ac25d845dc2e13e365c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809324"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Atualizar o Load Balancer interno do Azure-nenhuma conexão de saída é necessária
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -56,7 +56,7 @@ Há duas opções para você dependendo da configuração e das preferências do
 * Se você não tiver os módulos AZ do Azure instalados ou não se lembrar de desinstalar os módulos AZ do Azure, a melhor opção é usar a `Install-Script` opção para executar o script.
 * Se você precisar manter os módulos AZ do Azure, sua melhor aposta é baixar o script e executá-lo diretamente.
 
-Para determinar se você tem os módulos AZ do Azure instalados, `Get-InstalledModule -Name az`execute. Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
+Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
 ### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
 
@@ -104,7 +104,7 @@ Sim, ele migra o tráfego. Se você quiser migrar o tráfego pessoalmente, use [
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ocorreu alguns problemas com o uso desse script. Como posso obter ajuda?
   
-Você pode enviar um email para slbupgradesupport@microsoft.como, abrir um caso de suporte com o suporte do Azure ou fazer ambos.
+Você pode enviar um email para o slbupgradesupport@microsoft.com , abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

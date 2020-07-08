@@ -4,15 +4,15 @@ description: Este artigo mostra como atualizar o Load Balancer público do Azure
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f1c85c98b9ea0dcaa6498622a0667bffba080401
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809351"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Atualizar Load Balancer públicos do Azure
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -49,7 +49,7 @@ Há duas opções para você dependendo da configuração e das preferências do
 * Se você não tiver os módulos AZ do Azure instalados ou não se lembrar de desinstalar os módulos AZ do Azure, a melhor opção é usar a `Install-Script` opção para executar o script.
 * Se você precisar manter os módulos AZ do Azure, sua melhor aposta é baixar o script e executá-lo diretamente.
 
-Para determinar se você tem os módulos AZ do Azure instalados, `Get-InstalledModule -Name az`execute. Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
+Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
 ### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
 
@@ -103,7 +103,7 @@ Aqui estão alguns cenários de como adicionar VMs a pools de back-end do Load B
    
     1. Selecione o pool de back-end que corresponde ao pool de back-end do Load Balancer básico, selecione o seguinte valor: 
       - **Máquina virtual**: lista suspensa e selecione as VMs do pool de back-end correspondente do Load Balancer básico.
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
     >[!NOTE]
     >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
 
@@ -128,7 +128,7 @@ Não. O script de Azure PowerShell migra apenas a configuração. A migração d
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ocorreu alguns problemas com o uso desse script. Como posso obter ajuda?
   
-Você pode enviar um email para slbupgradesupport@microsoft.como, abrir um caso de suporte com o suporte do Azure ou fazer ambos.
+Você pode enviar um email para o slbupgradesupport@microsoft.com , abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

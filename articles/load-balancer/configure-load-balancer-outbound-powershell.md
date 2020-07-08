@@ -5,15 +5,15 @@ description: Este artigo mostra como configurar o balanceamento de carga e as re
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 5fd68f4559420ca688b3f4d6f6d66ee52db5191e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd429ee5fc5564c55e6a9c758e1c53e821060f0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74225436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809524"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando Azure PowerShell
 
@@ -142,7 +142,7 @@ Use o comando a seguir para criar uma regra de saída *myoutboundrule* para a tr
 ```
 Se você não quiser usar um pool de saída separado, poderá alterar o argumento do pool de endereços no comando anterior para especificar *$bepoolin* em vez disso.  É recomendável usar pools separados para tornar a configuração resultante flexível e legível.
 
-### <a name="create-a-load-balancer"></a>Criar o balanceador de carga
+### <a name="create-a-load-balancer"></a>Criar um balanceador de carga
 
 Use o comando a seguir para criar um balanceador de carga para o endereço IP de entrada usando [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0). Nomeie o balanceador de carga *lb*. Ele deve incluir uma configuração de IP de front-end de entrada. Seu pool de back-end *bepoolinbound* deve ser associado ao endereço IP público *mypublicipinbound* que você criou na etapa anterior.
 
@@ -152,7 +152,7 @@ New-AzLoadBalancer -Name lb -Sku Standard -ResourceGroupName myresourcegroupoutb
 
 Neste ponto, você pode continuar adicionando suas VMs a pools de back-ends *bepoolinbound* e *bepooloutbound* atualizando a configuração de IP dos respectivos recursos de NIC. Atualize a configuração de recurso usando [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você não precisar mais do grupo de recursos, do balanceador de carga e dos recursos relacionados, poderá removê-los usando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.7.0).
 
