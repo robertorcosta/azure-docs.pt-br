@@ -8,10 +8,9 @@ ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869938"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure
@@ -38,11 +37,11 @@ Na home page do diagnóstico do serviço de aplicativo, você pode escolher a ca
 
 ## <a name="interactive-interface"></a>Interface interativa
 
-Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do aplicativo, a interface interativa do diagnóstico do serviço de aplicativo, gênio, pode orientá-lo durante o diagnóstico e a resolução de problemas com seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema que você está interessado. Os atalhos de bloco fornecem uma maneira direta de acessar suas métricas de diagnóstico.
+Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do aplicativo, a interface interativa do diagnóstico do serviço de aplicativo, gênio, pode orientá-lo durante o diagnóstico e a resolução de problemas com seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema que você está interessado. Os atalhos de bloco fornecem uma forma direta de acessar suas métricas de diagnóstico.
 
 ![Atalhos de bloco](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-Depois de clicar nesses blocos, você poderá ver uma lista de tópicos relacionados ao problema descrito no bloco. Esses tópicos fornecem trechos de informações notáveis do relatório completo. Você pode clicar em qualquer um desses tópicos para investigar mais os problemas. Além disso, você pode clicar em **Exibir relatório completo** para explorar todos os tópicos em uma única página.
+Depois de clicar nesses blocos, você poderá ver uma lista de tópicos relacionados ao problema descrito no bloco. Esses tópicos fornecem trechos de informações importantes do relatório completo. Você pode clicar em qualquer um desses tópicos para investigar mais os problemas. Além disso, você pode clicar em **Exibir relatório completo** para explorar todos os tópicos em uma única página.
 
 ![Tópicos](./media/app-service-diagnostics/application-logs-insights-3.png)
 

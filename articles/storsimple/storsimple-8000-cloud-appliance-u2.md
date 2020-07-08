@@ -15,11 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711843"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -64,7 +63,7 @@ A tabela abaixo mostra algumas das principais diferenças entre o Dispositivo de
 
 |  | Dispositivo físico | Dispositivo de nuvem |
 | --- | --- | --- |
-| **Local** |Reside no datacenter. |É executado no Azure. |
+| **Localidade** |Reside no datacenter. |É executado no Azure. |
 | **Interfaces de rede** |Tem seis interfaces de rede: DATA 0 a DATA 5. |Tem apenas uma interface de rede: DATA 0. |
 | **Registro** |Registrado durante a etapa de configuração inicial. |O registro é uma tarefa separada. |
 | **Chave de criptografia de dados de serviço** |Com a chave nova, gere no dispositivo físico e, em seguida, atualize o dispositivo de nuvem. |Não é possível gerar novamente do dispositivo de nuvem. |

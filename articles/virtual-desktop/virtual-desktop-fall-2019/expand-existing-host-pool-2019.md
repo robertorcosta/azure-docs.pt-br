@@ -4,21 +4,20 @@ description: Como expandir um pool de hosts existente com novos hosts de sessão
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4313f36a0b250be9646c6658b98f15037374729
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615520"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214274"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows introduzidos na atualização do Spring 2020, consulte [Este artigo](../expand-existing-host-pool.md).
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../expand-existing-host-pool.md).
 
 Ao aumentar o uso em seu pool de hosts, talvez seja necessário expandir seu pool de hosts existente com novos hosts de sessão para lidar com a nova carga.
 
@@ -57,12 +56,12 @@ Veja como reimplantar o modelo de Azure Resource Manager para expandir um pool d
      - Se você criou o pool de hosts original com a oferta do Azure Marketplace, selecione a implantação começando com **RDS. wvd-Provision-host-pool**.
      - Se você criou o pool de hosts original com o modelo de Azure Resource Manager do GitHub, selecione a implantação chamada **Microsoft. Template**.
 6. Selecione **reimplantar**.
-     
+
      >[!NOTE]
      >Se o modelo não for reimplantado automaticamente quando você selecionar **reimplantar**, selecione **modelo** no painel no lado esquerdo do navegador e selecione **implantar**.
 
 7. Selecione o grupo de recursos que contém as VMs de host de sessão atual no pool de hosts existente.
-     
+
      >[!NOTE]
      >Se você vir um erro que informa para selecionar um grupo de recursos diferente, embora aquele que você inseriu esteja correto, selecione outro grupo de recursos e selecione o grupo de recursos original.
 
@@ -85,7 +84,7 @@ Todos os valores nesta seção devem corresponder ao que você forneceu ao criar
 3.    Para *região*, selecione a mesma região em que as VMs de host de sessão do pool de hosts existentes estão localizadas.
 4.    Para *nome do Hostpool*, insira o nome do pool de hosts existente.
 5.    Para *tipo de área de trabalho*, selecione o tipo de área de trabalho que corresponde ao pool de hosts existente.
-6.    Para *usuários da área de trabalho padrão*, insira uma lista separada por vírgulas de todos os usuários adicionais que você deseja entrar nos clientes da área de trabalho virtual do Windows e acesse uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser user3@contoso.com atribuir e user4@contoso.com acessar, insira user3@contoso.com,.user4@contoso.com
+6.    Para *usuários da área de trabalho padrão*, insira uma lista separada por vírgulas de todos os usuários adicionais que você deseja entrar nos clientes da área de trabalho virtual do Windows e acesse uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir user3@contoso.com e user4@contoso.com acessar, insira user3@contoso.com , user4@contoso.com .
 7.    Selecione **Avançar: configurar máquina virtual**.
 
 >[!NOTE]
@@ -96,7 +95,7 @@ Todos os valores nesta seção devem corresponder ao que você forneceu ao criar
 Todos os valores de parâmetro nesta seção devem corresponder ao que você forneceu quando criou pela primeira vez o pool de hosts e as VMs de host de sessão, exceto o número total de VMs. O número de VMs que você inserir será o número de VMs em seu pool de hosts expandido:
 
 1. Selecione o tamanho da VM que corresponde às VMs do host de sessão existente.
-    
+
     >[!NOTE]
     >Se o tamanho específico da VM que você procura não aparece no seletor de tamanho da VM, é porque ainda não o integramos à ferramenta Azure Marketplace. Para solicitar um tamanho de VM, crie uma solicitação ou atualize uma solicitação existente no [fórum UserVoice do Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
@@ -130,7 +129,7 @@ Siga as instruções em [executar o modelo de Azure Resource Manager para provis
 
 Agora que você expandiu o pool de hosts existente, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Você pode se conectar a uma sessão com qualquer um dos seguintes clientes:
 
-- [Conectar-se ao Cliente de Área de Trabalho do Windows](../connect-windows-7-and-10.md)
+- [Conectar-se ao cliente da Área de Trabalho do Windows](../connect-windows-7-and-10.md)
 - [Conectar-se ao cliente Web](connect-web-2019.md)
 - [Conectar-se ao cliente Android](connect-android-2019.md)
 - [Conectar-se ao cliente macOS](connect-macos-2019.md)

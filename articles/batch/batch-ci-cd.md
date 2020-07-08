@@ -5,12 +5,11 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726835"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956654"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implantar soluções de HPC
 
@@ -28,8 +27,8 @@ Neste exemplo, criaremos um pipeline de build e lançamento para implantar uma i
 
 Para seguir as etapas neste artigo, você precisa de um projeto de equipe e uma organização do Azure DevOps.
 
-* [Criar uma organização do Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Criar um projeto no Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Criar uma organização do Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* [Criar um projeto no Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 ### <a name="source-control-for-your-environment"></a>Controle do código-fonte do seu ambiente
 
@@ -48,7 +47,7 @@ A estrutura de base de código usada neste exemplo é semelhante à seguinte:
 
 Esta seção pressupõe que você esteja familiarizado com o controle de versão e a criação de modelos do Resource Manager. Se você não estiver familiarizado com esses conceitos, confira as páginas a seguir para saber mais.
 
-* [O que é controle do código-fonte?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
+* [O que é controle do código-fonte?](/azure/devops/user-guide/source-control?view=azure-devops)
 * [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
@@ -62,7 +61,7 @@ Para este exemplo, há um modelo de solução de ponta a ponta (deployment.json)
 
 ![Exemplo de estrutura de modelo vinculado usando modelos do Azure Resource Manager](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
-O primeiro modelo que examinaremos é para uma Conta de Armazenamento do Azure. Nossa solução requer uma conta de armazenamento para implantar o aplicativo em nossa Conta do lote. Esteja ciente do [guia de referência do modelo do Resource Manager para os tipos de recurso Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions) ao compilar modelos do Resource Manager para contas de armazenamento.
+O primeiro modelo que examinaremos é para uma Conta de Armazenamento do Azure. Nossa solução requer uma conta de armazenamento para implantar o aplicativo em nossa Conta do lote. Esteja ciente do [guia de referência do modelo do Resource Manager para os tipos de recurso Microsoft.Storage](/azure/templates/microsoft.storage/allversions) ao compilar modelos do Resource Manager para contas de armazenamento.
 
 ```json
 {
@@ -102,7 +101,7 @@ O primeiro modelo que examinaremos é para uma Conta de Armazenamento do Azure. 
 }
 ```
 
-Em seguida, veremos o modelo de Conta do Lote do Azure. A Conta do Lote do Azure atua como uma plataforma para executar vários aplicativos em pools (agrupamentos de computadores). Esteja ciente do [guia de referência do modelo do Resource Manager para os tipos de recurso Microsoft.Batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) ao compilar modelos do Resource Manager para Contas de Lote.
+Em seguida, veremos o modelo de Conta do Lote do Azure. A Conta do Lote do Azure atua como uma plataforma para executar vários aplicativos em pools (agrupamentos de computadores). Esteja ciente do [guia de referência do modelo do Resource Manager para os tipos de recurso Microsoft.Batch](/azure/templates/microsoft.batch/allversions) ao compilar modelos do Resource Manager para Contas de Lote.
 
 ```json
 {
@@ -141,7 +140,7 @@ Em seguida, veremos o modelo de Conta do Lote do Azure. A Conta do Lote do Azure
 }
 ```
 
-O próximo modelo mostra um exemplo de criação de um pool do Lote do Azure (os computadores de back-end para processar nossos aplicativos). Esteja ciente do [guia de referência do modelo do Resource Manager para os tipos de recurso Microsoft.Batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) ao compilar modelos do Resource Manager para Pools de Contas de Lote.
+O próximo modelo mostra um exemplo de criação de um pool do Lote do Azure (os computadores de back-end para processar nossos aplicativos). Esteja ciente do [guia de referência do modelo do Resource Manager para os tipos de recurso Microsoft.Batch](/azure/templates/microsoft.batch/allversions) ao compilar modelos do Resource Manager para Pools de Contas de Lote.
 
 ```json
 {
@@ -309,7 +308,7 @@ Agora que o código-fonte está configurado, podemos iniciar o primeiro build.
 
 ## <a name="continuous-integration"></a>Integração contínua
 
-O [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops), no Azure DevOps Services, ajuda a implementar um pipeline de build, teste e implantação para seus aplicativos.
+O [Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), no Azure DevOps Services, ajuda a implementar um pipeline de build, teste e implantação para seus aplicativos.
 
 Nesse estágio do pipeline, os testes são normalmente executados para validar o código e compilar as partes apropriadas do software. O número e os tipos de testes e as tarefas adicionais que você executar dependerão da sua estratégia de build e lançamento mais ampla.
 
@@ -323,9 +322,9 @@ Neste exemplo, iremos nos concentrar na pasta **hpc-application**. A pasta **hpc
 
 1. Você tem duas opções para criar um Pipeline de build:
 
-    a. [Como usar o Designer Visual](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Para fazer isso, clique em "Usar o designer visual" na página **Novo pipeline**.
+    a. [Como usar o Designer Visual](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Para fazer isso, clique em "Usar o designer visual" na página **Novo pipeline**.
 
-    b. [Como usar builds do YAML](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=azure-devops). Você pode criar um novo pipeline do YAML clicando na opção Azure Repos ou GitHub na página Novo pipeline. Como alternativa, você pode armazenar o exemplo abaixo no controle do código-fonte e fazer referência a um arquivo YAML existente clicando no Designer Visual e, em seguida, usando o modelo YAML.
+    b. [Como usar builds do YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Você pode criar um novo pipeline do YAML clicando na opção Azure Repos ou GitHub na página Novo pipeline. Como alternativa, você pode armazenar o exemplo abaixo no controle do código-fonte e fazer referência a um arquivo YAML existente clicando no Designer Visual e, em seguida, usando o modelo YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,11 +356,11 @@ Neste exemplo, iremos nos concentrar na pasta **hpc-application**. A pasta **hpc
     ![Exibir as saídas dinâmicas do build](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Se você usar um aplicativo cliente para executar o Aplicativo do Lote HPC, será necessário criar uma definição de build separada para esse aplicativo. Você pode encontrar vários guias de instruções na documentação do [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops).
+> Se você usar um aplicativo cliente para executar o Aplicativo do Lote HPC, será necessário criar uma definição de build separada para esse aplicativo. Você pode encontrar vários guias de instruções na documentação do [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops).
 
 ## <a name="continuous-deployment"></a>Implantação contínua
 
-O Azure Pipelines também é usado para implantar seu aplicativo e a infraestrutura subjacente. O [pipeline de lançamento](https://docs.microsoft.com/azure/devops/pipelines/release) é o componente que permite a implantação contínua e automatizada do processo de lançamento.
+O Azure Pipelines também é usado para implantar seu aplicativo e a infraestrutura subjacente. O [pipeline de lançamento](/azure/devops/pipelines/release) é o componente que permite a implantação contínua e automatizada do processo de lançamento.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implantar o aplicativo e a infraestrutura subjacente
 

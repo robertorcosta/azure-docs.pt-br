@@ -1,10 +1,9 @@
 ---
-title: Perguntas frequentes sobre o SQL Server em Máquinas Virtuais Linux do Azure | Microsoft Docs
-description: Este artigo fornece respostas a perguntas frequentes sobre a execução do SQL Server em VMs Linux do Azure.
+title: Perguntas frequentes sobre SQL Server em Linux máquinas virtuais | Microsoft Docs
+description: Este artigo fornece respostas para perguntas frequentes sobre como executar SQL Server em Linux máquinas virtuais.
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.topic: troubleshooting
@@ -12,21 +11,20 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f5447e61936b55db353404aae7cb391377d78294
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669453"
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Perguntas frequentes sobre o SQL Server nas Máquinas Virtuais Linux do Azure
+# <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Perguntas frequentes para SQL Server em Linux máquinas virtuais
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/frequently-asked-questions-faq.md)
 > * [Linux](frequently-asked-questions-faq.md)
 
-Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execução do [SQL Server em Máquinas Virtuais Linux do Azure](sql-server-on-linux-vm-what-is-iaas-overview.md).
+Este artigo fornece respostas para algumas das perguntas mais comuns sobre a execução de [SQL Server em Linux máquinas virtuais](sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -34,15 +32,15 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 1. **Quais imagens da galeria de máquinas virtuais do SQL Server estão disponíveis?**
 
-   O Azure mantém imagens de máquina virtual para todas as versões principais compatíveis do SQL Server em todas as edições para o Linux e para o Windows. Para obter mais detalhes, consulte a lista completa de [imagens de VM Linux](sql-server-on-linux-vm-what-is-iaas-overview.md#create) e [imagens de VM Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+   O Azure mantém imagens de VM (máquina virtual) para todas as versões principais com suporte do SQL Server em todas as edições para Linux e Windows. Para obter mais detalhes, consulte a lista completa de [imagens de VM Linux](sql-server-on-linux-vm-what-is-iaas-overview.md#create) e [imagens de VM Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 
 1. **As imagens da galeria de máquinas virtuais do SQL Server existentes são atualizadas?**
 
-   A cada dois meses, as imagens do SQL Server na galeria de máquinas virtuais são atualizadas com as atualizações mais recentes do Linux e do Windows. Para imagens do Linux, isso inclui as atualizações mais recentes do sistema. Para imagens do Windows, isso inclui quaisquer atualizações marcadas como importantes no Windows Update, incluindo service packs e atualizações de segurança do SQL Server. As atualizações cumulativas do SQL Server são tratadas de maneira diferente para o Linux e para o Windows. Para o Linux, as atualizações cumulativas do SQL Server também são incluídas na atualização. Mas, neste momento, as VMs Windows não são atualizadas com as atualizações cumulativas do SQL Server ou do Windows Server.
+   A cada dois meses, as imagens do SQL Server na galeria de máquinas virtuais são atualizadas com as atualizações mais recentes do Linux e do Windows. Para imagens do Linux, isso inclui as atualizações mais recentes do sistema. Para imagens do Windows, isso inclui todas as atualizações marcadas como importantes no Windows Update, incluindo atualizações de segurança SQL Server importantes e Service Packs. As atualizações cumulativas do SQL Server são tratadas de maneira diferente para o Linux e para o Windows. Para o Linux, as atualizações cumulativas do SQL Server também são incluídas na atualização. Mas, neste momento, as VMs Windows não são atualizadas com as atualizações cumulativas do SQL Server ou do Windows Server.
 
 1. **Que pacotes do SQL Server relacionados também são instalados?**
 
-   Para ver os pacotes do SQL Server que são instalados por padrão em VMs Linux do SQL Server, consulte [Pacotes instalados](sql-server-on-linux-vm-what-is-iaas-overview.md#packages).
+   Para ver os pacotes de SQL Server que são instalados por padrão em VMs SQL Server em Linux, consulte [pacotes instalados](sql-server-on-linux-vm-what-is-iaas-overview.md#packages).
 
 1. **As imagens de máquina virtual do SQL Server podem ser removidas da galeria?**
 
@@ -50,9 +48,9 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 ## <a name="creation"></a>Criação
 
-1. **Como criar uma máquina virtual Linux do Azure com o SQL Server?**
+1. **Como fazer criar uma máquina virtual Linux com SQL Server?**
 
-   A solução mais fácil é criar uma máquina virtual Linux que inclua o SQL Server. Para obter um tutorial sobre como se inscrever no Azure e criar uma VM do SQL por meio do portal, confira [Provisionar uma máquina virtual Linux do SQL Server no Portal do Azure](sql-vm-create-portal-quickstart.md). Você também tem a opção de instalação manual do SQL Server em uma VM com um uma edição licenciada gratuitamente (Desenvolvedor ou Express) ou pela reutilização de uma licença local. Se você trouxer sua própria licença, será necessário ter o [License Mobility por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility).
+   A solução mais fácil é criar uma máquina virtual Linux que inclua SQL Server. Para obter um tutorial sobre como se inscrever no Azure e criar uma VM SQL Server no portal, confira [provisionar uma máquina virtual Linux em execução SQL Server no portal do Azure](sql-vm-create-portal-quickstart.md). Você também tem a opção de instalação manual do SQL Server em uma VM com um uma edição licenciada gratuitamente (Desenvolvedor ou Express) ou pela reutilização de uma licença local. Se você trouxer sua própria licença, será necessário ter o [License Mobility por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility).
 
 1. **Por que não é possível, provisionar uma VM do SQL Server do SLES ou RHEL com uma assinatura do Azure que tem um limite de gastos?**
 
@@ -74,13 +72,13 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 ## <a name="administration"></a>Administração
 
-1. **Posso gerenciar uma máquina virtual Linux com SQL Server com o SSMS (SQL Server Management Studio)?**
+1. **Posso gerenciar uma máquina virtual Linux que executa o SQL Server com o SSMS (SQL Server Management Studio)?**
 
-   Sim, mas o SSMS atualmente é uma ferramenta somente do Windows. Você deve se conectar remotamente de um computador Windows para usar o SSMS com VMs do SQL Server do Linux. Localmente no Linux, a nova ferramenta [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) pode executar várias tarefas administrativas. Para obter uma ferramenta de gerenciamento de banco de dados multiplataforma, confira [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Sim, mas o SSMS atualmente é uma ferramenta somente do Windows. Você deve se conectar remotamente de um computador Windows para usar o SSMS com VMs Linux em execução SQL Server. Localmente no Linux, a nova ferramenta [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) pode executar várias tarefas administrativas. Para obter uma ferramenta de gerenciamento de banco de dados multiplataforma, confira [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
-1. **Posso remover o SQL Server completamente de uma VM de SQL?**
+1. **Posso remover o SQL Server completamente de uma VM de SQL Server?**
 
-   Sim, mas você continuará a ser cobrado pela VM do SQL conforme descrito em [Diretrizes de preços para VMs do Azure do SQL Server](../windows/pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Se você não precisar mais do SQL Server, você poderá implantar uma nova máquina virtual e migrar os dados e aplicativos para a nova máquina virtual. Em seguida, você pode remover a máquina virtual do SQL Server.
+   Sim, mas você continuará a ser cobrado pela VM do SQL Server, conforme descrito em [Diretrizes de preços para VMs do Azure do SQL Server](../windows/pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Se você não precisar mais do SQL Server, você poderá implantar uma nova máquina virtual e migrar os dados e aplicativos para a nova máquina virtual. Em seguida, você pode remover a máquina virtual do SQL Server.
 
 ## <a name="updating-and-patching"></a>Atualização e aplicação de patch
 
@@ -90,20 +88,20 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 ## <a name="general"></a>Geral
 
-1. **Há suporte para soluções de alta disponibilidade do SQL Server em VMs do Azure?**
+1. **Há SQL Server soluções de alta disponibilidade com suporte em VMs do Azure?**
 
-   Não no momento. Tanto Grupos de disponibilidade AlwaysOn quanto Clustering de Failover exigem uma solução de clustering em Linux, tal como o Pacemaker. As distribuições do Linux com suporte para o SQL Server não dão suporte aos respectivos complementos de alta disponibilidade na nuvem.
+   Não no momento. O grupos de disponibilidade Always On e o clustering de failover exigem uma solução de clustering no Linux, como pacemaker. As distribuições Linux com suporte para SQL Server não dão suporte aos complementos de alta disponibilidade na nuvem.
 
 ## <a name="resources"></a>Recursos
 
 **VMs Linux**:
 
 * [Visão geral do SQL Server em uma VM Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [Provisionar uma VM Linux do SQL Server](sql-vm-create-portal-quickstart.md)
+* [Provisionar SQL Server em uma VM do Linux](sql-vm-create-portal-quickstart.md)
 * [SQL Server na documentação do Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 **VMs do Windows**:
 
 * [Visão geral do SQL Server em uma VM do Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Provisionar uma VM do Windows do SQL Server](../windows/sql-vm-create-portal-quickstart.md)
+* [Provisionar SQL Server em uma VM do Windows](../windows/sql-vm-create-portal-quickstart.md)
 * [Perguntas Frequentes (Windows)](../windows/frequently-asked-questions-faq.md)

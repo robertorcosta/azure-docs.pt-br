@@ -5,16 +5,15 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: 7bc28a03476e773325d14808e1c7ac99103b2d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 868bcfc898fc6bc804f36516f2cc01a52ad2db47
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414327"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: autenticação do Azure AD
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: Autenticação do Azure AD
 
 Este artigo ajuda você a configurar um cliente VPN para se conectar a uma rede virtual usando VPN ponto a site e autenticação Azure Active Directory. Antes de poder se conectar e autenticar usando o Azure AD, você deve primeiro configurar seu locatário do Azure AD. Para obter mais informações, consulte [configurar um locatário do Azure ad](openvpn-azure-ad-tenant.md).
 
@@ -66,23 +65,23 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Na página, selecione **Importar**.
 
-    ![importar](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. Navegue até o arquivo XML do perfil e selecione-o. Com o arquivo selecionado, selecione **Abrir**.
 
-    ![importar](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Especifique o nome do perfil e selecione **Salvar**.
 
-    ![importar](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Selecione **Conectar** para se conectar à VPN.
 
-    ![importar](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Uma vez conectado, o ícone ficará verde e mostrará o texto **Conectado**.
 
-    ![importar](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para excluir um perfil de cliente
 
@@ -98,23 +97,23 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Na página, selecione **+** e **+ Adicionar**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![conexão](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Preencha as informações de conexão. Se você não tiver certeza dos valores, contate o administrador. Depois de preencher os valores, selecione **salvar**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![conexão](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Selecione **Conectar** para se conectar à VPN.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![conexão](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Selecione as credenciais apropriadas e, em seguida, selecione **continuar**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![conexão](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Uma vez conectado com êxito, o ícone ficará verde e informará **conectado**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![conexão](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Para se conectar automaticamente
 
@@ -158,7 +157,7 @@ Essas etapas ajudam a configurar sua conexão para se conectar automaticamente c
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Como fazer adicionar sufixos DNS ao cliente VPN?
 
-Você pode modificar o arquivo XML do perfil baixado e adicionar as ** \<marcas \<dnssuffixes>\<dnssufix> \</dnssufix>/dnssuffixes>**
+Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** as marcas
 
 ```
 <azvpnprofile>
@@ -176,7 +175,7 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar as ** \<marcas 
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Como fazer adicionar servidores DNS personalizados ao cliente VPN?
 
-Você pode modificar o arquivo XML do perfil baixado e adicionar as ** \<marcas \<dnsservers>\<dnsserver> \</dnsserver>/dnsservers>**
+Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** as marcas
 
 ```
 <azvpnprofile>
@@ -192,12 +191,12 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar as ** \<marcas 
 ```
 
 > [!NOTE]
-> O cliente OpenVPN do Azure AD utiliza as entradas do DNS Tabela de Políticas de Resolução de Nomes (NRPT), o que significa que os servidores DNS não serão listados `ipconfig /all`na saída de. Para confirmar suas configurações de DNS em uso, consulte [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) no PowerShell.
+> O cliente OpenVPN do Azure AD utiliza as entradas do DNS Tabela de Políticas de Resolução de Nomes (NRPT), o que significa que os servidores DNS não serão listados na saída de `ipconfig /all` . Para confirmar suas configurações de DNS em uso, consulte [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) no PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como fazer adicionar rotas personalizadas ao cliente VPN?
 
-Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<o includeroutes \<>Route \<>destino \<>Mask \<>/Destination \<>/Mask \<>/Route \<>/includeroutes>** Tags
+Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** as marcas
 
 ```
 <azvpnprofile>
@@ -215,7 +214,7 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<o includer
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Como fazer bloquear (excluir) as rotas do cliente VPN?
 
-Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<o excluderoutes \<>Route \<>destino \<>Mask \<>/Destination \<>/Mask \<>/Route \<>/excluderoutes>** Tags
+Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** as marcas
 
 ```
 <azvpnprofile>
@@ -233,7 +232,7 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<o excluder
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Posso importar o perfil de um prompt de linha de comando?
 
-Você pode importar o perfil de um prompt de linha de comando colocando o arquivo **azurevpnconfig. xml** baixado na pasta **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** e executando o seguinte comando:
+Você pode importar o perfil de um prompt de linha de comando colocando o arquivo **azurevpnconfig.xml** baixado na pasta **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** e executando o seguinte comando:
 
 ```
 azurevpn -i azurevpnconfig.xml 

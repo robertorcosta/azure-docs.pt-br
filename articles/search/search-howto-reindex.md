@@ -7,13 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.openlocfilehash: 96177686e78a0595ac4ad49b9969b22d862facd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77498371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85051734"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como recriar um índice no Azure Pesquisa Cognitiva
 
@@ -21,7 +20,17 @@ Este artigo explica como recriar um índice de Pesquisa Cognitiva do Azure, as c
 
 Um *recompilar* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices invertidos com base no campo. No Azure Pesquisa Cognitiva, não é possível descartar e recriar campos individuais. Para recompilar um índice, todo o armazenamento de campo deve ser excluído, recriado com base em um esquema de índice existente ou revisado e, em seguida, novamente preenchido com os dados enviados por push para o índice ou extraídos de fontes externas. 
 
-É comum recompilar índices durante o desenvolvimento, mas você também precisará recompilar um índice de nível de produção para acomodar alterações estruturais, como a adição de tipos complexos ou de campos a sugestores.
+É comum recriar índices durante o desenvolvimento quando você está Iterando em um design de índice, mas também pode precisar recriar um índice de nível de produção para acomodar alterações estruturais, como adicionar tipos complexos ou adicionar campos a sugestores.
+
+## <a name="rebuild-versus-refresh"></a>"Recompilar" versus "atualizar"
+
+A recompilação não deve ser confundida com a atualização do conteúdo de um índice com documentos novos, modificados ou excluídos. A atualização de um corpus de pesquisa é quase uma determinada em cada aplicativo de pesquisa, com alguns cenários que exigem atualizações de minutos (por exemplo, quando um corpus de pesquisa precisa refletir alterações de inventário em um aplicativo de vendas online).
+
+Contanto que você não esteja alterando a estrutura do índice, você pode atualizar um índice usando as mesmas técnicas que usou para carregar o índice inicialmente:
+
+* Para indexação de modo Push, chame [Adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para enviar por push as alterações a um índice.
+
+* Para indexadores, você pode [agendar a execução do indexador](search-howto-schedule-indexers.md) e usar o controle de alterações ou os carimbos de data/hora para identificar o Delta. Se as atualizações devem ser refletidas mais rápido do que o que um Agendador pode gerenciar, você pode usar a indexação do modo Push.
 
 ## <a name="rebuild-conditions"></a>Recompilar condições
 
@@ -85,13 +94,13 @@ Você pode usar o [Search Explorer](search-explorer.md) ou uma ferramenta de tes
 
 Se você adicionou ou renomeou um campo, use [$Select](search-query-odata-select.md) para retornar esse campo:`search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Indexar grandes conjuntos de dados em escala](search-howto-large-index.md)
 + [Indexando no portal](search-import-data-portal.md)
 + [Indexador do Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-+ [Indexador do Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [Indexador de Banco de dados do Azure Cosmos](search-howto-index-cosmosdb.md)
 + [Indexador de armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md)
 + [Indexador de armazenamento de tabela do Azure](search-howto-indexing-azure-tables.md)
 + [Segurança no Azure Pesquisa Cognitiva](search-security-overview.md)

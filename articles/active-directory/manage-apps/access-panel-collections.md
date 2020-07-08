@@ -3,27 +3,24 @@ title: Criar coleções para meus portais de aplicativos no Azure Active Directo
 description: Use coleções de aplicativos para personalizar minhas páginas de aplicativos para uma experiência mais simples de meus aplicativos para seus usuários finais. Organize aplicativos em grupos com guias separadas.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77120088"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956229"
 ---
-# <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal meus aplicativos
+# <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal Meus Aplicativos
 
 Os usuários podem usar o portal meus aplicativos para exibir e iniciar os aplicativos baseados em nuvem aos quais eles têm acesso. Por padrão, todos os aplicativos que um usuário pode acessar são listados juntos em uma única página. Para organizar melhor essa página para seus usuários, se você tiver uma licença Azure AD Premium P1 ou P2, poderá configurar coleções. Com uma coleção, você pode agrupar aplicativos relacionados (por exemplo, por função de trabalho, tarefa ou projeto) e exibi-los em uma guia separada. Uma coleção basicamente aplica um filtro aos aplicativos que um usuário já pode acessar, para que o usuário veja apenas os aplicativos na coleção que foram atribuídos a eles.
 
@@ -34,7 +31,7 @@ Os usuários podem usar o portal meus aplicativos para exibir e iniciar os aplic
 
 1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como administrador de usuário ou administrador global.
 
-2. Vá para **Azure Active Directory** > **configurações do usuário**.
+2. Vá para **Azure Active Directory**  >  **configurações do usuário**.
 
 3. Em **visualizações de recurso de usuário**, selecione **gerenciar configurações de visualização de recurso do usuário**.
 
@@ -43,7 +40,7 @@ Os usuários podem usar o portal meus aplicativos para exibir e iniciar os aplic
    * **Todos** – habilita os recursos para todos os usuários.
 
 > [!NOTE]
-> Para abrir o portal meus aplicativos, os usuários podem usar o `https://myapps.microsoft.com` link ou o link personalizado para sua organização, como `https://myapps.microsoft.com/contoso.com`. Depois de habilitar a nova experiência meus aplicativos, a faixa **uma experiência atualizada meus aplicativos está disponível** será exibida na parte superior da página meus aplicativos, e os usuários poderão selecionar **experimentar** para exibir a nova experiência. Para parar de usar a nova experiência, os usuários podem selecionar **Sim** na faixa **deixar nova experiência** na parte superior da página.
+> Para abrir o portal meus aplicativos, os usuários podem usar o link `https://myapps.microsoft.com` ou o link personalizado para sua organização, como `https://myapps.microsoft.com/contoso.com` . Depois de habilitar a nova experiência meus aplicativos, a faixa **uma experiência atualizada meus aplicativos está disponível** será exibida na parte superior da página meus aplicativos, e os usuários poderão selecionar **experimentar** para exibir a nova experiência. Para parar de usar a nova experiência, os usuários podem selecionar **Sim** na faixa **deixar nova experiência** na parte superior da página.
 
 ## <a name="create-a-collection"></a>Criar uma coleção
 
@@ -51,7 +48,7 @@ Para criar uma coleção, você deve ter uma licença Azure AD Premium P1 ou P2.
 
 1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um administrador com uma licença Azure ad Premium P1 ou P2.
 
-2. Vá para **Azure Active Directory** > **aplicativos empresariais**.
+2. Vá para **Azure Active Directory**  >  **aplicativos empresariais**.
 
 3. Em **gerenciar**, selecione **coleções**.
 
@@ -85,17 +82,17 @@ Os logs de auditoria registram as operações de coleções de meus aplicativos,
 * Adição de aplicativo de autoatendimento (usuário final)
 * Exclusão de aplicativo de autoatendimento (usuário final)
 
-Você pode acessar os logs de auditoria no [portal do Azure](https://portal.azure.com) selecionando **Azure Active Directory** > **aplicativos** > empresariais**logs de auditoria** na seção atividade. Para **serviço**, selecione **meus aplicativos**.
+Você pode acessar os logs de auditoria no [portal do Azure](https://portal.azure.com) selecionando **Azure Active Directory**  >  **aplicativos empresariais**  >  **logs de auditoria** na seção atividade. Para **serviço**, selecione **meus aplicativos**.
 
 ## <a name="get-support-for-my-account-pages"></a>Obter suporte para páginas da minha conta
 
-Na página meus aplicativos, um usuário pode selecionar **minha** > conta**Exibir minha conta** para abrir suas configurações de conta. Na página **minha conta** do Azure AD, os usuários podem gerenciar suas informações de segurança, dispositivos, senhas e muito mais. Eles também podem acessar suas configurações de conta do Office.
+Na página meus aplicativos, um usuário pode selecionar **minha**conta  >  **Exibir minha conta** para abrir suas configurações de conta. Na página **minha conta** do Azure AD, os usuários podem gerenciar suas informações de segurança, dispositivos, senhas e muito mais. Eles também podem acessar suas configurações de conta do Office.
 
 Caso você precise enviar uma solicitação de suporte para um problema com a página conta do Azure AD ou a página conta do Office, siga estas etapas para que sua solicitação seja roteada corretamente: 
 
-* Para problemas com a página **"minha conta" do Azure ad** , abra uma solicitação de suporte no portal do Azure. Vá para **portal do Azure** > **Azure Active Directory** > **nova solicitação de suporte**.
+* Para problemas com a página **"minha conta" do Azure ad** , abra uma solicitação de suporte no portal do Azure. Vá para **portal do Azure**  >  **Azure Active Directory**  >  **nova solicitação de suporte**.
 
-* Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365** > **suporte**do centro de administração. 
+* Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365 suporte do centro de administração**  >  **Support**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure](end-user-experiences.md)

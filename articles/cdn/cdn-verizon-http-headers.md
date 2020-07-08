@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
-ms.openlocfilehash: d2208f6769c8051b38bdafb92d62ec03cb2d668c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e20f6ce9540d357b61ae2cfdf0e8f96d127dc6c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343210"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon específicos para o mecanismo de regras de CDN do Microsoft Azure
 
 Para os produtos **Premium CD do Azure da Verizon**, quando uma solicitação HTTP é enviada ao servidor de origem, o servidor do ponto de presença (POP) pode adicionar um ou mais cabeçalhos reservados (ou cabeçalhos especiais de proxy) na solicitação do cliente ao POP. Esses cabeçalhos estão além dos cabeçalhos de encaminhamento padrão recebidos. Para obter informações sobre cabeçalhos de solicitação padrão, consulte [Campos de solicitação](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
 
-Se você quiser impedir que um desses cabeçalhos reservado seja adicionado na solicitação POP de CDN do Microsoft Azure (Rede de Fornecimento de Conteúdo) para o servidor de origem, você deve criar uma regra com o [recurso Cabeçalhos Especiais de Proxy](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) no mecanismo de regras. Nessa regra, exclua o cabeçalho que você deseja remover da lista padrão de cabeçalhos no campo cabeçalhos. Se você tiver habilitado o [recurso Cabeçalhos de Resposta do Cache de depuração](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), certifique-se de adicionar os cabeçalhos `X-EC-Debug` necessários. 
+Se você quiser impedir que um desses cabeçalhos reservado seja adicionado na solicitação POP de CDN do Microsoft Azure (Rede de Fornecimento de Conteúdo) para o servidor de origem, você deve criar uma regra com o [recurso Cabeçalhos Especiais de Proxy](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) no mecanismo de regras. Nessa regra, exclua o cabeçalho que você deseja remover da lista padrão de cabeçalhos no campo cabeçalhos. Se você tiver habilitado o [recurso Cabeçalhos de Resposta do Cache de depuração](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm), certifique-se de adicionar os cabeçalhos `X-EC-Debug` necessários. 
 
 Por exemplo, para remover o `Via` cabeçalho, o campo de cabeçalhos da regra deve incluir a seguinte lista de cabeçalhos: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
@@ -35,14 +34,14 @@ A tabela a seguir descreve os cabeçalhos que podem ser adicionados pelo Verizon
 
 Cabeçalho da solicitação | Descrição | Exemplo
 ---------------|-------------|--------
-[Através de](#via-request-header) | Identifica o servidor POP que faz o proxy da solicitação para um servidor de origem. | HTTP/1.1 ECS (dca/1A2B)
+[Pela](#via-request-header) | Identifica o servidor POP que faz o proxy da solicitação para um servidor de origem. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | Indica o endereço IP do solicitante.| 10.10.10.10
 X-Forwarded-Proto | Indica o endereço IP do solicitante. | http
 X-Host | Indica o nome do host da solicitação. | cdn.mydomain.com
 X-Midgress | Indica se a solicitação foi proxy por meio de um servidor adicional de CDN. Por exemplo, um servidor de proteção do servidor de origem POP ou um servidor POP de gateway de servidor para ADN. <br />Esse cabeçalho é adicionado à solicitação somente quando o tráfego de midgress ocorrer. Nesse caso, o cabeçalho é definido como 1 para indicar que a solicitação foi proxy por meio de um servidor adicional de CDN.| 1
 [Host](#host-request-header) | Identifica o host e a porta em que o conteúdo solicitado pode ser encontrado. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica a lista de failover de servidores de Gateway ADN atribuído a uma origem de cliente. <br />Blindagem da origem: indica o conjunto de blindagem dos servidores de origem atribuído a uma origem de cliente. | `icn1,hhp1,hnd1`
-X-EC-_&lt;Name&gt;_ | Cabeçalhos de solicitação que começam com *X EC* (por exemplo, X-EC-Tag, [EC-X-Debug](cdn-http-debug-headers.md)) são reservados para uso pela CDN.| waf-production
+X-EC-_ &lt; name &gt; _ | Cabeçalhos de solicitação que começam com *X EC* (por exemplo, X-EC-Tag, [EC-X-Debug](cdn-http-debug-headers.md)) são reservados para uso pela CDN.| waf-production
 
 ## <a name="via-request-header"></a>Através do cabeçalho da solicitação
 O formato por meio do qual o cabeçalho de solicitação `Via` identifica um servidor POP é especificado pela seguinte sintaxe:

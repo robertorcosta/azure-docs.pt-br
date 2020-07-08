@@ -2,23 +2,22 @@
 title: Use o relatório de atividade para mover AD FS aplicativos para Azure Active Directory | Microsoft Docs '
 description: O relatório de atividade do aplicativo Serviços de Federação do Active Directory (AD FS) (AD FS) permite que você migre rapidamente aplicativos do AD FS para o Azure Active Directory (Azure AD). Esta ferramenta de migração para AD FS identifica a compatibilidade com o Azure AD e fornece diretrizes de migração.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 01/14/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 59502e01a96b603067bd80b92bcf49136f8cef4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339165"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usar o AD FS relatório de atividade do aplicativo (versão prévia) para migrar aplicativos para o Azure AD
 
@@ -36,8 +35,9 @@ Os dados de atividade do aplicativo AD FS estão disponíveis para os usuários 
 
 * Sua organização deve estar atualmente usando AD FS para acessar aplicativos.
 * Azure AD Connect Health deve ser habilitado em seu locatário do Azure AD.
+* O Azure AD Connect Health para AD FS Agent deve ser instalado.
    * [Saiba mais sobre o Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Introdução à configuração de Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+   * [Introdução à configuração de Azure AD Connect Health e instalação do agente de AD FS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Descobrir AD FS aplicativos que podem ser migrados 
 
@@ -109,7 +109,7 @@ Se você tiver configurado uma regra de declaração para o aplicativo no AD FS,
 
 A tabela a seguir lista todos os testes de regra de declaração que são executados em AD FS aplicativos.
 
-|Propriedade  |Descrição  |
+|Property  |Descrição  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | A instrução Condition usa expressões regulares para avaliar se a declaração corresponde a um determinado padrão.Para obter uma funcionalidade semelhante no Azure AD, você pode usar a transformação predefinida, como IfEmpty (), StartWith (), Contains (), entre outras. Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
 |UNSUPPORTED_CONDITION_CLASS      | A instrução Condition tem várias condições que precisam ser avaliadas antes da execução da instrução de emissão.O Azure AD pode dar suporte a essa funcionalidade com as funções de transformação da declaração, onde você pode avaliar vários valores de declaração.Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |

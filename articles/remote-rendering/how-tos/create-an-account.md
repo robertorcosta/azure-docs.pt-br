@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844498"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057663"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
@@ -28,20 +27,24 @@ As seguintes etapas são necessárias para criar uma conta para o serviço Azure
     1. Defina 'Nome do Recurso' como o nome da conta
     1. Atualize 'Assinatura' se necessário
     1. Defina 'Grupo de recursos' como um grupo de recursos de sua escolha
+    1. Selecione uma região na lista suspensa ' local ' em que esse recurso deve ser criado. Veja comentários nas [regiões de conta](create-an-account.md#account-regions) abaixo.
 1. Depois que a conta for criada, navegue até ela e:
     1. Na guia *Visão geral*, observe a 'ID da conta'
     1. Na guia *Configurações > Chaves de Acesso*, observe a "Chave primária". Essa é a chave de conta secreta da conta em questão
+
+### <a name="account-regions"></a>Regiões da conta
+O local especificado durante a criação da conta de uma conta determina a qual região o recurso de conta é atribuído. Isso não pode ser alterado após a criação. No entanto, a conta pode ser usada para se conectar a uma sessão de renderização remota em qualquer [região com suporte](./../reference/regions.md), independentemente do local da conta.
 
 ### <a name="retrieve-the-account-information"></a>Recuperar as informações da conta
 
 Os exemplos e os tutoriais exigem que você forneça a ID da conta e uma chave. Por exemplo, no arquivo **arrconfig.json** que é usado para os scripts de exemplo do PowerShell:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 Confira a [lista de regiões disponíveis](../reference/regions.md) para preencher a opção *região*.
@@ -89,6 +92,7 @@ Agora, supõe-se que você tenha uma conta de armazenamento. Navegue até a cont
 > Caso sua conta do Remote Rendering não esteja listada, veja esta [seção de solução de problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Repita a adição de novas funções mais duas vezes para as respectivas seleções na lista suspensa **Função**:
+
 * **Colaborador da Conta de Armazenamento**
 * **Colaborador de dados de blob de armazenamento**
 

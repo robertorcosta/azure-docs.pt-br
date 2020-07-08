@@ -2,21 +2,20 @@
 title: Entenda como funciona o provisionamento do Azure Active Directory | Microsoft Docs
 description: Entenda como funciona o provisionamento do Azure Active Directory
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781643"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -172,7 +171,7 @@ Todas as operações executadas pelo serviço de provisionamento de usuário sã
 
 O serviço de provisionamento do Azure Active Directory mantém os sistemas de origem e de destino sincronizados por contas de desprovisionamento quando os usuários não devem mais ter acesso. 
 
-O serviço de provisionamento do Azure Active Directory excluirá de forma temporária um usuário em um aplicativo quando o aplicativo dá suporte a exclusões temporárias (solicitação de atualização com active = false) e algum dos eventos a seguir ocorra:
+O serviço de provisionamento do Azure AD excluirá de forma reversível um usuário em um aplicativo quando o aplicativo oferecer suporte a exclusões reversívels (solicitação de atualização com Active = false) e qualquer um dos seguintes eventos ocorrer:
 
 * A conta de usuário é excluída no Azure Active Directory
 *   O usuário não é desatribuído do aplicativo

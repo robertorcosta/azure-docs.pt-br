@@ -4,12 +4,11 @@ description: Descreve como implantar um serviço em muitas regiões com o Azure 
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152520"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057918"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Deployment Manager (visualização pública)
 
@@ -30,7 +29,7 @@ Você implanta o modelo de topologia antes de implantar o modelo de implementaç
 
 Recursos adicionais:
 
-- A [referência à API REST do Gerenciador de Implantação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- A [referência à API REST do Gerenciador de Implantação do Azure](/rest/api/deploymentmanager/).
 - [Tutorial: usar o Azure Deployment Manager com modelos do Resource Manager](./deployment-manager-tutorial.md).
 - [Tutorial: usar a verificação de integridade no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Um exemplo do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
@@ -193,7 +192,7 @@ No modelo de implementação, você cria uma fonte de artefato para os binários
 
 ### <a name="steps"></a>Etapas
 
-Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, somente a `wait` etapa e a etapa ' HealthCheck ' estão disponíveis.
+Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, somente a etapa `wait` e a etapa ' HealthCheck ' estão disponíveis.
 
 A etapa de espera faz uma pausa na implantação antes de continuar. Ele permite que você verifique se seu serviço está sendo executado conforme o esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de uma etapa de espera.
 
@@ -300,7 +299,7 @@ Seu modelo e arquivo de parâmetros precisam conhecer o caminho correto para obt
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployPackageUri": {

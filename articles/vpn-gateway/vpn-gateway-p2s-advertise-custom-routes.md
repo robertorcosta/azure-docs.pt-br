@@ -4,15 +4,14 @@ description: Etapas para anunciar rotas personalizadas para seus clientes de pon
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3588755e2aab1c84d443e917eca8c7fca280b49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987581"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anunciar rotas personalizadas para clientes VPN P2S
 
@@ -22,7 +21,7 @@ Talvez você queira anunciar rotas personalizadas para todos os seus clientes VP
 
 ## <a name="to-advertise-custom-routes"></a>Para anunciar rotas personalizadas
 
-Para anunciar rotas personalizadas, use o `Set-AzVirtualNetworkGateway cmdlet`. O exemplo a seguir mostra como anunciar o IP para as [tabelas de conta de armazenamento da Contoso](https://contoso.table.core.windows.net).
+Para anunciar rotas personalizadas, use o `Set-AzVirtualNetworkGateway cmdlet` . O exemplo a seguir mostra como anunciar o IP para as [tabelas de conta de armazenamento da Contoso](https://contoso.table.core.windows.net).
 
 1. Execute ping *contoso.Table.Core.Windows.net* e anote o endereço IP. Por exemplo:
 

@@ -5,16 +5,15 @@ description: Solucionar problemas de exceções de módulo no designer do Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213747"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (versão prévia)
 
@@ -1106,7 +1105,7 @@ Confira os seguintes artigos para obter ajuda com consultas do Hive para machine
 
  Se houver uma mensagem gerada por SQL informada pela exceção do módulo, execute uma ação com base no erro relatado. Por exemplo, as mensagens de erro às vezes incluem diretrizes específicas sobre o erro provável:
 + *Nenhuma coluna ou banco de dados ausente*, indicando que você pode ter digitado um nome de coluna errado. Se você tiver certeza de que o nome da coluna está correto, tente usar colchetes ou aspas nos quais incluir o identificador de coluna.
-+ *Erro lógico do SQL próximo à \<palavra-chave SQL\>* , indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
++ *Erro lógico do SQL \<SQL keyword\> próximo *, indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de Exceção|
@@ -1500,7 +1499,7 @@ Resolução:
 
 
 ## <a name="error-0159"></a>Erro 0159
- Ocorrerá uma exceção se a passagem para o diretório do modelo de módulo for inválida. 
+ Ocorrerá uma exceção se o diretório de modelo de módulo for inválido. 
 
 |Mensagens de Exceção|
 |------------------------------------------------------------|
@@ -1515,7 +1514,7 @@ Exceção de biblioteca interna.
 
 Esse erro é fornecido para capturar erros de mecanismo interno sem tratamento de outra forma. Portanto, a causa desse erro poderá ser diferente dependendo do módulo que gerou o erro.  
 
-Para obter ajuda, recomendamos que você poste a mensagem detalhada que acompanha o erro para o fórum do Azure Machine Learning, juntamente com a descrição do cenário, incluindo os dados usados como entradas. Esses comentários nos ajudarão a priorizar erros e identificar os problemas mais importantes para um trabalho adicional.  
+Para obter mais ajuda, recomendamos que você poste a mensagem detalhada que acompanha o erro no fórum de [Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), junto com uma descrição do cenário, incluindo os dados usados como entradas. Esses comentários nos ajudarão a priorizar erros e identificar os problemas mais importantes para um trabalho adicional.  
 
 |Mensagens de Exceção|
 |------------------------|

@@ -5,17 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413341"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associação de saída da Grade de Eventos do Azure para Azure Functions
 
-Use a associação de saída da Grade de Eventos para gravar eventos em um tópico personalizado. Você deve ter uma [chave de acesso válida para o tópico personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Use a associação de saída da Grade de Eventos para gravar eventos em um tópico personalizado. Você deve ter uma [chave de acesso válida para o tópico personalizado](../event-grid/security-authenticate-publishing-clients.md).
 
 Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](./functions-bindings-event-grid.md).
 
@@ -162,7 +161,7 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação. Em seguida, ele envia em um evento para o tópico Grade de Eventos personalizado, conforme especificado pelo `topicEndpointUri`.
+O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação. Em seguida, ele envia em um evento para o tópico personalizado, conforme especificado pelo `topicEndpointUri` .
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -187,7 +186,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
 }
 ```
 
-Aqui está o exemplo do Python para enviar um evento a um tópico de Grade de Eventos personalizado definindo o `EventGridOutputEvent`:
+Aqui está o exemplo de Python para enviar um evento a um tópico personalizado definindo `EventGridOutputEvent` :
 
 ```python
 import logging

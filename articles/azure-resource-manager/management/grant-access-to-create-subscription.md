@@ -6,16 +6,15 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75478871"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057612"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)
 
-Como cliente do Azure no [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/), você pode conceder a outro usuário ou entidade de serviço permissão para criar assinaturas cobradas de sua conta. Neste artigo, você aprenderá a usar o [RBAC (Controle de Acesso Baseado em Função)](../../active-directory/role-based-access-control-configure.md) para compartilhar a capacidade de criar assinaturas, e aprenderá a fazer auditoria das criações de assinatura. É necessário ter a função Proprietário na conta que deseja compartilhar.
+Como cliente do Azure no [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/), você pode conceder a outro usuário ou entidade de serviço permissão para criar assinaturas cobradas de sua conta. Neste artigo, você aprenderá a usar o [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/role-assignments-portal.md) para compartilhar a capacidade de criar assinaturas, e aprenderá a fazer auditoria das criações de assinatura. É necessário ter a função Proprietário na conta que deseja compartilhar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -60,7 +59,7 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
     }
     ```
 
-    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário do RBAC. Copie o `name` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à conta SignUpEngineering@contoso.com de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
+    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário do RBAC. Copie o `name` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à SignUpEngineering@contoso.com conta de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima etapa como `enrollmentAccountObjectId` .
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -78,7 +77,7 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário RBAC. Copie o `ObjectId` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à conta SignUpEngineering@contoso.com de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cole essa ID de objeto em algum lugar para que você possa usá-la na próxima `enrollmentAccountObjectId`etapa como o.
+    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário RBAC. Copie o `ObjectId` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à SignUpEngineering@contoso.com conta de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Cole essa ID de objeto em algum lugar para que você possa usá-la na próxima etapa como o `enrollmentAccountObjectId` .
 
     # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -109,14 +108,14 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
 
     ---
 
-    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário do RBAC. Copie o `name` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à conta SignUpEngineering@contoso.com de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
+    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário do RBAC. Copie o `name` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à SignUpEngineering@contoso.com conta de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima etapa como `enrollmentAccountObjectId` .
 
 1. <a id="userObjectId"></a>Obtenha a ID de objeto do usuário ou grupo ao qual você deseja conceder a função de proprietário RBAC
 
     1. Na portal do Azure, pesquise **Azure Active Directory**.
     1. Se você quiser conceder acesso a um usuário, clique em **usuários** no menu à esquerda. Se você quiser conceder acesso a um grupo, clique em **grupos**.
     1. Selecione o usuário ou grupo ao qual você deseja conceder a função de proprietário RBAC.
-    1. Se você selecionou um usuário, encontrará a ID de objeto na página perfil. Se você selecionou um grupo, a ID do objeto estará na página Visão geral. Copie o **ObjectID** clicando no ícone à direita da caixa de texto. Cole isso em algum lugar para que você possa usá-lo na próxima `userObjectId`etapa como.
+    1. Se você selecionou um usuário, encontrará a ID de objeto na página perfil. Se você selecionou um grupo, a ID do objeto estará na página Visão geral. Copie o **ObjectID** clicando no ícone à direita da caixa de texto. Cole isso em algum lugar para que você possa usá-lo na próxima etapa como `userObjectId` .
 
 1. Conceder ao usuário ou grupo a função de proprietário RBAC na conta de registro
 
@@ -124,7 +123,7 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
-    Execute o comando a seguir, ```<enrollmentAccountObjectId>``` substituindo `name` pelo que você copiou na primeira etapa```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```(). Substitua ```<userObjectId>``` pela ID de objeto que você copiou da segunda etapa.
+    Execute o comando a seguir, substituindo ```<enrollmentAccountObjectId>``` pelo `name` que você copiou na primeira etapa ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Substitua ```<userObjectId>``` pela ID de objeto que você copiou da segunda etapa.
 
     ```json
     PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -158,7 +157,7 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
-    Execute o seguinte comando [New-AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) , ```<enrollmentAccountObjectId>``` substituindo pelo `ObjectId` coletado na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Substituir ```<userObjectId>``` pela ID de objeto coletada na segunda etapa.
+    Execute o seguinte comando [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) , substituindo ```<enrollmentAccountObjectId>``` pelo `ObjectId` coletado na primeira etapa ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Substituir ```<userObjectId>``` pela ID de objeto coletada na segunda etapa.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -166,7 +165,7 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
 
     # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-2)
 
-    Execute o comando [AZ role Assignment Create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) a seguir, ```<enrollmentAccountObjectId>``` substituindo `name` pelo que você copiou na primeira etapa```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```(). Substituir ```<userObjectId>``` pela ID de objeto coletada na segunda etapa.
+    Execute o comando [AZ role Assignment Create](../../role-based-access-control/role-assignments-cli.md) a seguir, substituindo ```<enrollmentAccountObjectId>``` pelo `name` que você copiou na primeira etapa ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Substituir ```<userObjectId>``` pela ID de objeto coletada na segunda etapa.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -180,7 +179,7 @@ Para [criar assinaturas em uma conta de registro](programmatically-create-subscr
 
 Para controlar as assinaturas criadas por meio desta API, use o [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs). No momento não é possível usar o PowerShell, CLI ou o portal do Azure para controlar a criação da assinatura.
 
-1. Como um administrador de locatários do locatário do AD do Azure, [eleve o acesso](../../active-directory/role-based-access-control-tenant-admin-access.md), em seguida, atribua uma função de leitor para o usuário de auditoria sobre o escopo `/providers/microsoft.insights/eventtypes/management`.
+1. Como um administrador de locatários do locatário do AD do Azure, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md), em seguida, atribua uma função de leitor para o usuário de auditoria sobre o escopo `/providers/microsoft.insights/eventtypes/management`.
 1. Como o usuário de auditoria, chame o [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs) para ver as atividades de criação de assinatura. Exemplo:
 
     ```

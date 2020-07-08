@@ -2,23 +2,23 @@
 title: Movendo a autenticação do aplicativo de AD FS para Azure Active Directory
 description: Este artigo serve para ajudar as organizações a entender como mover aplicativos para o Azure AD, concentrando-se em aplicativos SaaS federados.
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 04/01/2020
-ms.author: baselden
+ms.author: kenwith
+ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b777cce9b704be558460edf20cf243258c160b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608544"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
 
@@ -224,7 +224,7 @@ Configure seus aplicativos para apontarem para o Azure AD versus AD FS para SSO.
 
 | Elemento| Valor da Configuração |
 | - | - |
-| Emissor do provedor de identidade| https:\//STS.Windows.net/{Tenant-ID}/ |
+| Emissor do provedor de identidade| https: \/ /STS.Windows.net/{Tenant-ID}/ |
 | URL de logon do provedor de identidade| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | URL de logout do provedor de identidade| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | Local de metadados de Federação| [https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}](https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}) |
@@ -239,8 +239,8 @@ Os aplicativos SaaS precisam saber para onde enviar solicitações de autentica�
 | **URL de logon do IdP** <p>URL de logon do IdP da perspectiva do aplicativo (em que o usuário é redirecionado para logon).| A URL de logon AD FS é o nome do serviço de Federação AD FS seguido por "/adfs/ls/." <p>Por exemplo: `https://fs.contoso.com/adfs/ls/`| Substitua {Tenant-ID} pela sua ID de locatário. <p> Para aplicativos que usam o protocolo SAML-P:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Para aplicativos que usam o protocolo WS-Federation:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
 | **URL de saída do IdP**<p>URL de saída do IdP da perspectiva do aplicativo (onde o usuário é redirecionado quando opta por sair do aplicativo).| A URL de saída é a mesma que a URL de logon ou a mesma URL com "wa = wsignout 1.0" acrescentado. Por exemplo: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Substitua {Tenant-ID} pela sua ID de locatário.<p>Para aplicativos que usam o protocolo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Para aplicativos que usam o protocolo WS-Federation:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **Certificado de autenticação de tokens**<p>O IdP usa a chave privada do certificado para assinar tokens emitidos. Ele verifica se o token veio do mesmo IdP em que o aplicativo está configurado para confiar.| Encontre o certificado de autenticação de token do AD FS no Gerenciamento do AD FS, em **Certificados**.| Encontre-o na portal do Azure nas **Propriedades de logon único** do aplicativo no cabeçalho **certificado de autenticação SAML**. Lá, você pode baixar o certificado para carregar no aplicativo.  <p>Se o aplicativo tiver mais de um certificado, você poderá encontrar todos os certificados no arquivo XML de metadados de Federação. |
-| **Identificador/"emissor"**<p>Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do emissor").<p>No token SAML, o valor aparece como o elemento emissor.| O identificador para AD FS geralmente é o identificador do serviço de Federação no gerenciamento de AD FS em **serviço > editar propriedades de serviço de Federação**. Por exemplo: `http://fs.contoso.com/adfs/services/trust`| Substitua {Tenant-ID} pela sua ID de locatário.<p>https:\//STS.Windows.net/{Tenant-ID}/ |
-| **Metadados de Federação IdP**<p>Local dos metadados de Federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)| Localize a URL de metadados de Federação AD FS no gerenciamento de AD FS em **serviços > pontos de extremidade > metadados > tipo: metadados de Federação**. Por exemplo: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| O valor correspondente para o Azure AD segue o [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml)padrão. Substitua {TenantDomainName} pelo nome do locatário no formato "contoso.onmicrosoft.com".   <p>Para saber mais, confira [Metadados de federação](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
+| **Identificador/"emissor"**<p>Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do emissor").<p>No token SAML, o valor aparece como o elemento emissor.| O identificador para AD FS geralmente é o identificador do serviço de Federação no gerenciamento de AD FS em **serviço > editar propriedades de serviço de Federação**. Por exemplo: `http://fs.contoso.com/adfs/services/trust`| Substitua {Tenant-ID} pela sua ID de locatário.<p>https: \/ /STS.Windows.net/{Tenant-ID}/ |
+| **Metadados de Federação IdP**<p>Local dos metadados de Federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)| Localize a URL de metadados de Federação AD FS no gerenciamento de AD FS em **serviços > pontos de extremidade > metadados > tipo: metadados de Federação**. Por exemplo: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| O valor correspondente para o Azure AD segue o padrão [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Substitua {TenantDomainName} pelo nome do locatário no formato "contoso.onmicrosoft.com".   <p>Para saber mais, confira [Metadados de federação](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>Representar AD FS políticas de segurança no Azure AD
@@ -397,7 +397,7 @@ Para implementar políticas internas no Azure AD, você pode usar uma [nova pol�
 Nesta tabela, listamos algumas opções de permissão e exceção úteis e como elas são mapeadas para o Azure AD. 
 
 
-| | Como configurar a opção de permissão no Azure AD?| Como configurar a opção Except no Azure AD? |
+| Opção | Como configurar a opção de permissão no Azure AD?| Como configurar a opção Except no Azure AD? |
 | - | - | - |
 | De uma rede específica| Mapeia para o [local nomeado](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) no Azure AD| Usar a opção **excluir** para [locais confiáveis](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | De grupos específicos| [Definir uma atribuição de usuário/grupos](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Usar a opção **excluir** em usuários e grupos |
@@ -421,7 +421,7 @@ Para obter mais informações, consulte [pré-requisitos para usar atributos de 
 
 ### <a name="setup-user-self-provisioning"></a>Configurar autoprovisionamento de usuário 
 
-Alguns aplicativos SaaS oferecem suporte à capacidade de autoprovisionar usuários quando eles entram pela primeira vez no aplicativo. No Azure Active Directory (AD do Azure), o termo provisionamento de aplicativo refere-se à criação automática de identidades de usuário e funções nos aplicativos de nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aos quais os usuários precisam acessar. Os usuários que forem migrados já terão uma conta no aplicativo SaaS. Todos os novos usuários adicionados após a migração precisarão ser provisionados. Teste o [provisionamento do aplicativo SaaS](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) depois que o aplicativo for migrado.
+Alguns aplicativos SaaS oferecem suporte à capacidade de autoprovisionar usuários quando eles entram pela primeira vez no aplicativo. No Azure AD (Azure Active Directory), o termo provisionamento de aplicativo refere-se à criação automática de identidades e funções de usuário nos aplicativos de nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aos quais os usuários precisam ter acesso. Os usuários que forem migrados já terão uma conta no aplicativo SaaS. Todos os novos usuários adicionados após a migração precisarão ser provisionados. Teste o [provisionamento do aplicativo SaaS](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) depois que o aplicativo for migrado.
 
 ### <a name="sync-external-users-in-azure-ad"></a>Sincronizar usuários externos no Azure AD
 
@@ -446,11 +446,11 @@ Não importa como os usuários externos existentes são configurados, eles prova
 Siga o processo de migração detalhado neste artigo.
 
 Em seguida, vá para a [portal do Azure](https://aad.portal.azure.com/) para testar se a migração foi um sucesso. Siga as instruções abaixo:
-1. Selecione **aplicativos** > empresariais**todos os aplicativos** e localize seu aplicativo na lista.
+1. Selecione **aplicativos empresariais**  >  **todos os aplicativos** e localize seu aplicativo na lista.
 
-1. Selecione **gerenciar** > **usuários e grupos** para atribuir pelo menos um usuário ou grupo ao aplicativo.
+1. Selecione **gerenciar**  >  **usuários e grupos** para atribuir pelo menos um usuário ou grupo ao aplicativo.
 
-1. Selecione **gerenciar** > **acesso condicional**. Examine sua lista de políticas e certifique-se de que você não está bloqueando o acesso ao aplicativo com uma [política de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+1. Selecione **gerenciar**  >  **acesso condicional**. Examine sua lista de políticas e certifique-se de que você não está bloqueando o acesso ao aplicativo com uma [política de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
 Dependendo de como você configura seu aplicativo, verifique se o SSO funciona corretamente. 
 
@@ -460,9 +460,9 @@ Dependendo de como você configura seu aplicativo, verifique se o SSO funciona c
 ‎ |
 | SSO baseado em SAML| Use o botão [testar configurações de SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) encontrado em **logon único**.  
 ‎ |
-| SSO baseado em senha| Baixe e instale a[-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[extensão](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)de [logon seguro do myapps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de SSO.  
+| SSO baseado em senha| Baixe e instale a extensão de [logon seguro do myapps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de SSO.  
 ‎ |
-| Proxy de aplicativo| Verifique se o conector está em execução e atribuído ao seu aplicativo. Visite o [guia](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) [ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)de solução de problemas de proxy de aplicativo para obter mais assistência.  
+| Proxy do Aplicativo| Verifique se o conector está em execução e atribuído ao seu aplicativo. Visite o [Guia de solução de problemas de proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) para obter mais assistência.  
 ‎ |
 
 > [!NOTE]

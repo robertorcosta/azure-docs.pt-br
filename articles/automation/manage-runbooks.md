@@ -3,14 +3,13 @@ title: Gerenciar runbooks na Automação do Azure
 description: Este artigo informa como gerenciar os runbooks na Automação do Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
+ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 93b34af0baed89fd312948aeffe8ea4ac8ef806c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 9202eae49175615c4fffcd0b006ddda6e8281292
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718301"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -46,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importar um runbook
 
-Você pode importar um script do PowerShell ou do Fluxo de Trabalho do PowerShell ( **.ps1**), um runbook gráfico ( **.graphrunbook**) ou um script Python 2 ( **.py**) para criar seu runbook.  Você precisa especificar o [tipo de runbook](automation-runbook-types.md) que é criado durante a importação, levando em consideração os aspectos a seguir.
+Você pode importar um script do PowerShell ou do Fluxo de Trabalho do PowerShell ( **.ps1**), um runbook gráfico ( **.graphrunbook**) ou um script Python 2 ( **.py**) para criar seu runbook. Você precisa especificar o [tipo de runbook](automation-runbook-types.md) que é criado durante a importação, levando em consideração os aspectos a seguir.
 
 * Você pode importar um arquivo **.ps1** que não contém um fluxo de trabalho em um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) ou em um [runbook do Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se você importá-lo para um runbook do Fluxo de Trabalho do PowerShell, ele será convertido em um fluxo de trabalho. Nesse caso, os comentários são incluídos no runbook para descrever as alterações feitas.
 
@@ -54,7 +53,7 @@ Você pode importar um script do PowerShell ou do Fluxo de Trabalho do PowerShel
 
 * Não importe um arquivo **.ps1** que contenha um fluxo de trabalho do PowerShell para um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks), pois o mecanismo de script do PowerShell não pode reconhecê-lo.
 
-* Importe somente um arquivo **.graphrunbook** para um novo [runbook gráfico](automation-runbook-types.md#graphical-runbooks). 
+* Importe somente um arquivo **.graphrunbook** para um novo [runbook gráfico](automation-runbook-types.md#graphical-runbooks).
 
 ### <a name="import-a-runbook-from-the-azure-portal"></a>Importar um runbook do portal do Azure
 
@@ -161,7 +160,7 @@ $connection = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
+$AzureContext = Get-AzSubscription -SubscriptionId $connection.SubscriptionID
 
 # Check for already running or new runbooks
 $runbookName = "<RunbookName>"
@@ -192,7 +191,7 @@ Se seu runbook normalmente for executado dentro de uma restrição de tempo, fa�
 
 ## <a name="work-with-multiple-subscriptions"></a>Como trabalhar com várias assinaturas
 
-Seu runbook deve ser capaz de trabalhar com [assinaturas](automation-runbook-execution.md#subscriptions). Por exemplo, para lidar com várias assinaturas, o runbook usa o cmdlet [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0). Esse cmdlet garante que o contexto de autenticação não seja recuperado de outro runbook em execução na mesma área restrita. O runbook também usa o parâmetro `AzContext` nos cmdlets do módulo AZ e passa o contexto apropriado.
+Seu runbook deve ser capaz de trabalhar com [assinaturas](automation-runbook-execution.md#subscriptions). Por exemplo, para lidar com várias assinaturas, o runbook usa o cmdlet [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0). Esse cmdlet garante que o contexto de autenticação não seja recuperado de outro runbook em execução na mesma área restrita. O runbook também usa o `Get-AzContext` cmdlet para recuperar o contexto da sessão atual e atribuí-lo à variável `$AzureContext` .
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -204,7 +203,7 @@ Connect-AzAccount -ServicePrincipal `
 -ApplicationId $Conn.ApplicationID `
 -CertificateThumbprint $Conn.CertificateThumbprint
 
-$context = Get-AzContext
+$AzureContext = Get-AzContext
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
@@ -214,7 +213,7 @@ Start-AzAutomationRunbook `
     -ResourceGroupName $ResourceGroupName `
     -AutomationAccountName $AutomationAccountName `
     -Name $ChildRunbookName `
-    -DefaultProfile $context
+    -DefaultProfile $AzureContext
 ```
 
 ## <a name="work-with-a-custom-script"></a>Trabalhar com um script personalizado

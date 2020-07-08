@@ -9,12 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: e69b041a2e4c8a0715adb6ab126a3aede42f7dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 5044993e04dabc363a7a4ee49abb66285bcd7521
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338248"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do sistema operacional de uma máquina virtual
 
@@ -160,7 +159,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="resizing-data-disks"></a>Redimensionando discos de dados
 
-Este artigo se concentra principalmente em expandir o disco do SO da VM, mas o script também pode ser usado para expandir os discos de dados conectados à VM. Por exemplo, para expandir o primeiro disco de dados conectado à VM, substitua o objeto `OSDisk` de `StorageProfile` pela matriz `DataDisks` e use um índice numérico para obter uma referência para o primeiro disco de dados conectado, como mostrado abaixo:
+Este artigo se concentra principalmente em expandir o disco do SO da VM, mas o script também pode ser usado para expandir os discos de dados conectados à VM. Se estiver expandindo apenas um disco de dados, a VM **não** precisará ser desalocada. Por exemplo, para expandir o primeiro disco de dados conectado à VM, substitua o objeto `OSDisk` de `StorageProfile` pela matriz `DataDisks` e use um índice numérico para obter uma referência para o primeiro disco de dados conectado, como mostrado abaixo:
 
 **Disco gerenciado**
 

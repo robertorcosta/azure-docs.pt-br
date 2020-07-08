@@ -6,17 +6,16 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213543"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorando a atividade de consulta e a utilização de recursos no Azure Synapse Analytics
 
@@ -49,7 +48,7 @@ As seguintes métricas estão disponíveis no portal do Azure para o SQL do Syna
 Pontos a serem considerados ao exibir métricas e definir alertas:
 
 - A DWU usada apresenta apenas uma **representação de alto nível de uso** pelo pool de SQL e não deve ser um indicador abrangente de utilização. Para determinar se é necessário escalar ou reduzir verticalmente, considere todos os fatores que podem ser afetados pela DWU, como simultaneidade, memória, tempdb e capacidade de cache adaptável. É recomendável [executar sua carga de trabalho em diferentes configurações da DWU](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) para determinar o que funciona melhor para atender aos seus objetivos de negócios.
-- As conexões com falha e bem-sucedidas são relatadas para um determinado data warehouse - não para o servidor lógico
+- Conexões com falha e bem-sucedidas são relatadas para um determinado data warehouse-não para o próprio servidor.
 - A porcentagem de memória reflete a utilização mesmo que o data warehouse esteja no estado ocioso, ele não reflete o consumo de memória da carga de trabalho ativa. Use e acompanhe essa métrica junto com outras (tempdb, cache Gen2) para tomar uma decisão holística sobre se o dimensionamento da capacidade de cache adicional aumentará o desempenho da carga de trabalho para atender às suas necessidades.
 
 ## <a name="query-activity"></a>Consultar atividade

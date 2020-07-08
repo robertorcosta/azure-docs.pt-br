@@ -4,12 +4,11 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025094"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057816"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -125,7 +124,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
     ![Interromper um backup agendado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
-5. Vá para **serviços de recuperação** > **configurações** > do cofre**Propriedades**.
+5. Vá para **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. No console de gerenciamento, Cole o PIN e selecione **OK**.
 
@@ -156,7 +155,7 @@ Se você interrompeu a proteção enquanto retém os dados e decidiu retomar a p
 
 Uma frase secreta é usada para criptografar e descriptografar dados durante o backup ou a restauração do seu computador local ou localmente usando o agente MARS para ou do Azure. Se você perdeu ou esqueceu a frase secreta, poderá regenerar a frase secreta (desde que seu computador ainda esteja registrado com o cofre dos serviços de recuperação e o backup esteja configurado) seguindo estas etapas:
 
-- No console do agente Mars, vá para o **painel** > ações**alterar propriedades** >. Em seguida, vá para a **guia criptografia**.<br>
+- No console do agente Mars, vá para o **painel Ações**  >  **alterar propriedades** >. Em seguida, vá para a **guia criptografia**.<br>
 - Selecione a caixa de seleção **alterar senha** .<br>
 - Insira uma nova senha ou clique em **gerar senha**.
 - Clique em **procurar** para salvar a nova senha.
@@ -167,6 +166,27 @@ Uma frase secreta é usada para criptografar e descriptografar dados durante o b
 
     ![Gerar frase secreta.](./media/backup-azure-manage-mars/passphrase2.png)
 - Certifique-se de que a frase secreta seja salva com segurança em um local alternativo (que não seja o computador de origem), preferencialmente na Azure Key Vault. Mantenha o controle de todas as senhas se você tiver várias máquinas cujo backup está sendo feito com os agentes MARS.
+
+## <a name="managing-backup-data-for-unavailable-machines"></a>Gerenciando dados de backup para computadores não disponíveis
+
+Esta seção discute um cenário em que o computador de origem que foi protegido com MARS não está mais disponível porque foi excluído, corrompido, infectado com malware/ransomware ou encerrado.
+
+Para esses computadores, o serviço de backup do Azure garante que o último ponto de recuperação não expire (ou seja, não seja removido) de acordo com as regras de retenção especificadas na política de backup. Portanto, você pode restaurar o computador com segurança.  Considere os seguintes cenários que você pode executar nos dados de backup:
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Cenário 1: o computador de origem está indisponível e você não precisa mais manter os dados de backup
+
+- Você pode excluir os dados de backup do portal do Azure usando as etapas listadas neste [artigo](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>Cenário 2: o computador de origem está indisponível e você precisa reter os dados de backup
+
+O gerenciamento da política de backup para MARS é feito por meio do console do MARS e não pelo portal. Se você precisar estender as configurações de retenção para os pontos de recuperação existentes antes que eles expirem, será necessário restaurar o computador, instalar o console do MARS e estender a política.
+
+- Para restaurar o computador, execute as seguintes etapas:
+  - [Restaurar a VM em um computador de destino alternativo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Recriar o computador de destino com o mesmo nome de host que o computador de origem
+  - Instalar o agente e registrar novamente no mesmo cofre e com a mesma senha
+  - Inicie o cliente MARS para estender a duração da retenção de acordo com seus requisitos
+- Seu computador recentemente restaurado, protegido com MARS, continuará a fazer backups.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

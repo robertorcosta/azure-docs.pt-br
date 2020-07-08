@@ -11,15 +11,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/06/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274054"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956297"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro no Azure NetApp Files
 
@@ -30,7 +29,7 @@ Neste artigo, saiba como registrar-se para Azure NetApp Files para que você pos
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Enviar uma solicitação Waitlist para acessar o serviço
 
-1. Envie uma solicitação Waitlist para acessar o serviço de Azure NetApp Files por meio da [página de envio Azure NetApp files Waitlist](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+1. Envie uma solicitação Waitlist para acessar o serviço de Azure NetApp Files por meio da [página de envio Azure NetApp files Waitlist](https://aka.ms/azurenetappfiles). 
 
     A inscrição de Waitlist não garante o acesso imediato ao serviço. 
 
@@ -52,38 +51,50 @@ Para usar o serviço, é necessário registrar o Provedor de recursos do Azure n
 
 2. Se você tiver várias assinaturas em sua conta do Azure, selecione a que foi incluída na lista de permissões para o Azure NetApp Files:
     
-        az account set --subscription <subscriptionId>
+    ```azurepowershell
+    az account set --subscription <subscriptionId>
+    ```
 
 3. No console do Azure Cloud Shell, insira o seguinte comando para verificar se sua assinatura foi incluída na lista de permissões:
     
-        az feature list | grep NetApp
+    ```azurepowershell
+    az feature list | grep NetApp
+    ```
 
    A saída do comando é exibida da seguinte maneira:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
-       "name": "Microsoft.NetApp/ANFGA" 
+    ```output
+    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+    "name": "Microsoft.NetApp/ANFGA" 
+    ```
        
    `<SubID>` é a ID da assinatura.
 
-    Se você não vir o nome `Microsoft.NetApp/ANFGA`do recurso, não terá acesso ao serviço. Pare nesta etapa. Siga as instruções em [Enviar uma solicitação Waitlist para acessar o serviço](#waitlist) para solicitar acesso ao serviço antes de continuar. 
+    Se você não vir o nome do recurso `Microsoft.NetApp/ANFGA` , não terá acesso ao serviço. Pare nesta etapa. Siga as instruções em [Enviar uma solicitação Waitlist para acessar o serviço](#waitlist) para solicitar acesso ao serviço antes de continuar. 
 
 4. No console do Azure Cloud Shell, insira o seguinte comando para registrar o Provedor de recursos do Azure: 
     
-        az provider register --namespace Microsoft.NetApp --wait
+    ```azurepowershell
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
    O parâmetro `--wait` instrui o console a aguardar a conclusão do registro. O processo de registro pode levar algum tempo para ser concluído.
 
 5. No console do Azure Cloud Shell, insira o seguinte comando para verificar se o Provedor de recursos do Azure foi registrado: 
     
-        az provider show --namespace Microsoft.NetApp
+    ```azurepowershell
+    az provider show --namespace Microsoft.NetApp
+    ```
 
    A saída do comando é exibida da seguinte maneira:
    
-        {
-        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-        "namespace": "Microsoft.NetApp", 
-        "registrationState": "Registered", 
-        "resourceTypes": […. 
+    ```output
+    {
+     "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+     "namespace": "Microsoft.NetApp", 
+     "registrationState": "Registered", 
+     "resourceTypes": […. 
+    ```
 
    `<SubID>` é a ID da assinatura.  O valor do parâmetro `state` indica `Registered`.
 

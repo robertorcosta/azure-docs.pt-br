@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242187"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos Azure Premium SSD.
 
@@ -451,7 +450,7 @@ As SKUs de discos de 8 TiB, 16 TiB e 32 TiB têm suporte em todas as regiões no
 
 **Damos suporte à habilitação do cache de host em todos os tamanhos de disco?**
 
-Damos suporte a host de cache de somente leitura e leitura/gravação em tamanhos de disco abaixo de 4TiB. Para tamanhos de disco maiores do que 4 TiB, não damos suporte a opções de definição de cache diferente de None. É recomendável aproveitar o cache para tamanhos menores de disco em que você pode esperar para observar o aumento de desempenho melhor com dados armazenados em cache para a máquina virtual.
+O cache de host (ReadOnly e Read/Write) tem suporte em tamanhos de disco inferiores a 4 TiB. Isso significa que qualquer disco provisionado em até 4095 GiB pode tirar proveito do cache de host. O cache de host não tem suporte para tamanhos de disco mais de ou igual a 4096 GiB. Por exemplo, um disco P50 Premium provisionado em 4095 GiB pode tirar proveito do cache de host e um disco P50 provisionado em 4096 GiB não pode tirar proveito do cache de host. É recomendável aproveitar o cache para tamanhos menores de disco em que você pode esperar para observar o aumento de desempenho melhor com dados armazenados em cache para a máquina virtual.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 

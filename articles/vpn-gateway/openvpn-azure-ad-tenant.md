@@ -4,17 +4,16 @@ description: Você pode usar a VPN P2S para se conectar à sua VNet usando a aut
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2020
 ms.author: alzam
-ms.openlocfilehash: 00db2ed05285a1637414aa1e3adbe3b047ff0568
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2dda6cb84fc881b4ca628ff1cecdec7c00555e8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414293"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário de Azure Active Directory para conexões de protocolo P2S OpenVPN
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário do Azure Active Directory para conexões de protocolo P2S OpenVPN
 
 Ao conectar-se à sua VNet, você pode usar a autenticação baseada em certificado ou a autenticação RADIUS. No entanto, ao usar o protocolo VPN aberto, você também pode usar a autenticação Azure Active Directory. Este artigo ajuda você a configurar um locatário do Azure AD para autenticação de VPN aberta do P2S.
 
@@ -36,24 +35,24 @@ Exemplo:
 
 ## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. criar usuários de locatário do Azure AD
 
-Seu locatário do Azure AD precisa das seguintes contas: uma conta de administrador global e uma conta de usuário mestre. A conta de usuário mestre é usada como sua conta de incorporação mestre (conta de serviço). Ao criar uma conta de usuário de locatário do Azure AD, você ajusta a função de diretório para o tipo de usuário que deseja criar.
+Seu locatário do Azure AD precisa das seguintes contas: uma conta de administrador global e uma conta de usuário mestre. A conta de usuário mestre é usada como a conta de incorporação mestre (conta de serviço). Ao criar uma conta de usuário do locatário do Azure AD, você ajusta a função do Diretório para o tipo de usuário que deseja criar.
 
-Use as etapas neste [artigo](../active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois usuários para seu locatário do Azure AD. Certifique-se de alterar a **função de diretório** para criar os tipos de conta:
+Use as etapas [neste artigo](../active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois usuários para o locatário do Azure AD. Não deixe de alterar a **Função do diretório** para criar os tipos de conta:
 
 * Administrador global
 * Usuário
 
 ## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. habilitar a autenticação do Azure AD no gateway de VPN
 
-1. Localize a ID de diretório do diretório que você deseja usar para autenticação. Ele é listado na seção Propriedades da página Active Directory.
+1. Localize a ID do diretório que você deseja usar para autenticação. Está listada na seção Propriedades da página Active Directory.
 
     ![ID do Diretório](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
-2. Copie a ID de diretório.
+2. Copie a ID do diretório.
 
-3. Entre no portal do Azure como um usuário que é atribuído à função de **administrador global** .
+3. Entre no portal do Azure como usuário atribuído à função de **Administrador global**.
 
-4. Em seguida, dê consentimento ao administrador. Copie e cole a URL que pertence ao seu local de implantação na barra de endereços do seu navegador:
+4. Em seguida, dê o consentimento do administrador. Copie e cole a URL pertencente ao local de implantação na barra de endereços do navegador:
 
     Público
 
@@ -79,11 +78,11 @@ Use as etapas neste [artigo](../active-directory/fundamentals/add-users-azure-ac
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
-5. Selecione a conta de **administrador global** , se solicitado.
+5. Selecione a conta de **Administrador global**, se solicitado.
 
     ![ID do Diretório](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-6. Selecione **aceitar** quando solicitado.
+6. Selecione **Aceitar** quando solicitado.
 
     ![Aceitar](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
@@ -91,38 +90,26 @@ Use as etapas neste [artigo](../active-directory/fundamentals/add-users-azure-ac
 
     ![VPN do Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
-8. Se você ainda não tiver um ambiente de ponto a site funcionando, siga as instruções para criar um. Veja [Criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site com a autenticação de certificado nativa do Azure. 
+8. Se você ainda não tiver um ambiente de ponto a site funcionando, siga as instruções para criar um. Consulte [criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site. 
 
     > [!IMPORTANT]
     > Não há suporte para o SKU Básico no OpenVPN.
 
-9. Habilite a autenticação do Azure AD no gateway de VPN executando os comandos a seguir, certifique-se de modificar o comando para refletir seu próprio ambiente:
+9. Habilite a autenticação do Azure AD no gateway de VPN navegando para **configuração de ponto a site** e selecionando **OpenVPN (SSL)** como o **tipo de túnel**. Selecione **Azure Active Directory** como o **tipo de autenticação** e preencha as informações na seção **Azure Active Directory** .
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>/" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
-    ```
+    ![VPN do Azure](./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png)
+
 
    > [!NOTE]
-   > Certifique-se de incluir uma barra à direita no final do `AadIssuerUri` valor. Caso contrário, o comando falhará.
+   > Certifique-se de incluir uma barra à direita no final do `AadIssuerUri` valor. Caso contrário, a conexão poderá falhar.
 
-10. Crie e baixe o perfil executando os comandos a seguir. Altere os valores-ResourceGroupName e-Name para que correspondam aos seus próprios.
+10. Crie e baixe o perfil clicando no link **baixar cliente VPN** .
 
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
+11. Extraia o arquivo zip baixado.
 
-11. Depois de executar os comandos, você verá um resultado semelhante ao mostrado abaixo. Copie a URL do resultado para o navegador para baixar o arquivo zip do perfil.
+12. Navegue até a pasta "AzureVPN" descompactada.
 
-    ![VPN do Azure](./media/openvpn-create-azure-ad-tenant/profile.png)
-
-12. Extraia o arquivo zip baixado.
-
-13. Navegue até a pasta "AzureVPN" descompactada.
-
-14. Anote o local do arquivo "azurevpnconfig. xml". O azurevpnconfig. xml contém a configuração para a conexão VPN e pode ser importado diretamente para o aplicativo cliente VPN do Azure. Você também pode distribuir esse arquivo para todos os usuários que precisam se conectar por email ou outros meios. O usuário precisará de credenciais válidas do Azure AD para se conectar com êxito.
+13. Anote o local do arquivo "azurevpnconfig.xml". O azurevpnconfig.xml contém a configuração para a conexão VPN e pode ser importado diretamente para o aplicativo cliente VPN do Azure. Você também pode distribuir esse arquivo para todos os usuários que precisam se conectar por email ou outros meios. O usuário precisará de credenciais válidas do Azure AD para se conectar com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 

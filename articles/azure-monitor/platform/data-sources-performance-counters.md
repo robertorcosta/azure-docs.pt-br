@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739357"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955481"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
@@ -58,17 +57,19 @@ Siga este procedimento para adicionar um novo contador de desempenho do Linux pa
 5. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar contadores de desempenho do Linux no arquivo de configuração
-Em vez de configurar contadores de desempenho do Linux usando o portal do Azure, existe a opção de editar arquivos de configuração no agente do Linux.  As métricas de desempenho a serem coletadas são controladas pela configuração em **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
+Em vez de configurar contadores de desempenho do Linux usando o portal do Azure, existe a opção de editar arquivos de configuração no agente do Linux.  As métricas de desempenho a serem coletadas são controladas pela configuração no **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.
 
 Cada objeto, ou categoria, de métricas de desempenho a ser coletado deve ser definido no arquivo de configuração como um único elemento `<source>` . A sintaxe segue o padrão abaixo.
 
-    <source>
-      type oms_omi  
-      object_name "Processor"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 Os parâmetros usados com este comando são descritos na tabela a seguir.
@@ -89,11 +90,11 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Disco Lógico | % de Espaço Livre |
 | Disco Lógico | % de Inodes Usados |
 | Disco Lógico | % de Espaço Usado |
-| Disco Lógico | Bytes Lidos no Disco/s  |
-| Disco Lógico | Leituras de Disco/s  |
+| Disco Lógico | Bytes Lidos no Disco/s |
+| Disco Lógico | Leituras de Disco/s |
 | Disco Lógico | Transferências de Disco/s |
-| Disco Lógico |  Bytes Gravados no Disco/s |
-| Disco Lógico |  Gravações de Disco/s |
+| Disco Lógico | Bytes Gravados no Disco/s |
+| Disco Lógico | Gravações de Disco/s |
 | Disco Lógico | Megabytes Livres |
 | Disco Lógico | Bytes de Disco Lógico/s |
 | Memória | % de Memória Disponível |
@@ -115,14 +116,14 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Rede | Total de Erros de Rx |
 | Rede | Total de Erros de Tx |
 | Rede | Total de Colisões |
-| Disco Físico | Média de disco s/leitura |
-| Disco Físico | Média de disco s/transferência |
-| Disco Físico | Média de disco s/gravação |
+| Disco Físico | Média de segundos/Leitura do Disco |
+| Disco Físico | Média de segundos/Transferência do Disco |
+| Disco Físico | Média de segundos/Gravação do Disco |
 | Disco Físico | Bytes/s do Disco Físico |
-| Processo | % de Tempo Privilegiado |
-| Processo | % de Tempo do Usuário |
-| Processo | KBytes de Memória Usada |
-| Processo | Memória Virtual Compartilhada |
+| Processar | % de Tempo Privilegiado |
+| Processar | % de Tempo do Usuário |
+| Processar | KBytes de Memória Usada |
+| Processar | Memória Virtual Compartilhada |
 | Processador | % de Tempo de DPC |
 | Processador | % de Tempo Ocioso |
 | Processador | % de Tempo de Interrupção |
@@ -142,37 +143,39 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 
 A seguir está a configuração padrão para as métricas de desempenho.
 
-    <source>
-      type oms_omi
-      object_name "Physical Disk"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+```xml
+<source>
+    type oms_omi
+    object_name "Physical Disk"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Logical Disk"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+<source>
+    type oms_omi
+    object_name "Logical Disk"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Processor"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Processor"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 30s
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Memory"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Memory"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 ## <a name="data-collection"></a>Coleta de dados
 O Azure Monitor coleta todos os contadores de desempenho especificados em seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não são agregados e os dados brutos estão disponíveis em todas as exibições de consulta de log durante a duração especificada pelo seu espaço de trabalho do log Analytics.
@@ -180,11 +183,11 @@ O Azure Monitor coleta todos os contadores de desempenho especificados em seu in
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | CounterName |Nome do contador de desempenho |
-| CounterPath |Caminho completo do contador no formato \\\\\<Computador>\\objeto(instância)\\contador. |
+| CounterPath |Caminho completo do contador no \\ \\ \<Computer> \\ contador objeto (instância) do formulário \\ . |
 | CounterValue |Valor numérico do contador. |
 | InstanceName |Nome da instância do evento.  Vazio se não houver nenhuma instância. |
 | ObjectName |Nome do objeto de desempenho |
@@ -194,7 +197,7 @@ Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na ta
 ## <a name="sizing-estimates"></a>Estimativas de dimensionamento
  Uma estimativa aproximada de coleção de um determinado contador em intervalos de 10 segundos é cerca de 1 MB por dia por instância.  Você pode estimar os requisitos de armazenamento de um contador específico com a fórmula a seguir.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 MB x (número de contadores) x (número de agentes) x (número de instâncias)
 
 ## <a name="log-queries-with-performance-records"></a>Consultas de log com registros de Desempenho
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de Desempenho.

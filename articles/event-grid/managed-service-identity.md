@@ -5,32 +5,31 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 06/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 4d96f28b98cccada2ac5c77589acc6df1430bb02
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 4d81845ab61d8a84b9bad47ede4a027cd772c499
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412917"
 ---
-# <a name="event-delivery-with-managed-identity"></a>Entrega de eventos com identidade gerenciada
-Este artigo descreve como habilitar a [identidade do serviço gerenciado](../active-directory/managed-identities-azure-resources/overview.md) para um tópico ou domínio da grade de eventos. Use-o para encaminhar eventos para destinos com suporte, como filas e tópicos de Barramento de Serviço, hubs de eventos e contas de armazenamento.
+# <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
+Este artigo descreve como habilitar uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para os tópicos ou domínios da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte, como filas e tópicos de Barramento de Serviço, hubs de eventos e contas de armazenamento.
 
 Aqui estão as etapas abordadas em detalhes neste artigo:
-1. Crie um tópico ou domínio com uma identidade atribuída pelo sistema (ou) atualize um tópico ou domínio existente para habilitar a identidade. 
-2. Adicione a identidade a uma função apropriada (por exemplo: remetente de dados do Barramento de Serviço) no destino (por exemplo: uma fila do Barramento de Serviço)
-3. Habilite o uso da identidade para entregar eventos ao destino ao criar assinaturas de evento. 
+1. Crie um tópico ou domínio com uma identidade atribuída pelo sistema ou atualize um tópico ou domínio existente para habilitar a identidade. 
+1. Adicione a identidade a uma função apropriada (por exemplo, remetente de dados do barramento de serviço) no destino (por exemplo, uma fila do barramento de serviço).
+1. Ao criar assinaturas de evento, habilite o uso da identidade para entregar eventos ao destino. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Criar um tópico ou domínio com uma identidade
 Primeiro, vamos dar uma olhada em como criar um tópico ou domínio com uma identidade gerenciada pelo sistema.
 
-### <a name="using-azure-portal"></a>Usando o Portal do Azure
-É possível habilitar a identidade atribuída pelo sistema para um tópico/domínio ao criá-lo no portal do Azure. A imagem a seguir mostra como habilitar a identidade gerenciada pelo sistema para um tópico. Basicamente, você seleciona a opção **Habilitar identidade atribuída pelo sistema** na página **Avançado** do assistente de criação de tópico. Você verá essa opção na página **Avançado** do assistente de criação de domínios também. 
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+Você pode habilitar a identidade atribuída pelo sistema para um tópico ou domínio enquanto o cria no portal do Azure. A imagem a seguir mostra como habilitar uma identidade gerenciada pelo sistema para um tópico. Basicamente, você seleciona a opção **Habilitar identidade atribuída pelo sistema** na página **Avançado** do assistente de criação de tópico. Você também verá essa opção na página **avançado** do assistente de criação de domínio. 
 
 ![Habilitar identidade ao criar um tópico](./media/managed-service-identity/create-topic-identity.png)
 
-### <a name="using-azure-cli"></a>Usando a CLI do Azure
+### <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 Você também pode usar o CLI do Azure para criar um tópico ou domínio com uma identidade atribuída pelo sistema. Use o comando `az eventgrid topic create` com o parâmetro `--identity` definido como `systemassigned`. Se você não especificar um valor para este parâmetro, o valor padrão `noidentity` será usado. 
 
 ```azurecli-interactive
@@ -40,19 +39,24 @@ az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCAT
 
 Da mesma forma, você pode usar o comando `az eventgrid domain create` para criar um domínio com uma identidade gerenciada pelo sistema.
 
-## <a name="enable-identity-for-an-existing-topic-or-domain"></a>Habilitar identidade para um tópico ou domínio existente
-Na última seção, você aprendeu como habilitar uma identidade gerenciada pelo sistema ao criar um tópico ou domínio. Nesta seção, você aprenderá como habilitar a identidade gerenciada pelo sistema para um tópico ou domínio existente. 
+## <a name="enable-an-identity-for-an-existing-topic-or-domain"></a>Habilitar uma identidade para um tópico ou domínio existente
+Na seção anterior, você aprendeu como habilitar uma identidade gerenciada pelo sistema enquanto você criou um tópico ou um domínio. Nesta seção, você aprenderá a habilitar uma identidade gerenciada pelo sistema para um tópico ou domínio existente. 
 
-### <a name="using-azure-portal"></a>Usando o Portal do Azure
-1. Navegue até o [portal do Azure](https://portal.azure.com)
-2. Pesquise **tópicos da grade de eventos** na barra de pesquisa.
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+O procedimento a seguir mostra como habilitar a identidade gerenciada pelo sistema para um tópico. As etapas para habilitar uma identidade para um domínio são semelhantes. 
+
+1. Vá para o [Portal do Azure](https://portal.azure.com).
+2. Procure **Tópicos da grade de eventos** na barra de pesquisa na parte superior.
 3. Selecione o **tópico** para o qual deseja habilitar a identidade gerenciada. 
 4. Alterne para a guia **Identidade**. 
-5. Ative a opção para habilitar a identidade. 
+5. Ative a opção para **habilitar a identidade** . 
+1. Selecione **salvar** na barra de ferramentas para salvar a configuração. 
 
-    É possível usar etapas semelhantes para habilitar a identidade para um domínio de grade de eventos.
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Página de identidade de um tópico"::: 
 
-### <a name="using-azure-cli"></a>Usando a CLI do Azure
+Você pode usar etapas semelhantes para habilitar uma identidade para um domínio de grade de eventos.
+
+### <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 Use o comando `az eventgrid topic update` com `--identity` definido como `systemassigned` para habilitar a identidade atribuída pelo sistema para um tópico existente. Se quiser desabilitar a identidade, especifique `noidentity` como o valor. 
 
 ```azurecli-interactive
@@ -62,40 +66,40 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 O comando para atualizar um domínio existente é semelhante (`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-role-based-access-check-rbac-roles"></a>Destinos com suporte e funções de RBAC (verificação de acesso baseado em função)
-Após habilitar a identidade para seu tópico ou domínio da grade de eventos, o Azure cria automaticamente uma identidade no Azure Active Directory (Azure AD). Adicione essa identidade às funções RBAC apropriadas para que o tópico ou domínio possa encaminhar eventos para destinos suportados. Por exemplo, adicione a identidade à função **Remetente de dados dos Hubs de Eventos do Azure** para um namespace de Hubs de Eventos para que o tópico da grade de eventos possa encaminhar eventos para os hubs de eventos nesse namespace.  
+## <a name="supported-destinations-and-rbac-roles"></a>Destinos com suporte e funções de RBAC
+Depois de habilitar a identidade para seu tópico ou domínio da grade de eventos, o Azure cria automaticamente uma identidade no Azure Active Directory. Adicione essa identidade a funções apropriadas de RBAC (controle de acesso baseado em função) para que o tópico ou o domínio possa encaminhar eventos para destinos com suporte. Por exemplo, adicione a identidade à função de **remetente de dados dos hubs de eventos do Azure** para um namespace de hubs de eventos do Azure para que o tópico da grade de eventos possa encaminhar eventos para os hubs de eventos nesse namespace. 
 
-Atualmente, a Grade de Eventos do Azure dá suporte a tópicos ou domínios configurados com identidade gerenciada atribuída pelo sistema para encaminhar eventos para os seguintes destinos. Esta tabela também fornece as funções em que a identidade deve estar para que o tópico possa encaminhar os eventos.
+Atualmente, a grade de eventos do Azure dá suporte a tópicos ou domínios configurados com uma identidade gerenciada atribuída pelo sistema para encaminhar eventos para os seguintes destinos. Esta tabela também fornece as funções em que a identidade deve estar para que o tópico possa encaminhar os eventos.
 
 | Destino | Função RBAC | 
 | ----------- | --------- | 
 | Filas e tópicos do Barramento de Serviço | [Remetente de dados do Barramento de Serviço do Azure](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Hub de Eventos | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
-| Armazenamento de blob | [Colaborador de dados de blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Armazenamento de filas |[Remetente da mensagem de dados da fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Hubs de eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
+| Armazenamento de Blobs do Azure | [Colaborador de dados de blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
+| Armazenamento de Filas do Azure |[Remetente da mensagem de dados da fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
 
-## <a name="add-identity-to-rbac-roles-on-destinations"></a>Adicionar identidade a funções RBAC em destinos
+## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Adicionar uma identidade às funções RBAC nos destinos
 Esta seção descreve como adicionar a identidade para seu tópico ou domínio a uma função RBAC. 
 
-### <a name="using-azure-portal"></a>Usando o Portal do Azure
-É possível usar o **portal do Azure** para atribuir a identidade de tópico/domínio a uma função apropriada para que o tópico/domínio possa encaminhar eventos para o destino. 
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+Você pode usar a portal do Azure para atribuir o tópico ou a identidade de domínio a uma função apropriada para que o tópico ou domínio possa encaminhar eventos para o destino. 
 
-O exemplo a seguir adiciona uma identidade gerenciada para um tópico da grade de eventos chamado **msitesttopic** à função **Remetente de dados do Barramento de Serviço do Azure** para um **namespace** do Barramento de Serviço que contém um recurso de fila ou tópico. Quando você adiciona à função no nível do namespace, o tópico pode encaminhar eventos para todas as entidades dentro do namespace. 
+O exemplo a seguir adiciona uma identidade gerenciada para um tópico da grade de eventos chamado **msitesttopic** à função **Remetente de dados do Barramento de Serviço do Azure** para um namespace do Barramento de Serviço que contém um recurso de fila ou tópico. Quando você adiciona à função no nível de namespace, o tópico pode encaminhar eventos para todas as entidades no namespace. 
 
-1. Navegue até o **namespace do Barramento de Serviço** no [portal do Azure](https://portal.azure.com). 
-2. Selecione **Controle de Acesso** no painel esquerdo. 
-3. Selecione **Adicionar** na seção **Adicionar uma atribuição de função**. 
-4. Na página **Adicionar uma atribuição de função**, siga os seguintes passos:
+1. Vá para o **namespace do barramento de serviço** na [portal do Azure](https://portal.azure.com). 
+1. Selecione **controle de acesso** no painel esquerdo. 
+1. Selecione **Adicionar** na seção **Adicionar uma atribuição de função**. 
+1. Na página **Adicionar uma atribuição de função**, siga os seguintes passos:
     1. Selecione a função. Neste caso, é **Remetente de dados do Barramento de Serviço do Azure**. 
-    2. Selecione a **identidade** para seu tópico ou domínio. 
-    3. selecione **Salvar** para salvar a configuração.
+    1. Selecione a **identidade** para seu tópico ou domínio. 
+    1. Selecione **salvar** para salvar a configuração.
 
 Para adicionar uma identidade a outras funções mencionadas na tabela, as etapas são semelhantes. 
 
-### <a name="using-azure-cli"></a>Usando a CLI do Azure
-O exemplo nesta seção mostra como usar o **CLI do Azure** para adicionar uma identidade a uma função RBAC. Os comandos de amostra são para tópicos de grade de eventos. Os comandos para domínios de grade de eventos são semelhantes. 
+### <a name="use-the-azure-cli"></a>Usar a CLI do Azure
+O exemplo nesta seção mostra como usar o CLI do Azure para adicionar uma identidade a uma função RBAC. Os comandos de amostra são para tópicos de grade de eventos. Os comandos para domínios de grade de eventos são semelhantes. 
 
-#### <a name="get-principal-id-for-the-topics-system-identity"></a>Obter ID da entidade de segurança para a identidade do sistema do tópico 
+#### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obter a ID da entidade de segurança para a identidade do sistema do tópico 
 Primeiro, obtenha a ID da entidade de segurança da identidade gerenciada pelo sistema do tópico e atribua a identidade às funções apropriadas.
 
 ```azurecli-interactive
@@ -103,7 +107,7 @@ topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o 
 ```
 
 #### <a name="create-a-role-assignment-for-event-hubs-at-various-scopes"></a>Criar uma atribuição de função para hubs de eventos em vários escopos 
-O exemplo de CLI a seguir mostra como adicionar a identidade de um tópico à função **Remetente de dados dos Hubs de Eventos do Azure** no nível do namespace ou no nível do hub de eventos. Se você criar a atribuição de função no namespace, o tópico poderá encaminhar eventos para todos os hubs de eventos nesse namespace. Se você criar no nível do hub de eventos, o tópico poderá encaminhar eventos somente para esse hub de eventos específico. 
+O exemplo de CLI a seguir mostra como adicionar a identidade de um tópico à função **Remetente de dados dos Hubs de Eventos do Azure** no nível do namespace ou no nível do hub de eventos. Se você criar a atribuição de função no nível de namespace, o tópico poderá encaminhar eventos para todos os hubs de eventos nesse namespace. Se você criar uma atribuição de função no nível do hub de eventos, o tópico poderá encaminhar eventos somente para esse Hub de eventos específico. 
 
 
 ```azurecli-interactive
@@ -118,8 +122,8 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$names
 az role assignment create --role "$role" --assignee "$topic_pid" --scope "$eventhubresourceid" 
 ```
 
-#### <a name="create-a-role-assignment-for-service-bus-topic-at-various-scopes"></a>Crie uma atribuição de função para o tópico de Barramento de Serviço em vários escopos 
-O exemplo de CLI a seguir mostra como adicionar a identidade de um tópico à função **Remetente de dados do Barramento de Serviço do Azure** no nível de namespace ou no nível de tópico do Barramento de Serviço. Se você criar a atribuição de função no namespace, o tópico da grade de eventos poderá encaminhar eventos para todas as entidades (filas ou tópicos do Barramento de Serviço) dentro desse namespace. Se você criar na fila do Barramento de Serviço ou no nível do tópico, o tópico da grade de eventos poderá encaminhar eventos apenas para essa fila ou tópico específico do Barramento de Serviço. 
+#### <a name="create-a-role-assignment-for-a-service-bus-topic-at-various-scopes"></a>Criar uma atribuição de função para um tópico do barramento de serviço em vários escopos 
+O exemplo de CLI a seguir mostra como adicionar a identidade de um tópico à função **Remetente de dados do Barramento de Serviço do Azure** no nível de namespace ou no nível de tópico do Barramento de Serviço. Se você criar a atribuição de função no nível de namespace, o tópico da grade de eventos poderá encaminhar eventos para todas as entidades (filas ou tópicos do barramento de serviço) dentro desse namespace. Se você criar uma atribuição de função no nível de fila ou de tópico do barramento de serviço, o tópico da grade de eventos poderá encaminhar eventos somente para a fila ou tópico específico do barramento de serviço. 
 
 ```azurecli-interactive
 role="Azure Service Bus Data Sender" 
@@ -133,20 +137,20 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$names
 az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbustopicresourceid" 
 ```
 
-## <a name="create-event-subscriptions-that-use-identity"></a>Criar assinaturas de eventos que usam identidade
-Após ter um tópico ou um domínio com uma identidade gerenciada pelo sistema e adicionado a identidade à função apropriada no destino, você estará pronto para criar assinaturas que usam a identidade. 
+## <a name="create-event-subscriptions-that-use-an-identity"></a>Criar assinaturas de evento que usam uma identidade
+Depois que você tiver um tópico ou um domínio com uma identidade gerenciada pelo sistema e tiver adicionado a identidade à função apropriada no destino, você estará pronto para criar assinaturas que usam a identidade. 
 
-### <a name="using-azure-portal"></a>Usando o Portal do Azure
-Ao criar uma assinatura de evento, você verá uma opção para habilitar o uso de identidade atribuída pelo sistema para um ponto de extremidade na seção **ENDPOINT DETAILS**. 
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+Ao criar uma assinatura de evento, você verá uma opção para habilitar o uso de uma identidade atribuída pelo sistema para um ponto de extremidade na seção **detalhes do ponto de extremidade** . 
 
-![Habilitar identidade ao criar assinatura de evento para a fila do Barramento de Serviço](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
+![Habilitar identidade ao criar uma assinatura de evento para uma fila do barramento de serviço](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
-Você também pode habilitar o uso da identidade atribuída pelo sistema para ser usada para mensagens mortas na guia **Recursos adicionais**. 
+Você também pode habilitar o uso de uma identidade atribuída pelo sistema para ser usada para mensagens mortas na guia **recursos adicionais** . 
 
 ![Habilitar identidade atribuída ao sistema para mensagens mortas](./media/managed-service-identity/enable-deadletter-identity.png)
 
-### <a name="using-azure-cli---service-bus-queue"></a>Usando a CLI do Azure - Fila do Barramento de Serviço 
-Nesta seção, você aprenderá a usar a **CLI do Azure** para habilitar o uso da identidade atribuída pelo sistema para entregar eventos a uma fila do Barramento de Serviço. A identidade deve ser um membro da função **Remetente de dados do Barramento de Serviço do Azure**. Ela também deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento usada para mensagens mortas. 
+### <a name="use-the-azure-cli---service-bus-queue"></a>Usar a fila do barramento de serviço CLI do Azure 
+Nesta seção, você aprenderá a usar o CLI do Azure para habilitar o uso de uma identidade atribuída pelo sistema para entregar eventos a uma fila do barramento de serviço. A identidade deve ser um membro da função **Remetente de dados do Barramento de Serviço do Azure**. Ela também deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento usada para mensagens mortas. 
 
 #### <a name="define-variables"></a>Definir variáveis
 Primeiro, especifique valores para as variáveis a seguir a serem usadas no comando da CLI. 
@@ -161,8 +165,8 @@ queueid=$(az servicebus queue show --namespace-name <SERVICE BUS NAMESPACE NAME>
 sb_esname = "<Specify a name for the event subscription>" 
 ```
 
-#### <a name="create-an-event-subscription-using-managed-identity-for-delivery"></a>criar uma assinatura de evento usando a identidade gerenciada para entrega 
-Este comando de amostra cria uma assinatura de evento para um tópico da grade de eventos com o tipo de ponto de extremidade definido como **Fila do Barramento de Serviço**. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Criar uma assinatura de evento usando uma identidade gerenciada para entrega 
+Este comando de exemplo cria uma assinatura de evento para um tópico da grade de eventos com um tipo de ponto de extremidade definido como **fila do barramento de serviço**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -173,8 +177,8 @@ az eventgrid event-subscription create
     -n $sb_esname 
 ```
 
-#### <a name="create-an-event-subscription-using-managed-identity-for-delivery-and-dead-lettering"></a>criar uma assinatura de evento usando a identidade gerenciada para entrega e mensagens mortas
-Este comando de amostra cria uma assinatura de evento para um tópico da grade de eventos com o tipo de ponto de extremidade definido como **Fila do Barramento de Serviço**. Ele também especifica que a identidade gerenciada pelo sistema deve ser usada para mensagens mortas. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery-and-dead-lettering"></a>Criar uma assinatura de evento usando uma identidade gerenciada para entrega e mensagens mortas
+Este comando de exemplo cria uma assinatura de evento para um tópico da grade de eventos com um tipo de ponto de extremidade definido como **fila do barramento de serviço**. Ele também especifica que a identidade gerenciada pelo sistema deve ser usada para mensagens mortas. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -190,8 +194,8 @@ az eventgrid event-subscription create
     -n $sb_esnameq 
 ```
 
-### <a name="azure-cli---event-hubs"></a>CLI do Azure - Hubs de Eventos 
-Nesta seção, você aprenderá a usar a **CLI do Azure** para habilitar o uso da identidade atribuída pelo sistema para entregar eventos a um hub de eventos. A identidade deve ser um membro da função **Remetente de dados dos Hubs de Eventos do Azure**. Ela também deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento usada para mensagens mortas. 
+### <a name="use-the-azure-cli---event-hubs"></a>Usar os hubs de eventos de CLI do Azure 
+Nesta seção, você aprenderá a usar o CLI do Azure para habilitar o uso de uma identidade atribuída pelo sistema para entregar eventos a um hub de eventos. A identidade deve ser um membro da função **Remetente de dados dos Hubs de Eventos do Azure**. Ela também deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento usada para mensagens mortas. 
 
 #### <a name="define-variables"></a>Definir variáveis
 ```azurecli-interactive
@@ -203,8 +207,8 @@ hubid=$(az eventhubs eventhub show --name <EVENT HUB NAME> --namespace-name <NAM
 eh_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery"></a>criar assinatura de evento usando a identidade gerenciada para entrega 
-Este comando de amostra cria uma assinatura de evento para um tópico da grade de eventos com o tipo de ponto de extremidade definido como **Hubs de Eventos**. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Criar uma assinatura de evento usando uma identidade gerenciada para entrega 
+Este comando de exemplo cria uma assinatura de evento para um tópico da grade de eventos com um tipo de ponto de extremidade definido como **hubs de eventos**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -215,8 +219,8 @@ az eventgrid event-subscription create
     -n $sbq_esname 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery--deadletter"></a>Criar assinatura de evento usando a identidade gerenciada para entrega + mensagem morta 
-Este comando de amostra cria uma assinatura de evento para um tópico da grade de eventos com o tipo de ponto de extremidade definido como **Hubs de Eventos**. Ele também especifica que a identidade gerenciada pelo sistema deve ser usada para mensagens mortas. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Criar uma assinatura de evento usando uma identidade gerenciada para entrega + mensagens mortas 
+Este comando de exemplo cria uma assinatura de evento para um tópico da grade de eventos com um tipo de ponto de extremidade definido como **hubs de eventos**. Ele também especifica que a identidade gerenciada pelo sistema deve ser usada para mensagens mortas. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -232,8 +236,8 @@ az eventgrid event-subscription create
     -n $eh_esname 
 ```
 
-### <a name="azure-cli---azure-storage-queue"></a>CLI do Azure - Fila de Armazenamento do Azure 
-Nesta seção, você aprenderá a usar a **CLI do Azure** para habilitar o uso da identidade atribuída pelo sistema para entregar eventos a uma fila de Armazenamento do Azure. A identidade deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento.
+### <a name="use-the-azure-cli---azure-storage-queue"></a>Usar o CLI do Azure-fila de armazenamento do Azure 
+Nesta seção, você aprenderá a usar o CLI do Azure para habilitar o uso de uma identidade atribuída pelo sistema para entregar eventos a uma fila de armazenamento do Azure. A identidade deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento.
 
 #### <a name="define-variables"></a>Definir variáveis  
 
@@ -251,7 +255,7 @@ queueid="$storageid/queueservices/default/queues/<QUEUE NAME>"
 sa_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery"></a>Criar assinatura de evento usando a identidade gerenciada para entrega 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Criar uma assinatura de evento usando uma identidade gerenciada para entrega 
 
 ```azurecli-interactive
 az eventgrid event-subscription create 
@@ -262,7 +266,7 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery--deadletter"></a>Criar assinatura de evento usando a identidade gerenciada para entrega + mensagem morta 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Criar uma assinatura de evento usando uma identidade gerenciada para entrega + mensagens mortas 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)

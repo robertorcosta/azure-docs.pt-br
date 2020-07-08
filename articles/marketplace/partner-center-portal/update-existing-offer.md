@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80285139"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057952"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace comercial
 
@@ -37,20 +36,29 @@ Quando estiver pronto para publicar sua oferta atualizada, selecione **publicar*
 > [!IMPORTANT]
 > Você deve revisar a versão prévia da oferta quando ela estiver disponível e selecionar **Go-Live** para publicar sua oferta atualizada em seu público-alvo (público ou privado).
 
+## <a name="add-a-plan-to-an-existing-offer"></a>Adicionar um plano a uma oferta existente
+
+Para adicionar um novo plano em uma oferta existente que você já publicou:
+
+1. Com a página **visão geral da oferta** para sua oferta existente aberta, vá para a página **visão geral do plano** e, em seguida, selecione **criar novo plano**.
+1. Crie um novo plano de acordo com as [diretrizes](./create-new-saas-offer.md#plan-overview) usando o **modelo de preços de planos existentes**.
+1. Selecione **salvar rascunho** depois de alterar o nome do plano. 
+1. Selecione **publicar** quando estiver pronto para publicar suas atualizações. A página **[revisar e publicar](#review-and-publish-an-updated-offer)** é aberta e fornece um status de conclusão para suas atualizações.
+
 ## <a name="update-a-plan-within-an-existing-offer"></a>Atualizar um plano em uma oferta existente
 
 Para fazer alterações em um plano dentro de uma oferta existente que você já publicou:
 
-- Com a página **visão geral da oferta** aberta para sua oferta existente, escolha o plano que você deseja alterar. Se o plano não estiver acessível na lista **visão geral do plano** , selecione **Ver todos os planos**.
-- Você pode optar por selecionar o **nome**do plano, o **modelo de preços**ou a **disponibilidade**. *Atualmente, os planos estão disponíveis em inglês (Estados Unidos)*.
-- Selecione **salvar** depois de fazer as alterações necessárias no nome do plano, na descrição, no preço ou na disponibilidade do público. 
-- Selecione **publicar** quando estiver pronto para publicar suas atualizações. A página **[revisar e publicar](#review-and-publish-an-updated-offer)** será aberta e fornecerá um status de conclusão para as atualizações.
+1. Com a página **visão geral da oferta** para sua oferta existente aberta, escolha o plano que você deseja alterar. Se o plano não estiver acessível na lista **visão geral do plano** , selecione **Ver todos os planos**.
+1. Você pode optar por selecionar o **nome**do plano, o **modelo de preços**ou a **disponibilidade**. *Atualmente, os planos estão disponíveis apenas em inglês (Estados Unidos)*.
+1. Selecione **salvar** depois de fazer as alterações necessárias no nome do plano, na descrição ou na disponibilidade do público. 
+1. Selecione **publicar** quando estiver pronto para publicar suas atualizações. A página **[revisar e publicar](#review-and-publish-an-updated-offer)** é aberta e fornece um status de conclusão para suas atualizações.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Comparar alterações a ofertas do Marketplace
 
-Você pode auditar as alterações feitas em uma oferta [publicada](#compare-changes-to-published-offer) ou de [Visualização](#compare-changes-to-a-preview-offer) antes de torná-las dinâmicas usando **comparar**.
+Você pode auditar as alterações feitas em uma oferta [publicada](#compare-changes-to-published-offer) ou de [Visualização](#compare-changes-to-a-preview-offer) antes de torná-las ao vivo usando **comparar**.
 
->[!NOTE]
+> [!NOTE]
 > Uma oferta publicada é uma oferta que foi publicada com êxito no estado de visualização ou ao vivo.
 
 Veja abaixo as informações gerais de auditoria:
@@ -122,9 +130,9 @@ Depois de confirmar que deseja excluir o plano de rascunho, o plano não estará
 
 Para cancelar uma oferta com o status **publicação em andamento** :
 
-- Selecione o nome da oferta para abrir a página **visão geral da oferta** .
-- Selecione **Cancelar publicação** no canto superior direito da página.
-- Confirme que você deseja impedir que a oferta seja publicada.
+1. Selecione o nome da oferta para abrir a página **visão geral da oferta** .
+1. Selecione **Cancelar publicação** no canto superior direito da página.
+1. Confirme que você deseja impedir que a oferta seja publicada.
 
 Se você quiser publicar a oferta em um momento posterior, será necessário iniciar o processo de publicação.
 
