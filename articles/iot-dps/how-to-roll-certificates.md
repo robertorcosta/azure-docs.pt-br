@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974880"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
@@ -94,7 +93,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Registros Individuais**e clique na entrada da ID de registro na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
 
     ![Gerenciar registros individuais usando o certificado secundário](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -116,7 +115,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 4. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
-5. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de Autoridade de Certificação raiz. Em seguida, clique em **salvar**. 
+5. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de Autoridade de Certificação raiz. Em seguida, clique em **Salvar**. 
 
     ![Selecione o novo certificado de Autoridade de Certificação raiz](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -162,7 +161,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 2. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
-3. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de autoridade de certificação raiz na configuração do **Certificado Secundário**. Em seguida, clique em **salvar**. 
+3. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de autoridade de certificação raiz na configuração do **Certificado Secundário**. Em seguida, clique em **Salvar**. 
 
     ![Selecione o novo certificado de Autoridade de Certificação raiz](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
@@ -177,7 +176,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
 
     Esse novo certificado intermediário deve ser assinado por um certificado de autoridade de certificação de raiz verificado que já foi adicionado ao serviço de provisionamento. Para saber mais, confira [Certificados X.509](concepts-security.md#x509-certificates).
 

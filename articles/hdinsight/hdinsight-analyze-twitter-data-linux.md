@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435608"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analisar dados do Twitter usando o Apache Hive e Apache Hadoop no HDInsight
@@ -28,9 +27,9 @@ O Twitter permite que você recupere os dados de cada tweet como um documento JS
 
 ### <a name="create-a-twitter-application"></a>Criar um aplicativo do Twitter
 
-1. Em um navegador da Web, entre no [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Selecione o link **inscrever-se agora** se você não tiver uma conta do Twitter.
+1. Em um navegador da Web, entre no [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Selecione o link **inscrever-se agora** se você não tiver uma conta do Twitter.
 
-2. Selecione **Criar novo aplicativo**.
+2. Selecione **criar novo aplicativo**.
 
 3. Digite o **Nome**, a **Descrição** e o **Site**. Você pode fazer uma URL para o campo **Site** . A tabela a seguir mostra alguns valores de exemplo para usar:
 
@@ -59,7 +58,7 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
 > [!NOTE]  
 > As etapas a seguir são executadas no cluster HDInsight, já que o Python já está instalado.
 
-1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -84,7 +83,7 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
    nano gettweets.py
    ```
 
-1. Edite o código a seguir `Your consumer secret`substituindo, `Your consumer key`, `Your access token`e `Your access token secret` pelas informações relevantes do seu aplicativo do Twitter. Em seguida, Cole o código editado como o conteúdo do arquivo **gettweets.py** .
+1. Edite o código a seguir substituindo `Your consumer secret` , `Your consumer key` , `Your access token` e `Your access token secret` pelas informações relevantes do seu aplicativo do Twitter. Em seguida, Cole o código editado como o conteúdo do arquivo **gettweets.py** .
 
    ```python
    #!/usr/bin/python

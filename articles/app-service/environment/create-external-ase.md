@@ -8,10 +8,9 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430508"
 ---
 # <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo
@@ -32,7 +31,7 @@ Este artigo mostra como criar um ASE Externo. Para obter uma visão geral do ASE
 
 Depois de criar o seu ASE, você não pode alterar os seguintes itens:
 
-- Local
+- Location
 - Subscription
 - Resource group
 - VNET usada
@@ -59,7 +58,7 @@ O plano do Serviço de Aplicativo é um contêiner de aplicativos. Ao criar um a
 
 Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
-1. Na [portal do Azure](https://portal.azure.com/), selecione **criar um recurso** > **Web + celular** > **aplicativo Web**.
+1. Na [portal do Azure](https://portal.azure.com/), selecione **criar um recurso**  >  **Web + celular**  >  **aplicativo Web**.
 
     ![Criação de um aplicativo Web][1]
 

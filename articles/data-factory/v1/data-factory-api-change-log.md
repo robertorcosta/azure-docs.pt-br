@@ -13,10 +13,9 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74978995"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - Log de alterações da API .NET
@@ -78,7 +77,7 @@ Adições de Recursos:
   * Habilita o uso do PolyBase para copiar dados para o SQL Data Warehouse.
 
 ## <a name="version-461"></a>Versão 4.6.1
-### <a name="bug-fixes"></a>Correções de bugs
+### <a name="bug-fixes"></a>Correções de bug
 * Corrige a solicitação HTTP para listar janelas de atividade.
   * Remove o nome do grupo de recursos e o nome do data factory da carga da solicitação.
 
@@ -87,7 +86,7 @@ Adições de Recursos:
 * As propriedades a seguir foram adicionadas a [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx):
   * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
   * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
-  * [Conjuntos de dados](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
+  * [Conjunto de dados](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * As propriedades a seguir foram adicionadas a [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
   * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
 * Adição de um novo tipo [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) do tipo [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) para definir os conjuntos de dados cujos dados estão no formato JSON.

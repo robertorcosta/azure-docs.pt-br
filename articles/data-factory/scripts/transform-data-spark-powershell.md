@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74932058"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script do PowerShell – transformar dados na nuvem usando o Azure Data Factory
@@ -26,7 +25,7 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Conta de armazenamento do Azure**. Crie um script Python e um arquivo de entrada e carregue-os no Armazenamento do Azure. A saída do programa Spark é armazenada nessa conta de armazenamento. O cluster do Spark sob demanda usa a mesma conta de armazenamento que o respectivo armazenamento primário.  
+* **Conta de Armazenamento do Azure**. Crie um script Python e um arquivo de entrada e carregue-os no Armazenamento do Azure. A saída do programa Spark é armazenada nessa conta de armazenamento. O cluster do Spark sob demanda usa a mesma conta de armazenamento que o respectivo armazenamento primário.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Carregar o script Python em sua conta de Armazenamento de Blobs
 1. Crie um arquivo Python chamado **WordCount_Spark. py** com o seguinte conteúdo: 
@@ -54,7 +53,7 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
     if __name__ == "__main__":
         main()
     ```
-2. Substitua ** &lt;storageAccountName&gt; ** pelo nome da sua conta de armazenamento do Azure. Em seguida, salve o arquivo. 
+2. Substitua ** &lt; storageAccountName &gt; ** pelo nome da sua conta de armazenamento do Azure. Em seguida, salve o arquivo. 
 3. No seu Armazenamento de Blobs do Azure, crie um contêiner denominado **adftutorial** se ele não existir. 
 4. Crie uma pasta chamada **spark**.
 5. Criar uma subpasta chamada **script** na pasta **spark**. 

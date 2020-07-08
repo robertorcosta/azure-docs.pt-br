@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75433877"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do serviço em C# com Reliable Services
@@ -220,7 +219,7 @@ Essa alteração garante que o serviço escute nos ouvintes V1 e V2.
 Essa etapa garante que o cliente use a pilha V2.
 Nenhuma alteração no projeto/serviço do cliente é necessária. Compilar projetos de cliente com assembly de interface atualizada é suficiente.
 
-3. Essa etapa é opcional. Use o atributo V2 e, em seguida, atualize o serviço V2.
+3. Esta etapa é opcional. Use o atributo V2 e, em seguida, atualize o serviço V2.
 Esta etapa garante que o serviço esteja escutando somente no ouvinte V2.
 
     ```csharp
@@ -313,7 +312,7 @@ Siga estas etapas:
 Para atualizar da V1 para a V2 (compatível com interface, conhecida como V2_1), são necessárias atualizações de duas etapas. Siga as etapas deste tutorial.
 
 > [!NOTE]
-> Ao atualizar do v1 para o v2, verifique `Remoting` se o namespace está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2.. Client '
+> Ao atualizar do v1 para o v2, verifique se o `Remoting` namespace está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2.. Client '
 >
 >
 
@@ -347,7 +346,7 @@ Essa alteração garante que o serviço esteja escutando nos ouvintes V1 e V2_1.
 Esta etapa garante que o cliente esteja usando a pilha V2_1.
 Nenhuma alteração no projeto/serviço do cliente é necessária. Compilar projetos de cliente com assembly de interface atualizada é suficiente.
 
-3. Essa etapa é opcional. Remova a versão do ouvinte V1 do atributo e, em seguida, atualize o serviço V2.
+3. Esta etapa é opcional. Remova a versão do ouvinte V1 do atributo e, em seguida, atualize o serviço V2.
 Esta etapa garante que o serviço esteja escutando somente no ouvinte V2.
 
     ```csharp

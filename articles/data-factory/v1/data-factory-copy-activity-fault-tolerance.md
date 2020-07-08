@@ -12,10 +12,9 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8ffaee75154fd5fe025bdb683c89f16799d6e86b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74926145"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicionar tolerância a falhas na Atividade de Cópia ignorando linhas incompatíveis
@@ -35,17 +34,17 @@ A [Atividade de Cópia](data-factory-data-movement-activities.md) do Azure Data 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 A Atividade de Cópia dá suporte a três cenários para detectar, ignorar e registrar em log dados incompatíveis:
 
-- **Incompatibilidade entre o tipo de dados da origem e o tipo nativo do coletor**
+- **Incompatibilidade entre o tipo de dados de origem e o tipo nativo do coletor**
 
-    Por exemplo: copiar dados de um arquivo CSV no armazenamento de Blobs em um banco de dados SQL com uma definição de esquema que contenha três colunas do tipo **INT**. As linhas do arquivo CSV que contêm dados numéricos, como `123,456,789`, são copiadas com êxito no armazenamento de coletores. No entanto, as linhas que contêm valores não numéricos, como `123,456,abc`, são detectadas como incompatíveis e ignoradas.
+    Por exemplo: copiar dados de um arquivo CSV no armazenamento de BLOBs para um banco de dado SQL com uma definição de esquema que contém três colunas de tipo **int** . As linhas do arquivo CSV que contêm dados numéricos, como `123,456,789`, são copiadas com êxito no armazenamento de coletores. No entanto, as linhas que contêm valores não numéricos, como `123,456,abc`, são detectadas como incompatíveis e ignoradas.
 
 - **Incompatibilidade no número de colunas entre a origem e o coletor**
 
-    Por exemplo: copiar dados de um arquivo CSV no armazenamento de Blobs em um banco de dados SQL com uma definição de esquema que contém seis colunas. As linhas do arquivo CSV que contêm seis colunas são copiadas com êxito no armazenamento do coletor. As linhas do arquivo CSV que contêm mais ou menos de seis colunas são detectadas como incompatíveis e ignoradas.
+    Por exemplo:  Copiar dados de um arquivo CSV no Armazenamento de Blobs para um banco de dados SQL com uma definição de esquema que contenha seis colunas. As linhas do arquivo CSV que contêm seis colunas são copiadas com êxito no armazenamento do coletor. As linhas do arquivo CSV que contêm mais ou menos de seis colunas são detectadas como incompatíveis e ignoradas.
 
-- **Violação de chave primária ao gravar no SQL Server/Banco de Dados SQL do Azure/Azure Cosmos DB**
+- **Violação de chave primária ao gravar no SQL Server/banco de dados SQL do Azure/Azure Cosmos DB**
 
-    Por exemplo: copiar dados de um servidor SQL em um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A Atividade de Cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
+    Por exemplo:  Copiar dados de um servidor SQL para um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A Atividade de Cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
 
 >[!NOTE]
 >Esse recurso não se aplica quando a atividade de cópia está configurada para invocar mecanismo de carregamento de dados externos, incluindo [SQL Data Warehouse PolyBase do Microsoft Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para carregar dados no SQL Data Warehouse usando PolyBase, usar o suporte nativo a tolerância a falhas do PolyBase, especificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" na atividade de cópia.
@@ -69,7 +68,7 @@ O seguinte exemplo fornece uma definição de JSON que configura a omissão de l
 }
 ```
 
-| Propriedade | Descrição | Valores permitidos | Necessária |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Habilite ou não a omissão das linhas incompatíveis durante a cópia. | True<br/>False (padrão) | Não |
 | **redirectIncompatibleRowSettings** | Um grupo de propriedades que poderá ser especificado quando você desejar registrar as linhas incompatíveis. | &nbsp; | Não |

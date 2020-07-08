@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900365"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
@@ -51,11 +50,11 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 |   |   | Nível inferior do Windows | Não persistente | Sim |
 | Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
-|   | Gerenciados | Atual do Windows | Persistente | Não |
+|   | Gerenciada | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
-| Registrado no Azure AD | Federado | Atual do Windows | Persistente | Não |
+| Azure AD registrado | Federado | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
-|   | Gerenciados | Atual do Windows | Persistente | Não |
+|   | Gerenciada | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
 
 \*Um ambiente de infraestrutura de identidade **federada** representa um ambiente com um provedor de identidade, como AD FS ou outros IDP de terceiros.
@@ -73,7 +72,7 @@ Os administradores devem referenciar os artigos a seguir, com base em sua infrae
 - [Configurar a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)
 - [Configurar a junção de Azure Active Directory híbrida para o ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
 
-Se você estiver contando com a ferramenta de preparação do sistema (Sysprep. exe) e se estiver usando uma imagem anterior ao Windows 10 1809 para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure AD como ingressado no Azure AD híbrido.
+Se você estiver contando com a ferramenta de preparação do sistema (sysprep.exe) e se estiver usando uma imagem anterior ao Windows 10 1809 para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure AD como ingressado no Azure AD híbrido.
 
 Se você estiver contando com um instantâneo de VM (máquina virtual) para criar VMs adicionais, verifique se o instantâneo não é de uma VM que já está registrada com o Azure AD como uma junção híbrida do Azure AD.
 
@@ -81,7 +80,7 @@ Ao implantar o VDI não persistente, os administradores de ti devem prestar aten
 
 - Crie e use um prefixo para o nome de exibição do computador que indica a área de trabalho como baseada em VDI.
 - Implemente o comando a seguir como parte do script de logoff. Esse comando disparará uma melhor chamada de esforço para o Azure AD para excluir o dispositivo.
-   - Para dispositivos de nível inferior do Windows – autoworkplace. exe/Leave
+   - Para dispositivos de nível inferior do Windows – autoworkplace.exe/Leave
 - Defina e implemente o processo de [Gerenciamento de dispositivos obsoletos](manage-stale-devices.md).
    - Depois de ter uma estratégia para identificar seus dispositivos ingressados no Azure AD híbridos não persistentes, você pode ser mais agressivo na limpeza desses dispositivos para garantir que seu diretório não seja consumido com muitos dispositivos obsoletos.
  

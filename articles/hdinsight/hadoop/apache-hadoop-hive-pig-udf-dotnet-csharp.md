@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74949382"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usar funções definidas pelo usuário do C# com Apache Hive e Apache Pig no Apache Hadoop no HDInsight
@@ -111,7 +110,7 @@ Para criar um projeto C# para um Apache Hive UDF:
     }
     ```
 
-6. Na barra de menus, selecione **criar** > **solução de compilação** para compilar o projeto.
+6. Na barra de menus, selecione **criar**  >  **solução de compilação** para compilar o projeto.
 
 7. Feche a solução.
 
@@ -160,7 +159,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
     Esse código analisa as linhas enviadas do Pig e reformata as linhas que começam com `java.lang.Exception`.
 
-6. Na barra de menus, escolha **Compilar** > compilar**solução** para compilar o projeto.
+6. Na barra de menus, escolha **Compilar**compilar  >  **solução** para compilar o projeto.
 
 7. Deixe a solução aberta.
 
@@ -168,7 +167,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 Em seguida, carregue os aplicativos do hive e do Pig UDF para armazenamento em um cluster HDInsight.
 
-1. No Visual Studio, navegue até **Exibir** > **Gerenciador de servidores**.
+1. No Visual Studio, navegue até **Exibir**  >  **Gerenciador de servidores**.
 
 1. Em **Gerenciador de servidores**, clique com o botão direito do mouse em **Azure**, selecione **conectar à assinatura do Microsoft Azure**e conclua o processo de entrada.
 
@@ -186,9 +185,9 @@ Em seguida, carregue os aplicativos do hive e do Pig UDF para armazenamento em u
 
         ![Ícone de upload do HDInsight para novo projeto](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
-        Na caixa de diálogo **carregar novo arquivo** , em **nome do arquivo**, selecione **procurar**. Na caixa de diálogo **carregar blob** , vá para a pasta *Bin\debug* do projeto *HiveCSharp* e escolha o arquivo *HiveCSharp. exe* . Por fim, selecione **abrir** e, em seguida, **OK** para concluir o carregamento.
+        Na caixa de diálogo **carregar novo arquivo** , em **nome do arquivo**, selecione **procurar**. Na caixa de diálogo **carregar blob** , vá para a pasta *Bin\debug* do projeto *HiveCSharp* e, em seguida, escolha o arquivo *HiveCSharp.exe* . Por fim, selecione **abrir** e, em seguida, **OK** para concluir o carregamento.
 
-    * Se você estiver usando **Azure data Lake Storage**, clique com o botão direito do mouse em uma área vazia na listagem de arquivos e, em seguida, selecione **carregar**. Por fim, escolha o arquivo *HiveCSharp. exe* e selecione **abrir**.
+    * Se você estiver usando **Azure data Lake Storage**, clique com o botão direito do mouse em uma área vazia na listagem de arquivos e, em seguida, selecione **carregar**. Por fim, escolha o arquivo *HiveCSharp.exe* e selecione **abrir**.
 
     Após o *HiveCSharp.exe* ser carregado, repita o processo de upload para o arquivo *PigUDF.exe*.
 
@@ -196,7 +195,7 @@ Em seguida, carregue os aplicativos do hive e do Pig UDF para armazenamento em u
 
 Agora você pode executar uma consulta de Hive que usa o aplicativo UDF do hive.
 
-1. No Visual Studio, navegue até **Exibir** > **Gerenciador de servidores**.
+1. No Visual Studio, navegue até **Exibir**  >  **Gerenciador de servidores**.
 
 2. Expanda **Azure** e expanda **HDInsight**.
 
@@ -222,7 +221,7 @@ Agora você pode executar uma consulta de Hive que usa o aplicativo UDF do hive.
     > [!IMPORTANT]
     > Remova a marca de comentário da instrução `add file` que corresponde ao tipo de armazenamento padrão usado para o cluster.
 
-    Essa consulta seleciona os `clientid`campos `devicemake`, e `devicemodel` de `hivesampletable`e passa os campos para o aplicativo *HiveCSharp. exe* . A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel` e `phoneHash`. A consulta também espera localizar *HiveCSharp. exe* na raiz do contêiner de armazenamento padrão.
+    Essa consulta seleciona os `clientid` `devicemake` campos, e `devicemodel` de `hivesampletable` e passa os campos para o aplicativo *HiveCSharp.exe* . A consulta espera que o aplicativo retorne três campos, que são armazenados como `clientid`, `phoneLabel` e `phoneHash`. A consulta também espera localizar *HiveCSharp.exe* na raiz do contêiner de armazenamento padrão.
 
 5. Alterne o padrão **interativo** para o **lote**e, em seguida, selecione **Enviar** para enviar o trabalho para o cluster HDInsight. A janela **Resumo do trabalho Hive** é aberta.
 
@@ -232,7 +231,7 @@ Agora você pode executar uma consulta de Hive que usa o aplicativo UDF do hive.
 
 Você também pode executar um trabalho do Pig que usa seu aplicativo Pig UDF.
 
-1. Use o SSH para conectar-se ao cluster HDInsight. (Por exemplo, execute o comando `ssh sshuser@<clustername>-ssh.azurehdinsight.net`.) Para obter mais informações, consulte [usar SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Use o SSH para conectar-se ao cluster HDInsight. (Por exemplo, execute o comando `ssh sshuser@<clustername>-ssh.azurehdinsight.net` .) Para obter mais informações, consulte [usar SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use o seguinte comando para iniciar a linha de comando Pig:
 
@@ -252,10 +251,10 @@ Você também pode executar um trabalho do Pig que usa seu aplicativo Pig UDF.
     DUMP DETAILS;
     ```
 
-    A `DEFINE` instrução cria um alias de `streamer` para o aplicativo *PigUDF. exe* e `CACHE` o carrega do armazenamento padrão para o cluster. Posteriormente, `streamer` é usado com o `STREAM` operador para processar as linhas individuais contidas `LOG` no e retornar os dados como uma série de colunas.
+    A `DEFINE` instrução cria um alias do `streamer` para o aplicativo *PigUDF.exe* e o `CACHE` carrega do armazenamento padrão para o cluster. Posteriormente, `streamer` é usado com o `STREAM` operador para processar as linhas individuais contidas no `LOG` e retornar os dados como uma série de colunas.
 
     > [!NOTE]
-    > O nome do aplicativo que é usado para streaming deve ser circundado \` pelo caractere (acento grave) quando com alias e pelo caractere ' (aspa simples) quando usado com `SHIP`.
+    > O nome do aplicativo que é usado para streaming deve ser circundado pelo \` caractere (acento grave) quando com alias e pelo caractere ' (aspa simples) quando usado com `SHIP` .
 
 4. Depois de inserir a última linha, o trabalho deve ser iniciado. Isso retorna saídas semelhantes ao seguinte texto:
 

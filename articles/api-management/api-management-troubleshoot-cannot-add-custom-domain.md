@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430586"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Falha ao atualizar os nomes de host do serviço de gerenciamento de API
@@ -28,7 +27,7 @@ Este artigo descreve o erro "falha ao atualizar nomes de host de serviço de ger
 
 Ao tentar adicionar um domínio personalizado ao serviço de gerenciamento de API usando um certificado do Azure Key Vault, você receberá a seguinte mensagem de erro:
 
-- Falha ao atualizar os nomes de host do serviço de gerenciamento de API. A solicitação para ohttps://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0recurso ' ' falhou com StatusCode: proibido para RequestId:. Mensagem de exceção: a operação retornou um código de status inválido ' proibido '.
+- Falha ao atualizar os nomes de host do serviço de gerenciamento de API. A solicitação para o recurso ' https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 ' falhou com StatusCode: proibido para RequestId:. Mensagem de exceção: a operação retornou um código de status inválido ' proibido '.
 
 ## <a name="cause"></a>Causa
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: e643c7fe7b18eed30843e7cab3977036435d2112
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435796"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Conectar o Excel ao Apache Hadoop com o Power Query
@@ -21,7 +20,7 @@ Um dos principais recursos da solução de big data da Microsoft é a integraç�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Um cluster do Apache Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Uma estação de trabalho que esteja executando o Windows 10, 7, Windows Server 2008 R2 ou um sistema operacional posterior.
 * Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 autônomo ou Office 2010 Professional Plus.
 
@@ -43,17 +42,17 @@ O suplemento do Power Query para Excel facilita a importação de dados de seu c
 
    * Excel 2016
 
-     * Selecione > **dados** > **obter dados** > **do Azure** > **do Azure HDInsight (HDFS)**.
+     * Selecione > **dados**  >  **obter dados**  >  **do Azure**  >  **do Azure HDInsight (HDFS)**.
 
        ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
 
    * Excel 2013/2010
 
-     * Selecione **Power Query** > **do Azure** > **do Microsoft Azure HDInsight**.
+     * Selecione **Power Query**  >  **do Azure**  >  **do Microsoft Azure HDInsight**.
 
        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
 
-       **Observação:** Se você não vir o menu de **Power Query** , vá **para arquivo** > **Opções** > **suplementos**e selecione suplementos de **com** na caixa suspensa **gerenciar** na parte inferior da página. Selecione o botão **Ir...** e verifique se a caixa do suplemento Power Query para Excel está marcada.
+       **Observação:** Se você não vir o menu de **Power Query** , vá para **arquivo**  >  **Opções**  >  **suplementos**e selecione suplementos de **com** na caixa suspensa **gerenciar** na parte inferior da página. Selecione o botão **Ir...** e verifique se a caixa do suplemento Power Query para Excel está marcada.
 
        **Observação:** Power Query também permite importar dados do HDFS selecionando **de outras fontes**.
 
@@ -63,7 +62,7 @@ O suplemento do Power Query para Excel facilita a importação de dados de seu c
 
 1. No painel **navegador** à esquerda do editor de consultas, clique duas vezes no nome do contêiner de armazenamento de blob associado ao cluster. Por padrão, o nome do contêiner é igual ao nome do cluster.
 
-1. Localize **HiveSampleData. txt** na coluna **nome** (o caminho da pasta é **.. /Hive/warehouse/hivesampletable/**) e, em seguida, selecione **Binary** à esquerda de HiveSampleData. txt. HiveSampleData.txt acompanha todo o cluster. Se desejar, você pode usar seu próprio arquivo.
+1. Localize **HiveSampleData.txt** na coluna **nome** (o caminho da pasta é **.. /Hive/warehouse/hivesampletable/**) e, em seguida, selecione **Binary** à esquerda de HiveSampleData.txt. HiveSampleData.txt acompanha todo o cluster. Se desejar, você pode usar seu próprio arquivo.
 
     ![Importar dados do HDI Excel Power Query](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
 
@@ -81,4 +80,4 @@ Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDI
 * [Conectar o Excel ao HDInsight com o Driver ODBC do Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Conecte-se ao Azure HDInsight e execute consultas do Apache Hive usando o Data Lake Tools para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Use a Ferramenta do Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
-* [Carregue os dados no HDInsight](./../hdinsight-upload-data.md).
+* [Carregar dados no HDInsight](./../hdinsight-upload-data.md).

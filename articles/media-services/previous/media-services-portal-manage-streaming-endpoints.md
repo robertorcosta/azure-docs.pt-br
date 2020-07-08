@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900876"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerenciar pontos de extremidade de streaming com o portal do Azure 
@@ -87,7 +86,7 @@ A seguir há uma breve descrição dos campos.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Dimensionar seu ponto de extremidade de streaming
 
-Para obter mais informações, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
+Para saber mais, confira [este artigo](media-services-portal-scale-streaming-endpoints.md).
 
 ## <a name="enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
 
@@ -120,6 +119,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envie comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

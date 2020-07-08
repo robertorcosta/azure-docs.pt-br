@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas e solução de problemas do node. js
-description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos node. js em execução no serviço Azure App.
+title: Node.js práticas recomendadas e solução de problemas
+description: Conheça as práticas recomendadas e as etapas de solução de problemas para Node.js aplicativos executados no serviço Azure App.
 author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
@@ -9,10 +9,9 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430558"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows

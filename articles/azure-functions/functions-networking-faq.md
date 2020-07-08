@@ -7,10 +7,9 @@ ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75409538"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre rede em Azure Functions
@@ -67,4 +66,4 @@ Para saber mais sobre rede e funções:
 * [Saiba mais sobre as opções de rede no Azure Functions](./functions-networking-options.md)
 * [Saiba mais sobre a integração de rede virtual com o serviço de aplicativo e as funções](../app-service/web-sites-integrate-with-vnet.md)
 * [Saiba mais sobre as redes virtuais no Azure](../virtual-network/virtual-networks-overview.md)
-* [Habilitar mais recursos de rede e controle com ambientes de serviço de aplicativo](../app-service/environment/intro.md)
+* [Habilitar mais recursos de rede e de controle com Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md)

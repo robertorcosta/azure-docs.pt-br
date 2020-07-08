@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435390"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming em escala no HDInsight
@@ -49,7 +48,7 @@ Há vantagens para as tecnologias de dissociação. Por exemplo, Kafka é uma te
 
 ### <a name="scale-the-stream-buffering-layer"></a>Dimensionar a camada de buffer de fluxo
 
-As tecnologias de buffer de fluxo dos Hubs de Eventos e Kafka usam partições e os consumidores fazem as leituras a partir dessas partições. Dimensionar a taxa de transferência de entrada exige escalar o número de partições e adicionar partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools),. `rebalance_rackaware.py` Essa ferramenta de rebalanceamento chama a ferramenta `kafka-reassign-partitions.sh` de forma que cada réplica esteja em um domínio de falha separado e o domínio de atualização, com reconhecimento de rack do Kafka e aumentando a tolerância a falhas.
+As tecnologias de buffer de fluxo dos Hubs de Eventos e Kafka usam partições e os consumidores fazem as leituras a partir dessas partições. Dimensionar a taxa de transferência de entrada exige escalar o número de partições e adicionar partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py` . Essa ferramenta de rebalanceamento chama a ferramenta `kafka-reassign-partitions.sh` de forma que cada réplica esteja em um domínio de falha separado e o domínio de atualização, com reconhecimento de rack do Kafka e aumentando a tolerância a falhas.
 
 ### <a name="scale-the-stream-processing-layer"></a>Dimensionar a camada de processamento de fluxo
 

@@ -8,10 +8,9 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74967330"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocação de tabela no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
@@ -109,7 +108,7 @@ Os dados são dispersos, portanto, as consultas podem ser paralelizadas. Só é 
 
 ### <a name="distribute-tables-by-tenant"></a>Distribuir tabelas por locatário
 
-Em hiperescala (Citus), as linhas com o mesmo valor de coluna de distribuição têm a garantia de estar no mesmo nó. A partir de então, podemos criar nossas tabelas `tenant_id` com como a coluna de distribuição.
+Em hiperescala (Citus), as linhas com o mesmo valor de coluna de distribuição têm a garantia de estar no mesmo nó. A partir de então, podemos criar nossas tabelas com `tenant_id` como a coluna de distribuição.
 
 ```sql
 -- co-locate tables by using a common distribution column

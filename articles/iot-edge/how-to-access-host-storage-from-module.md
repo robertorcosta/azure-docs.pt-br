@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434536"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer acesso de módulos ao armazenamento local de um dispositivo
@@ -72,9 +71,9 @@ Ou então, você pode configurar o armazenamento local diretamente no manifesto 
 
 Substitua `<HostStoragePath>` e `<ModuleStoragePath>` pelo caminho de armazenamento do módulo e do host; ambos os valores devem ser um caminho absoluto.
 
-Por exemplo, em um sistema Linux, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que o diretório **/etc/iotedge/Storage** no seu sistema host é mapeado para o diretório **/iotedge/Storage/** no contêiner. Em um sistema Windows, como outro exemplo, `"Binds":["C:\\temp:C:\\contemp"]` significa que o diretório **c\\: Temp** no seu sistema host é mapeado para o diretório **c\\: contemp** no contêiner.
+Por exemplo, em um sistema Linux, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que o diretório **/etc/iotedge/Storage** no seu sistema host é mapeado para o diretório **/iotedge/Storage/** no contêiner. Em um sistema Windows, como outro exemplo, `"Binds":["C:\\temp:C:\\contemp"]` significa que o diretório **c: \\ Temp** no seu sistema host é mapeado para o diretório **c: \\ contemp** no contêiner.
 
-Além disso, em dispositivos Linux, certifique-se de que o perfil do usuário para o módulo tenha as permissões de leitura, gravação e execução necessárias para o diretório do sistema de host. Voltando ao exemplo anterior de como habilitar IoT Edge Hub para armazenar mensagens no armazenamento local do dispositivo, você precisa conceder permissões para seu perfil de usuário, UID 1000. (O agente de IoT Edge Opera como raiz, portanto, não precisa de permissões adicionais.) Há várias maneiras de gerenciar permissões de diretório em sistemas Linux, incluindo o `chown` uso do para alterar o proprietário do `chmod` diretório e, em seguida, alterar as permissões, como:
+Além disso, em dispositivos Linux, certifique-se de que o perfil do usuário para o módulo tenha as permissões de leitura, gravação e execução necessárias para o diretório do sistema de host. Voltando ao exemplo anterior de como habilitar IoT Edge Hub para armazenar mensagens no armazenamento local do dispositivo, você precisa conceder permissões para seu perfil de usuário, UID 1000. (O agente de IoT Edge Opera como raiz, portanto, não precisa de permissões adicionais.) Há várias maneiras de gerenciar permissões de diretório em sistemas Linux, incluindo `chown` o uso do para alterar o proprietário do diretório e, em seguida, `chmod` alterar as permissões, como:
 
 ```bash
 sudo chown 1000 <HostStoragePath>

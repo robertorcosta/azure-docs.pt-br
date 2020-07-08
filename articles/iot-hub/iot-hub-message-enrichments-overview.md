@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429114"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem
@@ -29,7 +28,7 @@ Um enriquecimento de mensagem tem três elementos principais:
 
 * Um ou mais [pontos de extremidade](iot-hub-devguide-endpoints.md) para os quais o enriquecimento deve ser aplicado.
 
-A **chave** é uma cadeia de caracteres. Uma chave só pode conter caracteres alfanuméricos ou estes caracteres especiais: hífen`-`(), sublinhado (`_`) e ponto`.`final ().
+A **chave** é uma cadeia de caracteres. Uma chave só pode conter caracteres alfanuméricos ou estes caracteres especiais: hífen ( `-` ), sublinhado ( `_` ) e ponto final ( `.` ).
 
 O **valor** pode ser qualquer um dos seguintes exemplos:
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397757"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
@@ -30,7 +29,7 @@ A tabela a seguir compara os conceitos e estruturas de dados entre logs do Splun
  | Registro de dados | event | linha |  Mudança de terminologia apenas. |
  | Atributo de registro de dados | field |  coluna |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Azure Monitor são mais explícitos, visto que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com os tipos de dados e o conjunto praticamente equivalente de tipos de dados, incluindo suporte a JSON. |
- | Consulta e pesquisa  | pequisa | Consulta |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
+ | Consulta e pesquisa  | pesquisar | Consulta |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
  | Hora da ingestão de evento | Hora do sistema | ingestion_time() |  No Splunk, cada evento obtém um carimbo de data/hora do sistema do momento em que o evento foi indexado. No Azure Monitor, você pode definir uma política chamada ingestion_time que expõe uma coluna do sistema que pode ser referenciada por meio da função ingestion_time(). |
 
 ## <a name="functions"></a>Funções
@@ -70,7 +69,7 @@ No Splunk, você pode omitir a palavra-chave `search` e especificar uma cadeia d
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **procurando** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
+| Splunk | **search** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
 | Azure Monitor | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
@@ -79,7 +78,7 @@ As consultas de log do Azure Monitor iniciam em um conjunto de resultados tabula
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **procurando** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
+| Splunk | **search** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
 | Azure Monitor | **where** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 | | |
 
@@ -90,7 +89,7 @@ Consultas de log do Azure Monitor também dão suporte a `take` como um alias pa
 | |  | |
 |:---|:---|:---|
 | Splunk | **principal** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
-| Azure Monitor | **limite** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
+| Azure Monitor | **limit** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
 | | |
 
 
@@ -101,7 +100,7 @@ Para obter os resultados finais, use `tail` no Splunk. No Azure Monitor, você p
 | |  | |
 |:---|:---|:---|
 | Splunk | **principal** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
-| Azure Monitor | **Início** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
+| Azure Monitor | **início** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 | | |
 
 
@@ -113,7 +112,7 @@ O Splunk também tem uma função `eval`, que não é comparável ao operador `e
 | |  | |
 |:---|:---|:---|
 | Splunk | **eval** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
-| Azure Monitor | **estender** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
+| Azure Monitor | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 | | |
 
 
@@ -135,7 +134,7 @@ O Splunk não parece ter um operador semelhante a `project-away`. Você pode usa
 | |  | |
 |:---|:---|:---|
 | Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
-| Azure Monitor | **projeto**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
+| Azure Monitor | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 
@@ -145,8 +144,8 @@ Confira as [Agregações em consultas de log do Azure Monitor](aggregations.md) 
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Estatísticas** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
-| Azure Monitor | **resumir** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
+| Splunk | **stats** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
+| Azure Monitor | **summarize** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 | | |
 
 
@@ -156,8 +155,8 @@ Unir-se ao Splunk tem limitações significativas. A subconsulta tem um limite d
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **em** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
-| Azure Monitor | **em** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
+| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429146"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub IoT do Azure para outra região
@@ -107,7 +106,7 @@ Esta seção fornece instruções específicas para migrar o Hub.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Localize o Hub original e exporte-o para um modelo de recurso.
 
-1. Entre no [portal do Azure](https://portal.azure.com). 
+1. Entre no [Portal do Azure](https://portal.azure.com). 
 
 1. Vá para **grupos de recursos** e selecione o grupo de recursos que contém o Hub que você deseja mover. Você também pode acessar **recursos** e encontrar o Hub dessa maneira. Selecione o Hub.
 
@@ -121,7 +120,7 @@ Esta seção fornece instruções específicas para migrar o Hub.
 
 ### <a name="view-the-template"></a>Exibição do modelo 
 
-1. Vá para a pasta de downloads (ou para qualquer pasta usada quando você exportou o modelo) e localize o arquivo zip. Abra o arquivo zip e localize o arquivo chamado `template.json`. Selecione-o e, em seguida, selecione CTRL + C para copiar o modelo. Vá para uma pasta diferente que não esteja no arquivo zip e cole o arquivo (Ctrl + V). Agora você pode editá-lo.
+1. Vá para a pasta de downloads (ou para qualquer pasta usada quando você exportou o modelo) e localize o arquivo zip. Abra o arquivo zip e localize o arquivo chamado `template.json` . Selecione-o e, em seguida, selecione CTRL + C para copiar o modelo. Vá para uma pasta diferente que não esteja no arquivo zip e cole o arquivo (Ctrl + V). Agora você pode editá-lo.
  
     O exemplo a seguir é para um hub genérico sem configuração de roteamento. É um hub de camada S1 (com 1 unidade) chamado **ContosoTestHub29358** na região **westus**. Este é o modelo exportado.
 
@@ -347,7 +346,7 @@ Agora você tem um modelo que criará um novo hub que parece quase exatamente co
 
 Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteamento que serão movidos, os recursos deverão ser configurados no novo local e as referências no modelo serão atualizadas para corresponder. Se você não estiver movendo os recursos de roteamento, eles deverão estar no modelo com as chaves atualizadas.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **Criar um recurso**. 
 
@@ -363,7 +362,7 @@ Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteam
 
    ![Captura de tela mostrando o comando para carregar um arquivo de modelo](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
 
-1. Procure o novo modelo que você editou e selecione-o e, em seguida, selecione **abrir**. Ele carrega seu modelo na janela Editar. Clique em **Salvar**. 
+1. Procure o novo modelo que você editou e selecione-o e, em seguida, selecione **abrir**. Ele carrega seu modelo na janela Editar. Selecione **Salvar**. 
 
    ![Captura de tela mostrando o carregamento do modelo](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
 
@@ -549,7 +548,7 @@ Você pode exibir os dispositivos no [portal do Azure](https://portal.azure.com)
 
 1. Vá para o novo hub usando o [portal do Azure](https://portal.azure.com). Selecione o Hub e, em seguida, selecione **dispositivos IOT**. Você vê os dispositivos que acabou de copiar do hub antigo para o Hub clonado. Você também pode exibir as propriedades do Hub clonado. 
 
-1. Verifique se há erros de importação/exportação acessando a conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com) e `devicefiles` procurando no contêiner `ImportErrors.log`para o. Se esse arquivo estiver vazio (o tamanho é 0), não haverá erros. Se você tentar importar o mesmo dispositivo mais de uma vez, ele rejeitará o dispositivo na segunda vez e adicionará uma mensagem de erro ao arquivo de log.
+1. Verifique se há erros de importação/exportação acessando a conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com) e procurando no `devicefiles` contêiner para o `ImportErrors.log` . Se esse arquivo estiver vazio (o tamanho é 0), não haverá erros. Se você tentar importar o mesmo dispositivo mais de uma vez, ele rejeitará o dispositivo na segunda vez e adicionará uma mensagem de erro ao arquivo de log.
 
 ### <a name="committing-the-changes"></a>Confirmando as alterações 
 

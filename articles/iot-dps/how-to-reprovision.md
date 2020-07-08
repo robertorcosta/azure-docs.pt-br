@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974897"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
@@ -43,7 +42,7 @@ As seguintes etapas configuram a política de alocação para o registro do disp
 
     * **Menor latência**: esta política atribui dispositivos ao Hub IoT vinculado que resultará nas comunicações de menor latência entre o dispositivo e o Hub IoT. Essa opção permite que o dispositivo se comunique com o Hub IoT mais próximo no local. 
     
-    * **Distribuição uniformemente ponderada**: esta política distribui os dispositivos entre os Hubs IoT vinculados com base no peso de alocação atribuído a cada Hub IoT vinculado. Essa política permite que você faça o balanceamento de carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se estiver provisionando dispositivos para apenas um Hub IoT, recomendamos essa configuração. Esta é a configuração padrão. 
+    * **Distribuição uniformemente ponderada**: esta política distribui os dispositivos entre os Hubs IoT vinculados com base no peso de alocação atribuído a cada Hub IoT vinculado. Essa política permite que você faça o balanceamento de carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se estiver provisionando dispositivos para apenas um Hub IoT, recomendamos essa configuração. Essa é a configuração padrão. 
     
     * **Configuração estática**: esta política requer que um Hub IoT desejado seja listado na entrada de registro de um dispositivo a ser provisionado. Essa política permite que você designe um único Hub IoT específico ao qual deseja atribuir dispositivos.
 

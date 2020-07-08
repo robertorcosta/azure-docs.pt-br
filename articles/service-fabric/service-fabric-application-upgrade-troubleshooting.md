@@ -4,10 +4,9 @@ description: Este artigo aborda alguns problemas comuns em torno da atualizaçã
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377915"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de atualizações de aplicativo
@@ -212,9 +211,9 @@ O tempo para concluir uma atualização depende das verificações de integridad
 
 Eis uma recapitulação de como os tempos limite interagem com os tempos de atualização:
 
-As atualizações de um domínio de atualização não podem ser concluídas mais rápido do que *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+As atualizações de um domínio de atualização não podem ser concluídas mais rápido do que *HealthCheckWaitDuration*  +  *HealthCheckStableDuration*.
 
-A falha de atualização não pode ocorrer mais rápido do que *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
+A falha de atualização não pode ocorrer mais rápido do que *HealthCheckWaitDuration*  +  *HealthCheckRetryTimeout*.
 
 O tempo de atualização para um domínio de atualização é limitado pelo *UpgradeDomainTimeout*.  Se *HealthCheckRetryTimeout* e *HealthCheckStableDuration* são diferentes de zero e a integridade do aplicativo alterna entre boa e ruim, a atualização pode esgotar o tempo limite em *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inicia a contagem regressiva quando a atualização do domínio de atualização atual começa.
 

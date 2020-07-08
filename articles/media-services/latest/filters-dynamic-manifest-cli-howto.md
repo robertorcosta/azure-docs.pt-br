@@ -15,10 +15,9 @@ ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896065"
 ---
 # <a name="creating-filters-with-cli"></a>Criando filtros com a CLI 
@@ -104,7 +103,7 @@ Além disso, veja [exemplos de JSON para filtros](https://docs.microsoft.com/res
 
 Você pode especificar uma lista de ativos ou filtros de conta, que se aplicariam ao seu localizador de streaming. O [Gerenciador dinâmico (ponto de extremidade de streaming)](dynamic-packaging-overview.md) aplica essa lista de filtros junto com aqueles que seu cliente especifica na URL. Essa combinação gera um [manifesto dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros na URL + filtros que você especificar no localizador de streaming. Recomendamos que você use esse recurso se desejar aplicar filtros, mas não quiser expor os nomes de filtro na URL.
 
-O código da CLI a seguir mostra como criar um localizador de `filters`streaming e especificar. Essa é uma propriedade opcional que usa uma lista separada por espaços de nomes de filtro de ativos e/ou nomes de filtro de conta.
+O código da CLI a seguir mostra como criar um localizador de streaming e especificar `filters` . Essa é uma propriedade opcional que usa uma lista separada por espaços de nomes de filtro de ativos e/ou nomes de filtro de conta.
 
 ```azurecli
 az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
@@ -130,6 +129,6 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 [Vídeos do Stream](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

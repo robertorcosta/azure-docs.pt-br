@@ -9,10 +9,9 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74975645"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Use o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT
@@ -38,7 +37,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
 1. Verifique se o kit de desenvolvimento de IoT **não está conectado** ao computador. Inicie o VS Code primeiro e, em seguida, conecte o kit de desenvolvimento ao computador.
 
-1. Clique `F1` para abrir a paleta de comandos, digite e selecione **Azure IOT Device Workbench: abrir exemplos...**. Em seguida, selecione **IOT devkit** como placa.
+1. Clique em `F1` para abrir a paleta de comandos, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Abrir Exemplos...** . Em seguida, selecione **Kit de Desenvolvimento de IoT** como placa.
 
 1. Na página de exemplos do Workbench, encontre **Registro de Dispositivo com DPS** em clique em **Abrir Exemplo**. Em seguida, selecione o caminho padrão para baixar o código de exemplo.
     ![Abrir exemplo](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
@@ -85,7 +84,7 @@ No código de dispositivo, você precisará especificar o [ponto de extremidade 
 1. Preencha a `registrationId` variável no código. Somente alfanuméricas, minúsculas, e é permitida a combinação de hífen com um máximo de 128 caracteres. Também anotou o valor.
   ![ID de registro](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
-1. Clique `F1`em, digite e selecione **Azure IOT Device Workbench: carregar o código do dispositivo**. Inicia a compilação e carregamento do código para o seu kit de desenvolvimento.
+1. Clique em `F1` , digite e selecione **Azure IOT Device Workbench: carregar o código do dispositivo**. Inicia a compilação e carregamento do código para o seu kit de desenvolvimento.
   ![Upload de dispositivo](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>Gerar certificado X.509

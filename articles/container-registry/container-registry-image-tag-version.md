@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445745"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendações para marcação e controle de versão de imagens de contêiner
@@ -53,11 +52,11 @@ A marcação exclusiva significa simplesmente que cada imagem enviada por push a
 * **Resumo do manifesto** -cada imagem de contêiner enviada por push para um registro de contêiner é associada a um manifesto, identificado por um hash SHA-256 exclusivo ou resumo. Embora seja exclusivo, o resumo é longo, difícil de ler e não correlacionado ao seu ambiente de compilação.
 * **ID da compilação** -essa opção pode ser melhor, pois provavelmente é incremental e permite que você se correlacione de volta à compilação específica para localizar todos os artefatos e logs. No entanto, como um resumo de manifesto, pode ser difícil para uma leitura humana.
 
-  Se sua organização tiver vários sistemas de compilação, a prefixação da marca com o nome do sistema de compilação será uma `<build-system>-<build-id>`variação nessa opção:. Por exemplo, você poderia diferenciar as compilações do sistema de compilação Jenkins da equipe de API e do sistema de Build de Azure Pipelines da equipe da Web.
+  Se sua organização tiver vários sistemas de compilação, a prefixação da marca com o nome do sistema de compilação será uma variação nessa opção: `<build-system>-<build-id>` . Por exemplo, você poderia diferenciar as compilações do sistema de compilação Jenkins da equipe de API e do sistema de Build de Azure Pipelines da equipe da Web.
 
 ### <a name="lock-deployed-image-tags"></a>Bloquear marcas de imagem implantadas
 
-Como prática recomendada, recomendamos que você [bloqueie](container-registry-image-lock.md) qualquer marca de imagem implantada, definindo `write-enabled` seu atributo `false`como. Essa prática impede que você remova inadvertidamente uma imagem do registro e possivelmente interrompa suas implantações. Você pode incluir a etapa de bloqueio em seu pipeline de liberação.
+Como prática recomendada, recomendamos que você [bloqueie](container-registry-image-lock.md) qualquer marca de imagem implantada, definindo seu `write-enabled` atributo como `false` . Essa prática impede que você remova inadvertidamente uma imagem do registro e possivelmente interrompa suas implantações. Você pode incluir a etapa de bloqueio em seu pipeline de liberação.
 
 O bloqueio de uma imagem implantada ainda permite remover outras imagens não implantadas do registro usando recursos do registro de contêiner do Azure para manter o registro. Por exemplo, [limpe automaticamente](container-registry-auto-purge.md) manifestos não marcados ou imagens desbloqueadas com mais de uma duração especificada ou defina uma [política de retenção](container-registry-retention-policy.md) para manifestos não marcados.
 

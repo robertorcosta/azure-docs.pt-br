@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 81c9a8fe9513f1f8fc65ad64b34f0fb04383569b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75371795"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
@@ -77,7 +76,7 @@ A captura de tela a seguir é um exemplo para a verificação.
 
 ![captura de tela da verificação de versão do TLS no Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
 * [Conformidade com PCI no TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377898"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Backup de restauração no Azure Service Fabric
@@ -201,7 +200,7 @@ Você pode disparar uma restauração de Service Fabric Explorer. Verifique se o
 
     ![Disparar restauração de partição do FileShare][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauração de dados para_perda_ de dados de _corrupção_/de dados
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauração de dados para perda de dados de _corrupção de dados_ / _data loss_
 
 Para casos de _perda de dados_ ou _dados corrompidos_, as partições com backup do serviço Confiável com Estado e Reliable Actors podem ser restauradas para qualquer um dos backups escolhidos.
 
@@ -209,7 +208,7 @@ O exemplo a seguir é uma continuação de [Habilitar o backup periódico para R
 
 Selecione um backup da saída de [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). Nesse cenário, o backup é gerado no mesmo cluster anterior.
 
-Para disparar a restauração, escolha um backup na lista. Para a_corrupção de dados_de _perda_/de dados atual, selecione o seguinte backup:
+Para disparar a restauração, escolha um backup na lista. Para a corrupção de dados de _perda de dados_atual / _data corruption_, selecione o seguinte backup:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4

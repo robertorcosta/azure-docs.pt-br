@@ -11,10 +11,9 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900041"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemplos em máquinas virtuais de ciência de dados do Azure
@@ -46,7 +45,7 @@ Para executar esses exemplos, você deve ter provisionado um Máquina Virtual de
 
 ## <a name="access-jupyter"></a>Acessar o Jupyter 
 
-Para acessar o Jupyter, selecione o ícone de **Jupyter** no menu da área de trabalho ou do aplicativo. Você também pode acessar o Jupyter em uma edição do Linux de um DSVM. Para acessar remotamente a partir de um navegador da Web `https://<Full Domain Name or IP Address of the DSVM>:8000` , vá para no Ubuntu.
+Para acessar o Jupyter, selecione o ícone de **Jupyter** no menu da área de trabalho ou do aplicativo. Você também pode acessar o Jupyter em uma edição do Linux de um DSVM. Para acessar remotamente a partir de um navegador da Web, vá para `https://<Full Domain Name or IP Address of the DSVM>:8000` no Ubuntu.
 
 Para adicionar exceções e tornar o Jupyter acesso disponível em um navegador, use as seguintes diretrizes:
 
@@ -70,7 +69,7 @@ Entre com a mesma senha que você usa para fazer logon no Máquina Virtual de Ci
 <br/>![Exemplos de Julia](./media/julia-samples.png)<br/>
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning 
-<br/>![Exemplos de Azure Machine Learning](./media/azureml-samples.png)<br/>
+<br/>![Exemplos do Azure Machine Learning](./media/azureml-samples.png)<br/>
 
 ## <a name="pytorch"></a>PyTorch
 <br/>![Exemplos do PyTorch](./media/pytorch-samples.png)<br/>

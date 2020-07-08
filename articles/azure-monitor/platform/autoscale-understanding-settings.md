@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75364298"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
@@ -87,11 +86,11 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 
 | Seção | Nome do elemento | Descrição |
 | --- | --- | --- |
-| Configuração | ID | A ID do recurso da configuração de dimensionamento automático. As configurações de dimensionamento automático são um recurso do Azure Resource Manager. |
-| Configuração | name | O nome da configuração de dimensionamento automático. |
-| Configuração | local | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local em que o recurso está sendo dimensionado. |
+| Setting | ID | A ID do recurso da configuração de dimensionamento automático. As configurações de dimensionamento automático são um recurso do Azure Resource Manager. |
+| Setting | name | O nome da configuração de dimensionamento automático. |
+| Setting | local | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local em que o recurso está sendo dimensionado. |
 | properties | targetResourceUri | A ID do recurso que está sendo dimensionado. Você só pode ter uma configuração de dimensionamento automático por recurso. |
-| properties | profiles | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
+| properties | perfis | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
 | perfil | name | O nome do perfil. Escolha qualquer nome que o ajude a identificar o perfil. |
 | perfil | Capacity.maximum | A capacidade máxima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos acima desse limite. |
 | perfil | Capacity.minimum | A capacidade mínima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos abaixo desse limite. |

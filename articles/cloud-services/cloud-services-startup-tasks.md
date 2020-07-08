@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75360303"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
@@ -113,9 +112,9 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
   > 
   
     Para garantir que o arquivo em lote terminará com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do arquivo em lote.
-* **seguindo**  
+* **segundo plano**  
    As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
-* **primeiro plano**  
+* **frente**  
    As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e **segundo plano** é que uma tarefa em **primeiro plano** evita que a função recicle ou finalize até que a tarefa seja concluída. As tarefas em **segundo plano** não têm essa restrição.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
@@ -158,7 +157,7 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 [Inicialização]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Ela]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 

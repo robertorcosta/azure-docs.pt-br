@@ -6,16 +6,15 @@ ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451841"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote Autônomo do Service Fabric para Windows Server
 No pacote Autônomo do Service Fabric [baixado](https://go.microsoft.com/fwlink/?LinkId=730690), você encontrará os seguintes arquivos:
 
-| **Nome do arquivo** | **Descrição resumida** |
+| **Nome do arquivo** | **Descrição breve** |
 | --- | --- |
 | CreateServiceFabricCluster.ps1 |Um script do PowerShell que cria o cluster usando as configurações em ClusterConfig.json. |
 | RemoveServiceFabricCluster.ps1 |Um script do PowerShell que remove um cluster usando as configurações em ClusterConfig.json. |
@@ -33,7 +32,7 @@ No pacote Autônomo do Service Fabric [baixado](https://go.microsoft.com/fwlink/
 
 **Modelos** 
 
-| **Nome do arquivo** | **Descrição resumida** |
+| **Nome do arquivo** | **Descrição breve** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |Um arquivo de exemplo de configuração do cluster, que contém as configurações para um cluster de desenvolvimento de um único computador (ou máquina virtual) com três nós, não protegido, incluindo as informações para cada nó no cluster. |
 | ClusterConfig.Unsecure.MultiMachine.json |Um arquivo de exemplo de configuração do cluster, que contém as configurações para um cluster de vários computadores (ou máquinas virtuais), não protegido, incluindo as informações para cada computador no cluster. |
@@ -49,6 +48,6 @@ As versões mais recentes dos modelos de configuração de cluster podem ser enc
 ## <a name="independent-runtime-package"></a>Pacote de Runtime Independente
 O pacote de runtime mais recente é baixado automaticamente durante a implantação de cluster de [Link de Download - Runtime do Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
 
-## <a name="related"></a>Relacionado
+## <a name="related"></a>Relacionados
 * [Criar um cluster autônomo do Azure Service Fabric](service-fabric-cluster-creation-for-windows-server.md)
 * [Cenários de segurança do cluster do Service Fabric](service-fabric-windows-cluster-windows-security.md)

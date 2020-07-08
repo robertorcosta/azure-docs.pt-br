@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451992"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
@@ -28,7 +27,7 @@ Digamos que você deseja começar a escrever e implantar seu serviço. Neste pon
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Alta |
 | ReplicaCount |0 |1 |1 |Médio |
-| Contagem |1 |1 |1 |Baixa |
+| Contagem |1 |1 |1 |Baixo |
 
 
 Para cargas de trabalho básicas, as métricas padrão fornecem uma distribuição razoável de trabalho no cluster. No exemplo a seguir, vamos ver o que acontece quando criamos dois serviços e dependemos das métricas padrão para balanceamento. O primeiro serviço é um serviço com estado com três partições e um tamanho de conjunto de réplicas de destino de três. O segundo serviço é um serviço sem estado com uma partição e uma contagem de instâncias de três.

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74951472"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
@@ -45,7 +44,7 @@ O Cloud Shell oferece suporte às versões mais recentes do Microsoft Edge, Micr
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Apenas um shell pode estar ativo para um dado usuário
 
-Os usuários podem iniciar apenas um tipo de shell por vez, **Bash** ou **PowerShell**. No entanto, você pode ter várias instâncias de Bash ou PowerShell em execução ao mesmo tempo. Alternar entre o bash ou o PowerShell usando o menu faz com que Cloud Shell reiniciar, o que encerra as sessões existentes. Como alternativa, você pode executar o bash dentro do PowerShell `bash`digitando e pode executar o PowerShell dentro do bash `pwsh`digitando.
+Os usuários podem iniciar apenas um tipo de shell por vez, **Bash** ou **PowerShell**. No entanto, você pode ter várias instâncias de Bash ou PowerShell em execução ao mesmo tempo. Alternar entre o bash ou o PowerShell usando o menu faz com que Cloud Shell reiniciar, o que encerra as sessões existentes. Como alternativa, você pode executar o bash dentro do PowerShell digitando `bash` e pode executar o PowerShell dentro do bash digitando `pwsh` .
 
 ### <a name="usage-limits"></a>Limites de uso
 
@@ -77,11 +76,11 @@ Usando os cmdlets do PowerShell, os usuários não podem criar arquivos na unida
 
 ### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos GUI
 
-Se o usuário executar um comando que criaria uma caixa de diálogo do Windows, um verá uma mensagem de erro `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`como:.
+Se o usuário executar um comando que criaria uma caixa de diálogo do Windows, um verá uma mensagem de erro como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` .
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Intervalo grande depois de exibir a barra de progresso
 
-Se o usuário executar uma ação que exibe uma barra de progresso, como uma Tabulação sendo concluída enquanto `Azure:` estiver na unidade, é possível que o cursor não esteja definido corretamente e uma lacuna apareça onde a barra de progresso foi anteriormente.
+Se o usuário executar uma ação que exibe uma barra de progresso, como uma Tabulação sendo concluída enquanto estiver na `Azure:` unidade, é possível que o cursor não esteja definido corretamente e uma lacuna apareça onde a barra de progresso foi anteriormente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

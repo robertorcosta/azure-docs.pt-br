@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75386078"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Expor as definições de configuração da função como uma variável de ambiente com o XPath
@@ -22,7 +21,7 @@ Esses valores do XPath também estão disponíveis por meio da biblioteca [Micro
 ## <a name="app-running-in-emulator"></a>Aplicativo em execução no emulador
 Indica que o aplicativo está em execução no emulador.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | Código |var x = RoleEnvironment.IsEmulated; |
@@ -30,7 +29,7 @@ Indica que o aplicativo está em execução no emulador.
 ## <a name="deployment-id"></a>ID de Implantação
 Recupera a ID de implantação da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | Código |var deploymentId = RoleEnvironment.DeploymentId; |
@@ -38,7 +37,7 @@ Recupera a ID de implantação da instância.
 ## <a name="role-id"></a>ID de Função
 Recupera a ID de função atual da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Código |var id = RoleEnvironment.CurrentRoleInstance.Id; |
@@ -46,7 +45,7 @@ Recupera a ID de função atual da instância.
 ## <a name="update-domain"></a>Domínio de atualização
 Recupera o domínio de atualização da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Código |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -54,7 +53,7 @@ Recupera o domínio de atualização da instância.
 ## <a name="fault-domain"></a>Domínios de falha
 Recupera o domínio de falha da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Código |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
@@ -62,7 +61,7 @@ Recupera o domínio de falha da instância.
 ## <a name="role-name"></a>Nome da função
 Recupera o nome da função das instâncias.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Código |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
@@ -70,7 +69,7 @@ Recupera o nome da função das instâncias.
 ## <a name="config-setting"></a>Definição de configuração
 Recupera o valor da definição de configuração especificada.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Código |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
@@ -78,7 +77,7 @@ Recupera o valor da definição de configuração especificada.
 ## <a name="local-storage-path"></a>Caminho do armazenamento local
 Recupera o caminho do armazenamento local da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Código |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
@@ -86,7 +85,7 @@ Recupera o caminho do armazenamento local da instância.
 ## <a name="local-storage-size"></a>Tamanho do armazenamento local
 Recupera o tamanho do armazenamento local da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | Código |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
@@ -94,7 +93,7 @@ Recupera o tamanho do armazenamento local da instância.
 ## <a name="endpoint-protocol"></a>Protocolo do ponto de extremidade
 Recupera o protocolo do ponto de extremidade da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Código |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
@@ -102,7 +101,7 @@ Recupera o protocolo do ponto de extremidade da instância.
 ## <a name="endpoint-ip"></a>IP do ponto de extremidade
 Obtém o endereço IP do ponto de extremidade especificado.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Código |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
@@ -110,13 +109,13 @@ Obtém o endereço IP do ponto de extremidade especificado.
 ## <a name="endpoint-port"></a>Porta do ponto de extremidade
 Recupera a porta do ponto de extremidade da instância.
 
-| Type | Exemplo |
+| Tipo | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Código |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
 ## <a name="example"></a>Exemplo
-Aqui está um exemplo de uma função de trabalho que cria uma tarefa de inicialização com uma variável `TestIsEmulated` de ambiente nomeada definida como o [ @emulated valor XPath](#app-running-in-emulator). 
+Aqui está um exemplo de uma função de trabalho que cria uma tarefa de inicialização com uma variável de ambiente nomeada `TestIsEmulated` definida como o [ @emulated valor XPath](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">

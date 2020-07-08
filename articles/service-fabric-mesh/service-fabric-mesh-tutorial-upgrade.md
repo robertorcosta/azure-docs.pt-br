@@ -7,10 +7,9 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75351710"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
@@ -55,13 +54,13 @@ Vamos atualizar o parâmetro `WebFrontEnd_cpu` para atualizar os recursos de CPU
 
 2. Abra o arquivo **service.yaml** do projeto **WebFrontEnd** em **WebFrontEnd** > **Recursos do Serviço**.
 
-    Observe que na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo compilado para a nuvem, o valor para `'WebFrontEnd_cpu` será obtido do arquivo**Parameters** de**nuvem** > de **ambientes** > . YAML e será `1.5`. Se o projeto estiver sendo criado para ser executado localmente, o valor será obtido do arquivo**Parameters. YAML** de **ambientes** > **locais** > e será ' 0,5 '.
+    Observe que na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo compilado para a nuvem, o valor para `'WebFrontEnd_cpu` será obtido do **Environments**  >  **Cloud**  >  arquivo**Parameters** de nuvem de ambientes. YAML e será `1.5` . Se o projeto estiver sendo criado para ser executado localmente, o valor será obtido do **Environments**  >  **Local**  >  arquivo**Parameters. YAML** de ambientes locais e será ' 0,5 '.
 
 > [!Tip]
 > Por padrão, o arquivo de parâmetros que é um par do arquivo profile.yaml será usado para fornecer os valores para esse arquivo profile.yaml.
 > Por exemplo, Ambientes > Nuvem > parameters.yaml fornece os valores do parâmetro para Ambientes > Nuvem > profile.yaml.
 >
-> Você pode substituir isso adicionando o seguinte ao arquivo Profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` por exemplo, ou `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”``parametersFilePath=”..\CommonParameters.yaml”`
+> Você pode substituir isso adicionando o seguinte ao arquivo Profile. YAML: `parametersFilePath=”relative or full path to the parameters file”` por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou`parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 

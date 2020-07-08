@@ -4,10 +4,9 @@ description: Descreve os parâmetros relacionados à atualização de um aplicat
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377966"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
@@ -80,7 +79,7 @@ As atualizações de aplicativos do Service Fabric usando a CLI do Service Fabri
 
 | Parâmetro | Descrição |
 | --- | --- |
-| application-id  |ID do aplicativo que está sendo atualizado. <br> Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for ' Fabric:/MyApp/App1 ', a identidade do aplicativo será '\~MyApp App1 ' em 6.0 + e ' MyApp/App1 ' nas versões anteriores.|
+| application-id  |ID do aplicativo que está sendo atualizado. <br> Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for ' Fabric:/MyApp/App1 ', a identidade do aplicativo será ' MyApp \~ App1 ' em 6.0 + e ' MyApp/App1 ' nas versões anteriores.|
 application-version |Versão do tipo de aplicativo visado pela atualização.|
 parâmetros  |Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
 

@@ -7,10 +7,9 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75428717"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chamar ou disparar aplicativos lógicos usando o Azure Functions e o barramento de serviço do Azure
@@ -113,7 +112,7 @@ Em seguida, crie a função que atuará como o gatilho e escutará a fila.
 
      ![Selecionar modelo para o aplicativo de funções existente](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. No painel **gatilho de fila do barramento de serviço do Azure** , forneça um nome para o gatilho e configure a **conexão do barramento de serviço** para a fila, que usa o ouvinte do SDK `OnMessageReceive()` do barramento de serviço do Azure e selecione **criar**.
+1. No painel **gatilho de fila do barramento de serviço do Azure** , forneça um nome para o gatilho e configure a **conexão do barramento de serviço** para a fila, que usa o ouvinte do SDK do barramento de serviço do Azure `OnMessageReceive()` e selecione **criar**.
 
 1. Escreva uma função básica para chamar o ponto de extremidade do aplicativo lógico criado anteriormente usando a mensagem da fila como um gatilho. Antes de escrever sua função, examine estas considerações:
 

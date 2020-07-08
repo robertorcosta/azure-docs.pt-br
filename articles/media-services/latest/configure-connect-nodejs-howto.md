@@ -1,6 +1,6 @@
 ---
-title: Conectar-se à API dos serviços de mídia do Azure v3-node. js
-description: Este artigo demonstra como se conectar à API dos serviços de mídia v3 com node. js.
+title: Conectar-se à API dos serviços de mídia do Azure v3-Node.js
+description: Este artigo demonstra como se conectar à API dos serviços de mídia v3 com Node.js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,26 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896110"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-node. js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-Node.js
 
-Este artigo mostra como se conectar ao SDK do node. js dos serviços de mídia do Azure v3 usando o método de entrada da entidade de serviço.
+Este artigo mostra como se conectar ao SDK de node.js de serviços de mídia do Azure v3 usando o método de entrada da entidade de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instale o [node. js](https://nodejs.org/en/download/).
+- Instale o [Node.js](https://nodejs.org/en/download/).
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
 
 > [!IMPORTANT]
 > Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
-## <a name="create-packagejson"></a>Criar Package. JSON
+## <a name="create-packagejson"></a>Criar package.jsem
 
-1. Crie um arquivo Package. JSON usando seu editor favorito.
+1. Crie um package.jsno arquivo usando seu editor favorito.
 1. Abra o arquivo e cole o seguinte código:
 
 ```json
@@ -66,7 +65,7 @@ Você pode executar o seguinte comando para verificar se está usando o pacote m
 npm install azure-arm-mediaservices
 ```
 
-## <a name="connect-to-nodejs-client"></a>Conectar-se ao cliente do node. js
+## <a name="connect-to-nodejs-client"></a>Conectar-se ao Node.js cliente
 
 1. Crie um arquivo. js usando seu editor favorito.
 1. Abra o arquivo e cole o seguinte código.
@@ -123,7 +122,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Conceitos dos Serviços de Mídia](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)

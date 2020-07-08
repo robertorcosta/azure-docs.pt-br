@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430683"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
@@ -118,7 +117,7 @@ Quando o **Código de autorização** está selecionado, uma janela pop-up é ex
 > [!NOTE]
 > Se você tiver pop-ups desativados, será solicitado a habilitá-los pelo navegador. Depois de habilitar, selecione **Código de autorização** novamente e a forma de entrada será exibida.
 
-![Entre][api-management-oauth2-signin]
+![Entrar][api-management-oauth2-signin]
 
 Depois de entrar, os **Cabeçalhos de solicitação** serão preenchidos com um cabeçalho `Authorization : Bearer` que autoriza a solicitação.
 

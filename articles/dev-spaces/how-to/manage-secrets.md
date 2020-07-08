@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Saiba como usar segredos do kubernetes em tempo de execução ou de compilação ao desenvolver aplicativos com Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 ms.openlocfilehash: d9dd0de348612bbb3baf5fb351c1c9af1c228c1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75438472"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerenciar segredos ao trabalhar com um Azure Dev Space
@@ -18,7 +17,7 @@ Os serviços podem exigir determinadas senhas, cadeias de conexão e outros segr
 
 ## <a name="storing-and-using-runtime-secrets"></a>Armazenando e usando segredos de tempo de execução
 
-O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armazenar segredos em gráficos Helm gerados pela Azure Dev Spaces ferramentas de cliente: no `values.dev.yaml` arquivo e embutidas diretamente no `azds.yaml`. Não é recomendável armazenar segredos no `values.yaml`.
+O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armazenar segredos em gráficos Helm gerados pela Azure Dev Spaces ferramentas de cliente: no `values.dev.yaml` arquivo e embutidas diretamente no `azds.yaml` . Não é recomendável armazenar segredos no `values.yaml` .
 
 > [!NOTE]
 > As abordagens a seguir mostram como armazenar e usar segredos para gráficos Helm gerados pelas ferramentas do cliente. Se você criar seu próprio gráfico Helm, poderá usar o gráfico Helm diretamente para gerenciar e armazenar segredos.
@@ -35,7 +34,7 @@ secrets:
     key: "secretkeyhere"
 ```
 
-Verifique se `azds.yaml` as referências `values.dev.yaml` de arquivo são opcionais usando um `?`. Por exemplo:
+Verifique se as `azds.yaml` referências de arquivo são `values.dev.yaml` opcionais usando um `?` . Por exemplo:
 
 ```yaml
 install:
@@ -54,7 +53,7 @@ var host = process.env.REDIS_HOST
 var theKey = process.env.REDIS_KEY
 ```
     
-Execute seus serviços atualizados usando `azds up`o.
+Execute seus serviços atualizados usando o `azds up` .
 
 ```console
 azds up
@@ -67,11 +66,11 @@ kubectl get secret --namespace default -o yaml
 ```
 
 > [!IMPORTANT]
-> Não é recomendável armazenar segredos no controle do código-fonte. Se estiver usando o `values.dev.yaml` `.gitignore` git, adicione ao arquivo para evitar confirmar segredos no controle do código-fonte.
+> Não é recomendável armazenar segredos no controle do código-fonte. Se estiver usando o Git, adicione `values.dev.yaml` ao `.gitignore` arquivo para evitar confirmar segredos no controle do código-fonte.
 
 ### <a name="using-azdsyaml"></a>Usando azds. YAML
 
-Em um projeto que você já preparou com Azure Dev Spaces, adicione chaves secretas e o valor usando a sintaxe *$PlaceHolder* em *configurações. desenvolver. Install. definido* em `azds.yaml`. Por exemplo:
+Em um projeto que você já preparou com Azure Dev Spaces, adicione chaves secretas e o valor usando a sintaxe *$PlaceHolder* em *configurações. desenvolver. Install. definido* em `azds.yaml` . Por exemplo:
 
 ```yaml
 configurations:
@@ -87,7 +86,7 @@ configurations:
 ```
 
 > [!NOTE]
-> Você pode inserir valores secretos diretamente sem *$PLACEHOLDER* usar a sintaxe `azds.yaml`$PlaceHolder no. No entanto, essa abordagem não é `azds.yaml` recomendada, pois é armazenada no controle do código-fonte.
+> Você pode inserir valores secretos diretamente sem usar a sintaxe *$PlaceHolder* no `azds.yaml` . No entanto, essa abordagem não é recomendada, pois `azds.yaml` é armazenada no controle do código-fonte.
      
 Crie um `.env` arquivo na mesma pasta `azds.yaml` para definir seus valores de *$PlaceHolder* . Por exemplo:
 
@@ -98,7 +97,7 @@ REDIS_KEY=myrediskey
 ```
 
 > [!IMPORTANT]
-> Não é recomendável armazenar segredos no controle do código-fonte. Se estiver usando o `.env` `.gitignore` git, adicione ao arquivo para evitar confirmar segredos no controle do código-fonte.
+> Não é recomendável armazenar segredos no controle do código-fonte. Se estiver usando o Git, adicione `.env` ao `.gitignore` arquivo para evitar confirmar segredos no controle do código-fonte.
 
 Atualize ou verifique se seu serviço faz referência aos seus segredos como variáveis de ambiente. Por exemplo:
 
@@ -108,7 +107,7 @@ var host = process.env.REDIS_HOST
 var theKey = process.env.REDIS_KEY
 ```
     
-Execute seus serviços atualizados usando `azds up`o.
+Execute seus serviços atualizados usando o `azds up` .
 
 ```console
 azds up
@@ -122,9 +121,9 @@ kubectl get secret --namespace default -o yaml
 
 ## <a name="using-secrets-as-build-arguments"></a>Usando segredos como argumentos de compilação
 
-A seção anterior mostrou como armazenar e usar segredos para usar em tempo de execução do contêiner. Você também pode usar qualquer segredo no momento da compilação do contêiner, como uma senha para um NuGet privado usando `azds.yaml`.
+A seção anterior mostrou como armazenar e usar segredos para usar em tempo de execução do contêiner. Você também pode usar qualquer segredo no momento da compilação do contêiner, como uma senha para um NuGet privado usando `azds.yaml` .
 
-No `azds.yaml`, defina os segredos de tempo de compilação em *configurações. desenvolva. Build. args* usando a `<variable name>: ${secret.<secret name>.<secret key>}` sintaxe. Por exemplo:
+No `azds.yaml` , defina os segredos de tempo de compilação em *configurações. desenvolva. Build. args* usando a `<variable name>: ${secret.<secret name>.<secret key>}` sintaxe. Por exemplo:
 
 ```yaml
 configurations:
@@ -140,7 +139,7 @@ configurations:
 No exemplo acima, *mynugetsecret* é um segredo existente e *pattoken* é uma chave existente.
 
 >[!NOTE]
-> As chaves e os nomes de segredo `.` podem conter o caractere. Use `\` para escapar `.` ao passar segredos como argumentos de compilação. Por exemplo, para passar um segredo chamado *foo. bar* com a chave de *token*: `MYTOKEN: ${secret.foo\.bar.token}`. Além disso, os segredos podem ser avaliados com o prefixo e o texto do sufixo. Por exemplo, `MYURL: eus-${secret.foo\.bar.token}-version1`. Além disso, os segredos disponíveis nos espaços pai e avô podem ser passados como argumentos de compilação.
+> As chaves e os nomes de segredo podem conter o `.` caractere. Use `\` para escapar `.` ao passar segredos como argumentos de compilação. Por exemplo, para passar um segredo chamado *foo. bar* com a chave de *token*: `MYTOKEN: ${secret.foo\.bar.token}` . Além disso, os segredos podem ser avaliados com o prefixo e o texto do sufixo. Por exemplo, `MYURL: eus-${secret.foo\.bar.token}-version1`. Além disso, os segredos disponíveis nos espaços pai e avô podem ser passados como argumentos de compilação.
 
 Em seu Dockerfile, use a diretiva *ARG* para consumir o segredo e, em seguida, use essa mesma variável posteriormente no Dockerfile. Por exemplo:
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397465"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor
@@ -27,7 +26,7 @@ Cada caractere em uma cadeia de caracteres tem um número de índice, de acordo 
 
 
 ## <a name="strings-and-escaping-them"></a>Cadeias de caracteres e seus escapes
-Os valores da cadeia de caracteres são encapsulados com caracteres de aspas simples ou duplas. A barra invertida (\\) é usada para escapar caracteres para o caractere após ele, como \t para Tab, \n para nova linha \" e o próprio caractere de aspas.
+Os valores da cadeia de caracteres são encapsulados com caracteres de aspas simples ou duplas. A barra invertida ( \\ ) é usada para escapar caracteres para o caractere após ele, como \t para Tab, \n para nova linha e \" o próprio caractere de aspas.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -48,10 +47,10 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 Operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
-`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
-`=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
-`!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
+`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
+`!=`           |Diferente de                          |Sim           |`"abc" != "ABC"`
+`=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
+`!~`           |Diferente de                          |Não            |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo completo no lado esquerdo |Não|`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
 `has_cs`       |O lado direito é um termo completo no lado esquerdo |Sim|`"North America" has_cs "America"`
@@ -85,7 +84,7 @@ Operador       |Descrição                         |Diferencia maiúsculas de m
 
 Conta as ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres. Pode corresponder cadeias de caracteres sem formatação ou usar regex. As correspondências de cadeia de caracteres sem formatação podem se sobrepor, enquanto as correspondências de regex não podem.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 countof(text, search [, kind])
 ```
@@ -93,7 +92,7 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>Argumentos:
 - `text` - A cadeia de caracteres de entrada 
 - `search` - Cadeia de caracteres sem formatação ou expressão regular a ser correspondida no texto.
-- `kind` - _normal_ | _Regex_ normal (padrão: normal).
+- `kind` - _normal_  |  _Regex_ (padrão: normal).
 
 ### <a name="returns"></a>Retornos
 
@@ -174,7 +173,7 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 - *isempty* retorna true se o argumento for uma cadeia de caracteres vazia ou nulo (Consulte também *isnull*).
 - *isnotempty* retorna true se o argumento não for uma cadeia de caracteres vazia ou um nulo (Consulte também *isnull*). alias: *notempty*.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ```Kusto
 isempty(value)
@@ -200,7 +199,7 @@ Heartbeat | where isnotempty(ComputerIP) | take 1  // return 1 Heartbeat record 
 
 Divide uma URL em suas partes (protocolo, host, porta, etc.) e retorna um objeto de dicionário que contém as partes como cadeias de caracteres.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ```
 parseurl(urlstring)
@@ -266,7 +265,7 @@ Atividade                                        |replaced
 
 Divide uma determinada cadeia de caracteres de acordo com um delimitador especificado e retorna uma matriz de subcadeias de caracteres resultantes.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 split(source, delimiter [, requestedIndex])
 ```
@@ -293,7 +292,7 @@ print split("aabbcc", "bb");        // result: ["aa","cc"]
 
 Concatena os argumentos de cadeia de caracteres (dá suporte para 1 a 16 argumentos).
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 strcat("string1", "string2", "string3")
 ```
@@ -308,7 +307,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 Retorna o comprimento de uma cadeia de caracteres.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 strlen("text_to_evaluate")
 ```
@@ -323,7 +322,7 @@ print strlen("hello")   // result: 5
 
 Extrai uma subcadeia de caracteres a partir de uma determinada cadeia de caracteres de origem, começando pelo índice especificado. Opcionalmente, é possível especificar o comprimento da subcadeia de caracteres solicitada.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 substring(source, startingIndex [, length])
 ```
@@ -347,7 +346,7 @@ print substring("ABCD", 0, 2);  // result: "AB"
 
 Converte uma determinada cadeia de caracteres em todas as letras minúsculas ou maiúsculas.
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 ```
 tolower("value")
 toupper("value")

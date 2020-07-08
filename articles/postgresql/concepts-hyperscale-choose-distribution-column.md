@@ -8,10 +8,9 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74975662"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
@@ -28,18 +27,18 @@ A arquitetura multilocatário usa uma forma de modelagem de banco de dados hier�
 
 O Citus (hiperscale) inspeciona consultas para ver qual ID de locatário eles envolvem e localiza o fragmento de tabela correspondente. Ele roteia a consulta para um único nó de trabalho que contém o fragmento. A execução de uma consulta com todos os dados relevantes colocados no mesmo nó é chamada de colocalização.
 
-O diagrama a seguir ilustra a colocação no modelo de dados multilocatário. Ele contém duas tabelas, contas e campanhas, cada uma distribuída pelo `account_id`. As caixas sombreadas representam fragmentos. Os fragmentos verdes são armazenados juntos em um nó de trabalho, e os fragmentos azuis são armazenados em outro nó de trabalho. Observe como uma consulta de junção entre contas e campanhas tem todos os dados necessários juntos em um nó quando ambas as tabelas são restritas à\_mesma ID de conta.
+O diagrama a seguir ilustra a colocação no modelo de dados multilocatário. Ele contém duas tabelas, contas e campanhas, cada uma distribuída pelo `account_id` . As caixas sombreadas representam fragmentos. Os fragmentos verdes são armazenados juntos em um nó de trabalho, e os fragmentos azuis são armazenados em outro nó de trabalho. Observe como uma consulta de junção entre contas e campanhas tem todos os dados necessários juntos em um nó quando ambas as tabelas são restritas à mesma ID de conta \_ .
 
 ![Colocalização multilocatário](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
-Para aplicar esse design em seu próprio esquema, identifique o que constitui um locatário em seu aplicativo. As instâncias comuns incluem empresa, conta, organização ou cliente. O nome da coluna será algo como `company_id` ou `customer_id`. Examinar cada uma de suas consultas e se perguntar, ele funcionaria se tivesse cláusulas WHERE adicionais para restringir todas as tabelas envolvidas em linhas com a mesma ID de locatário?
+Para aplicar esse design em seu próprio esquema, identifique o que constitui um locatário em seu aplicativo. As instâncias comuns incluem empresa, conta, organização ou cliente. O nome da coluna será algo como `company_id` ou `customer_id` . Examinar cada uma de suas consultas e se perguntar, ele funcionaria se tivesse cláusulas WHERE adicionais para restringir todas as tabelas envolvidas em linhas com a mesma ID de locatário?
 As consultas no modelo multilocatário estão no escopo de um locatário. Por exemplo, as consultas de vendas ou de inventário estão no escopo de uma determinada loja.
 
 #### <a name="best-practices"></a>Práticas recomendadas
 
--   **Particione tabelas distribuídas por uma\_coluna de ID de locatário comum.** Por exemplo, em um aplicativo SaaS em que os locatários são empresas,\_a ID do locatário provavelmente será a\_ID da empresa.
+-   **Particione tabelas distribuídas por uma coluna de ID de locatário comum \_ .** Por exemplo, em um aplicativo SaaS em que os locatários são empresas, a ID do locatário \_ provavelmente será a \_ ID da empresa.
 -   **Converta pequenas tabelas de locatário cruzado para tabelas de referência.** Quando vários locatários compartilham uma pequena tabela de informações, distribua-o como uma tabela de referência.
--   **Restringir o filtro de todas as consultas\_de aplicativo por ID de locatário.** Cada consulta deve solicitar informações para um locatário por vez.
+-   **Restringir o filtro de todas as consultas de aplicativo por ID de locatário \_ .** Cada consulta deve solicitar informações para um locatário por vez.
 
 Leia o [tutorial de vários locatários](./tutorial-design-database-hyperscale-multi-tenant.md) para obter um exemplo de como criar esse tipo de aplicativo.
 

@@ -7,10 +7,9 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445123"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
@@ -33,7 +32,7 @@ Consultas que leem dados de uma ou mais partições incorrem em latência mais a
 
 Depois que você tiver alguns dados armazenados em seus contêineres do Azure Cosmos, poderá usar o Data Explorer no portal do Azure para construir e executar suas consultas. Você também pode obter o custo das consultas usando o Data Explorer. Esse método lhe dará uma ideia dos encargos reais envolvidos nas consultas e as operações típicas às quais seu sistema dá suporte.
 
-Você também pode obter o custo de consultas programaticamente usando os SDKs. Para medir a sobrecarga de operações como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .NET ou o SDK do Java, `RequestCharge` a propriedade será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
+Você também pode obter o custo de consultas programaticamente usando os SDKs. Para medir a sobrecarga de operações como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .NET ou o SDK do Java, a `RequestCharge` propriedade será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 

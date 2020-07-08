@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75422942"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência geral do guia de operações do Azure Active Directory
@@ -69,7 +68,7 @@ A menos que um tenha sido estabelecido, você deve definir um processo para atua
 
 #### <a name="hybrid-management-recommended-reading"></a>Leitura recomendada de gerenciamento híbrido
 
-- [Azure AD Connect: atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+- [Azure AD Connect: Atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 - [Entender os conectores de Proxy de Aplicativo do AD do Azure | Atualizações automáticas](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#automatic-updates)
 
 ### <a name="azure-ad-connect-health-alert-baseline"></a>Linha de base de alerta Azure AD Connect Health
@@ -92,7 +91,7 @@ Alguns serviços de gerenciamento de identidade e acesso exigem agentes locais p
 
 - [Solucionar problemas de Proxy de Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
 - [Solução de problemas de redefinição de senha por autoatendimento – Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
-- [Entender os conectores de Proxy de Aplicativo do AD do Azure](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
+- [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
 - [Azure AD Connect: solucionar problemas de autenticação de passagem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication#collecting-pass-through-authentication-agent-logs)
 - [Solucionar problemas de códigos de erro para a extensão NPS do Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-errors)
 
@@ -106,7 +105,7 @@ A adoção de práticas recomendadas pode ajudar na operação ideal de agentes 
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>Leitura recomendada do gerenciamento de agentes locais
 
-- [Entender os conectores de Proxy de Aplicativo do AD do Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
+- [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
 - [Autenticação de passagem do Azure AD – início rápido](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Gerenciamento em escala
@@ -127,7 +126,7 @@ Se sua organização atualmente não tem nenhum programa em vigor para monitorar
 
 A Microsoft envia comunicações por email aos administradores para notificar várias alterações no serviço, as atualizações de configuração necessárias e os erros que exigem a intervenção do administrador. É importante que os clientes definam os endereços de email de notificação para que as notificações sejam enviadas aos membros apropriados da equipe que podem reconhecer e agir sobre todas as notificações. Recomendamos que você adicione vários destinatários ao [centro de mensagens do Office 365](https://docs.microsoft.com/office365/admin/manage/message-center) e solicite que as notificações (incluindo notificações de Azure ad Connect Health) sejam enviadas para uma lista de distribuição ou caixa de correio compartilhada. Se você tiver apenas uma conta de administrador global com um endereço de email, certifique-se de configurar pelo menos duas contas compatíveis com email.
 
-Há dois endereços "de" usados pelo Azure AD: <o365mc@email2.microsoft.com>, que envia notificações do centro de mensagens do Office 365; e <azure-noreply@microsoft.com>, que envia notificações relacionadas a:
+Há dois endereços "de" usados pelo Azure AD: <o365mc@email2.microsoft.com> , que envia notificações do centro de mensagens do Office 365; e <azure-noreply@microsoft.com> , que envia notificações relacionadas a:
 
 - [Revisões de acesso do Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
@@ -166,9 +165,9 @@ O modelo de camada administrativa Active Directory foi projetado para proteger s
 
 O [modelo de camada](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) é composto de três níveis e inclui apenas contas administrativas, não contas de usuário padrão.
 
-- **Camada 0** -controle direto de identidades corporativas no ambiente. A Camada 0 inclui contas, grupos e outros recursos que têm controle administrativo direto ou indireto sobre as florestas, domínios ou controladores de domínio do Active Directory, e todos os ativos que eles contêm. A sensibilidade da segurança de todos os ativos de Camada 0 é equivalente, pois todos estão controlando uns aos outros.
-- **Camada 1** -controle de servidores e aplicativos corporativos. Entre os ativos de Camada 1 estão sistemas operacionais de servidor, serviços de nuvem e aplicativos corporativos. Contas de administrador de Camada 1 têm controle administrativo sobre uma quantidade considerável de conteúdo corporativo hospedada nesses ativos. Uma função de exemplo comum é a de administradores de servidor, que proporciona a esses sistemas operacionais a capacidade de afetar todos os serviços corporativos.
-- **Camada 2** -controle de estações de trabalho e dispositivos do usuário. Contas de administrador de Camada 2 têm controle administrativo sobre uma quantidade considerável de conteúdo corporativo hospedada em estações de trabalho e dispositivos do usuário. Entre os exemplos estão Suporte técnico e administradores de suporte ao computador, pois podem afetar a integridade de quase todos os dados do usuário.
+- **Camada 0**   -Controle direto de identidades corporativas no ambiente. A Camada 0 inclui contas, grupos e outros recursos que têm controle administrativo direto ou indireto sobre as florestas, domínios ou controladores de domínio do Active Directory, e todos os ativos que eles contêm. A sensibilidade da segurança de todos os ativos de Camada 0 é equivalente, pois todos estão controlando uns aos outros.
+- **Camada 1**   -Controle de servidores e aplicativos corporativos. Entre os ativos de Camada 1 estão sistemas operacionais de servidor, serviços de nuvem e aplicativos corporativos. Contas de administrador de Camada 1 têm controle administrativo sobre uma quantidade considerável de conteúdo corporativo hospedada nesses ativos. Uma função de exemplo comum é a de administradores de servidor, que proporciona a esses sistemas operacionais a capacidade de afetar todos os serviços corporativos.
+- **Camada 2**   -Controle de estações de trabalho e dispositivos do usuário. Contas de administrador de Camada 2 têm controle administrativo sobre uma quantidade considerável de conteúdo corporativo hospedada em estações de trabalho e dispositivos do usuário. Entre os exemplos estão Suporte técnico e administradores de suporte ao computador, pois podem afetar a integridade de quase todos os dados do usuário.
 
 Bloqueie o acesso a componentes de identidade locais, como Azure AD Connect, AD FS e serviços SQL da mesma maneira como você faz para controladores de domínio.
 

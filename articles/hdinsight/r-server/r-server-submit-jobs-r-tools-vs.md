@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435263"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Enviar trabalhos a partir das Ferramentas do R para Visual Studio
@@ -32,7 +31,7 @@ RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela 
 3. Você precisa ter as chaves públicas e privadas para autenticação de SSH.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Instale o [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) em seu computador. ML Server fornece as [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) funções `RxSpark` e.
+4. Instale o [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) em seu computador. ML Server fornece as [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) `RxSpark` funções e.
 
 5. Instale [PuTTY](https://www.putty.org/) para fornecer um contexto de computação para executar `RevoScaleR` funções de seu cliente local para seu cluster HDInsight.
 
@@ -66,7 +65,7 @@ RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela 
 
 Usando um Microsoft ML Server/Microsoft R Client de um computador com Windows equipado com PuTTY, você pode criar um contexto de computação que executará funções distribuídas `RevoScaleR` de seu cliente local para seu cluster HDInsight. Use `RxSpark` para criar o contexto de computação, especificando seu nome de usuário, o nó de borda do cluster do Apache Hadoop, os switches SSH e assim por diante.
 
-1. O endereço do nó de borda dos serviços ML `CLUSTERNAME-ed-ssh.azurehdinsight.net` no `CLUSTERNAME` HDInsight é onde é o nome do seu cluster de serviços ml.
+1. O endereço do nó de borda dos serviços ML no HDInsight é `CLUSTERNAME-ed-ssh.azurehdinsight.net` onde `CLUSTERNAME` é o nome do seu cluster de serviços ml.
 
 1. Cole o código a seguir na janela de R Interativo no Visual Studio, alterando os valores das variáveis de programa de instalação para coincidir com seu ambiente.
 
@@ -108,7 +107,7 @@ Usando um Microsoft ML Server/Microsoft R Client de um computador com Windows eq
 
     Você deverá ver um resultado semelhante ao seguinte:
 
-    ![Execução](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) bem-sucedida do comando RX a
+    ![Execução bem-sucedida do comando RX ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
 1. Verifique se o arquivo `rxHadoopCopy` foi copiados com êxito `people.json` da pasta de dados de exemplo para a `/user/RevoShare/newUser` pasta recém-criada:
 
     1. No painel do cluster ML Services do HDInsight no Azure, selecione **contas de armazenamento** no menu à esquerda.

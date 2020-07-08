@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435654"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar usuários para o Apache Ambari Views
@@ -46,7 +45,7 @@ Para obter o **página de gerenciamento do Ambari** na [IU da Web do Apache Amba
 
 ### <a name="add-users-through-powershell"></a>Adicionar usuários por meio do PowerShell
 
-Edite as variáveis abaixo `CLUSTERNAME`substituindo `NEWUSER`, e `PASSWORD` pelos valores apropriados.
+Edite as variáveis abaixo substituindo `CLUSTERNAME` , `NEWUSER` e `PASSWORD` pelos valores apropriados.
 
 ```powershell
 # Set-ExecutionPolicy Unrestricted
@@ -135,7 +134,7 @@ Write-Output $zookeeperHosts
 
 ### <a name="add-users-through-curl"></a>Adicionar usuários por meio da ondulação
 
-Edite as variáveis abaixo `CLUSTERNAME`substituindo `ADMINPASSWORD`, `NEWUSER`, e `USERPASSWORD` pelos valores apropriados. O script foi projetado para ser executado com o bash. Pequenas modificações seriam necessárias para um prompt de comando do Windows.
+Edite as variáveis abaixo substituindo `CLUSTERNAME` ,, `ADMINPASSWORD` `NEWUSER` e `USERPASSWORD` pelos valores apropriados. O script foi projetado para ser executado com o bash. Pequenas modificações seriam necessárias para um prompt de comando do Windows.
 
 ```bash
 export clusterName="CLUSTERNAME"
