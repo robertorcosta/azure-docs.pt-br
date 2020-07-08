@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67171784"
 ---
 Cada computador cliente que você conectar a uma VNet com uma conexão Ponto a Site deve ter um certificado de cliente instalado. Você pode gerá-lo do certificado raiz e instalá-lo em cada computador cliente. Se você não instalar um certificado de cliente válido, a autenticação falhará quando o cliente tenta se conectar à VNet.
@@ -22,7 +22,7 @@ Você pode gerar certificados de cliente usando os seguintes métodos:
 
 - **Certificado corporativo:**
 
-  - Se você estiver usando uma solução de certificado corporativo, gere um certificado de cliente com o *nome\@* de formato de valor de nome comum yourdomain.com. Use esse formato, em vez do formato *nome do domínio\nomedeusuário*.
+  - Se você estiver usando uma solução de certificado corporativo, gere um certificado de cliente com o nome de formato de valor de nome comum * \@ yourdomain.com*. Use esse formato, em vez do formato *nome do domínio\nomedeusuário*.
   - Verifique se o certificado do cliente é baseado em um modelo de certificado de usuário que tenha *Autenticação de Cliente* listada como o primeiro item na lista de usuários. Verifique o certificado clicando duas vezes nele e exibindo **Uso Avançado de Chave** na guia **Detalhes**.
 
 - **Certificado raiz autoassinado:** Siga as etapas em um dos seguintes artigos do certificado P2S para que os certificados do cliente criados sejam compatíveis com suas conexões do P2S. As etapas nesses artigos geram um certificado de cliente compatível: 
