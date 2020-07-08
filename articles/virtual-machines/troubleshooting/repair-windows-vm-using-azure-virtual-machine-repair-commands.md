@@ -14,19 +14,25 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 6520d508a025aeeecf0c1890224a0691eae09f74
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: f23df5924354fa688743d29919095413ec12ce18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444345"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows usando os comandos de reparo da Máquina Virtual do Azure
 
 Se sua máquina virtual (VM) do Windows no Azure encontrar um erro de inicialização ou disco, talvez seja necessário executar a atenuação no próprio disco. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo detalha como usar os comandos de reparo da VM do Azure para conectar o disco a outra VM do Windows para corrigir erros e, em seguida, reconstruir sua VM original.
 
 > [!IMPORTANT]
-> Os scripts neste artigo se aplicam somente às VMs que usam [Disco Gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Os scripts neste artigo se aplicam somente às VMs que usam [Disco Gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * A conectividade de saída da VM (porta 443) é necessária para que o script seja executado.
+> * Somente um script pode ser executado de cada vez.
+> * Não é possível cancelar um script em execução.
+> * O tempo máximo que um script pode ser executado é 90 minutos. Após esse tempo, ele atingirá o tempo limite.
+> * Para VMs que usam Azure Disk Encryption, somente os discos gerenciados criptografados com criptografia de passagem única (com ou sem KEK) têm suporte.
+
 
 ## <a name="repair-process-overview"></a>Visão geral do processo de reparo
 
@@ -44,12 +50,6 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
 
 ## <a name="repair-process-example"></a>Exemplo de processo de reparo
 
-> [!NOTE]
-> * A conectividade de saída da VM (porta 443) é necessária para que o script seja executado.
-> * Somente um script pode ser executado de cada vez.
-> * Não é possível cancelar um script em execução.
-> * O tempo máximo que um script pode ser executado é 90 minutos. Após esse tempo, ele atingirá o tempo limite.
-
 1. Iniciar o Azure Cloud Shell
 
    O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.
@@ -58,7 +58,9 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
 
    Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e selecione **Enter** para executá-lo.
 
-   Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar sua CLI do Azure, confira como [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar sua CLI do Azure, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   
+   Se você precisar fazer logon em Cloud Shell com uma conta diferente do que está conectado no momento ao portal do Azure com, você pode usar ``az login`` [AZ login Reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para alternar entre as assinaturas associadas à sua conta, você pode usar a ``az account set --subscription`` [referência do conjunto de contas AZ](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. Se esta é a primeira vez que você usa os comandos `az vm repair`, adicione a extensão da CLI vm-repair.
 
@@ -72,20 +74,19 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
    az extension update -n vm-repair
    ```
 
-3. Execute `az vm repair create`. Esse comando criará uma cópia do disco do sistema operacional para a VM não funcional, criará uma VM de reparo em um novo grupo de recursos e anexará a cópia de disco do sistema operacional.  A VM de reparo terá o mesmo tamanho e região que a VM não funcional especificada.
+3. Execute `az vm repair create`. Esse comando criará uma cópia do disco do sistema operacional para a VM não funcional, criará uma VM de reparo em um novo grupo de recursos e anexará a cópia do disco do sistema operacional.  A VM de reparo terá o mesmo tamanho e região que a VM não funcional especificada. O grupo de recursos e o nome da VM usados em todas as etapas serão para a VM não funcional. Se sua VM estiver usando Azure Disk Encryption o comando tentará desbloquear o disco criptografado para que ele seja acessível quando anexado à VM de reparo.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Execute `az vm repair run`. Este comando executará o script de reparo especificado no disco anexado por meio da VM de reparo.  Se o guia de solução de problemas que você está usando especificou uma ID de execução, use-a aqui. Caso contrário, você pode usar `az vm repair list-scripts` para ver os scripts de reparo disponíveis.
+4. Execute `az vm repair run`. Este comando executará o script de reparo especificado no disco anexado por meio da VM de reparo. Se o guia de solução de problemas que você está usando especificou uma ID de execução, use-a aqui. Caso contrário, você pode usar `az vm repair list-scripts` para ver os scripts de reparo disponíveis. O grupo de recursos e o nome da VM usados aqui são para a VM não funcional usada na etapa 3.
 
    ```azurecli-interactive
-
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
 
-5. Execute `az vm repair restore`. Este comando irá trocar o disco do SO reparado pelo disco do SO original da VM.
+5. Execute `az vm repair restore`. Este comando irá trocar o disco do SO reparado pelo disco do SO original da VM. O grupo de recursos e o nome da VM usados aqui são para a VM não funcional usada na etapa 3.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

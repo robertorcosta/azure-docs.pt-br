@@ -7,15 +7,15 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 0db6c2c346a6eb6ef016340fcfc2974c85958e6c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c64d947c13cf067d4ffc2b32ed655960143ad1c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391767"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Configurar o firewall de IP para tópicos ou domínios da grade de eventos do Azure (versão prévia)
-Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido). Para obter mais informações sobre os recursos de segurança de rede com suporte na grade de eventos, consulte [segurança de rede para a grade de eventos](network-security.md).
+Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido). Para obter mais informações sobre os recursos de segurança de rede com suporte na grade de eventos, consulte [segurança de rede para a grade de eventos](network-security.md).
 
 Este artigo descreve como definir as configurações de firewall IP para os tópicos ou domínios da grade de eventos do Azure.
 
@@ -280,3 +280,4 @@ Invoke-RestMethod -Method 'Get'
 * Para obter informações sobre o monitoramento de entregas de evento, consulte [Entrega de mensagens da Grade de Eventos do Monitor](monitor-event-delivery.md).
 * Para saber mais sobre a chave de autenticação, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).
 * Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).
+* Para solucionar problemas de conectividade de rede, consulte [solucionar](troubleshoot-network-connectivity.md) problemas de conectividade de rede

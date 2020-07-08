@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392226"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para o Azure Machine Learning
 
@@ -146,7 +146,7 @@ Para usar suas próprias chaves (gerenciadas pelo cliente) para criptografar a i
 
 Para habilitar o provisionamento de uma instância do Cosmos DB em sua assinatura com chaves gerenciadas pelo cliente, execute as seguintes ações:
 
-* Registre os provedores de recursos do Azure Machine Learning e do Azure Cosmos DB em sua assinatura, caso ainda não tenha feito isso.
+* Registre os provedores de recursos Microsoft. MachineLearning e Microsoft.DocumentDB em sua assinatura, se ainda não tiver feito isso.
 
 * Autorize o aplicativo Machine Learning (no Gerenciamento de Identidade e Acesso) com permissões de colaborador em sua assinatura.
 
@@ -176,6 +176,11 @@ Para obter mais informações sobre chaves gerenciadas pelo cliente com o Cosmos
 Todas as imagens de contêiner no seu registro (Registro de Contêiner do Azure) são criptografadas em repouso. O Azure criptografa uma imagem automaticamente antes de armazená-la e a descriptografa quando o Azure Machine Learning efetua o pull da imagem.
 
 Para usar suas próprias chaves (gerenciadas pelo cliente) para criptografar o Registro de Contêiner do Azure, você precisa criar seu próprio ACR e anexá-lo enquanto estiver provisionando o workspace ou criptografar a instância padrão que é criada no momento do provisionamento do workspace.
+
+> [!IMPORTANT]
+> Azure Machine Learning requer que a conta de administrador seja habilitada no registro de contêiner do Azure. Por padrão, essa configuração é desabilitada quando você cria um registro de contêiner. Para obter informações sobre como habilitar a conta de administrador, consulte [conta de administrador](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Após a criação de um Registro de Contêiner do Azure para um workspace, não o exclua. Fazer isso interromperá o workspace do Azure Machine Learning.
 
 Para obter um exemplo de como criar um workspace usando um Registro de Contêiner do Azure existente, consulte os seguintes artigos:
 

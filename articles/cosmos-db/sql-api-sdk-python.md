@@ -8,28 +8,30 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: 1610ba173f31ecee05b2816758eab2d7c6da98f9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391903"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
+> * [SDK do .NET v2](sql-api-sdk-dotnet.md)
+> * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
+> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor em massa – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |

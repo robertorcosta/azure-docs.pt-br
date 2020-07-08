@@ -5,16 +5,16 @@ description: Saiba como usar a CLI do Azure para criar um workspace do Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
-ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 06/25/2020
+ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392702"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um workspace para o Azure Machine Learning com a CLI do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ az extension add -n azure-cli-ml
 O workspace do Azure Machine Learning se baseia nos seguintes serviços ou nas seguintes entidades do Azure:
 
 > [!IMPORTANT]
-> Se você não especificar um serviço existente do Azure, será criado um automaticamente durante a criação do workspace. Você sempre precisa especificar um grupo de recursos.
+> Se você não especificar um serviço existente do Azure, será criado um automaticamente durante a criação do workspace. Você sempre precisa especificar um grupo de recursos. Ao anexar sua própria conta de armazenamento, verifique se ela tem os recursos de blob do Azure e arquivo do Azure habilitados e se o namespace hierárquico (ADLS Gen 2) está desabilitado. Você sempre poderá anexar sua própria conta de armazenamento posteriormente depois que o espaço de trabalho for criado como repositórios de armazenamento.
 
 | Serviço | Parâmetro usado para especificar uma instância existente |
 | ---- | ---- |
@@ -317,7 +317,7 @@ Para obter mais informações, confira a documentação de [az ml workspace shar
 
 ## <a name="sync-keys-for-dependent-resources"></a>Sincronizar chaves para recursos dependentes
 
-Se você alterar as chaves de acesso de um dos recursos usados pelo seu workspace, use o seguinte comando para sincronizar as novas chaves com o workspace:
+Se você alterar as chaves de acesso de um dos recursos usados pelo espaço de trabalho, levará cerca de uma hora para que o espaço de trabalho seja sincronizado com a nova chave. Para forçar o espaço de trabalho a sincronizar as novas chaves imediatamente, use o seguinte comando:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

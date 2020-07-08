@@ -2,17 +2,20 @@
 title: Cota de implantação excedida
 description: Descreve como resolver o erro de ter mais de 800 implantações no histórico do grupo de recursos.
 ms.topic: troubleshooting
-ms.date: 10/04/2019
-ms.openlocfilehash: 919cd9a3482401cd47516e2677b0bf58387488b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80245082"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391172"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolver erro quando a contagem de implantação exceder 800
 
 Cada grupo de recursos é limitado a 800 implantações em seu histórico de implantação. Este artigo descreve o erro que você recebe quando uma implantação falha porque ela excederia as implantações permitidas do 800. Para resolver esse erro, exclua as implantações do histórico do grupo de recursos. A exclusão de uma implantação do histórico não afeta nenhum dos recursos que foram implantados.
+
+> [!NOTE]
+> Azure Resource Manager em breve começará a excluir automaticamente as implantações do seu histórico conforme você próximo ao limite. Você ainda poderá ver esse erro se tiver optado por exclusões automáticas. Para obter mais informações, consulte [exclusões automáticas do histórico de implantação](deployment-history-deletions.md).
 
 ## <a name="symptom"></a>Sintoma
 

@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 174279e4bd241ee9b336fc1ce7e0af389d2297a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f31ee7f7d60a3bf0ab56b9ed8aa7fd25774e06c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412542"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhando com datas no Azure Cosmos DB
 
@@ -21,9 +21,9 @@ Além dos tipos básicos, muitos aplicativos precisam do tipo DateTime para repr
 
 ## <a name="storing-datetimes"></a>Armazenando DateTimes
 
-Azure Cosmos DB dá suporte a tipos JSON como-String, Number, Boolean, NULL, array, Object. Ele não dá suporte diretamente a um tipo DateTime. Atualmente, Azure Cosmos DB não dá suporte à localização de datas. Portanto, você precisa armazenar DateTimes como cadeias de caracteres. O formato recomendado para cadeias de caracteres DateTime `YYYY-MM-DDThh:mm:ss.fffffffZ` em Azure Cosmos DB é o que segue o padrão ISO 8601 UTC. É recomendável armazenar todas as datas em Azure Cosmos DB como UTC. Converter as cadeias de caracteres de data para esse formato permitirá a classificação de datas modo lexicográfico. Se as datas não-UTC forem armazenadas, a lógica deverá ser tratada no lado do cliente. Para converter um DateTime local em UTC, o deslocamento deve ser conhecido/armazenado como uma propriedade no JSON e o cliente pode usar o deslocamento para calcular o valor DateTime UTC.
+Azure Cosmos DB dá suporte a tipos JSON como-String, Number, Boolean, NULL, array, Object. Ele não dá suporte diretamente a um tipo DateTime. Atualmente, Azure Cosmos DB não dá suporte à localização de datas. Portanto, você precisa armazenar DateTimes como cadeias de caracteres. O formato recomendado para cadeias de caracteres DateTime em Azure Cosmos DB é `yyyy-MM-ddTHH:mm:ss.fffffffZ` o que segue o padrão ISO 8601 UTC. É recomendável armazenar todas as datas em Azure Cosmos DB como UTC. Converter as cadeias de caracteres de data para esse formato permitirá a classificação de datas modo lexicográfico. Se as datas não-UTC forem armazenadas, a lógica deverá ser tratada no lado do cliente. Para converter um DateTime local em UTC, o deslocamento deve ser conhecido/armazenado como uma propriedade no JSON e o cliente pode usar o deslocamento para calcular o valor DateTime UTC.
 
-As consultas de intervalo com cadeias de caracteres DateTime como filtros só têm suporte se as cadeias de caracteres DateTime estiverem todas em UTC e o mesmo comprimento. Em Azure Cosmos DB, a função de sistema [GetCurrentDateTime](sql-query-getcurrentdatetime.md) retornará o valor de cadeia de caracteres atual de data e hora UTC do 8601 `YYYY-MM-DDThh:mm:ss.fffffffZ`horário do início no formato:.
+As consultas de intervalo com cadeias de caracteres DateTime como filtros só têm suporte se as cadeias de caracteres DateTime estiverem todas em UTC e o mesmo comprimento. Em Azure Cosmos DB, a função de sistema [GetCurrentDateTime](sql-query-getcurrentdatetime.md) retornará o valor de cadeia de caracteres atual de data e hora UTC do 8601 horário do início no formato: `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 A maioria dos aplicativos pode usar a representação de cadeia de caracteres padrão para DateTime pelos seguintes motivos:
 

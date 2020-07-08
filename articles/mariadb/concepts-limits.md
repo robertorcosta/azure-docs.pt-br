@@ -5,158 +5,25 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 6/25/2020
+ms.openlocfilehash: fc5557c1b20d87d2f96559e1d41efa4576045f09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392770"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações no Banco de Dados do Azure para o MariaDB
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
 
 ## <a name="server-parameters"></a>Parâmetros do Servidor
 
-Os valores mínimo e máximo de vários parâmetros comuns de servidor são determinados pelo tipo de preço e pelos vCores. Consulte as tabelas abaixo para saber os limites.
+> [!NOTE]
+> Se você estiver procurando por valores mínimos/máximos para parâmetros de servidor como `max_connections` e `innodb_buffer_pool_size` , essas informações foram movidas para o artigo **[parâmetros de servidor](./concepts-server-parameters.md)** .
 
-### <a name="max_connections"></a>max_connections
+O banco de dados do Azure para MariaDB dá suporte ao ajuste dos valores dos parâmetros do servidor. O valor mínimo e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` , `query_cache_size` ) é determinado pelo tipo de preço e vCores do servidor. Consulte [parâmetros do servidor](./concepts-server-parameters.md) para obter mais informações sobre esses limites.
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
-|---|---|---|---|---|
-|Basic|1|50|10|50|
-|Basic|2|100|10|100|
-|Uso Geral|2|300|10|600|
-|Uso Geral|4|625|10|1250|
-|Uso Geral|8|1250|10|2500|
-|Uso Geral|16|2500|10|5\.000|
-|Uso Geral|32|5\.000|10|10000|
-|Uso Geral|64|10000|10|20000|
-|Otimizado para memória|2|600|10|800|
-|Otimizado para memória|4|1250|10|2500|
-|Otimizado para memória|8|2500|10|5\.000|
-|Otimizado para memória|16|5\.000|10|10000|
-|Otimizado para memória|32|10000|10|20000|
-
-Quando as conexões excederem o limite, você poderá receber o seguinte erro:
-> ERRO 1040 (08004): Muitas conexões
-
-> [!IMPORTANT]
-> Para obter a melhor experiência, recomendamos usar um pool de conexões como o ProxySQL para gerenciar conexões com eficiência.
-
-A criação de novas conexões de cliente com o MariaDB leva tempo e, uma vez estabelecidas, essas conexões ocupam recursos do banco de dados, mesmo quando ociosas. A maioria dos aplicativos solicita muitas conexões de curta duração, o que agrega a essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, o que leva à redução do desempenho. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais sobre a configuração do ProxySQL, visite nossa [postagem do blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
-
-### <a name="query_cache_size"></a>query_cache_size
-
-O cache de consulta é desativado por padrão. Para habilitar o cache de consulta, configure o parâmetro `query_cache_type`. 
-
-Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre esse parâmetro.
-
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
-|---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
-|Uso Geral|2|0|0|16777216|
-|Uso Geral|4|0|0|33554432|
-|Uso Geral|8|0|0|67108864|
-|Uso Geral|16|0|0|134217728|
-|Uso Geral|32|0|0|134217728|
-|Uso Geral|64|0|0|134217728|
-|Otimizado para memória|2|0|0|33554432|
-|Otimizado para memória|4|0|0|67108864|
-|Otimizado para memória|8|0|0|134217728|
-|Otimizado para memória|16|0|0|134217728|
-|Otimizado para memória|32|0|0|134217728|
-
-### <a name="sort_buffer_size"></a>sort_buffer_size
-
-Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) para saber mais sobre esse parâmetro.
-
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
-|---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
-|Uso Geral|2|524288|32768|4194304|
-|Uso Geral|4|524288|32768|8388608|
-|Uso Geral|8|524288|32768|16777216|
-|Uso Geral|16|524288|32768|33554432|
-|Uso Geral|32|524288|32768|33554432|
-|Uso Geral|64|524288|32768|33554432|
-|Otimizado para memória|2|524288|32768|8388608|
-|Otimizado para memória|4|524288|32768|16777216|
-|Otimizado para memória|8|524288|32768|33554432|
-|Otimizado para memória|16|524288|32768|33554432|
-|Otimizado para memória|32|524288|32768|33554432|
-
-### <a name="join_buffer_size"></a>join_buffer_size
-
-Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) para saber mais sobre esse parâmetro.
-
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
-|---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
-|Uso Geral|2|262144|128|268435455|
-|Uso Geral|4|262144|128|536870912|
-|Uso Geral|8|262144|128|1073741824|
-|Uso Geral|16|262144|128|2147483648|
-|Uso Geral|32|262144|128|4294967295|
-|Uso Geral|64|262144|128|4294967295|
-|Otimizado para memória|2|262144|128|536870912|
-|Otimizado para memória|4|262144|128|1073741824|
-|Otimizado para memória|8|262144|128|2147483648|
-|Otimizado para memória|16|262144|128|4294967295|
-|Otimizado para memória|32|262144|128|4294967295|
-
-### <a name="max_heap_table_size"></a>max_heap_table_size
-
-Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre esse parâmetro.
-
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
-|---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
-|Uso Geral|2|16777216|16384|268435455|
-|Uso Geral|4|16777216|16384|536870912|
-|Uso Geral|8|16777216|16384|1073741824|
-|Uso Geral|16|16777216|16384|2147483648|
-|Uso Geral|32|16777216|16384|4294967295|
-|Uso Geral|64|16777216|16384|4294967295|
-|Otimizado para memória|2|16777216|16384|536870912|
-|Otimizado para memória|4|16777216|16384|1073741824|
-|Otimizado para memória|8|16777216|16384|2147483648|
-|Otimizado para memória|16|16777216|16384|4294967295|
-|Otimizado para memória|32|16777216|16384|4294967295|
-
-### <a name="tmp_table_size"></a>tmp_table_size
-
-Consulte a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) para saber mais sobre esse parâmetro.
-
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
-|---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
-|Uso Geral|2|16777216|1024|67108864|
-|Uso Geral|4|16777216|1024|134217728|
-|Uso Geral|8|16777216|1024|268435456|
-|Uso Geral|16|16777216|1024|536870912|
-|Uso Geral|32|16777216|1024|1073741824|
-|Uso Geral|64|16777216|1024|1073741824|
-|Otimizado para memória|2|16777216|1024|134217728|
-|Otimizado para memória|4|16777216|1024|268435456|
-|Otimizado para memória|8|16777216|1024|536870912|
-|Otimizado para memória|16|16777216|1024|1073741824|
-|Otimizado para memória|32|16777216|1024|1073741824|
-
-### <a name="time_zone"></a>time_zone
-
-As tabelas de fuso horário podem ser preenchidas, chamando o procedimento armazenado `mysql.az_load_timezone` de uma ferramenta como a linha de comando do MySQL ou o Workbench do MySQL. Consulte os artigos [Portal do Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [CLI do Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como chamar o procedimento armazenado e definir os fusos horários globais ou no nível da sessão.
-
-### <a name="innodb_file_per_table"></a>innodb_file_per_table
-
-O MariaDB armazena a tabela InnoDB em espaços de tabela diferentes com base na configuração fornecida durante a criação da tabela. O de [espaço de tabela do sistema](https://mariadb.com/kb/en/innodb-system-tablespaces/) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de arquivo por tabela](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) contém dados e índices de uma única tabela InnoDB e é armazenado no sistema de arquivos em seu próprio arquivo de dados. Esse comportamento é controlado pelo parâmetro do servidor `innodb_file_per_table`. Definir `innodb_file_per_table` como `OFF` faz com que o InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de tabela de arquivo por tabela.
-
-O Banco de Dados do Azure para MariaDB oferece suporte abrangente, de **1 TB**, em um único arquivo de dados. Se o tamanho do banco de dados for maior que 1 TB, você deverá criar a tabela no espaço de tabela [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table). Se você tiver um tamanho de tabela único maior que 1 TB, deverá usar a tabela de partição.
+Após a implantação inicial, um servidor do Azure para MariaDB inclui tabelas de sistemas para informações de fuso horário, mas essas tabelas não são populadas. As tabelas de fuso horário podem ser preenchidas, chamando o procedimento armazenado `mysql.az_load_timezone` de uma ferramenta como a linha de comando do MySQL ou o Workbench do MySQL. Consulte os artigos [Portal do Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [CLI do Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como chamar o procedimento armazenado e definir os fusos horários globais ou no nível da sessão.
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 

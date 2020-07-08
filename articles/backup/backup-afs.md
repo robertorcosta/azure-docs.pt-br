@@ -3,14 +3,14 @@ title: Fazer backup de compartilhamentos de arquivo do Azure no portal do Azure
 description: Saiba como usar o portal do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391139"
 ---
-# <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Fazer backup de compartilhamentos de arquivos do Azure em um cofre dos serviços de recuperação
+# <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
 
 Este artigo explica como usar o portal do Azure para fazer backup de [compartilhamentos de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -26,27 +26,6 @@ Neste artigo, você aprenderá a:
 * Verifique se o compartilhamento de arquivos está presente em um dos [tipos de conta de armazenamento com suporte](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>Modificar a replicação de armazenamento
-
-Por padrão, os cofres usam o [grs (armazenamento com redundância geográfica)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* Se o cofre for seu mecanismo de backup primário, recomendamos que você use GRS.
-* Você pode usar o [LRS (armazenamento com redundância local)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) como uma opção de baixo custo.
-
-Para modificar o tipo de replicação de armazenamento:
-
-1. No novo cofre, selecione **Propriedades** na seção **configurações** .
-
-1. Na página **Propriedades** , em **configuração de backup**, selecione **Atualizar**.
-
-1. Selecione o tipo de replicação de armazenamento e selecione **salvar**.
-
-    ![Atualizar configuração de backup](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> Não é possível modificar o tipo de replicação de armazenamento depois que o cofre é configurado e contém itens de backup. Se desejar fazer isso, você precisará recriar o cofre.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Descobrir compartilhamentos de arquivos e configurar o backup
 
@@ -148,7 +127,7 @@ Ocasionalmente, talvez você queira gerar um instantâneo de backup ou um ponto 
 
 1. Selecione **OK** para confirmar o trabalho de backup sob demanda que é executado.
 
-1. Monitore as notificações do portal para manter um controle da conclusão da execução do trabalho de backup. Você pode monitorar o andamento do trabalho no painel do cofre. Selecione os **trabalhos** > **de backup em andamento**.
+1. Monitore as notificações do portal para manter um controle da conclusão da execução do trabalho de backup. Você pode monitorar o andamento do trabalho no painel do cofre. Selecione os **trabalhos**  >  **de backup em andamento**.
 
 >[!NOTE]
 >O backup do Azure bloqueia a conta de armazenamento quando você configura a proteção para qualquer compartilhamento de arquivos na conta correspondente. Isso fornece proteção contra a exclusão acidental de uma conta de armazenamento com compartilhamentos de arquivos de backup.

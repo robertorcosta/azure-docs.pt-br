@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure
 description: Saiba como usar CLI do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391087"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Fazer backup de compartilhamentos de arquivos do Azure com a CLI
 
@@ -22,7 +22,7 @@ Ao final deste tutorial, você aprenderá a executar operações abaixo com CLI 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão 2.0.18 ou posterior. Para localizar a versão da CLI `run az --version`,. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão 2.0.18 ou posterior. Para localizar a versão da CLI, `run az --version` . Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 
@@ -42,7 +42,7 @@ Siga estas etapas para criar um cofre dos serviços de recuperação:
     eastus      AzureFiles
     ```
 
-2. Use o cmdlet [AZ backup Vault Create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) para criar o cofre. Especifique o mesmo local para o cofre usado para o grupo de recursos.
+1. Use o cmdlet [AZ backup Vault Create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) para criar o cofre. Especifique o mesmo local para o cofre usado para o grupo de recursos.
 
     O exemplo a seguir cria um cofre dos serviços de recuperação chamado *azurefilesvault* na região leste dos EUA.
 
@@ -54,28 +54,6 @@ Siga estas etapas para criar um cofre dos serviços de recuperação:
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Especifique o tipo de redundância a ser usado para o armazenamento do cofre. Você pode usar [armazenamento com redundância local](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) ou [armazenamento com redundância geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    O exemplo a seguir define a opção de redundância de armazenamento para *azurefilesvault* como **georedundância** usando o cmdlet [AZ backup Vault backup-Properties Set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    Para verificar se o cofre foi criado com êxito, você pode usar o cmdlet [AZ backup Vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) para obter detalhes do cofre. O exemplo a seguir exibe os detalhes do *azurefilesvault* que criamos nas etapas acima.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    A saída será semelhante à seguinte resposta:
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Habilitar backup para compartilhamentos de arquivos do Azure
@@ -108,7 +86,7 @@ Você precisa definir os seguintes parâmetros para disparar um backup sob deman
 * **--Item-Name** é o nome do compartilhamento de arquivos para o qual você deseja disparar um backup sob demanda. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Retain-until** especifica a data até o momento em que você deseja manter o ponto de recuperação. O valor deve ser definido no formato de hora UTC (dd-mm-aaaa).
 
-O exemplo a seguir dispara um backup sob demanda para o FileShare *azuresfiles* na conta de armazenamento *afsaccount* com retenção até *20-01-2020*.
+O exemplo a seguir dispara um backup sob demanda para o FileShare *azurefiles* na conta de armazenamento *afsaccount* com retenção até *20-01-2020*.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table
@@ -125,4 +103,4 @@ O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [restaurar compartilhamentos de arquivos do Azure com a CLI](restore-afs-cli.md)
-* Saiba como [gerenciar o compartilhamento de arquivos do Azure ackups com a CLI](manage-afs-backup-cli.md)
+* Saiba como [gerenciar backups de compartilhamento de arquivos do Azure com a CLI](manage-afs-backup-cli.md)

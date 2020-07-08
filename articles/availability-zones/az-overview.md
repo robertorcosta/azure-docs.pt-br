@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413154"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
 
@@ -43,7 +43,7 @@ Uma região é um conjunto de data centers implantados em um perímetro definido
 
 Uma zona de disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
 
-Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
+Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma Azure reconhece essa distribuição entre domínios de atualização para garantir que as VMs em diferentes zonas não estejam agendadas para serem atualizadas ao mesmo tempo.
 
 Compila alta disponibilidade na arquitetura do aplicativo, colocalizando os recursos de computação, armazenamento, rede e dados em uma zona e replicando em outras zonas. Os serviços do Azure que fornecem suporte a Zonas de Disponibilidade enquadram-se em duas categorias:
 
@@ -78,7 +78,7 @@ Se uma oferta de serviço não estiver disponível em uma região específica, v
 
 | Tipo de região | Não regional | Foundational | Base | Especializada | Zonas de Disponibilidades | Residência de dadosResidência de dados |
 | --- | --- | --- | --- | --- | --- | --- |
-| Recomendadas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | :heavy_check_mark: | :heavy_check_mark: |
+| Recomendado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | Controlado por demanda | N/D | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Serviços por categoria
@@ -92,11 +92,11 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Foundational | Base | Especializada |
 > | --- | --- | --- |
 > | Armazenamento de conta | Gerenciamento de API | API do Azure para FHIR |
-> | Gateway de Aplicativo | Configuração de aplicativos | Serviço do Azure Blockchain |
+> | Gateway de Aplicativo | Configuração de Aplicativos | Serviço do Azure Blockchain |
 > | Serviço de Backup do Azure | Serviço de Aplicativo | Azure Blueprints |
 > | Azure Cosmos DB | Automação | Banco de Dados do Azure para MariaDB |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | HSM Dedicado do Azure |
-> | Azure ExpressRoute | Azure Analysis Services | Espaços de Desenvolvimento do Azure |
+> | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
 > | Banco de Dados SQL do Azure | Azure Bastion | Gêmeos Digitais do Azure |
 > | Serviços de Nuvem | Cache Redis do Azure | Azure Lab Services |
 > | Serviços de nuvem: série Av2 | Pesquisa Cognitiva do Azure | Azure NetApp Files |
@@ -105,7 +105,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Serviços de nuvem: série Ev3 | Banco de Dados do Azure para MySQL | Solução VMware no Azure pela CloudSimple |
 > | Serviços de nuvem: IPs de nível de instância | Banco de Dados do Azure para PostgreSQL | Serviços de nuvem: A8-a11 (computação intensiva) |
 > | Serviços de nuvem: IP Reservado | Serviço de Migração de Banco de Dados do Azure | Serviços de nuvem: série G |
-> | Armazenamento em disco | Azure Databricks | Serviços de nuvem: série H |
+> | Armazenamento em Disco | Azure Databricks | Serviços de nuvem: série H |
 > | Hubs de Eventos | Proteção contra DDoS do Azure | Serviços cognitivas: detector de anomalias |
 > | Key Vault | Azure DevTest Labs | Serviços cognitivas: Visão Personalizada |
 > | Balanceador de carga | Gerenciador de Firewall do Azure | Serviços cognitivas: Reconhecimento do Locutor |
@@ -119,7 +119,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Máquinas virtuais: DSv3-Series | Red Hat OpenShift no Azure | Âncoras Espaciais |
 > | Máquinas virtuais: Dv2-Series | Azure Site Recovery | StorSimple |
 > | Máquinas virtuais: Dv3-Series | Serviço de nuvem do Azure Spring | Video Indexer |
-> | Máquinas virtuais: ESv3-Series | Hub de Azure Stack | Máquinas virtuais: A8-a11 (computação intensiva) |
+> | Máquinas virtuais: ESv3-Series | Azure Stack Hub | Máquinas virtuais: A8-a11 (computação intensiva) |
 > | Máquinas virtuais: Ev3-Series | Stream Analytics do Azure | Máquinas virtuais: DASv4-Series |
 > | Máquinas virtuais: série F | Azure Synapse Analytics | Máquinas virtuais: DAv4-Series |
 > | Máquinas virtuais: série FS | Serviço Azure SignalR | Máquinas virtuais: DCsv2-Series |
@@ -138,7 +138,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > |  | Grade de Eventos | Máquinas virtuais: NCv2-Series |
 > |  | HDInsight | Máquinas virtuais: NCv3-Series |
 > |  | Aplicativos Lógicos | Máquinas virtuais: NDs-Series |
-> |  | Serviços de mídia | Máquinas virtuais: NDv2-Series |
+> |  | Serviços de Mídia | Máquinas virtuais: NDv2-Series |
 > |  | Observador de Rede | Máquinas virtuais: NV-Series |
 > |  | Hubs de Notificação | Máquinas virtuais: NVv3-Series |
 > |  | Power BI Embedded | Máquinas virtuais: NVv4-Series |
@@ -166,7 +166,7 @@ Não há custo adicional para máquinas virtuais implantadas em uma Zona de Disp
 - [Balancear carga de VMs entre zonas usando um Load Balancer Standard com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
-- [Banco de Dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Banco de Dados SQL](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Recuperação de desastre geográfico dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperação de desastre geográfico do Barramento de Serviço](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
