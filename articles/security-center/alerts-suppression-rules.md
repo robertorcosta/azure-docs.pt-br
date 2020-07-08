@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848992"
 ---
-# <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Supressão de alertas de proteção contra ameaças da Central de Segurança do Azure
+# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Suprimir alertas da proteção contra ameaças da central de segurança do Azure
 
 Esta página explica como usar as regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados na Central de Segurança do Azure.
 
@@ -28,7 +28,7 @@ Esta página explica como usar as regras de supressão de alertas para suprimir 
     - ✔ Nacionais/soberanas (US Gov, China Gov, outros Gov)
 
 
-## <a name="introduction-to-suppression-rules"></a>Introdução às regras de supressão
+## <a name="what-are-suppression-rules"></a>O que são regras de supressão?
 
 Os componentes da proteção contra ameaças da Central de Segurança do Azure detectam ameaças em qualquer área do ambiente e geram alertas de segurança.
 
@@ -43,9 +43,9 @@ As regras de supressão definem os critérios para os quais os alertas devem ser
 > [!CAUTION]
 > A supressão de alertas de segurança reduz a proteção contra ameaças da Central de Segurança. Você deve verificar cuidadosamente o possível impacto das regras de supressão e monitorá-lo ao longo do tempo.
 
-[![Página de alertas de segurança da Central de Segurança do Azure com opções de supressão de alertas](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
+![Criar regra de supressão de alerta](media\alerts-suppression-rules\create-suppression-rule.gif)
 
-## <a name="creating-a-suppression-rule"></a>Criação de uma regra de supressão
+## <a name="create-a-suppression-rule"></a>Criar uma regra de supressão
 
 Há algumas maneiras de criar regras para suprimir alertas de segurança indesejados:
 
@@ -89,13 +89,13 @@ Para criar uma regra diretamente no portal do Azure:
 
 1. Salve a regra. 
 
-## <a name="editing-suppression-rules"></a>Edição das regras de supressão
+## <a name="edit-a-suppression-rules"></a>Editar regras de supressão
 
-Para editar as regras que você criou, use a página de regras de supressão.
+Para editar as regras que você criou, use a página regras de supressão.
 
 1. Na página de alertas de segurança da Central de Segurança, selecione o link **regras de supressão** na parte superior da página.
 
-1. A página de regras de supressão será aberta, listando todas as regras disponíveis de acordo com as assinaturas selecionadas no momento. 
+1. A página regras de supressão é aberta com todas as regras para as assinaturas selecionadas.
 
     [![Lista de regras de supressão](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
@@ -103,13 +103,13 @@ Para editar as regras que você criou, use a página de regras de supressão.
 
 1. Faça as alterações necessárias e selecione **Aplicar**. 
 
-## <a name="deleting-suppression-rules"></a>Exclusão das regras de supressão
+## <a name="delete-a-suppression-rule"></a>Excluir uma regra de supressão
 
 Para excluir uma ou mais regras que você criou, use a página de regras de supressão.
 
 1. Na página de alertas de segurança da Central de Segurança, selecione o link **regras de supressão** na parte superior da página.
 
-1. A página de regras de supressão será aberta, listando todas as regras disponíveis de acordo com as assinaturas selecionadas no momento. 
+1. A página regras de supressão é aberta com todas as regras para as assinaturas selecionadas.
 
 1. Para excluir uma única regra, abra o menu de reticências (...) da regra e selecione **Excluir**.
 
@@ -117,7 +117,7 @@ Para excluir uma ou mais regras que você criou, use a página de regras de supr
 
     ![Exclusão de uma ou mais regras de supressão](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
-## <a name="viewing-alerts-that-have-been-suppressed"></a>Exibição dos alertas que foram suprimidos
+## <a name="view-suppressed-alerts"></a>Exibir alertas suprimidos
 
 Os alertas que corresponderem às regras de supressão habilitadas ainda serão gerados, mas o estado deles será definido como **ignorado**. Você poderá ver o estado no portal do Azure ou de qualquer outra maneira que você acessar os alertas de segurança da Central de Segurança. 
 
@@ -131,7 +131,7 @@ Use o filtro da Central de Segurança para exibir os alertas que foram ignorados
    [![Exibição dos alertas ignorados](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
 
 
-## <a name="using-the-api-to-create-and-manage-suppression-rules"></a>Uso da API para criar e gerenciar regras de supressão
+## <a name="create-and-manage-suppression-rules-with-the-api"></a>Criar e gerenciar regras de supressão com a API
 
 Você pode criar, exibir ou excluir regras de supressão de alerta por meio da API REST da Central de Segurança. 
 

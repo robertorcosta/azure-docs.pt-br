@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847350"
 ---
 # <a name="get-help-with-your-system"></a>Obter ajuda com o sistema
 
@@ -27,7 +27,7 @@ Se tiver problemas para implantar ou usar o Avere vFXT, solicite ajuda por meio 
 
 Siga estas etapas para garantir que o tíquete de suporte seja marcado com um recurso de seu cluster. Marcar o tíquete nos ajuda a encaminhá-lo para o recurso de suporte correto.
 
-1. Em [https://portal.azure.com](https://portal.azure.com), selecione **grupos de recursos**. Navegue até o grupo de recursos que contém o cluster vFXT em que o problema ocorreu e clique em uma das máquinas virtuais de cluster avere.
+1. Em [https://portal.azure.com](https://portal.azure.com) , selecione **grupos de recursos**. Navegue até o grupo de recursos que contém o cluster vFXT em que o problema ocorreu e clique em uma das máquinas virtuais de cluster avere.
 
     ![captura de tela do painel "visão geral" do grupo de recursos do portal do Azure com uma VM específica circulada](media/avere-vfxt-ticket-vm.png)
 

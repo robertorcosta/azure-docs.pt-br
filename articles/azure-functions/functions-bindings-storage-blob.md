@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847655"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Associações de armazenamento de BLOBs do Azure para Azure Functions visão geral
 
 O Azure Functions integra-se com o [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) por meio [de gatilhos e associações](./functions-triggers-bindings.md). A integração com o armazenamento de BLOBs permite que você crie funções que reajam a alterações em dados de BLOB, bem como valores de leitura e gravação.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função como alterações de dados do armazenamento de BLOBs | [Gatilho](./functions-bindings-storage-blob-trigger.md) |
 | Ler dados do armazenamento de BLOBs em uma função | [Associação de entrada](./functions-bindings-storage-blob-input.md) |
@@ -24,7 +24,7 @@ O Azure Functions integra-se com o [armazenamento do Azure](https://docs.microso
 
 ## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
-### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
+### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 

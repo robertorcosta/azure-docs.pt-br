@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847870"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, coleta automática de lixo e exclusão manual do ator
 Um ator é ativado na primeira vez que uma chamada é feita para qualquer um de seus métodos. Um ator será desativado (lixo coletado pelo runtime dos Atores) se ele não for usado pelo período configurável. Um ator e seu estado também podem ser excluídos manualmente a qualquer momento.
@@ -85,7 +85,7 @@ public class Program
     }
 }
 ```
-Para cada ator ativo, o runtime do ator controla por quanto tempo ele permanece ocioso (ou seja, não usado). O tempo de execução do ator verifica cada um `ScanIntervalInSeconds` dos atores a cada para ver se ele pode ser coletado pelo lixo e o marca `IdleTimeoutInSeconds`se ele esteve ocioso para.
+Para cada ator ativo, o runtime do ator controla por quanto tempo ele permanece ocioso (ou seja, não usado). O tempo de execução do ator verifica cada um dos atores `ScanIntervalInSeconds` a cada para ver se ele pode ser coletado pelo lixo e o marca se ele esteve ocioso para `IdleTimeoutInSeconds` .
 
 Sempre que um ator é usado, seu tempo ocioso é redefinido como 0. Depois disso, o ator só pode ter seu lixo coletado se permanecer ocioso novamente por `IdleTimeoutInSeconds`. Lembre-se de que um ator é considerado como usado se o método de interface de ator ou um retorno de chamada de lembrete de ator for executado. Um ator **não** é considerado usado se seu retorno de chamada do temporizador for executado.
 

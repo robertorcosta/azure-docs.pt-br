@@ -12,22 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848681"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure
 
-Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure, use este artigo para obter uma solução mais rápida. Os logs de extensão do NPS são encontrados em Visualizador de eventos em **exibições** > personalizadas**funções** > **de servidor política de rede e serviços de acesso** no servidor em que a extensão NPS está instalada.
+Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure, use este artigo para obter uma solução mais rápida. Os logs de extensão do NPS são encontrados em Visualizador de eventos em **exibições personalizadas**  >  **funções**  >  **de servidor política de rede e serviços de acesso** no servidor em que a extensão NPS está instalada.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Etapas de solução de problemas para erros comuns
 
 | Código do erro | Etapas para solucionar problemas |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Contate o suporte](#contact-microsoft-support) e mencione a lista de etapas para a coleta de logs. Forneça o máximo de informações possíveis sobre o que aconteceu antes do erro, incluindo a ID de locatário e o nome UPN. |
+| **CONTACT_SUPPORT** | [Contate o suporte](#contact-microsoft-support) e mencione a lista de etapas para a coleta de logs. Forneça o máximo possível de informações sobre o que aconteceu antes do erro, incluindo a ID do locatário e o UPN (nome principal do usuário). |
 | **CLIENT_CERT_INSTALL_ERROR** | Pode haver um problema com a forma como o certificado do cliente foi instalado ou associado ao locatário. Siga as instruções em [Solução de problemas da extensão NPS do MFA](howto-mfa-nps-extension.md#troubleshooting) para investigar problemas de certificado do cliente. |
 | **ESTS_TOKEN_ERROR** | Siga as instruções em [Solução de problemas da extensão NPS do MFA](howto-mfa-nps-extension.md#troubleshooting) para investigar problemas de certificado do cliente e token ADAL. |
 | **HTTPS_COMMUNICATION_ERROR** | O servidor NPS não pode receber respostas do Azure MFA. Verifique se os firewalls estão abertos bidirecionalmente para o tráfego de entrada e saída de https://adnotifications.windowsazure.com |
@@ -35,7 +35,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 | **Extensão NPS para o MFA do Azure:** <br> Extensão do NPS para o Azure MFA executa apenas a autenticação secundária para solicitações de Radius no estado AccessAccept. Solicitação recebida para o nome de usuário com o estado de resposta AccessReject, ignorando a solicitação. | Esse erro geralmente reflete uma falha de autenticação no AD ou que o servidor NPS não pode receber respostas do Microsoft Azure Active Directory. Verifique se seus firewalls estão abertos bidirecionalmente para o tráfego de e para `https://adnotifications.windowsazure.com` e `https://login.microsoftonline.com` usando as portas 80 e 443. Também é importante verificar que, na guia DIAL-IN de permissões de acesso de rede, a configuração é definida como "controlar o acesso por meio do Azure Policy de rede do NPS". Esse erro também pode disparar se o usuário não tiver uma licença atribuída. |
 | **REGISTRY_CONFIG_ERROR** | Uma chave está ausente no registro do aplicativo, que pode ser devido à não execução do [script do PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) após a instalação. A mensagem de erro deve incluir a chave ausente. Verifique se você tem a chave em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Solicitação do RADIUS ausente. Atributo userName\Identifier obrigatório do RADIUS. Verifique se o NPS está recebendo as solicitações RADIUS | Esse erro geralmente reflete um problema de instalação. A extensão NPS deve ser instalada em servidores NPS que podem receber solicitações RADIUS. Servidores NPS que são instalados como dependências para serviços como RDG e RRAS não recebem solicitações RADIUS. A Extensão NPS não funciona quando é instalada em instalações como essas e ocorre um erro, pois ela não pode ler os detalhes da solicitação de autenticação. |
-| **REQUEST_MISSING_CODE** | Verifique se o protocolo de criptografia de senha entre os servidores NPS e NAS suportam o método de autenticação secundário que você está usando. O **PAP** dá suporte a todos os métodos de autenticação do Azure MFA na nuvem: chamada telefônica, mensagem de texto unidirecional, notificação de aplicativo móvel e código de verificação de aplicativo móvel. **CHAPv2** e **EAP** dão suporte a chamada telefônica e notificação de aplicativo móvel. |
+| **REQUEST_MISSING_CODE** | Verifique se o protocolo de criptografia de senha entre os servidores NPS e NAS suportam o método de autenticação secundário que você está usando. O **PAP** dá suporte a todos os métodos de autenticação do Azure MFA na nuvem: chamada telefônica, mensagem de texto unidirecional, notificação de aplicativo móvel e código de verificação de aplicativo móvel. **CHAPV2** e **EAP** dão suporte a chamada telefônica e notificação de aplicativo móvel. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verifique se o usuário está presente na instância do Active Directory local e se o Serviço NPS tem permissões para acessar o diretório. Se estiver usando relações de confiança entre florestas, [contate o suporte](#contact-microsoft-support) para obter mais ajuda. |
 
 ### <a name="alternate-login-id-errors"></a>Erros de ID de logon alternativo
@@ -60,7 +60,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 | **OathCodePinIncorrect** | Código e PIN incorretos inseridos. | Esse erro não é esperado na extensão do NPS. Se o usuário ver esse erro, [contate o suporte](#contact-microsoft-support) para obter ajuda na solução de problemas. |
 | **ProofDataNotFound** | Os dados de prova não foram configurados para o método de autenticação especificado. | Solicite ao usuário para tentar outro método de verificação ou adicionar um novo método de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). Se o usuário continuar vendo esse erro depois de confirmar que o método de verificação está configurado corretamente, [contate o suporte](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Código e PIN incorretos inseridos. (OneWaySMS) | Esse erro não é esperado na extensão do NPS. Se o usuário ver esse erro, [contate o suporte](#contact-microsoft-support) para obter ajuda na solução de problemas. |
-| **TenantIsBlocked** | O locatário está bloqueado | [Contate o suporte](#contact-microsoft-support) com a ID de Diretório da página de propriedades do Azure AD no portal do Azure. |
+| **TenantIsBlocked** | O locatário está bloqueado | [Contate o suporte](#contact-microsoft-support) com a *ID do locatário* na página de propriedades do Azure ad na portal do Azure. |
 | **UserNotFound** | O usuário especificado não foi encontrado | O locatário não está mais visível como ativo no Azure AD. Verifique se sua assinatura está ativa e se você tem os aplicativos de terceiros necessários. Também verifique se o locatário na entidade de certificado é conforme esperado e se o certificado ainda é válido e está registrado na entidade de serviço. |
 
 ## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Mensagens que os usuários podem ver que não são erros

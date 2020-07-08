@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848211"
 ---
-# <a name="frequently-asked-questions"></a>Perguntas frequentes
+# <a name="load-balancer-frequently-asked-questions"></a>Load Balancer perguntas frequentes
 
 ## <a name="what-types-of-load-balancer-exist"></a>Quais tipos de Load Balancer existem?
 Balanceadores de carga internos que equilibram o tráfego em uma VNET e balanceadores de carga externos que balanceam o tráfego de e para um ponto de extremidade conectado à Internet. Para obter mais informações, consulte [tipos de Load Balancer](components.md#frontend-ip-configurations). 
@@ -32,6 +32,22 @@ Consulte a [lista de modelos de início rápido de Azure Load Balancer](https://
 
 ## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>Como as regras NAT de entrada são diferentes das regras de balanceamento de carga?
 As regras de NAT são usadas para especificar um recurso de back-end para rotear o tráfego. Por exemplo, configurar uma porta de balanceador de carga específica para enviar o tráfego de RDP para uma VM específica. As regras de balanceamento de carga são usadas para especificar um pool de recursos de back-end para rotear o tráfego, equilibrando a carga em cada instância. Por exemplo, uma regra de balanceador de carga pode rotear pacotes TCP na porta 80 do balanceador de carga em um pool de servidores Web.
+
+## <a name="what-is-ip-1686312916"></a>O que é o 168.63.129.16 de IP?
+O endereço IP virtual para o host marcado como a infraestrutura do Azure Load Balancer onde as investigações de integridade do Azure se originam. Ao configurar instâncias de back-end, elas devem permitir o tráfego desse endereço IP para responder com êxito às investigações de integridade. Essa regra não interage com o acesso ao seu front-end Load Balancer. Se você não estiver usando o Azure Load Balancer, poderá substituir essa regra. Você pode aprender mais sobre marcas de serviço [aqui](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
+
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Posso usar o emparelhamento VNET global com Load Balancer básica?
+Não. O Load Balancer básico não dá suporte ao emparelhamento VNET global. Em vez disso, você pode usar um Standard Load Balancer. Consulte o artigo [Atualizar do básico para o padrão](upgrade-basic-standard.md) para atualização direta.
+
+## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Como posso descobrir o IP público que uma VM do Azure usa?
+
+Há várias maneiras de determinar o endereço IP público de uma conexão de saída. O OpenDNS fornece um serviço que pode mostrar o endereço IP público de sua VM.
+Usando o comando nslookup, você pode enviar uma consulta DNS para o nome myip.opendns.com para o resolvedor do OpenDNS. O serviço retornará o endereço IP de origem que foi usado para enviar a consulta. Quando você executa a consulta a seguir de sua VM, a resposta será o IP público usado para essa VM:
+
+ ```nslookup myip.opendns.com resolver1.opendns.com```
+
+## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Como funcionam as conexões com o armazenamento do Azure na mesma região?
+Não é necessário ter conectividade de saída por meio dos cenários acima para se conectar ao Armazenamento na mesma região que a VM. Se você não quiser isso, use NSGs (grupos de segurança de rede), conforme explicado acima. Para a conectividade com o armazenamento em outras regiões, a conectividade de saída é necessária. Observe que, ao se conectar ao Armazenamento de uma VM na mesma região, o endereço IP de origem nos logs de diagnóstico de Armazenamento será um endereço de provedor interno e não o endereço IP público da VM. Se você quiser restringir o acesso à sua conta de armazenamento a VMs em uma ou mais sub-redes de rede virtual na mesma região, use [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) (e não seu endereço IP público) ao configurar o firewall da conta de armazenamento. Depois que os pontos de extremidade de serviço forem configurados, você verá seu endereço IP privado da rede virtual nos logs de diagnóstico de armazenamento e não no endereço do provedor interno.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se sua pergunta não estiver listada acima, envie comentários sobre esta página com sua pergunta. Isso criará um problema do GitHub para a equipe de produto, a fim de garantir que todas as perguntas importantes do cliente sejam respondidas.

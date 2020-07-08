@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271714"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847489"
 ---
 # <a name="manage-farms"></a>Gerenciar farms
 
@@ -18,7 +18,7 @@ Você pode gerenciar seus farms no Azure FarmBeats. Este artigo fornece informa�
 
 ## <a name="create-farms"></a>Criar farms
 
-Use as seguintes etapas:
+Use as etapas a seguir:
 
 1. Faça logon no acelerador de farm, a página **farms** é exibida.
     A página **farms** exibe a lista de farms caso eles já tenham sido criados na assinatura.
@@ -33,7 +33,7 @@ Use as seguintes etapas:
 
 Aqui estão as duas maneiras de definir um limite de farm:
 
-1. **Marcar no mapa**: Use a ferramenta de controle de mapa para desenhar e marcar o limite do farm. Para marcar os limites, ![o farm de](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) projetos vence e marca os limites exatos.
+1. **Marcar no mapa**: Use a ferramenta de controle de mapa para desenhar e marcar o limite do farm. Para marcar os limites, o ![ farm de projetos vence ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e marca os limites exatos.
 
     ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 

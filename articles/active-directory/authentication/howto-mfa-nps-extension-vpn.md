@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845739"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848730"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -228,9 +228,9 @@ Nesta seção, você configura o servidor VPN para usar a autenticação RADIUS.
 
 2. No Gerenciador do Servidor, selecione **Ferramentas** e, em seguida, selecione **Roteamento e Acesso Remoto**.
 
-3. Na janela **Roteamento e Acesso Remoto**, clique com o botão direito do mouse em **\<nome do servidor> (local)** e, em seguida, selecione **Propriedades**.
+3. Na janela **Roteamento e acesso remoto** , clique com o botão direito do mouse em ** \<server name> (local)** e selecione **Propriedades**.
 
-4. Na janela **\<nome do servidor> (local) Propriedades**, selecione a guia **Segurança**.
+4. Na janela ** \<server name> Propriedades (local)** , selecione a guia **segurança** .
 
 5. Na guia **Segurança**, em **Provedor de Autenticação**, clique em **Autenticação do RADIUS** e, em seguida, selecione **Configurar**.
 
@@ -320,19 +320,15 @@ Criar um novo valor de cadeia de caracteres chamado _REQUIRE_USER_MATCH in HKLM\
 
 Se o valor for definido como *True* ou estiver em branco, todas as solicitações de autenticação estarão sujeitas a um desafio de MFA. Se o valor for definido como *False*, desafios de MFA serão emitidos somente para usuários que estiverem registrados na Autenticação Multifator do Azure. Use a configuração *False* somente em ambientes de teste ou produção durante um período de integração.
 
-### <a name="obtain-the-azure-active-directory-guid-id"></a>Obter a ID do GUID do Azure Active Directory
+### <a name="obtain-the-azure-active-directory-tenant-id"></a>Obter a ID de locatário Azure Active Directory
 
-Como parte da configuração da extensão do NPS, você deve fornecer credenciais de administrador e a ID do seu locatário do Azure AD. Obtenha a ID fazendo o seguinte:
+Como parte da configuração da extensão do NPS, você deve fornecer credenciais de administrador e a ID do seu locatário do Azure AD. Para obter a ID do locatário, conclua as seguintes etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global do locatário do Azure.
+1. No menu portal do Azure, selecione **Azure Active Directory** ou pesquise por **Azure Active Directory** em qualquer página e selecione essa opção.
+1. Na página **visão geral** , as *informações do locatário* são mostradas. Ao lado da *ID do locatário*, selecione o ícone de **cópia** , conforme mostrado no seguinte exemplo de captura de tela:
 
-2. No menu portal do Azure, selecione **Azure Active Directory** ou pesquise por **Azure Active Directory** em qualquer página e selecione essa opção.
-
-3. Selecione **Propriedades**.
-
-4. Para copiar a ID do Azure AD, selecione o botão **Copiar**.
-
-    ![ID de diretório do Azure AD no portal do Azure](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Obtendo a ID do locatário do portal do Azure](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalar a extensão NPS
 
@@ -386,7 +382,7 @@ Para usar o script, forneça a extensão com suas credenciais de administrador d
 
 5. No prompt de comando, cole a ID de locatário copiada anteriormente e, em seguida, selecione Enter.
 
-    ![Insira a ID do Diretório do Azure AD copiada anteriormente](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Insira a ID de locatário do Azure AD copiada antes](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     O script cria um certificado autoassinado e executa outras alterações de configuração. A saída é parecida com a imagem a seguir:
 
@@ -412,7 +408,9 @@ Depois de ter autenticado com sucesso usando o método secundário, você recebe
 
 Para ver eventos de entrada bem-sucedidos nos logs do Visualizador de Eventos do Windows, consulte o log de Segurança do Windows no servidor NPS digitando o seguinte comando do PowerShell:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Visualizador de Eventos de segurança do PowerShell](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -422,7 +420,9 @@ Você também pode exibir o log de segurança ou a exibição personalizada de S
 
 No servidor no qual você instalou a extensão NPS para a Autenticação Multifator do Azure, você pode encontrar os logs de aplicativo do Visualizador de Eventos específicos para a extensão em *Logs de Aplicativos e Serviços\Microsoft\AzureMfa*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Exemplo de painel de logs do AuthZ no Visualizador de Eventos](./media/howto-mfa-nps-extension-vpn/image46.png)
 

@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846935"
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -48,8 +48,8 @@ Recomendamos escolher cuidadosamente limites diferentes para escalar e reduzir h
 
 *Não recomendamos* configurações de dimensionamento automático, como os exemplos abaixo, com valores de limite iguais ou semelhantes para condições de out e in:
 
-* Aumentar as instâncias por contagem de 1 quando a contagem de threads >= 600
-* Diminuir as instâncias por contagem de 1 quando a contagem de threads <= 600
+* Aumentar as instâncias por contagem de 1 quando a Contagem de Threads >= 600
+* Reduzir as instâncias por contagem de 1 quando a Contagem de Threads <= 600
 
 Vejamos um exemplo de como o que pode levar a um comportamento que possa parecer confuso. Considere a sequência a seguir.
 

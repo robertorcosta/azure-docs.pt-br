@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848740"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -115,24 +115,24 @@ Siga as etapas em [O que a Autenticação Multifator do Azure significa para mim
 
 Esta seção fornece instruções para configurar a infraestrutura do RDS para usar o Azure MFA para autenticação de cliente com o Gateway de Área de Trabalho Remota.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Obter a ID do GUID do Azure Active Directory
+### <a name="acquire-azure-active-directory-tenant-id"></a>Adquirir Azure Active Directory ID do locatário
 
-Como parte da configuração da extensão do NPS, você precisa fornecer credenciais de administrador e a ID do Azure AD para o seu locatário do Azure AD. As próximas etapas mostram como obter o ID do locatário.
+Como parte da configuração da extensão do NPS, você precisa fornecer credenciais de administrador e a ID do Azure AD para o seu locatário do Azure AD. Para obter a ID do locatário, conclua as seguintes etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global do locatário do Azure.
-1. No menu portal do Azure, selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
-1. Selecione **Propriedades**.
-1. Na folha Propriedades, ao lado de ID do diretório, clique no ícone **Copiar**, conforme mostrado abaixo, para copiar a ID para a área de transferência.
+1. No menu portal do Azure, selecione **Azure Active Directory** ou pesquise por **Azure Active Directory** em qualquer página e selecione essa opção.
+1. Na página **visão geral** , as *informações do locatário* são mostradas. Ao lado da *ID do locatário*, selecione o ícone de **cópia** , conforme mostrado no seguinte exemplo de captura de tela:
 
-   ![Obtendo a ID do diretório do portal do Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Obtendo a ID do locatário do portal do Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalar a extensão NPS
 
 Instale a extensão NPS em um servidor que tem a função de Serviços de Acesso (NPS) e Política de Rede instalada. Isso funciona como o servidor RADIUS no seu projeto.
 
-> [!Important]
-> Certifique-se de que você não instalou a extensão NPS no servidor de Gateway de Área de Trabalho Remota.
+> [!IMPORTANT]
+> Não instale a extensão NPS no servidor do Área de Trabalho Remota gateway (RDG). O servidor RDG não usa o protocolo RADIUS com seu cliente, portanto, a extensão não pode interpretar e executar a MFA.
 >
+> Quando o servidor RDG e o servidor NPS com extensão NPS são servidores diferentes, o RDG usa o NPS internamente para conversar com outros servidores NPS e usa RADIUS como o protocolo para se comunicar corretamente.
 
 1. Instalar a [extensão NPS](https://aka.ms/npsmfa).
 1. Copie o arquivo de instalação executável (NpsExtnForAzureMfaInstaller.exe) para o servidor NPS.
@@ -160,15 +160,15 @@ Para usar o script, forneça a extensão com suas credenciais de administrador d
 1. No prompt do PowerShell, digite `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` e clique em **ENTER**.
 1. Digite`.\AzureMfaNpsExtnConfigSetup.ps1`, e aperte **ENTER**. O script verifica se o módulo do Azure Active Directory PowerShell está instalado. Se não estiver instalado, o script instala o módulo para você.
 
-   ![Executando AzureMfaNpsExtnConfigSetup. ps1 no PowerShell do Azure AD](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Executando AzureMfaNpsExtnConfigSetup.ps1 no PowerShell do Azure AD](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. Depois que o script verifica a instalação do módulo do PowerShell, ele exibe a caixa de diálogo de módulo do Azure Active Directory PowerShell. Na caixa de diálogo, insira suas credenciais de administrador do Azure AD e a senha e clique em **Entrar**.
 
    ![Autenticando no Azure AD no PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. Quando solicitado, Cole a ID do diretório que você copiou para a área de transferência anteriormente e pressione **Enter**.
+1. Quando solicitado, Cole a *ID do locatário* que você copiou para a área de transferência anteriormente e pressione **Enter**.
 
-   ![Inserindo a ID de diretório no PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Inserindo a ID do locatário no PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. O script cria um certificado autoassinado e executa outras alterações de configuração. A saída deve ser como a imagem abaixo.
 
@@ -186,7 +186,7 @@ As políticas de autorização de conexão de Área de Trabalho Remota (RD CAPs)
 
 1. No servidor de Gateway de Área de Trabalho Remota, abra **Gerenciador do Servidor**.
 1. No menu, clique em **Ferramentas**, aponte para **Serviços de Área de Trabalho Remota **e, em seguida, clique em **Gerenciador de Gateway de Área de Trabalho Remota**.
-1. No Gerenciador de gateway de área de trabalho remota, clique com o botão direito do mouse em ** \[nome\] do servidor (local)** e clique em **Propriedades**.
+1. No Gerenciador de gateway de área de trabalho remota, clique com o botão direito do mouse em ** \[ nome do servidor \] (local)** e clique em **Propriedades**.
 1. Na caixa de diálogo Propriedades, selecione a guia **armazenamento de RD CAP** .
 1. Acesse a guia Repositório RD CAP, selecione **Servidor central executando NPS**. 
 1. No campo **Insira um nome ou endereço IP do servidor que executa o NPS**, digite o endereço IP ou o nome do servidor onde você instalou a extensão NPS.
@@ -377,13 +377,13 @@ Para obter uma descrição desses arquivos de log, consulte [Interpretar arquivo
 
 A imagem abaixo mostra a saída de um desses [aplicativos shareware](https://www.deepsoftware.com/iasviewer) que pode ser baixado.
 
-![Analisador de IAS do aplicativo shareware de exemplo](./media/howto-mfa-nps-extension-rdg/image35.png)
+![Exemplo de analisador de IAS do aplicativo shareware](./media/howto-mfa-nps-extension-rdg/image35.png)
 
 E, por último, para mais opções de solução de problemas, você pode usar um analisador de protocolo, como o [Analisador de Mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
 
 A imagem abaixo do Microsoft Message Analyzer mostra o tráfego de rede filtrado no protocolo RADIUS que contém o nome de usuário **CONTOSO\AliceC**.
 
-![Analisador de mensagem da Microsoft mostrando tráfego filtrado](./media/howto-mfa-nps-extension-rdg/image36.png)
+![Analisador de Mensagens da Microsoft mostrando tráfego filtrado](./media/howto-mfa-nps-extension-rdg/image36.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,22 +2,22 @@
 title: Conceder consentimento de administrador em todo o locatário para um aplicativo-Azure AD
 description: Saiba como conceder consentimento em todo o locatário a um aplicativo para que os usuários finais não sejam solicitados a fornecer consentimento ao entrar em um aplicativo.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c515fef4997720435c64bd5f3ae7b18f8921fc5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75480912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848371"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
@@ -69,7 +69,9 @@ Ao conceder consentimento de administrador em todo o locatário usando qualquer 
 
 A URL de consentimento do administrador em todo o locatário segue o seguinte formato:
 
-    https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```http
+https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```
 
 onde:
 
@@ -84,6 +86,6 @@ Como sempre, examine atentamente as permissões que um aplicativo solicita antes
 
 [Configurar o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md)
 
-[Permissões e consentimento na plataforma Microsoft Identity](../develop/active-directory-v2-scopes.md)
+[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
 
 [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

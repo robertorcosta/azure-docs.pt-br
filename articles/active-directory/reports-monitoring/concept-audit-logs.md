@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846969"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -89,14 +89,14 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
-- Todos
+- Tudo
 - UX de gerenciamento do AAD
 - Revisões de acesso
 - Provisionamento de conta de usuário
-- Proxy de aplicativo
+- Proxy do Aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Autenticação híbrida
@@ -111,12 +111,12 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
-- Todos
+- Tudo
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
 - Autorização
-- Contato
+- Contact
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
@@ -138,8 +138,8 @@ Você pode obter a lista de todas as atividades de auditoria usando o API do Gra
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
-- Todos
-- Êxito
+- Tudo
+- Sucesso
 - Falha
 
 O filtro de **destino** permite que você procure um destino específico pelo início do nome ou UPN (nome principal do usuário). O nome de destino e o UPN diferenciam maiúsculas de minúsculas. 
