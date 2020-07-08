@@ -14,12 +14,12 @@ ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7bfc00566ef24fb6d6851a7cdee402598fe15951
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: adc3cbd7b98d915a0b598227b459891cb0e0bfff
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052612"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042502"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Início Rápido: Usar o R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia) para consultar um banco de dados 
 
@@ -85,4 +85,3 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 - [Criar seu primeiro banco de dados no Banco de Dados SQL do Azure](design-first-database-tutorial.md)
 - [Serviços do Machine Learning do Banco de Dados SQL do Azure (com o R)](machine-learning-services-overview.md)
 - [Criar e executar scripts R simples em Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)](r-script-create-quickstart.md)
-- [Escrever funções do R avançadas em Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)](machine-learning-services-functions.md)

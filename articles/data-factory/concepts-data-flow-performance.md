@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 05/21/2020
-ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798105"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042621"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -40,8 +40,10 @@ Ao criar fluxos de dados de mapeamento, você testar a unidade de cada transform
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumentar o tamanho da computação no Azure Integration Runtime
 
 Um Integration Runtime com mais núcleos aumenta o número de nós nos ambientes de computação do Spark e fornece mais capacidade de processamento para ler, gravar e transformar seus dados. Os Fluxos de Dados do Azure Data Factory utilizam o Spark para o mecanismo de computação. O ambiente Spark funciona muito bem em recursos com otimização de memória.
-* Tente um cluster de **Computação otimizada** se desejar que a taxa de processamento seja maior do que a taxa de entrada.
-* Tente um cluster **Otimizado para memória** se desejar armazenar em cache mais dados na memória. Otimizado para memória tem um ponto de preço mais alto por núcleo do que a computação otimizada, mas provavelmente resultará em transformação mais rápida. Se você tiver erros de memória insuficiente ao executar seus fluxos de dados, mude para uma configuração do Azure IR otimizada para memória.
+
+É recomendável usar **memória otimizada** para a maioria das cargas de trabalho de produção. Você poderá armazenar mais dados na memória e minimizar os erros de memória insuficiente. A memória otimizada tem um ponto de preço mais alto por núcleo do que a computação otimizada, mas provavelmente resultará em velocidades de transformação mais rápidas e em pipelines mais bem-sucedidos. Se você tiver erros de memória insuficiente ao executar seus fluxos de dados, mude para uma configuração do Azure IR otimizada para memória.
+
+A **computação otimizada** pode ser suficiente para depuração e visualização de dados de um número limitado de linhas de dados. A computação otimizada provavelmente não será executada também com cargas de trabalho de produção.
 
 ![Novo IR](media/data-flow/ir-new.png "Novo IR")
 
@@ -110,7 +112,7 @@ Para evitar inserir linha por linha em seu DW, verifique **Habilitar preparo** n
 
 ## <a name="optimizing-for-files"></a>Otimizar para arquivos
 
-Em cada transformação, você pode definir o esquema de particionamento que deseja que data factory use na guia Otimizar. É uma prática recomendada testar primeiro os coletores baseados em arquivo, mantendo o particionamento e as otimizações padrão.
+Em cada transformação, você pode definir o esquema de particionamento que deseja que data factory use na guia Otimizar. É uma prática recomendada testar primeiro os coletores baseados em arquivo, mantendo o particionamento e as otimizações padrão. Deixar o particionamento para "particionamento atual" no coletor para um destino de arquivo permitirá que o Spark defina um particionamento padrão apropriado para suas cargas de trabalho. O particionamento padrão usa 128Mb por partição.
 
 * Para arquivos menores, escolher menos partições pode, às vezes, ser melhor e mais rápido do que pedir que o Spark particione seus arquivos pequenos.
 * Se você não tiver informações suficientes sobre seus dados de origem, escolha o particionamento *Round Robin* e defina o número de partições.
@@ -153,13 +155,13 @@ Definir as propriedades de taxa de transferência e de lote em coletores CosmosD
 * Taxa de transferência: Defina uma configuração de taxa de transferência mais alta para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente o aumento de custos de RU com base em uma configuração de taxa de transferência alta.
 *   Orçamento de taxa de transferência de gravação: Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partições do Spark, definir uma taxa de transferência de orçamento permitirá mais equilíbrio entre essas partições.
 
-## <a name="join-performance"></a>Desempenho de junções
+## <a name="join-and-lookup-performance"></a>Desempenho de junção e pesquisa
 
 O gerenciamento do desempenho de junções em seu fluxo de dados é uma operação muito comum que você executará durante todo o ciclo de vida de suas transformações de dados. No Azure Data Factory, os fluxos de dados não exigem que os dados sejam classificados antes de junções, pois essas operações são executadas como junções de hash no Spark. No entanto, você pode se beneficiar do desempenho aprimorado com a otimização de junção de “transmissão” que se aplica às transformações Joins, Exists e Lookup.
 
 Isso evitará ordens aleatórias instantâneas efetuando o pushdown do conteúdo de cada lado da relação de junção no nó do Spark. Isso funciona bem para tabelas menores usadas para pesquisas de referência. Tabelas maiores, que podem não se ajustar à memória do nó, não são boas candidatas para a otimização da transmissão.
 
-A configuração recomendada para fluxos de dados com muitas operações de junção é manter a otimização definida como "Auto" para "Transmissão" e usar uma configuração do Azure Integration Runtime otimizada para memória. Se ocorrerem erros de memória insuficiente ou de tempos limite de transmissão durante execuções de fluxo de dados, você poderá desativar a otimização de transmissão. No entanto, fará com que os fluxos de dados fiquem mais lentos. Você também tem a opção de instruir o fluxo de dados para efetuar pushdown somente do lado esquerdo ou direito da junção, ou ambos.
+A configuração recomendada para fluxos de dados com muitas operações de junção é manter a otimização definida como "auto" para "difusão" e usar uma configuração de Azure Integration Runtime com ***otimização de memória*** . Se ocorrerem erros de memória insuficiente ou de tempos limite de transmissão durante execuções de fluxo de dados, você poderá desativar a otimização de transmissão. No entanto, fará com que os fluxos de dados fiquem mais lentos. Você também tem a opção de instruir o fluxo de dados para efetuar pushdown somente do lado esquerdo ou direito da junção, ou ambos.
 
 ![Configurações de transmissão](media/data-flow/newbroad.png "Configurações de transmissão")
 

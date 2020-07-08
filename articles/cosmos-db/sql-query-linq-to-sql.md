@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f8753518e1d54ddba4fc15a5a030308d0c112a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441246"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042485"
 ---
 # <a name="linq-to-sql-translation"></a>Tradução de LINQ em SQL
 
-O provedor de consulta Azure Cosmos DB executa um mapeamento de melhor esforço de uma consulta LINQ em uma consulta SQL Cosmos DB. A descrição a seguir pressupõe uma familiaridade básica com o LINQ.
+O provedor de consulta Azure Cosmos DB executa um mapeamento de melhor esforço de uma consulta LINQ em uma consulta SQL Cosmos DB. Se você quiser obter a consulta SQL que é convertida para LINQ, use o `ToString()` método no objeto gerado `IQueryable` . A descrição a seguir pressupõe uma familiaridade básica com o LINQ.
 
 O sistema do tipo de provedor de consulta dá suporte apenas aos tipos primitivos JSON: Numeric, Boolean, String e NULL.
 
@@ -59,18 +59,18 @@ O provedor de consultas oferece suporte às seguintes expressões escalares:
 O provedor LINQ incluído no SDK do .NET do SQL dá suporte aos seguintes operadores:
 
 - **Selecione**: projeções traduzir para SQL SELECT, incluindo construção de objeto.
-- **Onde**: os filtros são convertidos em SQL onde e dão `&&`suporte `||`à conversão `!` entre, e para os operadores SQL
+- **Onde**: os filtros são convertidos em SQL onde e dão suporte à conversão entre `&&` , `||` e `!` para os operadores SQL
 - **SelectMany**: permite o desenrolamento de matrizes à cláusula SQL JOIN. Use para encadear ou aninhar expressões para filtrar elementos de matriz.
 - **OrderBy** e **OrderByDescending**: translate para order by com ASC ou Desc.
 - Operadores **Count**, **Sum**, **Min**, **Max** e **Average** para agregação e os seus equivalentes assíncronos, **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
 - **CompareTo**: é convertido em comparações de intervalo. Comumente usado para cadeias de caracteres, pois não são comparáveis em .NET.
 - **Skip** e **Take**: está relacionado ao deslocamento e ao limite do SQL para limitar os resultados de uma consulta e fazer a paginação.
-- **Funções matemáticas**: dá suporte à `Abs`conversão `Acos`de `Asin`.NET `Atan`, `Ceiling`, `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Sign` `Sin` `Sqrt` `Tan`,,,,,,,,,,,, `Truncate` , e para as funções internas do SQL equivalentes `Round`.
-- **Funções de cadeia de caracteres**: dá `Concat`suporte `Contains`à `Count`conversão `EndsWith`de`IndexOf`.NET `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`,, `TrimStart` ,,, e para as funções internas do SQL equivalentes.
-- **Funções de matriz**: dá suporte à `Concat`conversão `Contains`do .NET `Count` , e para as funções internas do SQL equivalentes.
-- **Funções de extensão geoespaciais**: oferece suporte `Distance`à `IsValid`conversão `IsValidDetailed`de métodos `Within` stub,,, e para as funções internas SQL equivalentes.
-- **Função de extensão de função definida pelo usuário**: dá suporte à conversão `UserDefinedFunctionProvider.Invoke` do método stub para a função definida pelo usuário correspondente.
-- **Miscelânea**: dá suporte `Coalesce` à conversão de operadores condicionais e condicional. Pode converter `Contains` em cadeia de caracteres CONTAINS, ARRAY_CONTAINS ou SQL no, dependendo do contexto.
+- **Funções matemáticas**: dá suporte à conversão de .net,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` ,, `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` e `Truncate` para as funções internas do SQL equivalentes.
+- **Funções de cadeia de caracteres**: dá suporte à conversão de .net,,,,,,,, `Concat` ,, `Contains` `Count` `EndsWith` `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` , `TrimEnd` e `TrimStart` para as funções internas do SQL equivalentes.
+- **Funções de matriz**: dá suporte à conversão do .NET `Concat` , `Contains` e `Count` para as funções internas do SQL equivalentes.
+- **Funções de extensão geoespaciais**: oferece suporte à conversão de métodos stub `Distance` , `IsValid` ,, `IsValidDetailed` e `Within` para as funções internas SQL equivalentes.
+- **Função de extensão de função definida pelo usuário**: dá suporte à conversão do método stub `UserDefinedFunctionProvider.Invoke` para a função definida pelo usuário correspondente.
+- **Miscelânea**: dá suporte à conversão de `Coalesce` operadores condicionais e condicional. Pode converter em `Contains` cadeia de caracteres Contains, ARRAY_CONTAINS ou SQL no, dependendo do contexto.
 
 ## <a name="examples"></a>Exemplos
 
@@ -192,7 +192,7 @@ Você pode compor os operadores anteriores para formar consultas mais poderosas.
 
 ### <a name="concatenation"></a>Concatenação
 
-A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode começar com uma consulta `SelectMany` opcional, seguida por vários `Select` operadores `Where` or.
+A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode começar com uma `SelectMany` consulta opcional, seguida por vários `Select` `Where` operadores or.
 
 **Concatenação, exemplo 1:**
 
@@ -264,7 +264,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 ### <a name="nesting"></a>Aninhamento
 
-A sintaxe é `input.SelectMany(x=>x.Q())` Where `Q` é um `Select`operador `SelectMany`, ou `Where` .
+A sintaxe é `input.SelectMany(x=>x.Q())` Where `Q` é um `Select` `SelectMany` operador, ou `Where` .
 
 Uma consulta aninhada aplica a consulta interna a cada elemento do contêiner externo. Um recurso importante é que a consulta interna pode se referir aos campos dos elementos no contêiner externo, como uma auto-associação.
 
