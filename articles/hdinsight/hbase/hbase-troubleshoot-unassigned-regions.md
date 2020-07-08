@@ -8,11 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707643"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problemas com servidores de região no Azure HDInsight
 
@@ -40,15 +39,15 @@ Corrija as atribuições. Siga as etapas abaixo para exibir as regiões não atr
 
 1. Entre no cluster HBase do HDInsight usando SSH.
 
-1. Execute `hbase zkcli` o comando para se conectar ao shell do ZooKeeper.
+1. Execute o `hbase zkcli` comando para se conectar ao shell do ZooKeeper.
 
 1. Executar `rmr /hbase/regions-in-transition` ou `rmr /hbase-unsecure/regions-in-transition` comando.
 
-1. Saia do shell do Zookeeper `exit` usando o comando.
+1. Saia do shell do Zookeeper usando o `exit` comando.
 
 1. Abra a interface do usuário do Apache Ambari e reinicie o serviço Active HBase Master.
 
-1. Execute `hbase hbck` o comando novamente (sem nenhuma outra opção). Verifique a saída e verifique se todas as regiões estão sendo atribuídas.
+1. Execute o `hbase hbck` comando novamente (sem nenhuma outra opção). Verifique a saída e verifique se todas as regiões estão sendo atribuídas.
 
 ---
 
@@ -62,7 +61,7 @@ Falha ao iniciar os servidores de região.
 
 Vários diretórios WAL de divisão.
 
-1. Obter lista de WALs atuais: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
+1. Obter lista de WALs atuais: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` .
 
 1. Inspecione o `wals.out` arquivo. Se houver muitos diretórios de divisão (começando com *-divisão), o servidor de região provavelmente falhará devido a esses diretórios.
 
@@ -72,9 +71,9 @@ Vários diretórios WAL de divisão.
 
 1. Execute `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` para obter uma lista atualizada de WALs.
 
-1. Mova os diretórios * de divisão para uma pasta temporária, `splitWAL`e exclua os diretórios de divisão *.
+1. Mova os diretórios * de divisão para uma pasta temporária, `splitWAL` e exclua os diretórios de divisão *.
 
-1. Execute `hbase zkcli` o comando para se conectar ao shell do Zookeeper.
+1. Execute o `hbase zkcli` comando para se conectar ao shell do Zookeeper.
 
 1. Execute `rmr /hbase-unsecure/splitWAL`.
 
@@ -84,8 +83,8 @@ Vários diretórios WAL de divisão.
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

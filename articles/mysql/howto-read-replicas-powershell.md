@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/29/2020
-ms.openlocfilehash: 9ac85299311c1fd233988c6472d6325934dd42dd
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.date: 6/10/2020
+ms.openlocfilehash: eff70d193674877b3b9453319197b60569399968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707048"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o PowerShell
 
@@ -29,8 +28,8 @@ Para concluir este guia de instruções, você precisa:
 - Um [banco de dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Enquanto o módulo do PowerShell AZ. MySql está em versão prévia, você deve instalá-lo separadamente do módulo AZ PowerShell usando o seguinte `Install-Module -Name Az.MySql -AllowPrerelease`comando:.
-> Depois que o módulo AZ. MySql PowerShell estiver disponível, ele se tornará parte das versões futuras do módulo do PowerShell AZ e estará disponível nativamente em Azure Cloud Shell.
+> Enquanto o módulo Az.MySql PowerShell está em versão prévia, você deve instalá-lo separadamente do módulo Az PowerShell usando o seguinte comando: `Install-Module -Name Az.MySql -AllowPrerelease`.
+> Depois que o módulo Az.MySql PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
 
 Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
 
@@ -40,6 +39,9 @@ Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azur
 > O recurso de réplica de leitura está disponível apenas para bancos de dados do Azure para servidores MySQL nas camadas de preços de uso geral ou de otimização de memória. Assegure-se de que o servidor principal esteja em um desses níveis de preços.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
+
+> [!IMPORTANT]
+> Ao criar uma réplica para um mestre que não tem nenhuma réplica existente, primeiro o mestre será reiniciado para se preparar para a replicação. Leve isso em consideração e realize essas operações durante um período de pouca atividade.
 
 Um servidor de réplica de leitura pode ser criado usando o seguinte comando:
 
@@ -62,7 +64,7 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
   New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
-Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md).
+Para saber mais sobre em quais regiões você pode criar uma réplica, visite o artigo [conceitos de réplica de leitura](concepts-read-replicas.md).
 
 Por padrão, as réplicas de leitura são criadas com a mesma configuração de servidor que o mestre, a menos que o parâmetro **SKU** seja especificado.
 
@@ -86,7 +88,7 @@ O comando `Get-AzMySqlReplica` exige os seguintes parâmetros:
 
 ### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
-A exclusão de um servidor de réplica de leitura pode ser `Remove-AzMySqlServer` feita executando o cmdlet.
+A exclusão de um servidor de réplica de leitura pode ser feita executando o `Remove-AzMySqlServer` cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup

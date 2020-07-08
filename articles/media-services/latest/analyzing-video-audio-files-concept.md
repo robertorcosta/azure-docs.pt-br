@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708953"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com os serviços de mídia do Azure
 
@@ -63,11 +62,11 @@ A predefinição permite extrair vários insights de áudio e vídeo de um arqui
 
 ## <a name="insightsjson-elements"></a>Elementos insights.json
 
-A saída inclui um arquivo JSON (insights. JSON) com todas as informações encontradas no vídeo ou áudio. O JSON pode conter os seguintes elementos:
+A saída inclui um arquivo JSON (insights.jsem) com todas as informações encontradas no vídeo ou áudio. O JSON pode conter os seguintes elementos:
 
 ### <a name="transcript"></a>transcript
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
 |text|A própria transcrição.|
@@ -105,7 +104,7 @@ Exemplo:
 
 ### <a name="ocr"></a>ocr
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
 |text|O texto de OCR.|
@@ -148,17 +147,17 @@ Exemplo:
 
 ### <a name="faces"></a>faces
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da face.|
 |name|O nome da face. Pode ser ' desconhecido #0 ', um celebridade identificado ou uma pessoa treinada para o cliente.|
 |confidence|A confiança de identificação da face.|
-|description|Uma descrição da celebridade. |
+|descrição|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura dessa face.|
 |knownPersonId|A ID interna (se for uma pessoa conhecida).|
 |referenceId|A ID do Bing (se for um celebridade do Bing).|
 |referenceType|No momento, apenas Bing.|
-|title|O título (se for um celebridade — por exemplo, "CEO da Microsoft").|
+|título|O título (se for um celebridade — por exemplo, "CEO da Microsoft").|
 |imageUrl|A URL da imagem, se for um celebridade.|
 |instances|Instâncias em que a face apareceu no intervalo de tempo determinado. Cada ocorrência também tem uma thumbnailsId. |
 
@@ -193,7 +192,7 @@ Exemplo:
 
 ### <a name="shots"></a>shots
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da captura.|
 |keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias). As instâncias de frames principais têm um campo thumbnailId com o ID de miniatura da keyFrame.|
@@ -250,7 +249,7 @@ Exemplo:
 
 ### <a name="statistics"></a>estatísticas
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por alto-falante.|
@@ -263,7 +262,7 @@ Exemplo:
 
 Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do sentimento.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
@@ -298,7 +297,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="labels"></a>rótulos
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID do rótulo.|
 |name|O nome do rótulo (por exemplo, "Computador", "TV").|
@@ -356,7 +355,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="keywords"></a>palavras-chave
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
 |text|O texto da palavra-chave.|
@@ -407,7 +406,7 @@ O bloco visualContentModeration contém intervalos de tempo que o Video Indexer 
 
 Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários podem enviar uma solicitação para uma revisão humana do conteúdo; nesse caso, o `IsAdult` atributo conterá o resultado da revisão humana.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |id|A ID de moderação de conteúdo visual.|
 |adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|

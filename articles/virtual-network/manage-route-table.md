@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: b30c912319104726069ae98920f0bc825d7358cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708256"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -50,7 +49,7 @@ Há um limite para quantas tabelas de rotas você pode criar por assinatura e lo
 1. Na caixa de diálogo **criar tabela de rotas** :
 
     1. Insira um **nome** para a tabela de rotas.
-    1. Escolha sua **assinatura**.
+    1. Escolha sua **Assinatura**.
     1. Escolha um **grupo de recursos** existente ou selecione **criar novo** para criar um novo grupo de recursos.
     1. Escolha um **local**.
     1. Se você planeja associar a tabela de rotas a uma sub-rede em uma rede virtual que está conectada à sua rede local por meio de um gateway de VPN e não deseja propagar suas rotas locais para as interfaces de rede na sub-rede, defina a propagação de **rota do gateway de rede virtual** como **desabilitada**.
@@ -88,7 +87,7 @@ Para saber mais sobre configurações comuns do Azure, veja as seguintes informa
 - [Log de atividades](../azure-monitor/platform/platform-logs-overview.md)
 - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
 - [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Bloquea](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Script de automação](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Exibir detalhes da tabela de rotas – comandos
@@ -186,7 +185,7 @@ Há um limite para quantas rotas por tabela de rotas podem ser criadas por assin
 
 1. Na lista tabela de rotas, escolha a tabela de rotas à qual você deseja adicionar uma rota.
 
-1. Na barra de menus da tabela de rotas, escolha **rotas** > **Adicionar**.
+1. Na barra de menus da tabela de rotas, escolha **rotas**  >  **Adicionar**.
 
 1. Insira um **nome de rota** exclusivo para a rota dentro da tabela de rotas.
 
@@ -333,7 +332,7 @@ Após uma breve espera, o Azure informa o tipo do próximo salto e a ID da rota 
 
 Para realizar tarefas em tabelas de rota e rotas, sua conta deve ser atribuída à [função de colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                                          |   Name                                                  |
+| Ação                                                          |   Nome                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Ler uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar tabela de rotas                        |

@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705195"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrar seus manifestos usando o Dynamic Packager
 
@@ -36,7 +35,7 @@ Essa capacidade de especificar filtros diferentes em seu fluxo fornece uma solu�
 
 ## <a name="overview-of-manifests"></a>Visão geral dos manifestos
 
-Os serviços de mídia do Azure dão suporte aos protocolos HLS, MPEG DASH e Smooth Streaming. Como parte do [empacotamento dinâmico](dynamic-packaging-overview.md), os manifestos de cliente de streaming (lista de reprodução de mestre HLS, descrição de apresentação de mídia Dash [MPD] e Smooth streaming) são gerados dinamicamente com base no seletor de formato na URL. Para obter mais informações, consulte os protocolos de entrega em [fluxo de trabalho comum sob demanda](dynamic-packaging-overview.md#delivery-protocols).
+Os serviços de mídia do Azure dão suporte aos protocolos HLS, MPEG DASH e Smooth Streaming. Como parte do [empacotamento dinâmico](dynamic-packaging-overview.md), os manifestos de cliente de streaming (lista de reprodução de mestre HLS, descrição de apresentação de mídia Dash [MPD] e Smooth streaming) são gerados dinamicamente com base no seletor de formato na URL. Para obter mais informações, consulte os protocolos de entrega em [fluxo de trabalho comum sob demanda](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery).
 
 ### <a name="get-and-examine-manifest-files"></a>Obter e examinar arquivos de manifesto
 
@@ -135,7 +134,7 @@ Você também pode combinar vários filtros em uma única URL. O seguinte cenár
 
 Para combinar filtros, defina os nomes de filtro para a URL de manifesto/playlist no formato delimitado por ponto e vírgula. Vamos supor que você tenha um filtro chamado *MyMobileDevice* que filtre qualidades, e que você tenha outro chamado *mystartime* para definir uma hora de início específica. Você pode combinar até três filtros.
 
-Para obter mais informações, consulte [esta postagem no blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Para obter mais informações, consulte [esta postagem do blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
@@ -146,7 +145,7 @@ Para obter mais informações, consulte [esta postagem no blog](https://azure.mi
 - Os clientes precisam baixar manualmente o manifesto e analisar o carimbo de data/hora de início exato e a escala de tempo.
 
     - Para determinar as propriedades das faixas em um ativo, [obtenha e examine o arquivo de manifesto](#get-and-examine-manifest-files).
-    - A fórmula para definir as propriedades de carimbo de data/hora do filtro de ativos é: <br/>startTimestamp = &lt;hora de início no manifesto&gt; +  &lt;tempo de início de filtro esperado&gt; em segundos * escala de tempo
+    - A fórmula para definir as propriedades de carimbo de data/hora do filtro de ativos é: <br/>startTimestamp = &lt; hora de início no manifesto &gt;  +   &lt; tempo de início de filtro esperado em segundos &gt; * escala de tempo
 
 ## <a name="next-steps"></a>Próximas etapas
 

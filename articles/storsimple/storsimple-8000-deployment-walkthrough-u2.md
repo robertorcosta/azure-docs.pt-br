@@ -7,11 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707388"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implantar o dispositivo StorSimple no local (Atualização 3 e posteriores)
 
@@ -28,10 +27,10 @@ As informações nesses tutoriais pressupõem que você revisou as precauções 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você leia a lista de verificação de configuração antes de começar. O processo de implantação e configuração pode levar algum tempo para ser concluído.
 
 > [!NOTE]
-> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
+> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com) . Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
-## <a name="deployment-steps"></a>Etapas de implantação
+## <a name="deployment-steps"></a>Etapas de implantação.
 Execute estas etapas necessárias para configurar o dispositivo StorSimple e conectá-lo ao serviço do gerenciador de dispositivos StorSimple. Além das etapas necessárias, há etapas e procedimentos opcionais que talvez sejam necessários durante a implantação. As instruções passo a passo de implantação indicam quando você deve executar cada uma destas etapas opcionais.
 
 | Etapa | Descrição |

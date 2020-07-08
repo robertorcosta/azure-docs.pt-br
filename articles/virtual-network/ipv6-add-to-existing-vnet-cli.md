@@ -5,20 +5,19 @@ description: Este artigo mostra como implantar endereços IPv6 em um aplicativo 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0ba8e34c1fb219d86086e73203acf65c2351c340
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708339"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Adicionar IPv6 a um aplicativo IPv4 na rede virtual do Azure-CLI do Azure
 

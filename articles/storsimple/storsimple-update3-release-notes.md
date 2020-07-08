@@ -9,11 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712047"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Notas de versão da Atualização 3 para seu dispositivo StorSimple série 8000
 

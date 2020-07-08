@@ -5,21 +5,18 @@ description: Saiba como atualizar um serviço Web para usar um modelo de aprendi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706079"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Treinar novamente e implantar um modelo de machine learning
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 O novo treinamento é uma maneira de garantir que os modelos de machine learning fiquem precisos e baseados nos dados disponíveis mais relevantes. Este artigo mostra como treinar novamente e implantar um modelo de aprendizado de máquina como um novo serviço Web no Studio (clássico). Se você estiver buscando readaptar um serviço Web clássico, [exiba este artigo de instruções.](retrain-classic-web-service.md)
 
@@ -61,7 +58,7 @@ Para este exemplo, estamos usando C# para criar o aplicativo de readaptação. V
 
 Use as etapas a seguir para chamar as APIs de novo treinamento:
 
-1. Criar um aplicativo de console em C# no Visual Studio: **novo** > **projeto** > **Visual C#** > **Windows Classic desktop** > **console app (.NET Framework)**.
+1. Criar um aplicativo de console em C# no Visual Studio: **novo**  >  **projeto**  >  **Visual C#**  >  **Windows Classic desktop**  >  **console app (.NET Framework)**.
 1. Entre no portal de Serviços Web do Machine Learning.
 1. Clique no serviço Web com o qual você está trabalhando.
 1. Clique em **Consumo**.

@@ -11,16 +11,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734989"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de entidade de serviço no Azure Active Directory Domain Services
 
-As [entidades de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicativos usados pela plataforma Azure para gerenciar, atualizar e manter um domínio gerenciado do Azure AD DS. Se uma entidade de serviço for excluída, a funcionalidade no domínio gerenciado do Azure AD DS será afetada.
+As [entidades de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicativos que a plataforma Azure usa para gerenciar, atualizar e manter um domínio gerenciado Azure Active Directory Domain Services (Azure AD DS). Se uma entidade de serviço for excluída, a funcionalidade no domínio gerenciado será afetada.
 
 Este artigo ajuda a solucionar problemas e resolver alertas de configuração relacionados à entidade de serviço.
 
@@ -30,7 +29,7 @@ Este artigo ajuda a solucionar problemas e resolver alertas de configuração re
 
 *Uma Entidade de Serviço necessária para o funcionamento correto do Azure AD Domain Services foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.*
 
-Se uma entidade de serviço necessária for excluída, a plataforma Azure não poderá executar tarefas de gerenciamento automatizadas. O domínio gerenciado do Azure AD DS pode não aplicar atualizações corretamente ou fazer backups.
+Se uma entidade de serviço necessária for excluída, a plataforma Azure não poderá executar tarefas de gerenciamento automatizadas. O domínio gerenciado pode não aplicar atualizações corretamente ou fazer backups.
 
 ### <a name="check-for-missing-service-principals"></a>Verificar entidades de serviço ausentes
 
@@ -64,18 +63,18 @@ Se a ID do aplicativo *2565bd9d-DA50-47d4-8b85-4c97f669dc36* não estiver no dir
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-A integridade do domínio gerenciado do Azure AD DS se atualiza automaticamente dentro de duas horas e remove o alerta.
+A integridade do domínio gerenciado se atualiza automaticamente dentro de duas horas e remove o alerta.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Registrar novamente o namespace Microsoft.AAD
 
 Se a ID do aplicativo *443155a6-77f3-45e3-882b-22b3a8d431fb, abba844e-bc0e-44b0-947a-dc74e5d09022 ou d87dcbc6-a371-462e-88e3-28ad15ec4e64 não estiver no diretório do Azure AD, conclua as etapas a seguir para registrar novamente o provedor de recursos Microsoft. AAD:
 
 1. No Portal do Azure, pesquise e selecione **Assinaturas**.
-1. Escolha a assinatura associada ao seu domínio gerenciado do Azure AD DS.
+1. Escolha a assinatura associada ao seu domínio gerenciado.
 1. No painel de navegação à esquerda, escolha **Provedores de recursos**.
 1. Pesquise por *Microsoft. AAD* e, em seguida, selecione **Registrar novamente**.
 
-A integridade do domínio gerenciado do Azure AD DS se atualiza automaticamente dentro de duas horas e remove o alerta.
+A integridade do domínio gerenciado se atualiza automaticamente dentro de duas horas e remove o alerta.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: O aplicativo de sincronização de senha está desatualizado
 
@@ -105,7 +104,7 @@ Para recriar o aplicativo do Azure AD usado para sincronização de credenciais,
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-Depois de excluir ambos os aplicativos, a plataforma Azure os recria automaticamente e tenta retomar a sincronização de senha. A integridade do domínio gerenciado do Azure AD DS se atualiza automaticamente dentro de duas horas e remove o alerta.
+Depois de excluir ambos os aplicativos, a plataforma Azure os recria automaticamente e tenta retomar a sincronização de senha. A integridade do domínio gerenciado se atualiza automaticamente dentro de duas horas e remove o alerta.
 
 ## <a name="next-steps"></a>Próximas etapas
 

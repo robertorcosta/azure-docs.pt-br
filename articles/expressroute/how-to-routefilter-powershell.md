@@ -4,16 +4,15 @@ description: Este artigo descreve como configurar filtros de rota para o Emparel
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 3fa53258321b22e1683122edca1816f6d4c291b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f5a294a051350c4b08b34356abcd883b7580164e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84729295"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -201,4 +200,4 @@ Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

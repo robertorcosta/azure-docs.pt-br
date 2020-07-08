@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707133"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -57,14 +56,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado SAP HANA.
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Property | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | cadeia de caracteres | Sim
+Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | Sim
 authenticationType | Tipo de autenticação. | . "Básico" ou "Windows" | Sim 
-username | Nome do usuário que tem acesso ao servidor SAP | cadeia de caracteres | Sim
-password | Senha do usuário. | cadeia de caracteres | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | cadeia de caracteres | Sim
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | cadeia de caracteres | Não
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
+password | Senha do usuário. | string | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | Sim
+encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cadeia de caracteres | No
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -79,7 +78,7 @@ Por outro lado, as propriedades disponíveis na seção **typeProperties** da at
 
 Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que inclui o SAP HANA), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | Sim |
 
@@ -287,7 +286,7 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 bigint | Int64
-real | Single
+REAL | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte

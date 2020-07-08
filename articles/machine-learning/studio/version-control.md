@@ -5,20 +5,17 @@ description: Aplicar as práticas recomendadas de gerenciamento do ciclo de vida
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 3f22ce3b1fb750e33e35d35ee1fe5ad1893abcfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2eb5f3acc07f04ba2102ea25fbad89d73514444a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705909"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Gerenciamento do ciclo de vida do aplicativo no Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (clássico) é uma ferramenta para o desenvolvimento de experimentos de aprendizado de máquina que estão operacionais na plataforma de nuvem do Azure. Ele é parecido com o IDE do Visual Studio e o serviço de nuvem escalável mesclados em uma única plataforma. Você pode incorporar as práticas de ALM (gerenciamento do ciclo de vida do aplicativo) padrão de controle de versão de vários ativos à execução e implantação automatizadas, em Azure Machine Learning Studio (clássico). Este artigo discute algumas das opções e abordagens.
 
@@ -46,7 +43,7 @@ Os instantâneos de histórico de execução mantêm uma versão imutável do ex
 O arquivo JSON é uma representação textual do grafo de teste, que pode incluir referência aos ativos no workspace, como um conjunto de dados ou um modelo treinado. Ele não contém uma versão serializada do ativo. Se você tentar importar o documento JSON de volta para o workspace, os ativos referenciados já devem existir com as mesmas IDs de ativo referenciadas no teste. Caso contrário, você não poderá acessar o teste importado.
 
 ## <a name="versioning-trained-model"></a>Controle de versão do modelo treinado
-Um modelo treinado no Azure Machine Learning Studio (clássico) é serializado em um formato conhecido como um arquivo iLearner (`.iLearner`) e é armazenado na conta de armazenamento de BLOBs do Azure associada ao espaço de trabalho. Uma maneira de obter uma cópia do arquivo iLearner é por meio da API de novos treinamentos. [Este artigo](/azure/machine-learning/studio/retrain-machine-learning-model) explica como funciona a API de novos treinamentos funciona. As etapas de alto nível:
+Um modelo treinado no Azure Machine Learning Studio (clássico) é serializado em um formato conhecido como um arquivo iLearner ( `.iLearner` ) e é armazenado na conta de armazenamento de BLOBs do Azure associada ao espaço de trabalho. Uma maneira de obter uma cópia do arquivo iLearner é por meio da API de novos treinamentos. [Este artigo](/azure/machine-learning/studio/retrain-machine-learning-model) explica como funciona a API de novos treinamentos funciona. As etapas de alto nível:
 
 1. Configurar seu teste de treinamento.
 2. Adicionar uma porta de saída do serviço Web ao módulo Treinar Modelo, ou ao módulo que produza o modelo treinado, por exemplo, Ajustar Hiperparâmetro de Modelo ou Criar Modelo R.

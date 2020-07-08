@@ -5,21 +5,18 @@ description: Saiba como treinar novamente um modelo e atualizar um serviço Web 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 0639a525384e751ac4441da5d2c03532618b801a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 659011a13be310512ace68d2e020eaebff9a10ee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706028"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostrará como readaptar um serviço Web clássico do Studio (clássico). Para obter um guia sobre como treinar novamente um novo serviço Web de estúdio (clássico), [Veja este artigo de instruções.](retrain-machine-learning-model.md)
 

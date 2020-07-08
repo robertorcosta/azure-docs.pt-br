@@ -11,14 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75611059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711078"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações do SQL na Central de Segurança do Azure (Visualizar)
  
@@ -29,7 +28,7 @@ A proteção de informações é uma funcionalidade de segurança avançada para
 - Cenários de segurança, como monitoramento (auditoria) e alertas de acesso anormal a dados confidenciais
 - Controlando o acesso e fortalecendo a segurança dos armazenamentos de dados que contêm dados altamente confidenciais
  
-[A Proteção de Informações SQL](../sql-database/sql-database-data-discovery-and-classification.md) implementa esse paradigma para seus armazenamentos de dados SQL, atualmente suportados pelo Banco de Dados SQL do Azure. O SQL Information Protection descobre e classifica automaticamente dados potencialmente confidenciais, fornece um mecanismo de rotulagem para marcar persistentemente os dados confidenciais com atributos de classificação e fornece um painel detalhado mostrando o estado de classificação do banco de dados. Além disso, calcula a sensibilidade do conjunto de resultados das consultas SQL, para que as consultas que extraem dados confidenciais possam ser explicitamente auditadas e os dados possam ser protegidos. Para obter mais informações sobre a proteção de informações do SQL, consulte [classificação e descoberta de dados do banco de dados SQL do Azure](../sql-database/sql-database-data-discovery-and-classification.md).
+[A Proteção de Informações SQL](../azure-sql/database/data-discovery-and-classification-overview.md) implementa esse paradigma para seus armazenamentos de dados SQL, atualmente suportados pelo Banco de Dados SQL do Azure. O SQL Information Protection descobre e classifica automaticamente dados potencialmente confidenciais, fornece um mecanismo de rotulagem para marcar persistentemente os dados confidenciais com atributos de classificação e fornece um painel detalhado mostrando o estado de classificação do banco de dados. Além disso, calcula a sensibilidade do conjunto de resultados das consultas SQL, para que as consultas que extraem dados confidenciais possam ser explicitamente auditadas e os dados possam ser protegidos. Para obter mais informações sobre a proteção de informações do SQL, consulte [classificação e descoberta de dados do banco de dados SQL do Azure](../azure-sql/database/data-discovery-and-classification-overview.md).
  
 O mecanismo de classificação é baseado em duas construções principais que compõem a taxonomia de classificação - **Labels** e **Information Types**.
 - **Rótulos** – os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna. 
@@ -75,11 +74,15 @@ Para personalizar a política de proteção de informações do seu locatário d
 7. Certifique-se de clicar em **Salvar** na lâmina principal **Etiquetas** para aplicar todas as suas alterações.
  
 Depois que a política de proteção de informações estiver totalmente definida e salva, ela será aplicada à classificação de dados em todos os bancos de dados SQL do Azure no seu locatário.
- 
+
+## <a name="manage-sql-information-protection-using-azure-powershell"></a>Gerenciar a proteção de informações do SQL usando o Azure PowerShell
+
+- [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy): recupera a política de proteção de informações SQL do locatário em vigor.
+- [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy): define a política de proteção de informações SQL do locatário em vigor.
  
 ## <a name="next-steps"></a>Próximas etapas
  
-Neste artigo, você aprendeu a definir uma política de Proteção de Informações do SQL na Central de Segurança do Azure. Para saber mais sobre como usar o SQL Information Protection para classificar e proteger dados confidenciais em seus bancos de dados SQL, consulte [Descoberta e Classificação de Dados do Banco de Dados SQL do Azure](../sql-database/sql-database-data-discovery-and-classification.md). 
+Neste artigo, você aprendeu a definir uma política de Proteção de Informações do SQL na Central de Segurança do Azure. Para saber mais sobre como usar o SQL Information Protection para classificar e proteger dados confidenciais em seus bancos de dados SQL, consulte [Descoberta e Classificação de Dados do Banco de Dados SQL do Azure](../azure-sql/database/data-discovery-and-classification-overview.md). 
 
 Para obter mais informações sobre políticas de segurança e segurança de dados na Central de Segurança do Azure, consulte os seguintes artigos:
  

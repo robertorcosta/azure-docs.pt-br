@@ -8,17 +8,16 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: e4197923fa71c719611bea7603113cab331d4ba8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708222"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando o PowerShell
 
@@ -94,7 +93,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
 
 6. Defina a configuração de IP primário da NIC. Caso você não tenha usado o valor definido anteriormente, altere 10.0.0.4 para um endereço válido na sub-rede que você criou. Antes de atribuir um endereço IP estático, é recomendável que você primeiro confirme que ele ainda não está em uso. Digite o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço está disponível, a saída retorna *True*. Se não estiver disponível, a saída retornará *false* e uma lista de endereços que estão disponíveis. 
 
-    Nos comandos a seguir, **substitua \<o nome exclusivo do Replace-com-seu> pelo nome DNS exclusivo a ser usado.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Esse é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
+    Nos comandos a seguir, **substitua \<replace-with-your-unique-name> pelo nome DNS exclusivo a ser usado.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Esse é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
 
     ```powershell
     
@@ -159,7 +158,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
    ```
 
    >[!NOTE]
-   >Embora todas as configurações estejam atribuídas a uma NIC neste artigo, você pode atribuir várias configurações de IP a cada NIC anexada à VM. Para saber como criar uma VM com várias NICs, leia o artigo [criar uma VM com várias NICs](../virtual-machines/windows/multiple-nics.md) .
+   >Embora todas as configurações estejam atribuídas a uma NIC neste artigo, você pode atribuir várias configurações de IP a cada NIC anexada à VM. Para saber como criar uma VM com vários NICs, leia o artigo [Criar uma VM com vários NICs](../virtual-machines/windows/multiple-nics.md).
 
 9. Crie a VM digitando os seguintes comandos:
 
@@ -273,7 +272,7 @@ Você pode adicionar Endereços IP Públicos e privados a um adaptador de rede d
    -AllocationMethod Static
    ```
 
-   Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIp3* associado, insira o seguinte comando:
+   Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIp3* associado, digite o seguinte comando:
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig `

@@ -7,17 +7,16 @@ documentationcenter: na
 author: steveesp
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60743064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708239"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
 
@@ -63,7 +62,7 @@ No RECEPTOR, crie uma regra de Permissão no Firewall do Windows para permitir a
 
 Permita o NTTTCP pelo Firewall do Windows desta maneira:
 
-netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
+netsh advfirewall firewall add rule Program = \<PATH\> \\ntttcp.exe Name = "ntttcp" protocolo = qualquer dir = in Action = permitir Enable = Yes perfil = any
 
 Por exemplo, se você copiou ntttcp.exe para a pasta "c: \\ tools", esse seria o comando: 
 
@@ -132,13 +131,13 @@ Nesses cenários, devemos habilitar o modo sem sincronização para que o teste 
 
 #### <a name="from-linux-to-windows"></a>Do Linux para Windows:
 
-> \<do Windows do receptor:
+Receptor \<Windows>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-> \<do remetente Linux:
+Remetente \<Linux> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +145,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>Do Windows para Linux:
 
-> \<do Linux do receptor:
+Receptor \<Linux>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-> \<do Windows do remetente:
+Remetente \<Windows>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

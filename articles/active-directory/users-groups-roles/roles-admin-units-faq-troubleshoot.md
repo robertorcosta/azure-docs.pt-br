@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,12 +14,11 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 022658306d6e4d69174cc616d230cfe4892f1204
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0db710385448ed3cdd54e3cbe692ea8b610741af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732235"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas do Azure AD: solução de problemas e perguntas frequentes
 
@@ -67,7 +66,7 @@ Para evitar uma elevação de privilégio, um administrador com escopo de unidad
 
 **P: há suporte para unidades administrativas no PowerShell e no API do Graph?**
 
-**R:** Ok. Você encontrará suporte para unidades administrativas na [documentação do cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) e [scripts de exemplo](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
+**R:** Sim. Você encontrará suporte para unidades administrativas na [documentação do cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) e [scripts de exemplo](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
 
 Encontre suporte para o [tipo de recurso administrativeUnit](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) em Microsoft Graph.
 

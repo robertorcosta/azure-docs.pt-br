@@ -15,11 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704583"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor iSCSI por meio do portal do Azure
 
@@ -66,7 +65,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
     ![Página de entrada](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
 3. Você será levado à página **Inicial** . Esta página descreve as várias configurações necessárias para configurar e registrar o dispositivo virtual com o serviço Gerenciador de Dispositivos StorSimple. Observe que **Configurações de rede**, **Configurações de proxy Web** e **Configurações de hora** são opcionais. As únicas configurações obrigatórias são as **Configurações do dispositivo** e **Configurações de nuvem**.
    
-    ![Página inicial](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
+    ![Home page](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. Na página **Configurações de rede**, em **Interfaces de rede**, DATA 0 será configurado automaticamente para você. Cada interface de rede é definida por padrão para obter um endereço IP automaticamente (DHCP). Assim, um endereço IP, a sub-rede e gateway serão atribuídos automaticamente (tanto para IPv4 quanto para IPv6).
    
     Já que planeja implantar o dispositivo como um servidor iSCSI (para provisionar o armazenamento em bloco), recomendamos desabilitar a opção **Obter endereço IP automaticamente** e configurar endereços IP estáticos.
@@ -100,7 +99,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
    
     Na página **Proxy Web** :
    
-   1. Forneça a **URL do proxy Web** neste formato: *http:\//host-IP address* ou *FQDN: Port Number*. Observe que não há suporte para URLs HTTPS.
+   1. Forneça a **URL do proxy Web** neste formato: *http: \/ /host-IP address* ou *FQDN: Port Number*. Observe que não há suporte para URLs HTTPS.
    2. Especifique a **Autenticação** como **Básica** ou **Nenhuma**.
    3. Se estiver usando a autenticação, também será necessário fornecer um **Nome de Usuário** e uma **Senha**.
    4. Clique em **Aplicar**. Isso validará e aplicará as configurações de proxy Web definidas.
@@ -217,7 +216,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
 12. Atribua uma letra da unidade ao volume e clique em **Avançar**.
     
     ![assistente de novo volume 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image30.png)
-13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.** Defina o tamanho da unidade de alocação como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em sua Matriz Virtual StorSimple. Clique em **Avançar**.
+13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.** Defina o tamanho da unidade de alocação como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em sua Matriz Virtual StorSimple. Clique em **Próximo**.
     
     ![assistente de novo volume 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/image31.png)
 14. Verifique os valores do volume e clique em **Concluir**.

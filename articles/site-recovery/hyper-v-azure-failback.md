@@ -9,11 +9,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
 ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710245"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 
@@ -36,7 +35,7 @@ Este artigo descreve como executar failback de VMs do Azure que foram criadas ap
 
 Para fazer failback de VMs do Hyper-V no Azure para a VM local original, execute um failover planejado do Azure para o site local da seguinte maneira:
 
-1. No cofre > **itens replicados**, selecione a VM. Clique com o botão direito do mouse na VM > **failover planejado**. Se você estiver realizando o failback de um plano de recuperação, selecione o nome do plano **e clique em** > failover**planejado**de failover.
+1. No cofre > **itens replicados**, selecione a VM. Clique com o botão direito do mouse na VM > **failover planejado**. Se você estiver realizando o failback de um plano de recuperação, selecione o nome do plano **e clique em**failover  >  **planejado**de failover.
 2. Em **confirmar failover planejado**, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do primário funcionou conforme o esperado e todas as máquinas virtuais estão no local secundário, isso é apenas para fins informativos.
 3. Em **sincronização de dados**, selecione uma opção:
     - **Sincronizar dados antes do failover (sincronizar somente alterações delta)**– essa opção minimiza o tempo de inatividade para VMs à medida que ela é sincronizada sem desligá-las.
@@ -64,7 +63,7 @@ Faça failback para um local alternativo da seguinte maneira:
 
 1. Se você estiver configurando um novo hardware, instale uma [versão com suporte do Windows](hyper-v-azure-support-matrix.md#replicated-vms)e a função Hyper-V no computador.
 2. Crie um comutador de rede virtual com o mesmo nome que você tinha no servidor original.
-3. Em **itens** > **protegidos grupo** > \<de proteção ProtectionGroupName>- \<> VirtualMachineName>, selecione a VM que você deseja realizar o failback e, em seguida, selecione **failover planejado**.
+3. No grupo de proteção **itens protegidos**  >  **Protection Group**  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> , selecione a VM que você deseja executar o failback e, em seguida, selecione **failover planejado**.
 4. Em **confirmar s de failover planejado**, escolha **criar máquina virtual local se ela não existir**.
 5. Em **nome do host**, selecione o novo servidor de host Hyper-V no qual você deseja posicionar a VM.
 6. Em **sincronização de dados**, recomendamos que você selecione a opção para sincronizar os dados antes do failover. Isso minimiza o tempo de inatividade para VMs à medida que ela é sincronizada sem desligá-las. Ele faz o seguinte:
@@ -72,7 +71,7 @@ Faça failback para um local alternativo da seguinte maneira:
     - **Fase 2**: desliga a VM do Azure para que nenhuma nova alteração ocorra lá. O conjunto final de alterações é transferido para o servidor local e a máquina virtual local é inicializada.
     
 7. Clique na marca de seleção para iniciar o failover (failback).
-8. Depois que a sincronização inicial for concluída e você estiver pronto para desligar a VM do Azure, clique em **trabalhos** > \<trabalho de failover planejado> > **concluir failover**. Isso desliga a máquina do Azure, transfere as alterações mais recentes para a VM local e a inicia.
+8. Depois que a sincronização inicial for concluída e você estiver pronto para desligar a VM do Azure, clique em **trabalhos**  >  \<planned failover job>  >  **concluir failover**. Isso desliga a máquina do Azure, transfere as alterações mais recentes para a VM local e a inicia.
 9. Você pode entrar na VM local para verificar se tudo está funcionando conforme o esperado.
 10. Clique em **confirmar** para concluir o failover. Commit exclui a VM do Azure e seus discos e prepara a VM local para ser protegida novamente.
 10. Clique em **replicação inversa** para iniciar a replicação da VM local para o Azure. Somente as alterações delta desde que a VM foi desativada no Azure serão replicadas.

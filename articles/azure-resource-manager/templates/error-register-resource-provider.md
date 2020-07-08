@@ -4,11 +4,10 @@ description: Descreve como resolver erros de registro do provedor de recursos do
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706521"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Solucione erros de registro do provedor de recursos
 
@@ -105,7 +104,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
    ![Selecionar todos os serviços](./media/error-register-resource-provider/select-all-services.png)
 
-1. Selecione **assinaturas**.
+1. Selecione **Assinaturas**.
 
    ![Selecione assinaturas](./media/error-register-resource-provider/select-subscriptions.png)
 

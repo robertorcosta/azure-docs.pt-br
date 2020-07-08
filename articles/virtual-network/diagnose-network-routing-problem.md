@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75350581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705037"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de roteamento da máquina virtual
 
@@ -38,7 +37,7 @@ As etapas a seguir pressupõem que há uma VM existente para visualizar as rotas
 2. Na parte superior do portal do Azure, insira o nome de uma VM que esteja em estado de execução, na caixa de pesquisa. Quando o nome da VM aparecer nos resultados da pesquisa, selecione-o.
 3. Em **configurações** à esquerda, selecione **rede**e navegue até o recurso de interface de rede selecionando seu nome.
      ![Exibir interfaces de rede](./media/diagnose-network-routing-problem/view-nics.png)
-4. À esquerda, selecione **rotas efetivas**. As rotas efetivas para uma interface de rede denominada **myVMNic1** são mostradas na figura ![a seguir: Exibir rotas efetivas](./media/diagnose-network-routing-problem/view-effective-routes.png)
+4. À esquerda, selecione **rotas efetivas**. As rotas efetivas para uma interface de rede denominada **myVMNic1** são mostradas na figura a seguir: ![ Exibir rotas efetivas](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     Se houver vários adaptadores de rede conectados à VM, você poderá exibir as rotas efetivas para qualquer adaptador de rede, selecionando-a. Como cada adaptador de rede pode estar em uma sub-rede diferente, cada adaptador de rede pode ter diferentes rotas efetivas.
 

@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727680"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Solucionar problemas e resolver questões de grupos
 
@@ -66,7 +65,7 @@ Atualmente, não há como disparar automaticamente o grupo a ser processado sob 
 
 | Erro do analisador de regra | Erro de uso | Uso corrigido |
 | --- | --- | --- |
-| Erro: O atributo não tem suportado. |(user.invalidProperty -eq "Valor") |(user.department -eq "value") A propriedade <br/><br/>Verifique se o atributo está na [lista de propriedades com suporte](groups-dynamic-membership.md#supported-properties). |
+| Erro: O atributo não tem suportado. |(user.invalidProperty -eq "Valor") |(user.department -eq "value") A propriedade<br/><br/>Verifique se o atributo está na [lista de propriedades com suporte](groups-dynamic-membership.md#supported-properties). |
 | Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/><br/>Não há suporte para o operador usado para o tipo de propriedade (neste exemplo, -contains não pode ser usado no tipo booliano). Use os operadores corretos para o tipo de propriedade. |
 | Erro: Erro de compilação de consulta. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2. (user.userPrincipalName -match "*@domain.ext") | 1. operador ausente. Use -and ou -or para unir predicados<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. erro na expressão regular usada com-Match<br>(user.userPrincipalName -match "*@domain.ext")<br>ou alternativamente: (user.userPrincipalName -match "@domain.ext") |
 
@@ -76,5 +75,5 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciando o acesso a recursos com grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Gerenciamento de aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [O que é o Active Directory do Azure?](../fundamentals/active-directory-whatis.md)
-* [Integrando suas identidades locais ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
+* [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](../hybrid/whatis-hybrid-identity.md)

@@ -9,14 +9,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733391"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Examinar eventos de auditoria de segurança em Azure AD Domain Services usando pastas de trabalho Azure Monitor
+# <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examinar eventos de auditoria de segurança em Azure Active Directory Domain Services usando pastas de trabalho Azure Monitor
 
 Para ajudá-lo a entender o estado do seu domínio gerenciado do Azure Active Directory Domain Services (AD DS do Azure), você pode habilitar eventos de auditoria de segurança. Esses eventos de auditoria de segurança podem ser revisados usando Azure Monitor pastas de trabalho que combinam texto, consultas de análise e parâmetros em relatórios interativos sofisticados. O Azure AD DS inclui modelos de pasta de trabalho para visão geral de segurança e atividade de conta que permitem que você se aprofunde em eventos de auditoria e gerencie seu ambiente.
 
@@ -24,14 +23,14 @@ Este artigo mostra como usar pastas de trabalho do Azure Monitor para examinar e
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para concluir este artigo, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
     * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, conclua o tutorial para [criar e configurar um Azure Active Directory Domain Services domínio gerenciado][create-azure-ad-ds-instance].
 * Eventos de auditoria de segurança habilitados para seu Azure Active Directory Domain Services domínio gerenciado que transmite dados para um espaço de trabalho Log Analytics.
     * Se necessário, [habilite as auditorias de segurança para Azure Active Directory Domain Services][enable-security-audits].
 

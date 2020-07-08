@@ -9,11 +9,10 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706674"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com várias placas de adaptador de rede
 
@@ -169,7 +168,7 @@ Os modelos do Azure Resource Manager usam arquivos JSON declarativos para defini
 
 Leia mais sobre a [criação de várias instâncias usando *copiar*](../../resource-group-create-multiple.md). 
 
-Você também pode usar um `copyIndex()` para, em seguida, acrescentar um número a um nome de recurso, que `myNic1`permite `myNic2`criar,, etc. Veja a seguir um exemplo de acréscimo do valor de índice:
+Você também pode usar um `copyIndex()` para, em seguida, acrescentar um número a um nome de recurso, que permite criar `myNic1` , `myNic2` , etc. Veja a seguir um exemplo de acréscimo do valor de índice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

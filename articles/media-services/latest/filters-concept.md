@@ -14,11 +14,10 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708290"
 ---
 # <a name="filters"></a>Filtros
 
@@ -47,7 +46,7 @@ Dependendo do seu cenário, você decide qual tipo de filtro é mais adequado (F
 
 Você usa as seguintes propriedades para descrever os filtros. 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |firstQuality|A primeira taxa de bits de qualidade do filtro.|
 |presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é usada para filtrar os pontos de início / fim do manifesto, a duração da janela de apresentação e a posição de início ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
@@ -57,7 +56,7 @@ Você usa as seguintes propriedades para descrever os filtros.
 
 Use essa propriedade com **filtros de ativo**. Não é recomendável definir a propriedade com **filtros de conta**.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |**endTimestamp**|Aplica-se ao Video on Demand (VoD).<br/>Para a apresentação de transmissão ao vivo, ela é silenciosamente ignorada e aplicada quando a apresentação termina e o fluxo se torna VoD.<br/>Esse é um valor longo que representa um ponto de extremidade absoluto da apresentação, arredondado para o próximo início da próxima GOP. A unidade é a escala de tempo, de modo que um carimbo de data/hora de 1800000000 seria por 3 minutos.<br/>Use startTimestamp e EndTimestamp para cortar os fragmentos que estarão na playlist (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e EndTimestamp = 100000000 usando a escala de espera padrão gerará uma lista de reprodução que contém fragmentos entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
 |**forceEndTimestamp**|Aplica-se somente à transmissão ao vivo.<br/>Indica se a propriedade EndTimestamp deve estar presente. Se for true, EndTimestamp deverá ser especificado ou um código de solicitação inadequado será retornado.<br/>Valores permitidos: false, true.|
@@ -72,7 +71,7 @@ Você especifica uma lista de condições de propriedade de controle de filtro (
 
 As condições de propriedade da faixa de filtro descrevem tipos de trilha, valores (descritos na tabela a seguir) e operações (Equal, NotEqual). 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |**720p**|Use a taxa de bits da faixa para filtragem.<br/><br/>O valor recomendado é um intervalo de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora você possa usar um valor de taxa de bits específico, como 250000 (bits por segundo), essa abordagem não é recomendada, pois as taxas de bits exatas podem variar de um ativo para outro.|
 |**FourCC**|Use o valor de FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado na [6381 RFC](https://tools.ietf.org/html/rfc6381). Atualmente, há suporte para os seguintes codecs: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas em um ativo obter e examine o arquivo de manifesto.|

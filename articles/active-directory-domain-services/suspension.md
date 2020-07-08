@@ -11,12 +11,11 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 42b26911c12b1e7c62444a6fb2ee68720b02a56b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734275"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Entender os Estados de integridade e resolver domínios suspensos no Azure Active Directory Domain Services
 
@@ -26,20 +25,20 @@ Este artigo explica por que os domínios gerenciados são suspensos e como recup
 
 ## <a name="overview-of-managed-domain-states"></a>Visão geral dos Estados de domínio gerenciado
 
-Por meio do ciclo de vida de um domínio gerenciado AD DS do Azure, há Estados diferentes que indicam sua integridade. Se o domínio gerenciado relatar um problema, resolva rapidamente a causa subjacente para impedir que o Estado continue a degradar.
+Por meio do ciclo de vida de um domínio gerenciado, há diferentes Estados que indicam sua integridade. Se o domínio gerenciado relatar um problema, resolva rapidamente a causa subjacente para impedir que o Estado continue a degradar.
 
-![A progressão de Estados que um domínio gerenciado AD DS do Azure leva em direção à suspensão](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
+![A progressão de Estados que um domínio gerenciado leva em direção à suspensão](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
-Um domínio gerenciado do Azure AD DS pode estar em um dos seguintes Estados:
+Um domínio gerenciado pode estar em um dos seguintes Estados:
 
-* [Em execução](#running-state)
+* [Executando](#running-state)
 * [Precisa de atenção](#needs-attention-state)
 * [Suspenso](#suspended-state)
-* [Excluí](#deleted-state)
+* [Excluída](#deleted-state)
 
 ## <a name="running-state"></a>Estado de execução
 
-Um domínio gerenciado do Azure AD DS que está configurado corretamente e em execução sem problemas está no estado *executando* . Esse é o estado desejado para um domínio gerenciado.
+Um domínio gerenciado configurado corretamente e em execução sem problemas está em estado de *execução* . Esse é o estado desejado para um domínio gerenciado.
 
 ### <a name="what-to-expect"></a>O que esperar
 
@@ -50,15 +49,15 @@ Um domínio gerenciado do Azure AD DS que está configurado corretamente e em ex
 
 ## <a name="needs-attention-state"></a>Precisa de estado de atenção
 
-Um domínio gerenciado AD DS do Azure com um ou mais problemas que precisam ser corrigidos está no estado *precisa de atenção* . A página de integridade do domínio gerenciado lista os alertas e indica onde há um problema. Alguns alertas são transitórios e são resolvidos automaticamente pela plataforma do Azure. Para outros alertas, você pode corrigir o problema seguindo as etapas de resolução fornecidas. Há um alerta crítico, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
+Um domínio gerenciado com um ou mais problemas que precisam ser corrigidos está no estado *precisa de atenção* . A página de integridade do domínio gerenciado lista os alertas e indica onde há um problema. Alguns alertas são transitórios e são resolvidos automaticamente pela plataforma do Azure. Para outros alertas, você pode corrigir o problema seguindo as etapas de resolução fornecidas. Há um alerta crítico, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
 Um exemplo de um alerta é quando há um grupo de segurança de rede restritivo. Nessa configuração, a plataforma do Azure pode não ser capaz de atualizar e monitorar o domínio gerenciado. Um alerta é gerado e o estado muda para *precisa de atenção*.
 
-Para obter mais informações, consulte [como solucionar problemas de alertas para um domínio gerenciado do Azure AD DS][resolve-alerts].
+Para obter mais informações, consulte [como solucionar problemas de alertas para um domínio gerenciado][resolve-alerts].
 
 ### <a name="what-to-expect"></a>O que esperar
 
-Quando um domínio gerenciado do Azure AD DS está no estado *precisa de atenção* , a plataforma do Azure pode não ser capaz de monitorar, aplicar patch, atualizar ou fazer backup de dados regularmente. Em alguns casos, como com uma configuração de rede inválida, os controladores de domínio para o domínio gerenciado podem estar inacessíveis.
+Quando um domínio gerenciado está no estado *requer atenção* , a plataforma Azure pode não ser capaz de monitorar, aplicar patch, atualizar ou fazer backup de dados regularmente. Em alguns casos, como com uma configuração de rede inválida, os controladores de domínio para o domínio gerenciado podem estar inacessíveis.
 
 * O domínio gerenciado está em um estado não íntegro e o monitoramento de integridade contínuo pode parar até que o alerta seja resolvido.
 * Os controladores de domínio para o domínio gerenciado não podem ser corrigidos ou atualizados.
@@ -69,7 +68,7 @@ Quando um domínio gerenciado do Azure AD DS está no estado *precisa de atenç�
 
 ## <a name="suspended-state"></a>Estado suspenso
 
-Um domínio gerenciado do Azure AD DS entra no estado **suspenso** por um dos seguintes motivos:
+Um domínio gerenciado entra no estado **suspenso** por um dos seguintes motivos:
 
 * Um ou mais alertas críticos ainda não foram resolvidos em 15 dias.
     * Os alertas críticos podem ser causados por um erro de configuração que bloqueia o acesso aos recursos necessários ao Azure AD DS. Por exemplo, o alerta [AADDS104: Erro de rede][alert-nsg] não foi resolvido por mais de 15 dias no domínio gerenciado.
@@ -79,7 +78,7 @@ Os domínios gerenciados são suspensos quando a plataforma Azure não pode gere
 
 ### <a name="what-to-expect"></a>O que esperar
 
-O comportamento a seguir é experimentado quando um domínio gerenciado do Azure AD DS está no estado *suspenso* :
+O comportamento a seguir é experimentado quando um domínio gerenciado está no estado *suspenso* :
 
 * Os controladores de domínio para o domínio gerenciado são desprovisionados e não podem ser acessados dentro da rede virtual.
 * LDAP Seguro acesso ao domínio gerenciado pela Internet, se habilitado, para de funcionar.
@@ -93,10 +92,10 @@ Você verá um [alerta][resolve-alerts] na página do Azure AD DS Health no port
 
 ### <a name="restore-a-suspended-domain"></a>Restaurar um domínio suspenso
 
-Para restaurar a integridade de um domínio gerenciado AD DS do Azure que está no estado *suspenso* , conclua as seguintes etapas:
+Para restaurar a integridade de um domínio gerenciado que está no estado *suspenso* , conclua as seguintes etapas:
 
 1. Na portal do Azure, procure e selecione serviços de **domínio**.
-1. Escolha o domínio gerenciado AD DS do Azure na lista, como *aaddscontoso.com*, e selecione **integridade**.
+1. Escolha o domínio gerenciado na lista, como *aaddscontoso.com*, e selecione **integridade**.
 1. Selecione o alerta, como *AADDS503* ou *AADDS504*, dependendo da causa da suspensão.
 1. Escolha o link de resolução fornecido no alerta e siga as etapas para resolvê-lo.
 
@@ -106,11 +105,11 @@ Depois de resolver os alertas quando o domínio gerenciado estiver no estado *su
 
 ## <a name="deleted-state"></a>Estado excluído
 
-Se um domínio gerenciado do Azure AD DS permanecer no estado *suspenso* por 15 dias, ele será excluído. Esse processo é irrecuperável.
+Se um domínio gerenciado permanecer no estado *suspenso* por 15 dias, ele será excluído. Esse processo é irrecuperável.
 
 ### <a name="what-to-expect"></a>O que esperar
 
-Quando um domínio gerenciado do Azure AD DS entra no estado *excluído* , o seguinte comportamento é visto:
+Quando um domínio gerenciado entra no estado *excluído* , o seguinte comportamento é visto:
 
 * Todos os recursos e os backups para o domínio gerenciado serão excluídos.
 * Você não pode restaurar o domínio gerenciado e precisa criar um domínio gerenciado de substituição para reutilizar o AD DS do Azure.
@@ -118,7 +117,7 @@ Quando um domínio gerenciado do Azure AD DS entra no estado *excluído* , o seg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para manter a integridade do domínio gerenciado do Azure AD DS e minimizar o risco de ele se tornar suspenso, saiba como [resolver alertas para seu domínio gerenciado][resolve-alerts].
+Para manter seu domínio gerenciado íntegro e minimizar o risco de ele se tornar suspenso, saiba como [resolver alertas para seu domínio gerenciado][resolve-alerts].
 
 <!-- INTERNAL LINKS -->
 [alert-nsg]: alert-nsg.md

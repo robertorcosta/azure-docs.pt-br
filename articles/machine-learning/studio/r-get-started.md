@@ -4,21 +4,18 @@ description: Use este tutorial de programação R para começar a usar o Azure M
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: b2bd75750670a83409b0f5b8839144e55ef2c4d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706274"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introdução ao Azure Machine Learning Studio (clássico) em R
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 Neste tutorial, você aprenderá a usar o ML Studio (clássico) para criar, testar e executar o código R. No final, você terá uma solução de previsão completa.  
@@ -37,7 +34,7 @@ A previsão é um método analítico amplamente empregado e bastante útil. O us
 
 Neste tutorial, você usa os dados de preço e de produção de laticínios da Califórnia, que incluem informações mensais sobre a produção de vários produtos de laticínios e o preço do leite Fat, uma mercadoria de benchmark.
 
-Os dados usados neste artigo, juntamente com os scripts do R, podem ser baixados de [MachineLearningSamples-notebooks/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Os dados no arquivo `cadairydata.csv` foram originalmente sintetizados a partir das informações disponíveis na Universidade de Wisconsin [https://dairymarkets.com](https://dairymarkets.com)em.
+Os dados usados neste artigo, juntamente com os scripts do R, podem ser baixados de [MachineLearningSamples-notebooks/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Os dados no arquivo `cadairydata.csv` foram originalmente sintetizados a partir das informações disponíveis na Universidade de Wisconsin em [https://dairymarkets.com](https://dairymarkets.com) .
 
 
 
@@ -125,7 +122,7 @@ Se você não entender a última linha do código no momento, continue lendo. No
 
 RStudio é um IDE amplamente usado para R. Usarei o RStudio para editar, testar e depurar alguns dos códigos R usados neste guia. Depois que o código R é testado e pronto, você pode simplesmente recortar e colar do editor RStudio em um módulo de [execução de script R][execute-r-script] Machine Learning Studio (clássico).  
 
-Se você não tiver a linguagem de programação R instalada em seu computador desktop, recomendo que você faça isso agora. Downloads gratuitos de linguagem R de software livre estão disponíveis na CRAN (rede de arquivos de R) abrangente [https://www.r-project.org/](https://www.r-project.org/)em. Há downloads disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de download. Além disso, CRAN contém uma grande quantidade de pacotes de manipulação de dados e análise úteis.
+Se você não tiver a linguagem de programação R instalada em seu computador desktop, recomendo que você faça isso agora. Downloads gratuitos de linguagem R de software livre estão disponíveis na CRAN (rede de arquivos de R) abrangente em [https://www.r-project.org/](https://www.r-project.org/) . Há downloads disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de download. Além disso, CRAN contém uma grande quantidade de pacotes de manipulação de dados e análise úteis.
 
 Se você for novo no RStudio, você deve baixar e instalar a versão para desktop. Você pode encontrar os downloads do RStudio para Windows, Mac OS e Linux/UNIX em http://www.rstudio.com/products/RStudio/. Siga as instruções fornecidas para instalar o RStudio em seu computador desktop.  
 
@@ -143,7 +140,7 @@ O código completo para esta seção está em [MachineLearningSamples-notebooks/
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Carregar o conjunto de dados
 
-Vamos começar carregando o arquivo **csdairydata. csv** em Azure Machine Learning Studio (clássico).
+Vamos começar carregando o arquivo de **csdairydata.csv** em Azure Machine Learning Studio (clássico).
 
 1. Inicie seu ambiente de Azure Machine Learning Studio (clássico).
 1. Selecione **+ novo** na parte inferior esquerda da tela e selecione **conjunto**de espaço.
@@ -173,7 +170,7 @@ Agora seu teste deve ser similar a Figura 3.
 
 #### <a name="check-on-the-data"></a>Verificar os dados
 
-Vamos dar uma olhada nos dados que carregou em nosso teste. No experimento, selecione a saída do conjunto de **cadairydata. csv** e selecione **Visualizar**. Você deve ver algo semelhante à Figura 4.  
+Vamos dar uma olhada nos dados que carregou em nosso teste. No experimento, selecione a saída do conjunto de **cadairydata.csv** e selecione **Visualizar**. Você deve ver algo semelhante à Figura 4.  
 
 ![Resumo do conjunto de dados cadairydata.csv](./media/r-quickstart/fig4.png)
 
@@ -1057,7 +1054,7 @@ Isso gera o resultado a seguir.
     ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
-A partir de valores`Pr(>|t|)`P () nessa saída, podemos ver que o termo quadrado pode não ser significativo. Vou usar a função `update()` para modificar esse modelo eliminado o termo ao quadrado.
+A partir de valores P ( `Pr(>|t|)` ) nessa saída, podemos ver que o termo quadrado pode não ser significativo. Vou usar a função `update()` para modificar esse modelo eliminado o termo ao quadrado.
 
 ```R
 milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
@@ -1315,7 +1312,7 @@ Existem muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns
 * O **r Cookbook** de Paul Teetor fornece um problema e uma abordagem de solução para o uso do R.  
 * **R em ação** por Robert Kabacoff é outro livro introdutório útil. O [site de R rápido](https://www.statmethods.net/) do Companion é um recurso útil.
 * **R inferno** by Patrick queimaduras é um livro surpreendentemente bem-humorada que lida com vários tópicos complicados e difíceis que podem ser encontrados durante a programação em R. O livro está disponível gratuitamente no [inferno do R](https://www.burns-stat.com/documents/books/the-r-inferno/).
-* Se você quiser aprofundar-se nos tópicos avançados em R, veja o livro **Advanced R** por Hadley Wickham. A versão online deste livro está disponível gratuitamente em [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/).
+* Se você quiser aprofundar-se nos tópicos avançados em R, veja o livro **Advanced R** por Hadley Wickham. A versão online deste livro está disponível gratuitamente em [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/) .
 
 Um catálogo de pacotes de série temporal do R pode ser encontrado na [exibição de tarefa Cran: análise de série temporal](https://cran.r-project.org/web/views/TimeSeries.html). Para obter informações sobre pacotes de objetos de série temporal específicos, consulte a documentação do pacote.
 

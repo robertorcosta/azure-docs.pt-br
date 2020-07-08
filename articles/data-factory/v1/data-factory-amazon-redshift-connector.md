@@ -13,11 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710143"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -59,13 +58,13 @@ As seções que se seguem descrevem as propriedades de JSON que são usadas para
 
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Amazon Redshift.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
-| **type** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
-| **servidor** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
-| **Porto** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
+| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
+| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
+| **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
 | **database** |O nome do banco de dados do Amazon Redshift. |Sim |
-| **usu** |O nome de usuário que tem acesso ao banco de dados. |Sim |
+| **Nome de Usuário** |O nome de usuário que tem acesso ao banco de dados. |Sim |
 | **password** |A senha para a conta de usuário. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -74,7 +73,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório. **A seção typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do Amazon Redshift, tem as propriedades a seguir:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela no banco de dados do Amazon Redshift ao qual o serviço vinculado se refere. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -84,7 +83,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 | **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | Não |
@@ -93,7 +92,7 @@ Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**,
 
 Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amazon Redshift, com a propriedade a seguir na seção **typeProperties**. Observe que esse tipo de origem não dá suporte para o comando **UNLOAD** do Redshift.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
@@ -205,7 +204,7 @@ A propriedade **external** é definida como “true” para informar ao serviço
 }
 ```
 
-**Conjunto de resultados de saída de blob do Azure**
+**Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo blob de hora em hora pela definição da propriedade **frequency** como "Hour" e a propriedade **interval** como 1. A propriedade **folderPath** para o blob é avaliada dinamicamente. O valor da propriedade se baseia na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e hora da hora de início.
 
@@ -333,14 +332,14 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | INTEGER |Int32 |
 | bigint |Int64 |
 | DECIMAL |Decimal |
-| real |Single |
+| REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |Cadeia de caracteres |
-| CHAR |Cadeia de caracteres |
+| BOOLEAN |String |
+| CHAR |String |
 | VARCHAR |String |
 | DATE |Datetime |
 | timestamp |Datetime |
-| TEXT |Cadeia de caracteres |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre como mapear colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

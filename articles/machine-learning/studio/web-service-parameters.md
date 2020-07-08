@@ -10,18 +10,15 @@ ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
 ms.subservice: studio
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 1308f658b6ae7c8f46b989f8205568fa195fb4aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705858"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usar parâmetros de serviço Web Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Um serviço Web de Azure Machine Learning é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. *Parâmetros de serviço Web* permitem que você execute essa tarefa. 
 
@@ -55,7 +52,7 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados
    * Em **Especifique o tipo de autenticação**, selecione "Conta".
    * Insira as informações de conta para o armazenamento de blobs do Azure. 
 
-3. Clique no ícone à direita de **Caminho para o blob que começa com o parâmetro contêiner**. Ele tem esta aparência:
+3. Clique no ícone à direita de **Caminho para o blob que começa com o parâmetro contêiner**. Ele é semelhante ao seguinte:
    
    ![Ícone do Parâmetro de Serviço Web](./media/web-service-parameters/icon.png)
    

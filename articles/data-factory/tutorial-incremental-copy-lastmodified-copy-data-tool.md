@@ -11,13 +11,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/18/2020
-ms.openlocfilehash: 3098ca0d3d5e41c298d3058ffa84fcf129648281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/10/2020
+ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399478"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730129"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 
@@ -25,7 +24,7 @@ ms.locfileid: "81399478"
 
 Neste tutorial, você usará o portal do Azure para criar um data factory. Em seguida, você usará a ferramenta Copiar Dados para criar um pipeline que copia incrementalmente somente arquivos novos e alterados, do armazenamento de BLOBs do Azure para o armazenamento de BLOBs do Azure. Ele usa `LastModifiedDate` para determinar quais arquivos copiar.
 
-Depois de concluir as etapas aqui, Azure Data Factory examinará todos os arquivos no repositório de origem, aplicará o filtro de `LastModifiedDate`arquivo por e copiará para o repositório de destino somente os arquivos que forem novos ou foram atualizados desde a última vez. Observe que, se Data Factory examina um grande número de arquivos, você ainda deve esperar longas durações. A verificação de arquivos é demorada, mesmo quando a quantidade de dados copiados é reduzida.
+Depois de concluir as etapas aqui, Azure Data Factory examinará todos os arquivos no repositório de origem, aplicará o filtro de arquivo por `LastModifiedDate` e copiará para o repositório de destino somente os arquivos que forem novos ou foram atualizados desde a última vez. Observe que, se Data Factory examina um grande número de arquivos, você ainda deve esperar longas durações. A verificação de arquivos é demorada, mesmo quando a quantidade de dados copiados é reduzida.
 
 > [!NOTE]
 > Se estiver se familiarizando com o Data Factory, confira a [Introdução ao Azure Data Factory](introduction.md).
@@ -52,7 +51,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No painel esquerdo, selecione **Criar um recurso**. Selecione **Analytics** > **Data Factory**de análise:
+1. No painel esquerdo, selecione **Criar um recurso**. Selecione **Analytics**  >  **Data Factory**de análise:
 
    ![Selecionar Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -80,7 +79,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
     ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
 
-## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Use a ferramenta Copy Data para criar um pipeline
+## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Usar a ferramenta Copy Data para criar um pipeline
 
 1. Na página **vamos** começar, selecione o bloco **copiar dados** para abrir a ferramenta copiar dados:
 
@@ -150,7 +149,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
 10. Observe que a guia **Monitor** à esquerda é selecionada automaticamente. O aplicativo alterna para a guia **Monitor** . Você verá o status do pipeline. Selecione **Atualizar** para atualizar a lista. Selecione o link em **nome do pipeline** para exibir os detalhes da execução da atividade ou executar o pipeline novamente.
 
-    ![Atualizar a lista e exibir detalhes da execução da atividade](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Atualizar a lista e exibir detalhes da execução da atividade](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
 11. Há apenas uma atividade (a atividade de cópia) no pipeline, para que você veja apenas uma entrada. Para obter detalhes sobre a operação de cópia, selecione o link **detalhes** (o ícone de óculos) na coluna **nome da atividade** . Para obter detalhes sobre as propriedades, consulte [visão geral da atividade de cópia](copy-activity-overview.md).
 
@@ -160,23 +159,21 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
     ![Nenhum arquivo no contêiner de origem ou de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. Crie um arquivo de texto vazio e nomeie-o como **arquivo1. txt**. Carregue esse arquivo de texto no contêiner de origem em sua conta de armazenamento. Você pode usar várias ferramentas para executar essas tarefas, como [Gerenciador de armazenamento do Azure](https://storageexplorer.com/).
+12. Crie um arquivo de texto vazio e nomeie-o **file1.txt**. Carregue esse arquivo de texto no contêiner de origem em sua conta de armazenamento. Você pode usar várias ferramentas para executar essas tarefas, como [Gerenciador de armazenamento do Azure](https://storageexplorer.com/).
 
-    ![Criar file1. txt e carregá-lo no contêiner de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    ![Criar file1.txt e carregá-lo no contêiner de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
 13. Para voltar à exibição de **execuções de pipeline** , selecione **todas as execuções de pipeline**e aguarde até que o mesmo pipeline seja disparado automaticamente.  
 
-    ![Selecionar todas as execuções de pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
-
 14. Quando a segunda execução de pipeline for concluída, siga as mesmas etapas mencionadas anteriormente para examinar os detalhes da execução da atividade.  
 
-    Você verá que um arquivo (file1. txt) foi copiado do contêiner de origem para o contêiner de destino da sua conta de armazenamento de BLOBs:
+    Você verá que um arquivo (file1.txt) foi copiado do contêiner de origem para o contêiner de destino da sua conta de armazenamento de BLOBs:
 
-    ![file1. txt foi copiado do contêiner de origem para o contêiner de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    ![file1.txt foi copiado do contêiner de origem para o contêiner de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 
-15. Crie outro arquivo de texto vazio e nomeie-o como **file2. txt**. Carregue esse arquivo de texto no contêiner de origem em sua conta de armazenamento de BLOBs.
+15. Crie outro arquivo de texto vazio e nomeie-o **file2.txt**. Carregue esse arquivo de texto no contêiner de origem em sua conta de armazenamento de BLOBs.
 
-16. Repita as etapas 13 e 14 para o segundo arquivo de texto. Você verá que apenas o novo arquivo (arquivo2. txt) foi copiado do contêiner de origem para o contêiner de destino da sua conta de armazenamento durante essa execução de pipeline.  
+16. Repita as etapas 13 e 14 para o segundo arquivo de texto. Você verá que apenas o novo arquivo (file2.txt) foi copiado do contêiner de origem para o contêiner de destino da sua conta de armazenamento durante a execução desse pipeline.  
 
     Você também pode verificar se apenas um arquivo foi copiado usando [Gerenciador de armazenamento do Azure](https://storageexplorer.com/) para verificar os arquivos:
 

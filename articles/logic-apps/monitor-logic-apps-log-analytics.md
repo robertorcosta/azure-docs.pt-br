@@ -7,11 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708035"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure
 
@@ -51,7 +50,7 @@ Você pode ativar Log Analytics ao criar seu aplicativo lógico.
 
 Se você ativou Log Analytics quando criou seu aplicativo lógico, ignore esta etapa. Você já tem a solução de gerenciamento de aplicativos lógicos instalada em seu espaço de trabalho Log Analytics.
 
-1. Na caixa de pesquisa do [portal do Azure](https://portal.azure.com), digite `log analytics workspaces`e, em seguida, selecione **log Analytics espaços de trabalho**.
+1. Na caixa de pesquisa do [portal do Azure](https://portal.azure.com), digite `log analytics workspaces` e, em seguida, selecione **log Analytics espaços de trabalho**.
 
    ![Selecione "espaços de trabalho do Log Analytics"](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
 
@@ -59,7 +58,7 @@ Se você ativou Log Analytics quando criou seu aplicativo lógico, ignore esta e
 
    ![Selecionar o espaço de trabalho do Log Analytics](./media/monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
 
-1. No painel **visão geral** , em introdução **ao log Analytics** > **configurar soluções de monitoramento**, selecione **Exibir soluções**.
+1. No painel **visão geral** , em introdução **ao log Analytics**  >  **configurar soluções de monitoramento**, selecione **Exibir soluções**.
 
    ![No painel Visão geral, selecione "Exibir soluções"](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
 
@@ -67,7 +66,7 @@ Se você ativou Log Analytics quando criou seu aplicativo lógico, ignore esta e
 
    ![No painel Visão geral, Adicionar nova solução](./media/monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
 
-1. Depois que o **Marketplace** for aberto, na caixa de pesquisa `logic apps management`, insira e selecione **Gerenciamento de aplicativos lógicos**.
+1. Depois que o **Marketplace** for aberto, na caixa de pesquisa, insira `logic apps management` e selecione **Gerenciamento de aplicativos lógicos**.
 
    ![No Marketplace, selecione "gerenciamento de aplicativos lógicos"](./media/monitor-logic-apps-log-analytics/select-logic-apps-management.png)
 
@@ -91,7 +90,7 @@ Ao armazenar informações sobre eventos de tempo de execução e dados em [logs
 
 1. No [portal do Azure](https://portal.azure.com), encontre e selecione o aplicativo lógico.
 
-1. No menu do aplicativo lógico, em **monitoramento**, selecione **configurações** > de diagnóstico**Adicionar configuração de diagnóstico**.
+1. No menu do aplicativo lógico, em **monitoramento**, selecione **configurações de diagnóstico**  >  **Adicionar configuração de diagnóstico**.
 
    ![Em "monitoramento", selecione "configurações de diagnóstico" > "adicionar configuração de diagnóstico"](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
 
@@ -123,7 +122,7 @@ Depois que o aplicativo lógico for executado, você poderá exibir os dados sob
 
 1. Na [portal do Azure](https://portal.azure.com), localize e abra seu espaço de trabalho do log Analytics.
 
-1. No menu do espaço de trabalho, selecione **Resumo** > do espaço de trabalho**Gerenciamento de aplicativos lógicos**.
+1. No menu do espaço de trabalho, selecione **Resumo do espaço de trabalho**  >  **Gerenciamento de aplicativos lógicos**.
 
    ![Status e contagem de execuções do aplicativo lógico](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary.png)
 
@@ -192,11 +191,11 @@ Com base nos locais em que você deseja enviar dados de diagnóstico, certifique
 
 ## <a name="azure-monitor-diagnostics-events"></a>Azure Monitor eventos de diagnóstico
 
-Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o rastreamento e o log de forma programática, você pode usar essas informações com a [API REST para aplicativos lógicos do Azure](https://docs.microsoft.com/rest/api/logic) e a [api REST para Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Você também pode usar as `clientTrackingId` propriedades `trackedProperties` e, que aparecem em 
+Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o rastreamento e o log de forma programática, você pode usar essas informações com a [API REST para aplicativos lógicos do Azure](https://docs.microsoft.com/rest/api/logic) e a [api REST para Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Você também pode usar as `clientTrackingId` `trackedProperties` Propriedades e, que aparecem em 
 
 * `clientTrackingId`: se não for fornecido, o Azure gerará essa ID automaticamente e correlacionará eventos em uma execução do aplicativo lógico, incluindo os fluxos de trabalho aninhados que são chamados no aplicativo lógico. Você pode especificar manualmente essa ID em um gatilho passando um `x-ms-client-tracking-id` cabeçalho com seu valor de ID personalizado na solicitação do gatilho. Use um gatilho de solicitação, gatilho HTTP ou gatilho de webhook.
 
-* `trackedProperties`: Para rastrear entradas ou saídas em dados de diagnóstico, você pode adicionar `trackedProperties` uma seção a uma ação usando o designer do aplicativo lógico ou diretamente na definição de JSON do aplicativo lógico. As propriedades acompanhadas só podem acompanhar entradas e saídas de uma única ação, mas você pode usar as propriedades `correlation` dos eventos para correlacionar entre as ações em uma execução. Para rastrear mais de uma propriedade, uma ou mais propriedades, adicione a `trackedProperties` seção e as propriedades que você deseja para a definição de ação.
+* `trackedProperties`: Para rastrear entradas ou saídas em dados de diagnóstico, você pode adicionar uma `trackedProperties` seção a uma ação usando o designer do aplicativo lógico ou diretamente na definição de JSON do aplicativo lógico. As propriedades acompanhadas só podem acompanhar entradas e saídas de uma única ação, mas você pode usar as propriedades `correlation` dos eventos para correlacionar entre as ações em uma execução. Para rastrear mais de uma propriedade, uma ou mais propriedades, adicione a `trackedProperties` seção e as propriedades que você deseja para a definição de ação.
 
   Aqui está um exemplo que mostra como a definição de ação de **variável de inicialização** inclui propriedades rastreadas da entrada da ação na qual a entrada é uma matriz, não um registro.
 
@@ -243,7 +242,7 @@ Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o even
   }
   ```
 
-Este exemplo mostra como o `ActionCompleted` evento inclui os `clientTrackingId` atributos `trackedProperties` e:
+Este exemplo mostra como o `ActionCompleted` evento inclui os `clientTrackingId` `trackedProperties` atributos e:
 
 ```json
 {

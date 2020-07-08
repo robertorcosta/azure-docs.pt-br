@@ -4,11 +4,10 @@ description: Saiba como usar a API REST para restaurar compartilhamentos de arqu
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710568"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar compartilhamentos de arquivos do Azure usando a API REST
 
@@ -160,7 +159,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Para disparar uma restauração para um compartilhamento de arquivos do Azure, veja a seguir os componentes do corpo da solicitação:
 
-Nome |  Type   |   Descrição
+Nome |  Tipo   |   Descrição
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Propriedades de RestoreRequestResource
 
@@ -370,7 +369,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Para disparar uma restauração para um compartilhamento de arquivos do Azure, veja a seguir os componentes do corpo da solicitação:
 
-Nome |  Type   |   Descrição
+Nome |  Tipo   |   Descrição
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Propriedades de RestoreRequestResource
 
@@ -378,7 +377,7 @@ Para obter a lista completa de definições do corpo da solicitação e outros d
 
 ### <a name="restore-to-original-location"></a>Restaurar no local original
 
-O corpo da solicitação a seguir é restaurar o arquivo *Restoretest. txt* no compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* .
+O corpo da solicitação a seguir é restaurar o arquivo de *Restoretest.txt* no compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* .
 
 Criar corpo da solicitação
 
@@ -404,7 +403,7 @@ Criar corpo da solicitação
 
 ### <a name="restore-to-alternate-location"></a>Restauração em uma localização alternativa
 
-O corpo da solicitação a seguir é restaurar o arquivo *Restoretest. txt* no compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* para a pasta *restoredata* do compartilhamento de arquivos *azurefiles1* na conta de armazenamento *afaccount1* .
+O corpo da solicitação a seguir é restaurar o arquivo de *Restoretest.txt* no compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* para a pasta *restoredata* do compartilhamento de arquivos *azurefiles1* na conta de armazenamento *afaccount1* .
 
 Criar o corpo da solicitação
 

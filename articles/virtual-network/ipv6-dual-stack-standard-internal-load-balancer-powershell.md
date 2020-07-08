@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: fdf726fd31e8b92a04a1c136eb5cd7110e0c6d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72333359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707507"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Implantar um aplicativo de pilha dupla IPv6 usando o Load Balancer interno padrão no Azure-PowerShell (versão prévia)
 
@@ -39,12 +38,12 @@ O procedimento para criar um Load Balancer interno com capacidade para IPv6 é q
 
 As alterações que fazem o acima de uma configuração de front-end do Load balancer interno são:
 - O `PrivateIpAddressVersion` é especificado como "IPv6"
-- O `-PublicIpAddress` argumento foi omitido ou substituído por `-PrivateIpAddress`. Observe que o endereço privado deve estar no intervalo do espaço de IP de sub-rede no qual o balanceador de carga interno será implantado. Se um estático `-PrivateIpAddress` for omitido, o próximo endereço IPv6 gratuito será selecionado na sub-rede na qual o balanceador de carga interno é implantado.
-- A sub-rede de pilha dupla na qual o balanceador de carga interno será implantado é especificada `-Subnet` com `-SubnetId` um argumento ou.
+- O `-PublicIpAddress` argumento foi omitido ou substituído por `-PrivateIpAddress` . Observe que o endereço privado deve estar no intervalo do espaço de IP de sub-rede no qual o balanceador de carga interno será implantado. Se um estático `-PrivateIpAddress` for omitido, o próximo endereço IPv6 gratuito será selecionado na sub-rede na qual o balanceador de carga interno é implantado.
+- A sub-rede de pilha dupla na qual o balanceador de carga interno será implantado é especificada com um `-Subnet` `-SubnetId` argumento ou.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o Azure PowerShell módulo versão 6.9.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell versão 6.9.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura para esse recurso de visualização usando as seguintes Azure PowerShell:
@@ -305,7 +304,7 @@ $NIC_2 = New-AzNetworkInterface `
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Defina um nome de usuário e senha de administrador para as VMs com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Defina o nome de usuário e a senha de um administrador para as VMs com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell
 $cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VM's"

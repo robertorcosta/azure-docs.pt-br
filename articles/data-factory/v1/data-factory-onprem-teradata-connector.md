@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707303"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados do Teradata usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -61,12 +60,12 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado Teradata.
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade do tipo deve ser definida como: **OnPremisesTeradata** |Sim |
 | Servidor |Nome do servidor Teradata. |Sim |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados Teradata. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
-| username |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
+| Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. |Não |
 | password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
 | gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados Teradata local. |Sim |
 
@@ -82,7 +81,7 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 
 Quando a fonte é do tipo **RelationalSource** (que inclui o Teradata), as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Sim |
 
@@ -284,11 +283,11 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 
 | Tipo de banco de dados Teradata | Tipo de .NET Framework |
 | --- | --- |
-| Char |Cadeia de caracteres |
-| Clob |Cadeia de caracteres |
-| Graphic |Cadeia de caracteres |
-| VarChar |Cadeia de caracteres |
-| VarGraphic |Cadeia de caracteres |
+| Char |String |
+| Clob |String |
+| Graphic |String |
+| VarChar |String |
+| VarGraphic |String |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
@@ -301,7 +300,7 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 | SmallInt |Int16 |
 | Data |Datetime |
 | Hora |TimeSpan |
-| Hora com fuso horário |Cadeia de caracteres |
+| Hora com fuso horário |String |
 | Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
@@ -314,15 +313,15 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |Cadeia de caracteres |
-| Interval Year To Month |Cadeia de caracteres |
-| Interval Month |Cadeia de caracteres |
-| Period(Date) |Cadeia de caracteres |
-| Period(Time) |Cadeia de caracteres |
-| Period(Time With Time Zone) |Cadeia de caracteres |
-| Period(Timestamp) |Cadeia de caracteres |
-| Period(Timestamp With Time Zone) |Cadeia de caracteres |
-| Xml |Cadeia de caracteres |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

@@ -9,11 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704430"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -38,12 +37,12 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
 
 1. O usuário deve ter uma função de desenvolvedor de aplicativo para criar um aplicativo.
     - Para verificar, entre no portal do Azure.</br>
-    - Vá para **Azure Active Directory** > **funções e administradores**.</br>
+    - Vá para **Azure Active Directory**  >  **funções e administradores**.</br>
     - Verifique se a função de desenvolvedor de aplicativo está atribuída ao usuário. Caso contrário, use um usuário com essa permissão ou entre em contato com um [administrador para habilitar a permissão](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
 2. Se a função de desenvolvedor de aplicativo não puder ser atribuída, verifique se o sinalizador **usuários podem registrar aplicativos** está definido como **true** para que o usuário crie uma identidade. Para habilitar essas permissões:
     - Entre no Portal do Azure.
-    - Vá para **Azure Active Directory** > **configurações do usuário**.
+    - Vá para **Azure Active Directory**  >  **configurações do usuário**.
     - Em **registros de aplicativo**, **os usuários podem registrar aplicativos**, selecione **Sim**.
 
       ![AD_application_permission do Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
@@ -53,10 +52,10 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
 
 ## <a name="download-the-template"></a>Baixe o modelo
 
-1. No cofre, vá para **preparar infraestrutura** > **origem**.
+1. No cofre, vá para **Preparar infraestrutura** > **Origem**.
 2. Em **Preparar origem**, selecione **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** aparece em **Tipo de servidor**.
-4. Baixe o modelo OVA para o servidor de configuração.
+4. Baixe o modelo de OVA para o servidor de configuração.
 
    > [!TIP]
    >Você também pode baixar a versão mais recente do modelo do servidor de configuração diretamente do [centro de download da Microsoft](https://aka.ms/asrconfigurationserver).
@@ -78,7 +77,7 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
 7. No restante das páginas do assistente, aceite as configurações padrão.
 8. Em **Pronto para concluir**:
 
-    * Para configurar a VM com as configurações padrão, selecione **ligar após a implantação** > **concluir**.
+    * Para configurar a VM com as configurações padrão, selecione **ligar após a implantação**  >  **concluir**.
     * Para adicionar uma interface de rede adicional, desmarque **Ligar após a implantação** e, em seguida, selecione **Concluir**. Por padrão, o modelo de servidor de configuração é implantado com uma única NIC. É possível incluir NICs adicionais após a implantação.
 
 > [!IMPORTANT]
@@ -94,7 +93,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 1. No inventário vSphere Cliente, clique com o botão direito na VM e selecione **Editar configurações**.
 2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. Em seguida, selecione **Avançar**.
 3. Selecione um tipo de adaptador e uma rede.
-4. Para se conectar à NIC virtual quando a VM estiver ativada, selecione **Conectar-se ao ligar**. Em seguida, selecione **Avançar** > **concluir** > **OK**.
+4. Para se conectar à NIC virtual quando a VM estiver ativada, selecione **Conectar-se ao ligar**. Em seguida, selecione **Avançar**  >  **concluir**  >  **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registre o servidor de configuração com os serviços do Azure Site Recovery
 
@@ -129,10 +128,10 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 5. Em **validar configuração do dispositivo**, os pré-requisitos são verificados antes de continuar.
 6. Em **Configurar o servidor vCenter Server/vSphere ESXi**, insira o FQDN ou o endereço IP do servidor vCenter, ou host vSphere, onde as VMs que você deseja replicar estão localizadas. Insira a porta na qual o servidor está escutando. Insira um nome amigável a ser usado para o servidor VMware no cofre.
-7. Insira as credenciais a serem usadas pelo servidor de configuração para se conectar ao servidor VMware. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Selecione **Adicionar** > **continuar**. As credenciais digitadas aqui são salvas localmente.
-8. Em **configurar credenciais da máquina virtual**, insira o nome de usuário e a senha das máquinas virtuais para instalar automaticamente o serviço de mobilidade durante a replicação. Para computadores **Windows**, a conta precisa de privilégios de administrador local nos computadores que você deseja replicar. Para o **Linux**, forneça detalhes para a conta raiz.
+7. Insira as credenciais a serem usadas pelo servidor de configuração para se conectar ao servidor VMware. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Selecione **Adicionar** > **Continuar**. As credenciais digitadas aqui são salvas localmente.
+8. Em **configurar credenciais da máquina virtual**, insira o nome de usuário e a senha das máquinas virtuais para instalar automaticamente o serviço de mobilidade durante a replicação. Para computadores **Windows** , a conta precisa de privilégios de administrador local nos computadores que você deseja replicar. Para o **Linux**, forneça detalhes para a conta raiz.
 9. Selecione **Finalizar configuração** para concluir o registro.
-10.  > Após a conclusão do registro, abra o portal do Azure e verifique se o servidor de configuração e o servidor VMware estão listados no **cofre dos serviços de recuperação****gerenciar** > **site Recovery** > **servidores de configuração**de infraestrutura.
+10. Após o término do registro, abra o portal do Azure e verifique se o servidor de configuração e o servidor VMware estão listados em **Cofre dos Serviços de Recuperação** > **Gerenciar** > **Infraestrutura do Site Recovery** > **Servidores de Configuração**.
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
@@ -175,7 +174,7 @@ Consulte nosso [artigo de solução de problemas](vmware-azure-troubleshoot-conf
     Não. Não altere a frase secreta do servidor de configuração. Uma alteração na frase secreta interrompe a replicação de computadores protegidos e leva a um estado de integridade crítico.
 * Em que local posso baixar as chaves de registro do cofre?
 
-    Em **cofre dos serviços de recuperação**, selecione **gerenciar** > **site Recovery** > **servidores de configuração**de infraestrutura. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
+    Em **cofre dos serviços de recuperação**, selecione **gerenciar**  >  **site Recovery**  >  **servidores de configuração**de infraestrutura. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
 * Posso clonar um servidor de configuração existente e usá-lo para a orquestração de replicação?
 
     Não. Não há suporte para o uso de um componente de servidor de configuração clonado. A clonagem de um servidor de processo de expansão também é um cenário sem suporte. A clonagem de Site Recovery componentes afeta as replicações contínuas.

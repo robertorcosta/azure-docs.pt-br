@@ -5,11 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704736"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do Agendador básico no serviço de Kubernetes do Azure (AKS)
 
@@ -77,7 +76,7 @@ As interrupções involuntárias podem ser reduzidas usando várias réplicas de
 
 Se um cluster é a ser atualizado ou um modelo de implantação atualizado, o Agendador Kubernetes torna claro que os pods adicionais estão programados nos outros nós antes que os eventos de interrupção voluntário podem continuar. O Agendador espera antes que um nó seja reinicializado até que o número definido de pods é agendado com êxito em outros nós no cluster.
 
-Vamos examinar um exemplo de um conjunto de réplicas com cinco compartimentos que executam o NGINX. O pods no conjunto de réplicas recebe o rótulo `app: nginx-frontend`. Durante um evento de interrupção voluntária, como uma atualização de cluster, você deseja certificar-se de que pelo menos três pods continuam em execução. O manifesto YAML a seguir para o objeto para um *PodDisruptionBudget* define esses requisitos:
+Vamos examinar um exemplo de um conjunto de réplicas com cinco compartimentos que executam o NGINX. O pods no conjunto de réplicas recebe o rótulo `app: nginx-frontend` . Durante um evento de interrupção voluntária, como uma atualização de cluster, você deseja certificar-se de que pelo menos três pods continuam em execução. O manifesto YAML a seguir para o objeto para um *PodDisruptionBudget* define esses requisitos:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -119,11 +118,11 @@ Para obter mais informações sobre como usar os orçamentos de interrupção de
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificar regularmente os problemas de aplicativos com o kube-advisor
 
-**Diretrizes de práticas recomendadas** -execute regularmente a versão `kube-advisor` mais recente da ferramenta de software livre para detectar problemas no cluster. Se você aplicar cotas de recursos em um cluster AKS existente, execute `kube-advisor` primeiro para localizar os pods que não têm solicitações de recursos e limites definidos.
+**Diretrizes de práticas recomendadas** -execute regularmente a versão mais recente da ferramenta de software livre `kube-advisor` para detectar problemas no cluster. Se você aplicar cotas de recursos em um cluster AKS existente, execute `kube-advisor` primeiro para localizar os pods que não têm solicitações de recursos e limites definidos.
 
 A ferramenta [Kube-Advisor][kube-advisor] é um projeto de código-fonte aberto AKs associado que examina um cluster kubernetes e relata os problemas encontrados. Uma verificação útil é identificar os pods que não têm limites e solicitações de recurso em vigor.
 
-A ferramenta Kube-Advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta Kube-Advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
+A ferramenta kube-advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta kube-advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
 
 Em um cluster AKS que hospeda várias equipes de desenvolvimento e aplicativos, pode ser difícil de controlar os pods sem solicitações desses recursos e limita o conjunto. Como prática recomendada, executar regularmente `kube-advisor` em seus clusters AKS, especialmente se você não atribuir as cotas de recursos para namespaces.
 

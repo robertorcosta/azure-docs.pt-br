@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0aab6957f6078a59aafd0c9967b0d88e97e50cda
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 6/10/2020
+ms.openlocfilehash: 17771cfa9ffa73d22d2e136836dcf0f19e68f8cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849426"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707201"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -25,6 +24,9 @@ Neste artigo, você aprenderá a criar e gerenciar réplicas de leitura no servi
 > O recurso de réplica de leitura está disponível apenas para bancos de dados do Azure para servidores MySQL nas camadas de preços de uso geral ou de otimização de memória. Assegure-se de que o servidor principal esteja em um desses níveis de preços.
 
 ## <a name="create-a-read-replica"></a>Criar uma réplica de leitura
+
+> [!IMPORTANT]
+> Ao criar uma réplica para um mestre que não tem nenhuma réplica existente, primeiro o mestre será reiniciado para se preparar para a replicação. Leve isso em consideração e realize essas operações durante um período de pouca atividade.
 
 Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 

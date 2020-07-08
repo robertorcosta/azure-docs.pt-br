@@ -11,24 +11,23 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c1dc5216f758c2dda263e2f61b043dbde5f76604
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734836"
 ---
-# <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Implantar Proxy de Aplicativo do AD do Azure para acesso seguro a aplicativos internos em um domínio Azure AD Domain Services gerenciado
+# <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implantar Proxy de Aplicativo do AD do Azure para acesso seguro a aplicativos internos em um domínio Azure Active Directory Domain Services gerenciado
 
 Com o Azure AD Domain Services (AD DS do Azure), você pode migrar e deslocar aplicativos herdados em execução localmente no Azure. O proxy de aplicativo Azure Active Directory (AD) ajuda você a dar suporte a trabalhadores remotos, publicando com segurança a parte dos aplicativos internos de um domínio gerenciado do Azure AD DS para que eles possam ser acessados pela Internet.
 
 Se você for novo no Proxy de Aplicativo do AD do Azure e quiser saber mais, consulte [como fornecer acesso remoto seguro a aplicativos internos](../active-directory/manage-apps/application-proxy.md).
 
-Este artigo mostra como criar e configurar um conector de Proxy de Aplicativo do AD do Azure para fornecer acesso seguro a aplicativos em um domínio gerenciado do Azure AD DS.
+Este artigo mostra como criar e configurar um conector de Proxy de Aplicativo do AD do Azure para fornecer acesso seguro a aplicativos em um domínio gerenciado.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para concluir este artigo, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
     * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -36,18 +35,18 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
     * Uma **licença de Azure ad Premium** é necessária para usar o proxy de aplicativo do AD do Azure.
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, [crie e configure uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessário, [crie e configure um domínio gerenciado do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="create-a-domain-joined-windows-vm"></a>Criar uma VM do Windows ingressada no domínio
 
-Para rotear o tráfego para aplicativos em execução em seu ambiente, instale o componente conector do Azure Proxy de Aplicativo do AD. Esse conector do Azure Proxy de Aplicativo do AD deve ser instalado em máquinas virtuais (VM) do Windows Server que são unidas ao domínio gerenciado do AD DS do Azure. Para alguns aplicativos, você pode implantar vários servidores que cada um tem o conector do instalado. Essa opção de implantação fornece mais disponibilidade e ajuda a lidar com cargas mais pesadas de autenticação.
+Para rotear o tráfego para aplicativos em execução em seu ambiente, instale o componente conector do Azure Proxy de Aplicativo do AD. Este conector de Proxy de Aplicativo do AD do Azure deve ser instalado em máquinas virtuais (VM) do Windows Server que ingressaram no domínio gerenciado. Para alguns aplicativos, você pode implantar vários servidores que cada um tem o conector do instalado. Essa opção de implantação fornece mais disponibilidade e ajuda a lidar com cargas mais pesadas de autenticação.
 
 A VM que executa o conector de Proxy de Aplicativo do AD do Azure deve estar na mesma ou em uma rede virtual emparelhada na qual você habilitou o Azure AD DS. As VMs que hospedam os aplicativos que você publica usando o proxy de aplicativo também devem ser implantadas na mesma rede virtual do Azure.
 
 Para criar uma VM para o conector de Proxy de Aplicativo do AD do Azure, conclua as seguintes etapas:
 
-1. [Criar uma UO personalizada](create-ou.md). Você pode delegar permissões para gerenciar essa UO personalizada para usuários dentro do domínio gerenciado AD DS do Azure. As VMs do Azure Proxy de Aplicativo do AD e que executam seus aplicativos devem fazer parte da UO personalizada, não da UO dos *computadores DC do AAD* padrão.
-1. [Domínio – ingresse nas máquinas virtuais][create-join-windows-vm], ambas que executam o conector de proxy de aplicativo do AD do Azure e aquelas que executam seus aplicativos, para o domínio gerenciado do Azure AD DS. Crie essas contas de computador na UO personalizada da etapa anterior.
+1. [Criar uma UO personalizada](create-ou.md). Você pode delegar permissões para gerenciar esta UO personalizada para usuários dentro do domínio gerenciado. As VMs do Azure Proxy de Aplicativo do AD e que executam seus aplicativos devem fazer parte da UO personalizada, não da UO dos *computadores DC do AAD* padrão.
+1. [Domínio – ingresse nas máquinas virtuais][create-join-windows-vm], ambas que executam o conector de proxy de aplicativo do AD do Azure e aquelas que executam seus aplicativos, para o domínio gerenciado. Crie essas contas de computador na UO personalizada da etapa anterior.
 
 ## <a name="download-the-azure-ad-application-proxy-connector"></a>Baixar o conector de Proxy de Aplicativo do AD do Azure
 
@@ -65,28 +64,28 @@ Execute as etapas a seguir para baixar o conector de Proxy de Aplicativo do AD d
 Com uma VM pronta para ser usada como o conector de Proxy de Aplicativo do AD do Azure, agora Copie e execute o arquivo de instalação baixado do portal do Azure.
 
 1. Copie o arquivo de instalação do conector do Azure Proxy de Aplicativo do AD para sua VM.
-1. Execute o arquivo de instalação, como *AADApplicationProxyConnectorInstaller. exe*. Aceite os termos de licença de software.
+1. Execute o arquivo de instalação, como *AADApplicationProxyConnectorInstaller.exe*. Aceite os termos de licença de software.
 1. Durante a instalação, você será solicitado a registrar o conector com o proxy de aplicativo no seu diretório do Azure AD.
    * Forneça as credenciais para um administrador global em seu diretório do Azure AD. As credenciais de administrador global do Azure AD podem ser diferentes das suas credenciais do Azure no portal
 
         > [!NOTE]
         > A conta de administrador global usada para registrar o conector deve pertencer ao mesmo diretório em que você habilita o serviço de proxy de aplicativo.
         >
-        > Por exemplo, se o domínio do Azure AD for *aaddscontoso.com*, o administrador global deverá `admin@aaddscontoso.com` ser ou outro alias válido nesse domínio.
+        > Por exemplo, se o domínio do Azure AD for *aaddscontoso.com*, o administrador global deverá ser `admin@aaddscontoso.com` ou outro alias válido nesse domínio.
 
    * Se a configuração de segurança reforçada do Internet Explorer estiver ativada para a VM na qual você instala o conector, a tela de registro poderá ser bloqueada. Para permitir o acesso, siga as instruções na mensagem de erro ou desative a segurança aprimorada do Internet Explorer durante o processo de instalação.
    * Se o registro do conector falhar, consulte [solucionar problemas do Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
-1. No final da instalação, uma observação é mostrada para ambientes com um proxy de saída. Para configurar o conector de Proxy de Aplicativo do AD do Azure para trabalhar com o proxy de saída, execute o script fornecido `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`, como.
+1. No final da instalação, uma observação é mostrada para ambientes com um proxy de saída. Para configurar o conector de Proxy de Aplicativo do AD do Azure para trabalhar com o proxy de saída, execute o script fornecido, como `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1` .
 1. Na página proxy de aplicativo no portal do Azure, o novo conector é listado com o status *ativo*, conforme mostrado no exemplo a seguir:
 
     ![O novo conector de Proxy de Aplicativo do AD do Azure mostrado como ativo no portal do Azure](./media/app-proxy/connected-app-proxy.png)
 
 > [!NOTE]
-> Para fornecer alta disponibilidade para aplicativos que se autenticam por meio do Proxy de Aplicativo do AD do Azure, você pode instalar conectores em várias VMs. Repita as mesmas etapas listadas na seção anterior para instalar o conector em outros servidores ingressados no domínio gerenciado AD DS do Azure.
+> Para fornecer alta disponibilidade para aplicativos que se autenticam por meio do Proxy de Aplicativo do AD do Azure, você pode instalar conectores em várias VMs. Repita as mesmas etapas listadas na seção anterior para instalar o conector em outros servidores ingressados no domínio gerenciado.
 
 ## <a name="enable-resource-based-kerberos-constrained-delegation"></a>Habilitar a delegação restrita de Kerberos baseada em recursos
 
-Se você quiser usar o logon único para seus aplicativos usando a autenticação integrada do Windows (IWA), Conceda permissão aos conectores do Azure Proxy de Aplicativo do AD para representar usuários e enviar e receber tokens em seu nome. Para conceder essas permissões, configure a delegação restrita de Kerberos (KCD) para que o conector acesse recursos no domínio gerenciado AD DS do Azure. Como você não tem privilégios de administrador de domínio em um domínio gerenciado do Azure AD DS, o KCD de nível de conta tradicional não pode ser configurado em um domínio gerenciado. Em vez disso, use KCD com base em recursos.
+Se você quiser usar o logon único para seus aplicativos usando a autenticação integrada do Windows (IWA), Conceda permissão aos conectores do Azure Proxy de Aplicativo do AD para representar usuários e enviar e receber tokens em seu nome. Para conceder essas permissões, configure a delegação restrita de Kerberos (KCD) para que o conector acesse recursos no domínio gerenciado. Como você não tem privilégios de administrador de domínio em um domínio gerenciado, o KCD de nível de conta tradicional não pode ser configurado em um domínio gerenciado. Em vez disso, use KCD com base em recursos.
 
 Para obter mais informações, consulte [Configurar a delegação restrita de Kerberos (KCD) no Azure Active Directory Domain Services](deploy-kcd.md).
 

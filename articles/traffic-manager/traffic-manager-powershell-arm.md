@@ -6,17 +6,16 @@ documentationcenter: na
 author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: de637bc30420ce494e553100a9f1126e88027bd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938506"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704124"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
 
@@ -38,7 +37,7 @@ Cada perfil do Gerenciador de Tráfego é representado por um recurso do tipo "T
 
 Essas instruções usam o Microsoft Azure PowerShell. O artigo a seguir explica como instalar e configurar o Azure PowerShell.
 
-* [Como instalar e configurar Azure PowerShell](/powershell/azure/overview)
+* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
 
 Os exemplos neste artigo presumem que você tenha um grupo de recursos existente. Você pode criar um grupo de recursos usando o seguinte comando:
 
@@ -115,7 +114,7 @@ Em todos os três casos, os pontos de extremidade podem ser adicionados de duas 
 
 Os pontos de extremidade do Azure fazem referência a serviços hospedados no Azure. Há suporte para dois tipos de pontos de extremidade do Azure:
 
-1. Serviço de Aplicativo do Azure
+1. Serviço de aplicativo do Azure
 2. Recursos PublicIpAddress do Azure (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). O PublicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
 
 Em cada caso:

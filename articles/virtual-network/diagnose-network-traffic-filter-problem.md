@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704940"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquina virtual
 
@@ -172,12 +171,12 @@ Se você usar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diag
 |---------                |---------                                                                           |
 | Fonte                  | Qualquer                                                                                |
 | Intervalos de portas de origem      | Qualquer                                                                                |
-| Destino             | O endereço IP da VM, um intervalo de endereços IP ou todos os endereços na sub-rede. |
+| Destination             | O endereço IP da VM, um intervalo de endereços IP ou todos os endereços na sub-rede. |
 | Intervalos de portas de destino | 80                                                                                 |
 | Protocolo                | TCP                                                                                |
 | Ação                  | Allow                                                                              |
 | Prioridade                | 100                                                                                |
-| Name                    | Permitir-HTTP-All                                                                     |
+| Nome                    | Permitir-HTTP-All                                                                     |
 
 Depois de criar a regra, a porta 80 é permitida de entrada da internet, como a prioridade da regra é maior do que a regra de segurança padrão chamada *DenyAllInBound*, que impede que o tráfego. Saiba como [ criar uma regra de segurança ](manage-network-security-group.md#create-a-security-rule). Se os NSGs diferentes estão associados a interface de rede e a sub-rede, você deve criar a mesma regra em ambos os NSGs.
 

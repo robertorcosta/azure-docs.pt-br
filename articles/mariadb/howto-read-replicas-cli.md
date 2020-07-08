@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/21/2020
-ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/10/2020
+ms.openlocfilehash: ddcfea684a22c9ad06197086b3e74700df755da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707984"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o CLI do Azure e a API REST
 
@@ -30,6 +29,9 @@ Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 
+> [!IMPORTANT]
+> Ao criar uma réplica para um mestre que não tem nenhuma réplica existente, primeiro o mestre será reiniciado para se preparar para a replicação. Leve isso em consideração e realize essas operações durante um período de pouca atividade.
+
 Um servidor de réplica de leitura pode ser criado usando o seguinte comando:
 
 ```azurecli-interactive
@@ -38,13 +40,13 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 O comando `az mariadb server replica create` exige os seguintes parâmetros:
 
-| Setting | Valor de exemplo | Descrição  |
+| Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
 | name | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
 | source-server | mydemoserver | O nome ou a ID do servidor mestre existente para replicar. |
 
-Para criar uma réplica de leitura entre regiões, use `--location` o parâmetro. 
+Para criar uma réplica de leitura entre regiões, use o `--location` parâmetro. 
 
 O exemplo de CLI abaixo cria a réplica no oeste dos EUA.
 
@@ -53,7 +55,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 ```
 
 > [!NOTE]
-> Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
+> Para saber mais sobre em quais regiões você pode criar uma réplica, visite o artigo [conceitos de réplica de leitura](concepts-read-replicas.md). 
 
 > [!NOTE]
 > Réplicas de leitura são criadas com a mesma configuração de servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de criada. Recomenda-se que a configuração do servidor de réplica seja mantida em valores iguais ou maiores que o mestre para garantir que a réplica seja capaz de acompanhar o mestre.
@@ -68,7 +70,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 O comando `az mariadb server replica list` exige os seguintes parâmetros:
 
-| Setting | Valor de exemplo | Descrição  |
+| Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
 | server-name | mydemoserver | O nome ou a ID do servidor mestre. |
@@ -86,7 +88,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 O comando `az mariadb server replica stop` exige os seguintes parâmetros:
 
-| Setting | Valor de exemplo | Descrição  |
+| Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos em que há o servidor de réplica.  |
 | name | mydemoreplicaserver | O nome do servidor de réplica para interromper a replicação. |
@@ -131,9 +133,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 > [!NOTE]
-> Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
+> Para saber mais sobre em quais regiões você pode criar uma réplica, visite o artigo [conceitos de réplica de leitura](concepts-read-replicas.md). 
 
-Se você não tiver definido `azure.replication_support` o parâmetro para **réplica** em um servidor mestre de uso geral ou com otimização de memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
+Se você não tiver definido o `azure.replication_support` parâmetro para **réplica** em um servidor mestre de uso geral ou com otimização de memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
 
 Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: período de retenção de backup, armazenamento, vCores e geração da computação. O tipo de preço também pode ser alterado de forma independente, exceto de ou para a camada básica.
 

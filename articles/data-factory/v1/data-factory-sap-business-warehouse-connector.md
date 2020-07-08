@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707269"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -61,15 +60,15 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço vinculado do SAP Business Warehouse (BW).
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Property | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia de caracteres | Sim
+Servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
 clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
-username | Nome do usuário que tem acesso ao servidor SAP | cadeia de caracteres | Sim
-password | Senha do usuário. | cadeia de caracteres | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | cadeia de caracteres | Sim
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | cadeia de caracteres | Não
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
+password | Senha do usuário. | string | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Sim
+encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cadeia de caracteres | No
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -84,7 +83,7 @@ Por outro lado, as propriedades disponíveis na seção **typeProperties** da at
 
 Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que inclui o SAP BW), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Property | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Sim |
 
@@ -292,26 +291,26 @@ Tipo de dados no Dicionário ABAP | Tipo de dados .NET
 -------------------------------- | --------------
 ACCP |  Int
 CHAR | String
-CLNT | Cadeia de caracteres
+CLNT | String
 CURR | Decimal
-CUKY | Cadeia de caracteres
+CUKY | String
 DEC | Decimal
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | Cadeia de caracteres
-LCHR | Cadeia de caracteres
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | Cadeia de caracteres
-UNIDADE | Cadeia de caracteres
-DATS | Cadeia de caracteres
-NUMC | Cadeia de caracteres
-TIMS | Cadeia de caracteres
+STRING | String
+UNIDADE | String
+DATS | String
+NUMC | String
+TIMS | String
 
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

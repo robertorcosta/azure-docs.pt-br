@@ -4,20 +4,18 @@ description: Este artigo explica como configurar o Gerenciador de Tráfego para 
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: rohink
-ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706810"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de Múltiplos Valores no Gerenciador de Tráfego
 
@@ -38,16 +36,16 @@ Crie um grupo de recursos para o perfil do Gerenciador de Tráfego.
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário enviando-os para o ponto de extremidade com a menor latência.
 
-1. No canto superior esquerdo da tela, selecione **criar um recurso** > **rede** > **perfil** > do Gerenciador de tráfego**criar**.
+1. No canto superior esquerdo da tela, selecione **criar um recurso**  >  **rede**  >  **perfil do Gerenciador de tráfego**  >  **criar**.
 2. Em **Criar perfil do Gerenciador de Tráfego**, insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **Criar**:
     
-    | Configuração                 | Valor                                              |
+    | Setting                 | Valor                                              |
     | ---                     | ---                                                |
     | Nome                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento de **Múltiplos valores**.                                       |
     | Subscription            | Selecione sua assinatura.                          |
     | Resource group          | Selecione *myResourceGroupTM1*. |
-    | Local                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
+    | Location                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
    |        |           | 
   
    ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -62,8 +60,8 @@ Adicione dois endereços IP como pontos de extremidade externos ao perfil do Ger
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Ponto de extremidade externo                                   |
-    | Name           | myEndpoint1                                        |
+    | Tipo                    | Ponto de extremidade externo                                   |
+    | Nome           | myEndpoint1                                        |
     | FQDN (nome de domínio totalmente qualificado) ou IP           | Digite o endereço IP público do ponto de extremidade que você que adicionar a esse perfil do Gerenciador de Tráfego                         |
     |        |           |
 

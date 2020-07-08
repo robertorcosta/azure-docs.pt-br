@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 4855db7678a8cdea9bdad19ac0a8ec33503ff983
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728409"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Active Directory
 
@@ -30,15 +29,15 @@ A associação dinâmica tem suporte para grupos de segurança ou grupos do Offi
 
 O Azure AD fornece um construtor de regras para criar e atualizar suas regras importantes mais rapidamente. O construtor de regras dá suporte à construção de até cinco expressões. O construtor de regras torna mais fácil formar uma regra com algumas expressões simples, no entanto, ela não pode ser usada para reproduzir todas as regras. Se o construtor de regras não oferecer suporte à regra que você deseja criar, você poderá usar a caixa de texto.
 
-Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recomendamos que você construa usando a caixa de texto:
+Aqui estão alguns exemplos de regras ou sintaxe avançadas para as quais recomendamos que você construa usando a caixa de texto:
 
 - Regra com mais de cinco expressões
-- A regra de relatórios diretos
-- Definindo a [precedência de operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
+- A regra de Subordinados diretos
+- Como definir a [precedência do operador](groups-dynamic-membership.md#operator-precedence)
+- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
+> O construtor de regras pode não conseguir exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de modo algum.
 
 ![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
 
@@ -67,7 +66,7 @@ Se a regra que você inseriu não for válida, uma explicação do motivo pelo q
 ## <a name="to-update-an-existing-rule"></a>Para atualizar uma regra existente
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador de grupo, administrador do Intune ou administrador de usuário na organização do Azure AD.
-1. Selecione **grupos** > **todos os grupos**.
+1. Selecione **grupos**  >  **todos os grupos**.
 1. Selecione um grupo para abrir seu perfil.
 1. Na página perfil do grupo, selecione regras de **associação dinâmica**. O construtor de regras dá suporte a até cinco expressões. Para adicionar mais de cinco expressões, você deve usar a caixa de texto.
 
@@ -98,7 +97,7 @@ As seguintes mensagens de status podem ser mostradas para o status **Processamen
 
 As seguintes mensagens de status podem ser mostradas para o status da **Última atualização da associação**:
 
-- &lt;**Data e hora**&gt;: a última vez em que a associação foi atualizada.
+- &lt;**Data e hora** &gt; : a última vez em que a associação foi atualizada.
 - **Em Andamento**: as atualizações estão em andamento no momento.
 - **Desconhecido**: a hora da última atualização não pode ser recuperada. O grupo pode ser novo.
 

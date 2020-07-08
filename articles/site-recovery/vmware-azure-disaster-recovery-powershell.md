@@ -8,11 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704362"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de desastre de VMs VMware para o Azure usando o PowerShell
 
@@ -33,11 +32,11 @@ Você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar:
+Antes de começar:
 
 - Verifique se você entende os [componentes e a arquitetura do cenário](vmware-azure-architecture.md).
 - Examine os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) para todos os componentes.
-- Você tem o módulo `Az` Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
+- Você tem o `Az` módulo Azure PowerShell. Se precisar instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Fazer logon no Azure
 
@@ -105,7 +104,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Defina o contexto do cofre usando o cmdlet Set-ASRVaultContext. Após a definição, operações posteriores do Azure Site Recovery na sessão do PowerShell serão executadas no contexto do cofre selecionado.
 
 > [!TIP]
-> O módulo Azure Site Recovery PowerShell (módulo AZ. Recoveryservices) é fornecido com aliases fáceis de usar para a maioria dos cmdlets. Os cmdlets no módulo usam a operação de formulário * \<> objeto **-AzRecoveryServicesAsr**\<>* e têm aliases equivalentes que tomam a operação de formulário * \<> objeto**ASR**\<>*. Você pode substituir os aliases de cmdlet para facilitar o uso.
+> O módulo Azure Site Recovery PowerShell (módulo AZ. Recoveryservices) é fornecido com aliases fáceis de usar para a maioria dos cmdlets. Os cmdlets no módulo assumem o formato * \<Operation> - **AzRecoveryServicesAsr** \<Object> * e têm aliases equivalentes que assumem a forma de * \<Operation> - **ASR** \<Object> *. Você pode substituir os aliases de cmdlet para facilitar o uso.
 
 No exemplo a seguir, os detalhes do cofre da variável $vault são usados para especificar o contexto do cofre para a sessão do PowerShell.
 

@@ -8,18 +8,18 @@ manager: twooley
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461541"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707847"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configurar um endereço IP privado para uma VM usando o portal do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "81461541"
 
 As etapas de exemplo a seguir esperam que um ambiente simples já seja criado. Se você quiser executar as etapas conforme elas são exibidas neste documento, primeiro [crie uma rede virtual](quick-create-portal.md#create-a-virtual-network). No entanto, na etapa 3, use estes valores:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome | *TestVNet* |
 | Espaço de endereço | *192.168.0.0/16* |
@@ -45,10 +45,10 @@ Para criar uma VM denominada *DNS01* na sub-rede *frontend* de uma rede virtual 
 1. No menu [portal do Azure](https://portal.azure.com) , selecione **criar um recurso**.
 
     ![Criar um recurso, portal do Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
-2. Selecione **Compute** > **máquina virtual**de computação.
+2. Selecione **Compute**  >  **máquina virtual**de computação.
 
     ![Criar VM, portal do Azure](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. Em **noções básicas**, especifique valores para itens, conforme descrito na tabela a seguir. Em seguida **,&nbsp;selecione&nbsp;avançar: discos** e **&nbsp;próximo&nbsp;: rede**.
+3. Em **noções básicas**, especifique valores para itens, conforme descrito na tabela a seguir. Em seguida, selecione **Avançar &nbsp; : &nbsp; discos** e **próximo &nbsp; : &nbsp; rede**.
 
     | Item | Valor |
     | --- | --- |
@@ -71,7 +71,7 @@ Para criar uma VM denominada *DNS01* na sub-rede *frontend* de uma rede virtual 
     | **Sub-rede** | **Front-end** |
 
     ![Guia rede, criar uma máquina virtual, portal do Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
-5. Em **Gerenciamento**, em **conta de armazenamento de diagnóstico**, escolha **vnetstorage**. Se essa conta de armazenamento não aparecer na lista, selecione **criar nova**, especifique um **nome** de *vnetstorage*e selecione **OK**. Por fim, **selecione&nbsp;+&nbsp;examinar criar**.
+5. Em **Gerenciamento**, em **conta de armazenamento de diagnóstico**, escolha **vnetstorage**. Se essa conta de armazenamento não aparecer na lista, selecione **criar nova**, especifique um **nome** de *vnetstorage*e selecione **OK**. Por fim, selecione **examinar &nbsp; + &nbsp; criar**.
 
     ![Guia gerenciamento, criar uma máquina virtual, portal do Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
 6. Em **revisão + criar**, examine as informações de visão geral e, em seguida, selecione **criar**.

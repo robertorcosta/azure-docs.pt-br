@@ -11,18 +11,17 @@ Customer intent: I want only specific Azure Storage account to be allowed access
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708205"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerenciar vazamento de dados para contas de armazenamento do Azure com políticas de ponto de extremidade de serviço de rede virtual usando o CLI do Azure
 
@@ -263,7 +262,7 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-Salve o URI de recurso para a conta de armazenamento permitida em uma variável. Antes de executar o comando a seguir, substitua * \<seu-Subscription-ID>* com o valor real da sua ID de assinatura.
+Salve o URI de recurso para a conta de armazenamento permitida em uma variável. Antes de executar o comando a seguir, substitua *\<your-subscription-id>* pelo valor real da sua ID de assinatura.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
@@ -313,7 +312,7 @@ A VM demora alguns minutos para criar. Após a criação, anote o **publicIpAddr
 
 ### <a name="confirm-access-to-storage-account"></a>Confirmar acesso à conta de armazenamento
 
-SSH para a VM *myVmPrivate*. Substitua * \<publicIpAddress>* pelo endereço IP público da VM *myVmPrivate* .
+SSH para a VM *myVmPrivate*. Substitua *\<publicIpAddress>* pelo endereço IP público da VM *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
@@ -325,7 +324,7 @@ Crie uma pasta para um ponto de montagem:
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-Monte o compartilhamento de arquivos do Azure para o diretório que você criou. Antes de executar o comando a seguir, substitua * \<Storage-Account-Key>* pelo valor de *AccountKey* do **$saConnectionString 1**.
+Monte o compartilhamento de arquivos do Azure para o diretório que você criou. Antes de executar o comando a seguir, substitua *\<storage-account-key>* pelo valor de *AccountKey* de **$saConnectionString 1**.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -343,17 +342,17 @@ sudo mkdir /mnt/MyAzureFileShare2
 
 Tente montar o compartilhamento de arquivos do Azure da conta de armazenamento *notallowedstorageacc* para o diretório que você criou. Este artigo presume que você implantou a versão mais recente do Ubuntu. Se você estiver usando versões anteriores do Ubuntu, consulte [Montar no Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter instruções adicionais sobre como montar compartilhamentos de arquivos. 
 
-Antes de executar o comando a seguir, substitua * \<Storage-Account-Key>* pelo valor de *AccountKey* do **$saConnectionString 2**.
+Antes de executar o comando a seguir, substitua *\<storage-account-key>* pelo valor de *AccountKey* da **$saConnectionString 2**.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-O acesso é negado e você recebe `mount error(13): Permission denied` um erro, pois essa conta de armazenamento não está na lista de permissões da política de ponto de extremidade de serviço que aplicamos à sub-rede. 
+O acesso é negado e você recebe um `mount error(13): Permission denied` erro, pois essa conta de armazenamento não está na lista de permissões da política de ponto de extremidade de serviço que aplicamos à sub-rede. 
 
 Saia da sessão SSH para a VM *myVmPublic*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure) para remover o grupo de recursos e todos os recursos que ele contém.
 
