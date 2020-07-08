@@ -2,14 +2,13 @@
 title: Gerenciar usuários no Azure Blockchain Workbench
 description: Como gerenciar usuários no Azure Blockchain Workbench.
 ms.date: 05/09/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 78841ca830ae56f6c07f796bdde85f6a6ba9c921
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212727"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gerenciar usuários no Azure Blockchain Workbench
 

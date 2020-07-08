@@ -5,20 +5,19 @@ description: Saiba como adicionar, alterar ou excluir uma sub-rede de rede virtu
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: b9ef084e530faa3bcea2cfcf1554a84f543bbf59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b43fb027116d746a60c9cd4e690e63181fff4ade
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711010"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
 
@@ -44,11 +43,11 @@ A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à f
 
 2. Selecione o nome da rede virtual à qual você deseja adicionar uma sub-rede.
 
-3. Em **configurações**, selecione sub- **redes** > **sub-rede**.
+3. Em **configurações**, selecione sub- **redes**  >  **sub-rede**.
 
 4. Na caixa de diálogo **Adicionar sub-rede** , insira valores para as seguintes configurações:
 
-    | Configuração | Descrição |
+    | Setting | Descrição |
     | --- | --- |
     | **Nome** | O nome deve ser exclusivo na rede virtual. Para obter máxima compatibilidade com outros serviços do Azure, é recomendável usar uma letra como o primeiro caractere do nome. Por exemplo, o Gateway de Aplicativo do Azure não implantará em uma sub-rede cujo nome começa com um número. |
     | **Intervalo de endereços** | <p>O intervalo deve ser exclusivo dentro do espaço de endereçamento para a rede virtual. O intervalo não pode se sobrepor a outros intervalos de endereços de sub-rede na rede virtual. O espaço de endereçamento deve ser especificado utilizando a notação CIDR (Roteamento Entre Domínios sem Classes).</p><p>Por exemplo, em uma rede virtual com o espaço de endereço *10.0.0.0/16*, você pode definir um espaço de endereço de sub-rede de *10.0.0.0/22*. O menor intervalo que você pode especificar é */29*, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, a definição de uma sub-rede com um intervalo de endereços */29* resulta em três endereços IP utilizáveis na sub-rede.</p><p>Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é adicionada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet-settings).</p> |
@@ -78,7 +77,7 @@ A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à f
 
 5. Na página sub-rede, altere qualquer uma das seguintes configurações:
 
-    | Configuração | Descrição |
+    | Setting | Descrição |
     | --- | --- |
     | **Intervalo de endereços** | Se nenhum recurso for implantado dentro da sub-rede, você poderá alterar o intervalo de endereços. Se houver recursos na sub-rede, você deverá mover os recursos para outra sub-rede ou excluí-los da sub-rede primeiro. As etapas necessárias para mover ou excluir um recurso variam de acordo com o recurso. Para saber como mover ou excluir recursos que estão em sub-redes, leia a documentação de cada um desses tipos de recursos. Consulte as restrições para o **intervalo de endereços** na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). |
     | **Usuários** | É possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Adicionar uma atribuição de função](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
@@ -120,7 +119,7 @@ Uma sub-rede somente pode ser excluída se não houver recursos na sub-rede. Se 
 
 Para realizar tarefas em sub-redes, sua conta deve ser atribuída à função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas na tabela a seguir:
 
-|Ação                                                                   |   Name                                       |
+|Ação                                                                   |   Nome                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   Ler uma sub-rede de rede virtual              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   Criar ou atualizar uma sub-rede da rede virtual  |

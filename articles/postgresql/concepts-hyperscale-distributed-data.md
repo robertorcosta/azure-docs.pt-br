@@ -8,11 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710347"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distributed data in Azure database for PostgreSQL – Citus (hiperescala)
 
@@ -64,13 +63,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se o nó de coordenador quiser determinar qual fragmento contém uma linha `github_events`, ele faz hash do valor da coluna de distribuição na linha. Em seguida, o nó verifica\'qual intervalo de s de fragmentos contém o valor de hash. Os intervalos são definidos de forma que a imagem da função de hash seja sua União não-junção.
+Se o nó de coordenador quiser determinar qual fragmento contém uma linha `github_events` , ele faz hash do valor da coluna de distribuição na linha. Em seguida, o nó verifica qual \' intervalo de s de fragmentos contém o valor de hash. Os intervalos são definidos de forma que a imagem da função de hash seja sua União não-junção.
 
 ### <a name="shard-placements"></a>Posicionamentos de fragmentos
 
-Suponha que o fragmento 102027 esteja associado à linha em questão. A linha é lida ou gravada em uma tabela `github_events_102027` chamada em um dos trabalhadores. Qual trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o Worker é conhecido como o posicionamento do fragmento.
+Suponha que o fragmento 102027 esteja associado à linha em questão. A linha é lida ou gravada em uma tabela chamada `github_events_102027` em um dos trabalhadores. Qual trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o Worker é conhecido como o posicionamento do fragmento.
 
-O nó coordenador reescreve as consultas em fragmentos que se referem a tabelas específicas `github_events_102027` como e executa esses fragmentos nos trabalhadores apropriados. Veja um exemplo de uma consulta executada nos bastidores para localizar o nó que contém a ID de fragmento 102027.
+O nó coordenador reescreve as consultas em fragmentos que se referem a tabelas específicas como `github_events_102027` e executa esses fragmentos nos trabalhadores apropriados. Veja um exemplo de uma consulta executada nos bastidores para localizar o nó que contém a ID de fragmento 102027.
 
 ```sql
 SELECT

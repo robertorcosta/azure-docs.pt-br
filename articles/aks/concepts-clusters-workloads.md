@@ -4,12 +4,11 @@ description: Conheça os cluster básico e os componentes de carga de trabalho d
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336638"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
@@ -47,7 +46,7 @@ O plano de controle inclui os seguintes componentes principais do kubernetes:
 - *kube-scheduler* - Quando você cria ou dimensiona aplicativos, o Scheduler determina quais nós podem executar a carga de trabalho e iniciá-los.
 - *Gerenciador do controlador de kube* -o Gerenciador do controlador supervisiona um número de controladores de menores do que executar ações como replicar pods e lidar com operações de nó.
 
-O AKS fornece um plano de controle de locatário único, com um servidor de API dedicado, um Agendador, etc. Você define o número e o tamanho dos nós e a plataforma Azure configura a comunicação segura entre o plano de controle e os nós. A interação com o plano de controle ocorre por meio de APIs `kubectl` kubernetes, como o ou o painel kubernetes.
+O AKS fornece um plano de controle de locatário único, com um servidor de API dedicado, um Agendador, etc. Você define o número e o tamanho dos nós e a plataforma Azure configura a comunicação segura entre o plano de controle e os nós. A interação com o plano de controle ocorre por meio de APIs kubernetes, como `kubectl` o ou o painel kubernetes.
 
 Esse plano de controle gerenciado significa que você não precisa configurar componentes como um repositório *etcd* altamente disponível, mas também significa que você não pode acessar o plano de controle diretamente. Atualizações para kubernetes são orquestradas por meio do CLI do Azure ou portal do Azure, que atualiza o plano de controle e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs do plano de controle por meio de logs de Azure Monitor.
 
@@ -69,7 +68,7 @@ O tamanho da VM do Azure para seus nós define quantas CPUs, quanto de memória 
 
 No AKS, a imagem de VM para os nós no cluster está atualmente baseada no Ubuntu Linux ou no Windows Server 2019. Quando você cria um cluster AKS ou escala horizontalmente o número de nós, a plataforma Azure cria o número solicitado de VMs e os configura. Não há nenhuma configuração manual a ser executada. Os nós de agente são cobrados como máquinas virtuais padrão, portanto, os descontos que você tem no tamanho da VM que você está usando (incluindo as [reservas do Azure][reservation-discounts]) são aplicados automaticamente.
 
-Se você precisar usar um SO de host diferente, um runtime do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você quiser usar um tempo de execução de contêiner diferente de Moby, poderá `aks-engine` usar o para configurar e implantar um cluster kubernetes que atenda às suas necessidades atuais.
+Se você precisar usar um SO de host diferente, um runtime do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você quiser usar um tempo de execução de contêiner diferente de Moby, poderá usar o `aks-engine` para configurar e implantar um cluster kubernetes que atenda às suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -105,9 +104,9 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 
 As regras acima para a alocação de memória e CPU são usadas para manter os nós de agente íntegros, incluindo alguns pods de sistema de hospedagem que são essenciais para a integridade do cluster. Essas regras de alocação também fazem com que o nó relate menos memória e CPU do que seria se não fosse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
-Por exemplo, se um nó oferecer 7 GB, ele relatará 34% de memória não alocável sobre o limite de remoção de hardware 750Mi.
+Por exemplo, se um nó oferecer 7 GB, ele relatará 34% de memória não alocável, incluindo o limite de remoção de hardware 750Mi.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 Além das reservas para o próprio kubernetes, o sistema operacional de nó subjacente também reserva uma quantidade de recursos de CPU e memória para manter as funções do sistema operacional.
 
@@ -118,7 +117,7 @@ Para obter as práticas recomendadas associadas, consulte [práticas recomendada
 Os nós da mesma configuração são agrupados em *conjuntos de nós*. Um cluster Kubernetes contém um ou mais pools de nó. O número inicial de nós e o tamanho são definidos quando você cria um cluster AKS, que cria um *conjunto de nós padrão*. Esse pool de nó padrão no AKS contém as VMs subjacentes que executam o agente de nós.
 
 > [!NOTE]
-> Para garantir que o cluster opere de forma confiável, você deve executar pelo menos 2 (dois) nós no pool de nós padrão.
+> Para verificar se o seu cluster opera de maneira confiável, execute pelo menos 2 (dois) nós no pool de nós padrão.
 
 Quando você dimensiona ou atualizar um cluster AKS, a ação é executada no pool de nó padrão. Você também pode optar por dimensionar ou atualizar um pool de nós específico. Para operações de atualização, os contêineres em execução são planejados em outros nós no conjunto de nós até que todos os nós sejam atualizados com êxito.
 
@@ -204,11 +203,7 @@ Para obter mais informações, consulte [implantações de Kubernetes][kubernete
 
 Uma abordagem comum para gerenciar aplicativos no Kubernetes é com [Helm][helm]. Você pode criar e usar o Helm público existente *gráficos* que contêm uma versão empacotada do código do aplicativo e manifestos do Kubernetes YAML para implantar recursos. Esses gráficos do Helm podem ser armazenados localmente ou, com freqüência, em um repositório remoto, como um [repositório de gráficos do Helm Container Registry Helm][acr-helm].
 
-Para usar o Helm, um componente de servidor chamado *Tiller* está instalado em seu cluster Kubernetes. O Tiller gerencia a instalação de gráficos dentro do cluster. O cliente do Helm em si é instalado localmente em seu computador, ou pode ser usado dentro de [Azure Cloud Shell][azure-cloud-shell]. Você pode procurar ou criar gráficos de Helm com o cliente e instalá-los em seu cluster do Kubernetes.
-
-![O Helm inclui um componente cliente e um componente Tiller do lado do servidor que cria recursos dentro do cluster do Kubernetes](media/concepts-clusters-workloads/use-helm.png)
-
-Para obter mais informações, consulte [Instalar aplicativos com o Helm no Serviço de Kubernetes do Azure (AKS) ][aks-helm].
+Para usar o Helm, instale o cliente do Helm no computador ou use o cliente Helm no [Azure cloud Shell][azure-cloud-shell]. Você pode procurar ou criar gráficos de Helm com o cliente e instalá-los em seu cluster do Kubernetes. Para obter mais informações, consulte [instalar aplicativos existentes com Helm em AKs][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSets e DaemonSets
 
@@ -262,9 +257,9 @@ Este artigo aborda alguns dos componentes principais do Kubernetes e como elas s
 
 - [Kubernetes / AKS de acesso e identidade][aks-concepts-identity]
 - [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / redes virtuais do AKS][aks-concepts-network]
-- [Kubernetes / armazenamento AKS][aks-concepts-storage]
-- [Kubernetes / escala de AKS][aks-concepts-scale]
+- [Redes virtuais do Kubernetes/AKS][aks-concepts-network]
+- [Armazenamento do Kubernetes/AKS][aks-concepts-storage]
+- [Escala do Kubernetes/AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine

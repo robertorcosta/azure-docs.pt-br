@@ -4,11 +4,10 @@ description: Saiba como usar a API REST para fazer backup de compartilhamentos d
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248093"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710602"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Fazer backup do compartilhamento de arquivos do Azure usando o backup do Azure via API REST
 
@@ -38,7 +37,7 @@ O cofre precisa descobrir todas as contas de armazenamento do Azure na assinatur
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-O URI da postagem tem `{subscriptionId}`os parâmetros, `{vaultName}`, `{vaultresourceGroupName}`e `{fabricName}` . Em nosso exemplo, o valor para os diferentes parâmetros seria o seguinte:
+O URI da postagem tem os `{subscriptionId}` `{vaultName}` parâmetros,, `{vaultresourceGroupName}` e `{fabricName}` . Em nosso exemplo, o valor para os diferentes parâmetros seria o seguinte:
 
 - `{fabricName}`é o *Azure*
 
@@ -467,7 +466,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Para disparar um backup sob demanda, a seguir estão os componentes do corpo da solicitação.
 
-| Nome       | Type                       | Descrição                       |
+| Nome       | Tipo                       | Descrição                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Propriedades | AzurefilesharebackupReques | Propriedades de BackupRequestResource |
 

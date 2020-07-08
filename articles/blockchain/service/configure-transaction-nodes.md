@@ -2,14 +2,13 @@
 title: Configurar nós de transação do serviço Blockchain do Azure
 description: Como configurar os nós de transação do serviço Blockchain do Azure
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80876922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212557"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar nós de transação do serviço Blockchain do Azure
 
@@ -79,17 +78,17 @@ Para obter mais informações sobre o controle de acesso do AD do Azure, consult
 
 Para obter detalhes sobre como se conectar usando a autenticação do Azure AD, consulte [conectar-se ao seu nó usando a autenticação do AAD](configure-aad.md).
 
-### <a name="basic-authentication"></a>Autenticação básica
+### <a name="basic-authentication"></a>Autenticação Básica
 
 Para autenticação básica HTTPS, as credenciais de nome de usuário e senha são passadas no cabeçalho HTTPS da solicitação para o ponto de extremidade.
 
 Você pode exibir os detalhes do ponto de extremidade de autenticação básica de um nó de transação no portal do Azure. Navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **autenticação básica** em configurações.
 
-![Autenticação básica](./media/configure-transaction-nodes/basic.png)
+![Autenticação Básica](./media/configure-transaction-nodes/basic.png)
 
 O nome de usuário é o nome do seu nó e não pode ser alterado.
 
-Para usar a URL, substitua \<senha\> pela senha definida quando o nó foi provisionado. Você pode atualizar a senha selecionando **Redefinir senha**.
+Para usar a URL, substitua \<password\> pela senha definida quando o nó foi provisionado. Você pode atualizar a senha selecionando **Redefinir senha**.
 
 ### <a name="access-keys"></a>Chaves de acesso
 

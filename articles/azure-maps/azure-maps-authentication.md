@@ -1,24 +1,24 @@
 ---
-title: Métodos de autenticação | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre o Azure Active Directory (Azure AD) e a autenticação de chave compartilhada. Ambos são usados para serviços do Microsoft Azure Maps. Saiba como obter a chave de assinatura do Azure Maps.
+title: Métodos de autenticação
+titleSuffix: Azure Maps
+description: Neste artigo, você aprenderá sobre Azure Active Directory e autenticação de chave compartilhada. Ambos são usados para serviços do Microsoft Azure Maps. Saiba como obter a chave de assinatura do Azure Maps.
 author: philmea
 ms.author: philmea
-ms.date: 01/28/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 21d29cba85adfc147ec9deb6ab362a5da943bf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987542"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com Azure Mapas
 
-O mapas do Azure dá suporte a duas maneiras de autenticar solicitações: autenticação de chave compartilhada e autenticação de Azure Active Directory. Este artigo explica esses métodos de autenticação para ajudar a orientar sua implementação dos serviços do Azure Maps.
+O mapas do Azure dá suporte a duas maneiras de autenticar solicitações: autenticação de chave compartilhada e autenticação [do Azure Active Directory (AD do Azure)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . Este artigo explica esses métodos de autenticação para ajudar a orientar sua implementação dos serviços do Azure Maps.
 
 > [!NOTE]
 > Para melhorar a comunicação segura com o Azure Maps, agora damos suporte ao protocolo TLS 1,2 e estamos desativando o suporte para TLS 1,0 e 1,1. Para evitar interrupções de serviço, **atualize seus servidores e aplicativos para usar o TLS 1,2 antes de 2 de abril de 2020**.  Se você usa atualmente o TLS 1. x, avalie a preparação do TLS 1,2 e desenvolva um plano de migração com o teste descrito em [resolvendo o problema do tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
@@ -32,11 +32,9 @@ Para obter informações sobre como exibir suas chaves no portal do Azure, consu
 > [!Tip]
 > Recomendamos a regeneração frequente das chaves. Você recebe duas chaves, para que você possa manter conexões com uma chave ao gerar novamente a outra. Ao regenerar suas chaves, você precisa atualizar todos os aplicativos que acessam sua conta, com as novas chaves.
 
-## <a name="authentication-with-azure-active-directory-preview"></a>Autenticação com o Azure Active Directory (versão prévia)
+## <a name="azure-ad-authentication"></a>Autenticação do Azure AD
 
-O Azure Maps agora oferece autenticação de solicitações para os serviços do Azure Maps usando o [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). O Azure AD fornece autenticação baseada em identidade, incluindo [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/overview). O RBAC é usado para conceder acesso em nível de usuário, nível de grupo ou de aplicativo aos recursos do Azure Maps. As seções a seguir discutem conceitos e componentes da integração do Azure Maps com o Azure AD.
-
-## <a name="authentication-with-oauth-access-tokens"></a>Autenticação com tokens de acesso OAuth
+As assinaturas do Azure são fornecidas com um locatário do Azure AD para habilitar o controle de acesso refinado. O Azure Maps oferece autenticação para os serviços do Azure Maps usando o Azure AD. O Azure AD fornece autenticação baseada em identidade para usuários e aplicativos registrados no locatário do Azure AD.
 
 Os Azure Mapas aceitam tokens de acesso **OAuth 2.0** para locatários do Azure AD associados à assinatura do Azure que contêm uma conta dos Azure Mapas. O Azure Maps também aceita tokens para:
 
@@ -44,54 +42,95 @@ Os Azure Mapas aceitam tokens de acesso **OAuth 2.0** para locatários do Azure 
 * Aplicativos de parceiros que usam permissões delegadas por usuários
 * Identidades gerenciadas dos recursos do Azure
 
-Azure Mapas gera um *identificador exclusivo (ID do cliente)* para cada conta do Azure Mapas. Você pode solicitar tokens do Azure AD ao combinar essa ID de cliente com parâmetros adicionais. Para solicitar um token, especifique os valores na tabela a seguir com base em seu ambiente do Azure.
-
-| Azure Environment   | Ponto de extremidade de token do Azure AD |
-| --------------------|-------------------------|
-| Público do Azure        | https://login.microsoftonline.com |
-| Azure Government    | https://login.microsoftonline.us |
-
+Azure Mapas gera um *identificador exclusivo (ID do cliente)* para cada conta do Azure Mapas. Você pode solicitar tokens do Azure AD ao combinar essa ID de cliente com parâmetros adicionais.
 
 Para obter mais informações sobre como configurar o Azure AD e solicitar tokens para os Azure Mapas, confira [Como gerenciar a autenticação nos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
-Para obter informações gerais sobre como solicitar tokens do Azure AD, consulte [O que é autenticação?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+Para obter informações gerais sobre como autenticar com o Azure AD, consulte [o que é autenticação?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
-## <a name="request-azure-map-resources-with-oauth-tokens"></a>Solicite recursos dos Azure Mapas com tokens OAuth
+### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades gerenciadas para recursos do Azure e os Azure Mapas
 
-Depois que o Azure AD recebe um token, o Azure Maps envia uma solicitação com o seguinte conjunto de cabeçalhos de solicitação necessários:
+[Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem serviços do Azure com uma entidade de segurança baseada em aplicativo gerenciado automaticamente, que pode ser autenticada com o Azure AD. Com o RBAC (controle de acesso baseado em função), a entidade de segurança de identidade gerenciada pode ser autorizada a acessar os serviços do Azure Maps. Alguns exemplos de identidades gerenciadas incluem: Azure App Service, Azure Functions e máquinas virtuais do Azure. Para obter uma lista de identidades gerenciadas, consulte [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
-| Cabeçalho da solicitação    |    Valor    |
-|:------------------|:------------|
-| x-ms-client-id    | 30d7cc….9f55|
-| Autorização     | Portador eyJ0e….HNIVN |
+### <a name="configuring-application-azure-ad-authentication"></a>Configurando a autenticação do Azure AD do aplicativo
+
+Os aplicativos serão autenticados com o locatário do Azure AD usando um ou mais cenários com suporte fornecidos pelo Azure AD. Cada cenário de aplicativo do Azure AD representa requisitos diferentes com base nas necessidades de negócios. Alguns aplicativos podem exigir experiências de entrada do usuário e outros aplicativos podem exigir uma experiência de entrada do aplicativo. Para obter mais informações, consulte [fluxos de autenticação e cenários de aplicativos](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
+
+Depois que o aplicativo recebe um token de acesso, o SDK e/ou o aplicativo envia uma solicitação HTTPS com o seguinte conjunto de cabeçalhos HTTP necessários, além de outros cabeçalhos HTTP da API REST:
+
+| Nome do cabeçalho    | Valor               |
+| :------------- | :------------------ |
+| x-ms-client-id | 30d7cc….9f55        |
+| Autorização  | Portador eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` é o GUID baseado na conta dos Azure Mapas exibido na página de autenticação dos Azure Mapas.
 
-Aqui está um exemplo de uma solicitação de rota do Azure Mapas que usa um token OAuth:
+Aqui está um exemplo de uma solicitação de rota do Azure Maps que usa um token de portador OAuth do Azure AD:
 
-```
-GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872 
-Host: atlas.microsoft.com 
-x-ms-client-id: 30d7cc….9f55 
-Authorization: Bearer eyJ0e….HNIVN 
+```http
+GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872
+Host: atlas.microsoft.com
+x-ms-client-id: 30d7cc….9f55
+Authorization: Bearer eyJ0e….HNIVN
 ```
 
 Para obter informações sobre como exibir a ID do cliente, consulte [Exibir detalhes de autenticação](https://aka.ms/amauthdetails).
 
-## <a name="control-access-with-rbac"></a>Controlar o acesso com RBAC
+## <a name="authorization-with-role-based-access-control"></a>Autorização com controle de acesso baseado em função
 
-No Azure AD, use o RBAC para controlar o acesso a recursos protegidos. Configure sua conta do Azure Maps e Registre seu locatário do Azure AD do Azure Maps. O Azure Maps dá suporte ao controle de acesso de leitura para usuários individuais do Azure AD, grupos, aplicativos, recursos do Azure e serviços do Azure por meio de identidades gerenciadas para recursos do Azure. Na página do portal do Azure Maps, você pode configurar o RBAC para suas funções escolhidas.
+O Azure Maps dá suporte ao acesso a todos os tipos principais para o [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) do Azure, incluindo: usuários individuais do Azure AD, grupos, aplicativos, recursos do Azure e identidades gerenciadas do Azure. Os tipos de entidade são concedidos a um conjunto de permissões, também conhecido como uma definição de função. Uma definição de função fornece permissões para ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um escopo. Ao aplicar uma entidade de segurança, definição de função e escopo, uma atribuição de função é criada. 
 
-![Leitor de dados do Azure Mapas (versão prévia)](./media/azure-maps-authentication/concept.png)
+As seções a seguir discutem conceitos e componentes da integração do Azure Maps com o controle de acesso baseado em função do Azure AD. Como parte do processo para configurar sua conta do Azure Maps, um diretório do AD do Azure é associado à assinatura do Azure que a conta do Azure Maps reside. 
+
+Ao configurar o RBAC do Azure, você escolhe uma entidade de segurança e a aplica a uma atribuição de função. Para saber como adicionar atribuições de função no portal do Azure, consulte [Adicionar ou remover atribuições de função do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+
+### <a name="picking-a-role-definition"></a>Escolhendo uma definição de função
+
+Os tipos de definição de função a seguir existem para dar suporte a cenários de aplicativo.
+
+| Definição de função do Azure       | Descrição                                                                                              |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------- |
+| Leitor de Dados do Azure Mapas      | Fornece acesso a APIs REST imutáveis do Azure Maps.                                                       |
+| Colaborador de dados do Azure Maps | Fornece acesso a APIs REST mutáveis do Azure Maps. A imutabilidade é definida pelas ações: gravar e excluir. |
+| Definição de função personalizada      | Crie uma função criada para habilitar o acesso restrito flexível às APIs REST do Azure Maps.                      |
+
+Alguns serviços do Azure Maps podem exigir privilégios elevados para executar ações de gravação ou exclusão em APIs REST do Azure Maps. A função colaborador de dados do Azure Maps é necessária para serviços que fornecem ações de gravação ou exclusão. A tabela a seguir descreve a quais serviços o colaborador de dados do Azure Maps é aplicável ao usar ações de gravação ou exclusão no serviço em questão. Se apenas as ações de leitura forem usadas no serviço, o leitor de dados do Azure Maps poderá ser usado em vez do colaborador de dados do Azure Maps.
+
+| Serviço de mapas do Azure | Definição de função do Azure Maps  |
+| :----------------- | :-------------------------- |
+| Dados               | Colaborador de dados do Azure Maps |
+| Criador            | Colaborador de dados do Azure Maps |
+| Espacial            | Colaborador de dados do Azure Maps |
 
 Para obter informações sobre como exibir as configurações do RBAC, confira [Como configurar o RBAC para os Azure Mapas](https://aka.ms/amrbac).
 
-## <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades gerenciadas para recursos do Azure e os Azure Mapas
+#### <a name="custom-role-definitions"></a>Definições de função personalizadas
 
-[Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem serviços do Azure com uma identidade gerenciada automaticamente, que pode ser autorizada a acessar os serviços do Azure Maps. Alguns exemplos de identidades gerenciadas incluem: Azure App Service, Azure Functions e máquinas virtuais do Azure.
+Um aspecto da segurança do aplicativo é aplicar o princípio de privilégios mínimos. O princípio implica que a entidade de segurança só deve permitir o acesso que é necessário e nenhum acesso adicional. A criação de definições de função personalizadas pode dar suporte a casos de uso que exigem maior granularidade para o controle de acesso. Para criar uma definição de função personalizada, você pode selecionar ações de dados específicas para incluir ou excluir para a definição. 
+
+A definição de função personalizada pode então ser usada em uma atribuição de função para qualquer entidade de segurança. Para saber mais sobre as definições de função personalizada do Azure, consulte [funções personalizadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+
+Aqui estão alguns cenários de exemplo em que as funções personalizadas podem melhorar a segurança do aplicativo.
+
+| Cenário                                                                                                                                                                                                                 | Ação (ões) de dados de função personalizada                                                                                                                  |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Uma página da Web voltada para o público ou de entrada interativa com blocos de mapa base e nenhuma outra API REST.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
+| Um aplicativo que requer apenas geocodificação inversa e nenhuma outra API REST.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |
+| Uma função para uma entidade de segurança que solicita a leitura de dados de mapa baseados no criador do Azure Maps e APIs REST de bloco de mapa base.                                                                                                 | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
+| Uma função para uma entidade de segurança que requer leitura, gravação e exclusão de dados de mapa baseados em criador. Isso pode ser definido como uma função de editor de dados de mapa, mas não permite o acesso a outras APIs REST, como blocos de mapa base. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
+
+### <a name="understanding-scope"></a>Entendendo o escopo
+
+Ao criar uma atribuição de função, ela é definida na hierarquia de recursos do Azure. Na parte superior da hierarquia há um [grupo de gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/overview) e o mais baixo é um recurso do Azure, como uma conta do Azure Maps.
+Atribuir uma atribuição de função a um grupo de recursos pode habilitar o acesso a várias contas ou recursos do Azure Maps no grupo.
+
+> [!Tip]
+> A recomendação geral da Microsoft é atribuir acesso ao escopo da conta do Azure Maps porque impede o **acesso não intencional a outras contas do Azure Maps** existentes na mesma assinatura do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
+
+* Para saber mais sobre o RBAC, consulte [visão geral do controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * Para saber mais sobre como autenticar um aplicativo com o Azure AD e os Azure Mapas, confira [Como gerenciar a autenticação no Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 

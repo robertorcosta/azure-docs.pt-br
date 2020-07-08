@@ -3,25 +3,24 @@ title: Erro inesperado ao executar o consentimento para um aplicativo | Microsof
 description: Discute os erros que podem ocorrer durante o processo de consentimento para um aplicativo e o que é possível fazer
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763747"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
 
@@ -33,7 +32,7 @@ Determinadas condições devem ser verdadeiras para que um usuário conceda as p
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Solicitação de erro de permissão não autorizada
 * O **AADSTS90093:** &lt;clientAppDisplayName&gt; está solicitando uma ou mais permissões que você não está autorizado a conceder. Contate um administrador que pode consentir pedido em seu nome.
-* **AADSTS90094:** &lt;o&gt; nomeexibiçãoaplicativocliente precisa de permissão para acessar recursos em sua organização que apenas um administrador pode conceder. Peça ao administrador para conceder permissão para este aplicativo antes de usá-lo.
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; precisa de permissão para acessar recursos em sua organização que apenas um administrador pode conceder. Peça a um administrador para conceder permissão ao aplicativo antes de poder usá-lo.
 
 Esse erro ocorre quando um usuário que não é um administrador de empresa tenta usar um aplicativo que está solicitando permissões, as quais somente um administrador pode conceder. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 

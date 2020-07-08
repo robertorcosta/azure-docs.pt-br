@@ -5,15 +5,14 @@ titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6d28a5a37be2947ea6cc7019d2b3cc73932c60d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 28d0fa3a0fdc2f8ac65fc3545abab0a273051e37
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75779086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987515"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI
 
@@ -97,7 +96,7 @@ O exemplo a seguir cria uma rede virtual chamada 'TestVNet1' e uma sub-rede 'Sub
 az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
-## <a name="4-create-the-gateway-subnet"></a>4. <a name="gwsub"> </a>criar a sub-rede de gateway
+## <a name="4-create-the-gateway-subnet"></a>4. <a name="gwsub"></a> criar a sub-rede de gateway
 
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
@@ -141,7 +140,7 @@ Crie o gateway de VPN da rede virtual. A criação de um gateway de VPN pode dem
 
 Use os seguintes valores:
 
-* O *--Gateway-Type* para uma configuração site a site é *VPN*. O tipo de gateway é sempre específico para a configuração que você está implementando. Para obter mais informações, consulte [tipos de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
+* O *--Gateway-Type* para uma configuração site a site é *VPN*. O tipo de gateway é sempre específico para a configuração que você está implementando. Para obter mais informações, consulte [Tipos de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * O *--vpn-type* pode ser *RouteBased* (referido como Gateway Dinâmico em alguns documentos) ou *PolicyBased* (referido como Gateway Estático em alguns documentos). A configuração é específica para os requisitos do dispositivo ao qual você está se conectando. Para obter mais informações sobre tipos de gateway de VPN, confira [Sobre definições de configuração de gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Selecione a SKU de Gateway que você deseja usar. Há limitações de configuração para alguns SKUs. Para obter mais informações, consulte [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 

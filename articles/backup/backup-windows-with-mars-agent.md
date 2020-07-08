@@ -3,14 +3,13 @@ title: Fazer backup de computadores Windows usando o agente MARS
 description: Use o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 002f4cd2e0582fb87af622f721f286bd78920350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604838"
 ---
-# <a name="back-up-windows-machines-by-using-the-azure-backup-mars-agent"></a>Fazer backup de computadores Windows usando o agente MARS de backup do Azure
+# <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer backup de arquivos e pastas do Windows Server no Azure
 
 Este artigo explica como fazer backup de computadores Windows usando o serviço de [backup do Azure](backup-overview.md) e o agente de serviços de recuperação do Microsoft Azure (MARS). O MARS também é conhecido como o agente de backup do Azure.
 
@@ -43,7 +42,7 @@ Para criar uma política de backup:
 1. Em **ações**, selecione **agendar backup**.
 
     ![Agendar um backup do Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
-1. No assistente de agendamento de backup, selecione **Guia de introdução** > **Avançar**.
+1. No assistente de agendamento de backup, selecione **Guia de introdução**  >  **Avançar**.
 1. Em **selecionar itens para fazer backup**, selecione **Adicionar itens**.
 
     ![Adicionar itens para fazer backup](./media/backup-azure-manage-mars/select-item-to-backup.png)
@@ -79,7 +78,7 @@ Para criar uma política de backup:
 
         ![Exemplo de uma política de retenção](./media/backup-configure-vault/retention-example.png)
 
-1. Na página **escolher tipo de backup inicial** , decida se deseja fazer o backup inicial pela rede ou usar o backup offline. Para fazer o backup inicial pela rede, selecione **automaticamente na rede** > **Avançar**.
+1. Na página **escolher tipo de backup inicial** , decida se deseja fazer o backup inicial pela rede ou usar o backup offline. Para fazer o backup inicial pela rede, selecione **automaticamente na rede**  >  **Avançar**.
 
     Para obter mais informações sobre o backup offline, consulte [usar Azure data box para backup offline](offline-backup-azure-data-box.md).
 

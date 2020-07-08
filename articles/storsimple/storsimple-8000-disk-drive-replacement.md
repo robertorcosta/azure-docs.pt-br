@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513127"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco em um dispositivo StorSimple da série 8000
 
@@ -46,7 +45,7 @@ Este procedimento explica como os bloqueios antiviolação em seu dispositivo St
    
     **Figura 1** Bloqueio antiviolação ativado
    
-   | Rotular | Descrição |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Abertura do indicador |
    | 2 |Bloqueio antiviolação |
@@ -103,7 +102,7 @@ Após uma falha de unidade em seu dispositivo StorSimple e depois que você remo
     **Figura 6**  Deslizando o Carrier da unidade para dentro do chassi
 3. Com o suporte da unidade inserido, feche a alça do suporte enquanto continua a empurrar o suporte da unidade para dentro do chassi, até que a alça se encaixe na posição travada.
 4. Use a chave de bloqueio que foi fornecida pela Microsoft (chave de fenda Torx à prova de violações) para prender a alça do suporte no lugar girando os parafusos um quarto de volta no sentido horário.
-5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o portal do Azure e navegue até **configurações** > do dispositivo**integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
+5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o portal do Azure e navegue até **configurações do dispositivo**  >  **integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
 
    
    > [!NOTE]

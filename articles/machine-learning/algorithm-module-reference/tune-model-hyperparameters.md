@@ -8,13 +8,12 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064171"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983405"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar os hiperparâmetros de modelo
 
@@ -43,33 +42,35 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 
 2.  Conecte um modelo não treinado à entrada mais à esquerda. 
 
+    > [!NOTE] 
+    > Os **hiperparâmetros de modelo de ajuste** só podem ser conectados a módulos de algoritmos de aprendizado de máquina internos e não podem dar suporte ao modelo personalizado criado em **criar modelo Python**.
 
 
-4.  Adicione o conjunto de dados que você deseja usar para treinamento e conecte-o à entrada intermediária de hiperparâmetros de modelo de ajuste.  
+3.  Adicione o conjunto de dados que você deseja usar para treinamento e conecte-o à entrada intermediária de hiperparâmetros de modelo de ajuste.  
 
     Opcionalmente, se você tiver um conjunto de dados marcado, você poderá conectá-lo à porta de entrada mais à direita (conjunto de informações de**validação opcional**). Isso permite que você meça a precisão durante o treinamento e o ajuste.
 
-5.  No painel direito de ajustar hiperparâmetros de modelo, escolha um valor para o **modo de limpeza de parâmetro**. Esta opção controla como os parâmetros são selecionados.
+4.  No painel direito de ajustar hiperparâmetros de modelo, escolha um valor para o **modo de limpeza de parâmetro**. Esta opção controla como os parâmetros são selecionados.
 
     - **Grade inteira**: quando você seleciona essa opção, o módulo executa um loop em uma grade predefinida pelo sistema, para tentar combinações diferentes e identificar o melhor aprendiz. Essa opção é útil quando você não sabe quais são as melhores configurações de parâmetro e deseja tentar todas as combinações de valores possíveis.
 
     - **Varredura aleatória**: quando você seleciona essa opção, o módulo seleciona os valores de parâmetro aleatoriamente em um intervalo definido pelo sistema. Você deve especificar o número máximo de execuções que deseja que o módulo execute. Essa opção é útil quando você deseja aumentar o desempenho do modelo usando as métricas de sua escolha, mas ainda conservar recursos de computação.    
 
-6.  Para **coluna de rótulo**, abra o seletor de coluna para escolher uma única coluna de rótulo.
+5.  Para **coluna de rótulo**, abra o seletor de coluna para escolher uma única coluna de rótulo.
 
-7.  Escolha o número de execuções:
+6.  Escolha o número de execuções:
 
-    1. **Número máximo de execuções em varredura aleatória**: se você escolher uma varredura aleatória, poderá especificar quantas vezes o modelo deve ser treinado, usando uma combinação aleatória de valores de parâmetro.
+    - **Número máximo de execuções em varredura aleatória**: se você escolher uma varredura aleatória, poderá especificar quantas vezes o modelo deve ser treinado, usando uma combinação aleatória de valores de parâmetro.
 
-8.  Para **classificação**, escolha uma única métrica a ser usada para classificar os modelos.
+7.  Para **classificação**, escolha uma única métrica a ser usada para classificar os modelos.
 
     Quando você executa uma varredura de parâmetro, o módulo calcula todas as métricas aplicáveis para o tipo de modelo e as retorna no relatório de **resultados de varredura** . O módulo usa métricas separadas para modelos de regressão e classificação.
 
     No entanto, a métrica que você escolhe determina como os modelos são classificados. Somente o modelo superior, conforme classificado pela métrica escolhida, é a saída como um modelo treinado a ser usado para pontuação.
 
-9.  Para **semente aleatória**, insira um número a ser usado para iniciar a limpeza de parâmetro. 
+8.  Para **semente aleatória**, insira um número a ser usado para iniciar a limpeza de parâmetro. 
 
-10. Envie o pipeline.
+9. Envie o pipeline.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Resultados do ajuste de hiperparâmetro
 
@@ -149,5 +150,5 @@ Quase todos os aprendizes no Azure Machine Learning dão suporte à validação 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
 

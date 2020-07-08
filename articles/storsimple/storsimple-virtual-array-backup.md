@@ -9,18 +9,17 @@ editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60581188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513674"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Fazer backup de volumes ou compartilhamentos no StorSimple Virtual Array
 
@@ -58,7 +57,7 @@ a Matriz Virtual StorSimple tem uma política de backup padrão que é iniciada 
    
     ![navegar até as políticas de backup](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ### <a name="take-a-manual-backup"></a>Fazer um backup manual
 

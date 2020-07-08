@@ -7,19 +7,18 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659642"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
 
-- **Montagem direta de um compartilhamento de arquivos do Azure**: como os arquivos do Azure fornecem acesso SMB, você pode montar compartilhamentos de arquivos do Azure localmente ou na nuvem usando o cliente SMB padrão disponível no Windows, no MacOS e no Linux. Como os compartilhamentos de arquivos do Azure são sem servidor, a implantação para cenários de produção não requer o gerenciamento de um servidor de arquivos ou dispositivo NAS. Isso significa que você não precisa aplicar patches de software nem trocar discos físicos. 
+- **Montagem direta de um compartilhamento de arquivo do Azure**: Como os Arquivos do Azure fornecem acesso SMB, você pode montar compartilhamentos de arquivo do Azure localmente ou na nuvem usando o cliente SMB padrão disponível no Windows, no macOS e no Linux. Como os compartilhamentos de arquivos do Azure são sem servidor, a implantação para cenários de produção não requer o gerenciamento de um servidor de arquivos nem de um dispositivo NAS. Isso significa que você não precisa aplicar patches de software nem trocar discos físicos. 
 
-- **Armazenar em cache o compartilhamento de arquivos do Azure local com o sincronização de arquivos do Azure**: sincronização de arquivos do Azure permite centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. Sincronização de Arquivos do Azure transforma um Windows Server local (ou de nuvem) em um cache rápido do seu compartilhamento de arquivos do Azure. 
+- **Armazenar em cache o compartilhamento de arquivo do Azure local com a Sincronização de Arquivos do Azure**: A Sincronização de Arquivos do Azure permite centralizar os compartilhamentos de arquivos da sua organização no serviço Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de Arquivos do Azure transforma um Windows Server local (ou em nuvem) em um cache rápido do compartilhamento de arquivo do Azure. 
 
 Este artigo aborda principalmente as considerações de implantação para implantar um compartilhamento de arquivos do Azure para ser montado diretamente por um cliente local ou em nuvem. Para planejar uma implantação de Sincronização de Arquivos do Azure, consulte [planejando uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md).
 
@@ -30,7 +29,7 @@ Ao implantar compartilhamentos de arquivos do Azure em contas de armazenamento, 
 
 - Implantar somente compartilhamentos de arquivos do Azure em contas de armazenamento com outros compartilhamentos de arquivos do Azure. Embora as contas de armazenamento GPv2 permitam que você tenha contas de armazenamento de finalidade mista, como os recursos de armazenamento como compartilhamentos de arquivos do Azure e contêineres de blob compartilham os limites da conta de armazenamento, misturar recursos em conjunto pode dificultar a solução de problemas de desempenho posteriormente. 
 
-- Prestar atenção às limitações de IOPS de uma conta de armazenamento ao implantar compartilhamentos de arquivos do Azure. O ideal é que você mapeie os compartilhamentos de arquivos 1:1 com contas de armazenamento. no entanto, isso nem sempre pode ser possível devido a vários limites e restrições, tanto da sua organização quanto do Azure. Quando não for possível ter apenas um compartilhamento de arquivos implantado em uma conta de armazenamento, considere quais compartilhamentos serão altamente ativos e quais compartilhamentos serão menos ativas para garantir que os compartilhamentos de arquivos mais interessantes não sejam colocados na mesma conta de armazenamento.
+- Prestar atenção às limitações de IOPS de uma conta de armazenamento ao implantar compartilhamentos de arquivo do Azure. O ideal é que você mapeie os compartilhamentos de arquivos em uma relação de um para um com contas de armazenamento. No entanto, isso nem sempre é possível devido a vários limites e restrições, tanto da sua organização quanto do Azure. Quando não for possível ter apenas um compartilhamento de arquivo implantado em uma conta de armazenamento, considere quais compartilhamentos serão altamente ativos e quais compartilhamentos serão menos ativos para garantir que os compartilhamentos de arquivos mais ativos não sejam colocados na mesma conta de armazenamento.
 
 - Implante somente contas GPv2 e FileStorage e atualize GPv1 e contas de armazenamento clássico quando encontrá-las em seu ambiente. 
 
@@ -40,12 +39,12 @@ Para acessar um compartilhamento de arquivos do Azure, o usuário do compartilha
 - **Azure Active Directory Domain Services (azure AD DS)**: o Azure AD DS fornece um controlador de domínio gerenciado pela Microsoft que pode ser usado para recursos do Azure. Domínio ingressando em sua conta de armazenamento no Azure AD DS fornece benefícios semelhantes ao ingresso no domínio para um Active Directory de Propriedade do cliente. Essa opção de implantação é mais útil para cenários de elevação e deslocamento de aplicativos que exigem permissões baseadas no AD. Como o Azure AD DS fornece autenticação baseada em AD, essa opção também usa o protocolo de autenticação Kerberos.
 - **Chave de conta de armazenamento do Azure**: compartilhamentos de arquivos do Azure também podem ser montados com uma chave de conta de armazenamento do Azure. Para montar um compartilhamento de arquivos dessa forma, o nome da conta de armazenamento é usado como o nome de usuário e a chave da conta de armazenamento é usada como uma senha. Usar a chave de conta de armazenamento para montar o compartilhamento de arquivos do Azure é efetivamente uma operação de administrador, pois o compartilhamento de arquivos montado terá permissões completas para todos os arquivos e pastas no compartilhamento, mesmo que eles tenham ACLs. Ao usar a chave da conta de armazenamento para montar por SMB, o protocolo de autenticação NTLMv2 é usado.
 
-Para os clientes que migram de servidores de arquivos locais ou para criar novos compartilhamentos de arquivos em arquivos do Azure destinados a se comportarem como servidores de arquivos do Windows ou dispositivos NAS, o domínio que ingressa em sua conta de armazenamento para **Active Directory de Propriedade do cliente** é a opção recomendada. Para saber mais sobre o ingresso no domínio de sua conta de armazenamento para um Active Directory de Propriedade do cliente, consulte [visão geral dos arquivos do Azure Active Directory](storage-files-active-directory-overview.md).
+Para os clientes que migram de servidores de arquivos locais ou para criar novos compartilhamentos de arquivos em arquivos do Azure destinados a se comportarem como servidores de arquivos do Windows ou dispositivos NAS, o domínio que ingressa em sua conta de armazenamento para **Active Directory de Propriedade do cliente** é a opção recomendada. Para saber mais sobre o ingresso no domínio com sua conta de armazenamento em um Active Directory de propriedade do cliente, confira [Visão geral sobre Active Directory no serviço Arquivos do Azure](storage-files-active-directory-overview.md).
 
 Se você pretende usar a chave de conta de armazenamento para acessar os compartilhamentos de arquivos do Azure, recomendamos o uso de pontos de extremidade de serviço, conforme descrito na seção [rede](#networking) .
 
 ## <a name="networking"></a>Rede
-Os compartilhamentos de arquivos do Azure são acessíveis de qualquer lugar pelo ponto de extremidade público da conta de armazenamento. Isso significa que as solicitações autenticadas, como solicitações autorizadas pela identidade de logon de um usuário, podem se originar de forma segura de dentro ou fora do Azure. Em muitos ambientes de clientes, uma montagem inicial do compartilhamento de arquivos do Azure em sua estação de trabalho local falhará, embora as montagens de VMs do Azure tenham êxito. O motivo disso é que muitas organizações e provedores de serviços de Internet (ISPs) bloqueiam a porta que o SMB usa para se comunicar, porta 445. Para ver o resumo de ISPs que permitem ou proíbem o acesso a partir da porta 445, vá para [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Os compartilhamentos de arquivos do Azure são acessíveis de qualquer lugar pelo ponto de extremidade público da conta de armazenamento. Isso significa que as solicitações autenticadas, como solicitações autorizadas pela identidade de logon de um usuário, podem se originar de maneira segura de dentro ou fora do Azure. Em muitos ambientes de clientes, uma montagem inicial do compartilhamento de arquivo do Azure em sua estação de trabalho local falhará, mesmo que as montagens de VMs do Azure tenham tido êxito. O motivo disso é que muitas organizações e ISPs (provedores de serviços de Internet) bloqueiam a porta que o SMB usa para se comunicar, a porta 445. Para ver o resumo de ISPs que permitem ou proíbem o acesso a partir da porta 445, vá para [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para desbloquear o acesso ao compartilhamento de arquivos do Azure, você tem duas opções principais:
 
@@ -57,7 +56,7 @@ Embora, de uma perspectiva técnica, seja consideravelmente mais fácil montar o
 
 - O **túnel de rede usando o ExpressRoute, site a site ou VPN ponto a site**: o túnel para uma rede virtual permite acessar compartilhamentos de arquivos do Azure do local, mesmo se a porta 445 estiver bloqueada.
 - **Pontos de extremidade privados**: pontos de extremidade privados dão à sua conta de armazenamento um endereço IP dedicado de dentro do espaço de endereço da rede virtual. Isso habilita o túnel de rede sem a necessidade de abrir redes locais até todos os intervalos de endereços IP pertencentes aos clusters de armazenamento do Azure. 
-- **Encaminhamento de DNS**: configure seu DNS local para resolver o nome da sua conta de armazenamento (ou seja `storageaccount.file.core.windows.net` , para as regiões de nuvem pública) para resolver o endereço IP dos seus pontos de extremidade privados.
+- **Encaminhamento de DNS**: configure seu DNS local para resolver o nome da sua conta de armazenamento (ou seja, `storageaccount.file.core.windows.net` para as regiões de nuvem pública) para resolver o endereço IP dos seus pontos de extremidade privados.
 
 Para planejar a rede associada à implantação de um compartilhamento de arquivos do Azure, consulte [considerações de rede de arquivos do Azure](storage-files-networking-overview.md).
 
@@ -94,7 +93,7 @@ Em geral, os recursos de arquivos do Azure e a interoperabilidade com outros ser
     - Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões do Azure.
 - O AKS (serviço kubernetes do Azure) dá suporte a compartilhamentos de arquivos Premium na versão 1,13 e posterior.
 
-Depois que um compartilhamento de arquivos é criado como um compartilhamento de arquivos Premium ou Standard, não é possível convertê-lo automaticamente para a outra camada. Se desejar alternar para a outra camada, você deverá criar um novo compartilhamento de arquivos nessa camada e copiar manualmente os dados do compartilhamento original para o novo compartilhamento que você criou. É recomendável `robocopy` usar o para `rsync` Windows ou para MacOS e Linux para executar essa cópia.
+Depois que um compartilhamento de arquivos é criado como um compartilhamento de arquivos Premium ou Standard, não é possível convertê-lo automaticamente para a outra camada. Se desejar alternar para a outra camada, você deverá criar um novo compartilhamento de arquivos nessa camada e copiar manualmente os dados do compartilhamento original para o novo compartilhamento que você criou. É recomendável usar o `robocopy` para Windows ou `rsync` para MacOS e Linux para executar essa cópia.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Noções básicas sobre provisionamento para compartilhamentos de arquivos Premium
 Os compartilhamentos de arquivos Premium são provisionados com base em uma taxa de GiB/IOPS/transferência fixa. Para cada GiB provisionado, o compartilhamento emitirá um IOPS e uma taxa de transferência de 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB, com um IOPS e uma taxa de transferência mínimos.
@@ -122,7 +121,7 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de c
 |---------|---------|---------|---------|---------|
 |100         | 100     | Até 300     | 66   | 44   |
 |500         | 500     | Até 1.500   | 90   | 60   |
-|1.024       | 1.024   | Até 3.072   | 122   | 81   |
+|1\.024       | 1\.024   | Até 3.072   | 122   | 81   |
 |5.120       | 5.120   | Até 15.360  | 368   | 245   |
 |10.240      | 10.240  | Até 30.720  | 675 | 450   |
 |33.792      | 33.792  | Até 100.000 | 2.088 | 1.392   |
@@ -150,7 +149,7 @@ Os créditos de compartilhamento têm três Estados:
 
 Novos compartilhamentos de arquivos começam com o número total de créditos em seu Bucket de intermitência. Os créditos de intermitência não serão acumulados se o IOPS de compartilhamento cair abaixo do IOPS de linha de base devido à limitação pelo servidor.
 
-### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitar compartilhamentos de arquivos padrão para abranger até 100 TiB
+### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitar compartilhamentos de arquivo padrão para abranger até 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
 #### <a name="limitations"></a>Limitações
@@ -160,17 +159,12 @@ Novos compartilhamentos de arquivos começam com o número total de créditos em
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## <a name="migration"></a>Migração
-Em muitos casos, você não estará estabelecendo um novo compartilhamento de arquivos de rede para sua organização, mas migrará um compartilhamento de arquivos existente de um servidor de arquivos local ou de um dispositivo NAS para os arquivos do Azure. Há muitas ferramentas, fornecidas pela Microsoft e por terceiros, para fazer uma migração para um compartilhamento de arquivos, mas elas podem ser divididas aproximadamente em duas categorias:
+Em muitos casos, você não estará estabelecendo um novo compartilhamento de arquivos de rede para sua organização, mas migrará um compartilhamento de arquivos existente de um servidor de arquivos local ou de um dispositivo NAS para os arquivos do Azure. A escolha da estratégia e da ferramenta de migração correta para seu cenário é importante para o sucesso da sua migração. 
 
-- **Ferramentas que mantêm atributos do sistema de arquivos, como ACLs e carimbos de data/hora**:
-    - **[Sincronização de arquivos do Azure](storage-sync-files-planning.md)**: sincronização de arquivos do Azure pode ser usado como um método para ingerir dados em um compartilhamento de arquivos do Azure, mesmo quando a implantação final desejada não é manter uma presença local. Sincronização de Arquivos do Azure pode ser instalado em vigor nas implantações existentes do Windows Server 2012 R2, do Windows Server 2016 e do Windows Server 2019. Uma vantagem de usar Sincronização de Arquivos do Azure como um mecanismo de ingestão é que os usuários finais podem continuar a usar o compartilhamento de arquivos existente no local; o recorte para o compartilhamento de arquivos do Azure pode ocorrer após a conclusão do carregamento de todos os dados em segundo plano.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. Robocopy pode ser usado para transferir dados para arquivos do Azure montando o compartilhamento de arquivos localmente e, em seguida, usando a localização montada como o destino no comando Robocopy.
-
-- **Ferramentas que não mantêm atributos do sistema de arquivos**:
-    - **Data Box**: data box fornece um mecanismo de transferência de dados offline para enviar dados físicos para o Azure. Esse método foi projetado para aumentar a taxa de transferência e economizar largura de banda, mas atualmente não dá suporte a atributos do sistema de arquivos como carimbos de data/hora e ACLs.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: o AzCopy é um utilitário de linha de comando projetado para copiar dados de e para os Arquivos do Azure e o Armazenamento de Blobs do Azure, usando comandos simples com o desempenho ideal.
+O [artigo Visão geral da migração](storage-files-migration-overview.md) aborda brevemente os conceitos básicos e contém uma tabela que leva você a guias de migração que provavelmente abrangem seu cenário.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
+* [Confira o artigo Visão geral da migração para encontrar o guia de migração para seu cenário](storage-files-migration-overview.md)

@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022787"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor
 
@@ -18,7 +17,7 @@ Um bom desempenho de renderização no servidor é essencial para taxas de quadr
 
 A maior parte do impacto do desempenho de renderização são os dados de entrada do modelo. É possível ajustar os dados de entrada conforme descrito em [Configurar o modelo de conversão](../../how-tos/conversion/configure-model-conversion.md).
 
-O desempenho do aplicativo no lado do cliente também pode ser um gargalo. Para uma análise detalhada do desempenho no lado do cliente, é recomendável fazer um [rastreamento de desempenho](../../how-tos/performance-tracing.md).
+O desempenho do aplicativo no lado do cliente também pode ser um gargalo. Para uma análise detalhada do desempenho do lado do cliente, é recomendável pegar um [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md) .
 
 ## <a name="clientserver-timeline"></a>Linha do tempo do cliente/servidor
 

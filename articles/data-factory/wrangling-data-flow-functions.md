@@ -7,18 +7,20 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921544"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação no fluxo de dados Wrangling
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 O fluxo de dados do Wrangling no Azure Data Factory permite que você faça a preparação de dados ágil sem código e Wrangling em escala de nuvem. O fluxo de dados Wrangling integra-se com o [Power Query online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) e faz Power Query funções M disponíveis para os dados Wrangling por meio da execução do Spark. 
+
+> [!NOTE]
+> O fluxo de dados Wrangling está disponíveis no momento em visualização pública
 
 Atualmente, não há suporte para todas as funções Power Query M para Wrangling de dados, apesar de estarem disponíveis durante a criação. Ao criar os fluxos de dados do Wrangling, a seguinte mensagem de erro será exibida se não houver suporte para uma função:
 
@@ -39,7 +41,7 @@ Use a função M [Table. SelectRows](https://docs.microsoft.com/powerquery-m/tab
 
 * Igualdade e desigualdade
 * Comparações numéricas, de texto e de data (mas não DateTime)
-* Informações numéricas, como [número. ismesmo](https://docs.microsoft.com/powerquery-m/number-iseven)/[Odd](https://docs.microsoft.com/powerquery-m/number-iseven)
+* Informações numéricas, como [número. ismesmo](https://docs.microsoft.com/powerquery-m/number-iseven) / [Odd](https://docs.microsoft.com/powerquery-m/number-iseven)
 * Contenção de texto usando [Text. Contains](https://docs.microsoft.com/powerquery-m/text-contains), [Text. StartsWith](https://docs.microsoft.com/powerquery-m/text-startswith)ou [Text. EndsWith](https://docs.microsoft.com/powerquery-m/text-endswith)
 * Intervalos de datas incluindo todas as ' [funções de data](https://docs.microsoft.com/powerquery-m/date-functions)de IsIn' ') 
 * Combinações dessas usando as condições and, or ou not
@@ -55,7 +57,7 @@ As seguintes funções M adicionam ou transformam colunas: [Table. AddColumn](ht
 * A maioria das funções numéricas padrão, científicas e trigonométricas (todas as funções em [operações](https://docs.microsoft.com/powerquery-m/number-functions#operations), [arredondamento](https://docs.microsoft.com/powerquery-m/number-functions#rounding)e [trigonometria](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) , *exceto* Number. fatorial, Number. permutates e Number. combinações)
 * Substituição ([replacer. ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext), [replaceer. replacevalue](https://docs.microsoft.com/powerquery-m/replacer-replacevalue), [Text. Replace](https://docs.microsoft.com/powerquery-m/text-replace), [Text. Remove](https://docs.microsoft.com/powerquery-m/text-remove))
 * Extração de texto posicional ([Text. PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof), [Text. Length](https://docs.microsoft.com/powerquery-m/text-length), [Text. Start](https://docs.microsoft.com/powerquery-m/text-start), [Text. end](https://docs.microsoft.com/powerquery-m/text-end), [Text. middle](https://docs.microsoft.com/powerquery-m/text-middle), [Text. ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [Text. RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
-* Formatação de texto básica[(Text. Low](https://docs.microsoft.com/powerquery-m/text-lower), [Text. Upper](https://docs.microsoft.com/powerquery-m/text-upper), [Text. arrumar](https://docs.microsoft.com/powerquery-m/text-trim)/[Start](https://docs.microsoft.com/powerquery-m/text-trimstart)/[end](https://docs.microsoft.com/powerquery-m/text-trimend), [Text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart)/[end](https://docs.microsoft.com/powerquery-m/text-padend), [Text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
+* Formatação de texto básica ([Text. Low](https://docs.microsoft.com/powerquery-m/text-lower), [Text. Upper](https://docs.microsoft.com/powerquery-m/text-upper), [Text. arrumar](https://docs.microsoft.com/powerquery-m/text-trim) / [Start](https://docs.microsoft.com/powerquery-m/text-trimstart) / [end](https://docs.microsoft.com/powerquery-m/text-trimend), [Text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart) / [end](https://docs.microsoft.com/powerquery-m/text-padend), [Text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
 * Funções de data/hora ([Data. dia](https://docs.microsoft.com/powerquery-m/date-day), [Data. mês](https://docs.microsoft.com/powerquery-m/date-month), [Data. ano](https://docs.microsoft.com/powerquery-m/date-year) [hora. hora](https://docs.microsoft.com/powerquery-m/time-hour), [hora. minuto](https://docs.microsoft.com/powerquery-m/time-minute), [hora. segundo](https://docs.microsoft.com/powerquery-m/time-second), [Data. DayOfWeek](https://docs.microsoft.com/powerquery-m/date-dayofweek), [Data. DayOfYear](https://docs.microsoft.com/powerquery-m/date-dayofyear), [Date. DaysInMonth](https://docs.microsoft.com/powerquery-m/date-daysinmonth))
 * Se as expressões (mas as ramificações devem ter tipos correspondentes)
 * Filtros de linha como uma coluna lógica
@@ -87,7 +89,7 @@ Manter e remover Top, manter o intervalo (funções de M correspondentes, soment
 
 | Função | Status |
 | -- | -- |
-| Table.PromoteHeaders | Não há suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
+| Table.PromoteHeaders | Sem suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
 | Table.CombineColumns | Esse é um cenário comum que não tem suporte direto, mas pode ser obtido com a adição de uma nova coluna que concatena duas colunas especificadas.  Por exemplo, Table. AddColumn (RemoveEmailColumn, "Name", cada [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | Isso tem suporte na maioria dos casos. Os cenários a seguir não têm suporte: transformando cadeia de caracteres para tipo de moeda, transformando cadeia de caracteres em tipo de hora, transformando cadeia de caracteres para tipo de porcentagem. |
 | Table.NestedJoin | Apenas fazer uma junção resultará em um erro de validação. As colunas devem ser expandidas para que funcionem. |

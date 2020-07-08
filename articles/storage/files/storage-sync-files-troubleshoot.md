@@ -3,16 +3,15 @@ title: Solucionar problemas de sincronização de arquivos do Azure | Microsoft 
 description: Solucionar problemas comuns com a Sincronização de arquivos do Azure.
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
-ms.date: 1/22/2019
+ms.topic: troubleshooting
+ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 39106f863352061cdaa583bde96f50d3f91a07e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836508"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512056"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -315,6 +314,7 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport.ps1*
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | O arquivo em camadas no servidor não está acessível. Esse problema ocorrerá se o arquivo em camadas não tiver sido recuperado antes da exclusão de um ponto de extremidade do servidor. | Para resolver esse problema, confira [Arquivos em camadas não podem ser acessados no servidor depois da exclusão de um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A alteração de arquivo ou diretório ainda não pode ser sincronizada porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado após o mudanças dependentes serem sincronizadas. | Nenhuma ação é necessária. Se o erro persistir por vários dias, use o script do PowerShell FileSyncErrorsReport.ps1 para determinar por que a pasta dependente ainda não está sincronizada. |
+| 0x80C8028A | -2134375798 | ECS_E_SYNC_CONSTRAINT_CONFLICT_ON_FAILED_DEPENDEE | A alteração de arquivo ou diretório ainda não pode ser sincronizada porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado após o mudanças dependentes serem sincronizadas. | Nenhuma ação é necessária. Se o erro persistir por vários dias, use o script do PowerShell FileSyncErrorsReport.ps1 para determinar por que a pasta dependente ainda não está sincronizada. |
 | 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | A alteração de arquivo ou diretório ainda não pode ser sincronizada porque uma pasta dependente ainda não está sincronizada e a sessão de sincronização falhou. Este item será sincronizado após o mudanças dependentes serem sincronizadas. | Nenhuma ação é necessária. Se o erro persistir, investigue a falha da sessão de sincronização. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | O nome do arquivo ou diretório é inválido. | Renomeie o arquivo ou diretório em questão. Veja [Tratamento de caracteres sem suporte](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | O nome do arquivo ou diretório é inválido. | Renomeie o arquivo ou diretório em questão. Veja [Tratamento de caracteres sem suporte](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
@@ -552,13 +552,13 @@ Se o compartilhamento de arquivos do Azure tiver sido excluído, você precisar�
 
 Este erro ocorre quando a assinatura do Azure é suspensa. A sincronização será reativada quando a assinatura do Azure for restaurada. Consulte [Por que minha assinatura do Azure está desativada e como eu a reativo?](../../cost-management-billing/manage/subscription-disabled.md) para obter mais informações.
 
-<a id="-2134364052"></a> **A conta de armazenamento tem um firewall ou redes virtuais configuradas.**  
+<a id="-2134375618"></a> **A conta de armazenamento tem um firewall ou redes virtuais configuradas.**  
 
 | | |
 |-|-|
-| **HRESULT** | 0x80c8306c |
-| **HRESULT (decimal)** | -2134364052 |
-| **Cadeia de caracteres de erro** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
+| **HRESULT** | 0x80c8033e |
+| **HRESULT (decimal)** | -2134375618 |
+| **Cadeia de caracteres de erro** | ECS_E_SERVER_BLOCKED_BY_NETWORK_ACL |
 | **Correção necessária** | Sim |
 
 Esse erro ocorre quando o compartilhamento de arquivos do Azure está inacessível devido a um firewall de conta de armazenamento ou porque a conta de armazenamento pertence a uma rede virtual. Verifique se as configurações de firewall e de rede virtual na conta de armazenamento estão definidas adequadamente. Para obter mais informações, confira [Definir configurações de rede virtual e firewall](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
@@ -1087,6 +1087,7 @@ Se os arquivos não camada para arquivos do Azure:
 
 | HRESULT | HRESULT (decimal) | Cadeia de caracteres de erro | Problema | Correção |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Falha na camada do arquivo porque o carregamento inicial está em andamento. | Nenhuma ação é necessária. O arquivo será colocado em camadas depois que o carregamento inicial for concluído. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Falha ao colocar o arquivo em camada porque ele está em uso. | Nenhuma ação é necessária. O arquivo será colocado em camada quando não estiver mais em uso. |
 | 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | Falha ao colocar o arquivo em camada porque ele foi excluído por sincronização. | Nenhuma ação é necessária. Os arquivos na lista de exclusões de sincronização não podem ser colocados em camadas. |
 | 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | Falha ao colocar o arquivo em camada porque ele não foi encontrado no servidor. | Nenhuma ação é necessária. Se o erro persistir, verifique se o arquivo existe no servidor. |
@@ -1108,6 +1109,8 @@ Se os arquivos não camada para arquivos do Azure:
 | 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | Falha ao colocar o arquivo em camada devido a um problema de rede. | Nenhuma ação é necessária. Se o erro persistir, verifique a conectividade de rede do compartilhamento de arquivo do Azure. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Falha ao colocar o arquivo em camada porque ele foi modificado. | Nenhuma ação é necessária. O arquivo terá uma camada assim que o arquivo modificado tiver sido sincronizado com o compartilhamento de arquivo do Azure. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Falha ao colocar o arquivo em camada devido a recursos insuficientes do sistema. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
+| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Falha na camada do arquivo devido a um erro de e/s durante a gravação no banco de dados de camadas da nuvem. | Se o erro persistir, execute Chkdsk no volume e verifique o hardware de armazenamento. |
+| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Falha na camada do arquivo porque o banco de dados de camadas da nuvem não está em execução. | Para resolver esse problema, reinicie o serviço ou servidor FileSyncSvc. Se o erro persistir, execute Chkdsk no volume e verifique o hardware de armazenamento. |
 
 
 

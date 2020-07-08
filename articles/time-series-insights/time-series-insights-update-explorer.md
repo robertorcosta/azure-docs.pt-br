@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06f235b7f1c20681beee1f5be4c18de60d53a690
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75861754"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037300"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Gerenciador de visualização do Azure Time Series Insights
 
@@ -75,11 +74,11 @@ A visualização de Azure Time Series Insights dá suporte a operações CRUD (c
 * **Hierarquia de modelos de série temporal**: as hierarquias são organizações sistemáticas de seus dados. Hierarquias descrevem as relações entre entidades diferentes em seus dados de Azure Time Series Insights.
 * **Instância de modelo de série temporal**: as instâncias são a própria série temporal. Na maioria dos casos, eles são **DeviceID** ou **AssetID**, que é o identificador exclusivo do ativo no ambiente.
 
-Para saber mais sobre o modelo de série temporal, leia os [modelos de série Times](./time-series-insights-update-tsm.md).
+Para saber mais sobre o modelo de série temporal, leia os [modelos de série Times](./concepts-model-overview.md).
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. árvore de hierarquia e painel de pesquisa
 
-A árvore de hierarquia e o painel de pesquisa permitem pesquisar e navegar facilmente na hierarquia do [modelo de série temporal](./time-series-insights-update-tsm.md) para localizar as instâncias de série temporal específicas que você deseja exibir no gráfico. Quando você seleciona suas instâncias, elas não são adicionadas apenas ao gráfico atual, mas também são adicionadas ao bem de dados. 
+A árvore de hierarquia e o painel de pesquisa permitem pesquisar e navegar facilmente na hierarquia do [modelo de série temporal](./concepts-model-overview.md) para localizar as instâncias de série temporal específicas que você deseja exibir no gráfico. Quando você seleciona suas instâncias, elas não são adicionadas apenas ao gráfico atual, mas também são adicionadas ao bem de dados. 
 
 [![Árvore de hierarquia e painel de pesquisa](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
@@ -171,7 +170,7 @@ O painel de navegação Time Series Insights visualização aparece na parte sup
 
 ### <a name="current-session-share-link-control"></a>Controle de link de compartilhamento de sessão atual
 
-  [![Ícone de compartilhamento](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
+  [![Ícone Compartilhar](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 Selecione o ícone novo **compartilhamento** para compartilhar um link de URL com sua equipe.
 
@@ -240,8 +239,10 @@ Você pode mostrar e ocultar elementos no painel de gráfico selecionando o íco
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na visualização de Azure Time Series insights.
+- Saiba mais sobre a [ingestão de dados](./concepts-ingestion-overview.md) em seu ambiente.
 
-- Leia o documento de visualização de Time Series Insights na [modelagem de dados](./time-series-insights-update-tsm.md).
+- Confira o artigo sobre [armazenamento](concepts-storage.md)
+
+- Leia o documento de visualização de Time Series Insights na [modelagem de dados](./concepts-model-overview.md).
 
 - Saiba [como diagnosticar e solucionar problemas](./time-series-insights-update-how-to-troubleshoot.md) de sua instância de time Series insights.

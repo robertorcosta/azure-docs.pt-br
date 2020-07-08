@@ -6,31 +6,30 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 76442368fe4b3e498f622a8a3cd5b5b973f16bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 26eb3a495fd1c896416265687d92da66dfc3599b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212285"
 ---
 # <a name="views-in-synapse-sql-pool"></a>Exibições no pool SQL Synapse
 
 As exibições podem ser usadas em diversas maneiras diferentes de melhorar a qualidade de sua solução.
 
-O pool SQL dá suporte a exibições padrão e materializadas. Ambas são tabelas virtuais criadas com expressões SELECT e apresentadas a consultas como tabelas lógicas.
+O pool de SQL é compatível com exibições padrão e materializadas. Ambas são tabelas virtuais criadas com expressões SELECT e apresentadas às consultas como tabelas lógicas.
 
-As exibições encapsulam a complexidade da computação de dados comum e adicionam uma camada de abstração às alterações de computação para que não seja necessário reescrever consultas.
+As exibições encapsulam a complexidade da computação de dados comum e adicionam uma camada de abstração às alterações de computação para que não seja necessário regravar consultas.
 
 ## <a name="standard-view"></a>Exibição padrão
 
-Uma exibição padrão calcula seus dados a cada vez que a exibição é usada. Não há dados armazenados em disco. Normalmente, as pessoas usam modos de exibição padrão como uma ferramenta que ajuda a organizar os objetos lógicos e as consultas em um banco de dados.
+Uma exibição padrão calcula os dados sempre que a exibição é usada. Não há dados armazenados no disco. Normalmente, as pessoas usam exibições padrão como uma ferramenta que ajuda a organizar os objetos lógicos e as consultas em um banco de dados.
 
-Para usar um modo de exibição padrão, uma consulta precisa fazer referência direta a ele. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para usar a exibição padrão, uma consulta precisa fazer referência direta a ela. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Os modos de exibição no pool SQL são armazenados somente como metadados. Consequentemente, as seguintes opções não estão disponíveis:
 
@@ -46,13 +45,13 @@ Outro benefício de uma exibição pode ser forçar uma dica de consulta ou jun�
 
 ## <a name="materialized-view"></a>Exibição materializada
 
-Uma exibição materializada computa previamente, armazena e mantém seus dados no pool do SQL, assim como uma tabela. Não há necessidade de recomputação toda vez que uma exibição materializada é usada.
+Uma exibição materializada pré-calcula, armazena e mantém seus dados no pool de SQL como uma tabela. Não é necessário recálculo sempre que uma exibição materializada é usada.
 
 À medida que os dados são carregados em tabelas base, o pool do SQL atualiza de forma síncrona as exibições materializadas.  O otimizador de consulta usa automaticamente exibições materializadas implantadas para melhorar o desempenho da consulta, mesmo que as exibições não sejam referenciadas na consulta.  
 
 As consultas que mais se beneficiam com exibições materializadas são consultas complexas (normalmente consultas com junções e agregações) em tabelas grandes que produzem pequenos conjuntos de resultados.  
 
-Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, consulte [criar exibição materializada como SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, consulte [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
 Para obter diretrizes de ajuste de consulta, verifique o [ajuste de desempenho com exibições materializadas](performance-tuning-materialized-views.md).
 

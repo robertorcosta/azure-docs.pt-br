@@ -5,23 +5,22 @@ description: Saiba como usar a telemetria da Proteção contra DDoS do Azure Sta
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: f208119ce80d6b728030ea96f13d6c3d0375e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711503"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerenciar a Proteção contra DDoS do Azure Standard usando o Portal do Azure
 
@@ -42,12 +41,12 @@ A criação de mais de um plano não é necessária para a maioria das organiza�
 3. Selecione **Criar**.
 4. Insira ou selecione seus próprios valores, ou insira ou selecione os seguintes valores de exemplo e, em seguida, selecione **Criar**:
 
-    |Configuração        |Valor                                              |
+    |Setting        |Valor                                              |
     |---------      |---------                                          |
     |Nome           | myDdosProtectionPlan                              |
     |Subscription   | Selecione sua assinatura.                         |
-    |Resource group | Selecione **Criar novo** e insira *myResourceGroup* |
-    |Local       | Leste dos EUA                                           |
+    |Resource group | Selecione **criar novo** e insira o *myresourceattribute* |
+    |Location       | Leste dos EUA                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Habilitar DDoS para uma nova rede virtual
 
@@ -55,12 +54,12 @@ A criação de mais de um plano não é necessária para a maioria das organiza�
 2. Selecione **Rede** e, sem seguida, selecione **Rede Virtual**.
 3. Insira ou selecione seus próprios valores, ou insira ou selecione os valores de exemplo a seguir, aceite os padrões restantes e, em seguida, selecione **Criar**:
 
-    | Configuração         | Valor                                                        |
+    | Setting         | Valor                                                        |
     | ---------       | ---------                                                    |
     | Nome            | myVirtualNetwork                                             |
     | Subscription    | Selecione sua assinatura.                                    |
-    | Resource group  | Selecione **usar existente**e, em seguida, selecione **MyResource** |
-    | Local        | Leste dos EUA                                                      |
+    | Resource group  | Clique em **Usar existente** e selecione **myResourceGroup** |
+    | Location        | Leste dos EUA                                                      |
     | Proteção contra DDoS | Selecione **Padrão** e, em seguida, em **Proteção contra DDoS**, selecione **myDdosProtectionPlan**. O plano selecionado pode estar na mesma assinatura ou em assinatura diferente que a rede virtual, mas ambas as assinaturas devem estar associadas ao mesmo locatário do Azure Active Directory.|
 
 Você não pode mover uma rede virtual para outro grupo de recursos ou assinatura quando o DDoS padrão está habilitado para a rede virtual. Se você precisar mover uma rede virtual com um padrão de DDoS habilitado, desabilite o padrão de DDoS primeiro, mova a rede virtual e, em seguida, habilite padrão de DDoS. Após a movimentação, os limites da política ajustados automaticamente para todos os endereços IP públicos protegidos na rede virtual são redefinidos.
@@ -105,7 +104,7 @@ Selecione uma das métricas de proteção contra DDoS disponíveis para alertá-
 3. Selecione **Métricas** em **Serviços Compartilhados**.
 4. Insira ou selecione seus próprios valores, ou insira os valores de exemplo a seguir, aceite os padrões restantes e, em seguida, selecione **Ok**:
 
-    |Configuração                  |Valor                                                                                               |
+    |Setting                  |Valor                                                                                               |
     |---------                |---------                                                                                           |
     |Nome                     | myDdosAlert                                                                                        |
     |Subscription             | Selecione a assinatura que contém o endereço IP público para o qual você deseja receber alertas.        |
@@ -230,7 +229,7 @@ Os alertas incluem informações gerais sobre o endereço IP público que está 
 
 Para trabalhar com os planos de proteção DDoS, sua conta deve ser atribuída à função de [colaborador da rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                            | Name                                     |
+| Ação                                            | Nome                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Ler um plano de proteção DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Criar ou atualizar um plano de proteção DDoS  |

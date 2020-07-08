@@ -9,12 +9,11 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: ffa09293ad2ff02e104ce285b6b0aaca7d4744a2
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.openlocfilehash: c6780d952b9ce6ea58fc6c8a2509a4526add7149
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212658"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028254"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Criar um conjunto de dados de treinamento para um modelo personalizado
 
@@ -26,7 +25,7 @@ Se você quiser usar dados de treinamento rotulados manualmente, deverá começa
 
 ## <a name="training-data-tips"></a>Dicas de dados de treinamento
 
-É importante usar um conjunto de dados otimizado para treinamento. Use as dicas a seguir para garantir que você obtenha os melhores resultados da operação [treinar modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) :
+É importante usar um conjunto de dados otimizado para treinamento. Use as dicas a seguir para garantir que você obtenha os melhores resultados da operação [treinar modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) :
 
 * Se possível, use documentos PDF baseados em texto em vez de documentos baseados em imagem. Os PDFs digitalizados são tratados como imagens.
 * Para formulários preenchidos, use exemplos que tenham todos os seus campos preenchidos.
@@ -48,7 +47,7 @@ Se você quiser usar dados rotulados manualmente, também precisará carregar o 
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizar seus dados em subpastas (opcional)
 
-Por padrão, a API de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) só usará documentos de formulário localizados na raiz do seu contêiner de armazenamento. No entanto, você pode treinar com dados em subpastas se especificá-los na chamada à API. Normalmente, o corpo da chamada de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) tem o seguinte formato, em que `<SAS URL>` é a URL de assinatura de acesso compartilhado do seu contêiner:
+Por padrão, a API de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) só usará documentos de formulário localizados na raiz do seu contêiner de armazenamento. No entanto, você pode treinar com dados em subpastas se especificá-los na chamada à API. Normalmente, o corpo da chamada de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) tem o seguinte formato, em que `<SAS URL>` é a URL de assinatura de acesso compartilhado do seu contêiner:
 
 ```json
 {

@@ -3,25 +3,24 @@ title: Logon único do SAML para aplicativos locais com Aplicativo Azure AD prox
 description: Saiba como fornecer logon único para aplicativos locais que são protegidos com a autenticação SAML. Forneça acesso remoto a aplicativos locais com o proxy de aplicativo.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764818"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Logon único do SAML para aplicativos locais com o proxy de aplicativo
 
@@ -74,7 +73,7 @@ Para poder fornecer SSO para aplicativos locais, você precisa habilitar o proxy
 
 2. Na página **Configurar logon único com SAML** , vá para o cabeçalho **configuração básica do SAML** e selecione o ícone de **edição** (um lápis). Verifique se a **URL externa** configurada no proxy de aplicativo está preenchida nos campos **identificador**, **URL de resposta**e **URL de logout** . Essas URLs são necessárias para que o proxy de aplicativo funcione corretamente. 
 
-3. Edite a **URL de resposta** configurada anteriormente para que seu domínio possa ser acessado na Internet por meio do proxy de aplicativo. Por exemplo, se a **URL externa** for `https://contosotravel-f128.msappproxy.net` e a **URL de resposta** original `https://contosotravel.com/acs`tiver sido, você precisará atualizar a **URL** de resposta `https://contosotravel-f128.msappproxy.net/acs`original para.
+3. Edite a **URL de resposta** configurada anteriormente para que seu domínio possa ser acessado na Internet por meio do proxy de aplicativo. Por exemplo, se a **URL externa** for `https://contosotravel-f128.msappproxy.net` e a **URL de resposta** original tiver sido `https://contosotravel.com/acs` , você precisará atualizar a **URL de resposta** original para `https://contosotravel-f128.msappproxy.net/acs` .
 
     ![Inserir dados básicos de configuração do SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

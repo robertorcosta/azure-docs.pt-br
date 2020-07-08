@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513292"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,10 +39,10 @@ Por enquanto, em uma única atividade de cópia, você só pode **copiar dados d
 Para copiar dados do Office 365 no Azure, você precisa concluir as seguintes etapas de pré-requisito:
 
 - O administrador do seu locatário do Office 365 deve concluir ações de integração, conforme descrito [aqui](https://docs.microsoft.com/graph/data-connect-get-started).
-- Criar e configurar um aplicativo Web do Azure AD no Azure Active Directory.  Para obter instruções, consulte [Criar um aplicativo do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Criar e configurar um aplicativo Web do Azure AD no Azure Active Directory.  Para obter instruções, consulte [Criar um aplicativo do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Anote os seguintes valores, que serão usados para definir o serviço vinculado para o Office 365:
-    - ID do locatário. Para obter instruções, consulte [Obter ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-    - ID do aplicativo e Chave do aplicativo.  Para obter instruções, confira [Obter ID do aplicativo e chave de autenticação](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - ID do locatário. Para obter instruções, consulte [Obter ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+    - ID do aplicativo e Chave do aplicativo.  Para obter instruções, confira [Obter ID do aplicativo e chave de autenticação](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 - Adicione a identidade do usuário que fará a solicitação de acesso de dados como proprietário do aplicativo Web do Azure AD (no aplicativo Web do Azure AD > Configurações > Proprietários > Adicionar proprietário). 
     - A identidade do usuário deve estar na organização do Office 365 da qual você está obtendo dados e não deve ser um usuário Convidado.
 
@@ -77,7 +76,7 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo deve ser definida como: **Office365** | Sim |
 | office365TenantId | ID de locatário do Azure ao qual a conta do Office 365 pertence. | Sim |
@@ -113,16 +112,16 @@ As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte do conjunto de dados do Office 365.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte do conjunto de dados do Office 365.
 
 Para copiar dados do Office 365, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade tipo do conjunto de dados deve ser definida como: **Office365Table** | Sim |
 | tableName | Nome do conjunto de dados para extrair do Office 365. Confira [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista de conjuntos de dados do Office 365 disponíveis para extração. | Sim |
 
-Se você estivesse Configurando `dateFilterColumn`, `startTime`, `endTime`e `userScopeFilterUri` no conjunto de um, ele ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
+Se você estivesse Configurando `dateFilterColumn` , `startTime` , `endTime` e `userScopeFilterUri` no conjunto de um, ele ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
 
 **Exemplo**
 
@@ -151,11 +150,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Office 365, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Property | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Office365Source** | Sim |
 | allowedGroups | Predicado de seleção de grupo.  Use essa propriedade para selecionar até 10 grupos de usuários para os quais os dados serão recuperados.  Se nenhum grupo for especificado, os dados serão retornados para toda a organização. | Não |
-| userScopeFilterUri | Quando `allowedGroups` a propriedade não é especificada, você pode usar uma expressão de predicado que é aplicada em todo o locatário para filtrar as linhas específicas a serem extraídas do Office 365. O formato do predicado deve corresponder ao formato de consulta de APIs `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`de Microsoft Graph, por exemplo,. | Não |
+| userScopeFilterUri | Quando `allowedGroups` a propriedade não é especificada, você pode usar uma expressão de predicado que é aplicada em todo o locatário para filtrar as linhas específicas a serem extraídas do Office 365. O formato do predicado deve corresponder ao formato de consulta de APIs de Microsoft Graph, por exemplo, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` . | Não |
 | dateFilterColumn | Nome da coluna de filtro DateTime. Use essa propriedade para limitar o intervalo de tempo para o qual os dados do Office 365 são extraídos. | Sim se o conjunto de informações tiver uma ou mais colunas DateTime. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) para obter a lista de conjuntos de valores que exigem este filtro de data e hora. |
 | startTime | Inicie o valor DateTime para filtrar. | Sim se `dateFilterColumn` for especificado |
 | endTime | Valor DateTime final para filtrar. | Sim se `dateFilterColumn` for especificado |

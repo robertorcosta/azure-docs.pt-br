@@ -1,7 +1,7 @@
 ---
 title: Integrar com um aplicativo cliente usando o SDK de Fala
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, você aprende a fazer solicitações para um aplicativo de comandos personalizados publicados do SDK de fala em execução em um aplicativo UWP.
+description: como fazer solicitações para um aplicativo de comandos personalizados publicados do SDK de fala em execução em um aplicativo UWP.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,16 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414345"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027623"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrar com um aplicativo cliente usando o SDK de fala
 
-Neste artigo, você aprende a fazer solicitações para um aplicativo de comandos personalizados publicados do SDK de fala em execução em um aplicativo UWP. Para estabelecer uma conexão com o aplicativo de comandos personalizados, você executa as seguintes tarefas:
+Neste artigo, você aprende a fazer solicitações para um aplicativo de comandos personalizados publicados do SDK de fala em execução em um aplicativo UWP. Para estabelecer uma conexão com o aplicativo de comandos personalizados, você precisa:
 
 - Publicar um aplicativo de comandos personalizados e obter um identificador de aplicativo (ID do aplicativo)
 - Criar um aplicativo cliente Plataforma Universal do Windows (UWP) usando o SDK de fala para permitir que você se comunique com seu aplicativo de comandos personalizados
@@ -32,13 +31,19 @@ Um aplicativo de comandos personalizados é necessário para concluir este artig
 
 Você também precisará de:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia se baseia no Visual Studio 2019.
 > * Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
 > * [Habilitar o dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Etapa 1: publicar o aplicativo de comandos personalizados
 
-1. Abra o aplicativo de comandos personalizados criado anteriormente e selecione **publicar**
+1. Abra o aplicativo de comandos personalizados criado anteriormente
+1. Vá para **configurações**, selecione **recurso Luis**
+1. Se o **recurso de previsão** não for atribuído, selecione uma chave de previsão de consulta ou crie uma nova
+
+    A chave de previsão de consulta sempre é necessária antes de publicar um aplicativo. Para obter mais informações sobre os recursos do LUIS, consulte [Create Luis Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+
+1. Volte para edição de comandos, selecione **publicar**
 
    > [!div class="mx-imgBorder"]
    > ![aplicativo Publicar](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -131,11 +136,8 @@ Adicione a fonte code-behind da seguinte maneira:
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -324,7 +326,7 @@ Adicione a fonte code-behind da seguinte maneira:
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

@@ -4,13 +4,12 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda como instalar e configurar um controlador de ingresso NGINX que usa seus próprios certificados em um cluster do Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: dce3cf4e7db45b00b29469524d7576f6065ebaf4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.date: 07/02/2020
+ms.openlocfilehash: 4e87a4005a2f6428123b852c2ff505a30c7e36fd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920332"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Crie um controlador de ingresso HTTPS e use seus próprios certificados TLS no Serviço de Kubernetes do Azure (AKS)
 
@@ -38,14 +37,17 @@ Para criar o controlador de entrada, use `Helm` para instalar *nginx-ingress*. P
 O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, `--set rbac.create=false` adicione aos comandos Helm.
+> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, adicione `--set rbac.create=false` aos comandos Helm.
 
 > [!TIP]
-> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu `--set controller.service.externalTrafficPolicy=Local` cluster, adicione ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
+> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -57,7 +59,13 @@ helm install nginx-ingress stable/nginx-ingress \
 
 Durante a instalação, um endereço IP público do Azure é criado para o controlador de entrada. Esse endereço IP público é estático por todo o período de vida do controlador de entrada. Se você excluir o controlador de entrada, a atribuição de endereço IP pública será perdida. Se, em seguida, você criar outro controlador de entrada, um novo endereço IP público será atribuído. Se você deseja reter o uso do endereço IP público, você pode [criar um controlador de entrada com um endereço IP público estático][aks-ingress-static-tls].
 
-Para obter o endereço IP público, use `kubectl get service` o comando de serviço kubectl get. Pode levar alguns minutos até que o endereço IP seja atribuído ao serviço.
+Para obter o endereço IP público, use `kubectl get service` o comando de serviço kubectl get.
+
+```console
+kubectl get service -l app=nginx-ingress --namespace ingress-basic
+```
+
+Pode levar alguns minutos até que o endereço IP seja atribuído ao serviço.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -103,7 +111,7 @@ kubectl create secret tls aks-ingress-tls \
 
 Um controlador de entrada e um segredo com seu certificado tem sido configurado. Agora, vamos executar duas demonstrações de aplicativos no cluster do AKS. Neste exemplo, o Helm é utilizado para executar várias instâncias de um aplicativo simples hello world.
 
-Para ver o controlador de entrada em ação, execute dois aplicativos de demonstração no cluster AKS. Neste exemplo, você usa `kubectl apply` o para implantar duas instâncias de um aplicativo *Hello World* simples.
+Para ver o controlador de entrada em ação, execute dois aplicativos de demonstração no cluster AKS. Neste exemplo, você usa o `kubectl apply` para implantar duas instâncias de um aplicativo *Hello World* simples.
 
 Crie um arquivo *AKs-HelloWorld. YAML* e copie no seguinte exemplo YAML:
 
@@ -181,7 +189,7 @@ spec:
     app: ingress-demo
 ```
 
-Execute os dois aplicativos de demonstração `kubectl apply`usando:
+Execute os dois aplicativos de demonstração usando `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -231,6 +239,12 @@ spec:
 
 Crie o recurso de entrada usando o `kubectl apply -f hello-world-ingress.yaml` comando.
 
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+A saída de exemplo mostra que o recurso de entrada é criado.
+
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
@@ -245,7 +259,7 @@ Para testar os certificados com nosso host *demo.azure.com* falso, use `curl` e 
 curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 ```
 
-Nenhum caminho adicional foi fornecido com o endereço, portanto, o controlador de entrada usa como padrão */* a rota. O primeiro aplicativo de demonstração é retornado, conforme mostrado na saída de exemplo condensada a seguir:
+Nenhum caminho adicional foi fornecido com o endereço, portanto, o controlador de entrada usa como padrão a */* rota. O primeiro aplicativo de demonstração é retornado, conforme mostrado na saída de exemplo condensada a seguir:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
@@ -286,13 +300,13 @@ $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/h
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso e os aplicativos de amostra. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Excluir o namespace de exemplo e todos os recursos
 
-Para excluir o namespace de exemplo inteiro, use `kubectl delete` o comando e especifique o nome do namespace. Todos os recursos no namespace são excluídos.
+Para excluir o namespace de exemplo inteiro, use o `kubectl delete` comando e especifique o nome do namespace. Todos os recursos no namespace são excluídos.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -300,7 +314,13 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Excluir recursos individualmente
 
-Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Liste as versões Helm com `helm list` o comando. Procure o gráfico chamado *Nginx-Ingres* , conforme mostrado na seguinte saída de exemplo:
+Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Liste as versões Helm com o `helm list` comando. 
+
+```console
+helm list --namespace ingress-basic
+```
+
+Procure o gráfico chamado *Nginx-Ingres* , conforme mostrado na seguinte saída de exemplo:
 
 ```
 $ helm list --namespace ingress-basic
@@ -309,7 +329,13 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1 
 ```
 
-Desinstale as versões com `helm uninstall` o comando. O exemplo a seguir desinstala a implantação de entrada do NGINX.
+Desinstale as versões com o `helm uninstall` comando. 
+
+```console
+helm uninstall nginx-ingress --namespace ingress-basic
+```
+
+O exemplo a seguir desinstala a implantação de entrada do NGINX.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic

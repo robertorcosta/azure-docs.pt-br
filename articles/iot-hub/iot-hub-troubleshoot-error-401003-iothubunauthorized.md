@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759586"
 ---
 # <a name="401003-iothubunauthorized"></a>IoTHubUnauthorized 401003
@@ -33,10 +32,10 @@ Nos logs de diagnóstico, você verá um padrão de dispositivos desconectando c
 As solicitações ao Hub IoT falham com uma das seguintes mensagens de erro:
 
 * Cabeçalho de autorização ausente
-* IotHub '\*' não contém o dispositivo especificado '\*'
-* A regra de\*autorização ' ' não permite acesso para\*' '
+* IotHub ' \* ' não contém o dispositivo especificado ' \* '
+* A regra de autorização ' \* ' não permite acesso para ' \* '
 * Falha de autenticação para este dispositivo, renovar token ou certificado e reconectar
-* A impressão digital não corresponde à configuração: impressão digital\*: SHA1Hash =\*, SHA2Hash =; Configuração: PrimaryThumbprint =\*, SecondaryThumbprint =\*
+* A impressão digital não corresponde à configuração: impressão digital: SHA1Hash = \* , SHA2Hash = \* ; Configuração: PrimaryThumbprint = \* , SecondaryThumbprint =\*
 
 ## <a name="cause"></a>Causa
 

@@ -1,10 +1,9 @@
 ---
-title: Gerenciar VMs do SQL Server no Azure usando o portal do Azure | Microsoft Docs
+title: Gerenciar SQL Server máquinas virtuais no Azure usando o portal do Azure | Microsoft Docs
 description: Saiba como acessar o recurso de máquina virtual do SQL no portal do Azure para uma VM do SQL Server hospedada no Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.topic: article
@@ -13,17 +12,16 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6cf6fac84abd1d996c77aae7240c0322c5ec53fb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668994"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerenciar VMs do SQL Server no Azure usando o portal do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-No [portal do Azure](https://portal.azure.com), o recurso **máquinas virtuais do SQL** é um serviço de gerenciamento independente. Você pode usá-lo para exibir todas as suas VMs do SQL Server simultaneamente e modificar as configurações dedicadas para o SQL Server: 
+No [portal do Azure](https://portal.azure.com), o recurso de VMs ( **máquinas virtuais** ) do SQL é um serviço de gerenciamento independente. Você pode usá-lo para exibir todas as suas VMs do SQL Server simultaneamente e modificar as configurações dedicadas para o SQL Server: 
 
 ![Recurso de máquinas virtuais do SQL](./media/manage-sql-vm-portal/sql-vm-manage.png)
 

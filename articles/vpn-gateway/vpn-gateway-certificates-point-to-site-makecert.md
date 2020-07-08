@@ -4,15 +4,14 @@ description: Criar um certificado raiz autoassinado, exportar a chave pública e
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d7903dc7f614d16380626f27579363b1529665cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75833984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84988121"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
 
@@ -27,7 +26,7 @@ Enquanto é recomendável usar o [etapas do Windows 10 PowerShell](vpn-gateway-c
 As etapas a seguir mostram como criar um certificado autoassinado usando o MakeCert. Essas etapas não são específicas do modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
 
 1. Baixe e instale o [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Após a instalação, você pode normalmente localizar o utilitário makecert.exe neste caminho: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Embora, é possível que ele tenha sido instalado em outro local. Abra um prompt de comando como administrador e navegue até o local do utilitário MakeCert. Você pode usar o exemplo a seguir, ajustando para o local apropriado:
+2. Após a instalação, você normalmente pode encontrar o utilitário makecert.exe neste caminho: ' C:\Program Files (x86) \Windows Kits\10\bin \<arch> '. Embora, é possível que ele tenha sido instalado em outro local. Abra um prompt de comando como administrador e navegue até o local do utilitário MakeCert. Você pode usar o exemplo a seguir, ajustando para o local apropriado:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64

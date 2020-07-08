@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75969283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021884"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Criação de perfil de cliente
 O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como o Azure Data Factory pode resolver problemas comuns de análise.
@@ -38,7 +37,7 @@ Tudo o que você precisa para acessar e testar este caso de uso simples é uma [
 3. Na folha **Pipelines de exemplo**, clique na **Criação de perfil do cliente** que você deseja implantar.
 
     ![Folha Pipelines de exemplo](./media/data-factory-samples/SampleTile.png)
-4. Especifique definições de configuração para o exemplo. Por exemplo, o nome e a chave da sua conta de Armazenamento do Azure, o nome do Azure SQL Server, o banco de dados, a ID de usuário a e senha.
+4. Especifique definições de configuração para o exemplo. Por exemplo, o nome e a chave da conta de armazenamento do Azure, nome lógico do SQL Server, banco de dados, ID de usuário e senha.
 
     ![Folha Exemplo](./media/data-factory-samples/SampleBlade.png)
 5. Depois de terminar a especificação de configurações, clique em **Criar** para criar/implantar os pipelines de exemplo e serviços vinculados/tabelas usados pelos pipelines.

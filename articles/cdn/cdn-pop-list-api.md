@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668280"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperar a lista de IP POP atual para a CDN do Azure
 
@@ -39,7 +38,7 @@ Configure o IP atuação para seus back-ends para aceitar o tráfego da CDN do A
 * CDN do Azure do espaço IP de back-end IPv4 da Microsoft: 147.243.0.0/16
 * CDN do Azure do espaço IP de back-end IPv6 da Microsoft: 2a01:111:2050::/44
 
-Os intervalos de IP e as marcas de serviço para os serviços da Microsoft podem ser encontrados [aqui](https://www.microsoft.com/download/details.aspx?id=56519)
+Para usar marcas de serviço com a CDN do Azure da Microsoft, use a marca de porta frontal do Azure. Os intervalos de IP e as marcas de serviço para os serviços da Microsoft podem ser encontrados [aqui](https://www.microsoft.com/download/details.aspx?id=56519)
 
 
 ## <a name="typical-use-case"></a>Caso de uso típico

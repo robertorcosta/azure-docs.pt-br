@@ -7,20 +7,19 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9a0dd56842174d89688c862397c373326ef50d1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eecfebc90c28b650af0cef4ee0e4ddc227af0e8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711486"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Reservar prefixo de endereço IPv6 público
-O IPv6 para VNet (rede virtual) do Azure permite hospedar aplicativos no Azure com conectividade IPv6 e IPv4 tanto dentro de uma rede virtual quanto de e para a Internet. Além de reservar endereços IPv6 individuais, Reserve intervalos contíguos de endereços IPv6 do Azure (conhecido como prefixo IP) para seu uso. Este artigo descreve como criar endereços IP públicos IPv6 e intervalos de endereços usando o Azure PowerShell e a CLI.
+O IPv6 para a Rede Virtual do Microsoft Azure (VNet) permite hospedar aplicativos no Azure com conectividade de IPv6 e IPv4 tanto dentro de uma rede virtual quanto de e para a Internet. Além de reservar endereços IPv6 individuais, Reserve intervalos contíguos de endereços IPv6 do Azure (conhecido como prefixo IP) para seu uso. Este artigo descreve como criar endereços IP públicos IPv6 e intervalos de endereços usando o Azure PowerShell e a CLI.
 
 
 ## <a name="create-a-single-reserved-ipv6-public-ip"></a>Criar um único IP público IPv6 reservado
@@ -87,7 +86,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-powershell"></a>Usando o PowerShell do Azure
 
- Você cria um IP público IPv6 estático a partir de um prefixo reservado adicionando `-PublicIpPrefix` o argumento ao criar o IP público usando Azure PowerShell. O exemplo a seguir pressupõe que um prefixo foi criado e armazenado em uma variável do PowerShell chamada: *$MyOwnIPv 6prefix*.
+ Você cria um IP público IPv6 estático a partir de um prefixo reservado adicionando o `-PublicIpPrefix` argumento ao criar o IP público usando Azure PowerShell. O exemplo a seguir pressupõe que um prefixo foi criado e armazenado em uma variável do PowerShell chamada: *$MyOwnIPv 6prefix*.
 
 ```azurepowershell:  
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \

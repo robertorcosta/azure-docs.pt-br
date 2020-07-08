@@ -4,15 +4,14 @@ description: Etapas para conectar VNets clássicas às VNets do Azure Resource M
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987674"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
 
@@ -84,7 +83,7 @@ A seguinte tabela mostra um exemplo de como as VNets e os sites locais de exempl
 
 Nesta seção, você cria a VNet clássica, a rede local (site local) e o gateway de rede virtual. Capturas de tela são fornecidas como exemplos. Não se esqueça de substituir os valores pelos seus próprios valores ou use os valores de [Exemplo](#values).
 
-### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"> </a>criar uma VNet clássica
+### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> criar uma VNet clássica
 
 Caso não tenha uma VNet clássica e esteja executando estas etapas como um exercício, você pode criar uma VNet usando [este artigo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e os valores de configurações de [Exemplo](#values) acima.
 
@@ -96,7 +95,7 @@ Caso já tenha uma VNet com um gateway de VPN, verifique se o gateway é Dinâmi
 4. Localize “Rede Virtual” na lista retornada e clique nela para abrir a página Rede Virtual. 
 5. Na página da rede virtual, selecione “Clássica” para criar uma VNet clássica. Se você usar o padrão aqui, acabará com uma rede virtual do Resource Manager.
 
-### <a name="2-configure-the-local-site"></a>2. <a name="local"> </a>configurar o site local
+### <a name="2-configure-the-local-site"></a>2. <a name="local"></a> Configurar o site local
 
 1. Navegue até **Todos os recursos** e localize **ClassicVNet** na lista.
 2. Clique em **Gateway** na seção **configurações** do menu e, em seguida, clique na faixa para criar um gateway.

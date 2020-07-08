@@ -5,19 +5,18 @@ description: Este artigo mostra como implantar um aplicativo IPv6 dual stack com
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5b1a91dd8779b8e79e221c620881d4848bae9e1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711520"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Implantar um aplicativo IPv6 dual stack na rede virtual do Azure-modelo
 
@@ -183,4 +182,4 @@ Para implantar um aplicativo de pilha dupla IPv6 na rede virtual do Azure usando
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode encontrar detalhes sobre os preços de [endereços IP públicos](https://azure.microsoft.com/pricing/details/ip-addresses/), [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/)ou [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+Você pode encontrar detalhes sobre os preços para [endereços IP públicos](https://azure.microsoft.com/pricing/details/ip-addresses/), [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/) ou [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

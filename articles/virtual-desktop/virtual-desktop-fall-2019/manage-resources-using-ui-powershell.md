@@ -4,27 +4,26 @@ description: Como implantar a ferramenta de gerenciamento para a área de trabal
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9aea1f56b742d87df769a3206f15024afdf87b3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513407"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implantar uma ferramenta de gerenciamento com o PowerShell
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 Este artigo mostrará como implantar a ferramenta de gerenciamento usando o PowerShell.
 
 ## <a name="important-considerations"></a>Considerações importantes
 
-Cada assinatura de locatário do Azure Active Directory (AD do Azure) precisa de sua própria implantação separada da ferramenta de gerenciamento. Esta ferramenta não dá suporte a cenários B2B (Business-to-Business) do Azure AD. 
+Cada assinatura de locatário do Azure Active Directory (AD do Azure) precisa de sua própria implantação separada da ferramenta de gerenciamento. Esta ferramenta não dá suporte a cenários B2B (Business-to-Business) do Azure AD.
 
 Esta ferramenta de gerenciamento é uma amostra. A Microsoft fornecerá atualizações de qualidade e de segurança importantes. [O código-fonte está disponível no GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Seja você um cliente ou parceiro, incentivamos a personalização da ferramenta para atender às suas necessidades de negócios.
 
@@ -40,7 +39,7 @@ Os navegadores a seguir são compatíveis com a ferramenta de gerenciamento do:
 Antes de implantar a ferramenta de gerenciamento, você precisará que um usuário do Azure AD (Azure Active Directory) crie um registro de aplicativo e implante a interface do usuário de gerenciamento. Esse usuário precisa:
 
 - Ter permissão para criar recursos em sua assinatura do Azure
-- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Depois de implantar e configurar a ferramenta de gerenciamento, é recomendável solicitar que um usuário inicie a interface do usuário de gerenciamento para verificar se tudo está funcionando. O usuário que inicia a interface do usuário de gerenciamento deve ter uma atribuição de função que permita exibir ou editar o locatário da Área de Trabalho Virtual do Windows.
 
@@ -93,7 +92,7 @@ Agora que você concluiu o registro do aplicativo do Azure AD, você pode implan
 ## <a name="deploy-the-management-tool"></a>Implantar a ferramenta de gerenciamento
 
 Execute os seguintes comandos do PowerShell para implantar a ferramenta de gerenciamento e associá-la à entidade de serviço que você acabou de criar:
-     
+
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -120,7 +119,7 @@ Execute os comandos do PowerShell a seguir para recuperar a URL do aplicativo We
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri
 ```
 
 Agora que você adicionou um URI de redirecionamento, você precisa atualizar a URL da API para que a ferramenta de gerenciamento possa interagir com o serviço de back-end de API.
@@ -143,12 +142,12 @@ Para verificar a configuração de aplicativo do Azure AD e fornecer consentimen
 2. Na barra de pesquisa na parte superior da portal do Azure, procure **registros de aplicativo** e selecione o item em **Serviços**.
 3. Selecione **todos os aplicativos** e pesquise o nome exclusivo do aplicativo fornecido para o script do PowerShell em [criar um Azure Active Directory registro de aplicativo](#create-an-azure-active-directory-app-registration).
 4. No painel no lado esquerdo do navegador, selecione **autenticação** e verifique se o URI de redirecionamento é o mesmo da URL do aplicativo Web para a ferramenta de gerenciamento, conforme mostrado na imagem a seguir.
-   
-   [![A página de autenticação com o URI](../media/management-ui-redirect-uri-inline.png) de redirecionamento inserido](../media/management-ui-redirect-uri-expanded.png#lightbox)
+
+   [![A página de autenticação com o URI ](../media/management-ui-redirect-uri-inline.png) de redirecionamento inserido](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
 5. No painel esquerdo, selecione **permissões de API** para confirmar que as permissões foram adicionadas. Se você for um administrador global, selecione o botão **conceder consentimento de `tenantname` administrador para** e siga os prompts de diálogo para fornecer consentimento de administrador para sua organização.
-    
-    [![A página](../media/management-ui-permissions-inline.png) permissões de API](../media/management-ui-permissions-expanded.png#lightbox)
+
+    [![A página ](../media/management-ui-permissions-inline.png) permissões de API](../media/management-ui-permissions-expanded.png#lightbox)
 
 Agora você pode começar a usar a ferramenta de gerenciamento.
 
@@ -158,13 +157,13 @@ Agora que você configurou a ferramenta de gerenciamento a qualquer momento, pod
 
 1. Abra a URL do aplicativo Web em um navegador da Web. Se você não se lembrar da URL, poderá entrar no Azure, localizar o serviço de aplicativo implantado para a ferramenta de gerenciamento e, em seguida, selecionar a URL.
 2. Entre usando suas credenciais da Área de Trabalho Virtual do Windows.
-   
+
    > [!NOTE]
    > Se você não concedeu consentimento de administrador ao configurar a ferramenta de gerenciamento, cada usuário que se conectar precisará fornecer seu próprio consentimento de usuário para usar a ferramenta.
 
 3. Quando for solicitado a escolher um grupo de locatários, selecione **grupo de locatários padrão** na lista suspensa.
 4. Quando você seleciona **Grupo de Locatários Padrão**, um menu deve ser exibido no lado esquerdo da janela. Nesse menu, encontre o nome do seu grupo de locatários e selecione-o.
-   
+
    > [!NOTE]
    > Se tiver um grupo de locatários personalizado, digite o nome manualmente em vez de escolher na lista suspensa.
 

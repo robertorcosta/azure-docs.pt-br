@@ -1,5 +1,5 @@
 ---
-title: Criar um Basic Load Balancer interno – CLI do Azure
+title: Criar um Load Balancer interno-CLI do Azure
 titleSuffix: Azure Load Balancer
 description: Neste artigo, saiba como criar um balanceador de carga interno usando CLI do Azure
 services: load-balancer
@@ -7,18 +7,17 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79457004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921713"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balancear a carga de VMs usando a CLI do Azure
 
@@ -42,7 +41,7 @@ O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroupILB* na loc
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual chamada *myVnet* com uma sub-rede denominada *mysubnet* no *MyResource* , usando [AZ Network vnet Create](https://docs.microsoft.com/cli/azure/network/vnet).
+Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *myResourceGroup* usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -52,7 +51,7 @@ Crie uma rede virtual chamada *myVnet* com uma sub-rede denominada *mysubnet* no
     --subnet-name mySubnet
 ```
 
-## <a name="create-basic-load-balancer"></a>Criar o balanceador de carga básico
+## <a name="create-standard-load-balancer"></a>Criar o Standard Load Balancer
 
 Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
   - uma configuração de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
@@ -62,12 +61,15 @@ Esta seção fornece detalhes sobre como criar e configurar os componentes do ba
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Crie um Load Balancer interno com [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** , que inclui uma configuração de IP de front-end chamada **myfrontend**, um pool de back-end chamado **MYBACKENDPOOL** que está associado a um endereço IP privado * * 10.0.0.7.
+Crie um Load Balancer interno com [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** , que inclui uma configuração de IP de front-end chamada **myfrontend**, um pool de back-end chamado **MYBACKENDPOOL** que está associado a um endereço IP privado **10.0.0.7**. 
+
+Use `--sku basic` para criar um Load Balancer Básico. A Microsoft recomenda o SKU Standard para cargas de trabalho de produção.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -77,7 +79,7 @@ Crie um Load Balancer interno com [AZ Network lb Create](https://docs.microsoft.
 
 ### <a name="create-the-health-probe"></a>Criar a investigação de integridade
 
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [AZ Network lb Probe Create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -85,7 +87,7 @@ Uma investigação de integridade verifica todas as instâncias da máquina virt
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
@@ -103,6 +105,12 @@ Uma regra de balanceador de carga define a configuração de IP de front-end par
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+Você também pode criar uma regra de balanceador de carga de [portas de alta disponibilidade](load-balancer-ha-ports-overview.md) usando a configuração abaixo com Standard Load Balancer.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>Criar servidores para o pool de endereços de back-end

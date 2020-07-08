@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022361"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector do Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory dá suporte aos seguintes armazenamentos de dados e formatos por meio de copiar, fluxo de dados, Pesquisar, obter metadados e excluir atividades. Clique em cada armazenamento de dados para aprender os recursos com suporte e as configurações correspondentes em detalhes.

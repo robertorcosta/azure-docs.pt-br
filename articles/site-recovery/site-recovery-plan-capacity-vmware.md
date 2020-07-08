@@ -8,11 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710704"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planejar a capacidade e o dimensionamento da recuperação de desastre do VMware para o Azure
 
@@ -124,7 +123,7 @@ Se você aumentar sua implantação além de 200 computadores de origem ou tiver
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar computadores para usar o novo servidor de processo
 
-1. Selecione **configurações** > **site Recovery servidores**. Selecione o servidor de configuração e, em seguida, expanda **Servidores de processo**.
+1. Selecione **configurações**  >  **site Recovery servidores**. Selecione o servidor de configuração e, em seguida, expanda **Servidores de processo**.
 
     ![Captura de tela da caixa de diálogo Servidor de Processo](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Clique com o botão direito do mouse no servidor em processo atualmente em uso e selecione **Alternar**.
@@ -144,12 +143,12 @@ Para saber como adicionar um servidor de destino mestre a uma máquina virtual b
 
 Para adicionar um servidor de destino mestre para uma máquina virtual do Windows:
 
-1.  > Vá para **cofre dos serviços de recuperação**site Recovery servidores de**configuração**de**infraestrutura** > .
+1. Vá para **cofre dos serviços de recuperação**  >  **site Recovery**  >  **servidores de configuração**de infraestrutura.
 2. Selecione o servidor de configuração necessário e, em seguida, selecione **Servidor de Destino Mestre**.
 
     ![Captura de tela que mostra o botão Adicionar Servidor de Destino Mestre](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Baixe o arquivo de configuração unificado e, em seguida, execute o arquivo na VM para configurar o servidor de destino mestre.
-4. Selecione **instalar destino** > mestre**Avançar**.
+4. Selecione **instalar destino mestre**  >  **Avançar**.
 
     ![Captura de tela que mostra como selecionar a opção Instalar destino mestre](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. Selecione o local de instalação padrão e, em seguida, **Instalar**.
@@ -163,7 +162,7 @@ Para adicionar um servidor de destino mestre para uma máquina virtual do Window
     ![Captura de tela que mostra em que local inserir o endereço IP e a frase secreta para o servidor de configuração](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Selecione **Registrar**. Ao final do registro, selecione **Concluir**.
 
-Quando o registro for concluído com êxito, o servidor será listado no portal do Azure no >  **cofre dos serviços de recuperação****site Recovery** > **servidores de configuração**de infraestrutura, nos servidores de destino mestre do servidor de configuração.
+Quando o registro for concluído com êxito, o servidor será listado no portal do Azure no **cofre dos serviços de recuperação**  >  **site Recovery**  >  **servidores de configuração**de infraestrutura, nos servidores de destino mestre do servidor de configuração.
 
  > [!NOTE]
  > Baixe a versão mais recente do [arquivo de configuração unificado do servidor de destino mestre para Windows](https://aka.ms/latestmobsvc).
