@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 95bf939feaad39d261e03938a3c7dd12a76cdd99
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673213"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805813"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o JRE do Java 8 de 64 bits. Se você quiser apenas o nome do pacote para começar por conta própria, o SDK do Java não estará disponível no repositório central do Maven. Se você estiver usando o Gradle ou um arquivo de dependência `pom.xml`, será necessário adicionar um repositório personalizado apontando para `https://csspeechstorage.blob.core.windows.net/maven/` (veja abaixo o nome do pacote).
 
@@ -40,24 +40,24 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 
   - No Ubuntu, execute os seguintes comandos para instalar os pacotes necessários:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.0 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
 
   - No Debian 9, execute os seguintes comandos para instalar os pacotes necessários:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.2 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
 
   - No RHEL/CentOS, execute os seguintes comandos para instalar os pacotes necessários:
 
-        ```sh
-        sudo yum update
-        sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
-        ```
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
+    ```
 
 > [!NOTE]
 > - No RHEL/CentOS 7, siga as instruções sobre [como configurar o RHEL/CentOS 7 para o SDK de Fala](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).

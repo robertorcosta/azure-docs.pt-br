@@ -4,22 +4,18 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/08/2020
-ms.openlocfilehash: 0163d2cd0f056f46eb176a84e55d84fe6adc9943
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f4c59cb24f0bbc131ace8a56d8530e7894ecfecf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196567"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805713"
 ---
 ## <a name="create-an-azure-resource"></a>Criar um recurso do Azure
 
 Comece a usar a API de Pesquisa Personalizada do Bing criando um dos recursos do Azure a seguir.
 
-### <a name="trial-resource"></a>[Recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)
-   * Não é necessário ter uma assinatura do Azure.
-   * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
-
-### <a name="bing-custom-search-resource"></a>[Recurso de Pesquisa Personalizada do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch)
+### <a name="bing-custom-search-resource"></a>[Recurso de Pesquisa Personalizada do Bing](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch)
    * Disponível por meio do portal do Azure até que você exclua o recurso.
    * Use o tipo de preço gratuito para experimentar o serviço e atualize mais tarde para uma camada paga para produção.
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 7947c468f5d35869b9185062b8dc479234297486
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a7e47ebd9695b57163aacdfa5faf3ad82fc7e12d
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673230"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805497"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se quiser apenas o nome do pacote para começar por conta própria, execute `pip install azure-cognitiveservices-speech`.
 
@@ -28,24 +28,24 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 
   - No Ubuntu, execute os seguintes comandos para instalar os pacotes necessários:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.0 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
 
   - No Debian 9, execute os seguintes comandos para instalar os pacotes necessários:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.2 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
 
   - No RHEL/CentOS, execute os seguintes comandos para instalar os pacotes necessários:
 
-        ```sh
-        sudo yum update
-        sudo yum install alsa-lib openssl python3
-        ```
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib openssl python3
+    ```
 
 > [!NOTE]
 > - No RHEL/CentOS 7, siga as instruções sobre [como configurar o RHEL/CentOS 7 para o SDK de Fala](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
