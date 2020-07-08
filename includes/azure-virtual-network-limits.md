@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82096035"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager
@@ -70,23 +70,23 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Balanceadores de carga                          | 1,000                         |
 | Regras por recurso                      | 1\.500                         |
 | Regras por NIC (em todos os IPs em uma NIC) | 300                           |
-| Configurações de IP de front-end              | 600                           |
+| Configuração do IP de front-end              | 600                           |
 | Tamanho do pool de back-end                       | 1.000 configurações de IP, rede virtual única |
-| Recursos de back- <sup>end por Load Balancer 1<sup> | 150                   |
+| Recursos de back-end por Load Balancer <sup> 1<sup> | 150                   |
 | Portas de alta disponibilidade                 | 1 por front-end interno       |
 | Regras de saída por Load Balancer        | 600                           |
 | [Tempo limite de ociosidade de TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutos/30 minutos          |
 
 <sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquina virtual autônoma, recursos de conjunto de disponibilidade e grupos de posicionamento de conjunto de dimensionamento de máquinas virtuais.
 
-**Load Balancer básica**
+**Load Balancer Básico**
 
 | Recurso                                | Limite        |
 |-----------------------------------------|------------------------------|
 | Balanceadores de carga                          | 1,000                        |
 | Regras por recurso                      | 250                          |
 | Regras por NIC (em todos os IPs em uma NIC) | 300                          |
-| Configurações de IP de front-end              | 200                          |
+| Configuração do IP de front-end              | 200                          |
 | Tamanho do pool de back-end                       | 300 configurações de IP, conjunto de disponibilidade único |
 | Conjuntos de disponibilidade por Load Balancer     | 150                          |
 
@@ -97,7 +97,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Redes virtuais |100 |100 |
 | Sites de redes locais |20 |50 |
 | Servidores DNS por rede virtual |20 |20 |
-| Endereços IP privados por rede virtual |4.096 |4.096 |
+| Endereços IP privados por rede virtual |4\.096 |4\.096 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500.000, até 1 milhão para duas ou mais NICs. |500.000, até 1 milhão para duas ou mais NICs. |
 | Grupos de segurança de rede (NSG) |200 |200 |
 | Regras de NSG por NSG |1,000 |1,000 |

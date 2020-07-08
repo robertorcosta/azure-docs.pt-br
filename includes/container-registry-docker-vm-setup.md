@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
 ms.openlocfilehash: be170144fddeb1a69592f1714ec745d559665832
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982404"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Criar uma máquina virtual habilitada para Docker
@@ -67,7 +67,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
-Siga as etapas em [Instalar a CLI do Azure com apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) para instalar a CLI do Azure em sua máquina virtual do Ubuntu. Por exemplo: 
+Siga as etapas em [Instalar a CLI do Azure com apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) para instalar a CLI do Azure em sua máquina virtual do Ubuntu. Por exemplo:
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash

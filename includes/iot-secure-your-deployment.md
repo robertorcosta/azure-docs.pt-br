@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76748751"
 ---
 Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
@@ -83,11 +83,11 @@ A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usand
 
 O Hub IoT do Azure permite a definição de [políticas de controle de acesso](../articles/iot-hub/iot-hub-devguide-security.md) para cada chave de segurança. Ele usa o conjunto de permissões a seguir para conceder acesso aos pontos de extremidades de cada Hub IoT. As permissões limitam o acesso a um Hub IoT com base na funcionalidade.
 
-* **RegistryRead**. Concede acesso de leitura ao Registro de identidade. Para saber mais, consulte [Registro de identidade](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+* **RegistryRead**. Concede acesso de leitura ao Registro de identidade. Para obter mais informações, consulte [registro de identidade](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
-* **RegistryReadWrite**. Concede acesso de leitura e gravação ao Registro de identidade. Para saber mais, consulte [Registro de identidade](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+* **RegistryReadWrite**. Concede acesso de leitura e gravação ao Registro de identidade. Para obter mais informações, consulte [registro de identidade](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
-* **ServiceConnect**. Concede acesso aos pontos de extremidade de comunicação e de monitoramento voltados para o serviço de nuvem. Por exemplo, ela concede permissão para que os serviços de nuvem de back-end recebam mensagens do dispositivo para a nuvem, enviem mensagens da nuvem para o dispositivo e obtenham as confirmações de entrega correspondentes.
+* **Conectar-se**. Concede acesso aos pontos de extremidade de comunicação e de monitoramento voltados para o serviço de nuvem. Por exemplo, ela concede permissão para que os serviços de nuvem de back-end recebam mensagens do dispositivo para a nuvem, enviem mensagens da nuvem para o dispositivo e obtenham as confirmações de entrega correspondentes.
 
 * **DeviceConnect**. Concede acesso aos pontos de extremidade de comunicação voltados para o dispositivo. Por exemplo, ela concede permissão de envio de mensagens do dispositivo para a nuvem e de recebimento de mensagens da nuvem para o dispositivo. Essa permissão é usada por dispositivos.
 

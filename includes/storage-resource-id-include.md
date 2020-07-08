@@ -9,10 +9,10 @@ ms.date: 07/15/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 39b61c78cbd0333183c80234256d6041a109d846
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68249941"
 ---
 Uma ID de recurso do Azure AD indica o público para o qual um token emitido pode ser usado para fornecer acesso a um recurso do Azure. No caso do armazenamento do Azure, a ID do recurso pode ser específica para uma única conta de armazenamento ou pode ser aplicada a qualquer conta de armazenamento. A tabela a seguir descreve os valores que você pode fornecer para a ID de recurso:

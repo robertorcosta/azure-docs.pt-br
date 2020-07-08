@@ -10,17 +10,17 @@ ms.date: 08/16/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: cf6a5730f92eba8f0a4e63bf40a4d2b50f76eb3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131083"
 ---
 Ao publicar sua oferta no Marketplace por meio do Partner Center, você precisará conectar sua oferta ao sistema CRM. Dessa forma, você pode receber informações de contato do cliente imediatamente depois que um cliente expressar o interesse ou implantar seu produto.
 
 1. Escolha um destino de cliente potencial para o qual você deseja que enviemos vendas potenciais de clientes. Há suporte para os sistemas de CRM a seguir:
 
-    * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) para compromisso com o cliente
+    * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
     * [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md)
     * [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md)
 

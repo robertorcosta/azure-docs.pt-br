@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79500189"
 ---
 1. Instale certificados de cliente no cliente do Windows 10, conforme mostrado neste artigo do [cliente VPN ponto a site](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . O certificado deve estar no repositório de usuários atual.
@@ -23,7 +23,7 @@ ms.locfileid: "79500189"
 
 Depois de configurar o gateway de rede virtual e instalar o certificado do cliente no repositório do computador local no cliente do Windows 10, configure um túnel de dispositivo cliente usando os seguintes exemplos:
 
-1. Copie o texto a seguir e salve-o como *usercert. ps1*:
+1. Copie o texto a seguir e salve-o como *usercert.ps1*:
 
    ```
    Param(
@@ -75,7 +75,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie o texto a seguir e salve-o como *VPNProfile. xml* na mesma pasta que *usercert. ps1*. Edite o seguinte texto para corresponder ao seu ambiente:
+1. Copie o texto a seguir e salve-o como *VPNProfile.xml* na mesma pasta que *usercert.ps1*. Edite o seguinte texto para corresponder ao seu ambiente:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -121,7 +121,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    ```
 1. Execute o PowerShell como administrador.
 
-1. No PowerShell, alterne para a pasta em que *usercert. ps1* e *VPNProfile. xml* estão localizados e execute o seguinte comando:
+1. No PowerShell, alterne para a pasta onde *usercert.ps1* e *VPNProfile.xml* estão localizados e execute o seguinte comando:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest

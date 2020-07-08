@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 7d81799f7fbdb2b41db421daa1a85ec8cde511eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79538825"
 ---
 ### <a name="the-data-model-of-the-schema"></a>O modelo de dados do esquema
@@ -25,14 +25,14 @@ ms.locfileid: "79538825"
 |**ConfidenceScore**|Adicional Indicador de confiança numérica do alerta de segurança|
 |**Descrição**|Texto de descrição do alerta|
 |**DisplayName**|O nome de exibição do alerta|
-|**Final**|A hora de término do alerta (a hora do último evento que contribui para o alerta)|
-|**Entities**|Uma lista de entidades relacionadas ao alerta. Esta lista pode conter uma mistura de entidades de tipos diferentes|
+|**EndTime**|A hora de término do alerta (a hora do último evento que contribui para o alerta)|
+|**Entidades**|Uma lista de entidades relacionadas ao alerta. Esta lista pode conter uma mistura de entidades de tipos diferentes|
 |**ExtendedLinks**|Adicional Um recipiente para todos os links relacionados ao alerta. Esta bolsa pode conter uma mistura de links para diversos tipos|
 |**ExtendedProperties**|Um conjunto de campos adicionais que são relevantes para o alerta|
 |**Isincident**|Determina se o alerta é um incidente ou um alerta regular. Um incidente é um alerta de segurança que agrega vários alertas em um incidente de segurança|
 |**ProcessingEndTime**|Carimbo de data/hora UTC em que o alerta foi criado|
 |**ProductComponentName**|Adicional O nome de um componente dentro do produto que gerou o alerta.|
-|**ProductName**|constante (' Central de segurança do Azure ')|
+|**NomeDoProduto**|constante (' Central de segurança do Azure ')|
 |**ProviderName**|unused|
 |**RemediationSteps**|Itens de ação manual a serem necessários para corrigir a ameaça de segurança|
 |**Identificação**|Identificador completo do recurso afetado|
