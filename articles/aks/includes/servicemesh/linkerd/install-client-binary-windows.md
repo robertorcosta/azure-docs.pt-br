@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 1a023475de1ce2891916807632d9ee15e382326c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81736077"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Baixar e instalar o binário do cliente Linkerd Linkerd
@@ -23,7 +23,7 @@ $LINKERD_VERSION="stable-2.6.0"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe" -OutFile "linkerd2-cli-$LINKERD_VERSION-windows.exe"
 ```
 
-O `linkerd` binário do cliente é executado no computador cliente e permite que você interaja com a malha do serviço Linkerd. Use os comandos a seguir para instalar o `linkerd` binário do cliente Linkerd em um shell baseado no PowerShell no Windows. Esses comandos copiam `linkerd` o binário do cliente para uma pasta Linkerd e, em seguida, o disponibilizam imediatamente (no shell atual) e permanentemente (através de reinicializações do Shell) por meio de seu `PATH`. Você não precisa de privilégios elevados (administrador) para executar esses comandos e não precisa reiniciar o Shell.
+O `linkerd` binário do cliente é executado no computador cliente e permite que você interaja com a malha do serviço Linkerd. Use os comandos a seguir para instalar o `linkerd` binário do cliente Linkerd em um shell baseado no PowerShell no Windows. Esses comandos copiam o `linkerd` binário do cliente para uma pasta Linkerd e, em seguida, o disponibilizam imediatamente (no shell atual) e permanentemente (através de reinicializações do Shell) por meio de seu `PATH` . Você não precisa de privilégios elevados (administrador) para executar esses comandos e não precisa reiniciar o Shell.
 
 ```powershell
 # Copy linkerd.exe to C:\Linkerd

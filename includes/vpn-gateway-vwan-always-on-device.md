@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371700"
 ---
 Os requisitos a seguir devem ser atendidos para estabelecer com êxito um túnel de dispositivo:
@@ -28,7 +28,7 @@ Os requisitos a seguir devem ser atendidos para estabelecer com êxito um túnel
 
 Depois de configurar o gateway de rede virtual e instalar o certificado do cliente no repositório do computador local no cliente do Windows 10, use os exemplos a seguir para configurar um túnel de dispositivo do cliente:
 
-1. Copie o texto a seguir e salve-o como ***devicecert. ps1***.
+1. Copie o texto a seguir e salve-o como ***devicecert.ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie o texto a seguir e salve-o como ***VPNProfile. xml*** na mesma pasta que **devicecert. ps1**. Edite o texto a seguir para corresponder ao seu ambiente.
+1. Copie o texto a seguir e salve-o como ***VPNProfile.xml*** na mesma pasta que **devicecert.ps1**. Edite o texto a seguir para corresponder ao seu ambiente.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -124,7 +124,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    ```
 
    ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
-1. No PowerShell, alterne para a pasta em que **devicecert. ps1** e **VPNProfile. xml** estão localizados e execute o seguinte comando:
+1. No PowerShell, alterne para a pasta onde **devicecert.ps1** e **VPNProfile.xml** estão localizados e execute o seguinte comando:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest

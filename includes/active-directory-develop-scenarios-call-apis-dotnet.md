@@ -15,15 +15,15 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 3d4e45d1bf53bab4d1f9c45367f9d051f1668e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76309034"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>Propriedades de AuthenticationResult em MSAL.NET
 
-Os métodos para adquirir tokens `AuthenticationResult`retornam. Para métodos assíncronos `Task<AuthenticationResult>` , retorna.
+Os métodos para adquirir tokens retornam `AuthenticationResult` . Para métodos assíncronos, `Task<AuthenticationResult>` retorna.
 
 No MSAL.NET, `AuthenticationResult` expõe:
 
@@ -37,14 +37,14 @@ Quando o token é entregue para um usuário, `AuthenticationResult` também cont
 
 ### <a name="iaccount"></a>IAccount
 
-MSAL.NET define a noção de uma conta por meio `IAccount` da interface. Essa alteração significativa fornece a semântica correta. O mesmo usuário pode ter várias contas, em diretórios diferentes do Azure AD. Além disso, o MSAL.NET fornece informações melhores no caso de cenários de convidado, pois as informações da conta doméstica são fornecidas.
+MSAL.NET define a noção de uma conta por meio da `IAccount` interface. Essa alteração significativa fornece a semântica correta. O mesmo usuário pode ter várias contas, em diretórios diferentes do Azure AD. Além disso, o MSAL.NET fornece informações melhores no caso de cenários de convidado, pois as informações da conta doméstica são fornecidas.
 O diagrama a seguir mostra a estrutura da `IAccount` interface.
 
 ![Estrutura de interface IAccount](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
 
 A `AccountId` classe identifica uma conta em um locatário específico com as propriedades mostradas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |----------|-------------|
 | `TenantId` | Uma representação de cadeia de caracteres para um GUID, que é a ID do locatário onde a conta reside. |
 | `ObjectId` | Uma representação de cadeia de caracteres para um GUID, que é a ID do usuário que possui a conta no locatário. |
@@ -52,15 +52,15 @@ A `AccountId` classe identifica uma conta em um locatário específico com as pr
 
 A `IAccount` interface representa informações sobre uma única conta. O mesmo usuário pode estar presente em locatários diferentes, o que significa que um usuário pode ter várias contas. Seus membros são mostrados na tabela a seguir.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 |----------|-------------|
-| `Username` | Uma cadeia de caracteres que contém o valor de exibição no formato UserPrincipalName (UPN), por exemplo john.doe@contoso.com,. Essa cadeia de caracteres pode ser nula, ao contrário de HomeAccountId e HomeAccountId. Identifier, que não será nulo. Essa propriedade substitui a `DisplayableId` propriedade de `IUser` em versões anteriores do MSAL.net. |
-| `Environment` | Uma cadeia de caracteres que contém o provedor de identidade para essa conta, `login.microsoftonline.com`por exemplo,. Essa propriedade substitui a `IdentityProvider` propriedade de `IUser`, exceto que `IdentityProvider` também tinha informações sobre o locatário, além do ambiente de nuvem. Aqui, o valor é apenas o host. |
+| `Username` | Uma cadeia de caracteres que contém o valor de exibição no formato UserPrincipalName (UPN), por exemplo, john.doe@contoso.com . Essa cadeia de caracteres pode ser nula, ao contrário de HomeAccountId e HomeAccountId. Identifier, que não será nulo. Essa propriedade substitui a `DisplayableId` propriedade de `IUser` em versões anteriores do MSAL.net. |
+| `Environment` | Uma cadeia de caracteres que contém o provedor de identidade para essa conta, por exemplo, `login.microsoftonline.com` . Essa propriedade substitui a `IdentityProvider` propriedade de `IUser` , exceto que `IdentityProvider` também tinha informações sobre o locatário, além do ambiente de nuvem. Aqui, o valor é apenas o host. |
 | `HomeAccountId` | A ID da conta da página inicial do usuário. Essa propriedade identifica exclusivamente o usuário em locatários do Azure AD. |
 
 ### <a name="use-the-token-to-call-a-protected-api"></a>Usar o token para chamar uma API protegida
 
-Depois `AuthenticationResult` que é RETORNADO por MSAL `result`no, adicione-o ao cabeçalho de autorização http antes de fazer a chamada para acessar a API Web protegida.
+Depois `AuthenticationResult` que é retornado por MSAL no `result` , adicione-o ao cabeçalho de autorização http antes de fazer a chamada para acessar a API Web protegida.
 
 ```csharp
 httpClient = new HttpClient();

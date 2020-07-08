@@ -5,15 +5,15 @@ ms.author: robinsh
 ms.topic: include
 ms.date: 05/20/2019
 ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66248839"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT
 
-Os [grupos de consumidores](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) fornecem exibições independentes no fluxo de eventos que permitem que aplicativos e serviços do Azure consumam dados de forma independente do mesmo ponto de extremidade do hub de eventos. Nesta seção, você adiciona um grupo de consumidores ao ponto de extremidade interno do Hub IoT que é usado posteriormente neste tutorial para efetuar pull de dados do ponto de extremidade.
+Os [grupos de consumidores](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) fornecem exibições independentes no fluxo de eventos que permitem que aplicativos e serviços do Azure consumam dados de modo independente do mesmo ponto de extremidade do Hub de Eventos. Nesta seção, você adiciona um grupo de consumidores ao ponto de extremidade interno do Hub IoT que é usado posteriormente neste tutorial para efetuar pull de dados do ponto de extremidade.
 
 Para adicionar um grupo de consumidores ao hub IoT, siga estas etapas:
 

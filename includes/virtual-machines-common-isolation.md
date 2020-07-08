@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83343313"
 ---
 A Computação do Azure oferece tamanhos de máquina virtual Isolada, para um tipo de hardware específico e dedicada a um único cliente.  Esses tamanhos de máquina virtual são mais adequados para cargas de trabalho que exigem um alto grau de isolamento de outros clientes, para cargas de trabalho que envolvem elementos como requisitos normativos e de conformidade.  Os clientes também podem optar por subdividir ainda mais os recursos dessas máquinas virtuais Isoladas usando [o Suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -87,8 +87,8 @@ Para obter detalhes, veja abaixo:
 | RI |  Flexibilidade do tamanho da instância | Elegibilidade do benefício |   
 | --- | --- | --- |
 |   D15_v2  |   Desativado     |   D15_v2 e D15i_v2 |    
-|   D15_v2  |   Por  |   D15_v2 série e D15i_v2 receberão o benefício RI. |    
-|   D14_v2  |   Por  |   D15_v2 série e D15i_v2 receberão o benefício RI. |    
+|   D15_v2  |   Ativado  |   D15_v2 série e D15i_v2 receberão o benefício RI. |    
+|   D14_v2  |   Ativado  |   D15_v2 série e D15i_v2 receberão o benefício RI. |    
  
 Da mesma forma para a série Dsv2.
  
@@ -98,9 +98,9 @@ Da mesma forma para a série Dsv2.
 | RI |  Flexibilidade do tamanho da instância | Elegibilidade do benefício |   
 | --- | --- | --- |
 | D15_v2 |  Desativado |   Somente D15_v2  
-| D15_v2 |  Por |    A série D15_v2 receberá o benefício de RI. O novo D15i_v2 não será elegível para o benefício de RI desse tipo de RI. | 
+| D15_v2 |  Ativado |    A série D15_v2 receberá o benefício de RI. O novo D15i_v2 não será elegível para o benefício de RI desse tipo de RI. | 
 | D15i_v2 |     Desativado | Somente D15i_v2 |  
-| D15i_v2 |     Por  | Somente D15i_v2 | 
+| D15i_v2 |     Ativado  | Somente D15i_v2 | 
  
 A flexibilidade do tamanho da instância não pode ser usada para se aplicar a outros tamanhos, como D2_v2, D4_v2 ou D15_v2. Da mesma forma, para a série Dsv2.  
  

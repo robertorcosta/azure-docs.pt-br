@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fda22346a44388248e37473bc7891b8a130569c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81681044"
 ---
 1. Na página **criar um emparelhamento** , na guia **configuração** , preencha as caixas como mostrado aqui.
@@ -67,7 +67,7 @@ ms.locfileid: "81681044"
     > [!div class="mx-imgBorder"]
     > ![Envio de emparelhamento](../media/setup-direct-review-tab-submit.png)
 
-1. Depois de enviar a solicitação, aguarde a conclusão da implantação. Se a implantação falhar, entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida aparece como mostrado aqui.
+1. Depois de enviar a solicitação, aguarde a conclusão da implantação. Se a implantação falhar, entre em contato com [Emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida aparece como mostrado aqui.
 
     > [!div class="mx-imgBorder"]
     > ![Êxito no emparelhamento](../media/setup-direct-success.png)

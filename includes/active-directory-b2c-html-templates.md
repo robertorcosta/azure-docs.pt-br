@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78188998"
 ---
 ## <a name="sample-templates"></a>Modelos de exemplo
@@ -25,9 +25,9 @@ Este projeto contém os seguintes modelos:
 
 Para usar o exemplo:
 
-1. Clone o repositório em seu computador local. Escolha uma pasta `/ocean_blue` de modelo `/slate_gray`ou.
+1. Clone o repositório em seu computador local. Escolha uma pasta de modelo `/ocean_blue` ou `/slate_gray` .
 1. Carregue todos os arquivos na pasta modelo e na `/assets` pasta, no armazenamento de BLOBs, conforme descrito nas seções anteriores.
-1. Em seguida, abra `\*.html` cada arquivo na raiz de `/ocean_blue` ou `/slate_gray`, substitua todas as instâncias de URLs relativas pelas URLs do CSS, imagens e arquivos de fontes que você carregou na etapa 2. Por exemplo:
+1. Em seguida, abra cada `\*.html` arquivo na raiz de `/ocean_blue` ou `/slate_gray` , substitua todas as instâncias de URLs relativas pelas URLs do CSS, imagens e arquivos de fontes que você carregou na etapa 2. Por exemplo:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -38,4 +38,4 @@ Para usar o exemplo:
     ```
 1. Salve os `\*.html` arquivos e carregue-os no armazenamento de BLOBs.
 1. Agora, modifique a política, apontando para o arquivo HTML, conforme mencionado anteriormente.
-1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e nos \*arquivos. html.
+1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e nos \* arquivos. html.

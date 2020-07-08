@@ -5,34 +5,34 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: c71f35a06d904b45cb014d5199197220b57cf230
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79485934"
 ---
 As entradas no `deploymentconfig.json` documento são mapeadas para os parâmetros de [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades no documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
-| `computeType` | NA | O destino de computação. Para AKS, o valor deve ser `aks`. |
+| `computeType` | NA | O destino de computação. Para AKS, o valor deve ser `aks` . |
 | `autoScaler` | NA | Contém elementos de configuração para dimensionamento automático. Consulte a tabela de dimensionamento de escalabilidade. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Se é para habilitar o dimensionamento automático para o serviço Web. `numReplicas`  = Se `0`, `True`; caso contrário `False`,. |
-| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | O número mínimo de contêineres a ser usado ao dimensionar automaticamente este serviço Web. Padrão, `1`. |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | O número máximo de contêineres a serem usados ao dimensionar automaticamente este serviço Web. Padrão, `10`. |
-| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Com que frequência o dimensionador de autoescala tenta dimensionar esse serviço Web. Padrão, `1`. |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | A utilização de destino (em porcentagem de 100) que o dimensionador deve tentar manter para esse serviço Web. Padrão, `70`. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Se é para habilitar o dimensionamento automático para o serviço Web. Se `numReplicas`  =  `0` , `True` ; caso contrário, `False` . |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | O número mínimo de contêineres a ser usado ao dimensionar automaticamente este serviço Web. Padrão, `1` . |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | O número máximo de contêineres a serem usados ao dimensionar automaticamente este serviço Web. Padrão, `10` . |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Com que frequência o dimensionador de autoescala tenta dimensionar esse serviço Web. Padrão, `1` . |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | A utilização de destino (em porcentagem de 100) que o dimensionador deve tentar manter para esse serviço Web. Padrão, `70` . |
 | `dataCollection` | NA | Contém elementos de configuração para a coleta de dados. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Se a coleta de dados do modelo deve ser habilitada para o serviço Web. Padrão, `False`. |
-| `authEnabled` | `auth_enabled` | Se deseja ou não habilitar a autenticação de chave para o serviço Web. Ambos `tokenAuthEnabled` e `authEnabled` não podem `True`ser. Padrão, `True`. |
-| `tokenAuthEnabled` | `token_auth_enabled` | Se deseja ou não habilitar a autenticação de token para o serviço Web. Ambos `tokenAuthEnabled` e `authEnabled` não podem `True`ser. Padrão, `False`. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Se a coleta de dados do modelo deve ser habilitada para o serviço Web. Padrão, `False` . |
+| `authEnabled` | `auth_enabled` | Se deseja ou não habilitar a autenticação de chave para o serviço Web. Ambos `tokenAuthEnabled` e `authEnabled` não podem ser `True` . Padrão, `True` . |
+| `tokenAuthEnabled` | `token_auth_enabled` | Se deseja ou não habilitar a autenticação de token para o serviço Web. Ambos `tokenAuthEnabled` e `authEnabled` não podem ser `True` . Padrão, `False` . |
 | `containerResourceRequirements` | NA | Contêiner para as entidades de CPU e memória. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a serem alocados para este serviço Web. Padrões`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a ser alocada para este serviço Web. Os`0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Se é para habilitar o log de Application Insights para o serviço Web. Padrão, `False`. |
-| `scoringTimeoutMs` | `scoring_timeout_ms` | Um tempo limite para impor chamadas de Pontuação para o serviço Web. Padrão, `60000`. |
-| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | O máximo de solicitações simultâneas por nó para este serviço Web. Padrão, `1`. |
-| `maxQueueWaitMs` | `max_request_wait_time` | O tempo máximo que uma solicitação permanecerá na fila três (em milissegundos) antes de um erro 503 ser retornado. Padrão, `500`. |
+| `appInsightsEnabled` | `enable_app_insights` | Se é para habilitar o log de Application Insights para o serviço Web. Padrão, `False` . |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | Um tempo limite para impor chamadas de Pontuação para o serviço Web. Padrão, `60000` . |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | O máximo de solicitações simultâneas por nó para este serviço Web. Padrão, `1` . |
+| `maxQueueWaitMs` | `max_request_wait_time` | O tempo máximo que uma solicitação permanecerá na fila três (em milissegundos) antes de um erro 503 ser retornado. Padrão, `500` . |
 | `numReplicas` | `num_replicas` | O número de contêineres a serem alocados para este serviço Web. Sem valor padrão. Se esse parâmetro não for definido, o dimensionador será habilitado por padrão. |
 | `keys` | NA | Contém elementos de configuração para chaves. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | Uma chave de autenticação primária a ser usada para este serviço Web |

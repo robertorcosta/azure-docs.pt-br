@@ -9,15 +9,15 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82788971"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
-Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços.  Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
+Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços.  Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
 
 O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *myGalleryRG*.
 
@@ -35,7 +35,7 @@ O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *my
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-Definições de imagem crie um agrupamento lógico para imagens. Eles são usados para gerenciar informações sobre as versões de imagem que são criadas dentro delas. Os nomes de definição de imagem podem ser compostos de letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos. Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+As definições de imagem criam um agrupamento lógico para as imagens. Elas são usadas para gerenciar informações sobre as versões da imagem que são criadas dentro delas. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a imagem da galeria é denominada *myImageDefinition*.
 
@@ -57,7 +57,7 @@ Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a 
 
 Crie uma versão de imagem de uma imagem gerenciada. Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher regiões de destino para replicação, lembre-se de que você também precisa incluir a região de *origem* como um destino para replicação.
 
-Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 As etapas para criar uma versão de imagem são um pouco diferentes, dependendo se a origem é uma imagem generalizada ou um instantâneo de uma VM especializada. 
 
@@ -89,11 +89,11 @@ Pode levar algum tempo para replicar a imagem para todas as regiões de destino.
 1. Quando a versão da imagem passar na validação, selecione **criar**.
 1. Quando a implantação for concluída, selecione **ir para o recurso**.
 
-## <a name="share-the-gallery"></a>Compartilhar a Galeria
+## <a name="share-the-gallery"></a>Compartilhar a galeria
 
-Recomendamos que você compartilhe o acesso no nível da Galeria de imagens. O seguinte guia você pelo compartilhamento da galeria que você acabou de criar.
+Recomendamos que você compartilhe o acesso no nível da galeria de imagens. O seguinte guia você pelo compartilhamento da galeria que você acabou de criar.
 
-1. Abra o [portal do Azure](https://portal.azure.com).
+1. Abra o [Portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione grupos de **recursos**. 
 1. Na lista de grupos de recursos, selecione **myGalleryRG**. A folha do seu grupo de recursos será aberta.
 1. No menu à esquerda da página **myGalleryRG** , selecione **controle de acesso (iam)**. 

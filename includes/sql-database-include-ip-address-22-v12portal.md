@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67172001"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com/).
@@ -39,7 +39,7 @@ ms.locfileid: "67172001"
 
     * Pode ser útil ter o valor baixo terminado com **0,0** e o valor alto terminado com **0,255**.
 
-11. Selecione **Salvar**.
+11. Clique em **Salvar**.
 
 <!-- Image references. -->
 

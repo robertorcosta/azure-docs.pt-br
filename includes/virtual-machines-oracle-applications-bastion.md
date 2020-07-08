@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 35f506235f698fbcf42308e6f0b0f400e925df29
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68361538"
 ---
 ### <a name="bastion-tier"></a>Camada de bastiões
@@ -23,4 +23,4 @@ Aqui está um exemplo de encaminhamento de agente:
 ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP`
 ```
 
-Esse comando conecta-se à bastiões e, em seguida `ssh` , é executado imediatamente, para que você obtenha um terminal na instância de destino. Talvez seja necessário especificar um usuário diferente da raiz na instância de destino se o cluster estiver configurado de forma diferente. O `-A` argumento encaminha a conexão do agente para que sua chave privada em seu computador local seja usada automaticamente. Observe que o encaminhamento do agente é uma cadeia, portanto `ssh` , o segundo `-A` comando também inclui para que todas as conexões SSH subsequentes iniciadas a partir da instância de destino também usem sua chave privada local.
+Esse comando conecta-se à bastiões e, em seguida, é executado imediatamente `ssh` , para que você obtenha um terminal na instância de destino. Talvez seja necessário especificar um usuário diferente da raiz na instância de destino se o cluster estiver configurado de forma diferente. O `-A` argumento encaminha a conexão do agente para que sua chave privada em seu computador local seja usada automaticamente. Observe que o encaminhamento do agente é uma cadeia, portanto, o segundo `ssh` comando também inclui `-A` para que todas as conexões SSH subsequentes iniciadas a partir da instância de destino também usem sua chave privada local.
