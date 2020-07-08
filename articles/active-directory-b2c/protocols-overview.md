@@ -11,10 +11,9 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78183897"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: protocolos de autenticação
@@ -27,7 +26,7 @@ As informações neste guia são úteis se você escreve seu código enviando e 
 ## <a name="the-basics"></a>Noções básicas
 Todo aplicativo que usa o Azure AD B2C precisa ser registrado em seu diretório B2C no [Portal do Azure](https://portal.azure.com). O processo de registro do aplicativo coleta e atribui alguns valores ao seu aplicativo:
 
-* Uma **ID de aplicativo** que identifica exclusivamente o aplicativo.
+* Uma **ID de aplicativo** que identifica exclusivamente seu aplicativo.
 * Um **URI de redirecionamento** ou **identificador de pacote** que pode ser usado para direcionar as respostas de volta para seu aplicativo.
 * Alguns outros valores específicos de cenário. Para obter mais informações, saiba [como registrar seu aplicativo](tutorial-register-applications.md).
 

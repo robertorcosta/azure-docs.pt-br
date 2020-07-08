@@ -12,10 +12,9 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78183968"
 ---
 # <a name="page-layout-versions"></a>Versões do layout da página
@@ -26,7 +25,7 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 
 ## <a name="200"></a>2.0.0
 
-- Página autodeclarada (`selfasserted`)
+- Página autodeclarada ( `selfasserted` )
   - Adicionado suporte para [controles de exibição](display-controls.md) em políticas personalizadas.
 
 ## <a name="120"></a>1.2.0
@@ -36,10 +35,10 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
   - Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carregamento para CSS e JavaScript.
     - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
     - Controle a ordem na qual suas `script` marcas são buscadas e executadas antes do carregamento da página.
-  - O campo de email `type=email` agora e teclados móveis fornecerão as sugestões corretas
+  - O campo de email agora `type=email` e teclados móveis fornecerão as sugestões corretas
   - Suporte para tradução do Chrome
 - Páginas unificadas e autodeclaradas
-  - Os campos nome de usuário/email e senha agora `form` usam o elemento HTML para permitir que o Edge e o Internet Explorer (IE) salvem corretamente essas informações.
+  - Os campos nome de usuário/email e senha agora usam o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) salvem corretamente essas informações.
 
 ## <a name="110"></a>1.1.0
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196919"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
@@ -27,7 +26,7 @@ Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste ar
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Conectar-se à interface do usuário de Administração do Apache Ranger
 **Para conectar-se à interface do usuário de Administrador do Ranger**
 
-1. Em um navegador, navegue até a interface do usuário do `https://CLUSTERNAME.azurehdinsight.net/Ranger/` administrador do Ranger em onde ClusterName é o nome do cluster.
+1. Em um navegador, navegue até a interface do usuário do administrador do Ranger em `https://CLUSTERNAME.azurehdinsight.net/Ranger/` onde ClusterName é o nome do cluster.
 
    > [!NOTE]  
    > O Ranger usa credenciais diferentes das utilizadas pelo cluster Apache Hadoop. Para evitar que os navegadores usem credenciais do Hadoop armazenadas em cache, use a nova janela de navegador InPrivate para se conectar à interface do usuário de Administração do Ranger.
@@ -83,7 +82,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
 
 As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Propriedade  |Descrição |
+ | Property  |Descrição |
  | --- | --- |
  | Nome da Fonte de Dados | Forneça um nome para a sua fonte de dados |
  | Host | Insira CLUSTERNAME.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |

@@ -4,10 +4,9 @@ description: Saiba como configurar o Azure AD (Azure Active Directory) para aute
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78193366"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
@@ -110,13 +109,13 @@ Na página de registro do aplicativo do Azure AD para seu cluster, selecione **a
 
 ### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>Conectar-se ao cluster usando a autenticação do Azure AD por meio do PowerShell fornece um erro quando você entra: "AADSTS50011"
 #### <a name="problem"></a>Problema
-Quando você tenta se conectar a um Cluster Service Fabric usando o Azure AD por meio do PowerShell, a página de entrada retorna uma falha: "AADSTS50011: a URL de resposta especificada na solicitação não corresponde às URLs de resposta configuradas &lt;para&gt;o aplicativo: GUID".
+Quando você tenta se conectar a um Cluster Service Fabric usando o Azure AD por meio do PowerShell, a página de entrada retorna uma falha: "AADSTS50011: a URL de resposta especificada na solicitação não corresponde às URLs de resposta configuradas para o aplicativo: &lt; GUID &gt; ".
 
 #### <a name="reason"></a>Motivo
 Semelhante ao problema anterior, o PowerShell tenta se autenticar no Azure AD, que fornece uma URL de redirecionamento que não está listada na lista de **URLs de resposta** do aplicativo do Azure AD.  
 
 #### <a name="solution"></a>Solução
-Use o mesmo processo que o problema anterior, mas a URL deve ser definida como `urn:ietf:wg:oauth:2.0:oob`um redirecionamento especial para autenticação de linha de comando.
+Use o mesmo processo que o problema anterior, mas a URL deve ser definida como `urn:ietf:wg:oauth:2.0:oob` um redirecionamento especial para autenticação de linha de comando.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Conectar o cluster usando a autenticação do Azure AD por meio do PowerShell
 Para se conectar ao cluster do Service Fabric, use o seguinte exemplo de comando do PowerShell:

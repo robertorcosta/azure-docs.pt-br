@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
 ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921157"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: clustering K-means
@@ -101,7 +100,7 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
 
 8.  Selecione a opção **normalizar recursos** se desejar normalizar os recursos antes do treinamento.
   
-     Se você aplicar a normalização, antes do treinamento, os pontos de dados serão `[0,1]` normalizados para por MinMaxNormalizer.
+     Se você aplicar a normalização, antes do treinamento, os pontos de dados serão normalizados para `[0,1]` por MinMaxNormalizer.
 
 10. Treinar o modelo.  
   
@@ -145,4 +144,4 @@ Em geral, com modelos de clustering, é possível que qualquer configuração es
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

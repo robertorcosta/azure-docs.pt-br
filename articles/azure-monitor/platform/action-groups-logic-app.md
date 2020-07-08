@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206229"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
@@ -110,7 +109,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
 12. Configure a ação do Microsoft Teams. O **Designer de Aplicativos Lógicos** solicitará que você autentique-se na sua conta do Office365. Escolha a **ID da Equipe** e **ID do Canal** para enviar a mensagem.
 
-13. Configure a mensagem usando uma combinação de texto estático e referências aos \<campos\> no conteúdo dinâmico. Recorte e cole o texto a seguir no campo **Mensagem**.
+13. Configure a mensagem usando uma combinação de texto estático e referências para o \<fields\> no conteúdo dinâmico. Recorte e cole o texto a seguir no campo **Mensagem**.
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,7 +118,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
       resourceId: <resourceId>
     ```
 
-    Em seguida, localize e substitua os \<campos\> por marcar de conteúdo dinâmico com o mesmo nome.
+    Em seguida, pesquise e substitua o \<fields\> por marcas de conteúdo dinâmico de mesmo nome.
 
     > [!NOTE]
     > Há dois campos dinâmicos nomeados **status**. Adicione ambos os campos à mensagem. Use um no recipiente de propriedades **activityLog** e exclua o outro campo. Passe o cursor sobre o campo ** status ** para ver a referência de campo completa, conforme mostrado na captura de tela a seguir:
@@ -296,5 +295,5 @@ Aplicativos Lógicos têm um número de diferentes conectores que permitem dispa
 ## <a name="next-steps"></a>Próximas etapas
 * Obtenha uma [visão geral dos alertas do log de atividades do Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do Serviço do Azure é publicada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-* Saiba mais sobre [grupos de ações](../../azure-monitor/platform/action-groups.md).
+* Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
 

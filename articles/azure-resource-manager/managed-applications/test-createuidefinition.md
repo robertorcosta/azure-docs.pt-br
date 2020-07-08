@@ -6,15 +6,14 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78250190"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testar a interface do portal para aplicativos gerenciados do Azure
 
-Depois de [criar o arquivo createUiDefinition. JSON](create-uidefinition-overview.md) para seu aplicativo gerenciado, você precisará testar a experiência do usuário. Para simplificar o teste, use um ambiente de área restrita que carregue o arquivo no Portal. Não é necessário realmente implantar o aplicativo gerenciado. A área restrita apresenta a interface do usuário na experiência atual do portal de tela inteira. Ou você pode usar um script para testar a interface. As duas abordagens são mostradas neste artigo. A área restrita é a maneira recomendada para visualizar a interface.
+Depois de [criar o createUiDefinition.jsno arquivo](create-uidefinition-overview.md) para seu aplicativo gerenciado, você precisa testar a experiência do usuário. Para simplificar o teste, use um ambiente de área restrita que carregue o arquivo no Portal. Não é necessário realmente implantar o aplicativo gerenciado. A área restrita apresenta a interface do usuário na experiência atual do portal de tela inteira. Ou você pode usar um script para testar a interface. As duas abordagens são mostradas neste artigo. A área restrita é a maneira recomendada para visualizar a interface.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +27,7 @@ Depois de [criar o arquivo createUiDefinition. JSON](create-uidefinition-overvie
 
    ![Mostrar área restrita](./media/test-createuidefinition/show-sandbox.png)
 
-1. Substitua a definição vazia pelo conteúdo do seu arquivo createUiDefinition. JSON. Selecione **Visualização**.
+1. Substitua a definição vazia pelo conteúdo de seu createUiDefinition.jsno arquivo. Selecione **Visualização**.
 
    ![Selecionar visualização](./media/test-createuidefinition/select-preview.png)
 

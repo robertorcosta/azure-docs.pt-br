@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255250"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Máquinas Virtuais do Azure
@@ -41,7 +40,7 @@ Informações sobre como você pode encontrar o software SAP com suporte no Azur
 
 ## <a name="azure-backup-service"></a>Serviço de Backup do Azure
 
-O primeiro cenário mostrado é um cenário em que o serviço de backup do Azure está `backint` usando a interface SAP Hana para executar um backup de streaming com um banco de dados SAP Hana. Ou você usa um recurso mais genérico do serviço de backup do Azure para criar um instantâneo de disco consistente com o aplicativo e fazer com que ele seja transferido para o serviço de backup do Azure.
+O primeiro cenário mostrado é um cenário em que o serviço de backup do Azure está usando a `backint` interface SAP Hana para executar um backup de streaming com um banco de dados SAP Hana. Ou você usa um recurso mais genérico do serviço de backup do Azure para criar um instantâneo de disco consistente com o aplicativo e fazer com que ele seja transferido para o serviço de backup do Azure.
 
 O backup do Azure integra-se e é certificado como solução de backup para SAP HANA usando a interface SAP HANA proprietária chamada [BACKINT](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Para obter mais detalhes sobre a solução, seus recursos e as regiões do Azure onde estão disponíveis, leia o artigo [matriz de suporte para backup de bancos de dados SAP Hana em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). Para obter detalhes e princípios sobre o serviço de backup do Azure para HANA, leia o artigo [sobre SAP Hana backup de banco de dados em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
 
@@ -116,12 +115,12 @@ Conforme documentado anteriormente, descrevendo os recursos de backup de instant
 > Backups baseados em instantâneo de disco para SAP HANA em implantações em que vários contêineres de banco de dados são usados, requer uma versão mínima do HANA 2,0 SP04
 > 
 
-O armazenamento do Azure, não fornece consistência do sistema de arquivos em vários discos ou volumes anexados a uma VM durante o processo de instantâneo. Isso significa que a consistência do aplicativo durante o instantâneo precisa ser entregue pelo aplicativo, neste caso SAP HANA ela mesma. A [Observação do SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre backups de SAP Hana por instantâneos de armazenamento. Por exemplo, com os sistemas de arquivos XFS, é necessário executar **o\_XFS Freeze** antes de iniciar um instantâneo de armazenamento para fornecer consistência de aplicativo (consulte [xfs\_congelar (8)-página do manual do Linux](https://linux.die.net/man/8/xfs_freeze) para obter detalhes sobre o **xfs\_Freeze**).
+O armazenamento do Azure, não fornece consistência do sistema de arquivos em vários discos ou volumes anexados a uma VM durante o processo de instantâneo. Isso significa que a consistência do aplicativo durante o instantâneo precisa ser entregue pelo aplicativo, neste caso SAP HANA ela mesma. A [Observação do SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre backups de SAP Hana por instantâneos de armazenamento. Por exemplo, com os sistemas de arquivos XFS, é necessário executar o **xfs \_ Freeze** antes de iniciar um instantâneo de armazenamento para fornecer consistência de aplicativo (consulte [xfs \_ congelar (8)-página do manual do Linux](https://linux.die.net/man/8/xfs_freeze) para obter detalhes sobre o **xfs \_ Freeze**).
 
 Supondo que haja um sistema de arquivos XFS abrangendo quatro discos virtuais do Azure, as seguintes etapas fornecem um instantâneo consistente que representa a área de dados do HANA:
 
 1. Criar preparação de instantâneo de dados do HANA
-1. Congelar os sistemas de arquivos de todos os discos/volumes (por exemplo, usar **xfs\_Freeze**)
+1. Congelar os sistemas de arquivos de todos os discos/volumes (por exemplo, usar **xfs \_ Freeze**)
 1. Crie todos os instantâneos de blob necessários no Azure
 1. Descongele o sistema de arquivos
 1. Confirmar o instantâneo de dados do HANA (excluirá o instantâneo)

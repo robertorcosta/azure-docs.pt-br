@@ -12,10 +12,9 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78184241"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operações disponíveis para Azure AD B2C
@@ -89,7 +88,7 @@ O recurso de nível superior para chaves de política na API de Microsoft Graph 
 
 - [Listar aplicativos](https://docs.microsoft.com/graph/api/application-list)
 - [Criar um aplicativo](https://docs.microsoft.com/graph/api/resources/application)
-- [Atualizar aplicativo](https://docs.microsoft.com/graph/api/application-update)
+- [Atualizar o aplicativo](https://docs.microsoft.com/graph/api/application-update)
 - [Criar servicePrincipalName](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
 - [Criar concessão de oauth2Permission](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
 - [Excluir aplicativo](https://docs.microsoft.com/graph/api/application-delete)

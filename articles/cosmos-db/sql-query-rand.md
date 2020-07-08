@@ -8,16 +8,15 @@ ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: e44878b6d65725f08aeca4eb07088315ae2bb78a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302212"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
  Retorna um valor numérico gerado aleatoriamente de [0, 1).
  
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
   
 ```sql
 RAND ()  
@@ -29,7 +28,7 @@ RAND ()
 
 ## <a name="remarks"></a>Comentários
 
-  `RAND` é uma função não determinística. As chamadas repetitivas do `RAND` não retornam os mesmos resultados.
+  `RAND` é uma função não determinística. As chamadas repetitivas do não `RAND` retornam os mesmos resultados.
 
 ## <a name="examples"></a>Exemplos
   
@@ -52,5 +51,5 @@ Essa função do sistema não usará o índice.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

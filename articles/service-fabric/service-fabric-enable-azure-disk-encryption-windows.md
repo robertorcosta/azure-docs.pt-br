@@ -4,10 +4,9 @@ description: Este artigo descreve como habilitar a criptografia de disco para n�
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78251813"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure no Windows 
@@ -31,7 +30,7 @@ O guia aborda os seguintes tópicos:
 
 **Registro automático** 
 
-A visualização de criptografia de disco para o conjunto de dimensionamento de máquinas virtuais requer o auto-registro. Use as seguintes etapas: 
+A visualização de criptografia de disco para o conjunto de dimensionamento de máquinas virtuais requer o auto-registro. Use as etapas a seguir: 
 
 1. Primeiro, execute o seguinte comando:
     ```powershell
@@ -51,7 +50,7 @@ A visualização de criptografia de disco para o conjunto de dimensionamento de 
 2. Instale a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli), que tem os novos comandos de criptografia.
 3. Instale a versão mais recente do [SDK do Azure da versão Azure PowerShell](https://github.com/Azure/azure-powershell/releases) . Veja a seguir o conjunto de dimensionamento de máquinas virtuais Azure Disk Encryption cmdlets para habilitar ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) a criptografia, recuperar ([Get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) o status de criptografia e remover ([desabilitar](/powershell/module/az.compute/disable-azvmssdiskencryption)) a criptografia na instância do conjunto de dimensionamento.
 
-| Comando | Versão |  Fonte  |
+| Comando | Versão |  Origem  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 ou posterior | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 ou posterior | Az.Compute |

@@ -10,10 +10,9 @@ ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
 ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206513"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Problemas conhecidos e solução de problemas do Máquina Virtual de Ciência de Dados do Azure
@@ -24,7 +23,7 @@ Este artigo ajuda você a encontrar e corrigir erros ou falhas que podem surgir 
 
 ### <a name="installing-packages-with-pip-breaks-dependencies-on-linux"></a>Instalando pacotes com dependências de quebras de pip no Linux
 
-Use `sudo pip install` em vez `pip install` de ao instalar pacotes.
+Use `sudo pip install` em vez de `pip install` ao instalar pacotes.
 
 ## <a name="disk-encryption-issues"></a>Problemas de criptografia de disco
 

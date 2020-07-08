@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 93b67936166eb73db5e9a15db42c2c6135794108
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271395"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
@@ -65,7 +64,7 @@ A repetição do mesmo backup no RAID de software com distribuição nos cinco d
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiar arquivos de backup do SAP HANA para o Armazenamento de Blobs do Azure
 Os números de desempenho, os números de duração do backup e os números de duração da cópia mencionados podem não representar o estado mais recente da tecnologia do Azure. A Microsoft está aprimorando o armazenamento do Azure de modo contínuo para fornecer mais taxa de transferência e latências menores. Portanto, os números são apenas para fins de demonstração. Você precisa testar sua necessidade individual na região do Azure de sua escolha para poder avaliar com o método é o melhor para você.
 
-Outra opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de cerca de 500 TB, o suficiente para sistemas SAP HANA, usando os tipos de VM M32ts, M32ls, M64ls e GS5 do Azure, para manter backups de SAP HANA suficientes. Os clientes têm a opção &quot;de&quot; armazenamento &quot;de&quot; BLOBs quente e frio (consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)).
+Outra opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de cerca de 500 TB, o suficiente para sistemas SAP HANA, usando os tipos de VM M32ts, M32ls, M64ls e GS5 do Azure, para manter backups de SAP HANA suficientes. Os clientes têm a opção &quot; de &quot; &quot; armazenamento de BLOBs quente e frio &quot; (consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)).
 
 Com a ferramenta blobxfer, é fácil copiar os arquivos de backup do SAP HANA diretamente no Armazenamento de Blobs do Azure.
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: toa, openshift, aquasec, Twistlock, Red Hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271370"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contêineres privilegiados em um cluster do Red Hat OpenShift no Azure
@@ -29,9 +28,9 @@ Os títulos de seção nas etapas específicas do produto abaixo referem-se dire
 A documentação da maioria dos produtos de segurança pressupõe que você tenha privilégios de administrador de cluster.
 Os administradores do cliente não têm todos os privilégios no Azure Red Hat OpenShift. As permissões necessárias para modificar os recursos de todo o cluster são limitadas.
 
-Primeiro, verifique se o usuário está conectado ao cluster como administrador do cliente, executando `oc get scc`. Todos os usuários que são membros do grupo administrador do cliente têm permissões para exibir as restrições de contexto de segurança (SCCs) no cluster.
+Primeiro, verifique se o usuário está conectado ao cluster como administrador do cliente, executando `oc get scc` . Todos os usuários que são membros do grupo administrador do cliente têm permissões para exibir as restrições de contexto de segurança (SCCs) no cluster.
 
-Em seguida, verifique se `oc` a versão binária `3.11.154`é.
+Em seguida, verifique se a `oc` versão binária é `3.11.154` .
 ```
 oc version
 oc v3.11.154
@@ -74,9 +73,9 @@ Continue seguindo as instruções restantes na etapa 1.  Essas instruções desc
 ### <a name="step-2-deploy-the-aqua-server-database-and-gateway"></a>Etapa 2: implantar o servidor, o banco de dados e o gateway de água
 Siga as etapas fornecidas na documentação da água para instalar a água-console. YAML.
 
-Modifique o fornecido `aqua-console.yaml`.  Remova os dois primeiros objetos rotulados `kind: ClusterRole` e. `kind: ClusterRoleBinding`  Esses recursos não serão criados, pois o administrador do cliente não tem permissão no momento para `ClusterRole` modificar `ClusterRoleBinding` e objetos.
+Modifique o fornecido `aqua-console.yaml` .  Remova os dois primeiros objetos rotulados `kind: ClusterRole` e `kind: ClusterRoleBinding` .  Esses recursos não serão criados, pois o administrador do cliente não tem permissão no momento para modificar `ClusterRole` e `ClusterRoleBinding` objetos.
 
-A segunda modificação será feita na `kind: Route` parte do. `aqua-console.yaml` Substitua o seguinte YAML para o `kind: Route` objeto no `aqua-console.yaml` arquivo.
+A segunda modificação será feita na `kind: Route` parte do `aqua-console.yaml` . Substitua o seguinte YAML para o `kind: Route` objeto no `aqua-console.yaml` arquivo.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -115,7 +114,7 @@ Defina os seguintes campos ao implantar os imforçadores:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | água-conta  |
-| Projeto        | água-segurança |
+| Project        | água-segurança |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Etapas específicas do produto para prisma Cloud/Twistlock
 
@@ -136,7 +135,7 @@ Comece com a seção "instalar console".
 ### <a name="install-console"></a>Instalar console
 
 Durante `oc create -f twistlock_console.yaml` a etapa 2, você receberá um erro ao criar o namespace.
-Você pode ignorá-lo com segurança, o namespace foi criado anteriormente com `oc new-project` o comando.
+Você pode ignorá-lo com segurança, o namespace foi criado anteriormente com o `oc new-project` comando.
 
 Use `azure-disk` para o tipo de armazenamento.
 

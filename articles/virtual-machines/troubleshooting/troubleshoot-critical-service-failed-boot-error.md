@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921446"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "SERVIÇO CRÍTICO COM FALHA" na tela azul durante a inicialização de uma VM do Azure
@@ -108,14 +107,14 @@ Para analisar os logs de despejo, siga estas etapas:
 1. Anexe o disco do sistema operacional a uma VM de recuperação.
 2. No disco do sistema operacional que você anexou, navegue até **\Windows\System32\config**. Copie todos os arquivos como um backup, caso uma reversão seja necessária.
 3. Inicie o **Editor do Registro** (regedit.exe).
-4. Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione **arquivo** > **Carregar Hive**.
+4. Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione **arquivo**  >  **Carregar Hive**.
 5. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco do sistema operacional que você anexou. Como o nome da seção, digite **BROKENSYSTEM**. O novo hive do Registro é exibido sob a chave **HKEY_LOCAL_MACHINE**.
 6. Navegue até **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** e faça as seguintes alterações:
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  Selecione **BROKENSYSTEM**. No menu, selecione **arquivo** > **Descarregar Hive**.
+7.  Selecione **BROKENSYSTEM**. No menu, selecione **arquivo**  >  **Descarregar Hive**.
 8.  Modifique a instalação do BCD para inicializar no modo de depuração. Execute os seguintes comandos em um prompt de comandos com privilégios elevados:
 
     ```cmd

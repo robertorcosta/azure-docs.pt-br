@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255577"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: migrar o Oracle para o banco de dados do Azure para PostgreSQL online usando DMS (versão prévia)
@@ -221,7 +220,7 @@ Se você criar um esquema do PostgreSQL usando ferramentas como ora2pg antes de 
     ![Mostrar assinaturas do portal](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> Se você precisar mapear nomes de tabela de origem para tabelas com nomes diferentes [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) , email e poderemos fornecer um script para automatizar o processo.
+> Se você precisar mapear nomes de tabela de origem para tabelas com nomes diferentes, email [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) e poderemos fornecer um script para automatizar o processo.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>Quando o esquema de tabela do PostgreSQL não existe
 
@@ -249,7 +248,7 @@ Introdução:
     | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *Não é possível mapear usos mistos de maiúsculas e minúsculas |
 
-    * Para criar um esquema de caso misto e nomes de tabela no PostgreSQL [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)de destino, contate. Podemos fornecer um script para configurar um esquema misto de tabelas com uso de maiúsculas e minúsculas no Banco de dados PostgreSQL de destino.
+    * Para criar um esquema de caso misto e nomes de tabela no PostgreSQL de destino, contate [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com) . Podemos fornecer um script para configurar um esquema misto de tabelas com uso de maiúsculas e minúsculas no Banco de dados PostgreSQL de destino.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrar o provedor de recursos Microsoft.DataMigration
 
@@ -261,7 +260,7 @@ Introdução:
 
     ![Exibir provedores de recursos](media/tutorial-oracle-azure-postgresql-online/portal-select-resource-provider.png)
 
-3. Procure migração e, à direita de **Microsoft. Datamigration**, selecione **registrar**.
+3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
 
     ![Registrar provedor de recursos](media/tutorial-oracle-azure-postgresql-online/portal-register-resource-provider.png)
 
@@ -322,7 +321,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 ## <a name="upload-oracle-oci-driver"></a>Carregar o driver do Oracle OCI
 
-1. Selecione **salvar**e, em seguida, na tela **Instalar driver de OCI** , entre na sua conta Oracle e baixe o driver **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37.128.586 byte (s)) ( [soma de verificação](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)SHA1:865082268) daqui.
+1. Selecione **salvar**e, em seguida, na tela **Instalar driver de OCI** , entre na sua conta da Oracle e baixe o driver **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** (37.128.586 byte (s)) (soma de verificação SHA1:865082268) [daqui.](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)
 2. Faça o download do driver para uma pasta compartilhada.
 
    Verifique se a pasta é compartilhada com o nome de usuário que você especificou com o mínimo de acesso somente leitura. O Serviço de Migração de Banco de Dados do Azure acessa e lê a partir do compartilhamento para carregar o driver OCI no Azure, representando o nome de usuário que você especificar.

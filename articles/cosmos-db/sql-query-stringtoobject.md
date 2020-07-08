@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78296374"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
@@ -34,7 +33,7 @@ StringToObject(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra `StringToObject` como o se comporta entre diferentes tipos. 
+  O exemplo a seguir mostra como o `StringToObject` se comporta entre diferentes tipos. 
   
  Veja a seguir exemplos de entrada válida.
 
@@ -56,7 +55,7 @@ Este é o conjunto de resultados.
 ```
 
  Veja a seguir exemplos de entrada inválida.
-Mesmo que eles sejam válidos em uma consulta, eles não serão analisados para objetos válidos. As cadeias dentro da cadeia de caracteres do objeto devem ter\\escape "\\{"\\a "\\:" Str "}" ou a aspa ao redor deve ser única ' {"a": "Str"} '.
+Mesmo que eles sejam válidos em uma consulta, eles não serão analisados para objetos válidos. As cadeias dentro da cadeia de caracteres do objeto devem ter escape "{ \\ " a \\ ": \\ " Str \\ "}" ou a aspa ao redor deve ser única ' {"a": "Str"} '.
 
 As aspas simples ao redor dos nomes de propriedade não são JSON válidos.
 
@@ -110,6 +109,6 @@ Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de cadeia de caracteres do Azure Cosmos DB](sql-query-string-functions.md)
+- [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
