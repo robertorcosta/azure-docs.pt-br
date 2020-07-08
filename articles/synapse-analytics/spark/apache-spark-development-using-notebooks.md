@@ -1,24 +1,25 @@
 ---
-title: Criar, desenvolver e manter notebooks do Azure Synapse Studio (versão prévia)
+title: Blocos de anotações do Synapse Studio
 description: Neste artigo, você aprenderá a criar e a desenvolver notebooks do Azure Synapse Studio (versão prévia) para fazer a preparação e a visualização dos dados.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702105"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045681"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Criar, desenvolver e manter notebooks do Azure Synapse Studio (versão prévia)
+# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio (visualização) no Azure Synapse Analytics
 
-Um notebook do Azure Synapse Studio (versão prévia) é uma interface da Web para você criar arquivos que contém código em tempo real, visualizações e texto de narração. Os notebooks são um bom lugar para validar ideias e fazer experimentos rápidos para obter insights de seus dados. Os notebooks também são amplamente usados na preparação e visualização de dados, no aprendizado de máquina e em outros cenários de Big Data.
+Um notebook Synapse Studio (visualização) é uma interface da Web para você criar arquivos que contenham código ao vivo, visualizações e texto de narração. Os notebooks são um bom lugar para validar ideias e fazer experimentos rápidos para obter insights de seus dados. Os notebooks também são amplamente usados na preparação e visualização de dados, no aprendizado de máquina e em outros cenários de Big Data.
 
 Com um notebook do Azure Synapse Studio, você pode:
 
@@ -109,7 +110,7 @@ Você não pode fazer referência a dados ou variáveis diretamente em linguagen
 
 ### <a name="ide-style-intellisense"></a>IntelliSense de estilo IDE
 
-Os notebooks do Azure Synapse Studio são integrados ao editor Monaco para levar o IntelliSense de estilo IDE ao editor de célula. O realce de sintaxe, o marcador de erros e os preenchimentos de código automáticos ajudam você a codificar e identificar problemas mais rapidamente.
+Os notebooks do Azure Synapse Studio são integrados ao editor Monaco para levar o IntelliSense de estilo IDE ao editor de célula. O realce de sintaxe, o marcador de erro e as conclusões automáticas de código ajudam você a escrever código e identificar problemas mais rapidamente.
 
 Os recursos do IntelliSense estão em níveis diferentes de maturidade para linguagens diferentes. Use a tabela abaixo para ver o que tem suporte.
 
@@ -343,7 +344,7 @@ Semelhantemente aos Jupyter Notebooks, os notebooks do Azure Synapse Studio têm
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, não é possível digitar na célula. Entre no modo de edição pressionando `Enter` ou usando o mouse para clicar na área do editor de uma célula.
+2. O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, você pode digitar na célula. Entre no modo de edição pressionando `Enter` ou usando o mouse para clicar na área do editor de uma célula.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

@@ -3,12 +3,12 @@ title: Controles de amostra de blueprint da carga de trabalho do ASE/SQL da ISO 
 description: Mapeamento de controle da amostra de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001 para o Azure Policy e o RBAC.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 6311d5090c884c70bded7fcf754bc968a5b47b32
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 518c6b86ac658273d428a328b433b35d667d7056
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918615"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044746"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint de carga de trabalho do ASE/SQL ISO 27001
 
@@ -28,7 +28,7 @@ Ter apenas um proprietário de assinatura do Azure não permite a redundância a
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classificação de informações
 
-O [serviço de Avaliação de Vulnerabilidades de SQL](/azure/sql-database/sql-vulnerability-assessment) do Azure pode ajudá-lo a descobrir dados confidenciais armazenados em seus bancos de dados e inclui recomendações para classificar os dados. Esta blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) para auditar se as vulnerabilidades identificadas durante o exame de Avaliação de Vulnerabilidades de SQL são corrigidas.
+O [serviço de Avaliação de Vulnerabilidades de SQL](../../../../azure-sql/database/sql-vulnerability-assessment.md) do Azure pode ajudá-lo a descobrir dados confidenciais armazenados em seus bancos de dados e inclui recomendações para classificar os dados. Esta blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) para auditar se as vulnerabilidades identificadas durante o exame de Avaliação de Vulnerabilidades de SQL são corrigidas.
 
 - \[Versão Prévia\]: Monitora os resultados da avaliação de vulnerabilidade do SQL na Central de Segurança do Azure
 

@@ -4,14 +4,14 @@ description: Este artigo descreve como usar identidades gerenciadas para autenti
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651952"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045613"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usar identidades gerenciadas para acessar o Banco de Dados SQL do Azure de um trabalho do Azure Stream Analytics (Versão prévia)
 
@@ -70,7 +70,7 @@ Depois de criar uma identidade gerenciada, selecione um administrador do Active 
 
 Em seguida, crie um usuário de banco de dados independente no banco de dados SQL mapeado para a identidade do Azure Active Directory. O usuário de banco de dados independente não tem um logon para o banco de dados mestre, mas ele mapeia para uma identidade no diretório que está associada ao banco de dados. A identidade do Azure Active Directory pode ser uma conta de usuário individual ou um grupo. Nesse caso, crie um usuário de banco de dados independente para seu trabalho do Stream Analytics. 
 
-1. Conecte-se ao banco de dados SQL usando o SQL Server Management Studio. O **Nome de usuário** é um usuário do Azure Active Directory com a permissão **ALTER ANY USER**. O administrador definido no SQL Server é um exemplo. Use **Azure Active Directory – Universal com autenticação multifator (MFA)** . 
+1. Conecte-se ao banco de dados SQL usando SQL Server Management Studio. O **Nome de usuário** é um usuário do Azure Active Directory com a permissão **ALTER ANY USER**. O administrador definido no SQL Server é um exemplo. Use **Azure Active Directory – Universal com autenticação multifator (MFA)** . 
 
    ![Conecte-se ao SQL Server](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
@@ -96,7 +96,7 @@ Em seguida, crie um usuário de banco de dados independente no banco de dados SQ
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
-1. Para o Azure Active Directory da Microsoft verificar se o trabalho de Stream Analytics tem acesso ao Banco de Dados SQL, precisamos conceder permissão ao Azure Active Directory para se comunicar com o banco de dados. Para fazer isso, vá para a página “Firewalls e rede virtual” no portal do Azure novamente e habilite “Permitir que os serviços e recursos do Azure acessem este servidor”. 
+1. Para o Azure Active Directory da Microsoft verificar se o trabalho de Stream Analytics tem acesso ao Banco de Dados SQL, precisamos conceder permissão ao Azure Active Directory para se comunicar com o banco de dados. Para fazer isso, vá para a página "firewalls e rede virtual" em portal do Azure novamente e habilite "permitir que os serviços e recursos do Azure acessem este servidor." 
 
    ![Firewall e rede virtual](./media/sql-db-output-managed-identity/allow-access.png)
 

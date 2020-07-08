@@ -66,6 +66,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Controles de segurança interna
       href: load-balancer-security-controls.md
+    - name: Gerenciamento de pools de back-end
+      href: backend-pool-management.md
 - name: Como
   items:
     - name: conjuntos de escala de máquina virtual

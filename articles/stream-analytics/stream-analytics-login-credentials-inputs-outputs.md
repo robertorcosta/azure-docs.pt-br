@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75425965"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044406"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Fazer a rotação de credenciais de logon para entradas e saídas de um trabalho do Stream Analytics
 
@@ -53,7 +53,7 @@ Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de
 
 1. Entre no portal do Azure > procure o banco de dados SQL que você usou como saída para o trabalho do Stream Analytics.    
 2. No **Explorador de Dados**, faça o logon/se conecte ao seu banco de dados > selecione o tipo de Autorização como **Autenticação do servidor SQL** > digite seus detalhes de **Logon** e ** Senha** > Selecione **Ok**.  
-   ![Regenerar as credenciais para o banco de dados SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
+   ![Regenerar credenciais para o banco de dados SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Na guia de consulta, altere a senha para um dos seus usuários executando a consulta a seguir (certifique-se de substituir `<user_name>` por seu nome de usuário e `<new_password>` pela sua nova senha):  
 
@@ -64,7 +64,7 @@ Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de
 
 4. Anote a nova senha.    
 5. No portal do Azure, procure seu trabalho do Stream Analytics > selecione **Parar** e aguarde o trabalho ser interrompido.    
-6. Localize a saída do banco de dados SQL para o qual você deseja girar as credenciais. Atualize a senha e salve as alterações.    
+6. Localize a saída do banco de dados SQL para a qual você deseja girar as credenciais. Atualize a senha e salve as alterações.    
 7. Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.    
 8. Vá para a seção [iniciar o trabalho a partir da hora da última interrupção](#start-your-job-from-the-last-stopped-time).
 
@@ -82,7 +82,7 @@ Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST de gerenciamento de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

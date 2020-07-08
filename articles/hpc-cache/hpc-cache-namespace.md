@@ -1,17 +1,17 @@
 ---
-title: Criar um Azure HPC Cache
+title: Criar uma instância de cache do HPC do Azure
 description: Como criar uma instância do Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73582189"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045800"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planejar o namespace agregado
 
@@ -29,14 +29,14 @@ Por exemplo, considere um sistema em que uma instância de cache do Azure HPC es
 
 Os dados do modelo são armazenados em um datacenter e as informações necessárias para esse trabalho são armazenadas nesses subdiretórios:
 
-    /goldline/templates/acme2017/sku798
-    /goldline/templates/acme2017/sku980 
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980* 
 
 O sistema de armazenamento do datacenter expõe essas exportações:
 
-    /
-    /goldline
-    /goldline/templates
+* */*
+* */goldline*
+* */goldline/templates*
 
 Os dados a serem analisados foram copiados para um contêiner de armazenamento de BLOBs do Azure denominado "SourceCollection" usando o [utilitário CLFSLoad](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 
@@ -57,7 +57,7 @@ Como os caminhos de origem do NFS são subdiretórios da mesma exportação, voc
 | *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos ``/source``de arquivo de namespace agregados, ``/templates/sku980`` ``/templates/sku798``e.
+Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos de arquivo de namespace agregados ``/source`` , ``/templates/sku798`` e ``/templates/sku980`` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

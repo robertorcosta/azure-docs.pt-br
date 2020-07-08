@@ -1,23 +1,23 @@
 ---
-title: Criar Azure Machine Learning espaços de trabalho no portal
+title: Criar espaços de trabalho no portal
 titleSuffix: Azure Machine Learning
 description: Saiba como criar, exibir e excluir espaços de trabalho do Azure Machine Learning no portal do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269714"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045698"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar espaços de trabalho de Azure Machine Learning no portal do Azure
+# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar workspaces do Azure Machine Learning no portal do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você criará, exibirá e excluirá [**espaços de trabalho Azure Machine Learning**](concept-workspace.md) no portal do Azure para [Azure Machine Learning](overview-what-is-azure-ml.md).  O portal é a maneira mais fácil de começar com espaços de trabalho, mas conforme suas necessidades mudam ou requisitos para aumentar a automação, você também pode criar e excluir espaços de trabalho [usando a CLI](reference-azure-machine-learning-cli.md), [com código Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou [por meio da extensão vs Code](tutorial-setup-vscode-extension.md).
@@ -42,10 +42,10 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Caso não ten
 
    Campo|Descrição 
    ---|---
-   Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do espaço de trabalho não diferencia maiúsculas de minúsculas.
-   Assinatura |Selecione a assinatura do Azure que você deseja usar.
+   Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
+   Subscription |Selecione a assinatura do Azure que você deseja usar.
    Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. 
-   Local | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
+   Location | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
    Edição do Workspace | Selecione **básico** ou **Enterprise**.  Essa edição de espaço de trabalho determina os recursos aos quais você terá acesso e preços. Saiba mais sobre as [ofertas Basic e Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurar seu novo workspace](./media/how-to-manage-workspace/select-edition.png)
@@ -80,7 +80,7 @@ Você pode atualizar seu espaço de trabalho de edição básica para Enterprise
 
 1. Selecione **saiba mais** na parte superior direita da página.
 
-   [![Atualizar um espaço](./media/how-to-manage-workspace/upgrade.png) de trabalho](./media/how-to-manage-workspace/upgrade.png#lightbox)
+   [![Atualizar um espaço de trabalho ](./media/how-to-manage-workspace/upgrade.png)](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. Selecione **Atualizar** na janela exibida.
 
@@ -106,9 +106,9 @@ Você pode atualizar seu espaço de trabalho de edição básica para Enterprise
 
 Na [portal do Azure](https://portal.azure.com/), selecione **excluir** na parte superior do espaço de trabalho que você deseja excluir.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Excluir workspace":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Excluir espaço de trabalho":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
@@ -118,14 +118,14 @@ Na [portal do Azure](https://portal.azure.com/), selecione **excluir** na parte 
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="moving-the-workspace"></a>Movendo o espaço de trabalho
+### <a name="moving-the-workspace"></a>Como mover o workspace
 
 > [!WARNING]
-> Não há suporte para mover o espaço de trabalho Azure Machine Learning para uma assinatura diferente ou mover a assinatura proprietária para um novo locatário. Isso pode causar erros.
+> Não há suporte para a movimentação do workspace do Azure Machine Learning para outra assinatura nem para a movimentação da assinatura proprietária para um novo locatário. Se você fizer isso, poderá causar erros.
 
-### <a name="deleting-the-azure-container-registry"></a>Excluindo o registro de contêiner do Azure
+### <a name="deleting-the-azure-container-registry"></a>Como excluir o Registro de Contêiner do Azure
 
-O espaço de trabalho Azure Machine Learning usa o ACR (registro de contêiner do Azure) para algumas operações. Ele criará automaticamente uma instância de ACR quando precisar primeiro de uma.
+O workspace do Azure Machine Learning usa o ACR (Registro de Contêiner do Azure) para algumas operações. Ele criará automaticamente uma instância do ACR quando precisar de uma pela primeira vez.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

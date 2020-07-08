@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 035894c80e619851264aae91daa2d7852d156964
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408554"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045528"
 ---
 # <a name="security-control-data-protection"></a>Controle de segurança: proteção de dados
 
 As recomendações de proteção de dados concentram-se em resolver problemas relacionados à criptografia, listas de controle de acesso, controle de acesso baseado em identidade e log de auditoria para acesso a dados.
 
-## <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: manter um inventário de informações confidenciais
+## <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: manter um inventário de informações confidenciais
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -28,13 +28,13 @@ Use marcas para ajudar a controlar os recursos do Azure que armazenam ou process
 
 - [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Isole os sistemas que armazenam ou processam informações confidenciais
+## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolar sistemas que armazenam ou processam informações confidenciais
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
 | 4.2 | 13,2, 2,10 | Cliente |
 
-Implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio de Azure Active Directory controle de acesso baseado em função. 
+Implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio do Azure RBAC (controle de acesso baseado em função). 
 
 - [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -42,7 +42,7 @@ Implemente o isolamento usando assinaturas e grupos de gerenciamento separados p
 
 - [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: monitorar e bloquear a transferência não autorizada de informações confidenciais
+## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorar e bloquear a transferência não autorizada de informações confidenciais
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -54,7 +54,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 - [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: criptografar todas as informações confidenciais em trânsito
+## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: criptografar todas as informações confidenciais em trânsito
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -66,7 +66,7 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 - [Entender a criptografia em trânsito com o Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
-## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: usar uma ferramenta de descoberta ativa para identificar dados confidenciais
+## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usar uma ferramenta de descoberta ativa para identificar dados confidenciais
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -76,7 +76,7 @@ Quando nenhum recurso está disponível para seu serviço específico no Azure, 
 
 Use a proteção de informações do Azure para identificar informações confidenciais nos documentos do Office 365.
 
-Use a proteção de informações do SQL do Azure para auxiliar na classificação e no rotulamento de informações armazenadas em bancos de dados SQL do Azure.
+Use a proteção de informações do SQL do Azure para auxiliar na classificação e no rotulamento de informações armazenadas no banco de dados SQL do Azure.
 
 - [Como implementar a descoberta de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 
@@ -94,7 +94,7 @@ Use o RBAC do Azure AD para controlar o acesso a dados e recursos, caso contrár
 
 - [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: usar a prevenção de perda de dados baseada em host para impor o controle de acesso
+## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usar a prevenção contra perda de dados baseada em host para impor controle de acesso
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -102,11 +102,11 @@ Use o RBAC do Azure AD para controlar o acesso a dados e recursos, caso contrár
 
 Se necessário para a conformidade em recursos de computação, implemente uma ferramenta de terceiros, como uma solução de prevenção contra perda de dados baseada em host automatizada, para impor controles de acesso aos dados, mesmo quando os dados são copiados fora de um sistema.
 
-Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e vai para uma grande quantidade de proteção contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
+Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
 - [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: criptografar informações confidenciais em repouso
+## <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: criptografar informações confidenciais em repouso
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
@@ -118,7 +118,7 @@ Use a criptografia em repouso em todos os recursos do Azure. A Microsoft recomen
 
 - [Como configurar chaves de criptografia gerenciadas pelo cliente](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
 
-## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: registrar em log e alertar sobre alterações em recursos críticos do Azure
+## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrar e alertar sobre alterações em recursos críticos do Azure
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|

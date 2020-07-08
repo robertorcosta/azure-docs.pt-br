@@ -1,18 +1,19 @@
 ---
-title: Série NVv4-máquinas virtuais do Azure
+title: Série NVv4
 description: Especificações para as VMs da série NVv4.
 services: virtual-machines
-author: vikancha
+ms.subservice: sizes
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: e12124ee2d87a14c6e7cb1704fbe50c6300c1240
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273856"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045715"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
@@ -20,20 +21,20 @@ As máquinas virtuais da série NVv4 são alimentadas por GPUs [AMD Radeon insti
 
 <br>
 
-Armazenamento Premium: com suporte
+Armazenamento Premium:  Com suporte
 
-Cache de armazenamento Premium: com suporte
+Cache de Armazenamento Premium:  Com suporte
 
-Migração ao Vivo: sem suporte
+Migração ao Vivo: Sem suporte
 
-Atualizações de preservação de memória: sem suporte
+Atualizações de preservação de memória: Sem suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Número máximo de NICs/largura de banda de rede esperada (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
-| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
-| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 |
-| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 |
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 / 1000 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 / 2000 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 / 4000 |
+| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 / 8000 |
 
 <sup>1</sup> as VMs da série NVv4 apresentam a tecnologia de vários threads simultâneos da AMD
 

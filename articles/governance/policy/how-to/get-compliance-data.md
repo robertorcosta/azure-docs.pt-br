@@ -3,12 +3,12 @@ title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 53c946c59862451859616cb87d1101ae8fd5f15b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747081"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045188"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -34,7 +34,7 @@ As avaliações de políticas atribuídas e iniciativas ocorrem como resultado d
 
 - Uma política ou iniciativa já atribuída a um escopo foi atualizada. O ciclo de avaliação e o tempo desse cenário são iguais aos de uma nova atribuição a um escopo.
 
-- Um recurso é implantado em um escopo com uma atribuição por meio do Gerenciador de Recursos, REST, CLI do Azure ou do Azure PowerShell. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
+- Um recurso é implantado em um escopo com uma atribuição por meio de Azure Resource Manager, REST, CLI do Azure ou Azure PowerShell. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
 
 - Ciclo de avaliação de conformidade padrão. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma política ou iniciativa de muitos recursos pode demorar, portanto, não há uma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
 
@@ -148,6 +148,9 @@ A porcentagem de conformidade é determinada pela divisão de **recursos** Compa
 _O total de recursos_ é definido como a soma dos recursos **Em conformidade**, **Não-compatível** e **Conflito**. Os números gerais de conformidade são a soma de recursos distintos que são **Compatíveis** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**. A conformidade geral do recurso é 95 (19 de 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Exemplo de conformidade de política da página conformidade" border="false":::
+
+> [!NOTE]
+> A conformidade regulatória no Azure Policy é um recurso de visualização. As propriedades de conformidade do SDK e das páginas no portal são diferentes para iniciativas habilitadas. Para obter mais informações, consulte [conformidade regulatória](../concepts/regulatory-compliance.md)
 
 ## <a name="portal"></a>Portal
 
@@ -426,13 +429,13 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-Se você tiver um [workspace do Log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução de Análise do Log de Atividades](../../../azure-monitor/platform/activity-log-collect.md) associada à sua assinatura, você também poderá exibir resultados sem conformidade do ciclo de avaliação usando consultas Kusto simples e a tabela `AzureActivity`. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
+Se você tiver um [workspace do Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) com `AzureActivity` da [solução de Análise do Log de Atividades](../../../azure-monitor/platform/activity-log.md) associada à sua assinatura, você também poderá exibir resultados sem conformidade do ciclo de avaliação usando consultas Kusto simples e a tabela `AzureActivity`. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformidade com o Azure Policy usando os logs do Azure Monitor" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Revise os exemplos em [amostras do Azure Policy](../samples/index.md).
+- Revise os exemplos em [Exemplos do Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).
 - Entenda como [criar políticas de maneira programática](programmatically-create.md).

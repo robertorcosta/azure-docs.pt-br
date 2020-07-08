@@ -5,15 +5,15 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
-ms.topic: conceptual
-ms.openlocfilehash: c29d0d9ecd856ee9611df21d23b1b2b763e24652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: a47b641f4f5049beb605490122a33d407ac3e222
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75486463"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044355"
 ---
-# <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testar Stream Analytics consultas localmente com dados de exemplo usando Visual Studio Code
+# <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testar consultas do Stream Analytics localmente com os dados de exemplo usando o Visual Studio Code
 
 Você pode usar as ferramentas de Azure Stream Analytics para Visual Studio Code para testar seus trabalhos de Stream Analytics localmente com dados de exemplo. Você pode encontrar os resultados da consulta em arquivos JSON na pasta **LocalRunOutputs** do seu projeto.
 
@@ -35,7 +35,7 @@ Primeiro, você precisa preparar arquivos de dados de entrada de exemplo. Se voc
 
 ## <a name="define-a-local-input"></a>Definir uma entrada local
 
-1. Clique em **Input. JSON** na pasta entradas em seu projeto Stream Analytics. Em seguida, selecione **Adicionar entrada local** na linha superior.
+1. Clique em **input.jsna** pasta entradas em seu projeto Stream Analytics. Em seguida, selecione **Adicionar entrada local** na linha superior.
 
     ![Adicionar entrada local do projeto](./media/quick-create-vs-code/add-input-from-project.png)
 
@@ -55,7 +55,7 @@ Primeiro, você precisa preparar arquivos de dados de entrada de exemplo. Se voc
 
     ![Adicionar um novo alias de entrada local do ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. No arquivo **LocalInput_Input. JSON** recém-gerado, insira o caminho do arquivo no qual o arquivo de dados local está localizado.
+5. NaLocalInput_Input.jsgerada recentemente **no** arquivo, insira o caminho do arquivo no qual o arquivo de dados local está localizado.
 
     ![Insira o caminho do arquivo local no Visual Studio](./media/vscode-local-run/local-file-path.png)
 

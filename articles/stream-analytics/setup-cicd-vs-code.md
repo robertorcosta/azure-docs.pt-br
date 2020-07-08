@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76962128"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045817"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Implantar um trabalho de Azure Stream Analytics usando o pacote NPM de CI/CD 
 
@@ -25,9 +25,9 @@ Para obter mais informações sobre a implantação com o PowerShell, consulte [
 
 Você pode habilitar a integração e a implantação contínuas para trabalhos de Azure Stream Analytics usando o pacote NPM- **streamanalytics-cICD** . O pacote NPM fornece as ferramentas para gerar Azure Resource Manager modelos de [Stream Analytics projetos de Visual Studio Code](quick-create-vs-code.md). Ele pode ser usado no Windows, no macOS e no Linux sem instalar Visual Studio Code.
 
-Você pode [baixar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) por meio `npm install -g azure-streamanalytics-cicd` do comando. Essa é a abordagem recomendada, que também pode ser usada em uma tarefa do PowerShell ou CLI do Azure script de um pipeline de compilação no **Azure pipelines**.
+Você pode [baixar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) por meio do `npm install -g azure-streamanalytics-cicd` comando. Essa é a abordagem recomendada, que também pode ser usada em uma tarefa do PowerShell ou CLI do Azure script de um pipeline de compilação no **Azure pipelines**.
 
-Depois de instalar o pacote, use o comando a seguir para gerar os modelos de Azure Resource Manager. O argumento **ScriptPath** é o caminho absoluto para o arquivo **asaql** em seu projeto. Verifique se os arquivos asaproj. JSON e JobConfig. JSON estão na mesma pasta com o arquivo de script. Se o **outputPath** não for especificado, os modelos serão colocados na pasta **Deploy** na pasta **bin** do projeto.
+Depois de instalar o pacote, use o comando a seguir para gerar os modelos de Azure Resource Manager. O argumento **ScriptPath** é o caminho absoluto para o arquivo **asaql** em seu projeto. Certifique-se de que o asaproj.jse JobConfig.jsem arquivos estão na mesma pasta com o arquivo de script. Se o **outputPath** não for especificado, os modelos serão colocados na pasta **Deploy** na pasta **bin** do projeto.
 
 ```powershell
 azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
@@ -39,15 +39,19 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 Quando um Stream Analytics Visual Studio Code projeto é compilado com êxito, ele gera os dois arquivos de modelo de Azure Resource Manager a seguir na pasta **bin/[Debug/Retail]/Deploy** : 
 
-*  Arquivo de modelo do Resource Manager
+* Arquivo de modelo do Resource Manager
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  Arquivo de parâmetros do Resource Manager
+* Arquivo de parâmetros do Resource Manager
 
-       [ProjectName].JobTemplate.parameters.json   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```   
 
-Os parâmetros padrão no arquivo Parameters. JSON são das configurações no seu projeto Visual Studio Code. Se você deseja implantar em outro ambiente, apenas substitua os parâmetros adequadamente.
+Os parâmetros padrão na parameters.jsno arquivo são das configurações em seu projeto de Visual Studio Code. Se você deseja implantar em outro ambiente, apenas substitua os parâmetros adequadamente.
 
 > [!NOTE]
 > Para todas as credenciais, os valores padrão são definidos como nulo. Eles **precisam** ser definidos antes de serem implantados na nuvem.
@@ -70,7 +74,7 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
 
 2. Selecione **usar o editor clássico** para criar um pipeline sem YAML.
 
-3. Selecione o tipo de origem, o projeto de equipe e o repositório. Em seguida, selecione **Continuar**.
+3. Selecione o tipo de origem, o projeto de equipe e o repositório. Depois selecione **Continuar**.
 
    ![Selecionar Azure Stream Analytics projeto](./media/setup-cicd-vs-code/select-repo.png)
 
@@ -110,7 +114,7 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
    |-|-|
    |Nome de exibição|Copiar arquivos para: $ (Build. artifactstagingdirectory)|
    |Pasta de Origem|`$(system.defaultworkingdirectory)`| 
-   |Conteúdo| `**\Deploy\**` |
+   |Sumário| `**\Deploy\**` |
    |Pasta de destino| `$(build.artifactstagingdirectory)`|
 
    ![Inserir configurações para copiar tarefa](./media/setup-cicd-vs-code/copy-config.png)
@@ -147,16 +151,16 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
 
 2. Selecione o **+** ao lado de **trabalho do Agent** e pesquise implantação do grupo de *recursos do Azure*. Insira os parâmetros s seguir:
 
-   |Configuração|Valor|
+   |Setting|Valor|
    |-|-|
    |Nome de exibição| *Implantar myASAJob*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
    |Resource group| Escolha um nome para o grupo de recursos de teste que conterá seu trabalho de Stream Analytics.|
-   |Local|Escolha o local do seu grupo de recursos de teste.|
+   |Location|Escolha o local do seu grupo de recursos de teste.|
    |Local do modelo| *Artefato vinculado*|
-   |Modelo| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Parâmetros de modelo|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Modelo| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jsem |
+   |Parâmetros de modelo|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jsem|
    |Substituir parâmetros de modelo|-Input_IoTHub1_iotHubNamespace $ (test_eventhubname)|
    |Modo de implantação|Incremental|
 
@@ -164,16 +168,16 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
 
 4. Selecione o **+** ao lado de **trabalho do Agent** e pesquise implantação do grupo de *recursos do Azure*. Insira os parâmetros s seguir:
 
-   |Configuração|Valor|
+   |Setting|Valor|
    |-|-|
    |Nome de exibição| *Implantar myASAJob*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
    |Resource group| Escolha um nome para o grupo de recursos de produção que conterá seu trabalho de Stream Analytics.|
-   |Local|Escolha o local do seu grupo de recursos de produção.|
+   |Location|Escolha o local do seu grupo de recursos de produção.|
    |Local do modelo| *Artefato vinculado*|
-   |Modelo| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Parâmetros de modelo|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Modelo| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jsem |
+   |Parâmetros de modelo|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jsem|
    |Substituir parâmetros de modelo|-Input_IoTHub1_iotHubNamespace $ (eventhubname)|
    |Modo de implantação|Incremental|
 

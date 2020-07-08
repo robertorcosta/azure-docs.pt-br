@@ -5,18 +5,18 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
-ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75461199"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044559"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurando políticas de ordenação de eventos para Azure Stream Analytics
 
-Este artigo descreve como configurar e usar a chegada tardia e políticas de evento fora de ordem no Azure Stream Analytics. Essas políticas são aplicadas somente quando você usa a cláusula [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta.
+Este artigo descreve como configurar e usar a chegada tardia e políticas de evento fora de ordem no Azure Stream Analytics. Essas políticas são aplicadas somente quando você usa a cláusula [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) em sua consulta e elas são aplicadas somente para fontes de entrada na nuvem.
 
 ## <a name="event-time-and-arrival-time"></a>Hora do evento e hora de chegada
 
@@ -40,7 +40,7 @@ Vamos ver um exemplo dessas políticas em ação.
 <br> **Política de chegada tardia:** 15 segundos
 <br> **Política fora de ordem:** 8 segundos
 
-| N º do evento | Hora do Evento | Horário de chegada | System.Timestamp | Explicação |
+| N º do evento | Hora do evento | Horário de chegada | System.Timestamp | Explicação |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | O evento chegou ao nível de tolerância atrasado e externo. Portanto, a hora do evento é ajustada para a tolerância máxima de chegada tardia.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | O evento chegou atrasado, mas dentro do nível de tolerância. Portanto, a hora do evento não é ajustada.  |

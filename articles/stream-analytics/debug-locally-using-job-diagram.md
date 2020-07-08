@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 106b1f0b765700803d2cd55b5e049fae5be3dfad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76847193"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045392"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio
 
@@ -20,7 +20,7 @@ Trabalhos que não geram nenhum resultado ou resultados inesperados são cenári
 
 ## <a name="debug-a-query-using-job-diagram"></a>Depurar uma consulta usando o diagrama de trabalho
 
-Um script Azure Stream Analytics é usado para transformar dados de entrada para dados de saída. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Hub de eventos, Hub IoT etc.) por meio de várias etapas de consulta e, finalmente, para os coletores de saída. Cada etapa de consulta é mapeada para um conjunto de resultados temporário definido no script usando `WITH` uma instrução. Você pode exibir os dados, bem como as métricas de cada etapa de consulta em cada conjunto de resultados intermediários para localizar a origem de um problema.
+Um script Azure Stream Analytics é usado para transformar dados de entrada para dados de saída. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Hub de eventos, Hub IoT etc.) por meio de várias etapas de consulta e, finalmente, para os coletores de saída. Cada etapa de consulta é mapeada para um conjunto de resultados temporário definido no script usando uma `WITH` instrução. Você pode exibir os dados, bem como as métricas de cada etapa de consulta em cada conjunto de resultados intermediários para localizar a origem de um problema.
 
 > [!NOTE]
 > Esse diagrama de trabalho mostra apenas os dados e as métricas para teste local em um único nó. Ele não deve ser usado para ajuste de desempenho e solução de problemas.
@@ -71,7 +71,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TaxiRide**| Nome da entrada.|
-|**Contagem de Linhas**| O número de linhas geradas a partir da etapa.|
+|**Contagem de linhas**| O número de linhas geradas a partir da etapa.|
 |**Tamanho dos dados**| O tamanho dos dados gerados nesta etapa.|
 |**Entrada local**| Use dados locais como entrada.|
 
@@ -82,7 +82,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |Métrica|Descrição|
 |-|-|
 |**TripData**|O nome do conjunto de resultados temporário.|
-|**Contagem de Linhas**| O número de linhas geradas a partir da etapa.|
+|**Contagem de linhas**| O número de linhas geradas a partir da etapa.|
 |**Tamanho dos dados**| O tamanho dos dados gerados nesta etapa.|
   
 #### <a name="output-sinks-live-output"></a>Coletores de saída (saída ao vivo)
@@ -102,7 +102,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 |-|-|
 |**regionaggEH**|Nome da saída.|
 |**Saída local**| Saída de resultado para um arquivo local.|
-|**Contagem de Linhas**| O número de linhas de saída para o arquivo local.|
+|**Contagem de linhas**| O número de linhas de saída para o arquivo local.|
 |**Tamanho dos dados**| O tamanho da saída de dados para o arquivo local.|
 
 ### <a name="close-job-diagram"></a>Fechar diagrama de trabalho

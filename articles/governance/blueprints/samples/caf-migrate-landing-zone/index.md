@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint da zona de destino de Migração do 
 description: Visão geral e arquitetura do exemplo de blueprint da zona de destino do CAF (Cloud Adoption Framework) para o Azure Migration.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459858"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044814"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Visão geral do exemplo de blueprint da zona de aterrissagem de migração do Cloud Adoption Framework da Microsoft para o Azure
 
@@ -28,7 +28,7 @@ Este ambiente é composto de vários serviços do Azure usados para oferecer uma
 - Implantar o [Log Analytics](../../../../azure-monitor/overview.md) garante que todas as ações e os serviços serão registrados em um local central desde o momento em que você iniciar sua migração
 - Implantar a [Central de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão padrão) fornece proteção contra ameaças para suas cargas de trabalho migradas.
 - Implantar a [Rede Virtual do Azure](../../../../virtual-network/virtual-networks-overview.md) fornece uma rede isolada e sub-redes para sua máquina virtual.
-- Implantar o [Projeto Migrações para Azure](../../../..//migrate/migrate-overview.md) para descoberta e avaliação. Estamos adicionando as ferramentas para avaliação de servidor, migração de servidor, avaliação de banco de dados e migração de banco de dados.  
+- Implantar o [Projeto Migrações para Azure](../../../../migrate/migrate-services-overview.md) para descoberta e avaliação. Estamos adicionando as ferramentas para avaliação de servidor, migração de servidor, avaliação de banco de dados e migração de banco de dados.  
 
 
 Todos esses elementos cumprem as práticas comprovadas publicadas no [Centro de Arquitetura do Azure – Arquiteturas de Referência](/azure/architecture/reference-architectures/).

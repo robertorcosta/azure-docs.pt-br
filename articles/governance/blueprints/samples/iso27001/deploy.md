@@ -3,12 +3,12 @@ title: Implantar amostra de blueprint ISO 27001
 description: Etapas de implantação do modelo de blueprint autônomo da ISO 27001, incluindo detalhes do parâmetro do artefato de blueprint.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9eaf559f0c1e6c99d3a2469d63eddea1c1ae9867
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922515"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044644"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implantar a amostra de blueprint ISO 27001
 
@@ -109,7 +109,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
 |SKUs de contas de armazenamento permitidas|Atribuição de política|Lista de SKUs de armazenamento permitidos|A lista de SKUs que podem ser especificados para contas de armazenamento.|
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual permitidos|A lista de SKUs que podem ser especificados para máquinas virtuais.|
-|Iniciativa de blueprint para ISO 27001|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Iniciativa de blueprint para ISO 27001|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
 ## <a name="next-steps"></a>Próximas etapas
 

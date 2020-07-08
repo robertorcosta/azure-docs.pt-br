@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426454"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044576"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -113,7 +113,7 @@ Para completar essa solução, você precisará de uma assinatura do Microsoft A
 Siga as etapas na seção "Limpar sua conta do Azure" no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
 
 ## <a name="deploy-the-sample"></a>Implantar o exemplo
-Há vários recursos que podem ser facilmente implantados em um grupo de recursos com alguns cliques. A definição da solução é hospedada no repositório [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)do GitHub em.
+Há vários recursos que podem ser facilmente implantados em um grupo de recursos com alguns cliques. A definição da solução é hospedada no repositório do GitHub em [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp) .
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Implantar o modelo do TollApp no Portal do Azure
 1. Para implantar o ambiente do TollApp no Azure, use esse link para [Implantar modelo do TollApp do Azure ](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -185,11 +185,11 @@ Siga estas etapas para iniciar o trabalho de streaming:
 ## <a name="review-the-cosmosdb-output-data"></a>Examinar os dados de saída CosmosDB
 1. Localize o grupo de recursos que contém os recursos do TollApp.
 
-2. Selecione a Conta do Azure Cosmos DB com o padrão de nome **tollapp\<random\>-cosmos**.
+2. Selecione a conta do Azure Cosmos DB com o nome padrão **tollapp\<random\>-cosmos**.
 
 3. Selecione o cabeçalho **Data Explorer** para abrir a página do Data Explorer.
 
-4. Expanda os**documentos**do **tollAppDatabase** > **tollAppCollection** > .
+4. Expanda os documentos do **tollAppDatabase**  >  **tollAppCollection**  >  **Documents**.
 
 5. Na lista de IDs, vários documentos serão mostrados quando a saída estiver disponível.
 
@@ -303,7 +303,7 @@ Para escalar verticalmente o trabalho de streaming para mais unidades de streami
 
 3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
 
-4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Clique em **Salvar**.
+4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar**.
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY.
 

@@ -4,14 +4,14 @@ description: Este artigo explica como criptografar seus dados privados usados po
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
-ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857295"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045341"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados no Azure Stream Analytics 
 
@@ -36,7 +36,7 @@ Use as etapas a seguir para configurar sua conta de armazenamento para ativos de
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure. 
 
-1. Selecione **análise** > **Stream Analytics trabalho** na lista de resultados. 
+1. Selecione **análise**   >  **Stream Analytics trabalho**   na lista de resultados. 
 
 1. Preencha a página Stream Analytics trabalho com os detalhes necessários, como nome, região e escala. 
 

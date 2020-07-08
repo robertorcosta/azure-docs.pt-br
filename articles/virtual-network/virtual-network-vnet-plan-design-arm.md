@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186009"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045494"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -61,7 +61,7 @@ Uma rede virtual pode ser segmentada em uma ou mais sub-redes até o [limites](.
 - Cada sub-rede deve ter um intervalo de endereço exclusivo, especificado no formato CIDR, dentro no espaço de endereço da rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede dentro da rede virtual.
 - Se você planeja implantar alguns recursos de serviço do Azure em uma rede virtual, podem exigir, ou criar suas próprias sub-redes, assim deve haver espaço não alocado para fazerem isso. Para determinar se um serviço do Azure cria sua própria sub-rede, consulte as informações para cada [serviço do Azure que pode ser implantado em uma rede virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Por exemplo, se você se conectar a uma rede virtual a uma rede local usando um Gateway de VPN do Microsoft Azure, a rede virtual deve ter uma sub-rede dedicada para o gateway. Saiba mais sobre [as sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Por padrão, o Azure roteia o tráfego entre todas as sub-redes em uma rede virtual. Você pode substituir o padrão de roteamento do Azure para evitar que o Azure roteie entre as sub-redes ou para rotear o tráfego entre as sub-redes através de uma solução de virtualização de rede, por exemplo. Se você precisar que o tráfego entre os recursos do mesmo fluxo de rede virtual por meio de um dispositivo de rede virtual (NVA), implante os recursos em sub-redes diferentes. Saiba mais em [segurança](#security).
-- Você pode limitar o acesso a recursos do Microsoft Azure como uma conta de armazenamento do Azure ou banco de dados SQL do Azure, para especificar sub-redes com um ponto de extremidade de serviço de rede virtual. Além disso, você pode negar o acesso aos recursos da internet. Você pode criar várias sub-redes e habilitar um ponto de extremidade de serviço para algumas sub-redes, mas outros não. Saiba mais sobre [pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md) e os recursos do Azure possibilitam que você os habilite.
+- Você pode limitar o acesso aos recursos do Azure, como uma conta de armazenamento do Azure ou um banco de dados SQL do Azure, a sub-redes específicas com um ponto de extremidade de serviço de rede virtual. Além disso, você pode negar o acesso aos recursos da internet. Você pode criar várias sub-redes e habilitar um ponto de extremidade de serviço para algumas sub-redes, mas outros não. Saiba mais sobre [pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md) e os recursos do Azure possibilitam que você os habilite.
 - Você pode associar grupo de segurança a uma rede ou zero para cada sub-rede em uma rede virtual. Você pode associar o mesmo ou um grupo de segurança de rede para cada sub-rede. Cada grupo de segurança de rede contém regras que permitem ou negam o tráfego de e para origens e destinos. Saiba mais sobre [grupos de segurança de rede](#traffic-filtering).
 
 ## <a name="security"></a>Segurança

@@ -2,13 +2,13 @@
 title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 4f2ed7f1cb24b9896b533fb5d18ac4e57db48e2c
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 7f241e12200101e2f8f9efa7cf31e4483b2d4229
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780322"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044525"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -26,7 +26,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft.AppPlatform](#microsoftappplatform)
-> - [Microsoft.AppService](#microsoftappservice)
+> - [O. APPSERVICE](#microsoftappservice)
 > - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -36,10 +36,9 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [MICROSOFT. BIZTALKservices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint](#microsoftblueprint)
@@ -54,30 +53,29 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
-> - [Microsoft.Cognition](#microsoftcognition)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft. ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.Consumption](#microsoftconsumption)
-> - [Microsoft.Container](#microsoftcontainer)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [O. CONTENTMODERATOR](#microsoftcontentmoderator)
+> - [O. CORTANAANALYTICS](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CostManagementExports](#microsoftcostmanagementexports)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [O. CUSTOMERINSIGHTS](#microsoftcustomerinsights)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
-> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [O. DataConnect](#microsoftdataconnect)
+> - [O. Troca de](#microsoftdataexchange)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLake](#microsoftdatalake)
+> - [O. DATALAKE](#microsoftdatalake)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
@@ -101,7 +99,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.Experimentation](#microsoftexperimentation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
-> - [Microsoft.Genomics](#microsoftgenomics)
+> - [O. GENOMICS](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
@@ -109,6 +107,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft. HybridNetwork](#microsofthybridnetwork)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights](#microsoftinsights)
@@ -119,18 +118,17 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
-> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [O. LOCATIONBASEDSERVICES](#microsoftlocationbasedservices)
+> - [O. ARQUIVO LOCATIONSERVICES](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
-> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
+> - [O. MACHINELEARNINGCOMPUTE](#microsoftmachinelearningcompute)
+> - [O. MACHINELEARNINGEXPERIMENTATION](#microsoftmachinelearningexperimentation)
+> - [O. MACHINELEARNINGMODELMANAGEMENT](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
+> - [O. MANAGEDNETWORK](#microsoftmanagednetwork)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -138,7 +136,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
+> - [O. MICROSERVICES4SPRING](#microsoftmicroservices4spring)
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
@@ -151,11 +149,10 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.Peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PortalSdk](#microsoftportalsdk)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft. PowerPlatform](#microsoftpowerplatform)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
-> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
@@ -169,29 +166,27 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.SerialConsole](#microsoftserialconsole)
-> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [O. SERVERMANAGEMENT](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.Services](#microsoftservices)
+> - [O. SERVIÇOS](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [O. STORAGECACHE](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [O. STORAGESYNCDEV](#microsoftstoragesyncdev)
+> - [O. STORAGESYNCINT](#microsoftstoragesyncint)
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [O. STREAMANALYTICSEXPLORER](#microsoftstreamanalyticsexplorer)
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [microsoft.support](#microsoftsupport)
 > - [Microsoft.Synapse](#microsoftsynapse)
-> - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
@@ -203,6 +198,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft. WorkloadBuilder](#microsoftworkloadbuilder)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
@@ -221,6 +217,10 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | azureadmetrics | Não | Não |
+> | diagnosticsettings | Não | Não |
+> | diagnosticsettingscategories | Não | Não |
+> | operações | Não | Não |
 > | privatelinkforazuread | Não | Não |
 > | tenants | Não | Não |
 
@@ -266,14 +266,14 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | actionrules | Sim | Sim |
+> | actionrules | Não | Não |
 > | alertas | Não | Não |
 > | alertslist | Não | Não |
 > | alertsmetadata | Não | Não |
 > | alertssummary | Não | Não |
 > | alertssummarylist | Não | Não |
 > | operações | Não | Não |
-> | smartdetectoralertrules | Sim | Sim |
+> | smartdetectoralertrules | Não | Não |
 > | smartgroups | Não | Não |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
@@ -286,7 +286,7 @@ Pule para um namespace de provedor de recursos:
 > | locations/operationresults | Não | Não |
 > | locations/operationstatuses | Não | Não |
 > | operações | Não | Não |
-> | servers | Sim | Sim |
+> | servers | Não | Não |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
@@ -310,7 +310,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Não | Não |
-> | configurationstores | Sim | Sim |
+> | configurationstores | Não | Não |
 > | configurationstores/eventgridfilters | Não | Não |
 > | Locais | Não | Não |
 > | locations/operationsstatus | Não | Não |
@@ -326,9 +326,11 @@ Pule para um namespace de provedor de recursos:
 > | locations/operationresults | Não | Não |
 > | locations/operationstatus | Não | Não |
 > | operações | Não | Não |
-> | spring | Sim | Sim |
+> | spring | Não | Não |
+> | Spring/apps | Não | Não |
+> | Spring/aplicativos/implantações | Não | Não |
 
-## <a name="microsoftappservice"></a>Microsoft.AppService
+## <a name="microsoftappservice"></a>O. APPSERVICE
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -345,7 +347,10 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | attestationproviders | Sim | Sim |
+> | attestationproviders | Não | Não |
+> | defaultfornecedores | Não | Não |
+> | Locais | Não | Não |
+> | locais/defaultfornecedor | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
@@ -361,11 +366,14 @@ Pule para um namespace de provedor de recursos:
 > | findorphanroleassignments | Não | Não |
 > | locks | Não | Não |
 > | operações | Não | Não |
+> | operationstatus | Não | Não |
 > | permissões | Não | Não |
 > | policyassignments | Não | Não |
 > | policydefinitions | Não | Não |
 > | policysetdefinitions | Não | Não |
+> | privatelinkassociations | Não | Não |
 > | provideroperations | Não | Não |
+> | resourcemanagementprivatelinks | Não | Não |
 > | roleassignments | Não | Não |
 > | roleassignmentsusagemetrics | Não | Não |
 > | roledefinitions | Não | Não |
@@ -376,18 +384,20 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | Sim | Sim |
-> | automationaccounts/configurations | Sim | Sim |
+> | automationaccounts/configurations | Não | Não |
 > | automationaccounts/jobs | Não | Não |
 > | automationaccounts/privateendpointconnectionproxies | Não | Não |
 > | automationaccounts/privateendpointconnections | Não | Não |
 > | automationaccounts/privatelinkresources | Não | Não |
-> | automationaccounts/runbooks | Sim | Sim |
+> | automationaccounts/runbooks | Não | Não |
 > | automationaccounts/softwareupdateconfigurations | Não | Não |
 > | automationaccounts/webhooks | Não | Não |
 > | operações | Não | Não |
 
 > [!IMPORTANT]
-> Os runbooks devem existir no mesmo grupo de recursos que a conta de automação.
+> Os Runbooks devem existir no mesmo grupo de recursos que a conta de automação.
+>
+> Para obter informações, consulte [mover sua conta de automação do Azure para outra assinatura](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
@@ -396,8 +406,9 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | Locais | Não | Não |
 > | locations/checkquotaavailability | Não | Não |
+> | localizações/checktrialavailability | Não | Não |
 > | operações | Não | Não |
-> | privateclouds | Sim | Sim |
+> | privateclouds | Não | Não |
 > | privateclouds/clusters | Não | Não |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
@@ -408,6 +419,7 @@ Pule para um namespace de provedor de recursos:
 > | b2cdirectories | Sim | Sim |
 > | b2ctenants | Não | Não |
 > | checknameavailability | Não | Não |
+> | guestusages | Sim | Sim |
 > | operações | Não | Não |
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
@@ -415,13 +427,13 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | datacontrollers | Não | Não |
-> | hybriddatamanagers | Não | Não |
+> | datacontrollers | Sim | Sim |
+> | hybriddatamanagers | Sim | Sim |
 > | operações | Não | Não |
-> | postgresinstances | Não | Não |
-> | sqlinstances | Não | Não |
-> | sqlmanagedinstances | Não | Não |
-> | sqlserverinstances | Não | Não |
+> | postgresinstances | Sim | Sim |
+> | sqlinstances | Sim | Sim |
+> | sqlmanagedinstances | Sim | Sim |
+> | sqlserverinstances | Sim | Sim |
 > | sqlserverregistrations | Sim | Sim |
 > | sqlserverregistrations/sqlservers | Não | Não |
 
@@ -431,8 +443,9 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | cloudmanifestfiles | Não | Não |
+> | edgesubscriptions | Não | Não |
 > | operações | Não | Não |
-> | registrations | Sim | Sim |
+> | registrations | Não | Não |
 > | registrations/customersubscriptions | Não | Não |
 > | registrations/products | Não | Não |
 
@@ -455,21 +468,6 @@ Pule para um namespace de provedor de recursos:
 > | locations/checknameavailability | Não | Não |
 > | locations/quotas | Não | Não |
 > | operações | Não | Não |
-
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | clusters | Não | Não |
-> | fileservers | Não | Não |
-> | jobs | Não | Não |
-> | operações | Não | Não |
-> | workspaces | Não | Não |
-> | workspaces/clusters | Não | Não |
-> | workspaces/experiments | Não | Não |
-> | workspaces/experiments/jobs | Não | Não |
-> | workspaces/fileservers | Não | Não |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -525,8 +523,15 @@ Pule para um namespace de provedor de recursos:
 > | billingaccounts/customers/transactions | Não | Não |
 > | billingaccounts/customers/transfers | Não | Não |
 > | billingaccounts/departments | Não | Não |
+> | billingaccounts/departamentos/billingpermissions | Não | Não |
+> | billingaccounts/departamentos/billingroleassignments | Não | Não |
+> | billingaccounts/departamentos/billingroledefinitions | Não | Não |
 > | billingaccounts/enrollmentaccounts | Não | Não |
+> | billingaccounts / enrollmentaccounts / billingpermissions | Não | Não |
+> | billingaccounts / enrollmentaccounts / billingroleassignments | Não | Não |
+> | billingaccounts / enrollmentaccounts / billingroledefinitions | Não | Não |
 > | billingaccounts/invoices | Não | Não |
+> | billingaccounts/faturas/transações | Não | Não |
 > | billingaccounts/invoicesections | Não | Não |
 > | billingaccounts/invoicesections/billingsubscriptionmoveoperations | Não | Não |
 > | billingaccounts/invoicesections/billingsubscriptions | Não | Não |
@@ -577,7 +582,7 @@ Pule para um namespace de provedor de recursos:
 > | operações | Não | Não |
 > | updatecommunicationpreference | Não | Não |
 
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
+## <a name="microsoftbiztalkservices"></a>MICROSOFT. BIZTALKservices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -626,7 +631,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | botservices | Sim | Sim |
+> | botservices | Não | Não |
 > | botservices/channels | Não | Não |
 > | botservices/connections | Não | Não |
 > | checknameavailability | Não | Não |
@@ -644,9 +649,9 @@ Pule para um namespace de provedor de recursos:
 > | locations/operationsstatus | Não | Não |
 > | operações | Não | Não |
 > | redis | Sim | Sim |
-> | redis/privateendpointconnections | Não | Não |
+> | Redis/eventgridfilters | Não | Não |
 > | redis/privatelinkresources | Não | Não |
-> | redisenterprise | Não | Não |
+> | redisenterprise | Sim | Sim |
 
 > [!IMPORTANT]
 > Se a instância do Cache do Azure para Redis estiver configurada com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Consulte [Limitações de movimentação de rede](./move-limitations/networking-move-limitations.md).
@@ -689,7 +694,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | cdnwebapplicationfirewallmanagedrulesets | Não | Não |
-> | cdnwebapplicationfirewallpolicies | Sim | Sim |
+> | cdnwebapplicationfirewallpolicies | Não | Não |
 > | checknameavailability | Não | Não |
 > | checkresourceusage | Não | Não |
 > | edgenodes | Não | Não |
@@ -701,7 +706,7 @@ Pule para um namespace de provedor de recursos:
 > | operationresults/profileresults/endpointresults/originresults | Não | Não |
 > | operações | Não | Não |
 > | perfis | Sim | Sim |
-> | profiles/endpoints | Sim | Sim |
+> | profiles/endpoints | Não | Não |
 > | profiles/endpoints/customdomains | Não | Não |
 > | profiles/endpoints/origingroups | Não | Não |
 > | profiles/endpoints/origins | Não | Não |
@@ -734,7 +739,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | funcionalidades | Não | Não |
 > | checkdomainnameavailability | Não | Não |
-> | domainnames | Sim | Não |
+> | domainnames | Não | Não |
 > | domainnames/capabilities | Não | Não |
 > | domainnames/internalloadbalancers | Não | Não |
 > | domainnames/servicecertificates | Não | Não |
@@ -750,7 +755,7 @@ Pule para um namespace de provedor de recursos:
 > | quotas | Não | Não |
 > | resourcetypes | Não | Não |
 > | validatesubscriptionmoveavailability | Não | Não |
-> | virtualmachines | Sim | Não |
+> | virtualmachines | Não | Não |
 > | virtualmachines/diagnosticsettings | Não | Não |
 > | virtualmachines/metricdefinitions | Não | Não |
 > | virtualmachines/metrics | Não | Não |
@@ -802,7 +807,7 @@ Pule para um namespace de provedor de recursos:
 > | osplatformimages | Não | Não |
 > | publicimages | Não | Não |
 > | quotas | Não | Não |
-> | storageaccounts | Sim | Não |
+> | storageaccounts | Não | Não |
 > | storageaccounts/blobservices | Não | Não |
 > | storageaccounts/fileservices | Não | Não |
 > | storageaccounts/metricdefinitions | Não | Não |
@@ -829,19 +834,12 @@ Pule para um namespace de provedor de recursos:
 > [!IMPORTANT]
 > Consulte [Diretrizes de movimentação da implantação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos da implantação clássica podem ser movidos entre assinaturas com uma operação específica para esse cenário.
 
-## <a name="microsoftcognition"></a>Microsoft.Cognition
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | syntheticsaccounts | Não | Não |
-
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Não | Não |
 > | checkdomainavailability | Não | Não |
 > | Locais | Não | Não |
 > | locations/checkskuavailability | Não | Não |
@@ -864,6 +862,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | Sim | Sim |
+> | cloudservices | Não | Não |
 > | diskaccesses | Não | Não |
 > | diskencryptionsets | Não | Não |
 > | disks | Sim | Sim |
@@ -894,10 +893,11 @@ Pule para um namespace de provedor de recursos:
 > | sharedvmimages/versions | Não | Não |
 > | snapshots | Sim | Sim |
 > | sshpublickeys | Não | Não |
+> | swiftlets | Não | Não |
 > | virtualmachines | Sim | Sim |
 > | virtualmachines/extensions | Sim | Sim |
 > | virtualmachines/metricdefinitions | Não | Não |
-> | virtualmachines/runcommands | Não | Não |
+> | virtualmachines/runcommands | Sim | Sim |
 > | virtualmachinescalesets | Sim | Sim |
 > | virtualmachinescalesets/extensions | Não | Não |
 > | virtualmachinescalesets/networkinterfaces | Não | Não |
@@ -907,6 +907,13 @@ Pule para um namespace de provedor de recursos:
 
 > [!IMPORTANT]
 > Consulte [Diretrizes de movimentação de Máquinas Virtuais](./move-limitations/virtual-machines-move-limitations.md).
+
+## <a name="microsoftconnectedcache"></a>Microsoft. ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | cachenodes | Não | Não |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -938,13 +945,6 @@ Pule para um namespace de provedor de recursos:
 > | terms | Não | Não |
 > | usagedetails | Não | Não |
 
-## <a name="microsoftcontainer"></a>Microsoft.Container
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | containergroups | Não | Não |
-
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
@@ -973,12 +973,12 @@ Pule para um namespace de provedor de recursos:
 > | locations/setupauth | Não | Não |
 > | operações | Não | Não |
 > | registries | Sim | Sim |
-> | registries/agentpools | Sim | Sim |
+> | registries/agentpools | Não | Não |
 > | registries/agentpools/listqueuestatus | Não | Não |
 > | registries/builds | Não | Não |
 > | registries/builds/cancel | Não | Não |
 > | registries/builds/getloglink | Não | Não |
-> | registries/buildtasks | Sim | Sim |
+> | registries/buildtasks | Não | Não |
 > | registries/buildtasks/listsourcerepositoryproperties | Não | Não |
 > | registries/buildtasks/steps | Não | Não |
 > | registries/buildtasks/steps/listbuildarguments | Não | Não |
@@ -1001,7 +1001,7 @@ Pule para um namespace de provedor de recursos:
 > | registries/queuebuild | Não | Não |
 > | registries/regeneratecredential | Não | Não |
 > | registries/regeneratecredentials | Não | Não |
-> | registries/replications | Sim | Sim |
+> | registries/replications | Não | Não |
 > | registries/runs | Não | Não |
 > | registries/runs/cancel | Não | Não |
 > | registries/runs/listlogsasurl | Não | Não |
@@ -1009,11 +1009,11 @@ Pule para um namespace de provedor de recursos:
 > | registries/scopemaps | Não | Não |
 > | registries/taskruns | Não | Não |
 > | registries/taskruns/listdetails | Não | Não |
-> | registries/tasks | Sim | Sim |
+> | registries/tasks | Não | Não |
 > | registries/tasks/listdetails | Não | Não |
 > | registries/tokens | Não | Não |
 > | registries/updatepolicies | Não | Não |
-> | registries/webhooks | Sim | Sim |
+> | registries/webhooks | Não | Não |
 > | registries/webhooks/getcallbackconfig | Não | Não |
 > | registries/webhooks/listevents | Não | Não |
 > | registries/webhooks/ping | Não | Não |
@@ -1033,14 +1033,14 @@ Pule para um namespace de provedor de recursos:
 > | openshiftmanagedclusters | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
+## <a name="microsoftcontentmoderator"></a>O. CONTENTMODERATOR
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | de dimensionamento da Web | Não | Não |
 
-## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
+## <a name="microsoftcortanaanalytics"></a>O. CORTANAANALYTICS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -1056,7 +1056,8 @@ Pule para um namespace de provedor de recursos:
 > | billingaccounts | Não | Não |
 > | budgets | Não | Não |
 > | cloudconnectors | Não | Não |
-> | conectores | Sim | Sim |
+> | conectores | Não | Não |
+> | costallocationrules | Não | Não |
 > | departments | Não | Não |
 > | dimensions | Não | Não |
 > | enrollmentaccounts | Não | Não |
@@ -1088,7 +1089,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | operações | Não | Não |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
+## <a name="microsoftcustomerinsights"></a>O. CUSTOMERINSIGHTS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -1112,7 +1113,7 @@ Pule para um namespace de provedor de recursos:
 > | Locais | Não | Não |
 > | locations/operationstatuses | Não | Não |
 > | operações | Não | Não |
-> | resourceproviders | Sim | Sim |
+> | resourceproviders | Não | Não |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -1134,7 +1135,8 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | databoxedgedevices | Não | Não |
+> | availableskus | Não | Não |
+> | databoxedgedevices | Sim | Sim |
 > | databoxedgedevices/checknameavailability | Não | Não |
 > | operações | Não | Não |
 
@@ -1156,7 +1158,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | catalogs | Sim | Sim |
+> | catalogs | Não | Não |
 > | checknameavailability | Não | Não |
 > | datacatalogs | Não | Não |
 > | Locais | Não | Não |
@@ -1164,14 +1166,14 @@ Pule para um namespace de provedor de recursos:
 > | locations/operationresults | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
+## <a name="microsoftdataconnect"></a>O. DataConnect
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | connectionmanagers | Não | Não |
 
-## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
+## <a name="microsoftdataexchange"></a>O. Troca de
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -1186,7 +1188,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | checkazuredatafactorynameavailability | Não | Não |
 > | checkdatafactorynameavailability | Não | Não |
-> | datafactories | Sim | Sim |
+> | datafactories | Não | Não |
 > | datafactories/diagnosticsettings | Não | Não |
 > | datafactories/metricdefinitions | Não | Não |
 > | datafactoryschema | Não | Não |
@@ -1197,7 +1199,7 @@ Pule para um namespace de provedor de recursos:
 > | locations/getfeaturevalue | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftdatalake"></a>Microsoft.DataLake
+## <a name="microsoftdatalake"></a>O. DATALAKE
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -1209,7 +1211,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Não | Não |
 > | accounts/datalakestoreaccounts | Não | Não |
 > | accounts/storageaccounts | Não | Não |
 > | accounts/storageaccounts/containers | Não | Não |
@@ -1226,7 +1228,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Não | Não |
 > | accounts/eventgridfilters | Não | Não |
 > | accounts/firewallrules | Não | Não |
 > | Locais | Não | Não |
@@ -1259,6 +1261,7 @@ Pule para um namespace de provedor de recursos:
 > | backupvaults | Não | Não |
 > | Locais | Não | Não |
 > | operações | Não | Não |
+> | resourceoperationgatekeepers | Não | Não |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
@@ -1392,30 +1395,30 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | artifactsources | Sim | Sim |
+> | artifactsources | Não | Não |
 > | operationresults | Não | Não |
 > | operações | Não | Não |
-> | rollouts | Sim | Sim |
-> | servicetopologies | Sim | Sim |
-> | servicetopologies/services | Sim | Sim |
-> | servicetopologies/services/serviceunits | Sim | Sim |
-> | etapas | Sim | Sim |
+> | rollouts | Não | Não |
+> | servicetopologies | Não | Não |
+> | servicetopologies/services | Não | Não |
+> | servicetopologies/services/serviceunits | Não | Não |
+> | etapas | Não | Não |
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applicationgroups | Sim | Sim |
+> | applicationgroups | Não | Não |
 > | applicationgroups/applications | Não | Não |
 > | applicationgroups/desktops | Não | Não |
 > | applicationgroups/startmenuitems | Não | Não |
-> | hostpools | Sim | Sim |
+> | hostpools | Não | Não |
 > | hostpools/sessionhosts | Não | Não |
 > | hostpools/sessionhosts/usersessions | Não | Não |
 > | hostpools/usersessions | Não | Não |
 > | operações | Não | Não |
-> | workspaces | Sim | Sim |
+> | workspaces | Não | Não |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -1424,10 +1427,11 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Não | Não |
 > | checkprovisioningservicenameavailability | Não | Não |
-> | elasticpools | Não | Não |
-> | elasticpools/iothubtenants | Não | Não |
+> | elasticpools | Sim | Sim |
+> | elasticpools/iothubtenants | Sim | Sim |
 > | iothubs | Sim | Sim |
 > | iothubs/eventgridfilters | Não | Não |
+> | iothubs/securitysettings | Não | Não |
 > | operationresults | Não | Não |
 > | operações | Não | Não |
 > | provisioningservices | Sim | Sim |
@@ -1438,14 +1442,14 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | pipelines | Sim | Sim |
+> | pipelines | Não | Não |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | controladores | Sim | Sim |
+> | controladores | Não | Não |
 > | controllers/listconnectiondetails | Não | Não |
 > | Locais | Não | Não |
 > | locations/checkcontainerhostmapping | Não | Não |
@@ -1458,14 +1462,14 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | labcenters | Não | Não |
-> | labs | Sim | Não |
-> | labs/environments | Sim | Sim |
-> | labs/servicerunners | Sim | Sim |
-> | labs/virtualmachines | Sim | Não |
+> | labs | Não | Não |
+> | labs/environments | Não | Não |
+> | labs/servicerunners | Não | Não |
+> | labs / virtualmachines | Não | Não |
 > | Locais | Não | Não |
 > | locations/operations | Não | Não |
 > | operações | Não | Não |
-> | schedules | Sim | Sim |
+> | schedules | Não | Não |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
@@ -1473,7 +1477,10 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | digitaltwinsinstances | Não | Não |
+> | digitaltwinsinstances/pontos de extremidade | Não | Não |
+> | digitaltwinsinstances / operationresults | Não | Não |
 > | Locais | Não | Não |
+> | locations/checknameavailability | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
@@ -1512,15 +1519,14 @@ Pule para um namespace de provedor de recursos:
 > | Locais | Não | Não |
 > | locations/operationresults | Não | Não |
 > | operações | Não | Não |
-> | services | Sim | Sim |
+> | services | Não | Não |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | domains | Sim | Sim |
-> | eventSubscriptions | Não - não pode ser movido independentemente, apenas automaticamente com recurso assinado. | Não - não pode ser movido independentemente, apenas automaticamente com recurso assinado. |
+> | domains | Não | Não |
 > | domains/topics | Não | Não |
 > | eventsubscriptions | Não - não pode ser movido independentemente, apenas automaticamente com recurso assinado. | Não - não pode ser movido independentemente, apenas automaticamente com recurso assinado. |
 > | extensiontopics | Não | Não |
@@ -1532,14 +1538,14 @@ Pule para um namespace de provedor de recursos:
 > | operationresults | Não | Não |
 > | operações | Não | Não |
 > | operationsstatus | Não | Não |
-> | partnernamespaces | Sim | Sim |
+> | partnernamespaces | Não | Não |
 > | partnernamespaces/eventchannels | Não | Não |
 > | partnerregistrations | Não | Não |
-> | partnertopics | Sim | Sim |
+> | partnertopics | Não | Não |
 > | partnertopics/eventsubscriptions | Não | Não |
-> | systemtopics | Sim | Sim |
+> | systemtopics | Não | Não |
 > | systemtopics/eventsubscriptions | Não | Não |
-> | topics | Sim | Sim |
+> | topics | Não | Não |
 > | topictypes | Não | Não |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
@@ -1550,10 +1556,10 @@ Pule para um namespace de provedor de recursos:
 > | availableclusterregions | Não | Não |
 > | checknameavailability | Não | Não |
 > | checknamespaceavailability | Não | Não |
-> | clusters | Sim | Sim |
+> | clusters | Não | Não |
 > | Locais | Não | Não |
 > | locations/deletevirtualnetworkorsubnets | Não | Não |
-> | namespaces | Sim | Sim |
+> | namespaces | Não | Não |
 > | namespaces/authorizationrules | Não | Não |
 > | namespaces/disasterrecoveryconfigs | Não | Não |
 > | namespaces/disasterrecoveryconfigs/checknameavailability | Não | Não |
@@ -1578,7 +1584,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | namespaces | Sim | Sim |
+> | namespaces | Não | Não |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
@@ -1591,7 +1597,7 @@ Pule para um namespace de provedor de recursos:
 > | providers | Não | Não |
 > | subscriptionfeatureregistrations | Não | Não |
 
-## <a name="microsoftgenomics"></a>Microsoft.Genomics
+## <a name="microsoftgenomics"></a>O. GENOMICS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -1621,7 +1627,7 @@ Pule para um namespace de provedor de recursos:
 > | locations/operations | Não | Não |
 > | locations/operationsstatus | Não | Não |
 > | operações | Não | Não |
-> | sapmonitors | Sim | Sim |
+> | sapmonitors | Não | Não |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
@@ -1663,7 +1669,7 @@ Pule para um namespace de provedor de recursos:
 > | Locais | Não | Não |
 > | locations/operationresults | Não | Não |
 > | operações | Não | Não |
-> | services | Sim | Sim |
+> | services | Não | Não |
 > | services/privateendpointconnections | Não | Não |
 > | services/privatelinkresources | Não | Não |
 
@@ -1672,8 +1678,11 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | machines | Sim | Sim |
-> | machines/extensions | Não | Não |
+> | Locais | Não | Não |
+> | locations/operationresults | Não | Não |
+> | locations/operationstatus | Não | Não |
+> | machines | Não | Não |
+> | machines/extensions | Sim | Sim |
 > | operações | Não | Não |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
@@ -1681,8 +1690,19 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | datamanagers | Sim | Sim |
+> | datamanagers | Não | Não |
 > | operações | Não | Não |
+
+## <a name="microsofthybridnetwork"></a>Microsoft. HybridNetwork
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | dispositivos | Não | Não |
+> | Locais | Não | Não |
+> | locations/operationstatuses | Não | Não |
+> | operações | Não | Não |
+> | vnfs | Não | Não |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1709,7 +1729,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | actiongroups | Sim | Sim |
+> | actiongroups | Não | Não |
 > | activitylogalerts | Não | Não |
 > | alertrules | Sim | Sim |
 > | autoscalesettings | Sim | Sim |
@@ -1718,6 +1738,7 @@ Pule para um namespace de provedor de recursos:
 > | components | Sim | Sim |
 > | components/events | Não | Não |
 > | components/linkedstorageaccounts | Não | Não |
+> | componentes/metadados | Não | Não |
 > | components/metrics | Não | Não |
 > | components/pricingplans | Não | Não |
 > | components/query | Não | Não |
@@ -1756,8 +1777,9 @@ Pule para um namespace de provedor de recursos:
 > | transações | Não | Não |
 > | vminsightsonboardingstatuses | Não | Não |
 > | webtests | Sim | Sim |
-> | workbooks | Sim | Sim |
-> | workbooktemplates | Sim | Sim |
+> | webtesters/testresultfile | Não | Não |
+> | workbooks | Não | Não |
+> | workbooktemplates | Não | Não |
 
 > [!IMPORTANT]
 > Verifique se mover para nova assinatura não excede as [cotas de assinatura](azure-subscription-service-limits.md#azure-monitor-limits).
@@ -1770,7 +1792,7 @@ Pule para um namespace de provedor de recursos:
 > | apptemplates | Não | Não |
 > | checknameavailability | Não | Não |
 > | checksubdomainavailability | Não | Não |
-> | iotapps | Sim | Sim |
+> | iotapps | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
@@ -1778,8 +1800,8 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Sim | Sim |
-> | grafo | Sim | Sim |
+> | checknameavailability | Não | Não |
+> | grafo | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
@@ -1789,11 +1811,12 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Não | Não |
 > | deletedvaults | Não | Não |
-> | hsmpools | Não | Não |
+> | hsmpools | Sim | Sim |
 > | Locais | Não | Não |
 > | locations/deletedvaults | Não | Não |
 > | locations/deletevirtualnetworkorsubnets | Não | Não |
 > | locations/operationresults | Não | Não |
+> | managedhsms | Não | Não |
 > | operações | Não | Não |
 > | vaults | Sim | Sim |
 > | vaults/accesspolicies | Não | Não |
@@ -1808,7 +1831,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | connectedclusters | Sim | Sim |
+> | connectedclusters | Não | Não |
 > | Locais | Não | Não |
 > | locations/operationstatuses | Não | Não |
 > | operações | Não | Não |
@@ -1826,7 +1849,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | Sim | Sim |
+> | clusters | Não | Não |
 > | clusters/attacheddatabaseconfigurations | Não | Não |
 > | clusters/databases | Não | Não |
 > | clusters/databases/dataconnections | Não | Não |
@@ -1849,14 +1872,14 @@ Pule para um namespace de provedor de recursos:
 > | operações | Não | Não |
 > | users | Não | Não |
 
-## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
+## <a name="microsoftlocationbasedservices"></a>O. LOCATIONBASEDSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | Não | Não |
 
-## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
+## <a name="microsoftlocationservices"></a>O. ARQUIVO LOCATIONSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -1870,8 +1893,8 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | Não | Não |
 > | integrationaccounts | Sim | Sim |
-> | integrationserviceenvironments | Sim | Não |
-> | integrationserviceenvironments/managedapis | Sim | Não |
+> | integrationserviceenvironments | Não | Não |
+> | integrationserviceenvironments/managedapis | Não | Não |
 > | isolatedenvironments | Não | Não |
 > | Locais | Não | Não |
 > | locations/workflows | Não | Não |
@@ -1888,17 +1911,17 @@ Pule para um namespace de provedor de recursos:
 > | locations/operations | Não | Não |
 > | locations/operationsstatus | Não | Não |
 > | operações | Não | Não |
-> | webservices | Sim | Não |
-> | workspaces | Sim | Sim |
+> | webservices | Não | Não |
+> | workspaces | Não | Não |
 
-## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
+## <a name="microsoftmachinelearningcompute"></a>O. MACHINELEARNINGCOMPUTE
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | operationalizationclusters | Não | Não |
 
-## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
+## <a name="microsoftmachinelearningexperimentation"></a>O. MACHINELEARNINGEXPERIMENTATION
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -1910,19 +1933,12 @@ Pule para um namespace de provedor de recursos:
 > | teamaccounts/workspaces | Não | Não |
 > | teamaccounts/workspaces/projects | Não | Não |
 
-## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
+## <a name="microsoftmachinelearningmodelmanagement"></a>O. MACHINELEARNINGMODELMANAGEMENT
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | Não | Não |
-
-## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | hostingaccounts | Não | Não |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -1948,7 +1964,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | applyupdates | Não | Não |
 > | configurationassignments | Não | Não |
-> | maintenanceconfigurations | Sim | Sim |
+> | maintenanceconfigurations | Não | Não |
 > | updates | Não | Não |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -1960,7 +1976,7 @@ Pule para um namespace de provedor de recursos:
 > | operações | Não | Não |
 > | userassignedidentities | Não | Não |
 
-## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
+## <a name="microsoftmanagednetwork"></a>O. MANAGEDNETWORK
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -2002,9 +2018,9 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Não | Não |
 > | accounts/eventgridfilters | Não | Não |
-> | accounts/privateatlases | Sim | Sim |
+> | accounts/privateatlases | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -2059,25 +2075,25 @@ Pule para um namespace de provedor de recursos:
 > | checknameavailability | Não | Não |
 > | Locais | Não | Não |
 > | locations/checknameavailability | Não | Não |
-> | mediaservices | Sim | Sim |
+> | mediaservices | Não | Não |
 > | mediaservices/accountfilters | Não | Não |
 > | mediaservices/assets | Não | Não |
 > | mediaservices/assets/assetfilters | Não | Não |
 > | mediaservices/contentkeypolicies | Não | Não |
 > | mediaservices/eventgridfilters | Não | Não |
 > | mediaservices/liveeventoperations | Não | Não |
-> | mediaservices/liveevents | Sim | Sim |
+> | mediaservices/liveevents | Não | Não |
 > | mediaservices/liveevents/liveoutputs | Não | Não |
 > | mediaservices/liveoutputoperations | Não | Não |
 > | mediaservices/streamingendpointoperations | Não | Não |
-> | mediaservices/streamingendpoints | Sim | Sim |
+> | mediaservices/streamingendpoints | Não | Não |
 > | mediaservices/streaminglocators | Não | Não |
 > | mediaservices/streamingpolicies | Não | Não |
 > | mediaservices/transforms | Não | Não |
 > | mediaservices/transforms/jobs | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
+## <a name="microsoftmicroservices4spring"></a>O. MICROSERVICES4SPRING
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -2089,11 +2105,11 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | assessmentprojects | Sim | Sim |
+> | assessmentprojects | Não | Não |
 > | Locais | Não | Não |
 > | locations/assessmentoptions | Não | Não |
 > | locations/checknameavailability | Não | Não |
-> | migrateprojects | Sim | Sim |
+> | migrateprojects | Não | Não |
 > | movecollections | Não | Não |
 > | operações | Não | Não |
 > | projects | Não | Não |
@@ -2108,8 +2124,8 @@ Pule para um namespace de provedor de recursos:
 > | locations/checknameavailability | Não | Não |
 > | objectunderstandingaccounts | Não | Não |
 > | operações | Não | Não |
-> | remoterenderingaccounts | Sim | Sim |
-> | spatialanchorsaccounts | Sim | Sim |
+> | remoterenderingaccounts | Não | Não |
+> | spatialanchorsaccounts | Não | Não |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -2136,19 +2152,19 @@ Pule para um namespace de provedor de recursos:
 > | applicationgatewayavailablewafrulesets | Não | Não |
 > | applicationgateways | Não | Não |
 > | applicationgatewaywebapplicationfirewallpolicies | Não | Não |
-> | applicationsecuritygroups | Sim | Sim |
+> | applicationsecuritygroups | Não | Não |
 > | azurefirewallfqdntags | Não | Não |
 > | azurefirewalls | Não | Não |
 > | bastionhosts | Não | Não |
 > | bgpservicecommunities | Não | Não |
 > | checkfrontdoornameavailability | Não | Não |
 > | checktrafficmanagernameavailability | Não | Não |
-> | connections | Sim | Sim |
-> | ddoscustompolicies | Sim | Sim |
+> | connections | Não | Não |
+> | ddoscustompolicies | Não | Não |
 > | ddosprotectionplans | Não | Não |
 > | dnsoperationresults | Não | Não |
 > | dnsoperationstatuses | Não | Não |
-> | dnszones | Sim | Sim |
+> | dnszones | Não | Não |
 > | dnszones/a | Não | Não |
 > | dnszones/aaaa | Não | Não |
 > | dnszones/all | Não | Não |
@@ -2164,16 +2180,18 @@ Pule para um namespace de provedor de recursos:
 > | expressroutecircuits | Não | Não |
 > | expressroutegateways | Não | Não |
 > | expressrouteserviceproviders | Não | Não |
-> | firewallpolicies | Sim | Sim |
+> | firewallpolicies | Não | Não |
 > | frontdooroperationresults | Não | Não |
 > | frontdoors | Não | Não |
+> | frontdoors / frontendendpoints | Não | Não |
 > | frontdoorwebapplicationfirewallmanagedrulesets | Não | Não |
 > | frontdoorwebapplicationfirewallpolicies | Não | Não |
 > | getdnsresourcereference | Não | Não |
 > | internalnotify | Não | Não |
-> | ipgroups | Sim | Sim |
+> | ipallocations | Não | Não |
+> | ipgroups | Não | Não |
 > | loadbalancers | Sim - SKU Básico<br>Não - SKU Standard | Sim - SKU Básico<br>Não - SKU Standard |
-> | localnetworkgateways | Sim | Sim |
+> | localnetworkgateways | Não | Não |
 > | Locais | Não | Não |
 > | locations/autoapprovedprivatelinkservices | Não | Não |
 > | locations/availabledelegations | Não | Não |
@@ -2197,12 +2215,12 @@ Pule para um namespace de provedor de recursos:
 > | locations/usages | Não | Não |
 > | locations/validateresourceownership | Não | Não |
 > | locations/virtualnetworkavailableendpointservices | Não | Não |
-> | natgateways | Sim | Sim |
+> | natgateways | Não | Não |
 > | networkexperimentprofiles | Não | Não |
-> | networkintentpolicies | Sim | Sim |
-> | networkinterfaces | Sim | Sim |
+> | networkintentpolicies | Não | Não |
+> | networkinterfaces | Não | Não |
 > | networkprofiles | Não | Não |
-> | networksecuritygroups | Sim | Sim |
+> | networksecuritygroups | Não | Não |
 > | networkwatchers | Sim | Não |
 > | networkwatchers/connectionmonitors | Sim | Não |
 > | networkwatchers/flowlogs | Sim | Não |
@@ -2211,7 +2229,7 @@ Pule para um namespace de provedor de recursos:
 > | p2svpngateways | Não | Não |
 > | privatednsoperationresults | Não | Não |
 > | privatednsoperationstatuses | Não | Não |
-> | privatednszones | Sim | Sim |
+> | privatednszones | Não | Não |
 > | privatednszones/a | Não | Não |
 > | privatednszones/aaaa | Não | Não |
 > | privatednszones/all | Não | Não |
@@ -2221,26 +2239,26 @@ Pule para um namespace de provedor de recursos:
 > | privatednszones/soa | Não | Não |
 > | privatednszones/srv | Não | Não |
 > | privatednszones/txt | Não | Não |
-> | privatednszones/virtualnetworklinks | Sim | Sim |
+> | privatednszones/virtualnetworklinks | Não | Não |
 > | privatednszonesinternal | Não | Não |
 > | privateendpointredirectmaps | Não | Não |
-> | privateendpoints | Sim | Sim |
+> | privateendpoints | Não | Não |
 > | privatelinkservices | Não | Não |
 > | publicipaddresses | Sim - SKU Básico<br>Não - SKU Standard | Sim - SKU Básico<br>Não - SKU Standard |
-> | publicipprefixes | Sim | Sim |
+> | publicipprefixes | Não | Não |
 > | routefilters | Não | Não |
-> | routetables | Sim | Sim |
-> | securitypartnerproviders | Sim | Sim |
-> | serviceendpointpolicies | Sim | Sim |
+> | routetables | Não | Não |
+> | securitypartnerproviders | Não | Não |
+> | serviceendpointpolicies | Não | Não |
 > | trafficmanagergeographichierarchies | Não | Não |
-> | trafficmanagerprofiles | Sim | Sim |
+> | trafficmanagerprofiles | Não | Não |
 > | trafficmanagerprofiles/heatmaps | Não | Não |
 > | trafficmanagerusermetricskeys | Não | Não |
 > | virtualhubs | Não | Não |
-> | virtualnetworkgateways | Sim | Sim |
-> | virtualnetworks | Sim | Sim |
+> | virtualnetworkgateways | Não | Não |
+> | virtualnetworks | Não | Não |
 > | virtualnetworktaps | Não | Não |
-> | virtualrouters | Sim | Sim |
+> | virtualrouters | Não | Não |
 > | virtualwans | Não | Não |
 > | vpngateways (WAN Virtual) | Não | Não |
 > | vpnserverconfigurations | Não | Não |
@@ -2256,8 +2274,8 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Não | Não |
 > | checknamespaceavailability | Não | Não |
-> | namespaces | Sim | Sim |
-> | namespaces/notificationhubs | Sim | Sim |
+> | namespaces | Não | Não |
+> | namespaces/notificationhubs | Não | Não |
 > | operationresults | Não | Não |
 > | operações | Não | Não |
 
@@ -2266,25 +2284,25 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | osnamespaces | Sim | Sim |
+> | osnamespaces | Não | Não |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hypervsites | Sim | Sim |
-> | importsites | Sim | Sim |
+> | hypervsites | Não | Não |
+> | importsites | Não | Não |
 > | operações | Não | Não |
-> | serversites | Sim | Sim |
-> | vmwaresites | Sim | Sim |
+> | serversites | Não | Não |
+> | vmwaresites | Não | Não |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | Não | Não |
+> | clusters | Sim | Sim |
 > | deletedworkspaces | Não | Não |
 > | linktargets | Não | Não |
 > | Locais | Não | Não |
@@ -2310,10 +2328,10 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | managementassociations | Não | Não |
-> | managementconfigurations | Sim | Sim |
+> | managementconfigurations | Não | Não |
 > | operações | Não | Não |
-> | solutions | Sim | Sim |
-> | Modos de exibição | Sim | Sim |
+> | solutions | Não | Não |
+> | Modos de exibição | Não | Não |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
@@ -2325,7 +2343,7 @@ Pule para um namespace de provedor de recursos:
 > | operações | Não | Não |
 > | peerasns | Não | Não |
 > | peeringlocations | Não | Não |
-> | peerings | Sim | Sim |
+> | peerings | Não | Não |
 > | peeringservicecountries | Não | Não |
 > | peeringservicelocations | Não | Não |
 > | peeringserviceproviders | Não | Não |
@@ -2349,19 +2367,12 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | consoles | Não | Não |
-> | dashboards | Sim | Sim |
+> | dashboards | Não | Não |
 > | Locais | Não | Não |
 > | locations/consoles | Não | Não |
 > | locations/usersettings | Não | Não |
 > | operações | Não | Não |
 > | usersettings | Não | Não |
-
-## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | rootresources | Não | Não |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
@@ -2370,7 +2381,11 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | Locais | Não | Não |
 > | locations/checknameavailability | Não | Não |
-> | workspacecollections | Sim | Sim |
+> | operações | Não | Não |
+> | privatelinkservicesforpowerbi | Não | Não |
+> | privatelinkservicesforpowerbi / operationresults | Não | Não |
+> | tenants | Não | Não |
+> | workspacecollections | Não | Não |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
@@ -2384,6 +2399,13 @@ Pule para um namespace de provedor de recursos:
 > | locations/operationstatuses | Não | Não |
 > | operações | Não | Não |
 
+## <a name="microsoftpowerplatform"></a>Microsoft. PowerPlatform
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | operações | Não | Não |
+
 ## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
 
 > [!div class="mx-tableFixed"]
@@ -2393,13 +2415,6 @@ Pule para um namespace de provedor de recursos:
 > | checknameavailability | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
-
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
@@ -2407,6 +2422,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | availableaccounts | Não | Não |
 > | providerregistrations | Não | Não |
+> | providerregistrations/condistribuições | Não | Não |
 > | providerregistrations/resourcetyperegistrations | Não | Não |
 > | rollouts | Não | Não |
 
@@ -2463,7 +2479,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Não | Não |
-> | namespaces | Sim | Sim |
+> | namespaces | Não | Não |
 > | namespaces/authorizationrules | Não | Não |
 > | namespaces/hybridconnections | Não | Não |
 > | namespaces/hybridconnections/authorizationrules | Não | Não |
@@ -2504,6 +2520,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | calculatetemplatehash | Não | Não |
 > | checkpolicycompliance | Não | Não |
 > | checkresourcename | Não | Não |
 > | deployments | Não | Não |
@@ -2538,7 +2555,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | de dimensionamento da Web | Sim | Não |
+> | de dimensionamento da Web | Não | Não |
 > | checkmoderneligibility | Não | Não |
 > | checknameavailability | Não | Não |
 > | operationresults | Não | Não |
@@ -2567,12 +2584,13 @@ Pule para um namespace de provedor de recursos:
 > | adaptivenetworkhardenings | Não | Não |
 > | advancedthreatprotectionsettings | Não | Não |
 > | alertas | Não | Não |
+> | alertssuppressionrules | Não | Não |
 > | allowedconnections | Não | Não |
 > | applicationwhitelistings | Não | Não |
 > | assessmentmetadata | Não | Não |
 > | assessments | Não | Não |
 > | autodismissalertsrules | Não | Não |
-> | automations | Sim | Sim |
+> | automations | Não | Não |
 > | autoprovisioningsettings | Não | Não |
 > | complianceresults | Não | Não |
 > | compliances | Não | Não |
@@ -2581,10 +2599,12 @@ Pule para um namespace de provedor de recursos:
 > | discoveredsecuritysolutions | Não | Não |
 > | externalsecuritysolutions | Não | Não |
 > | informationprotectionpolicies | Não | Não |
-> | iotsecuritysolutions | Sim | Sim |
+> | iotsecuritysolutions | Não | Não |
 > | iotsecuritysolutions/analyticsmodels | Não | Não |
 > | iotsecuritysolutions/analyticsmodels/aggregatedalerts | Não | Não |
 > | iotsecuritysolutions/analyticsmodels/aggregatedrecommendations | Não | Não |
+> | iotsecuritysolutions / iotalerts | Não | Não |
+> | iotsecuritysolutions / iotalerttypes | Não | Não |
 > | jitnetworkaccesspolicies | Não | Não |
 > | Locais | Não | Não |
 > | locations/alerts | Não | Não |
@@ -2603,6 +2623,10 @@ Pule para um namespace de provedor de recursos:
 > | regulatorycompliancestandards | Não | Não |
 > | regulatorycompliancestandards/regulatorycompliancecontrols | Não | Não |
 > | regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments | Não | Não |
+> | securescorecontroldefinitions | Não | Não |
+> | securescorecontrols | Não | Não |
+> | securescores | Não | Não |
+> | securescores / securescorecontrols | Não | Não |
 > | securitycontacts | Não | Não |
 > | securitysolutions | Não | Não |
 > | securitysolutionsreferencedata | Não | Não |
@@ -2623,6 +2647,7 @@ Pule para um namespace de provedor de recursos:
 > | aggregations | Não | Não |
 > | alertrules | Não | Não |
 > | alertruletemplates | Não | Não |
+> | automationrules | Não | Não |
 > | bookmarks | Não | Não |
 > | cases | Não | Não |
 > | dataconnectors | Não | Não |
@@ -2645,7 +2670,7 @@ Pule para um namespace de provedor de recursos:
 > | locations/consoleservices | Não | Não |
 > | operações | Não | Não |
 
-## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
+## <a name="microsoftservermanagement"></a>O. SERVERMANAGEMENT
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -2662,7 +2687,7 @@ Pule para um namespace de provedor de recursos:
 > | checknamespaceavailability | Não | Não |
 > | Locais | Não | Não |
 > | locations/deletevirtualnetworkorsubnets | Não | Não |
-> | namespaces | Sim | Sim |
+> | namespaces | Não | Não |
 > | namespaces/authorizationrules | Não | Não |
 > | namespaces/disasterrecoveryconfigs | Não | Não |
 > | namespaces/disasterrecoveryconfigs/checknameavailability | Não | Não |
@@ -2684,7 +2709,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | de dimensionamento da Web | Não | Não |
-> | clusters | Sim | Sim |
+> | clusters | Não | Não |
 > | clusters/applications | Não | Não |
 > | containergroups | Não | Não |
 > | containergroupsets | Não | Não |
@@ -2705,27 +2730,25 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | de dimensionamento da Web | Sim | Sim |
+> | de dimensionamento da Web | Não | Não |
 > | containergroups | Não | Não |
-> | gateways | Sim | Sim |
+> | gateways | Não | Não |
 > | Locais | Não | Não |
 > | locations/applicationoperations | Não | Não |
 > | locations/gatewayoperations | Não | Não |
 > | locations/networkoperations | Não | Não |
 > | locations/secretoperations | Não | Não |
 > | locations/volumeoperations | Não | Não |
-> | networks | Sim | Sim |
+> | networks | Não | Não |
 > | operações | Não | Não |
-> | segredos | Sim | Sim |
-> | volumes | Sim | Sim |
+> | segredos | Não | Não |
+> | volumes | Não | Não |
 
-## <a name="microsoftservices"></a>Microsoft.Services
+## <a name="microsoftservices"></a>O. SERVIÇOS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | providerregistrations | Não | Não |
-> | providerregistrations/resourcetyperegistrations | Não | Não |
 > | rollouts | Não | Não |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -2770,7 +2793,6 @@ Pule para um namespace de provedor de recursos:
 > | checknameavailability | Não | Não |
 > | instancepools | Não | Não |
 > | Locais | Sim | Sim |
-> | Locais | Não | Não |
 > | locations/administratorazureasyncoperation | Não | Não |
 > | locations/administratoroperationresults | Não | Não |
 > | locations/auditingsettingsazureasyncoperation | Não | Não |
@@ -2870,25 +2892,21 @@ Pule para um namespace de provedor de recursos:
 > | managedinstances/tdecertificates | Não | Não |
 > | managedinstances/vulnerabilityassessments | Não | Não |
 > | operações | Não | Não |
-> | servers | Sim | Sim |
+> | servers | Não | Não |
 > | servers/administratoroperationresults | Não | Não |
 > | servers/administrators | Não | Não |
 > | servers/advisors | Não | Não |
 > | servers/aggregateddatabasemetrics | Não | Não |
-> | servers/auditingpolicies | Não | Não |
 > | servers/auditingsettings | Não | Não |
 > | servers/automatictuning | Não | Não |
 > | servers/communicationlinks | Não | Não |
-> | servers/connectionpolicies | Não | Não |
-> | servers/databases | Sim | Sim |
+> | servers/databases | Não | Não |
 > | servers/databases/advisors | Não | Não |
-> | servers/databases/auditingpolicies | Não | Não |
 > | servers/databases/auditingsettings | Não | Não |
 > | servers/databases/auditrecords | Não | Não |
 > | servers/databases/automatictuning | Não | Não |
 > | servers/databases/backuplongtermretentionpolicies | Não | Não |
 > | servers/databases/backupshorttermretentionpolicies | Não | Não |
-> | servers/databases/connectionpolicies | Não | Não |
 > | servers/databases/datamaskingpolicies | Não | Não |
 > | servers/databases/datamaskingpolicies/rules | Não | Não |
 > | servers/databases/extensions | Não | Não |
@@ -2911,7 +2929,7 @@ Pule para um namespace de provedor de recursos:
 > | servers/disasterrecoveryconfiguration | Não | Não |
 > | servers/dnsaliases | Não | Não |
 > | servers/elasticpoolestimates | Não | Não |
-> | servers/elasticpools | Sim | Sim |
+> | servers/elasticpools | Não | Não |
 > | servers/elasticpools/advisors | Não | Não |
 > | servers/elasticpools/metricdefinitions | Não | Não |
 > | servers/elasticpools/metrics | Não | Não |
@@ -2920,8 +2938,8 @@ Pule para um namespace de provedor de recursos:
 > | servers/failovergroups | Não | Não |
 > | servers/import | Não | Não |
 > | servers/importexportoperationresults | Não | Não |
-> | servers/jobaccounts | Sim | Sim |
-> | servers/jobagents | Sim | Sim |
+> | servers/jobaccounts | Não | Não |
+> | servers/jobagents | Não | Não |
 > | servers/jobagents/jobs | Não | Não |
 > | servers/jobagents/jobs/executions | Não | Não |
 > | servers/jobagents/jobs/steps | Não | Não |
@@ -2937,7 +2955,7 @@ Pule para um namespace de provedor de recursos:
 > | servers/usages | Não | Não |
 > | servers/virtualnetworkrules | Não | Não |
 > | servers/vulnerabilityassessments | Não | Não |
-> | virtualclusters | Sim | Sim |
+> | virtualclusters | Não | Não |
 
 > [!IMPORTANT]
 > Um banco de dados e o servidor devem estar no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos. Este comportamento se aplica ao Banco de Dados SQL do Azure e ao banco de dados SQL Data Warehouse do Azure.
@@ -2956,13 +2974,6 @@ Pule para um namespace de provedor de recursos:
 > | sqlvirtualmachinegroups | Sim | Sim |
 > | sqlvirtualmachinegroups/availabilitygrouplisteners | Não | Não |
 > | sqlvirtualmachines | Sim | Sim |
-
-## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dwvm | Não | Não |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -2987,7 +2998,7 @@ Pule para um namespace de provedor de recursos:
 > | storageaccounts/tableservices | Não | Não |
 > | usages | Não | Não |
 
-## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+## <a name="microsoftstoragecache"></a>O. STORAGECACHE
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -3001,23 +3012,25 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | Locais | Não | Não |
 > | locations/checknameavailability | Não | Não |
+> | locations/operationresults | Não | Não |
+> | locations/operations | Não | Não |
 > | locations/workflows | Não | Não |
 > | operações | Não | Não |
-> | storagesyncservices | Sim | Sim |
+> | storagesyncservices | Não | Não |
 > | storagesyncservices/registeredservers | Não | Não |
 > | storagesyncservices/syncgroups | Não | Não |
 > | storagesyncservices/syncgroups/cloudendpoints | Não | Não |
 > | storagesyncservices/syncgroups/serverendpoints | Não | Não |
 > | storagesyncservices/workflows | Não | Não |
 
-## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
+## <a name="microsoftstoragesyncdev"></a>O. STORAGESYNCDEV
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | Não | Não |
 
-## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
+## <a name="microsoftstoragesyncint"></a>O. STORAGESYNCINT
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -3037,7 +3050,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | Não | Não |
+> | clusters | Sim | Sim |
 > | Locais | Não | Não |
 > | locations/quotas | Não | Não |
 > | operações | Não | Não |
@@ -3046,7 +3059,7 @@ Pule para um namespace de provedor de recursos:
 > [!IMPORTANT]
 > Os trabalhos do Stream Analytics não podem ser movidos durante o estado de execução.
 
-## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
+## <a name="microsoftstreamanalyticsexplorer"></a>O. STREAMANALYTICSEXPLORER
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
@@ -3092,29 +3105,22 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Não | Não |
 > | operações | Não | Não |
-> | workspaces | Sim | Sim |
-> | workspaces/bigdatapools | Sim | Sim |
+> | privatelinkhubs | Não | Não |
+> | workspaces | Não | Não |
+> | workspaces/bigdatapools | Não | Não |
 > | workspaces/operationresults | Não | Não |
 > | workspaces/operationstatuses | Não | Não |
-> | workspaces/sqlpools | Sim | Sim |
-
-## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | providerregistrations | Não | Não |
-> | recursos | Não | Não |
+> | workspaces/sqlpools | Não | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | environments | Sim | Sim |
+> | environments | Não | Não |
 > | environments/accesspolicies | Não | Não |
-> | environments/eventsources | Sim | Sim |
-> | environments/referencedatasets | Sim | Sim |
+> | environments/eventsources | Não | Não |
+> | environments/referencedatasets | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
@@ -3122,7 +3128,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | stores | Sim | Sim |
+> | stores | Não | Não |
 > | stores/accesspolicies | Não | Não |
 > | stores/services | Não | Não |
 > | stores/services/tokens | Não | Não |
@@ -3133,6 +3139,9 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | imagetemplates | Não | Não |
+> | imagetemplates / runoutputs | Não | Não |
+> | Locais | Não | Não |
+> | locations/operations | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
@@ -3201,6 +3210,7 @@ Pule para um namespace de provedor de recursos:
 > | accounts | Não | Não |
 > | operações | Não | Não |
 > | planos | Não | Não |
+> | registeredsubscriptions | Não | Não |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
@@ -3209,7 +3219,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | availablestacks | Não | Não |
 > | billingmeters | Não | Não |
-> | certificates | Não | Sim |
+> | certificates | Não | Não |
 > | checknameavailability | Não | Não |
 > | connectiongateways | Sim | Sim |
 > | connections | Sim | Sim |
@@ -3224,7 +3234,7 @@ Pule para um namespace de provedor de recursos:
 > | ishostingenvironmentnameavailable | Não | Não |
 > | ishostnameavailable | Não | Não |
 > | isusernameavailable | Não | Não |
-> | kubeenvironments | Sim | Sim |
+> | kubeenvironments | Não | Não |
 > | listsitesassignedtohostname | Não | Não |
 > | Locais | Não | Não |
 > | locations/apioperations | Não | Não |
@@ -3249,8 +3259,8 @@ Pule para um namespace de provedor de recursos:
 > | sites/eventgridfilters | Não | Não |
 > | sites/hostnamebindings | Não | Não |
 > | sites/networkconfig | Não | Não |
-> | sites/premieraddons | Sim | Sim |
-> | sites/slots | Sim | Sim |
+> | sites/premieraddons | Não | Não |
+> | sites / slots | Não | Não |
 > | sites/slots/eventgridfilters | Não | Não |
 > | sites/slots/hostnamebindings | Não | Não |
 > | sites/slots/networkconfig | Não | Não |
@@ -3279,6 +3289,16 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | deviceservices | Não | Não |
 > | operações | Não | Não |
+
+## <a name="microsoftworkloadbuilder"></a>Microsoft. WorkloadBuilder
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | Locais | Não | Não |
+> | locations/operationstatuses | Não | Não |
+> | operações | Não | Não |
+> | cargas de trabalho | Não | Não |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
