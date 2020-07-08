@@ -5,45 +5,55 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325126"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos Aplicativos Lógicos do Azure
 
 Com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o gatilho de solicitação e a ação de resposta internos, você pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem a solicitações HTTPS de entrada. Por exemplo, você seu aplicativo lógico pode:
 
 * Receber e responder a uma solicitação HTTPS para dados em um banco de dado local.
+
 * Disparar um fluxo de trabalho quando ocorrer um evento de webhook externo.
+
 * Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
 
 O gatilho de solicitação é compatível com a [Autenticação Aberta do Azure Active Directory](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar chamadas de entrada para seu aplicativo lógico. Para obter mais informações sobre como habilitar essa autenticação, consulte [Acesso seguro e dados em Aplicativos Lógicos do Azure – Habilitar a autenticação do Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
-
-> [!NOTE]
-> O gatilho de solicitação tem suporte *somente* a TLS (segurança de camada de transporte) 1.2 para chamadas de entrada. As chamadas de saída têm suporte a TLS 1.0, 1.1, and 1.2. Para mais informações, consulte [Solucionar o problema do TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
->
-> Se você obtiver erros de handshake de TLS, use o TLS 1.2. 
-> Para chamadas de entrada, estes estão os conjuntos de criptografia com suporte:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Se ainda não estiver familiarizado com aplicativos lógicos, aprenda [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Protocolo TLS
+
+* As chamadas de entrada dão suporte *apenas* a TLS (Transport Layer Security) 1,2. Se você obtiver erros de handshake de TLS, use o TLS 1.2. Para mais informações, consulte [Solucionar o problema do TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). As chamadas de saída dão suporte a TLS 1,0, 1,1 e 1,2, com base na capacidade do ponto de extremidade de destino.
+
+* As chamadas de entrada dão suporte a esses conjuntos de codificação:
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 
@@ -158,6 +168,14 @@ Esse gatilho interno cria um ponto de extremidade HTTPS que pode ser chamado man
       }
       ```
 
+1. Para verificar se a chamada de entrada tem um corpo de solicitação que corresponde ao esquema especificado, siga estas etapas:
+
+   1. Na barra de título do gatilho de solicitação, selecione o botão de reticências (**...**).
+   
+   1. Nas configurações do gatilho, ative a **validação de esquema**e selecione **concluído**.
+   
+      Se o corpo da solicitação da chamada de entrada não corresponder ao seu esquema, o gatilho retornará um `HTTP 400 Bad Request` erro.
+
 1. Para especificar propriedades adicionais, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros que você deseja adicionar.
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
@@ -185,6 +203,9 @@ Esse gatilho interno cria um ponto de extremidade HTTPS que pode ser chamado man
    Esta etapa gera a URL a ser usada para enviar a solicitação que dispara o aplicativo lógico. Para copiar essa URL, selecione o ícone de cópia ao lado da URL.
 
    ![URL para usar como gatilho do seu aplicativo lógico](./media/connectors-native-reqres/generated-url.png)
+
+   > [!NOTE]
+   > Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI ao fazer uma chamada para o gatilho de solicitação, use esta versão codificada em vez disso:`%25%23`
 
 1. Para disparar seu aplicativo lógico, envie um HTTP POST para a URL gerada.
 

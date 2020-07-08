@@ -3,12 +3,11 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o Backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4183c1eca6b1149c5c61ed77c0ca1101c86f8f4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667311"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -25,8 +24,11 @@ Neste artigo, você aprenderá a:
 > * Executar um trabalho de backup sob demanda
 
 >[!NOTE]
+>[Introdução](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) à versão prévia de backup do SAP HANA para RHEL (7.4, 7.6, 7.7 ou 8.1). Para outras consultas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+>[!NOTE]
 >**A exclusão temporária para o SQL Server na VM do Azure e a exclusão temporária para SAP HANA nas cargas de trabalho de VM do Azure** já estão disponíveis na versão prévia.<br>
->Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
+>Para se inscrever na versão prévia, escreva para nós em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -180,7 +182,7 @@ Especifique as configurações de política da seguinte maneira:
 10. Depois de terminar de definir a política de backup, clique em **OK**.
 
 > [!NOTE]
-> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, diferencial diário e logs de duas horas. Todos eles são retidos por 30 dias. No entanto, o completo semanal poderá ser realmente limpo/excluído somente depois que o próximo backup completo estiver disponível, ou seja, após 30 + 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ele deve ser retido até 16 de dezembro. O último backup de log para esse completo ocorre antes do próximo completo agendado, em 22 de novembro. Até que esse log esteja disponível até 22 de dezembro, o completo de 16 de novembro não poderá ser excluído. Portanto, o completo de 16 de novembro é mantido até 22 de dezembro.
+> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, diferencial diário e logs de duas horas. Todos eles são retidos por 30 dias. No entanto, o completo semanal poderá ser realmente limpo/excluído somente depois que o próximo backup completo estiver disponível, ou seja, após 30 + 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse completo ocorre antes do próximo completo agendado, em 22 de novembro. Até que esse log esteja disponível até 22 de dezembro, o completo de 16 de novembro não poderá ser excluído. Portanto, o completo de 16 de novembro é mantido até 22 de dezembro.
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 
@@ -188,7 +190,7 @@ Os backups são executados de acordo com o agendamento da política. Você pode 
 
 1. No menu do cofre, clique em **Itens de backup**.
 2. Em **Itens de Backup**, selecione a VM que executa o banco de dados do SAP HANA e clique em **Fazer Backup Agora**.
-3. Em **Fazer Backup Agora**, use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
+3. Em **fazer backup agora**, escolha o tipo de backup que você deseja executar. Em seguida, clique em **OK**. Esse backup será mantido de acordo com a política associada a este item de backup.
 4. Monitorar as notificações do portal. Você pode monitorar o andamento do trabalho no painel do cofre > **Trabalhos de Backup** > **Em Andamento**. Dependendo do tamanho do banco de dados, a criação do backup inicial pode demorar um pouco.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Executar o backup do SAP HANA Studio em um banco de dados com o Backup do Azure habilitado
@@ -198,12 +200,12 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
 1. Aguarde até que os backups completos ou de log do banco de dados sejam concluídos. Verifique o status no SAP HANA Studio/Cockpit.
 2. Desabilite os backups de log e defina o catálogo de backup para o sistema de arquivos para o banco de dados relevante.
 3. Para fazer isso, clique duas vezes em **systemdb** > **Configuração** > **Selecionar Banco de Dados** > **Filtrar (Log)** .
-4. Defina **enable_auto_log_backup** como **No**.
-5. Defina **log_backup_using_backint** como **False**.
+4. Defina **enable_auto_log_backup** como **Não**.
+5. Defina **log_backup_using_backint** como **Falso**.
 6. Faça um backup completo sob demanda do banco de dados.
 7. Aguarde até que o backup completo e o backup do catálogo sejam concluídos.
 8. Reverter as configurações anteriores para as do Azure:
-    * Defina **enable_auto_log_backup** como **Yes**.
+    * Defina **enable_auto_log_backup** como **Sim**.
     * Defina **log_backup_using_backint** como **True**.
 
 ## <a name="next-steps"></a>Próximas etapas

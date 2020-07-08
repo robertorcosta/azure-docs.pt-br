@@ -1,14 +1,13 @@
 ---
 title: Arquitetura do dispositivo de Migrações para Azure
-description: Fornece uma visão geral do dispositivo de migrações para Azure usado em avaliação e migração de servidor.
+description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: d55d123bb056b46b5e78dd8ac836eeaf9b42fe70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770893"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura do dispositivo de Migrações para Azure
 
@@ -16,25 +15,25 @@ Este artigo descreve a arquitetura e os processos do dispositivo de migração d
 
 ## <a name="deployment-scenarios"></a>Cenários de implantação
 
-O dispositivo migrações para Azure é usado nos cenários a seguir.
+O dispositivo de Migrações para Azure é usado nos cenários a seguir.
 
-**Cenário** | **Ferramenta** | **Usado para** 
+**Cenário** | **Ferramenta** | **Usada para** 
 --- | --- | ---
-**Avaliação de VM VMware** | Migrações para Azure: avaliação do servidor | Descubra VMs VMware.<br/><br/> Descubra aplicativos e dependências de computador.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
-**Migração de VM VMware (sem agente)** | Migrações para Azure: migração de servidor | Descobrir VMs VMware<br/><br/>  Replique VMs VMware com [migração sem agente](server-migrate-overview.md).
-**Avaliação de VM do Hyper-V** | Migrações para Azure: avaliação do servidor | Descubra as VMs do Hyper-V.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
-**Computador físico** |  Migrações para Azure: avaliação do servidor |  Descobrir servidores físicos.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
+**Avaliação da VM do VMware** | Migrações para Azure: Avaliação de Servidor | Descubra VMs VMware.<br/><br/> Descubra aplicativos e dependências de computador.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
+**Migração de VM VMware (sem agente)** | Migrações para Azure: Migração de Servidor | Descobrir as VMs do VMware<br/><br/>  Replique VMs VMware com [migração sem agente](server-migrate-overview.md).
+**Avaliação da VM do Hyper-V** | Migrações para Azure: Avaliação de Servidor | Descubra as VMs do Hyper-V.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
+**Computador físico** |  Migrações para Azure: Avaliação de Servidor |  Descobrir servidores físicos.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
 
 ## <a name="appliance-components"></a>Componentes do dispositivo
 
 O dispositivo tem vários componentes.
 
-- **Aplicativo de gerenciamento**: Este é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.
-- **Agente de descoberta**: o agente reúne os dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure. 
-- **Agente de avaliação**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.
-- **Agente Dra**: Orquestra a replicação de VM e coordena a comunicação entre máquinas replicadas e o Azure. Usado somente ao replicar VMs VMware para o Azure usando a migração sem agente.
-- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar VMs VMware para o Azure usando a migração sem agente.
-- **Serviço de atualização automática**: atualiza os componentes do dispositivo (é executado a cada 24 horas).
+- **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.
+- **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure. 
+- **Agente de avaliação**: coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.
+- **Agente DRA**: orquestra a replicação da VM e coordena a comunicação entre computadores replicados e o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.
+- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.
+- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).
 
 
 
@@ -51,8 +50,8 @@ Durante a configuração do dispositivo, você registra o dispositivo com as mig
 **Ação** | **Detalhes** | **Permissões**
 --- | --- | ---
 **Registrar provedores de origem** | Esses provedores de recursos são registrados na assinatura que você escolhe durante a instalação do dispositivo: Microsoft. OffAzure, Microsoft. migrar e Microsoft. keyvault.<br/><br/> O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. | Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.
-**Criar aplicativo do Azure AD – comunicação** | As migrações para Azure criam um aplicativo Azure Active Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo e seus respectivos serviços em execução no Azure.<br/><br/> Este aplicativo não tem privilégios para fazer chamadas de Azure Resource Manager ou acesso de RBAC em qualquer recurso. | Você precisa [dessas permissões](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) para a migração do Azure para criar o aplicativo.
-**Criar aplicativos do Azure AD – cofre de chaves** | Esse aplicativo é criado somente para a migração sem agente de VMs do VMware para o Azure.<br/><br/> Ele é usado exclusivamente para acessar o cofre de chaves criado na assinatura do usuário para a migração sem agente.<br/><br/> Ele tem acesso de RBAC no cofre de chaves do Azure (criado no locatário do cliente) quando a descoberta é iniciada a partir do dispositivo. | Você precisa [dessas permissões](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) para a migração do Azure para criar o aplicativo.
+**Criar aplicativo do Azure AD – comunicação** | As migrações para Azure criam um aplicativo Azure Active Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo e seus respectivos serviços em execução no Azure.<br/><br/> Este aplicativo não tem privilégios para fazer chamadas de Azure Resource Manager ou acesso de RBAC em qualquer recurso. | Você precisa [dessas permissões](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) para a migração do Azure para criar o aplicativo.
+**Criar aplicativos do Azure AD – cofre de chaves** | Esse aplicativo é criado somente para a migração sem agente de VMs do VMware para o Azure.<br/><br/> Ele é usado exclusivamente para acessar o cofre de chaves criado na assinatura do usuário para a migração sem agente.<br/><br/> Ele tem acesso de RBAC no cofre de chaves do Azure (criado no locatário do cliente) quando a descoberta é iniciada a partir do dispositivo. | Você precisa [dessas permissões](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) para a migração do Azure para criar o aplicativo.
 
 
 
@@ -87,7 +86,7 @@ O dispositivo se comunica com servidores vCenter e hosts/cluster do Hyper-V usan
 
 ## <a name="appliance-upgrades"></a>Atualizações de dispositivo
 
-O dispositivo é atualizado conforme os agentes de migração do Azure em execução no dispositivo são atualizados. Isso ocorre automaticamente porque a atualização automática está habilitada no dispositivo por padrão. Você pode alterar essa configuração padrão para atualizar os agentes manualmente.
+O dispositivo é atualizado conforme os agentes de Migrações para Azure em execução no dispositivo são atualizados. Isso ocorre automaticamente porque a atualização automática está habilitada no dispositivo por padrão. Você pode alterar essa configuração padrão para atualizar os agentes manualmente.
 
 Desative a atualização automática no registro definindo a chave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" como 0 (DWORD).
 

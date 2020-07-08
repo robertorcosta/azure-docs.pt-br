@@ -9,12 +9,11 @@ ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609496"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos do Azure
 
@@ -94,7 +93,7 @@ Quando seu aplicativo lógico tentar se conectar ao servidor MQ local, você pod
      > [!IMPORTANT]
      > Verifique se você instalou o certificado no repositório **Certificados – Computador local** > **Autoridades de certificação raiz confiáveis**.
 
-* O servidor MQ requer que você defina a especificação de criptografia que deseja usar para conexões SSL. No entanto, o SsLStream no .NET não permite que você especifique a ordem das especificações de criptografia. Para contornar essa limitação, você pode alterar a configuração do servidor MQ para corresponder à primeira especificação de criptografia no conjunto que o conector envia na negociação SSL.
+* O servidor MQ requer que você defina a especificação de codificação que deseja usar para conexões TLS/SSL. No entanto, o SslStream no .NET não permite que você especifique a ordem das especificações de codificação. Para contornar essa limitação, você pode alterar a configuração do servidor do MQ para corresponder à primeira especificação de codificação no conjunto que o conector envia na negociação TLS/SSL.
 
   Quando você tentar conectar, o servidor MQ registra uma mensagem de evento que indica que a conexão falhou porque a outra extremidade usou a especificação de criptografia incorreta. A mensagem do evento contém a especificação de criptografia que aparece primeiro na lista. Atualize a especificação de criptografia na configuração do canal para corresponder à especificação de criptografia na mensagem do evento.
 

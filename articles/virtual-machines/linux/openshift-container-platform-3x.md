@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757892"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar a plataforma de contêiner OpenShift 3,11 no Azure
@@ -241,16 +240,16 @@ Substitua os parâmetros por suas informações específicas.
 
 Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os parâmetros necessários para a ramificação que você usar.
 
-### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Arquivo Parameters. JSON explicado
+### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.Parameters.jsno arquivo explicado
 
-| Propriedade | Descrição | Opções válidas | Valor padrão |
+| Property | Descrição | Opções válidas | Valor padrão |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL para artefatos (JSON, scripts, etc.) |  |  https:\//RAW.githubusercontent.com/Microsoft/openshift-container-Platform/Master  |
+| `_artifactsLocation`  | URL para artefatos (JSON, scripts, etc.) |  |  https: \/ /RAW.githubusercontent.com/Microsoft/openshift-container-Platform/Master  |
 | `location` | Região do Azure para implantar recursos |  |  |
-| `masterVmSize` | Tamanho da VM mestre. Selecione um dos tamanhos de VM permitidos listados no arquivo azuredeploy. JSON |  | Standard_E2s_v3 |
-| `infraVmSize` | Tamanho da VM de infraestrutura. Selecione um dos tamanhos de VM permitidos listados no arquivo azuredeploy. JSON |  | Standard_D4s_v3 |
-| `nodeVmSize` | Tamanho da VM do nó do aplicativo. Selecione um dos tamanhos de VM permitidos listados no arquivo azuredeploy. JSON |  | Standard_D4s_v3 |
-| `cnsVmSize` | Tamanho da VM do nó do armazenamento nativo do contêiner (CNS). Selecione um dos tamanhos de VM permitidos listados no arquivo azuredeploy. JSON |  | Standard_E4s_v3 |
+| `masterVmSize` | Tamanho da VM mestre. Selecione um dos tamanhos de VM permitidos listados na azuredeploy.jsno arquivo |  | Standard_E2s_v3 |
+| `infraVmSize` | Tamanho da VM de infraestrutura. Selecione um dos tamanhos de VM permitidos listados na azuredeploy.jsno arquivo |  | Standard_D4s_v3 |
+| `nodeVmSize` | Tamanho da VM do nó do aplicativo. Selecione um dos tamanhos de VM permitidos listados na azuredeploy.jsno arquivo |  | Standard_D4s_v3 |
+| `cnsVmSize` | Tamanho da VM do nó do armazenamento nativo do contêiner (CNS). Selecione um dos tamanhos de VM permitidos listados na azuredeploy.jsno arquivo |  | Standard_E4s_v3 |
 | `osImageType` | A imagem RHEL a ser usada. defaultgallery: sob demanda; Marketplace: imagem de terceiros | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Se `osImageType` for Marketplace, insira os valores apropriados para ' publicador ', ' oferta ', ' SKU ', ' versão ' da oferta do Marketplace. Este parâmetro é um tipo de objeto |  |  |
 | `storageKind` | O tipo de armazenamento a ser usado  | gerenciado<br> não gerenciado | gerenciado |
@@ -276,10 +275,10 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `keyVaultName` | O nome da Key Vault que você criou |  |  |
 | `enableAzure` | Habilitar o provedor de nuvem do Azure | true <br> false | true |
 | `aadClientId` | Azure Active Directory ID do cliente também conhecida como ID do aplicativo para a entidade de serviço |  |  |
-| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | none |
-| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | default <br> personalizado | default |
+| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | nenhum |
+| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | default <br> custom | default |
 | `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para`masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará Nip.IO.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> personalizado | nipio |
+| `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará Nip.IO.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> custom | nipio |
 | `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se você selecionou ' personalizado ' para`routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se deseja usar uma rede virtual existente ou criar uma nova rede virtual | pré-existente <br> novo | novo |
 | `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para`virtualNetworkNewOrExisting` |  | resourcegroup (). Name |
@@ -299,8 +298,8 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `masterPrivateClusterIp` | Se nós mestres privados forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para nós mestres. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós mestres públicos forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.1.0.200 |
 | `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no`routerPrivateClusterIp` | públicos <br> particulares | públicos |
 | `routerPrivateClusterIp` | Se os nós de infraestrutura privada forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para os nós de infraestrutura. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede de infraestrutura e ainda não está em uso. Se os nós de infraestrutura pública forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.2.0.200 |
-| `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> personalizado | selfsigned |
-| `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> personalizado | selfsigned |
+| `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> custom | selfsigned |
+| `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> custom | selfsigned |
 
 <br>
 
@@ -336,7 +335,7 @@ Quando a implantação for concluída, recupere a conexão da seção de saída 
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 

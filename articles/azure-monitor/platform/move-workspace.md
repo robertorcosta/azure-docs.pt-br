@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770791"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para uma assinatura ou grupo de recursos diferente
 
@@ -38,6 +37,8 @@ Soluções que devem ser removidas para que você possa desvincular sua conta de
 - Iniciar/Parar VMs durante os horários inativos
 - Central de Segurança do Azure
 
+>[!IMPORTANT]
+> - Uma vez habilitado em um espaço de trabalho, o Azure Sentinel **atualmente não dá suporte** à movimentação desse espaço de trabalho para outros grupos de recursos ou assinaturas. Se você precisar migrar o workspace, entre em contato com o [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
 
 ### <a name="delete-solutions-in-azure-portal"></a>Excluir soluções no portal do Azure
 Use o procedimento a seguir para remover as soluções usando o portal do Azure:

@@ -10,17 +10,16 @@ ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: ''
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/11/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82158aeae614112c47a2288ceb867b382c6a159a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
+ms.openlocfilehash: b61fd2f9bc36743754a43b05629a798f0305d4e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609202"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Como as identidades gerenciadas para recursos do Azure funcionam com máquinas virtuais do Azure
 
@@ -92,4 +91,4 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
 Comece a usar as identidades gerenciadas para funcionalidade de recursos do Azure com os seguintes inícios rápidos:
 
 * [Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Resource Manager](tutorial-windows-vm-access-arm.md)
-* [Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Resource Manager](tutorial-linux-vm-access-arm.md) como-identidades-gerenciadas-funcionam-vm
+* [Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Resource Manager](tutorial-linux-vm-access-arm.md)

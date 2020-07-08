@@ -7,12 +7,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921856"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver .NET Standard funções definidas pelo usuário para trabalhos de Azure Stream Analytics (versão prévia)
 
@@ -50,7 +49,7 @@ Para Azure Stream Analytics valores a serem usados em C#, eles precisam ser empa
 |FLOAT | double |
 |nvarchar(max) | string |
 |DATETIME | Datetime |
-|Record | Cadeia\<de caracteres de dicionário,> de objeto |
+|Record | Dicionário\<string, object> |
 |Array | Objeto [] |
 
 O mesmo é verdadeiro quando os dados precisam ser empacotados de C# para Azure Stream Analytics, o que acontece no valor de saída de um UDF. A tabela a seguir mostra quais tipos têm suporte:
@@ -64,7 +63,7 @@ O mesmo é verdadeiro quando os dados precisam ser empacotados de C# para Azure 
 |struct  |  Record   |
 |objeto  |  Record   |
 |Objeto []  |  Array   |
-|Cadeia\<de caracteres de dicionário,> de objeto  |  Record   |
+|Dicionário\<string, object>  |  Record   |
 
 ## <a name="codebehind"></a>CodeBehind
 É possível gravar funções definidas pelo usuário no CodeBehind do **Script.asql**. As ferramentas do Visual Studio compilarão automaticamente o arquivo CodeBehind em um arquivo do assembly. Os assemblies são empacotados como um arquivo zip e carregados na conta de armazenamento quando você envia o trabalho para o Azure. Você pode aprender como gravar uma UDF em C# usando CodeBehind seguindo o tutorial [UDF em C# para trabalhos do Edge do Stream Analytics](stream-analytics-edge-csharp-udf.md). 
@@ -139,12 +138,12 @@ Expanda o **a configuração de código definidos pelo usuário** seção e, em 
    |Conta de Armazenamento de Configurações de Armazenamento de Código Personalizado|<sua conta de armazenamento>|
    |Contêiner de Configurações de Armazenamento de Código Personalizado|<seu contêiner de armazenamento>|
    |Origem do assembly de código personalizado|Pacotes de assembly existentes da nuvem|
-   |Origem do assembly de código personalizado|UserCustomCode. zip|
+   |Origem do assembly de código personalizado|UserCustomCode.zip|
 
 ## <a name="user-logging"></a>Registro de usuário
 O mecanismo de registro em log permite que você capture informações personalizadas enquanto um trabalho está em execução. Você pode usar dados de log para depurar ou avaliar a exatidão do código personalizado em tempo real.
 
-A `StreamingContext` classe permite que você publique informações de diagnóstico `StreamingDiagnostics.WriteError` usando a função. O código a seguir mostra a interface exposta por Azure Stream Analytics.
+A `StreamingContext` classe permite que você publique informações de diagnóstico usando a `StreamingDiagnostics.WriteError` função. O código a seguir mostra a interface exposta por Azure Stream Analytics.
 
 ```csharp
 public abstract class StreamingContext
@@ -158,7 +157,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`é passado como um parâmetro de entrada para o método UDF e pode ser usado no UDF para publicar informações de log personalizadas. No exemplo a seguir, `MyUdfMethod` define uma entrada de **dados** , que é fornecida pela consulta e uma entrada de **contexto** como a `StreamingContext`, fornecida pelo mecanismo de tempo de execução. 
+`StreamingContext`é passado como um parâmetro de entrada para o método UDF e pode ser usado no UDF para publicar informações de log personalizadas. No exemplo a seguir, `MyUdfMethod` define uma entrada de **dados** , que é fornecida pela consulta e uma entrada de **contexto** como a `StreamingContext` , fornecida pelo mecanismo de tempo de execução. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)
@@ -187,8 +186,12 @@ A versão prévia da UDF atualmente possui as seguintes limitações:
 
 * Como o código personalizado compartilha o contexto com o mecanismo do Azure Stream Analytics, o código personalizado não pode fazer referência a nada que tenha um namespace/dll_name conflitante com o código do Azure Stream Analytics. Por exemplo, não é possível referenciar *Newtonsoft Json*.
 
+* Os arquivos de suporte incluídos no projeto são copiados para o arquivo zip de código personalizado do usuário que é usado quando você publica o trabalho na nuvem. Todos os arquivos nas subpastas são copiados diretamente para a raiz da pasta de código personalizado do usuário na nuvem quando descompactados. O zip é "achatado" quando descompactado.
+
+* O código personalizado do usuário não dá suporte a pastas vazias. Não adicione pastas vazias aos arquivos de suporte no projeto.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: gravar uma função de C# definida pelo usuário para um trabalho de Azure Stream Analytics (versão prévia)](stream-analytics-edge-csharp-udf.md)
-* [Tutorial: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure](stream-analytics-javascript-user-defined-functions.md)
+* [Tutorial: Funções definidas pelo usuário do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Use o Microsoft Visual Studio para visualizar os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)

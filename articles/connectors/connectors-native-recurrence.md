@@ -3,19 +3,18 @@ title: Agendar tarefas e fluxos de trabalho recorrentes
 description: Agendar e executar tarefas e fluxos de trabalho automatizados recorrentes com o gatilho de recorrência nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 47bb4e4cc4902168631fa67f186d0b3259c94328
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004714"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322577"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência nos aplicativos lógicos do Azure
 
-Para executar tarefas, processos ou trabalhos regularmente em um agendamento específico, você pode iniciar o fluxo de trabalho do aplicativo lógico com o gatilho de **agenda de recorrência** interno. Você pode definir uma data e hora, bem como um fuso horário para iniciar o fluxo de trabalho e uma recorrência para repetir esse fluxo de trabalho. Se as recorrências forem perdidas por algum motivo, esse gatilho continuará recorrente no próximo intervalo agendado. Para obter mais informações sobre os gatilhos e ações de agendamento internos, consulte [agendar e executar tarefas automatizadas e automáticas e fluxos de trabalho com aplicativos lógicos do Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Para executar tarefas, processos ou trabalhos regularmente em um agendamento específico, você pode iniciar o fluxo de trabalho do aplicativo lógico com o gatilho de **agenda de recorrência** interno. Você pode definir uma data e hora, bem como um fuso horário para iniciar o fluxo de trabalho e uma recorrência para repetir esse fluxo de trabalho. Se as recorrências forem perdidas por qualquer motivo, por exemplo, devido a interrupções ou fluxos de trabalho desabilitados, esse gatilho não processará as recorrências perdidas, mas reiniciará as recorrências no próximo intervalo agendado. Para obter mais informações sobre os gatilhos e ações de agendamento internos, consulte [agendar e executar tarefas automatizadas e automáticas e fluxos de trabalho com aplicativos lógicos do Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Aqui estão alguns padrões aos quais esse gatilho dá suporte, juntamente com recorrências mais avançadas e agendas complexas:
 
@@ -38,13 +37,13 @@ Para obter as diferenças entre esse gatilho e o gatilho de janela deslizante ou
 
 * Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Se você for novo em aplicativos lógicos, saiba [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Se ainda não estiver familiarizado com aplicativos lógicos, aprenda [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-recurrence-trigger"></a>Adicionar gatilho de recorrência
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
-1. Depois que o designer de aplicativo lógico aparecer, na caixa de `recurrence` pesquisa, insira como seu filtro. Na lista de gatilhos, selecione este gatilho como a primeira etapa no fluxo de trabalho do aplicativo lógico: **recorrência**
+1. Depois que o designer de aplicativo lógico aparecer, na caixa de pesquisa, insira `recurrence` como seu filtro. Na lista de gatilhos, selecione este gatilho como a primeira etapa no fluxo de trabalho do aplicativo lógico: **recorrência**
 
    ![Selecione o gatilho "recorrência"](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
@@ -52,7 +51,7 @@ Para obter as diferenças entre esse gatilho e o gatilho de janela deslizante ou
 
    ![Definir o intervalo e a frequência](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
+   | Property | Nome JSON | Obrigatório | Type | Descrição |
    |----------|-----------|----------|------|-------------|
    | **Intervalo** | `interval` | Sim | Integer | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses <br>-Semana: 1-71 semanas <br>–Dia: 1 a 500 dias <br>– Hora: 1 a 12.000 horas <br>– Minuto: 1 a 72.000 minutos <br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. |
    | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** |
@@ -72,7 +71,7 @@ Para obter as diferenças entre esse gatilho e o gatilho de janela deslizante ou
 
    ![Opções de agendamento avançadas](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
+   | Property | Nome JSON | Obrigatório | Type | Descrição |
    |----------|-----------|----------|------|-------------|
    | **Fuso horário** | `timeZone` | Não | String | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |
    | **Hora de início** | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2020 às 2:00 PM, especifique "2020-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou especifique "2020-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |

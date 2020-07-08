@@ -7,7 +7,7 @@ manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -15,12 +15,11 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608918"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -32,7 +31,7 @@ Se atividades incomuns que possam indicar acesso não autorizado a algumas das c
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Acesse os usuários sinalizados para o relatório de risco
 
-Você pode revisar usuários sinalizados para risco por meio do [usuário no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se você não tiver o Azure AD, poderá se inscrever gratuitamente em [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+Você pode revisar usuários sinalizados para risco por meio do [usuário no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se você não tiver o Azure AD, poderá se inscrever gratuitamente em [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) . 
 
 Usuários sinalizados como risco, você pode executar as seguintes ações para cada usuário:
 
@@ -75,7 +74,7 @@ Execute as seguintes ações para ajudar a corrigir as contas afetadas e protege
 
     f. Definir a complexidade da senha na conta como alta.
 
-    g. Habilitar auditoria na caixa de correio.
+    (por exemplo, Habilitar auditoria na caixa de correio.
 
     h. Produza um log de auditoria para o administrador revisar.
 
@@ -92,4 +91,4 @@ Além disso, você deve:
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Usuários sinalizados para risco](concept-user-at-risk.md)
+* [Usuários sinalizados por risco](concept-user-at-risk.md)

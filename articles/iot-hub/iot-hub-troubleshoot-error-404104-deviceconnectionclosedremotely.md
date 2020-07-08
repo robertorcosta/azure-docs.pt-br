@@ -10,10 +10,9 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
 ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758733"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>DeviceConnectionClosedRemotely 404104
@@ -48,7 +47,7 @@ Algumas possibilidades incluem:
 
 - O dispositivo perdeu a conectividade de rede subjacente por mais tempo do que o [MQTT Keep-Alive](iot-hub-mqtt-support.md#default-keep-alive-timeout), resultando em um tempo limite de ociosidade remoto. A configuração Keep-Alive MQTT pode ser diferente por dispositivo.
 
-- O dispositivo enviou uma redefinição de nível de TCP/IP, mas não enviou um `MQTT DISCONNECT`nível de aplicativo. Basicamente, o dispositivo fechou abruptamente a conexão de soquete subjacente. Às vezes, esse problema é causado por bugs em versões mais antigas do SDK do Azure IoT.
+- O dispositivo enviou uma redefinição de nível de TCP/IP, mas não enviou um nível de aplicativo `MQTT DISCONNECT` . Basicamente, o dispositivo fechou abruptamente a conexão de soquete subjacente. Às vezes, esse problema é causado por bugs em versões mais antigas do SDK do Azure IoT.
 
 - O aplicativo do lado do dispositivo falhou.
 

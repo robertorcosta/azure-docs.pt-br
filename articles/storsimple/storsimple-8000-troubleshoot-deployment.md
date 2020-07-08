@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513716"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solucionar problemas de implantação do dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -77,16 +76,16 @@ As tabelas a seguir listam os erros comuns que podem ser encontrados quando voc�
 | 4 |Invoke-HcsSetupWizard: falha em um recurso de cluster. (Exceção de HRESULT: 0x800713AE). |Duplique o VIP. O IP fornecido já está em uso. |Forneça um novo IP que não esteja em uso. |
 | 5 |Invoke-HcsSetupWizard: endereço IPv4 inválido. |O endereço IP foi fornecido em um formato incorreto. |Verifique o formato e forneça seu endereço IP novamente. Para saber mais, consulte [Endereçamento Ipv4][1]. |
 | 6 |Invoke-HcsSetupWizard: endereço IPv6 inválido. |O endereço IP foi fornecido em um formato incorreto. |Verifique o formato e forneça seu endereço IP novamente. Para saber mais, consulte [Endereçamento Ipv6][2]. |
-| 7 |Invoke-HcsSetupWizard: não há mais pontos de extremidade disponíveis do mapeador de pontos de extremidade. (Exceção de HRESULT: 0x800706D9) |A funcionalidade de cluster não está funcionando. |[Entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para as próximas etapas. |
+| 7 |Invoke-HcsSetupWizard: não há mais pontos de extremidade disponíveis do mapeador de pontos de extremidade. (Exceção de HRESULT: 0x800706D9) |A funcionalidade de cluster não está funcionando. |[Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para as próximas etapas. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erros durante as configurações de proxy da Web opcional
 | Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: parâmetro inválido (exceção de HRESULT: 0x80070057) |Um dos parâmetros fornecidos para as configurações do proxy não é válido. |O URI não foi fornecido no formato correto. Use o seguinte formato:*\<endereço IP http://ou FQDN do servidor proxy Web>*:*\<número da porta TCP>* |
+| 1 |Invoke-HcsSetupWizard: parâmetro inválido (exceção de HRESULT: 0x80070057) |Um dos parâmetros fornecidos para as configurações do proxy não é válido. |O URI não foi fornecido no formato correto. Use o seguinte formato: http:// *\<IP address or FQDN of the web proxy server>* :*\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: servidor RPC não disponível (exceção de HRESULT: 0x800706ba) |A causa raiz é uma das seguintes:<ol><li>O cluster não está ativo.</li><li>O controlador passivo não pode se comunicar com o controlador ativo e o comando é executado no controlador passivo.</li></ol> |Dependendo da causa raiz:<ol><li>[Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para certificar-se de que o cluster esteja ativo.</li><li>Execute o comando do controlador ativo. Se você quiser executar o comando do controlador passivo, você precisará garantir que o controlador passivo pode se comunicar com o controlador ativo. Em caso de interrupção de conectividade, [entre em contato com o suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).</li></ol> |
 | 3 |Invoke-HcsSetupWizard: falha na chamada RPC (exceção de HRESULT: 0x800706be) |O cluster está inoperante. |[Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para certificar-se de que o cluster esteja ativo. |
 | 4 |Invoke-HcsSetupWizard: recurso de cluster não encontrado (exceção de HRESULT: 0x8007138f) |O recurso de cluster não foi encontrado. Isso poderá acontecer quando a instalação não tiver sido correta. |Talvez seja necessário redefinir o dispositivo para as configurações padrão de fábrica. [Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para criar um recurso de cluster. |
-| 5 |Invoke-HcsSetupWizard: Cluster recurso não online (exceção de HRESULT: 0x8007138c) |Os recursos de cluster não estão online. |[Entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para as próximas etapas. |
+| 5 |Invoke-HcsSetupWizard: Cluster recurso não online (exceção de HRESULT: 0x8007138c) |Os recursos de cluster não estão online. |[Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para as próximas etapas. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>Erros relacionados à senha de administrador do dispositivo
 A senha do administrador do dispositivo padrão é **Senha1**. Essa senha expira após o primeiro logon; portanto, você precisará usar o assistente de instalação para alterá-la. Você deve fornecer uma nova senha do administrador do dispositivo ao registrar o dispositivo pela primeira vez. 
@@ -112,7 +111,7 @@ Você pode encontrar um ou mais dos seguintes erros ao configurar as senhas do a
 | 5 |A senha deve conter caracteres especiais. |As senhas devem conter 3 destes 4 tipos de caracteres: minúsculos, maiúsculos, numéricos e especiais. Certifique-se de que sua senha atende a esses requisitos. |
 | 6 |As senhas devem conter 3 destes 4 tipos de caracteres: maiúsculos, minúsculos, numéricos e especiais. |Sua senha não contém os tipos de caracteres necessários. Certifique-se de que sua senha atende a esses requisitos. |
 | 7 |O parâmetro não corresponde à confirmação. |Certifique-se de que sua senha atende a todos os requisitos e de que ela tenha sido inserida corretamente. |
-| 8 |Sua senha não pode corresponder ao padrão. |A senha padrão é *Password1*. Será necessário alterar essa senha depois de fazer logon pela primeira vez. |
+| 8 |Sua senha não pode corresponder ao padrão. |A senha padrão é *Senha1*. Será necessário alterar essa senha depois de fazer logon pela primeira vez. |
 | 9 |A senha que você inseriu não corresponde à senha do dispositivo. Redigite a senha. |Verifique a senha e digite-a novamente. |
 
 As senhas são coletadas antes do registro do dispositivo, mas são aplicadas somente após o registro com êxito. O fluxo de trabalho de recuperação de senha requer que o dispositivo esteja registrado.

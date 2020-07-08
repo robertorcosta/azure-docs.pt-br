@@ -4,12 +4,11 @@ description: Saiba mais sobre como gerenciar certificados em um Cluster Service 
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: ecdeb5c9e30c176e2f3525f8efeb861d9210b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324735"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gerenciamento de certificados em clusters Service Fabric
 
@@ -69,20 +68,21 @@ Para nossos propósitos, as duas primeiras etapas na seqüência acima não est�
 
 Essas etapas estão ilustradas abaixo; Observe as diferenças no provisionamento entre certificados declarados pela impressão digital e pelo nome comum, respectivamente.
 
-*Fig. 1.* Fluxo de emissão e provisionamento de certificados declarados pela impressão digital.
+*Figura 1.* Fluxo de emissão e provisionamento de certificados declarados pela impressão digital.
 ![Provisionando certificados declarados pela impressão digital][Image1]
 
 *Fig. 2.* Fluxo de emissão e provisionamento de certificados declarados pelo nome comum da entidade.
 ![Provisionando certificados declarados pelo nome comum da entidade][Image2]
 
-### <a name="certificate-enrollment"></a>Registro de certificado
+### <a name="certificate-enrollment"></a> Registro de certificado
 Este tópico é abordado em detalhes na [documentação](../key-vault/create-certificate.md)do Key Vault; Estamos incluindo uma sinopse aqui para continuidade e referência mais fácil. Continuando com o Azure como o contexto e usando Azure Key Vault como o serviço de gerenciamento de segredo, um solicitante de certificado autorizado deve ter pelo menos permissões de gerenciamento de certificados no cofre, concedido pelo proprietário do cofre; o solicitante então se registraria em um certificado da seguinte maneira:
     - Cria uma política de certificado em Azure Key Vault (AKV), que especifica o domínio/assunto do certificado, o emissor desejado, o tipo de chave e o comprimento, o uso de chave pretendido e muito mais; consulte [certificados no Azure Key Vault](../key-vault/certificate-scenarios.md) para obter detalhes. 
     - Cria um certificado no mesmo cofre com a política especificada acima; isso, por sua vez, gera um par de chaves como objetos de cofre, uma solicitação de assinatura de certificado assinada com a chave privada e que, em seguida, é encaminhado para o emissor designado para assinatura
     - Depois que o emissor (autoridade de certificação) responde com o certificado assinado, o resultado é mesclado no cofre e o certificado está disponível para as seguintes operações:
       - em {vaultUri}/Certificates/{Name}: o certificado incluindo a chave pública e os metadados
       - em {vaultUri}/Keys/{Name}: a chave privada do certificado, disponível para operações de criptografia (encapsular/desencapsular, assinar/verificar)
-      - em {vaultUri}/Secrets/{Name}: o certificado inclusivo de sua chave privada, disponível para download como uma recall de arquivo PFX ou PEM desprotegido que um certificado de cofre é, na verdade, uma linha cronológica de instâncias de certificado, compartilhando uma política. As versões do certificado serão criadas de acordo com os atributos de tempo de vida e renovação da política. É altamente recomendável que os certificados do cofre não compartilhem entidades ou domínios/nomes DNS; pode ser interrompido em um cluster para provisionar instâncias de certificado de diferentes certificados de cofre, com assuntos idênticos, mas outros atributos diferentes, como emissor, usos de chave etc.
+      - em {vaultUri}/Secrets/{Name}: o certificado inclusivo de sua chave privada, disponível para download como um arquivo PFX ou PEM desprotegido  
+    Lembre-se de que um certificado de cofre é, na verdade, uma linha cronológica de instâncias de certificado, compartilhando uma política. As versões do certificado serão criadas de acordo com os atributos de tempo de vida e renovação da política. É altamente recomendável que os certificados do cofre não compartilhem entidades ou domínios/nomes DNS; pode ser interrompido em um cluster para provisionar instâncias de certificado de diferentes certificados de cofre, com assuntos idênticos, mas outros atributos diferentes, como emissor, usos de chave etc.
 
 Neste ponto, existe um certificado no cofre, pronto para consumo. Em diante a:
 
@@ -202,7 +202,7 @@ Aqui está um trecho JSON de um modelo correspondente a tal estado-Observe que o
   ]
 ```   
 
-Basicamente, a parte superior diz que o ```json [parameters('primaryClusterCertificateTP')] ``` certificado com impressão digital e encontrado ```json [parameters('clusterCertificateUrlValue')] ``` no URI do keyvault é declarado como o certificado exclusivo do cluster, por impressão digital. Em seguida, vamos configurar os recursos adicionais necessários para garantir a substituição da autoposição do certificado.
+Basicamente, a parte superior diz que o certificado com impressão digital ```json [parameters('primaryClusterCertificateTP')] ``` e encontrado no URI do keyvault ```json [parameters('clusterCertificateUrlValue')] ``` é declarado como o certificado exclusivo do cluster, por impressão digital. Em seguida, vamos configurar os recursos adicionais necessários para garantir a substituição da autoposição do certificado.
 
 ### <a name="setting-up-prerequisite-resources"></a>Configurando recursos de pré-requisito
 Como mencionado anteriormente, um certificado provisionado como um segredo do conjunto de dimensionamento de máquinas virtuais é recuperado do cofre pelo serviço do provedor de recursos Microsoft. Compute, usando sua identidade de primeira empresa e em nome do operador de implantação. Para substituição de autoposição, que mudará – iremos mudar para o uso de uma identidade gerenciada, atribuída ao conjunto de dimensionamento de máquinas virtuais e que recebe permissões para os segredos do cofre.
@@ -414,7 +414,7 @@ Neste ponto, você pode executar as atualizações mencionadas acima em uma úni
 Esta seção é uma questão para explicar as etapas detalhadas acima, bem como a atenção de desenho para aspectos importantes.
 
 #### <a name="certificate-provisioning-explained"></a>Provisionamento de certificado, explicado
-A extensão KVVM, como um agente de provisionamento, é executada continuamente em uma frequência predeterminada. Ao falhar ao recuperar um certificado observado, ele continuaria no próximo linha e, em seguida, hibernaria até o próximo ciclo. A extensão SFVM, como o agente de inicialização do cluster, exigirá os certificados declarados antes que o cluster possa formar. Isso, por sua vez, significa que a extensão SFVM só pode ser executada após a recuperação bem-sucedida dos certificados do cluster, indicada aqui pela ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` cláusula e pela configuração da ```json "requireInitialSync": true``` extensão KeyVaultVM. Isso indica para a extensão KVVM que na primeira execução (após a implantação ou uma reinicialização) ele deve percorrer seus certificados observados até que todos sejam baixados com êxito. Definir esse parâmetro como false, junto com uma falha ao recuperar os certificados de cluster, resultaria em uma falha da implantação do cluster. Por outro lado, exigir uma sincronização inicial com uma lista incorreta/inválida de certificados observados resultaria em uma falha da extensão KVVM e, assim, novamente, uma falha na implantação do cluster.  
+A extensão KVVM, como um agente de provisionamento, é executada continuamente em uma frequência predeterminada. Ao falhar ao recuperar um certificado observado, ele continuaria no próximo linha e, em seguida, hibernaria até o próximo ciclo. A extensão SFVM, como o agente de inicialização do cluster, exigirá os certificados declarados antes que o cluster possa formar. Isso, por sua vez, significa que a extensão SFVM só pode ser executada após a recuperação bem-sucedida dos certificados do cluster, indicada aqui pela ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` cláusula e pela configuração da extensão KeyVaultVM ```json "requireInitialSync": true``` . Isso indica para a extensão KVVM que na primeira execução (após a implantação ou uma reinicialização) ele deve percorrer seus certificados observados até que todos sejam baixados com êxito. Definir esse parâmetro como false, junto com uma falha ao recuperar os certificados de cluster, resultaria em uma falha da implantação do cluster. Por outro lado, exigir uma sincronização inicial com uma lista incorreta/inválida de certificados observados resultaria em uma falha da extensão KVVM e, assim, novamente, uma falha na implantação do cluster.  
 
 #### <a name="certificate-linking-explained"></a>Vinculação de certificado, explicada
 Talvez você tenha notado o sinalizador ' linkOnRenewal ' da extensão KVVM e o fato de que ele está definido como false. Estamos abordando aqui detalhadamente o comportamento controlado por esse sinalizador e suas implicações no funcionamento de um cluster. Observe que esse comportamento é específico do Windows.
@@ -441,7 +441,7 @@ Em ambos os casos, o transporte falha e o cluster pode ficar inativo; os sintoma
 
 Para mitigar esses incidentes, recomendamos:
   - Não misture as SANs de diferentes certificados de cofre; cada certificado de cofre deve atender a uma finalidade distinta e seu assunto e SAN devem refletir isso com a especificidade
-  - inclua o nome comum da entidade na lista SAN (como, literalmente, "CN =<subject common name>")  
+  - inclua o nome comum da entidade na lista SAN (como, literalmente, "CN = <subject common name> ")  
   - Se não tiver certeza, desabilite a vinculação na renovação de certificados provisionados com a extensão KVVM 
 
 #### <a name="why-use-a-user-assigned-managed-identity-what-are-the-implications-of-using-it"></a>Por que usar uma identidade gerenciada atribuída pelo usuário? Quais são as implicações de usá-lo?
