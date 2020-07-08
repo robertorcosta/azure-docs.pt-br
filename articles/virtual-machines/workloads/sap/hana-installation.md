@@ -14,10 +14,9 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117114"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Instâncias Grandes) no Azure
@@ -115,7 +114,7 @@ A seguir, há notas de suporte SAP aplicáveis à implementação do SAP HANA no
 - [Nota de suporte SAP n° 2397039 – Perguntas frequentes: SAP em RHEL](https://launchpad.support.sap.com/#/notes/2397039)
 - [Nota de suporte SAP n° 2002167 – Red Hat Enterprise Linux 7.x: instalação e atualização](https://launchpad.support.sap.com/#/notes/2002167)
 
-### <a name="time-synchronization"></a>Sincronização de horário
+### <a name="time-synchronization"></a>Sincronização da hora
 
 Os aplicativos SAP criados na arquitetura do SAP NetWeaver são sensíveis às diferenças de hora nos vários componentes que compõem o sistema SAP. Provavelmente os despejos de memória curtos do SAP ABAP com o título de erro ZDATE\_LARGE\_TIME\_DIFF são familiares. Isso ocorre porque esses despejos curtos aparecem quando a hora do sistema de servidores ou VMs diferentes fica muito distante.
 
@@ -144,8 +143,8 @@ As convenções de nomenclatura dos volumes de armazenamento são listadas na se
 
 | Uso de armazenamento | Nome da montagem | Nome do volume | 
 | --- | --- | ---|
-| Dados do HANA | /hana/data/SID/mnt0000 \< m> | IP de Armazenamento: /hana_data_SID_mnt00001_tenant_vol |
-| Log do HANA | /hana/log/SID/mnt0000 \< m> | IP de Armazenamento: /hana_log_SID_mnt00001_tenant_vol |
+| Dados do HANA | /hana/data/SID/mnt0000\<m> | IP de Armazenamento: /hana_data_SID_mnt00001_tenant_vol |
+| Log do HANA | /hana/log/SID/mnt0000\<m> | IP de Armazenamento: /hana_log_SID_mnt00001_tenant_vol |
 | Backup de log do HANA | /hana/log/backups | IP de Armazenamento: /hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA compartilhado | /hana/shared/SID | IP de Armazenamento: /hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | IP de Armazenamento: /hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -198,7 +197,7 @@ Você também pode configurar os parâmetros após a instalação do banco de da
 O armazenamento usado no HANA em instâncias grandes tem uma limitação de tamanho de arquivo. A [limitação de tamanho é de 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por arquivo. Ao contrário das limitações de tamanho de arquivo nos sistemas de arquivos EXT3, o HANA não reconhece implicitamente a limitação de armazenamento imposta pelo armazenamento do SAP HANA em instâncias grandes. Como resultado, o HANA não criará automaticamente um novo arquivo de dados quando o limite de tamanho de arquivo de 16TB for atingido. Como o HANA tenta aumentar o arquivo para além de 16 TB, o HANA relatará erros e o servidor de índice falhará no final.
 
 > [!IMPORTANT]
-> Para impedir que o HANA tente aumentar os arquivos de dados além do limite de tamanho de arquivo de 16 TB do armazenamento de instância grande do HANA, você precisa definir os seguintes parâmetros no arquivo de configuração global. ini SAP HANA
+> Para evitar que o HANA tente aumentar os arquivos de dados além do limite de tamanho de arquivo de 16 TB do armazenamento de instância grande do HANA, você precisa definir os seguintes parâmetros no arquivo de configuração SAP HANA global.ini
 > 
 > - datavolume_striping = true
 > - datavolume_striping_size_gb = 15000

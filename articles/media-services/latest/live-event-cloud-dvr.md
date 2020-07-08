@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
 ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995814"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
@@ -33,7 +32,7 @@ Esta seção discute como usar um DVR durante um evento para controlar quais par
 
 O `archiveWindowLength` valor determina quanto tempo um visualizador pode ir da posição atual ao vivo. O `archiveWindowLength` valor também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Suponha que você esteja transmitindo um jogo `ArchiveWindowLength` de futebol e que ele tenha apenas 30 minutos. Um espectador que começa a assistir ao seu evento 45 minutos após o início do jogo pode buscar de volta no máximo a marca de 15 minutos. Suas saídas ao vivo para o jogo continuarão até que o evento ao vivo seja interrompido. O conteúdo que está fora do archiveWindowLength é continuamente descartado do armazenamento e não é recuperável. Neste exemplo, o vídeo entre o início do evento e a marca de 15 minutos teria sido limpo do DVR e do contêiner no armazenamento de BLOBs para o ativo. O arquivo morto não é recuperável e é removido do contêiner no armazenamento de BLOBs do Azure.
+Suponha que você esteja transmitindo um jogo de futebol e que ele tenha `ArchiveWindowLength` apenas 30 minutos. Um espectador que começa a assistir ao seu evento 45 minutos após o início do jogo pode buscar de volta no máximo a marca de 15 minutos. Suas saídas ao vivo para o jogo continuarão até que o evento ao vivo seja interrompido. O conteúdo que está fora do archiveWindowLength é continuamente descartado do armazenamento e não é recuperável. Neste exemplo, o vídeo entre o início do evento e a marca de 15 minutos teria sido limpo do DVR e do contêiner no armazenamento de BLOBs para o ativo. O arquivo morto não é recuperável e é removido do contêiner no armazenamento de BLOBs do Azure.
 
 Um evento ao vivo dá suporte a até três saídas dinâmicas em execução simultânea (é possível criar no máximo três gravações/arquivos mortos de uma transmissão ao vivo ao mesmo tempo). Esse suporte permite que você publique e arquive diferentes partes de um evento, conforme necessário. Suponha que você precise transmitir um feed linear ao vivo 24x7 e criar "gravações" dos diferentes programas ao longo do dia para oferecer aos clientes como conteúdo sob demanda para visualização aproximada. Para esse cenário, primeiro você cria uma saída dinâmica principal com uma janela de arquivo curto de 1 hora ou menos – essa é a transmissão ao vivo principal que seus visualizadores ajustarão. Você deve criar um localizador de streaming para essa saída ao vivo e publicá-lo em seu aplicativo ou site como o feed "ao vivo". Enquanto o Evento ao Vivo estiver em execução, você poderá criar programaticamente uma segunda Saída ao Vivo simultânea no início de um programa (ou 5 minutos antes para fornecer algumas alças para aparar mais tarde). Essa segunda Saída ao Vivo pode ser excluída 5 minutos depois que o programa é finalizado. Com esse segundo ativo, você pode criar um novo localizador de streaming para publicar este programa como um ativo sob demanda no catálogo do aplicativo. Você pode repetir esse processo várias vezes para outros limites do programa ou destaques que queira compartilhar como vídeos sob demanda, enquanto o feed "Ao vivo" da primeira Saída ao Vivo continua difundindo o feed linear.
 

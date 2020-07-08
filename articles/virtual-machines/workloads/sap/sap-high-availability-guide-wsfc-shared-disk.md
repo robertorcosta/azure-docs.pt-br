@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982948"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clusterize uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure
@@ -60,15 +59,15 @@ No Windows, uma instância do SAP ASCS/SCS contém os serviços centrais do SAP,
 Uma instância do SAP ASCS/SCS tem os seguintes componentes:
 
 * Serviços centrais do SAP:
-    * Dois processos, um servidor de mensagens e de enfileiramento e um nome de \<host virtual ASCS/SCS>, que é usado para acessar esses dois processos.
-    * Estrutura do arquivo: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<número da instância\>
+    * Dois processos, um servidor de mensagens e de enfileiramento e um \<ASCS/SCS virtual host name> , que é usado para acessar esses dois processos.
+    * Estrutura de arquivos: S:\usr\sap \\ &lt; SID &gt; \ ASCS/SCS\<instance number\>
 
 
 * Arquivos de host global do SAP:
   * Estrutura de arquivos: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * O compartilhamento do arquivo sapmnt, que habilita o acesso a esses arquivos S:\usr\sap\\&lt;SID&gt;\SYS\.. globais usando o seguinte caminho UNC:
 
-    \\\\<\>nome do host virtual do ASCS/\\&lt;SCS&gt;\sapmnt\.Sid \SYS..
+    \\\\<nome do host virtual do ASCS/SCS \> \Sapmnt \\ &lt; SID &gt; \SYS \. ..
 
 
 ![Figura 2: Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
@@ -83,7 +82,7 @@ _**Figura 3:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco com
 
 > [!IMPORTANT]
 > Estes dois componentes são executados sob a mesma instância SAP ASCS/SCS:
->* O mesmo \<nome de host virtual ASCS/SCS> é usado para acessar a mensagem SAP e enfileirar processos de servidor e os arquivos de host global do SAP por meio do compartilhamento de arquivos sapmnt.
+>* O mesmo \<ASCS/SCS virtual host name> é usado para acessar a mensagem SAP e enfileirar processos de servidor e os arquivos de host global do SAP por meio do compartilhamento de arquivos sapmnt.
 >* A mesma unidade de disco S compartilhada de cluster é compartilhada entre eles.
 >
 

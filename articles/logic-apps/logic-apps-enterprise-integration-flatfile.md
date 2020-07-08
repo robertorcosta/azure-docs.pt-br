@@ -9,13 +9,12 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
 ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005337"
 ---
-# <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificar e decodificar arquivos simples em aplicativos lógicos do Azure usando o Enterprise Integration Pack
+# <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificar ou decodificar arquivos simples nos Aplicativos Lógicos do Azure usando o Enterprise Integration Pack
 
 Antes de enviar conteúdo XML para um parceiro de negócios em um cenário B2B (entre empresas), você pode querer codificar esse conteúdo primeiro. Ao criar um aplicativo lógico, você pode codificar e decodificar arquivos simples usando o conector de **arquivo simples** . Seu aplicativo lógico pode obter esse conteúdo XML de várias fontes, como o gatilho de solicitação, outro aplicativo ou outros [conectores com suporte dos aplicativos lógicos do Azure](../connectors/apis-list.md). Para obter mais informações, consulte [o que são os aplicativos lógicos do Azure](logic-apps-overview.md)?
 
@@ -25,7 +24,7 @@ Antes de enviar conteúdo XML para um parceiro de negócios em um cenário B2B (
 
 * O aplicativo lógico no qual você deseja usar o conector de **arquivo simples** e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. O conector de **arquivo simples** fornece apenas ações, não gatilhos. Você pode usar o gatilho ou outra ação para alimentar o conteúdo XML em seu aplicativo lógico para codificação ou decodificação. Se ainda não estiver familiarizado com aplicativos lógicos, veja o [Guia de Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua assinatura do Azure e [vinculada ao aplicativo lógico](logic-apps-enterprise-integration-accounts.md#link-account) no qual você planeja usar o conector de **arquivo simples** . O aplicativo lógico e a conta de integração devem existir no mesmo local ou na região do Azure.
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua assinatura do Azure e [vinculada ao aplicativo lógico](logic-apps-enterprise-integration-accounts.md#link-account) no qual você planeja usar o conector de **arquivo simples** . O aplicativo lógico e a conta de integração devem existir no mesmo local ou região do Azure.
 
 * Um [esquema](logic-apps-enterprise-integration-schemas.md) de arquivo simples que você carregou em sua conta de integração para codificar ou decodificar o conteúdo XML
 
@@ -35,12 +34,12 @@ Antes de enviar conteúdo XML para um parceiro de negócios em um cenário B2B (
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa** > **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida**e manipula solicitações de entrada de fora do aplicativo lógico.
+1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida**e manipula solicitações de entrada de fora do aplicativo lógico.
 
    > [!TIP]
    > Fornecer um esquema JSON é opcional. Se você tiver um conteúdo de exemplo da solicitação de entrada, selecione **usar conteúdo de exemplo para gerar o esquema**, insira o conteúdo de exemplo e selecione **concluído**. O esquema aparece na caixa **esquema JSON do corpo da solicitação** .
 
-1. Em **escolher uma ação**, digite `flat file`. Na lista ações, selecione esta ação: **codificação de arquivo simples**
+1. Em **escolher uma ação**, digite `flat file` . Na lista ações, selecione esta ação: **codificação de arquivo simples**
 
    ![Selecione a ação "codificação de arquivo simples"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
 
@@ -63,16 +62,16 @@ Antes de enviar conteúdo XML para um parceiro de negócios em um cenário B2B (
 
 Agora, você concluiu a configuração de sua ação de codificação de arquivo simples. Em um aplicativo do mundo real, talvez você queira armazenar os dados codificados em um aplicativo de linha de negócios (LOB), como o Salesforce. Ou você pode enviar os dados codificados para um parceiro comercial. Para enviar a saída da ação de codificação para o Salesforce ou para seu parceiro comercial, use os outros [conectores disponíveis nos aplicativos lógicos do Azure](../connectors/apis-list.md).
 
-## <a name="add-flat-file-decode-action"></a>Adicionar ação de decodificação de arquivo simples
+## <a name="add-flat-file-decode-action"></a>Adicionar decodificação de arquivo simples
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa** > **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida**e manipula solicitações de entrada de fora do aplicativo lógico.
+1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida**e manipula solicitações de entrada de fora do aplicativo lógico.
 
    > [!TIP]
    > Fornecer um esquema JSON é opcional. Se você tiver um conteúdo de exemplo da solicitação de entrada, selecione **usar conteúdo de exemplo para gerar o esquema**, insira o conteúdo de exemplo e selecione **concluído**. O esquema aparece na caixa **esquema JSON do corpo da solicitação** .
 
-1. Em **escolher uma ação**, digite `flat file`. Na lista ações, selecione esta ação: **decodificação de arquivo simples**
+1. Em **escolher uma ação**, digite `flat file` . Na lista ações, selecione esta ação: **decodificação de arquivo simples**
 
    ![Selecione a ação "decodificação de arquivo simples"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 

@@ -4,10 +4,9 @@ description: Monitorando aplicativos .NET Core/. NET Framework não HTTP com Azu
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 1f9b35022e63c4c3fe671237149602f8db465466
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117870"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para aplicativos de serviço de trabalho (aplicativos não HTTP)
@@ -298,7 +297,7 @@ Essa operação personalizada do `RequestTelemetry` pode ser considerada como o 
 
 O seguinte lista a telemetria completa coletada automaticamente pelo Application Insights.
 
-### <a name="live-metrics"></a>Métricas ao vivo
+### <a name="live-metrics"></a>Live Metrics    
 
 As [métricas dinâmicas](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) podem ser usadas para verificar rapidamente se Application insights monitoramento está configurado corretamente. Embora possa levar alguns minutos antes que a telemetria comece a aparecer no portal e na análise, as métricas ao vivo mostrarão o uso da CPU do processo em execução quase em tempo real. Ele também pode mostrar outras telemetrias, como solicitações, dependências, rastreamentos etc.
 
@@ -351,7 +350,7 @@ Observe que `ApplicationInsightsServiceOptions` neste SDK está no namespace em 
 
 Configurações comumente usadas no`ApplicationInsightsServiceOptions`
 
-|Configuração | Descrição | Padrão
+|Setting | Descrição | Padrão
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Habilitar/desabilitar o recurso LiveMetrics | true
 |EnableAdaptiveSampling | Habilitar/desabilitar amostragem adaptável | true

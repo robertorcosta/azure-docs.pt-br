@@ -4,10 +4,9 @@ description: Insira algumas linhas de código em seu aplicativo da área de trab
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83115652"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
@@ -50,7 +49,7 @@ Se você ainda não tem uma referência no SDK do Application Insights:
 
     *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *Node. js:*`var applicationInsights = require("applicationinsights");`
+    *Node.js:*`var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Obter uma instância do TelemetryClient
 
@@ -951,7 +950,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-Para *desabilitar os coletores padrão selecionados*, por exemplo, contadores de desempenho, solicitações HTTP ou dependências, exclua ou comente as linhas relevantes em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Você pode fazer isso, por exemplo, se quiser enviar seus próprios dados do TrackRequest.
+Para *desabilitar os coletores padrão selecionados*, por exemplo, contadores de desempenho, solicitações HTTP ou dependências, exclua ou comente as linhas relevantes em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Você pode fazer isso, por exemplo, se quiser enviar seus próprios dados do TrackRequest.
 
 *Node.js*
 
@@ -991,7 +990,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-Para o Node. js, você pode habilitar o modo de desenvolvedor habilitando o log interno via `setInternalLogging` e definindo `maxBatchSize` como 0, o que faz com que a telemetria seja enviada assim que for coletada.
+Por Node.js, você pode habilitar o modo de desenvolvedor habilitando o log interno por meio `setInternalLogging` `maxBatchSize` da configuração para 0, o que faz com que a telemetria seja enviada assim que for coletada.
 
 ```js
 applicationInsights.setup("ikey")

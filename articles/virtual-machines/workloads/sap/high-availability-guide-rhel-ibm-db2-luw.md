@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 1a00a3c1e0d34a8c7abbcd5bfc7a6771d9e2a4c3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82983033"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Alta disponibilidade do IBM Db2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
@@ -38,9 +37,9 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [1928533] | Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
 | [2015553] | SAP no Azure: pré-requisitos de suporte |
 | [2178632] | Principais métricas de monitoramento para SAP no Azure |
-| [2191498] | SAP no Linux com o Azure: monitoramento avançado |
+| [2191498] | SAP no Linux com o Azure: monitoramento aprimorado |
 | [2243692] | VM do Linux no Azure (IaaS): problemas de licença do SAP |
-| [2002167] | Red Hat Enterprise Linux 7.x: instalação e atualização |
+| [2002167] | Red Hat Enterprise Linux 7.x: Instalação e atualização |
 | [2694118] | Red Hat Enterprise Linux o complemento de alta disponibilidade no Azure |
 | [1999351] | Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2233094] | DB6: aplicativos SAP no Azure que usam IBM DB2 para Linux, UNIX e Windows-informações adicionais |
@@ -59,7 +58,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [Referência de complemento de alta disponibilidade][rhel-ha-ref] |
 | [Políticas de suporte para clusters de alta disponibilidade do RHEL - máquinas virtuais do Microsoft Azure como membros de cluster][rhel-azr-supp]
 | [Instalando e configurando um Cluster de alta disponibilidade do Red Hat Enterprise Linux 7.4 (e posterior) no Microsoft Azure][rhel-azr-inst]
-| [Implantação de DBMS de máquinas virtuais do Azure do IBM DB2 para carga de trabalho do SAP][dbms-db2] |
+| [Implantação do DBMS de Máquinas Virtuais do IBM Db2 Azure para carga de trabalho do SAP][dbms-db2] |
 | [IBM DB2 HADR 11,1][db2-hadr-11.1] |
 | [IBM DB2 HADR 10,5][db2-hadr-10.5] |
 | [Política de suporte para clusters de alta disponibilidade RHEL-gerenciamento do IBM DB2 para Linux, UNIX e Windows em um cluster][rhel-db2-supp]
@@ -205,7 +204,7 @@ Recomendamos os parâmetros anteriores com base no teste inicial de failover/tom
 
 Para configurar o servidor de banco de dados em espera usando o procedimento de cópia do sistema SAP homogêneo, execute estas etapas:
 
-1. Selecione a opção de **cópia do sistema** > instância de**banco de dados****distribuído** > de **sistemas** > de destino.
+1. Selecione a opção de **cópia do sistema** > instância de banco de **Target systems**  >  **Distributed**  >  **dados**distribuído de sistemas de destino.
 1. Como um método de cópia, selecione **sistema homogêneo** para que você possa usar o backup para restaurar um backup na instância do servidor em espera.
 1. Quando você chegar à etapa sair para restaurar o banco de dados para a cópia homogênea do sistema, saia do instalador. Restaure o banco de dados de um backup do host primário. Todas as fases de instalação subsequentes já foram executadas no servidor de banco de dados primário.
 
@@ -336,8 +335,8 @@ Os seguintes itens são prefixados com um:
 - **[2]**: aplicável somente ao nó 2
 
 **[A]** pré-requisito para a configuração do pacemaker:
-1. Desligue os servidores de banco de dados com\<o SID do DB2 do usuário> com db2stop.
-1. Altere o ambiente do Shell para\<db2 Sid> usuário para */bin/ksh*:
+1. Desligue os servidores de banco de dados com o usuário DB2 \<sid> com db2stop.
+1. Altere o ambiente do Shell para o usuário do DB2 \<sid> para */bin/ksh*:
 <pre><code># Install korn shell:
 sudo yum install ksh
 # Change users shell:
@@ -464,12 +463,12 @@ sudo firewall-cmd --reload</code></pre>
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Fazer alterações nos perfis SAP para usar o IP virtual para conexão
 Para se conectar à instância primária da configuração do HADR, a camada do aplicativo SAP precisa usar o endereço IP virtual que você definiu e configurou para o Azure Load Balancer. As seguintes alterações são necessárias:
 
-/sapmnt/\<Sid>/Profile/default. PFL
+/sapmnt/ \<SID> /Profile/default. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<Sid>/global/DB6/db2cli.ini
+/sapmnt/ \<SID> /global/db6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -490,7 +489,7 @@ Use a ferramenta de configuração do J2EE para verificar ou atualizar a URL JDB
     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
     
 1. No quadro à esquerda, escolha **armazenamento de segurança**.
-1. No quadro à direita, escolha a chave `jdbc/pool/\<SAPSID>/url`.
+1. No quadro à direita, escolha a chave `jdbc/pool/\<SAPSID>/url` .
 1. Altere o nome do host na URL JDBC para o nome do host virtual.
     
     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
@@ -557,7 +556,7 @@ O status original em um sistema SAP está documentado em transação DBACOCKPIT 
 > Antes de iniciar o teste, verifique se:
 > * Pacemaker não tem nenhuma ação com falha (status de computadores).
 > * Não há restrições de local (sobras de teste de migração)
-> * A sincronização do IBM DB2 HADR está funcionando. Verificar com o>\<de SID do DB2 do usuário <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * A sincronização do IBM DB2 HADR está funcionando. Verificar com o usuário DB2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migre o nó que está executando o banco de dados DB2 primário executando o seguinte comando:
@@ -613,9 +612,9 @@ Migre o recurso de volta para *AZ-idb01* e desmarque as restrições de local
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
-- **RES_NAME de movimentação \<de recursos <host>de computadores>:** Cria restrições de local e pode causar problemas com tomada
-- **recurso de computadores \<limpar RES_NAME>**: limpa restrições de local
-- **RES_NAME de limpeza \<de recursos de computadores>**: limpa todos os erros do recurso
+- **movimentação de recursos de PCs \<res_name> <host> :** cria restrições de local e pode causar problemas com tomada
+- **recurso de PCs \<res_name> limpar **: limpa restrições de local
+- **limpeza \<res_name> de recursos de PCs **: limpa todos os erros do recurso
 
 ### <a name="test-a-manual-takeover"></a>Testar um tomada manual
 
@@ -710,7 +709,7 @@ A instância do DB2 é reiniciada na função secundária que foi atribuída ant
 
 ### <a name="stop-db-via-db2stop-force-on-the-node-that-runs-the-hadr-primary-database-instance"></a>Parar o BD via db2stop Force no nó que executa a instância do banco de dados primário HADR
 
-Como o usuário\<db2 Sid> execute o comando db2stop Force:
+Como o usuário DB2 \<sid> executa o comando db2stop Force:
 <pre><code>az-idb01:db2ptr> db2stop force</code></pre>
 
 Falha detectada:

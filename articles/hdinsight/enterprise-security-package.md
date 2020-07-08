@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997250"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Enterprise Security Package para o Azure HDInsight
@@ -61,7 +60,7 @@ Para obter informações sobre preços e SLA para o Pacote de Segurança Enterpr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configuração do cluster para Apache Hadoop, Spark e mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-* [Trabalhar no Apache Hadoop no HDInsight em um computador Windows](hdinsight-hadoop-windows-tools.md)
-* [Notas de versão do Hortonworks associadas às versões do Azure HDInsight](./hortonworks-release-notes.md)
+* [Configuração de cluster para o Apache Hadoop, Spark e muito mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+* [Trabalhe no Apache Hadoop no HDInsight a partir de um PC Windows](hdinsight-hadoop-windows-tools.md)
+* [Notas sobre a versão do Hortonworks associadas a versões do Azure HDInsight](./hortonworks-release-notes.md)
 * [Componentes do Apache no HDInsight](./hdinsight-component-versioning.md)

@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas Área de Trabalho Remota área de trabalho virtual do Windows cliente-Azure
-description: Como resolver problemas ao configurar conexões de cliente em um ambiente de locatário de área de trabalho virtual do Windows.
+description: Como resolver problemas ao configurar conexões de cliente em um ambiente de locatário da Área de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,10 +9,9 @@ ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005995"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solucionar problemas do cliente do Área de Trabalho Remota
@@ -86,8 +85,8 @@ Se o cliente Web continuar solicitando credenciais, siga estas instruções:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
-- Para solucionar problemas ao criar um ambiente de área de trabalho virtual do Windows e um pool de hosts em um ambiente de área de trabalho virtual do Windows, consulte [criação de pool de hosts e](troubleshoot-set-up-issues.md)
-- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
-- Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Confira uma visão geral da solução de problemas da Área de Trabalho Virtual do Windows e das faixas de escalonamento em [Visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
+- Para solucionar problemas ao criar um ambiente de Área de Trabalho Virtual do Windows e pool de host em um ambiente da Área de Trabalho Virtual do Windows, consulte [Criação de ambiente e pool de host](troubleshoot-set-up-issues.md).
+- Veja como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
+- Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).
+- Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

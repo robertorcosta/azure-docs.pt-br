@@ -16,16 +16,15 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a30ea70c623c8456ae97c8ca9475e4989784edf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995845"
 ---
 # <a name="azure-custom-roles"></a>Funções personalizadas do Azure
 
 > [!IMPORTANT]
-> A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
+> A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -123,9 +122,9 @@ A tabela a seguir descreve o significado das propriedades da função personaliz
 | `Description`</br>`description` | Sim | String | A descrição da função personalizada. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é 1024. |
 | `Actions`</br>`actions` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento permitidas pela função. Para obter mais informações, consulte [Ações](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que são excluídas do `Actions` permitido. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Se você criar uma função personalizada com `DataActions`, essa função não poderá ser atribuída ao escopo do grupo de gerenciamento. Para obter mais informações, consulte [Dataactions](role-definitions.md#dataactions). |
+| `DataActions`</br>`dataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Se você criar uma função personalizada com `DataActions` , essa função não poderá ser atribuída ao escopo do grupo de gerenciamento. Para obter mais informações, consulte [Dataactions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados excluídas do `DataActions` permitido. Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes`</br>`assignableScopes` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica os escopos para os quais a função personalizada está disponível para atribuição. Você só pode definir um grupo de gerenciamento `AssignableScopes` em uma função personalizada. A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes). |
+| `AssignableScopes`</br>`assignableScopes` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica os escopos para os quais a função personalizada está disponível para atribuição. Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes). |
 
 ## <a name="steps-to-create-a-custom-role"></a>Etapas para criar uma função personalizada
 
@@ -137,7 +136,7 @@ Para criar uma função personalizada, aqui estão as etapas básicas que você 
 
 1. Determine as permissões necessárias.
 
-    Ao criar uma função personalizada, você precisa saber as operações que estão disponíveis para definir suas permissões. Para exibir a lista de operações, consulte o [Azure Resource Manager operações do provedor de recursos](resource-provider-operations.md). Você adicionará as operações às propriedades `Actions` ou `NotActions` da definição de [função](role-definitions.md). Se houver operações de dados, você as adicionará às propriedades `DataActions` ou `NotDataActions` .
+    Ao criar uma função personalizada, você precisa saber as operações que estão disponíveis para definir suas permissões. Para exibir a lista de operações, consulte o [Azure Resource Manager operações do provedor de recursos](resource-provider-operations.md). Você adicionará as operações às `Actions` Propriedades ou `NotActions` da definição de [função](role-definitions.md). Se houver operações de dados, você as adicionará às `DataActions` Propriedades ou `NotDataActions` .
 
 1. Crie a função personalizada.
 
@@ -163,8 +162,8 @@ A lista a seguir descreve os limites para funções personalizadas.
 
 - Cada diretório pode ter até **5000** funções personalizadas.
 - O Azure Alemanha e o Azure China 21Vianet podem ter até 2000 funções personalizadas para cada diretório.
-- Não é possível `AssignableScopes` definir como o escopo raiz`"/"`().
-- Você só pode definir um grupo de gerenciamento `AssignableScopes` em uma função personalizada. A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
+- Não é possível definir `AssignableScopes` como o escopo raiz ( `"/"` ).
+- Você só pode definir um grupo de gerenciamento em `AssignableScopes` uma função personalizada. A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
 - Funções personalizadas com `DataActions` não podem ser atribuídas no escopo do grupo de gerenciamento.
 - Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função.
 
@@ -190,7 +189,7 @@ Para criar uma função personalizada usando Azure PowerShell, você deve fornec
 }
 ```
 
-Para atualizar uma função personalizada usando Azure PowerShell, você deve fornecer a entrada a seguir. Observe que a `Id` Propriedade foi adicionada. 
+Para atualizar uma função personalizada usando Azure PowerShell, você deve fornecer a entrada a seguir. Observe que a `Id` propriedade foi adicionada. 
 
 ```json
 {

@@ -17,10 +17,9 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982965"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o arquivo compartilhado de cluster no Azure
@@ -70,10 +69,10 @@ O que é específico para essa arquitetura é o seguinte:
 
 * Serviços SAP centrais (com processos de estrutura e mensagens e enfileiramento do próprio arquivo) são separados dos arquivos Host global do SAP.
 * Serviços de central SAP executados na instância do SAP ASCS/SCS.
-* Instância SAP ASCS/SCS estiver em cluster e está acessível usando o \<nome de host virtual ASCS/SCS\> nome de host virtual.
-* Arquivos SAP globais são colocados no compartilhamento de arquivos SMB e são acessados usando o \<host global SAP\> nome do host \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+* A instância do SAP ASCS/SCS está em cluster e pode ser acessada usando o \<ASCS/SCS virtual host name\> nome do host virtual.
+* Os arquivos SAP globais são colocados no compartilhamento de arquivos SMB e são acessados usando o \<SAP global host\> nome do host: \\ \\ &lt; SAP Global host &gt; \sapmnt \\ &lt; SID &gt; \SYS \. ..
 * A instância do SAP ASCS/SCS é instalada em um disco local em ambos os nós de cluster.
-* O \<nome de host virtual ASCS/SCS\> nome de rede é diferente do &lt;host global SAP&gt;.
+* O \<ASCS/SCS virtual host name\> nome da rede é diferente do &lt; host global do SAP &gt; .
 
 ![Figura 2: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8004]
 
@@ -87,7 +86,7 @@ Pré-requisitos para o compartilhamento de arquivos SMB:
     * Os discos usados para armazenar os arquivos não devem ser um ponto único de falha.
     * Servidor ou tempo de inatividade da VM não faz com que o tempo de inatividade no compartilhamento de arquivos.
 
-Agora, a função de cluster \<SAP\> não contêm discos compartilhados pelo cluster nem recursos de cluster do Compartilhamento de Arquivo Genérico.
+A função de cluster do SAP não \<SID\> contém discos compartilhados de cluster ou um recurso de cluster de compartilhamento de arquivos genérico.
 
 
 ![Figura 3: recursos de função do cluster SAP \<SID\> ao usar o compartilhamento de arquivos][sap-ha-guide-figure-8005]
@@ -137,17 +136,17 @@ Para usar uma expansão de arquivos de escalabilidade horizontal, o sistema deve
 * Para ter bom desempenho da rede VM interno necessário para sincronização de Espaços de Armazenamento Diretos de disco, você deve usar um tipo de VM que tenha pelo menos uma largura de banda de rede "alta".
     Para obter mais detalhes, consulte a especificação da [série DSv2][dv2-series] e [série DS][ds-series].
 * Recomendamos que você reserve alguns capacidade não alocada no pool de armazenamento. Deixar alguma capacidade não alocada no pool de armazenamento fornece espaço em volumes para reparar "no local", se um disco falhar. Isso melhora o desempenho e segurança dos dados.  Para obter mais informações, consulte [escolhendo o tamanho do volume][choosing-the-size-of-volumes-s2d].
-* Você não precisa configurar o balanceador de carga interno do Azure para o nome de rede do compartilhamento de arquivos de expansão, como para \<host global SAP\>. Isso é feito para o \<nome de host virtual ASCS/SCS\> da instância SAP ASCS/SCS ou para o DBMS. Um compartilhamento de arquivos de expansão seja dimensionável a carga em todos os nós de cluster. \<Host global SAP\> usa o endereço IP local para todos os nós de cluster.
+* Você não precisa configurar o balanceador de carga interno do Azure para o nome de rede do compartilhamento de arquivos de escalabilidade horizontal, como para \<SAP global host\> . Isso é feito para o \<ASCS/SCS virtual host name\> da instância do SAP ASCS/SCS ou para o DBMS. Um compartilhamento de arquivos de expansão seja dimensionável a carga em todos os nós de cluster. \<SAP global host\>usa o endereço IP local para todos os nós de cluster.
 
 
 > [!IMPORTANT]
-> Não é possível renomear o compartilhamento de arquivos SAPMNT, que aponta para \<host global SAP\>. SAP suporta apenas o compartilhamento de nome "sapmnt."
+> Não é possível renomear o compartilhamento de arquivos SAPMNT, que aponta para \<SAP global host\> . SAP suporta apenas o compartilhamento de nome "sapmnt."
 >
 > Para mais informações, veja [Observação 2492395 do SAP – O nome do compartilhamento sapmnt pode ser alterado?][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurar instâncias SAP ASCS/SCS e um expansão compartilhamento de arquivos em dois clusters
 
-Você tem a possibilidade de implantar instâncias SAP ASCS/SCS em um cluster, com sua própria função de cluster SAP \<SID\>. Nesse caso, você deve configurar o compartilhamento de arquivos de expansão horizontal em outro cluster, com outra função de cluster.
+Você pode implantar instâncias do SAP ASCS/SCS em um cluster, com sua própria \<SID\> função de cluster SAP. Nesse caso, você deve configurar o compartilhamento de arquivos de expansão horizontal em outro cluster, com outra função de cluster.
 
 > [!IMPORTANT]
 >Nesse cenário, a instância do SAP (A)SCS está configurada para acessar GLOBALHost SAP usando o caminho UNC \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\.

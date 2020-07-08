@@ -13,15 +13,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83004739"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
-Quando você cria uma instância de serviço de gerenciamento de API do Azure, o Azure atribui um subdomínio de `azure-api.net` (por `apim-service-name.azure-api.net`exemplo,). No entanto, você pode expor seus pontos de extremidade de gerenciamento de API usando seu próprio nome de domínio personalizado, como **contoso.com**. Este tutorial mostra como mapear um nome DNS personalizado existente para pontos de extremidade expostos por uma instância de gerenciamento de API.
+Quando você cria uma instância de serviço de gerenciamento de API do Azure, o Azure atribui um subdomínio de `azure-api.net` (por exemplo, `apim-service-name.azure-api.net` ). No entanto, você pode expor seus pontos de extremidade de gerenciamento de API usando seu próprio nome de domínio personalizado, como **contoso.com**. Este tutorial mostra como mapear um nome DNS personalizado existente para pontos de extremidade expostos por uma instância de gerenciamento de API.
 
 > [!IMPORTANT]
 > O gerenciamento de API aceita somente solicitações com valores de [cabeçalho de host](https://tools.ietf.org/html/rfc2616#section-14.23) que correspondem ao nome de domínio padrão ou a qualquer um dos nomes de domínio personalizados configurados.
@@ -49,11 +48,11 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 
     Há vários pontos de extremidade aos quais você pode atribuir um nome de domínio personalizado. No momento, os seguintes pontos de extremidade estão disponíveis:
 
-    - **Gateway** (o padrão é `<apim-service-name>.azure-api.net`:),
+    - **Gateway** (o padrão é: `<apim-service-name>.azure-api.net` ),
     - **Portal** (o padrão é: `<apim-service-name>.portal.azure-api.net`),
     - **Gerenciamento** (o padrão é: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (o padrão é `<apim-service-name>.scm.azure-api.net`:),
-    - **NewPortal** (o padrão é `<apim-service-name>.developer.azure-api.net`:).
+    - **SCM** (o padrão é: `<apim-service-name>.scm.azure-api.net` ),
+    - **NewPortal** (o padrão é: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > Somente o ponto de extremidade do **Gateway** está disponível para configuração na camada de consumo.
@@ -68,7 +67,7 @@ Para executar as etapas descritas neste artigo, você precisa ter:
     - No **certificado**, selecione um certificado de Key Vault. Você também pode carregar um válido. Arquivo PFX e forneça sua **senha**, se o certificado estiver protegido com uma senha.
 
     > [!NOTE]
-    > Os nomes de domínio curinga, `*.contoso.com` por exemplo, têm suporte em todas as camadas, exceto a camada de consumo.
+    > Os nomes de domínio curinga, por exemplo, `*.contoso.com` têm suporte em todas as camadas, exceto a camada de consumo.
 
     > [!TIP]
     > É recomendável usar [Azure Key Vault para gerenciar certificados](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e defini-los para renovar.

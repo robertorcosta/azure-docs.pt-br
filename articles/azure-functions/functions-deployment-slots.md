@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122396"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions slots de implantação
@@ -151,7 +150,7 @@ Você pode remover um slot por meio da [CLI](https://docs.microsoft.com/cli/azur
 
 Usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), você pode automatizar as seguintes ações para um slot:
 
-- [criada](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
+- [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
 - [permuta](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)

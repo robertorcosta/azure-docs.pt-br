@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123897"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
@@ -60,7 +59,7 @@ A tabela a seguir fornece a lista completa de valores para níveis de zoom em qu
 |15|4.8|1228.8|
 |16|2.4|614.4|
 |17|1.2|307.2|
-|18|0.6|152.8|
+|18|0,6|152.8|
 |19|0.3|76.4|
 |20|0.15|38.2|
 |21|0.075|19.1|
@@ -967,4 +966,4 @@ Acesse diretamente os blocos de mapa dos serviços REST do Azure Maps:
 Saiba mais sobre os conceitos geoespaciais:
 
 > [!div class="nextstepaction"]
-> [Glossário do Azure Maps](glossary.md)
+> [Glossário do Azure Mapas](glossary.md)

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997094"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Criar e gerenciar registros em Common Data Service usando aplicativos lógicos do Azure
@@ -89,7 +88,7 @@ Agora, adicione uma ação Common Data Service que cria um registro de tarefa pa
 
       | Saída do gatilho | Descrição |
       |----------------|-------------|
-      | **Nome** | O nome do registro de Lead a ser usado como o contato principal no registro de tarefa |
+      | **First Name** | O nome do registro de Lead a ser usado como o contato principal no registro de tarefa |
       | **Sobrenome** | O sobrenome do registro de Lead a ser usado como o contato principal no registro de tarefa |
       | **Descrição** | Outras saídas a serem incluídas no registro de tarefa, como endereço de email e número de telefone comercial |
       |||
@@ -126,7 +125,7 @@ Para ações que retornam registros, como a ação **listar registros** , você 
 
    ![Inserir consulta de filtro ODATA para filtrar registros](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Para obter mais informações `$filter` sobre opções de consulta do sistema, consulte [Common Data Service-resultados do filtro](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Para obter mais informações sobre `$filter` Opções de consulta do sistema, consulte [Common Data Service-resultados do filtro](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Listar registros com base em um pedido
 
@@ -140,7 +139,7 @@ Para ações que retornam registros, como a ação **listar registros** , você 
 
    ![Inserir consulta de filtro ODATA para ordenar registros](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Para obter mais informações `$orderby` sobre opções de consulta do sistema, consulte [resultados de ordem de Common Data Service](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Para obter mais informações sobre `$orderby` Opções de consulta do sistema, consulte [resultados de ordem de Common Data Service](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Tipos de dados de campo
 
@@ -152,15 +151,15 @@ Esta tabela descreve alguns tipos de campo e os tipos de dados que esses campos 
 |-------|-----------|-------------|
 | Campo de texto | Linha única de texto | Requer uma única linha de texto ou conteúdo dinâmico que tenha o tipo de dados text, por exemplo, essas propriedades: <p><p>- **Ndescrição** <br>- **Categorias** |
 | Campo de inteiro | Número inteiro | Requer um inteiro ou conteúdo dinâmico que tenha o tipo de dados Integer, por exemplo, essas propriedades: <p><p>- **Porcentagem concluída** <br>- **Permanência** |
-| Campo de data | Data e Hora | Requer uma data no formato MM/DD/YYY ou conteúdo dinâmico que tenha o tipo de dados Date, por exemplo, essas propriedades: <p><p>- **Criado em** <br>- **Data de início** <br>- **Início real** <br>- **Fim real** <br>- **Data de conclusão** |
-| Campo que faz referência a outro registro de entidade | Chave primária | Requer uma ID de registro, como um GUID, e um tipo de pesquisa, o que significa que os valores da lista de conteúdo dinâmico não funcionarão, por exemplo, essas propriedades: <p><p>- **Proprietário**: deve ser uma ID de usuário válida ou uma ID de registro de equipe. <br>- **Tipo de proprietário**: deve ser um tipo de pesquisa `systemusers` como `teams`ou, respectivamente. <p><p>- **Sobre**: deve ser uma ID de registro válida, como uma ID de conta ou uma ID de registro de contato. <br>- **Referente**ao `accounts` tipo: deve ser um tipo de pesquisa `contacts`como ou, respectivamente. <p><p>- **Cliente**: deve ser uma ID de registro válida, como uma ID de conta ou ID de registro de contato. <br>- **Tipo de cliente**: deve ser o tipo de pesquisa, `accounts` como `contacts`ou, respectivamente. |
+| Campo de data | Data e hora | Requer uma data no formato MM/DD/YYY ou conteúdo dinâmico que tenha o tipo de dados Date, por exemplo, essas propriedades: <p><p>- **Criado em** <br>- **Data de início** <br>- **Início real** <br>- **Fim real** <br>- **Data de conclusão** |
+| Campo que faz referência a outro registro de entidade | Chave primária | Requer uma ID de registro, como um GUID, e um tipo de pesquisa, o que significa que os valores da lista de conteúdo dinâmico não funcionarão, por exemplo, essas propriedades: <p><p>- **Proprietário**: deve ser uma ID de usuário válida ou uma ID de registro de equipe. <br>- **Tipo de proprietário**: deve ser um tipo de pesquisa como `systemusers` ou `teams` , respectivamente. <p><p>- **Sobre**: deve ser uma ID de registro válida, como uma ID de conta ou uma ID de registro de contato. <br>- **Referente ao tipo**: deve ser um tipo de pesquisa como `accounts` ou `contacts` , respectivamente. <p><p>- **Cliente**: deve ser uma ID de registro válida, como uma ID de conta ou ID de registro de contato. <br>- **Tipo de cliente**: deve ser o tipo de pesquisa, como `accounts` ou `contacts` , respectivamente. |
 ||||
 
 Este exemplo mostra como a ação **criar um novo registro** cria um novo registro de "tarefas" associado a outros registros de entidade, especificamente um registro de usuário e um registro de conta. A ação especifica as IDs e os tipos de pesquisa para esses registros de entidade usando valores que correspondem aos tipos de dados esperados para as propriedades relevantes.
 
-* Com base na propriedade **Owner** , que especifica uma ID de usuário e a propriedade de **tipo Owner** , que especifica `systemusers` o tipo de pesquisa, a ação associa o novo registro "Tasks" a um usuário específico.
+* Com base na propriedade **Owner** , que especifica uma ID de usuário e a propriedade de **tipo Owner** , que especifica o `systemusers` tipo de pesquisa, a ação associa o novo registro "Tasks" a um usuário específico.
 
-* Com base na propriedade **referente** , que especifica uma ID de registro e a propriedade de **tipo sobre** , que `accounts` especifica o tipo de pesquisa, a ação associa o novo registro "tarefas" a uma conta específica.
+* Com base na propriedade **referente** , que especifica uma ID de registro e a propriedade de **tipo sobre** , que especifica o `accounts` tipo de pesquisa, a ação associa o novo registro "tarefas" a uma conta específica.
 
 ![Criar registro de "tarefas" associado a IDs e tipos de pesquisa](./media/connect-common-data-service/create-new-record-task-properties.png)
 
@@ -170,4 +169,4 @@ Para obter informações técnicas com base na descrição do Swagger do conecto
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre outros [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md)
+* Saiba mais sobre [outros conectores para Aplicativos Lógicos do Azure](../connectors/apis-list.md)

@@ -10,10 +10,9 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117250"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Usar o Azure Disk Encryption com o sequenciamento de extensão do conjunto de dimensionamento de máquinas virtuais
@@ -155,7 +154,7 @@ Aqui está um exemplo que usa "AzureDiskEncryption" seguido por "VMDiagnosticsSe
 ```
 
 Para obter um modelo mais detalhado, consulte:
-* Aplique a extensão de Azure Disk Encryption após um script de shell personalizado que formata o disco (Linux): [Deploy-extseq-Linux-Ade-After-CustomScript. JSON](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* Aplique a extensão de Azure Disk Encryption após um script de shell personalizado que formata o disco (Linux): [deploy-extseq-linux-ADE-after-customscript.jsem](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
 ## <a name="next-steps"></a>Próximas etapas

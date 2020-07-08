@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005944"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT no Azure Cosmos DB
 
-Cada consulta consiste em uma `SELECT` cláusula [e em cláusulas opcional e](sql-query-from.md) [Where](sql-query-where.md) , por padrões SQL ANSI. Normalmente, a origem na `FROM` cláusula é enumerada e a `WHERE` cláusula aplica um filtro na origem para recuperar um subconjunto de itens JSON. Em `SELECT` seguida, a cláusula projeta os valores JSON solicitados na lista de seleção.
+Cada consulta consiste em uma `SELECT` cláusula e em [FROM](sql-query-from.md) cláusulas opcional e [Where](sql-query-where.md) , por padrões SQL ANSI. Normalmente, a origem na `FROM` cláusula é enumerada e a `WHERE` cláusula aplica um filtro na origem para recuperar um subconjunto de itens JSON. `SELECT`Em seguida, a cláusula projeta os valores JSON solicitados na lista de seleção.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -77,7 +76,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser
   
 ## <a name="examples"></a>Exemplos
 
-O exemplo de consulta SELECT a `address` seguir `Families` retorna `id` de `AndersenFamily`cujas correspondências:
+O exemplo de consulta SELECT a seguir retorna `address` de `Families` cujas `id` correspondências `AndersenFamily` :
 
 ```sql
     SELECT f.address
@@ -99,6 +98,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula WHERE](sql-query-where.md)

@@ -8,10 +8,9 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82983067"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Solucionar problemas do WAF (firewall do aplicativo Web) para Aplicativo Azure gateway
@@ -182,7 +181,7 @@ Esse é um campo que você pode excluir. Para saber mais sobre listas de exclus�
 
 Você também pode examinar os logs de firewall para obter as informações para ver o que precisa adicionar à lista de exclusões. Para habilitar o registro em log, consulte [integridade de back-end, logs de recursos e métricas para o gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md).
 
-Examine o log do firewall e exiba o arquivo PT1H. JSON para a hora em que a solicitação que você deseja inspecionar ocorreu.
+Examine o log do firewall e exiba o PT1H.jsno arquivo para a hora em que a solicitação que você deseja inspecionar ocorreu.
 
 Neste exemplo, você pode ver que tem quatro regras com o mesmo TransactionId e que todas elas ocorreram ao mesmo tempo:
 
@@ -301,7 +300,7 @@ O Fiddler é uma ferramenta útil mais uma vez para localizar nomes de cabeçalh
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
 
-Outra maneira de exibir cabeçalhos de solicitação e resposta é procurar nas ferramentas de desenvolvedor do Chrome. Você pode pressionar F12 ou clicar com o botão direito do mouse > **inspecionar** -> **ferramentas para desenvolvedores**e selecionar a guia **rede** . Carregue uma página da Web e clique na solicitação que você deseja inspecionar.
+Outra maneira de exibir cabeçalhos de solicitação e resposta é procurar nas ferramentas de desenvolvedor do Chrome. Você pode pressionar F12 ou clicar com o botão direito do mouse > **inspecionar**  ->  **ferramentas para desenvolvedores**e selecionar a guia **rede** . Carregue uma página da Web e clique na solicitação que você deseja inspecionar.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 

@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123931"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
@@ -38,13 +37,13 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Angola                           | ✓ | ✓ |
 | Benin                            | ✓ | ✓ |
 | Botsuana                         | ✓ | ✓ |
-| Burquina Faso                     | ✓ | ✓ |
+| Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Camarões                         | ✓ | ✓ |
 | República Centro-Africana         | ✓ | Ø |
 | Chade                             | ✓ | Ø |
-| Ilhas Comores                          | ✓ | Ø |
+| Comores                          | ✓ | Ø |
 | República Democrática do Congo | ✓ | ✓ |
 | Côte d’Ivoire                    | ✓ | Ø |
 | Djibuti                         | ✓ | Ø |
@@ -56,14 +55,14 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Gâmbia                           | ✓ | Ø |
 | Gana                            | ✓ | ✓ |
 | Guiné                           | ✓ | Ø |
-| Guiné-Bissau                    | ✓ | Ø |
+| Guiné Bissau                    | ✓ | Ø |
 | Quênia                            | ✓ | ✓ |
 | Lesoto                          | ✓ | ✓ |
 | Libéria                          | ✓ | Ø |
 | Líbia                            | ✓ | Ø |
 | Madagascar                       | ✓ | Ø |
 | Malaui                           | ✓ | ✓ |
-| Máli                             | ✓ | ✓ |
+| Mali                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
 | Maurício                        | ✓ | ✓ |
 | Mayotte                          | ✓ | ✓ |
@@ -101,11 +100,11 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermudas                   | ✓ | ✓ |
+| Bermuda                   | ✓ | ✓ |
 | Estado Plurinacional da Bolívia | ✓ | ✓ |
 | Bonaire, Santo Eustáquio e Saba | ✓ | ✓ |
 | Brasil                    | ✓ | ✓ |
-| Canada                    | ✓ | ✓ |
+| Canadá                    | ✓ | ✓ |
 | Ilhas Cayman            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
 | Colômbia                  | ✓ | ✓ |
@@ -117,7 +116,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Equador                   | ✓ | ✓ |
 | Ilhas Falkland (Malvinas) | ✓ | ✓ |
 | Guiana Francesa             | ✓ | ✓ |
-| Groenlândia                 | ✓ | Ø |
+| Groelândia                 | ✓ | Ø |
 | Granada                   | ✓ | ✓ |
 | Guadalupe                | ✓ | ✓ |
 | Guatemala                 | ✓ | ✓ |
@@ -136,13 +135,13 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Porto Rico               | ✓ | ✓ |
 | Quebec (Canadá)           | ✓ | ✓ |
 | São Bartolomeu          | ✓ | ✓ |
-| São Cristóvão e Névis     | ✓ | ✓ |
+| São Cristóvão e Nevis     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
 | Saint Martin (francesa)     | ✓ | ✓ |
 | São Pedro e Miquelon | ✓ | ✓ |
 | São Vicente e Granadinas | ✓ | ✓ |
 | Sint Maarten (holandesa)      | ✓ | ✓ |
-| Geórgia do Sul e Ilhas Sandwich do Sul | ✓ | ✓ |
+| Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
 | Ilhas Turcas e Caicos  | ✓ | ✓ |
@@ -215,7 +214,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Ilhas Cook              |   | Ø |
 | Fiji                      |   | Ø |
 | Polinésia Francesa          |   | Ø |
-| Guam                      | ✓ | ✓ |
+| Guão                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
 | Ilhas Marshall          |   | Ø |
 | Micronésia                |   | Ø |
@@ -225,18 +224,18 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Niue                      |   | Ø |
 | Ilha Norfolk            |   | Ø |
 | Palau                     |   | Ø |
-| Papua Nova-Guiné          |   | Ø |
+| Papua Nova Guiné          |   | Ø |
 | Pitcairn                  |   | Ø |
 | Samoa                     |   | Ø |
 | Ilhas Salomão           |   | Ø|
-| Tokelau                   |   | Ø |
+| Toquelau                   |   | Ø |
 | Tonga                     |   | Ø |
 | Tuvalu                    |   | Ø |
 | Vanuatu                   |   | Ø |
 | Wallis e Futuna         |   | Ø |
 
 
-## <a name="europe"></a>Ocidental
+## <a name="europe"></a>Europa
 
 | País/Região | Blocos de Rastreamento Unificados | Blocos de Vetores Unificados |
 | ------ | :------------------: | :------------------: |
@@ -245,7 +244,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Armênia                   | ✓ | Ø |
 | Áustria                   | ✓ | ✓ |
 | Azerbaijão                | ✓ | Ø |
-| Belarus                   | Ø | ✓ |
+| Bielorrússia                   | Ø | ✓ |
 | Bélgica                   | ✓ | ✓ |
 | Bósnia e Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
@@ -254,7 +253,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | República Tcheca            | ✓ | ✓ |
 | Dinamarca                   | ✓ | ✓ |
 | Estônia                   | ✓ | ✓ |
-| Ilhas Faroe             | ✓ | Ø |
+| Ilhas Faroés             | ✓ | Ø |
 | Finlândia                   | ✓ | ✓ |
 | França                    | ✓ | ✓ |
 | Geórgia                   | ✓ | Ø |
@@ -295,7 +294,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Suíça               | ✓ | ✓ |
 | Turquia                    | ✓ | ✓ |
 | Ucrânia                   | ✓ | ✓ |
-| United Kingdom            | ✓ | ✓ |
+| Reino Unido            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Próximas etapas

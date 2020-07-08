@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 97eb1ebb61e5ff78ed918fded8107f5775b533c2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124016"
 ---
 # <a name="create-a-map"></a>Criar um mapa
@@ -139,7 +138,7 @@ Examine os exemplos de código. Você pode editar o código JavaScript dentro da
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [Câmara de câmera](/javascript/api/azure-maps-control/atlas.cameraoptions)

@@ -7,15 +7,14 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122759"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
 
-Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. O Azure Functions vem com uma coleção de gatilhos e associações HTTP internos, que facilitam o autor de um ponto de extremidade em uma variedade de linguagens, incluindo node. js, C# e muito mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Você também se prepara para aumentar sua API integrando-a com Proxies do Azure Functions e configurando APIs fictícias. Essas tarefas são realizadas sobre o ambiente de computação sem servidor do functions, para que você não precise se preocupar com o dimensionamento de recursos. você pode se concentrar apenas na lógica da API.
+Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. O Azure Functions vem com uma coleção de gatilhos e associações HTTP internos, que facilitam o autor de um ponto de extremidade em uma variedade de linguagens, incluindo Node.js, C# e muito mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Você também se prepara para aumentar sua API integrando-a com Proxies do Azure Functions e configurando APIs fictícias. Essas tarefas são realizadas sobre o ambiente de computação sem servidor do functions, para que você não precise se preocupar com o dimensionamento de recursos. você pode se concentrar apenas na lógica da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -128,7 +127,7 @@ Para criar essa API fictícia, criaremos um novo proxy, desta vez usando o [Edit
 
 Selecione `proxies.json` no painel de navegação esquerdo. Esse arquivo armazena a configuração de todos os seus proxies. Se você usar um dos [métodos de implantação de funções](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), você manterá esse arquivo no controle do código-fonte. Para saber mais sobre esse arquivo, confira [Configuração avançada de proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
-Se você seguiu até agora, seu proxys. JSON deve ser semelhante ao seguinte:
+Se você seguiu até agora, seu proxies.jsem deve ser semelhante ao seguinte:
 
 ```json
 {
@@ -144,7 +143,7 @@ Se você seguiu até agora, seu proxys. JSON deve ser semelhante ao seguinte:
 }
 ```
 
-Em seguida, você adicionará sua API de simulação. Substitua seu arquivo proxies. JSON pelo código a seguir:
+Em seguida, você adicionará sua API de simulação. Substitua seu proxies.jsno arquivo pelo código a seguir:
 
 ```json
 {

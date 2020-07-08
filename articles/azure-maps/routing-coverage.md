@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e04f3d2f5ed575e9401c53faebd91b3bde004601
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123880"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
@@ -45,7 +44,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Angola                         |        ✓       |                       |             |
 | Benin                          |        ✓       |                       |             |
 | Botsuana                       |        ✓       |                       |             |
-| Burquina Faso                   |        ✓       |                       |             |
+| Burkina Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
 | Camarões                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
@@ -59,7 +58,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Quênia                          |        ✓       |         ✓            |             |
 | Lesoto                        |        Ø        |         ✓            |             |
 | Malaui                         |        ✓       |                       |              |
-| Máli                           |        ✓       |                       |             |
+| Mali                           |        ✓       |                       |             |
 | Mauritânia                     |        ✓       |                       |             |
 | Maurício, Mayotte e Réunion |        ✓      |                       |             |
 | Marrocos                        |        ✓       |                       |             |
@@ -90,7 +89,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Barbados                       |        ✓       |                      |             |
 | Belize                         |        ✓       |                      |             |
 | Brasil                         |        ✓       |         ✓            |     ✓       | 
-| Canada                         |        ✓       |         ✓            |     ✓      |
+| Canadá                         |        ✓       |         ✓            |     ✓      |
 | Chile                          |        ✓       |         ✓            |     ✓      |
 | Colômbia                       |        ✓       |         ✓            |             |
 | Costa Rica                     |        ✓       |                      |             |
@@ -134,7 +133,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Brunei                         |        ✓       |         ✓            |             |
 | Camboja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
-| Guam                           |        ✓       |                      |             |
+| Guão                           |        ✓       |                      |             |
 | RAE de Hong Kong                  |        ✓       |         ✓            |             |
 | Índia                          |        ✓       |         ✓            |             |
 | Indonésia                      |        ✓       |         ✓            |             |
@@ -152,14 +151,14 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Vietnã                        |        ✓       |         ✓            |             |
 
 
-## <a name="europe"></a>Ocidental
+## <a name="europe"></a>Europa
 
 | País/Região                 | Roteamento         | Roteamento com tráfego | Roteamento de caminhão |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albânia                        |        ✓       |                      |             |
 | Andorra                        |        ✓       |         ✓            |             |
 | Áustria                        |        ✓       |         ✓            |     ✓       | 
-| Belarus                        |        ✓       |                      |             |
+| Bielorrússia                        |        ✓       |                      |             |
 | Bélgica                        |        ✓       |         ✓            |     ✓      | 
 | Bolívia                        |        ✓       |                      |             |
 | Bósnia e Herzegovina             |        ✓       |                      |             |
@@ -214,7 +213,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Suíça                    |        ✓       |         ✓            |     ✓      | 
 | Turquia                         |        ✓       |         ✓            |     ✓      | 
 | Ucrânia                        |        ✓       |         ✓            |             | 
-| United Kingdom                 |        ✓       |         ✓            |     ✓      | 
+| Reino Unido                 |        ✓       |         ✓            |     ✓      | 
 | + Anguila                      |        ✓       |                      |             |
 | + Bermuda                       |        ✓       |                      |             |
 | + Ilhas Virgens Britânicas        |        ✓       |                      |             |

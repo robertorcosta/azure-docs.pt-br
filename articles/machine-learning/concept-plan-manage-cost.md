@@ -11,10 +11,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996341"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planejar e gerenciar custos para Azure Machine Learning
@@ -104,8 +103,8 @@ Em alguns casos, você deve configurar as execuções de treinamento para limita
 
 Aqui estão algumas opções que você tem:
 * Defina um parâmetro chamado `max_run_duration_seconds` em seu RunConfiguration para controlar a duração máxima que uma execução pode estender para na computação escolhida (computação em nuvem local ou remota).
-* Para [ajuste de hiperparâmetro](how-to-tune-hyperparameters.md#early-termination), defina uma política de encerramento inicial de uma política de Bandit, uma política de interrupção mediana ou uma política de seleção de truncamento. Para controlar ainda mais a varredura de hiperparâmetro, use parâmetros `max_total_runs` como `max_duration_minutes`ou.
-* Para o [aprendizado de máquina automatizado](how-to-configure-auto-train.md#exit), defina políticas de `enable_early_stopping` encerramento semelhantes usando o sinalizador. Use também propriedades como `iteration_timeout_minutes` e `experiment_timeout_minutes` para controlar a duração máxima de uma execução ou para todo o experimento.
+* Para [ajuste de hiperparâmetro](how-to-tune-hyperparameters.md#early-termination), defina uma política de encerramento inicial de uma política de Bandit, uma política de interrupção mediana ou uma política de seleção de truncamento. Para controlar ainda mais a varredura de hiperparâmetro, use parâmetros como `max_total_runs` ou `max_duration_minutes` .
+* Para o [aprendizado de máquina automatizado](how-to-configure-auto-train.md#exit), defina políticas de encerramento semelhantes usando o `enable_early_stopping` sinalizador. Use também propriedades como `iteration_timeout_minutes` e `experiment_timeout_minutes` para controlar a duração máxima de uma execução ou para todo o experimento.
 
 ## <a name="use-low-priority-vms"></a>Usar VMs de baixa prioridade
 
@@ -117,7 +116,7 @@ Defina a prioridade de sua VM de qualquer uma das seguintes maneiras:
 
 * No estúdio, escolha **baixa prioridade** ao criar uma VM.
 
-* Com o SDK do Python, defina `vm_priority` o atributo em sua configuração de provisionamento.  
+* Com o SDK do Python, defina o `vm_priority` atributo em sua configuração de provisionamento.  
 
     ```python
     compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
@@ -125,7 +124,7 @@ Defina a prioridade de sua VM de qualquer uma das seguintes maneiras:
                                                                max_nodes=4)
     ```
 
-* Usando a CLI, defina `vm-priority`:
+* Usando a CLI, defina `vm-priority` :
 
     ```azurecli-interactive
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority

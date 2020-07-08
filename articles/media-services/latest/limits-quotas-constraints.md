@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
 ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995887"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
@@ -36,7 +35,7 @@ Este artigo lista alguns dos limites de Serviços de Mídia do Microsoft Azure m
 
 | Recurso | Limite padrão | 
 | --- | --- | 
-| [Ativos](assets-concept.md) por conta de serviços de mídia | 1.000.000|
+| [Ativos](assets-concept.md) por conta de serviços de mídia | 1\.000.000|
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 
@@ -90,7 +89,7 @@ Qualquer registro de Trabalho em sua conta com mais de 90 dias será excluído a
 | --- | --- | 
 | [Pontos de extremidade de streaming](streaming-endpoint-concept.md) (interrompidos ou em execução) por conta de serviços de mídia|2 |
 | [Filtros de Manifesto Dinâmico](filters-dynamic-manifest-overview.md)|100|
-| [Políticas de Streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
+| [Políticas de streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizadores de streaming](streaming-locators-concept.md) exclusivos associados a um ativo ao mesmo tempo | 100<sup>(7)</sup> (fixo) |
 
 <sup>6</sup> ao usar uma [política de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-las para o StreamingLocators sempre que forem necessárias as mesmas opções de criptografia e protocolos. Você não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
@@ -102,7 +101,7 @@ Qualquer registro de Trabalho em sua conta com mais de 90 dias será excluído a
 | Recurso | Limite padrão | 
 | --- | --- | 
 | Opções por [política de chave de conteúdo](content-key-policy-concept.md) |30 | 
-| Licenças por mês para cada um dos tipos de DRM no serviço de entrega de chave dos serviços de mídia por conta|1.000.000|
+| Licenças por mês para cada um dos tipos de DRM no serviço de entrega de chave dos serviços de mídia por conta|1\.000.000|
 
 ## <a name="support-ticket"></a>Tíquete de suporte
 

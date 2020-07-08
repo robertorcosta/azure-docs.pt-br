@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
 ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83115806"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportando uma API hospedada no Azure para o PowerApps e o Microsoft Flow
@@ -58,7 +57,7 @@ Para concluir a exportação no modo **Expresso**, siga estas etapas:
 
 2. Use as configurações conforme especificado na tabela.
 
-    |Configuração|Descrição|
+    |Setting|Descrição|
     |--------|------------|
     |**Ambiente**|Selecione o ambiente no qual o conector personalizado deve ser salvo. Para obter mais informações, consulte [Visão geral dos ambientes](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Nome da API personalizada**|Insira um nome, que será exibido para os construtores do PowerApps e do Microsoft Flow na lista de conectores.|

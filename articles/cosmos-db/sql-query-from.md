@@ -7,19 +7,18 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005866"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM em Azure Cosmos DB
 
-A cláusula FROM`FROM <from_specification>`() é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo `Families` o contêiner. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
+A cláusula FROM ( `FROM <from_specification>` ) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo o `Families` contêiner. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
 
 A `FROM` cláusula impõe as seguintes regras por consulta:
 
-* O contêiner pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` está o alias para `Families`. Como é uma palavra-chave opcional para [alias](sql-query-working-with-json.md#aliasing) do identificador.  
+* O contêiner pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` está o alias para `Families` . Como é uma palavra-chave opcional para [alias](sql-query-working-with-json.md#aliasing) do identificador.  
 
 * Depois de alias, o nome de origem original não pode ser associado. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválido porque o identificador `Families` tem um alias e não pode mais ser resolvido.  
 
@@ -147,7 +146,7 @@ Os resultados são:
     ]
 ```
 
-A consulta anterior usou uma matriz como a origem, mas você também pode usar um objeto como a origem. A consulta considera qualquer valor JSON válido e definido na fonte para inclusão no resultado. O exemplo a seguir excluiria `Families` que não tem `address.state` um valor.
+A consulta anterior usou uma matriz como a origem, mas você também pode usar um objeto como a origem. A consulta considera qualquer valor JSON válido e definido na fonte para inclusão no resultado. O exemplo a seguir excluiria `Families` que não tem um `address.state` valor.
 
 ```sql
     SELECT *
@@ -165,6 +164,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
 - [Cláusula WHERE](sql-query-where.md)

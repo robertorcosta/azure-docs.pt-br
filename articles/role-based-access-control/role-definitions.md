@@ -16,10 +16,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996607"
 ---
 # <a name="understand-azure-role-definitions"></a>Entender as definições de função do Azure
@@ -60,7 +59,7 @@ assignableScopes []
 
 A tabela a seguir descreve o que significam as propriedades de função.
 
-| Propriedade | Descrição |
+| Property | Descrição |
 | --- | --- |
 | `Name`</br>`roleName` | O nome de exibição da função. |
 | `Id`</br>`name` | A ID exclusiva da função. |
@@ -168,7 +167,7 @@ Para dar suporte a operações de dados, novas propriedades de dados foram adici
 - Gravar um blob de armazenamento em um contêiner
 - Deletar uma mensagem em uma fila
 
-Aqui está a definição da função de [leitor de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-reader) , que `Actions` inclui `DataActions` operações nas propriedades e. Essa função permite que você leia o contêiner de blob e também os dados blob subjacentes.
+Aqui está a definição da função de [leitor de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-reader) , que inclui operações nas `Actions` `DataActions` Propriedades e. Essa função permite que você leia o contêiner de blob e também os dados blob subjacentes.
 
 Função de leitor de dados de blob de armazenamento, conforme exibido no Azure PowerShell:
 
@@ -252,9 +251,9 @@ Colaborador de dados de blob de armazenamento
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Como Alice tem uma ação curinga`*`() em um escopo de assinatura, suas permissões herdam para permitir que executem todas as ações de gerenciamento. Alice pode ler, gravar e excluir os contêineres. No entanto, Alice não pode executar operações de dados sem realizar etapas adicionais. Por exemplo, por padrão, Alice não pode ler os blobs dentro de um contêiner. Para ler os blobs, Alice teria que recuperar as chaves de acesso de armazenamento e usá-las para acessar os blobs.
+Como Alice tem uma ação curinga ( `*` ) em um escopo de assinatura, suas permissões herdam para permitir que executem todas as ações de gerenciamento. Alice pode ler, gravar e excluir os contêineres. No entanto, Alice não pode executar operações de dados sem realizar etapas adicionais. Por exemplo, por padrão, Alice não pode ler os blobs dentro de um contêiner. Para ler os blobs, Alice teria que recuperar as chaves de acesso de armazenamento e usá-las para acessar os blobs.
 
-As permissões de Bob são restritas apenas `Actions` ao `DataActions` e especificadas na função [colaborador de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) . Com base na função, Bob pode executar operações de dados e de gerenciamento. Por exemplo, Bob pode ler, gravar e excluir contêineres na conta de armazenamento especificada e também pode ler, gravar e excluir os BLOBs.
+As permissões de Bob são restritas apenas ao `Actions` e `DataActions` especificadas na função [colaborador de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) . Com base na função, Bob pode executar operações de dados e de gerenciamento. Por exemplo, Bob pode ler, gravar e excluir contêineres na conta de armazenamento especificada e também pode ler, gravar e excluir os BLOBs.
 
 Para saber mais sobre a segurança de plano de dados e gerenciamento, confira o [Guia de segurança de Armazenamento do Azure](../storage/blobs/security-recommendations.md).
 
@@ -267,7 +266,7 @@ Para visualizar e trabalhar com operações de dados, você deve ter as versões
 | [PowerShell do Azure](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
 | [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
 | [Azure para .NET](/dotnet/azure/) | 2.8.0-versão prévia ou posterior |
-| [SDK do Azure para linguagem Go](/azure/go/azure-sdk-go-install) | 15.0.0 ou posterior |
+| [SDK do Azure para ir](/azure/go/azure-sdk-go-install) | 15.0.0 ou posterior |
 | [Azure para Java](/java/azure/) | 1.9.0 ou posterior |
 | [Azure para Python](/azure/python/) | 0.40.0 ou posterior |
 | [SDK do Azure para Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 ou posterior |
@@ -333,7 +332,7 @@ As funções internas têm `AssignableScopes` definido como o escopo raiz (`"/"`
 > | Grupo de gerenciamento e uma assinatura | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | Todos os escopos (aplica-se somente a funções internas) | `"/"` |
 
-Para obter informações `AssignableScopes` sobre as funções personalizadas, consulte [funções personalizadas do Azure](custom-roles.md).
+Para obter informações sobre as `AssignableScopes` funções personalizadas, consulte [funções personalizadas do Azure](custom-roles.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

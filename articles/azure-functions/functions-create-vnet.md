@@ -7,10 +7,9 @@ ms.date: 4/23/2020
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122612"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: Integrar o Functions a uma rede virtual do Azure
@@ -34,7 +33,7 @@ As funções em execução no plano Premium têm os mesmos recursos de hospedage
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este tutorial, é importante que você compreenda o endereçamento IP e a sub-rede. Você pode começar com [Este artigo que aborda os conceitos básicos de endereçamento e sub-rede](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Muitos outros artigos e vídeos estão disponíveis online.
+Para este tutorial, é importante que você tenha noções básicas do endereçamento IP e das sub-redes. Você pode começar com [este artigo que aborda os conceitos básicos de endereçamento e sub-redes](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Muitos outros artigos e vídeos estão disponíveis online.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -54,31 +53,31 @@ Em seguida, crie uma VM pré-configurada que executa o WordPress dentro de uma r
 
 1. Escolha o **desempenho máximo do WordPress LEMP** nos resultados da pesquisa. Selecione um plano de software de **desempenho do WordPress LEMP Max para centos** como o **plano de software** e selecione **criar**.
 
-1. Na guia **noções básicas** , use as configurações da VM, conforme especificado na tabela abaixo da imagem:
+1. Na guia **Informações Básicas**, use as configurações da VM, conforme especificado na tabela abaixo da imagem:
 
     ![Guia básico para criar uma VM](./media/functions-create-vnet/create-vm-1.png)
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Assinatura** | Sua assinatura | A assinatura sob a qual seus recursos são criados. | 
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha `myResourceGroup` ou o grupo de recursos que você criou com seu aplicativo de funções. Usar o mesmo grupo de recursos para o aplicativo de funções, a VM do WordPress e o plano de hospedagem facilita a limpeza de recursos quando você terminar este tutorial. |
     | **Nome da máquina virtual** | VNET-WordPress | O nome da VM precisa ser exclusivo no grupo de recursos |
-    | **[Regionais](https://azure.microsoft.com/regions/)** | Européia Europa Ocidental | Escolha uma região perto de você ou perto das funções que acessam a VM. |
+    | **[Região](https://azure.microsoft.com/regions/)** | Européia Europa Ocidental | Escolha uma região perto de você ou perto das funções que acessam a VM. |
     | **Tamanho** | B1s | Escolha **alterar tamanho** e, em seguida, selecione a imagem B1s padrão, que tem 1 vCPU e 1 GB de memória. |
     | **Tipo de autenticação** | Senha | Para usar a autenticação de senha, você também deve especificar um **nome de usuário**, uma **senha**segura e, em seguida, **confirmar a senha**. Para este tutorial, você não precisará entrar na VM, a menos que precise solucionar problemas. |
 
 1. Escolha a guia **rede** e, em configurar redes virtuais, selecione **criar novo**.
 
-1. Em **criar rede virtual**, use as configurações na tabela abaixo da imagem:
+1. Em **Criar rede virtual**, use as configurações na tabela abaixo da imagem:
 
     ![Guia rede de criar VM](./media/functions-create-vnet/create-vm-2.png)
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Nome** | MyResource-vnet | Você pode usar o nome padrão gerado para sua rede virtual. |
-    | **Intervalo de endereços** | 10.10.0.0/16 | Use um único intervalo de endereços para a rede virtual. |
+    | **Nome** | myResourceGroup-vnet | Use o nome padrão gerado para a rede virtual. |
+    | **Intervalo de endereços** | 10.10.0.0/16 | Use um só intervalo de endereços para a rede virtual. |
     | **Nome da sub-rede** | Tutorial – net | Nome da sub-rede. |
-    | **Intervalo de endereços** (sub-rede) | 10.10.1.0/24   | O tamanho da sub-rede define quantas interfaces podem ser adicionadas à sub-rede. Essa sub-rede é usada pelo site do WordPress.  Uma `/24` sub-rede fornece endereços de host de 254. |
+    | **Intervalo de endereços** (sub-rede) | 10.10.1.0/24   | O tamanho da sub-rede define o número de interfaces que podem ser adicionadas à sub-rede. Essa sub-rede é usada pelo site do WordPress.  Uma `/24` sub-rede fornece endereços de host de 254. |
 
 1. Selecione **OK** para criar a rede virtual.
 
@@ -86,7 +85,7 @@ Em seguida, crie uma VM pré-configurada que executa o WordPress dentro de uma r
 
 1. Escolha a guia **Gerenciamento** e, em **conta de armazenamento de diagnóstico**, escolha a conta de armazenamento que você criou com seu aplicativo de funções.
 
-1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **criar**. O processo de criação de VM leva alguns minutos. A VM criada só pode acessar a rede virtual.
+1. Selecione **Examinar + criar**. Depois de concluir a validação, selecione **Criar**. O processo de criação da VM leva alguns minutos. A VM criada só pode acessar a rede virtual.
 
 1. Depois que a VM for criada, escolha **ir para o recurso** para exibir a página de sua nova VM e, em seguida, escolha **rede** em **configurações**.
 
@@ -102,7 +101,7 @@ Com um site do WordPress em execução em uma VM em uma rede virtual, agora voc�
 
 1. Em seu novo aplicativo de funções, selecione **rede** no menu à esquerda.
 
-1. Em **integração VNet**, selecione **clique aqui para configurar**.
+1. Em **Integração VNET**, selecione **Clique aqui para configurar**.
 
     :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Escolher rede no aplicativo de funções":::
 
@@ -116,7 +115,7 @@ Com um site do WordPress em execução em uma VM em uma rede virtual, agora voc�
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Rede virtual** | MyResource-vnet | Essa rede virtual é aquela que você criou anteriormente. |
+    | **Rede Virtual** | MyResource-vnet | Essa rede virtual é aquela que você criou anteriormente. |
     | **Sub-rede** | Criar nova sub-rede | Crie uma sub-rede na rede virtual para uso do seu aplicativo de funções. A integração VNet deve ser configurada para usar uma sub-rede vazia. Não importa que suas funções usem uma sub-rede diferente da VM. A rede virtual roteia automaticamente o tráfego entre as duas sub-redes. |
     | **Nome da sub-rede** | Função-net | Nome da nova sub-rede. |
     | **Bloco de endereço de rede virtual** | 10.10.0.0/16 | Escolha o mesmo bloco de endereço usado pelo site do WordPress. Você deve ter apenas um bloco de endereço definido. |
@@ -142,7 +141,7 @@ Com a integração VNet habilitada, você pode criar um proxy em seu aplicativo 
 
 1. Selecione **criar** para adicionar o proxy ao seu aplicativo de funções.
 
-## <a name="try-it-out"></a>Experimente
+## <a name="try-it-out"></a>Experimentar
 
 1. No navegador, tente acessar a URL usada como a **URL de back-end**. Conforme esperado, a solicitação atinge o tempo limite. Um tempo limite ocorre porque o site do WordPress está conectado somente à sua rede virtual e não à Internet.
 
@@ -161,6 +160,6 @@ Neste tutorial, o site do WordPress serve como uma API que é chamada usando um 
 As funções em execução em um plano Premium compartilham a mesma infraestrutura de serviço de aplicativo subjacente que aplicativos Web em planos de PremiumV2. Toda a documentação dos [aplicativos Web no serviço Azure app](../app-service/overview.md) se aplica às suas funções de plano Premium.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as opções de rede no functions](./functions-networking-options.md)
+> [Saiba mais sobre as opções de rede do Functions](./functions-networking-options.md)
 
 [Plano Premium]: functions-scale.md#premium-plan
