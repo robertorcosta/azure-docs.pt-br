@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73827291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850691"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
 
@@ -25,7 +25,7 @@ Então, como e onde você armazena tudo isso?
 
 É provável que você conheça a fundo os bancos de dados SQL ou, pelo menos, tenha uma noção de [modelagem relacional de dados](https://en.wikipedia.org/wiki/Relational_model). Você pode começar a desenhar algo da seguinte maneira:
 
-![Diagrama ilustrando um modelo relacional relativo](./media/social-media-apps/social-media-apps-sql.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-sql.png" alt-text="Diagrama ilustrando um modelo relacional relativo" border="false":::
 
 Uma bela estrutura de dados perfeitamente normalizada...que não pode ser escalonada.
 
@@ -39,22 +39,24 @@ Para atender às necessidades de seu conteúdo, você poderia usar uma instânci
 
 Este artigo orienta você na modelagem de dados de sua plataforma social com o banco de dados NoSQL Azure [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) de maneira econômica. Ele também explica como usar outros recursos do Azure Cosmos DB, como a [API Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), sua postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
-    {
-        "id":"ew12-res2-234e-544f",
-        "title":"post title",
-        "date":"2016-01-01",
-        "body":"this is an awesome post stored on NoSQL",
-        "createdBy":User,
-        "images":["https://myfirstimage.png","https://mysecondimage.png"],
-        "videos":[
-            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
-        ],
-        "audios":[
-            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
-        ]
-    }
+```json
+{
+    "id":"ew12-res2-234e-544f",
+    "title":"post title",
+    "date":"2016-01-01",
+    "body":"this is an awesome post stored on NoSQL",
+    "createdBy":User,
+    "images":["https://myfirstimage.png","https://mysecondimage.png"],
+    "videos":[
+        {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+        {"url":"https://mysecondvideo.mp4", "title":"The second video"}
+    ],
+    "audios":[
+        {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+        {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
+    ]
+}
+```
 
 E isso pode ser obtido com uma única consulta, sem junções. Essa consulta é muito simples e econômico, além de exigir menos recursos para alcançar um resultado melhor.
 
@@ -62,39 +64,45 @@ O Azure Cosmos DB garante que todas as propriedades sejam indexadas com sua inde
 
 Os comentários em uma postagem podem ser tratados da mesma forma como outras postagens com uma propriedade pai. (isso simplifica seu mapeamento de objeto.)
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":User2,
-        "parent":"ew12-res2-234e-544f"
-    }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":User2,
+    "parent":"ew12-res2-234e-544f"
+}
 
-    {
-        "id":"asd2-fee4-23gc-jh67",
-        "title":"Ditto!",
-        "date":"2016-01-03",
-        "createdBy":User3,
-        "parent":"ew12-res2-234e-544f"
-    }
+{
+    "id":"asd2-fee4-23gc-jh67",
+    "title":"Ditto!",
+    "date":"2016-01-03",
+    "createdBy":User3,
+    "parent":"ew12-res2-234e-544f"
+}
+```
 
 Além disso, todas as interações sociais podem ser armazenadas em um objeto separado como contadores:
 
-    {
-        "id":"dfe3-thf5-232s-dse4",
-        "post":"ew12-res2-234e-544f",
-        "comments":2,
-        "likes":10,
-        "points":200
-    }
+```json
+{
+    "id":"dfe3-thf5-232s-dse4",
+    "post":"ew12-res2-234e-544f",
+    "comments":2,
+    "likes":10,
+    "points":200
+}
+```
 
 A criação de feeds resume-se à criação de documentos que podem reter uma lista de IDs da postagem com determinada ordem de relevância:
 
-    [
-        {"relevance":9, "post":"ew12-res2-234e-544f"},
-        {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
-        {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
-    ]
+```json
+[
+    {"relevance":9, "post":"ew12-res2-234e-544f"},
+    {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
+    {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
+]
+```
 
 Você poderia ter um fluxo "mais recente" com as postagens ordenadas por data de criação. Ou você poderia ter um fluxo "mais popular" com as postagens com mais curtidas nas últimas 24 horas. Você pode até mesmo implementar um fluxo personalizado para cada usuário com base em lógica como seguidores e interesses. Ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirir uma dessas listas, você emite uma única consulta para Cosmos DB usando a [palavra-chave in](sql-query-keywords.md#in) para obter páginas de postagens por vez.
 
@@ -104,28 +112,32 @@ Os pontos e as curtidas de uma postagem podem ser processados de forma adiada us
 
 Os seguidores são mais complicados. O Cosmos DB tem um limite de tamanho para documentos e ler/gravar documentos grandes pode afetar a escalabilidade do aplicativo. Portanto, pense em armazenar seguidores como um documento com esta estrutura:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "followersOf": "dse4-qwe2-ert4-aad2",
-        "followers":[
-            "ewr5-232d-tyrg-iuo2",
-            "qejh-2345-sdf1-ytg5",
-            //...
-            "uie0-4tyg-3456-rwjh"
-        ]
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "followersOf": "dse4-qwe2-ert4-aad2",
+    "followers":[
+        "ewr5-232d-tyrg-iuo2",
+        "qejh-2345-sdf1-ytg5",
+        //...
+        "uie0-4tyg-3456-rwjh"
+    ]
+}
+```
 
 Essa estrutura pode funcionar para um usuário com alguns milhares de seguidores. No caso de algumas celebridades, porém, essa abordagem levará a um documento grande e, eventualmente, o limite de tamanho do documento poderá ser atingido.
 
 Para resolver isso, você pode usar uma abordagem mista. Como parte do documento de Estatísticas do Usuário, você pode armazenar o número de seguidores:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "user": "dse4-qwe2-ert4-aad2",
-        "followers":55230,
-        "totalPosts":452,
-        "totalPoints":11342
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "user": "dse4-qwe2-ert4-aad2",
+    "followers":55230,
+    "totalPosts":452,
+    "totalPoints":11342
+}
+```
 
 Você pode armazenar o grafo real de seguidores usando o Azure Cosmos DB [API do Gremlin](../cosmos-db/graph-introduction.md) para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A-segue-B". Com a API do Gremlin, você pode obter os seguidores de um determinado usuário e criar consultas mais complexas para até mesmo sugerir pessoas em comum. Se adicionar ao grafo as Categorias de Conteúdo que as pessoas curtem, é possível começar a combinar experiências que incluem a descoberta de conteúdo inteligente, sugestão de conteúdo curtido pelas pessoas que você segue ou localização das pessoas com quem pode ter muito em comum.
 
@@ -141,23 +153,25 @@ Você resolverá isso identificando os principais atributos de um usuário mostr
 
 Vamos usar as informações do usuário como exemplo:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "address":"742 Evergreen Terrace",
-        "birthday":"1983-05-07",
-        "email":"john@doe.com",
-        "twitterHandle":"\@john",
-        "username":"johndoe",
-        "password":"some_encrypted_phrase",
-        "totalPoints":100,
-        "totalPosts":24
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "address":"742 Evergreen Terrace",
+    "birthday":"1983-05-07",
+    "email":"john@doe.com",
+    "twitterHandle":"\@john",
+    "username":"johndoe",
+    "password":"some_encrypted_phrase",
+    "totalPoints":100,
+    "totalPosts":24
+}
+```
 
 Examinando essas informações, é possível detectar rapidamente quais informações são críticas e quais não são, criando, assim, uma “Escada”:
 
-![Diagrama de um padrão de escada](./media/social-media-apps/social-media-apps-ladder.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagrama de um padrão de escada" border="false":::
 
 A menor etapa é chamada de UserChunk, a informação mínima que identifica um usuário e que é usada para a duplicação de dados. Ao reduzir o tamanho dos dados duplicados somente às informações que serão “mostradas”, você reduz a possibilidade de atualizações em massa.
 
@@ -167,26 +181,30 @@ A maior etapa é Extended User. Ele inclui as informações críticas de usuári
 
 Por que você dividiria o usuário e, até mesmo, armazenaríamos essas informações em locais diferentes? Porque, da perspectiva de desempenho, quanto maiores os documentos, mais caras as consultas. Mantenha os documentos simples, com as informações certas para fazer todas as suas consultas dependentes de desempenho para sua rede social. Armazene informações extras para eventuais cenários como edições de perfil completo, logons e mineração de dados para análise de uso e iniciativas de Big Data. Você realmente não se importa se a coleta de dados para mineração de dados é mais lenta, pois ele está em execução no Banco de Dados SQL do Azure. Você tem a preocupação de que seus usuários tenham uma experiência rápida e descomplicada. Um usuário, armazenado no Cosmos DB, teria este código:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "username":"johndoe"
-        "email":"john@doe.com",
-        "twitterHandle":"\@john"
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "username":"johndoe"
+    "email":"john@doe.com",
+    "twitterHandle":"\@john"
+}
+```
 
 E um Post teria a seguinte aparência:
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":{
-            "id":"dse4-qwe2-ert4-aad2",
-            "username":"johndoe"
-        }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":{
+        "id":"dse4-qwe2-ert4-aad2",
+        "username":"johndoe"
     }
+}
+```
 
 Quando surgir uma edição em que um atributo de parte é afetado, você pode encontrar facilmente os documentos afetados. Basta usar consultas que apontam para os atributos indexados, como `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`e, em seguida, atualize as partes.
 
@@ -212,7 +230,7 @@ Mas o que você pode aprender? Alguns exemplos simples incluem a [análise de se
 
 Agora que prendi a atenção de vocês, é provável que achem que é preciso contratar um PhD em ciência matemática para extrair esses padrões e essas informações de arquivos e bancos de dados simples, mas esse não é o caso.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço de nuvem totalmente gerenciado que permite criar fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", codificar seus próprios algoritmos em [R](https://en.wikipedia.org/wiki/R_\(programming_language\))ou usar algumas das APIs já criadas e prontas para uso, como: [análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [content moderator ou [recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço de nuvem totalmente gerenciado que permite criar fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", codificar seus próprios algoritmos em [R](https://en.wikipedia.org/wiki/R_\(programming_language\))ou usar algumas das APIs já criadas e prontas para uso, como: [análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Content moderator ou [recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Para obter qualquer um desses cenários de Machine Learning, você pode usar [do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para receber as informações de fontes diferentes. Você também pode usar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que pode ser processada pelo Azure Machine Learning.
 
@@ -228,9 +246,9 @@ Para obter uma experiência social, você deve alinhar sua estratégia de partic
 
 O Cosmos DB executará as consultas (incluindo [agregações](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) em todas as partições de forma transparente; você não precisa adicionar nenhuma lógica conforme os dados aumentam.
 
-Com o tempo, em última análise, você terá um aumento no tráfego e no consumo de recursos (medido em [RUs](request-units.md) ou Unidade de Solicitação), aumentará. Você fará leitura e gravação mais frequentemente à medida que sua base de usuários aumenta. A base de usuários começará a criar e ler mais conteúdo. Portanto, a capacidade do **dimensionar a produtividade** é vital. É fácil aumentar seu RUs. Você pode fazer isso com alguns cliques no portal do Azure ou [emitindo comandos por meio da API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+Com o tempo, em última análise, você terá um aumento no tráfego e no consumo de recursos (medido em [RUs](request-units.md) ou Unidade de Solicitação), aumentará. Você fará leitura e gravação mais frequentemente à medida que sua base de usuários aumenta. A base de usuários começará a criar e ler mais conteúdo. Portanto, a capacidade do **dimensionar a produtividade** é vital. É fácil aumentar seu RUs. Você pode fazer isso com alguns cliques no portal do Azure ou [emitindo comandos por meio da API](/rest/api/cosmos-db/replace-an-offer).
 
-![Aumentando e definindo uma chave de partição](./media/social-media-apps/social-media-apps-scaling.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Aumentando e definindo uma chave de partição":::
 
 O que acontece se as coisas ficarem melhores? Suponha que os usuários de outra região, país ou continente descubram sua plataforma e comecem a usá-la. Será uma ótima surpresa!
 
@@ -240,13 +258,13 @@ O Cosmos DB permite [replicar os dados globalmente](../cosmos-db/tutorial-global
 
 Ao replicar os dados globalmente, você precisa garantir que os clientes podem aproveitá-los. Se você estiver usando um front-end da Web ou acessando APIs em clientes móveis, poderá implantar o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) e clonar o Serviço de Aplicativo do Azure em todas as regiões desejadas, usando uma configuração de desempenho para dar suporte à cobertura global estendida. Quando os clientes acessarem o front-end ou as APIs, eles serão roteados para o Serviço de Aplicativo mais próximo, que, por sua vez, se conectará à réplica local do Cosmos DB.
 
-![Adicionando cobertura global à plataforma social](./media/social-media-apps/social-media-apps-global-replicate.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Adicionando cobertura global à plataforma social" border="false":::
 
 ## <a name="conclusion"></a>Conclusão
 
 Este artigo esclarece as alternativas para criação de redes sociais completamente no Azure com os serviços de baixo custo. ele entrega resultados para incentivar o uso de uma distribuição de solução e os dados de várias camadas de armazenamento chamada "Escada".
 
-![Diagrama de interação entre os serviços do Azure para rede social](./media/social-media-apps/social-media-apps-azure-solution.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagrama de interação entre os serviços do Azure para rede social" border="false":::
 
 A verdade é que não há nenhuma bala de prata para esse tipo de cenários. É a sinergia criada pela combinação de ótimos serviços que nos permitem criar excelentes experiências: a velocidade e a liberdade de Azure Cosmos DB para fornecer um excelente aplicativo social, a inteligência por trás de uma solução de pesquisa de primeira classe, como o Azure Pesquisa Cognitiva, a flexibilidade dos serviços de Azure App para hospedar aplicativos não independentes de linguagem, mas processos avançados de segundo plano e o armazenamento expansível do Azure e o banco de dados SQL do Azure para armazenar grandes quantidades e o poder analítico do computador do Azure Aprendendo a criar conhecimento e inteligência que possa fornecer comentários aos seus processos e nos ajudar a fornecer o conteúdo certo para os usuários certos.
 

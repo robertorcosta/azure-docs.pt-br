@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da2cc3dade843b1ea207eb4ec5bf33a41a289d7e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851477"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -32,9 +32,13 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (incluindo a instalação do Server Core), Windows Server 2012 R2 com as atualizações mais recentes | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md). 
-Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/> Observação: não há suporte para failback em local alternativo para hosts do Windows Server 2019.
+Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com atualizações mais recentes (incluindo a instalação do Server Core desses sistemas operacionais, exceto o Windows Server 2019) | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md).
+Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (incluindo a instalação do Server Core desses sistemas operacionais, exceto Virtual Machine Manager 2019) | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.
 
+> [!NOTE]
+>
+> - Verifique se .NET Framework 4.6.2 ou superior está presente no servidor local.
+> - O failover e o failback para o local alternativo ou o local original, executando com ou sem Virtual Machine Manager, não tem suporte para a versão principal do Windows Server 2019 Server Core.
 
 ## <a name="replicated-vms"></a>VMs replicadas
 
@@ -51,8 +55,8 @@ Sistema operacional convidado | Qualquer SO convidado [com suporte para Azure](h
 
 **Ação** | **Detalhes**
 --- | ---
-Redimensionar o disco na VM replicada do Hyper-V | Não há suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
-Adicionar disco na VM replicada do Hyper-V | Não há suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
+Redimensionar o disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
+Adicionar disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuração de rede Hyper-V
 
@@ -90,7 +94,7 @@ Rede Acelerada | Não | Não
 
 ## <a name="hyper-v-host-storage"></a>Armazenamento de host do Hyper-V
 
-**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Sim | Sim
@@ -99,7 +103,7 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento de convidado da VM do Hyper-V
 
-**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Sim | Sim
@@ -133,6 +137,7 @@ Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenciados)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Armazenamento Premium | Sim | Sim
+Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
 Modificar a conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e habilitar novamente a recuperação de desastres. | Não

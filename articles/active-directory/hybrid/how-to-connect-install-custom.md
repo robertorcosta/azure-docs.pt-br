@@ -9,17 +9,17 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f96e70c6699fb7ce85bd1c01f72028f537f994f2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680309"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850177"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](how-to-connect-install-express.md) não satisfaz à sua implantação ou a topologia.
@@ -133,7 +133,7 @@ A correspondência entre os recursos de florestas permite que você defina como 
 | [Atributo de email](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Essa opção associa usuários e contatos quando o atributo de email tem o mesmo valor em florestas diferentes. Será recomendável usar essa opção quando seus contatos tiverem sido criados com GALSync. Se esta opção for escolhida, os Objetos de usuário cujo Atributo de email não são preenchidos não serão sincronizados para o Azure AD. |
 | [ObjectSID e msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Essa opção associa um usuário habilitado em uma floresta de conta com um usuário desabilitado em uma floresta de recursos. No Exchange, essa configuração é conhecida como uma caixa de correio vinculada. Essa opção também pode ser usada se você usar somente o Lync e o Exchange não estiver presente na floresta de recursos. |
 | sAMAccountName e MailNickName |Essa opção une atributos onde é esperada a ID de entrada para que o usuário possa ser encontrado. |
-| Um atributo específico |Essa opção permite que você selecione seu próprio atributo. Se esta opção for escolhida, os Objetos de usuário cujo Atributo (selecionado) de email não são preenchidos não serão sincronizados para o Azure AD. **Limitação**: escolha um atributo que já possa ser encontrado no metaverso. Se você escolher um atributo personalizado (que não esteja no metaverso), o assistente não poderá ser concluído. |
+| Um atributo específico |Essa opção permite que você selecione seu próprio atributo. Se esta opção for escolhida, os Objetos de usuário cujo Atributo (selecionado) de email não são preenchidos não serão sincronizados para o Azure AD. **Limitação:** Somente os atributos que já podem ser encontrados no metaverso estão disponíveis para esta opção. ". |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Selecione como os usuários devem ser identificados no Azure AD - âncora de origem
 O atributo sourceAnchor é um atributo imutável durante o tempo de vida de um objeto de usuário. É a chave primária de vinculação de usuário local com o usuário no AD do Azure.
@@ -181,7 +181,7 @@ Essa tela permite que você selecione os recursos opcionais para seus cenários 
 | Aplicativo AD do Azure e filtragem de atributos |Ao habilitar o aplicativo AD do Azure e filtragem de atributo, o conjunto de atributos sincronizados pode ser adaptado. Essa opção adiciona mais duas páginas de configuração ao assistente. Para saber mais, confira [Aplicativo e filtragem de atributos do Azure AD](#azure-ad-app-and-attribute-filtering). |
 | Sincronização de hash de senha |Se você tiver selecionado a federação como a solução de entrada, então poderá habilitar essa opção. A sincronização de hash de senha pode, então, ser usada como uma opção de backup. Para obter mais informações, consulte [Sincronização de hash de senha](how-to-connect-password-hash-synchronization.md). </br></br>Se você selecionou Autenticação de Passagem, essa opção também poderá ser habilitada para garantir suporte para clientes herdados e como uma opção de backup. Para obter mais informações, consulte [Sincronização de hash de senha](how-to-connect-password-hash-synchronization.md).|
 | write-back de senha |Ao habilitar o write-back de senha, as alterações de senha que se originam no AD do Azure serão gravadas no diretório local. Para saber mais, confira [Introdução ao gerenciamento de senhas](../authentication/quickstart-sspr.md). |
-| Write-back de grupo |Se usar o recurso **Grupos do Office 365** , você poderá ter esses grupos representados no Active Directory local. Essa opção só estará disponível se você tiver o Exchange presente no seu Active Directory local. |
+| Write-back de grupo |Se usar o recurso **Grupos do Office 365** , você poderá ter esses grupos representados no Active Directory local. Essa opção só estará disponível se você tiver o Exchange presente no seu Active Directory local. Para obter mais informações, consulte [Azure ad Connect write-back de grupo](how-to-connect-group-writeback.md)|
 | Write-back de dispositivo |Permite o write-back de objetos de dispositivo no Azure AD para seu Active Directory local para cenários de Acesso Condicional. Para saber mais, confira [Habilitar o write-back de dispositivo no Azure AD Connect](how-to-connect-device-writeback.md). |
 | Sincronização de atributo de extensão de diretório |Ao habilitar a sincronização de atributo de extensão de diretório, os atributos especificados serão sincronizados com o AD do Azure. Para saber mais, confira [Extensões de diretório](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -230,12 +230,7 @@ Em um computador que tem as ferramentas de Gerenciamento de Política de Grupo.
 1.  Abrir as ferramentas de Gerenciamento de Política de Grupo
 2.  Edite a política de grupo que será aplicada a todos os usuários. Por exemplo, a política de domínio padrão.
 3.  Navegue até **Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controle da Internet\Página de Segurança** e selecione **Lista de Atribuição de Site para Zona** conforme a imagem abaixo.
-4.  Habilite a política e insira o item a seguir na caixa de diálogo.
-
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-
-
+4.  Habilite a política e insira um nome de valor `https://autologon.microsoftazuread-sso.com` e valor de `1` na caixa de diálogo.
 5.  Ela deve parecer com o seguinte:  
 ![Zonas da Intranet](./media/how-to-connect-install-custom/sitezone.png)
 

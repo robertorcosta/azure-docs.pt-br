@@ -1,21 +1,23 @@
 ---
-title: Provisionar um pool personalizado a partir de uma imagem gerenciada
-description: Crie um pool do Lote a partir de um recurso de imagem gerenciada para provisionar nós de computação que contenham o software e os dados para seu aplicativo.
+title: Usar uma imagem gerenciada para criar um pool de imagens personalizado
+description: Crie um pool de imagens personalizadas do lote de uma imagem gerenciada para provisionar nós de computação com o software e os dados do seu aplicativo.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851292"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem gerenciada para criar um pool de máquinas virtuais
+# <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Usar uma imagem gerenciada para criar um pool de imagens personalizado
 
-Para criar uma imagem personalizada para VMs (máquinas virtuais) do seu pool do Lote, use uma imagem gerenciada para criar uma [Galeria de Imagens Compartilhadas](batch-sig-images.md). Também há suporte para o uso de apenas uma imagem gerenciada, mas só para versões da API até o dia 01 de agosto de 2019.
+Para criar um pool de imagens personalizado para as VMs (máquinas virtuais) do seu pool do lote, você pode usar uma imagem gerenciada para criar uma [imagem da Galeria de imagens compartilhada](batch-sig-images.md). Também há suporte para o uso de apenas uma imagem gerenciada, mas só para versões da API até o dia 01 de agosto de 2019. 
 
 > [!IMPORTANT]
 > Na maioria dos casos, você deve criar imagens personalizadas usando a Galeria de Imagens Compartilhadas. Usando a Galeria de Imagens Compartilhadas, você pode provisionar pools mais rapidamente, dimensionar quantidades maiores de VMs e aumentar a confiabilidade ao provisionar VMs. Para saber mais, consulte [Usar a Galeria de Imagens Compartilhadas para criar um pool personalizado](batch-sig-images.md).
+
+Este tópico explica como criar um pool de imagens personalizado usando apenas uma imagem gerenciada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -26,7 +28,7 @@ Para criar uma imagem personalizada para VMs (máquinas virtuais) do seu pool do
 
 - **Autenticação do Azure AD (Azure Active Directory)** . A API do cliente do Lote deve usar a autenticação do Azure Active Directory. O suporte ao Lote do Azure para o Azure AD está documentado em [Autenticar soluções do serviço Lote com o Active Directory](batch-aad-auth.md).
 
-## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
+## <a name="prepare-a-managed-image"></a>Preparar uma imagem gerenciada
 
 No Azure, você pode preparar uma imagem gerenciada de:
 
@@ -57,7 +59,7 @@ Um instantâneo é uma cópia completa somente leitura de um VHD. Para criar um 
 
 Para criar uma imagem gerenciada de um instantâneo, use ferramentas de linha de comando do Azure como o comando [az image create](/cli/azure/image). Você pode criar uma imagem especificando um instantâneo do disco do sistema operacional e, opcionalmente, um ou mais instantâneos de disco de dados.
 
-## <a name="create-a-pool-from-a-custom-image"></a>Criar um pool por meio de uma imagem personalizada
+## <a name="create-a-pool-from-a-managed-image"></a>Criar um pool a partir de uma imagem gerenciada
 
 Depois de encontrar a ID do recurso da sua imagem gerenciada, crie um pool de imagens personalizadas a partir dessa imagem. As etapas a seguir mostram como criar um pool de imagens personalizadas usando o Serviço de Lote ou o Gerenciamento do Lote.
 

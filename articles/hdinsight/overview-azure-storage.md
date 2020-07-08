@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: fc0af331dc6cb604847be9173c836e0b46ca40ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851382"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento do Azure no HDInsight
 
@@ -31,11 +31,11 @@ O diagrama a seguir fornece uma exibição abstrata da arquitetura do HDInsight 
 
 O HDInsight fornece acesso ao sistema de arquivos distribuídos que está anexado localmente aos nós de computação. Esse sistema de arquivos pode ser acessado usando o URI totalmente qualificado, por exemplo:
 
-    hdfs://<namenodehost>/<path>
+`hdfs://<namenodehost>/<path>`
 
 Por meio do HDInsight, você também pode acessar dados no armazenamento do Azure. A sintaxe é mostrada a seguir:
 
-    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
+`wasb://<containername>@<accountname>.blob.core.windows.net/<path>`
 
 Considere os seguintes princípios ao usar uma conta de Armazenamento do Azure com clusters do HDInsight:
 

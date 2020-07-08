@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75973700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851176"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -26,7 +26,7 @@ Os pré-requisitos devem estar em vigor e você deve ter criado um cofre dos ser
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
-Habilite a replicação. Este procedimento pressupõe que a região do Azure primária seja Leste da Ásia e a região secundária seja Sudeste da Ásia.
+Habilitar a replicação. Este procedimento pressupõe que a região do Azure primária seja Leste da Ásia e a região secundária seja Sudeste da Ásia.
 
 1. No cofre, clique em **+Replicar**.
 2. Observe os seguintes campos:
@@ -113,12 +113,13 @@ Você pode modificar as configurações de destino padrão usadas pelo Site Reco
     - Se você quiser que as VMs do Linux façam parte de um grupo de replicação, certifique-se de que o tráfego de saída na porta 20004 seja aberto manualmente de acordo com as diretrizes para a versão específica do Linux.
 ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
-5. Clique em **criar recurso** > de destino**habilitar replicação**.
+5. Clique em **criar recurso de destino**  >  **habilitar replicação**.
 6. Depois que as VMs forem habilitadas para replicação, você poderá verificar o status da integridade da VM em **Itens replicados**
 
 >[!NOTE]
->Durante a replicação inicial, o status pode levar algum tempo para atualizar, sem andamento. Clique no botão **Atualizar** para obter o status mais recente.
 >
+> - Durante a replicação inicial, o status pode levar algum tempo para atualizar, sem andamento. Clique no botão **Atualizar** para obter o status mais recente.
+> - Se um ponto de recuperação não tiver sido gerado nos últimos 60 minutos, a integridade da replicação da máquina virtual se tornará crítica.
 
 ## <a name="next-steps"></a>Próximas etapas
 

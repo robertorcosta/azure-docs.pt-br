@@ -4,19 +4,19 @@ description: Saiba como configurar políticas de acesso condicional com base no 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 11/22/2019
+ms.topic: how-to
+ms.date: 06/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849931"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -96,7 +96,31 @@ Para um dispositivo que esteja marcado como em conformidade, você pode presumir
 - As informações da sua empresa são protegidas ao ajudar a controlar a maneira como sua força de trabalho as acessa e compartilha
 - O dispositivo e seus aplicativos são compatíveis com os requisitos de segurança da empresa
 
+### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Cenário: exigir registro de dispositivo para dispositivos iOS e Android
+
+Nesse cenário, a Contoso decidiu que todo o acesso móvel aos recursos do Office 365 deve usar um dispositivo registrado. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
+
+As organizações devem concluir as seguintes etapas para exigir o uso de um dispositivo móvel registrado.
+
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
+1. Selecione **Nova política**.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
+1. Em **Atribuições**, selecione **Usuários e grupos**.
+   1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
+   1. Selecione **Concluído**.
+1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365 (versão preliminar)** .
+1. Em **Condições**, selecione **Plataformas de dispositivo**.
+   1. Defina **Configurar** como **Sim**.
+   1. Inclua **Android** e **iOS**.
+1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
+   - **Exigir que o dispositivo seja marcado como em conformidade**
+1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
+1. Selecione **Criar** para criar e habilitar sua política.
+
 ### <a name="known-behavior"></a>Comportamento conhecido
+
+Ao usar o [fluxo OAuth do código do dispositivo](../develop/v2-oauth2-device-code.md), a condição exigir controle de concessão de dispositivo gerenciado ou estado do dispositivo não é suportada. Isso ocorre porque o dispositivo que executa a autenticação não pode fornecer o estado do dispositivo para o dispositivo que fornece um código e o estado do dispositivo no token está bloqueado para o dispositivo que executa a autenticação. Em vez disso, use o controle exigir autenticação multifator.
 
 No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD. Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário final deve selecionar esse certificado antes que possa continuar a usar o navegador.
 

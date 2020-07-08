@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4113205b47b4c6cab8b133d89c35520aa8505c1
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75708348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851213"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
 
@@ -62,15 +62,19 @@ Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira 
 
 8. No elemento de **entrada**, adicione a seguinte política:
 
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-            <vary-by-header>Accept</vary-by-header>
-            <vary-by-header>Accept-Charset</vary-by-header>
-            <vary-by-header>Authorization</vary-by-header>
-        </cache-lookup>
+   ```
+   <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+       <vary-by-header>Accept</vary-by-header>
+       <vary-by-header>Accept-Charset</vary-by-header>
+       <vary-by-header>Authorization</vary-by-header>
+   </cache-lookup>
+   ```
 
 9. No elemento de **saída**, adicione a seguinte política:
 
-        <cache-store duration="20" />
+   ```
+   <cache-store duration="20" />
+   ```
 
     **Duração** especifica o intervalo de vencimento das respostas armazenadas em cache. Neste exemplo, o intervalo restante é de **20** segundos.
 

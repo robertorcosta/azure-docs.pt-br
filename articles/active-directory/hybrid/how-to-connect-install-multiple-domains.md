@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849956"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte a Vários Domínios para Federação com o Azure AD
 A documentação a seguir fornece orientação sobre como usar vários domínios e subdomínios de nível superior ao estabelecer uma federação com o Office 365 ou com domínios do Azure AD.
@@ -73,7 +73,9 @@ Por exemplo, se o UPN de um usuário for bsimon@bmcontoso.com, o elemento Issuer
 
 Abaixo vemos a regra de declaração personalizada que implementa essa lógica:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -137,14 +139,16 @@ E o IssuerUri no novo domínio foi sido definido como `https://bmfabrikam.com/ad
 ## <a name="support-for-subdomains"></a>Suporte para subdomínios
 Quando você adiciona um subdomínio, devido à maneira usada pelo Azure AD para tratar domínios, ele herda as configurações do pai.  Por isso, o IssuerUri precisa corresponder aos pais.
 
-Digamos, por exemplo, que eu tenha bmcontoso.com e adicione corp.bmcontoso.com.  O IssuerUri para um usuário de corp.bmcontoso.com precisará ser **`http://bmcontoso.com/adfs/services/trust`**.  No entanto, a regra padrão implementada acima para o Azure AD irá gerar um token com **`http://corp.bmcontoso.com/adfs/services/trust`** um emissor como. , que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
+Digamos, por exemplo, que eu tenha bmcontoso.com e adicione corp.bmcontoso.com.  O IssuerUri para um usuário de corp.bmcontoso.com precisará ser **`http://bmcontoso.com/adfs/services/trust`** .  No entanto, a regra padrão implementada acima para o Azure AD irá gerar um token com um emissor como **`http://corp.bmcontoso.com/adfs/services/trust`** . , que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Como habilitar o suporte para subdomínios
 Para solucionar esse comportamento, a relação de confiança de terceira parte confiável do AD FS do Microsoft Online precisa ser atualizada.  Para isso, você precisa configurar a regra de declaração personalizada para que ela ignore os subdomínios do sufixo UPN do usuário ao construir o valor de Issuer personalizado.
 
 A declaração a seguir fará isso:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 O último número na expressão regular definida representa quantos domínios pai há em seu domínio raiz. Aqui usamos bmcontoso.com, então são necessários dois domínios pai. Se você tiver três domínios pai (por exemplo: corp.bmcontoso.com), então o número seria três. Eventualmente, pode ser indicado um intervalo. A quantidade máxima sempre deve corresponder ao máximo de domínios. "{2,3}" corresponderá a dois a três domínios (ou seja: bmfabrikam.com e corp.bmcontoso.com).
@@ -156,11 +160,14 @@ Use as etapas a seguir para adicionar uma declaração personalizada que dê sup
 3. Escolha a terceira regra de declaração e substitua ![Editar declaração](./media/how-to-connect-install-multiple-domains/sub1.png)
 4. Substitua a declaração atual:
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    por
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Substituir declaração](./media/how-to-connect-install-multiple-domains/sub2.png)
 
@@ -173,4 +180,4 @@ Saiba mais sobre estes recursos, que foram habilitados com a instalação: [Atua
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](how-to-connect-sync-feature-scheduler.md).
 
-Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849653"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight
 
@@ -139,7 +139,7 @@ Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 | Status do servidor Oozie                      | Esse alerta no nível do host será disparado se o servidor Oozie não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                                      |
 | Processo de metastore do hive                   | Esse alerta em nível de host será disparado se o processo de metastore do hive não puder ser determinado como ativo e escutando na rede.                                                                 |
 | Processo de HiveServer2                      | Esse alerta no nível do host será disparado se o HiveServer não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                                        |
-| Status do servidor WebHCat                    | Esse alerta no nível do host será disparado se o status do `templeton` servidor não estiver íntegro.                                                                                                            |
+| Status do servidor WebHCat                    | Esse alerta no nível do host será disparado se o `templeton` status do servidor não estiver íntegro.                                                                                                            |
 | Porcentagem de servidores ZooKeeper disponíveis      | Esse alerta será disparado se o número de servidores ZooKeeper no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do ZooKeeper.     |
 | Servidor Spark2 Livy                       | Esse alerta no nível do host será disparado se o servidor Livy2 não puder ser determinado como ativo.                                                                                                        |
 | Servidor de histórico do Spark2                    | Esse alerta em nível de host será disparado se o servidor de histórico Spark2 não puder ser determinado como ativo.                                                                                               |
@@ -245,8 +245,10 @@ Semelhante ao uso de um cliente SSH, ao se conectar com o cluster, é necessári
 
 Uma vez conectado, você receberá um `sftp>` prompt. Neste prompt, é possível alterar os diretórios, além de carregar e baixar arquivos. Por exemplo, os seguintes comandos alteram os diretórios para o diretório **/var/log/hadoop/hdfs** e baixam todos os arquivos no diretório em seguida.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
 Para obter uma lista dos comandos disponíveis, insira `help` no prompt `sftp>`.
 
@@ -272,9 +274,9 @@ Ao criar um cluster, você pode especificar o tamanho dos nós. As informações
 
     ![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **CLI do Azure**: ao usar o [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) comando, você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `--headnode-size`parâmetros, `--workernode-size`e. `--zookeepernode-size`
+* **CLI do Azure**: ao usar o [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) comando, você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `--headnode-size` `--workernode-size` parâmetros, e `--zookeepernode-size` .
 
-* **Azure PowerShell**: ao usar o cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `-HeadNodeSize`parâmetros, `-WorkerNodeSize`e. `-ZookeeperNodeSize`
+* **Azure PowerShell**: ao usar o cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `-HeadNodeSize` `-WorkerNodeSize` parâmetros, e `-ZookeeperNodeSize` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

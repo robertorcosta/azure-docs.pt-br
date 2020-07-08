@@ -3,16 +3,16 @@ title: Restaurar bancos de dados SAP HANA em VMs do Azure
 description: Neste artigo, descubra como restaurar SAP HANA bancos de dados que estão em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 999edba61177758ad9039e81e789efcef99ca1de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3db88ca3c995c3c190da051dbf9df6ae5e29530
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74287912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851406"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurar bancos de dados SAP HANA em VMs do Azure
 
-Este artigo descreve como restaurar SAP HANA bancos de dados que estão em execução na VM (máquina virtual) do Azure, que foi feito backup do serviço de backup do Azure em um cofre dos serviços de recuperação de backup do Azure. As restaurações podem ser usadas para criar cópias dos dados para cenários de desenvolvimento/teste ou para retornar a um estado anterior.
+Este artigo descreve como restaurar SAP HANA bancos de dados em execução em uma VM (máquina virtual) do Azure, na qual o serviço de backup do Azure fez backup em um cofre dos serviços de recuperação. As restaurações podem ser usadas para criar cópias dos dados para cenários de desenvolvimento/teste ou para retornar a um estado anterior.
 
 Para obter mais informações, sobre como fazer backup de bancos de dados do SAP HANA, consulte fazer backup de [bancos de dados do SAP Hana em VMs do Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
 
@@ -32,126 +32,223 @@ Antes de restaurar um banco de dados, observe o seguinte:
 
 * A instância de destino precisa ser registrada no mesmo cofre da origem
 
-* O backup do Azure não pode identificar duas instâncias diferentes de SAP HANA na mesma VM. Portanto, a restauração de dados de uma instância para outra na mesma VM não é possível
+* O Backup do Azure não pode identificar duas instâncias diferentes do SAP HANA na mesma VM. Portanto, a restauração de dados de uma instância para outra na mesma VM não é possível.
 
 * Para garantir que a instância de SAP HANA de destino esteja pronta para restauração, verifique seu status de **preparação de backup** :
 
-  * Abra o cofre no qual a instância de SAP HANA de destino está registrada
+  1. Abra o cofre no qual a instância de SAP HANA de destino está registrada
 
-  * No painel do cofre, em **introdução**, escolha **backup**
+  1. No painel do cofre, em **introdução**, escolha **backup**
 
-![Backup no painel do cofre](media/sap-hana-db-restore/getting-started-backup.png)
+      ![Backup no painel do cofre](media/sap-hana-db-restore/getting-started-backup.png)
 
-* Em **backup**, em **o que você deseja fazer backup?** escolha **SAP Hana na VM do Azure**
+  1. Em **backup**, em **o que você deseja fazer backup?** escolha **SAP Hana na VM do Azure**
 
-![Escolha SAP HANA na VM do Azure](media/sap-hana-db-restore/sap-hana-backup.png)
+      ![Escolha SAP HANA na VM do Azure](media/sap-hana-db-restore/sap-hana-backup.png)
 
-* Em **descobrir bancos de os em VMs** , clique em **Exibir detalhes**
+  1. Em **descobrir bancos de os em VMs**, clique em **Exibir detalhes**
 
-![Exibir detalhes](media/sap-hana-db-restore/view-details.png)
+      ![Exibir detalhes](media/sap-hana-db-restore/view-details.png)
 
-* Examinar a **prontidão de backup** da VM de destino
+  1. Examinar a **prontidão de backup** da VM de destino
 
-![Servidores protegidos](media/sap-hana-db-restore/protected-servers.png)
+      ![Servidores protegidos](media/sap-hana-db-restore/protected-servers.png)
 
 * Para saber mais sobre os tipos de restauração aos quais SAP HANA dá suporte, consulte a SAP HANA observação [1642148](https://launchpad.support.sap.com/#/notes/1642148)
 
 ## <a name="restore-a-database"></a>Restaurar um banco de dados
 
-* Abra o cofre no qual o banco de dados do SAP HANA a ser restaurado está registrado
+Para restaurar, você precisa das seguintes permissões:
 
-* No painel do cofre, em **itens protegidos**, escolha **itens de backup**
+* Permissões de **operador de backup** no cofre em que você está fazendo a restauração.
+* Acesso de **Colaborador (gravação)** à VM de origem da qual será feito backup.
+* Acesso de **colaborador (gravação**) à VM de destino:
+  * Se você estiver restaurando para a mesma VM, esta é a VM de origem.
+  * Se você estiver restaurando para um local alternativo, essa será a nova VM de destino.
 
-![Itens de Backup](media/sap-hana-db-restore/backup-items.png)
+1. Abra o cofre no qual o banco de dados do SAP HANA a ser restaurado está registrado
 
-* Em **itens de backup**, em **tipo de gerenciamento de backup** , selecione **SAP Hana na VM do Azure**
+1. No painel do cofre, em **itens protegidos**, escolha **itens de backup**
 
-![Tipo de gerenciamento de backup](media/sap-hana-db-restore/backup-management-type.png)
+    ![Itens de Backup](media/sap-hana-db-restore/backup-items.png)
 
-* Selecione o banco de dados a ser restaurado
+1. Em **itens de backup**, em **tipo de gerenciamento de backup** , selecione **SAP Hana na VM do Azure**
 
- ![Banco de dados a ser restaurado](media/sap-hana-db-restore/database-to-restore.png)
+    ![Tipo de gerenciamento de backup](media/sap-hana-db-restore/backup-management-type.png)
 
-* Examine o menu do banco de dados. Ele fornece informações sobre o backup de banco de dados, incluindo:
+1. Selecione o banco de dados a ser restaurado
 
-  * Os pontos de restauração mais antigos e mais recentes
+    ![Banco de dados a ser restaurado](media/sap-hana-db-restore/database-to-restore.png)
 
-  * O status do backup de log das últimas 24 e 72 horas para o banco de dados
+1. Examine o menu do banco de dados. Ele fornece informações sobre o backup de banco de dados, incluindo:
 
-![Menu banco de dados](media/sap-hana-db-restore/database-menu.png)
+    * Os pontos de restauração mais antigos e mais recentes
 
-* Selecione **restaurar BD**
+    * O status do backup de log das últimas 24 e 72 horas para o banco de dados
 
-* Em **Restaurar configuração**, especifique onde (ou como) restaurar os dados:
+    ![Menu banco de dados](media/sap-hana-db-restore/database-menu.png)
 
-  * **Local alternativo**: restaure o banco de dados para um local alternativo e mantenha o banco de dados de origem original.
+1. Selecione **restaurar BD**
 
-  * **Substituir BD**: restaure os dados para a mesma instância de SAP Hana como a fonte original. Essa opção substitui o banco de dados original.
+1. Em **Restaurar configuração**, especifique onde (ou como) restaurar os dados:
 
-![Restaurar configuração](media/sap-hana-db-restore/restore-configuration.png)
+    * **Local alternativo**: restaure o banco de dados para um local alternativo e mantenha o banco de dados de origem original.
+
+    * **Substituir BD**: restaure os dados para a mesma instância de SAP Hana como a fonte original. Essa opção substitui o banco de dados original.
+
+      ![Restaurar configuração](media/sap-hana-db-restore/restore-configuration.png)
 
 ### <a name="restore-to-alternate-location"></a>Restauração em uma localização alternativa
 
-* No menu **configuração de restauração** , em **onde restaurar**, selecione **local alternativo**.
+1. No menu **configuração de restauração** , em **onde restaurar**, selecione **local alternativo**.
 
-![Restauração em uma localização alternativa](media/sap-hana-db-restore/restore-alternate-location.png)
+    ![Restauração em uma localização alternativa](media/sap-hana-db-restore/restore-alternate-location.png)
 
-* Selecione o nome do host SAP HANA e o nome da instância para o qual você deseja restaurar o banco de dados.
-* Verifique se a instância de SAP HANA de destino está pronta para restauração garantindo sua **prontidão de backup.** Consulte a [seção pré-requisitos](#prerequisites) para obter mais detalhes.
-* Na caixa **Nome do Banco de Dados Restaurado**, digite o nome do banco de dados de destino.
+1. Selecione o nome do host SAP HANA e o nome da instância para o qual você deseja restaurar o banco de dados.
+1. Verifique se a instância de SAP HANA de destino está pronta para restauração garantindo sua **prontidão de backup.** Consulte a [seção pré-requisitos](#prerequisites) para obter mais detalhes.
+1. Na caixa **Nome do Banco de Dados Restaurado**, digite o nome do banco de dados de destino.
 
-> [!NOTE]
-> As restaurações de contêiner de Banco de Dados Individual (SDC) devem seguir estas [verificações](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
+    > [!NOTE]
+    > As restaurações de contêiner de Banco de Dados Individual (SDC) devem seguir estas [verificações](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
-* Se aplicável, selecione **substituir se o banco de BD com o mesmo nome já existir na instância do Hana selecionada**.
-* Selecione **OK**.
+1. Se aplicável, selecione **substituir se o banco de BD com o mesmo nome já existir na instância do Hana selecionada**.
+1. Selecione **OK**.
 
-![Restaurar configuração – tela final](media/sap-hana-db-restore/restore-configuration-last.png)
+    ![Restaurar configuração – tela final](media/sap-hana-db-restore/restore-configuration-last.png)
 
-* Em **selecionar ponto de restauração**, selecione **logs (ponto no tempo)** para [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time). Ou selecione a **& total diferencial** para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-recovery-point).
+1. Em **selecionar ponto de restauração**, selecione **logs (ponto no tempo)** para [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time). Ou selecione a **& total diferencial** para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-and-overwrite"></a>Restaurar e substituir
 
-* No menu **configuração de restauração** , em **onde restaurar**, selecione **substituir DB** > **OK**.
+1. No menu **configuração de restauração** , em **onde restaurar**, selecione **substituir DB**  >  **OK**.
 
-![Substituir BD](media/sap-hana-db-restore/overwrite-db.png)
+    ![Substituir BD](media/sap-hana-db-restore/overwrite-db.png)
 
-* Em **selecionar ponto de restauração**, selecione **logs (ponto no tempo)** para [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time). Ou selecione a **& total diferencial** para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-recovery-point).
+1. Em **selecionar ponto de restauração**, selecione **logs (ponto no tempo)** para [restaurar para um ponto específico no tempo](#restore-to-a-specific-point-in-time). Ou selecione a **& total diferencial** para [restaurar para um ponto de recuperação específico](#restore-to-a-specific-recovery-point).
+
+### <a name="restore-as-files"></a>Restaurar como arquivos
+
+Para restaurar os dados de backup como arquivos em vez de um banco de dados, escolha **restaurar como arquivos**. Depois que os arquivos são despejados em um caminho especificado, você pode pegar esses arquivos em qualquer SAP HANA computador em que deseja restaurá-los como um banco de dados. Como você pode mover esses arquivos para qualquer computador, agora é possível restaurar os dados entre assinaturas e regiões.
+
+1. No menu **configuração de restauração** , em **onde e como restaurar**, selecione **restaurar como arquivos**.
+1. Selecione o nome do servidor do **host** /Hana para o qual você deseja restaurar os arquivos de backup.
+1. No **caminho de destino no servidor**, insira o caminho da pasta no servidor selecionado na etapa 2. Esse é o local onde o serviço irá despejar todos os arquivos de backup necessários.
+
+    Os arquivos que são despejados são:
+
+    * Arquivos de backup do banco de dados
+    * Arquivos de catálogo
+    * Arquivos de metadados JSON (para cada arquivo de backup envolvido)
+
+    Normalmente, um caminho de compartilhamento de rede, ou caminho de um compartilhamento de arquivos do Azure montado quando especificado como o caminho de destino, permite o acesso mais fácil a esses arquivos por outros computadores na mesma rede ou com o mesmo compartilhamento de arquivos do Azure montado neles.
+
+    >[!NOTE]
+    >Para restaurar os arquivos de backup de banco de dados em um compartilhamento de arquivos do Azure montado na VM registrada de destino, verifique se a conta raiz tem permissões de leitura/gravação no compartilhamento de arquivos do Azure.
+
+    ![Escolher caminho de destino](media/sap-hana-db-restore/restore-as-files.png)
+
+1. Selecione o **ponto de restauração** correspondente ao qual todos os arquivos e pastas de backup serão restaurados.
+
+    ![Folha Selecionar ponto de restauração](media/sap-hana-db-restore/select-restore-point.png)
+
+1. Todos os arquivos de backup associados ao ponto de restauração selecionado são despejados no caminho de destino.
+1. Com base no tipo de ponto de restauração escolhido (**ponto no tempo** ou **diferencial de & completo**), você verá uma ou mais pastas criadas no caminho de destino. Uma das pastas nomeadas `Data_<date and time of restore>` contém os backups completo e diferencial, e a outra pasta chamada `Log` contém os backups de log.
+1. Mova esses arquivos restaurados para o servidor de SAP HANA onde você deseja restaurá-los como um banco de dados.
+1. Depois, siga estas etapas:
+    1. Defina permissões na pasta/diretório em que os arquivos de backup são armazenados usando o seguinte comando:
+
+        ```bash
+        chown -R <SID>adm:sapsys <directory>
+        ```
+
+    1. Executar o próximo conjunto de comandos como`<SID>adm`
+
+        ```bash
+        su - <sid>adm
+        ```
+
+    1. Gere o arquivo de catálogo para restauração. Extraia o **BackupId** do arquivo de metadados JSON para o backup completo, que será usado posteriormente na operação de restauração. Verifique se os backups completo e de log estão em pastas diferentes e exclua os arquivos de catálogo e os arquivos de metadados JSON nessas pastas.
+
+        ```bash
+        hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
+        ```
+
+        No comando acima:
+
+        * `<DataFileDir>`-a pasta que contém os backups completos
+        * `<LogFilesDir>`-a pasta que contém os backups de log
+        * `<PathToPlaceCatalogFile>`-a pasta na qual o arquivo de catálogo gerado deve ser colocado
+
+    1. Restaure usando o arquivo de catálogo recém-gerado por meio do HANA Studio ou execute a consulta HDBSQL Restore com esse catálogo recém-gerado. As consultas HDBSQL estão listadas abaixo:
+
+    * Para restaurar para um ponto no tempo:
+
+        Se você estiver criando um novo banco de dados restaurado, execute o comando HDBSQL para criar um novo banco de dados `<DatabaseName>` e, em seguida, interrompa o banco de dados para restauração. No entanto, se você estiver restaurando apenas um banco de dados existente, execute o comando HDBSQL para interromper o banco de dados.
+
+        Em seguida, execute o seguinte comando para restaurar o banco de dados:
+
+        ```hdbsql
+        RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
+        ```
+
+        * `<DatabaseName>`-Nome do novo banco de dados ou banco de dados existente que você deseja restaurar
+        * `<Timestamp>`-Carimbo de data/hora exato da restauração pontual
+        * `<DatabaseName@HostName>`-Nome do banco de dados cujo backup é usado para restauração e o nome do servidor **host** /SAP Hana em que esse banco de dados reside. A `USING SOURCE <DatabaseName@HostName>` opção especifica que o backup de dados (usado para restauração) é de um banco de dado com um SID ou nome diferente do computador de SAP Hana de destino. Portanto, ele não precisa ser especificado para restaurações feitas no mesmo servidor HANA de onde o backup é feito.
+        * `<PathToGeneratedCatalogInStep3>`-Caminho para o arquivo de catálogo gerado na **etapa C**
+        * `<DataFileDir>`-a pasta que contém os backups completos
+        * `<LogFilesDir>`-a pasta que contém os backups de log
+        * `<BackupIdFromJsonFile>`- **BackupId** extraído na **etapa C**
+
+    * Para restaurar para um backup completo ou diferencial específico:
+
+        Se você estiver criando um novo banco de dados restaurado, execute o comando HDBSQL para criar um novo banco de dados `<DatabaseName>` e, em seguida, interrompa o banco de dados para restauração. No entanto, se você estiver restaurando apenas um banco de dados existente, execute o comando HDBSQL para interromper o banco de dados:
+
+        ```hdbsql
+        RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
+        ```
+
+        * `<DatabaseName>`-o nome do novo banco de dados ou banco de dados existente que você deseja restaurar
+        * `<Timestamp>`-o carimbo de data/hora exato da restauração pontual
+        * `<DatabaseName@HostName>`-o nome do banco de dados cujo backup é usado para restauração e o nome do servidor **host** /SAP Hana em que esse banco de dados reside. A `USING SOURCE <DatabaseName@HostName>` opção especifica que o backup de dados (usado para restauração) é de um banco de dado com um SID ou nome diferente do computador de SAP Hana de destino. Portanto, ele não precisa ser especificado para restaurações feitas no mesmo servidor HANA de onde o backup é feito.
+        * `<PathToGeneratedCatalogInStep3>`-o caminho para o arquivo de catálogo gerado na **etapa C**
+        * `<DataFileDir>`-a pasta que contém os backups completos
+        * `<LogFilesDir>`-a pasta que contém os backups de log
+        * `<BackupIdFromJsonFile>`- **BackupId** extraído na **etapa C**
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurar a um ponto específico no tempo
 
 Se você tiver selecionado **Logs (Pontual)** como o tipo de restauração, faça o seguinte:
 
-* Selecione um ponto de recuperação no grafo de log e selecione **OK** para escolher o ponto de restauração.
+1. Selecione um ponto de recuperação no grafo de log e selecione **OK** para escolher o ponto de restauração.
 
-![Ponto de restauração](media/sap-hana-db-restore/restore-point.png)
+    ![Ponto de restauração](media/sap-hana-db-restore/restore-point.png)
 
-* No menu **Restaurar**, selecione **Restaurar** para iniciar o trabalho de restauração.
+1. No menu **Restaurar**, selecione **Restaurar** para iniciar o trabalho de restauração.
 
-![Selecione restaurar](media/sap-hana-db-restore/restore-restore.png)
+    ![Selecione restaurar](media/sap-hana-db-restore/restore-restore.png)
 
-* Acompanhe o progresso da restauração na área **notificações** ou acompanhe-a selecionando **restaurar trabalhos** no menu banco de dados.
+1. Acompanhe o progresso da restauração na área **notificações** ou acompanhe-a selecionando **restaurar trabalhos** no menu banco de dados.
 
-![Restauração disparada com êxito](media/sap-hana-db-restore/restore-triggered.png)
+    ![Restauração disparada com êxito](media/sap-hana-db-restore/restore-triggered.png)
 
 ### <a name="restore-to-a-specific-recovery-point"></a>Restaurar para um ponto de recuperação específico
 
 Se você tiver selecionado **Completo e Diferencial** como o tipo de restauração, faça o seguinte:
 
-* Selecione um ponto de recuperação na lista e selecione **OK** para escolher o ponto de restauração.
+1. Selecione um ponto de recuperação na lista e selecione **OK** para escolher o ponto de restauração.
 
-![Restaurar ponto de recuperação específico](media/sap-hana-db-restore/specific-recovery-point.png)
+    ![Restaurar ponto de recuperação específico](media/sap-hana-db-restore/specific-recovery-point.png)
 
-* No menu **Restaurar**, selecione **Restaurar** para iniciar o trabalho de restauração.
+1. No menu **Restaurar**, selecione **Restaurar** para iniciar o trabalho de restauração.
 
-![Iniciar trabalho de restauração](media/sap-hana-db-restore/restore-specific.png)
+    ![Iniciar trabalho de restauração](media/sap-hana-db-restore/restore-specific.png)
 
-* Acompanhe o progresso da restauração na área **notificações** ou acompanhe-a selecionando **restaurar trabalhos** no menu banco de dados.
+1. Acompanhe o progresso da restauração na área **notificações** ou acompanhe-a selecionando **restaurar trabalhos** no menu banco de dados.
 
-![Progresso da restauração](media/sap-hana-db-restore/restore-progress.png)
+    ![Progresso da restauração](media/sap-hana-db-restore/restore-progress.png)
 
-> [!NOTE]
-> Em uma nova restauração de contêiner de banco de dados (MDC) depois que o BD do sistema é restaurado para uma instância de destino, é necessário executar o script de pré-registro novamente. Somente as restaurações subsequentes do banco de bancos de locatário serão realizadas com sucesso. Para saber mais, consulte [solução de problemas – a restauração MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
+    > [!NOTE]
+    > Em uma nova restauração de contêiner de banco de dados (MDC) depois que o BD do sistema é restaurado para uma instância de destino, é necessário executar o script de pré-registro novamente. Somente então as restaurações subsequentes do banco de bancos de locatário serão realizadas com sucesso. Para saber mais, consulte [solução de problemas – a restauração MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,15 +3,15 @@ title: Provisionar taxa de transferência de contêiner no Azure Cosmos DB
 description: Saiba como provisionar a taxa de transferência no nível de contêiner no Azure Cosmos DB com o portal do Azure, a CLI, o PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9167df9c763f4004324a3435ba1a2b0fd0171ac4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851676"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Provisionar taxa de transferência padrão (manual) em um contêiner do Azure Cosmos
 
@@ -31,7 +31,7 @@ Este artigo explica como provisionar a taxa de transferência padrão (manual) e
    * Insira uma taxa de transferência que você deseja provisionar (por exemplo, 1.000 RUs).
    * Selecione **OK**.
 
-    ![Captura de tela do Data Explorer, com Nova coleção realçado](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Captura de tela do Data Explorer, com Nova coleção realçado":::
 
 ## <a name="azure-cli-or-powershell"></a>CLI do Azure ou PowerShell
 
@@ -46,9 +46,9 @@ Para criar um contêiner com taxa de transferência dedicada confira,
 ## <a name="net-sdk"></a>SDK .NET
 
 > [!Note]
-> Use a API dos SDKs do Cosmos para SQL para provisionar a taxa de transferência de todas as APIs do Cosmos DB, exceto da API do Cassandra.
+> Use os SDKs do cosmos para a API do SQL para provisionar a taxa de transferência para todas as APIs de Cosmos DB, exceto a API Cassandra e MongoDB.
 
-### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>SQL, MongoDB, Gremlin e APIs de Tabela
+### <a name="sql-gremlin-and-table-apis"></a><a id="dotnet-most"></a>APIs do SQL, Gremlin e Table
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -97,6 +97,27 @@ offer.content.offerThroughput = 2000;
 
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
+```
+
+### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>API do MongoDB
+
+```csharp
+// refer to MongoDB .NET Driver
+// https://docs.mongodb.com/drivers/csharp
+
+// Create a new Client
+String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+mongoUrl = new MongoUrl(mongoConnectionString);
+mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
+mongoClient = new MongoClient(mongoClientSettings);
+
+// Change the database name
+mongoDatabase = mongoClient.GetDatabase("testdb");
+
+// Change the collection name, throughput value then update via MongoDB extension commands
+// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
+
+var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API do Cassandra

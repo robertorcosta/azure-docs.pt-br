@@ -1,18 +1,19 @@
 ---
-title: Usar a Galeria de Imagens Compartilhadas para criar um pool personalizado
-description: Imagens personalizadas são uma maneira eficiente para configurar nós de computação para executar suas cargas de trabalho do Lote.
+title: Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
+description: Os pools de imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851716"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Usar a Galeria de Imagens Compartilhadas para criar um pool personalizado
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
-Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, você especifica uma imagem de VM que fornece o sistema operacional para cada nó de computação no pool. Você pode criar um pool de máquinas virtuais com uma imagem do Azure Marketplace compatível ou criar uma imagem personalizada com a [Galeria de Imagens Compartilhadas](../virtual-machines/windows/shared-image-galleries.md).
+Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, você especifica uma imagem de VM que fornece o sistema operacional para cada nó de computação no pool. Você pode criar um pool de máquinas virtuais com uma imagem do Azure Marketplace com suporte ou criar uma imagem personalizada com uma [imagem da Galeria de imagens compartilhada](../virtual-machines/windows/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Benefícios da Galeria de Imagens Compartilhadas
 
@@ -29,7 +30,7 @@ Usar uma imagem compartilhada configurada para o seu cenário pode fornecer vár
 - **Pré-instalação aplicativos.** A pré-instalação de aplicativos no disco do SO é mais eficiente e menos propenso a erros do que instalar aplicativos depois de provisionar os nós de computação com uma tarefa inicial.
 - **Copie grandes quantidades de dados de uma só vez.** Torne os dados estáticos parte da imagem compartilhada gerenciada copiando-os para os discos de dados de uma imagem gerenciada. Isso só precisa ser feito uma vez e disponibiliza dados para cada nó do pool.
 - **Expanda os pools para tamanhos maiores.** Com a Galeria de Imagens Compartilhadas, você pode criar pools maiores com suas imagens personalizadas juntamente com mais réplicas de imagem compartilhada.
-- **Melhor desempenho do que a imagem personalizada.** Usando imagens compartilhadas, o tempo necessário para o pool alcançar o estado constante é de até 25% mais rápido e a latência de ociosidade da VM é de até 30% mais curta.
+- **Melhor desempenho do que usar apenas uma imagem gerenciada como uma imagem personalizada.** Para um pool de imagens personalizadas de imagem compartilhada, o tempo para alcançar o estado estacionário é de até 25% mais rápido e a latência de ociosidade de VM é de até 30% menor.
 - **Agrupamento e controle de versão de imagem para facilitar o gerenciamento.** A definição de agrupamento de imagens contém informações sobre o motivo pelo qual a imagem foi criada, para qual sistema operacional e informações sobre como usar a imagem. O agrupamento de imagens permite um gerenciamento mais fácil das imagens. Para saber mais, confira [Definições de imagens](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -44,9 +45,11 @@ Usar uma imagem compartilhada configurada para o seu cenário pode fornecer vár
 > [!NOTE]
 > Sua imagem compartilhada deve estar na mesma assinatura que a conta do Lote. A imagem pode estar em regiões diferentes, contanto que ela tenha réplicas na mesma região que a sua conta do Lote.
 
-## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
+Se você usar um aplicativo do Azure AD para criar um pool de imagens personalizado com uma imagem da Galeria de imagens compartilhada, esse aplicativo deverá ter recebido uma [função interna do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que fornece acesso à imagem compartilhada. Você pode conceder esse acesso no portal do Azure navegando até a imagem compartilhada, selecionando **iam (controle de acesso)** e adicionando uma atribuição de função para o aplicativo.
 
-No Azure, você pode preparar uma imagem personalizada de:
+## <a name="prepare-a-shared-image"></a>Preparar uma imagem compartilhada
+
+No Azure, você pode preparar uma imagem compartilhada de uma imagem gerenciada, que pode ser criada a partir de:
 
 - Instantâneos de discos de dados e do SO de uma VM do Azure
 - Uma VM do Azure generalizada com discos gerenciados

@@ -4,16 +4,16 @@ description: Saiba como listar blobs em um contêiner em sua conta de Armazename
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 76142838d1ec138b75fb6c594414b2ff5d8cd939
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: HT
+ms.openlocfilehash: ff7eac9e004a06925fbfa657278e6ec848a7d600
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851268"
 ---
 # <a name="list-blobs-with-net"></a>Listar blobs com .NET
 
@@ -24,6 +24,15 @@ Esse artigo mostra como listar blobs usando a [biblioteca de clientes do Armazen
 ## <a name="understand-blob-listing-options"></a>Noções básicas sobre as opções de listagem de blobs
 
 Para listar os blobs em uma conta de armazenamento, chame um destes métodos:
+
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+- [BlobContainerClient. getblobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -37,11 +46,13 @@ Para listar os blobs em um contêiner, chame um destes métodos:
 
 As sobrecargas para esses métodos fornecem opções adicionais para gerenciar o modo como os blobs são retornados pela operação de listagem. Essas opções são descritas nas seções a seguir.
 
+---
+
 ### <a name="manage-how-many-results-are-returned"></a>Gerenciar quantos resultados são retornados
 
-Por padrão, uma operação de listagem retorna até 5.000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero para o parâmetro `maxresults` ao chamar um dos métodos **ListBlobs**.
+Por padrão, uma operação de listagem retorna até 5000 resultados por vez, mas você pode especificar o número de resultados que você deseja que cada operação de listagem retorne. Os exemplos apresentados neste artigo mostram como fazer isso.
 
-Se uma operação de listagem retornar mais de 5.000 blobs ou se você tiver especificado um valor para `maxresults` de modo que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o Armazenamento do Azure retornará um *token de continuação* com a lista de blobs. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do Armazenamento do Azure.
+Se uma operação de listagem retornar mais de 5000 BLOBs ou se o número de BLOBs disponíveis exceder o número especificado, o armazenamento do Azure retornará um token de *continuação* com a lista de BLOBs. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do Armazenamento do Azure.
 
 Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, significa que o conjunto de resultados está concluído. Se o token de continuação não for nulo, chame a operação de listagem novamente, passando o token de continuação para recuperar o próximo conjunto de resultados até que o token de continuação seja nulo.
 
@@ -51,7 +62,11 @@ Para filtrar a lista de contêineres, especifique uma cadeia de caracteres para 
 
 ### <a name="return-metadata"></a>Retornar metadados
 
-Para retornar os metadados de blob com os resultados, especifique o valor **Metadata** para a enumeração [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). O Armazenamento do Azure inclui metadados com cada blob retornado, portanto, você não precisa chamar nenhum dos métodos **FetchAttributes** neste contexto para recuperar os metadados do blob.
+Você pode retornar metadados de blob com os resultados. 
+
+- Se você estiver usando o SDK do .NET V12, especifique o valor de **metadados** para a enumeração [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits?view=azure-dotnet) .
+
+- Se você estiver usando o SDK do .NET v11, especifique o valor de **metadados** para a enumeração [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . O Armazenamento do Azure inclui metadados com cada blob retornado, portanto, você não precisa chamar nenhum dos métodos **FetchAttributes** neste contexto para recuperar os metadados do blob.
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Listagem plana versus listagem hierárquica
 
@@ -66,6 +81,14 @@ Se você nomear seus blobs usando um delimitador, poderá optar por listar os bl
 Por padrão, uma operação de listagem retorna blobs em uma listagem plana. Em uma listagem plana, os blobs não são organizados por diretório virtual.
 
 O exemplo a seguir lista os blobs no contêiner especificado usando uma listagem plana, com um tamanho de segmento opcional especificado, e grava o nome do blob em uma janela de console.
+
+Se você tiver habilitado o recurso de namespace hierárquico em sua conta, os diretórios não serão virtuais. Em vez disso, eles são objetos concretos e independentes. Portanto, os diretórios aparecem na lista como BLOBs de comprimento zero.
+
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -85,7 +108,6 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 
             foreach (var blobItem in resultSegment.Results)
             {
-                // A flat listing operation returns only blobs, not virtual directories.
                 blob = (CloudBlob)blobItem;
 
                 // Write out some blob properties.
@@ -108,6 +130,8 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+---
+
 A saída de exemplo deverá ser semelhante a:
 
 ```
@@ -125,6 +149,16 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ## <a name="use-a-hierarchical-listing"></a>Usar uma listagem hierárquica
 
 Quando você chama uma operação de listagem hierarquicamente, o Armazenamento do Azure retorna os diretórios virtuais e os blobs no primeiro nível da hierarquia. A propriedade [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada diretório virtual é definida para que você passe o prefixo em uma chamada recursiva para recuperar o próximo diretório.
+
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+Para listar os BLOBs hierarquicamente, chame o método [BlobContainerClient. GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)ou [BlobContainerClient. GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet) .
+
+O exemplo a seguir lista os BLOBs no contêiner especificado usando uma listagem hierárquica, com um tamanho de segmento opcional especificado, e grava o nome do blob na janela do console.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Para listar blobs hierarquicamente, defina o parâmetro `useFlatBlobListing` do método de listagem como **false**.
 
@@ -182,6 +216,8 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     }
 }
 ```
+
+---
 
 A saída de exemplo deverá ser semelhante a:
 
