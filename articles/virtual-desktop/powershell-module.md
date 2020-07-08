@@ -4,23 +4,23 @@ description: Como instalar e configurar o módulo do PowerShell para a Área de 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd854691203361847ae9a6c873121c9b66820a90
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 67276f7dedccc20fb768e717c237d04aa4b4a1cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743382"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212744"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo do PowerShell para a Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 >
-> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Confira mais informações em [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O módulo do PowerShell da Área de Trabalho Virtual do Windows vem integrado ao módulo do Microsoft Azure PowerShell. Este artigo mostrará como configurar o módulo do PowerShell para que você possa executar cmdlets na Área de Trabalho Virtual do Windows.
@@ -66,7 +66,8 @@ Se quiser alterar a assinatura padrão depois de entrar, execute este cmdlet:
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-Também é possível escolher em uma lista usando o cmdlet Out-GridView:
+Você também pode selecionar um em uma lista usando o cmdlet Out-GridView:
+
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```

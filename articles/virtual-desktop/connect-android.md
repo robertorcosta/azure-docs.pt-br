@@ -4,25 +4,25 @@ description: Como se conectar à área de trabalho virtual do Windows usando o c
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6c1ffb4b1c0018cf56771d3fea56fe56d151bae3
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a7ca15a301de3c54195c0978aa31121c3624a98a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209446"
 ---
 # <a name="connect-with-the-android-client"></a>Conectar-se ao cliente Android
 
 > Aplica-se a: Android 4,1 e posterior, Chromebooks com ChromeOS 53 e posterior.
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/connect-android-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-android-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 >[!NOTE]
@@ -42,9 +42,9 @@ Para assinar um feed:
 
 1. Na Central de Conexão, toque em **+** e, em seguida, toque em **Feed de Recursos Remotos**.
 2. Insira a URL do feed no campo **URL do feed** . A URL do feed pode ser uma URL ou um endereço de email.
-   - Se você usar uma URL, use aquela que o administrador lhe forneceu, <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>normalmente.
-   - Para usar o email, insira seu endereço de email. O cliente pesquisará uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
-3. Toque **em Avançar**.
+   - Se você usar uma URL, use aquela que o administrador lhe forneceu, normalmente <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
+   - Para usar email, insira seu endereço de email. O cliente pesquisará uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
+3. Toque em **AVANÇAR**.
 4. Forneça suas credenciais quando solicitado.
    - Para **nome de usuário**, dê ao nome de usuário permissão para acessar recursos.
    - Para **senha**, forneça a senha associada ao nome de usuário.
@@ -52,7 +52,7 @@ Para assinar um feed:
 
 Após a assinatura, a central de conexões deve exibir os recursos remotos.
 
-Após a assinatura de um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
+Após a assinatura de um feed, o conteúdo dele será atualizado automaticamente de maneira regular. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações realizadas pelo seu administrador.
 
 ## <a name="next-steps"></a>Próximas etapas
 

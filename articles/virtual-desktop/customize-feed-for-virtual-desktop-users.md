@@ -4,23 +4,23 @@ description: Como personalizar o feed para usuários da área de trabalho virtua
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 961fadfff0147d8c5258fa5acf31d8b0649ea12a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 99c63fd04a40b1a4e591f5ad42d8f776e8e5b67c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208494"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para usuários da Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode personalizar o feed para que os recursos do RemoteApp e da área de trabalho remota apareçam de maneira reconhecível para seus usuários.
@@ -54,30 +54,30 @@ Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | f
 A saída ficaria assim:
 
 ```powershell
-CommandLineArgument : 
-CommandLineSetting  : DoNotAllow 
-Description         : 
-FilePath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
-FriendlyName        : Microsoft Word 
-IconContent         : {0, 0, 1, 0…} 
-IconHash            : --iom0PS6XLu-EMMlHWVW3F7LLsNt63Zz2K10RE0_64 
-IconIndex           : 0 
-IconPath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
-Id                  : /subscriptions/<subid>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/applications/Microsoft Word 
-Name                : 0301RAG/Microsoft Word 
-ShowInPortal        : False 
-Type                : Microsoft.DesktopVirtualization/applicationgroups/applications 
+CommandLineArgument :
+CommandLineSetting  : DoNotAllow
+Description         :
+FilePath            : C:\Program Files\Windows NT\Accessories\wordpad.exe
+FriendlyName        : Microsoft Word
+IconContent         : {0, 0, 1, 0…}
+IconHash            : --iom0PS6XLu-EMMlHWVW3F7LLsNt63Zz2K10RE0_64
+IconIndex           : 0
+IconPath            : C:\Program Files\Windows NT\Accessories\wordpad.exe
+Id                  : /subscriptions/<subid>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/applications/Microsoft Word
+Name                : 0301RAG/Microsoft Word
+ShowInPortal        : False
+Type                : Microsoft.DesktopVirtualization/applicationgroups/applications
 ```
 Para atualizar o nome amigável, execute este cmdlet:
 
 ```powershell
-Update-AzWvdApplication -GroupName 0301RAG -Name "Microsoft Word" -FriendlyName "WordUpdate" -ResourceGroupName 0301RG -IconIndex 0 -IconPath "C:\Program Files\Windows NT\Accessories\wordpad.exe" -ShowInPortal:$true -CommandLineSetting DoNotallow -FilePath "C:\Program Files\Windows NT\Accessories\wordpad.exe" 
+Update-AzWvdApplication -GroupName 0301RAG -Name "Microsoft Word" -FriendlyName "WordUpdate" -ResourceGroupName 0301RG -IconIndex 0 -IconPath "C:\Program Files\Windows NT\Accessories\wordpad.exe" -ShowInPortal:$true -CommandLineSetting DoNotallow -FilePath "C:\Program Files\Windows NT\Accessories\wordpad.exe"
 ```
 
 Para confirmar que você atualizou com êxito o nome amigável, execute este cmdlet:
 
 ```powershell
-Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list FriendlyName 
+Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list FriendlyName
 ```
 
 O cmdlet deve fornecer a seguinte saída:
@@ -104,28 +104,28 @@ Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName
 
 ## <a name="customize-a-display-name-in-azure-portal"></a>Personalizar um nome de exibição no portal do Azure
 
-Você pode alterar o nome de exibição de uma área de trabalho remota publicada definindo um nome amigável usando o portal do Azure. 
+Você pode alterar o nome de exibição de uma área de trabalho remota publicada definindo um nome amigável usando o portal do Azure.
 
-1. Entre no Portal do Azure em <https://portal.azure.com>. 
+1. Entre no Portal do Azure em <https://portal.azure.com>.
 
 2. Pesquise pela **área de trabalho virtual do Windows**.
 
-3. Em serviços, selecione **área de trabalho virtual do Windows**. 
+3. Em serviços, selecione **área de trabalho virtual do Windows**.
 
-4. Na página área de trabalho virtual do Windows, selecione **grupos de aplicativos** no lado esquerdo da tela e selecione o nome do grupo de aplicativos que deseja editar. 
+4. Na página área de trabalho virtual do Windows, selecione **grupos de aplicativos** no lado esquerdo da tela e selecione o nome do grupo de aplicativos que deseja editar.
 
 5. Selecione **aplicativos** no menu no lado esquerdo da tela.
 
-6. Selecione o aplicativo que você deseja atualizar e insira um novo **nome de exibição**. 
+6. Selecione o aplicativo que você deseja atualizar e insira um novo **nome de exibição**.
 
-7. Clique em **Salvar**. O aplicativo que você editou agora deve exibir o nome atualizado.
+7. Selecione **Salvar**. O aplicativo que você editou agora deve exibir o nome atualizado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você personalizou o feed para os usuários, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-lo. Para fazer isso, vá para o How-tos da área de trabalho virtual do Windows:
-    
+
  * [Conectar-se com o Windows 10 ou o Windows 7](connect-windows-7-and-10.md)
- * [Conectar-se ao cliente Web](connect-web.md) 
+ * [Conectar-se ao cliente Web](connect-web.md)
  * [Conectar-se ao cliente Android](connect-android.md)
  * [Conectar-se ao cliente iOS](connect-ios.md)
  * [Conectar-se ao cliente macOS](connect-macos.md)

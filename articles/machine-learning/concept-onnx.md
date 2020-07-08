@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 08/15/2019
+ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98aebb4733c2aa2a6d0b0217f1f437bcea1992e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09b1fa31ff8f93ea86a80092b43d071df6cd74e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211775"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: criar e acelerar modelos de ML
 
@@ -24,23 +24,27 @@ Saiba como usar a [troca de rede neural aberta](https://onnx.ai) (ONNX) pode aju
 
 É difícil otimizar os modelos de aprendizado de máquina para inferência (ou pontuação de modelo), pois você precisa ajustar o modelo e a biblioteca de inferência para aproveitar ao máximo os recursos de hardware. O problema se torna extremamente difícil se você quiser obter um desempenho ideal em diferentes tipos de plataformas (nuvem/borda, CPU/GPU, etc.), já que cada uma tem funcionalidades e características diferentes. A complexidade aumenta se você tiver modelos de uma variedade de estruturas que precisam ser executadas em uma variedade de plataformas. É muito demorado otimizar todas as diferentes combinações de hardware e estruturas. Uma solução para treinar uma vez em sua estrutura preferida e executar em qualquer lugar na nuvem ou na borda é necessária. É aí que entra o ONNX.
 
-A Microsoft e uma comunidade de parceiros criaram ONNX como um padrão aberto para representar modelos de aprendizado de máquina. Modelos de [muitas estruturas](https://onnx.ai/supported-tools) , incluindo TensorFlow, PyTorch, SciKit-learn, Keras, encadeador, MXNET e Matlab, podem ser exportados ou convertidos para o formato ONNX padrão. Depois que os modelos estiverem no formato ONNX, eles poderão ser executados em uma variedade de plataformas e dispositivos.
+A Microsoft e uma comunidade de parceiros criaram ONNX como um padrão aberto para representar modelos de aprendizado de máquina. Os modelos de [várias estruturas](https://onnx.ai/supported-tools) , incluindo TensorFlow, PyTorch, SciKit-learn, Keras, encadeador, MXNET, MATLAB e SparkML, podem ser exportados ou convertidos para o formato ONNX padrão. Depois que os modelos estiverem no formato ONNX, eles poderão ser executados em vários serviços e plataformas.
 
-O [tempo de execução do ONNX](https://github.com/Microsoft/onnxruntime) é um mecanismo de inferência de alto desempenho para a implantação de modelos do ONNX para produção. Ele é otimizado para a nuvem e o Edge e funciona no Linux, no Windows e no Mac. Escrito em C++, ele também tem as APIs C, Python e C#. O tempo de execução do ONNX fornece suporte para toda a especificação ONNX-ML e também se integra com aceleradores em hardware diferente, como TensorRT em GPUs NVidia.
+O [tempo de execução do ONNX](https://onnxruntime.ai) é um mecanismo de inferência de alto desempenho para a implantação de modelos do ONNX para produção. Ele é otimizado para a nuvem e o Edge e funciona no Linux, no Windows e no Mac. Escrito em C++, ele também tem APIs C, Python, C#, Java e JavaScript (Node.js) para uso em uma variedade de ambientes. O tempo de execução do ONNX dá suporte a modelos de ML DNN e tradicionais e integra-se com aceleradores em hardware diferente, como TensorRT em GPUs NVidia, OpenVINO em processadores Intel, DirectML no Windows e muito mais. Usando o tempo de execução do ONNX, você pode se beneficiar das grandes otimizações de nível de produção, testes e melhorias contínuas.
 
-O tempo de execução do ONNX é usado em serviços de alta escala da Microsoft, como Bing, Office e serviços cognitivas. Os ganhos de desempenho dependem de vários fatores, mas esses serviços da Microsoft perceberam um __ganho de desempenho médio de 2x na CPU__. O tempo de execução do ONNX também é usado como parte do Windows ML em centenas de milhões de dispositivos. Você pode usar o tempo de execução com Azure Machine Learning. Usando o tempo de execução do ONNX, você pode se beneficiar das grandes otimizações de nível de produção, testes e melhorias contínuas.
+O tempo de execução do ONNX é usado em serviços da Microsoft de grande escala, como Bing, Office e serviços cognitivas do Azure. Os ganhos de desempenho dependem de vários fatores, mas esses serviços da Microsoft perceberam um __ganho de desempenho médio de 2x na CPU__. Além dos serviços Azure Machine Learnings, o tempo de execução ONNX também é executado em outros produtos que dão suporte a cargas de trabalho de Machine Learning, incluindo:
++ Windows: o tempo de execução é integrado ao Windows como parte do [windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) e é executado em centenas de milhões de dispositivos. 
++ Família de produtos SQL do Azure: executar Pontuação nativa nos dados no [Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) e no [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview).
++ ML.NET: [executar modelos de ONNX no ml.net](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx).
+
 
 [![Diagrama de fluxo ONNX mostrando treinamento, conversores e implantação](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obter modelos ONNX
 
 Você pode obter modelos ONNX de várias maneiras:
-+ Treinar um novo modelo ONNX no Azure Machine Learning (consulte os exemplos na parte inferior deste artigo)
++ Treinar um novo modelo de ONNX no Azure Machine Learning (consulte os exemplos na parte inferior deste artigo) ou usando [recursos de Machine Learning automatizados](concept-automated-ml.md#automl--onnx)
 + Converter o modelo existente de outro formato em ONNX (consulte os [tutoriais](https://github.com/onnx/tutorials)) 
-+ Obtenha um modelo de ONNX pré-treinado do [modelo de ONNX Zoo](https://github.com/onnx/models) (consulte os exemplos na parte inferior deste artigo)
++ Obter um modelo ONNX pré-treinado do [Modelo Zoo do ONNX](https://github.com/onnx/models)
 + Gerar um modelo ONNX personalizado do [Serviço de Visão Personalizada do Azure](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
 
-Muitos modelos, incluindo classificação de imagem, detecção de objetos e processamento de texto, podem ser representados como modelos de ONNX. No entanto, alguns modelos talvez não possam ser convertidos com êxito. Se você encontrar essa situação, registre um problema no GitHub do respectivo conversor que você usou. Você pode continuar usando o modelo de formato existente até que o problema seja resolvido.
+Muitos modelos, incluindo classificação de imagem, detecção de objetos e processamento de texto, podem ser representados como modelos de ONNX. Se você encontrar um problema com um modelo que não pode ser convertido com êxito, registre um problema no GitHub do respectivo conversor que você usou. Você pode continuar usando o modelo de formato existente até que o problema seja resolvido.
 
 ## <a name="deploy-onnx-models-in-azure"></a>Implantar modelos do ONNX no Azure
 
@@ -79,18 +83,20 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 Para obter a referência completa da API do Python, consulte os [documentos de referência do ONNX Runtime](https://aka.ms/onnxruntime-python).    
 
 ## <a name="examples"></a>Exemplos
-
-Consulte [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx), por exemplo, notebooks que criam e implantam modelos ONNX.
+Consulte [como usar-azureml/Deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) para ver os notebooks Python de exemplo que criam e implantam modelos de onnx.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
+Exemplos de uso em outros idiomas podem ser encontrados no [GitHub do ONNX Runtime](https://github.com/microsoft/onnxruntime/tree/master/samples).
+
 ## <a name="more-info"></a>Obter mais informações
 
-Saiba mais sobre ONNX ou colabore com o projeto:
+Saiba mais sobre o **ONNX** ou o Contribute para o projeto:
 + [Site do projeto ONNX](https://onnx.ai)
 + [Código do ONNX no GitHub](https://github.com/onnx/onnx)
 
-Saiba mais sobre o ONNX Runtime ou contribua para o projeto:
+Saiba mais sobre o **tempo de execução do ONNX** ou contribua para o projeto:
++ [Site do projeto do ONNX Runtime](https://onnxruntime.ai)
 + [Repositório GitHub do ONNX Runtime](https://github.com/Microsoft/onnxruntime)
 
 

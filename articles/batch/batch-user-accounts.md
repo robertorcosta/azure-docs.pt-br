@@ -4,35 +4,33 @@ description: Conheça os tipos de contas de usuário e como configurá-las.
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 514a104c879a8d601bb03e2ed1c59b69516bc621
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209718"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
-> [!NOTE] 
-> As contas de usuário abordadas neste artigo são diferentes das contas de usuário usadas para RDP (Protocolo de Área de Trabalho Remota) ou da SSH (Secure Shell) por motivos de segurança. 
+> [!NOTE]
+> As contas de usuário discutidas neste artigo são diferentes das contas de usuário usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança.
 >
 > Para se conectar a um nó em execução na configuração da máquina virtual Linux via SSH, confira [Usar Área de Trabalho Remota para uma VM Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para se conectar a nós em execução no Windows via RDP, confira [Conectar-se a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para se conectar a um nó em execução na configuração do serviço de nuvem via RDP, confira [Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
-Uma tarefa no Lote do Azure sempre é executada em uma conta de usuário. Por padrão, as tarefas são executadas em contas de usuário padrão, sem permissões de administrador. Essas configurações da conta de usuário padrão normalmente são suficientes. No entanto, para determinados cenários, é útil ser capaz de configurar a conta de usuário sob a qual você deseja executar uma tarefa. Este artigo descreve os tipos de conta de usuário e como configurá-los para seu cenário.
+Uma tarefa no Lote do Azure sempre é executada em uma conta de usuário. Por padrão, as tarefas são executadas em contas de usuário padrão, sem permissões de administrador. Para determinados cenários, talvez você queira configurar a conta de usuário sob a qual você deseja que uma tarefa seja executada. Este artigo aborda os tipos de contas de usuário e como configurá-las para seu cenário.
 
 ## <a name="types-of-user-accounts"></a>Tipos de conta de usuário
 
 O Lote do Azure fornece dois tipos de conta de usuário para execução de tarefas:
 
-- **Contas de usuário automático** As contas de usuário automático são contas de usuário internas criadas automaticamente pelo serviço de Lote. Por padrão, as tarefas são executadas em uma conta de usuário automático. Você pode configurar a especificação de usuário automático para uma tarefa a fim de indicar sob qual conta de usuário automático ela deve ser executada. A especificação de usuário automático permite que você especifique o nível de elevação e o escopo da conta de usuário automático que executará a tarefa. 
+- **Contas de usuário automático** As contas de usuário automático são contas de usuário internas criadas automaticamente pelo serviço de Lote. Por padrão, as tarefas são executadas em uma conta de usuário automático. Você pode configurar a especificação de usuário automático para uma tarefa a fim de indicar sob qual conta de usuário automático ela deve ser executada. A especificação de usuário automático permite que você especifique o nível de elevação e o escopo da conta de usuário automático que executará a tarefa.
 
 - **Uma conta de usuário nomeado** Você pode especificar uma ou mais contas de usuário nomeado para um pool ao criar o pool. Cada conta de usuário é criada em cada nó do pool. Além do nome de conta, você especifica a senha, o nível de elevação e, para pools do Linux, a chave privada SSH da conta do usuário. Ao adicionar uma tarefa, você pode especificar a conta de usuário nomeado na qual essa tarefa deve ser executada.
 
-> [!IMPORTANT] 
-> A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significativa que exige a atualização do seu código para chamar essa versão. Se você estiver migrando o código de uma versão antiga do Lote, observe que a propriedade **runElevated** não tem mais suporte na API REST ou nas bibliotecas de cliente do Lote. Use a nova propriedade **userIdentity** de uma tarefa para especificar o nível de elevação. Veja a seção [Atualizar seu código para a biblioteca de cliente mais recente do Lote](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas a fim de atualizar o código do Lote se estiver usando uma das bibliotecas de cliente.
->
->
+> [!IMPORTANT]
+> A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significativa que exige a atualização do seu código para chamar essa versão. Se você estiver migrando o código de uma versão antiga do Lote, observe que a propriedade **runElevated** não tem mais suporte na API REST ou nas bibliotecas de cliente do Lote. Use a nova propriedade **userIdentity** de uma tarefa para especificar o nível de elevação. Consulte [atualizar seu código para a biblioteca de cliente do lote mais recente](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas para atualizar o código do lote se você estiver usando uma das bibliotecas de cliente.
 
 ## <a name="user-account-access-to-files-and-directories"></a>Acesso de conta de usuário a arquivos e diretórios
 
@@ -42,18 +40,18 @@ Se uma tarefa for executada na mesma conta que foi usada para executar uma taref
 
 Para obter mais informações sobre como acessar arquivos e diretórios de uma tarefa, consulte [Arquivos e diretórios](files-and-directories.md).
 
-## <a name="elevated-access-for-tasks"></a>Acesso elevado para tarefas 
+## <a name="elevated-access-for-tasks"></a>Acesso elevado para tarefas
 
 O nível de elevação da conta de usuário indica se uma tarefa é executada com acesso elevado. Tanto uma conta de usuário automático, quanto uma conta de usuário nomeado podem ser executadas com acesso elevado. As duas opções de nível de elevação são:
 
 - **Não administrador:** a tarefa é executada como um usuário padrão sem acesso elevado. O nível de elevação padrão de uma conta de usuário do Lote é sempre **Não Administrador**.
-- **Administrador:** a tarefa é executada como um usuário com acesso elevado e opera com permissões completas de Administrador. 
+- **Administrador:** a tarefa é executada como um usuário com acesso elevado e opera com permissões completas de Administrador.
 
 ## <a name="auto-user-accounts"></a>Contas de usuário automático
 
 Por padrão, as tarefas são executadas no Lote em uma conta de usuário automático, como um usuário padrão sem acesso elevado e com escopo de tarefa. Quando a especificação de usuário automático é configurada para o escopo de tarefa, o serviço de Lote cria uma conta de usuário automático apenas para essa tarefa.
 
-A alternativa ao escopo de tarefa é o escopo de pool. Quando a especificação de usuário automático para uma tarefa é configurada para o escopo de pool, a tarefa é executada em uma conta de usuário automático que está disponível para qualquer tarefa no pool. Para saber mais sobre o escopo de pool, confira a seção Executar uma tarefa como o usuário automático com escopo de pool.   
+A alternativa ao escopo de tarefa é o escopo de pool. Quando a especificação de usuário automático para uma tarefa é configurada para o escopo de pool, a tarefa é executada em uma conta de usuário automático que está disponível para qualquer tarefa no pool. Para obter mais informações sobre o escopo de pool, consulte [executar uma tarefa como um usuário automático com escopo de pool](#run-a-task-as-an-auto-user-with-pool-scope).
 
 O escopo padrão é diferente em nós do Windows e Linux:
 
@@ -67,19 +65,15 @@ Há quatro configurações possíveis para a especificação de usuário automá
 - Acesso de não administrador com escopo de pool
 - Acesso de administrador com escopo de pool
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > As tarefas em execução no escopo de tarefa não têm de fato acesso a outras tarefas em um nó. No entanto, um usuário mal-intencionado com acesso à conta pode contornar essa restrição enviando uma tarefa que é executada com privilégios de administrador e acessa outros diretórios de tarefa. Um usuário mal-intencionado também pode usar um RDP ou SSH para se conectar a um nó. É importante proteger o acesso às chaves da sua conta do Lote para evitar uma situação como essa. Se você suspeitar de que sua conta pode ter sido comprometida, certifique-se de regenerar as chaves.
->
->
 
 ### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Executar uma tarefa como um usuário automático com acesso elevado
 
 Você pode configurar a especificação de usuário automático para privilégios de administrador quando precisar executar uma tarefa com acesso elevado. Por exemplo, uma tarefa de inicialização pode precisar de acesso elevado para instalar software no nó.
 
-> [!NOTE] 
-> De modo geral, é melhor usar acesso elevado somente quando necessário. A prática recomendada é conceder o privilégio mínimo necessário para obter o resultado desejado. Por exemplo, se uma tarefa de inicialização instala o software para o usuário atual, e não para todos os usuários, você poderá evitar conceder acesso elevado para tarefas. É possível configurar a especificação de usuário automático para escopo de pool e acesso de não administrador para todas as tarefas que precisam ser executadas na mesma conta, incluindo a tarefa de inicialização. 
->
->
+> [!NOTE]
+> Use o acesso elevado somente quando necessário. A prática recomendada é conceder o privilégio mínimo necessário para obter o resultado desejado. Por exemplo, se uma tarefa de inicialização instala o software para o usuário atual, e não para todos os usuários, você poderá evitar conceder acesso elevado para tarefas. É possível configurar a especificação de usuário automático para escopo de pool e acesso de não administrador para todas as tarefas que precisam ser executadas na mesma conta, incluindo a tarefa de inicialização.
 
 Os snippets de código a seguir mostram como configurar a especificação de usuário automático. Os exemplos definem o nível de elevação para `Admin` e o escopo para `Task`. O escopo de tarefa é a configuração padrão, mas está incluído aqui em virtude do exemplo.
 
@@ -115,20 +109,18 @@ batch_client.task.add(job_id=jobid, task=task)
 
 ### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Executar uma tarefa como um usuário automático com escopo de pool
 
-Quando um nó é provisionado, duas contas de usuário automático em todo o pool são criadas em cada nó do pool, uma com acesso elevado e outra sem. Configurar o escopo do usuário automático para o escopo de pool em uma determinada tarefa executa a tarefa em uma dessas duas contas de usuário automático em todo o pool. 
+Quando um nó é provisionado, duas contas de usuário automático em todo o pool são criadas em cada nó do pool, uma com acesso elevado e outra sem. Configurar o escopo do usuário automático para o escopo de pool em uma determinada tarefa executa a tarefa em uma dessas duas contas de usuário automático em todo o pool.
 
-Quando você especifica o escopo de pool para o usuário automático, todas as tarefas que são executadas com acesso de administrador o são na mesma conta de usuário automático em todo o pool. Da mesma forma, as tarefas executadas sem permissões de administrador também o são em uma única conta de usuário automático em todo o pool. 
+Quando você especifica o escopo de pool para o usuário automático, todas as tarefas que são executadas com acesso de administrador o são na mesma conta de usuário automático em todo o pool. Da mesma forma, as tarefas executadas sem permissões de administrador também o são em uma única conta de usuário automático em todo o pool.
 
 > [!NOTE] 
-> As duas contas de usuário automático em todo o pool são distintas. As tarefas executadas na conta administrativa em todo o pool não podem compartilhar dados com tarefas em execução na conta padrão, e vice-versa. 
->
->
+> As duas contas de usuário automático em todo o pool são distintas. As tarefas em execução na conta administrativa em todo o pool não podem compartilhar dados com tarefas em execução na conta padrão e vice-versa.
 
 A vantagem da execução na mesma conta de usuário automático é que as tarefas podem compartilhar dados com outras tarefas em execução no mesmo nó.
 
 O compartilhamento de segredos entre tarefas é um cenário em que a execução de tarefas em um das duas contas de usuário automático em todo o pool é útil. Por exemplo, suponha que a tarefa de inicialização precise provisionar um segredo no nó que outras tarefas podem usar. Você pode usar o DPAPI (API da Proteção de Dados) do Windows, mas ele exige privilégios administrativos. Em vez disso, é possível proteger o segredo no nível de usuário. As tarefas em execução na mesma conta de usuário podem acessar o segredo sem acesso elevado.
 
-Outro cenário em que talvez seja conveniente executar tarefas em uma conta de usuário automático com escopo de pool é em um compartilhamento de arquivos MPI (Interface de Transmissão de Mensagens). Um compartilhamento de arquivos MPI é útil quando os nós da tarefa MPI precisam trabalhar nos mesmos dados de arquivo. O nó de cabeçalho cria um compartilhamento de arquivos que os nós filho podem acessar se estiverem sendo executados na mesma conta de usuário automático. 
+Outro cenário em que talvez seja conveniente executar tarefas em uma conta de usuário automático com escopo de pool é em um compartilhamento de arquivos MPI (Interface de Transmissão de Mensagens). Um compartilhamento de arquivos MPI é útil quando os nós da tarefa MPI precisam trabalhar nos mesmos dados de arquivo. O nó de cabeçalho cria um compartilhamento de arquivos que os nós filho podem acessar se estiverem sendo executados na mesma conta de usuário automático.
 
 O snippet de código a seguir define o escopo do usuário automático para escopo de pool em uma tarefa do .NET no Lote. O nível de elevação é omitido, de modo que a tarefa é executada na conta de usuário automático em todo o pool padrão.
 
@@ -163,7 +155,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
@@ -209,10 +201,9 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create the unbound pool.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                             
-    virtualMachineSize: "Standard_A1",                                      
-    virtualMachineConfiguration: virtualMachineConfiguration);                  
-
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "Standard_A1",
+    virtualMachineConfiguration: virtualMachineConfiguration);
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
 {
@@ -239,7 +230,6 @@ pool.UserAccounts = new List<UserAccount>
 // Commit the pool.
 await pool.CommitAsync();
 ```
-
 
 #### <a name="batch-java-example"></a>Exemplo de Java no Lote
 
@@ -319,8 +309,7 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 | `run_elevated=False`                      | `user_identity=user`, em que <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated` não especificado | Nenhuma atualização é necessária                                                                                                                                  |
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
-* Saiba mais sobre [arquivos e diretórios](files-and-directories.md) no Lote do Azure.
+- Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
+- Saiba mais sobre [arquivos e diretórios](files-and-directories.md) no Lote do Azure.

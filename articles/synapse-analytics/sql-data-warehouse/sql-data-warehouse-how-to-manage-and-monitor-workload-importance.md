@@ -5,18 +5,18 @@ services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 3efd8a776542616a9ceefba331b06406540905a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211962"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerenciar e monitorar a importância da carga de trabalho no Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ GO
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre classificação, consulte [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md).
-- Para obter mais informações sobre importância, consulte [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)
+- Para obter mais informações sobre Importância, consulte [Importância de Carga de Trabalho](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Ir para configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md)

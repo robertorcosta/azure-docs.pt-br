@@ -4,15 +4,16 @@ description: Solucionar problemas do Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ede38317762e5aac5562c9bb3494713c3edacc69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20978a6389c790575fa26258c4468f891af733ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211452"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Solução de problemas do Azure Synapse Studio (versão prévia)
 
@@ -90,7 +91,7 @@ Ao relatar o problema, você pode, opcionalmente, tirar uma captura de tela da g
 
 ![Developer-Tool-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
-Se você estiver anexando capturas de tela, forneça a hora (ou um intervalo de tempo estimado) de quando você tirou as capturas de tela. Ele nos ajudará ao olhar o problema.
+Se você estiver anexando capturas de tela, forneça o tempo (ou um intervalo de tempo estimado) de quando você tirou as capturas de tela. Ele nos ajudará ao olhar o problema.
 
 Determinados navegadores dão suporte à exibição de carimbos de data/hora na guia "console". Para o Chromium Edge/Chrome, abra a caixa de diálogo "configurações" em "Ferramentas para Desenvolvedores" e marque "mostrar carimbos de data/hora" na guia "Preferências".
 
@@ -99,4 +100,4 @@ Determinados navegadores dão suporte à exibição de carimbos de data/hora na 
 ![Mostrar carimbo de data/hora](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Se as etapas anteriores não ajudarem a resolver o problema, [crie um tíquete de suporte](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Se as etapas anteriores não ajudarem a resolver seu problema, [crie um tíquete de suporte](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

@@ -1,26 +1,26 @@
 ---
 title: 'Tutorial: carregar dados de dos táxis de Nova York'
-description: O tutorial usa portal do Azure e SQL Server Management Studio para carregar dados de dos táxis de Nova York de um blob global do Azure para Synapse SQL.
+description: O tutorial usa portal do Azure e SQL Server Management Studio para carregar dados de dos táxis de Nova York de um blob do Azure para Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-ms.date: 02/04/2020
+ms.subservice: sql-dw
+ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 741779e8328c38e544b1ad297e59155dab4e8c0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4dbc63e8829d8a9ca3a3820fbb6675da4fad357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207542"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: carregar o conjunto de dos táxis de Nova York
 
-Este tutorial usa o polybase para carregar dados de dos táxis de Nova York de uma conta de armazenamento de BLOBs do Azure global. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para:
+Este tutorial usa a [instrução Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para carregar o conjunto de dos táxis New York de uma conta de armazenamento de BLOBs do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para:
 
 > [!div class="checklist"]
 >
@@ -28,10 +28,9 @@ Este tutorial usa o polybase para carregar dados de dos táxis de Nova York de u
 > * Configurar uma regra de firewall de nível de servidor no Portal do Azure
 > * Conectar-se ao data warehouse com o SSMS
 > * Criar um usuário designado para carregar dados
-> * Criar tabelas externas para dados no armazenamento de blobs do Azure
-> * Usar a instrução CTAS T-SQL para carregar dados para seu data warehouse
+> * Criar as tabelas para o conjunto de exemplos 
+> * Use a instrução COPY T-SQL para carregar dados em seu data warehouse
 > * Exibir o andamento dos dados enquanto estão sendo carregados
-> * Criar estatísticas sobre os dados recém-carregados
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -45,7 +44,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Criar um banco de dados vazio
 
-Um pool de SQL é criado com um conjunto definido de [recursos de computação](memory-concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e em um [servidor lógico SQL do Azure](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Um pool de SQL é criado com um conjunto definido de [recursos de computação](memory-concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e em um [servidor SQL lógico](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Siga estas etapas para criar um banco de dados em branco.
 
@@ -62,7 +61,7 @@ Siga estas etapas para criar um banco de dados em branco.
    | *Nomes**            | meuDataWarehouseDeExemplo | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
    | **Assinatura**   | Sua assinatura     | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
    | **Grupo de recursos** | myResourceGroup       | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-   | **Selecionar a origem**  | Banco de dados em branco        | Especifique para criar um banco de dados em branco. Observe que um data warehouse é um tipo de banco de dados. |
+   | **Selecionar fonte**  | Banco de dados em branco        | Especifique para criar um banco de dados em branco. Observe que um data warehouse é um tipo de banco de dados. |
 
     ![criar data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
@@ -71,11 +70,11 @@ Siga estas etapas para criar um banco de dados em branco.
     | Configuração                | Valor sugerido          | Descrição                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
     | **Nome do servidor**        | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Logon de administrador do servidor** | Qualquer nome válido           | Para obter nomes de logon válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Logon de administrador do servidor** | Qualquer nome válido           | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Senha**           | Qualquer senha válida       | Sua senha deve ter, pelo menos, oito caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
-    | **Local**           | Qualquer local válido       | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |
+    | **Localidade**           | Qualquer local válido       | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |
 
-    ![criar servidor de banco de dados](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
+    ![criar servidor](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
 5. Selecione **Selecionar**.
 
@@ -86,7 +85,7 @@ Siga estas etapas para criar um banco de dados em branco.
     ![configurar o desempenho](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Escolha **Aplicar**.
-9. Na folha provisionamento, selecione um **agrupamento** para o banco de dados em branco. Neste tutorial, use o valor padrão. Para obter mais informações sobre agrupamentos, consulte [agrupamentos](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+9. Na folha provisionamento, selecione um **agrupamento** para o banco de dados em branco. Neste tutorial, use o valor padrão. Para obter mais informações sobre ordenações, confira [Ordenações](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 10. Agora que você concluiu o formulário, selecione **criar** para provisionar o banco de dados. O provisionamento demora alguns minutos.
 
@@ -96,14 +95,14 @@ Siga estas etapas para criar um banco de dados em branco.
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
-Um firewall no nível de servidor que impede que aplicativos e ferramentas externos se conectem ao servidor ou a qualquer banco de dados no servidor. Para habilitar a conectividade, é possível adicionar regras de firewall que habilitem a conectividade para endereços IP específicos.  Siga estas etapas para criar uma [regra de firewall de nível de servidor](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do seu cliente.
+Um firewall no nível de servidor que impede que aplicativos e ferramentas externos se conectem ao servidor ou a qualquer banco de dados no servidor. Para habilitar a conectividade, é possível adicionar regras de firewall que habilitem a conectividade para endereços IP específicos.  Siga estas etapas para criar uma [regra de firewall de nível de servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do seu cliente.
 
 > [!NOTE]
-> O SQL Data Warehouse comunica-se pela porta 1433. Se você estiver tentando conectar-se de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall de sua rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+> O SQL Data Warehouse comunica-se pela porta 1433. Se você estiver tentando conectar-se de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall de sua rede. Se isso acontecer, você não conseguirá se conectar ao servidor, a menos que o departamento de TI abra a porta 1433.
 
 1. Após a conclusão da implantação, selecione **bancos de dados SQL** no menu à esquerda e, em seguida, selecione **mySampleDatabase** na página **bancos de dados SQL** . A página de visão geral de seu banco de dados é aberta, mostrando o nome do servidor totalmente qualificado (como **meunovoservidor-20180430.database.windows.net**) e fornece opções para configurações adicionais.
 
-2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e a seus bancos de dados nos próximos guias de início rápido. Em seguida, selecione no nome do servidor para abrir as configurações do servidor.
+2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e a seus bancos de dados nos próximos guias de início rápido. Em seguida, selecione o nome do servidor para abrir as configurações do servidor.
 
     ![localizar o nome do servidor](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -111,24 +110,24 @@ Um firewall no nível de servidor que impede que aplicativos e ferramentas exter
 
     ![configurações do servidor](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-4. Selecione **Mostrar configurações de firewall**. A página **Configurações do firewall** do servidor do Banco de Dados SQL é aberta.
+4. Selecione **Mostrar configurações de firewall**. A página **Configurações do firewall** do servidor será aberta.
 
     ![regra de firewall do servidor](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
 5. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-6. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+6. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para o endereço IP atual que abre a porta 1433 no servidor lógico.
 
 7. Selecione **OK** e feche a página **configurações de firewall** .
 
-Agora é possível conectar-se ao SQL Server e a seus data warehouses usando este endereço IP. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta ServerAdmin criada anteriormente.  
+Agora você pode se conectar ao servidor e a seus data warehouses usando esse endereço IP. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta ServerAdmin criada anteriormente.  
 
 > [!IMPORTANT]
 > Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Selecione **desativado** nesta página e, em seguida, selecione **salvar** para desabilitar o firewall para todos os serviços do Azure.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Obter o nome do servidor totalmente qualificado
 
-Obtenha o nome do servidor totalmente qualificado para seu SQL Server no Portal do Azure. Posteriormente, você usará o nome totalmente qualificado ao se conectar ao servidor.
+Obtenha o nome do servidor totalmente qualificado para o seu servidor no portal do Azure. Posteriormente, você usará o nome totalmente qualificado ao se conectar ao servidor.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Azure Synapse Analytics** no menu à esquerda e selecione seu banco de dados na página de **análise de Synapse do Azure** .
@@ -138,7 +137,7 @@ Obtenha o nome do servidor totalmente qualificado para seu SQL Server no Portal 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conectar-se ao servidor como administrador do servidor
 
-Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para estabelecer uma conexão com o SQL Server do Azure.
+Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para estabelecer uma conexão com o servidor.
 
 1. Abra o SQL Server Management Studio.
 
@@ -179,7 +178,7 @@ Como você está, no momento, conectado como o administrador do servidor, é pos
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Selecione **executar**.
+3. Selecione **Executar**.
 
 4. Clique com o botão direito do mouse em **mySampleDataWarehouse** e escolha **Nova consulta**. Uma nova janela de consulta é aberta.  
 
@@ -193,7 +192,7 @@ Como você está, no momento, conectado como o administrador do servidor, é pos
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Selecione **executar**.
+6. Selecione **Executar**.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Conectar-se ao servidor como o usuário carregado
 
@@ -211,9 +210,9 @@ A primeira etapa para carregar os dados é fazer logon como LoaderRC20.
 
     ![A conexão é bem-sucedida](./media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
-## <a name="create-external-tables-for-the-sample-data"></a>Criar tabelas externas para os dados de exemplo
+## <a name="create-tables-for-the-sample-data"></a>Criar tabelas para os dados de exemplo
 
-Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Este tutorial mostra como usar tabelas externas para carregar dados cab de táxi da cidade de Nova York de um blob de armazenamento do Azure. Para referência futura, para saber como obter seus dados para o armazenamento de BLOBs do Azure ou carregá-los diretamente da sua fonte, consulte a [visão geral de carregamento](design-elt-data-loading.md).
+Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Esta parte do tutorial mostra como usar a instrução de cópia para carregar o conjunto de uma Nova York City táxi de um blob de armazenamento do Azure. Para referência futura, para saber como obter seus dados para o armazenamento de BLOBs do Azure ou carregá-los diretamente da sua fonte, consulte a [visão geral de carregamento](design-elt-data-loading.md).
 
 Execute os seguintes scripts SQL e especifique as informações sobre os dados que você deseja carregar. Essas informações incluem o local em que os dados estão localizados, o formato do conteúdo dos dados e a definição da tabela para os dados.
 
@@ -223,58 +222,10 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
 
 2. Compare a janela de consulta com a imagem anterior.  Verifique se a nova janela de consulta está em execução como LoaderRC20 e está executando consultas no banco de dados MySampleDataWarehouse. Use essa janela de consulta para executar todas as etapas de carregamento.
 
-3. Crie uma chave mestra para o banco de dados MySampleDataWarehouse. Você só precisa criar uma chave mestra uma vez por banco de dados.
+7. Execute as seguintes instruções T-SQL para criar as tabelas:
 
     ```sql
-    CREATE MASTER KEY;
-    ```
-
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para definir o local do blob do Azure. Esse é o local dos dados de táxis externos.  Para executar um comando que você acrescentou à janela de consulta, realce os comandos que deseja executar e selecione **executar**.
-
-    ```sql
-    CREATE EXTERNAL DATA SOURCE NYTPublic
-    WITH
-    (
-        TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
-    );
-    ```
-
-5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para especificar opções e características de formatação para o arquivo de dados externo. Essa instrução especifica que os dados externos são armazenados como texto, e os valores são separados pelo caractere barra vertical ('|'). O arquivo externo é compactado com Gzip.
-
-    ```sql
-    CREATE EXTERNAL FILE FORMAT uncompressedcsv
-    WITH (
-        FORMAT_TYPE = DELIMITEDTEXT,
-        FORMAT_OPTIONS (
-            FIELD_TERMINATOR = ',',
-            STRING_DELIMITER = '',
-            DATE_FORMAT = '',
-            USE_TYPE_DEFAULT = False
-        )
-    );
-    CREATE EXTERNAL FILE FORMAT compressedcsv
-    WITH (
-        FORMAT_TYPE = DELIMITEDTEXT,
-        FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
-            STRING_DELIMITER = '',
-        DATE_FORMAT = '',
-            USE_TYPE_DEFAULT = False
-        ),
-        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
-    );
-    ```
-
-6. Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar um esquema para o formato de arquivo externo. O esquema fornece uma maneira de organizar as tabelas externas que você está prestes a criar.
-
-    ```sql
-    CREATE SCHEMA ext;
-    ```
-
-7. Crie as tabelas externas. As definições de tabela são armazenadas no data warehouse, mas as tabelas fazem referência a dados armazenados no armazenamento de BLOBs do Azure. Execute os seguintes comandos T-SQL para criar várias tabelas externas que apontam para o blob do Azure definido anteriormente na nossa fonte de dados externa.
-
-    ```sql
-    CREATE EXTERNAL TABLE [ext].[Date]
+    CREATE TABLE [dbo].[Date]
     (
         [DateID] int NOT NULL,
         [Date] datetime NULL,
@@ -311,13 +262,11 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
     )
     WITH
     (
-        LOCATION = 'Date',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Geography]
+    
+    CREATE TABLE [dbo].[Geography]
     (
         [GeographyID] int NOT NULL,
         [ZipCodeBKey] varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -329,13 +278,11 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
     )
     WITH
     (
-        LOCATION = 'Geography',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[HackneyLicense]
+    
+    CREATE TABLE [dbo].[HackneyLicense]
     (
         [HackneyLicenseID] int NOT NULL,
         [HackneyLicenseBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -343,13 +290,11 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
     )
     WITH
     (
-        LOCATION = 'HackneyLicense',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Medallion]
+    
+    CREATE TABLE [dbo].[Medallion]
     (
         [MedallionID] int NOT NULL,
         [MedallionBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -357,14 +302,11 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
     )
     WITH
     (
-        LOCATION = 'Medallion',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
-    )
-    ;  
-    CREATE EXTERNAL TABLE [ext].[Time]
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
+    
+    CREATE TABLE [dbo].[Time]
     (
         [TimeID] int NOT NULL,
         [TimeBKey] varchar(8) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -378,13 +320,11 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
     )
     WITH
     (
-        LOCATION = 'Time',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Trip]
+    
+    CREATE TABLE [dbo].[Trip]
     (
         [DateID] int NOT NULL,
         [MedallionID] int NOT NULL,
@@ -412,13 +352,11 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
     )
     WITH
     (
-        LOCATION = 'Trip2013',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = compressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     );
-    CREATE EXTERNAL TABLE [ext].[Weather]
+    
+    CREATE TABLE [dbo].[Weather]
     (
         [DateID] int NOT NULL,
         [GeographyID] int NOT NULL,
@@ -427,127 +365,123 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
     )
     WITH
     (
-        LOCATION = 'Weather',
-        DATA_SOURCE = NYTPublic,
-        FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value,
-        REJECT_VALUE = 0
-    )
-    ;
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
     ```
-
-8. No Pesquisador de Objetos, expanda mySampleDataWarehouse para ver a lista de tabelas externas que você acabou de criar.
-
-    ![Exibir tabelas externas](./media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
+    
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Carregar os dados em seu data warehouse
 
-Esta seção usa as tabelas externas que você acabou de definir para carregar os dados de exemplo de Azure Storage Blob.  
+Esta seção usa a [instrução de cópia para carregar](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) os dados de exemplo de Azure Storage BLOB.  
 
 > [!NOTE]
-> Este tutorial carrega os dados diretamente na tabela final. Em um ambiente de produção, você normalmente usará CREATE TABLE AS SELECT para carregar em uma tabela de preparo. Enquanto os dados estão na tabela de preparo, você pode executar todas as transformações necessárias. Para acrescentar os dados na tabela de preparo a uma tabela de produção, você pode usar a instrução INSERT...SELECT. Para saber mais, confira [Inserindo dados em uma tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> Este tutorial carrega os dados diretamente na tabela final. Normalmente, você carregaria em uma tabela de preparo para suas cargas de trabalho de produção. Enquanto os dados estão na tabela de preparo, você pode executar todas as transformações necessárias. 
 
-O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a instrução SELECT seleciona de uma tabela externa, os dados são importados para uma tabela relacional no data warehouse.
-
-1. Execute o seguinte script para carregar os dados para novas tabelas no data warehouse.
+1. Execute as seguintes instruções para carregar os dados:
 
     ```sql
-    CREATE TABLE [dbo].[Date]
+    COPY INTO [dbo].[Date]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Date'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[Date]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
-    ;
-    CREATE TABLE [dbo].[Geography]
+    OPTION (LABEL = 'COPY : Load [dbo].[Date] - Taxi dataset');
+    
+    
+    COPY INTO [dbo].[Geography]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Geography'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS
-    SELECT * FROM [ext].[Geography]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
-    ;
-    CREATE TABLE [dbo].[HackneyLicense]
+    OPTION (LABEL = 'COPY : Load [dbo].[Geography] - Taxi dataset');
+    
+    COPY INTO [dbo].[HackneyLicense]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/HackneyLicense'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[HackneyLicense]
-    OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
-    ;
-    CREATE TABLE [dbo].[Medallion]
+    OPTION (LABEL = 'COPY : Load [dbo].[HackneyLicense] - Taxi dataset');
+    
+    COPY INTO [dbo].[Medallion]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Medallion'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[Medallion]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
-    ;
-    CREATE TABLE [dbo].[Time]
+    OPTION (LABEL = 'COPY : Load [dbo].[Medallion] - Taxi dataset');
+    
+    COPY INTO [dbo].[Time]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Time'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
-    AS SELECT * FROM [ext].[Time]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
-    ;
-    CREATE TABLE [dbo].[Weather]
+    OPTION (LABEL = 'COPY : Load [dbo].[Time] - Taxi dataset');
+    
+    COPY INTO [dbo].[Weather]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Weather'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A'
     )
-    AS SELECT * FROM [ext].[Weather]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
-    ;
-    CREATE TABLE [dbo].[Trip]
+    OPTION (LABEL = 'COPY : Load [dbo].[Weather] - Taxi dataset');
+    
+    COPY INTO [dbo].[Trip]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013'
     WITH
     (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = '|',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A',
+        COMPRESSION = 'GZIP'
     )
-    AS SELECT * FROM [ext].[Trip]
-    OPTION (LABEL = 'CTAS : Load [dbo].[Trip]')
-    ;
+    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
 
 2. Exiba os dados enquanto eles são carregados. Você está carregando vários GBs de dados e compactando-os em índices columnstore clusterizados de alto desempenho. Execute a consulta a seguir que usa DMVs (exibições de gerenciamento dinâmico) para mostrar o status do carregamento.
 
     ```sql
-    SELECT
-        r.command,
-        s.request_id,
-        r.status,
-        count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024/1024.0 as gb_processed
-    FROM
-        sys.dm_pdw_exec_requests r
-        INNER JOIN sys.dm_pdw_dms_external_work s
-        ON r.request_id = s.request_id
-    WHERE
-        r.[label] = 'CTAS : Load [dbo].[Date]' OR
-        r.[label] = 'CTAS : Load [dbo].[Geography]' OR
-        r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
-        r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
-        r.[label] = 'CTAS : Load [dbo].[Time]' OR
-        r.[label] = 'CTAS : Load [dbo].[Weather]' OR
-        r.[label] = 'CTAS : Load [dbo].[Trip]'
-    GROUP BY
-        r.command,
-        s.request_id,
-        r.status
-    ORDER BY
-        nbr_files desc,
-        gb_processed desc;
+    SELECT  r.[request_id]                           
+    ,       r.[status]                               
+    ,       r.resource_class                         
+    ,       r.command
+    ,       sum(bytes_processed) AS bytes_processed
+    ,       sum(rows_processed) AS rows_processed
+    FROM    sys.dm_pdw_exec_requests r
+                  JOIN sys.dm_pdw_dms_workers w
+                         ON r.[request_id] = w.request_id
+    WHERE [label] = 'COPY : Load [dbo].[Date] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Geography] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[HackneyLicense] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Medallion] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Time] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Weather] - Taxi dataset' OR
+        [label] = 'COPY : Load [dbo].[Trip] - Taxi dataset' 
+    and session_id <> session_id() and type = 'WRITER'
+    GROUP BY r.[request_id]                           
+    ,       r.[status]                               
+    ,       r.resource_class                         
+    ,       r.command;
     ```
-
+    
 3. Exiba todas as consultas do sistema.
 
     ```sql
@@ -558,56 +492,7 @@ O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/stat
 
     ![Exibir tabelas carregadas](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autenticar usando identidades gerenciadas para carregar (opcional)
-
-O carregamento usando o polybase e a autenticação por meio de identidades gerenciadas é o mecanismo mais seguro e permite que você aproveite os pontos de extremidade de serviço de rede virtual com o armazenamento do Azure.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-1. Instalar o Azure PowerShell usando este [guia](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário primeiro atualizar para uso geral v2 usando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-3. É necessário ativar **Permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** no menu de configurações **Firewalls e redes virtuais** da conta do Armazenamento do Azure. Confira este [guia](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) para saber mais.
-
-#### <a name="steps"></a>Etapas
-
-1. No PowerShell, **Registre seu SQL Server** com Azure Active Directory (AAD):
-
-   ```powershell
-   Connect-AzAccount
-   Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-   ```
-
-2. Crie uma **Conta de armazenamento de uso geral v2** usando este [guia](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-   > [!NOTE]
-   > Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-3. Em sua conta de armazenamento, navegue até **controle de acesso (iam)** e selecione **Adicionar atribuição de função**. Atribuir função de RBAC de **colaborador de dados de blob de armazenamento** ao servidor do banco de dados SQL.
-
-   > [!NOTE]
-   > Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas de recursos do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-  
-**Conectividade do Polybase com a conta de Armazenamento do Azure:**
-
-1. Crie a credencial no escopo do banco de dados com **Identity = ' identidade de serviço gerenciada '**:
-
-   ```SQL
-   CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-   ```
-
-   > [!NOTE]
-   >
-   > * Não é necessário especificar SECRET com a chave de acesso de Armazenamento do Azure, porque esse mecanismo usa [Identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) nos bastidores.
-   > * O nome da identidade deve ser **' identidade de serviço gerenciada '** para que a conectividade do polybase funcione com a conta de armazenamento do Azure.
-
-2. Crie a fonte de dados externa especificando a credencial no escopo do banco de dado com o Identidade de Serviço Gerenciada.
-
-3. Consulte normalmente usando [tabelas externas](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-
-Consulte a [documentação](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) a seguir se você quiser configurar pontos de extremidade de serviço de rede virtual para o Azure Synapse Analytics.
-
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você está sendo cobrado por recursos de computação e por dados que você carregou em seu data warehouse. Eles são cobrados separadamente.
 
@@ -624,13 +509,13 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 3. Para remover o data warehouse para que você não seja cobrado pela computação ou pelo armazenamento, selecione **excluir**.
 
-4. Para remover o SQL Server criado, selecione **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, selecione **Excluir**.  Tenha cuidado com isso, uma vez que a exclusão do servidor excluirá todos os bancos de dados atribuídos a ele.
+4. Para remover o servidor que você criou, selecione **mynewserver-20180430.Database.Windows.net** na imagem anterior e, em seguida, selecione **excluir**.  Tenha cuidado com isso, uma vez que a exclusão do servidor excluirá todos os bancos de dados atribuídos a ele.
 
 5. Para remover o grupo de recursos, selecione **myResourceGroup** e, em seguida, **Excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como criar um data warehouse e um usuário para carregar dados. Você criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e depois usou a instrução CREATE TABLE AS SELECT do PolyBase para carregar dados em seu data warehouse.
+Neste tutorial, você aprendeu como criar um data warehouse e um usuário para carregar dados. Você usou a [instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) simples para carregar dados em seu data warehouse.
 
 Você fez essas coisas:
 > [!div class="checklist"]
@@ -639,12 +524,17 @@ Você fez essas coisas:
 > * Configurar uma regra de firewall de nível de servidor no Portal do Azure
 > * Conectou-se ao data warehouse com o SSMS
 > * Criou um usuário designado para carregar dados
-> * Criou tabelas externas para dados no Azure Storage Blob
-> * Usou a instrução T-SQL CTAS para carregar dados em seu data warehouse
+> * Criou as tabelas para os dados de exemplo
+> * Usou a instrução COPY T-SQL para carregar dados em seu data warehouse
 > * Exibiu o andamento dos dados enquanto eles estão sendo carregados
-> * Criou estatísticas sobre os dados recém-carregados
 
-Avance para a visão geral de desenvolvimento para saber como migrar um banco de dados existente para o Azure Synapse Analytics.
+Avance para a visão geral de desenvolvimento para saber como migrar um banco de dados existente para o Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
 > [Decisões de design para migrar um banco de dados existente para o Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
+
+Para obter mais exemplos de carregamento e referências, veja a seguinte documentação:
+
+- [Documentação de referência de instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [COPIAR exemplos para cada método de autenticação](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
+- [COPIAR guia de início rápido para uma única tabela](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)

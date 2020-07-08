@@ -5,21 +5,20 @@ description: Como usar os serviços Web do Azure Machine Learning diretamente no
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: e30103589c1baf9a165839cd041ff511a119c5ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8565e3c62ea1b74879f2e127abed772576563886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211316"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Suplemento do Excel para serviços Web Azure Machine Learning Studio (clássico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escrever nenhum código.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Etapas para usar um serviço Web existente na pasta de trabalho
@@ -84,4 +83,4 @@ Obtenha a chave de API para o seu serviço Web. O local em que você executa ess
 ## <a name="sharing-your-workbook"></a>Compartilhar sua pasta de trabalho
 Se você salvar sua pasta de trabalho, as chaves de API/primária dos serviços Web adicionados também serão salvas. Isso significa que você só deve compartilhar a pasta de trabalho com pessoas confiáveis.
 
-Faça suas perguntas na seção de comentário abaixo ou em nosso [fórum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Faça suas perguntas na seção de comentário abaixo ou em nosso [fórum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).

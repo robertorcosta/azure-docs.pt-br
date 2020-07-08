@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658406"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210177"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar dados de sobreajuste e desequilibrados com o machine learning automatizado
 
@@ -79,8 +79,6 @@ A **CV (validação cruzada)** é o processo de pegar muitos subconjuntos de seu
 
 Normalmente, os dados desequilibrados são encontrados em dados para cenários de classificação de aprendizado de máquina e referem-se a dados que contêm uma proporção desproporcional de observações em cada classe. Esse desequilíbrio pode causar um efeito de falso positivo de acordo com a precisão de um modelo porque os dados de entrada têm desvio, o que resulta no modelo treinado para imitar esse desvio. 
 
-Como os algoritmos de classificação costumam ser avaliados por exatidão, a verificação da pontuação de precisão de um modelo é uma boa maneira de identificar se ele foi afetado por dados desequilibrados. Ele tinha precisão bem alta ou precisão bem baixa para determinadas classes?
-
 Além disso, as execuções de machine learning automatizado geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo, além de identificar os modelos potencialmente afetados por dados desequilibrados.
 
 Gráfico| Descrição
@@ -91,17 +89,19 @@ Gráfico| Descrição
 
 ## <a name="handle-imbalanced-data"></a>Tratamento dos dados desequilibrados 
 
-Como parte do seu objetivo de simplificar o fluxo de trabalho de machine learning, o machine learning automatizado tem recursos internos para ajudar a lidar com dados desequilibrados, como 
+Como parte de seu objetivo de simplificar o fluxo de trabalho do Machine Learning, o **ml automatizado tem recursos internos** para ajudar a lidar com dados desequilibrados, como 
 
-- Uma **coluna de peso**: o machine learning automatizado dá suporte a uma coluna ponderada como entrada, fazendo com que as linhas nos dados sejam ponderadas para cima ou para baixo, o que pode tornar uma classe mais ou menos "importante".
+- Uma **coluna de peso**: o ml automatizado dá suporte a uma coluna de pesos como entrada, fazendo com que as linhas nos dados sejam ponderadas ou reduzidas, o que pode ser usado para tornar uma classe mais ou menos "importante".
 
 - Os algoritmos usados pelo machine learning automatizado podem lidar corretamente com o desequilíbrio de até 20:1, o que significa que a classe mais comum pode ter 20 vezes mais linhas nos dados do que a classe menos comum.
 
-As técnicas a seguir são opções adicionais para lidar com dados desequilibrados fora do machine learning automatizado. 
+- Use uma métrica de desempenho que lide melhor com dados desequilibrados. Por exemplo, a AUC_weighted é uma métrica primária que calcula a contribuição de cada classe com base no número relativo de amostras que representam essa classe, portanto, é mais robusta em relação ao desequilíbrio.
+
+As técnicas a seguir são opções adicionais para lidar com dados desequilibrados **fora do ml automatizado**. 
 
 - A reamostragem até mesmo do desequilíbrio de classe, seja por upsampling das classes menores ou downsampling das classes maiores. Esses métodos exigem experiência para processar e analisar.
 
-- Use uma métrica de desempenho que lide melhor com dados desequilibrados. Por exemplo, a medida f é uma média ponderada de precisão e recall. A precisão mede a exatidão de um classificador, e a precisão baixa indica um alto número de falsos positivos. O recall mede a integridade de um classificador, e o recall baixo indica um grande número de falsos negativos. 
+- Examine as métricas de desempenho para dados desequilibrados. Por exemplo, a medida f é uma média ponderada de precisão e recall. A precisão mede a exatidão de um classificador, e a precisão baixa indica um alto número de falsos positivos. O recall mede a integridade de um classificador, e o recall baixo indica um grande número de falsos negativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

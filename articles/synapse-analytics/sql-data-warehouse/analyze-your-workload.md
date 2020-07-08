@@ -6,21 +6,21 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c547263be8c61d75491d1517b58c03b6365ef929
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208392"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analisar sua carga de trabalho no Azure Synapse Analytics
 
-Técnicas para analisar sua carga de trabalho do SQL Synapse no Azure Synapse Analytics.
+Técnicas para analisar sua carga de trabalho do SQL Synapse no Azure Synapse Analytics. 
 
 ## <a name="resource-classes"></a>Classes de recursos
 
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados no Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL do Synapse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [recriando índices para melhorar a qualidade do segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

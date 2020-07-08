@@ -6,17 +6,17 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 33cc0c33f90d68ac3396f1366d4ff8437563eda1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213883"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Solução de problemas de conectividade no pool de SQL do Synapse
 
@@ -50,11 +50,11 @@ Caso contrário, peça ao administrador de TI para verificar se essa manutençã
 
 ## <a name="check-your-firewall-settings"></a>Verificar as configurações de firewall
 
-O banco de dados do pool de SQL se comunica pela porta 1433.  Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Nesse caso, você não poderá se conectar ao servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433. Outras informações sobre as configurações de firewall podem ser encontradas [aqui](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+O banco de dados do pool de SQL se comunica pela porta 1433.  Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Nesse caso, você não pode se conectar ao [servidor lógico](../../azure-sql/database/logical-servers.md) , a menos que o departamento de ti Abra a porta 1433. Outras informações sobre as configurações de firewall podem ser encontradas [aqui](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verificar as configurações do ponto de extremidade de serviço/rede virtual
 
-Se estiver recebendo os erros 40914 e 40615, veja a [descrição e a resolução do erro aqui](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Se estiver recebendo os erros 40914 e 40615, veja a [descrição e a resolução do erro aqui](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="check-for-the-latest-drivers"></a>Verificar se os drivers estão atualizados
 
@@ -109,7 +109,7 @@ Verifique se você está com uma carga pesada sobre o servidor, com um grande n�
 
 ## <a name="common-error-messages"></a>Mensagens de erro comuns
 
-Para saber sobre os erros 40914 e 40615, veja a [descrição e a resolução do erro aqui](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Para saber sobre os erros 40914 e 40615, veja a [descrição e a resolução do erro aqui](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="still-having-connectivity-issues"></a>Ainda está tendo problemas de conectividade?
 

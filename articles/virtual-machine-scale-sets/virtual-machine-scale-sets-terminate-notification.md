@@ -1,5 +1,5 @@
 ---
-title: Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
+title: Notificação de encerramento para instâncias de conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como habilitar a notificação de término para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
 author: avirishuv
 ms.author: avverma
@@ -9,14 +9,14 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207508"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificação de encerramento para instâncias de conjuntos de dimensionamento de máquinas virtuais do Azure
 As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.
 
 Depois de registrado no recurso, as instâncias do conjunto de dimensionamento não precisam aguardar até que o tempo limite especificado expire antes que a instância seja excluída. Depois de receber uma notificação de encerramento, a instância pode optar por ser excluída a qualquer momento antes de expirar o tempo limite de encerramento.
@@ -178,9 +178,9 @@ Abaixo está o JSON esperado no corpo da solicitação POST. A solicitação dev
 
 Verifique se cada VM no conjunto de dimensionamento está apenas aprovando o EventID relevante somente para essa VM. Uma VM pode obter seu próprio nome de VM [por meio de metadados de instância](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Esse nome usa a forma "{scale-Set-name} _ {Instance-ID}" e será exibido na seção "recursos" da resposta de consulta descrita acima.
 
-Você também pode consultar scripts de exemplos para consultar e responder a eventos usando o [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) e o [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
+Você também pode consultar scripts de exemplos para consultar e responder a eventos [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
-## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
+## <a name="tips-and-best-practices"></a>Dicas e melhores práticas
 -   Encerrar notificações somente em operações ' excluir ' – todas as operações de exclusão (exclusão manual ou redução iniciada pelo dimensionamento automático) gerarão eventos de término se o conjunto de dimensionamento tiver *scheduledEventsProfile* habilitado. Outras operações, como reinicializar, refazer imagem, reimplantar e parar/desalocar, não geram eventos Terminate. As notificações de término não podem ser habilitadas para VMs de baixa prioridade.
 -   Nenhuma espera obrigatória para tempo limite – você pode iniciar a operação de término a qualquer momento depois que o evento tiver sido recebido e antes de o tempo de falta *antes* do evento ser expirado.
 -   Exclusão obrigatória no tempo limite – não há nenhum recurso de estender o valor de tempo limite após a geração de um evento. Quando o tempo limite expirar, o evento de encerramento pendente será processado e a VM será excluída.

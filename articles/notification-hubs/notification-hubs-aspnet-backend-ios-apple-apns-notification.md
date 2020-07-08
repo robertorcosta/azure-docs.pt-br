@@ -4,9 +4,7 @@ description: Saiba como enviar notificações por push para usuários específic
 documentationcenter: ios
 author: sethm
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72387470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248795"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para usuários específicos usando os hubs de notificação do Azure
 
@@ -42,14 +40,14 @@ Neste tutorial, você deve executar as seguintes etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
+Este tutorial pressupõe que você criou e configurou seu hub de notificação conforme descrito em [enviar notificações por push para aplicativos Ios usando os hubs de notificação do Azure](ios-sdk-get-started.md). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
 Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="modify-your-ios-app"></a>Modificar seu aplicativo iOS
 
-1. Abra o aplicativo de exibição de Página única criado no tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
+1. Abra o aplicativo de exibição de página única que você criou no tutorial [enviar notificações por push para aplicativos Ios usando hubs de notificação do Azure](ios-sdk-get-started.md) .
 
    > [!NOTE]
    > Nesta seção, presumimos que você configurou seu projeto com um nome de organização vazio. Caso contrário, será necessário preceder o nome da sua organização a todos os nomes de classe.
@@ -66,7 +64,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
    * **APNS**: o rótulo e a opção para habilitar o envio da notificação ao Apple Platform Notification Service.
    * **Nome do Usuário do Destinatário**: um UITextField com texto de espaço reservado *marca de nome de usuário do destinatário*, imediatamente abaixo do rótulo GCM e restrita às margens esquerda e direita e abaixo do rótulo do GCM.
 
-     Alguns componentes foram adicionados ao tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
+     Alguns componentes foram adicionados no tutorial [enviar notificações por push para aplicativos Ios usando hubs de notificação do Azure](ios-sdk-get-started.md) .
 
 3. Arraste **Ctrl** dos componentes na exibição para `ViewController.h` e adicione essas novas saídas.
 
@@ -343,9 +341,9 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
     }
     ```
 
-    Observe como a configuração do token do dispositivo ativa o botão de logon. Isso ocorre porque, como parte da ação de logon, o controlador de exibição se registra para notificações por push no back-end do aplicativo. Portanto, não queremos que ação de Login seja acessível até que o token do dispositivo seja configurado corretamente. É possível desacoplar o login do registro push desde que a primeira opção ocorra antes da última citada.
+    Observe como a configuração do token do Dispositivo habilita o botão **fazer logon** . Isso ocorre porque, como parte da ação de logon, o controlador de exibição se registra para notificações por push no back-end do aplicativo. Você não deseja que a ação de **logon** seja acessível até que o token do dispositivo tenha sido configurado corretamente. É possível desacoplar o login do registro push desde que a primeira opção ocorra antes da última citada.
 
-11. Em ViewController.m, use os snippets de código a seguir para implementar o método de ação em seu botão de **Fazer Logon** e um método para enviar a mensagem de notificação usando o back-end do ASP.NET.
+11. Em ViewController. m, use os trechos de código a seguir para implementar o método de ação para o botão de **logon** e um método para enviar a mensagem de notificação usando o back-end ASP.net.
 
     ```objc
     - (IBAction)LogInAction:(id)sender {
@@ -481,7 +479,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
 ## <a name="test-the-application"></a>Testar o aplicativo
 
 1. No XCode, execute o aplicativo em um dispositivo iOS físico (as notificações por push não funcionam no simulador).
-2. Na interface do usuário do aplicativo iOS, insira o mesmo valor para o nome de usuário e senha. Em seguida, clique em **Fazer logon**.
+2. Na interface do usuário do aplicativo iOS, insira o mesmo valor para o nome de usuário e senha. Em seguida, clique em **fazer logon**.
 
     ![Aplicativo de teste do iOS][2]
 

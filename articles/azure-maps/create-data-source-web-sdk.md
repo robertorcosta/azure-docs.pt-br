@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c23e659463364c5e1a497ead138abb4c696627a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207491"
 ---
 # <a name="create-a-data-source"></a>Criar uma fonte de dados
 
@@ -22,11 +22,52 @@ O SDK da Web do Azure Maps armazena dados em fontes de dados. O uso de fontes de
 
 **Fonte de dados geojson**
 
-Uma fonte de dados baseada em geojson carrega e armazena dados localmente `DataSource` usando a classe. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A `DataSource` classe fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A `DataSource` classe fornece funcionalidade para dados de ponto de cluster. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe.
+Uma fonte de dados baseada em geojson carrega e armazena dados localmente usando a `DataSource` classe. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A `DataSource` classe fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A `DataSource` classe fornece funcionalidade para dados de ponto de cluster. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código a seguir mostra como os dados geojson podem ser criados no Azure Maps.
 
+```Javascript
+//Create raw GeoJSON object.
+var rawGeoJson = {
+     "type": "Feature",
+     "geometry": {
+         "type": "Point",
+         "coordinates": [-100, 45]
+     },
+     "properties": {
+         "custom-property": "value"
+     }
+};
+
+//Create GeoJSON using helper classes (less error prone).
+var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
+    "custom-property": "value"
+}); 
+```
+
+Depois de criadas, as fontes de dados podem ser adicionadas ao mapa por meio da `map.sources` propriedade, que é um [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). O código a seguir mostra como criar um `DataSource` e adicioná-lo ao mapa.
+
+```javascript
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+```
+
+O código a seguir mostra as diferentes maneiras em que os dados geojson podem ser adicionados a um `DataSource` .
+
+```Javascript
+//GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
+
+//Add geoJSON object to data source. 
+dataSource.add(geoJsonData);
+
+//Load geoJSON data from URL. URL should be on a CORs enabled endpoint.
+dataSource.importDataFromUrl(geoJsonUrl);
+
+//Overwrite all data in data source.
+dataSource.setShapes(geoJsonData);
+```
 
 > [!TIP]
-> Digamos que você deseja substituir todos os dados em um `DataSource`. Se você fizer chamadas para as `clear` funções `add` then, o mapa poderá renderizar novamente duas vezes, o que pode causar um pouco de atraso. Em vez disso `setShapes` , use a função, que removerá e substituirá todos os dados na fonte de dados e disparará apenas uma única rerenderização do mapa.
+> Digamos que você deseja substituir todos os dados em um `DataSource` . Se você fizer chamadas para as `clear` `add` funções then, o mapa poderá renderizar novamente duas vezes, o que pode causar um pouco de atraso. Em vez disso `setShapes` , use a função, que removerá e substituirá todos os dados na fonte de dados e disparará apenas uma única rerenderização do mapa.
 
 **Origem do bloco de vetor**
 
@@ -37,15 +78,7 @@ Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor. 
  - Alterar o estilo dos dados nos mapas de vetor não exige o download dos dados novamente, já que o novo estilo pode ser aplicado ao cliente. Por outro lado, alterar o estilo de uma camada de bloco de varredura normalmente requer o carregamento de blocos do servidor, aplicando o novo estilo.
  - Como os dados são entregues na forma de vetor, há menos processamento no lado do servidor necessário para preparar os dados. Como resultado, os dados mais recentes podem ser disponibilizados mais rapidamente.
 
-Todas as camadas que usam uma fonte de vetor devem `sourceLayer` especificar um valor.
-
-Depois de criadas, as fontes de dados podem ser adicionadas ao `map.sources` mapa por meio da propriedade, que é um [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). O código a seguir mostra como criar um `DataSource` e adicioná-lo ao mapa.
-
-```javascript
-//Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
-```
+Todas as camadas que usam uma fonte de vetor devem especificar um `sourceLayer` valor.
 
 O mapas do Azure segue a [especificação de bloco de vetor Mapbox](https://github.com/mapbox/vector-tile-spec), um padrão aberto.
 
@@ -124,7 +157,7 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-maps-typescript-latest)
+> [Fonte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-maps-typescript-latest)
@@ -147,7 +180,7 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Adicionar uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
+> [Adicionar uma camada de bolhas](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de linha](map-add-line-layer.md)

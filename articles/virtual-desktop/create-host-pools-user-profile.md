@@ -4,40 +4,40 @@ description: Como configurar um contêiner de perfil FSLogix para um pool de hos
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 96b593f544aa4bbf126c06747a01902581f5ffb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211826"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivo
 
 O serviço de área de trabalho virtual do Windows oferece contêineres de perfil de FSLogix como a solução de perfil de usuário recomendada. Não recomendamos o uso da solução UPD (disco de perfil do usuário), que será preterida em versões futuras da área de trabalho virtual do Windows.
 
-Este artigo informará como configurar um compartilhamento de contêiner de perfil FSLogix para um pool de hosts usando um compartilhamento de arquivos baseado em máquina virtual. Para obter mais documentação do FSLogix, consulte o [site do FSLogix](https://docs.fslogix.com/).
+Este artigo informará como configurar um compartilhamento de contêiner de perfil FSLogix para um pool de hosts usando um compartilhamento de arquivos baseado em máquina virtual. É altamente recomendável usar os arquivos do Azure em vez de compartilhamentos de arquivos. Para obter mais documentação do FSLogix, consulte o [site do FSLogix](https://docs.fslogix.com/).
 
 >[!NOTE]
 >Se você estiver procurando material de comparação sobre as diferentes opções de armazenamento de contêiner de perfil FSLogix no Azure, consulte [Opções de armazenamento para contêineres de perfil FSLogix](store-fslogix-profile.md).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Criar uma nova máquina virtual que atuará como um compartilhamento de arquivos
 
-Ao criar a máquina virtual, certifique-se de colocá-la na mesma rede virtual que as máquinas virtuais do pool de hosts ou em uma rede virtual que tenha conectividade com as máquinas virtuais do pool de hosts. Você pode criar uma máquina virtual de várias maneiras:
+Ao criar a máquina virtual, certifique-se de colocá-la na mesma rede virtual que as máquinas virtuais do pool de hosts ou em uma rede virtual que tenha conectividade com as máquinas virtuais do pool de hosts. É possível criar uma máquina virtual de várias maneiras:
 
-- [Criar uma máquina virtual por meio de uma imagem da galeria do Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Criar uma máquina virtual com base em uma imagem gerenciada](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Criar uma máquina virtual com base em uma imagem não gerenciada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Criar uma máquina virtual de uma imagem da Galeria do Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Criar uma máquina virtual de uma imagem gerenciada](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [Criar uma máquina virtual de uma imagem não gerenciada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 Depois de criar a máquina virtual, ingresse-a no domínio seguindo estas etapas:
 
 1. [Conecte-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
-2. Na máquina virtual, inicie o **painel de controle** e selecione **sistema**.
-3. Selecione **nome do computador**, selecione **alterar configurações**e, em seguida, selecione **alterar...**
-4. Selecione **domínio** e, em seguida, insira o domínio Active Directory na rede virtual.
+2. Na máquina virtual, inicie **Painel de Controle** e selecione **Sistema**.
+3. Selecione **Nome do computador**, **Alterar configurações** e selecione **Alterar…**
+4. Selecione **Domínio** e insira o domínio do Active Directory na rede virtual.
 5. Autentique com uma conta de domínio que tenha privilégios para computadores de ingresso no domínio.
 
 ## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Preparar a máquina virtual para atuar como um compartilhamento de arquivos para perfis de usuário
@@ -60,15 +60,15 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 
 1. [Conecte-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Inicie um navegador da Internet e navegue até [este link](https://go.microsoft.com/fwlink/?linkid=2084562) para baixar o agente do FSLogix.
-3. \\ \\Navegue até versão do\\Win32 ou \\ \\versão\\x64 no arquivo. zip e execute **FSLogixAppsSetup** para instalar o agente do FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [baixar e instalar o FSLogix](/fslogix/install-ht/).
-4. Navegue até **arquivos** > de programas**FSLogix** > **aplicativos** para confirmar o agente instalado.
-5. No menu Iniciar, execute **regedit** como administrador. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+3. Navegue até \\ \\ versão do Win32 \\ ou \\ \\ \\ versão x64 no arquivo. zip e execute **FSLogixAppsSetup** para instalar o agente do FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [baixar e instalar o FSLogix](/fslogix/install-ht/).
+4. Navegue até **arquivos de programas**  >  **FSLogix**  >  **aplicativos** para confirmar o agente instalado.
+5. No menu Iniciar, execute **regedit** como administrador. Navegue até **computador \\ HKEY_LOCAL_MACHINE \\ software \\ FSLogix**.
 6. Crie uma chave chamada **perfis**.
 7. Crie os seguintes valores para a chave de perfis:
 
-| Nome                | Type               | Dados/valor                        |
+| Nome                | Tipo               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
-| habilitado             | DWORD              | 1                                 |
+| Habilitada             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para compartilhamento de arquivos"     |
 
 >[!IMPORTANT]

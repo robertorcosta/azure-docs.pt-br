@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207882"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão Geral do portal do desenvolvedor do Gerenciamento de API do Azure
 
@@ -34,7 +34,7 @@ Este artigo descreve as diferenças entre as versões autohospedadas e gerenciad
 
 Você pode criar seu portal do desenvolvedor de duas maneiras:
 
-- **Versão gerenciada** – editando e personalizando o portal, que é incorporado à sua instância de gerenciamento de API e pode ser `<your-api-management-instance-name>.developer.azure-api.net`acessado por meio da URL. Consulte [Este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como acessar e personalizar o portal gerenciado.
+- **Versão gerenciada** – editando e personalizando o portal, que é incorporado à sua instância de gerenciamento de API e pode ser acessado por meio da URL `<your-api-management-instance-name>.developer.azure-api.net` . Consulte [Este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como acessar e personalizar o portal gerenciado.
 - **Versão hospedada internamente** – Implantando e hospedando internamente seu portal fora de uma instância de gerenciamento de API. Essa abordagem permite que você edite a base de código do portal e estenda a funcionalidade básica fornecida, por exemplo, implementar widgets personalizados para integrações com sistemas de terceiros. Nesse cenário, você é o mantenedor do portal e é responsável por atualizar o portal para a versão mais recente. Para obter detalhes e instruções, consulte o [repositório do GitHub com o código-fonte do portal][1] e [o tutorial sobre como implementar um widget][3]. O [tutorial para a versão gerenciada](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que é comum para as versões gerenciadas e hospedadas internamente.
 
 ## <a name="portal-architectural-concepts"></a>Conceitos de arquitetura do portal
@@ -64,11 +64,11 @@ O *conteúdo de gerenciamento de API* inclui entidades como APIs, operações, p
 
 O portal é baseado em uma bifurcação adaptada da [estrutura Paperbits](https://paperbits.io/). A funcionalidade original do Paperbits foi estendida para fornecer widgets específicos de gerenciamento de API (por exemplo, uma lista de APIs, uma lista de produtos) e um conector para o serviço de gerenciamento de API para salvar e recuperar conteúdo.
 
-## <a name="frequently-asked-questions"></a><a name="faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a><a name="faq"></a> Perguntas frequentes
 
 Nesta seção, respondemos a perguntas comuns sobre o portal do desenvolvedor, que são de natureza geral. Para perguntas específicas para a versão hospedada internamente, consulte [a seção wiki do repositório do GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/>Como posso migrar da versão de visualização do portal?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Como posso migrar da versão de visualização do portal?
 
 Usando a versão de visualização do portal do desenvolvedor, você provisionou o conteúdo de visualização em seu serviço de gerenciamento de API. O conteúdo padrão foi modificado significativamente na versão disponível para melhor experiência do usuário. Ele também inclui novos widgets.
 
@@ -76,7 +76,7 @@ Se você estiver usando a versão gerenciada, redefina o conteúdo do portal cli
 
 ![Redefinir o conteúdo do portal](media/api-management-howto-developer-portal/reset-content.png)
 
-Se você estiver usando a versão hospedada internamente, use o `scripts/cleanup.bat` e `scripts/generate.bat` o do repositório do GitHub para remover o conteúdo existente e provisionar novo conteúdo. Certifique-se de atualizar o código do portal para a versão mais recente do repositório do GitHub com antecedência.
+Se você estiver usando a versão hospedada internamente, use o `scripts/cleanup.bat` e o `scripts/generate.bat` do repositório do GitHub para remover o conteúdo existente e provisionar novo conteúdo. Certifique-se de atualizar o código do portal para a versão mais recente do repositório do GitHub com antecedência.
 
 Se não quiser redefinir o conteúdo do portal, você pode considerar o uso de widgets disponíveis recentemente em todas as páginas. Os widgets existentes foram atualizados automaticamente para as versões mais recentes.
 
@@ -116,7 +116,7 @@ Não.
 
 Na maioria dos casos, não.
 
-Se o serviço de gerenciamento de API estiver em uma VNet interna, o portal do desenvolvedor só poderá ser acessado de dentro da rede. O nome do host do ponto de extremidade de gerenciamento deve ser resolvido para o VIP interno do serviço do computador que você usa para acessar a interface administrativa do Portal. Verifique se o ponto de extremidade de gerenciamento está registrado no DNS. No caso de uma configuração incorreta, você verá um erro `Unable to start the portal. See if settings are specified correctly in the configuration (...)`:.
+Se o serviço de gerenciamento de API estiver em uma VNet interna, o portal do desenvolvedor só poderá ser acessado de dentro da rede. O nome do host do ponto de extremidade de gerenciamento deve ser resolvido para o VIP interno do serviço do computador que você usa para acessar a interface administrativa do Portal. Verifique se o ponto de extremidade de gerenciamento está registrado no DNS. No caso de uma configuração incorreta, você verá um erro: `Unable to start the portal. See if settings are specified correctly in the configuration (...)` .
 
 Se o serviço de gerenciamento de API estiver em uma VNet interna e você o estiver acessando por meio do gateway de aplicativo da Internet, certifique-se de habilitar a conectividade com o portal do desenvolvedor e os pontos de extremidade de gerenciamento do gerenciamento de API.
 
@@ -165,11 +165,11 @@ Você também pode habilitar o CORS manualmente.
 
 Se você estiver vendo o `Oops. Something went wrong. Please try again later.` erro ao abrir o portal no modo administrativo, talvez você não esteja perdendo as permissões necessárias (RBAC).
 
-Os portais herdados exigiam `Microsoft.ApiManagement/service/getssotoken/action` a permissão no escopo do`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`serviço () para permitir que o administrador do usuário acesse os portais. O novo portal requer a permissão `Microsoft.ApiManagement/service/users/token/action` no escopo `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+Os portais herdados exigiam a permissão `Microsoft.ApiManagement/service/getssotoken/action` no escopo do serviço ( `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` ) para permitir que o administrador do usuário acesse os portais. O novo portal requer a permissão `Microsoft.ApiManagement/service/users/token/action` no escopo `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
-Você pode usar o seguinte script do PowerShell para criar uma função com a permissão necessária. Lembre-se de `<subscription-id>` alterar o parâmetro. 
+Você pode usar o seguinte script do PowerShell para criar uma função com a permissão necessária. Lembre-se de alterar o `<subscription-id>` parâmetro. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -185,9 +185,9 @@ $customRole.AssignableScopes.Add('/subscriptions/<subscription-id>')
 New-AzRoleDefinition -Role $customRole 
 ```
  
-Depois que a função é criada, ela pode ser concedida a qualquer usuário da seção de **controle de acesso (iam)** no portal do Azure. A atribuição dessa função a um usuário atribuirá a permissão no escopo do serviço. O usuário poderá gerar tokens SAS em nome de *qualquer* usuário no serviço. No mínimo, essa função precisa ser atribuída ao administrador do serviço. O comando do PowerShell a seguir demonstra como atribuir a função a um `user1` usuário no escopo mais baixo para evitar a concessão de permissões desnecessárias ao usuário: 
+Depois que a função é criada, ela pode ser concedida a qualquer usuário da seção de **controle de acesso (iam)** no portal do Azure. A atribuição dessa função a um usuário atribuirá a permissão no escopo do serviço. O usuário poderá gerar tokens SAS em nome de *qualquer* usuário no serviço. No mínimo, essa função precisa ser atribuída ao administrador do serviço. O comando do PowerShell a seguir demonstra como atribuir a função a um usuário `user1` no escopo mais baixo para evitar a concessão de permissões desnecessárias ao usuário: 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 

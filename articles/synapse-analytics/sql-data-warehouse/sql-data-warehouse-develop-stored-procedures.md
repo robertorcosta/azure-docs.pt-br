@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ffdf7a66c2562b43fc2ed02bb088ab1095118fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87c7eaa57f9da87bd83f89953afc09632d42b1f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213390"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Usando procedimentos armazenados no pool do SQL Synapse
 
@@ -72,7 +72,7 @@ GO
 EXEC prc_nesting
 ```
 
-No momento, o pool SQL não dá suporte a [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Assim, você precisa acompanhar o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento. Mas, se você fizer isso, precisará retrabalhar seu código para se ajustar aos níveis de aninhamento dentro desse limite.
+No momento, o pool SQL não dá suporte a [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Assim, você precisa acompanhar o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento. Mas, se você fizer isso, precisará retrabalhar seu código para se ajustar aos níveis de aninhamento dentro desse limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
@@ -92,7 +92,7 @@ Há alguns aspectos dos procedimentos armazenados Transact-SQL que não são imp
 * parâmetros somente leitura
 * parâmetros padrão
 * contextos de execução
-* instrução return
+* Instrução return
 
 ## <a name="next-steps"></a>Próximas etapas
 

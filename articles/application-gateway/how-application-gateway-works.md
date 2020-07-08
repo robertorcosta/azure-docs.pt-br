@@ -1,69 +1,69 @@
 ---
 title: Como funciona um gateway de aplicativo
-description: Este artigo fornece informações sobre como um gateway de aplicativo aceita solicitações recebidas e as encaminha para o backend.
+description: Este artigo fornece informações sobre como um gateway de aplicativo aceita solicitações de entrada e as roteia para o back-end.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 84a7bdfb9f8f7c741140cbe2086149dff90db211
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85250223"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicativo
 
-Este artigo explica como um gateway de aplicativo aceita solicitações recebidas e as encaminha para o backend.
+Este artigo explica como um gateway de aplicativo aceita solicitações de entrada e as roteia para o back-end.
 
 ![Como um gateway de aplicativo aceita uma solicitação](./media/how-application-gateway-works/how-application-gateway-works.png)
 
 ## <a name="how-an-application-gateway-accepts-a-request"></a>Como um gateway de aplicativo aceita uma solicitação
 
-1. Antes que um cliente envie uma solicitação para um gateway de aplicativo, ele resolve o nome de domínio do gateway de aplicativo usando um servidor DNS (Domain Name System, sistema de nome de domínio). O Azure controla a entrada do DNS porque todos os gateways de aplicativo estão no domínio azure.com.
+1. Antes que um cliente envie uma solicitação para um gateway de aplicativo, ele resolve o nome de domínio do gateway de aplicativo usando um servidor DNS (sistema de nomes de domínio). O Azure controla a entrada DNS porque todos os gateways de aplicativo estão no domínio azure.com.
 
-2. O DNS do Azure retorna o endereço IP para o cliente, que é o endereço IP frontend do gateway de aplicativo.
+2. O DNS do Azure retorna o endereço IP para o cliente, que é o endereço IP de front-end do gateway de aplicativo.
 
-3. O gateway de aplicativo aceita tráfego de entrada em um ou mais ouvintes. Um ouvinte é uma entidade lógica que verifica pedidos de conexão. Ele é configurado com um endereço IP frontend, protocolo e número de porta para conexões de clientes para o gateway de aplicativo.
+3. O gateway de aplicativo aceita o tráfego de entrada em um ou mais ouvintes. Um ouvinte é uma entidade lógica que verifica solicitações de conexão. Ele é configurado com um endereço IP de front-end, um protocolo e um número de porta para conexões de clientes com o gateway de aplicativo.
 
-4. Se um FIREWALL de aplicação web (WAF) estiver em uso, o gateway do aplicativo verifica os cabeçalhos de solicitação e o corpo, se presente, contra as regras do WAF. Esta ação determina se a solicitação é válida ou uma ameaça à segurança. Se a solicitação for válida, ela será encaminhada para o backend. Se a solicitação não for válida e o WAF estiver no modo prevenção, ele será bloqueado como uma ameaça à segurança. Se estiver no modo Detecção, a solicitação é avaliada e registrada, mas ainda assim encaminhada para o servidor backend.
+4. Se um firewall do aplicativo Web (WAF) estiver em uso, o gateway de aplicativo verificará os cabeçalhos de solicitação e o corpo, se estiver presente, em relação às regras de WAF. Essa ação determina se a solicitação é uma solicitação válida ou uma ameaça à segurança. Se a solicitação for válida, ela será roteada para o back-end. Se a solicitação não for válida e WAF estiver no modo de prevenção, ela será bloqueada como uma ameaça à segurança. Se ele estiver no modo de detecção, a solicitação será avaliada e registrada em log, mas ainda será encaminhada para o servidor de back-end.
 
-O Azure Application Gateway pode ser usado como um balanceador de carga de aplicativo interno ou como um balanceador de carga de aplicativo voltado para a Internet. Um gateway de aplicativo voltado para a Internet usa endereços IP públicos. O nome DNS de um gateway de aplicativo voltado para a Internet é publicamente solucionável para seu endereço IP público. Como resultado, os gateways de aplicativos voltados para a Internet podem direcionar as solicitações dos clientes para a internet.
+Aplicativo Azure gateway pode ser usado como um balanceador de carga de aplicativo interno ou como um balanceador de carga de aplicativo voltado para a Internet. Um gateway de aplicativo voltado para a Internet usa endereços IP públicos. O nome DNS de um gateway de aplicativo voltado para a Internet é publicamente resolvível para seu endereço IP público. Como resultado, os gateways de aplicativo voltados para a Internet podem rotear solicitações de cliente para a Internet.
 
-Os gateways internos de aplicativos usam apenas endereços IP privados. Se você estiver usando uma [zona DNS](https://docs.microsoft.com/azure/dns/private-dns-overview)personalizada ou privada, o nome de domínio deve ser resolvido internamente no endereço IP privado do Gateway de aplicativo. Portanto, balanceadores internos de carga só podem direcionar solicitações de clientes com acesso a uma rede virtual para o gateway de aplicativo.
+Os gateways de aplicativo internos usam apenas endereços IP privados. Se você estiver usando uma zona personalizada ou [DNS privado](https://docs.microsoft.com/azure/dns/private-dns-overview), o nome de domínio deverá ser resolvido internamente para o endereço IP privado do gateway de aplicativo. Portanto, os balanceadores de carga internos só podem rotear solicitações de clientes com acesso a uma rede virtual para o gateway de aplicativo.
 
-## <a name="how-an-application-gateway-routes-a-request"></a>Como um gateway de aplicativo encaminha uma solicitação
+## <a name="how-an-application-gateway-routes-a-request"></a>Como um gateway de aplicativo roteia uma solicitação
 
-Se uma solicitação for válida e não for bloqueada pelo WAF, o gateway de aplicativo avaliará a regra de roteamento de solicitação associada ao ouvinte. Esta ação determina para qual pool de backend encaminhará a solicitação.
+Se uma solicitação for válida e não for bloqueada pelo WAF, o gateway de aplicativo avaliará a regra de roteamento de solicitação associada ao ouvinte. Essa ação determina o pool de back-end para o qual rotear a solicitação.
 
-Com base na regra de roteamento de solicitações, o gateway de aplicativo determina se deve encaminhar todas as solicitações no ouvinte para um pool de backend específico, solicitações de rota para diferentes pools de back-end com base no caminho da URL ou redirecionar solicitações para outra porta ou site externo.
+Com base na regra de roteamento de solicitação, o gateway de aplicativo determina se todas as solicitações no ouvinte devem ser roteadas para um pool de back-end específico, rotear solicitações para diferentes pools de back-end com base no caminho da URL ou redirecionar solicitações para outra porta ou site externo.
 >[!NOTE]
->As regras são processadas na ordem em que estão listadas no portal para v1 SKU. 
+>As regras são processadas na ordem em que estão listadas no portal para SKU v1. 
 
-Quando o gateway de aplicativo seleciona o pool de backend, ele envia a solicitação para um dos servidores backend saudáveis no pool (y.y.y.y.y). A saúde do servidor é determinada por uma sonda de saúde. Se o pool de back-end contiver vários servidores, o gateway de aplicativo usará um algoritmo round-robin para encaminhar as solicitações entre servidores saudáveis. Essa carga equilibra as solicitações nos servidores.
+Quando o gateway de aplicativo seleciona o pool de back-end, ele envia a solicitação para um dos servidores de back-end íntegros no pool (y. y. y. y). A integridade do servidor é determinada por uma investigação de integridade. Se o pool de back-end contiver vários servidores, o gateway de aplicativo usará um algoritmo Round Robin para rotear as solicitações entre servidores íntegros. Essa carga equilibra as solicitações nos servidores.
 
-Depois que o gateway de aplicativo determina o servidor backend, ele abre uma nova sessão TCP com o servidor back-end com base nas configurações HTTP. As configurações HTTP especificam as configurações de protocolo, porta e outras configurações relacionadas ao roteamento que são necessárias para estabelecer uma nova sessão com o servidor backend.
+Depois que o gateway de aplicativo determina o servidor back-end, ele abre uma nova sessão TCP com o servidor back-end com base nas configurações de HTTP. As configurações de HTTP especificam o protocolo, a porta e outras configurações relacionadas ao roteamento que são necessárias para estabelecer uma nova sessão com o servidor de back-end.
 
-A porta e o protocolo usados nas configurações HTTP determinam se o tráfego entre o gateway de aplicativo e os servidores back-end é criptografado (realizando assim TLS de ponta a ponta) ou não é criptografado.
+A porta e o protocolo usados nas configurações de HTTP determinam se o tráfego entre o gateway de aplicativo e os servidores de back-end é criptografado (o que realiza o TLS de ponta a ponta) ou não está criptografado.
 
-Quando um gateway de aplicativo envia a solicitação original para o servidor backend, ele honra qualquer configuração personalizada feita nas configurações HTTP relacionadas à substituição do nome do host, do caminho e do protocolo. Essa ação mantém a afinidade de sessão baseada em cookies, a drenagem de conexões, a seleção de nomes de host a partir do backend e assim por diante.
+Quando um gateway de aplicativo envia a solicitação original para o servidor de back-end, ele honra qualquer configuração personalizada feita nas configurações de HTTP relacionadas à substituição do nome do host, caminho e protocolo. Essa ação mantém a afinidade de sessão baseada em cookie, o descarregamento de conexão, a seleção de nome de host do back-end e assim por diante.
 
  >[!NOTE]
->Se a piscina de backend:
-> - **É um ponto final público**, o gateway de aplicativo usa seu IP público frontend para chegar ao servidor. Se não houver um endereço IP público frontend, um deles será atribuído para a conectividade externa de saída.
-> - **Contém um FQDN resoluta internamente ou um endereço IP privado,** o gateway de aplicativo encaminha a solicitação para o servidor backend usando sua instância endereços IP privados.
-> - **Contém um ponto final externo ou um FQDN externamente solucionável,** o gateway de aplicativo encaminha a solicitação para o servidor backend usando seu endereço IP público frontend. A resolução DNS é baseada em uma zona DNS privada ou servidor DNS personalizado, se configurado, ou usa o DNS fornecido pelo Azure padrão. Se não houver um endereço IP público frontend, um deles será atribuído para a conectividade externa de saída.
+>Se o pool de back-end:
+> - **É um ponto de extremidade público**, o gateway de aplicativo usa seu IP público de front-end para acessar o servidor. Se não houver um endereço IP público de front-end, um será atribuído para a conectividade externa de saída.
+> - **Contém um FQDN que possa ser resolvido internamente ou um endereço IP privado**, o gateway de aplicativo roteia a solicitação para o servidor de back-end usando seus endereços IP privados de instância.
+> - **Contém um ponto de extremidade externo ou um FQDN que possa ser resolvido externamente**, o gateway de aplicativo roteia a solicitação para o servidor de back-end usando seu endereço IP público de front-end. A resolução DNS é baseada em uma zona DNS privada ou em um servidor DNS personalizado, se configurada, ou usa o DNS padrão fornecido pelo Azure. Se não houver um endereço IP público de front-end, um será atribuído para a conectividade externa de saída.
 
 ### <a name="modifications-to-the-request"></a>Modificações na solicitação
 
-Um gateway de aplicativo insere quatro cabeçalhos adicionais em todas as solicitações antes de encaminhar as solicitações para o backend. Esses cabeçalhos são x-encaminhados para, x-forwarded-proto, x-forwarded-port e x-original-host. O formato para cabeçalho x-encaminhado para é uma lista separada por comuma de IP:port.
+Um gateway de aplicativo insere quatro cabeçalhos adicionais a todas as solicitações antes de encaminhar as solicitações para o back-end. Esses cabeçalhos são x-forwardd-for, x-forwardd-proto, x-Forwarded-Port e x-original-host. O formato do cabeçalho x-Forwarded-for é uma lista separada por vírgulas de IP: porta.
 
-Os valores válidos para x-forwarded-proto são HTTP ou HTTPS. A porta x-encaminhada especifica a porta onde a solicitação chegou ao gateway do aplicativo. O cabeçalho x-original-host contém o cabeçalho de host original com o qual a solicitação chegou. Este cabeçalho é útil na integração do site do Azure, onde o cabeçalho do host de entrada é modificado antes que o tráfego seja roteado para o backend. Se a afinidade de sessão estiver habilitada como uma opção, ela adicionará um cookie de afinidade gerenciado por gateway.
+Os valores válidos para o proto x-forwardd são HTTP ou HTTPS. X-Forwarded-Port especifica a porta em que a solicitação atingiu o gateway de aplicativo. X-original-o cabeçalho de host contém o cabeçalho de host original com o qual a solicitação chegou. Esse cabeçalho é útil na integração de sites do Azure, em que o cabeçalho de host de entrada é modificado antes de o tráfego ser roteado para o back-end. Se a afinidade de sessão estiver habilitada como uma opção, ela adicionará um cookie de afinidade gerenciada por gateway.
 
-Você pode configurar o gateway de aplicativo para modificar cabeçalhos usando [cabeçalhos HTTP de regravação](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou para modificar o caminho URI usando uma configuração de substituição de caminho. No entanto, a menos que configurado para fazê-lo, todas as solicitações recebidas são proxidas para o backend.
+Você pode configurar o gateway de aplicativo para modificar os cabeçalhos usando os [cabeçalhos HTTP de regravação](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou para modificar o caminho do URI usando uma configuração de substituição de caminho. No entanto, a menos que esteja configurado para fazer isso, todas as solicitações de entrada são coativadas para o back-end.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre os componentes do gateway de aplicativos](application-gateway-components.md)
+[Saiba mais sobre os componentes do gateway de aplicativo](application-gateway-components.md)

@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213339"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Usar Azure Stream Analytics com o Azure Synapse Analytics
 
@@ -102,7 +102,7 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 No portal do Azure para o trabalho de Stream Analytics, clique no nome do trabalho.  Clique no botão ***testar*** no painel ***detalhes de saída*** .
 
-![Botão testar em detalhes](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) do outpout quando a conexão com o banco de dados for realizada com sucesso, você verá uma notificação no Portal.
+![Botão testar em detalhes do outpout ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) quando a conexão com o banco de dados for realizada com sucesso, você verá uma notificação no Portal.
 
 ### <a name="step-6"></a>Etapa 6
 

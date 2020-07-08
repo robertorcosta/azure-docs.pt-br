@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213492"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Otimizando transações no SQL Synapse
 
@@ -85,7 +85,7 @@ Carregar dados em uma tabela não vazia com um índice clusterizado pode, muitas
 
 ## <a name="optimizing-deletes"></a>Otimizando exclusões
 
-DELETE é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente fará mais sentido `SELECT` (selecionar) os dados que deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Depois de criada, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para alternar sua tabela antiga com a recentemente criada.
+DELETE é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente fará mais sentido `SELECT` (selecionar) os dados que deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Uma vez criado, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para trocar a tabela antiga pela tabela criada recentemente.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -407,12 +407,12 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Diretrizes de pausa e dimensionamento
 
-Synapse SQL permite [pausar, retomar e dimensionar](sql-data-warehouse-manage-compute-overview.md) seu pool SQL sob demanda. Ao pausar ou dimensionar seu pool SQL, é importante entender que todas as transações em andamento são encerradas imediatamente; fazendo com que todas as transações abertas sejam revertidas. Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Isso pode afetar o tempo necessário para pausar ou dimensionar o pool do SQL.
+Synapse SQL permite [pausar, retomar e dimensionar](sql-data-warehouse-manage-compute-overview.md) seu pool SQL sob demanda. Quando você pausa ou escala o pool de SQL, deve reconhecer que todas as transações em trânsito serão encerradas imediatamente, fazendo com que qualquer transação aberta seja revertida. Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Esse desfazer pode impactar no tempo necessário para pausar ou escalar seu pool de SQL.
 
 > [!IMPORTANT]
 > As operações `UPDATE` e `DELETE` são totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem demorar significativamente mais do que as operações equivalentes minimamente registradas em log.
 
-O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de pausar ou dimensionar o pool SQL. No entanto, esse cenário nem sempre pode ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
+O melhor cenário é permitir que as transações de modificação de dados em trânsito sejam concluídas antes da pausa ou da escala do pool de SQL. No entanto, esse cenário nem sempre pode ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
 
 * Regenere operações de execução longa usando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Interromper a operação em partes; operando em um subconjunto das linhas

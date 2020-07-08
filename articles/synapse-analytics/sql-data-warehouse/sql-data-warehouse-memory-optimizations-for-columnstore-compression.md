@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2cbe9b94c4698a93b93c032ee4dcb421a78e59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211652"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
 
@@ -90,8 +90,8 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 O máximo de memória necessário para compactar um rowgroup é aproximadamente
 
 - 72 MB +
-- \#linhas \* \#colunas \* 8 bytes +
-- \#linhas \* \#de cadeia de caracteres curta \* -colunas 32 bytes +
+- \#linhas \* \# colunas \* 8 bytes +
+- \#linhas \* \# de cadeia de caracteres curta-colunas \* 32 bytes +
 - \#colunas de cadeia de caracteres longa \* 16 MB para o dicionário de compactação
 
 > [!NOTE]

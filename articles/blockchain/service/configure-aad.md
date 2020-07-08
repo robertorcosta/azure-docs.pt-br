@@ -2,14 +2,14 @@
 title: Configurar o acesso Azure Active Directory-serviço Blockchain do Azure
 description: Como configurar o serviço Blockchain do Azure com acesso Azure Active Directory
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74455855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208766"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Como configurar o acesso de Azure Active Directory para o serviço Blockchain do Azure
 
@@ -41,7 +41,7 @@ Para conceder permissão de acesso no nível de membro.
 
     ![Adicionar atribuição de função](./media/configure-aad/add-role-assignment.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="grant-node-level-access"></a>Conceder acesso ao nível do nó
 
@@ -63,7 +63,7 @@ O seguir a seção de início rápido no **Leiame** para criar o conector do có
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Conectar-se usando uma conta de usuário do Azure AD
 
-1. Execute o comando a seguir para autenticar usando uma conta de usuário do Azure AD. Substitua \<myAADDirectory\> por um domínio do Azure AD. Por exemplo, `yourdomain.onmicrosoft.com`.
+1. Execute o comando a seguir para autenticar usando uma conta de usuário do Azure AD. Substituir \<myAADDirectory\> por um domínio do Azure AD. Por exemplo, `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Para obter mais informações sobre como registrar um aplicativo no Azure AD, co
 
 Para um dispositivo móvel ou navegador baseado em texto em que a exibição pop-up de autenticação do Azure AD não é possível, o Azure AD gera uma senha de uso único. Você pode copiar a senha e prosseguir com a autenticação do Azure AD em outro ambiente.
 
-Para gerar a senha, substitua **aadauthcode** por **aaddevice**. Substitua \<myAADDirectory\> por um domínio do Azure AD. Por exemplo, `yourdomain.onmicrosoft.com`.
+Para gerar a senha, substitua **aadauthcode** por **aaddevice**. Substituir \<myAADDirectory\> por um domínio do Azure AD. Por exemplo, `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

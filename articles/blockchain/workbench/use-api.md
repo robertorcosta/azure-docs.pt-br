@@ -2,14 +2,14 @@
 title: Usando as APIs REST do Azure Blockchain Workbench
 description: Cenários de como usar a API REST de visualização do Azure Blockchain Workbench
 ms.date: 03/05/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 3084fcf343bc42fe01bf352b6791916d62f63540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c96e45c8bcc9834df7ef2a0b2a59f53fd8315cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210055"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Usando a API REST de visualização do Azure Blockchain Workbench
 
@@ -36,7 +36,7 @@ Para fazer uma solicitação autenticada para as APIs REST, o código do cliente
 
 Consulte [exemplos de API REST](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples) para obter exemplos de como autenticar.
 
-## <a name="using-postman"></a>Usando Postman
+## <a name="using-postman"></a>Uso do Postman
 
 Se você quiser testar ou experimentar as APIs do Workbench, poderá usar o [postmaster](https://www.postman.com) para fazer chamadas à API para sua implantação. [Baixe uma coleção do postmaster de exemplo das solicitações da API do Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples/postman) do github. Consulte o arquivo LEIAme para obter detalhes sobre como autenticar e usar as solicitações de API de exemplo.
 

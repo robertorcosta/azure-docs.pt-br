@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 14c3dde4a86e36a4015a319e608ab8543302932f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213560"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para data warehousing
 
@@ -62,5 +62,5 @@ Neste momento, você tem um ambiente simples no qual qualquer check-in em seu br
 
 - Explore a [arquitetura MPP do pool SQL do Synapse](massively-parallel-processing-mpp-architecture.md)
 - [Criar rapidamente um pool de SQL](create-data-warehouse-portal.md)
-- [Carregar dados de exemplo](load-data-from-azure-blob-storage-using-polybase.md)
+- [Carregar dados de amostra](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore os [Vídeos](sql-data-warehouse-videos.md)

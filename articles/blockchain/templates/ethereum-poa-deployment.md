@@ -1,15 +1,15 @@
 ---
 title: Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 description: Usar a solução do consórcio de prova de autoridade do Ethereum para implantar e configurar uma rede Ethereum do consórcio de vários membros no Azure
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75387392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210109"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 
@@ -76,7 +76,7 @@ As próximas seções mostram como configurar a superfície do primeiro membro n
 
 Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** no canto superior esquerdo.
 
-Selecione **Blockchain** > **Ethereum reprovação de autoridade do consórcio (versão prévia)**.
+Selecione **Blockchain**  >  **Ethereum reprovação de autoridade do consórcio (versão prévia)**.
 
 ### <a name="basics"></a>Noções básicas
 
@@ -86,14 +86,14 @@ Em **noções básicas**, especifique valores para parâmetros padrão para qual
 
 Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
-Criar uma nova rede ou ingressar na rede existente | Você pode criar uma nova rede Consortium ou ingressar em uma rede consórcio pré-existente. Ingressar em uma rede existente requer parâmetros adicionais. | Criar Novo
+Criar uma nova rede ou ingressar na rede existente | Você pode criar uma nova rede Consortium ou ingressar em uma rede consórcio pré-existente. Ingressar em uma rede existente requer parâmetros adicionais. | Create new
 Endereço de Email | Você receberá uma notificação por email quando sua implantação for concluída com informações sobre sua implantação. | Um endereço de email válido
 Nome de usuário da VM | Nome de usuário de administrador de cada VM implantada | 1-64 caracteres alfanuméricos
 Tipo de autenticação | O método para autenticar para a máquina virtual. | Senha
 Senha | A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. Todas as VMs têm inicialmente a mesma senha. Você pode alterar a senha após o provisionamento. | 12 a 72 caracteres 
 Subscription | A assinatura para a qual deseja implantar a rede consortium |
 Grupo de recursos| O grupo de recursos para o qual implantar a rede do consórcio. | myResourceGroup
-Local | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
+Location | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
 
 Selecione **OK**.
 
@@ -161,8 +161,8 @@ O monitoramento permite que você configure um recurso de log para sua rede. O a
 Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Monitoramento | Opção para habilitar o monitoramento | Habilitar
-Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Criar Novo
-Local | A região em que a nova instância é implantada | Leste dos EUA
+Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Create new
+Location | A região em que a nova instância é implantada | Leste dos EUA
 ID do espaço de trabalho do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|ID do espaço de trabalho da instância existente de logs de Azure Monitor||NA
 Chave primária do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|A chave primária usada para se conectar à instância existente de logs de Azure Monitor||NA
 
@@ -281,7 +281,7 @@ A seleção de **Estatísticas de rede** mostra as estatísticas de rede Ethereu
 
 ![Estatísticas de rede](./media/ethereum-poa-deployment/network-stats.png)
 
-### <a name="sample-kusto-queries"></a>Consultas Kusto de exemplo
+### <a name="sample-kusto-queries"></a>Consultas de exemplo do Kusto
 
 Você pode consultar os logs de monitoramento para investigar falhas ou configurar alertas de limite. As consultas a seguir são exemplos que podem ser executados na ferramenta de *pesquisa de logs* :
 
@@ -325,7 +325,7 @@ Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segu
 
     ![habilitar permissão ssh](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
-1. Clique em **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
+1. Selecione **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
 
 Você pode se conectar remotamente às máquinas virtuais para os nós de validador via SSH com o nome de usuário do administrador fornecido e a chave de senha/SSH. O comando SSH para acessar o primeiro nó do validador é listado na saída de implantação do modelo. Por exemplo:
 
@@ -335,7 +335,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Para obter os nós de transação adicionais, aumente o número da porta em um.
 
-Se você implantou em mais de uma região, altere o comando para o nome DNS ou endereço IP do balanceador de carga nessa região. Para localizar o nome DNS ou o endereço IP das outras regiões, localize o recurso com a Convenção ** \* \* \* \* \*de nomenclatura-lbpip-\# reg** e exiba seu nome DNS e suas propriedades de endereço IP.
+Se você implantou em mais de uma região, altere o comando para o nome DNS ou endereço IP do balanceador de carga nessa região. Para localizar o nome DNS ou o endereço IP das outras regiões, localize o recurso com a Convenção de nomenclatura ** \* \* \* \* \* -lbpip- \# reg** e exiba seu nome DNS e suas propriedades de endereço IP.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Balanceamento de carga do Gerenciador de Tráfego
 
@@ -558,7 +558,7 @@ No exemplo a seguir, você cria um contrato inteligente simples. Você usa o Tru
 #### <a name="prerequisites"></a>Pré-requisitos
 
 * Instale o [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). O Python é necessário para Truffle e Web3. Selecione a opção instalar para incluir o Python em seu caminho.
-* Instale o Truffle v `npm install -g truffle@v5.0.5`5.0.5. O Truffle exige a instalação de várias ferramentas, incluindo [Node.js](https://nodejs.org) e [Git](https://git-scm.com/). Para obter mais informações, consulte a [documentação do Truffle](https://github.com/trufflesuite/truffle).
+* Instale o Truffle v 5.0.5 `npm install -g truffle@v5.0.5` . O Truffle exige a instalação de várias ferramentas, incluindo [Node.js](https://nodejs.org) e [Git](https://git-scm.com/). Para obter mais informações, consulte a [documentação do Truffle](https://github.com/trufflesuite/truffle).
 
 ### <a name="create-truffle-project"></a>Criar um projeto do Truffle
 
@@ -566,8 +566,8 @@ Para poder compilar e implantar um contrato inteligente, você precisa criar um 
 
 1. Abra um prompt de comando ou shell.
 1. Crie uma pasta chamada `HelloWorld`.
-1. Altere o diretório para a `HelloWorld` nova pasta.
-1. Inicialize um novo projeto Truffle usando o comando `truffle init`.
+1. Altere o diretório para a nova `HelloWorld` pasta.
+1. Inicialize um novo projeto Truffle usando o comando `truffle init` .
 
     ![Criar um novo projeto Truffle](./media/ethereum-poa-deployment/create-truffle-project.png)
 
@@ -623,11 +623,11 @@ Os projetos Truffle contêm um arquivo de configuração para os detalhes de con
     };
     ```
 
-1. Como estamos usando o provedor de carteira de HD Truffle, instale o módulo em seu projeto usando o `npm install truffle-hdwallet-provider --save`comando.
+1. Como estamos usando o provedor de carteira de HD Truffle, instale o módulo em seu projeto usando o comando `npm install truffle-hdwallet-provider --save` .
 
 O Truffle usa scripts de migração para implantar contratos inteligentes em uma rede blockchain. Você precisa de um script de migração para implantar seu novo contrato inteligente.
 
-1. Adicione uma nova migração para implantar o novo contrato. Crie um `2_deploy_contracts.js` arquivo no subdiretório de **migrações** do projeto Truffle.
+1. Adicione uma nova migração para implantar o novo contrato. Crie um arquivo `2_deploy_contracts.js` no subdiretório de **migrações** do projeto Truffle.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -647,8 +647,8 @@ O Truffle usa scripts de migração para implantar contratos inteligentes em uma
 
 Agora que o seu contrato inteligente está implantado, você pode enviar uma transação para chamar uma função.
 
-1. No diretório do projeto Truffle, crie um novo arquivo chamado `sendtransaction.js`.
-1. Adicione o conteúdo a seguir a **sendtransaction. js**.
+1. No diretório do projeto Truffle, crie um novo arquivo chamado `sendtransaction.js` .
+1. Adicione o conteúdo a seguir a **sendtransaction.js**.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -718,6 +718,20 @@ A taxa de transferência de transação será altamente dependente dos tipos de 
 ### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Como assinar eventos do contrato inteligente?
 
 Agora, a prova de autoridade do Ethereum dá suporte a soquetes da Web.  Verifique a saída da implantação para localizar a URL e a porta do soquete da Web.
+
+## <a name="support-and-feedback"></a>Suporte e comentários
+
+Para novidades do Azure Blockchain, acesse o [blog do Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) para se manter atualizado sobre as ofertas de serviço de blockchain e informações da equipe de engenharia do Azure Blockchain.
+
+Para fornecer comentários sobre o produto ou solicitar novos recursos, poste um vote em uma ideia usando o [fórum de comentários do Azure para blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Suporte da comunidade
+
+converse com engenheiros da Microsoft e com os especialistas da comunidade do Azure Blockchain.
+
+* O [Microsoft Q&uma página de perguntas para o serviço Blockchain do Azure](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain é limitado a problemas de implantação.
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Próximas etapas
 

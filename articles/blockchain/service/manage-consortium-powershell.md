@@ -2,14 +2,14 @@
 title: Gerenciar membros do Azure Blockchain Service Consortium-PowerShell
 description: Saiba como gerenciar membros do Azure Blockchain Service Consortium usando Azure PowerShell.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: zeyadr
-ms.openlocfilehash: e819dd39481b58d446384a5e2253c548ce0c267c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77505990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211333"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Gerenciar membros do Consortium no serviço Blockchain do Azure usando o PowerShell
 
@@ -55,7 +55,7 @@ $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account addr
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
 ```
 
-Substitua * \<a senha\> da conta de membro* pela senha da conta de membro que você usou quando criou o membro.
+Substitua *\<Member account password\>* pela senha da conta de membro que você usou quando criou o membro.
 
 Localize os outros valores no portal do Azure:
 
@@ -64,14 +64,14 @@ Localize os outros valores no portal do Azure:
 
     ![Visão geral do membro](./media/manage-consortium-powershell/member-overview.png)
 
-    Substitua * \<conta\> de membro* e * \<endereço\> RootContract* pelos valores do Portal.
+    Substitua *\<Member account\>* e *\<RootContract address\>* pelos valores do Portal.
 
 1. Para o endereço do ponto de extremidade, selecione **nós de transação**e, em seguida, selecione o **nó de transação padrão**. O nó padrão tem o mesmo nome que o membro blockchain.
-1. Selecione **cadeias de conexão**.
+1. Selecione **Cadeias de conexão**.
 
     ![Cadeias de conexão](./media/manage-consortium-powershell/connection-strings.png)
 
-    Substitua * \<endereço\> do ponto de extremidade* pelo valor de **https (tecla de acesso 1)** ou **https (chave de acesso 2)**.
+    Substitua *\<Endpoint address\>* pelo valor de **https (tecla de acesso 1)** ou **https (chave de acesso 2)**.
 
 ## <a name="manage-the-network-and-smart-contracts"></a>Gerenciar a rede e os contratos inteligentes
 
@@ -139,7 +139,7 @@ Use este cmdlet para obter detalhes do membro ou membros da lista do consórcio.
 
 | Parâmetro | Descrição | Obrigatório |
 |-----------|-------------|:--------:|
-| Name | O nome do membro do serviço Blockchain para o qual você deseja recuperar detalhes. Quando um nome é inserido, ele retorna os detalhes do membro. Quando um nome é omitido, ele retorna uma lista de todos os membros do consórcio. | Não |
+| Nome | O nome do membro do serviço Blockchain para o qual você deseja recuperar detalhes. Quando um nome é inserido, ele retorna os detalhes do membro. Quando um nome é omitido, ele retorna uma lista de todos os membros do consórcio. | Não |
 | Membros | Objeto Members obtido de Import-ConsortiumManagementContracts | Sim |
 | Web3Client | Objeto Web3Client obtido de New-Web3Connection | Sim |
 
@@ -170,7 +170,7 @@ Use este cmdlet para remover um membro blockchain.
 
 | Parâmetro | Descrição | Obrigatório |
 |-----------|-------------|:--------:|
-| Name | Nome do membro a ser removido | Sim |
+| Nome | Nome do membro a ser removido | Sim |
 | Membros | Objeto Members obtido de Import-ConsortiumManagementContracts | Sim |
 | Web3Account | Objeto Web3Account obtido de Import-Web3Account | Sim |
 | Web3Client | Objeto Web3Client obtido de New-Web3Connection | Sim |
@@ -196,7 +196,7 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 
 | Parâmetro | Descrição | Obrigatório |
 |-----------|-------------|:--------:|
-| Name | Nome do membro blockchain | Sim |
+| Nome | Nome do membro blockchain | Sim |
 | DisplayName | Novo nome de exibição | Não |
 | AccountAddress | Endereço da conta | Não |
 | Membros | Objeto Members obtido de Import-ConsortiumManagementContracts | Sim |

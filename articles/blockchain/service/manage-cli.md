@@ -2,22 +2,22 @@
 title: Gerenciar o serviço Blockchain do Azure usando o CLI do Azure
 description: Como gerenciar o serviço Blockchain do Azure com o CLI do Azure
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc00bedee5ff55033a1d65c6d5d6bfa766f0f01e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74455590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208154"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gerenciar o serviço Blockchain do Azure usando o CLI do Azure
 
 Além do portal do Azure, você pode usar CLI do Azure para gerenciar Membros blockchain e nós de transação para o serviço Blockchain do Azure.
 
-Verifique se você instalou o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) mais recente e fez logon em uma conta do Azure no com `az login`o.
+Verifique se você instalou o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) mais recente e fez logon em uma conta do Azure no com o `az login` .
 
-Nos exemplos a seguir, substitua o `<parameter names>` exemplo pelos seus próprios valores.
+Nos exemplos a seguir, substitua `<parameter names>` o exemplo pelos seus próprios valores.
 
 ## <a name="create-blockchain-member"></a>Criar membro blockchain
 
@@ -37,7 +37,7 @@ az resource create \
 | **resource-group** | Nome do grupo de recursos no qual os recursos do serviço Azure Blockchain são criados. |
 | **name** | Um nome exclusivo que identifica o membro do blockchain do serviço Azure Blockchain. O nome é usado para o endereço do ponto de extremidade público. Por exemplo, `myblockchainmember.blockchain.azure.com`. |
 | **local** | Região do Azure em que o membro do blockchain é criado. Por exemplo, `eastus`. Escolha o local mais próximo para os usuários ou para outros aplicativos do Azure. |
-| **password** | A senha da conta de membro. A senha da conta de membro é usada para autenticação no ponto de extremidade público do membro do blockchain usando a autenticação básica. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo (\`), aspas duplas ("), aspas simples ('), hífen (-) e semicolumn (;)|
+| **password** | A senha da conta de membro. A senha da conta de membro é usada para autenticação no ponto de extremidade público do membro do blockchain usando a autenticação básica. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo ( \` ), aspas duplas ("), aspas simples ('), hífen (-) e semicolumn (;)|
 | **protocol** | A visualização pública dá suporte ao Quorum. |
 | **consortium** | Nome do consórcio a ser ingressado ou criado. |
 | **consortiumManagementAccountPassword** | A senha de gerenciamento do consórcio. A senha é usada para ingressar em um consórcio. |
@@ -63,7 +63,7 @@ az resource update \
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos no qual os recursos do serviço Azure Blockchain são criados. |
 | **name** | Nome que identifica o membro do serviço Blockchain do Azure. |
-| **password** | A senha da conta de membro. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo (\`), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
+| **password** | A senha da conta de membro. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo ( \` ), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
 
 ## <a name="create-transaction-node"></a>Criar nó de transação
 
@@ -83,7 +83,7 @@ az resource create \
 | **resource-group** | Nome do grupo de recursos no qual os recursos do serviço Azure Blockchain são criados. |
 | **name** | Nome do membro Blockchain do serviço Blockchain do Azure que também inclui o novo nome do nó de transação. |
 | **local** | Região do Azure em que o membro do blockchain é criado. Por exemplo, `eastus`. Escolha o local mais próximo para os usuários ou para outros aplicativos do Azure. |
-| **password** | A senha do nó da transação. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo (\`), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
+| **password** | A senha do nó da transação. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo ( \` ), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
 | **ruleName** | Nome da regra para a lista de permissões de um intervalo de endereços IP. Parâmetro opcional para regras de firewall. |
 | **startIpAddress** | Início do intervalo de endereços IP para a lista de permissões. Parâmetro opcional para regras de firewall. |
 | **endIpAddress** | Fim do intervalo de endereços IP para a lista de permissões. Parâmetro opcional para regras de firewall.|
@@ -104,7 +104,7 @@ az resource update \
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos no qual os recursos do serviço Blockchain do Azure existem. |
 | **name** | Nome do membro Blockchain do serviço Blockchain do Azure que também inclui o novo nome do nó de transação. |
-| **password** | A senha do nó da transação. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo (\`), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
+| **password** | A senha do nó da transação. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo ( \` ), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
 
 ## <a name="change-consortium-management-account-password"></a>Alterar senha da conta de gerenciamento do consórcio
 
@@ -123,7 +123,7 @@ az resource update \
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos no qual os recursos do serviço Azure Blockchain são criados. |
 | **name** | Nome que identifica o membro do serviço Blockchain do Azure. |
-| **consortiumManagementAccountPassword** | A senha da conta de gerenciamento do consórcio. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo (\`), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
+| **consortiumManagementAccountPassword** | A senha da conta de gerenciamento do consórcio. A senha deve atender a três dos quatro requisitos a seguir: o comprimento deve ter entre 12 & 72 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial que não seja um sinal numérico (#), porcentagem (%), vírgula (,), estrela (*), aspas de fundo ( \` ), aspas duplas ("), aspas simples ('), hífen (-) e ponto e vírgula (;). |
   
 ## <a name="update-firewall-rules"></a>Atualizar regras de firewall
 
@@ -178,7 +178,7 @@ az resource invoke-action \
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos no qual os recursos do serviço Blockchain do Azure existem. |
 | **name** | Nome do membro Blockchain do serviço Blockchain do Azure que também inclui o novo nome do nó de transação. |
-| **keyName** | Substitua \<KeyValue\> por key1 ou Key2. |
+| **keyName** | Substituir \<keyValue\> por key1 ou Key2. |
 
 ## <a name="delete-a-transaction-node"></a>Excluir um nó de transação
 
@@ -227,7 +227,7 @@ az role assignment create \
 |---------|-------------|
 | **role** | Nome da função do Azure AD. |
 | **assignee** | ID de usuário do Azure AD. Por exemplo, `user@contoso.com` |
-| **scope** | Escopo da atribuição de função. Pode ser um membro blockchain ou um nó de transação. |
+| **escopo** | Escopo da atribuição de função. Pode ser um membro blockchain ou um nó de transação. |
 
 **Exemplo:**
 
@@ -263,7 +263,7 @@ az role assignment create \
 |---------|-------------|
 | **role** | Nome da função do Azure AD. |
 | **ID do objeto de atribuição** | ID do grupo ou ID do aplicativo do Azure AD. |
-| **scope** | Escopo da atribuição de função. Pode ser um membro blockchain ou um nó de transação. |
+| **escopo** | Escopo da atribuição de função. Pode ser um membro blockchain ou um nó de transação. |
 
 **Exemplo:**
 
@@ -289,7 +289,7 @@ az role assignment delete \
 |---------|-------------|
 | **role** | Nome da função do Azure AD. |
 | **assignee** | ID de usuário do Azure AD. Por exemplo, `user@contoso.com` |
-| **scope** | Escopo da atribuição de função. Pode ser um membro blockchain ou um nó de transação. |
+| **escopo** | Escopo da atribuição de função. Pode ser um membro blockchain ou um nó de transação. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

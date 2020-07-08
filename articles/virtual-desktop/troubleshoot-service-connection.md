@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 05/20/2020
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 56a31caeefb3589527fdbbac118fa3a544a0d1a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208886"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço da Área de Trabalho Virtual do Windows
 
@@ -33,15 +33,17 @@ Forneça comentários e troque informações sobre o Serviço da Área de Trabal
 
 Um usuário consegue iniciar clientes da Área de Trabalho Remota e se autenticar, mas não vê nenhum ícone no feed de descoberta da Web.
 
-Confirme se o usuário que está informando os problemas foi atribuído a grupos de aplicativos por meio desta linha de comando:
+1. Confirme se o usuário que está informando os problemas foi atribuído a grupos de aplicativos por meio desta linha de comando:
 
-```PowerShell
-Get-AzRoleAssignment -SignInName <userupn>
-```
+     ```powershell
+     Get-AzRoleAssignment -SignInName <userupn>
+     ```
 
-Confirme se o usuário está entrando com as credenciais corretas.
+2. Confirme se o usuário está entrando com as credenciais corretas.
 
-Se o cliente Web estiver sendo usado, confirme se não há problemas de credenciais em cache.
+3. Se o cliente Web estiver sendo usado, confirme se não há problemas de credenciais em cache.
+
+4. Se o usuário fizer parte de um grupo de usuários Azure Active Directory (AD), verifique se o grupo de usuários é um grupo de segurança em vez de um grupo de distribuição. A área de trabalho virtual do Windows não dá suporte a grupos de distribuição do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -49,4 +51,4 @@ Se o cliente Web estiver sendo usado, confirme se não há problemas de credenci
 - Para solucionar problemas ao criar um ambiente de Área de Trabalho Virtual do Windows e pool de host em um ambiente da Área de Trabalho Virtual do Windows, consulte [Criação de ambiente e pool de host](troubleshoot-set-up-issues.md).
 - Veja como solucionar problemas ao configurar uma VM (máquina virtual) na Área de Trabalho Virtual do Windows em [Configuração da máquina virtual do host da sessão](troubleshoot-vm-configuration.md).
 - Veja como solucionar problemas ao usar o PowerShell com a Área de Trabalho Virtual do Windows em [PowerShell da Área de Trabalho Virtual do Windows](troubleshoot-powershell.md).
-- Para percorrer um tutorial de solução de problemas, confira [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Acompanhe um tutorial de solução de problemas em [Tutorial: Solucionar problemas de implantações de modelos do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

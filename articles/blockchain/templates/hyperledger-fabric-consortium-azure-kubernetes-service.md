@@ -1,15 +1,15 @@
 ---
 title: O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 description: Como implantar e configurar a rede do consórcio do Fabric do Microsoft Azure no serviço kubernetes
-ms.date: 01/08/2020
-ms.topic: article
-ms.reviewer: v-umha
-ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/04/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209701"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 
@@ -368,7 +368,7 @@ No aplicativo de cliente de mesmo nível, execute o comando abaixo para criar um
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
-Passe o nome da função de instanciação e a lista de `<instantiateFunc>` argumentos `<instantiateFuncArgs>` separados por espaço em e, respectivamente. Por exemplo, em chaincode_example02. go chaincode, para instanciar o chaincode `<instantiateFunc>` definido `init`como `<instantiateFuncArgs>` e para "a" "2000" "b" "1000".
+Passe o nome da função de instanciação e a lista de argumentos separados por espaço em `<instantiateFunc>` e, `<instantiateFuncArgs>` respectivamente. Por exemplo, em chaincode_example02. go chaincode, para instanciar o chaincode definido `<instantiateFunc>` como `init` e `<instantiateFuncArgs>` para "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Execute o comando de uma vez em qualquer organização de mesmo nível no canal. Depois que a transação for enviada com êxito para o solicitante, o solicitante distribuirá essa transação para todas as organizações pares no canal. Portanto, o chaincode é instanciado em todos os nós de mesmo nível em todas as organizações pares no canal.  
@@ -382,7 +382,7 @@ Em cliente da organização par, execute o comando abaixo para invocar a funçã
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Passe chamar o nome da função e a lista de argumentos `<invokeFunction>` separados `<invokeFuncArgs>` por espaço em e, respectivamente. Continuando com o exemplo de chaincode_example02. go chaincode, para executar a `<invokeFunction>` operação `invoke` Invoke `<invokeFuncArgs>` definida como e como "a" "b" "10".  
+Passe chamar o nome da função e a lista de argumentos separados por espaço em  `<invokeFunction>`   e,  `<invokeFuncArgs>`   respectivamente. Continuando com o exemplo de chaincode_example02. go chaincode, para executar a operação Invoke definida  `<invokeFunction>`   como  `invoke`   e  `<invokeFuncArgs>`   como "a" "b" "10".  
 
 >[!NOTE]
 > Execute o comando de uma vez em qualquer organização de mesmo nível no canal. Depois que a transação for enviada com êxito para o solicitante, o solicitante distribuirá essa transação para todas as organizações pares no canal. Portanto, o estado mundial é atualizado em todos os nós pares de todas as organizações pares no canal.  
@@ -395,7 +395,7 @@ Execute o comando abaixo para consultar o chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
 ```
-Passe o nome da função de consulta e a lista de `<queryFunction>` argumentos `<queryFuncArgs>` separados por espaço em e, respectivamente. Novamente, levando chaincode_example02. go chaincode como referência, para consultar o valor de "a" no estado do mundo `<queryFunction>` definido `query` como `<queryArgs>` e como "a".  
+Passe o nome da função de consulta e a lista de argumentos separados por espaço em  `<queryFunction>`   e,  `<queryFuncArgs>`   respectivamente. Novamente, levando chaincode_example02. go chaincode como referência, para consultar o valor de "a" no estado do mundo definido  `<queryFunction>`   como  `query` e  `<queryArgs>` como "a".  
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -418,3 +418,17 @@ SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```
+
+## <a name="support-and-feedback"></a>Suporte e comentários
+
+Para novidades do Azure Blockchain, acesse o [blog do Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) para se manter atualizado sobre as ofertas de serviço de blockchain e informações da equipe de engenharia do Azure Blockchain.
+
+Para fornecer comentários sobre o produto ou solicitar novos recursos, poste um vote em uma ideia usando o [fórum de comentários do Azure para blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Suporte da comunidade
+
+converse com engenheiros da Microsoft e com os especialistas da comunidade do Azure Blockchain.
+
+- O [Microsoft Q&uma página de perguntas para o serviço Blockchain do Azure](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain é limitado a problemas de implantação.
+- [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

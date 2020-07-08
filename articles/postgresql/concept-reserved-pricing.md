@@ -5,22 +5,22 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/02/2020
-ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 06/16/2020
+ms.openlocfilehash: 9c5d6359ce0e79fce2e80911ff78d19cc88162b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208698"
 ---
-# <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL recursos de computação com capacidade reservada
+# <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL-recursos de computação de servidor único com capacidade reservada
 
 O banco de dados do Azure para PostgreSQL agora ajuda você a economizar dinheiro prestando por recursos de computação em comparação com os preços pagos conforme o uso. Com a capacidade reservada do banco de dados do Azure para PostgreSQL, você faz um compromisso antecipado no servidor PostgreSQL por um período de um ou três anos para obter um desconto significativo nos custos de computação. Para comprar a capacidade reservada do banco de dados do Azure para PostgreSQL, você precisa especificar a região do Azure, o tipo de implantação, o nível de desempenho e o termo. </br>
 
-Você não precisa atribuir a reserva a servidores do banco de dados do Azure específicos para PostgreSQL. Um banco de dados do Azure já em execução para PostgreSQL ou os que foram implantados recentemente obterá automaticamente o benefício do preço reservado. Ao comprar uma reserva, você está pagando antecipadamente os custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação do banco de dados do Azure para PostgreSQL que correspondam aos atributos de reserva não serão cobrados com as tarifas pagas conforme o uso. Uma reserva não abrange os encargos de software, rede ou armazenamento associados aos servidores de banco de dados PostgreSQL. No final do prazo de reserva, o benefício de cobrança expira e o banco de dados do Azure para PostgreSQL são cobrados pelo preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
+Você não precisa atribuir a reserva a servidores do banco de dados do Azure específicos para PostgreSQL. Um banco de dados do Azure já em execução para PostgreSQL (ou aqueles que foram implantados recentemente) obterá automaticamente o benefício do preço reservado. Ao comprar uma reserva, você está pagando pelos custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação do banco de dados do Azure para PostgreSQL que correspondam aos atributos de reserva não serão cobrados com as tarifas pagas conforme o uso. Uma reserva não abrange os encargos de software, rede ou armazenamento associados aos servidores de banco de dados PostgreSQL. No final do prazo de reserva, o benefício de cobrança expira e o banco de dados do Azure para PostgreSQL são cobrados pelo preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> O preço da capacidade reservada só está disponível para a implantação de [servidor único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) do banco de dados do Azure para PostgreSQL e não para a implantação de [Citus de hiperescala](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) .
+> O preço da capacidade reservada está disponível para o banco de dados do Azure para PostgreSQL em opções de implantação de Citus de [servidor único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) e de [hiperescala](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) . Para obter informações sobre os preços de RI em hiperescala (Citus), consulte [esta página](concepts-hyperscale-reserved-pricing.md).
 
 Você pode comprar a capacidade reservada do banco de dados do Azure para PostgreSQL no [portal do Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada:
 
@@ -35,13 +35,13 @@ Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso sã
 
 O tamanho da reserva deve ser baseado na quantidade total de computação usada pelos servidores existentes ou em breve para serem implantados em uma região específica e usando o mesmo nível de desempenho e geração de hardware.</br>
 
-Por exemplo, vamos supor que você esteja executando uma finalidade geral, o banco de dados PostgreSQL de Gen5 – 32 vCore e dois bancos de dados com otimização de memória, Gen5 – 16 vCores PostgreSQL. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – servidor de banco de dados vCore de 32 e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
+Por exemplo, suponhamos que você esteja executando um banco de dados PostgreSQL de uso geral Gen5 – 32 vCore de Gen5 e dois bancos de dados PostgreSQL com otimização de memória – 16. Além disso, vamos pretender que você planeja implantar no próximo mês um servidor de banco de dados vCore Gen5 – 32 de uso geral e um servidor de banco de dados de Gen5 com otimização de memória – 16 do vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos um ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de um ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) vCore de um ano para a memória de banco de dados individual otimizada-Gen5
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Comprar a capacidade reservada do banco de dados do Azure para PostgreSQL
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione **todas as** > **reservas**de serviços.
+2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **banco de dados do Azure para PostgreSQL** para comprar uma nova reserva para seus bancos de dados PostgreSQL.
 4. Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de seus servidores do banco de dados do Azure para PostgreSQL que obtém o desconto depende do escopo e da quantidade selecionada.
 
@@ -63,20 +63,19 @@ A tabela a seguir descreve os campos obrigatórios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidade de tamanho do vCore
 
 A flexibilidade de tamanho do vCore ajuda você a aumentar ou diminuir dentro de uma região e nível de desempenho sem perder o benefício de capacidade reservada. 
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O desconto de reserva vCore é aplicado automaticamente ao número de servidores do banco de dados do Azure para PostgreSQL que correspondem ao banco de dados do Azure para os atributos e escopo de reserva de capacidade reservada do PostgreSQL. Você pode atualizar o escopo do banco de dados do Azure para PostgreSQL reserva de capacidade reservada por meio de portal do Azure, PowerShell, CLI ou por meio da API. </br></br>
-Para saber como gerenciar a capacidade reservada do banco de dados do Azure para PostgreSQL, veja gerenciar a capacidade reservada do banco de dados do Azure para PostgreSQL.
+O desconto de reserva vCore é aplicado automaticamente ao número de servidores do banco de dados do Azure para PostgreSQL que correspondem ao banco de dados do Azure para os atributos e escopo de reserva de capacidade reservada do PostgreSQL. Você pode atualizar o escopo do banco de dados do Azure para PostgreSQL reserva de capacidade reservada por meio de portal do Azure, PowerShell, CLI ou por meio da API.
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 

@@ -4,26 +4,26 @@ description: Como gerenciar grupos de aplicativos de área de trabalho virtual d
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 531c7a819bf83edff2756fe1e62859bcb8fef459
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c286a3795cc7cb4c1925ff06b3da19952e7f0b43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209327"
 ---
 # <a name="manage-app-groups-using-powershell"></a>Gerenciar grupos de aplicativos usando o PowerShell
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-O grupo de aplicativos padrão criado para um novo pool de hosts da Área de Trabalho Virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos de menu **Iniciar** individuais.
+O grupo de aplicativos padrão criado para um novo pool de hosts da Área de Trabalho Virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos individuais do menu **Iniciar**.
 
 Neste tutorial, você aprenderá a:
 
@@ -51,46 +51,46 @@ Para criar um grupo do RemoteApp com o PowerShell:
    Get-AzWvdApplicationGroup -Name <appgroupname> -ResourceGroupName <resourcegroupname>
    ```
 
-3. Execute o cmdlet a seguir para obter uma lista de aplicativos do menu **Iniciar** na imagem da máquina virtual do pool de hosts. Anote os valores de **FilePath**, **IconPath**, **IconIndex** e outras informações importantes do aplicativo que você deseja publicar.
+3. Execute o cmdlet a seguir para obter uma lista de aplicativos do menu **Iniciar** na imagem de máquina virtual do pool de hosts. Anote os valores de **FilePath**, **IconPath**, **IconIndex** e outras informações importantes do aplicativo que você deseja publicar.
 
    ```powershell
-   Get-AzWvdStartMenuItem -ApplicationGroupName <appgroupname> -ResourceGroupName <resourcegroupname> | Format-List | more 
+   Get-AzWvdStartMenuItem -ApplicationGroupName <appgroupname> -ResourceGroupName <resourcegroupname> | Format-List | more
    ```
 
    A saída deve mostrar todos os itens do menu iniciar em um formato como este:
 
    ```powershell
    AppAlias            : access
-   CommandLineArgument : 
-   FilePath            : C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE 
-   FriendlyName        : 
-   IconIndex           : 0 
-   IconPath            : C:\Program Files\Microsoft Office\Root\VFS\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\accicons.exe 
-   Id                  : /subscriptions/resourcegroups/providers/Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/Access 
-   Name                : 0301RAG/Access 
+   CommandLineArgument :
+   FilePath            : C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE
+   FriendlyName        :
+   IconIndex           : 0
+   IconPath            : C:\Program Files\Microsoft Office\Root\VFS\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\accicons.exe
+   Id                  : /subscriptions/resourcegroups/providers/Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/Access
+   Name                : 0301RAG/Access
    Type                : Microsoft.DesktopVirtualization/applicationgroups/startmenuitems
-   
-   AppAlias            : charactermap 
-   CommandLineArgument : 
-   FilePath            : C:\windows\system32\charmap.exe 
-   FriendlyName        : 
-   IconIndex           : 0 
-   IconPath            : C:\windows\system32\charmap.exe 
-   Id                  : /subscriptions/resourcegroups/providers/Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/Character Map 
-   Name                : 0301RAG/Character Map 
-   Type                : Microsoft.DesktopVirtualization/applicationgroups/startmenuitems 
+
+   AppAlias            : charactermap
+   CommandLineArgument :
+   FilePath            : C:\windows\system32\charmap.exe
+   FriendlyName        :
+   IconIndex           : 0
+   IconPath            : C:\windows\system32\charmap.exe
+   Id                  : /subscriptions/resourcegroups/providers/Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/Character Map
+   Name                : 0301RAG/Character Map
+   Type                : Microsoft.DesktopVirtualization/applicationgroups/startmenuitems
    ```
-   
+
 4. Execute o cmdlet a seguir para instalar o aplicativo com base no `AppAlias`. O `AppAlias` fica visível quando você executa a saída da etapa 3.
 
    ```powershell
-   New-AzWvdApplication -AppAlias <appalias> -GroupName <appgroupname> -Name <remoteappname> -ResourceGroupName <resourcegroupname> -CommandLineSetting <DoNotAllow|Allow|Require> 
+   New-AzWvdApplication -AppAlias <appalias> -GroupName <appgroupname> -Name <remoteappname> -ResourceGroupName <resourcegroupname> -CommandLineSetting <DoNotAllow|Allow|Require>
    ```
 
 5. (Opcional) Execute o cmdlet a seguir para publicar um novo programa RemoteApp no grupo de aplicativos criado na etapa 1.
 
    ```powershell
-   New-AzWvdApplication -GroupName <appgroupname> -Name <remoteappname> -ResourceGroupName <resourcegroupname> -Filepath <filepath> -IconPath <iconpath> -IconIndex <iconindex> -CommandLineSetting <DoNotAllow|Allow|Require> 
+   New-AzWvdApplication -GroupName <appgroupname> -Name <remoteappname> -ResourceGroupName <resourcegroupname> -Filepath <filepath> -IconPath <iconpath> -IconIndex <iconindex> -CommandLineSetting <DoNotAllow|Allow|Require>
    ```
 
 6. Para verificar se o aplicativo foi publicado, execute o cmdlet a seguir.

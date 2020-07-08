@@ -4,23 +4,23 @@ description: Como criar um pool de host na Área de Trabalho Virtual do Windows 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a4d0c22318399370b9ec11046c33a4eb5460eb3
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 6b064c6e4107da5695e2a9945240e4276ac795b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211843"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 >
-> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário da Área de Trabalho Virtual do Windows. Cada pool de host pode ser associado a vários grupos do RemoteApp, um grupo de aplicativos da área de trabalho e vários hosts da sessão.
@@ -34,10 +34,10 @@ Este artigo pressupõe que você já seguiu as instruções em [Configurar o mó
 Execute o seguinte cmdlet para entrar no ambiente da Área de Trabalho Virtual do Windows:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> 
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname>
 ```
 
-Esse cmdlet criará o pool de host, o workspace e o grupo de aplicativos da área de trabalho. Além disso, ele vai registrar o grupo de aplicativos da área de trabalho no workspace. Você pode criar um workspace com este cmdlet ou usar um workspace existente. 
+Esse cmdlet criará o pool de host, o workspace e o grupo de aplicativos da área de trabalho. Além disso, ele vai registrar o grupo de aplicativos da área de trabalho no workspace. Você pode criar um workspace com este cmdlet ou usar um workspace existente.
 
 Execute o próximo cmdlet para criar um token de registro a fim de autorizar um host de sessão a ingressar no pool de host e salvá-lo em um novo arquivo no computador local. É possível especificar por quanto tempo o token de registro é válido usando o parâmetro -ExpirationHours.
 
@@ -48,16 +48,16 @@ Execute o próximo cmdlet para criar um token de registro a fim de autorizar um 
 New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
-Por exemplo, se você quiser criar um token que expire em duas horas, execute este cmdlet: 
+Por exemplo, se você quiser criar um token que expire em duas horas, execute este cmdlet:
 
 ```powershell
-New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ')) 
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
 Depois disso, execute este cmdlet para adicionar usuários do Azure Active Directory ao grupo de aplicativos da área de trabalho padrão para o pool de host.
 
 ```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Execute este próximo cmdlet para adicionar grupos de usuários do Azure Active Directory ao grupo de aplicativos da área de trabalho padrão para o pool de host:
@@ -69,7 +69,7 @@ New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop 
 Execute o cmdlet a seguir para exportar o token de registro para uma variável, que será usada posteriormente em [Registrar as máquinas virtuais no pool de host da Área de Trabalho Virtual do Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
-$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> 
+$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname>
 ```
 
 ## <a name="create-virtual-machines-for-the-host-pool"></a>Criar máquinas virtuais para o pool de host
@@ -85,7 +85,7 @@ Agora você pode criar uma máquina virtual do Azure que pode ser unida ao seu p
 >[!NOTE]
 >Se você estiver implantando uma máquina virtual usando o Windows 7 como o SO host, o processo de criação e implantação será um pouco diferente. Para obter mais detalhes, confira [Implantar uma máquina virtual do Windows 7 na Área de Trabalho Virtual do Windows](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
-Depois de criar as máquinas virtuais do host da sessão, [aplique uma licença do Windows a uma VM de host da sessão](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) para executar suas máquinas virtuais Windows ou Windows Server sem pagar por outra licença. 
+Depois de criar as máquinas virtuais do host da sessão, [aplique uma licença do Windows a uma VM de host da sessão](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) para executar suas máquinas virtuais Windows ou Windows Server sem pagar por outra licença.
 
 ## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparar as máquinas virtuais para instalações do agente de Área de Trabalho Virtual do Windows
 
@@ -114,7 +114,7 @@ Para registrar os agentes de Área de Trabalho Virtual do Windows, faça o segui
 1. [Conecte-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Baixe e instale o agente de Área de Trabalho Virtual do Windows.
    - Baixe o [agente de Área de Trabalho Virtual do Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Execute o instalador. Quando o instalador solicitar o token de registro, insira o valor obtido no cmdlet **Export-AzWVDRegistrationInfo**.
+   - Execute o instalador. Quando o instalador solicitar o token de registro, insira o valor obtido do cmdlet **Get-AzWvdRegistrationInfo** .
 3. Baixe e instale o carregador de inicialização do agente de Área de Trabalho Virtual do Windows.
    - Baixe o [carregador de inicialização do agente de Área de Trabalho Virtual do Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Execute o instalador.

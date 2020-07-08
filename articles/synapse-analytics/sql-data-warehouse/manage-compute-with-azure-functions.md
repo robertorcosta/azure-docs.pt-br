@@ -6,17 +6,17 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d680283250cc323c833f388f6b20d7fe6fa132d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211044"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usar Azure Functions para gerenciar recursos de computação no pool do SQL do Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Para usar o Azure Aplicativo de funções com o pool do SQL, você deve criar um
 Para implantar o modelo, você precisa das informações a seguir:
 
 - Nome do grupo de recursos em que sua instância do pool SQL está
-- Nome do servidor lógico em que sua instância do pool SQL está
+- Nome do servidor no qual sua instância do pool SQL está
 - Nome da sua instância do pool SQL
 - A ID de locatário (ID do diretório) do Azure Active Directory
 - ID da assinatura
@@ -101,7 +101,7 @@ Atualmente, há apenas duas funções de dimensionamento incluídas no modelo. C
 
    ![Criar nova função](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Em Idioma, selecione *Javascript*, em seguida, selecione *TimerTrigger*.
+2. Em idioma, selecione *JavaScript*e, em seguida, selecione *TimerTrigger*.
 
    ![Criar nova função](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ Atualmente, há apenas duas funções de dimensionamento incluídas no modelo. C
 
 5. Defina a sua variável de operação para o comportamento desejado da seguinte maneira:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
@@ -141,7 +141,7 @@ Esta seção demonstra brevemente o que é necessário para aproveitar mais os r
 
 Escalar verticalmente diariamente às 8:00 para DW600 e reduzir verticalmente às 20:00 para DW200.
 
-| Função  | Agendamento     | Operação                                |
+| Função  | Agenda     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -150,7 +150,7 @@ Escalar verticalmente diariamente às 8:00 para DW600 e reduzir verticalmente à
 
 Escalar verticalmente diariamente às 8:00 para DW1000, reduzir verticalmente uma vez para DW600 às 16:00 e reduzir verticalmente às 22:00 para DW200.
 
-| Função  | Agendamento     | Operação                                |
+| Função  | Agenda     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -160,7 +160,7 @@ Escalar verticalmente diariamente às 8:00 para DW1000, reduzir verticalmente um
 
 Escalar verticalmente às 8:00 para DW1000, reduzir verticalmente uma vez para DW600 às 16:00 em dias úteis. Pausar sexta-feira às 23:00, retomar segunda-feira de manhã às 7:00.
 
-| Função  | Agendamento       | Operação                                |
+| Função  | Agenda       | Operação                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |

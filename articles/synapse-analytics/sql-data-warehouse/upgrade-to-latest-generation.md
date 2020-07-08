@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210687"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho atualizando o pool do SQL do Azure Synapse Analytics
 
@@ -110,7 +110,7 @@ Agora você pode atualizar diretamente para a camada Gen2 otimizada de computaç
 ## <a name="start-the-upgrade"></a>Inicie a atualização
 
 1. Vá para o pool de SQL Gen1 otimizado para computação no portal do Azure. Se o pool de SQL da camada Gen1 otimizada para computação a ser atualizado estiver em pausa, [retome o pool SQL](pause-and-resume-compute-portal.md).
-2. Selecione **atualizar para** o cartão Gen2 na guia tarefas: ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+2. Selecione **atualizar para** o cartão Gen2 na guia tarefas: ![ Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Se você não vir o cartão **Fazer upgrade para Gen2** na guia Tarefas, seu tipo de assinatura será limitado na região atual.
@@ -238,7 +238,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 O banco de dados recuperado será habilitado para TDE se o banco de dados de origem for habilitado para TDE.
 
